@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'e-icons';
+    src:
+    url('Fonts/e-icons-metro.ttf') format('truetype'),
+    url('Fonts/e-icons-metro.woff') format('woff'),
+    url('Fonts/e-icons-metro.eot') format('eot'),
+    url('Fonts/e-icons-metro.svg?#e-icons-metro') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="e-"], [class*=" e-"] {
+    speak: none;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

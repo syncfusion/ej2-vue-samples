@@ -1,0 +1,72 @@
+{
+    "name": "Button",
+    "directory": "button",
+    "category": "Editors",
+    "type": "update",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Button",
+            "ftName": "button",
+            "api":{"Button":["isPrimary","cssClass", "iconCss", "isToggle", "iconPosition", "content"] },
+            "description": "This demo for Essential JS2 Button shows the its types (flat, toggle, outline, round, icon), sizes and styles (primary, success, info, warning) of buttons."
+        },
+        {
+            "url": "button-group",
+            "name": "ButtonGroup",
+            "category": "Button",
+            "ftName": "button-group",
+            "description": "This demo for Syncfusion Essential JS2 Button Group control shows the horizontal group of buttons. This supports radio and checkbox type behaviors."
+        },
+        {
+            "url": "check-box",
+            "name": "CheckBox",
+            "category": "Button",
+            "ftName": "checkbox",
+            "api":{"CheckBox":["label", "checked", "indeterminate", "disabled", "change"] },
+            "description": "This demo for Essential JS2 Check Box control shows the checked, unchecked, and indeterminate states of checkbox. It also provide supports for specifying label"
+        },
+        {
+            "url": "radio-button",
+            "name": "RadioButton",
+            "category": "Button",
+            "ftName": "radio-button",
+            "api":{"RadioButton":["label", "name", "value", "checked"] },
+            "description": "This demo for Syncfusion Essential JS2 RadioButton control shows the radio button group functionality. It contains checked and unchecked state."
+        },
+        {
+            "url": "dropdown-button",
+            "name": "DropDownButton",
+            "category": "Button",
+            "ftName": "dropdown-button",
+            "api":{"DropDownButton":["items", "cssClass", "iconCss"] },
+            "description": "This demo for Essential JS2 DropDown Button control shows the use cases of drop down button. The popup contains action items with text, icons and separator."
+        },
+        {
+            "url": "split-button",
+            "name": "SplitButton",
+            "category": "Button",
+            "ftName": "split-button",
+            "api":{"SplitButton":[ "items", "content", "iconCss", "beforeItemRender"] },
+            "description": "This demo for Syncfusion Essential JS2 SplitButton control shows the use cases of split button. The icons, text and both can be loaded in primary splitbutton."
+        },
+        {
+            "url": "switch",
+            "name": "Switch",
+            "category": "Button",
+            "ftName": "switch",
+            "api":{"Switch":[ "checked", "disabled"] },
+            "description": "This demo for Syncfusion Essential JS2 Switch control allows to toggle between the checked and unchecked states. It also provides support for custom UI."
+        },
+        {
+            "url": "progress-button",
+            "name": "ProgressButton",
+            "category": "Button",
+            "ftName": "progress-button",
+            "api":{"ProgressButton":["content", "iconCss", "cssClass", "duration", "disabled", "isPrimary", "enableProgress", "end", "begin", "spinSettings", "animationSettings"]},
+            "description": "This demo for Essential JS2 Progress button has progress indicator and spinner. It supports texts, icons, styles, sizes, positions, and its customization.",
+            "type": "preview"
+        }
+    ]
+}

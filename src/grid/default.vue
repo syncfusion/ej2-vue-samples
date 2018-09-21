@@ -1,0 +1,57 @@
+<template>
+<div class="col-lg-12 control-section">
+    <div id="action-description">
+        <p>This sample demonstrates the default rendering of the Grid with minimum configuration.</p>
+    </div>
+    <div>
+        <ejs-grid :dataSource="data" >
+            <e-columns>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
+                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='150'></e-column>
+            </e-columns>
+        </ejs-grid>
+    </div>
+
+     <div id="description">
+        <p>
+            The Grid component is used to display and manipulate tabular data with configuration options to control the way the data
+            is presented and manipulated. It will pull the data from a data source, such as an array of JSON objects, OData web
+            services, or <code><a target="_blank" class="code"
+        href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
+        DataManager</a></code> binding data fields to columns. Also, displaying a column header
+            to identify the field with support for grouped records.
+        </p>
+        <p>
+            The user needs to register <code>GridPlugin</code> into the application to use Grid component. The <code>GridPlugin</code> contains declarations required to instantiate the Grid component.
+        </p>
+        <p><code>ejs-grid</code> is the CSS selector to render Grid component.</p>
+        <p>
+            In this demo, the Grid is populated with its minimum default settings.
+        </p>
+        <p>
+            More information on the Grid instantiation can be found in this
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#create-a-simple-grid">documentation section</a>.
+        </p>
+    </div>
+
+</div>
+</template>
+<script lang="ts">
+import Vue from "vue";
+import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { orderDetails } from "./data-source";
+
+Vue.use(GridPlugin);
+
+export default Vue.extend({
+  data: () => {
+    return {
+      data: orderDetails.slice(0, 12)
+    };
+  }
+});
+</script>

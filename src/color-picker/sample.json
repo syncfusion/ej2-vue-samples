@@ -1,0 +1,67 @@
+{
+    "name": "ColorPicker",
+    "directory": "color-picker",
+    "category": "Editors",
+    "ftName": "color-picker",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "ColorPicker",
+            "api": {
+                "ColorPicker": [
+                    "value",
+                    "mode",
+                    "modeSwitcher",
+                    "disabled"
+                ]
+            },
+            "description": "This demo for Essential JS2 ColorPicker shows the default functionalities of color picker. It supports RGB, HSV, and Hex codes (three, six and eight digit)."
+        },
+        {
+            "url": "inline",
+            "name": "Inline Mode",
+            "category": "ColorPicker",
+            "api": {
+                "ColorPicker": [
+                    "value",
+                    "mode",
+                    "modeSwitcher",
+                    "inline",
+                    "disabled"
+                ]
+            },
+            "description": "This demo for Syncfusion Essential JS2 ColorPicker control shows the inline / flat mode rendering of color picker. It supports hue and opacity colors option."
+        },
+        {
+            "url": "custom",
+            "name": "Custom Palettes",
+            "category": "ColorPicker",
+            "api": {
+                "ColorPicker": [
+                    "value",
+                    "mode",
+                    "modeSwitcher",
+                    "inline",
+                    "disabled",
+                    "presetColors"
+                ]
+            },
+            "description": "This demo for Syncfusion Essential JS2 ColorPicker control shows the custom UI of color palette with different palette structures and its state."
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "ColorPicker",
+            "api": {
+                "ColorPicker": [
+                    "value",
+                    "mode",
+                    "modeSwitcher",
+                    "showButtons",
+                    "disabled"
+                ]
+            },
+            "description": "This demo for Syncfusion Essential JS2 ColorPicker control shows the color picker supported properties and its functionality."
+        }
+    ]
+}

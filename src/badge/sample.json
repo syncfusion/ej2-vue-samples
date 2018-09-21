@@ -1,0 +1,37 @@
+{
+    "name": "Badge",
+    "directory": "badge",
+    "category": "Notifications",
+    "ftName" : "badge",
+    "samples": [{
+        "url": "default",
+        "name": "Default",
+        "category": "Badge",
+        "description": "Demo of the pure CSS Essential JS 2 Badge component displaying a notification count in a group button."
+    }, {
+        "url": "types",
+        "name": "Types",
+        "category": "Badge",
+        "description": "Demo of the pure CSS Essential JS 2 Badge component's badge types: primary, secondary, success, danger, warning, info, light, and dark."
+    }, {
+        "url": "notification",
+        "name": "Notification",
+        "category": "Badge",
+        "description": "Demo of the pure CSS Essential JS 2 Badge component displaying notifications on popular social media logos such as Facebook, WhatsApp, Twitter, and others."
+    }, {
+        "url": "listview",
+        "name": "ListView",
+        "category": "Integration",
+        "description": "Demo integrating the Essential JS 2 Badge and ListView components to display a notification count in a list item to achieve a Gmail-like user interface."
+    }, {
+        "url": "accordion",
+        "name": "Accordion",
+        "category": "Integration",
+        "description": "Demo integrating the Essential JS 2 Badge and Accordion components to display an unread notification count in a header to achieve an Outlook-like user interface"
+    }, {
+        "url": "toolbar",
+        "name": "Toolbar",
+        "category": "Integration",
+        "description": "Demo integrating the Essential JS 2 Badge and ToolBar components to display important information in a mobile application header."
+    }]
+}

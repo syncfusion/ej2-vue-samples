@@ -1,0 +1,34 @@
+{
+    "name": "TimePicker",
+    "directory": "timepicker",
+    "category": "Editors",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "TimePicker",
+            "hideOnDevice": true,
+            "api":{"TimePicker": [ "placeholder" ]}
+        },
+        {
+            "url": "time-format",
+            "name": "Format",
+            "category": "TimePicker",
+            "hideOnDevice": true,
+            "api":{"TimePicker": [ "value", "step", "format" ]}
+        },
+        {
+            "url": "time-range",
+            "name": "Time Range",
+            "category": "TimePicker",
+            "hideOnDevice": true,
+            "api":{"TimePicker": [ "placeholder", "value", "readonly", "enabled", "min", "change" ]}
+        },
+		{
+            "url": "list-formatting",
+            "name": "Time Duration",
+            "category": "TimePicker",
+            "hideOnDevice": true,
+            "api":{"TimePicker": [ "value", "itemRender" ]}
+        }
+    ]
+}

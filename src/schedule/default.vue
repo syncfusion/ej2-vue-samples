@@ -1,0 +1,128 @@
+<template>
+    <div>
+        <div class="col-md-9 control-section">
+            <div class="content-wrapper">
+                <ejs-schedule height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'></ejs-schedule>
+            </div>
+        </div>
+        <div class="col-lg-3 property-section">
+            <table id="property" title="Properties" style="width: 100%">
+                <tbody>
+                    <tr style="height: 50px">
+                        <td style="width: 30%">
+                            <div>
+                                Current Date
+                            </div>
+                        </td>
+                        <td style="width: 70%;">
+                            <div>
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :change='onDateChange'></ejs-datepicker>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="action-description">
+            <p>
+                This demo showcases how the flat Schedule looks like with its default set of minimal configurations. Here, some of the documentary
+                shows are displayed as events parallel to its relevant telecast timings. The show names are given as event's
+                subject and simply notified of the start and end of it.
+            </p>
+        </div>
+        <div id="description">
+            <p>
+                The Schedule is an event calendar which facilitates user with the common Outlook-calendar features, thus allowing them to
+                plan and manage the appointments and its time in an efficient manner. It comes with 6 different view modes
+                as listed below, out of which the
+                <code>Week</code> view is set as active.
+            </p>
+            <ul>
+                <li>Day</li>
+                <li>Week</li>
+                <li>Work Week</li>
+                <li>Month</li>
+                <li>Agenda</li>
+                <li>Month Agenda</li>
+            </ul>
+            <p>
+                To navigate between views and dates, the navigation options are available at the Schedule header bar and the active view
+                option is highlighted in it by default. The date range of the active view will also be displayed in the header
+                bar, clicking on which will open a calendar popup for ease of required date selection.
+            </p>
+            <p>
+                <strong>Touch actions on Mobile mode</strong>
+            </p>
+            <table style="width:100%">
+                <tr>
+                    <th style="width:100px">
+                        <strong>Action</strong>
+                    </th>
+                    <th>
+                        <strong>Description</strong>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="padding:4px 0">Single Tap</td>
+                    <td>Single tapping on events, opens the popup showing event information.</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;padding: 4px 0;">Tap hold </td>
+                    <td>
+                        <ol style="padding-left:12px;">
+                            <li>Tap holding on cells, opens the new event editor. </li>
+                            <li>
+                                Tap holding on events, opens a small popup at the top holding the options to edit or delete and also displays the selected
+                                event’s subject. As a continuation of this action, if user keeps on single tapping on other
+                                events will allow the multiple event selection along with that popup remaining in opened
+                                state counting the number of events selected.
+                            </li>
+                            <li>Tap holding the events will also open the tooltip on Schedule.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <strong>Module Injection</strong>
+            </p>
+            <p>
+                The key Schedule functionalities are maintained as individual feature-wise modules. Therefore to avail with a particular
+                feature, appropriate module needs to be injected into the
+                <code>@NgModule.providers</code> section. For example, to work with the day view on Schedule – it is necessary
+                to inject the Day module like
+                <code>providers: [DayService]</code> into the
+                <code>@NgModule.providers</code> section.
+                <p>
+                    <strong> Note:</strong> In case, if the module of active view is not injected from the application end
+                    – then the Schedule is configured to display the first available option in the
+                    <code>views</code> property.
+                </p>
+        </div>
+    </div>
+</template>
+<script>
+    import Vue from "vue";
+    import { scheduleData } from './datasource';
+    import { extend } from '@syncfusion/ej2-base';
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DatePickerPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-calendars';
+    Vue.use(SchedulePlugin);
+    Vue.use(DatePickerPlugin);
+    export default Vue.extend({
+        data: function () {
+            return {
+                eventSettings: { dataSource: extend([], scheduleData, null, true) },
+                selectedDate: new Date(2018, 1, 15)
+            }
+        },
+        provide: {
+            schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
+        },
+        methods: {
+            onDateChange: function (args) {
+                this.selectedDate = args.value;
+            }
+        }
+    });
+
+</script>

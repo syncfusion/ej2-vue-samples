@@ -1,0 +1,28 @@
+{
+    "name": "Accordion",
+    "directory": "accordion",
+    "category": "Navigation",
+    "ftName" :"accordion",
+    "samples": [{
+        "url": "default",
+        "name": "Default Functionalities",
+        "category": "Accordion",
+        "description":"The sample demonstrates that default functionalities of the Accordion component (also known as collapsible panel) which works by expand and collapse action.",
+        "api":{"Accordion": ["header", "content", "expanded", "items"]}
+    },
+    {
+        "url": "ajax",
+        "name": "Ajax Content",
+        "category": "Accordion",
+        "description":"The sample demonstrates how to load the content to the Accordion component from external sources such as a file or website or element using Ajax library.",
+        "api":{"Accordion": ["expandMode", "expanding"]}  
+    },
+    {
+        "url": "icons",
+        "name": "Icons",
+        "category": "Accordion",
+        "description":"The sample demonstrates how to represent pane headers with an icon in Accordion component which populates from items collection.",
+        "api":{"Accordion": ["iconCss"]}  
+    }
+    ]
+}

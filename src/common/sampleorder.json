@@ -1,0 +1,45 @@
+{
+  "Grids": ["Data Grid", "Pivot Grid"],
+  "Data Visualization": [
+    "Chart",
+    "Diagram",
+    "Maps",
+    "TreeMap",
+    "HeatMap",
+    "CircularGauge",
+    "LinearGauge",
+    "Range Navigator",
+    "Sparkline",
+    "SmithChart"
+  ],
+  "Calendar": ["Calendar", "Schedule"],
+  "Editors": [
+    "AutoComplete",
+    "Button",
+    "ComboBox",
+    "DatePicker",
+    "DateTimePicker",
+    "DateRangePicker",
+    "DropDownList",
+    "TimePicker",
+    "ColorPicker",
+    "Slider",
+    "TextBoxes",
+    "MaskedTextBox",
+    "NumericTextBox",
+    "MultiSelect",
+    "Uploader",
+    "DocumentEditor",
+    "RichTextEditor"
+  ],
+  "Layout": ["Card", "ListView", "Dialog", "Tooltip", "Avatar"],
+  "Notifications": ["Badge", "Toast"],
+  "Navigation": [
+    "Accordion",
+    "Sidebar",
+    "ContextMenu",
+    "Tab",
+    "Toolbar",
+    "TreeView"
+  ]
+}
