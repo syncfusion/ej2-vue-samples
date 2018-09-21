@@ -1,0 +1,60 @@
+{
+    "name": "Tooltip",
+    "directory": "tooltip",
+    "category": "Layout",
+    "type": "update",
+    "ftName" : "tooltip",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Tooltip",
+            "description": "Default rendering of the Essential JS 2 Tooltip control, which will open when hovering or tapping and holding, and can be displayed in 12 different positions.",
+            "hideOnDevice": true
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "Tooltip",
+            "description": "Demo of the Essential JS 2 Tooltip control template functionality, which allows HTML content to be rendered in tooltips.",
+            "hideOnDevice": true
+        },
+        {
+            "url": "ajax-content",
+            "name": "Ajax Content",
+            "category": "Tooltip",
+            "description": "Demo of the Essential JS 2 Tooltip control loading dynamic content in tooltips through Ajax from JSON files.",
+            "hideOnDevice": true
+        },
+        {
+            "url": "smart-position",
+            "name": "Smart Position",
+            "category": "Tooltip",
+            "description": "Demo of the Essential JS 2 Tooltip control's smart (flexible) positioning based on the view port's dimensions.",
+            "hideOnDevice": true
+        },
+        {
+            "url": "tooltip-menu",
+            "name": "Tooltip menu",
+            "category": "Tooltip",
+            "description": "Demo of Essential JS 2 Tooltip control customization to look like a menu.",
+            "hideOnDevice": true,
+            "type": "new"
+        },
+        {
+            "url": "html-template",
+            "name": "HTML Content",
+            "category": "Tooltip",
+            "description": "Demo of Essential JS 2 Tooltip control customization as an HTML page using HTML tags and CSS.",
+            "hideOnDevice": true,
+            "type": "new"
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Tooltip",
+            "description": "Essential JS 2 Tooltip control demo showcasing the most frequently used API combinations, like content, height, width, open, sticky mode, and more.",
+            "hideOnDevice": true,
+            "type": "new"
+        }
+    ]
+}

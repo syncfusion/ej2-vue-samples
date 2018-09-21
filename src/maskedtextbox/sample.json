@@ -1,0 +1,21 @@
+{
+    "name": "MaskedTextBox",
+    "directory": "maskedtextbox",
+    "category": "Editors",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "MaskedTextBox"
+    },
+	{
+            "url": "custom-mask",
+            "name": "Custom Mask",
+            "category": "MaskedTextBox"
+    },
+	{
+            "url": "formats",
+            "name": "Formats",
+            "category": "MaskedTextBox"
+    }
+    ]
+}

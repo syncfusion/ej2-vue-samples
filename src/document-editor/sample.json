@@ -1,0 +1,76 @@
+{
+    "name": "DocumentEditor",
+    "directory": "document-editor",
+    "category": "Editors",
+    "ftName": "document-editor",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "DocumentEditor",
+            "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
+        },
+        {
+            "url": "character-formatting",
+            "name": "Character Formatting",
+            "category": "Editing Features",
+            "description": "The Document Editor supports character formatting such as bold, italic, underline, subscript, superscript, font color, and more."
+        },
+        {
+            "url": "paragraph-formatting",
+            "name": "Paragraph Formatting",
+            "category": "Editing Features",
+            "description": "The Document Editor supports paragraph formatting such as indentation, paragraph spacing, line spacing, and text alignment."
+        },
+        {
+            "url": "styles",
+            "name": "Styles",
+            "category": "Editing Features",
+            "description": "The Document Editor supports both built-in and custom styles for character format and paragraph format."
+        },
+        {
+            "url": "bullets-and-numbering",
+            "name": "Bullets and Numbering",
+            "category": "Editing Features",
+            "description": "The Document Editor supports bullets and numbering. Both single list and multi-level lists can be added."
+        },
+        {
+            "url": "links-and-bookmarks",
+            "name": "Hyperlinks and Bookmarks",
+            "category": "Editing Features",
+            "description": "The Document Editor supports hyperlinks and bookmarks. The link can be a file, mail, webpage, or bookmark."
+        },
+        {
+            "url": "table-formatting",
+            "name": "Table Formatting",
+            "category": "Editing Features",
+            "description": "The Document Editor supports table formatting such as cell margins, cell spacing, horizontal merge, vertical merge, border styles, background color, and more."
+        },
+        {
+            "url": "section-formatting",
+            "name": "Section Formatting",
+            "type": "new",
+            "category": "Editing Features",
+            "description": "The Document Editor supports section formatting such as page size, page margins, header distance and footer distance."
+        },
+        {
+            "url": "headers-and-footers",
+            "name": "Headers and Footers",
+            "category": "Editing Features",
+            "description": "The Document Editor supports headers and footers. Different headers and footers can be added to the first page, odd pages, and even pages."
+        },
+        {
+            "url": "table-of-contents",
+            "name": "Table of Contents",
+            "category": "Editing Features",
+            "description": "The Document Editor supports table of contents with options for including hyperlink, page number, right-aligned tabs, and styles."
+        },
+        {
+            "url": "print",
+            "name": "Print",
+            "category": "Print",
+            "description": "The Document Editor component is used to view and print Word documents in web applications by injecting only the modules that are necessary."
+        }
+    ]
+}

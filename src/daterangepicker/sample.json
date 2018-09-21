@@ -1,0 +1,41 @@
+{
+    "name": "DateRangePicker",
+    "directory": "daterangepicker",
+    "category": "Editors",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "DateRangePicker",
+            "hideOnDevice": true,
+            "api":{"DateRangePicker": [ "placeholder" ]}
+        },
+        {
+            "url": "day-span",
+            "name": "Day Span",
+            "category": "DateRangePicker",
+            "hideOnDevice": true,
+            "api":{"DateRangePicker": [ "placeholder", "minDays", "maxDays" ]}
+        },
+        {
+            "url": "date-range",
+            "name": "Date Range",
+            "category": "DateRangePicker",
+            "hideOnDevice": true,
+            "api":{"DateRangePicker": [ "placeholder", "min", "max" ]} 
+        },
+        {
+            "url": "date-format",
+            "name": "Format",
+            "category": "DateRangePicker",
+            "hideOnDevice": true,
+            "api":{"DateRangePicker": [ "format", "value" ]}
+        },
+        {
+            "url": "presets",
+            "name": "Presets",
+            "category": "DateRangePicker",
+            "hideOnDevice": true,
+            "api":{"DateRangePicker": [ "placeholder", "presets" ]}
+        }
+    ]
+}

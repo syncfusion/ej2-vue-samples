@@ -1,0 +1,43 @@
+{
+    "name": "Calendar",
+    "directory": "calendar",
+    "category": "Calendar",
+    "type": "update",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Calendar",
+            "hideOnDevice": true,
+            "api":{"Calendar": [ "change" ]}
+        },
+        {
+            "url": "disabled",
+            "name": "Disabled Dates",
+            "category": "Calendar",
+            "hideOnDevice": true,
+            "api":{"Calendar": [ "renderDayCell", "change" ]}
+        },
+        {
+            "url": "date-range",
+            "name": "Date Range",
+            "category": "Calendar",
+            "hideOnDevice": true,
+            "api":{"Calendar": [ "min", "max", "change" ]}
+        },
+        {
+            "url": "special-dates",
+            "name": "Special Dates",
+            "category": "Calendar",
+            "hideOnDevice": true,
+            "api":{"Calendar": [ "renderDayCell", "change" ]}
+        },
+        {
+            "url": "multi-select",
+            "name": "Multiple Selection",
+            "category": "Calendar",
+            "hideOnDevice": true,
+            "type": "new",
+            "api":{"Calendar": [ "isMultiSelection", "values" ]}
+        }
+    ]
+}

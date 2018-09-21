@@ -1,0 +1,56 @@
+{
+    "name": "TreeView",
+    "directory": "treeview",
+    "category": "Navigation",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "TreeView"
+    },
+	{
+            "url": "icons",
+            "name": "Icons and Images",
+            "category": "TreeView"
+    },
+	{
+            "url": "check-box",
+            "name": "CheckBox",
+            "category": "TreeView"
+    },
+	{
+            "url": "node-editing",
+            "name": "Node Editing",
+            "category": "TreeView"
+    },
+	{
+            "url": "multiple-selection",
+            "name": "Multiple Selection",
+            "category": "TreeView"
+    },
+	{
+            "url": "drag-and-drop",
+            "name": "Drag and Drop",
+            "category": "TreeView"
+    },
+	{
+            "url": "template",
+            "name": "Template",
+            "category": "TreeView"
+    },
+	{
+            "url": "right-to-left",
+            "name": "RTL",
+            "category": "TreeView"
+    },
+	{
+            "url": "local-data",
+            "name": "Local Data",
+            "category": "Data Binding"
+    },
+	{
+            "url": "remote-data",
+            "name": "Remote Data",
+            "category": "Data Binding"
+    }
+    ]
+}

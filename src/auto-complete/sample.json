@@ -1,0 +1,41 @@
+{
+    "name": "AutoComplete",
+    "directory": "auto-complete",
+    "category": "Editors",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "AutoComplete"
+        },
+        {
+            "url": "grouping-icon",
+            "name": "Grouping and Icons",
+            "category": "AutoComplete"
+        },
+        {
+            "url": "data-binding",
+            "name": "Data Binding",
+            "category": "AutoComplete"
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "AutoComplete"
+        },
+        {
+            "url": "highlight",
+            "name": "Highlight",
+            "category": "AutoComplete"
+        },
+        {
+            "url": "custom-filtering",
+            "name": "Custom Filtering",
+            "category": "AutoComplete"
+        },
+        {
+            "url": "diacritics-filtering",
+            "name": "Diacritics Filtering",
+            "category": "AutoComplete"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "name": "Sidebar",
+    "directory": "sidebar",
+    "category": "Navigation",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Sidebar",
+            "hideOnDevice": true,
+            "api": { "Sidebar": ["type", "position", "showBackdrop", "closeOnDocumentClick", "change", "mediaQuery"] }
+        },
+        {
+            "url": "docking-sidebar",
+            "name": "Dock",
+            "category": "Sidebar",
+            "hideOnDevice": true,
+            "api": { "Sidebar": ["enableDock", "dockSize", "contextTo"] }
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Sidebar",
+            "hideOnDevice": true,
+            "api": { "Sidebar": ["showBackdrop", "position", "types", "closeOnDocumentClick"] }
+        },
+        {
+            "url": "sidebar-list",
+            "name": "Sidebar With ListView",
+            "category": "Sidebar",
+            "hideOnDevice": true,
+            "api": { "Sidebar": ["open", "close"] }
+        },
+        {
+            "url": "multiple-sidebar",
+            "name": "Multiple Sidebar",
+            "category": "Sidebar",
+            "hideOnDevice": true,
+            "type": "new",
+            "api": { "Sidebar": ["open", "close", "zIndex"] }
+        }
+    ]
+}

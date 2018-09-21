@@ -1,0 +1,73 @@
+<template>
+<div class="col-lg-12 control-section">
+    <div id="action-description">
+         <p>This sample demonstrates the Grid column resizing feature. Click and drag at the right corner of each column header to
+        resize the column.
+    </p>
+    </div>
+    <div>
+        <ejs-grid :dataSource="data" :allowResizing='true' height='400'>
+            <e-columns>
+                <e-column field='OrderID' headerText='Order ID' minWidth='120' width='200' maxWidth='300' textAlign='Right'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' minWidth='8' width='200'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' minWidth='8' width='200' format="yMd" textAlign='Right'></e-column>
+                <e-column field='Freight' headerText='Freight' minWidth='8' width='150' format='C2' textAlign='Right'></e-column>
+                <e-column field='ShipName' headerText='Ship Name' minWidth='8' width='300'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' :allowResizing = 'false' width='200' format="yMd" textAlign='Right'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' minWidth='8'  width='200'></e-column>
+                <e-column field='ShipCity' headerText='Ship City' minWidth='8' width='200'></e-column>
+            </e-columns> 
+        </ejs-grid>
+    </div>
+
+     <div id="description">
+        <p>The Grid columns can be resized by clicking and dragging at the right edge of columns header. To enable column, resize behavior, set <code><a target="_blank" class="code"
+            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowresizing-boolean">allowResizing
+            </a></code> property as true. You can also prevent the resize of the particular column by setting
+            <code><a target="_blank" class="code"
+            href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#allowresizing-any">columns->allowResizing
+            </a></code> as false in columns definition.
+    
+            And, by double clicking at the right edge of column header, the respective column width will get auto adjusted to its fit by <code><a target="_blank" class="code"
+                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#autofitcolumns">autoFitColumns
+                </a></code> method.
+    
+        </p>
+        <br/>
+    
+        <p>
+            In this demo, allowResizing feature have enabled through by setting the <code> allowResizing property </code> to true and <b>Order ID</b> column can be resized
+             between the range of  <code><a target="_blank" class="code"
+                href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#minwidth-any">minWidth (120px)
+                </a></code> and <code><a target="_blank" class="code"
+                    href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#maxwidth-any">maxWidth (300px).
+                    </a></code> Also, column resizing has been disabled in the <b>Shipped Date</b> column. 
+        </p>
+    
+        <p style="font-weight: 500">Injecting Module:</p>
+        <p>
+            Grid component features are segregated into individual feature-wise modules. To use Resize feature, we need to inject
+            <code>Resize</code> into the <code>provide</code> section.
+        </p>
+    </div>
+
+</div>
+</template>
+<script lang="ts">
+import Vue from "vue";
+import { GridPlugin, Resize } from "@syncfusion/ej2-vue-grids";
+import { orderDetails } from "./data-source";
+
+Vue.use(GridPlugin);
+
+export default Vue.extend({
+  data: () => {
+    return {
+      data: orderDetails
+    };
+  },
+  provide: {
+      grid: [Resize]
+  }
+});
+</script>

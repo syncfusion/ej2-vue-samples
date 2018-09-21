@@ -1,0 +1,37 @@
+{
+    "name": "Avatar",
+    "directory": "avatar",
+    "category": "Layout",
+    "ftName" : "avatar",
+    "samples": [{
+            "url": "default",
+            "name": "Default",
+            "category": "Avatar",
+            "description": "Demo of the pure CSS Essential JS 2 Avatar component displaying profile images in different sizes in both default and circle shapes."
+        },
+        {
+            "url": "types",
+            "name": "Types",
+            "category": "Avatar",
+            "description": "Demo of the pure CSS Essential JS 2 Avatar component's supported media formats for avatar content: images, SVG, initials, font icons, and words."
+        },
+        {
+            "url": "listview",
+            "name": "Listview",
+            "category": "Integration",
+            "description": "Demo integrating the Essential JS 2 Avatar and ListView components to display profile images or letters in a mobile contact application."
+        },
+        {
+            "url": "badge",
+            "name": "Badge",
+            "category": "Integration",
+            "description": "Demo integrating the Essential JS 2 Avatar and Badge components to display a notification count on profile images, similar to Gmail."
+        },
+        {
+            "url": "card",
+            "name": "Card",
+            "category": "Integration",
+            "description": "Demo integrating the Essential JS 2 Avatar and Card components to display business cards for employees with profile images, roles, and responsibilities."
+        }
+    ]
+}

@@ -1,0 +1,351 @@
+<template>
+        <div class="control-section e-tab-section">
+            <div class="col-lg-12 control-section toast-template-section">
+                <div class="e-sample-resize-container">
+                    <div class="row">
+                        <div id="reminder">
+                            <ejs-button ref='buttonShowRef' class="e-btn" id="toast_mail_remainder" v-on:click.native="remainderClick">Mail Reminder</ejs-button>
+                            <ejs-button class="e-btn" id="Alarm_turn_on" style="display: none" v-on:click.native="alarmClick">Turn on Alarm</ejs-button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                             <ejs-toast id='toast_custom' :position='cusPosition' newestOnTop=true showCloseButton=true timeOut=0 :animation='cusAnimation' :created='created'></ejs-toast>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                              <div id="toast_template"></div>
+                              <div id="toast_template_target"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script id="template_toast_ele" type="text/x-template">
+                <div id='template_toast' style="display: none">
+                    <div class="horizontal-align">
+                        <div class='e-icons toast-icons e-alarm'></div>
+                        <div class='toast-content'>
+                            <div class='toast-title'>
+                                Weekend Alarm
+                            </div>
+                            <div class='toast-message'>
+                                With traffic, its likely to take 45 minutes to get to jenny's 24th Birthday Bash at Hillside Bar, 454 E.
+                                Olive Way by 10:00PM
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./src/toast/resource/map.jpg" width="100%" height="70%">
+                    <div class="snooze"> Snooze For </div>
+                    <div id='snoozedropDown'>
+                     <select id="snoozeDD">
+                        <option value="2min">2 minutes</option>
+                        <option value="5min">5 minutes</option>
+                        <option value="10min">10 minutes</option>
+                     </select>
+                    </div>
+                    <div class="snoozeBtn">
+                        <button id="snooze" class='e-btn e-flat e-primary' style="margin-right: 15px;">Snooze for</button>
+                        <button id="dismiss" class='e-btn e-flat e-primary'> Dismiss </button>
+                    </div>
+                </div>
+            </script>
+            <script id="toastEmail_template" type="text/x-template">
+                <div class="e-toast-template ">
+                    ${if(image)}
+                    <img class="e-toast-icon e-toast-image" src="${image.url}" />
+                    ${/if} ${if(from || subject)}
+                    <div class="e-toast-message">
+                        ${if(from)}
+                        <div class="e-toast-title">${from}</div>
+                        ${/if} ${if(subject)}
+                        <div class="e-toast-content">${subject}</div>
+                        ${/if}
+                    </div>
+                    ${/if}
+                </div>
+            </script>
+            <div id="action-description">
+                    <p>This sample demonstrates the Template rendering of the Toast. Static HTML toast to display an alarm notification which can be snoozed or dismissed and Dynamic template rendered using template engine to display mail remainders.</p>
+                </div>
+                <div id="description">
+                    <p>This sample illustrates the way to display the template content on the toast. With the usage of Template, the user can format and structure the HTML content to be displayed on the toast as per their application needs.</p>
+                    <ul>
+                        <li>Alarm toast is integrated with button and drop-down list that allows to set timeOut for toast and close it.</li>
+                        <li>Dynamic toast opened based on the data source given to add mail reminder notifications and it can be hidden using the close button available.</li>
+                    </ul>
+                    <p>More information about Toast can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/toast/getting-started.html">
+        documentation section</a>.</p>
+                </div>
+        </div>
+    </template>
+<style>
+        @font-face {
+        font-family: 'Toast_icons';
+        src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .toast-icons {
+        font-family: 'Toast_icons' !important;
+        speak: none;
+        font-size: 55px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+
+    body>#toast_template .e-toast {
+        width: 400px !important;
+    }
+
+    body>#toast_template .e-toast img {
+        height: 50%;
+    }
+
+    .toast-template-section #reminder {
+        text-align: center;
+        margin: 15px;
+    }
+    
+    #toast_custom .e-toast .e-toast-title,
+    #toast_custom .e-toast .e-toast-message,
+    #toast_custom  .e-toast .e-toast-message .e-toast-content,
+    #toast_custom  .e-toast .e-toast-close-icon {
+        color: #fff;
+    }
+
+    #toast_custom .e-toast-template {
+        display: inline-flex;
+    }
+
+    #toast_custom .e-toast-icon.e-toast-image {
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 50px !important;
+        width: 50px !important;
+        background-size: 50px 50px;
+    }
+
+    #toast_custom .camden .e-toast-icon.e-toast-image,
+    #toast_custom .chase .e-toast-icon.e-toast-image {
+        width: 65px !important;
+    }
+
+    @media (max-width: 1052px) {
+        .toast-template-section .row .col-xs-6.col-sm-6.col-lg-6.col-md-6 {
+            width: 100%;
+        }
+    }
+
+    #snooze,
+    #template_toast .snooze,
+    #dismiss{
+        color: #fff;
+    }
+
+
+    #template_toast .horizontal-align .toast-content .toast-title {
+        font-weight: 500;
+        color: #fff;
+    }
+
+    #template_toast .horizontal-align .toast-content .toast-message {
+        opacity: 0.75;
+        color: #fff;
+    }
+
+    .material  #snooze,
+    .material  #dismiss,
+    .fabric  #snooze,
+    .fabric  #dismiss,
+    .highcontrast  #snooze,
+    .highcontrast  #dismiss {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    .toast-template-section .e-toast-container {
+        top: 0;
+    }
+
+    .toast-template-section #toast_template_target {
+        width: 70%;
+        height: 700px;
+        border: none;
+        margin: auto;
+    }
+
+    @media (max-width: 540px) {
+        .toast-template-section #toast_template_target {
+            width: 100%;
+        }
+    }
+
+    #toast_template.e-toast-container .e-toast,
+    #toast_custom .e-toast {
+        background-color: #3277b2;
+    }
+
+    @media (min-width: 740px) {
+        .toast-template-section #toast_template_target {
+            width: 400px;
+        }
+    }
+
+    .toast-template-section #toast_template_target .e-toast-container .e-toast {
+        width: inherit !important;
+        display: inline-block;
+    }
+
+    #template_toast .toast-icons {
+        font-size: 35px;
+        height: auto;
+        margin: auto;
+    }
+
+    #template_toast .toast-icons.e-alarm::before {
+        content: "\e702";
+        color: #fff;
+    }
+
+    #template_toast .horizontal-align {
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    #template_toast .horizontal-align,
+    #template_toast #snoozedropDown,
+    #template_toast .snooze,
+    #template_toast .snoozeBtn {
+        margin: 10px 0;
+    }
+
+
+    #template_toast .horizontal-align .toast-content {
+        display: inline-flex;
+        flex: 1;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+    .material #template_toast .e-input,
+    .material #template_toast .e-ddl-icon {
+        color: white !important;
+    }
+</style>
+<script>
+import Vue from "vue";
+import { ToastPlugin, Toast, ToastOpenArgs, ToastCloseArgs, ToastBeforeOpenArgs } from "@syncfusion/ej2-vue-notifications";
+import { DropDownList, ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
+import { compile, Browser, closest, isNullOrUndefined } from '@syncfusion/ej2-base';
+
+Vue.use(ToastPlugin);
+export default Vue.extend({
+    data: function(){
+        return {
+            localFields: { text: 'Text', value: 'Id' },
+            data: [
+                { Id: '2min', Text: '2 minutes' },
+                { Id: '5min', Text: '5 minutes' },
+                { Id: '10min', Text: '10 minutes' },
+            ],
+            localWaterMark: 'Select a snooze time',
+            height: '200px',
+            cusPosition: { X: 'Right' },
+            cusAnimation:  {
+                 hide: { effect: 'SlideRightOut' },
+                 show: { effect: 'SlideRightIn' }
+             },
+        }
+    },
+    mounted: function(){
+      this.toastData = [
+        { from: ' Anjolie Stokes', subject: 'Networking Referral', image: { url: 'src/toast/resource/laura.png' }, },
+        { from: ' Ila Russo', subject: 'Business dinner invitation', image: { url: 'src/toast/resource/janat.png' }, },
+        { from: ' Camden Mcmillan', subject: 'Reference Request - Cameran Hester', image: { url: 'src/toast/resource/camden.png' }, },
+        { from: ' Chase Solomon', subject: 'New business relationship confirmation', image: { url: 'src/toast/resource/chase.png' }, },
+        { from: ' Inga Scott', subject: 'Application for Sales Associate', image: { url: 'src/toast/resource/michael.png' }, }];
+       this.toastFlag = 0;
+       this.snoozeFlag = false;
+       this.toastObj = new Toast({
+       template: document.getElementById('template_toast_ele').innerHTML,
+       position: !Browser.isDevice ? { X: 'Right', Y: 'Bottom'} : { X: 'Center', Y: 'Top' },
+       target: !Browser.isDevice ? document.body : '#toast_template_target',
+       extendedTimeout: 0,
+       timeOut: 120000,
+       open: this.onOpenToast, 
+       close: this.onToastClose, 
+       beforeOpen: this.onToastBeforeOpen
+    });
+    this.toastObj.appendTo('#toast_template');
+    this.listObj = new DropDownList({
+        placeholder: 'Select a snooze time',
+        popupHeight: '200px',
+        change: this.listChange
+    });
+    this.toastObjEmail = document.getElementById('toast_custom').ej2_instances[0];
+        setTimeout(() => {
+            this.toastObjEmail.show({ template: this.cardTemplateFn(this.toastData[this.toastFlag])[0].outerHTML });
+            ++this.toastFlag;
+            this.toastObj.show();
+        },200);
+     this.alarm= document.getElementById('Alarm_turn_on');     
+    },
+    methods: {
+       remainderClick: function(args) {
+            this.toastObjEmail.show({ template: this.cardTemplateFn(this.toastData[this.toastFlag])[0].outerHTML });
+            ++this.toastFlag;
+            if (this.toastFlag === (this.toastData.length)) {
+                this.toastFlag = 0; 
+            } 
+       },
+       alarmClick: function(args) {
+           this.toastObj.show();
+       },
+        onOpenToast: function(args) {
+         document.getElementById('snooze').addEventListener( 'click', function(e) {
+            this.snoozeFlag = true;
+            this.toastObj.hide();
+            }.bind(this));
+         document.getElementById('dismiss').addEventListener( 'click', function(e) {
+             this.toastObj.hide();  
+            }.bind(this));
+       },
+       onToastClose: function(args) {
+            this.alarm.style.display = 'inline-block';
+            if (this.snoozeFlag) {
+               this.toastObj.show({ timeOut: (parseInt(this.listObj.value.toString(), 10) * 60000 ) });
+               this.snoozeFlag = false;
+            }
+       },
+       onToastBeforeOpen: function(args) {
+             this.alarm.style.display = 'none';
+             this.listObj.appendTo(args.element.querySelector('#snoozeDD')); 
+       },
+       cardTemplateFn: function(args) {
+            return compile(document.getElementById('toastEmail_template').innerHTML.trim())(args);
+       },
+       listChange: function(args){
+            this.snoozeFlag = true;
+            this.toastObj.hide();
+       },
+       created: function(args){
+            document.addEventListener('click', function(event) {
+               let closestEle = closest(event.target, '.e-toast-container');
+               if (!isNullOrUndefined(this.toastObj) && !isNullOrUndefined(this.toastObjEmail) && !isNullOrUndefined(this.$refs.buttonShowRef) && event.target !== this.alarm && event.target !== this.$refs.buttonShowRef.$el && closestEle !== this.toastObj.element && closestEle !== this.toastObjEmail.element) {
+                   this.toastObj.hide('All');
+                   this.toastObjEmail.hide('All');
+               }
+            }.bind(this));
+        }
+    }
+});
+
+</script>
