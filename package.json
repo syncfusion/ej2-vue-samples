@@ -44,7 +44,6 @@
     "vue-template-compiler": "^2.4.4"
   },
   "devDependencies": {
-    "@syncfusion/ej2-build": "*",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
@@ -59,6 +58,6 @@
     "typescript": "^2.8.3",
     "vue-loader": "14.2.2",
     "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^3.1.1"
   }
 }
