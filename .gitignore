@@ -1,4 +1,2 @@
 dist/
 node_modules/
-src/router.config.ts
-src/common/samplelist.ts
