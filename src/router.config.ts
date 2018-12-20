@@ -65,18 +65,18 @@ import Chartstackedcolumn100 from './chart/stacked-column-100.vue';
 import Chartstackedbar from './chart/stacked-bar.vue'; 
 import Chartstackedbar100 from './chart/stacked-bar-100.vue'; 
 import Charttornado from './chart/tornado.vue'; 
-import Chartscatterplot from './chart/scatter-plot.vue'; 
+import Chartscatter from './chart/scatter.vue'; 
 import Chartbubble from './chart/bubble.vue'; 
 import Chartwaterfall from './chart/waterfall.vue'; 
 import Charthistogram from './chart/histogram.vue'; 
 import Chartboxandwhisker from './chart/box-and-whisker.vue'; 
 import Charterrorbar from './chart/error-bar.vue'; 
 import Charttrendlines from './chart/trend-lines.vue'; 
-import Chartmultiserieschart from './chart/multi-series-chart.vue'; 
-import Chartpareto from './chart/pareto.vue'; 
+import Chartcombinationseries from './chart/combination-series.vue'; 
+import Chartpareto from './chart/pare-to.vue'; 
 import Charthilo from './chart/hilo.vue'; 
 import Charthiloopenclose from './chart/hilo-open-close.vue'; 
-import Chartcandlestick from './chart/candle-stick.vue'; 
+import Chartcandle from './chart/candle.vue'; 
 import Chartaccumulationdistributionindicator from './chart/accumulation-distribution-indicator.vue'; 
 import Chartaveragetruerangeindicator from './chart/average-true-range-indicator.vue'; 
 import Chartbollinger from './chart/bollinger.vue'; 
@@ -87,9 +87,9 @@ import Chartrelativestrengthindexindicator from './chart/relative-strength-index
 import Chartsimplemovingaverageindicator from './chart/simple-moving-average-indicator.vue'; 
 import Chartstochastic from './chart/stochastic.vue'; 
 import Charttriangularmovingaverageindicator from './chart/triangular-moving-average-indicator.vue'; 
-import Chartchartperformance from './chart/chart-performance.vue'; 
+import Chartperformance from './chart/performance.vue'; 
 import Chartdefaultpie from './chart/default-pie.vue'; 
-import Chartdonut from './chart/donut.vue';
+import Chartdoughnut from './chart/doughnut.vue'; 
 import Chartpyramid from './chart/pyramid.vue'; 
 import Chartfunnel from './chart/funnel.vue'; 
 import Chartdefaultdoughnut from './chart/default-doughnut.vue'; 
@@ -113,8 +113,8 @@ import Chartdatetime from './chart/date-time.vue';
 import Chartdatetimecategory from './chart/date-time-category.vue'; 
 import Chartcategory from './chart/category.vue'; 
 import Chartindexed from './chart/indexed.vue'; 
-import Chartlogarithmicscale from './chart/logarithmic-scale.vue'; 
-import Chartmultipleaxis from './chart/multiple-axis.vue'; 
+import Chartlogarithmic from './chart/logarithmic.vue'; 
+import Chartmultipleaxes from './chart/multiple-axes.vue'; 
 import Chartinversed from './chart/inversed.vue'; 
 import Chartstripline from './chart/strip-line.vue'; 
 import Chartstriplinerecurrence from './chart/strip-line-recurrence.vue'; 
@@ -122,7 +122,7 @@ import Chartsmartaxislabels from './chart/smart-axis-labels.vue';
 import Chartmultilevellabel from './chart/multi-level-label.vue'; 
 import Chartaxescrossing from './chart/axes-crossing.vue'; 
 import Chartsorting from './chart/sorting.vue'; 
-import Chartmarkerchart from './chart/marker-chart.vue'; 
+import Chartsymbols from './chart/symbols.vue'; 
 import Chartpieannotation from './chart/pie-annotation.vue'; 
 import Chartdatalabeltemplate from './chart/data-label-template.vue'; 
 import Chartvertical from './chart/vertical.vue'; 
@@ -134,8 +134,6 @@ import Chartrangeselection from './chart/range-selection.vue';
 import Chartcrosshair from './chart/cross-hair.vue'; 
 import Charttrackball from './chart/trackball.vue'; 
 import Chartzooming from './chart/zooming.vue'; 
-import Chipsdefault from './chips/default.vue'; 
-import Chipsapi from './chips/api.vue'; 
 import CircularGaugedefault from './circular-gauge/default.vue'; 
 import CircularGaugerange from './circular-gauge/range.vue'; 
 import CircularGaugelabels from './circular-gauge/labels.vue'; 
@@ -175,7 +173,7 @@ import DateTimePickerdisabled from './datetimepicker/disabled.vue';
 import DateTimePickerdatetimerange from './datetimepicker/date-time-range.vue'; 
 import DateTimePickerdatetimeformat from './datetimepicker/date-time-format.vue'; 
 import DateTimePickerspecialdates from './datetimepicker/special-dates.vue'; 
-import Diagramdefaultfunctionality from './diagram/default-functionality.vue'; 
+import Diagramdefaultfunctionality from './diagram/defaultfunctionality.vue'; 
 import Diagramshapegallery from './diagram/shape-gallery.vue'; 
 import Diagramnode from './diagram/node.vue'; 
 import Diagramconnector from './diagram/connector.vue'; 
@@ -200,20 +198,14 @@ import Diagramrighttolefttree from './diagram/right-to-left-tree.vue';
 import Diagrampertchart from './diagram/pert-chart.vue'; 
 import Diagramremotedata from './diagram/remote-data.vue'; 
 import Diagramlocaldata from './diagram/local-data.vue'; 
-import Diagramcrud from './diagram/crud.vue'; 
-import Diagramlogicalcircuit from './diagram/logical-circuit.vue'; 
-import Diagramumlactivity from './diagram/uml-activity.vue'; 
-import Diagramnetworkdiagram from './diagram/network-diagram.vue'; 
-import Diagramumlclassdiagram from './diagram/uml-class-diagram.vue'; 
-import Diagramvenndiagram from './diagram/venn-diagram.vue'; 
+import Diagramvenndiagram from './diagram/venndiagram.vue'; 
 import Diagramfishbonediagram from './diagram/fishbone-diagram.vue'; 
 import Dialogdefault from './dialog/default.vue'; 
 import Dialogcustomdialog from './dialog/custom-dialog.vue'; 
 import Dialogmodaldialog from './dialog/modal-dialog.vue'; 
-import Dialogtemplate from './dialog/template.vue'; 
 import Dialogdialogcontentsviaajax from './dialog/dialog-contents-via-ajax.vue'; 
+import Dialogtemplate from './dialog/template.vue'; 
 import Dialogdraggable from './dialog/draggable.vue'; 
-import Dialogresizable from './dialog/resizable.vue'; 
 import Dialogposition from './dialog/position.vue'; 
 import Dialoganimation from './dialog/animation.vue'; 
 import Dialogmultipledialogs from './dialog/multiple-dialogs.vue'; 
@@ -228,7 +220,6 @@ import DocumentEditorsectionformatting from './document-editor/section-formattin
 import DocumentEditorheadersandfooters from './document-editor/headers-and-footers.vue'; 
 import DocumentEditortableofcontents from './document-editor/table-of-contents.vue'; 
 import DocumentEditorprint from './document-editor/print.vue'; 
-import DocumentEditorrighttoleft from './document-editor/right-to-left.vue'; 
 import DropDownListdefault from './drop-down-list/default.vue'; 
 import DropDownListgroupingicon from './drop-down-list/grouping-icon.vue'; 
 import DropDownListdatabinding from './drop-down-list/data-binding.vue'; 
@@ -268,8 +259,6 @@ import DataGridrowtemplate from './grid/row-template.vue';
 import DataGriddetailtemplate from './grid/detail-template.vue'; 
 import DataGridrowheight from './grid/row-height.vue'; 
 import DataGridrowdraganddrop from './grid/row-drag-and-drop.vue'; 
-import DataGriddraganddropwithingrid from './grid/drag-and-drop-within-grid.vue'; 
-import DataGridrowspanning from './grid/row-spanning.vue'; 
 import DataGridfiltering from './grid/filtering.vue'; 
 import DataGridfiltermenu from './grid/filter-menu.vue'; 
 import DataGridsearching from './grid/searching.vue'; 
@@ -286,8 +275,6 @@ import DataGridbatchediting from './grid/batch-editing.vue';
 import DataGridcommandcolumn from './grid/command-column.vue'; 
 import DataGridexport from './grid/export.vue'; 
 import DataGridadvanceexport from './grid/advance-export.vue'; 
-import DataGridmasterdetailsexport from './grid/master-details-export.vue'; 
-import DataGridprint from './grid/print.vue'; 
 import HeatMapdefault from './heatmap/default.vue'; 
 import HeatMapcalendarheatmap from './heatmap/calendar-heatmap.vue'; 
 import HeatMapbubbletypes from './heatmap/bubble-types.vue'; 
@@ -299,16 +286,11 @@ import HeatMapcelljsonbinding from './heatmap/cell-json-binding.vue';
 import HeatMapemptypoints from './heatmap/empty-points.vue'; 
 import HeatMapinversedaxis from './heatmap/inversed-axis.vue'; 
 import HeatMapopposedaxis from './heatmap/opposed-axis.vue'; 
-import HeatMapmultilevellabels from './heatmap/multi-level-labels.vue'; 
 import HeatMaplegend from './heatmap/legend.vue'; 
 import HeatMaplargedata from './heatmap/large-data.vue'; 
 import HeatMappalettemode from './heatmap/palette-mode.vue'; 
 import HeatMaprenderingmode from './heatmap/rendering-mode.vue'; 
 import HeatMaptooltiptemplate from './heatmap/tooltip-template.vue'; 
-import InPlaceEditordefault from './inplace-editor/default.vue'; 
-import InPlaceEditordropdowns from './inplace-editor/dropdowns.vue'; 
-import InPlaceEditorpickers from './inplace-editor/pickers.vue'; 
-import InPlaceEditoreditorform from './inplace-editor/editor-form.vue'; 
 import LinearGaugedefault from './linear-gauge/default.vue'; 
 import LinearGaugecontainer from './linear-gauge/container.vue'; 
 import LinearGaugeranges from './linear-gauge/ranges.vue'; 
@@ -350,11 +332,6 @@ import Mapsseatselection from './maps/seat-selection.vue';
 import MaskedTextBoxdefault from './maskedtextbox/default.vue'; 
 import MaskedTextBoxcustommask from './maskedtextbox/custom-mask.vue'; 
 import MaskedTextBoxformats from './maskedtextbox/formats.vue'; 
-import Menudefault from './menu/default.vue'; 
-import Menudatabinding from './menu/data-binding.vue'; 
-import Menuscrollable from './menu/scrollable.vue'; 
-import Menuapi from './menu/api.vue'; 
-import Menutoolbarintegration from './menu/toolbar-integration.vue'; 
 import MultiSelectdefault from './multi-select/default.vue'; 
 import MultiSelectdatabinding from './multi-select/data-binding.vue'; 
 import MultiSelectgroupingicon from './multi-select/grouping-icon.vue'; 
@@ -369,28 +346,22 @@ import NumericTextBoxdefault from './numerictextbox/default.vue';
 import NumericTextBoxrangevalidation from './numerictextbox/range-validation.vue'; 
 import NumericTextBoxcustomformat from './numerictextbox/custom-format.vue'; 
 import NumericTextBoxrestrictdecimals from './numerictextbox/restrict-decimals.vue'; 
-import PdfViewerdefault from './pdfviewer/default.vue'; 
-import PivotTabledefault from './pivot-view/default.vue'; 
-import PivotTablelocal from './pivot-view/local.vue'; 
-import PivotTableremote from './pivot-view/remote.vue'; 
-import PivotTablefieldlist from './pivot-view/field-list.vue'; 
-import PivotTablegroupingbar from './pivot-view/grouping-bar.vue'; 
-import PivotTableconditionalformatting from './pivot-view/conditional-formatting.vue'; 
-import PivotTablesummarycustomization from './pivot-view/summary-customization.vue'; 
-import PivotTablecalculatedfield from './pivot-view/calculated-field.vue'; 
-import PivotTableaggregation from './pivot-view/aggregation.vue'; 
-import PivotTablesorting from './pivot-view/sorting.vue'; 
-import PivotTablevaluesorting from './pivot-view/value-sorting.vue'; 
-import PivotTablefiltering from './pivot-view/filtering.vue'; 
-import PivotTablelabelfiltering from './pivot-view/label-filtering.vue'; 
-import PivotTablevaluefiltering from './pivot-view/value-filtering.vue'; 
-import PivotTablecharts from './pivot-view/charts.vue'; 
-import PivotTablevirtualscrolling from './pivot-view/virtual-scrolling.vue'; 
-import PivotTabledrillthrough from './pivot-view/drill-through.vue'; 
-import PivotTableediting from './pivot-view/editing.vue'; 
-import PivotTablehyperlink from './pivot-view/hyper-link.vue'; 
-import PivotTabledeferupdate from './pivot-view/defer-update.vue'; 
-import PivotTableexporting from './pivot-view/exporting.vue'; 
+import PivotGriddefault from './pivot-view/default.vue'; 
+import PivotGridlocal from './pivot-view/local.vue'; 
+import PivotGridremote from './pivot-view/remote.vue'; 
+import PivotGridfieldlist from './pivot-view/field-list.vue'; 
+import PivotGridgroupingbar from './pivot-view/grouping-bar.vue'; 
+import PivotGridconditionalformatting from './pivot-view/conditional-formatting.vue'; 
+import PivotGridcalculatedfield from './pivot-view/calculated-field.vue'; 
+import PivotGridaggregation from './pivot-view/aggregation.vue'; 
+import PivotGridsorting from './pivot-view/sorting.vue'; 
+import PivotGridvaluesorting from './pivot-view/value-sorting.vue'; 
+import PivotGridfiltering from './pivot-view/filtering.vue'; 
+import PivotGridlabelfiltering from './pivot-view/label-filtering.vue'; 
+import PivotGridvaluefiltering from './pivot-view/value-filtering.vue'; 
+import PivotGridcharts from './pivot-view/charts.vue'; 
+import PivotGridvirtualscrolling from './pivot-view/virtual-scrolling.vue'; 
+import PivotGridexporting from './pivot-view/exporting.vue'; 
 import RangeNavigatordefault from './range-navigator/default.vue'; 
 import RangeNavigatorlightweight from './range-navigator/light-weight.vue'; 
 import RangeNavigatordatetime from './range-navigator/date-time.vue'; 
@@ -403,30 +374,27 @@ import RangeNavigatoremptydata from './range-navigator/empty-data.vue';
 import RangeNavigatorfilter from './range-navigator/filter.vue'; 
 import RangeNavigatorexport from './range-navigator/export.vue'; 
 import RangeNavigatorrighttoleft from './range-navigator/right-to-left.vue'; 
-import RichTextEditortools from './rich-text-editor/tools.vue'; 
-import RichTextEditordefault from './rich-text-editor/default.vue'; 
-import RichTextEditorimage from './rich-text-editor/image.vue'; 
-import RichTextEditorinline from './rich-text-editor/inline.vue'; 
-import RichTextEditoriframe from './rich-text-editor/iframe.vue'; 
-import RichTextEditorprint from './rich-text-editor/print.vue'; 
-import RichTextEditorajaxload from './rich-text-editor/ajax-load.vue'; 
-import RichTextEditorapi from './rich-text-editor/api.vue'; 
-import RichTextEditorevents from './rich-text-editor/events.vue'; 
-import RichTextEditorblogposting from './rich-text-editor/blog-posting.vue'; 
-import RichTextEditortypes from './rich-text-editor/types.vue'; 
-import RichTextEditorcustomtoolbar from './rich-text-editor/custom-toolbar.vue'; 
-import RichTextEditormarkdowneditor from './rich-text-editor/markdown-editor.vue'; 
-import RichTextEditormarkdownpreview from './rich-text-editor/markdown-preview.vue'; 
-import RichTextEditormarkdownformat from './rich-text-editor/markdown-format.vue'; 
+import RichTextEditortools from './rte/tools.vue'; 
+import RichTextEditordefault from './rte/default.vue'; 
+import RichTextEditorimage from './rte/image.vue'; 
+import RichTextEditorinline from './rte/inline.vue'; 
+import RichTextEditoriframe from './rte/iframe.vue'; 
+import RichTextEditorprint from './rte/print.vue'; 
+import RichTextEditorajaxload from './rte/ajax-load.vue'; 
+import RichTextEditorapi from './rte/api.vue'; 
+import RichTextEditorevents from './rte/events.vue'; 
+import RichTextEditorblogposting from './rte/blog-posting.vue'; 
+import RichTextEditortypes from './rte/types.vue'; 
+import RichTextEditorcustomtoolbar from './rte/custom-toolbar.vue'; 
+import RichTextEditormarkdowneditor from './rte/markdown-editor.vue'; 
+import RichTextEditormarkdownpreview from './rte/markdown-preview.vue'; 
+import RichTextEditormarkdownformat from './rte/markdown-format.vue'; 
 import Scheduledefault from './schedule/default.vue'; 
 import Schedulelocaldata from './schedule/local-data.vue'; 
 import Scheduleremotedata from './schedule/remote-data.vue'; 
-import Schedulecalendarintegration from './schedule/calendar-integration.vue'; 
+import Scheduledefaultevents from './schedule/default-events.vue'; 
 import Schedulerecurrenceevents from './schedule/recurrence-events.vue'; 
-import Scheduleblockevents from './schedule/block-events.vue'; 
 import Scheduletimezone from './schedule/timezone.vue'; 
-import Scheduleexternaldragdrop from './schedule/external-dragdrop.vue'; 
-import Schedulevirtualscrolling from './schedule/virtual-scrolling.vue'; 
 import Scheduleviews from './schedule/views.vue'; 
 import Scheduletimeline from './schedule/timeline.vue'; 
 import Scheduleagenda from './schedule/agenda.vue'; 
@@ -451,7 +419,6 @@ import Scheduleeditorcustomfields from './schedule/editor-customfields.vue';
 import Scheduleeditortemplate from './schedule/editor-template.vue'; 
 import Scheduleheaderrows from './schedule/header-rows.vue'; 
 import Scheduletimescale from './schedule/time-scale.vue'; 
-import Schedulecontextmenu from './schedule/context-menu.vue'; 
 import Scheduleheaderbar from './schedule/header-bar.vue'; 
 import Schedulescrollto from './schedule/scroll-to.vue'; 
 import Scheduleworkdays from './schedule/work-days.vue'; 
@@ -468,6 +435,7 @@ import Sidebardefault from './sidebar/default.vue';
 import Sidebardockingsidebar from './sidebar/docking-sidebar.vue'; 
 import Sidebarapi from './sidebar/api.vue'; 
 import Sidebarsidebarlist from './sidebar/sidebar-list.vue'; 
+import Sidebarmultiplesidebar from './sidebar/multiple-sidebar.vue'; 
 import Sliderdefault from './slider/default.vue'; 
 import Sliderticks from './slider/ticks.vue'; 
 import Slidertooltip from './slider/tooltip.vue'; 
@@ -491,9 +459,6 @@ import Sparklinesparkgrid from './sparkline/spark-grid.vue';
 import Sparklinecustomization from './sparkline/customization.vue'; 
 import Sparklineliveupdate from './sparkline/live-update.vue'; 
 import Sparklinerangeband from './sparkline/range-band.vue'; 
-import Splitterdefault from './splitter/default.vue'; 
-import Splitterdetailsview from './splitter/details-view.vue'; 
-import Splittercodeeditorlayout from './splitter/code-editor-layout.vue'; 
 import Tabdefault from './tab/default.vue'; 
 import Taborientation from './tab/orientation.vue'; 
 import Tabresponsive from './tab/responsive.vue'; 
@@ -518,22 +483,6 @@ import Tooltipsmartposition from './tooltip/smart-position.vue';
 import Tooltiptooltipmenu from './tooltip/tooltip-menu.vue'; 
 import Tooltiphtmltemplate from './tooltip/html-template.vue'; 
 import Tooltipapi from './tooltip/api.vue'; 
-import TreeGriddefault from './tree-grid/default.vue'; 
-import TreeGridpaging from './tree-grid/paging.vue'; 
-import TreeGridsorting from './tree-grid/sorting.vue'; 
-import TreeGridselection from './tree-grid/selection.vue'; 
-import TreeGridcontextmenu from './tree-grid/contextmenu.vue'; 
-import TreeGridexport from './tree-grid/export.vue'; 
-import TreeGridlocaldata from './tree-grid/localdata.vue'; 
-import TreeGridremotedata from './tree-grid/remotedata.vue'; 
-import TreeGridselfreference from './tree-grid/selfreference.vue'; 
-import TreeGridreorder from './tree-grid/reorder.vue'; 
-import TreeGridcolumnmenu from './tree-grid/columnmenu.vue'; 
-import TreeGriddialogediting from './tree-grid/dialogediting.vue'; 
-import TreeGridcommandcolumn from './tree-grid/commandcolumn.vue'; 
-import TreeGridfiltering from './tree-grid/filtering.vue'; 
-import TreeGridfiltermenu from './tree-grid/filtermenu.vue'; 
-import TreeGridsearch from './tree-grid/search.vue'; 
 import TreeMapdefault from './treemap/default.vue'; 
 import TreeMaplayout from './treemap/layout.vue'; 
 import TreeMapdrilldown from './treemap/drilldown.vue'; 
@@ -551,6 +500,7 @@ import TreeViewnodeediting from './treeview/node-editing.vue';
 import TreeViewmultipleselection from './treeview/multiple-selection.vue'; 
 import TreeViewdraganddrop from './treeview/drag-and-drop.vue'; 
 import TreeViewtemplate from './treeview/template.vue'; 
+import TreeViewrighttoleft from './treeview/right-to-left.vue'; 
 import TreeViewlocaldata from './treeview/local-data.vue'; 
 import TreeViewremotedata from './treeview/remote-data.vue'; 
 import Uploaderdefault from './uploader/default.vue'; 
@@ -561,7 +511,7 @@ import Uploaderfilevalidation from './uploader/file-validation.vue';
 import Uploaderimagepreview from './uploader/image-preview.vue'; 
 import Uploaderfileuploadwithforms from './uploader/file-upload-with-forms.vue'; 
 import Uploadercustomdroparea from './uploader/custom-drop-area.vue'; 
-export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/:theme/accordion/default.html', component: Accordiondefault, meta: {"eCompName":"Accordion","eSampleName":"Default Functionalities","eCategoryName":"Accordion"} }
+export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:theme/accordion/default.html', component: Accordiondefault, meta: {"eCompName":"Accordion","eSampleName":"Default Functionalities","eCategoryName":"Accordion"} }
 ,{ path: '/:theme/accordion/ajax.html', component: Accordionajax, meta: {"eCompName":"Accordion","eSampleName":"Ajax Content","eCategoryName":"Accordion"} }
 ,{ path: '/:theme/accordion/icons.html', component: Accordionicons, meta: {"eCompName":"Accordion","eSampleName":"Icons","eCategoryName":"Accordion"} }
 ,{ path: '/:theme/auto-complete/default.html', component: AutoCompletedefault, meta: {"eCompName":"AutoComplete","eSampleName":"Default Functionalities","eCategoryName":"AutoComplete"} }
@@ -628,18 +578,18 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/chart/stacked-bar.html', component: Chartstackedbar, meta: {"eCompName":"Chart","eSampleName":"Stacked Bar","eCategoryName":"Bar Charts"} }
 ,{ path: '/:theme/chart/stacked-bar-100.html', component: Chartstackedbar100, meta: {"eCompName":"Chart","eSampleName":"100% Stacked Bar","eCategoryName":"Bar Charts"} }
 ,{ path: '/:theme/chart/tornado.html', component: Charttornado, meta: {"eCompName":"Chart","eSampleName":"Negative Stack","eCategoryName":"Bar Charts"} }
-,{ path: '/:theme/chart/scatter-plot.html', component: Chartscatterplot, meta: {"eCompName":"Chart","eSampleName":"Scatter Plot","eCategoryName":"Scatter and Bubble"} }
+,{ path: '/:theme/chart/scatter.html', component: Chartscatter, meta: {"eCompName":"Chart","eSampleName":"Scatter","eCategoryName":"Scatter and Bubble"} }
 ,{ path: '/:theme/chart/bubble.html', component: Chartbubble, meta: {"eCompName":"Chart","eSampleName":"Bubble","eCategoryName":"Scatter and Bubble"} }
 ,{ path: '/:theme/chart/waterfall.html', component: Chartwaterfall, meta: {"eCompName":"Chart","eSampleName":"Waterfall","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/histogram.html', component: Charthistogram, meta: {"eCompName":"Chart","eSampleName":"Histogram","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/box-and-whisker.html', component: Chartboxandwhisker, meta: {"eCompName":"Chart","eSampleName":"Box and Whisker","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/error-bar.html', component: Charterrorbar, meta: {"eCompName":"Chart","eSampleName":"Error Bar","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/trend-lines.html', component: Charttrendlines, meta: {"eCompName":"Chart","eSampleName":"Trendlines","eCategoryName":"Other Types"} }
-,{ path: '/:theme/chart/multi-series-chart.html', component: Chartmultiserieschart, meta: {"eCompName":"Chart","eSampleName":"Multi-Series Chart","eCategoryName":"Other Types"} }
-,{ path: '/:theme/chart/pareto.html', component: Chartpareto, meta: {"eCompName":"Chart","eSampleName":"Pareto Chart","eCategoryName":"Other Types"} }
-,{ path: '/:theme/chart/hilo.html', component: Charthilo, meta: {"eCompName":"Chart","eSampleName":"Hilo","eCategoryName":"Stock Charts"} }
-,{ path: '/:theme/chart/hilo-open-close.html', component: Charthiloopenclose, meta: {"eCompName":"Chart","eSampleName":"Hilo Open Close","eCategoryName":"Stock Charts"} }
-,{ path: '/:theme/chart/candle-stick.html', component: Chartcandlestick, meta: {"eCompName":"Chart","eSampleName":"Candle Stick","eCategoryName":"Stock Charts"} }
+,{ path: '/:theme/chart/combination-series.html', component: Chartcombinationseries, meta: {"eCompName":"Chart","eSampleName":"Combination Series","eCategoryName":"Other Types"} }
+,{ path: '/:theme/chart/pare-to.html', component: Chartpareto, meta: {"eCompName":"Chart","eSampleName":"Pareto Chart","eCategoryName":"Other Types"} }
+,{ path: '/:theme/chart/hilo.html', component: Charthilo, meta: {"eCompName":"Chart","eSampleName":"Hilo","eCategoryName":"Financial Charts"} }
+,{ path: '/:theme/chart/hilo-open-close.html', component: Charthiloopenclose, meta: {"eCompName":"Chart","eSampleName":"Hilo Open Close","eCategoryName":"Financial Charts"} }
+,{ path: '/:theme/chart/candle.html', component: Chartcandle, meta: {"eCompName":"Chart","eSampleName":"Candle","eCategoryName":"Financial Charts"} }
 ,{ path: '/:theme/chart/accumulation-distribution-indicator.html', component: Chartaccumulationdistributionindicator, meta: {"eCompName":"Chart","eSampleName":"Accumulation Distribution","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/average-true-range-indicator.html', component: Chartaveragetruerangeindicator, meta: {"eCompName":"Chart","eSampleName":"ATR","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/bollinger.html', component: Chartbollinger, meta: {"eCompName":"Chart","eSampleName":"Bollinger","eCategoryName":"Technical Indicators"} }
@@ -650,9 +600,9 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/chart/simple-moving-average-indicator.html', component: Chartsimplemovingaverageindicator, meta: {"eCompName":"Chart","eSampleName":"SMA","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/stochastic.html', component: Chartstochastic, meta: {"eCompName":"Chart","eSampleName":"Stochastic","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/triangular-moving-average-indicator.html', component: Charttriangularmovingaverageindicator, meta: {"eCompName":"Chart","eSampleName":"TMA","eCategoryName":"Technical Indicators"} }
-,{ path: '/:theme/chart/chart-performance.html', component: Chartchartperformance, meta: {"eCompName":"Chart","eSampleName":"Chart Performance","eCategoryName":"Benchmark"} }
+,{ path: '/:theme/chart/performance.html', component: Chartperformance, meta: {"eCompName":"Chart","eSampleName":"Benchmark","eCategoryName":"Performance"} }
 ,{ path: '/:theme/chart/default-pie.html', component: Chartdefaultpie, meta: {"eCompName":"Chart","eSampleName":"Pie","eCategoryName":"Accumulation Charts"} }
-,{ path: '/:theme/chart/donut.html', component: Chartdonut, meta: {"eCompName":"Chart","eSampleName":"Donut","eCategoryName":"Accumulation Charts"} }
+,{ path: '/:theme/chart/doughnut.html', component: Chartdoughnut, meta: {"eCompName":"Chart","eSampleName":"Doughnut","eCategoryName":"Accumulation Charts"} }
 ,{ path: '/:theme/chart/pyramid.html', component: Chartpyramid, meta: {"eCompName":"Chart","eSampleName":"Pyramid","eCategoryName":"Accumulation Charts"} }
 ,{ path: '/:theme/chart/funnel.html', component: Chartfunnel, meta: {"eCompName":"Chart","eSampleName":"Funnel","eCategoryName":"Accumulation Charts"} }
 ,{ path: '/:theme/chart/default-doughnut.html', component: Chartdefaultdoughnut, meta: {"eCompName":"Chart","eSampleName":"Pie with Legend","eCategoryName":"Accumulation Charts"} }
@@ -676,8 +626,8 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/chart/date-time-category.html', component: Chartdatetimecategory, meta: {"eCompName":"Chart","eSampleName":"DateTime Categoty Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/category.html', component: Chartcategory, meta: {"eCompName":"Chart","eSampleName":"Category Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/indexed.html', component: Chartindexed, meta: {"eCompName":"Chart","eSampleName":"Indexed Category Axis","eCategoryName":"Chart Axes"} }
-,{ path: '/:theme/chart/logarithmic-scale.html', component: Chartlogarithmicscale, meta: {"eCompName":"Chart","eSampleName":"Logarithmic Scale","eCategoryName":"Chart Axes"} }
-,{ path: '/:theme/chart/multiple-axis.html', component: Chartmultipleaxis, meta: {"eCompName":"Chart","eSampleName":"Multiple Axis","eCategoryName":"Chart Axes"} }
+,{ path: '/:theme/chart/logarithmic.html', component: Chartlogarithmic, meta: {"eCompName":"Chart","eSampleName":"Log Axis","eCategoryName":"Chart Axes"} }
+,{ path: '/:theme/chart/multiple-axes.html', component: Chartmultipleaxes, meta: {"eCompName":"Chart","eSampleName":"Multiple Axes","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/inversed.html', component: Chartinversed, meta: {"eCompName":"Chart","eSampleName":"Inversed Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/strip-line.html', component: Chartstripline, meta: {"eCompName":"Chart","eSampleName":"Strip Line","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/strip-line-recurrence.html', component: Chartstriplinerecurrence, meta: {"eCompName":"Chart","eSampleName":"Strip Line Recurrence","eCategoryName":"Chart Axes"} }
@@ -685,7 +635,7 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/chart/multi-level-label.html', component: Chartmultilevellabel, meta: {"eCompName":"Chart","eSampleName":"Multi Level Labels","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/axes-crossing.html', component: Chartaxescrossing, meta: {"eCompName":"Chart","eSampleName":"Axes Crossing","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/sorting.html', component: Chartsorting, meta: {"eCompName":"Chart","eSampleName":"Sorting","eCategoryName":"Chart Customization"} }
-,{ path: '/:theme/chart/marker-chart.html', component: Chartmarkerchart, meta: {"eCompName":"Chart","eSampleName":"Marker Chart","eCategoryName":"Chart Customization"} }
+,{ path: '/:theme/chart/symbols.html', component: Chartsymbols, meta: {"eCompName":"Chart","eSampleName":"Symbols","eCategoryName":"Chart Customization"} }
 ,{ path: '/:theme/chart/pie-annotation.html', component: Chartpieannotation, meta: {"eCompName":"Chart","eSampleName":"Annotation","eCategoryName":"Chart Customization"} }
 ,{ path: '/:theme/chart/data-label-template.html', component: Chartdatalabeltemplate, meta: {"eCompName":"Chart","eSampleName":"DataLabel Template","eCategoryName":"Chart Customization"} }
 ,{ path: '/:theme/chart/vertical.html', component: Chartvertical, meta: {"eCompName":"Chart","eSampleName":"Vertical Chart","eCategoryName":"Chart Customization"} }
@@ -697,8 +647,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/chart/cross-hair.html', component: Chartcrosshair, meta: {"eCompName":"Chart","eSampleName":"Crosshair","eCategoryName":"User Interaction"} }
 ,{ path: '/:theme/chart/trackball.html', component: Charttrackball, meta: {"eCompName":"Chart","eSampleName":"Trackball","eCategoryName":"User Interaction"} }
 ,{ path: '/:theme/chart/zooming.html', component: Chartzooming, meta: {"eCompName":"Chart","eSampleName":"Zooming and Panning","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/chips/default.html', component: Chipsdefault, meta: {"eCompName":"Chips","eSampleName":"Default Functionalities","eCategoryName":"Chips"} }
-,{ path: '/:theme/chips/api.html', component: Chipsapi, meta: {"eCompName":"Chips","eSampleName":"API","eCategoryName":"Chips"} }
 ,{ path: '/:theme/circular-gauge/default.html', component: CircularGaugedefault, meta: {"eCompName":"CircularGauge","eSampleName":"Default Functionalities","eCategoryName":"Circular Gauge"} }
 ,{ path: '/:theme/circular-gauge/range.html', component: CircularGaugerange, meta: {"eCompName":"CircularGauge","eSampleName":"Range","eCategoryName":"Circular Gauge"} }
 ,{ path: '/:theme/circular-gauge/labels.html', component: CircularGaugelabels, meta: {"eCompName":"CircularGauge","eSampleName":"Tick and Labels","eCategoryName":"Circular Gauge"} }
@@ -738,7 +686,7 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/datetimepicker/date-time-range.html', component: DateTimePickerdatetimerange, meta: {"eCompName":"DateTimePicker","eSampleName":"DateTime Range","eCategoryName":"DateTimePicker"} }
 ,{ path: '/:theme/datetimepicker/date-time-format.html', component: DateTimePickerdatetimeformat, meta: {"eCompName":"DateTimePicker","eSampleName":"Format","eCategoryName":"DateTimePicker"} }
 ,{ path: '/:theme/datetimepicker/special-dates.html', component: DateTimePickerspecialdates, meta: {"eCompName":"DateTimePicker","eSampleName":"Special Dates","eCategoryName":"DateTimePicker"} }
-,{ path: '/:theme/diagram/default-functionality.html', component: Diagramdefaultfunctionality, meta: {"eCompName":"Diagram","eSampleName":"Default Functionalities","eCategoryName":"Getting Started"} }
+,{ path: '/:theme/diagram/defaultfunctionality.html', component: Diagramdefaultfunctionality, meta: {"eCompName":"Diagram","eSampleName":"Default Functionalities","eCategoryName":"Getting Started"} }
 ,{ path: '/:theme/diagram/shape-gallery.html', component: Diagramshapegallery, meta: {"eCompName":"Diagram","eSampleName":"Shapes","eCategoryName":"Getting Started"} }
 ,{ path: '/:theme/diagram/node.html', component: Diagramnode, meta: {"eCompName":"Diagram","eSampleName":"Nodes","eCategoryName":"Getting Started"} }
 ,{ path: '/:theme/diagram/connector.html', component: Diagramconnector, meta: {"eCompName":"Diagram","eSampleName":"Connectors","eCategoryName":"Getting Started"} }
@@ -763,20 +711,14 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/diagram/pert-chart.html', component: Diagrampertchart, meta: {"eCompName":"Diagram","eSampleName":"PERT Chart","eCategoryName":"Automatic Layouts"} }
 ,{ path: '/:theme/diagram/remote-data.html', component: Diagramremotedata, meta: {"eCompName":"Diagram","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/diagram/local-data.html', component: Diagramlocaldata, meta: {"eCompName":"Diagram","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/diagram/crud.html', component: Diagramcrud, meta: {"eCompName":"Diagram","eSampleName":"CRUD","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/diagram/logical-circuit.html', component: Diagramlogicalcircuit, meta: {"eCompName":"Diagram","eSampleName":"Logic Circuit Diagram","eCategoryName":"Use Case Diagram"} }
-,{ path: '/:theme/diagram/uml-activity.html', component: Diagramumlactivity, meta: {"eCompName":"Diagram","eSampleName":"UML Activity Diagram","eCategoryName":"Use Case Diagram"} }
-,{ path: '/:theme/diagram/network-diagram.html', component: Diagramnetworkdiagram, meta: {"eCompName":"Diagram","eSampleName":"Network Diagram","eCategoryName":"Use Case Diagram"} }
-,{ path: '/:theme/diagram/uml-class-diagram.html', component: Diagramumlclassdiagram, meta: {"eCompName":"Diagram","eSampleName":"UML Class Diagram","eCategoryName":"Use Case Diagram"} }
-,{ path: '/:theme/diagram/venn-diagram.html', component: Diagramvenndiagram, meta: {"eCompName":"Diagram","eSampleName":"Venn Diagram","eCategoryName":"Static Diagram"} }
+,{ path: '/:theme/diagram/venndiagram.html', component: Diagramvenndiagram, meta: {"eCompName":"Diagram","eSampleName":"Venn Diagram","eCategoryName":"Static Diagram"} }
 ,{ path: '/:theme/diagram/fishbone-diagram.html', component: Diagramfishbonediagram, meta: {"eCompName":"Diagram","eSampleName":"Fishbone Diagram","eCategoryName":"Static Diagram"} }
 ,{ path: '/:theme/dialog/default.html', component: Dialogdefault, meta: {"eCompName":"Dialog","eSampleName":"Default Functionalities","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/custom-dialog.html', component: Dialogcustomdialog, meta: {"eCompName":"Dialog","eSampleName":"Custom Dialogs","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/modal-dialog.html', component: Dialogmodaldialog, meta: {"eCompName":"Dialog","eSampleName":"Modal","eCategoryName":"Dialog"} }
-,{ path: '/:theme/dialog/template.html', component: Dialogtemplate, meta: {"eCompName":"Dialog","eSampleName":"Template","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/dialog-contents-via-ajax.html', component: Dialogdialogcontentsviaajax, meta: {"eCompName":"Dialog","eSampleName":"Ajax","eCategoryName":"Dialog"} }
+,{ path: '/:theme/dialog/template.html', component: Dialogtemplate, meta: {"eCompName":"Dialog","eSampleName":"Template","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/draggable.html', component: Dialogdraggable, meta: {"eCompName":"Dialog","eSampleName":"Draggable","eCategoryName":"Dialog"} }
-,{ path: '/:theme/dialog/resizable.html', component: Dialogresizable, meta: {"eCompName":"Dialog","eSampleName":"Resizable","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/position.html', component: Dialogposition, meta: {"eCompName":"Dialog","eSampleName":"Positioning","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/animation.html', component: Dialoganimation, meta: {"eCompName":"Dialog","eSampleName":"Animation","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/multiple-dialogs.html', component: Dialogmultipledialogs, meta: {"eCompName":"Dialog","eSampleName":"Multiple Dialogs","eCategoryName":"Dialog"} }
@@ -791,7 +733,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/document-editor/headers-and-footers.html', component: DocumentEditorheadersandfooters, meta: {"eCompName":"DocumentEditor","eSampleName":"Headers and Footers","eCategoryName":"Editing Features"} }
 ,{ path: '/:theme/document-editor/table-of-contents.html', component: DocumentEditortableofcontents, meta: {"eCompName":"DocumentEditor","eSampleName":"Table of Contents","eCategoryName":"Editing Features"} }
 ,{ path: '/:theme/document-editor/print.html', component: DocumentEditorprint, meta: {"eCompName":"DocumentEditor","eSampleName":"Print","eCategoryName":"Print"} }
-,{ path: '/:theme/document-editor/right-to-left.html', component: DocumentEditorrighttoleft, meta: {"eCompName":"DocumentEditor","eSampleName":"Right To Left","eCategoryName":"RTL"} }
 ,{ path: '/:theme/drop-down-list/default.html', component: DropDownListdefault, meta: {"eCompName":"DropDownList","eSampleName":"Default Functionalities","eCategoryName":"DropDownList"} }
 ,{ path: '/:theme/drop-down-list/grouping-icon.html', component: DropDownListgroupingicon, meta: {"eCompName":"DropDownList","eSampleName":"Grouping and Icons","eCategoryName":"DropDownList"} }
 ,{ path: '/:theme/drop-down-list/data-binding.html', component: DropDownListdatabinding, meta: {"eCompName":"DropDownList","eSampleName":"Data Binding","eCategoryName":"DropDownList"} }
@@ -831,8 +772,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/grid/detail-template.html', component: DataGriddetailtemplate, meta: {"eCompName":"Data Grid","eSampleName":"Detail Template","eCategoryName":"Rows"} }
 ,{ path: '/:theme/grid/row-height.html', component: DataGridrowheight, meta: {"eCompName":"Data Grid","eSampleName":"Row Height","eCategoryName":"Rows"} }
 ,{ path: '/:theme/grid/row-drag-and-drop.html', component: DataGridrowdraganddrop, meta: {"eCompName":"Data Grid","eSampleName":"Row Drag and Drop","eCategoryName":"Rows"} }
-,{ path: '/:theme/grid/drag-and-drop-within-grid.html', component: DataGriddraganddropwithingrid, meta: {"eCompName":"Data Grid","eSampleName":"Row Drag And Drop Within Grid","eCategoryName":"Rows"} }
-,{ path: '/:theme/grid/row-spanning.html', component: DataGridrowspanning, meta: {"eCompName":"Data Grid","eSampleName":"Row Spanning","eCategoryName":"Rows"} }
 ,{ path: '/:theme/grid/filtering.html', component: DataGridfiltering, meta: {"eCompName":"Data Grid","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
 ,{ path: '/:theme/grid/filter-menu.html', component: DataGridfiltermenu, meta: {"eCompName":"Data Grid","eSampleName":"Filter Menu","eCategoryName":"Filtering"} }
 ,{ path: '/:theme/grid/searching.html', component: DataGridsearching, meta: {"eCompName":"Data Grid","eSampleName":"Search","eCategoryName":"Filtering"} }
@@ -849,8 +788,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/grid/command-column.html', component: DataGridcommandcolumn, meta: {"eCompName":"Data Grid","eSampleName":"Command Column","eCategoryName":"Editing"} }
 ,{ path: '/:theme/grid/export.html', component: DataGridexport, meta: {"eCompName":"Data Grid","eSampleName":"Default Exporting","eCategoryName":"Exporting"} }
 ,{ path: '/:theme/grid/advance-export.html', component: DataGridadvanceexport, meta: {"eCompName":"Data Grid","eSampleName":"Advanced Exporting","eCategoryName":"Exporting"} }
-,{ path: '/:theme/grid/master-details-export.html', component: DataGridmasterdetailsexport, meta: {"eCompName":"Data Grid","eSampleName":"Hierarchy Exporting","eCategoryName":"Exporting"} }
-,{ path: '/:theme/grid/print.html', component: DataGridprint, meta: {"eCompName":"Data Grid","eSampleName":"Print","eCategoryName":"Exporting"} }
 ,{ path: '/:theme/heatmap/default.html', component: HeatMapdefault, meta: {"eCompName":"HeatMap","eSampleName":"Default Functionalities","eCategoryName":"HeatMap"} }
 ,{ path: '/:theme/heatmap/calendar-heatmap.html', component: HeatMapcalendarheatmap, meta: {"eCompName":"HeatMap","eSampleName":"Calendar Heatmap","eCategoryName":"HeatMap"} }
 ,{ path: '/:theme/heatmap/bubble-types.html', component: HeatMapbubbletypes, meta: {"eCompName":"HeatMap","eSampleName":"Bubble Types","eCategoryName":"Bubble HeatMap"} }
@@ -862,16 +799,11 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/heatmap/empty-points.html', component: HeatMapemptypoints, meta: {"eCompName":"HeatMap","eSampleName":"Empty Points","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/inversed-axis.html', component: HeatMapinversedaxis, meta: {"eCompName":"HeatMap","eSampleName":"Inversed Axis","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/opposed-axis.html', component: HeatMapopposedaxis, meta: {"eCompName":"HeatMap","eSampleName":"Opposed Axis","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/multi-level-labels.html', component: HeatMapmultilevellabels, meta: {"eCompName":"HeatMap","eSampleName":"Multi Level Labels","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/legend.html', component: HeatMaplegend, meta: {"eCompName":"HeatMap","eSampleName":"Legend Placement","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/large-data.html', component: HeatMaplargedata, meta: {"eCompName":"HeatMap","eSampleName":"Large Data","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/palette-mode.html', component: HeatMappalettemode, meta: {"eCompName":"HeatMap","eSampleName":"Palette Mode","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/rendering-mode.html', component: HeatMaprenderingmode, meta: {"eCompName":"HeatMap","eSampleName":"Rendering Mode","eCategoryName":"Features"} }
 ,{ path: '/:theme/heatmap/tooltip-template.html', component: HeatMaptooltiptemplate, meta: {"eCompName":"HeatMap","eSampleName":"Tooltip Template","eCategoryName":"Features"} }
-,{ path: '/:theme/inplace-editor/default.html', component: InPlaceEditordefault, meta: {"eCompName":"InPlaceEditor","eSampleName":"Overview","eCategoryName":"InPlaceEditor"} }
-,{ path: '/:theme/inplace-editor/dropdowns.html', component: InPlaceEditordropdowns, meta: {"eCompName":"InPlaceEditor","eSampleName":"DropDown Controls","eCategoryName":"InPlaceEditor"} }
-,{ path: '/:theme/inplace-editor/pickers.html', component: InPlaceEditorpickers, meta: {"eCompName":"InPlaceEditor","eSampleName":"Date Controls","eCategoryName":"InPlaceEditor"} }
-,{ path: '/:theme/inplace-editor/editor-form.html', component: InPlaceEditoreditorform, meta: {"eCompName":"InPlaceEditor","eSampleName":"Edit Post","eCategoryName":"Use Case"} }
 ,{ path: '/:theme/linear-gauge/default.html', component: LinearGaugedefault, meta: {"eCompName":"LinearGauge","eSampleName":"Default Functionalities","eCategoryName":"Linear Gauge"} }
 ,{ path: '/:theme/linear-gauge/container.html', component: LinearGaugecontainer, meta: {"eCompName":"LinearGauge","eSampleName":"Container","eCategoryName":"Linear Gauge"} }
 ,{ path: '/:theme/linear-gauge/ranges.html', component: LinearGaugeranges, meta: {"eCompName":"LinearGauge","eSampleName":"Ranges","eCategoryName":"Linear Gauge"} }
@@ -913,11 +845,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/maskedtextbox/default.html', component: MaskedTextBoxdefault, meta: {"eCompName":"MaskedTextBox","eSampleName":"Default Functionalities","eCategoryName":"MaskedTextBox"} }
 ,{ path: '/:theme/maskedtextbox/custom-mask.html', component: MaskedTextBoxcustommask, meta: {"eCompName":"MaskedTextBox","eSampleName":"Custom Mask","eCategoryName":"MaskedTextBox"} }
 ,{ path: '/:theme/maskedtextbox/formats.html', component: MaskedTextBoxformats, meta: {"eCompName":"MaskedTextBox","eSampleName":"Formats","eCategoryName":"MaskedTextBox"} }
-,{ path: '/:theme/menu/default.html', component: Menudefault, meta: {"eCompName":"Menu","eSampleName":"Default Functionalities","eCategoryName":"Menu"} }
-,{ path: '/:theme/menu/data-binding.html', component: Menudatabinding, meta: {"eCompName":"Menu","eSampleName":"Data Binding","eCategoryName":"Menu"} }
-,{ path: '/:theme/menu/scrollable.html', component: Menuscrollable, meta: {"eCompName":"Menu","eSampleName":"Scrollable","eCategoryName":"Menu"} }
-,{ path: '/:theme/menu/api.html', component: Menuapi, meta: {"eCompName":"Menu","eSampleName":"API","eCategoryName":"Menu"} }
-,{ path: '/:theme/menu/toolbar-integration.html', component: Menutoolbarintegration, meta: {"eCompName":"Menu","eSampleName":"Toolbar Integration","eCategoryName":"Menu"} }
 ,{ path: '/:theme/multi-select/default.html', component: MultiSelectdefault, meta: {"eCompName":"MultiSelect","eSampleName":"Default Functionalities","eCategoryName":"MultiSelect"} }
 ,{ path: '/:theme/multi-select/data-binding.html', component: MultiSelectdatabinding, meta: {"eCompName":"MultiSelect","eSampleName":"Data Binding","eCategoryName":"MultiSelect"} }
 ,{ path: '/:theme/multi-select/grouping-icon.html', component: MultiSelectgroupingicon, meta: {"eCompName":"MultiSelect","eSampleName":"Grouping","eCategoryName":"MultiSelect"} }
@@ -932,28 +859,22 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/numerictextbox/range-validation.html', component: NumericTextBoxrangevalidation, meta: {"eCompName":"NumericTextBox","eSampleName":"Range Validation","eCategoryName":"NumericTextBox"} }
 ,{ path: '/:theme/numerictextbox/custom-format.html', component: NumericTextBoxcustomformat, meta: {"eCompName":"NumericTextBox","eSampleName":"Custom Format","eCategoryName":"NumericTextBox"} }
 ,{ path: '/:theme/numerictextbox/restrict-decimals.html', component: NumericTextBoxrestrictdecimals, meta: {"eCompName":"NumericTextBox","eSampleName":"Restrict Decimals","eCategoryName":"NumericTextBox"} }
-,{ path: '/:theme/pdfviewer/default.html', component: PdfViewerdefault, meta: {"eCompName":"PdfViewer","eSampleName":"Default Functionalities","eCategoryName":"PdfViewer"} }
-,{ path: '/:theme/pivot-view/default.html', component: PivotTabledefault, meta: {"eCompName":"Pivot Table","eSampleName":"Default Functionalities","eCategoryName":"Pivot Table"} }
-,{ path: '/:theme/pivot-view/local.html', component: PivotTablelocal, meta: {"eCompName":"Pivot Table","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/pivot-view/remote.html', component: PivotTableremote, meta: {"eCompName":"Pivot Table","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/pivot-view/field-list.html', component: PivotTablefieldlist, meta: {"eCompName":"Pivot Table","eSampleName":"Field List","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/grouping-bar.html', component: PivotTablegroupingbar, meta: {"eCompName":"Pivot Table","eSampleName":"Grouping Bar","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/conditional-formatting.html', component: PivotTableconditionalformatting, meta: {"eCompName":"Pivot Table","eSampleName":"Conditional Formatting","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/summary-customization.html', component: PivotTablesummarycustomization, meta: {"eCompName":"Pivot Table","eSampleName":"Show/Hide Totals","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/calculated-field.html', component: PivotTablecalculatedfield, meta: {"eCompName":"Pivot Table","eSampleName":"Calculated Field","eCategoryName":"Formula"} }
-,{ path: '/:theme/pivot-view/aggregation.html', component: PivotTableaggregation, meta: {"eCompName":"Pivot Table","eSampleName":"Aggregation","eCategoryName":"Formula"} }
-,{ path: '/:theme/pivot-view/sorting.html', component: PivotTablesorting, meta: {"eCompName":"Pivot Table","eSampleName":"Default Sorting","eCategoryName":"Sorting"} }
-,{ path: '/:theme/pivot-view/value-sorting.html', component: PivotTablevaluesorting, meta: {"eCompName":"Pivot Table","eSampleName":"Value Sorting","eCategoryName":"Sorting"} }
-,{ path: '/:theme/pivot-view/filtering.html', component: PivotTablefiltering, meta: {"eCompName":"Pivot Table","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/pivot-view/label-filtering.html', component: PivotTablelabelfiltering, meta: {"eCompName":"Pivot Table","eSampleName":"Label Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/pivot-view/value-filtering.html', component: PivotTablevaluefiltering, meta: {"eCompName":"Pivot Table","eSampleName":"Value Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/pivot-view/charts.html', component: PivotTablecharts, meta: {"eCompName":"Pivot Table","eSampleName":"Chart","eCategoryName":"Integration"} }
-,{ path: '/:theme/pivot-view/virtual-scrolling.html', component: PivotTablevirtualscrolling, meta: {"eCompName":"Pivot Table","eSampleName":"Virtual Scrolling","eCategoryName":"Scrolling"} }
-,{ path: '/:theme/pivot-view/drill-through.html', component: PivotTabledrillthrough, meta: {"eCompName":"Pivot Table","eSampleName":"Drill Through","eCategoryName":"Miscellaneous"} }
-,{ path: '/:theme/pivot-view/editing.html', component: PivotTableediting, meta: {"eCompName":"Pivot Table","eSampleName":"Editing","eCategoryName":"Miscellaneous"} }
-,{ path: '/:theme/pivot-view/hyper-link.html', component: PivotTablehyperlink, meta: {"eCompName":"Pivot Table","eSampleName":"Hyperlink","eCategoryName":"Miscellaneous"} }
-,{ path: '/:theme/pivot-view/defer-update.html', component: PivotTabledeferupdate, meta: {"eCompName":"Pivot Table","eSampleName":"Defer Layout Update","eCategoryName":"Miscellaneous"} }
-,{ path: '/:theme/pivot-view/exporting.html', component: PivotTableexporting, meta: {"eCompName":"Pivot Table","eSampleName":"Export","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/pivot-view/default.html', component: PivotGriddefault, meta: {"eCompName":"Pivot Grid","eSampleName":"Default Functionalities","eCategoryName":"Pivot Grid"} }
+,{ path: '/:theme/pivot-view/local.html', component: PivotGridlocal, meta: {"eCompName":"Pivot Grid","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/pivot-view/remote.html', component: PivotGridremote, meta: {"eCompName":"Pivot Grid","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/pivot-view/field-list.html', component: PivotGridfieldlist, meta: {"eCompName":"Pivot Grid","eSampleName":"Field List","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/grouping-bar.html', component: PivotGridgroupingbar, meta: {"eCompName":"Pivot Grid","eSampleName":"Grouping Bar","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/conditional-formatting.html', component: PivotGridconditionalformatting, meta: {"eCompName":"Pivot Grid","eSampleName":"Conditional Formatting","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/calculated-field.html', component: PivotGridcalculatedfield, meta: {"eCompName":"Pivot Grid","eSampleName":"Calculated Field","eCategoryName":"Formula"} }
+,{ path: '/:theme/pivot-view/aggregation.html', component: PivotGridaggregation, meta: {"eCompName":"Pivot Grid","eSampleName":"Aggregation","eCategoryName":"Formula"} }
+,{ path: '/:theme/pivot-view/sorting.html', component: PivotGridsorting, meta: {"eCompName":"Pivot Grid","eSampleName":"Default Sorting","eCategoryName":"Sorting"} }
+,{ path: '/:theme/pivot-view/value-sorting.html', component: PivotGridvaluesorting, meta: {"eCompName":"Pivot Grid","eSampleName":"Value Sorting","eCategoryName":"Sorting"} }
+,{ path: '/:theme/pivot-view/filtering.html', component: PivotGridfiltering, meta: {"eCompName":"Pivot Grid","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/pivot-view/label-filtering.html', component: PivotGridlabelfiltering, meta: {"eCompName":"Pivot Grid","eSampleName":"Label Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/pivot-view/value-filtering.html', component: PivotGridvaluefiltering, meta: {"eCompName":"Pivot Grid","eSampleName":"Value Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/pivot-view/charts.html', component: PivotGridcharts, meta: {"eCompName":"Pivot Grid","eSampleName":"Chart","eCategoryName":"Integration"} }
+,{ path: '/:theme/pivot-view/virtual-scrolling.html', component: PivotGridvirtualscrolling, meta: {"eCompName":"Pivot Grid","eSampleName":"Virtual Scrolling","eCategoryName":"Scrolling"} }
+,{ path: '/:theme/pivot-view/exporting.html', component: PivotGridexporting, meta: {"eCompName":"Pivot Grid","eSampleName":"Export","eCategoryName":"Miscellaneous"} }
 ,{ path: '/:theme/range-navigator/default.html', component: RangeNavigatordefault, meta: {"eCompName":"Range Navigator","eSampleName":"Default","eCategoryName":"Range Navigator"} }
 ,{ path: '/:theme/range-navigator/light-weight.html', component: RangeNavigatorlightweight, meta: {"eCompName":"Range Navigator","eSampleName":"Lightweight","eCategoryName":"Range Navigator"} }
 ,{ path: '/:theme/range-navigator/date-time.html', component: RangeNavigatordatetime, meta: {"eCompName":"Range Navigator","eSampleName":"DateTime","eCategoryName":"Axis"} }
@@ -966,30 +887,27 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/range-navigator/filter.html', component: RangeNavigatorfilter, meta: {"eCompName":"Range Navigator","eSampleName":"Filter","eCategoryName":"Customization"} }
 ,{ path: '/:theme/range-navigator/export.html', component: RangeNavigatorexport, meta: {"eCompName":"Range Navigator","eSampleName":"Print and Export","eCategoryName":"Export"} }
 ,{ path: '/:theme/range-navigator/right-to-left.html', component: RangeNavigatorrighttoleft, meta: {"eCompName":"Range Navigator","eSampleName":"RTL","eCategoryName":"RTL"} }
-,{ path: '/:theme/rich-text-editor/tools.html', component: RichTextEditortools, meta: {"eCompName":"RichTextEditor","eSampleName":"Overview","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/default.html', component: RichTextEditordefault, meta: {"eCompName":"RichTextEditor","eSampleName":"Default Functionalities","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/image.html', component: RichTextEditorimage, meta: {"eCompName":"RichTextEditor","eSampleName":"Image","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/inline.html', component: RichTextEditorinline, meta: {"eCompName":"RichTextEditor","eSampleName":"Inline","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/iframe.html', component: RichTextEditoriframe, meta: {"eCompName":"RichTextEditor","eSampleName":"IFrame","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/print.html', component: RichTextEditorprint, meta: {"eCompName":"RichTextEditor","eSampleName":"Print","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/ajax-load.html', component: RichTextEditorajaxload, meta: {"eCompName":"RichTextEditor","eSampleName":"Ajax Content","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/api.html', component: RichTextEditorapi, meta: {"eCompName":"RichTextEditor","eSampleName":"API","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/events.html', component: RichTextEditorevents, meta: {"eCompName":"RichTextEditor","eSampleName":"Events","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/blog-posting.html', component: RichTextEditorblogposting, meta: {"eCompName":"RichTextEditor","eSampleName":"Use Case","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rich-text-editor/types.html', component: RichTextEditortypes, meta: {"eCompName":"RichTextEditor","eSampleName":"Type","eCategoryName":"Toolbar"} }
-,{ path: '/:theme/rich-text-editor/custom-toolbar.html', component: RichTextEditorcustomtoolbar, meta: {"eCompName":"RichTextEditor","eSampleName":"Custom Tool","eCategoryName":"Toolbar"} }
-,{ path: '/:theme/rich-text-editor/markdown-editor.html', component: RichTextEditormarkdowneditor, meta: {"eCompName":"RichTextEditor","eSampleName":"Overview","eCategoryName":"Markdown Editor"} }
-,{ path: '/:theme/rich-text-editor/markdown-preview.html', component: RichTextEditormarkdownpreview, meta: {"eCompName":"RichTextEditor","eSampleName":"Preview","eCategoryName":"Markdown Editor"} }
-,{ path: '/:theme/rich-text-editor/markdown-format.html', component: RichTextEditormarkdownformat, meta: {"eCompName":"RichTextEditor","eSampleName":"Custom Format","eCategoryName":"Markdown Editor"} }
+,{ path: '/:theme/rte/tools.html', component: RichTextEditortools, meta: {"eCompName":"RichTextEditor","eSampleName":"Overview","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/default.html', component: RichTextEditordefault, meta: {"eCompName":"RichTextEditor","eSampleName":"Default Functionalities","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/image.html', component: RichTextEditorimage, meta: {"eCompName":"RichTextEditor","eSampleName":"Image","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/inline.html', component: RichTextEditorinline, meta: {"eCompName":"RichTextEditor","eSampleName":"Inline","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/iframe.html', component: RichTextEditoriframe, meta: {"eCompName":"RichTextEditor","eSampleName":"IFrame","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/print.html', component: RichTextEditorprint, meta: {"eCompName":"RichTextEditor","eSampleName":"Print","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/ajax-load.html', component: RichTextEditorajaxload, meta: {"eCompName":"RichTextEditor","eSampleName":"Ajax Content","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/api.html', component: RichTextEditorapi, meta: {"eCompName":"RichTextEditor","eSampleName":"API","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/events.html', component: RichTextEditorevents, meta: {"eCompName":"RichTextEditor","eSampleName":"Events","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/blog-posting.html', component: RichTextEditorblogposting, meta: {"eCompName":"RichTextEditor","eSampleName":"Use Case","eCategoryName":"RichTextEditor"} }
+,{ path: '/:theme/rte/types.html', component: RichTextEditortypes, meta: {"eCompName":"RichTextEditor","eSampleName":"Type","eCategoryName":"Toolbar"} }
+,{ path: '/:theme/rte/custom-toolbar.html', component: RichTextEditorcustomtoolbar, meta: {"eCompName":"RichTextEditor","eSampleName":"Custom Tool","eCategoryName":"Toolbar"} }
+,{ path: '/:theme/rte/markdown-editor.html', component: RichTextEditormarkdowneditor, meta: {"eCompName":"RichTextEditor","eSampleName":"Overview","eCategoryName":"Markdown Editor"} }
+,{ path: '/:theme/rte/markdown-preview.html', component: RichTextEditormarkdownpreview, meta: {"eCompName":"RichTextEditor","eSampleName":"Preview","eCategoryName":"Markdown Editor"} }
+,{ path: '/:theme/rte/markdown-format.html', component: RichTextEditormarkdownformat, meta: {"eCompName":"RichTextEditor","eSampleName":"Custom Format","eCategoryName":"Markdown Editor"} }
 ,{ path: '/:theme/schedule/default.html', component: Scheduledefault, meta: {"eCompName":"Schedule","eSampleName":"Default Functionalities","eCategoryName":"Schedule"} }
 ,{ path: '/:theme/schedule/local-data.html', component: Schedulelocaldata, meta: {"eCompName":"Schedule","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/schedule/remote-data.html', component: Scheduleremotedata, meta: {"eCompName":"Schedule","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/schedule/calendar-integration.html', component: Schedulecalendarintegration, meta: {"eCompName":"Schedule","eSampleName":"Sync Google Calendar","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/schedule/default-events.html', component: Scheduledefaultevents, meta: {"eCompName":"Schedule","eSampleName":"Normal Events","eCategoryName":"Appointments"} }
 ,{ path: '/:theme/schedule/recurrence-events.html', component: Schedulerecurrenceevents, meta: {"eCompName":"Schedule","eSampleName":"Recurring Events","eCategoryName":"Appointments"} }
-,{ path: '/:theme/schedule/block-events.html', component: Scheduleblockevents, meta: {"eCompName":"Schedule","eSampleName":"Blocking Dates and Time","eCategoryName":"Appointments"} }
 ,{ path: '/:theme/schedule/timezone.html', component: Scheduletimezone, meta: {"eCompName":"Schedule","eSampleName":"Timezone","eCategoryName":"Appointments"} }
-,{ path: '/:theme/schedule/external-dragdrop.html', component: Scheduleexternaldragdrop, meta: {"eCompName":"Schedule","eSampleName":"External Drag and Drop","eCategoryName":"Appointments"} }
-,{ path: '/:theme/schedule/virtual-scrolling.html', component: Schedulevirtualscrolling, meta: {"eCompName":"Schedule","eSampleName":"Virtual Scrolling ","eCategoryName":"Scrolling"} }
 ,{ path: '/:theme/schedule/views.html', component: Scheduleviews, meta: {"eCompName":"Schedule","eSampleName":"Basic Views","eCategoryName":"Views"} }
 ,{ path: '/:theme/schedule/timeline.html', component: Scheduletimeline, meta: {"eCompName":"Schedule","eSampleName":"Timeline Views","eCategoryName":"Views"} }
 ,{ path: '/:theme/schedule/agenda.html', component: Scheduleagenda, meta: {"eCompName":"Schedule","eSampleName":"Agenda View","eCategoryName":"Views"} }
@@ -1014,11 +932,10 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/schedule/editor-template.html', component: Scheduleeditortemplate, meta: {"eCompName":"Schedule","eSampleName":"Editor Template","eCategoryName":"Editor Window"} }
 ,{ path: '/:theme/schedule/header-rows.html', component: Scheduleheaderrows, meta: {"eCompName":"Schedule","eSampleName":"Header Rows","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/time-scale.html', component: Scheduletimescale, meta: {"eCompName":"Schedule","eSampleName":"Timescale","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/context-menu.html', component: Schedulecontextmenu, meta: {"eCompName":"Schedule","eSampleName":"Context Menu","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/header-bar.html', component: Scheduleheaderbar, meta: {"eCompName":"Schedule","eSampleName":"Header Bar","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/scroll-to.html', component: Schedulescrollto, meta: {"eCompName":"Schedule","eSampleName":"Scroll Time","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/work-days.html', component: Scheduleworkdays, meta: {"eCompName":"Schedule","eSampleName":"Work Days","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/hide-weekend.html', component: Schedulehideweekend, meta: {"eCompName":"Schedule","eSampleName":"Hide Non-Working Days","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/hide-weekend.html', component: Schedulehideweekend, meta: {"eCompName":"Schedule","eSampleName":"Hide Weekend","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/work-hours.html', component: Scheduleworkhours, meta: {"eCompName":"Schedule","eSampleName":"Work Hours","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/startend-hour.html', component: Schedulestartendhour, meta: {"eCompName":"Schedule","eSampleName":"Day Hour Limit","eCategoryName":"Customization"} }
 ,{ path: '/:theme/schedule/cell-dimension.html', component: Schedulecelldimension, meta: {"eCompName":"Schedule","eSampleName":"Cell Dimension","eCategoryName":"Customization"} }
@@ -1031,6 +948,7 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/sidebar/docking-sidebar.html', component: Sidebardockingsidebar, meta: {"eCompName":"Sidebar","eSampleName":"Dock","eCategoryName":"Sidebar"} }
 ,{ path: '/:theme/sidebar/api.html', component: Sidebarapi, meta: {"eCompName":"Sidebar","eSampleName":"API","eCategoryName":"Sidebar"} }
 ,{ path: '/:theme/sidebar/sidebar-list.html', component: Sidebarsidebarlist, meta: {"eCompName":"Sidebar","eSampleName":"Sidebar With ListView","eCategoryName":"Sidebar"} }
+,{ path: '/:theme/sidebar/multiple-sidebar.html', component: Sidebarmultiplesidebar, meta: {"eCompName":"Sidebar","eSampleName":"Multiple Sidebar","eCategoryName":"Sidebar"} }
 ,{ path: '/:theme/slider/default.html', component: Sliderdefault, meta: {"eCompName":"Slider","eSampleName":"Default Functionalities","eCategoryName":"Slider"} }
 ,{ path: '/:theme/slider/ticks.html', component: Sliderticks, meta: {"eCompName":"Slider","eSampleName":"Ticks","eCategoryName":"Slider"} }
 ,{ path: '/:theme/slider/tooltip.html', component: Slidertooltip, meta: {"eCompName":"Slider","eSampleName":"Tooltip","eCategoryName":"Slider"} }
@@ -1054,9 +972,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/sparkline/customization.html', component: Sparklinecustomization, meta: {"eCompName":"Sparkline","eSampleName":"Customization","eCategoryName":"Sparkline"} }
 ,{ path: '/:theme/sparkline/live-update.html', component: Sparklineliveupdate, meta: {"eCompName":"Sparkline","eSampleName":"Live Update","eCategoryName":"Sparkline"} }
 ,{ path: '/:theme/sparkline/range-band.html', component: Sparklinerangeband, meta: {"eCompName":"Sparkline","eSampleName":"Range Band","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/splitter/default.html', component: Splitterdefault, meta: {"eCompName":"Splitter","eSampleName":"Default Functionalities","eCategoryName":"Splitter"} }
-,{ path: '/:theme/splitter/details-view.html', component: Splitterdetailsview, meta: {"eCompName":"Splitter","eSampleName":"Details View","eCategoryName":"Use Case"} }
-,{ path: '/:theme/splitter/code-editor-layout.html', component: Splittercodeeditorlayout, meta: {"eCompName":"Splitter","eSampleName":"Code Editor Layout","eCategoryName":"Use Case"} }
 ,{ path: '/:theme/tab/default.html', component: Tabdefault, meta: {"eCompName":"Tab","eSampleName":"Default Functionalities","eCategoryName":"Tab"} }
 ,{ path: '/:theme/tab/orientation.html', component: Taborientation, meta: {"eCompName":"Tab","eSampleName":"Orientation","eCategoryName":"Tab"} }
 ,{ path: '/:theme/tab/responsive.html', component: Tabresponsive, meta: {"eCompName":"Tab","eSampleName":"Responsive Modes","eCategoryName":"Tab"} }
@@ -1081,22 +996,6 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/tooltip/tooltip-menu.html', component: Tooltiptooltipmenu, meta: {"eCompName":"Tooltip","eSampleName":"Tooltip menu","eCategoryName":"Tooltip"} }
 ,{ path: '/:theme/tooltip/html-template.html', component: Tooltiphtmltemplate, meta: {"eCompName":"Tooltip","eSampleName":"HTML Content","eCategoryName":"Tooltip"} }
 ,{ path: '/:theme/tooltip/api.html', component: Tooltipapi, meta: {"eCompName":"Tooltip","eSampleName":"API","eCategoryName":"Tooltip"} }
-,{ path: '/:theme/tree-grid/default.html', component: TreeGriddefault, meta: {"eCompName":"Tree Grid","eSampleName":"Default Functionalities","eCategoryName":"Tree Grid"} }
-,{ path: '/:theme/tree-grid/paging.html', component: TreeGridpaging, meta: {"eCompName":"Tree Grid","eSampleName":"Paging","eCategoryName":"Tree Grid"} }
-,{ path: '/:theme/tree-grid/sorting.html', component: TreeGridsorting, meta: {"eCompName":"Tree Grid","eSampleName":"Sorting","eCategoryName":"Tree Grid"} }
-,{ path: '/:theme/tree-grid/selection.html', component: TreeGridselection, meta: {"eCompName":"Tree Grid","eSampleName":"Selection","eCategoryName":"Tree Grid"} }
-,{ path: '/:theme/tree-grid/contextmenu.html', component: TreeGridcontextmenu, meta: {"eCompName":"Tree Grid","eSampleName":"Context Menu","eCategoryName":"Tree Grid"} }
-,{ path: '/:theme/tree-grid/export.html', component: TreeGridexport, meta: {"eCompName":"Tree Grid","eSampleName":"Exporting","eCategoryName":"Tree Grid"} }
-,{ path: '/:theme/tree-grid/localdata.html', component: TreeGridlocaldata, meta: {"eCompName":"Tree Grid","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/tree-grid/remotedata.html', component: TreeGridremotedata, meta: {"eCompName":"Tree Grid","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/tree-grid/selfreference.html', component: TreeGridselfreference, meta: {"eCompName":"Tree Grid","eSampleName":"Self Reference","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/tree-grid/reorder.html', component: TreeGridreorder, meta: {"eCompName":"Tree Grid","eSampleName":"Reorder","eCategoryName":"Columns"} }
-,{ path: '/:theme/tree-grid/columnmenu.html', component: TreeGridcolumnmenu, meta: {"eCompName":"Tree Grid","eSampleName":"Column Menu","eCategoryName":"Columns"} }
-,{ path: '/:theme/tree-grid/dialogediting.html', component: TreeGriddialogediting, meta: {"eCompName":"Tree Grid","eSampleName":"Dialog Editing","eCategoryName":"Editing"} }
-,{ path: '/:theme/tree-grid/commandcolumn.html', component: TreeGridcommandcolumn, meta: {"eCompName":"Tree Grid","eSampleName":"Command Column","eCategoryName":"Editing"} }
-,{ path: '/:theme/tree-grid/filtering.html', component: TreeGridfiltering, meta: {"eCompName":"Tree Grid","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/tree-grid/filtermenu.html', component: TreeGridfiltermenu, meta: {"eCompName":"Tree Grid","eSampleName":"Menu Filter","eCategoryName":"Filtering"} }
-,{ path: '/:theme/tree-grid/search.html', component: TreeGridsearch, meta: {"eCompName":"Tree Grid","eSampleName":"Search","eCategoryName":"Filtering"} }
 ,{ path: '/:theme/treemap/default.html', component: TreeMapdefault, meta: {"eCompName":"TreeMap","eSampleName":"Default Functionalities","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/layout.html', component: TreeMaplayout, meta: {"eCompName":"TreeMap","eSampleName":"Layout","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/drilldown.html', component: TreeMapdrilldown, meta: {"eCompName":"TreeMap","eSampleName":"Drilldown","eCategoryName":"TreeMap"} }
@@ -1114,6 +1013,7 @@ export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/
 ,{ path: '/:theme/treeview/multiple-selection.html', component: TreeViewmultipleselection, meta: {"eCompName":"TreeView","eSampleName":"Multiple Selection","eCategoryName":"TreeView"} }
 ,{ path: '/:theme/treeview/drag-and-drop.html', component: TreeViewdraganddrop, meta: {"eCompName":"TreeView","eSampleName":"Drag and Drop","eCategoryName":"TreeView"} }
 ,{ path: '/:theme/treeview/template.html', component: TreeViewtemplate, meta: {"eCompName":"TreeView","eSampleName":"Template","eCategoryName":"TreeView"} }
+,{ path: '/:theme/treeview/right-to-left.html', component: TreeViewrighttoleft, meta: {"eCompName":"TreeView","eSampleName":"RTL","eCategoryName":"TreeView"} }
 ,{ path: '/:theme/treeview/local-data.html', component: TreeViewlocaldata, meta: {"eCompName":"TreeView","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/treeview/remote-data.html', component: TreeViewremotedata, meta: {"eCompName":"TreeView","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/uploader/default.html', component: Uploaderdefault, meta: {"eCompName":"Uploader","eSampleName":"Default Functionalities","eCategoryName":"Uploader"} }
