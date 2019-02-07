@@ -26,6 +26,7 @@ import Vue from 'vue';
 import { TreeMapPlugin,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { Continent_Data } from '../treemap/treemap-data/pie-chart';
 import { AccumulationChartPlugin, AccumulationChart,  PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
+import Template from './pie-temp.vue';
 Vue.use(TreeMapPlugin);
 Vue.use(AccumulationChartPlugin);
 AccumulationChart.Inject(AccumulationTooltip);
@@ -52,7 +53,7 @@ data:function(){
             border: { color: 'black', width: 0.5 },
             labelFormat: '${Gender} : ${Population}',
             templatePosition: 'Center',
-            labelTemplate: '<div style="height:{{:PieHeight}};width:{{:PieWidth}};" id ={{:Id}}></div>',
+            labelTemplate: function () { return {template: Template}; },
         },
         levels: [
             {

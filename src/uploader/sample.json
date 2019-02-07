@@ -1,23 +1,23 @@
 {
-    "name": "Uploader",
+    "name": "File Upload",
     "directory": "uploader",
-    "category": "Editors",
+    "category": "Inputs",
     "type": "update",
     "ftName": "file-upload",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
+            "type": "update",
             "description":"This sample demonstrates default functionalities of the file uploader component, including automatic upload and asynchronous mode options.",
             "api":{"Uploader": [ "asyncSettings", "dropArea" ]} 
         },
         {
             "url": "chunk-upload",
             "name": "Chunk Upload",
-            "category": "Uploader",
-            "type": "update",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample demonstrates how to upload files as chunks in the file upload component, which helps when uploading a large file to a server.",
             "api":{"Uploader": [ "asyncSettings","dropArea" ]} 
@@ -25,7 +25,7 @@
         {
             "url": "custom-file-list",
             "name": "Template",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample demonstrates how to customize the file list with buttons using a template, and how to upload a file programmatically in the file upload component.",
             "api":{"Uploader": [ "asyncSettings","dropArea", "selected", "progress", "success", "failure"]}
@@ -33,7 +33,7 @@
         {
             "url": "preload-files",
             "name": "Preload Files",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample demonstrates how to preload files in the file upload component, which helps users view and manipulate server files.",
             "api":{"Uploader": [ "asyncSettings", "files", "dropArea" ]} 
@@ -41,7 +41,7 @@
         {
             "url": "file-validation",
             "name": "File Validation",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample shows how to validate files before uploading them to a server by allowing or denying certain file extensions, setting minimum and maximum file sizes, and alerting users about duplicate files.",
             "api":{"Uploader": [ "asyncSettings", "allowedExtensions", "dropArea", "minFileSize", "maxFileSize", "selected" ]}
@@ -49,7 +49,7 @@
         {
             "url": "image-preview",
             "name": "Image Preview",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample demonstrates how to display a preview of an image file before and after uploading it to a server.",
             "api":{"Uploader": [ "asyncSettings", "allowedExtensions", "dropArea", "selected", "progress", "success", "failure"]}
@@ -57,7 +57,7 @@
         {
             "url": "file-upload-with-forms",
             "name": "Form Support",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample demonstrates how to integrate the file upload component in an HTML form (synchronous mode) and submit a form with selected files.",
             "api":{"Uploader": [ "dropArea", "autoUpload", "allowedExtensions", "selected"  ]} 
@@ -65,7 +65,7 @@
         {
             "url": "custom-drop-area",
             "name": "Custom Drop Area",
-            "category": "Uploader",
+            "category": "File Upload",
             "hideOnDevice": true,
             "description":"This sample demonstrates how to upload a file using drag and drop and how to configure a custom drop area for the file upload component.",
             "api":{"Uploader": [ "asyncSettings","dropArea", "template", "allowedExtensions", "success", "failure", "selected", "progress" ]}

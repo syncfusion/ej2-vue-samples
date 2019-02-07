@@ -43,7 +43,7 @@ export default Vue.extend({
             longitude: 90.52734374999999
         },
         zoomSettings: {
-            enable: true,
+            enable: false,
             zoomFactor: 3.5,
             mouseWheelZoom: false,
             toolbars: []
@@ -59,7 +59,7 @@ export default Vue.extend({
         },
         animationDuration: 1000,
         shapePropertyPath: 'name',
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeDataPath: 'name',
         dataSource: [
                     {

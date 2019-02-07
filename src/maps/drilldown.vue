@@ -8,7 +8,7 @@
     <p id="text" style="display:inline-block;"></p>
 </div>
 <div class="control-section">
-<ejs-maps id='mapdrilldown' :shapeSelected='shapeSelected' :load='load' :zoomSettings='zoomSettings'>
+<ejs-maps ref="maps" id='mapdrilldown' :shapeSelected='shapeSelected' :loaded='loaded' :load='load' :zoomSettings='zoomSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :layerType='layerType' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :markerSettings='markerSettings' :tooltipSettings='tooltipSettings'></e-layer>
         <e-layer :shapeData='shapeData1' :layerType='layerType1' :highlightSettings='highlightSettings1' :shapeSettings='shapeSettings1' :tooltipSettings='tooltipSettings1'></e-layer>
@@ -68,7 +68,9 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Highlight, MapsTooltip, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MouseEventArgs } from '@syncfusion/ej2-base';
 Vue.use(MapsPlugin);
+let touchmove = false;
 export default Vue.extend({
 data:function(){
     return{
@@ -78,8 +80,8 @@ data:function(){
         layerType: 'Geometry',
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/default-datasource.json'),
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        dataSource: new MapAjax('./src/maps/map-data/default-datasource.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeSettings: {
                     colorValuePath: 'drillColor'
         },
@@ -147,7 +149,7 @@ data:function(){
                     },
             ],
             layerType1: 'Geometry',
-            shapeData1: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/africa.json'),
+            shapeData1: new MapAjax('./src/maps/map-data/africa.json'),
             shapeSettings1: {
                     fill: '#80306A'
             },
@@ -160,7 +162,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType2: 'Geometry',
-            shapeData2: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/europe.json'),
+            shapeData2: new MapAjax('./src/maps/map-data/europe.json'),
             shapeSettings2: {
                     fill: '#622D6C'
             },
@@ -173,7 +175,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType3: 'Geometry',
-            shapeData3: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/asia.json'),
+            shapeData3: new MapAjax('./src/maps/map-data/asia.json'),
             shapeSettings3: {
                     fill: '#462A6D'
             },
@@ -186,7 +188,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType4: 'Geometry',
-            shapeData4: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/north-america.json'),
+            shapeData4: new MapAjax('./src/maps/map-data/north-america.json'),
             shapeSettings4: {
                     fill: '#C13664'
             },
@@ -199,7 +201,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType5: 'Geometry',
-            shapeData5: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/south-america.json'),
+            shapeData5: new MapAjax('./src/maps/map-data/south-america.json'),
             shapeSettings5: {
                     fill: '#9C3367'
             },
@@ -212,7 +214,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType6: 'Geometry',
-            shapeData6: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/oceania.json'),
+            shapeData6: new MapAjax('./src/maps/map-data/oceania.json'),
             shapeSettings6: {
                     fill: '#2A2870'
                 },
@@ -236,28 +238,32 @@ methods:{
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
-    shapeSelected:function(args){
-            let maps=document.getElementById('mapdrilldown');    
+    loaded: function (args) {
+        let mapsSVG = document.getElementById('mapdrilldown_svg');
+        mapsSVG.addEventListener('touchmove', (e) => {
+            touchmove = true; }, false);
+    },
+    shapeSelected:function(args){   
             let shape = (args.shapeData).continent;
-            if (maps.ej2_instances[0].baseLayerIndex === 0) {
+            if (this.$refs.maps.ej2Instances.baseLayerIndex === 0 && !touchmove) {
                 if (shape === 'Africa') {
-                    maps.ej2_instances[0].baseLayerIndex = 1;
-                    maps.ej2_instances[0].refresh();
+                    this.$refs.maps.ej2Instances.baseLayerIndex = 1;
+                    this.$refs.maps.ej2Instances.refresh();
                 } else if (shape === 'Europe') {
-                    maps.ej2_instances[0].baseLayerIndex = 2;
-                    maps.ej2_instances[0].refresh();
+                    this.$refs.maps.ej2Instances.baseLayerIndex = 2;
+                    this.$refs.maps.ej2Instances.refresh();
                 } else if (shape === 'Asia') {
-                    maps.ej2_instances[0].baseLayerIndex = 3;
-                    maps.ej2_instances[0].refresh();
+                    this.$refs.maps.ej2Instances.baseLayerIndex = 3;
+                    this.$refs.maps.ej2Instances.refresh();
                 } else if (shape === 'North America') {
-                    maps.ej2_instances[0].baseLayerIndex = 4;
-                    maps.ej2_instances[0].refresh();
+                    this.$refs.maps.ej2Instances.baseLayerIndex = 4;
+                    this.$refs.maps.ej2Instances.refresh();
                 } else if (shape === 'South America') {
-                    maps.ej2_instances[0].baseLayerIndex = 5;
-                    maps.ej2_instances[0].refresh();
+                    this.$refs.maps.ej2Instances.baseLayerIndex = 5;
+                    this.$refs.maps.ej2Instances.refresh();
                 } else if (shape === 'Australia') {
-                    maps.ej2_instances[0].baseLayerIndex = 6;
-                    maps.ej2_instances[0].refresh();
+                    this.$refs.maps.ej2Instances.baseLayerIndex = 6;
+                    this.$refs.maps.ej2Instances.refresh();
                 }
                 let button = document.getElementById('button');
                 button.style.display = 'block';
@@ -266,11 +272,11 @@ methods:{
                 (document.getElementById('text')).innerHTML = shape;
                 (document.getElementById('symbol')).style.visibility = 'visible';
             }
+            touchmove = false;
     },
-    clickCategory:function(args){
-        let maps=document.getElementById('mapdrilldown');       
-        maps.ej2_instances[0].baseLayerIndex = 0;
-        maps.ej2_instances[0].refresh();
+    clickCategory:function(args){      
+        this.$refs.maps.ej2Instances.baseLayerIndex = 0;
+        this.$refs.maps.ej2Instances.refresh();
         let button = document.getElementById('button');
         button.style.display = 'none';
         document.getElementById('content').innerHTML = 'Click on a shape to drill';

@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
                     :currentView="currentView" :actionBegin="onActionBegin" :actionComplete="onActionComplete" :showHeaderBar="showHeaderBar">
                     <e-views>
                         <e-view option="Month"></e-view>
@@ -26,7 +26,7 @@
 
         <div id="action-description">
             <p>
-                This demo shows the way of adding custom items into the Schedule header bar. Here, an employee image is added to the header
+                This demo shows the way of adding custom items into the Scheduler header bar. Here, an employee image is added to the header
                 bar, clicking on which will open the popup showing that person's short profile information.
             </p>
         </div>
@@ -34,7 +34,7 @@
         <div id="description">
             <p>
                 In this demo, a popup has been designed separately with a person’s profile info and kept in a hidden state initially. A custom
-                item has been added to the Schedule header bar within the
+                item has been added to the Scheduler header bar within the
                 <code>actionBegin</code> event by checking for the request type as
                 <code>toolbarItemRendering</code> which triggers at the time of header bar items rendering on the Schedule.
             </p>
@@ -45,7 +45,7 @@
                 action of showing or hiding the popup on clicking the custom item has been done within it.
             </p>
             <p>
-                In case, if the header bar of Schedule needs to be hidden, it can be done by setting false to
+                In case, if the header bar of Scheduler needs to be hidden, it can be done by setting false to
                 <code>showHeaderBar</code> property.
             </p>
         </div>
@@ -170,17 +170,11 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             },
             onActionBegin: function (args) {
                 if (args.requestType === 'toolbarItemRendering') {
@@ -226,9 +220,8 @@
             },
             // function to handle the CheckBox change event
             onChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
-                scheduleObj.ej2_instances[0].showHeaderBar = args.checked;
-                scheduleObj.ej2_instances[0].dataBind();
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.showHeaderBar = args.checked;
             }
         }
     });

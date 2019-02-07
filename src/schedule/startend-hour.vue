@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
                     :eventRendered="oneventRendered" :workHours="workHours" :startHour="startHour" :endHour="endHour">
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -59,7 +59,7 @@
 
         <div id="description">
             <p>
-                In this demo, the Schedule is made to display from 8 AM to 8 PM and the rest of the hours are hidden, as it is restricted
+                In this demo, the Scheduler is made to display from 8 AM to 8 PM and the rest of the hours are hidden, as it is restricted
                 to start from
                 <code>08:00</code> hours and end on
                 <code>20:00</code> hours by setting to
@@ -98,26 +98,20 @@
         },
         methods: {
             onSubmit: function () {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let start = document.getElementById('startTime');
                 let end = document.getElementById('endTime');
-                scheduleObj.ej2_instances[0].startHour = start.value;
-                scheduleObj.ej2_instances[0].endHour = end.value;
-                scheduleObj.ej2_instances[0].dataBind();
+                scheduleObj.startHour = start.value;
+                scheduleObj.endHour = end.value;
+                scheduleObj.dataBind();
             },
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
                     args.element.style.backgroundColor = categoryColor;
                 }
-
-            }
         }
     });
 

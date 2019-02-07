@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
                     :eventRendered="oneventRendered">
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -38,7 +38,7 @@
         </div>
         <div id="description">
             <p>
-                In this demo, the way of manually scrolling to specific time on schedule has been demonstrated by making use of the
+                In this demo, the way of manually scrolling to specific time on Scheduler has been demonstrated by making use of the
                 <code>scrollTo</code> method of Schedule.
             </p>
         </div>
@@ -48,7 +48,7 @@
     import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, TimelineViews, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     import { TimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
     Vue.use(SchedulePlugin);
     Vue.use(TimePickerPlugin);
@@ -66,21 +66,15 @@
         },
         methods: {
             onChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
-                scheduleObj.ej2_instances[0].scrollTo(args.text);
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.scrollTo(args.text);
             },
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

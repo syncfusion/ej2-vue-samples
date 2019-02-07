@@ -20,15 +20,11 @@
     </div>
 </div>
 </template>
-<style>
-    .control-wrapper {
-        margin: 0 auto;
-        width: 250px;
-    }
-</style>
+
 <script>
 import Vue from "vue";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(DropDownListPlugin);
 
@@ -37,10 +33,7 @@ export default Vue.extend ({
         return {
             waterMark: 'Select a game',
             height: '220px',
-            sportsData: ['American Football', 'Badminton', 'Basketball', 'Cricket',
-                'Football', 'Golf', 'Gymnastics',
-                'Hockey', 'Rugby', 'Snooker', 'Tennis'
-            ]
+            sportsData: data['sportsDataa']
         };
     }
 });

@@ -8,7 +8,7 @@
                         <div id="rule-output">FREQ=DAILY;INTERVAL=1;</div>
                     </div>
                 </div>
-                <ejs-recurrenceeditor id='editor' :selectedType='selectedType' :change="onChange"></ejs-recurrenceeditor>
+                <ejs-recurrenceeditor id='editor' ref="EditorObj" :selectedType='selectedType' :change="onChange"></ejs-recurrenceeditor>
             </div>
         </div>
 
@@ -17,7 +17,7 @@
                 This demo showcases the recurrence rule generation based on the options selected from the Recurrence editor and it usually
                 follows the
                 <a href="https://tools.ietf.org/html/rfc5545#section-3.3.10" target="_blank">iCalendar</a> specifications.
-                This generated recurrence rule string is a valid one to be used with the Schedule event’s recurrence rule
+                This generated recurrence rule string is a valid one to be used with the Scheduler event’s recurrence rule
                 field.
             </p>
         </div>
@@ -68,8 +68,8 @@
             }
         },
         mounted: function () {
-            let recObject = document.getElementById('editor');
-            recObject.ej2_instances[0].setRecurrenceRule('FREQ=DAILY;INTERVAL=2;COUNT=8');
+            let recObject = this.$refs.EditorObj;
+            recObject.setRecurrenceRule('FREQ=DAILY;INTERVAL=2;COUNT=8');
         },
         methods: {
             onChange: function (args) {

@@ -1,6 +1,6 @@
 <template>
 <div> 
-  <div class="control-wrapper">
+  <div class="m-control-wrapper">
     <div id="multiselect-sample" class="control-section" style="height: 500px">
            <div id='content'>
             <div class="control-styles">
@@ -36,7 +36,7 @@
 </div>
 </template>
 <style>
-    .control-wrapper {
+    .m-control-wrapper {
         margin: 0 auto;
         width: 64%;
     }
@@ -44,6 +44,7 @@
 <script>
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 
@@ -54,10 +55,7 @@ export default Vue.extend ({
             defaultMode: 'Default',
             boxMode: 'Box',
             delimiterMode: 'Delimiter',
-            sportsData: ['American Football', 'Badminton', 'Basketball', 'Cricket',
-                'Football', 'Golf', 'Gymnastics',
-                'Hockey', 'Rugby', 'Snooker', 'Tennis'
-            ]
+            sportsData: data['sportsData']
         };
     }
 });

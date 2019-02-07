@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-lineargauge style='display:block' align='center' id='annotationContainer' :load='gaugeLoad' :rangePalettes='rangePalettes' :orientation='orientation'>
+<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='annotationContainer' :load='gaugeLoad' :rangePalettes='rangePalettes' :orientation='orientation'>
     <e-axes>
         <e-axis :maximum='maximum' :labelStyle='labelStyle' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :ranges='ranges'>
             <e-pointers>
@@ -122,12 +122,11 @@ methods: {
     gaugeLoad: function(args){
     let count = 0;
     let selectedTheme = location.hash.split("/")[1];
-    let cotainerObj=document.getElementById('annotationContainer');
     selectedTheme = selectedTheme ? selectedTheme : "Material";
     args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     if (this.count === undefined) {
-    cotainerObj.ej2_instances[0].annotations = [
+    this.$refs.lineargauge.ej2Instances.annotations = [
             {
                 content: '<div id="title" style="width:200px;"><p style="font-size:18px;">CPU Utilization</p></div>',
                 horizontalAlignment: 'Center',
@@ -175,7 +174,7 @@ methods: {
             }
         ];
         this.count = 0;
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.lineargauge.ej2Instances.refresh();
     }
     }
 }

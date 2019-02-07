@@ -1,10 +1,10 @@
 <template>
 <div>
 <div>
-<div class="control-section">
+<div class="control-section" style="overflow: auto">
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview_flist" ref="pivotview_flist" :gridSettings="gridSettings" :enginePopulated="enginePopulated" :width="width" :height="height"></ejs-pivotview>        
-        <ejs-pivotfieldlist id="pivotfieldlist1" :dataSource="dataSource" :enginePopulated="fieldEnginePopulated" :load="load" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :renderMode="renderMode"></ejs-pivotfieldlist>
+        <ejs-pivotview id="pivotview_flist" ref="pivotview" :gridSettings="gridSettings" :enginePopulated="enginePopulated" :width="width" :height="height"></ejs-pivotview>        
+        <ejs-pivotfieldlist id="pivotfieldlist1" ref="pivotfieldlist" :dataSource="dataSource" :enginePopulated="fieldEnginePopulated" :load="load" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :renderMode="renderMode"></ejs-pivotfieldlist>
         </div>
     </div>
 </div>
@@ -42,9 +42,9 @@ import {
   PivotViewPlugin,
   PivotFieldListPlugin,
   FieldList,
-  CalculatedField
+  CalculatedField,
+  IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
 import {
   extend,
   setStyleAttribute,
@@ -56,7 +56,9 @@ enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(PivotFieldListPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: function() {
     return {
@@ -90,46 +92,40 @@ export default Vue.extend({
   },
   methods: {
     enginePopulated: function() {
-      let fieldListObj = (<any>document.getElementById("pivotfieldlist1"))
-        .ej2_instances[0];
-      let pivotGridObj = (<any>document.getElementById("pivotview_flist"))
-        .ej2_instances[0];
-      if (fieldListObj) {
-        fieldListObj.updateView(pivotGridObj);
+      if (!Browser.isDevice) {
+          let fieldListObj = (<any>this.$refs.pivotfieldlist).ej2Instances;
+          let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
+          if (fieldListObj && pivotGridObj) {
+            fieldListObj.update(pivotGridObj);
+          }
       }
     },
-    load: (): void => {
+    load: function() {
       if (Browser.isDevice) {
-        let fieldListObj = (<any>document.getElementById("pivotfieldlist1"))
-          .ej2_instances[0];
+        let fieldListObj = (<any>this.$refs.pivotfieldlist).ej2Instances;
         fieldListObj.renderMode = "Popup";
         fieldListObj.target = ".control-section";
-        (<any>document.getElementById("pivotfieldlist1")).removeAttribute(
-          "style"
-        );
         setStyleAttribute(<any>document.getElementById("pivotfieldlist1"), {
+		      width: 0,
           height: 0,
-          float: "left"
+          float: "left",
+          "display": "none"
         });
       }
     },
-    dataBound: (): void => {
-      let pivotGridObj = (<any>document.getElementById("pivotview_flist"))
-        .ej2_instances[0];
-      pivotGridObj.toolTip.destroy();
-      pivotGridObj.refresh();
+    dataBound: function() {
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       if (Browser.isDevice) {
-        prepend(
-          [<any>document.getElementById("pivotfieldlist1")],
-          <any>document.getElementById("pivotview_flist")
-        );
+          pivotGridObj.element.style.width = "100%";
+          pivotGridObj.allowCalculatedField = true;
+          pivotGridObj.showFieldList = true;
       }
+      pivotGridObj.tooltip.destroy();
+      pivotGridObj.refresh();
     },
     fieldEnginePopulated: function() {
-      let pivotGridObj = (<any>document.getElementById("pivotview_flist"))
-        .ej2_instances[0];
-      let fieldListObj = (<any>document.getElementById("pivotfieldlist1"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
+      let fieldListObj = (<any>this.$refs.pivotfieldlist).ej2Instances;
       fieldListObj.updateView(pivotGridObj);
     }
   },

@@ -77,14 +77,15 @@
 import Vue from "vue";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { Query, DataManager, ODataAdaptor } from '@syncfusion/ej2-data';
+import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
+import * as data from './dataSource.json';
 
 Vue.use(DropDownListPlugin);
 Vue.use(CheckBoxPlugin);
 
 var remoteData = new DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Customers',
-    adaptor: new ODataAdaptor,
+    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    adaptor: new WebApiAdaptor,
     crossDomain: true
 });
 
@@ -94,22 +95,11 @@ export default Vue.extend ({
             localFields: { text: 'Game', value: 'Id' },
             localWaterMark: 'Select a game',
             height: '200px',
-            sportsData: [
-                { Id: 'Game1', Game: 'American Football' },
-                { Id: 'Game2', Game: 'Badminton' },
-                { Id: 'Game3', Game: 'Basketball' },
-                { Id: 'Game4', Game: 'Cricket' },
-                { Id: 'Game5', Game: 'Football' },
-                { Id: 'Game6', Game: 'Golf' },
-                { Id: 'Game7', Game: 'Hockey' },
-                { Id: 'Game8', Game: 'Rugby' },
-                { Id: 'Game9', Game: 'Snooker' },
-                { Id: 'Game10', Game: 'Tennis' }
-            ],
+            sportsData: data['sportsData'],
             data: remoteData,
-            remoteFields: { text: 'ContactName', value: 'CustomerID' },
-            query: new Query().select(['ContactName', 'CustomerID']),
-            remoteWaterMark: 'Select a customer',
+            remoteFields: { text: 'FirstName', value: 'EmployeeID' },
+            query: new Query().select(['FirstName', 'EmployeeID']).take(10).requiresCount(),
+            remoteWaterMark: 'Select a name',
         };
     }
 });

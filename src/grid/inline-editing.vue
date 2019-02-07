@@ -1,5 +1,5 @@
 <template>
-<div class="col-lg-12 control-section">
+<div class="control-section">
     <div id="action-description">
         <p>This sample demonstrates CRUD operations in Grid. You can perform CRUD operations as follows,</p>
             <ul>
@@ -8,9 +8,10 @@
                 <li><code>Delete</code> - To delete record, click toolbar Delete button after selected a row </li>
                 <li><code>Update</code>,<code>Cancel</code> - You can save or discard changes by click toolbar Update and Cancel button respectively</li>
             </ul>
+        <p>By default, a new row will be added at the top of the grid. You can change it by setting <code>editSettings.newRowPosition</code> as <code>Bottom</code></p>
     </div>
-    <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar'>
+    <div class="col-lg-9 control-section">
+        <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :actionBegin='actionBegin'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -20,6 +21,21 @@
             </e-columns>
         </ejs-grid>
     </div>
+
+    <div class="col-lg-3 property-section">
+        <table id="property" title="Properties" style="width: 100%">
+            <tr>
+                <td style="width: 100%">
+                    <div style="padding-top: 7px">Add New Row Position</div>
+                </td>
+                <td style="width: 50%;padding-right: 10px">
+                    <div id='typeddl'>
+                        <ejs-dropdownlist id='newRowPosition' :dataSource='newRowPositionDataSource' :fields='fields' :change='valueChange' :value='dropdownValue'></ejs-dropdownlist>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>    
 
      <div id="description">
         <p> The Grid supports CRUD operations. This CRUD operations can be configured in Grid using
@@ -47,16 +63,26 @@
     </div>
 </div>
 </template>
-<script lang="ts">
+<style>
+    #typeddl {
+        min-width: 100px;
+    }
+</style>
+<script>
 import Vue from "vue";
 import { GridPlugin, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { orderDataSource } from "./data-source";
+import { DropDownList, DropDownListPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
 
 Vue.use(GridPlugin);
+Vue.use(DropDownListPlugin);
 
 export default Vue.extend({
   data: () => {
     return {
+      newRowPositionDataSource: [{ value: 'Top', text: 'Top' }, { value: 'Bottom', text: 'Bottom' }],
+      fields: { text: 'text', value: 'value' },
+      dropdownValue: 'Top',
       data: orderDataSource.slice(0),
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
       toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
@@ -70,6 +96,20 @@ export default Vue.extend({
   },
   provide: {
       grid: [Edit, Page, Toolbar]
+  },
+  methods: {
+    valueChange: function (args) {
+        this.$refs.grid.ej2Instances.editSettings.newRowPosition = args.value;
+    },
+    actionBegin: function (args) {
+        if (args.requestType === 'save') {
+            if (this.$refs.grid.ej2Instances.pageSettings.currentPage !== 1 && this.$refs.grid.ej2Instances.editSettings.newRowPosition === 'Top') {
+                args.index = (this.$refs.grid.ej2Instances.pageSettings.currentPage * this.$refs.grid.ej2Instances.pageSettings.pageSize) - this.$refs.grid.ej2Instances.pageSettings.pageSize;
+            } else if (this.$refs.grid.ej2Instances.editSettings.newRowPosition === 'Bottom') {
+                args.index = (this.$refs.grid.ej2Instances.pageSettings.currentPage * this.$refs.grid.ej2Instances.pageSettings.pageSize) - 1;
+            }
+        }
+    }
   }
 });
 </script>

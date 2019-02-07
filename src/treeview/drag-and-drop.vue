@@ -123,46 +123,10 @@ import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
 import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
 import { closest, getComponent } from "@syncfusion/ej2-base";
+import * as dataSource from './dataSource.json';
 
 Vue.use(TreeViewPlugin);
 Vue.use(ListViewPlugin);
-
-var productTeam1 =  [
-    {
-        id: 't1', name: 'ASP.NET MVC Team', expanded: true,
-        child: [
-            { id: 't2', name: 'Smith' },
-            { id: 't3', name: 'Johnson' },
-            { id: 't4', name: 'Anderson' },
-        ]
-    },
-    {
-        id: 't5', name: 'Windows Team', expanded: true,
-        child: [
-            { id: 't6', name: 'Clark' },
-            { id: 't7', name: 'Wright' },
-            { id: 't8', name: 'Lopez' },
-        ]
-    }
-];
-var productTeam2 = [
-    {
-        id: 't9', name: 'Web Team', expanded: true,
-        child: [
-            { id: 't10', name: 'Joshua' },
-            { id: 't11', name: 'Matthew' },
-            { id: 't12', name: 'David' },
-        ]
-    },
-    {
-        id: 't13', name: 'Build Team', expanded: true,
-        child: [
-            { id: 't14', name: 'Ryan' },
-            { id: 't15', name: 'Justin' },
-            { id: 't16', name: 'Robert' },
-        ]
-    }
-];
 
 var lTemplate = Vue.component("demo", {
   template: '<div><span>{{data.text}}</span><span :id="data.iconId" :class="data.class"></span></div>',
@@ -178,8 +142,8 @@ var id = 1;
 export default Vue.extend({
     data: function() {
         return {
-            fields1: { dataSource: productTeam1, id: 'id', text: 'name', child: 'child' },
-            fields2: { dataSource: productTeam2, id: 'id', text: 'name', child: 'child' },
+            fields1: { dataSource: dataSource.dragData1, id: 'id', text: 'name', child: 'child' },
+            fields2: { dataSource: dataSource.dragData2, id: 'id', text: 'name', child: 'child' },
             cssClass: "custom-list",
             listData: [],
             listTemplate: function(e) {

@@ -9,7 +9,7 @@
     </div>
     <div id="action-description">
     <p>
-      The following sample demonstrates the default functionalities of the TimePicker. Click the TimePicker icon to select a desired time and the selected time value will be displayed in the TimePicker element. 
+      The following sample demonstrates the default functionalities of the TimePicker. Click/Touch the TimePicker popup icon to select a desired time and the selected time value will be displayed in the TimePicker element. 
     </p>
 </div>
 <div id="description">

@@ -1,0 +1,44 @@
+{
+    "name": "Splitter",
+    "directory": "splitter",
+    "category": "Layout",
+    "ftName": "splitter",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Splitter",
+            "hideOnDevice": true,
+            "description":"This sample demonstrates the basic rendering of splitter."
+        },
+        {
+            "url": "accordion-navigation-menu",
+            "name": "Accordion Navigation Menu",
+            "category": "Use Case",
+            "hideOnDevice": true,
+            "description":"This sample demonstrates the implementation of ajax in splitter."
+        },
+        {
+            "url": "details-view",
+            "name": "Details View",
+            "category": "Use Case",
+            "hideOnDevice": true,
+            "description":"This sample demonstrates the split view in splitter."
+        },
+        {
+            "url": "outlook-style-layout",
+            "name": "Outlook-style Layout",
+            "category": "Use Case",
+            "hideOnDevice": true,
+            "description":"This sample demonstrates the basic rendering of outlook preview using splitter."
+        },
+        {
+            "url": "code-editor-layout",
+            "name": "Code Editor Layout",
+            "category": "Use Case",
+            "hideOnDevice": true,
+            "description":"This sample demonstrates the basic rendering of outlook preview using splitter."
+        }
+    ]
+}

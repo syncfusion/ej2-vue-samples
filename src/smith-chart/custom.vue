@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-9 control-section">
-              <ejs-smithchart id='container' :load='load' :horizontalAxis='horizontalAxis' :radialAxis='radialAxis' radius=1 :legendSettings='legendSettings' :title='title'>
+              <ejs-smithchart ref="smithchart" id='container' :load='load' :horizontalAxis='horizontalAxis' :radialAxis='radialAxis' radius=1 :legendSettings='legendSettings' :title='title'>
                 <e-seriesCollection>
                     <e-series :points='points' :name='name' :width='width' :enableSmartLabels='enableSmartLabels' :fill='fill' :enableAnimation='enableAnimation' :tooltip='tooltip' :marker='marker'></e-series>
                     <e-series :points='points2' :name='name2' :width='width2' :enableSmartLabels='enableSmartLabels2' :fill='fill2' :enableAnimation='enableAnimation2' :tooltip='tooltip2' :marker='marker2'></e-series>
@@ -67,7 +67,7 @@
                         Legend Position
                     </td>
                     <td style="width: 50%">
-                        <ejs-dropdownlist id='legend1' :dataSource='legend1data' :fields='legend1fields' value='top' index=0  :width='legend1width' :change='changeLegend'></ejs-dropdownlist>        
+                        <ejs-dropdownlist ref="legendPosition" id='legend1' :dataSource='legend1data' :fields='legend1fields' value='top' index=0  :width='legend1width' :change='changeLegend'></ejs-dropdownlist>        
                      </td>
                 </tr>
             </tbody>
@@ -210,79 +210,70 @@ methods:{
             args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
     changeLegend:function(args){
-        let smithchart = document.getElementById('container');
-        let mode = document.getElementById('legend1');
-        let element = mode.ej2_instances[0].value.toString();
-        smithchart.ej2_instances[0].legendSettings.position = element;
-        smithchart.ej2_instances[0].refresh();
+        let element = args.value.toString();
+        this.$refs.smithchart.ej2Instances.legendSettings.position = element;
+        this.$refs.smithchart.ej2Instances.refresh();
     },
     changeRadius:function(e){
-            let smithchart = document.getElementById('container');
-            let value = parseInt((document.getElementById('radius')).value, 10);
-            smithchart.ej2_instances[0].radius = e.value;
+            this.$refs.smithchart.ej2Instances.radius = e.value;
             document.getElementById('radius1').innerHTML = 'Radius <span> ' + (e.value);
-            smithchart.ej2_instances[0].refresh();
+            this.$refs.smithchart.ej2Instances.refresh();
     },
     changeMarker:function(e){
-        let smithchart = document.getElementById('container');
         let boolean = (event.target).checked;
         if (boolean) {
-            smithchart.ej2_instances[0].series[0].marker.visible = true;
-            smithchart.ej2_instances[0].series[1].marker.visible = true;
+            this.$refs.smithchart.ej2Instances.series[0].marker.visible = true;
+            this.$refs.smithchart.ej2Instances.series[1].marker.visible = true;
         } else {
-            smithchart.ej2_instances[0].series[0].marker.visible = false;
-            smithchart.ej2_instances[0].series[1].marker.visible = false;
+            this.$refs.smithchart.ej2Instances.series[0].marker.visible = false;
+            this.$refs.smithchart.ej2Instances.series[1].marker.visible = false;
         }
-        smithchart.ej2_instances[0].refresh();
+        this.$refs.smithchart.ej2Instances.refresh();
     },
     changeDatalabel:function(e){
-        let smithchart = document.getElementById('container');
         let boolean = (event.target).checked;
         if (boolean) {
-            smithchart.ej2_instances[0].series[0].marker.dataLabel.visible = true;
-            smithchart.ej2_instances[0].series[1].marker.dataLabel.visible = true;
+            this.$refs.smithchart.ej2Instances.series[0].marker.dataLabel.visible = true;
+            this.$refs.smithchart.ej2Instances.series[1].marker.dataLabel.visible = true;
         } else {
-            smithchart.ej2_instances[0].series[0].marker.dataLabel.visible = false;
-            smithchart.ej2_instances[0].series[1].marker.dataLabel.visible = false;
+            this.$refs.smithchart.ej2Instances.series[0].marker.dataLabel.visible = false;
+            this.$refs.smithchart.ej2Instances.series[1].marker.dataLabel.visible = false;
         }
-        smithchart.ej2_instances[0].refresh();
+        this.$refs.smithchart.ej2Instances.refresh();
     },
     changeAnimate:function(e){
-        let smithchart = document.getElementById('container');
         let boolean = (event.target).checked;
         if (boolean) {
-            smithchart.ej2_instances[0].series[0].enableAnimation = true;
-            smithchart.ej2_instances[0].series[1].enableAnimation = true;
+            this.$refs.smithchart.ej2Instances.series[0].enableAnimation = true;
+            this.$refs.smithchart.ej2Instances.series[1].enableAnimation = true;
         } else {
-            smithchart.ej2_instances[0].series[0].enableAnimation = false;
-            smithchart.ej2_instances[0].series[1].enableAnimation = false;
+            this.$refs.smithchart.ej2Instances.series[0].enableAnimation = false;
+            this.$refs.smithchart.ej2Instances.series[1].enableAnimation = false;
         }
-        smithchart.ej2_instances[0].refresh();
+        this.$refs.smithchart.ej2Instances.refresh();
     },
     changeTooltip:function(e){
-        let smithchart = document.getElementById('container');
         let boolean = (event.target).checked;
         if (boolean) {
-            smithchart.ej2_instances[0].series[0].tooltip.visible = true;
-            smithchart.ej2_instances[0].series[1].tooltip.visible = true;
+            this.$refs.smithchart.ej2Instances.series[0].tooltip.visible = true;
+            this.$refs.smithchart.ej2Instances.series[1].tooltip.visible = true;
         } else {
-            smithchart.ej2_instances[0].series[0].tooltip.visible = false;
-            smithchart.ej2_instances[0].series[1].tooltip.visible = false;
+            this.$refs.smithchart.ej2Instances.series[0].tooltip.visible = false;
+            this.$refs.smithchart.ej2Instances.series[1].tooltip.visible = false;
         }
-        smithchart.ej2_instances[0].refresh();
+        this.$refs.smithchart.ej2Instances.refresh();
     },
     legendChange:function(e){
-        let smithchart = document.getElementById('container');
         let mode = document.getElementById('legend1');
         let boolean = (event.target).checked;
         if (boolean) {
-            smithchart.ej2_instances[0].legendSettings.visible = true;
-            mode.ej2_instances[0].enabled = true;
+            this.$refs.smithchart.ej2Instances.legendSettings.visible = true;
+            this.$refs.legendPosition.ej2Instances.enabled = true;
         } else {
-            smithchart.ej2_instances[0].legendSettings.visible = false;
-            mode.ej2_instances[0].enabled = false;
+            this.$refs.smithchart.ej2Instances.legendSettings.visible = false;
+            this.$refs.legendPosition.ej2Instances.enabled = false;
         }
-        smithchart.ej2_instances[0].refresh();
+        this.$refs.smithchart.ej2Instances.refresh();
     }
 }
 })

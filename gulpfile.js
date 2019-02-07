@@ -7,8 +7,8 @@ var config = require('./config.json')
 var sampleOrder = JSON.parse(fs.readFileSync(__dirname + '/src/common/sampleorder.json'));
 var sampleList;
 const elasticlunr = require('elasticlunr');
-
-require('./build/samples');
+var shelljs=require('shelljs');
+//require('./build/samples');
 
 function generateSearchIndex(sampleArray) {
     elasticlunr.clearStopWords();
@@ -151,11 +151,11 @@ gulp.task('generate-routes', function() {
         curJson.samples.forEach(curSample => {
             var path = curJson.directory + '/' + curSample.url;
             var aData = {}
-            imports = imports + 'import ' + curJson.name.replace(' ', '') + curSample.url.split('-').join('') + ' from \'./' + path + '.vue\'; \n';
+            imports = imports + 'import ' + curJson.name.split(' ').join('') + curSample.url.split('-').join('') + ' from \'./' + path + '.vue\'; \n';
             aData["eCompName"] = curJson.name;
             aData["eSampleName"] = curSample.name;
             aData["eCategoryName"] = curSample.category;
-            routs.push('{ path: \'/:theme/' + path + '.html\', component: ' + curJson.name.replace(' ', '') + curSample.url.split('-').join('') + ', meta: ' + JSON.stringify(aData) + ' }\n');
+            routs.push('{ path: \'/:theme/' + path + '.html\', component: ' + curJson.name.split(' ').join('') + curSample.url.split('-').join('') + ', meta: ' + JSON.stringify(aData) + ' }\n');
         });
     });
     fs.writeFileSync("./src/router.config.ts", imports + 'export default [' + routs + '];');
@@ -163,7 +163,6 @@ gulp.task('generate-routes', function() {
 
 /* copy styles from nodemodules */
 gulp.task('copy', function (done) {
-    var shelljs=require('shelljs')
      var files=glob.sync('./node_modules/@syncfusion/ej2/*.css')
      files.forEach(file=>
      {  
@@ -172,7 +171,6 @@ gulp.task('copy', function (done) {
 });
 
 gulp.task('build', function(done) {
-    var shelljs = require('shelljs');
     shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && npm run build', done)
 });
 

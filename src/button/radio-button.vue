@@ -24,12 +24,12 @@
     </p>
     <p>
         In this sample, Credit/Debit Card option is checked by default, and it can be achieved by using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/radio-button/api-radioButton.html#checked-boolean">checked
+        href="http://ej2.syncfusion.com/vue/documentation/api/radio-button/#checked">checked
         </a></code> property.
     </p>
      <p>
         More information about RadioButton can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/angular/documentation/radio-button/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/radio-button/getting-started">
         documentation section</a>.
     </p>
 </div>
@@ -67,6 +67,10 @@
 
 .radio-control h4 {
   color: rgba(0, 0, 0, 0.64);
+}
+
+.highcontrast .radio-control h4 {
+  color: rgba(255, 255, 255, 0.64);
 }
 
 .e-bigger .radio-control h4 {

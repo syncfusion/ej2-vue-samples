@@ -2,7 +2,7 @@
 <template>
 <div>
 <div class="col-lg-9 control-section">
-<ejs-maps id='mapszooming' :zoomSettings='zoomSettings' :load='load'>
+<ejs-maps ref="maps" id='mapszooming' :zoomSettings='zoomSettings' :load='load'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :animationDuration='animationDuration' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings'></e-layer>
     </e-layers>
@@ -171,7 +171,7 @@ export default Vue.extend({
             toolbars: ['Zoom', 'ZoomIn', 'ZoomOut', 'Pan', 'Reset'],
             pinchZooming: true
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
         animationDuration: 500,
@@ -179,7 +179,7 @@ export default Vue.extend({
                     autofill: true,
                     colorValuePath: 'color'
         },
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/zooming-datasource.json'),
+        dataSource: new MapAjax('./src/maps/map-data/zooming-datasource.json'),
         value: 500,
         step: 250
       }
@@ -195,40 +195,35 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
     changeZoom:function(args){
-        let maps=document.getElementById('mapszooming');
         let element = (document.getElementById('zoom'));
-        maps.ej2_instances[0].zoomSettings.enable = element.checked;
-        maps.ej2_instances[0].refresh();
+        this.$refs.maps.ej2Instances.zoomSettings.enable = element.checked;
+        this.$refs.maps.ej2Instances.refresh();
     },
     changeMousewheel:function(args){
-        let maps=document.getElementById('mapszooming');
         let element = (document.getElementById('mousewheel'));
-        maps.ej2_instances[0].zoomSettings.mouseWheelZoom = element.checked;
-        maps.ej2_instances[0].refresh();
+        this.$refs.maps.ej2Instances.zoomSettings.mouseWheelZoom = element.checked;
+        this.$refs.maps.ej2Instances.refresh();
     },
-    changePinch:function(args){         
-        let maps=document.getElementById('mapszooming');
+    changePinch:function(args){
         let element = (document.getElementById('pinch'));
-        maps.ej2_instances[0].zoomSettings.pinchZooming = element.checked;
-        maps.ej2_instances[0].refresh();
+        this.$refs.maps.ej2Instances.zoomSettings.pinchZooming = element.checked;
+        this.$refs.maps.ej2Instances.refresh();
     },
     changeSingletap:function(args){
-        let maps=document.getElementById('mapszooming');
         let element = (document.getElementById('singletap'));
         let ele1 = document.getElementById('doubletap');
-        maps.ej2_instances[0].zoomSettings.zoomOnClick = element.checked;
-        maps.ej2_instances[0].zoomSettings.doubleClickZoom = (!element.checked);
+        this.$refs.maps.ej2Instances.zoomSettings.zoomOnClick = element.checked;
+        this.$refs.maps.ej2Instances.zoomSettings.doubleClickZoom = (!element.checked);
         if (element.checked) {
             ele1.disabled = true;
         } else {
             ele1.disabled = false;
         }
     },
-    changeDoubletap:function(args){
-        let maps=document.getElementById('mapszooming');       
+    changeDoubletap:function(args){      
         let element = (document.getElementById('doubletap'));
-        maps.ej2_instances[0].zoomSettings.doubleClickZoom = element.checked;
-        maps.ej2_instances[0].zoomSettings.zoomOnClick = (!element.checked);
+        this.$refs.maps.ej2Instances.zoomSettings.doubleClickZoom = element.checked;
+        this.$refs.maps.ej2Instances.zoomSettings.zoomOnClick = (!element.checked);
         let ele1 = document.getElementById('singletap');
         if (element.checked) {
             ele1.disabled = true;
@@ -237,9 +232,8 @@ methods:{
         }
     },
     sliderChange:function(args){
-        let maps=document.getElementById('mapszooming'); 
-        maps.ej2_instances[0].layers[0].animationDuration = args.value;
-        maps.ej2_instances[0].refresh();
+        this.$refs.maps.ej2Instances.layers[0].animationDuration = args.value;
+        this.$refs.maps.ej2Instances.refresh();
         document.getElementById('dur').innerHTML = args.value.toString() + ' ms';
     }
 }

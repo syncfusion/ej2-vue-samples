@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-<ejs-maps id='container' :load='load' :titleSettings='titleSettings'>
+<ejs-maps ref="maps" id='container' :load='load' :titleSettings='titleSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
@@ -21,7 +21,7 @@
                 </td>
                 <td style="width: 60%;">
                     <div style="margin-left: -10px">
-             <ejs-dropdownlist id='mode' :dataSource='modedata' index=0  :width=90></ejs-dropdownlist>                                 
+             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width=90></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
             <tr id="button-control" style="height: 50px" align='center'>
                 <td>
                     <div>
-                <ejs-button id='togglebtn' :iconCss='iconCss' :cssClass='cssClass' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
+                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
                     </div>
                 </td>
             </tr>
@@ -95,7 +95,7 @@ export default Vue.extend({
                 size: '16px'
             }
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeSettings: { fill: 'lightgrey', border: { color: 'black', width: 0.1 } },
         markerSettings: [
                     {
@@ -121,7 +121,7 @@ export default Vue.extend({
                     }
                 ],
         modedata:['JPEG','PNG','SVG','PDF'],
-        iconCss: 'e-icons e-play-icon', cssClass: 'e-flat', isPrimary: true, content:'Export'
+        cssClass: 'e-info', isPrimary: true, content:'Export', style: 'text-transform:none !important'
       }
   },
 provide: {
@@ -134,11 +134,9 @@ methods:{
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
-    clickExport:function(args){
-           let maps=document.getElementById('container');  
-           let mode=document.getElementById('mode');       
+    clickExport:function(args){     
            let fileName = ((document.getElementById('fileName'))).value;
-           maps.ej2_instances[0].export(mode.ej2_instances[0].value, fileName);
+           this.$refs.maps.ej2Instances.export(this.$refs.mode.ej2Instances.value, fileName);
 
     }
 }

@@ -7,7 +7,7 @@
                     <ejs-dropdownlist :dataSource='datas' :change='onChange' index="0" :fields='fields' popupHeight="200px"></ejs-dropdownlist>
                 </div>
                 <div class='RecurrenceEditor'>
-                    <ejs-recurrenceeditor id='editor' :selectedType="selectedType"></ejs-recurrenceeditor>
+                    <ejs-recurrenceeditor id='editor' ref="EditorObj" :selectedType="selectedType"></ejs-recurrenceeditor>
                 </div>
             </div>
         </div>
@@ -72,13 +72,13 @@
             }
         },
         mounted: function () {
-            let recObject = document.getElementById('editor');
-            recObject.ej2_instances[0].selectedType = 1;
+            let recObject = this.$refs.EditorObj;
+            recObject.selectedType = 1;
         },
         methods: {
             onChange: function (args) {
-                let recObject = document.getElementById('editor');
-                recObject.ej2_instances[0].setRecurrenceRule(args.value);
+                let recObject = this.$refs.EditorObj;
+                recObject.setRecurrenceRule(args.value);
             }
         }
     });

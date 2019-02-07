@@ -24,15 +24,17 @@
                   </tr>
 
                     <tr >
-                        <td style="width: 50%">
-                            <div>Group To:
-                                <p id="clubtext" style="font-weight: normal;">9</p>
+                        <td style="width: 30%">
+                            <div>Group To                                
                             </div>
                         </td>
-                        <td style="width: 50%;">
+                        <td style="width: 40%;">
                             <div data-role="rangeslider">
                                 <input type="range" name="clubvalue" value="9" min="0" max="27" @touchmove='onClubvalue' @pointermove='onClubvalue' @change='onClubvalue' autocomplete="off" id="clubvalue" style="width:90%">
                             </div>
+                        </td>
+                        <td style="width: 30%">
+                            <p id="clubtext" style="font-weight: normal; padding-top: 15px;">9</p>
                         </td>
                     </tr>
                 </table>
@@ -67,7 +69,7 @@ Vue.use(DropDownListPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {

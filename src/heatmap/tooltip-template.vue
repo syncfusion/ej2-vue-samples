@@ -3,7 +3,7 @@
     <div class="control-section">
         <div>
         <div class="content-wrapper">
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :tooltipRender='tooltipRender' :load='load'></ejs-heatmap>
+        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :tooltipRender='tooltipRender' :load='load'></ejs-heatmap>
         </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { defaultTableDataSource } from '../heatmap/data';
+import { defaultTableDataSource } from './data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(RadioButtonPlugin);
 export default Vue.extend({
@@ -63,6 +63,17 @@ return{
             },
             format: '{value} M'
         },
+         tooltipSettings: {
+            fill: '#265259',
+            textStyle: {
+                color: '#FFFFFF',
+                size:'12px'
+            },
+            border:{
+                width:1,
+                color:'#98BABF'
+            }
+         },
         paletteSettings: {
             palette: [{ value: 0, color: '#C2E7EC' },
             { value: 0.6, color: '#AEDFE6' },

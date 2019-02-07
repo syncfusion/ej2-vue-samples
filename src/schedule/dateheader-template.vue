@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="onEventRendered"
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="onEventRendered"
                     :dateHeaderTemplate="dateHeaderTemplate" :cssClass='cssClass' :renderCell="onRenderCell">
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -16,7 +16,7 @@
         </div>
         <div id="action-description">
             <p>
-                This sample illustrates the usage of different types of events such as normal, spanned and all-day. Here, the Schedule acts
+                This sample illustrates the usage of different types of events such as normal, spanned and all-day. Here, the Scheduler acts
                 as a leave planner for an employee to plan his upcoming leaves as well as to keep track of his previously
                 taken time-offs and leaves.
             </p>
@@ -24,7 +24,7 @@
 
         <div id="description">
             <p>
-                Schedule requires only the
+                Scheduler requires only the
                 <code>startTime</code> and
                 <code>endTime</code> fields as mandatory to be mapped from datasource and provided with proper datetime values
                 to display the normal events in it. The normal events can be categorized into 3 types based on its time range
@@ -58,7 +58,7 @@
                     <td style="padding:4px 0;">All-day events</td>
                     <td>
                         The events that are defined as all-day in its event object by setting
-                        <code>isAllDay</code> to true. It usually renders at the date header section of the Schedule where
+                        <code>isAllDay</code> to true. It usually renders at the date header section of the Scheduler where
                         no time-cells are present. These events are depicted in purple color.
                     </td>
                 </tr>
@@ -179,23 +179,19 @@
                 }
             },
             onRenderCell: function (args) {
-                if (args.elementType === 'monthCells' && this.currentView === 'Month') {
+                let scheduleObj = this.$refs.ScheduleObj;
+                if (args.elementType === 'monthCells' && scheduleObj.ej2Instances.currentView === 'Month') {
                     let ele = document.createElement('div');
                     ele.innerHTML = this.getWeather(args.date);
                     (args.element).appendChild(ele.firstChild);
                 }
             },
             onEventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
+                args.element.style.backgroundColor = categoryColor;
             },
         }
     });

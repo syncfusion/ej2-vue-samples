@@ -13,12 +13,15 @@
     </p>
     <p>
         In this demo, <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/context-menu/api-contextMenu.html#target-string">target
+        href="http://ej2.syncfusion.com/vue/documentation/api/context-menu/#target">target
         </a></code> property is set as '#contextmenutarget'. Hence, on right clicking the target element, the ContextMenu will open.
     </p>
     <p>
+        In mobile mode, the submenu opens in a single layer with an option to switch back to the parent menu.
+    </p>
+    <p>
         More information about ContextMenu can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/angular/documentation/context-menu/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/context-menu/getting-started">
         documentation section</a>.
     </p>
 </div>

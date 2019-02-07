@@ -165,6 +165,7 @@ import {
   NumericTextBox,
   ChangeEventArgs as NumericChangeEventArgs
 } from "@syncfusion/ej2-vue-inputs";
+import { multiParentData } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
 
@@ -299,74 +300,6 @@ function update(value: string): void {
   }
   diagramInstance.dataBind();
 }
-
-export let multiParentData: object[] = [
-  { Name: "node11", fillColor: "#ff6329" },
-  { Name: "node12", ReportingPerson: ["node114"], fillColor: "#669be5" },
-  { Name: "node13", ReportingPerson: ["node12"], fillColor: "#30ab5c" },
-  { Name: "node14", ReportingPerson: ["node12"], fillColor: "#30ab5c" },
-  { Name: "node15", ReportingPerson: ["node12"], fillColor: "#30ab5c" },
-  { Name: "node16", ReportingPerson: [], fillColor: "#14ad85" },
-  {
-    Name: "node17",
-    ReportingPerson: ["node13", "node14", "node15"],
-    fillColor: "#ff9400"
-  },
-  { Name: "node18", ReportingPerson: [], fillColor: "#14ad85" },
-  {
-    Name: "node19",
-    ReportingPerson: ["node16", "node17", "node18"],
-    fillColor: "#99bb55"
-  },
-  {
-    Name: "node110",
-    ReportingPerson: ["node16", "node17", "node18"],
-    fillColor: "#99bb55"
-  },
-  {
-    Name: "node111",
-    ReportingPerson: ["node16", "node17", "node18", "node116"],
-    fillColor: "#99bb55"
-  },
-  { Name: "node21", fillColor: "#ff6329" },
-  { Name: "node22", ReportingPerson: ["node114"], fillColor: "#669be5" },
-  { Name: "node23", ReportingPerson: ["node22"], fillColor: "#30ab5c" },
-  { Name: "node24", ReportingPerson: ["node22"], fillColor: "#30ab5c" },
-  { Name: "node25", ReportingPerson: ["node22"], fillColor: "#30ab5c" },
-  { Name: "node26", ReportingPerson: [], fillColor: "#14ad85" },
-  {
-    Name: "node27",
-    ReportingPerson: ["node23", "node24", "node25"],
-    fillColor: "#ff9400"
-  },
-  { Name: "node28", ReportingPerson: [], fillColor: "#14ad85" },
-  {
-    Name: "node29",
-    ReportingPerson: ["node26", "node27", "node28", "node116"],
-    fillColor: "#99bb55"
-  },
-  {
-    Name: "node210",
-    ReportingPerson: ["node26", "node27", "node28"],
-    fillColor: "#99bb55"
-  },
-  {
-    Name: "node211",
-    ReportingPerson: ["node26", "node27", "node28"],
-    fillColor: "#99bb55"
-  },
-  { Name: "node31", fillColor: "#ff6329" },
-  {
-    Name: "node114",
-    ReportingPerson: ["node11", "node21", "node31"],
-    fillColor: "#941100"
-  },
-  {
-    Name: "node116",
-    ReportingPerson: ["node12", "node22"],
-    fillColor: "#30ab5c"
-  }
-];
 
 export interface DataInfo {
   [key: string]: string;

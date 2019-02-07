@@ -42,7 +42,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block;height:250px' align='center' id='container4' :centerY='centerY4'>
+                        <ejs-circulargauge ref="circulargauge1" style='display:block;height:250px' align='center' id='container4' :centerY='centerY4'>
                             <e-axes>
                                 <e-axis :radius='gauge4Radius' :startAngle='gauge4startAngle' minimum=0 maximum=100 :endAngle='gauge4endAngle' :majorTicks='gauge4majorTicks' :lineStyle='gauge4lineStyle' :minorTicks='gauge4minorTicks' :labelStyle='gauge4labelStyle' :annotations='gauge4annotations'>
                                     <e-pointers>
@@ -65,7 +65,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block;height:250px' align='center' id='container6' :centerY='centerY5'>
+                        <ejs-circulargauge ref="circulargauge2" style='display:block;height:250px' align='center' id='container6' :centerY='centerY5'>
                             <e-axes>
                                 <e-axis :radius='gauge5Radius' :startAngle='gauge5startAngle' minimum=0 maximum=100 :endAngle='gauge5endAngle' :majorTicks='gauge5majorTicks' :lineStyle='gauge5lineStyle' :minorTicks='gauge5minorTicks' :labelStyle='gauge5labelStyle' :annotations='gauge5annotations'>
                                     <e-pointers>
@@ -403,27 +403,30 @@ export default Vue.extend({
         circulargauge: [Annotations]
     },
     mounted() {
-        this.gauge5Interval1 = setInterval(function () {
-            let fifthGauge = document.getElementById('container4');
-            let newVal = Math.random() * (90 - 20) + 20;
-            if (document.getElementById('container5')) {
-                fifthGauge.ej2_instances[0].setPointerValue(0, 0, newVal);
-            } else {
-                clearInterval(this.gauge5Interval1);
-            }
-        }, 2000)
-        this.gauge6Interval1 = setInterval(function () {
-            let sixthGauge = document.getElementById('container6');
-            let newVal = Math.random() * (80 - 30) + 30;
-            if (document.getElementById('container6')) {
-                sixthGauge.ej2_instances[0].setPointerValue(0, 0, newVal);
-                sixthGauge.ej2_instances[0].setPointerValue(0, 1, newVal);
-            } else {
-                clearInterval(this.gauge6Interval1);
-            }
-        }, 2000)
+        this.setIntervalStart();
     },
-    methods: {
+    methods: {        
+        setIntervalStart : function(){
+            let gauge1 = this.$refs.circulargauge1.ej2Instances;
+            let gauge2 = this.$refs.circulargauge2.ej2Instances;
+            this.gauge5Interval1 = setInterval(function () {
+                let newVal = Math.random() * (90 - 20) + 20;
+                if (document.getElementById('container4')) {
+                    gauge1.setPointerValue(0, 0, newVal);
+                } else {
+                    clearInterval(this.gauge5Interval1);
+                }
+            }, 2000)
+            this.gauge6Interval1 = setInterval(function () {
+                let newVal = Math.random() * (80 - 30) + 30;
+                if (document.getElementById('container6')) {
+                    gauge2.setPointerValue(0, 0, newVal);
+                    gauge2.setPointerValue(0, 1, newVal);
+                } else {
+                    clearInterval(this.gauge6Interval1);
+                }
+            }, 2000)
+        },
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";

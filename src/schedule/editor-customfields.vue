@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
                     :popupOpen="onPopupOpen">
                 </ejs-schedule>
             </div>
@@ -36,11 +36,9 @@
 <script>
     import Vue from "vue";
     import { eventsData } from './datasource';
-    import { createElement, extend, compile } from '@syncfusion/ej2-base';
+    import { createElement, extend } from '@syncfusion/ej2-base';
     import { DropDownList } from '@syncfusion/ej2-dropdowns';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-    import dropdownTemplate from "./custom-field.vue";
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {
@@ -48,10 +46,7 @@
                 eventSettings: {
                     dataSource: extend([], eventsData, null, true)
                 },
-                selectedDate: new Date(2018, 1, 15),
-                dropdownTemplate: function () {
-                    return { template: dropdownTemplate }
-                },
+                selectedDate: new Date(2018, 1, 15)
             }
         },
         provide: {
@@ -59,12 +54,12 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
                     (args.element.firstChild).style.borderLeftColor = categoryColor;
                 } else {
                     args.element.style.backgroundColor = categoryColor;
@@ -83,7 +78,7 @@
                         });
                         container.appendChild(inputEle);
                         row.appendChild(container);
-                       /* var drowDownList = new DropDownList({
+                        var dropDownList = new DropDownList({
                             dataSource: [
                                 { text: 'Public Event', value: 'public-event' },
                                 { text: 'Maintenance', value: 'maintenance' },
@@ -93,13 +88,8 @@
                             fields: { text: 'text', value: 'value' },
                             value: '',
                             floatLabelType: 'Always', placeholder: 'Event Type'
-                        });*/
-                        //drowDownList.appendTo(inputEle);
-                        //let drowDownList = document.getElementById('scheduletimezone').ej2_instances[0];
-                        let getDOMString = compile(this.dropdownTemplate);
-                        let output = getDOMString({});
-                        let ele = output[0].firstChild;
-                        ele.appendChild(inputEle);
+                        });
+                        dropDownList.appendTo(inputEle);
                         inputEle.setAttribute('name', 'EventType');
                     }
                 }

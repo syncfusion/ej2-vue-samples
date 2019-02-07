@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'>
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'>
                     <e-views>
                         <e-view option="Agenda" :allowVirtualScrolling="virtualscroll"></e-view>
                     </e-views>
@@ -59,7 +59,7 @@
         </div>
         <div id="description">
             <p>
-                In this demo, Agenda view is set as active view on Schedule and made its
+                In this demo, Agenda view is set as active view on Scheduler and made its
                 <code>allowVirtualScrolling</code> option as false. With this settings, the Agenda view loads the initial
                 data for the next 7 days count from the date value assigned to the
                 <code>selectedDate</code> property of the Schedule. The initial data loading for 7 days count is due to the
@@ -107,22 +107,22 @@
         },
         methods: {
             change: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let allowVS = (args.value === 'True') ? true : false;
-                scheduleObj.ej2_instances[0].views = [{ option: 'Agenda', allowVirtualScrolling: allowVS }];
-                scheduleObj.ej2_instances[0].dataBind();
+                scheduleObj.views = [{ option: 'Agenda', allowVirtualScrolling: allowVS }];
+                scheduleObj.dataBind();
             },
 
             onChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
-                scheduleObj.ej2_instances[0].hideEmptyAgendaDays = (args.value === 'True') ? true : false;
-                scheduleObj.ej2_instances[0].dataBind();
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.hideEmptyAgendaDays = (args.value === 'True') ? true : false;
+                scheduleObj.dataBind();
             },
 
             onCountChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
-                scheduleObj.ej2_instances[0].agendaDaysCount = args.value !== null ? args.value : 7;
-                scheduleObj.ej2_instances[0].dataBind();
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.agendaDaysCount = args.value !== null ? args.value : 7;
+                scheduleObj.dataBind();
             }
         }
     });

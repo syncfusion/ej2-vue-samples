@@ -30,63 +30,7 @@
 </div>
 </template>
 <style>
- .rowphoto img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50px;
-        box-shadow: inset 0 0 1px #e0e0e0, inset 0 0 14px rgba(0,0,0,0.2);
-    }
-    
-    @media screen and (max-width: 600px) and (min-width: 320px) {
-        .rowphoto img {
-            width: 50px;
-            height: 50px;
-        }
-    }
-    
-    @media screen and (max-width: 800px) and (min-width: 600px) {
-        .rowphoto img {
-            width: 70px;
-            height: 70px;
-        }
-    }
-    
-    .rowphoto,
-    .details {
-        border-color: #e0e0e0;
-        border-style: solid;
-    }
-    
-    .rowphoto {
-        border-width: 1px 0px 0px 0px;
-        text-align: center;
-    }
-    
-    .details {
-        border-width: 1px 0px 0px 0px;
-        padding-left: 18px;
-    }
-
-    .e-bigger .details {
-        padding-left: 25px;
-    }
-
-    .e-device .details {
-        padding-left: 8px;
-    }
-    
-    .details > table {
-        width: 100%;
-    }
-    
-    .CardHeader {
-        font-weight: bolder;
-    }
-    
-    td {
-        padding: 2px 2px 3px 4px;
-    }
-
+@import "../../styles/Grid/row-template.css";
 </style>
 
 <script lang="ts">

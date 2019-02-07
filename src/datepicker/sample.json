@@ -1,41 +1,54 @@
 {
     "name": "DatePicker",
     "directory": "datepicker",
-    "category": "Editors",
+    "category": "Calendars",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "DatePicker",
             "hideOnDevice": true,
-            "api":{"DatePicker": [ "placeholder" ]}
+            "api":{"DatePicker": [ "placeholder" ]},
+            "description": "This example demonstrates a simple, mobile-friendly and responsive Vue DatePicker to select a date"
         },
         {
             "url": "disabled",
             "name": "Disabled Dates",
             "category": "DatePicker",
             "hideOnDevice": true,
-            "api":{"DatePicker": [ "placeholder", "renderDayCell" ]} 
+            "api":{"DatePicker": [ "placeholder", "renderDayCell" ]},
+            "description": "This example demonstrates how to disable the dates like weekends, weekdays and specific dates (past dates, future dates and current dates) in a Vue DatePicker"
         },
         {
             "url": "date-range",
             "name": "Date Range",
             "category": "DatePicker",
             "hideOnDevice": true,
-            "api":{"DatePicker": [ "min", "max", "value", "placeholder" ]}
+            "api":{"DatePicker": [ "min", "max", "value", "placeholder" ]},
+            "description": "This example demonstrates how to disables the specific range of dates (min and max) in a Vue DatePicker"
         },
         {
             "url": "date-format",
             "name": "Format",
             "category": "DatePicker",
             "hideOnDevice": true,
-            "api":{"DatePicker": [ "format", "value", "placeholder" ]}
+            "api":{"DatePicker": [ "format", "value", "placeholder" ]},
+            "description": "This example demonstrates how to change the date time format in the input field based on the format in a Vue DatePicker"
         },
         {
             "url": "special-dates",
             "name": "Special Dates",
             "category": "DatePicker",
             "hideOnDevice": true,
-            "api":{"DatePicker": [ "value", "placeholder", "renderDayCell" ]}
-        }        
+            "api":{"DatePicker": [ "value", "placeholder", "renderDayCell" ]},
+            "description": "This example demonstrates how to highlight the specific dates like weekends, holidays and special dates in a Vue DatePicker"
+        },
+        {
+            "url": "two-way",
+            "name": "Two-Way Binding",
+            "category": "DatePicker",
+            "hideOnDevice": true,
+            "type" : "new",
+            "api":{"DatePicker": [ "value" ]}
+        }
     ]
 }

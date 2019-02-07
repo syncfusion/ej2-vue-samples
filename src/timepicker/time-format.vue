@@ -9,7 +9,7 @@
     </div>
     <div id="action-description">
     <p>
-     The TimePicker has been customized with 24-hour <code>format</code> with 60 minutes <code>interval</code>. Click the TimePicker icon to a select a time from 00:00 to 23:00 from the TimePicker popup. 
+    The TimePicker has been customized with 24-hour format with 60 minutes <code>interval</code>. Click/Touch the TimePicker popup icon to a select a time from 00:00 to 23:00 from the TimePicker popup. 
     </p>
 </div>
 <div id="description">

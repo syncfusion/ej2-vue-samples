@@ -5,7 +5,7 @@
     </div>
    <div id="action-description">
     <p>
-         The following sample demonstrates the default functionalities of the DatePicker. Today's date is always <code>highlighted</code> in the popup calendar and it get focused if there's no selected date. Click the desired date from the popup calendar and the selected date will be displayed in the element. 
+         The following sample demonstrates the default functionalities of the DatePicker. Today's date is always <code>highlighted</code> in the popup calendar and it get focused if there's no selected date. Click/Touch the desired date from the popup calendar and the selected date will be displayed in the element. 
    </p>
  </div>
  <div id="description">

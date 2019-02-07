@@ -13,8 +13,8 @@
                              <ejs-toast id='toast_custom' :position='cusPosition' newestOnTop=true showCloseButton=true timeOut=0 :animation='cusAnimation' :created='created'></ejs-toast>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
-                              <div id="toast_template"></div>
-                              <div id="toast_template_target"></div>
+                            <ejs-toast id='toast_template' :template='toasttemplate' timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'></ejs-toast>
+                            <div id="toast_template_target"></div>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         <li>Alarm toast is integrated with button and drop-down list that allows to set timeOut for toast and close it.</li>
                         <li>Dynamic toast opened based on the data source given to add mail reminder notifications and it can be hidden using the close button available.</li>
                     </ul>
-                    <p>More information about Toast can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/toast/getting-started.html">
+                    <p>More information about Toast can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/toast/getting-started/">
         documentation section</a>.</p>
                 </div>
         </div>
@@ -256,9 +256,20 @@ export default Vue.extend({
                 { Id: '5min', Text: '5 minutes' },
                 { Id: '10min', Text: '10 minutes' },
             ],
+            toasttemplate: function() {
+                return {
+                    template: Vue.component('toasttemplate', {
+                    template: `<div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
+                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img src="./src/toast/resource/map.jpg" width="100%" height="70%"><div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div><div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>`,
+                    data: function () {return {emp: 'Emp ID'};}
+                    })
+                }
+            },
             localWaterMark: 'Select a snooze time',
             height: '200px',
             cusPosition: { X: 'Right' },
+			tempPosition: !Browser.isDevice ? { X: 'Right', Y: 'Bottom'} : { X: 'Center', Y: 'Top' },
+			tempTarget: !Browser.isDevice ? document.body : '#toast_template_target',
             cusAnimation:  {
                  hide: { effect: 'SlideRightOut' },
                  show: { effect: 'SlideRightIn' }
@@ -274,17 +285,7 @@ export default Vue.extend({
         { from: ' Inga Scott', subject: 'Application for Sales Associate', image: { url: 'src/toast/resource/michael.png' }, }];
        this.toastFlag = 0;
        this.snoozeFlag = false;
-       this.toastObj = new Toast({
-       template: document.getElementById('template_toast_ele').innerHTML,
-       position: !Browser.isDevice ? { X: 'Right', Y: 'Bottom'} : { X: 'Center', Y: 'Top' },
-       target: !Browser.isDevice ? document.body : '#toast_template_target',
-       extendedTimeout: 0,
-       timeOut: 120000,
-       open: this.onOpenToast, 
-       close: this.onToastClose, 
-       beforeOpen: this.onToastBeforeOpen
-    });
-    this.toastObj.appendTo('#toast_template');
+    this.toastObj = document.getElementById('toast_template').ej2_instances[0];
     this.listObj = new DropDownList({
         placeholder: 'Select a snooze time',
         popupHeight: '200px',

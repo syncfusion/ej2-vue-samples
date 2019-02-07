@@ -98,6 +98,7 @@
 <script>
 import Vue from "vue";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(DropDownListPlugin);
 
@@ -107,33 +108,10 @@ export default Vue.extend ({
             groupFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
             groupWaterMark: 'Select a vegetable',
             height: '200px',
-            vegetableData: [
-                { Vegetable: 'Cabbage', Category: 'Leafy and Salad', Id: 'item1' },
-                { Vegetable: 'Spinach', Category: 'Leafy and Salad', Id: 'item2' },
-                { Vegetable: 'Wheat grass', Category: 'Leafy and Salad', Id: 'item3' },
-                { Vegetable: 'Yarrow', Category: 'Leafy and Salad', Id: 'item4' },
-                { Vegetable: 'Pumpkins', Category: 'Leafy and Salad', Id: 'item5' },
-                { Vegetable: 'Chickpea', Category: 'Beans', Id: 'item6' },
-                { Vegetable: 'Green bean', Category: 'Beans', Id: 'item7' },
-                { Vegetable: 'Horse gram', Category: 'Beans', Id: 'item8' },
-                { Vegetable: 'Garlic', Category: 'Bulb and Stem', Id: 'item9' },
-                { Vegetable: 'Nopal', Category: 'Bulb and Stem', Id: 'item10' },
-                { Vegetable: 'Onion', Category: 'Bulb and Stem', Id: 'item11' }
-            ],
+            vegetableData:data['vegetableData'],
             iconFields: { text: 'SocialMedia', iconCss: 'Class', value: 'Id' },
             iconWaterMark: 'Select a social media',
-            socialMediaData: [
-                { Class: 'facebook', SocialMedia: 'Facebook', Id: 'media1' },
-                { Class: 'twitter', SocialMedia: 'Twitter', Id: 'media2' },
-                { Class: 'whatsapp', SocialMedia: 'WhatsApp', Id: 'media3' },
-                { Class: 'tumblr', SocialMedia: 'Tumblr', Id: 'media4' },
-                { Class: 'google-plus', SocialMedia: 'Google Plus', Id: 'media5' },
-                { Class: 'skype', SocialMedia: 'Skype', Id: 'media6' },
-                { Class: 'vimeo', SocialMedia: 'Vimeo', Id: 'media7' },
-                { Class: 'instagram', SocialMedia: 'Instagram', Id: 'media8' },
-                { Class: 'youtube', SocialMedia: 'YouTube', Id: 'media9' },
-                { Class: 'linkedin', SocialMedia: 'LinkedIn', Id: 'media10' },
-            ]
+            socialMediaData: data['socialMedia']
         };
     }
 });

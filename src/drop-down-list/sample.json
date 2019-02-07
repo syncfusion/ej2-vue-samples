@@ -1,46 +1,46 @@
 {
-    "name": "DropDownList",
+    "name": "Dropdown List",
     "directory": "drop-down-list",
-    "category": "Editors",
+    "category": "Dropdowns",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "grouping-icon",
             "name": "Grouping and Icons",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "data-binding",
             "name": "Data Binding",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "template",
             "name": "Template",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "filtering",
             "name": "Filtering",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "cascading",
             "name": "Cascading",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "inline",
             "name": "Inline",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         },
         {
             "url": "diacritics-filtering",
             "name": "Diacritics Filtering",
-            "category": "DropDownList"
+            "category": "Dropdown List"
         }
     ]
 }

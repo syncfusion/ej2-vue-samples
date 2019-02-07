@@ -10,17 +10,18 @@
     </div> 
     <div id="action-description">
         <p>
-            This sample demonstrates the default rendering of the dialog component with minimum configuration. 
+            This example demonstrates the default rendering of the dialog component with minimum configuration. 
             Click close or press ESC  to close the dialog. Click “open” to show the dialog again, if it is closed.
         </p>
     </div>
     <div id="description">
-        <p>The dialog component is used to display information and get input from the user. The dialog component is classified as modal and non-modal dialog depend on its interaction with parent application.  
+        <p>The dialog component is used to display information and get input from the user. The dialog component is classified as modal and non-modal dialog depend on its interaction with parent application.</p>  
+        <div>
             <ul>
                 <li>Modal - It creates overlay that disable interaction with the parent application, and user should respond with modal before continuing with other applications.</li>
                 <li>Non-modal - It does not prevent user interaction with parent application.</li>
             </ul>
-        </p>
+        </div>
     </div>
   </div>
 </template>

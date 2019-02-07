@@ -2,11 +2,10 @@
   "name": "Diagram",
   "directory": "diagram",
   "category": "Data Visualization",
-  "type": "preview",
+  "type": "update",
   "ftName": "diagram",
-  "samples": [
-    {
-      "url": "defaultfunctionality",
+  "samples": [{
+      "url": "default-functionality",
       "name": "Default Functionalities",
       "description": "This demo for Essential JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
       "category": "Getting Started"
@@ -32,6 +31,7 @@
     {
       "url": "annotation",
       "name": "Annotations",
+      "type": "update",
       "description": "This demo for Essential JS2 Diagram component illustrates the competitive environment of a business through five forces chart. The elements of the five force chart is described using nodes and annotations. Customizing the position and appearance of the annotation is illustrated in this example.",
       "category": "Getting Started"
     },
@@ -44,7 +44,6 @@
     {
       "url": "bpmn-editor",
       "name": "BPMN Editor",
-      "type": "new",
       "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
       "category": "Getting Started"
     },
@@ -157,7 +156,42 @@
       "category": "Data Binding"
     },
     {
-      "url": "venndiagram",
+      "url": "crud",
+      "name": "CRUD",
+      "type": "new",
+      "description": "This sample visualizes diagram elements created from database with diagram CRUD. Users can read, update, and delete database entities as diagram elements.",
+      "category": "Data Binding"
+    },
+    {
+      "url": "logical-circuit",
+      "name": "Logic Circuit Diagram",
+      "type": "new",
+      "description": "This sample visualizes implementation of three input Boolean functions using universal logic gates, and it is designed with diagram `custom` nodes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "uml-activity",
+      "name": "UML Activity Diagram",
+      "type": "new",
+      "description": "This sample visualizes graphical representation of message flow from one activity to another in customer service with built-in `UML activity` shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "network-diagram",
+      "name": "Network Diagram",
+      "type": "new",
+      "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "uml-class-diagram",
+      "name": "UML Class Diagram",
+      "type": "new",
+      "description": "This sample visualizes the class diagram shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "venn-diagram",
       "name": "Venn Diagram",
       "description": "This demo for Essential JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
       "category": "Static Diagram"
@@ -165,9 +199,9 @@
     {
       "url": "fishbone-diagram",
       "name": "Fishbone Diagram",
-      "type": "new",
       "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
       "category": "Static Diagram"
     }
+
   ]
 }

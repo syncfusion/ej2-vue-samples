@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :currentView='currentView' :timeScale="timeScale" :eventSettings='eventSettings'>
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :timeScale="timeScale" :eventSettings='eventSettings'>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -68,14 +68,14 @@
 
         <div id="action-description">
             <p>
-                This demo depicts how to customize the grid lines of schedule with different duration, count and also, how to apply template
+                This demo depicts how to customize the grid lines of Scheduler with different duration, count and also, how to apply template
                 customizations on it.
             </p>
         </div>
 
         <div id="description">
             <p>
-                In this demo, schedule has been allowed to display different number of grid lines per hour assigned with different duration
+                In this demo, Scheduler has been allowed to display different number of grid lines per hour assigned with different duration
                 to each cell, by making use of the
                 <code>interval</code> and
                 <code>slotCount</code> properties. The grid lines can also be disabled on schedule, by setting `false` to
@@ -157,27 +157,27 @@
         },
         methods: {
             changeInterval: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
-                scheduleObj.timeScale.interval = parseInt(args.value, 10);
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.ej2Instances.timeScale.interval = parseInt(args.value, 10);
                 scheduleObj.dataBind();
             },
 
             changeSlotCount: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
-                scheduleObj.timeScale.slotCount = parseInt(args.value, 10);
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.ej2Instances.timeScale.slotCount = parseInt(args.value, 10);
                 scheduleObj.dataBind();
             },
 
             changeTimescale: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
-                scheduleObj.timeScale.enable = (args.value === 'Show') ? true : false;
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.ej2Instances.timeScale.enable = (args.value === 'Show') ? true : false;
                 scheduleObj.dataBind();
             },
 
             changeTemplate: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
-                scheduleObj.timeScale.majorSlotTemplate = (args.value === 'Yes') ? this.majorSlotTemplate : null;
-                scheduleObj.timeScale.minorSlotTemplate = (args.value === 'Yes') ? this.minorSlotTemplate : null;
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.ej2Instances.timeScale.majorSlotTemplate = (args.value === 'Yes') ? this.majorSlotTemplate : null;
+                scheduleObj.ej2Instances.timeScale.minorSlotTemplate = (args.value === 'Yes') ? this.minorSlotTemplate : null;
                 scheduleObj.dataBind();
             }
         }

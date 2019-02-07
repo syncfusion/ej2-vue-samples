@@ -19,7 +19,7 @@
         </div>
         <div class="col-lg-3 property-section">
             <div id="property" class="property-panel-table" title="Properties">
-                <ejs-checkbox label="Autofill" :checked="true" :change="onChange"></ejs-checkbox>
+                <ejs-checkbox ref="checkInstance" label="Autofill" :checked="true" :change="onChange"></ejs-checkbox>
             </div>
         </div>
     </div>
@@ -80,14 +80,15 @@
 import Vue from "vue";
 import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { Query, DataManager, ODataAdaptor } from '@syncfusion/ej2-data';
+import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
+import * as data from './dataSource.json';
 
 Vue.use(ComboBoxPlugin);
 Vue.use(CheckBoxPlugin);
 
 var remoteData = new DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Customers',
-    adaptor: new ODataAdaptor,
+    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    adaptor: new WebApiAdaptor,
     crossDomain: true
 });
 
@@ -97,28 +98,17 @@ export default Vue.extend ({
             localFields: { text: 'Game', value: 'Id' },
             localWaterMark: 'Select a game',
             autofill: true,
-            sportsData: [
-                { Id: 'Game1', Game: 'American Football' },
-                { Id: 'Game2', Game: 'Badminton' },
-                { Id: 'Game3', Game: 'Basketball' },
-                { Id: 'Game4', Game: 'Cricket' },
-                { Id: 'Game5', Game: 'Football' },
-                { Id: 'Game6', Game: 'Golf' },
-                { Id: 'Game7', Game: 'Hockey' },
-                { Id: 'Game8', Game: 'Rugby' },
-                { Id: 'Game9', Game: 'Snooker' },
-                { Id: 'Game10', Game: 'Tennis' }
-            ],
+            sportsData: data['sportsData'],
             data: remoteData,
             height: '250px',
-            remoteFields: { text: 'ContactName', value: 'CustomerID' },
-            query: new Query().select(['ContactName', 'CustomerID']),
-            remoteWaterMark: 'Select a customer',
+            remoteFields: { text: 'FirstName', value: 'EmployeeID' },
+            query: new Query().select(['FirstName', 'EmployeeID']).take(10).requiresCount(),
+            remoteWaterMark: 'Select a name',
         };
     },
     methods: {
         onChange: function() {
-            var checkboxObj = event.target.ej2_instances[0];
+            var checkboxObj = this.$refs.checkInstance.ej2Instances;
             // enable or disable the autofill in local and remote data ComboBox based on CheckBox checked state
             this.autofill = checkboxObj.checked;
         }

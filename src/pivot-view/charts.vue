@@ -1,32 +1,59 @@
 <template>
-<div>
-<div class="col-lg-12 control-section">
-    <div class="content-wrapper">
-        <ejs-pivotview id="pivotview_chart" :dataSource="dataSource" :gridSettings="gridSettings" :dataBound="dataBound" :width="width" :height="height">        
-        </ejs-pivotview>
+  <div>
+    <div class="col-lg-12 control-section" style="overflow: auto">
+      <div class="content-wrapper">
+        <ejs-pivotview
+          id="pivotview_chart"
+          ref="pivotview_chart"
+          :dataSource="dataSource"
+          :gridSettings="gridSettings"
+          :width="width"
+          :height="height"
+        ></ejs-pivotview>
         <br>
-    <br>
-    <div id="chart" style="height: 450px;"></div>
-    <div id='ddldiv' style="float: right;margin-right: 10px">
-        <ejs-dropdownlist id='measures' :dataSource='ddlDataSource' index=0 :dataBound="ddlDataBound" :change="ddlOnChange"></ejs-dropdownlist>
+        <br>
+
+        <ejs-chart
+          id="chart"
+          ref="chart"
+          width="100%"
+          height="450px"
+          title="Sales Analysis"
+          :primaryXAxis="primaryXAxis"
+          :primaryYAxis="primaryYAxis"
+          :legendSettings="legendSettings"
+          :tooltip="tooltip"
+          :load="chartInsLoad"
+        ></ejs-chart>
+
+        <div id="ddldiv" style="float: right;margin-right: 10px">
+          <ejs-dropdownlist
+            id="measures"
+            ref="measures"
+            :dataSource="ddlDataSource"
+            index="0"
+            :dataBound="ddlDataBound"
+            :change="ddlOnChange"
+          ></ejs-dropdownlist>
+        </div>
+      </div>
     </div>
-    </div>    
-</div>
-<div id="action-description">
-    <p>This sample demonstrates the integration of pivotgrid data into a simple chart widget.</p>
-</div>
-<div id="description">
-    <p>In this sample, the stock and sales of certain products, across different countries over certain fiscal years are acquired
+    <div id="action-description">
+      <p>This sample demonstrates the integration of pivotgrid data into a simple chart widget.</p>
+    </div>
+    <div id="description">
+      <p>
+        In this sample, the stock and sales of certain products, across different countries over certain fiscal years are acquired
         from the pivotgrid and plotted in the chart widget as series. The
         <b>stock</b> and
         <b>sales</b> values can be switched using the drop-down list located on the top-right corner of the chart widget.
-    </p>
-    <p>
+      </p>
+      <p>
         Since we have only a simple chart now, we have bound the aggregated pivotgrid data alone without the major UI interaction
         like drill-down. On pivotchart implementation in the near future, we will provide rich UI interaction.
-    </p>
-</div>
-</div>
+      </p>
+    </div>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -35,7 +62,8 @@ import {
   PivotView,
   IGridValues,
   IAxisSet,
-  PivotEngine
+  PivotEngine,
+  IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
   ChartPlugin,
@@ -52,128 +80,19 @@ import {
   DropDownListPlugin,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
-import { Pivot_Data } from "./data-source";
-import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { extend, enableRipple, Browser, addClass } from "@syncfusion/ej2-base";
 import { setTimeout } from "timers";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(ChartPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 let measure: string = "In Stock";
 let engineModule: PivotEngine;
 let chart: Chart;
-
-/* tslint:disable */
-function onChartLoad() {
-  let pivotGridObj = (<any>document.getElementById("pivotview_chart"))
-    .ej2_instances[0];
-  if (!(document.getElementById("chart") as any).ej2_instances) {
-    engineModule = extend(
-      {},
-      pivotGridObj.engineModule,
-      undefined,
-      true
-    ) as PivotEngine;
-  }
-  if (engineModule) {
-    let valuesContent: IGridValues = engineModule.valueContent;
-    let data: IGridValues = [];
-    for (let cCnt: number = 0; cCnt < valuesContent.length; cCnt++) {
-      if (!valuesContent[cCnt][0].type) {
-        data[cCnt] = valuesContent[cCnt];
-      }
-    }
-    let chartSeries: any = undefined;
-    for (let cCnt: number = 0; cCnt < 1; cCnt++) {
-      if (data[cCnt]) {
-        for (
-          let rCnt: number = measure === "In Stock" ? 1 : 2;
-          rCnt < Object.keys(data[cCnt]).length;
-          rCnt++
-        ) {
-          if (
-            data[cCnt][rCnt] &&
-            !(engineModule.pivotValues[0][rCnt] as IAxisSet).type &&
-            !data[cCnt][rCnt].type &&
-            rCnt > 0
-          ) {
-            let colText: string = (engineModule.pivotValues[0][
-              rCnt
-            ] as IAxisSet).formattedText as string;
-            if (!chartSeries) {
-              chartSeries = [
-                {
-                  dataSource: data,
-                  xName: cCnt + ".valueSort.levelName",
-                  yName: rCnt + ".value",
-                  type: "Column",
-                  name: colText
-                }
-              ];
-            } else {
-              chartSeries.push({
-                dataSource: data,
-                xName: cCnt + ".valueSort.levelName",
-                yName: rCnt + ".value",
-                type: "Column",
-                name: colText
-              });
-            }
-            rCnt++;
-          }
-        }
-      }
-    }
-    if (
-      (document.getElementById("chart") as any).ej2_instances &&
-      chart &&
-      chart.element
-    ) {
-      chart.primaryYAxis = {
-        title: measure
-      };
-      chart.primaryXAxis = {
-        valueType: "Category",
-        title: "Country",
-        labelIntersectAction: "Rotate45"
-      };
-      chart.series = chartSeries;
-      chart.refresh();
-    } else {
-      Chart.Inject(ColumnSeries, LineSeries, Legend, Tooltip, Category);
-      chart = new Chart(
-        {
-          width: "100%",
-          title: "Sales Analysis",
-          legendSettings: {
-            visible: true
-          },
-          tooltip: {
-            enable: true
-          },
-          primaryYAxis: {
-            title: measure
-          },
-          primaryXAxis: {
-            valueType: "Category",
-            title: "Country",
-            labelIntersectAction: "Rotate45"
-          },
-          series: chartSeries,
-          load: (args: any) => {
-            let selectedTheme: string = location.hash.split("/")[1];
-            selectedTheme = selectedTheme ? selectedTheme : "Material";
-            args.chart.theme = <ChartTheme>(selectedTheme
-              .charAt(0)
-              .toUpperCase() + selectedTheme.slice(1));
-          }
-        },
-        "#chart"
-      );
-    }
-  }
-}
+let init: boolean = true;
 
 export default Vue.extend({
   data: () => {
@@ -197,13 +116,26 @@ export default Vue.extend({
       width: "100%",
       gridSettings: { columnWidth: 120 },
       height: 300,
-      ddlDataSource: ["In Stock", "Units Sold"]
+      ddlDataSource: ["In Stock", "Units Sold"],
+      legendSettings: {
+        visible: true
+      },
+      tooltip: {
+        enable: true
+      },
+      primaryYAxis: {
+        title: measure
+      },
+      primaryXAxis: {
+        valueType: "Category",
+        title: "Country",
+        labelIntersectAction: "Rotate45"
+      }
     };
   },
   methods: {
     ddlDataBound: function(args: any) {
-      let pivotGridObj = (<any>document.getElementById("pivotview_chart"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview_chart).ej2Instances;
       if (pivotGridObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
@@ -211,16 +143,98 @@ export default Vue.extend({
     },
     ddlOnChange: function(args: ChangeEventArgs) {
       measure = args.value.toString();
-      onChartLoad();
+      this.onChartLoad();
     },
-    dataBound: (args: any): void => {
-      if (!(document.getElementById("chart") as any).ej2_instances) {
-        onChartLoad();
+    onChartLoad: function() {
+      if (Browser.isDevice) {
+        addClass([<any>document.getElementById("ddldiv")], "e-device");
+      }
+      let pivotGridObj = (<any>this.$refs.pivotview_chart).ej2Instances;
+      if (init) {
+        engineModule = extend(
+          {},
+          pivotGridObj.engineModule,
+          undefined,
+          true
+        ) as PivotEngine;
+        init = false;
+      }
+      if (engineModule) {
+        let valuesContent: IGridValues = engineModule.valueContent;
+        let data: IGridValues = [];
+        for (let cCnt: number = 0; cCnt < valuesContent.length; cCnt++) {
+          if (!valuesContent[cCnt][0].type) {
+            data[cCnt] = valuesContent[cCnt];
+          }
+        }
+        let chartSeries: any = undefined;
+        for (let cCnt: number = 0; cCnt < 1; cCnt++) {
+          if (data[cCnt]) {
+            for (
+              let rCnt: number = measure === "In Stock" ? 1 : 2;
+              rCnt < Object.keys(data[cCnt]).length;
+              rCnt++
+            ) {
+              if (
+                data[cCnt][rCnt] &&
+                !(engineModule.pivotValues[0][rCnt] as IAxisSet).type &&
+                !data[cCnt][rCnt].type &&
+                rCnt > 0
+              ) {
+                let colText: string = (engineModule.pivotValues[0][
+                  rCnt
+                ] as IAxisSet).formattedText as string;
+                if (!chartSeries) {
+                  chartSeries = [
+                    {
+                      dataSource: data,
+                      xName: cCnt + ".valueSort.levelName",
+                      yName: rCnt + ".value",
+                      type: "Column",
+                      name: colText
+                    }
+                  ];
+                } else {
+                  chartSeries.push({
+                    dataSource: data,
+                    xName: cCnt + ".valueSort.levelName",
+                    yName: rCnt + ".value",
+                    type: "Column",
+                    name: colText
+                  });
+                }
+                rCnt++;
+              }
+            }
+          }
+        }
+        if ((<any>this.$refs.chart).ej2Instances && chart && chart.element) {
+          chart.primaryYAxis.title = measure;
+          chart.series = chartSeries;
+          if (!init) {
+            chart.refresh();
+          }
+        }
+      }
+    },
+    chartInsLoad: function(args: any) {
+      let selectedTheme: string = location.hash.split("/")[1];
+      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      args.chart.theme = <ChartTheme>(
+        (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
+      );
+      if (args.chart.series.length == 1) {
+        chart = (<any>this.$refs.chart).ej2Instances;
+        this.onChartLoad();
+        init = false;
         setTimeout(() => {
           chart.refresh();
         }, 1000);
       }
     }
+  },
+  provide: {
+    chart: [ColumnSeries, LineSeries, Legend, Tooltip, Category]
   }
 });
 </script>
@@ -234,9 +248,13 @@ export default Vue.extend({
   margin-top: -452px;
 }
 
+#ddldiv.e-device {
+  margin-top: -480px;
+}
+
 @media only screen and (max-width: 400px) {
   #ddldiv {
-    margin-top: -230px !important;
+    margin-top: -480px !important;
   }
 }
 </style>

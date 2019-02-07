@@ -21,16 +21,16 @@
     <p>
         In this sample, checked state is achieved by using the 
         <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/check-box/api-checkBox.html#checked-boolean">checked
+        href="http://ej2.syncfusion.com/vue/documentation/api/check-box/#checked">checked
         </a></code> property, indeterminate state is achieved by using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/check-box/api-checkBox.html#indeterminate-boolean">indeterminate
+        href="http://ej2.syncfusion.com/vue/documentation/api/check-box/#indeterminate">indeterminate
         </a></code> property, and disabled state is achieved by using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/check-box/api-checkBox.html#disabled-boolean">disabled
+        href="http://ej2.syncfusion.com/vue/documentation/api/check-box/#disabled">disabled
         </a></code> property.
     </p>
     <p>
         More information about CheckBox can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/angular/documentation/check-box/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/check-box/getting-started">
         documentation section</a>.
     </p>
 </div>

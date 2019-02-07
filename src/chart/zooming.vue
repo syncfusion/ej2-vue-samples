@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
        <div align='center'>
-        <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center'
+        <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart'
             :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
             <e-series-collection>
                 <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' fill='url(#gradient-chart)' :border='border'>
@@ -82,7 +82,7 @@
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 function GetZoomingData() {
         let series = [];

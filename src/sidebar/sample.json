@@ -8,36 +8,32 @@
             "name": "Default Functionalities",
             "category": "Sidebar",
             "hideOnDevice": true,
-            "api": { "Sidebar": ["type", "position", "showBackdrop", "closeOnDocumentClick", "change", "mediaQuery"] }
+            "api": { "Sidebar": ["type", "position", "showBackdrop", "closeOnDocumentClick", "change", "mediaQuery"] },
+            "description": "This example demonstrates a simple, mobile-friendly and responsive Vue Sidebar (Navigation drawer, Side navigation menu) to navigate between various parts of an application with ease"
         },
         {
             "url": "docking-sidebar",
             "name": "Dock",
             "category": "Sidebar",
             "hideOnDevice": true,
-            "api": { "Sidebar": ["enableDock", "dockSize", "contextTo"] }
+            "api": { "Sidebar": ["enableDock", "dockSize", "contextTo"] },
+            "description": "This example demonstrates how the Vue Sidebar is docked to the main content when it is in closed state"
         },
         {
             "url": "api",
             "name": "API",
             "category": "Sidebar",
             "hideOnDevice": true,
-            "api": { "Sidebar": ["showBackdrop", "position", "types", "closeOnDocumentClick"] }
+            "api": { "Sidebar": ["showBackdrop", "position", "types", "closeOnDocumentClick"] },
+            "description": "This example demonstrates how to change the behavior and appearance of the Vue sidebar based on application through user friendly API’s like types, position, auto close and backdrop"
         },
         {
             "url": "sidebar-list",
             "name": "Sidebar With ListView",
             "category": "Sidebar",
             "hideOnDevice": true,
-            "api": { "Sidebar": ["open", "close"] }
-        },
-        {
-            "url": "multiple-sidebar",
-            "name": "Multiple Sidebar",
-            "category": "Sidebar",
-            "hideOnDevice": true,
-            "type": "new",
-            "api": { "Sidebar": ["open", "close", "zIndex"] }
+            "api": { "Sidebar": ["open", "close"] },
+            "description": "This example demonstrates how the Vue Sidebar is integrated with a ListView to display a list of menu items"
         }
     ]
 }

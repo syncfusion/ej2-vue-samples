@@ -7,21 +7,21 @@
         "url": "default",
         "name": "Default Functionalities",
         "category": "Toolbar",
-        "description": "The sample demonstrates the default functionalities of the Toolbar component (alternate to Ribbon component) which place commands with the scrollable mode.",
+        "description": "The sample demonstrates the default functionalities of the Toolbar component which place commands with the scrollable mode in Vue platform.",
         "api":{"Toolbar": ["text", "prefixIcon", "type", "tooltipText", "items"]}
     },
     {
         "url": "popup",
         "name": "Popup",
         "category": "Toolbar",
-        "description": "The sample exposes popup mode of Toolbar component which configures overflowing toolbar commands (excessive items) inside a popup based on priority.",
+        "description": "The sample exposes popup mode of Toolbar component which configures overflowing toolbar commands inside a popup based on priority in Vue platform.",
         "api":{"Toolbar": ["showAlwaysInPopup", "showTextOn", "overflow", "overflowMode"]}   
     },
     {
         "url": "alignment",
         "name": "Alignment",
         "category": "Toolbar",
-        "description": "This sample demonstrates how to align commands in left, right and center position in Toolbar component. The commands can be customized HTML template.",
+        "description": "This sample demonstrates how to align commands in left, right and center position in Toolbar component in Vue platform.",
         "api":{"Toolbar": ["align"]}   
     }
     ]

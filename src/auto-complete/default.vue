@@ -21,15 +21,11 @@
     </div>
 </div>
 </template>
-<style>
-    .control-wrapper {
-        margin: 0 auto;
-        width: 250px;
-    }
-</style>
+
 <script>
 import Vue from "vue";
 import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(AutoCompletePlugin);
 
@@ -37,10 +33,7 @@ export default Vue.extend ({
     data: function() {
         return {
             waterMark: 'e.g. Basketball',
-            sportsData: ['Badminton', 'Basketball', 'Cricket',
-                'Football', 'Golf', 'Gymnastics',
-                'Hockey', 'Rugby', 'Snooker', 'Tennis'
-            ]
+            sportsData: data['sportsData']
         };
     }
 });

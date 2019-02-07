@@ -57,7 +57,7 @@ export default Vue.extend({
             zoomSettings: {
                 enable: false
             },
-            shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+            shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
             shapeSettings: {
                 fill: '#E5E5E5',
                 colorMapping: [{

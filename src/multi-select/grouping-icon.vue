@@ -19,7 +19,7 @@
 </template>
 <style>
     #group,
-    #icon {
+   {
         margin: 0 auto;
         padding-top: 15px;
     }
@@ -32,56 +32,11 @@
         font-style: normal;
     }
 
-    .e-list-icon {
-        font-family: 'Socialicons' !important;
-        color: rgba(0, 0, 0, .57);
-    }
-    .highcontrast .e-list-icon {
-        color: rgba(255, 255, 255, 0.57);
-    }
-    .twitter:before {
-        content: "\a701";
-    }
-
-    .vimeo:before {
-        content: "\a702";
-    }
-
-    .youtube:before {
-        content: "\a709";
-    }
-
-    .whatsapp:before {
-        content: "\a700";
-    }
-
-    .skype:before {
-        content: "\a708";
-    }
-
-    .instagram:before {
-        content: "\a703";
-    }
-
-    .google-plus:before {
-        content: "\a706";
-    }
-
-    .facebook:before {
-        content: "\a705";
-    }
-
-    .tumblr:before {
-        content: "\a707";
-    }
-
-    .linkedin:before {
-        content: "\a704";
-    }
 </style>
 <script>
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 
@@ -90,19 +45,7 @@ export default Vue.extend ({
         return {
             groupFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
             groupWaterMark: 'Select vegetables',
-            vegetableData: [
-                { Vegetable: 'Cabbage', Category: 'Leafy and Salad', Id: 'item1' },
-                { Vegetable: 'Chickpea', Category: 'Beans', Id: 'item2' },
-                { Vegetable: 'Garlic', Category: 'Bulb and Stem', Id: 'item3' },
-                { Vegetable: 'Green bean', Category: 'Beans', Id: 'item4' },
-                { Vegetable: 'Horse gram', Category: 'Beans', Id: 'item5' },
-                { Vegetable: 'Nopal', Category: 'Bulb and Stem', Id: 'item6' },
-                { Vegetable: 'Onion', Category: 'Bulb and Stem', Id: 'item7' },
-                { Vegetable: 'Pumpkins', Category: 'Leafy and Salad', Id: 'item8' },
-                { Vegetable: 'Spinach', Category: 'Leafy and Salad', Id: 'item9' },
-                { Vegetable: 'Wheat grass', Category: 'Leafy and Salad', Id: 'item10' },
-                { Vegetable: 'Yarrow', Category: 'Leafy and Salad', Id: 'item11' }
-            ],
+            vegetableData: data['vegetableData'],
         };
     }
 });

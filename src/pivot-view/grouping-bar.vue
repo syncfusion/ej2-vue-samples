@@ -1,8 +1,8 @@
 <template>
 <div>
-    <div class="col-lg-9 control-section">
+    <div class="col-lg-9 control-section" id="pivot-grid-section">
         <div class="content-wrapper">
-            <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height" :load="load" :dataBound="dataBound" :showGroupingBar="showGroupingBar" :showFieldList="showFieldList">        
+            <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height" :load="load" :dataBound="dataBound" :showGroupingBar="showGroupingBar" :showFieldList="showFieldList">        
             </ejs-pivotview>
             </div>
     </div>
@@ -27,6 +27,13 @@
                 <tr style="height: 50px">
                     <td>
                         <div>
+                            <ejs-checkbox id='summary' label="Show Value Type Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td>
+                        <div>
                             <ejs-checkbox id='remove' label="Show Remove Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
                         </div>
                     </td>
@@ -45,7 +52,8 @@
             To enable grouping bar, set the
             <code>showGroupingBar</code> property as true.</p>
         <p>
-            Filter and sort icons allow displaying selective records and ordering them in ascending or descending order. The remove icon
+            Filter and sort icons allow displaying selective records and ordering them in ascending or descending order. The value type icon
+            allows to display values based on selected aggregate type. The remove icon
             allows the user to remove the field from the report.
         </p>
         <p>
@@ -66,9 +74,9 @@ import Vue from "vue";
 import {
   PivotViewPlugin,
   GroupingBar,
-  FieldList
+  FieldList,
+  IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
 import {
   ChangeEventArgs as checkEventArgs,
   CheckBoxPlugin
@@ -78,7 +86,9 @@ enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(CheckBoxPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -122,8 +132,7 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function(args: any) {
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       if (pivotGridObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
@@ -131,14 +140,15 @@ export default Vue.extend({
     },
     checkbox_onChange: function(args: checkEventArgs) {
       let target = (<any>args.event).target;
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       if (target.id === "filter") {
         pivotGridObj.groupingBarSettings.showFilterIcon = args.checked;
       } else if (target.id === "sort") {
         pivotGridObj.groupingBarSettings.showSortIcon = args.checked;
-      } else {
+      } else if (target.id === "remove") {
         pivotGridObj.groupingBarSettings.showRemoveIcon = args.checked;
+      } else {
+        pivotGridObj.groupingBarSettings.showValueTypeIcon = args.checked;
       }
     }
   },
@@ -153,13 +163,13 @@ export default Vue.extend({
   width: auto !important;
 }
 
-@media only screen and (max-width: 400px) {
-  .control-section {
-    overflow: auto;
-  }
-}
-
 #pivotview {
   width: 100%;
+}
+
+@media only screen and (max-width: 400px) {
+    #pivot-grid-section {
+        overflow: auto;
+    }
 }
 </style>

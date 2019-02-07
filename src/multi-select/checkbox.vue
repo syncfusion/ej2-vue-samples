@@ -14,21 +14,21 @@
                 <tr>
                     <td style="width: 50%;">
                         <div>
-                            <ejs-checkbox label="Show Select All" :checked="true" :change="onChange"></ejs-checkbox>
+                            <ejs-checkbox ref="checkboxInstance1" label="Show Select All" :checked="true" :change="onChange"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 50%;">
                         <div>
-                            <ejs-checkbox label="Dropdown Button" :checked="true" :change="onChangeDrop"></ejs-checkbox>
+                            <ejs-checkbox ref="checkboxInstance2" label="Dropdown Button" :checked="true" :change="onChangeDrop"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 50%;">
                         <div>
-                            <ejs-checkbox label="Selection Reorder" :checked="true" :change="onChangeReorder"></ejs-checkbox>
+                            <ejs-checkbox ref="checkboxInstance3" label="Selection Reorder" :checked="true" :change="onChangeReorder"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -66,6 +66,7 @@
 import Vue from "vue";
 import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 Vue.use(CheckBoxPlugin);
@@ -81,42 +82,22 @@ export default Vue.extend ({
             showSelectAll: true,
             showDropDownIcon: true,
             enableSelectionOrder: true,
-            countries: [
-                { Name: 'Australia', Code: 'AU' },
-                { Name: 'Bermuda', Code: 'BM' },
-                { Name: 'Canada', Code: 'CA' },
-                { Name: 'Cameroon', Code: 'CM' },
-                { Name: 'Denmark', Code: 'DK' },
-                { Name: 'France', Code: 'FR' },
-                { Name: 'Finland', Code: 'FI' },
-                { Name: 'Germany', Code: 'DE' },
-                { Name: 'Greenland', Code: 'GL' },
-                { Name: 'Hong Kong', Code: 'HK' },
-                { Name: 'India', Code: 'IN' },
-                { Name: 'Italy', Code: 'IT' },
-                { Name: 'Japan', Code: 'JP' },
-                { Name: 'Mexico', Code: 'MX' },
-                { Name: 'Norway', Code: 'NO' },
-                { Name: 'Poland', Code: 'PL' },
-                { Name: 'Switzerland', Code: 'CH' },
-                { Name: 'United Kingdom', Code: 'GB' },
-                { Name: 'United States', Code: 'US' }
-            ]
+            countries:data['countries']
         };
     },
     methods: {
         onChange: function() {
-            var checkboxObj = event.target.ej2_instances[0];
+            var checkboxObj = this.$refs.checkboxInstance1.ej2Instances;
             // enable or disable the select all in Multiselect based on CheckBox checked state
             this.showSelectAll = checkboxObj.checked;
         },
         onChangeDrop: function() {
-            var dropdownObj = event.target.ej2_instances[0];
+            var dropdownObj = this.$refs.checkboxInstance2.ej2Instances;
             // enable or disable the dropdown button in Multiselect based on CheckBox checked state
             this.showDropDownIcon = dropdownObj.checked;
         },
         onChangeReorder: function() {
-            var reorderObj = event.target.ej2_instances[0];
+            var reorderObj = this.$refs.checkboxInstance3.ej2Instances;
             // enable or disable the list reorder in Multiselect based on CheckBox checked state
             this.enableSelectionOrder = reorderObj.checked;
         }

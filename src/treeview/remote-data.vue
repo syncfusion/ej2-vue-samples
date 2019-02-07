@@ -16,7 +16,7 @@
     <p>The DataManager will act as an interface between the service endpoint and the TreeView, that requires the below minimal information to interact with the service endpoint.</p>
     <ul>
         <li><code>DataManager->url</code> - Defines the service endpoint to fetch data.</li>
-        <li><code>DataManager->adaptor</code> - Defines the adaptor option. By default, ODataAdaptor is used for remote binding.</li>
+        <li><code>DataManager->adaptor</code> - Defines the adaptor option. By default, ODataV4Adaptor is used for remote binding.</li>
     </ul>
     <p>In this demo, the TreeView is bound with the dataSource from the Northwind remote service by using the DataManager instance.</p>
 </div>
@@ -39,13 +39,13 @@
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import { DataManager,Query,ODataAdaptor } from "@syncfusion/ej2-data";
+import { DataManager,Query,ODataV4Adaptor } from "@syncfusion/ej2-data";
 
 Vue.use(TreeViewPlugin);
 
 var remoteData = new DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc',
-            adaptor: new ODataAdaptor,
+    url: 'https://services.odata.org/V4/Northwind/Northwind.svc',
+            adaptor: new ODataV4Adaptor,
             crossDomain: true,
 });
 export default Vue.extend({

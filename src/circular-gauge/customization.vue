@@ -32,7 +32,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="currentValue" value="1800" min="1000" max="2000" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
+                        <input type="range" ref="curVal" id="currentValue" value="1800" min="1000" max="2000" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
                     </div>
                 </td>
             </tr>
@@ -42,7 +42,7 @@
                 </td>
                 <td>
                     <div>
-                    <ejs-dropdownlist id='barColor' :dataSource='barColordata' index=0  :width=120 :change='changeBarcolor'></ejs-dropdownlist>                      
+                    <ejs-dropdownlist id='barColor' ref="rangeBar" :dataSource='barColordata' index=0  :width=120 :change='changeBarcolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -52,7 +52,7 @@
                 </td>
                 <td>
                     <div>
-                    <ejs-dropdownlist id='rangeColor' :dataSource='rangeColordata' index=0  :width=120 :change='changeRangecolor'></ejs-dropdownlist>                      
+                    <ejs-dropdownlist id='rangeColor' ref="range" :dataSource='rangeColordata' index=0  :width=120 :change='changeRangecolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -62,7 +62,7 @@
                 </td>
                 <td>
                     <div>
-                    <ejs-dropdownlist id='pointerColor' :dataSource='pointerColordata' index=0  :width=120 :change='changePointercolor'></ejs-dropdownlist>                      
+                    <ejs-dropdownlist id='pointerColor' ref="pointer" :dataSource='pointerColordata' index=0  :width=120 :change='changePointercolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -206,8 +206,8 @@ methods:{
         document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;'
             + usage.ej2Instances.axes[0].pointers[0].value + '</span>';
         barColor.value = usage.ej2Instances.axes[0].pointers[0].color; rangeColor.value = usage.ej2Instances.axes[0].ranges[0].color;
-        let pointerColor = document.getElementById('pointerColor');
-        pointerColor.ej2_instances[0].enabled = false;
+        // let pointerColor = document.getElementById('pointerColor');
+        this.$refs.pointer.enabled = false;
         let pointElement = document.getElementById('pointColor');
         pointElement.className = 'e-disabled';
         let currentElement = document.getElementById('usage');
@@ -232,8 +232,8 @@ methods:{
         let element = document.getElementById('currentValue');
         let pointElement = document.getElementById('pointColor');
         pointElement.className = 'e-enabled'; 
-        let pointerColor = document.getElementById('pointerColor');
-        pointerColor.ej2_instances[0].enabled = true;
+        // let pointerColor = document.getElementById('pointerColor');
+        this.$refs.pointer.enabled = true;
         element.min = '1000'; element.max = '2000';
         element.value = random.ej2Instances.axes[0].pointers[0].value.toString();
         document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' +
@@ -244,65 +244,65 @@ methods:{
     },
     changeCurrentval:function(){
          if(document.getElementById('customizationgauge1').style.display=="block"){
-           let gauge = document.getElementById('customizationgauge1');
+        //    let gauge = document.getElementById('customizationgauge1');
               let value = +(document.getElementById('currentValue')).value;
             if (isUsage) {
-                gauge.ej2_instances[0].setPointerValue(0, 0, value);
+                this.$refs.customizationgauge1.ej2Instances.setPointerValue(0, 0, value);
             } else {
-                gauge.ej2_instances[0].setPointerValue(0, 0, value);
-                gauge.ej2_instances[0].setPointerValue(0, 1, value);
+                this.$refs.customizationgauge1.ej2Instances.setPointerValue(0, 0, value);
+                this.$refs.customizationgauge1.ej2Instances.setPointerValue(0, 1, value);
             }
-            gauge.ej2_instances[0].setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px;">' + value + (isUsage ? 'GB' : '') + '</div>');
+            this.$refs.customizationgauge1.ej2Instances.setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px;">' + value + (isUsage ? 'GB' : '') + '</div>');
             document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' + value + '</span>';
          }         
          else{
-             let gauge = document.getElementById('customizationgauge2');
+            //  let gauge = document.getElementById('customizationgauge2');
             let isUsage = true;
               let value = +(document.getElementById('currentValue')).value;
             if (isUsage) {
-                gauge.ej2_instances[0].setPointerValue(0, 0, value);
+                this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 0, value);
             } else {
-                gauge.ej2_instances[0].setPointerValue(0, 0, value);
-                gauge.ej2_instances[0].setPointerValue(0, 1, value);
+                this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 0, value);
+                this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 1, value);
             }
-            gauge.ej2_instances[0].setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px;">' + value + (isUsage ? 'GB' : '') + '</div>');
+            this.$refs.customizationgauge2.ej2Instances.setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px;">' + value + (isUsage ? 'GB' : '') + '</div>');
             document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' + value + '</span>';
          }
          
     },
     changeBarcolor:function(args){
            if(document.getElementById('customizationgauge1').style.display=="block"){
-            let gauge = document.getElementById('customizationgauge1');          
-            gauge.ej2_instances[0].axes[0].pointers[0].color = barColor.value.toString();
-            gauge.ej2_instances[0].refresh();
+            // let gauge = document.getElementById('customizationgauge1');          
+            this.$refs.customizationgauge1.ej2Instances.axes[0].pointers[0].color = barColor.value.toString();
+            this.$refs.customizationgauge1.ej2Instances.refresh();
            }
            else{
-           let gauge = document.getElementById('customizationgauge2');            
-            gauge.ej2_instances[0].axes[0].pointers[0].color = barColor.value.toString();
-            gauge.ej2_instances[0].refresh();
+        //    let gauge = document.getElementById('customizationgauge2');            
+            this.$refs.customizationgauge2.ej2Instances.axes[0].pointers[0].color = barColor.value.toString();
+            this.$refs.customizationgauge2.ej2Instances.refresh();
            }
     },
     changeRangecolor:function(args){
         if(document.getElementById('customizationgauge1').style.display=="block"){
-        let gauge = document.getElementById('customizationgauge1');  
-        gauge.ej2_instances[0].axes[0].ranges[0].color = rangeColor.value.toString();
-        gauge.ej2_instances[0].refresh();
+        // let gauge = document.getElementById('customizationgauge1');  
+        this.$refs.customizationgauge1.ej2Instances.axes[0].ranges[0].color = rangeColor.value.toString();
+        this.$refs.customizationgauge1.ej2Instances.refresh();
         }else{
-        let gauge = document.getElementById('customizationgauge2');   
-        gauge.ej2_instances[0].axes[0].ranges[0].color = rangeColor.value.toString();
-        gauge.ej2_instances[0].refresh();
+        // let gauge = document.getElementById('customizationgauge2');   
+        this.$refs.customizationgauge2.ej2Instances.axes[0].ranges[0].color = rangeColor.value.toString();
+        this.$refs.customizationgauge2.ej2Instances.refresh();
         }
     },
     changePointercolor:function(args){
         if(document.getElementById('customizationgauge1').style.display=="block"){
-        let gauge = document.getElementById('customizationgauge1');    
+        // let gauge = document.getElementById('customizationgauge1');    
          let color = pointerColor.value.toString();
             if (!isUsage) {
-                gauge.ej2_instances[0].axes[0].pointers[1].color = color;
-                gauge.ej2_instances[0].axes[0].pointers[1].cap.border.color = color;
-                gauge.ej2_instances[0].axes[0].pointers[1].cap.color = color;
+                this.$refs.customizationgauge1.ej2Instances.axes[0].pointers[1].color = color;
+                this.$refs.customizationgauge1.ej2Instances.axes[0].pointers[1].cap.border.color = color;
+                this.$refs.customizationgauge1.ej2Instances.axes[0].pointers[1].cap.color = color;
             }
-            gauge.ej2_instances[0].refresh();
+            this.$refs.customizationgauge1.ej2Instances.refresh();
         }
    }   
 }

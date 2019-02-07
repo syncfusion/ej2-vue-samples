@@ -1,7 +1,7 @@
 <template>
  <div>
 <div class="control-section">
-<ejs-maps id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :mapsArea='mapsArea' :centerPosition='centerPosition'>
+<ejs-maps id='navigationLine' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :mapsArea='mapsArea' :centerPosition='centerPosition'>
     <e-layers>
         <e-layer :shapeData='shapeData' :navigationLineSettings='navigationLineSettings' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
@@ -29,7 +29,7 @@
 </div> 
 </template>
 <style>
-    #container_layerIndex_0_line_Group{
+    #navigationLine_layerIndex_0_line_Group{
         stroke-dasharray: 10px 10px;
         stroke-linejoin: round; stroke-linecap: round;
         -webkit-animation: dash 15s linear infinite;
@@ -62,7 +62,7 @@ export default Vue.extend({
             }
         },
         zoomSettings: {
-            enable: true,
+            enable: false,
             mouseWheelZoom: false,
             toolbars: [],
             zoomFactor: 13
@@ -74,7 +74,7 @@ export default Vue.extend({
             latitude: 25.54244147012483,
             longitude: -89.62646484375
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeSettings: {
                     fill: '#789071',
                 },

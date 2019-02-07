@@ -91,7 +91,7 @@
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
   export default Vue.extend({
     data: function() {
@@ -135,7 +135,7 @@ let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
 
         selectionMode: 'Point',
         
-      indexdata: ["Point", "Series", "Cluster", "None"],
+      indexdata: ["Point", "Series", "Cluster"],
 
       indexwidth: 120,
           tooltip: { enable: true, shared: true },

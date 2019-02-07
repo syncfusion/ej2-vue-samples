@@ -2,7 +2,7 @@
 <div>
 <div>
     <div class="col-lg-9 control-section">
-            <ejs-smithchart id='container' :title='title' :load='load' :legendSettings='legendSettings'>
+            <ejs-smithchart ref="smithchart" id='container' :title='title' :load='load' :legendSettings='legendSettings'>
                 <e-seriesCollection>
                     <e-series :points='points' :name='name' :enableAnimation='enableAnimation' :tooltip='tooltip' :marker='marker'></e-series>
                     <e-series :points='points2' :name='name2' :enableAnimation='enableAnimation2' :tooltip='tooltip2' :marker='marker2'></e-series>
@@ -114,11 +114,10 @@ methods:{
     },
     changeRendering:function(args){
         debugger
-        let smithchart = document.getElementById('container');
         let mode = document.getElementById('rendering');
-        let element = mode.ej2_instances[0].value;
-        smithchart.ej2_instances[0].renderType  = element;
-        smithchart.ej2_instances[0].refresh();
+        let element = args.value;
+        this.$refs.smithchart.ej2Instances.renderType = element;
+        this.$refs.smithchart.ej2Instances.refresh();
     }
 }
 })

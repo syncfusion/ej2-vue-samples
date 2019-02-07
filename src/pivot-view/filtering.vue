@@ -1,80 +1,114 @@
 <template>
-<div>
-    <div class="col-lg-8 control-section">
-    <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :dataBound="dataBound" :width="width" :height="height">        
-        </ejs-pivotview>
+  <div>
+    <div class="col-lg-8 control-section" style="overflow: auto">
+      <div class="content-wrapper">
+        <ejs-pivotview
+          id="pivotview"
+          ref="pivotview"
+          :dataSource="dataSource"
+          :gridSettings="gridSettings"
+          :dataBound="dataBound"
+          :width="width"
+          :height="height"
+        ></ejs-pivotview>
+      </div>
     </div>
-</div>
 
-<div class="col-lg-4 property-section">
-    <table id="property" title="Properties" style="width: 100%;height:100%;">
+    <div class="col-lg-4 property-section pivotgrid-property-section">
+      <table id="property" title="Properties" style="width: 100%;height:100%;">
         <tbody>
-            <tr style="height: 50px">
-                <td>
-                    <div>Fields:
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-left: -40px">
-                        <ejs-dropdownlist id='fields' :dataSource='fieldDataSource' index=0 width='98%' :change='fieldOnChange'></ejs-dropdownlist>
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 50px">
-                <td>
-                    <div>Members:
-                    </div>
-                </td>
-                <td style="padding-bottom: 16px">
-                    <div class="valuecls" style="margin-left: -40px">
-                        <ejs-multiselect id='values' :dataSource='memberDataSource' mode='CheckBox' showDropDownIcon='true' :showClearButton='showClearButton' :enableSelectionOrder='enableSelectionOrder' :fields='memberFields' :select='memberOnSelect' :removed='memberOnRemoved' :open='memberOnOpened' ></ejs-multiselect>
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 50px">
-                <td>
-                    <div>Filter Type:
-                    </div>
-                </td>
-                <td>
-                    <div style="margin-left: -40px;margin-top:-5px">
-                        <ejs-dropdownlist id='type' :dataSource='typeDataSource' width='98%' index=1></ejs-dropdownlist>
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 50px">
-              <td></td>
-                <td>
-                    <div style="float: right;margin-right: 4px">
-                        <ejs-button id="apply" v-on:click.native="btnClick" iconCss="e-icons e-play-icon" isPrimary='true' disabled='true'>Apply</ejs-button>
-                    </div>
-                </td>
-            </tr>
+          <tr style="height: 50px">
+            <td>
+              <div>Fields:</div>
+            </td>
+            <td>
+              <div>
+                <ejs-dropdownlist
+                  id="fields"
+                  ref="fields"
+                  :dataSource="fieldDataSource"
+                  index="0"
+                  width="98%"
+                  :change="fieldOnChange"
+                ></ejs-dropdownlist>
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td>
+              <div>Members:</div>
+            </td>
+            <td style="padding-bottom: 16px">
+              <div class="valuecls">
+                <ejs-multiselect
+                  id="values"
+                  ref="values"
+                  :dataSource="memberDataSource"
+                  mode="CheckBox"
+                  showDropDownIcon="true"
+                  :showClearButton="showClearButton"
+                  :enableSelectionOrder="enableSelectionOrder"
+                  :fields="memberFields"
+                  :select="memberOnSelect"
+                  :removed="memberOnRemoved"
+                  :open="memberOnOpened"
+                ></ejs-multiselect>
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td>
+              <div>Filter Type:</div>
+            </td>
+            <td>
+              <div style="margin-top:-5px">
+                <ejs-dropdownlist
+                  id="type"
+                  ref="type"
+                  :dataSource="typeDataSource"
+                  width="98%"
+                  index="1"
+                ></ejs-dropdownlist>
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td></td>
+            <td>
+              <div style="float: right;margin-right: 4px">
+                <ejs-button
+                  id="apply"
+                  ref="apply"
+                  v-on:click.native="btnClick"
+                  isPrimary="true"
+                  disabled="true"
+                >Apply</ejs-button>
+              </div>
+            </td>
+          </tr>
         </tbody>
-    </table>
-</div>
+      </table>
+    </div>
 
-<div id="action-description">
-    <p>This sample demonstrates filtering of field headers either by including or excluding them.</p>
-</div>
-<div id="description">
-    <p>In this sample, any field can be selected from
+    <div id="action-description">
+      <p>This sample demonstrates filtering of field headers either by including or excluding them.</p>
+    </div>
+    <div id="description">
+      <p>
+        In this sample, any field can be selected from
         <b>Fields</b> dropdown list along with its members from be subsequent
         <b>Members</b> dropdown list and finally select whether to include or exclude them from filtering. It can be achieved
         using the
         <code>name</code> and
         <code>items</code> options inside the
         <code>filterSettings</code> property in the pivotgrid widget.
-    </p>
-</div>
-
-</div>
+      </p>
+    </div>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
 import { IDataSet, PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
 import { ButtonPlugin, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
 import {
   DropDownListPlugin,
@@ -85,7 +119,7 @@ import {
   PopupEventArgs,
   CheckBoxSelection
 } from "@syncfusion/ej2-vue-dropdowns";
-import { extend, enableRipple } from '@syncfusion/ej2-base';
+import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { FilterModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/dataSource-model";
 enableRipple(false);
 
@@ -93,7 +127,9 @@ Vue.use(PivotViewPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(MultiSelectPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 let fieldCollections: { [key: string]: { [key: string]: Object }[] } = {};
 let filterCollections: { [key: string]: FilterModel } = {};
 let isInitial: boolean = true;
@@ -105,69 +141,6 @@ let values: { [key: string]: Object }[] = [
   { Member: "France", Checked: "France_false" }
 ];
 let fields: string[] = ["Country", "Products", "Year"];
-
-/** To get the checked members here as string array. */
-function getSelectedMembers(field: string) {
-  let membersColl: string[] = [];
-  let members: { [key: string]: Object }[] = fieldCollections[field];
-  let memLength: number = members.length - 1;
-  while (memLength > -1) {
-    if (
-      members[memLength]["Checked"] ===
-      members[memLength]["Member"] + "_" + true
-    ) {
-      membersColl.push(members[memLength]["Member"].toString());
-    }
-    memLength--;
-  }
-  return membersColl;
-}
-
-/** To set the filter type of the field maintained in the object filterCollections. */
-function updateFilterType(fieldName: string) {
-  let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-  let typeddl = (<any>document.getElementById("type")).ej2_instances[0];
-    if ((fieldsddl as any).itemData === fieldName) {
-        return (typeddl as any).itemData;
-    } else if (filterCollections[fieldName]) {
-        return filterCollections[fieldName].type;
-    } else {
-        return 'Exclude'
-    }
-}
-
-/** To set the checked status of the members maintained in the object fieldCollections. */
-function setMemberCheckedState(
-  field: string,
-  member: string,
-  checkedState: string
-) {
-  let members: { [key: string]: Object }[] = fieldCollections[field];
-  let memLength: number = members.length - 1;
-  while (memLength > -1) {
-    if (members[memLength]["Member"] === member) {
-      members[memLength]["Checked"] = checkedState;
-      break;
-    }
-    memLength--;
-  }
-}
-
-/** To set disabled/enabled state in the Apply button. */
-function setApplyBtnState() {
-  let applyBtn = (<any>document.getElementById("apply")).ej2_instances[0];
-  let fieldArray: string[] = ["Country", "Products", "Year"];
-  let loopCount = fieldArray.length - 1;
-  let isSelected: boolean = false;
-  while (loopCount > -1) {
-    if (getSelectedMembers(fieldArray[loopCount]).length > 0) {
-      isSelected = true;
-      break;
-    }
-    loopCount--;
-  }
-  applyBtn.disabled = !isSelected;
-}
 
 export default Vue.extend({
   data: () => {
@@ -204,8 +177,7 @@ export default Vue.extend({
         /** To fill the members for each fields into the object fieldCollections. */
         let fieldCnt: number = fields.length - 1;
         while (fieldCnt > -1) {
-          let pivotGridObj = (<any>document.getElementById("pivotview"))
-            .ej2_instances[0];
+          let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
           let members: string[] = Object.keys(
             pivotGridObj.engineModule.fieldList[fields[fieldCnt]].members
           );
@@ -224,57 +196,127 @@ export default Vue.extend({
         values = fieldCollections[fields[0]];
         isInitial = false;
       }
-      let pivotGridObj = (<any>document.getElementById("pivotview")).ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       for (let field of pivotGridObj.dataSource.filterSettings) {
-          filterCollections[field.name] = field;
+        filterCollections[field.name] = field;
       }
     },
     btnClick: function(args: ChangeEventArgs) {
-      let pivotGridObj = (<any>document.getElementById("pivotview")).ej2_instances[0];
-      let typeddl = (<any>document.getElementById("type")).ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
+      let typeddl = (<any>this.$refs.type).ej2Instances;
       /** You can set your filter settings here. */
       pivotGridObj.dataSource.filterSettings = [
-        { name: fields[0], items: getSelectedMembers(fields[0]), type: updateFilterType(fields[0]) },
-        { name: fields[1], items: getSelectedMembers(fields[1]), type: updateFilterType(fields[1]) },
-        { name: fields[2], items: getSelectedMembers(fields[2]), type: updateFilterType(fields[2]) }
+        {
+          name: fields[0],
+          items: this.getSelectedMembers(fields[0]),
+          type: this.updateFilterType(fields[0])
+        },
+        {
+          name: fields[1],
+          items: this.getSelectedMembers(fields[1]),
+          type: this.updateFilterType(fields[1])
+        },
+        {
+          name: fields[2],
+          items: this.getSelectedMembers(fields[2]),
+          type: this.updateFilterType(fields[2])
+        }
       ];
     },
     fieldOnChange: function(args: dropEventArgs) {
-      let valuesddl = (<any>document.getElementById("values")).ej2_instances[0];
-      let typeddl = (<any>document.getElementById("type")).ej2_instances[0];
+      let valuesddl = (<any>this.$refs.values).ej2Instances;
+      let typeddl = (<any>this.$refs.type).ej2Instances;
       valuesddl.dataSource = fieldCollections[args.value.toString()];
-      valuesddl.value = getSelectedMembers(args.value.toString());
+      valuesddl.value = this.getSelectedMembers(args.value.toString());
       if (filterCollections[args.value.toString()]) {
-          typeddl.value = filterCollections[args.value.toString()].type;
+        typeddl.value = filterCollections[args.value.toString()].type;
       }
       valuesddl.dataBind();
       typeddl.dataBind();
     },
     memberOnSelect: function(args: SelectEventArgs) {
-      let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      let applyBtn = (<any>document.getElementById("apply")).ej2_instances[0];
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let applyBtn = (<any>this.$refs.apply).ej2Instances;
       applyBtn.disabled = false;
-      setMemberCheckedState(
+      this.setMemberCheckedState(
         (<any>fieldsddl).itemData,
         <any>args.item.textContent,
         args.item.textContent + "_" + true
       );
     },
     memberOnRemoved: function(args: RemoveEventArgs) {
-      let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      setMemberCheckedState(
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      this.setMemberCheckedState(
         (<any>fieldsddl).itemData,
         <any>args.item.textContent,
         args.item.textContent + "_" + false
       );
-      setApplyBtnState();
+      this.setApplyBtnState();
     },
     memberOnOpened: function(args: PopupEventArgs) {
-      let valuesddl = (<any>document.getElementById("values")).ej2_instances[0];
+      let valuesddl = (<any>this.$refs.values).ej2Instances;
       (args.popup.element.querySelector(
         ".e-filter-parent"
-      ) as HTMLElement).style.display =
-        "none";
+      ) as HTMLElement).style.display = "none";
+    },
+    /** To set disabled/enabled state in the Apply button. */
+    setApplyBtnState: function() {
+      let applyBtn = (<any>this.$refs.apply).ej2Instances;
+      let fieldArray: string[] = ["Country", "Products", "Year"];
+      let loopCount = fieldArray.length - 1;
+      let isSelected: boolean = false;
+      while (loopCount > -1) {
+        if (this.getSelectedMembers(fieldArray[loopCount]).length > 0) {
+          isSelected = true;
+          break;
+        }
+        loopCount--;
+      }
+      applyBtn.disabled = !isSelected;
+    },
+    /** To set the filter type of the field maintained in the object filterCollections. */
+    updateFilterType: function(fieldName: string) {
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let typeddl = (<any>this.$refs.type).ej2Instances;
+      if ((fieldsddl as any).itemData === fieldName) {
+        return (typeddl as any).itemData;
+      } else if (filterCollections[fieldName]) {
+        return filterCollections[fieldName].type;
+      } else {
+        return "Exclude";
+      }
+    },
+    /** To get the checked members here as string array. */
+    getSelectedMembers: function(field: string) {
+      let membersColl: string[] = [];
+      let members: { [key: string]: Object }[] = fieldCollections[field];
+      let memLength: number = members.length - 1;
+      while (memLength > -1) {
+        if (
+          members[memLength]["Checked"] ===
+          members[memLength]["Member"] + "_" + true
+        ) {
+          membersColl.push(members[memLength]["Member"].toString());
+        }
+        memLength--;
+      }
+      return membersColl;
+    },
+    /** To set the checked status of the members maintained in the object fieldCollections. */
+    setMemberCheckedState: function(
+      field: string,
+      member: string,
+      checkedState: string
+    ) {
+      let members: { [key: string]: Object }[] = fieldCollections[field];
+      let memLength: number = members.length - 1;
+      while (memLength > -1) {
+        if (members[memLength]["Member"] === member) {
+          members[memLength]["Checked"] = checkedState;
+          break;
+        }
+        memLength--;
+      }
     }
   },
   provide: {
@@ -292,20 +334,8 @@ export default Vue.extend({
   width: 80% !important;
 }
 
-/* .e-remain {
-        display: none !important;
-    }
-
-    .e-delim-view.e-delim-values {
-        display: none !important;
-    } */
-
 .e-disabled {
   display: none !important;
-}
-
-.e-play-icon::before {
-  content: "\e728";
 }
 
 .valuecls {
@@ -323,5 +353,13 @@ export default Vue.extend({
 
 .material .e-multiselect.e-input-group {
   width: 100% !important;
+}
+
+.pivotgrid-property-section table tr td:first-child {
+  width: 20%;
+}
+
+.pivotgrid-property-section {
+  overflow: auto;
 }
 </style>

@@ -1,0 +1,15 @@
+{
+    "name": "Chips",
+    "directory": "chips",
+    "category": "Editors",
+    "type": "preview",
+    "samples": [{
+        "url": "default",
+        "name": "Default Functionalities",
+        "category": "Chips"
+    }, {
+        "url": "api",
+        "name": "API",
+        "category": "Chips"
+    }]
+}

@@ -24,7 +24,7 @@
                         </td>
                         <td style="width: 70%;">
                             <div>
-                                <ejs-datepicker id='datepicker' :value='selectedDate' :change='onDateChange'></ejs-datepicker>
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'></ejs-datepicker>
                             </div>
                         </td>
                     </tr>
@@ -45,7 +45,7 @@
                 <li>Timeline Month</li>
             </ul>
             <p>The Agenda and MonthAgenda views shares the same layout for both the vertical and timeline views.</p> <br>
-            <p>To use any of the timeline views such as day, week and work week in your application, the common <code>TimelineViews</code> module needs to be injected using <code>Schedule.Inject()</code> method. If in case, the timeline month view needs to be utilized, then <code>TimelineMonth</code> module needs to be injected.</p>    
+            <p>To use any of the timeline views such as day, week and work week in your application, the common <code>TimelineViews</code> module needs to be injected into the <code>provide</code> section. If in case, the timeline month view needs to be utilized, then <code>TimelineMonth</code> module needs to be injected.</p>
         </div>
     </div>
 </template>

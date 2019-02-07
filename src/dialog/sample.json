@@ -26,13 +26,6 @@
             "hideOnDevice": true
         },
         {
-            "url": "dialog-contents-via-ajax",
-            "name": "Ajax",
-            "category": "Dialog",
-            "description":"This sample demonstrates how to load the content of the dialog component from external sources such as a file or website using the Essential JS 2 Ajax library.",
-            "hideOnDevice": true
-        },
-        {
             "url": "template",
             "name": "Template",
             "category": "Dialog",
@@ -40,11 +33,25 @@
             "hideOnDevice": true
         },
         {
+            "url": "dialog-contents-via-ajax",
+            "name": "Ajax",
+            "category": "Dialog",
+            "description":"This sample demonstrates how to load the content of the dialog component from external sources such as a file or website using the Essential JS 2 Ajax library.",
+            "hideOnDevice": true
+        },
+        {
             "url": "draggable",
             "name": "Draggable",
             "category": "Dialog",
-            "type": "update",
             "description":"This sample shows how to enable drag-and-drop actions in the dialog component to help reposition the dialog efficiently.",
+            "hideOnDevice": true
+        },
+        {
+            "url": "resizable",
+            "name": "Resizable",
+            "category": "Dialog",
+            "type": "new",
+            "description":"This sample shows how to create resizable modal in dialog to change the size of a dialog efficiently and view its content more comfortably.",
             "hideOnDevice": true
         },
         {

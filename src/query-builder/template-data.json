@@ -1,0 +1,35 @@
+{
+  "importRules": {
+    "condition": "and",
+    "rules": [{
+        "label": "Category",
+        "field": "Category",
+        "type": "string",
+        "operator": "in",
+        "value": ["Clothing"]
+    },
+    {
+        "condition": "or",
+        "rules": [{
+            "label": "Transaction Type",
+            "field": "TransactionType",
+            "type": "boolean",
+            "operator": "equal",
+            "value": "Income"
+        },
+        {
+            "label": "Payment Mode",
+            "field": "PaymentMode",
+            "type": "string",
+            "operator": "equal",
+            "value": "Cash"
+        }]
+    }, {
+        "label": "Amount",
+        "field": "Amount",
+        "type": "number",
+        "operator": "equal",
+        "value": 10
+    }]
+  }
+}

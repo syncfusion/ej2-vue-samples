@@ -3,7 +3,7 @@
   <div class="col-lg-8 control-section api" >
       <div class="content-wrapper" id="all-option-sample">
         <div class="sliderwrap">
-     <ejs-slider id="apislider" ref="slider" :value="value" :min="min" :max="max" :type="type" :tooltip="tooltip" :ticks="ticks" 
+     <ejs-slider id="apislider" ref="slider" :value="value" :min="min" :max="max" :type="type" :tooltip="tooltip" :ticks="ticks"
      :step="step" :showButtons="shwbuttons" :orientation="orientation" :enabled="isenable" :readonly="readonly" :change="onChange">
 
         </ejs-slider>
@@ -137,7 +137,7 @@
 </div>
     </div>
 
-   
+
 </template>
 
 <style>
@@ -270,8 +270,8 @@ export default Vue.extend({
       this.readonly = args.checked;
     },
     onScroll: function() {
-         if(!isNullOrUndefined(document.getElementById('apislider'))){
-        this.$refs.slider.$el.ej2_instances[0].refreshTooltip();
+         if(!isNullOrUndefined(document.getElementById('apislider') && this.$refs.slider)){
+            this.$refs.slider.ej2Instances.refreshTooltip();
          }
     }
   },

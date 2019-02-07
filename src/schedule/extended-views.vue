@@ -51,17 +51,11 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

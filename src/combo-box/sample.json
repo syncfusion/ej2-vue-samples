@@ -1,7 +1,7 @@
 {
     "name": "ComboBox",
     "directory": "combo-box",
-    "category": "Editors",
+    "category": "Dropdowns",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",

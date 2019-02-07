@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" width='100%' height='650px' :calendarCollections='calendarCollection' :group="group" :selectedDate="selectedDate"
+                <ejs-schedule id="Schedule" ref="ScheduleObj" :cssClass="cssClass" width='100%' height='650px' :calendarCollections='calendarCollection' :group="group" :selectedDate="selectedDate"
                     :eventSettings="eventSettings">
                     <e-resources>
                         <e-resource field='CalendarId' title='Calendars' :dataSource='resourceDataSource' :allowMultiple='allowMultiple' name='Calendars'
@@ -47,13 +47,13 @@
         </div>
         <div id="action-description">
             <p>
-                This demo illustrates how to dynamically add or remove resources to and from the Schedule layout.
+                This demo illustrates how to dynamically add or remove resources to and from the Scheduler layout.
             </p>
         </div>
 
         <div id="description">
             <p>
-                In this demo, Schedule is initially displayed with single resource with its related set of appointments. When the additional
+                In this demo, Scheduler is initially displayed with single resource with its related set of appointments. When the additional
                 checkboxes given are checked and unchecked, the respective resources gets added up or removed from the schedule
                 layout. To add new resources dynamically,
                 <code>addResource</code> method is used which accepts the arguments such as resource object, resource name
@@ -91,7 +91,7 @@
         border-color: transparent;
     }
 
-    .e-schedule .e-month-view .e-appointment {
+    .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
         border-color: transparent;
     }
 
@@ -100,13 +100,13 @@
         color: #fff;
     }
 
-    .e-schedule .e-timeline-view .e-resource-left-td,
-    .e-schedule .e-timeline-month-view .e-resource-left-td {
+    .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
+    .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-left-td {
         width: 110px;
     }
 
-    .e-schedule .e-timeline-view .e-resource-text,
-    .e-schedule .e-timeline-month-view .e-resource-text {
+    .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-text,
+    .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-text {
         padding: 0;
     }
 </style>
@@ -128,6 +128,7 @@
     export default Vue.extend({
         data: function () {
             return {
+                cssClass: 'schedule-add-remove-resources',
                 selectedDate: new Date(2018, 3, 1),
                 group: { resources: ['Calendars'] },
                 resourceDataSource: [calendarCollections[0]],
@@ -149,7 +150,7 @@
                 return collections;
             },
             onChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
+                let scheduleObj = this.$refs.ScheduleObj;
                 let value = parseInt((args.event.target).getAttribute('value'), 10);
                 let resourceData = calendarCollections.filter(function (calendar) { return calendar.CalendarId === value; });
                 if (args.checked) {

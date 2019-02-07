@@ -9,17 +9,15 @@
             <li><code>Update</code>,<code>Cancel</code> - You can save or discard changes by click toolbar Update and Cancel button respectively</li>
         </ul>
     </div>
-    <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar'>
-            <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
-                <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
-                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='130' editType='datepickeredit' textAlign='Right' type='date' format='yMd'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit' :edit='editparams'></e-column>
-            </e-columns>
-        </ejs-grid>
-    </div>
+    <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar'>
+        <e-columns>
+            <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+            <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
+            <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+            <e-column field='OrderDate' headerText='Order Date' width='130' editType='datepickeredit' textAlign='Right' type='date' format='yMd'></e-column>
+            <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit' :edit='editparams'></e-column>
+        </e-columns>
+    </ejs-grid>
 
      <div id="description">
         <p> The Grid supports CRUD operations. This CRUD operations can be configured in Grid using

@@ -6,14 +6,14 @@
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-             <ejs-datetimepicker id="datetimepicker" :placeholder="waterMark" v-model:value="date"></ejs-datetimepicker>
+             <ejs-datetimepicker id="first_datetime" :placeholder="waterMark" v-model:value="date"></ejs-datetimepicker>
         </div>
     </div>
 </div> 
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-         <ejs-datetimepicker id="datetimepicker2" :placeholder="waterMark" v-model:value="date"></ejs-datetimepicker>
+         <ejs-datetimepicker id="second_datetime" :placeholder="waterMark" v-model:value="date"></ejs-datetimepicker>
         </div>
     </div>
 </div>

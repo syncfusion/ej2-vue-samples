@@ -2,7 +2,6 @@
     "name": "Button",
     "directory": "button",
     "category": "Editors",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -39,7 +38,7 @@
             "url": "dropdown-button",
             "name": "DropDownButton",
             "category": "Button",
-            "ftName": "dropdown-button",
+            "ftName": "dropdown-menu",
             "api":{"DropDownButton":["items", "cssClass", "iconCss"] },
             "description": "This demo for Essential JS2 DropDown Button control shows the use cases of drop down button. The popup contains action items with text, icons and separator."
         },
@@ -55,7 +54,7 @@
             "url": "switch",
             "name": "Switch",
             "category": "Button",
-            "ftName": "switch",
+            "ftName": "toggle-switch-button",
             "api":{"Switch":[ "checked", "disabled"] },
             "description": "This demo for Syncfusion Essential JS2 Switch control allows to toggle between the checked and unchecked states. It also provides support for custom UI."
         },
@@ -65,8 +64,7 @@
             "category": "Button",
             "ftName": "progress-button",
             "api":{"ProgressButton":["content", "iconCss", "cssClass", "duration", "disabled", "isPrimary", "enableProgress", "end", "begin", "spinSettings", "animationSettings"]},
-            "description": "This demo for Essential JS2 Progress button has progress indicator and spinner. It supports texts, icons, styles, sizes, positions, and its customization.",
-            "type": "preview"
+            "description": "This demo for Essential JS2 Progress button has progress indicator and spinner. It supports texts, icons, styles, sizes, positions, and its customization."
         }
     ]
 }

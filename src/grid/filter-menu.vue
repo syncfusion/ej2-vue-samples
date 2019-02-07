@@ -17,7 +17,7 @@
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' :format='formatoptions' textAlign='Right'></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" type="date" textAlign='Right'></e-column>
                 <e-column field='ShipCountry' headerText='Ship Country' width='150'></e-column>
             </e-columns>
         </ejs-grid>
@@ -44,44 +44,7 @@
 </template>
 
 <style>
-.select-wrap {
-    padding: 0 0 10px 0;
-    font-family: Roboto;
-    padding: 1em;
-}
-
-.select-wrap select {
-    height: 28px;
-    width: 100%;
-    border-width: 0 0 2px 0;
-    background: transparent;
-}
-
-.select-wrap select:focus {
-    border-bottom-style: solid;
-    border-color: #ff4081;
-}
-
-.select-wrap select, 
-.select-wrap select option {
-    outline: none;
-    font-size: 14px;
-    padding: .2em;
-    height: 30px;
-}
-
-@media (min-width: 480px) and (max-width:639px) {
-    .select-wrap {
-        width: 40%
-    }
-}
-
-@media (min-width:640px) {
-    .select-wrap {
-        width: 25%
-    }
-}
-
+@import "../../styles/Grid/filter-menu.css";
 </style>
 
 <script lang="ts">

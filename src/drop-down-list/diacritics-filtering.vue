@@ -20,27 +20,14 @@
 <script>
 import Vue from "vue";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(DropDownListPlugin);
 
 export default Vue.extend ({
     data: function() {
         return {
-            data: [
-                'Águilas',
-                'Ajedrez',
-                'Ala Delta',
-                'Álbumes de Música',
-                'Alusivos',
-                'Análisis de Escritura a Mano',
-                'Dyarbakır',
-                'Derepazarı ',
-                'Gülümsemek ',
-                'Teşekkürler', 
-                'Güle güle.',
-                'Gülhatmi',
-                'Gülünç'
-            ]
+            data: data['data']
         };
     }
 });

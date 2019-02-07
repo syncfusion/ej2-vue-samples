@@ -1,0 +1,149 @@
+<template>
+<div class="control-section">
+    <div class="menu-control">
+        <ejs-menu :items="menuItems"></ejs-menu>
+    </div>
+<div id="action-description">
+    <p>This sample demonstrates default functionalities of the <code>menu</code> component. Interact with <code>menu</code> using hover / click action.</p>
+</div>
+<div id="description">
+    <p>
+        The menu component is a graphical user interface that serves as navigation header for your application or site. 
+        It provides a list of commands that can be carried out using the <code>items</code> property.
+    </p>
+    <p>
+        In this demo, the menu is rendered with default type of <b>Horizontal</b> orientation. Using <code>orientation</code> property, you can change the orientation to <b>Vertical</b>.
+    </p>
+    <p>
+        In mobile mode, the parent menu becomes scrollable if its size exceeds the viewport size.
+    </p>
+    <p>
+        More information about Menu can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/menu/getting-started">documentation</a> section.
+    </p>
+</div>
+</div>
+</template>
+
+<style>
+    /**
+    * ej2 Menu styles
+    */
+    @font-face {
+        font-family: 'e-menu';
+        src:
+        url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .em-icons {
+        font-family: 'e-menu';
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        text-transform: none;
+    }
+    
+    .menu-control {
+        margin-top: 45px;
+        text-align: center;
+    }
+
+    .menu-control .e-file::before {
+        content: '\e886';
+    }
+    
+    .menu-control .e-edit::before {
+        content: '\e822';
+    }
+
+    .e-menu-wrapper .e-cut::before {
+        content: '\e5a9';
+    }
+
+    .e-menu-wrapper .e-copy::before {
+        content: '\e5b3';
+    }
+
+    .e-menu-wrapper .e-paste::before {
+        content: '\e5b2';
+    }
+
+    .e-menu-wrapper .e-open::before {
+        content: '\e885';
+    }
+
+    .e-menu-wrapper .e-save::before {
+        content: '\e954';
+    }
+</style>
+
+<script>
+import Vue from "vue";
+import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
+
+Vue.use(MenuPlugin);
+
+export default Vue.extend({
+  data: function() {
+    return {
+      menuItems: [
+        {
+            text: 'File',
+            iconCss: 'em-icons e-file',
+            items: [
+                { text: 'Open', iconCss: 'em-icons e-open' },
+                { text: 'Save', iconCss: 'e-icons e-save' },
+                { separator: true },
+                { text: 'Exit' }
+            ]
+        },
+        {
+            text: 'Edit',
+            iconCss: 'em-icons e-edit',
+            items: [
+                { text: 'Cut', iconCss: 'em-icons e-cut' },
+                { text: 'Copy', iconCss: 'em-icons e-copy' },
+                { text: 'Paste', iconCss: 'em-icons e-paste' }
+            ]
+        },
+        {
+            text: 'View',
+            items: [
+                {
+                    text: 'Toolbars',
+                    items: [
+                        { text: 'Menu Bar' },
+                        { text: 'Bookmarks Toolbar' },
+                        { text: 'Customize' },
+                    ]
+                },
+                {
+                    text: 'Zoom',
+                    items: [
+                        { text: 'Zoom In' },
+                        { text: 'Zoom Out' },
+                        { text: 'Reset' },
+                    ]
+                },
+                { text: 'Full Screen' }
+            ]
+        },
+        {
+            text: 'Tools',
+            items: [
+                { text: 'Spelling & Grammar' },
+                { text: 'Customize' },
+                { separator: true },
+                { text: 'Options' }
+            ]
+        },
+        {
+            text: 'Help'
+        }
+      ]
+    };
+  }
+});
+</script>

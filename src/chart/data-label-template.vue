@@ -45,7 +45,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 let materialMan = '<div style="background-color:#00bdae;border-radius: 3px;">' +
         '<img src="src/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />' +
@@ -132,7 +132,6 @@ export default Vue.extend({
       //Initializing Primary Y Axis
            primaryYAxis: {
             labelFormat: '{value}M',
-            title: Browser.isDevice ? '' : 'Population',
             labelStyle: {
                 fontFamily: 'Roboto',
                 fontStyle: 'medium', size: '14px'
@@ -193,8 +192,6 @@ export default Vue.extend({
             args.template = args.series.name === 'Male' ? materialMan : materialWomen;
         } else if (theme === 'Fabric') {
             args.template = args.series.name === 'Male' ? fabricMan : fabricWomen;
-        } else if (theme === 'Highcontrast') {
-            args.template = args.series.name === 'Male' ? highcontrastMan : highcontrastWomen;
         } else {
             args.template = args.series.name === 'Male' ? bootstrapMan : bootstrapWomen;
         }

@@ -77,6 +77,30 @@
             </div>
         </div>
     </div>
+    <div class="row" style="padding-top: 10px">
+       <div class="row row-header">
+          Templates
+       </div>
+       <div class="row col-xs-8" style="padding-left: 0px; padding-top: 8px">
+           <ejs-dropdownlist id="template"
+             :dataSource='templatelistdataSource'
+             :fields='templatefields'
+             :popupWidth='templatepopupwidth'
+             :width='templatewidth'
+             :placeholder='templateplaceholder' 
+             :change='templatechange'>
+           </ejs-dropdownlist>
+       </div>
+       </div>
+       <div class="row" style="padding-top: 10px">
+         <div class="row row-header">
+             Behaviour
+          </div>
+          <div class="row" style="padding-top: 8px">
+             <ejs-checkbox id="labelConstraints" label='Label interaction' :checked="false" :change="checkboxchange">
+             </ejs-checkbox>
+           </div>
+       </div>
     </div>
 </div>
 <div id="action-description">
@@ -245,13 +269,14 @@ import {
   SnapConstraints,
   VerticalAlignment,
   HorizontalAlignment,
-  Node
+  Node,
+  AnnotationConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DropDownList,
   DropDownListPlugin
 } from "@syncfusion/ej2-vue-dropdowns";
-import { Button, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { Button, ButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 import {
   NumericTextBox,
   ColorPicker,
@@ -265,6 +290,7 @@ Vue.use(DropDownListPlugin);
 Vue.use(NumericTextBoxPlugin);
 Vue.use(ColorPickerPlugin);
 Vue.use(ButtonPlugin);
+Vue.use(CheckBoxPlugin);
 
 let diagramInstance: Diagram;
 
@@ -274,6 +300,7 @@ let fontColor: ColorPicker;
 let bold: Button;
 let italic: Button;
 let underLine: Button;
+let templateData: DropDownList;
 
 //Initializes the nodes for the diagram
 let nodes: NodeModel[] = [
@@ -335,28 +362,28 @@ let connectors: ConnectorModel[] = [
     id: "connector5",
     sourceID: "potential",
     targetID: "buyers",
-    segments: [{type: "Orthogonal", direction: "Right", length: 60 }],
+    segments: [{ type: "Orthogonal", direction: "Right", length: 60 }],
     targetDecorator: { shape: "None" }
   },
   {
     id: "connector6",
     sourceID: "buyers",
     targetID: "substitutes",
-    segments: [{type: "Orthogonal", direction: "Bottom", length: 100 }],
+    segments: [{ type: "Orthogonal", direction: "Bottom", length: 100 }],
     targetDecorator: { shape: "None" }
   },
   {
     id: "connector7",
     targetID: "suplier",
     sourceID: "substitutes",
-    segments: [{type: "Orthogonal", direction: "Left", length: 60 }],
+    segments: [{ type: "Orthogonal", direction: "Left", length: 60 }],
     targetDecorator: { shape: "None" }
   },
   {
     id: "connector9",
     sourceID: "suplier",
     targetID: "potential",
-    segments: [{type: "Orthogonal", direction: "Top", length: 100 }],
+    segments: [{ type: "Orthogonal", direction: "Top", length: 100 }],
     targetDecorator: { shape: "None" }
   }
 ];
@@ -370,6 +397,15 @@ let fontType: { [key: string]: Object }[] = [
   { type: "Times New Roman", text: "Times New Roman" },
   { type: "Segoe UI", text: "Segoe UI" },
   { type: "Verdana", text: "Verdana" }
+];
+
+let templateList: { [key: string]: Object }[] = [
+  { value: "none", text: "None" },
+  { value: "industry", text: "Industry Competitors" },
+  { value: "suppliers", text: "Suppliers" },
+  { value: "potential", text: "Potential Entrants" },
+  { value: "buyers", text: "Buyers" },
+  { value: "substitutes", text: "Substitutes" }
 ];
 
 export default Vue.extend({
@@ -496,6 +532,19 @@ export default Vue.extend({
       fontfamilyindex: 0,
       fontfamilychange: () => {
         changed("fontfamily");
+      },
+
+      templatelistdataSource: templateList,
+      templatefields: { value: "value", text: "text" },
+      templatepopupwidth:200,
+      templatewidth: "100%",
+      templateplaceholder: 'select a template',
+      templatechange: () => {
+        changed("template");
+      },
+
+      checkboxchange: () => {
+         changed("interaction");
       }
     };
   },
@@ -515,6 +564,8 @@ export default Vue.extend({
     fontSize = fontSizeObj.ej2_instances[0];
     let fontcolorObj: any = document.getElementById("fontcolor");
     fontColor = fontcolorObj.ej2_instances[0];
+    let templatelistObj: any = document.getElementById("template");
+    templateData = templatelistObj.ej2_instances[0];
 
     let appearance: HTMLElement = document.getElementById(
       "propertypanel"
@@ -552,11 +603,7 @@ export default Vue.extend({
 //Apply the appearence of the Annotation
 function changed(value: string): void {
   if (diagramInstance.selectedItems.nodes) {
-    for (
-      let i: number = 0;
-      i < diagramInstance.selectedItems.nodes.length;
-      i++
-    ) {
+    for (let i: number = 0; i < diagramInstance.selectedItems.nodes.length; i++) {
       let node: NodeModel = diagramInstance.selectedItems.nodes[i];
       if (node.annotations) {
         for (let j: number = 0; j < node.annotations.length; j++) {
@@ -573,12 +620,28 @@ function changed(value: string): void {
             (node.annotations[j].style as TextStyleModel).bold = true;
           } else if (value === "italic") {
             (node.annotations[j].style as TextStyleModel).italic = true;
-          }
-        }
+          } else if (value === 'template') {
+              if (templateData.value.toString() === 'none') {
+                  node.annotations[j].template = '';
+                  node.annotations[j].width = undefined;
+                  node.annotations[j].height = undefined;
+              } else {
+                   node.annotations[j].width = 25;
+                   node.annotations[j].height = 25;
+                   node.annotations[j].template =
+                       '<img src="src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
+                }
+            } else if (value === 'interaction') {
+              let annot: ShapeAnnotationModel = node.annotations[j];
+              if (annot && annot.constraints) {
+                annot.constraints = annot.constraints ^ AnnotationConstraints.Interaction;
+              }
+            }
       }
       diagramInstance.dataBind();
     }
   }
+}
 }
 //Update the Annotation Position based on the selection
 function updatePosition(id: string): void {

@@ -1,6 +1,6 @@
 <template>
     <div class="col-lg-12 control-section">
-        <ejs-listview id='listview_template' :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template='listTemplate'></ejs-listview>
+        <ejs-listview id='listview_template' ref="list" :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template='listTemplate'></ejs-listview>
 
         <div id="action-description">
             <p>This sample demonstrates the Template functionalities of the ListView. Click any news header or thumbnail to open the complete article. To navigate back to the news list, click the back icon at the top left area.
@@ -27,11 +27,9 @@
 /* ListView header alignment */
 
 #listview_template.e-listview .e-list-header #list-logo {
-    margin-top: -21px;
-}
-
-.e-bigger #listview_template.e-listview .e-list-header #list-logo {
-    margin-top: -27px;
+    margin-top: 2.5px;
+    position: absolute;
+    right: 20px;
 }
 
 /* ListView template customization */
@@ -242,8 +240,7 @@ export default Vue.extend({
 
     methods: {
         onComplete: function(args) {
-            let listviewInstance = document.getElementById('listview_template').ej2_instances[0];
-            let listHeader = listviewInstance.element.childNodes[0];
+            let listHeader = this.$refs.list.$el.childNodes[0];
             let header = listHeader.childNodes[0];
             if (header.style.display === 'none' || listHeader.childNodes.length === 3) {
                 if (listHeader.childNodes[2] != null) {
@@ -251,8 +248,8 @@ export default Vue.extend({
                     childHeader.remove();
                 }
             } else {
-                let headerEle = listviewInstance.element.querySelector('.e-list-header');
-                let headerElement = listviewInstance.element.querySelector('#list-logo');
+                let headerEle = this.$refs.list.$el.querySelector('.e-list-header');
+                let headerElement = this.$refs.list.$el.querySelector('#list-logo');
                 let clone = headerElement.cloneNode(true);
                 headerEle.appendChild(clone);
             }

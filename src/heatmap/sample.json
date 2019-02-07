@@ -1,5 +1,5 @@
 {
-    "name": "HeatMap",
+    "name": "Heatmap Chart",
     "directory": "heatmap",
     "category": "Data Visualization",
     "type": "update",
@@ -8,15 +8,15 @@
         {
             "url": "default",
             "name": "Default Functionalities",
-            "category": "HeatMap",
+            "category": "Heatmap Chart",
             "description": "This demo for Essential JS2 Heatmap control shows the heat map control displayed with minimum configuration",
             "api": {}
         },
         {
             "url": "calendar-heatmap",
             "name": "Calendar Heatmap",
-            "category": "HeatMap",
-            "type": "new",
+            "category": "Heatmap Chart",
+            "type": "update",
             "description": "This demo for Essential JS2 Heatmap control for displays the time series data and displays the axis labels at specific time interval.",
             "api": {}
          },
@@ -24,7 +24,6 @@
             "url": "bubble-types",
             "name": "Bubble Types",
             "category": "Bubble HeatMap",
-            "type": "new",
             "description": "This demo for Essential JS2 Heatmap control shows  Size, Color and SizeAndColor bubble heat map type.",
             "api": {}
         },
@@ -32,7 +31,6 @@
             "url": "color-and-size-attributes",
             "name": "Color and Size Attributes",
             "category": "Bubble HeatMap",
-            "type": "new",
             "description": "This demo for Essential JS2 Heatmap control shows how to bind the multiple data to bubble heat map.",
             "api": {}
         },
@@ -86,9 +84,26 @@
             "api": {}
         },
         {
+            "url": "multi-level-labels",
+            "name": "Multi Level Labels",
+            "category": "Features",
+            "type": "new",
+            "description": "This demo for Essential JS2 Heatmap control shows how to group the axis labels",
+            "api": {}
+        },
+        {
+            "url": "cell-selection",
+            "name": "Selection",
+            "category": "Features",
+            "type": "new",
+            "description": "This demo for Essential JS2 Heatmap control shows how to select the cell",
+            "api": {}
+        },
+        {
             "url": "legend",
             "name": "Legend Placement",
             "category": "Features",
+            "type": "update",
             "description": "This demo for Essential JS2 Heatmap control shows how to place the heatmap legend in different positions.",
             "api": {}
         },
@@ -118,6 +133,7 @@
             "url": "tooltip-template",
             "name": "Tooltip Template",
             "category": "Features",
+            "type": "update",
             "description": "This demo for Essential JS2 Heatmap control shows the usage of tooltip template in heat map.",
             "api": {}
         }

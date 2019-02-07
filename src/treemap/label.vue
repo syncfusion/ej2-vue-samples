@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-9 control-section">
-        <ejs-treemap id='container' align="center" :load='load' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
+        <ejs-treemap ref="treemap" id='container' align="center" :load='load' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://www.populationpyramid.net/population-size-per-country/2017" target="_blank"> www.populationpyramid.net</a>
         </div>
@@ -14,7 +14,7 @@
                         <div class="property-text">Label Intersect Action</div>
                     </td>
                     <td style="width: 40%;">
-                    <ejs-dropdownlist id='labels' style="width:100%;" :dataSource='labelsdata' index=0 :placeholder='labelsplaceholder' :width='labelswidth' :change='changeLabels'></ejs-dropdownlist>        
+                    <ejs-dropdownlist ref="labelMode" id='labels' style="width:100%;" :dataSource='labelsdata' index=0 :placeholder='labelsplaceholder' :width='labelswidth' :change='changeLabels'></ejs-dropdownlist>        
                     </td>
                 </tr>
             </tbody>
@@ -105,10 +105,8 @@ methods:{
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
     changeLabels:function(args){
-        let treemap = document.getElementById('container');
-        let labelMode = document.getElementById('labels');
-        treemap.ej2_instances[0].leafItemSettings.interSectAction = labelMode.ej2_instances[0].value;
-        treemap.ej2_instances[0].refresh();
+        this.$refs.treemap.ej2Instances.leafItemSettings.interSectAction = this.$refs.labelMode.ej2Instances.value;
+        this.$refs.treemap.ej2Instances.refresh();
     }
 }
 })

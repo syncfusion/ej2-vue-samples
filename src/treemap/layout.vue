@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-9 control-section">
-        <ejs-treemap id='layout-container' :load='load' align="center" :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
+        <ejs-treemap ref="treemap" id='layout-container' :load='load' align="center" :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://www.reinisfischer.com/top-10-largest-economies-world-gdp-nominal-2015" target="_blank">www.reinisfischer.com</a>
         </div>
@@ -14,7 +14,7 @@
                          <div class="property-text" style="padding-top: 0px !important">Layout Type</div>
                     </td>
                     <td style="width: 40%;">
-                    <ejs-dropdownlist id='layoutMode' :dataSource='layoutModedata' :fields='labelsfields' value='Squarified' index=0  :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change='changeLayoutMode'></ejs-dropdownlist>        
+                    <ejs-dropdownlist ref="layoutMode" id='layoutMode' :dataSource='layoutModedata' :fields='labelsfields' value='Squarified' index=0  :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change='changeLayoutMode'></ejs-dropdownlist>        
                     </td>
                 </tr>
             </tbody>
@@ -107,10 +107,8 @@ methods:{
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
     changeLayoutMode:function(args){
-        let treemap = document.getElementById('layout-container');
-        let layoutMode = document.getElementById('layoutMode');
-        treemap.ej2_instances[0].layoutType = layoutMode.ej2_instances[0].value;
-        treemap.ej2_instances[0].refresh();
+        this.$refs.treemap.ej2Instances.layoutType = this.$refs.layoutMode.ej2Instances.value;
+        this.$refs.treemap.ej2Instances.refresh();
     }
 }
 })

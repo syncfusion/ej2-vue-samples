@@ -21,7 +21,7 @@
     </div>
     <div id="action-description">
       <p>
-        Select a start time from the first TimePicker and then the second TimePicker will be enabled. Select an end time from the second TimePicker to get a <code>time range</code>. Click the Business Hours checkbox to change both the TimePickers to <code>read-only</code>        state.
+       Select a start time from the first TimePicker and then the second TimePicker will be enabled. Select an end time from the second TimePicker to get a <code>time range</code>. Click/Touch the Business Hours checkbox to change both the TimePickers to <code>read-only</code> state.
       </p>
     </div>
     <div id="description">
@@ -73,12 +73,11 @@ export default Vue.extend({
         this.isStartTimeChange = true;
       }
     },
-    changeTime: function() {
+    changeTime: function(args) {
       let value;
       /*To determine whether we have selected business hours or not*/
-      let element = document.getElementById("dayRange");
       this.isStartTimeChange = false;
-      if (element.checked) {
+      if (args.checked) {
         /*Business hours*/
         this.startVal = new Date("9/6/2017 9:00");
         this.endEnable = true;

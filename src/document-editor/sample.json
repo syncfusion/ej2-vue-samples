@@ -3,11 +3,12 @@
     "directory": "document-editor",
     "category": "Editors",
     "ftName": "document-editor",
-    "type": "preview",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
+            "type": "update",
             "category": "DocumentEditor",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
@@ -50,7 +51,6 @@
         {
             "url": "section-formatting",
             "name": "Section Formatting",
-            "type": "new",
             "category": "Editing Features",
             "description": "The Document Editor supports section formatting such as page size, page margins, header distance and footer distance."
         },
@@ -71,6 +71,13 @@
             "name": "Print",
             "category": "Print",
             "description": "The Document Editor component is used to view and print Word documents in web applications by injecting only the modules that are necessary."
+        },
+        {
+            "url": "right-to-left",
+            "name": "Right To Left",
+            "category": "RTL",
+            "type":"new",
+            "description": "The Document Editor component supports rtl for arabic user."
         }
     ]
 }

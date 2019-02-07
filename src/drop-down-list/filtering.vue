@@ -3,7 +3,7 @@
     <div class="control-section">
         <div class='content' style="width: 280px;margin: 0 auto; padding-top:40px">
             <ejs-dropdownlist id='country' :dataSource='data' :fields='fields' :filtering='onFiltering' :filterBarPlaceholder="filterPlaceholder"
-                :popupHeight='height' :allowFiltering='true' :placeholder:='watermark'></ejs-dropdownlist>
+                :popupHeight='height' :allowFiltering='true' :placeholder='watermark'></ejs-dropdownlist>
         </div>
     </div>
     <div id="action-description">
@@ -25,6 +25,7 @@
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { Query } from '@syncfusion/ej2-data';
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 
@@ -35,27 +36,7 @@ export default Vue.extend ({
             height: '220px',
             watermark: 'Select a country',
             filterPlaceholder: 'Search',
-            data: [
-                { Name: 'Australia', Code: 'AU' },
-                { Name: 'Bermuda', Code: 'BM' },
-                { Name: 'Canada', Code: 'CA' },
-                { Name: 'Cameroon', Code: 'CM' },
-                { Name: 'Denmark', Code: 'DK' },
-                { Name: 'France', Code: 'FR' },
-                { Name: 'Finland', Code: 'FI' },
-                { Name: 'Germany', Code: 'DE' },
-                { Name: 'Greenland', Code: 'GL' },
-                { Name: 'Hong Kong', Code: 'HK' },
-                { Name: 'India', Code: 'IN' },
-                { Name: 'Italy', Code: 'IT' },
-                { Name: 'Japan', Code: 'JP' },
-                { Name: 'Mexico', Code: 'MX' },
-                { Name: 'Norway', Code: 'NO' },
-                { Name: 'Poland', Code: 'PL' },
-                { Name: 'Switzerland', Code: 'CH' },
-                { Name: 'United Kingdom', Code: 'GB' },
-                { Name: 'United States', Code: 'US' }
-            ],
+            data: data['countries'],
         };
     },
     methods: {

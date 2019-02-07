@@ -1,8 +1,8 @@
 <template>
 <div>
-<div class="col-lg-8 control-section">
+<div class="col-lg-8 control-section" style="overflow: auto">
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height">        
         </ejs-pivotview>
     </div>
 </div>
@@ -13,7 +13,7 @@
             <tr style="height: 50px">
                 <td>
                     <div class="row" style="margin-left: -10px">
-                        <ejs-checkbox id='sorting' label="Enable Sorting" labelPosition="After" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                        <ejs-checkbox id='sorting' ref="sorting" label="Enable Sorting" labelPosition="After" checked="true" :change="checkbox_onChange"></ejs-checkbox>
                     </div>
                 </td>
             </tr>
@@ -24,7 +24,7 @@
                 </td>
                 <td>
                     <div style="margin-left: -20px">
-                        <ejs-dropdownlist id='fields' ref='fieldsddl' :change="fieldOnChange" enabled="true" :fields="fields" :dataSource='fieldData' index=0></ejs-dropdownlist>
+                        <ejs-dropdownlist id='fields' ref='fields' :change="fieldOnChange" enabled="true" :fields="fields" :dataSource='fieldData' index=0></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -35,7 +35,7 @@
                 </td>
                 <td>
                     <div style="margin-left: -20px">
-                        <ejs-dropdownlist id='order' ref='orderddl' enabled="true" :change="orderOnChange" :dataSource='orderData' index=0></ejs-dropdownlist>
+                        <ejs-dropdownlist id='order' ref='order' enabled="true" :change="orderOnChange" :dataSource='orderData' index=0></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -43,7 +43,7 @@
               <td></td>
                 <td>
                     <div style="float: right">
-                        <ejs-button id="apply" v-on:click.native="btnClick" :cssClass="cssClass" :iconCss="iconCss" isPrimary='true'>Apply</ejs-button>
+                        <ejs-button id="apply" ref="apply" v-on:click.native="btnClick" :cssClass="cssClass" isPrimary='true'>Apply</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -70,7 +70,6 @@
 <script lang="ts">
 import Vue from "vue";
 import { IDataSet, PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
 import {
   CheckBoxPlugin,
   ButtonPlugin,
@@ -87,7 +86,9 @@ Vue.use(PivotViewPlugin);
 Vue.use(CheckBoxPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(DropDownListPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -121,14 +122,13 @@ export default Vue.extend({
       ],
       orderData: ["Ascending", "Descending"],
       fields: { text: "Field", value: "Order" },
-      iconCss: "e-icons e-play-icon",
       cssClass: "e-flat"
     };
   },
   methods: {
     fieldOnChange: function(args: dropEventArgs) {
-      let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      let orderddl = (<any>document.getElementById("order")).ej2_instances[0];
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let orderddl = (<any>this.$refs.order).ej2Instances;
       if (
         fieldsddl.dataSource[fieldsddl.index].Order ===
         fieldsddl.dataSource[fieldsddl.index].Field + "_asc"
@@ -139,7 +139,7 @@ export default Vue.extend({
       }
     },
     orderOnChange: function(args: dropEventArgs) {
-      let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
       if (args.value === "Ascending") {
         fieldsddl.dataSource[fieldsddl.index].Order =
           fieldsddl.dataSource[fieldsddl.index].Field + "_asc";
@@ -150,9 +150,9 @@ export default Vue.extend({
       fieldsddl.refresh();
     },
     checkbox_onChange: function(args: checkEventArgs) {
-      let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      let orderddl = (<any>document.getElementById("order")).ej2_instances[0];
-      let btn = (<any>document.getElementById("apply")).ej2_instances[0];
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let orderddl = (<any>this.$refs.order).ej2Instances;
+      let btn = (<any>this.$refs.apply).ej2Instances;
       if (args.checked) {
         fieldsddl.enabled = true;
         orderddl.enabled = true;
@@ -164,11 +164,9 @@ export default Vue.extend({
       }
     },
     btnClick: function(args: checkEventArgs) {
-      let checkBoxObj = (<any>document.getElementById("sorting"))
-        .ej2_instances[0];
-      let fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let checkBoxObj = (<any>this.$refs.sorting).ej2Instances;
+      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       if (checkBoxObj.checked) {
         pivotGridObj.dataSource.enableSorting = true;
         pivotGridObj.dataSource.sortSettings = [
@@ -213,10 +211,6 @@ export default Vue.extend({
 <style>
 .e-pivottable .e-static {
   width: 80% !important;
-}
-
-.e-play-icon::before {
-  content: "\e728";
 }
 
 .hdrlabel {

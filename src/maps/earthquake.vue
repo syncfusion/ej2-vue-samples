@@ -10,13 +10,6 @@
        <a href="https://en.wikipedia.org/wiki/2009_Sumatra_earthquakes" target="_blank">en.wikipedia.org</a>
     </div>
 </div>
- <div id="template" style="display:none">
-        <div class="pulse-container">
-            <div class="pulse-box">
-                <div class="pulse-css"></div>
-            </div>                   
-     </div>
-</div>
 <div id="action-description">
         <p>
             This sample demonstrates the earth quack occurred in Sumatra, Indonesia in the year 2009.
@@ -35,57 +28,10 @@
     </div>
 </div>
 </template>
-<style>
-.pulse-css {
-  width: 20px;
-  height: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background:#E94430;
-  position: relative;
-}
-.pulse-css:before, .pulse-css:after {
-  content: '';
-  width: 20px;
-  height: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background-color: #E94430;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  transform: scale(0.5);
-  transform-origin: center center;
-  animation: pulse-me 3s linear infinite;
-}
-.pulse-css:after {
-  animation-delay: 2s;
-}
-@keyframes pulse-me {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  70% {
-    opacity: 0.1;
-  }
-  100% {
-    transform: scale(5);
-    opacity: 0;
-  }
-}
-</style>
 <script>
 import Vue from 'vue';
 import { MapsPlugin,Zoom, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import Template from './earthquake-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data: function(){
@@ -95,7 +41,7 @@ export default Vue.extend({
             longitude: 105.14038085937499
         },
         zoomSettings: {
-            enable: true,
+            enable: false,
             zoomFactor: 7,
             mouseWheelZoom: false,
             toolbars: []
@@ -112,12 +58,12 @@ export default Vue.extend({
         animationDuration: 1000,
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/asia.json'),
+        shapeData: new MapAjax('./src/maps/map-data/asia.json'),
         markerSettings: [{
                     visible: true,
                     height: 100,
                     width: 100,
-                    template: '#template',
+                    template: function () { return {template: Template}; },
                     animationDuration: 0,
                     dataSource: [{
                         latitude: 1.625758360412755, longitude: 98.5693359375

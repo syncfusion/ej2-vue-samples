@@ -4,7 +4,7 @@
             <ejs-toolbar>
                 <e-items>
                     <e-item prefixIcon='e-tbar-menu-icon tb-icons' tooltipText='Menu'></e-item>
-                    <e-item :template='template' align='Center'></e-item>
+                    <e-item :template='vueTemplate' align='Center'></e-item>
                     <e-item prefixIcon='e-tbar-search-icon tb-icons' tooltipText='Search' align='Right'></e-item>
                     <e-item prefixIcon='e-tbar-settings-icon tb-icons' tooltipText='Popup' align='Right'></e-item>
                 </e-items>
@@ -44,7 +44,8 @@
 
 
 <div id="description">
-    <p><strong>Toolbar</strong> commands can be aligned in left, right and center positions. By default, all the commands are left aligned. User can customize the alignment of each toolbar item using <code>align</code> property. Possible values are as follows.</p>
+    <p><strong>Toolbar</strong> commands can be aligned in left, right and center positions. By default, all the commands are left aligned. User can customize the alignment of each toolbar item using
+    <code> <a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#align">align</a> </code> property. Possible values are as follows.</p>
     <br>
     <table style="width:100%">
         <tr>
@@ -175,10 +176,24 @@
 import Vue from "vue";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
 Vue.use(ToolbarPlugin);
+
+var Template1 = Vue.component("demo", {
+  template: '<div class= "e-folder"><div class = "e-folder-name">Inbox(33)</div><div class ="e-mail-id">user@example.com</div></div>',
+  data() {
+    return {
+      data: {}
+    };
+  }
+});
+
 export default Vue.extend({
   data: function(){
         return {
-            template : '<div class= "e-folder"><div class = "e-folder-name">Inbox(33)</div><div class ="e-mail-id">user@example.com</div></div>'
+            vueTemplate: function () {
+                return {
+                    template : Template1
+                }
+            }
         }
    }
 });

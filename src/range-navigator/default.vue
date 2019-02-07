@@ -98,7 +98,7 @@ Vue.use(RangeNavigatorPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
 let borderColor = ["#00bdae", "#4472c4", "#a16ee5", "#79ECE4"];
 let regionColor = [ "rgba(0, 189, 174, 0.3)", "rgba(68, 114, 196, 0.3)",

@@ -160,6 +160,7 @@ import {
   SnapConstraints
 } from "@syncfusion/ej2-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
+import { hierarchicalTree } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
 
@@ -328,21 +329,6 @@ function connectorDefaults(
   connector.cornerRadius = 5;
   return connector;
 }
-
-export let hierarchicalTree: object[] = [
-  { Name: "Diagram", fillColor: "#916DAF" },
-  { Name: "Layout", Category: "Diagram" },
-  { Name: "Tree Layout", Category: "Layout" },
-  { Name: "Organizational Chart", Category: "Layout" },
-  { Name: "Hierarchical Tree", Category: "Tree Layout" },
-  { Name: "Radial Tree", Category: "Tree Layout" },
-  { Name: "Mind Map", Category: "Hierarchical Tree" },
-  { Name: "Family Tree", Category: "Hierarchical Tree" },
-  { Name: "Management", Category: "Organizational Chart" },
-  { Name: "Human Resource", Category: "Management" },
-  { Name: "University", Category: "Management" },
-  { Name: "Business", Category: "Management" }
-];
 
 export interface EmployeeInfo {
   Name: string;

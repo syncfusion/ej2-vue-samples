@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :currentView="currentView"
+                <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :currentView="currentView"
                     :eventRendered="oneventRendered" :created="onCreate" :actionBegin="onActionBegin" :actionComplete="onActionComplete"
                     :actionFailure="onActionFailure" :cellClick="onCellClick" :cellDoubleClick="onCellDoubleClick" :navigating="onNavigating"
                     :eventClick="onEventClick" :popupOpen="onPopupOpen">
@@ -31,15 +31,15 @@
         </div>
         <div id="action-description">
             <p>
-                This demo illustrates the client-side events that triggers on respective Schedule actions and the same is being displayed
+                This demo illustrates the client-side events that triggers on respective Scheduler actions and the same is being displayed
                 on the event trace panel.
             </p>
         </div>
         <div id="description">
             <p>
-                In this demo, the client-side events that triggers based on the action taking place in Schedule has been demonstrated. The
+                In this demo, the client-side events that triggers based on the action taking place in Scheduler has been demonstrated. The
                 user can make use of these events, if at some point they need to perform some custom actions or any needed
-                additional customizations on the available Schedule features.
+                additional customizations on the available Scheduler features.
             </p>
         </div>
     </div>
@@ -114,12 +114,12 @@
             },
 
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
                     (args.element.firstChild).style.borderLeftColor = categoryColor;
                 } else {
                     args.element.style.backgroundColor = categoryColor;

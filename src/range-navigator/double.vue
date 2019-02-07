@@ -57,7 +57,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let chartAnnotation = [];
 chartAnnotation.push({
   content: '<div id="exchangeRate"></div>',
@@ -66,7 +66,8 @@ chartAnnotation.push({
   x: "85%",
   y: "15%"
 });
-let backgroundColor = theme === 'Highcontrast' ? 'black' : 'white';
+let backgroundColor = 'white';
+//let backgroundColor = theme === 'Highcontrast-Light' ? 'black' : 'white';
 getAnnotation(aus, getSeriesColor(theme)[0]);
 getAnnotation(sl, getSeriesColor(theme)[1]);
 function getAnnotation(args, color) {

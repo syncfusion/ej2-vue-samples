@@ -97,6 +97,7 @@
 <script>
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 
@@ -107,18 +108,7 @@ export default Vue.extend ({
             chipValue: [ '#2F5D81', '#D44FA3', '#4CD242', '#FE2A00', '#75523C'],
             chipPlaceholder: 'Favorite Colors',
             chipMode: 'Box',
-            colorsData: [
-                 { Color: 'Chocolate', Code: '#75523C' },
-                 { Color: 'CadetBlue', Code: '#3B8289' },
-                 { Color: 'DarkOrange', Code: '#FF843D' },
-                 { Color: 'DarkRed', Code: '#CA3832' },
-                 { Color: 'Fuchsia', Code: '#D44FA3' },
-                 { Color: 'HotPink', Code: '#F23F82' },
-                 { Color: 'Indigo', Code: '#2F5D81' },
-                 { Color: 'LimeGreen', Code: '#4CD242' },
-                 { Color: 'OrangeRed', Code: '#FE2A00' },
-                 { Color: 'Tomato', Code: '#FF745C' }
-            ],
+            colorsData: data['colorsData'],
         };
     },
     methods: {

@@ -5,9 +5,7 @@
     </div>
    <div id="action-description">
     <p>
-        In this sample, your date range selection is restricted to select
-        <code>minimum</code> five days and
-        <code>maximum</code> ten days.
+        In this sample, your date range selection is restricted to select <code>minimum</code> five days and <code>maximum</code> ten days.
     </p>
 </div>
 <div id="description">

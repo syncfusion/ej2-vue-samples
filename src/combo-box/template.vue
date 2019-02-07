@@ -22,10 +22,6 @@
 </div>
 </template>
 <style>
-    .control-wrapper {
-        margin: 0 auto;
-        width: 300px;
-    }
 
     .header {
         font-weight: 600;
@@ -144,6 +140,7 @@
 <script>
 import Vue from "vue";
 import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(ComboBoxPlugin);
 
@@ -181,17 +178,7 @@ export default Vue.extend ({
                     template: itemVue
                 };
             },
-            data: [
-                { Name: 'Andrew Fuller', Eimg: 'styles/images/Employees/7.png', Designation: 'Team Lead', Country: 'England' },
-                { Name: 'Anne Dodsworth', Eimg: 'styles/images/Employees/1.png', Designation: 'Developer', Country: 'USA' },
-                { Name: 'Janet Leverling', Eimg: 'styles/images/Employees/3.png', Designation: 'HR', Country: 'USA' },
-                { Name: 'Laura Callahan', Eimg: 'styles/images/Employees/2.png', Designation: 'Product Manager', Country: 'USA' },
-                { Name: 'Margaret Peacock', Eimg: 'styles/images/Employees/6.png', Designation: 'Developer', Country: 'USA' },
-                { Name: 'Michael Suyama', Eimg: 'styles/images/Employees/9.png', Designation: 'Team Lead', Country: 'USA' },
-                { Name: 'Nancy Davolio', Eimg: 'styles/images/Employees/4.png', Designation: 'Product Manager', Country: 'USA' },
-                { Name: 'Robert King', Eimg: 'styles/images/Employees/8.png', Designation: 'Developer ', Country: 'England' },
-                { Name: 'Steven Buchanan', Eimg: 'styles/images/Employees/10.png', Designation: 'CEO', Country: 'England' }
-            ]
+            data: data['empList']
         };
     }
 });

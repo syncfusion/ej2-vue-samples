@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="parentData" :childGrid="childGrid" >
+        <ejs-grid :dataSource="parentData" :childGrid="childGrid" :allowSorting="true" >
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
@@ -44,7 +44,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { GridPlugin, DetailRow } from "@syncfusion/ej2-vue-grids";
+import { GridPlugin, DetailRow, Sort } from "@syncfusion/ej2-vue-grids";
 import { employeeData, orderDatas, customerData } from "./data-source";
 
 Vue.use(GridPlugin);
@@ -89,7 +89,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    grid: [DetailRow]
+    grid: [DetailRow, Sort]
   }
 });
 </script>

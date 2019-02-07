@@ -3,7 +3,7 @@
     <div class="control-section col-lg-9">
         <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
+        <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
         </div>
         </div>
     </div>
@@ -16,10 +16,10 @@
                     </td>
                     <td style="width: 40%;">
                         <div class="row">
-                            <ejs-radiobutton id='fixed' label="Fixed" name="paletteType" value="Fixed" checked="true" :change='paletteChange'></ejs-radiobutton>
+                            <ejs-radiobutton id='fixed' ref='fixedType' label="Fixed" name="paletteType" value="Fixed" checked="true" :change='paletteChange'></ejs-radiobutton>
                         </div>
                         <div class="row">
-                            <ejs-radiobutton id='gradient' label="Gradient" name="paletteType" value="Gradient" :change='paletteChange'></ejs-radiobutton>
+                            <ejs-radiobutton id='gradient' ref='graidentType' label="Gradient" name="paletteType" value="Gradient" :change='paletteChange'></ejs-radiobutton>
                         </div>
                     </td>
                 </tr>
@@ -30,7 +30,7 @@
                     <td style="width: 40%;">
                         <div>
                             <div class="row">
-                                <ejs-checkbox id='smartLegend' :checked="true" :disabled="false" :change='valueChange'></ejs-checkbox>
+                                <ejs-checkbox id='smartLegend' ref='isSmartLegend' :checked="true" :disabled="false" :change='valueChange'></ejs-checkbox>
                             </div>
                         </div>
                     </td>
@@ -62,7 +62,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { RadioButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { palatteSampleData } from '../heatmap/data';
+import { palatteSampleData } from './data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(RadioButtonPlugin, CheckBoxPlugin);
 export default Vue.extend({
@@ -119,16 +119,11 @@ methods: {
     },
     paletteChange : function()
     {
-        let heatmap = document.getElementById('container');
-        let fixedRadioButton = document.getElementById('fixed');
-        let smartLegend = document.getElementById('smartLegend');
-        smartLegend.ej2_instances[0].disabled = fixedRadioButton.ej2_instances[0].checked ? false : true;
-        heatmap.ej2_instances[0].paletteSettings.type = fixedRadioButton.ej2_instances[0].checked ? 'Fixed' : 'Gradient';
+        this.$refs.isSmartLegend.ej2Instances.disabled = !this.$refs.fixedType.ej2Instances.checked;
+        this.$refs.heatmap.ej2Instances.paletteSettings.type = this.$refs.fixedType.ej2Instances.checked ? 'Fixed' : 'Gradient';
     },
     valueChange: function() {
-        let heatmap = document.getElementById('container');
-        let smartLegend = document.getElementById('smartLegend');
-        heatmap.ej2_instances[0].legendSettings.enableSmartLegend = smartLegend.ej2_instances[0].checked;
+        this.$refs.heatmap.ej2Instances.legendSettings.enableSmartLegend = this.$refs.isSmartLegend.ej2Instances.checked;
     }
   }
 })

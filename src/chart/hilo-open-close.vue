@@ -1,12 +1,6 @@
 <template>
   <div class="control-section">
         <h4 align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">AAPL Historical</h4>
-       <div id="selector" align="center">
-          <ejs-rangenavigator align='center' id='containerTop' labelPosition='Outside' valueType= 'DateTime' :width='width'
-           :changed='changed' disableRangeSelector=true :periodSelectorSettings='periodSelectorSettings' :load='load'
-            :dataSource='data1' xName='x' yName='Close' :loaded='loadedRange'>     
-            </ejs-rangenavigator>
-    </div>
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :crosshair='crosshair' :tooltip='tooltip'
@@ -51,15 +45,14 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { RangeNavigatorPlugin, ChartPlugin, Category, HiloOpenCloseSeries, PeriodSelector, Tooltip, DateTime, Zoom, Crosshair, Logarithmic } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, Category, HiloOpenCloseSeries, Tooltip, DateTime, Zoom, Crosshair, Logarithmic } from "@syncfusion/ej2-vue-charts";
 import { chartData } from './stock-chart-data';
 
 Vue.use(ChartPlugin);
-Vue.use(RangeNavigatorPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let date1 = new Date(2017, 1, 1);
 
 export default Vue.extend({
@@ -100,57 +93,17 @@ export default Vue.extend({
             enable: true, lineType: 'Vertical', line: {
                 width: 0,
             }
-        },
-     
-      periodSelectorSettings: {
-            position: 'Top',
-            periods: [
-                { text: '1M', interval: 1, intervalType: 'Months' },
-                { text: '3M', interval: 2, intervalType: 'Months' },
-                { text: '2Q', interval: 2, intervalType: 'Quarter' },
-                { text: '1Y', interval: 1, intervalType: 'Years' },
-                { text: '2Y', interval: 2, intervalType: 'Years', selected: true },
-                { text: 'YTD' },
-                { text: 'All' }
-            ]
         }
     };
   },
   provide: {
-    rangeNavigator: [PeriodSelector,DateTime],
     chart: [HiloOpenCloseSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair]
   },
   methods: {
-    load: function(args) {
-      args.rangeNavigator.periodSelectorSettings.height = document.body.className.indexOf("e-bigger") > -1 ? 56 : 42;
-    },
     axisLabelRender: function(args){
          if (args.axis.title === 'Price') {
                 args.text = '$' + args.text;
             }
-    },
-    changed: function(args) {
-      var chart = document.getElementById("chartcontainer").ej2_instances;
-      if (chart) {
-        let data = chartData.filter(data => {
-          return (
-            data["x"].getTime() >= args.start.getTime() &&
-            data["x"].getTime() <= args.end.getTime()
-          );
-        });
-        chart[0].series[0].animation.enable = false;
-        chart[0].primaryXAxis.zoomPosition = 0;
-        chart[0].primaryXAxis.zoomFactor = 1;
-        chart[0].series[0].dataSource = data;
-        chart[0].refresh();
-        }
-    },
-     loadedRange: function(args) {
-      var range = document.getElementById("containerTop").ej2_instances;
-      if (!Browser.isDevice) {
-        document.getElementById("containerTop_Secondary_Element").style.transform = "translate(14%)";
-      }
-     
     }
    }
    

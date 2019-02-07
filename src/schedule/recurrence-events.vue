@@ -15,7 +15,7 @@
 
         <div id="action-description">
             <p>
-                This demo showcases the schedule with recurring meetings handled by a top-level manager on a regular pattern.
+                This demo showcases the Scheduler with recurring meetings handled by a top-level manager on a regular pattern.
             </p>
         </div>
         <div id="description">
@@ -32,14 +32,53 @@
                 are depicted in orange color and the yearly event is depicted in the all-day section with another green shade
                 for reference.
             </p>
-        </div>
+             <p>
+                This sample illustrates the usage of different types of events such as normal, spanned and all-day. Here, the Scheduler acts
+                as a leave planner for an employee to plan his upcoming leaves as well as to keep track of his previously
+                taken time-offs and leaves.
+            </p>
+            <p>
+                Scheduler requires only the <code>startTime</code> and <code>endTime</code> fields as mandatory to be mapped from the dataSource. 
+                The Scheduler events can be categorized into 3 types based on its time range and all-day type.
+            </p>
+            <table style="width:100%">
+                <tr>
+                    <th style="width:100px">
+                        <strong>Event</strong>
+                    </th>
+                    <th>
+                        <strong>Description</strong>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="padding:4px 0;">Normal events</td>
+                    <td>
+                        The events that has its start and end time duration on the same date. 
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:4px 0;">Spanned events</td>
+                    <td>
+                        The events on which its start and end time spans over multiple days and usually displays together with all-day events.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:4px 0;">All-day events</td>
+                    <td>
+                        The events that are defined as all-day in its event object by setting
+                        <code>isAllDay</code> to true. It usually renders at the date header section of the Scheduler where
+                        no time-cells are present.
+                    </td>
+                </tr>
+            </table>
+        </div>       
     </div>
 </template>
 <script>
     import Vue from "vue";
     import { recurrenceData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, EventRenderedArgs, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, Month, EventRenderedArgs, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {
@@ -54,17 +93,11 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

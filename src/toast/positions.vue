@@ -73,7 +73,7 @@
                         <li>Toast can be positioned in the 8 pre-defined places.</li>
                         <li>Custom option will enable to give X and Y values to align the toast based on the given inputs.</li>
                     </ul>
-                    <p>More information about Toast can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/toast/getting-started.html">
+                    <p>More information about Toast can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/toast/getting-started/">
         documentation section</a>.</p>
                 </div>
     </div>   

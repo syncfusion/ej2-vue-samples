@@ -1,54 +1,54 @@
 {
-    "name": "Slider",
+    "name": "Range Slider",
     "directory": "slider",
-    "category": "Editors",
+    "category": "Inputs",
     "ftName" : "slider",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Essential JS 2 slider control demo showing the default rendering of default, minimum range, and range sliders. Drag the thumb to interact with the slider."
         },
         {
             "url": "ticks",
             "name": "Ticks",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Essential JS 2 slider control demo of the visual representation of slider values using ticks, which can be placed before, after, or on both sides of the thumbs."
         },
         {
             "url": "tooltip",
             "name": "Tooltip",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Essential JS 2 slider control demo of the visual representation of slider values using tooltips, which can be displayed before or after slider thumbs."
         },
         {
             "url": "orientation",
             "name": "Vertical  Orientation",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Essential JS 2 slider control demo showing the vertical and horizontal orientation properties along with ticks and tooltips."
         },
         {
             "url": "format",
             "name": "Formatting",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Demo of Essential JS 2 slider control value formatting with time, currency, and distance values that are also displayed in ticks and tooltips."
         },
         {
             "url": "limits",
             "name": "Limits",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Essential JS 2 slider control demo of limiting the minimum, maximum, start, and end values. Also supports restricting handle movements."
         },
         {
             "url": "api",
             "name": "API",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Essential JS 2 slider control demo showcasing the most frequently used API combinations, like orientation, minimum, maximum, value, step, and more."
         },
         {
             "url": "events",
             "name": "Events",
-            "category": "Slider",
+            "category": "Range Slider",
             "description": "Demo of the Essential JS 2 slider control's created, changing, and changed events. The events are traced in real time in a property panel."
         },
         {

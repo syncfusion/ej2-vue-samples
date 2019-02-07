@@ -26,7 +26,7 @@
     </div>
     <div id="action-description">
         <p>
-           This sample demonstrates how to position the dialog component. Select the appropriate radio button to position where the dialog is displayed. The current position of the dialog is at the bottom.  Enable the <code>open dialog</code> button to reopen the dialog if it is closed.
+           This example demonstrates how to position the dialog component. Select the appropriate radio button to position where the dialog is displayed. The current position of the dialog is at the bottom.  Enable the <code>open dialog</code> button to reopen the dialog if it is closed.
         </p>
     </div>
     <div id="description">
@@ -34,7 +34,7 @@
             By default, the dialog is displayed in the center of the target container. Use the <code>position</code> property to set location where the dialog displays relative to the target. The property point-out the horizontal and vertical coordinates. You can set position with specific X and Y coordinates in pixel values.
         </p>
         More information on the positioning of Dialog can be found in 
-        the <a href="https://ej2.syncfusion.com/vue/documentation/dialog/getting-started.html#positioning" target="_blank"> documentation section</a>.
+        the <a href="https://ej2.syncfusion.com/vue/documentation/dialog/getting-started/#positioning" target="_blank"> documentation section</a>.
     </div>
   </div>
 </template>

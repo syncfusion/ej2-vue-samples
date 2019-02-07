@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge style='display:block' align='center' id='axis-container' :title='title' :titleStyle='titleStyle'>
+<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='axis-container' :title='title' :titleStyle='titleStyle'>
 <e-axes>
 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0  maximum=160 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
 <e-pointers>
@@ -26,7 +26,7 @@
                 </td>
                 <td>
                     <div>
-             <ejs-dropdownlist id='axisIndex' :dataSource='axisindexdata' :fields='axisindexfields' value='0' index=0  :width='axisindexwidth' :change='changeAxisindex'></ejs-dropdownlist>                                        
+             <ejs-dropdownlist id='axisIndex' ref="axis" :dataSource='axisindexdata' :fields='axisindexfields' value='0' index=0  :width='axisindexwidth' :change='changeAxisindex'></ejs-dropdownlist>                                        
                     </div>
                 </td>
             </tr>&nbsp;
@@ -36,7 +36,7 @@
                 </td>
                 <td>
                     <div>
-             <ejs-dropdownlist id='axisDirection' :dataSource='axisdirectiondata' index=0  :width='axisdirectionwidth' :change='changeAxisdirection'></ejs-dropdownlist>                                                          
+             <ejs-dropdownlist id='axisDirection' ref="direction" :dataSource='axisdirectiondata' index=0  :width='axisdirectionwidth' :change='changeAxisdirection'></ejs-dropdownlist>                                                          
                     </div>
                 </td>
             </tr>&nbsp;
@@ -46,7 +46,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="startAngle" value="220" min="0" max="360" v-on:pointermove="startAnglechange" v-on:touchmove="startAnglechange" v-on:change="startAnglechange"  />
+                        <input type="range" ref="start" id="startAngle" value="220" min="0" max="360" v-on:pointermove="startAnglechange" v-on:touchmove="startAnglechange" v-on:change="startAnglechange"  />
                     </div>
                 </td>
             </tr>&nbsp;
@@ -56,7 +56,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="endAngle" value="140" min="0" max="360" v-on:pointermove="endAnglechange" v-on:touchmove="endAnglechange" v-on:change="endAnglechange"  />
+                        <input type="range" ref="end" id="endAngle" value="140" min="0" max="360" v-on:pointermove="endAnglechange" v-on:touchmove="endAnglechange" v-on:change="endAnglechange"  />
                     </div>
                 </td>
             </tr>
@@ -142,13 +142,13 @@ methods: {
     },
     changeAxisindex:function(args){
             let axisIndex = 0;
-            let cotainerObj=document.getElementById('axis-container');
-            let direction=document.getElementById('axisDirection');
-            let axis=document.getElementById('axisIndex');
-            axisIndex = +axis.ej2_instances[0].value;
-            direction.ej2_instances[0].value = cotainerObj.ej2_instances[0].axes[axisIndex].direction;
-            let startAngle = cotainerObj.ej2_instances[0].axes[axisIndex].startAngle;
-            let endAngle = cotainerObj.ej2_instances[0].axes[axisIndex].endAngle;
+            // let cotainerObj=document.getElementById('axis-container');
+            // let direction=document.getElementById('axisDirection');
+            // let axis=document.getElementById('axisIndex');
+            axisIndex = this.$refs.axis.ej2Instances.value;
+            this.$refs.direction.ej2Instances.value = this.$refs.circulargauge.ej2Instances.axes[axisIndex].direction;
+            let startAngle = this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle;
+            let endAngle = this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle;
             document.getElementById('start').innerHTML = 'Start Angle <span> &nbsp;&nbsp;&nbsp;' + startAngle;
             document.getElementById('end').innerHTML = 'End Angle <span> &nbsp;&nbsp;&nbsp;' + endAngle;
             (document.getElementById('startAngle')).value = startAngle.toString();
@@ -156,38 +156,38 @@ methods: {
     },
     changeAxisdirection: function(args){
             let axisIndex = 0;
-            let cotainerObj=document.getElementById('axis-container');
-            let direction=document.getElementById('axisDirection');
-            cotainerObj.ej2_instances[0].axes[axisIndex].direction = direction.ej2_instances[0].value.toString();
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false;
-            cotainerObj.ej2_instances[0].axes[1].pointers[0].animation.enable = false;
-            cotainerObj.ej2_instances[0].refresh();        
+            // let cotainerObj=document.getElementById('axis-container');
+            // let direction=document.getElementById('axisDirection');
+            this.$refs.circulargauge.ej2Instances.axes[axisIndex].direction = this.$refs.direction.ej2Instances.value.toString();
+            this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
+            this.$refs.circulargauge.ej2Instances.axes[1].pointers[0].animation.enable = false;
+            this.$refs.circulargauge.ej2Instances.refresh();        
     },
     startAnglechange:function(args){
             let axisIndex = 0;       
-            let cotainerObj=document.getElementById('axis-container');      
+            // let cotainerObj=document.getElementById('axis-container');      
             let value = parseInt((document.getElementById('startAngle')).value, 10);
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false;
-            cotainerObj.ej2_instances[0].axes[1].pointers[0].animation.enable = false;
-            cotainerObj.ej2_instances[0].axes[axisIndex].startAngle = value;
+            this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
+            this.$refs.circulargauge.ej2Instances.axes[1].pointers[0].animation.enable = false;
+            this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle = value;
             document.getElementById('start').innerHTML = 'Start Angle <span> &nbsp;&nbsp;&nbsp;' + value;
-            cotainerObj.ej2_instances[0].axes[axisIndex].labelStyle.hiddenLabel =
-                isCompleteAngle(cotainerObj.ej2_instances[0].axes[axisIndex].startAngle, cotainerObj.ej2_instances[0].axes[axisIndex].endAngle) ?
+            this.$refs.circulargauge.ej2Instances.axes[axisIndex].labelStyle.hiddenLabel =
+                isCompleteAngle(this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle, this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle) ?
                     'First' : 'None';
-            cotainerObj.ej2_instances[0].refresh();        
+            this.$refs.circulargauge.ej2Instances.refresh();        
     },
     endAnglechange:function(args){
             let axisIndex = 0;       
-            let cotainerObj=document.getElementById('axis-container');    
+            // let cotainerObj=document.getElementById('axis-container');    
             let value = parseInt((document.getElementById('endAngle')).value, 10);
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false;
-            cotainerObj.ej2_instances[0].axes[1].pointers[0].animation.enable = false;
-            cotainerObj.ej2_instances[0].axes[axisIndex].endAngle = value;
+            this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
+            this.$refs.circulargauge.ej2Instances.axes[1].pointers[0].animation.enable = false;
+            this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle = value;
             document.getElementById('end').innerHTML = 'End Angle <span> &nbsp;&nbsp;&nbsp;' + value;
-            cotainerObj.ej2_instances[0].axes[axisIndex].labelStyle.hiddenLabel =
-                isCompleteAngle(cotainerObj.ej2_instances[0].axes[axisIndex].startAngle, cotainerObj.ej2_instances[0].axes[axisIndex].endAngle) ?
+            this.$refs.circulargauge.ej2Instances.axes[axisIndex].labelStyle.hiddenLabel =
+                isCompleteAngle(this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle, this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle) ?
                     'First' : 'None';
-            cotainerObj.ej2_instances[0].refresh();        
+            this.$refs.circulargauge.ej2Instances.refresh();        
     }
 }
 })

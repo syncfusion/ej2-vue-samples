@@ -71,7 +71,7 @@
                 textbox to indicate the given value is wrong.
             </li>
         </ul>
-        <p>In this demo, numeric textboxe is restricted between 10 to 100 through the min and max properties. So you can enter only the value between
+        <p>In this demo, numeric textbox is restricted between 10 to 100 through the min and max properties. So you can enter only the value between
         this range.</p>
         <p>
         More information on the range validation configuration can be found in the

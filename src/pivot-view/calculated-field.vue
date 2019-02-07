@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height" :allowCalculatedField="allowCalculatedField" :showFieldList="showFieldList">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height" :allowCalculatedField="allowCalculatedField" :showFieldList="showFieldList">        
         </ejs-pivotview>
         </div>
     </div>
@@ -51,13 +51,14 @@ import {
   ButtonPlugin,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
-import { Pivot_Data } from "./data-source";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(ButtonPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -86,7 +87,7 @@ export default Vue.extend({
   },
   methods: {
     btnClick: function(args: checkEventArgs) {
-      let pivotGridObj = (<any>(document.getElementById('pivotview'))).ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       pivotGridObj.calculatedFieldModule.createCalculatedFieldDialog();
     }
   },

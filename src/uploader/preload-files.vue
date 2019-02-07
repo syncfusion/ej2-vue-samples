@@ -6,7 +6,7 @@
             :dropArea = "dropElement" :removing= "onFileRemove" >
                  <e-files>
                     <e-uploadedfiles name='Nature' size=11000 type='.png'></e-uploadedfiles>
-                    <e-uploadedfiles name='TypeScript Succintly' size=20000 type='.pdf'></e-uploadedfiles>
+                    <e-uploadedfiles name='TypeScript Succinctly' size=20000 type='.pdf'></e-uploadedfiles>
                     <e-uploadedfiles name='ASP.NET Webhooks' size=35000 type='.docx'></e-uploadedfiles>
                 </e-files>
             </ejs-uploader>
@@ -20,14 +20,14 @@
         </div>
     </div>
     <div id="action-description">
-      <p>This sample demonstrates how to pre-load the files of the Uploader. The already uploaded files are configured in file list to view and remove them.</p>
+      <p>This example demonstrates how to pre-load the files of the Uploader. The already uploaded files are configured in file list to view and remove them.</p>
     </div>
 
     <div id="description">
         <p>The Uploader component allows to load initial list of files which are already uploaded in server. The preload files are useful to view and remove from server.
             Also, you can achieve state persistence on page refresh.</p>
         <p>For more information, you can refer to the 
-           <a href='https://ej2.syncfusion.com/vue/documentation/uploader/asynchronous.html#preload-files' target="_blank"> Preload Files
+           <a href='https://ej2.syncfusion.com/vue/documentation/uploader/async/#preload-files' target="_blank"> Preload Files
            </a> section from the documentation</p>
     </div>
 </div>

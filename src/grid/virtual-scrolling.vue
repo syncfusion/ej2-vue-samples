@@ -77,35 +77,35 @@
 </template>
 <style>
 .imagepop {
-  position: absolute;
-  background-repeat: no-repeat;
-  background-image: url("./images/spinner.gif");
-  background-position: center;
-  width: 16px;
-  height: 28px;
-}
-
-.e-bigger .imagepop {
-  height: 36px;
-}
-
-#popup {
-  position: absolute;
-  background-color: transparent;
-  display: none;
-  z-index: 100;
-}
-.div-button {
-  margin: 5px 0;
-}
-#performanceTime {
-  float: right;
-  margin-top: 3px;
-}
-
-.e-bigger #performanceTime {
-  margin-top: 8px;
-}
+    position: absolute;
+    background-repeat: no-repeat;
+    background-image: url("./images/spinner.gif");
+    background-position: center;
+    width: 16px;
+    height: 28px;
+  }
+  
+  .e-bigger .imagepop {
+    height: 36px;
+  }
+  
+  #popup {
+    position: absolute;
+    background-color: transparent;
+    display: none;
+    z-index: 100;
+  }
+  .div-button {
+    margin: 5px 0;
+  }
+  #performanceTime {
+    float: right;
+    margin-top: 3px;
+  }
+  
+  .e-bigger #performanceTime {
+    margin-top: 8px;
+  }
 </style>
 
 <script lang="ts">

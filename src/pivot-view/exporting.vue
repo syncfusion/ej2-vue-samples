@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-8 control-section">
         <div class="content-wrapper">
-            <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height" :allowExcelExport="allowExcelExport" :allowPdfExport="allowPdfExport" :showFieldList="showFieldList">        
+            <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height" :allowExcelExport="allowExcelExport" :allowPdfExport="allowPdfExport" :showFieldList="showFieldList">        
             </ejs-pivotview>
         </div>
     </div>
@@ -25,7 +25,7 @@
                   <td></td>
                     <td>
                         <div style="float:right">
-                            <ejs-button id="export-btn" v-on:click.native="btnClick" iconCss='e-icons e-play-icon' cssClass= 'e-flat' isPrimary='true'>Export</ejs-button>
+                            <ejs-button id="export-btn" v-on:click.native="btnClick" cssClass= 'e-flat' isPrimary='true'>Export</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -54,8 +54,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { PivotViewPlugin, FieldList } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
+import { PivotViewPlugin, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import {
   DropDownListPlugin,
   ChangeEventArgs
@@ -67,7 +66,9 @@ enableRipple(false);
 Vue.use(PivotViewPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(DropDownListPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -102,9 +103,8 @@ export default Vue.extend({
   },
   methods: {
     btnClick: function(args: ChangeEventArgs) {
-      let ddlObj = (<any>document.getElementById("mode")).ej2_instances[0];
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let ddlObj = (<any>this.$refs.typeddl).ej2Instances; 
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       if (ddlObj.value === "Excel") {
         pivotGridObj.excelExport();
       } else if (ddlObj.value === "CSV") {
@@ -126,9 +126,5 @@ export default Vue.extend({
 }
 .e-pivottable .e-static {
   width: 80% !important;
-}
-
-.e-play-icon::before {
-  content: "\e728";
 }
 </style>

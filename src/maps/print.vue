@@ -2,7 +2,7 @@
 <div>
    <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-<ejs-maps id='container' :titleSettings='titleSettings' :load='load' :tooltipRender='tooltipRender' format='n' :useGroupingSeparator='useGroupingSeparator' :legendSettings='legendSettings'>
+<ejs-maps ref="maps" id='container' :titleSettings='titleSettings' :load='load' :tooltipRender='tooltipRender' format='n' :useGroupingSeparator='useGroupingSeparator' :legendSettings='legendSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'></e-layer>
     </e-layers>
@@ -18,7 +18,7 @@
             <tbody><tr id="button-control" style="height: 50px">
                 <td align="center">
                     <div>
-                <ejs-button id='togglebtn' :iconCss='iconCss' :cssClass='cssClass' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickToggle'></ejs-button>
+                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickToggle'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -82,10 +82,10 @@ export default Vue.extend({
             labelDisplayMode: 'Trim',
             alignment: 'Center'
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/usa.json'),
+        shapeData: new MapAjax('./src/maps/map-data/usa.json'),
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/print-datasource.json'),
+        dataSource: new MapAjax('./src/maps/map-data/print-datasource.json'),
         shapeSettings: {
             border: {
                 width: 0.5,
@@ -121,7 +121,7 @@ export default Vue.extend({
                     valuePath: 'population',
                     format: 'State: ${name} <br> Population: ${population}'
                 },
-             iconCss: 'e-icons e-play-icon', cssClass: 'e-flat', isPrimary: true, content:'Print'
+             cssClass: 'e-info', isPrimary: true, content:'Print', style: 'text-transform:none !important'
           }
   },
 provide: {
@@ -140,8 +140,7 @@ methods:{
             }
     },
     clickToggle:function(args){
-        let maps=document.getElementById('container');
-        maps.ej2_instances[0].print();
+        this.$refs.maps.ej2Instances.print();
     }
 }
 })

@@ -9,8 +9,7 @@
     </div>
     <div id="action-description">
     <p>
-        The following sample demonstrates the popup list element in specific time duration. click the time icon to select the desired
-        value.
+         The following sample demonstrates the popup list element in specific time duration. Click/Touch the TimePicker popup icon to select the desired value.
     </p>
    </div>
    <div id="description">
@@ -72,7 +71,6 @@ export default Vue.extend({
       span.innerHTML =
         " (" + (hours > 0 ? hours + minText + " hrs" : "" + minText) + ")";
       if ((minutes / 60) % 3 === 0) {
-        span.classList.add("e-icons");
         //disable the time values by addeding the e-disabled class.
         args.element.classList.add("e-disabled");
       }
@@ -112,17 +110,6 @@ export default Vue.extend({
   height: 25px;
   width: 25px;
   font-size: 15px;
-}
-
-.e-custom-style.e-timepicker.e-popup li.e-disabled span:before {
-  content: "\e212";
-  position: absolute;
-  right: 10px;
-  line-height: 36px;
-}
-
-.e-bigger .e-custom-style.e-timepicker.e-popup li.e-disabled span:before {
-  line-height: 48px;
 }
 
 body.highcontrast .e-custom-style.e-timepicker.e-popup li.e-hover span:hover,

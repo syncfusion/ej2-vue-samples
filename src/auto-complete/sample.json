@@ -1,7 +1,7 @@
 {
     "name": "AutoComplete",
     "directory": "auto-complete",
-    "category": "Editors",
+    "category": "Dropdowns",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",

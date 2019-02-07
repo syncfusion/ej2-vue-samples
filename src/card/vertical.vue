@@ -89,7 +89,7 @@
 <div id="description">
     <p>The vertical card sample illustrate card contents in vertically aligned layout with header, content, and action buttons.</p>
     <p>More information about Card can be found in this
-        <a href="" target="_blank"> documentation section</a>.</p>
+        <a href="https://ej2.syncfusion.com/vue/documentation/card/getting-started/" target="_blank"> documentation section</a>.</p>
 </div>
 </div>
 </template>

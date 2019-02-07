@@ -15,7 +15,7 @@
                         </td>
                         <td style="width: 50%">
                             <div style="max-width: 200px">
-                                <input id="hex-input" class="e-input" value="#0db1e7" type="text" v-on:change="onChange"/>
+                                <input ref="inputValue" class="e-input" :maxlength="9" value="#0db1e7" type="text" v-on:input="onChange"/>
                             </div>
                         </td>
                     </tr>
@@ -25,7 +25,7 @@
                         </td>
                         <td style="width: 50%;padding-top:10px">
                             <div style="max-width: 200px">
-                                <ejs-dropdownlist id="ddl" ref="ddlObj" :dataSource="items" :value="dynamicValue" :fields="fields" :change="modeChange">
+                                <ejs-dropdownlist :dataSource="items" value="Picker" :fields="fields" :change="modeChange">
                                 </ejs-dropdownlist>
                             </div>
                         </td>
@@ -35,7 +35,7 @@
                       <div>Disable</div>
                     </td>
                     <td style="width: 50%;padding-top:15px">
-                      <ejs-checkbox id='disabled' :change="disabled_onChange"></ejs-checkbox>
+                      <ejs-checkbox :change="disabled_onChange"></ejs-checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                     <div>Show Buttons</div>
                   </td>
                   <td style="width: 50%;padding-top:15px">
-                    <ejs-checkbox id='show-btn' :checked="true" :change="button_onChange"></ejs-checkbox>
+                    <ejs-checkbox :checked="true" :change="button_onChange"></ejs-checkbox>
                   </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                         <div>Mode Switcher</div>
                     </td>
                     <td style="width: 50%;padding-top:15px">
-                      <ejs-checkbox id='mode-switch' :checked="true" :change="mode_onChange"></ejs-checkbox>
+                      <ejs-checkbox :checked="true" :change="mode_onChange"></ejs-checkbox>
                     </td>
                 </tr>
             </tbody>
@@ -82,7 +82,7 @@
     </ul>
     <p>
         More information about ColorPicker can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/color-picker/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker">
             documentation section</a>.
     </p>
 </div>
@@ -90,26 +90,22 @@
 </template>
 
 <style>
-.property-panel-content {
+    .property-panel-content {
         padding: 0 10px 10px 0;
         overflow: auto;
     }
-
     #colorpicker-control {
         margin: 30px auto;
         padding-top: 50px;
         text-align: center;
     }
-
     #colorpicker-control h4 {
         margin-bottom: 20px;
         color: rgba(0, 0, 0, 0.64);
     }
-
     .highcontrast #colorpicker-control h4 {
-        color: #fff;
+        color: rgba(255, 255, 255, 0.64);
     }
-
     .e-bigger #colorpicker-control h4 {
         font-size: 20px;
     }
@@ -128,7 +124,6 @@ Vue.use(CheckBoxPlugin);
 export default Vue.extend({
    data: function () {
     return {
-      dynamicValue: 'Picker',
       items: [
         { mode: 'Picker' },
         { mode: 'Palette' }
@@ -138,23 +133,25 @@ export default Vue.extend({
   },
   methods: {
     onChange: function(args) {
-      this.$refs.colorPicker.$el.ej2_instances[0].value = args.target.value;
+      const val = args.target.value;
+      // Sets to color picker default color value if user enters the invalid hex code
+      this.$refs.colorPicker.value = val && val.length > 2 ? (val[0] !== '#' ? `#${val}` : val) : '#008000';
     },
     change: function(args) {
-      document.getElementById("hex-input").value = args.currentValue.hex;
+      this.$refs.inputValue.value = args.currentValue.hex;
     },
-     modeChange: function(args) {
-        this.$refs.colorPicker.$el.ej2_instances[0].mode = this.$refs.ddlObj.$el.ej2_instances[0].value;
+    modeChange: function(args) {
+        this.$refs.colorPicker.mode = args.value;
     },
     button_onChange: function(args) {
-        this.$refs.colorPicker.$el.ej2_instances[0].showButtons = args.checked;
+        this.$refs.colorPicker.showButtons = args.checked;
     },
     mode_onChange: function(args) {
-       this.$refs.colorPicker.$el.ej2_instances[0].modeSwitcher = args.checked;
+       this.$refs.colorPicker.modeSwitcher = args.checked;
     },
     disabled_onChange: function(args) {
-        this.$refs.colorPicker.$el.ej2_instances[0].disabled = args.checked;
-    },
+        this.$refs.colorPicker.disabled = args.checked;
+    }
   }
 });
 </script>

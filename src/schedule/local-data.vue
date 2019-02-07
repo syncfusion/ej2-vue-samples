@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"></ejs-schedule>
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"></ejs-schedule>
             </div>
         </div>
 
@@ -13,7 +13,7 @@
         </div>
         <div id="description">
             <p>
-                Schedule can be bound either to local or remote data services which will load the data by default on demand to reduce the
+                Scheduler can be bound either to local or remote data services which will load the data by default on demand to reduce the
                 data transfer and load time. In this sample, the
                 <code>dataSource</code> property available within the
                 <code>eventSettings</code> needs to be assigned with the valid local JSON data.
@@ -39,12 +39,12 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
                     (args.element.firstChild).style.borderLeftColor = categoryColor;
                 } else {
                     args.element.style.backgroundColor = categoryColor;

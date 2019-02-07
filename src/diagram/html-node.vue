@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
   <div class="control-section">
-    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings'></ejs-diagram>
+    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings' :created='created'></ejs-diagram>
   </div>
   <div id="action-description">
     <p>
@@ -57,8 +57,11 @@ export default Vue.extend({
   data: function() {
     return {
       width: "100%",
-      height: "640px",
+      height: "450px",
       nodes: [node1],
+      created: (args: Object): void => {
+        diagramInstance.fitToPage();
+      },
       snapSettings: { constraints: 0 }
     };
   },

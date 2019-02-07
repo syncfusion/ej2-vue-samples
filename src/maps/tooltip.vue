@@ -1,22 +1,5 @@
 <template>
 <div>
-<div id="template" style="display:none">
-    <div class="toolback">
-                <div class="listing2">
-                    <center>
-                        ${country}                                            
-                    </center>
-                </div>
-                <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
-                <div>
-                    <span class="listing1">Finalist : </span><span class="listing2">${value1}</span>
-                </div> 
-                <div>
-                    <span class="listing1">Win : </span><span class="listing2">${value2}</span>
-                </div>
-    </div>
-    
-</div>
 <div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :tooltipRender='tooltipRender' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
@@ -48,30 +31,11 @@
    #control-container {
        padding: 0px !important;
    }
-   .toolback {
-       border-radius: 4px;
-       border: 1px #abb9c6;
-       opacity: 90%;
-       background: rgba(53, 63, 76, 0.90);
-       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
-       padding-bottom: 5px;
-       padding-top: 10px;
-       padding-left: 10px;
-       padding-right: 10px
-   }
-   .listing1 {
-        font-size:13px;
-        color:#cccccc
-   }
-   .listing2 {
-        font-size:13px;
-        color:#ffffff;
-        font-weight: 500;
-   }
 </style>
 <script>
 import Vue from 'vue'
 import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import Template from './tooltip-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
 data:function(){
@@ -93,14 +57,14 @@ data:function(){
             height: '70%',
             width: '10'
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapePropertyPath: 'name',
         shapeDataPath: 'name',
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/tooltip-datasource.json'),
+        dataSource: new MapAjax('./src/maps/map-data/tooltip-datasource.json'),
         tooltipSettings: {
-                    visible: true,
-                    valuePath: 'name',
-                    template: '#template'
+            visible: true,
+            valuePath: 'name',
+            template: function () { return {template: Template}; },
         },
         shapeSettings: {
             fill: '#E5E5E5',

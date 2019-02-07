@@ -1,8 +1,8 @@
 <template>
-  <div class="control-section e-tab-section">
-    <div class="col-lg-8 content-wrapper">
+  <div class="e-tab-section">
+    <div class="col-lg-8 content-wrapper control-section">
         <div class="e-sample-resize-container">
-             <ejs-tab id="tab_adaptive" heightAdjustMode='Content'>
+             <ejs-tab ref="tabObj" id="tab_adaptive" heightAdjustMode='None' height='250'>
                 <e-tabitems>
                     <e-tabitem :header='headerText0' :content="content0"></e-tabitem>
                     <e-tabitem :header='headerText1' :content="content1"></e-tabitem>
@@ -20,8 +20,9 @@
 
             <div id="description">
                  <p>The <code>Tab</code> is adaptable to the available space when the tab items exceed the view space.</p>
+                 <p>The <code>Tab</code> allows to place the header section inside the Tab component either at <code>top/bottom/left/right</code> position by using <code>headerPlacement</code> property.</p>
                  <p>You can assign overflowMode property value as <code>Scrollable/Popup</code>. By default scrollable mode of tab is enabled when tab item exceeds the view range. In this sample, users can change the <code>overflowMode</code> by selecting the dropdown options.</p>
-                 <p>More information about Tab can be found in this <a href="" target="_blank">documentation</a> section.</p>
+                 <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
             </div>
         </div>
     </div>
@@ -32,7 +33,14 @@
                             <div>Mode:</div>
                         </td>
                         <td style="width:50%">
-                            <ejs-dropdownlist id='overflow-modes' width='90%' :dataSource='data' :change='onChange' :value='value' :fields='fields'>
+                            <ejs-dropdownlist ref="dropObj1" id='overflow-modes' width='90%' :dataSource='data' :change='onChange' :value='value' :fields='fields'>
+                            </ejs-dropdownlist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%">Header Placement:</td>
+                        <td style="width:50%">
+                              <ejs-dropdownlist ref="dropObj2" id='header-place' width='90%' :dataSource='dataPlace' :change='placeChange' :value='placeValue' :fields='placeFields'>
                             </ejs-dropdownlist>
                         </td>
                     </tr>
@@ -42,6 +50,32 @@
 </template>
 <style>
 
+	#tab_adaptive .e-tab-text {
+        display: inherit;
+    }
+
+
+@media screen and (max-width: 481px) {
+        .control-section.e-tab-section,
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        #tab_adaptive {
+            overflow: hidden;
+        }
+
+        #tab_adaptive .e-content {
+            height: inherit !important;
+        }
+
+        #tab_adaptive .e-item.e-active {
+            overflow: scroll;
+        }
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -52,8 +86,11 @@ export default Vue.extend({
         return {
           data: [{ id: 'scrollable', mode: 'Scrollable' },
                   { id: 'popup', mode: 'Popup' }],
+          dataPlace: [{ id: 'top', position: 'Top' }, { id: 'bottom', position: 'Bottom' },{ id: 'left', position: 'Left' }, { id: 'right', position: 'Right' }],
           fields: { text: 'mode', value: 'id' },
+          placeFields: { text: 'position', value: 'id' },
           value: 'scrollable',
+          placeValue: 'top',
           headerText0: { text: 'HTML' },
           headerText1: { text: 'C Sharp(C#)' },
           headerText2: { text: 'Java' },
@@ -107,14 +144,20 @@ export default Vue.extend({
         }
    },
     methods: {
+        placeChange: function(args) {
+           this.tabObj = this.$refs.tabObj.ej2Instances;
+           var placement = this.$refs.dropObj2.$el.value;
+           this.tabObj.headerPlacement = placement;
+           this.tabObj.dataBind();
+       },
        onChange: function(args) {
-           let tabObj=document.getElementById('tab_adaptive');
+           this.tabObj = this.$refs.tabObj.ej2Instances;
            if (args.value === 'scrollable') {
-               tabObj.ej2_instances[0].overflowMode = 'Scrollable';
+               this.tabObj.overflowMode = 'Scrollable';
             } else {
-              tabObj.ej2_instances[0].overflowMode = 'Popup';
+              this.tabObj.overflowMode = 'Popup';
            }
-           tabObj.ej2_instances[0].dataBind();
+           this.tabObj.dataBind();
        }
     }
 });

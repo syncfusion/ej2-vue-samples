@@ -6,14 +6,14 @@
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-      <ejs-daterangepicker id="datepicker" :placeholder="waterMark" v-model="date"></ejs-daterangepicker>
+      <ejs-daterangepicker id="first_daterange" :placeholder="waterMark" v-model="date"></ejs-daterangepicker>
      </div>
     </div>
 </div> 
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-      <ejs-daterangepicker id="datepicker2" :placeholder="waterMark"  v-model="date"></ejs-daterangepicker>
+      <ejs-daterangepicker id="second_daterange" :placeholder="waterMark"  v-model="date"></ejs-daterangepicker>
      </div>
     </div>
 </div>
@@ -42,7 +42,7 @@ Vue.use(DatePickerPlugin);
 export default Vue.extend({
   data: function() {
     return {
-      waterMark: "Choose a date",
+      waterMark: "Select a Range",
       date: null
     };
   }

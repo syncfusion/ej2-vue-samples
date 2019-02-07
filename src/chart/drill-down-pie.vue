@@ -56,7 +56,7 @@ Vue.use(AccumulationChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
@@ -157,7 +157,7 @@ export default Vue.extend({
         if (args.target.indexOf('back') > -1) {
             this.data = [{ x: 'SUV', y: 25 }, { x: 'Car', y: 37 }, { x: 'Pickup', y: 15 }, { x: 'Minivan', y: 23 }]
             accChart[0].annotations = [{ content: null }];
-            this.isExplode = true;
+            this.isExplode = false;
             let dataLabel = extend({}, this.dataLabel);
             dataLabel.position = 'Inside';
             dataLabel.font.color = 'white';
@@ -176,7 +176,7 @@ export default Vue.extend({
     onClick: function (e) {
         let  accChart = document.getElementById("container").ej2_instances;
         accChart[0].annotations = [{ content: null }];
-        this.isExplode = true;
+        this.isExplode = false;
         this.data = [{ x: 'SUV', y: 25 }, { x: 'Car', y: 37 }, { x: 'Pickup', y: 15 }, { x: 'Minivan', y: 23 }]
         let dataLabel = extend({}, this.dataLabel);
         dataLabel.position = 'Inside';

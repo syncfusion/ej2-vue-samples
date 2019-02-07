@@ -1,87 +1,96 @@
 {
-    "name": "CircularGauge",
+    "name": "Circular Gauge",
     "directory": "circular-gauge",
     "category": "Data Visualization",
-    "ftName": "circulargauge",
     "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "description": "This demo for Essential JS2 Circular Gauge control illustrates the default rendering of circular gauge.",
             "category": "Circular Gauge",
              "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "range",
             "name": "Range",
-            "type": "update",
-            "description": "This demo for Essential JS2 Circular Gauge control illustrates how to highlight specific regions in an axis by using ranges.",
             "category": "Circular Gauge",
             "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "labels",
             "name": "Tick and Labels",
-            "description": "This demo for Essential JS2 Circular Gauge control shows various properties available to customize the ticks and labels of an axis.",
             "category": "Circular Gauge",
-            "api":{"CircularGauge": [ "axes"]}
+            "api":{"CircularGauge": [ "axes"]},
+			"type": "update"
         },
         {
             "url": "customization",
             "name": "Gauge Customization",
-            "description": "This demo for Essential JS2 Circular Gauge control shows the properties required to customize the pointers.",
             "category": "Circular Gauge",
             "api":{"CircularGauge": [ "axes"]}
         },
         {
+            "url": "semi-circular-gauge",
+            "name": "Semi-circular Gauge",
+            "category": "Circular Gauge",
+            "api":{"CircularGauge": [ "axes"]},
+            "type": "new"
+        },
+        {
+            "url": "arc-gauge",
+            "name": "Arc Gauge",
+            "category": "Circular Gauge",
+            "api":{"CircularGauge": [ "axes"]},
+            "type": "new"
+        },
+        {
             "url": "compass",
             "name": "Direction Compass",
-            "description": "This demo for Essential JS2 Circular Gauge control illustrates how to make a direction compass by using the circular gauge.",
             "category": "Circular Gauge",
             "api":{"CircularGauge": [ "axes", "axisLabelRender"]}
         },
         {
             "url": "pointer-image",
             "name": "Pointer Image",
-            "description": "This demo for Essential JS2 Circular Gauge control visualizes the short-put distance covered by the athletes by using the image pointer.",
             "category": "Pointer",
             "api":{"CircularGauge": [ "axes", "centerY"]}
         },
         {
             "url": "pointer",
             "name": "Pointer Customization",
-            "description": "This demo for Essential JS2 Circular Gauge control visualizes the different types of pointers available in the circular gauge.",
             "category": "Pointer",
             "api":{"CircularGauge": [ "axes", "centerY"]}
         },
         {
             "url": "multiple-axis",
             "name": "Multiple Axis",
-            "description": "This demo for Essential JS2 Circular Gauge control visualizes the circular gauge with multiple axes.",
             "category": "Axes",
             "api":{"CircularGauge": ["axes"]}
         },
         {
             "url": "user-interaction",
             "name": "Pointer Drag",
-            "description": "This demo for Essential JS2 Circular Gauge control visualizes the pointer drag support and its options.",
             "category": "User Interaction",
             "api":{"CircularGauge": ["axes", "enablePointerDrag", "dragEnd", "dragMove"]}
         },
         {
             "url": "tooltip",
             "name": "Tooltip",
-            "description": "This demo for Essential JS2 Circular Gauge control visualizes the tooltip template for circular gauge pointer.",
             "category": "User Interaction",
             "api":{"CircularGauge": ["axes", "tooltip", "tooltipRender"]}
         },
         {
             "url": "data-sample",
             "name": "Data Sample",
-            "description": "This demo for Essential JS2 Circular Gauge control demonstrates live data, along with the data grid control.",
             "category": "Live",
             "api":{"CircularGauge": ["axes"]}
+        },
+        {
+            "url": "speedometer",
+            "name": "Speedometer",
+            "category": "Live",
+            "api":{"CircularGauge": [ "axes"]},
+            "type": "new"
         }
     ]
 }

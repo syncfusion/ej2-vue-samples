@@ -4,7 +4,7 @@
         <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
          :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Weather' :marker='marker' fill='#ffffff' > </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Weather' :marker='marker' :fill='fill' > </e-series>
                                 
             </e-series-collection>
         </ejs-chart>
@@ -147,92 +147,104 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let fontSize = Browser.isDevice ? "14px" : "18px";
 let xAxisStripLine = [
-          {
-            start: -1,
-            end: 1.5,
-            text: "Winter",
-            color: "url(#winter)",
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 },
-            rotation: -90,
-            visible: true
-          },
-          {
-            start: 1.5,
-            end: 3.5,
-            text: "Summer",
-            color: "url(#summer)",
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 },
-            rotation: -90,
-            visible: true
-          },
-          {
-            start: 3.5,
-            end: 4.5,
-            text: "Spring",
-            color: "url(#spring)",
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 },
-            rotation: -90,
-            visible: true
-          },
-          {
-            start: 4.5,
-            end: 5.5,
-            text: "Autumn",
-            color: "url(#autumn)",
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 },
-            rotation: -90,
-            visible: true
-          },
-          {
-            start: 5.5,
-            end: 7,
-            text: "Winter",
-            color: "url(#winter)",
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 },
-            rotation: -90,
-            visible: true
-          },
-          { 
-            startFromAxis: true, 
-            size: 2, isSegmented: true, 
-            segmentStart: 22.5, 
-            text: 'Average Temperature',
-            segmentEnd: 27.5, visible: false, color: '#fc902a',
-            textStyle: { size: '18px', color: '#ffffff', fontWeight: '600' }, border: { width: 0 },
-            rotation: 0
-          },
-          {
-            start: 3.5, 
-            size: 3, 
-            isSegmented: true, 
-            segmentStart: 22.5, 
-            text: 'Average Temperature',
-            segmentEnd: 27.5, visible: false, color: '#fc902a',
-            textStyle: { size: '18px', color: '#ffffff', fontWeight: '600' }, border: { width: 0 },
-            rotation: 0
-          },
-          {
-            start: 1.5, 
-            size: 2, isSegmented: true, 
-            segmentStart: 32.5, 
-            text: 'High Temperature',
-            segmentEnd: 37.5, visible: false, color: '#ff512f',
-            textStyle: { size: '18px', color: '#ffffff', fontWeight: '600' }, border: { width: 0 },
-            rotation: 0
-          }
-        ];
+  {
+    start: -1,
+    end: 1.5,
+    text: "Winter",
+    color: "url(#winter)",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: -90,
+    visible: true
+  },
+  {
+    start: 1.5,
+    end: 3.5,
+    text: "Summer",
+    color: "url(#summer)",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: -90,
+    visible: true
+  },
+  {
+    start: 3.5,
+    end: 4.5,
+    text: "Spring",
+    color: "url(#spring)",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: -90,
+    visible: true
+  },
+  {
+    start: 4.5,
+    end: 5.5,
+    text: "Autumn",
+    color: "url(#autumn)",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: -90,
+    visible: true
+  },
+  {
+    start: 5.5,
+    end: 7,
+    text: "Winter",
+    color: "url(#winter)",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: -90,
+    visible: true
+  },
+  {
+    startFromAxis: true,
+    size: 2,
+    isSegmented: true,
+    segmentStart: 22.5,
+    text: "Average Temperature",
+    segmentEnd: 27.5,
+    visible: false,
+    color: "#fc902a",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: 0
+  },
+  {
+    start: 3.5,
+    size: 3,
+    isSegmented: true,
+    segmentStart: 22.5,
+    text: "Average Temperature",
+    segmentEnd: 27.5,
+    visible: false,
+    color: "#fc902a",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: 0
+  },
+  {
+    start: 1.5,
+    size: 2,
+    isSegmented: true,
+    segmentStart: 32.5,
+    text: "High Temperature",
+    segmentEnd: 37.5,
+    visible: false,
+    color: "#ff512f",
+    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
+    border: { width: 0 },
+    rotation: 0
+  }
+];
 
 export default Vue.extend({
   data: function() {
     return {
-       theme: theme,
+      theme: theme,
       seriesData: [
         { x: "Sun", y: 25 },
         { x: "Mon", y: 27 },
@@ -242,6 +254,7 @@ export default Vue.extend({
         { x: "Fri", y: 27.5 },
         { x: "Sat", y: 23 }
       ],
+      fill:'#ffffff',
       stripdata: ["Vertical", "Horizontal", "Segment"],
       stripwidth: 120,
 
@@ -269,7 +282,7 @@ export default Vue.extend({
             text: "High Temperature",
             color: "#ff512f",
             visible: false,
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
+            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
             border: { width: 0 }
           },
           {
@@ -278,7 +291,7 @@ export default Vue.extend({
             text: "Average Temperature",
             color: "#fc902a",
             visible: false,
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
+            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
             border: { width: 0 }
           },
           {
@@ -286,7 +299,7 @@ export default Vue.extend({
             end: 20,
             text: "Low Temperature",
             visible: false,
-            textStyle: { size: "18px", color: "#ffffff", fontWeight: "600" },
+            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
             border: { width: 0 },
             color: "#f9d423"
           }
@@ -317,39 +330,48 @@ export default Vue.extend({
     });
   },
   methods: {
-      stripChange: function(args) {
+    stripChange: function(args) {
       let mode = document.getElementById("selmode").value;
-      let chart = extend({}, this.$refs.chart.ej2Instances)
       let primaryYAxis = extend({}, this.primaryYAxis);
       let primaryXAxis = extend({}, this.primaryXAxis);
+      let marker = extend({}, this.marker);
+      let fill = extend({}, this.fill);
+      fill = "white";
+      marker.fill = 'black';
+      marker.border.color ='white';
+      for (let i = 0; i < 3; i++) {
+        primaryYAxis.stripLines[i].visible = false;
+      }
       if (mode === "Vertical") {
-        for (let i = 0; i <= 7; i++) {
-          primaryXAxis.stripLines[i].visible = !this.$refs.chart.ej2Instances.primaryXAxis.stripLines[i].isSegmented;
+        for (let i = 0; i <= 4; i++) {
+          primaryXAxis.stripLines[i].visible = true;
         }
-        this.primaryYAxis = primaryYAxis;
-        this.primaryXAxis = primaryXAxis;
-      } else if (mode === "Horizontal") {
+        for (let i = 5; i <= 7; i++) {
+          primaryXAxis.stripLines[i].visible = false;
+        }
+      } else if (mode === 'Horizontal') {
         for (let i = 0; i < 3; i++) {
           primaryYAxis.stripLines[i].visible = true;
         }
         for (let i = 0; i <= 7; i++) {
           primaryXAxis.stripLines[i].visible = false;
         }
-        this.primaryYAxis = primaryYAxis;
-        this.primaryXAxis = primaryXAxis;
       } else {
         for (let i = 0; i <= 7; i++) {
-            primaryXAxis.stripLines[i].visible = this.$refs.chart.ej2Instances.primaryXAxis.stripLines[i].isSegmented;
-            this.primaryXAxis = primaryXAxis;
-            }
-                this.$refs.chart.ej2Instances.series[0].fill = 'black';
-                this.$refs.chart.ej2Instances.series[0].marker.fill = 'white';
-                this.$refs.chart.ej2Instances.series[0].marker.border.color = 'black'; 
-                this.$refs.chart.ej2Instances.refresh();              
-                
+          primaryXAxis.stripLines[i].visible = false;
+        }
+        for (let i = 5; i <= 7; i++) {
+          primaryXAxis.stripLines[i].visible = true;
+        }
+        marker.fill = 'white';
+        marker.border.color ='black';
+        fill = 'black';
       }
-      this.$refs.chart.ej2Instances.refresh();
+      this.marker = marker;
+      this.fill = fill;
+      this.primaryYAxis = primaryYAxis;
+      this.primaryXAxis = primaryXAxis;
     }
-    }
+  }
 });
 </script>

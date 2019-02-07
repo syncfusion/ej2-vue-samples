@@ -9,7 +9,7 @@
     </div>
     <div id="action-description">
     <p>
-        In the following sample, a specific date ranges from 5th to 27th of a month has been set to select from the Calendar. All the other dates are out of range, and <code>restricted</code> to set or select.
+        In the following sample, a specific date ranges from 5th to 27th of a month has been set to select from the Calendar. All the other dates are out of range and <code>restricted</code> to set or select.
     </p>
 </div>
 <div id="description">

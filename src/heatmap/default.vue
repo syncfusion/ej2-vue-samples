@@ -32,7 +32,7 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { getDatasource } from '../heatmap/data';
+import { defaultData } from './data.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){
@@ -49,9 +49,9 @@ return{
              labels: ['Nancy', 'Andrew', 'Janet', 'Margaret', 'Steven', 'Michael', 'Robert', 'Laura', 'Anne', 'Paul', 'Karin', 'Mario']
         },
         yAxis: {
-            labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
         },
-        dataSource: getDatasource()
+        dataSource: defaultData,
 }
 },
 provide:{

@@ -1,35 +1,35 @@
 <template>
     <div class="control-section e-tab-section">
-        <div class="col-lg-8 content-wrapper">
+        <div class="content-wrapper">
             <div class="e-sample-resize-container" id="dialog_target">
                 <div id='booking' style='display: none'>
                     <div class="wizard-title">Plan your journey</div>
                     <div class="responsive-align">
                         <div class='row'>
                             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 search-item">
-                                <ejs-dropdownlist id='startPoint' width='100%' :dataSource='cities' :fields='autoCompleteFields' floatLabelType='Auto' placeholder='From'></ejs-dropdownlist>
+                                <ejs-dropdownlist ref="startObj" id='startPoint' width='100%' :dataSource='cities' :fields='autoCompleteFields' floatLabelType='Auto' placeholder='From'></ejs-dropdownlist>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 search-item">
-                                <ejs-dropdownlist id="endPoint" width="100%" :dataSource='cities' :fields='autoCompleteFields' floatLabelType='Auto' placeholder='To'></ejs-dropdownlist>
+                                <ejs-dropdownlist ref="endObj" id="endPoint" width="100%" :dataSource='cities' :fields='autoCompleteFields' floatLabelType='Auto' placeholder='To'></ejs-dropdownlist>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 search-item">
-                                <ejs-datepicker id="date" width='100%' placeholder='Journey Date' floatLabelType='Auto' :min='dateMin' :max='dateMax' :value='date'></ejs-datepicker>
+                                <ejs-datepicker ref="dateObj" id="date" width='100%' placeholder='Journey Date' floatLabelType='Auto' :min='dateMin' :max='dateMax' :value='date'></ejs-datepicker>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 search-item">
-                                <ejs-dropdownlist id="quota" :dataSource='quotas' placeholder='Ticket type' floatLabelType='Auto' :fields='fields'></ejs-dropdownlist>
+                                <ejs-dropdownlist ref="quotaObj" id="quota" :dataSource='quotas' placeholder='Ticket type' floatLabelType='Auto' :fields='fields'></ejs-dropdownlist>
                             </div>
                         </div>
                         <div class="btn-container">
-                            <button id='searchNext' class='e-btn' v-on:click='btnClicked'>Search Train</button>
+                            <button ref="searchObj" id='searchNext' class='e-btn' v-on:click='btnClicked'>Search Train</button>
                         </div>
-                        <span id="err1"></span>
+                        <span ref="errorObj1" id="err1"></span>
                     </div>
                 </div>
                 <div id='selectTrain' style='display: none'>
                     <div class="wizard-title">Select the train from the list </div>
-                    <ejs-grid id='availableTrain' width="100%" :rowSelected='trainSelected'>
+                    <ejs-grid ref="gridObj1" id='availableTrain' width="100%" :rowSelected='trainSelected'>
                         <e-columns>
                             <e-column field='TrainNo' headerText='Train No' width=120 type='number'></e-column>
                             <e-column field='Name' headerText='Name' width=140></e-column>
@@ -43,7 +43,7 @@
                         <button id="goToSearch" class='e-btn' v-on:click='btnClicked'>Back</button>
                         <button id="bookTickets" class='e-btn' v-on:click='btnClicked'>Continue</button>
                     </div >
-                    <span id="err2"></span>
+                    <span ref="errorObj2" id="err2"></span>
                 </div>
                 <div id='details' style='display: none'>
                     <div class="details-page wizard-title">Enter the passenger details</div>
@@ -68,44 +68,44 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input id='pass_name1' class="e-input" type="text" placeholder="Passenger Name">
+                                        <input ref="nameObj1" id='pass_name1' class="e-input" type="text" placeholder="Passenger Name">
                                     </td>
                                     <td>
-                                        <ejs-numerictextbox id='pass_age1' :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
+                                        <ejs-numerictextbox ref="ageObj1" id='pass_age1' :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
                                     </td>
                                     <td>
-                                        <ejs-dropdownlist id='pass_gender1' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
+                                        <ejs-dropdownlist ref="genderObj1" id='pass_gender1' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
                                     </td>
                                     <td>
-                                        <ejs-dropdownlist id='pass_berth1' :dataSource='berths' placeholder="Optional" :fields='fields'></ejs-dropdownlist>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id='pass_name2' class="e-input" type="text" placeholder="Passenger Name">
-                                    </td>
-                                    <td>
-                                        <ejs-numerictextbox :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
-                                    </td>
-                                    <td>
-                                        <ejs-dropdownlist id='pass_gender2' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
-                                    </td>
-                                    <td>
-                                        <ejs-dropdownlist id='pass_berth2' :dataSource='berths' placeholder="Optional" :fields='fields'></ejs-dropdownlist>
+                                        <ejs-dropdownlist ref="berthObj1" id='pass_berth1' :dataSource='berths' placeholder="Optional" :fields='fields'></ejs-dropdownlist>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input id='pass_name3' class="e-input" type="text" placeholder="Passenger Name">
+                                        <input ref="nameObj2" id='pass_name2' class="e-input" type="text" placeholder="Passenger Name">
                                     </td>
                                     <td>
-                                        <ejs-numerictextbox :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
+                                        <ejs-numerictextbox ref="ageObj2" :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
                                     </td>
                                     <td>
-                                        <ejs-dropdownlist id='pass_gender3' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
+                                        <ejs-dropdownlist ref="genderObj2" id='pass_gender2' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
                                     </td>
                                     <td>
-                                        <ejs-dropdownlist id='pass_berth3' :dataSource='berths' placeholder="Optional" :fields='fields'></ejs-dropdownlist>
+                                        <ejs-dropdownlist ref="berthObj2" id='pass_berth2' :dataSource='berths' placeholder="Optional" :fields='fields'></ejs-dropdownlist>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input ref="nameObj3" id='pass_name3' class="e-input" type="text" placeholder="Passenger Name">
+                                    </td>
+                                    <td>
+                                        <ejs-numerictextbox ref="ageObj3" :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
+                                    </td>
+                                    <td>
+                                        <ejs-dropdownlist ref="genderObj3" id='pass_gender3' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
+                                    </td>
+                                    <td>
+                                        <ejs-dropdownlist ref="berthObj3" id='pass_berth3' :dataSource='berths' placeholder="Optional" :fields='fields'></ejs-dropdownlist>
                                     </td>
                                 </tr>
                             </tbody>
@@ -116,11 +116,11 @@
                         <button id="goBackToBook" class='e-btn' v-on:click='btnClicked'>Back</button>
                         <button id="confirmTickets" class='e-btn' v-on:click='btnClicked'>Continue</button>
                     </div>
-                    <span id="err3"></span>
+                    <span ref="errorObj3" id="err3"></span>
                 </div>
                 <div id='confirm' style='display: none'>
                     <div class="tab-title1 wizard-title">Confirm the details and proceed</div>
-                    <ejs-grid id='ticketDetailGrid' width="100%">
+                    <ejs-grid ref="gridObj2" id='ticketDetailGrid' width="100%">
                         <e-columns>
                             <e-column field='TrainNo' headerText='Train No' width=120 type='number'></e-column>
                             <e-column field='PassName' headerText='Name' width=140></e-column>
@@ -129,14 +129,14 @@
                         </e-columns>
                     </ejs-grid>
                     <br />
-                    <div id="amount"></div>
+                    <div ref="amountObj" id="amount"></div>
                     <br />
                     <div class="btn-container">
                         <button id="goBackDetails" class='e-btn' v-on:click='btnClicked'>Back</button>
                         <button id="makePayment" class='e-btn' v-on:click='btnClicked'>Pay</button>
                     </div>
                 </div>
-                <ejs-tab id="tab_wizard" heightAdjustMode="None" height=390 :showCloseButton=false :select="tabSelected">
+                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height=390 :showCloseButton=false :select="tabSelected">
                     <e-tabitems>
                         <e-tabitem :header='headerText0' content="#booking"></e-tabitem>
                         <e-tabitem :header='headerText1' content="#selectTrain" disabled=true></e-tabitem>
@@ -144,15 +144,15 @@
                         <e-tabitem :header='headerText3' content="#confirm" disabled=true></e-tabitem>
                     </e-tabitems>
                 </ejs-tab>
-                <ejs-dialog id='alertDialog' header='Success' width=250 isModal=true showCloseIcon=true content='Your payment successfully processed' target='#dialog_target' :created='dlgCreated' visible=false></ejs-dialog>
+                <ejs-dialog ref="dialogObj" id='alertDialog' header='Success' width=250 isModal=true showCloseIcon=true content='Your payment successfully processed' target='#dialog_target' :created='dlgCreated' visible=false></ejs-dialog>
             </div>
             <div id="action-description">
                 <p>This sample demonstrates simple train reservation wizard that enable/disable Tab items based on sequential validation of each Tab content.</p>
             </div>
             <div id="description">
-                <p>Tab items can be disabled dynamically by passing the index and boolean value to the <a target="_blank" href="http://ej2.syncfusion.com/documentation/tab/api-tab.html?lang=typescript#enabletab">enableTab</a> method.</p>
+                <p>Tab items can be disabled dynamically by passing the index and boolean value to the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/tab/#enabletab">enableTab</a> method.</p>
                 <p>You can design wizard like sample with Tab using the in-built API and customizing the content with proper validations.</p>
-                <p>More information about Tab can be found in this <a href="" target="_blank">documentation</a> section.</p>
+                <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
             </div>
         </div>
     </div>
@@ -306,72 +306,80 @@ export default Vue.extend({
   },
    methods: {
        showDate: function(args){
-           var journeyDate = document.getElementById("date").ej2_instances[0];
+           var journeyDate = this.$refs.dateObj.ej2Instances;
            journeyDate.show();
        },
        btnClicked: function(args){
-          var startPoint = document.getElementById("startPoint");
-          var endPoint = document.getElementById("endPoint");
-          let tabObj=document.getElementById('tab_wizard');
+          var startPoint = this.$refs.startObj.ej2Instances;
+          var endPoint = this.$refs.endObj.ej2Instances;
+          var quota = this.$refs.quotaObj.ej2Instances;
+          var date = this.$refs.dateObj.ej2Instances;
+          var availableTrain = this.$refs.gridObj1.ej2Instances;
+          var tabObj = this.$refs.tabObj.ej2Instances;
+          var alertDlg = this.$refs.dialogObj.ej2Instances;
+          var err1 = this.$refs.errorObj1;
+          var err2 = this.$refs.errorObj2;
+          var err3 = this.$refs.errorObj3;
             switch (args.target.id) {
                  case 'searchNext':
-                      if (!isNullOrUndefined(startPoint.value) && !isNullOrUndefined(endPoint.value) && !isNullOrUndefined(document.getElementById("quota").value) && !isNullOrUndefined(document.getElementById("date"))) {
+                      if (!isNullOrUndefined(startPoint.value) && !isNullOrUndefined(endPoint.value) && !isNullOrUndefined(quota.value) && !isNullOrUndefined(date)) {
                       if (!isNullOrUndefined(startPoint.value) && startPoint.value === endPoint.value) {
-                          document.getElementById('err1').innerText = '* Arrival point can\'t be same as Departure';
+                          err1.innerText = '* Arrival point can\'t be same as Departure';
                        } else {
-                            tabObj.ej2_instances[0].enableTab(0, false);
-                            tabObj.ej2_instances[0].enableTab(1, true);
+                            tabObj.enableTab(0, false);
+                            tabObj.enableTab(1, true);
                             this.filterTrains(args);
-                            tabObj.ej2_instances[0].select(1);
-                            document.getElementById('err1').innerText = '';
-                            document.getElementById('err2').innerText = '';
+                            tabObj.select(1);
+                            err1.innerText = '';
+                            err2.innerText = '';
                        }
                      } else {
-                           document.getElementById('err1').innerText = '* Please fill all the details before proceeding';
+                           err1.innerText = '* Please fill all the details before proceeding';
                      }
                      break;
                   case 'bookTickets':
-                      if (document.getElementById('availableTrain').ej2_instances[0].getSelectedRecords() === undefined || document.getElementById('availableTrain').ej2_instances[0].getSelectedRecords().length === 0) {
-                            document.getElementById('err2').innerText = '* Select your convenient train';
+                      if (availableTrain.getSelectedRecords() === undefined || availableTrain.getSelectedRecords().length === 0) {
+                            err2.innerText = '* Select your convenient train';
                       } else {
-                            tabObj.ej2_instances[0].enableTab(2, true);
-                            tabObj.ej2_instances[0].select(2);
-                            tabObj.ej2_instances[0].enableTab(1, false);
-                            document.getElementById('err2').innerText = '';
+                            tabObj.enableTab(2, true);
+                            tabObj.select(2);
+                            tabObj.enableTab(1, false);
+                            err2.innerText = '';
                        }
                        break;
                   case 'confirmTickets':
-                       let name = document.getElementById('pass_name1');
-                       let age = document.getElementById('pass_age1');
-                       let gender = document.getElementById('pass_gender1');
+                       var name = this.$refs.nameObj1;
+                       var age = this.$refs.ageObj1;
+                       var gender = this.$refs.genderObj1;
+                       debugger;
                        if (name.value === '' || age.value === '' || gender.value === '') {
-                            document.getElementById('err3').innerText = '* Please enter passenger details';
+                            err3.innerText = '* Please enter passenger details';
                        } else {
-                            tabObj.ej2_instances[0].enableTab(3, true);
-                            tabObj.ej2_instances[0].select(3);
-                            tabObj.ej2_instances[0].enableTab(2, false);
-                            document.getElementById('err3').innerText = '';
+                            tabObj.enableTab(3, true);
+                            tabObj.select(3);
+                            tabObj.enableTab(2, false);
+                            err3.innerText = '';
                             this.finalizeDetails(args);
                       }
                       break;
                   case 'makePayment':
-                        document.getElementById('alertDialog').ej2_instances[0].show();
+                        alertDlg.show();
                         break;
                   case 'goToSearch':
                         this.selectedTrain = [];
-                        tabObj.ej2_instances[0].enableTab(0, true);
-                        tabObj.ej2_instances[0].select(0);
-                        tabObj.ej2_instances[0].enableTab(1, false);
+                        tabObj.enableTab(0, true);
+                        tabObj.select(0);
+                        tabObj.enableTab(1, false);
                         break;
                   case 'goBackToBook':
-                        tabObj.ej2_instances[0].enableTab(1, true);
-                        tabObj.ej2_instances[0].select(1);
-                        tabObj.ej2_instances[0].enableTab(2, false);
+                        tabObj.enableTab(1, true);
+                        tabObj.select(1);
+                        tabObj.enableTab(2, false);
                         break;
                  case 'goBackDetails':
-                        tabObj.ej2_instances[0].enableTab(2, true);
-                        tabObj.ej2_instances[0].select(2);
-                        tabObj.ej2_instances[0].enableTab(3, false);
+                        tabObj.enableTab(2, true);
+                        tabObj.select(2);
+                        tabObj.enableTab(3, false);
                         break;
                  }
             },
@@ -383,19 +391,19 @@ export default Vue.extend({
                       args.cancel = true;
            },
            dlgCreated: function(args){
-                 let tabObj=document.getElementById('tab_wizard');
-                 let alertDlg = document.getElementById("alertDialog").ej2_instances[0];
+                 var tabObj = this.$refs.tabObj.ej2Instances;
+                 var alertDlg = this.$refs.dialogObj.ej2Instances;
                  alertDlg.hide();
-                 alertDlg.content = "Your payment successflly processed";
+                 alertDlg.content = "Your payment successfully processed";
                  alertDlg.buttons = [{
                  buttonModel: { content: "Ok", isPrimary: true },
                    click: function () {
-                         document.getElementById("alertDialog").ej2_instances[0].hide();
-                         tabObj.ej2_instances[0].enableTab(0, true);
-                         tabObj.ej2_instances[0].enableTab(1, false);
-                         tabObj.ej2_instances[0].enableTab(2, false);
-                         tabObj.ej2_instances[0].enableTab(3, false);
-                         tabObj.ej2_instances[0].select(0);
+                         alertDlg.hide();
+                         tabObj.enableTab(0, true);
+                         tabObj.enableTab(1, false);
+                         tabObj.enableTab(2, false);
+                         tabObj.enableTab(3, false);
+                         tabObj.select(0);
                    }
             }];
             alertDlg.dataBind();
@@ -403,8 +411,9 @@ export default Vue.extend({
             },
             filterTrains: function(args){
                 let result= [];
-                let fromCity = document.getElementById('startPoint').value;
-                let toCity=document.getElementById('endPoint').value;
+                var fromCity = this.$refs.startObj.ej2Instances.value;
+                var toCity = this.$refs.endObj.ej2Instances.value;
+                var availableTrain = this.$refs.gridObj1.ej2Instances;
                 let count= Math.floor((Math.random() * 3) + 2);
                 for (var i = 0; i < count; i++) {
                     let details= [];
@@ -415,13 +424,15 @@ export default Vue.extend({
                     details.Availability = Math.floor((Math.random() * 20) + 20);
                     result.push(details);
                 }
-            document.getElementById('availableTrain').ej2_instances[0].dataSource = result;
+            availableTrain.dataSource = result;
           },
           finalizeDetails: function(args){
                var reserved= [];
                var passCount = 0;
-               var startPoint = document.getElementById("startPoint");
-               var endPoint = document.getElementById("endPoint");
+               var startPoint = this.$refs.startObj.ej2Instances;
+               var endPoint = this.$refs.endObj.ej2Instances;
+               var quota = this.$refs.quotaObj.ej2Instances;
+               var ticketDetailGrid = this.$refs.gridObj2.ej2Instances;
                for (let i = 1; i <= 3; i++) {
                     let name = document.getElementById('pass_name' + i);
                     let berthSelected= document.getElementById('pass_berth' + i);
@@ -445,16 +456,16 @@ export default Vue.extend({
                         calcFare = calcFare + this.cities[i].fare;
                     }
                 }
-                let displayAmt = document.getElementById('amount');
-                if (document.getElementById('quota').value === 'Economy Class') {
+                var displayAmt = this.$refs.amountObj;
+                if (quota.value === 'Economy Class') {
                      displayAmt.innerText = 'Total payable amount: $' + passCount * (300 + calcFare);
-                } else if (document.getElementById("quota").value === 'Business Class') {
+                } else if (quota.value === 'Business Class') {
                      displayAmt.innerText = 'Total payable amount: $' + passCount * (500 + calcFare);
-                } else if (document.getElementById("quota").value === 'Common Class') {
+                } else if (quota.value === 'Common Class') {
                     displayAmt.innerText = 'Total payable amount: $' + passCount * (150 + calcFare);
               }
           }
-          document.getElementById('ticketDetailGrid').ej2_instances[0].dataSource = reserved;
+          ticketDetailGrid.dataSource = reserved;
        }
    }
 });

@@ -24,7 +24,7 @@
     </div>
     <div id="action-description">
         <p>
-        This sample demonstrates that the modal behavior of Dialog component.
+        This example demonstrates that the modal behavior of Dialog component.
         Choose "Close on overlay" option from property panel to decide whether the Dialog will be closed on click on the overlay.
         Click on “Open” button to show the Dialog again if it is closed.
         </p>
@@ -35,7 +35,7 @@
             the parent application.
         </p>
         <p>More information on the modal behavior of Dialog can be found in the
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/dialog/getting-started.html#modal-dialog">
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/dialog/getting-started/#modal-dialog">
             documentation section</a>.</p>
     </div>
   </div>

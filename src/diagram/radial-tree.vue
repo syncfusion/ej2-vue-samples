@@ -25,9 +25,6 @@
       <br>
   </div>
 </div>
-
-</div>
-
 </template>
 <style>
 @font-face {
