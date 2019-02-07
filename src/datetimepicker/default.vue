@@ -5,7 +5,7 @@
     </div>
     <div id="action-description">
     <p>
-        The following sample demonstrates the default functionalities of the DateTimePicker. Enter the value in input text box or click the date and time icon to select the desired value.
+        The following sample demonstrates the default functionalities of the DateTimePicker. Enter the value in input text box or Click/Touch the date and time popup icon to select the desired value.
     </p>
 </div>
 <div id="description">

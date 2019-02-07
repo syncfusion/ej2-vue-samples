@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="col-lg-9 control-section">
-<ejs-maps id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
+<ejs-maps ref="maps" id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :tooltipSettings='tooltipSettings' :shapeSettings='shapeSettings'></e-layer>
     </e-layers>
@@ -17,7 +17,7 @@
                 <div>Projection Type</div>
             </td>
             <td style="width: 40%;">
-             <ejs-dropdownlist id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>                                 
+             <ejs-dropdownlist ref="projection" id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>                                 
             </td>
         </tr>
     </tbody></table>
@@ -73,10 +73,10 @@ data:function(){
         zoomSettings: {
             enable: false
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeDataPath: 'Country',
         shapePropertyPath: 'name',
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/projection-datasource.json'),
+        dataSource: new MapAjax('./src/maps/map-data/projection-datasource.json'),
         tooltipSettings: {
                 visible: true,
                 valuePath: 'Country',
@@ -111,10 +111,8 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
     changeProjectiontype:function(args){
-            let maps=document.getElementById('container');
-            let projection=document.getElementById('projectiontype');
-            maps.ej2_instances[0].projectionType = projection.ej2_instances[0].value;
-            maps.ej2_instances[0].refresh();        
+            this.$refs.maps.ej2Instances.projectionType = this.$refs.projection.ej2Instances.value;
+            this.$refs.maps.ej2Instances.refresh();        
     }
 }
 })

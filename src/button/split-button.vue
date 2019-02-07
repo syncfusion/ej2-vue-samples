@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
-    <div class="button-section">
-        <div id="button-control">
+    <div class="split-button-section">
+        <div id="split-button-control">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
                     <ejs-splitbutton :items="items" iconCss="e-btn-icons e-paste"></ejs-splitbutton>
@@ -30,37 +30,38 @@
     </p>
     <p>
         In this sample, SplitButton contains icon, content and list of action items, and can be added using
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/angular/documentation/split-button/api-splitButton.html#iconCss-string">iconCss,
+        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/split-button/#iconcss">iconCss,
         </a></code>
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/angular/documentation/split-button/api-splitButton.html#content-string">content
+        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/split-button/#content">content
         </a></code>and
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/angular/documentation/split-button/api-splitButton.html#items">items
+        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/split-button/#items">items
         </a></code>property.
     </p>
     <p>
         More information about SplitButton can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/angular/documentation/split-button/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/split-button/getting-started">
             documentation section</a>.
     </p>
 </div>
 </div>
 </template>
 <style>
-#button-control {
+#split-button-control {
   width: 100%;
   margin: 11% 0;
   text-align: center;
 }
 
-.button-section {
+.split-button-section {
   width: 80%;
   margin: auto;
 }
 
-#button-control .col-sm-6 {
+#split-button-control .col-sm-6 {
   margin: 25px 0;
 }
 
+/* SplitButton sample icons */
 @font-face {
 font-family: 'e-btn-icons';
 src:

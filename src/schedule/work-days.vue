@@ -2,8 +2,8 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
-                    :eventRendered="onEventRendered" :workHours="workHours">
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
+                    :eventRendered="onEventRendered" :workHours="workHours" :workDays="workDays">
                     <e-views>
                         <e-view option="Week"></e-view>
                         <e-view option="WorkWeek"></e-view>
@@ -53,7 +53,7 @@
 
         <div id="description">
             <p>
-                In this demo, the working days of a week can be set on Schedule using the
+                In this demo, the working days of a week can be set on Scheduler using the
                 <code>workDays</code> property which accepts the collection of day indexes (from 0 to 6) of a week. By default,
                 it is set to
                 <code>[1, 2, 3, 4, 5]</code> and in this demo, it has been set to
@@ -62,8 +62,8 @@
                 from non-working days. The working hours usually applies only on these given working days.
             </p>
             <p>
-                The first day of the week can also be set on the Schedule by making use of the
-                <code>firstDayOfWeek</code> property, doing so which will make the Schedule to start with that day.
+                The first day of the week can also be set on the Scheduler by making use of the
+                <code>firstDayOfWeek</code> property, doing so which will make the Scheduler to start with that day.
             </p>
             <p>
                 <strong>Note: </strong> Here, Sunday is always denoted as 0, Monday as 1 and so on.
@@ -83,7 +83,7 @@
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
                 selectedDate: new Date(2018, 1, 15),
                 workHours: { start: '08:00' },
-                currentView: 'Week',
+                currentView: 'WorkWeek',
                 workDays: [1, 3, 5],
                 workDaysData: [
                     { Id: '1,3,5', days: 'Mon, Wed, Fri' },
@@ -111,29 +111,23 @@
         },
         methods: {
             changeDayofWeek: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
-                scheduleObj.ej2_instances[0].firstDayOfWeek = parseInt(args.value, 10);
-                scheduleObj.ej2_instances[0].dataBind();
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.firstDayOfWeek = parseInt(args.value, 10);
+                scheduleObj.dataBind();
             },
 
             changeWorkDays: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
-                scheduleObj.ej2_instances[0].workDays = args.value.toString().split(',').map(Number);
-                scheduleObj.ej2_instances[0].dataBind();
+                let scheduleObj = this.$refs.ScheduleObj;
+                scheduleObj.workDays = args.value.toString().split(',').map(Number);
+                scheduleObj.dataBind();
             },
 
             onEventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

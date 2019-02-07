@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule height="650px" id="Schedule" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
+                <ejs-schedule height="650px" id="Schedule" ref="ScheduleObj" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
                     :workHours="workHours" :timezone="dropDownValue"></ejs-schedule>
             </div>
         </div>
@@ -27,21 +27,21 @@
         </div>
         <div id="action-description">
             <p>
-                This demo visualizes the 2018 FIFA football match schedule which is depicted as events here. The timings of each event are
-                associated with the timezone of the match location where it will be held. When the Schedule time zone changes,
+                This demo visualizes the 2018 FIFA football match Scheduler which is depicted as events here. The timings of each event are
+                associated with the timezone of the match location where it will be held. When the Scheduler time zone changes,
                 the events in it displays according to the selected timezone's offset time difference.
             </p>
         </div>
         <div id="description">
             <p>
                 In this demo, the
-                <code>timezone</code> of Schedule is set to UTC and each events on it holds different
+                <code>timezone</code> of Scheduler is set to UTC and each events on it holds different
                 <code>startTimezone</code> and
                 <code>endTimezone</code> values, therefore the event timings will be converted based on timezone assigned
-                to Schedule and will be displayed appropriately in UTC timings.
+                to Scheduler and will be displayed appropriately in UTC timings.
             </p>
             <p>
-                When the user selects different timezone value listed out in a dropdown on properties panel, Schedule will display the events
+                When the user selects different timezone value listed out in a dropdown on properties panel, Scheduler will display the events
                 accordingly to the selected timezone value as the selected timezone will be assigned to Schedule
                 <code>timezone</code> property.
             </p>
@@ -94,19 +94,14 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
                     args.element.style.backgroundColor = categoryColor;
-                }
             },
             onTimezoneDropDownChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
+                let scheduleObj = this.$refs.ScheduleObj;
                 scheduleObj.timezone = args.value;
             }
         },

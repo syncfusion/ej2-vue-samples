@@ -149,6 +149,7 @@ import {
   Diagram,
   NodeModel,
   ConnectorModel,
+  randomId,
   PortVisibility,
 StrokeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
@@ -283,6 +284,7 @@ export default Vue.extend({
         if (obj.id === "node6") {
           let canvas: StackPanel = new StackPanel();
           canvas.children = [];
+          canvas.id = randomId();
           canvas.style.strokeWidth = 0;
           canvas.style.fill = "#e6e0eb";
           canvas.children.push(getTextElement("Events", "#a6a1e0"));
@@ -379,6 +381,7 @@ export default Vue.extend({
 function getTextElement(text: string, color: string): TextElement {
   let textElement: TextElement = new TextElement();
   textElement.width = 80;
+  textElement.id = randomId();
   textElement.height = 35;
   textElement.content = text;
   textElement.style.fill = "#6f409f";

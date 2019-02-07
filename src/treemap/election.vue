@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-9 control-section">
-         <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' format='n' :useGroupingSeparator='useGroupingSeparator' :rangeColorValuePath='rangeColorValuePath' :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings'></ejs-treemap>
+         <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' format='n' :useGroupingSeparator='useGroupingSeparator' :rangeColorValuePath='rangeColorValuePath' :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings'></ejs-treemap>
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://en.wikipedia.org/wiki/United_States_presidential_election,_2016" target="_blank">en.wikipedia.org</a>
         </div>
@@ -14,7 +14,15 @@
                         <div class="property-text" style="padding: 0px;">Legend Type</div>
                     </td>
                     <td style="width: 80%; height:30%">
-                        <ejs-dropdownlist id='layoutMode' :dataSource='layoutModedata' index=0 :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change='changeLyoutmode'></ejs-dropdownlist>        
+                        <ejs-dropdownlist ref="mode" id='layoutMode' :dataSource='layoutModedata' index=0 :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change='changeLayoutmode'></ejs-dropdownlist>        
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td style="width: 40%">
+                    <div class="property-text" style="padding: 0px;">Position</div>
+                    </td>
+                    <td style="width: 80%; height:30%">
+                        <ejs-dropdownlist id='layoutPosition' :dataSource='positionData' index=0 :width='layoutModewidth' :change='changePosition'></ejs-dropdownlist>        
                     </td>
                 </tr>
             </tbody>
@@ -96,7 +104,8 @@ return{
         },
         layoutModeplaceholder: 'Select legend type',
         layoutModewidth: 120,
-        layoutModedata:['Default','Interactive']
+        layoutModedata:['Default','Interactive'],
+        positionData: ['Top', 'Bottom', 'Left', 'Right']
 }
 },
 provide:{
@@ -108,11 +117,30 @@ methods:{
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
-    changeLyoutmode:function(args){
-        let treemap = document.getElementById('container');
-        let mode = document.getElementById('layoutMode');
-        treemap.ej2_instances[0].legendSettings.mode = mode.ej2_instances[0].value;
-        treemap.ej2_instances[0].refresh();
+    changeLayoutmode:function(args){
+        this.$refs.treemap.ej2Instances.legendSettings.mode = this.$refs.mode.ej2Instances.value;
+        this.$refs.treemap.ej2Instances.refresh();
+    },
+    changePosition: function(args){
+            let treemap = this.$refs.treemap.ej2Instances;
+            treemap.legendSettings.position = args.value;
+            if (args.value === 'Left' || args.value === 'Right') {
+                treemap.legendSettings.orientation = 'Vertical';
+                if (treemap.legendSettings.mode === 'Interactive') {
+                    treemap.legendSettings.height = '70%';
+                    treemap.legendSettings.width = '10';
+                } else {
+                    treemap.legendSettings.height = '';
+                    treemap.legendSettings.width = '';
+                }
+            } else {
+                treemap.legendSettings.orientation = 'Horizontal';
+                if (treemap.legendSettings.mode === 'Interactive') {
+                    treemap.legendSettings.height = '10';
+                    treemap.legendSettings.width = '';
+                }
+            }
+            treemap.refresh();
     }
 }
 })

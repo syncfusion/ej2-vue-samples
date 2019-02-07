@@ -13,14 +13,14 @@
     </p>
 </div>
 <div id="description">
-    p>
+    <p>
         In this example, you can see how to switch the Heatmap to canvas rendering mode. The rendering performance will be better in <code>Canvas</code> rendering mode, while loading large datasets. You can switch the rendering mode for Heatmap between <code>SVG</code> and <code>Canvas</code> using the <code>renderingMode </code> property. When the <code>renderingMode</code> property is set to <code>Auto</code> the rendering mode will be switched automatically based of the size of data source to improve the rendering performance.
     
     </p>
     <p>
         Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
    </p>
-    <br>
+    <br/>
     <p style="font-weight: 500">Injecting Module</p>
     <p>
         Heatmap component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip </code>  module using the <code>Heatmap.Inject(Tooltip) </code> method, and use a legend by injecting the <code>Legend </code>  module using the <code>Heatmap.Inject(Legend) </code>  method.
@@ -31,7 +31,7 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { largeData } from '../heatmap/data';
+import { largeData } from './data.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){

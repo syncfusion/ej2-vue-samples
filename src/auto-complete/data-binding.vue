@@ -19,7 +19,7 @@
         </div>
         <div class="col-lg-3 property-section">
             <div id="property" class="property-panel-table" title="Properties">
-                <ejs-checkbox label="Autofill" :checked="true" :change="onChange"></ejs-checkbox>
+                <ejs-checkbox ref="checkInstance" label="Autofill" :checked="true" :change="onChange"></ejs-checkbox>
             </div>
         </div>
     </div>
@@ -80,14 +80,15 @@
 import Vue from "vue";
 import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { Query, DataManager, ODataAdaptor } from '@syncfusion/ej2-data';
+import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
+import * as data from './dataSource.json';
 
 Vue.use(AutoCompletePlugin);
 Vue.use(CheckBoxPlugin);
 
 var remoteData = new DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Products',
-    adaptor: new ODataAdaptor,
+    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    adaptor: new WebApiAdaptor,
     crossDomain: true
 });
 
@@ -97,37 +98,17 @@ export default Vue.extend ({
             localFields: { value: 'Name' },
             localWaterMark: 'e.g. Australia',
             autofill: true,
-            countries: [
-                { Name: 'Australia', Code: 'AU' },
-                { Name: 'Bermuda', Code: 'BM' },
-                { Name: 'Canada', Code: 'CA' },
-                { Name: 'Cameroon', Code: 'CM' },
-                { Name: 'Denmark', Code: 'DK' },
-                { Name: 'France', Code: 'FR' },
-                { Name: 'Finland', Code: 'FI' },
-                { Name: 'Germany', Code: 'DE' },
-                { Name: 'Greenland', Code: 'GL' },
-                { Name: 'Hong Kong', Code: 'HK' },
-                { Name: 'India', Code: 'IN' },
-                { Name: 'Italy', Code: 'IT' },
-                { Name: 'Japan', Code: 'JP' },
-                { Name: 'Mexico', Code: 'MX' },
-                { Name: 'Norway', Code: 'NO' },
-                { Name: 'Poland', Code: 'PL' },
-                { Name: 'Switzerland', Code: 'CH' },
-                { Name: 'United Kingdom', Code: 'GB' },
-                { Name: 'United States', Code: 'US' }
-            ],
+            countries: data['countries'],
             data: remoteData,
             suggestionCount: 5,
-            remoteFields: { value: 'ProductName' },
-            query: new Query().select(['ProductID', 'ProductName']),
-            remoteWaterMark: 'e.g. Alice Mutton',
+            remoteFields: { value:'FirstName' },
+            query: new Query().select(['FirstName', 'EmployeeID']).take(10).requiresCount(),
+            remoteWaterMark: 'e.g. Andrew Fuller',
         };
     },
     methods: {
         onChange: function() {
-            var checkboxObj = event.target.ej2_instances[0];
+            var checkboxObj = this.$refs.checkInstance.ej2Instances;
             // enable or disable the autofill in local and remote data AutoComplete based on CheckBox checked state
             this.autofill = checkboxObj.checked;
         }

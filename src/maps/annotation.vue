@@ -18,24 +18,6 @@
         </linearGradient>
     </defs>
 </svg>
-<div id="maps-annotation" style="display: none;">
-    <div id="annotation">
-        <div>
-            <p style="margin-left:10px;font-size:13px;font-weight:500">Facts about Africa</p>
-        </div>
-        <hr style="margin-top:-3px;margin-bottom:10px;border:0.5px solid #DDDDDD">
-        <div>
-            <ul style="list-style-type:disc; margin-left:-20px;margin-bottom:2px; font-weight:400">
-                <li>Africa is the second largest and second most populated continent in the world.</li>
-                <li style="padding-top:5px;">Africa has 54 sovereign states and 10 non-sovereign territories.</li>
-                <li style="padding-top:5px;">Algeria is the largest country in Africa, where as Mayotte is the smallest.</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div id="compass-maps" style="display: none;">
-    <img src="src/maps/images/compass.svg" height="75px" width="75px"/>
-</div>
 <div id="action-description">
     <p>
         This sample depicts the facts about Africa in an annotation. Africa shape is filled with gradient color.
@@ -53,30 +35,11 @@
 </div>
 </div>
 </template>
-<style>
-    #annotation {
-        color: #DDDDDD;
-		font-size: 12px;
-		font-family: Roboto;
-        background: #3E464C;
-        margin: 20px;
-        padding: 10px;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-        width: 300px;
-        -moz-box-shadow: 0px 2px 5px #666;
-        -webkit-box-shadow: 0px 2px 5px #666;
-        box-shadow: 0px 2px 5px #666;
-    }
-    .country-label {
-        color: white;
-        font-size: 25px;
-    }
-</style>
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Annotations, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import Template1 from './annotation-temp1.vue';
+import Template2 from './annotation-temp2.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data:function(){
@@ -86,16 +49,16 @@ export default Vue.extend({
         },
         annotations: [
             {
-                content: '#maps-annotation',
+                content: function () { return {template: Template1}; },
                 x: '0%', y: '70%'
             }, {
-                content: '#compass-maps',
+                content: function () { return {template: Template2}; },
                 x: '80%', y: '5%'
             }
         ],
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/africa-continent.json'),
+        shapeData: new MapAjax('./src/maps/map-data/africa-continent.json'),
         shapeSettings: {
                     fill: 'url(#grad1)'
                 },

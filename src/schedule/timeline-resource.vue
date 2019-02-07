@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' width="100%" height="650px" :selectedDate='selectedDate' :currentView='currentView' :timeScale="timeScale" :workHours='workHours' :eventSettings='eventSettings'
+                <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" width="100%" height="650px" :selectedDate='selectedDate' :currentView='currentView' :timeScale="timeScale" :workHours='workHours' :eventSettings='eventSettings'
                     :group='group' :resourceHeaderTemplate ='resourceHeaderTemplate' :popupOpen="onPopupOpen" :eventRendered='onEventRendered'
                     :actionBegin="onActionBegin" :renderCell="onRenderCell">
                     <e-views>
@@ -27,8 +27,7 @@
         <div id="description">
             <p>
                 Here, the timeline view is grouped with single level of resources by making use of the
-                <code>group</code> property. Also, the lunch time blocking is done by applying styles on those cells through the
-                <code>renderCell</code> event. The event editor and popup is prevented to open on those blocked time slots as well as on the past bookings
+                <code>group</code> property. Also, the lunch time blocking is done by block event. The event editor and popup is prevented to open on those blocked time slots as well as on the past bookings
                 by making use of the
                 <code>popupOpen</code> event. The
                 <code>eventRendered</code> event is utilized in order to make the bookings done on past dates as read-only. To block more than one bookings
@@ -47,17 +46,21 @@
     </div>
 </template>
 <style>
-    .e-schedule .e-timeline-view .e-resource-left-td {
+    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
         vertical-align: bottom;
     }
 
-    .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .room-scheduler.e-schedule.e-device .e-timeline-view .e-resource-left-td {
+        width: 75px;
+    }
+
+    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         display: flex;
         font-weight: 500;
         padding: 0;
     }
 
-    .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
         border-top: 1px solid rgba(0, 0, 0, 0.12);
         flex: 0 0 33.3%;
@@ -67,67 +70,60 @@
         padding-left: 5px;
     }
 
-    .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
+    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
         border-right: 0;
     }
 
-    .e-schedule .template-wrap {
+    .room-scheduler.e-schedule .template-wrap {
         display: flex;
         height: 100%;
         text-align: left;
     }
 
-    .e-schedule .template-wrap>div {
+    .room-scheduler.e-schedule .template-wrap>div {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
         flex: 0 0 33.3%;
         font-weight: 500;
-        line-height: 58px;
+        line-height: 57px;
         overflow: hidden;
         padding-left: 5px;
         text-overflow: ellipsis;
     }
 
-    .e-schedule .template-wrap>div:last-child {
+    .room-scheduler.e-schedule .template-wrap>div:last-child {
         border-right: 0;
     }
 
-    .e-schedule .e-timeline-view .e-resource-cells,
-    .e-schedule .e-timeline-month-view .e-resource-cells {
+    .room-scheduler.e-schedule .e-timeline-view .e-resource-cells,
+    .room-scheduler.e-schedule .e-timeline-month-view .e-resource-cells {
         padding-left: 0;
     }
 
-    .e-schedule .e-timeline-view .e-date-header-wrap table col,
-    .e-schedule .e-timeline-view .e-content-wrap table col {
+    .room-scheduler.e-schedule .e-timeline-view .e-date-header-wrap table col,
+    .room-scheduler.e-schedule .e-timeline-view .e-content-wrap table col {
         width: 100px;
-    }
-
-    .e-schedule .e-lunch-break {
-        background-color: rgb(0, 0, 0, 0.1) !important;
-        font-weight: 500 !important;
-        opacity: .8 !important;
-        text-align: center;
-    }
-
-    .e-schedule .e-read-only {
+    } 
+    
+    .room-scheduler.e-schedule .e-read-only {
         opacity: .8;
     }
 
     @media (max-width: 550px) {
-        .e-schedule .e-timeline-view .e-resource-left-td {
+        .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
             width: 100px;
         }
-        .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
-        .e-schedule .template-wrap>div {
+        .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+        .room-scheduler.e-schedule .template-wrap>div {
             flex: 0 0 100%;
         }
-        .e-schedule .template-wrap>div:first-child {
+        .room-scheduler.e-schedule .template-wrap>div:first-child {
             border-right: 0;
         }
-        .e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:first-child {
+        .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:first-child {
             border-right: 0;
         }
-        .e-schedule .room-type,
-        .e-schedule .room-capacity {
+        .room-scheduler.e-schedule .room-type,
+        .room-scheduler.e-schedule .room-capacity {
             display: none;
         }
     }
@@ -154,6 +150,7 @@
     export default Vue.extend({
         data: function () {
             return {
+                cssClass: 'room-scheduler',
                 eventSettings: {
                     dataSource: extend([], roomData, null, true),
                     fields: {
@@ -205,6 +202,7 @@
                     let target = (args.type === 'RecurrenceAlert' ||
                         args.type === 'DeleteAlert') ? data.element[0] : args.target;
                     if (!isNullOrUndefined(target) && target.classList.contains('e-work-cells')) {
+                        let scheduleObj = this.$refs.ScheduleObj;
                         if ((target.classList.contains('e-read-only-cells')) ||
                             (!scheduleObj.isSlotAvailable(data.endTime, data.endTime, data.groupIndex))) {
                             args.cancel = true;
@@ -216,12 +214,7 @@
                 }
             },
             onRenderCell: function (args) {
-                if (args.element.classList.contains('e-work-cells')) {
-                    if (args.date.getHours() === 13) {
-                        args.element.classList.add('e-read-only-cells');
-                        args.element.classList.add('e-lunch-break');
-                        args.element.innerHTML = '<span>Lunch Break </span>';
-                    }
+                if (args.element.classList.contains('e-work-cells')) {                    
                     if (args.date < new Date(2018, 6, 31, 0, 0)) {
                         args.element.setAttribute('aria-readonly', 'true');
                         args.element.classList.add('e-read-only-cells');
@@ -239,15 +232,15 @@
                 }
             },
             onActionBegin: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 if (args.requestType === 'eventCreate' || args.requestType === 'eventChange') {
                     let data;
+                    let scheduleObj = this.$refs.ScheduleObj;
                     if (args.requestType === 'eventCreate') {
                         data = args.data[0];
                     } else if (args.requestType === 'eventChange') {
                         data = args.data;
                     }
-                    let groupIndex = scheduleObj.eventBase.getGroupIndexFromEvent(data);
+                    let groupIndex = scheduleObj.ej2Instances.eventBase.getGroupIndexFromEvent(data);
                     if (!scheduleObj.isSlotAvailable(data.StartTime, data.EndTime, groupIndex)) {
                         args.cancel = true;
                     }

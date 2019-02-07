@@ -1,0 +1,178 @@
+{
+    "name": "Stock Chart",
+    "directory": "stock-chart",
+    "category": "Data Visualization",
+    "type": "preview",
+    "ftName": "stock-chart",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "ohlc",
+            "name": "OHLC",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Hilo Open Close series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "multi-pane",
+            "name": "Candlestick and volume",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "multiple-series",
+            "name": "Multiple Series",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "spline",
+            "name": "Spline",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Spline series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "area",
+            "name": "Area",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Area series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "spline-area",
+            "name": "Spline Area",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Spline Area series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "inversed-area",
+            "name": "Inversed Area",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Area series inverted.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "plot-line",
+            "name": "Plot lines",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Spline Area series.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "strip-line",
+            "name": "Plot band",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with strip line.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "period-customization",
+            "name": "Intraday",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with period customization.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "disabled-navigator",
+            "name": "Hide Range Selector",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with period customization.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        },
+        {
+            "url": "disabled-period",
+            "name": "Hide Period Selector",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with period customization.",
+            "category": "Stock Chart",
+            "api": {
+                "RangeNavigator": [
+                    "valueType",
+                    "series",
+                    "intervalType"
+                ]
+            }
+        }
+    ]
+}

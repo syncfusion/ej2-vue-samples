@@ -14,7 +14,7 @@
 
             <div id="description">
                  <p>The RTL sample illustrates the direction of the <code>Tab</code> from right to left.</p>
-                 <p>More information about Tab can be found in this <a href="" target="_blank">documentation</a> section.</p>
+                 <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
             </div>  
     </div>
 </div>

@@ -1,0 +1,33 @@
+{
+    "name": "InPlaceEditor",
+    "directory": "inplace-editor",
+    "ftName" :"inplace-editor",
+    "category": "Forms",
+    "type": "preview", 
+    "samples": [
+        {
+            "url": "default",
+            "name": "Overview",
+            "category": "InPlaceEditor",
+            "description":"This sample demonstrates the default behavior of the In-place Editor component, which works by editing the values in inline and popup in Vue platform."
+        },
+        {
+            "url": "dropdowns",
+            "name": "Dropdown Components",
+            "category": "InPlaceEditor",
+            "description":"This sample demonstrates the usage of dropdown components such as Autocomplete, ComboBox, DropDownList, and MultiSelect in Vue platform."
+        },
+        {
+            "url": "pickers",
+            "name": "Date Components",
+            "category": "InPlaceEditor",
+            "description":"This sample demonstrates the usage of picker components such as Date, Time, DateTime, and DateRange in Vue platform."
+        },
+        {
+            "url": "edit-post",
+            "name": "Edit Post",
+            "category": "Use Case",
+            "description":"This sample demonstrates the usage of In-place Editor component with a form element in Vue platform. Edit the values in place to update to the post."
+        }
+    ]
+}

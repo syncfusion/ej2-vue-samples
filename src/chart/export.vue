@@ -73,12 +73,12 @@ import { Button } from '@syncfusion/ej2-vue-buttons';
 import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
 import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
-import { ChartPlugin, ColumnSeries, Category, Legend } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, ColumnSeries, Category, Legend, Export } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
@@ -129,7 +129,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    chart: [ColumnSeries, Category, Legend]
+    chart: [ColumnSeries, Category, Legend, Export]
   },
   updated: function () {
     this.$nextTick(function() {
@@ -143,7 +143,7 @@ export default Vue.extend({
     },
     exportIcon: function(args){
         let fileName = ((document.getElementById('fileName'))).value;
-    this.$refs.chart.export(this.exporttype,fileName);
+    this.$refs.chart.ej2Instances.exportModule.export(this.exporttype,fileName);
     },
     pointRender: function(args) {
         let selectedTheme = location.hash.split('/')[1];

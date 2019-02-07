@@ -3,16 +3,6 @@
     <div class="control-section">
         <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :legendSettings='legendSettings' align="center" :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
-  <div id="Tooltip" style="display:none;">
-    <div id='displayAirports'>
-        <div id="airplaneicon" style="float:left;height:32px;width:32px;">
-        </div>
-        <div id="value" style="float:left;">
-            <span id="label" style="margin-left: -5px;">Airports:</span>
-            <b style="margin-left: 5px">${Count}</b>
-        </div>
-    </div>
-</div>
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org/wiki/List_of_international_airports_by_country" target="_blank">en.wikipedia.org</a>
     </div>
@@ -34,37 +24,7 @@
 </div>
 </template>
 <style class="cssStyles">
-    #airplaneicon {
-        background-image: url("./image/airplane.svg");
-        background-repeat: no-repeat;
-    }
- #displayAirports {
-        border-radius: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 6px;
-        padding-top: 6px;
-        background: #EFEFEF;
-        height: 45px;
-        width: 140px;
-        border: 1px #919191;
-        box-shadow: 0px, 2px;
-    }
-
-    #value {
-        margin-top: 5px;
-        color: #585C60;
-        font-family: Roboto-Bold;
-        font-size: 16px;
-    }
-
-    #label {
-        padding-left: 8px;
-        color: #5D5D5D;
-        font-family: Roboto-Regular;
-        font-size: 16px;
-    }
-     .property-text {
+    .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
         font-size: 13px !important;
         font-weight: 400 !important;
@@ -74,13 +34,14 @@
 import Vue from 'vue';
 import { TreeMapPlugin,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
 import { Airport_Count } from '../treemap/treemap-data/airport-count';
+import Template from './tooltip-temp.vue';
 Vue.use(TreeMapPlugin);
 export default Vue.extend({
 data:function(){
 return{
         tooltipSettings: {
             visible: true,
-            template: '#Tooltip'
+            template: function () { return {template: Template}; },
         },
         titleSettings: {
             text: 'Country wise International Airport count in South America',

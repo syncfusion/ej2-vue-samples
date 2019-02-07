@@ -2,7 +2,7 @@
 <div>
 <div class="col-md-8 control-section">
         <div class="content-wrapper">
-     <ejs-lineargauge style='display:block' align='center' id='axisContainer' :orientation='orientation' :annotations='annotations'>
+     <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='axisContainer' :orientation='orientation' :annotations='annotations'>
         <e-axes>
             <e-axis :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                 <e-pointers>
@@ -184,71 +184,64 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
   changePointertype: function(args){
-    let cotainerObj=document.getElementById('axisContainer');
-    cotainerObj.ej2_instances[0].axes[0].pointers[0].type = pointerType.value;
+    this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].type = pointerType.value;
     pointerPlace.enabled = (pointerType.value === 'Marker');
-    cotainerObj.ej2_instances[0].refresh();
+    this.$refs.lineargauge.ej2Instances.refresh();
   },
   changePointerplace:function(args){
-       let cotainerObj=document.getElementById('axisContainer');
-       cotainerObj.ej2_instances[0].axes[0].pointers[0].placement = pointerPlace.value;
-       cotainerObj.ej2_instances[0].refresh();
+       this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].placement = pointerPlace.value;
+       this.$refs.lineargauge.ej2Instances.refresh();
   },
 axisMin: function(args){
-    let cotainerObj=document.getElementById('axisContainer');
     let min = document.getElementById('min');
     let max = document.getElementById('max');
-    cotainerObj.ej2_instances[0].axes[0].minimum = parseInt(min.value, 10);
-    cotainerObj.ej2_instances[0].axes[0].maximum = parseInt(max.value, 10);
+    this.$refs.lineargauge.ej2Instances.axes[0].minimum = parseInt(min.value, 10);
+    this.$refs.lineargauge.ej2Instances.axes[0].maximum = parseInt(max.value, 10);
     document.getElementById('minValue').innerHTML = 'Axis Minimum <span>&nbsp;&nbsp;&nbsp;' + min.value;
-    cotainerObj.ej2_instances[0].refresh();
-    cotainerObj.ej2_instances[0].annotations[0].axisValue = (cotainerObj.ej2_instances[0].axes[0].pointers[0]).currentValue;
-    cotainerObj.ej2_instances[0].refresh();
+    this.$refs.lineargauge.ej2Instances.refresh();
+    this.$refs.lineargauge.ej2Instances.annotations[0].axisValue = (this.$refs.lineargauge.ej2Instances.axes[0].pointers[0]).currentValue;
+    this.$refs.lineargauge.ej2Instances.refresh();
 },
 axisMax:function(args){
-    let cotainerObj=document.getElementById('axisContainer');
     let min = document.getElementById('min');
     let max = document.getElementById('max');
-    cotainerObj.ej2_instances[0].axes[0].maximum = parseInt(max.value, 10);
-    cotainerObj.ej2_instances[0].axes[0].minimum = parseInt(min.value, 10);
+    this.$refs.lineargauge.ej2Instances.axes[0].maximum = parseInt(max.value, 10);
+    this.$refs.lineargauge.ej2Instances.axes[0].minimum = parseInt(min.value, 10);
     document.getElementById('maxValue').innerHTML = 'Axis Maximum <span>&nbsp;&nbsp;&nbsp;' + max.value;
-    cotainerObj.ej2_instances[0].refresh();
-    cotainerObj.ej2_instances[0].annotations[0].axisValue = (cotainerObj.ej2_instances[0].axes[0].pointers[0]).currentValue;
-    cotainerObj.ej2_instances[0].refresh();
+    this.$refs.lineargauge.ej2Instances.refresh();
+    this.$refs.lineargauge.ej2Instances.annotations[0].axisValue = (this.$refs.lineargauge.ej2Instances.axes[0].pointers[0]).currentValue;
+    this.$refs.lineargauge.ej2Instances.refresh();
 },
 axisInverse:function(args){
-    let cotainerObj=document.getElementById('axisContainer');
     let ele = document.getElementById('axisInversed');
-    cotainerObj.ej2_instances[0].axes[0].isInversed = ele.checked;
-    cotainerObj.ej2_instances[0].refresh();
+    this.$refs.lineargauge.ej2Instances.axes[0].isInversed = ele.checked;
+    this.$refs.lineargauge.ej2Instances.refresh();
 },
 axisOpposed:function(args){
-        let cotainerObj=document.getElementById('axisContainer');
         let ele = document.getElementById('opposed');
-        cotainerObj.ej2_instances[0].axes[0].opposedPosition = ele.checked;
+        this.$refs.lineargauge.ej2Instances.axes[0].opposedPosition = ele.checked;
         if (ele.checked) {
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].placement = 'Near';
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].markerType = 'Triangle';
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].offset = -20;
-            cotainerObj.ej2_instances[0].axes[0].labelStyle.offset = 0;
-            cotainerObj.ej2_instances[0].annotations[0].x = 10;
-            cotainerObj.ej2_instances[0].annotations[0].y = -60;
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].placement = 'Near';
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].markerType = 'Triangle';
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].offset = -20;
+            this.$refs.lineargauge.ej2Instances.axes[0].labelStyle.offset = 0;
+            this.$refs.lineargauge.ej2Instances.annotations[0].x = 10;
+            this.$refs.lineargauge.ej2Instances.annotations[0].y = -60;
         } else {
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].placement = 'Far';
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].offset = 0;
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].offset = 30;
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].markerType = 'InvertedTriangle';
-            cotainerObj.ej2_instances[0].axes[0].labelStyle.offset = 38;
-            cotainerObj.ej2_instances[0].annotations[0].x = 10;
-            cotainerObj.ej2_instances[0].annotations[0].y = 60;
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].placement = 'Far';
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].offset = 0;
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].offset = 30;
+            this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].markerType = 'InvertedTriangle';
+            this.$refs.lineargauge.ej2Instances.axes[0].labelStyle.offset = 38;
+            this.$refs.lineargauge.ej2Instances.annotations[0].x = 10;
+            this.$refs.lineargauge.ej2Instances.annotations[0].y = 60;
         }
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.lineargauge.ej2Instances.refresh();
 },
 changeFormat:function(args){
-        let cotainerObj=document.getElementById('axisContainer');
         let ele = document.getElementById('format');
-        cotainerObj.ej2_instances[0].axes[0].labelStyle.format = ele.value.indexOf('{value}') > -1 ? ele.value : cotainerObj.ej2_instances[0].axes[0].labelStyle.format;
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.lineargauge.ej2Instances.axes[0].labelStyle.format = ele.value.indexOf('{value}') > -1 ? ele.value : this.$refs.lineargauge.ej2Instances.axes[0].labelStyle.format;
+        this.$refs.lineargauge.ej2Instances.refresh();
 }
 }
 })

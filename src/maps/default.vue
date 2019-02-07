@@ -58,10 +58,10 @@ data:function(){
         legendSettings: {
             visible: true
         },
-        shapeData:new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        shapeData:new MapAjax('./src/maps/map-data/world-map.json'),
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
-        dataSource:new MapAjax(location.origin + location.pathname + 'src/maps/map-data/default-datasource.json'),
+        dataSource:new MapAjax('./src/maps/map-data/default-datasource.json'),
         shapeSettings: {
                     colorValuePath: 'color',
         },

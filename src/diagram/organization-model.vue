@@ -200,6 +200,7 @@ import {
   SnapConstraints
 } from "@syncfusion/ej2-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
+import { localBindData } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
 
@@ -453,57 +454,6 @@ function connectorDefaults(
   return connector;
 }
 
-export let localBindData: object[] = [
-  { Id: "parent", Role: "Board", color: "#71AF17" },
-  {
-    Id: "1",
-    Role: "General Manager",
-    Manager: "parent",
-    ChartType: "right",
-    color: "#71AF17"
-  },
-  { Id: "11", Role: "Assistant Manager", Manager: "1", color: "#71AF17" },
-  {
-    Id: "2",
-    Role: "Human Resource Manager",
-    Manager: "1",
-    ChartType: "right",
-    color: "#1859B7"
-  },
-  { Id: "3", Role: "Trainers", Manager: "2", color: "#2E95D8" },
-  { Id: "4", Role: "Recruiting Team", Manager: "2", color: "#2E95D8" },
-  { Id: "5", Role: "Finance Asst. Manager", Manager: "2", color: "#2E95D8" },
-  {
-    Id: "6",
-    Role: "Design Manager",
-    Manager: "1",
-    ChartType: "right",
-    color: "#1859B7"
-  },
-  { Id: "7", Role: "Design Supervisor", Manager: "6", color: "#2E95D8" },
-  { Id: "8", Role: "Development Supervisor", Manager: "6", color: "#2E95D8" },
-  { Id: "9", Role: "Drafting Supervisor", Manager: "6", color: "#2E95D8" },
-  {
-    Id: "10",
-    Role: "Operation Manager",
-    Manager: "1",
-    ChartType: "right",
-    color: "#1859B7"
-  },
-  { Id: "11", Role: "Statistic Department", Manager: "10", color: "#2E95D8" },
-  { Id: "12", Role: "Logistic Department", Manager: "10", color: "#2E95D8" },
-  {
-    Id: "16",
-    Role: "Marketing Manager",
-    Manager: "1",
-    ChartType: "right",
-    color: "#1859B7"
-  },
-  { Id: "17", Role: "Oversea sales Manager", Manager: "16", color: "#2E95D8" },
-  { Id: "18", Role: "Petroleum Manager", Manager: "16", color: "#2E95D8" },
-  { Id: "20", Role: "Service Dept. Manager", Manager: "16", color: "#2E95D8" },
-  { Id: "21", Role: "Quality Department", Manager: "16", color: "#2E95D8" }
-];
 
 export interface EmployeeInfo {
   Role: string;

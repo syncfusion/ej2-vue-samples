@@ -2,7 +2,7 @@
 <div>
 <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge style='display:block' align='center' id='range-container'>
+<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='range-container'>
 <e-axes>
 <e-axis :radius='gaugeRadius' :startAngle='startAngle' minimum=0  maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
 <e-pointers>
@@ -22,7 +22,7 @@
                 </td>
                 <td>
                     <div>
-             <ejs-dropdownlist id='rangeSelect' :dataSource='rangeselectdata' :fields='rangeselectfields' value='0' index=0  :width='rangeselectwidth' :change='changeRangeselect'></ejs-dropdownlist>                      
+             <ejs-dropdownlist ref="selectRange" id='rangeSelect' :dataSource='rangeselectdata' :fields='rangeselectfields' value='0' index=0  :width='rangeselectwidth' :change='changeRangeselect'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -32,7 +32,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="120" style="width:100%" />
+                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="120" style="width:100%" />
                     </div>
                 </td>
             </tr>
@@ -43,7 +43,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="40" min="0" max="120" style="width:100%" />
+                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="40" min="0" max="120" style="width:100%" />
                     </div>
                 </td>
             </tr>
@@ -53,7 +53,7 @@
                 </td>
                 <td>
                     <div>
-             <ejs-dropdownlist id='rangeColor' :dataSource='rangecolordata'  index=0  :width='rangecolorwidth' :change='changeRangeColor'></ejs-dropdownlist>                      
+             <ejs-dropdownlist ref="rangeColor" id='rangeColor' :dataSource='rangecolordata'  index=0  :width='rangecolorwidth' :change='changeRangeColor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -63,7 +63,7 @@
                 </td>
                 <td style="width: 40%;">
                     <div>
-                        <input type="checkbox" id="enable" v-on:change="changeRangefont"/>
+                        <input type="checkbox" ref="fontColor" id="enable" v-on:change="changeRangefont"/>
                     </div>
                 </td>
             </tr>
@@ -73,7 +73,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="10" min="0" max="30" style="width:100%" />
+                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="10" min="0" max="30" style="width:100%" />
                     </div>
                 </td>
             </tr>
@@ -83,7 +83,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="10" min="0" max="30" style="width:100%" />
+                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="10" min="0" max="30" style="width:100%" />
                     </div>
                 </td>
             </tr>
@@ -93,7 +93,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="radius" v-on:pointermove="roundedRadius" v-on:touchmove="roundedRadius" v-on:change="roundedRadius" value="0" min="0" max="30" step="5" style="width:100%" />
+                        <input type="range" ref="cornerRadius" id="radius" v-on:pointermove="roundedRadius" v-on:touchmove="roundedRadius" v-on:change="roundedRadius" value="0" min="0" max="30" step="5" style="width:100%" />
                     </div>
                 </td>
             </tr>
@@ -177,71 +177,57 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
     changeRangeselect: function(args){
-            let listObj=document.getElementById('rangeSelect');
-            let colortObj=document.getElementById('rangeColor');
-            let index = +listObj.ej2_instances[0].value;
-            let cotainerObj=document.getElementById('range-container');
-            colortObj.value = cotainerObj.ej2_instances[0].axes[0].ranges[index].color;
-            (document.getElementById('endWidth')).value = cotainerObj.ej2_instances[0].axes[0].ranges[index].endWidth.toString();
+            let index = args.value;
+            let container = this.$refs.circulargauge.ej2Instances;
+            this.$refs.rangeColor.ej2Instances.value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].color;
+            (document.getElementById('endWidth')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].endWidth.toString();
             document.getElementById('rangeEndWidth').innerHTML = 'End Width <span> &nbsp;&nbsp;&nbsp;' +
-                cotainerObj.ej2_instances[0].axes[0].ranges[index].endWidth;
-            (document.getElementById('startWidth')).value = cotainerObj.ej2_instances[0].axes[0].ranges[index].startWidth.toString();
+                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].endWidth;
+            (document.getElementById('startWidth')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].startWidth.toString();
             document.getElementById('rangeStartWidth').innerHTML = 'Start Width <span> &nbsp;&nbsp;&nbsp;' +
-                cotainerObj.ej2_instances[0].axes[0].ranges[index].startWidth;
-            (document.getElementById('end')).value = cotainerObj.ej2_instances[0].axes[0].ranges[index].end.toString();
+                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].startWidth;
+            (document.getElementById('end')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].end.toString();
             document.getElementById('rangeEnd').innerHTML = 'Range End <span> &nbsp;&nbsp;&nbsp;' +
-                cotainerObj.ej2_instances[0].axes[0].ranges[index].end;
-            (document.getElementById('start')).value = cotainerObj.ej2_instances[0].axes[0].ranges[index].start.toString();
+                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].end;
+            (document.getElementById('start')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start.toString();
             document.getElementById('rangeStart').innerHTML = 'Range Start <span> &nbsp;&nbsp;&nbsp;' +
-                cotainerObj.ej2_instances[0].axes[0].ranges[index].start;
-            (document.getElementById('radius')).value = cotainerObj.ej2_instances[0].axes[0].ranges[index].roundedCornerRadius.toString();
+                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start;
+            (document.getElementById('radius')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius.toString();
             document.getElementById('roundedRadius').innerHTML = 'Corner Radius <span> &nbsp;&nbsp;&nbsp;' +
-                cotainerObj.ej2_instances[0].axes[0].ranges[index].roundedCornerRadius;
+                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius;
     },
     changeRangeColor: function(args){
-        let listObj=document.getElementById('rangeSelect');
-        let colortObj=document.getElementById('rangeColor');
-        let index = +listObj.value;
-        let cotainerObj=document.getElementById('range-container');
-        cotainerObj.ej2_instances[0].axes[0].ranges[+listObj.ej2_instances[0].value].color = colortObj.value.toString();
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false;
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].color = this.$refs.rangeColor.ej2Instances.value.toString();
+        this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
+        this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeStart:function(args){
-        let cotainerObj=document.getElementById('range-container');
-        let listObj=document.getElementById('rangeSelect');
-        let min = parseInt((document.getElementById('start')).value, 10);
+        let min = this.$refs.rangeStart.value;
         document.getElementById('rangeStart').innerHTML = 'Range Start <span> &nbsp;&nbsp;&nbsp;' + min;
-        cotainerObj.ej2_instances[0].axes[0].ranges[+listObj.ej2_instances[0].value].start = min;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false; 
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].start = min;
+        this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
+        this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeEnd:function(args){
-        let cotainerObj=document.getElementById('range-container');
-        let listObj=document.getElementById('rangeSelect');
-        let max = parseInt((document.getElementById('end')).value, 10);
+        let max = this.$refs.rangeEnd.value;
         document.getElementById('rangeEnd').innerHTML = 'Range End <span> &nbsp;&nbsp;&nbsp;' + max;
-        cotainerObj.ej2_instances[0].axes[0].ranges[+listObj.ej2_instances[0].value].end = max;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false; 
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].end = max;
+        this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
+        this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeStartwidth:function(args){
-        let cotainerObj=document.getElementById('range-container');
-        let listObj=document.getElementById('rangeSelect');     
-        let startWidth = parseInt((document.getElementById('startWidth')).value, 10);
+        let startWidth = this.$refs.startWidth.value;
         document.getElementById('rangeStartWidth').innerHTML = 'Start Width <span> &nbsp;&nbsp;&nbsp;' + startWidth;
-        cotainerObj.ej2_instances[0].axes[0].ranges[+listObj.ej2_instances[0].value].startWidth = startWidth;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false; 
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].startWidth = startWidth;
+        this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
+        this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeEndwidth:function(args){
-        let cotainerObj=document.getElementById('range-container');
-        let listObj=document.getElementById('rangeSelect');     
-        let endWidth = parseInt((document.getElementById('endWidth')).value, 10);
+        let endWidth = this.$refs.endWidth.value;
         document.getElementById('rangeEndWidth').innerHTML = 'End Width <span> &nbsp;&nbsp;&nbsp;' + endWidth;
-        cotainerObj.ej2_instances[0].axes[0].ranges[+listObj.ej2_instances[0].value].endWidth = endWidth;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false;
-        cotainerObj.ej2_instances[0].refresh();
+        this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].endWidth = endWidth;
+        this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
+        this.$refs.circulargauge.ej2Instances.refresh();
     },
     roundedRadius:function(args){
         let cotainerObj=document.getElementById('range-container');
@@ -253,13 +239,12 @@ methods: {
         cotainerObj.ej2_instances[0].refresh();
     },
     changeRangefont:function(args){
-        let cotainerObj=document.getElementById('range-container');
-        let useRangeColor = (document.getElementById('enable')).checked;
-        cotainerObj.ej2_instances[0].axes[0].labelStyle.useRangeColor = useRangeColor;
-        cotainerObj.ej2_instances[0].axes[0].majorTicks.useRangeColor = useRangeColor;
-        cotainerObj.ej2_instances[0].axes[0].minorTicks.useRangeColor = useRangeColor;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false; 
-        cotainerObj.ej2_instances[0].refresh();
+        let useRangeColor = this.$refs.fontColor.checked;
+        this.$refs.circulargauge.ej2Instances.axes[0].labelStyle.useRangeColor = useRangeColor;
+        this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.useRangeColor = useRangeColor;
+        this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.useRangeColor = useRangeColor;
+        this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
+        this.$refs.circulargauge.ej2Instances.refresh();
     }
 }
 })

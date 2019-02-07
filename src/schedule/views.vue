@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'
                     :eventRendered="oneventRendered">
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -33,13 +33,13 @@
         </div>
         <div id="action-description">
             <p>
-                This demo showcases the usage of basic views available in Schedule such as Day, Week, Work Week and Month. Here, the wildlife
+                This demo showcases the usage of basic views available in Scheduler such as Day, Week, Work Week and Month. Here, the wildlife
                 events being held in zoos are displayed against its respective timings.
             </p>
         </div>
         <div id="description">
             <p>
-                In this demo, Schedule is showcased with 4 basic views namely
+                In this demo, Scheduler is showcased with 4 basic views namely
             </p>
             <ul>
                 <li>Day</li>
@@ -50,7 +50,7 @@
             <p>
                 The user can navigate between different view options available on the header section just by clicking on it. From any of
                 the views, the user can switch back to the day view by clicking dates in the date header section. These view
-                options to be displayed on the Schedule header bar is based on the values ['Day', 'Week', 'WorkWeek', 'Month']
+                options to be displayed on the Scheduler header bar is based on the values ['Day', 'Week', 'WorkWeek', 'Month']
                 assigned to the
                 <code>views</code> property.
             </p>
@@ -78,22 +78,16 @@
         methods: {
 
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             },
             changevalue: function (args) {
-                let cotainerObj = document.getElementById('Schedule');
-                cotainerObj.ej2_instances[0].currentView = args.value;
-                cotainerObj.ej2_instances[0].dataBind();
+                let cotainerObj = this.$refs.ScheduleObj;
+                cotainerObj.currentView = args.value;
+                cotainerObj.dataBind();
             }
         }
     });

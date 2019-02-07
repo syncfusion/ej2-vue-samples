@@ -3,7 +3,7 @@
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
+        <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
     </div>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
@@ -15,12 +15,12 @@
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%;">
-                    <ejs-checkbox id='xInversed' label='Reverse X-Axis Origin' checked="true" :change="valueXChange"></ejs-checkbox>
+                    <ejs-checkbox id='xInversed' ref='xAxisInverse' label='Reverse X-Axis Origin' checked="true" :change="valueXChange"></ejs-checkbox>
                     </td>
                 </tr>
                  <tr style="height: 50px">
                     <td style="width: 40%;">
-                    <ejs-checkbox id='yInversed' label='Reverse Y-Axis Origin' checked="true" :change="valueYChange"></ejs-checkbox>
+                    <ejs-checkbox id='yInversed' ref='yAxisInverse' label='Reverse Y-Axis Origin' checked="true" :change="valueYChange"></ejs-checkbox>
                     </td>
                 </tr>
             </tbody>
@@ -49,8 +49,10 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { inveredAxisData } from '../heatmap/data';
+import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { inveredAxisData } from './data.json';
 Vue.use(HeatMapPlugin);
+Vue.use(CheckBoxPlugin);
 export default Vue.extend({
 data:function(){
 return{
@@ -109,15 +111,11 @@ methods: {
     },
     valueXChange: function(args)
     {
-        let heatmap = document.getElementById('container');
-        let checkbox = document.getElementById('xInversed');
-        heatmap.ej2_instances[0].xAxis.isInversed= checkbox.ej2_instances[0].checked;
+        this.$refs.heatmap.ej2Instances.xAxis.isInversed = this.$refs.xAxisInverse.ej2Instances.checked;
     },
     valueYChange: function(args)
     {
-        let heatmap = document.getElementById('container');
-        let checkbox = document.getElementById('yInversed');
-        heatmap.ej2_instances[0].yAxis.isInversed= checkbox.ej2_instances[0].checked;
+        this.$refs.heatmap.ej2Instances.yAxis.isInversed = this.$refs.yAxisInverse.ej2Instances.checked;
     }
   }
 })

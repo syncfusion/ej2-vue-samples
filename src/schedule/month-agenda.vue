@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper schedule-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'>
+                <ejs-schedule id='Schedule' height="510px" :selectedDate='selectedDate' :eventSettings='eventSettings'>
                     <e-views>
                         <e-view option="MonthAgenda"></e-view>
                     </e-views>
@@ -17,7 +17,7 @@
         </div>
         <div id="description">
             <p>
-                In this demo, the active view of Schedule is set to
+                In this demo, the active view of Scheduler is set to
                 <code>MonthAgenda</code> and no other view options are provided to
                 <code>views</code> property. This view is designed by considering the combination of both the calendar and
                 agenda layout together, so that whenever a particular date is selected – the events belonging to that date
@@ -32,8 +32,7 @@
                 <strong>Module Injection</strong>
             </p>
             <p>
-                To work with Month Agenda view on Schedule – it is necessary to inject the MonthAgenda module onto it using
-                <code>Schedule.Inject(MonthAgenda)</code>.
+                To work with Month Agenda view on Scheduler – it is necessary to inject the <code>MonthAgenda</code> module into the <code>provide</code> section.
             </p>
         </div>
     </div>

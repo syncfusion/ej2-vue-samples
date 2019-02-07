@@ -5,7 +5,7 @@
     </div>
    <div id="action-description">
     <p>
-     In this sample, the date ranges from <code>Jan 15, 2017 - Dec 20, 2017</code> have been set. All the other dates are out of range and restricted to set or select. 
+    In this sample, the date ranges from <code>Jan 15, 2017 - Dec 20, 2017</code> have been set. All the other dates are out of range and <code>restricted</code> to set or select.  
     </p>
 </div>
 

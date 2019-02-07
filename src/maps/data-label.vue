@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="col-lg-9 control-section">
-<ejs-maps id='datalabel' :zoomSettings='zoomSettings' :load='load'>
+<ejs-maps ref="maps" id='datalabel' :zoomSettings='zoomSettings' :load='load'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings' :dataLabelSettings='dataLabelSettings'></e-layer>
     </e-layers>
@@ -23,7 +23,7 @@
                 <div>Smart label mode</div>
             </td>
             <td style="width: 40%">
-             <ejs-dropdownlist id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>                                 
+             <ejs-dropdownlist ref="labelMode" id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>                                 
             </td>
         </tr>
         <tr style="height: 50px">
@@ -31,7 +31,7 @@
                 <div>Intersect action</div>
             </td>
             <td style="width: 40%;">
-             <ejs-dropdownlist id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>                                 
+             <ejs-dropdownlist ref="intersect" id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>                                 
             </td>
         </tr>
     </tbody></table>
@@ -80,7 +80,7 @@ export default Vue.extend({
                     labelPath: 'name',
                     smartLabelMode: 'Trim'
                 },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/usa.json'),
+        shapeData: new MapAjax('./src/maps/map-data/usa.json'),
         shapeSettings: {
                     autofill: true
         },
@@ -106,23 +106,18 @@ methods:{
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
-changeSmartlabelmode:function(args){
-        let maps=document.getElementById('datalabel');   
-        let smartlabelmode =document.getElementById('smartlabelmode');       
-        maps.ej2_instances[0].layers[0].dataLabelSettings.smartLabelMode = smartlabelmode.ej2_instances[0].value;
-        maps.ej2_instances[0].refresh();
+changeSmartlabelmode:function(args){   
+        this.$refs.maps.ej2Instances.layers[0].dataLabelSettings.smartLabelMode = this.$refs.labelMode.ej2Instances.value;
+        this.$refs.maps.ej2Instances.refresh();
   },
 changeIntersectaction:function(args){
-            let maps=document.getElementById('datalabel');   
-            let smartlabelmode =document.getElementById('intersectaction');    
-            maps.ej2_instances[0].layers[0].dataLabelSettings.intersectionAction = intersectaction.ej2_instances[0].value;
-            maps.ej2_instances[0].refresh();
+            this.$refs.maps.ej2Instances.layers[0].dataLabelSettings.intersectionAction = this.$refs.intersect.ej2Instances.value;
+            this.$refs.maps.ej2Instances.refresh();
 },
 showLabel:function(args){
-        let maps=document.getElementById('datalabel');   
         let element = (document.getElementById('select'));
-        maps.ej2_instances[0].layers[0].dataLabelSettings.visible = element.checked;
-        maps.ej2_instances[0].refresh();
+        this.$refs.maps.ej2Instances.layers[0].dataLabelSettings.visible = element.checked;
+        this.$refs.maps.ej2Instances.refresh();
 }
 }
 })

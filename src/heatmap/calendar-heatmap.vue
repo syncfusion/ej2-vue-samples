@@ -32,8 +32,8 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { calendarDataSource } from '../heatmap/data';
 import { Internationalization } from '@syncfusion/ej2-base';
+import { calendarDataSource } from './data.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){
@@ -56,6 +56,7 @@ return{
             showLabelOn: 'Months',
             labelFormat: 'MMM',
             increment: 7,
+            labelIntersectAction: 'Rotate45'
         },
         yAxis: {
             labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],

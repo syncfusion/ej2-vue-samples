@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="control-section">
+<div class="control-section" style="overflow: auto">
     <div class="content-wrapper">
         <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height">        
         </ejs-pivotview>

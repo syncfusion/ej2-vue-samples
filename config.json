@@ -1,0 +1,97 @@
+{
+    "tslint": [
+        "./src/**/*.ts",
+        "!./src/**/*.d.ts",
+        "!./src/common/sampleList.ts",
+        "!./src/maps/MapData/*.ts",
+        "!./src/common/locale-string.ts",
+        "./spec/**/*.ts"
+    ],
+    "htmllint": [
+        "./src/**/*.html"
+    ],
+    "json": [
+        "./**/*.json"
+    ],
+    "styles": [
+        "./styles/**/*.scss"
+    ],
+    "sasslint": [
+        "./styles/**/*.scss"
+    ],
+    "samplejson": [
+        "./src/**/sample.json"
+    ],
+    "watchTs": [
+        "./src/**/*.ts",
+        "./spec/**/*.ts"
+    ],
+    "ts": [
+        "./src/**/*.ts",
+        "./spec/**/*.ts"
+    ],
+    "dedupe": [
+        "./src/**/*.ts"
+    ],
+    "styleDependency": [
+        "ej2"
+    ],
+    "github": [
+        "./src/**/*.{html,ts,json}",
+        "./styles{,/**}",
+        "./src/**/images{,/**}",
+        "./src/common/lib{,/**}",
+        "./src/common/cldr-data{,/**}",
+        "./src/showcase{,/**}",
+        "!./src/showcase/**/!(webpack.config)*.{js,json}",
+        "!./styles/**/!(index)*.css",
+        "./spec/**/*.ts",
+        "./*.html",
+        "./favicon.ico",
+        "karma.conf.js",
+        "package.json",
+        "test-main.js",
+        "tsconfig.json",
+        "webpack.config.js",
+        "!./googlec03dd4bc003151bc.html",
+        "license"
+    ],
+    "cssComponent": [
+        "card"
+    ],
+    "customNames": [
+        "heatmap",
+        "datasource",
+        "tooltip",
+        "drilldown",
+        "smithchart",
+        "sparkline",
+        "econmics",
+        "treemap",
+        "gauge",
+        "ajax",
+        "api",
+        "custom",
+        "code",
+        "blog",
+        "embedly",
+        "inline",
+        "toolbar",
+        "popup",
+        "swipeable",
+        "image",
+        "checkbox",
+        "json",
+        "bpmn",
+        "fishbone",
+        "venn",
+        "newsData", 
+        "virtualization",
+        "html", 
+        "listview",
+		"maskedtextbox",
+        "numerictextbox",
+        "treeview",
+		"pdfviewer"
+    ]
+}

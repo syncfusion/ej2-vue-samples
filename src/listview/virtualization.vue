@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-8 control-section virtualization">
         <!-- ListView element -->
-        <ejs-listview id='ui-list' :dataSource='listData' :showHeader='header' :fields='fields' :headerTitle='title'
+        <ejs-listview id='ui-list' ref="list" :dataSource='listData' :showHeader='header' :fields='fields' :headerTitle='title'
             :height='height' :cssClass='cssClass' :enableVirtualization='enableUi' :actionComplete='onActionComplete'
             :actionBegin='onActionBegin' :template='gTemplate'>
         </ejs-listview>
@@ -133,7 +133,6 @@ let dataSource = {};
 let endTime = undefined;
 let startTime = undefined;
 let liElement = undefined;
-let listObj = undefined;
 export default Vue.extend({
     beforeCreate: function() {
         commonData = [{
@@ -269,14 +268,12 @@ export default Vue.extend({
             createSpinner({
                 target: liElement
             });
-
-            listObj = document.getElementById("ui-list").ej2_instances[0];
         },
         onChange: function(e) {
             showSpinner(liElement);
             startTime = new Date();
-            listObj.dataSource = dataSource["data" + e.value];
-            listObj.dataBind();
+            this.$refs.list.dataSource = dataSource["data" + e.value];
+            this.$refs.list.dataBind();
             endTime = new Date();
             document.getElementById("time").innerText =
                 endTime.getTime() - startTime.getTime() + " ms";

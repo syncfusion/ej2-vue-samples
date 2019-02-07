@@ -32,6 +32,7 @@ import Calendardisabled from './calendar/disabled.vue';
 import Calendardaterange from './calendar/date-range.vue'; 
 import Calendarspecialdates from './calendar/special-dates.vue'; 
 import Calendarmultiselect from './calendar/multi-select.vue'; 
+import Calendarislamiccalendar from './calendar/islamic-calendar.vue'; 
 import Cardbasic from './card/basic.vue'; 
 import Cardvertical from './card/vertical.vue'; 
 import Cardhorizontal from './card/horizontal.vue'; 
@@ -65,18 +66,18 @@ import Chartstackedcolumn100 from './chart/stacked-column-100.vue';
 import Chartstackedbar from './chart/stacked-bar.vue'; 
 import Chartstackedbar100 from './chart/stacked-bar-100.vue'; 
 import Charttornado from './chart/tornado.vue'; 
-import Chartscatter from './chart/scatter.vue'; 
+import Chartscatterplot from './chart/scatter-plot.vue'; 
 import Chartbubble from './chart/bubble.vue'; 
 import Chartwaterfall from './chart/waterfall.vue'; 
 import Charthistogram from './chart/histogram.vue'; 
 import Chartboxandwhisker from './chart/box-and-whisker.vue'; 
 import Charterrorbar from './chart/error-bar.vue'; 
 import Charttrendlines from './chart/trend-lines.vue'; 
-import Chartcombinationseries from './chart/combination-series.vue'; 
-import Chartpareto from './chart/pare-to.vue'; 
+import Chartmultiserieschart from './chart/multi-series-chart.vue'; 
+import Chartpareto from './chart/pareto.vue'; 
 import Charthilo from './chart/hilo.vue'; 
 import Charthiloopenclose from './chart/hilo-open-close.vue'; 
-import Chartcandle from './chart/candle.vue'; 
+import Chartcandlestick from './chart/candle-stick.vue'; 
 import Chartaccumulationdistributionindicator from './chart/accumulation-distribution-indicator.vue'; 
 import Chartaveragetruerangeindicator from './chart/average-true-range-indicator.vue'; 
 import Chartbollinger from './chart/bollinger.vue'; 
@@ -87,9 +88,10 @@ import Chartrelativestrengthindexindicator from './chart/relative-strength-index
 import Chartsimplemovingaverageindicator from './chart/simple-moving-average-indicator.vue'; 
 import Chartstochastic from './chart/stochastic.vue'; 
 import Charttriangularmovingaverageindicator from './chart/triangular-moving-average-indicator.vue'; 
-import Chartperformance from './chart/performance.vue'; 
+import Chartchartperformance from './chart/chart-performance.vue'; 
 import Chartdefaultpie from './chart/default-pie.vue'; 
-import Chartdoughnut from './chart/doughnut.vue'; 
+import Chartpieradius from './chart/pie-radius.vue'; 
+import Chartdonut from './chart/donut.vue'; 
 import Chartpyramid from './chart/pyramid.vue'; 
 import Chartfunnel from './chart/funnel.vue'; 
 import Chartdefaultdoughnut from './chart/default-doughnut.vue'; 
@@ -108,13 +110,14 @@ import Chartpolarstackingcolumn from './chart/polar-stacking-column.vue';
 import Chartpolarrangecolumn from './chart/polar-range-column.vue'; 
 import Chartlocaldata from './chart/local-data.vue'; 
 import Chartremotedata from './chart/remote-data.vue'; 
+import Chartlazyloading from './chart/lazy-loading.vue'; 
 import Chartnumeric from './chart/numeric.vue'; 
 import Chartdatetime from './chart/date-time.vue'; 
 import Chartdatetimecategory from './chart/date-time-category.vue'; 
 import Chartcategory from './chart/category.vue'; 
 import Chartindexed from './chart/indexed.vue'; 
-import Chartlogarithmic from './chart/logarithmic.vue'; 
-import Chartmultipleaxes from './chart/multiple-axes.vue'; 
+import Chartlogarithmicscale from './chart/logarithmic-scale.vue'; 
+import Chartmultipleaxis from './chart/multiple-axis.vue'; 
 import Chartinversed from './chart/inversed.vue'; 
 import Chartstripline from './chart/strip-line.vue'; 
 import Chartstriplinerecurrence from './chart/strip-line-recurrence.vue'; 
@@ -122,7 +125,7 @@ import Chartsmartaxislabels from './chart/smart-axis-labels.vue';
 import Chartmultilevellabel from './chart/multi-level-label.vue'; 
 import Chartaxescrossing from './chart/axes-crossing.vue'; 
 import Chartsorting from './chart/sorting.vue'; 
-import Chartsymbols from './chart/symbols.vue'; 
+import Chartmarkerchart from './chart/marker-chart.vue'; 
 import Chartpieannotation from './chart/pie-annotation.vue'; 
 import Chartdatalabeltemplate from './chart/data-label-template.vue'; 
 import Chartvertical from './chart/vertical.vue'; 
@@ -134,10 +137,14 @@ import Chartrangeselection from './chart/range-selection.vue';
 import Chartcrosshair from './chart/cross-hair.vue'; 
 import Charttrackball from './chart/trackball.vue'; 
 import Chartzooming from './chart/zooming.vue'; 
+import Chipsdefault from './chips/default.vue'; 
+import Chipsapi from './chips/api.vue'; 
 import CircularGaugedefault from './circular-gauge/default.vue'; 
 import CircularGaugerange from './circular-gauge/range.vue'; 
 import CircularGaugelabels from './circular-gauge/labels.vue'; 
 import CircularGaugecustomization from './circular-gauge/customization.vue'; 
+import CircularGaugesemicirculargauge from './circular-gauge/semi-circular-gauge.vue'; 
+import CircularGaugearcgauge from './circular-gauge/arc-gauge.vue'; 
 import CircularGaugecompass from './circular-gauge/compass.vue'; 
 import CircularGaugepointerimage from './circular-gauge/pointer-image.vue'; 
 import CircularGaugepointer from './circular-gauge/pointer.vue'; 
@@ -145,6 +152,7 @@ import CircularGaugemultipleaxis from './circular-gauge/multiple-axis.vue';
 import CircularGaugeuserinteraction from './circular-gauge/user-interaction.vue'; 
 import CircularGaugetooltip from './circular-gauge/tooltip.vue'; 
 import CircularGaugedatasample from './circular-gauge/data-sample.vue'; 
+import CircularGaugespeedometer from './circular-gauge/speedometer.vue'; 
 import ColorPickerdefault from './color-picker/default.vue'; 
 import ColorPickerinline from './color-picker/inline.vue'; 
 import ColorPickercustom from './color-picker/custom.vue'; 
@@ -163,17 +171,20 @@ import DatePickerdisabled from './datepicker/disabled.vue';
 import DatePickerdaterange from './datepicker/date-range.vue'; 
 import DatePickerdateformat from './datepicker/date-format.vue'; 
 import DatePickerspecialdates from './datepicker/special-dates.vue'; 
+import DatePickertwoway from './datepicker/two-way.vue'; 
 import DateRangePickerdefault from './daterangepicker/default.vue'; 
 import DateRangePickerdayspan from './daterangepicker/day-span.vue'; 
 import DateRangePickerdaterange from './daterangepicker/date-range.vue'; 
 import DateRangePickerdateformat from './daterangepicker/date-format.vue'; 
 import DateRangePickerpresets from './daterangepicker/presets.vue'; 
+import DateRangePickertwoway from './daterangepicker/two-way.vue'; 
 import DateTimePickerdefault from './datetimepicker/default.vue'; 
 import DateTimePickerdisabled from './datetimepicker/disabled.vue'; 
 import DateTimePickerdatetimerange from './datetimepicker/date-time-range.vue'; 
 import DateTimePickerdatetimeformat from './datetimepicker/date-time-format.vue'; 
 import DateTimePickerspecialdates from './datetimepicker/special-dates.vue'; 
-import Diagramdefaultfunctionality from './diagram/defaultfunctionality.vue'; 
+import DateTimePickertwoway from './datetimepicker/two-way.vue'; 
+import Diagramdefaultfunctionality from './diagram/default-functionality.vue'; 
 import Diagramshapegallery from './diagram/shape-gallery.vue'; 
 import Diagramnode from './diagram/node.vue'; 
 import Diagramconnector from './diagram/connector.vue'; 
@@ -198,14 +209,20 @@ import Diagramrighttolefttree from './diagram/right-to-left-tree.vue';
 import Diagrampertchart from './diagram/pert-chart.vue'; 
 import Diagramremotedata from './diagram/remote-data.vue'; 
 import Diagramlocaldata from './diagram/local-data.vue'; 
-import Diagramvenndiagram from './diagram/venndiagram.vue'; 
+import Diagramcrud from './diagram/crud.vue'; 
+import Diagramlogicalcircuit from './diagram/logical-circuit.vue'; 
+import Diagramumlactivity from './diagram/uml-activity.vue'; 
+import Diagramnetworkdiagram from './diagram/network-diagram.vue'; 
+import Diagramumlclassdiagram from './diagram/uml-class-diagram.vue'; 
+import Diagramvenndiagram from './diagram/venn-diagram.vue'; 
 import Diagramfishbonediagram from './diagram/fishbone-diagram.vue'; 
 import Dialogdefault from './dialog/default.vue'; 
 import Dialogcustomdialog from './dialog/custom-dialog.vue'; 
 import Dialogmodaldialog from './dialog/modal-dialog.vue'; 
-import Dialogdialogcontentsviaajax from './dialog/dialog-contents-via-ajax.vue'; 
 import Dialogtemplate from './dialog/template.vue'; 
+import Dialogdialogcontentsviaajax from './dialog/dialog-contents-via-ajax.vue'; 
 import Dialogdraggable from './dialog/draggable.vue'; 
+import Dialogresizable from './dialog/resizable.vue'; 
 import Dialogposition from './dialog/position.vue'; 
 import Dialoganimation from './dialog/animation.vue'; 
 import Dialogmultipledialogs from './dialog/multiple-dialogs.vue'; 
@@ -220,14 +237,15 @@ import DocumentEditorsectionformatting from './document-editor/section-formattin
 import DocumentEditorheadersandfooters from './document-editor/headers-and-footers.vue'; 
 import DocumentEditortableofcontents from './document-editor/table-of-contents.vue'; 
 import DocumentEditorprint from './document-editor/print.vue'; 
-import DropDownListdefault from './drop-down-list/default.vue'; 
-import DropDownListgroupingicon from './drop-down-list/grouping-icon.vue'; 
-import DropDownListdatabinding from './drop-down-list/data-binding.vue'; 
-import DropDownListtemplate from './drop-down-list/template.vue'; 
-import DropDownListfiltering from './drop-down-list/filtering.vue'; 
-import DropDownListcascading from './drop-down-list/cascading.vue'; 
-import DropDownListinline from './drop-down-list/inline.vue'; 
-import DropDownListdiacriticsfiltering from './drop-down-list/diacritics-filtering.vue'; 
+import DocumentEditorrighttoleft from './document-editor/right-to-left.vue'; 
+import DropdownListdefault from './drop-down-list/default.vue'; 
+import DropdownListgroupingicon from './drop-down-list/grouping-icon.vue'; 
+import DropdownListdatabinding from './drop-down-list/data-binding.vue'; 
+import DropdownListtemplate from './drop-down-list/template.vue'; 
+import DropdownListfiltering from './drop-down-list/filtering.vue'; 
+import DropdownListcascading from './drop-down-list/cascading.vue'; 
+import DropdownListinline from './drop-down-list/inline.vue'; 
+import DropdownListdiacriticsfiltering from './drop-down-list/diacritics-filtering.vue'; 
 import DataGridgridoverview from './grid/grid-overview.vue'; 
 import DataGriddefault from './grid/default.vue'; 
 import DataGridgrouping from './grid/grouping.vue'; 
@@ -259,6 +277,8 @@ import DataGridrowtemplate from './grid/row-template.vue';
 import DataGriddetailtemplate from './grid/detail-template.vue'; 
 import DataGridrowheight from './grid/row-height.vue'; 
 import DataGridrowdraganddrop from './grid/row-drag-and-drop.vue'; 
+import DataGriddraganddropwithingrid from './grid/drag-and-drop-within-grid.vue'; 
+import DataGridrowspanning from './grid/row-spanning.vue'; 
 import DataGridfiltering from './grid/filtering.vue'; 
 import DataGridfiltermenu from './grid/filter-menu.vue'; 
 import DataGridsearching from './grid/searching.vue'; 
@@ -275,22 +295,30 @@ import DataGridbatchediting from './grid/batch-editing.vue';
 import DataGridcommandcolumn from './grid/command-column.vue'; 
 import DataGridexport from './grid/export.vue'; 
 import DataGridadvanceexport from './grid/advance-export.vue'; 
-import HeatMapdefault from './heatmap/default.vue'; 
-import HeatMapcalendarheatmap from './heatmap/calendar-heatmap.vue'; 
-import HeatMapbubbletypes from './heatmap/bubble-types.vue'; 
-import HeatMapcolorandsizeattributes from './heatmap/color-and-size-attributes.vue'; 
-import HeatMaparrayrow from './heatmap/array-row.vue'; 
-import HeatMaparraycell from './heatmap/array-cell.vue'; 
-import HeatMaprowjsonbinding from './heatmap/row-json-binding.vue'; 
-import HeatMapcelljsonbinding from './heatmap/cell-json-binding.vue'; 
-import HeatMapemptypoints from './heatmap/empty-points.vue'; 
-import HeatMapinversedaxis from './heatmap/inversed-axis.vue'; 
-import HeatMapopposedaxis from './heatmap/opposed-axis.vue'; 
-import HeatMaplegend from './heatmap/legend.vue'; 
-import HeatMaplargedata from './heatmap/large-data.vue'; 
-import HeatMappalettemode from './heatmap/palette-mode.vue'; 
-import HeatMaprenderingmode from './heatmap/rendering-mode.vue'; 
-import HeatMaptooltiptemplate from './heatmap/tooltip-template.vue'; 
+import DataGridmasterdetailsexport from './grid/master-details-export.vue'; 
+import DataGridprint from './grid/print.vue'; 
+import HeatmapChartdefault from './heatmap/default.vue'; 
+import HeatmapChartcalendarheatmap from './heatmap/calendar-heatmap.vue'; 
+import HeatmapChartbubbletypes from './heatmap/bubble-types.vue'; 
+import HeatmapChartcolorandsizeattributes from './heatmap/color-and-size-attributes.vue'; 
+import HeatmapChartarrayrow from './heatmap/array-row.vue'; 
+import HeatmapChartarraycell from './heatmap/array-cell.vue'; 
+import HeatmapChartrowjsonbinding from './heatmap/row-json-binding.vue'; 
+import HeatmapChartcelljsonbinding from './heatmap/cell-json-binding.vue'; 
+import HeatmapChartemptypoints from './heatmap/empty-points.vue'; 
+import HeatmapChartinversedaxis from './heatmap/inversed-axis.vue'; 
+import HeatmapChartopposedaxis from './heatmap/opposed-axis.vue'; 
+import HeatmapChartmultilevellabels from './heatmap/multi-level-labels.vue'; 
+import HeatmapChartcellselection from './heatmap/cell-selection.vue'; 
+import HeatmapChartlegend from './heatmap/legend.vue'; 
+import HeatmapChartlargedata from './heatmap/large-data.vue'; 
+import HeatmapChartpalettemode from './heatmap/palette-mode.vue'; 
+import HeatmapChartrenderingmode from './heatmap/rendering-mode.vue'; 
+import HeatmapCharttooltiptemplate from './heatmap/tooltip-template.vue'; 
+import InPlaceEditordefault from './inplace-editor/default.vue'; 
+import InPlaceEditordropdowns from './inplace-editor/dropdowns.vue'; 
+import InPlaceEditorpickers from './inplace-editor/pickers.vue'; 
+import InPlaceEditoreditpost from './inplace-editor/edit-post.vue'; 
 import LinearGaugedefault from './linear-gauge/default.vue'; 
 import LinearGaugecontainer from './linear-gauge/container.vue'; 
 import LinearGaugeranges from './linear-gauge/ranges.vue'; 
@@ -316,7 +344,11 @@ import Mapsdatalabel from './maps/data-label.vue';
 import Mapsbubble from './maps/bubble.vue'; 
 import Mapsnavigationline from './maps/navigation-line.vue'; 
 import Mapslegend from './maps/legend.vue'; 
+import Mapscolormapping from './maps/color-mapping.vue'; 
 import Mapsannotation from './maps/annotation.vue'; 
+import Mapsosm from './maps/osm.vue'; 
+import Mapsosmwithnavigationlines from './maps/osm-with-navigation-lines.vue'; 
+import Mapsosmwithsublayers from './maps/osm-with-sublayers.vue'; 
 import Mapstooltip from './maps/tooltip.vue'; 
 import Mapsselection from './maps/selection.vue'; 
 import Mapszooming from './maps/zooming.vue'; 
@@ -328,146 +360,186 @@ import Mapscurvedlines from './maps/curved-lines.vue';
 import Mapsearthquake from './maps/earthquake.vue'; 
 import Mapshighlightedregion from './maps/highlighted-region.vue'; 
 import Mapspie from './maps/pie.vue'; 
+import Mapsmapwithslider from './maps/map-with-slider.vue'; 
 import Mapsseatselection from './maps/seat-selection.vue'; 
-import MaskedTextBoxdefault from './maskedtextbox/default.vue'; 
-import MaskedTextBoxcustommask from './maskedtextbox/custom-mask.vue'; 
-import MaskedTextBoxformats from './maskedtextbox/formats.vue'; 
-import MultiSelectdefault from './multi-select/default.vue'; 
-import MultiSelectdatabinding from './multi-select/data-binding.vue'; 
-import MultiSelectgroupingicon from './multi-select/grouping-icon.vue'; 
-import MultiSelecttemplate from './multi-select/template.vue'; 
-import MultiSelectfiltering from './multi-select/filtering.vue'; 
-import MultiSelectcustomvalue from './multi-select/custom-value.vue'; 
-import MultiSelectchipcustomization from './multi-select/chip-customization.vue'; 
-import MultiSelectcheckbox from './multi-select/checkbox.vue'; 
-import MultiSelectselectionlimit from './multi-select/selection-limit.vue'; 
-import MultiSelectdiacriticsfiltering from './multi-select/diacritics-filtering.vue'; 
-import NumericTextBoxdefault from './numerictextbox/default.vue'; 
-import NumericTextBoxrangevalidation from './numerictextbox/range-validation.vue'; 
-import NumericTextBoxcustomformat from './numerictextbox/custom-format.vue'; 
-import NumericTextBoxrestrictdecimals from './numerictextbox/restrict-decimals.vue'; 
-import PivotGriddefault from './pivot-view/default.vue'; 
-import PivotGridlocal from './pivot-view/local.vue'; 
-import PivotGridremote from './pivot-view/remote.vue'; 
-import PivotGridfieldlist from './pivot-view/field-list.vue'; 
-import PivotGridgroupingbar from './pivot-view/grouping-bar.vue'; 
-import PivotGridconditionalformatting from './pivot-view/conditional-formatting.vue'; 
-import PivotGridcalculatedfield from './pivot-view/calculated-field.vue'; 
-import PivotGridaggregation from './pivot-view/aggregation.vue'; 
-import PivotGridsorting from './pivot-view/sorting.vue'; 
-import PivotGridvaluesorting from './pivot-view/value-sorting.vue'; 
-import PivotGridfiltering from './pivot-view/filtering.vue'; 
-import PivotGridlabelfiltering from './pivot-view/label-filtering.vue'; 
-import PivotGridvaluefiltering from './pivot-view/value-filtering.vue'; 
-import PivotGridcharts from './pivot-view/charts.vue'; 
-import PivotGridvirtualscrolling from './pivot-view/virtual-scrolling.vue'; 
-import PivotGridexporting from './pivot-view/exporting.vue'; 
-import RangeNavigatordefault from './range-navigator/default.vue'; 
-import RangeNavigatorlightweight from './range-navigator/light-weight.vue'; 
-import RangeNavigatordatetime from './range-navigator/date-time.vue'; 
-import RangeNavigatordouble from './range-navigator/double.vue'; 
-import RangeNavigatorlogarithmic from './range-navigator/logarithmic.vue'; 
-import RangeNavigatormultilevel from './range-navigator/multilevel.vue'; 
-import RangeNavigatorperiodselector from './range-navigator/period-selector.vue'; 
-import RangeNavigatorperiodselectorstocks from './range-navigator/period-selector-stocks.vue'; 
-import RangeNavigatoremptydata from './range-navigator/empty-data.vue'; 
-import RangeNavigatorfilter from './range-navigator/filter.vue'; 
-import RangeNavigatorexport from './range-navigator/export.vue'; 
-import RangeNavigatorrighttoleft from './range-navigator/right-to-left.vue'; 
-import RichTextEditortools from './rte/tools.vue'; 
-import RichTextEditordefault from './rte/default.vue'; 
-import RichTextEditorimage from './rte/image.vue'; 
-import RichTextEditorinline from './rte/inline.vue'; 
-import RichTextEditoriframe from './rte/iframe.vue'; 
-import RichTextEditorprint from './rte/print.vue'; 
-import RichTextEditorajaxload from './rte/ajax-load.vue'; 
-import RichTextEditorapi from './rte/api.vue'; 
-import RichTextEditorevents from './rte/events.vue'; 
-import RichTextEditorblogposting from './rte/blog-posting.vue'; 
-import RichTextEditortypes from './rte/types.vue'; 
-import RichTextEditorcustomtoolbar from './rte/custom-toolbar.vue'; 
-import RichTextEditormarkdowneditor from './rte/markdown-editor.vue'; 
-import RichTextEditormarkdownpreview from './rte/markdown-preview.vue'; 
-import RichTextEditormarkdownformat from './rte/markdown-format.vue'; 
-import Scheduledefault from './schedule/default.vue'; 
-import Schedulelocaldata from './schedule/local-data.vue'; 
-import Scheduleremotedata from './schedule/remote-data.vue'; 
-import Scheduledefaultevents from './schedule/default-events.vue'; 
-import Schedulerecurrenceevents from './schedule/recurrence-events.vue'; 
-import Scheduletimezone from './schedule/timezone.vue'; 
-import Scheduleviews from './schedule/views.vue'; 
-import Scheduletimeline from './schedule/timeline.vue'; 
-import Scheduleagenda from './schedule/agenda.vue'; 
-import Schedulemonthagenda from './schedule/month-agenda.vue'; 
-import Scheduleviewconfiguration from './schedule/view-configuration.vue'; 
-import Scheduleextendedviews from './schedule/extended-views.vue'; 
-import Scheduletimelineresource from './schedule/timeline-resource.vue'; 
-import Scheduleresources from './schedule/resources.vue'; 
-import Schedulegroupediting from './schedule/group-editing.vue'; 
-import Schedulegroupcustomworkdays from './schedule/group-customworkdays.vue'; 
-import Scheduleaddremoveresources from './schedule/addremove-resources.vue'; 
-import Scheduleresourcegrouping from './schedule/resource-grouping.vue'; 
-import Scheduletimelineresourcegrouping from './schedule/timeline-resourcegrouping.vue'; 
-import Schedulegroupbydate from './schedule/group-bydate.vue'; 
-import Schedulegroupbychild from './schedule/group-bychild.vue'; 
-import Schedulecelltemplate from './schedule/cell-template.vue'; 
-import Scheduledateheadertemplate from './schedule/dateheader-template.vue'; 
-import Scheduleeventstemplate from './schedule/events-template.vue'; 
-import Scheduletooltip from './schedule/tooltip.vue'; 
-import Scheduleeditorvalidation from './schedule/editor-validation.vue'; 
-import Scheduleeditorcustomfields from './schedule/editor-customfields.vue'; 
-import Scheduleeditortemplate from './schedule/editor-template.vue'; 
-import Scheduleheaderrows from './schedule/header-rows.vue'; 
-import Scheduletimescale from './schedule/time-scale.vue'; 
-import Scheduleheaderbar from './schedule/header-bar.vue'; 
-import Schedulescrollto from './schedule/scroll-to.vue'; 
-import Scheduleworkdays from './schedule/work-days.vue'; 
-import Schedulehideweekend from './schedule/hide-weekend.vue'; 
-import Scheduleworkhours from './schedule/work-hours.vue'; 
-import Schedulestartendhour from './schedule/startend-hour.vue'; 
-import Schedulecelldimension from './schedule/cell-dimension.vue'; 
-import Schedulereadonly from './schedule/read-only.vue'; 
-import Schedulereceditorgeneraterule from './schedule/receditor-generaterule.vue'; 
-import Schedulereceditorpopulaterule from './schedule/receditor-populaterule.vue'; 
-import Schedulekeyboardinteraction from './schedule/keyboard-interaction.vue'; 
-import Scheduleevents from './schedule/events.vue'; 
+import InputMaskdefault from './maskedtextbox/default.vue'; 
+import InputMaskcustommask from './maskedtextbox/custom-mask.vue'; 
+import InputMaskformats from './maskedtextbox/formats.vue'; 
+import MenuBardefault from './menu/default.vue'; 
+import MenuBardatabinding from './menu/data-binding.vue'; 
+import MenuBarscrollable from './menu/scrollable.vue'; 
+import MenuBartemplate from './menu/template.vue'; 
+import MenuBarapi from './menu/api.vue'; 
+import MenuBartoolbarintegration from './menu/toolbar-integration.vue'; 
+import MultiSelectDropdowndefault from './multi-select/default.vue'; 
+import MultiSelectDropdowndatabinding from './multi-select/data-binding.vue'; 
+import MultiSelectDropdowngroupingicon from './multi-select/grouping-icon.vue'; 
+import MultiSelectDropdowntemplate from './multi-select/template.vue'; 
+import MultiSelectDropdownfiltering from './multi-select/filtering.vue'; 
+import MultiSelectDropdowncustomvalue from './multi-select/custom-value.vue'; 
+import MultiSelectDropdownchipcustomization from './multi-select/chip-customization.vue'; 
+import MultiSelectDropdowncheckbox from './multi-select/checkbox.vue'; 
+import MultiSelectDropdownselectionlimit from './multi-select/selection-limit.vue'; 
+import MultiSelectDropdowndiacriticsfiltering from './multi-select/diacritics-filtering.vue'; 
+import NumericTextboxdefault from './numerictextbox/default.vue'; 
+import NumericTextboxrangevalidation from './numerictextbox/range-validation.vue'; 
+import NumericTextboxcustomformat from './numerictextbox/custom-format.vue'; 
+import NumericTextboxrestrictdecimals from './numerictextbox/restrict-decimals.vue'; 
+import PDFViewerdefault from './pdfviewer/default.vue'; 
+import PDFViewercustomtoolbar from './pdfviewer/custom-toolbar.vue'; 
+import PivotTabledefault from './pivot-view/default.vue'; 
+import PivotTablelocal from './pivot-view/local.vue'; 
+import PivotTableremote from './pivot-view/remote.vue'; 
+import PivotTablefieldlist from './pivot-view/field-list.vue'; 
+import PivotTablegroupingbar from './pivot-view/grouping-bar.vue'; 
+import PivotTableconditionalformatting from './pivot-view/conditional-formatting.vue'; 
+import PivotTablesummarycustomization from './pivot-view/summary-customization.vue'; 
+import PivotTablecalculatedfield from './pivot-view/calculated-field.vue'; 
+import PivotTableaggregation from './pivot-view/aggregation.vue'; 
+import PivotTablesorting from './pivot-view/sorting.vue'; 
+import PivotTablevaluesorting from './pivot-view/value-sorting.vue'; 
+import PivotTablefiltering from './pivot-view/filtering.vue'; 
+import PivotTablelabelfiltering from './pivot-view/label-filtering.vue'; 
+import PivotTablevaluefiltering from './pivot-view/value-filtering.vue'; 
+import PivotTablecharts from './pivot-view/charts.vue'; 
+import PivotTablevirtualscrolling from './pivot-view/virtual-scrolling.vue'; 
+import PivotTabledrillthrough from './pivot-view/drill-through.vue'; 
+import PivotTableediting from './pivot-view/editing.vue'; 
+import PivotTablehyperlink from './pivot-view/hyper-link.vue'; 
+import PivotTabledeferupdate from './pivot-view/defer-update.vue'; 
+import PivotTableexporting from './pivot-view/exporting.vue'; 
+import QueryBuilderdefault from './query-builder/default.vue'; 
+import QueryBuildertemplate from './query-builder/template.vue'; 
+import QueryBuildergrid from './query-builder/grid.vue'; 
+import RangeSelectordefault from './range-navigator/default.vue'; 
+import RangeSelectorlightweight from './range-navigator/light-weight.vue'; 
+import RangeSelectordatetime from './range-navigator/date-time.vue'; 
+import RangeSelectordouble from './range-navigator/double.vue'; 
+import RangeSelectorlogarithmic from './range-navigator/logarithmic.vue'; 
+import RangeSelectormultilevel from './range-navigator/multilevel.vue'; 
+import RangeSelectorperiodselector from './range-navigator/period-selector.vue'; 
+import RangeSelectorperiodselectorstocks from './range-navigator/period-selector-stocks.vue'; 
+import RangeSelectoremptydata from './range-navigator/empty-data.vue'; 
+import RangeSelectorfilter from './range-navigator/filter.vue'; 
+import RangeSelectorexport from './range-navigator/export.vue'; 
+import RangeSelectorrighttoleft from './range-navigator/right-to-left.vue'; 
+import RichTextEditortools from './rich-text-editor/tools.vue'; 
+import RichTextEditordefault from './rich-text-editor/default.vue'; 
+import RichTextEditorimage from './rich-text-editor/image.vue'; 
+import RichTextEditorinline from './rich-text-editor/inline.vue'; 
+import RichTextEditoriframe from './rich-text-editor/iframe.vue'; 
+import RichTextEditorprint from './rich-text-editor/print.vue'; 
+import RichTextEditorajaxload from './rich-text-editor/ajax-load.vue'; 
+import RichTextEditorapi from './rich-text-editor/api.vue'; 
+import RichTextEditorevents from './rich-text-editor/events.vue'; 
+import RichTextEditorblogposting from './rich-text-editor/blog-posting.vue'; 
+import RichTextEditortypes from './rich-text-editor/types.vue'; 
+import RichTextEditorcustomtoolbar from './rich-text-editor/custom-toolbar.vue'; 
+import RichTextEditormarkdowneditor from './rich-text-editor/markdown-editor.vue'; 
+import RichTextEditormarkdownpreview from './rich-text-editor/markdown-preview.vue'; 
+import RichTextEditormarkdownformat from './rich-text-editor/markdown-format.vue'; 
+import Schedulerdefault from './schedule/default.vue'; 
+import Schedulerlocaldata from './schedule/local-data.vue'; 
+import Schedulerremotedata from './schedule/remote-data.vue'; 
+import Schedulercalendarintegration from './schedule/calendar-integration.vue'; 
+import Schedulerrecurrenceevents from './schedule/recurrence-events.vue'; 
+import Schedulerblockevents from './schedule/block-events.vue'; 
+import Schedulertimezone from './schedule/timezone.vue'; 
+import Schedulerexternaldragdrop from './schedule/external-dragdrop.vue'; 
+import Schedulervirtualscrolling from './schedule/virtual-scrolling.vue'; 
+import Schedulerviews from './schedule/views.vue'; 
+import Schedulertimeline from './schedule/timeline.vue'; 
+import Scheduleragenda from './schedule/agenda.vue'; 
+import Schedulermonthagenda from './schedule/month-agenda.vue'; 
+import Schedulerviewconfiguration from './schedule/view-configuration.vue'; 
+import Schedulerextendedviews from './schedule/extended-views.vue'; 
+import Schedulertimelineresource from './schedule/timeline-resource.vue'; 
+import Schedulerresources from './schedule/resources.vue'; 
+import Schedulergroupediting from './schedule/group-editing.vue'; 
+import Schedulergroupcustomworkdays from './schedule/group-customworkdays.vue'; 
+import Scheduleraddremoveresources from './schedule/addremove-resources.vue'; 
+import Schedulerresourcegrouping from './schedule/resource-grouping.vue'; 
+import Schedulertimelineresourcegrouping from './schedule/timeline-resourcegrouping.vue'; 
+import Schedulergroupbydate from './schedule/group-bydate.vue'; 
+import Schedulergroupbychild from './schedule/group-bychild.vue'; 
+import Schedulercelltemplate from './schedule/cell-template.vue'; 
+import Schedulerdateheadertemplate from './schedule/dateheader-template.vue'; 
+import Schedulereventstemplate from './schedule/events-template.vue'; 
+import Schedulertooltip from './schedule/tooltip.vue'; 
+import Schedulereditorvalidation from './schedule/editor-validation.vue'; 
+import Schedulereditorcustomfields from './schedule/editor-customfields.vue'; 
+import Schedulereditortemplate from './schedule/editor-template.vue'; 
+import Schedulerheaderrows from './schedule/header-rows.vue'; 
+import Schedulertimescale from './schedule/time-scale.vue'; 
+import Schedulercontextmenu from './schedule/context-menu.vue'; 
+import Schedulerheaderbar from './schedule/header-bar.vue'; 
+import Schedulerscrollto from './schedule/scroll-to.vue'; 
+import Schedulerworkdays from './schedule/work-days.vue'; 
+import Schedulerhideweekend from './schedule/hide-weekend.vue'; 
+import Schedulerworkhours from './schedule/work-hours.vue'; 
+import Schedulerstartendhour from './schedule/startend-hour.vue'; 
+import Schedulercelldimension from './schedule/cell-dimension.vue'; 
+import Schedulerreadonly from './schedule/read-only.vue'; 
+import Schedulerreceditorgeneraterule from './schedule/receditor-generaterule.vue'; 
+import Schedulerreceditorpopulaterule from './schedule/receditor-populaterule.vue'; 
+import Schedulerkeyboardinteraction from './schedule/keyboard-interaction.vue'; 
+import Schedulerevents from './schedule/events.vue'; 
 import Sidebardefault from './sidebar/default.vue'; 
 import Sidebardockingsidebar from './sidebar/docking-sidebar.vue'; 
 import Sidebarapi from './sidebar/api.vue'; 
 import Sidebarsidebarlist from './sidebar/sidebar-list.vue'; 
-import Sidebarmultiplesidebar from './sidebar/multiple-sidebar.vue'; 
-import Sliderdefault from './slider/default.vue'; 
-import Sliderticks from './slider/ticks.vue'; 
-import Slidertooltip from './slider/tooltip.vue'; 
-import Sliderorientation from './slider/orientation.vue'; 
-import Sliderformat from './slider/format.vue'; 
-import Sliderlimits from './slider/limits.vue'; 
-import Sliderapi from './slider/api.vue'; 
-import Sliderevents from './slider/events.vue'; 
-import Sliderthumbcustomization from './slider/thumb-customization.vue'; 
-import Sliderbarcustomization from './slider/bar-customization.vue'; 
-import Slidertickscustomization from './slider/ticks-customization.vue'; 
-import Slidertooltipcustomization from './slider/tooltip-customization.vue'; 
-import Sliderazurepricing from './slider/azure-pricing.vue'; 
+import RangeSliderdefault from './slider/default.vue'; 
+import RangeSliderticks from './slider/ticks.vue'; 
+import RangeSlidertooltip from './slider/tooltip.vue'; 
+import RangeSliderorientation from './slider/orientation.vue'; 
+import RangeSliderformat from './slider/format.vue'; 
+import RangeSliderlimits from './slider/limits.vue'; 
+import RangeSliderapi from './slider/api.vue'; 
+import RangeSliderevents from './slider/events.vue'; 
+import RangeSliderthumbcustomization from './slider/thumb-customization.vue'; 
+import RangeSliderbarcustomization from './slider/bar-customization.vue'; 
+import RangeSlidertickscustomization from './slider/ticks-customization.vue'; 
+import RangeSlidertooltipcustomization from './slider/tooltip-customization.vue'; 
+import RangeSliderazurepricing from './slider/azure-pricing.vue'; 
 import SmithChartdefault from './smith-chart/default.vue'; 
 import SmithChartcustom from './smith-chart/custom.vue'; 
 import SmithChartprintexport from './smith-chart/print-export.vue'; 
-import Sparklinedefault from './sparkline/default.vue'; 
-import Sparklineseriestypes from './sparkline/series-types.vue'; 
-import Sparklineaxistypes from './sparkline/axis-types.vue'; 
-import Sparklinesparkgrid from './sparkline/spark-grid.vue'; 
-import Sparklinecustomization from './sparkline/customization.vue'; 
-import Sparklineliveupdate from './sparkline/live-update.vue'; 
-import Sparklinerangeband from './sparkline/range-band.vue'; 
-import Tabdefault from './tab/default.vue'; 
-import Taborientation from './tab/orientation.vue'; 
-import Tabresponsive from './tab/responsive.vue'; 
-import Tabwizard from './tab/wizard.vue'; 
-import TextBoxesdefault from './textboxes/default.vue'; 
+import SparklineChartsdefault from './sparkline/default.vue'; 
+import SparklineChartsseriestypes from './sparkline/series-types.vue'; 
+import SparklineChartsaxistypes from './sparkline/axis-types.vue'; 
+import SparklineChartssparkgrid from './sparkline/spark-grid.vue'; 
+import SparklineChartscustomization from './sparkline/customization.vue'; 
+import SparklineChartsliveupdate from './sparkline/live-update.vue'; 
+import SparklineChartsrangeband from './sparkline/range-band.vue'; 
+import Splitterdefault from './splitter/default.vue'; 
+import Splitteraccordionnavigationmenu from './splitter/accordion-navigation-menu.vue'; 
+import Splitterdetailsview from './splitter/details-view.vue'; 
+import Splitteroutlookstylelayout from './splitter/outlook-style-layout.vue'; 
+import Splittercodeeditorlayout from './splitter/code-editor-layout.vue'; 
+import StockChartdefault from './stock-chart/default.vue'; 
+import StockChartohlc from './stock-chart/ohlc.vue'; 
+import StockChartmultipane from './stock-chart/multi-pane.vue'; 
+import StockChartmultipleseries from './stock-chart/multiple-series.vue'; 
+import StockChartspline from './stock-chart/spline.vue'; 
+import StockChartarea from './stock-chart/area.vue'; 
+import StockChartsplinearea from './stock-chart/spline-area.vue'; 
+import StockChartinversedarea from './stock-chart/inversed-area.vue'; 
+import StockChartplotline from './stock-chart/plot-line.vue'; 
+import StockChartstripline from './stock-chart/strip-line.vue'; 
+import StockChartperiodcustomization from './stock-chart/period-customization.vue'; 
+import StockChartdisablednavigator from './stock-chart/disabled-navigator.vue'; 
+import StockChartdisabledperiod from './stock-chart/disabled-period.vue'; 
+import Tabsdefault from './tab/default.vue'; 
+import Tabsorientation from './tab/orientation.vue'; 
+import Tabsresponsive from './tab/responsive.vue'; 
+import Tabswizard from './tab/wizard.vue'; 
+import TextBoxdefault from './textboxes/default.vue'; 
+import TextBoxtwowaybinding from './textboxes/two-way-binding.vue'; 
 import TimePickerdefault from './timepicker/default.vue'; 
 import TimePickertimeformat from './timepicker/time-format.vue'; 
 import TimePickertimerange from './timepicker/time-range.vue'; 
 import TimePickerlistformatting from './timepicker/list-formatting.vue'; 
+import TimePickertwoway from './timepicker/two-way.vue'; 
 import Toastdefault from './toast/default.vue'; 
 import Toasttypes from './toast/types.vue'; 
 import Toasttemplate from './toast/template.vue'; 
@@ -483,6 +555,48 @@ import Tooltipsmartposition from './tooltip/smart-position.vue';
 import Tooltiptooltipmenu from './tooltip/tooltip-menu.vue'; 
 import Tooltiphtmltemplate from './tooltip/html-template.vue'; 
 import Tooltipapi from './tooltip/api.vue'; 
+import TreeGriddefault from './tree-grid/default.vue'; 
+import TreeGridlocaldata from './tree-grid/localdata.vue'; 
+import TreeGridremotedata from './tree-grid/remotedata.vue'; 
+import TreeGridselfreference from './tree-grid/selfreference.vue'; 
+import TreeGridcolumnformatting from './tree-grid/columnformatting.vue'; 
+import TreeGridcolumntemplate from './tree-grid/columntemplate.vue'; 
+import TreeGridreorder from './tree-grid/reorder.vue'; 
+import TreeGridresizing from './tree-grid/resizing.vue'; 
+import TreeGridcolumnmenu from './tree-grid/columnmenu.vue'; 
+import TreeGridcellalignment from './tree-grid/cellalignment.vue'; 
+import TreeGridautowrap from './tree-grid/autowrap.vue'; 
+import TreeGridshowhide from './tree-grid/showhide.vue'; 
+import TreeGridheadertemplate from './tree-grid/headertemplate.vue'; 
+import TreeGridstackedheader from './tree-grid/stackedheader.vue'; 
+import TreeGridrowhover from './tree-grid/rowhover.vue'; 
+import TreeGridrowheight from './tree-grid/rowheight.vue'; 
+import TreeGridinlineediting from './tree-grid/inline-editing.vue'; 
+import TreeGriddialogediting from './tree-grid/dialogediting.vue'; 
+import TreeGridlockrow from './tree-grid/lock-row.vue'; 
+import TreeGridcelledittype from './tree-grid/cell-edittype.vue'; 
+import TreeGridcommandcolumn from './tree-grid/commandcolumn.vue'; 
+import TreeGridedittemplate from './tree-grid/edittemplate.vue'; 
+import TreeGridsorting from './tree-grid/sorting.vue'; 
+import TreeGridsortingapi from './tree-grid/sorting-api.vue'; 
+import TreeGridfiltering from './tree-grid/filtering.vue'; 
+import TreeGridfiltermenu from './tree-grid/filtermenu.vue'; 
+import TreeGridsearch from './tree-grid/search.vue'; 
+import TreeGridpaging from './tree-grid/paging.vue'; 
+import TreeGridpagingapi from './tree-grid/paging-api.vue'; 
+import TreeGridselection from './tree-grid/selection.vue'; 
+import TreeGridselectionapi from './tree-grid/selection-api.vue'; 
+import TreeGridaggregate from './tree-grid/aggregate.vue'; 
+import TreeGridcustomaggregate from './tree-grid/custom-aggregate.vue'; 
+import TreeGridcontextmenu from './tree-grid/contextmenu.vue'; 
+import TreeGridcustomcontextmenu from './tree-grid/custom-contextmenu.vue'; 
+import TreeGridexport from './tree-grid/export.vue'; 
+import TreeGridprint from './tree-grid/print.vue'; 
+import TreeGridconditionalformatting from './tree-grid/conditionalformatting.vue'; 
+import TreeGridtoolbartemplate from './tree-grid/toolbar-template.vue'; 
+import TreeGridevents from './tree-grid/events.vue'; 
+import TreeGridkeyboard from './tree-grid/keyboard.vue'; 
+import TreeGridgridlines from './tree-grid/gridlines.vue'; 
 import TreeMapdefault from './treemap/default.vue'; 
 import TreeMaplayout from './treemap/layout.vue'; 
 import TreeMapdrilldown from './treemap/drilldown.vue'; 
@@ -490,6 +604,7 @@ import TreeMapcustomization from './treemap/customization.vue';
 import TreeMaplabel from './treemap/label.vue'; 
 import TreeMaptooltip from './treemap/tooltip.vue'; 
 import TreeMapelection from './treemap/election.vue'; 
+import TreeMapcolormapping from './treemap/color-mapping.vue'; 
 import TreeMapselection from './treemap/selection.vue'; 
 import TreeMapprint from './treemap/print.vue'; 
 import TreeMappie from './treemap/pie.vue'; 
@@ -500,18 +615,17 @@ import TreeViewnodeediting from './treeview/node-editing.vue';
 import TreeViewmultipleselection from './treeview/multiple-selection.vue'; 
 import TreeViewdraganddrop from './treeview/drag-and-drop.vue'; 
 import TreeViewtemplate from './treeview/template.vue'; 
-import TreeViewrighttoleft from './treeview/right-to-left.vue'; 
 import TreeViewlocaldata from './treeview/local-data.vue'; 
 import TreeViewremotedata from './treeview/remote-data.vue'; 
-import Uploaderdefault from './uploader/default.vue'; 
-import Uploaderchunkupload from './uploader/chunk-upload.vue'; 
-import Uploadercustomfilelist from './uploader/custom-file-list.vue'; 
-import Uploaderpreloadfiles from './uploader/preload-files.vue'; 
-import Uploaderfilevalidation from './uploader/file-validation.vue'; 
-import Uploaderimagepreview from './uploader/image-preview.vue'; 
-import Uploaderfileuploadwithforms from './uploader/file-upload-with-forms.vue'; 
-import Uploadercustomdroparea from './uploader/custom-drop-area.vue'; 
-export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:theme/accordion/default.html', component: Accordiondefault, meta: {"eCompName":"Accordion","eSampleName":"Default Functionalities","eCategoryName":"Accordion"} }
+import FileUploaddefault from './uploader/default.vue'; 
+import FileUploadchunkupload from './uploader/chunk-upload.vue'; 
+import FileUploadcustomfilelist from './uploader/custom-file-list.vue'; 
+import FileUploadpreloadfiles from './uploader/preload-files.vue'; 
+import FileUploadfilevalidation from './uploader/file-validation.vue'; 
+import FileUploadimagepreview from './uploader/image-preview.vue'; 
+import FileUploadfileuploadwithforms from './uploader/file-upload-with-forms.vue'; 
+import FileUploadcustomdroparea from './uploader/custom-drop-area.vue'; 
+export default [{path: '/', redirect: '/material/grid/grid-overview'},{ path: '/:theme/accordion/default.html', component: Accordiondefault, meta: {"eCompName":"Accordion","eSampleName":"Default Functionalities","eCategoryName":"Accordion"} }
 ,{ path: '/:theme/accordion/ajax.html', component: Accordionajax, meta: {"eCompName":"Accordion","eSampleName":"Ajax Content","eCategoryName":"Accordion"} }
 ,{ path: '/:theme/accordion/icons.html', component: Accordionicons, meta: {"eCompName":"Accordion","eSampleName":"Icons","eCategoryName":"Accordion"} }
 ,{ path: '/:theme/auto-complete/default.html', component: AutoCompletedefault, meta: {"eCompName":"AutoComplete","eSampleName":"Default Functionalities","eCategoryName":"AutoComplete"} }
@@ -545,13 +659,14 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/calendar/date-range.html', component: Calendardaterange, meta: {"eCompName":"Calendar","eSampleName":"Date Range","eCategoryName":"Calendar"} }
 ,{ path: '/:theme/calendar/special-dates.html', component: Calendarspecialdates, meta: {"eCompName":"Calendar","eSampleName":"Special Dates","eCategoryName":"Calendar"} }
 ,{ path: '/:theme/calendar/multi-select.html', component: Calendarmultiselect, meta: {"eCompName":"Calendar","eSampleName":"Multiple Selection","eCategoryName":"Calendar"} }
+,{ path: '/:theme/calendar/islamic-calendar.html', component: Calendarislamiccalendar, meta: {"eCompName":"Calendar","eSampleName":"Islamic Calendar","eCategoryName":"Calendar"} }
 ,{ path: '/:theme/card/basic.html', component: Cardbasic, meta: {"eCompName":"Card","eSampleName":"Basic Card","eCategoryName":"Card"} }
 ,{ path: '/:theme/card/vertical.html', component: Cardvertical, meta: {"eCompName":"Card","eSampleName":"Vertical Card","eCategoryName":"Card"} }
 ,{ path: '/:theme/card/horizontal.html', component: Cardhorizontal, meta: {"eCompName":"Card","eSampleName":"Horizontal Card","eCategoryName":"Card"} }
 ,{ path: '/:theme/card/swipeable.html', component: Cardswipeable, meta: {"eCompName":"Card","eSampleName":"Swipeable Card","eCategoryName":"Card"} }
 ,{ path: '/:theme/card/flip.html', component: Cardflip, meta: {"eCompName":"Card","eSampleName":"Flip Card","eCategoryName":"Card"} }
 ,{ path: '/:theme/card/reveal.html', component: Cardreveal, meta: {"eCompName":"Card","eSampleName":"Reveal Card","eCategoryName":"Card"} }
-,{ path: '/:theme/card/tile.html', component: Cardtile, meta: {"eCompName":"Card","eSampleName":"Tile Card","eCategoryName":"Card"} }
+,{ path: '/:theme/card/tile.html', component: Cardtile, meta: {"eCompName":"Card","eSampleName":"Tile View","eCategoryName":"Card"} }
 ,{ path: '/:theme/chart/line.html', component: Chartline, meta: {"eCompName":"Chart","eSampleName":"Line","eCategoryName":"Line Charts"} }
 ,{ path: '/:theme/chart/spline.html', component: Chartspline, meta: {"eCompName":"Chart","eSampleName":"Spline","eCategoryName":"Line Charts"} }
 ,{ path: '/:theme/chart/step-line.html', component: Chartstepline, meta: {"eCompName":"Chart","eSampleName":"Step Line","eCategoryName":"Line Charts"} }
@@ -578,18 +693,18 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/chart/stacked-bar.html', component: Chartstackedbar, meta: {"eCompName":"Chart","eSampleName":"Stacked Bar","eCategoryName":"Bar Charts"} }
 ,{ path: '/:theme/chart/stacked-bar-100.html', component: Chartstackedbar100, meta: {"eCompName":"Chart","eSampleName":"100% Stacked Bar","eCategoryName":"Bar Charts"} }
 ,{ path: '/:theme/chart/tornado.html', component: Charttornado, meta: {"eCompName":"Chart","eSampleName":"Negative Stack","eCategoryName":"Bar Charts"} }
-,{ path: '/:theme/chart/scatter.html', component: Chartscatter, meta: {"eCompName":"Chart","eSampleName":"Scatter","eCategoryName":"Scatter and Bubble"} }
+,{ path: '/:theme/chart/scatter-plot.html', component: Chartscatterplot, meta: {"eCompName":"Chart","eSampleName":"Scatter Plot","eCategoryName":"Scatter and Bubble"} }
 ,{ path: '/:theme/chart/bubble.html', component: Chartbubble, meta: {"eCompName":"Chart","eSampleName":"Bubble","eCategoryName":"Scatter and Bubble"} }
 ,{ path: '/:theme/chart/waterfall.html', component: Chartwaterfall, meta: {"eCompName":"Chart","eSampleName":"Waterfall","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/histogram.html', component: Charthistogram, meta: {"eCompName":"Chart","eSampleName":"Histogram","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/box-and-whisker.html', component: Chartboxandwhisker, meta: {"eCompName":"Chart","eSampleName":"Box and Whisker","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/error-bar.html', component: Charterrorbar, meta: {"eCompName":"Chart","eSampleName":"Error Bar","eCategoryName":"Other Types"} }
 ,{ path: '/:theme/chart/trend-lines.html', component: Charttrendlines, meta: {"eCompName":"Chart","eSampleName":"Trendlines","eCategoryName":"Other Types"} }
-,{ path: '/:theme/chart/combination-series.html', component: Chartcombinationseries, meta: {"eCompName":"Chart","eSampleName":"Combination Series","eCategoryName":"Other Types"} }
-,{ path: '/:theme/chart/pare-to.html', component: Chartpareto, meta: {"eCompName":"Chart","eSampleName":"Pareto Chart","eCategoryName":"Other Types"} }
-,{ path: '/:theme/chart/hilo.html', component: Charthilo, meta: {"eCompName":"Chart","eSampleName":"Hilo","eCategoryName":"Financial Charts"} }
-,{ path: '/:theme/chart/hilo-open-close.html', component: Charthiloopenclose, meta: {"eCompName":"Chart","eSampleName":"Hilo Open Close","eCategoryName":"Financial Charts"} }
-,{ path: '/:theme/chart/candle.html', component: Chartcandle, meta: {"eCompName":"Chart","eSampleName":"Candle","eCategoryName":"Financial Charts"} }
+,{ path: '/:theme/chart/multi-series-chart.html', component: Chartmultiserieschart, meta: {"eCompName":"Chart","eSampleName":"Multi-Series Chart","eCategoryName":"Other Types"} }
+,{ path: '/:theme/chart/pareto.html', component: Chartpareto, meta: {"eCompName":"Chart","eSampleName":"Pareto Chart","eCategoryName":"Other Types"} }
+,{ path: '/:theme/chart/hilo.html', component: Charthilo, meta: {"eCompName":"Chart","eSampleName":"Hilo","eCategoryName":"Stock Charts"} }
+,{ path: '/:theme/chart/hilo-open-close.html', component: Charthiloopenclose, meta: {"eCompName":"Chart","eSampleName":"Hilo Open Close","eCategoryName":"Stock Charts"} }
+,{ path: '/:theme/chart/candle-stick.html', component: Chartcandlestick, meta: {"eCompName":"Chart","eSampleName":"Candle Stick","eCategoryName":"Stock Charts"} }
 ,{ path: '/:theme/chart/accumulation-distribution-indicator.html', component: Chartaccumulationdistributionindicator, meta: {"eCompName":"Chart","eSampleName":"Accumulation Distribution","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/average-true-range-indicator.html', component: Chartaveragetruerangeindicator, meta: {"eCompName":"Chart","eSampleName":"ATR","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/bollinger.html', component: Chartbollinger, meta: {"eCompName":"Chart","eSampleName":"Bollinger","eCategoryName":"Technical Indicators"} }
@@ -600,9 +715,10 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/chart/simple-moving-average-indicator.html', component: Chartsimplemovingaverageindicator, meta: {"eCompName":"Chart","eSampleName":"SMA","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/stochastic.html', component: Chartstochastic, meta: {"eCompName":"Chart","eSampleName":"Stochastic","eCategoryName":"Technical Indicators"} }
 ,{ path: '/:theme/chart/triangular-moving-average-indicator.html', component: Charttriangularmovingaverageindicator, meta: {"eCompName":"Chart","eSampleName":"TMA","eCategoryName":"Technical Indicators"} }
-,{ path: '/:theme/chart/performance.html', component: Chartperformance, meta: {"eCompName":"Chart","eSampleName":"Benchmark","eCategoryName":"Performance"} }
+,{ path: '/:theme/chart/chart-performance.html', component: Chartchartperformance, meta: {"eCompName":"Chart","eSampleName":"Chart Performance","eCategoryName":"Benchmark"} }
 ,{ path: '/:theme/chart/default-pie.html', component: Chartdefaultpie, meta: {"eCompName":"Chart","eSampleName":"Pie","eCategoryName":"Accumulation Charts"} }
-,{ path: '/:theme/chart/doughnut.html', component: Chartdoughnut, meta: {"eCompName":"Chart","eSampleName":"Doughnut","eCategoryName":"Accumulation Charts"} }
+,{ path: '/:theme/chart/pie-radius.html', component: Chartpieradius, meta: {"eCompName":"Chart","eSampleName":"Pie with Various Radius","eCategoryName":"Accumulation Charts"} }
+,{ path: '/:theme/chart/donut.html', component: Chartdonut, meta: {"eCompName":"Chart","eSampleName":"Donut","eCategoryName":"Accumulation Charts"} }
 ,{ path: '/:theme/chart/pyramid.html', component: Chartpyramid, meta: {"eCompName":"Chart","eSampleName":"Pyramid","eCategoryName":"Accumulation Charts"} }
 ,{ path: '/:theme/chart/funnel.html', component: Chartfunnel, meta: {"eCompName":"Chart","eSampleName":"Funnel","eCategoryName":"Accumulation Charts"} }
 ,{ path: '/:theme/chart/default-doughnut.html', component: Chartdefaultdoughnut, meta: {"eCompName":"Chart","eSampleName":"Pie with Legend","eCategoryName":"Accumulation Charts"} }
@@ -621,13 +737,14 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/chart/polar-range-column.html', component: Chartpolarrangecolumn, meta: {"eCompName":"Chart","eSampleName":"Range Column","eCategoryName":"Polar Radar"} }
 ,{ path: '/:theme/chart/local-data.html', component: Chartlocaldata, meta: {"eCompName":"Chart","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/chart/remote-data.html', component: Chartremotedata, meta: {"eCompName":"Chart","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/chart/lazy-loading.html', component: Chartlazyloading, meta: {"eCompName":"Chart","eSampleName":"Lazy Loading","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/chart/numeric.html', component: Chartnumeric, meta: {"eCompName":"Chart","eSampleName":"Numeric Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/date-time.html', component: Chartdatetime, meta: {"eCompName":"Chart","eSampleName":"Datetime Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/date-time-category.html', component: Chartdatetimecategory, meta: {"eCompName":"Chart","eSampleName":"DateTime Categoty Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/category.html', component: Chartcategory, meta: {"eCompName":"Chart","eSampleName":"Category Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/indexed.html', component: Chartindexed, meta: {"eCompName":"Chart","eSampleName":"Indexed Category Axis","eCategoryName":"Chart Axes"} }
-,{ path: '/:theme/chart/logarithmic.html', component: Chartlogarithmic, meta: {"eCompName":"Chart","eSampleName":"Log Axis","eCategoryName":"Chart Axes"} }
-,{ path: '/:theme/chart/multiple-axes.html', component: Chartmultipleaxes, meta: {"eCompName":"Chart","eSampleName":"Multiple Axes","eCategoryName":"Chart Axes"} }
+,{ path: '/:theme/chart/logarithmic-scale.html', component: Chartlogarithmicscale, meta: {"eCompName":"Chart","eSampleName":"Logarithmic Scale","eCategoryName":"Chart Axes"} }
+,{ path: '/:theme/chart/multiple-axis.html', component: Chartmultipleaxis, meta: {"eCompName":"Chart","eSampleName":"Multiple Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/inversed.html', component: Chartinversed, meta: {"eCompName":"Chart","eSampleName":"Inversed Axis","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/strip-line.html', component: Chartstripline, meta: {"eCompName":"Chart","eSampleName":"Strip Line","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/strip-line-recurrence.html', component: Chartstriplinerecurrence, meta: {"eCompName":"Chart","eSampleName":"Strip Line Recurrence","eCategoryName":"Chart Axes"} }
@@ -635,7 +752,7 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/chart/multi-level-label.html', component: Chartmultilevellabel, meta: {"eCompName":"Chart","eSampleName":"Multi Level Labels","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/axes-crossing.html', component: Chartaxescrossing, meta: {"eCompName":"Chart","eSampleName":"Axes Crossing","eCategoryName":"Chart Axes"} }
 ,{ path: '/:theme/chart/sorting.html', component: Chartsorting, meta: {"eCompName":"Chart","eSampleName":"Sorting","eCategoryName":"Chart Customization"} }
-,{ path: '/:theme/chart/symbols.html', component: Chartsymbols, meta: {"eCompName":"Chart","eSampleName":"Symbols","eCategoryName":"Chart Customization"} }
+,{ path: '/:theme/chart/marker-chart.html', component: Chartmarkerchart, meta: {"eCompName":"Chart","eSampleName":"Marker Chart","eCategoryName":"Chart Customization"} }
 ,{ path: '/:theme/chart/pie-annotation.html', component: Chartpieannotation, meta: {"eCompName":"Chart","eSampleName":"Annotation","eCategoryName":"Chart Customization"} }
 ,{ path: '/:theme/chart/data-label-template.html', component: Chartdatalabeltemplate, meta: {"eCompName":"Chart","eSampleName":"DataLabel Template","eCategoryName":"Chart Customization"} }
 ,{ path: '/:theme/chart/vertical.html', component: Chartvertical, meta: {"eCompName":"Chart","eSampleName":"Vertical Chart","eCategoryName":"Chart Customization"} }
@@ -647,21 +764,26 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/chart/cross-hair.html', component: Chartcrosshair, meta: {"eCompName":"Chart","eSampleName":"Crosshair","eCategoryName":"User Interaction"} }
 ,{ path: '/:theme/chart/trackball.html', component: Charttrackball, meta: {"eCompName":"Chart","eSampleName":"Trackball","eCategoryName":"User Interaction"} }
 ,{ path: '/:theme/chart/zooming.html', component: Chartzooming, meta: {"eCompName":"Chart","eSampleName":"Zooming and Panning","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/circular-gauge/default.html', component: CircularGaugedefault, meta: {"eCompName":"CircularGauge","eSampleName":"Default Functionalities","eCategoryName":"Circular Gauge"} }
-,{ path: '/:theme/circular-gauge/range.html', component: CircularGaugerange, meta: {"eCompName":"CircularGauge","eSampleName":"Range","eCategoryName":"Circular Gauge"} }
-,{ path: '/:theme/circular-gauge/labels.html', component: CircularGaugelabels, meta: {"eCompName":"CircularGauge","eSampleName":"Tick and Labels","eCategoryName":"Circular Gauge"} }
-,{ path: '/:theme/circular-gauge/customization.html', component: CircularGaugecustomization, meta: {"eCompName":"CircularGauge","eSampleName":"Gauge Customization","eCategoryName":"Circular Gauge"} }
-,{ path: '/:theme/circular-gauge/compass.html', component: CircularGaugecompass, meta: {"eCompName":"CircularGauge","eSampleName":"Direction Compass","eCategoryName":"Circular Gauge"} }
-,{ path: '/:theme/circular-gauge/pointer-image.html', component: CircularGaugepointerimage, meta: {"eCompName":"CircularGauge","eSampleName":"Pointer Image","eCategoryName":"Pointer"} }
-,{ path: '/:theme/circular-gauge/pointer.html', component: CircularGaugepointer, meta: {"eCompName":"CircularGauge","eSampleName":"Pointer Customization","eCategoryName":"Pointer"} }
-,{ path: '/:theme/circular-gauge/multiple-axis.html', component: CircularGaugemultipleaxis, meta: {"eCompName":"CircularGauge","eSampleName":"Multiple Axis","eCategoryName":"Axes"} }
-,{ path: '/:theme/circular-gauge/user-interaction.html', component: CircularGaugeuserinteraction, meta: {"eCompName":"CircularGauge","eSampleName":"Pointer Drag","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/circular-gauge/tooltip.html', component: CircularGaugetooltip, meta: {"eCompName":"CircularGauge","eSampleName":"Tooltip","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/circular-gauge/data-sample.html', component: CircularGaugedatasample, meta: {"eCompName":"CircularGauge","eSampleName":"Data Sample","eCategoryName":"Live"} }
-,{ path: '/:theme/color-picker/default.html', component: ColorPickerdefault, meta: {"eCompName":"ColorPicker","eSampleName":"Default Functionalities","eCategoryName":"ColorPicker"} }
-,{ path: '/:theme/color-picker/inline.html', component: ColorPickerinline, meta: {"eCompName":"ColorPicker","eSampleName":"Inline Mode","eCategoryName":"ColorPicker"} }
-,{ path: '/:theme/color-picker/custom.html', component: ColorPickercustom, meta: {"eCompName":"ColorPicker","eSampleName":"Custom Palettes","eCategoryName":"ColorPicker"} }
-,{ path: '/:theme/color-picker/api.html', component: ColorPickerapi, meta: {"eCompName":"ColorPicker","eSampleName":"API","eCategoryName":"ColorPicker"} }
+,{ path: '/:theme/chips/default.html', component: Chipsdefault, meta: {"eCompName":"Chips","eSampleName":"Default Functionalities","eCategoryName":"Chips"} }
+,{ path: '/:theme/chips/api.html', component: Chipsapi, meta: {"eCompName":"Chips","eSampleName":"API","eCategoryName":"Chips"} }
+,{ path: '/:theme/circular-gauge/default.html', component: CircularGaugedefault, meta: {"eCompName":"Circular Gauge","eSampleName":"Default Functionalities","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/range.html', component: CircularGaugerange, meta: {"eCompName":"Circular Gauge","eSampleName":"Range","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/labels.html', component: CircularGaugelabels, meta: {"eCompName":"Circular Gauge","eSampleName":"Tick and Labels","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/customization.html', component: CircularGaugecustomization, meta: {"eCompName":"Circular Gauge","eSampleName":"Gauge Customization","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/semi-circular-gauge.html', component: CircularGaugesemicirculargauge, meta: {"eCompName":"Circular Gauge","eSampleName":"Semi-circular Gauge","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/arc-gauge.html', component: CircularGaugearcgauge, meta: {"eCompName":"Circular Gauge","eSampleName":"Arc Gauge","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/compass.html', component: CircularGaugecompass, meta: {"eCompName":"Circular Gauge","eSampleName":"Direction Compass","eCategoryName":"Circular Gauge"} }
+,{ path: '/:theme/circular-gauge/pointer-image.html', component: CircularGaugepointerimage, meta: {"eCompName":"Circular Gauge","eSampleName":"Pointer Image","eCategoryName":"Pointer"} }
+,{ path: '/:theme/circular-gauge/pointer.html', component: CircularGaugepointer, meta: {"eCompName":"Circular Gauge","eSampleName":"Pointer Customization","eCategoryName":"Pointer"} }
+,{ path: '/:theme/circular-gauge/multiple-axis.html', component: CircularGaugemultipleaxis, meta: {"eCompName":"Circular Gauge","eSampleName":"Multiple Axis","eCategoryName":"Axes"} }
+,{ path: '/:theme/circular-gauge/user-interaction.html', component: CircularGaugeuserinteraction, meta: {"eCompName":"Circular Gauge","eSampleName":"Pointer Drag","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/circular-gauge/tooltip.html', component: CircularGaugetooltip, meta: {"eCompName":"Circular Gauge","eSampleName":"Tooltip","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/circular-gauge/data-sample.html', component: CircularGaugedatasample, meta: {"eCompName":"Circular Gauge","eSampleName":"Data Sample","eCategoryName":"Live"} }
+,{ path: '/:theme/circular-gauge/speedometer.html', component: CircularGaugespeedometer, meta: {"eCompName":"Circular Gauge","eSampleName":"Speedometer","eCategoryName":"Live"} }
+,{ path: '/:theme/color-picker/default.html', component: ColorPickerdefault, meta: {"eCompName":"Color Picker","eSampleName":"Default Functionalities","eCategoryName":"Color Picker"} }
+,{ path: '/:theme/color-picker/inline.html', component: ColorPickerinline, meta: {"eCompName":"Color Picker","eSampleName":"Inline Mode","eCategoryName":"Color Picker"} }
+,{ path: '/:theme/color-picker/custom.html', component: ColorPickercustom, meta: {"eCompName":"Color Picker","eSampleName":"Custom Palettes","eCategoryName":"Color Picker"} }
+,{ path: '/:theme/color-picker/api.html', component: ColorPickerapi, meta: {"eCompName":"Color Picker","eSampleName":"API","eCategoryName":"Color Picker"} }
 ,{ path: '/:theme/combo-box/default.html', component: ComboBoxdefault, meta: {"eCompName":"ComboBox","eSampleName":"Default Functionalities","eCategoryName":"ComboBox"} }
 ,{ path: '/:theme/combo-box/grouping-icon.html', component: ComboBoxgroupingicon, meta: {"eCompName":"ComboBox","eSampleName":"Grouping and Icons","eCategoryName":"ComboBox"} }
 ,{ path: '/:theme/combo-box/data-binding.html', component: ComboBoxdatabinding, meta: {"eCompName":"ComboBox","eSampleName":"Data Binding","eCategoryName":"ComboBox"} }
@@ -670,23 +792,26 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/combo-box/filtering.html', component: ComboBoxfiltering, meta: {"eCompName":"ComboBox","eSampleName":"Filtering","eCategoryName":"ComboBox"} }
 ,{ path: '/:theme/combo-box/cascading.html', component: ComboBoxcascading, meta: {"eCompName":"ComboBox","eSampleName":"Cascading","eCategoryName":"ComboBox"} }
 ,{ path: '/:theme/combo-box/diacritics-filtering.html', component: ComboBoxdiacriticsfiltering, meta: {"eCompName":"ComboBox","eSampleName":"Diacritics Filtering","eCategoryName":"ComboBox"} }
-,{ path: '/:theme/context-menu/default.html', component: ContextMenudefault, meta: {"eCompName":"ContextMenu","eSampleName":"Default Functionalities","eCategoryName":"ContextMenu"} }
+,{ path: '/:theme/context-menu/default.html', component: ContextMenudefault, meta: {"eCompName":"Context Menu","eSampleName":"Default Functionalities","eCategoryName":"Context Menu"} }
 ,{ path: '/:theme/datepicker/default.html', component: DatePickerdefault, meta: {"eCompName":"DatePicker","eSampleName":"Default Functionalities","eCategoryName":"DatePicker"} }
 ,{ path: '/:theme/datepicker/disabled.html', component: DatePickerdisabled, meta: {"eCompName":"DatePicker","eSampleName":"Disabled Dates","eCategoryName":"DatePicker"} }
 ,{ path: '/:theme/datepicker/date-range.html', component: DatePickerdaterange, meta: {"eCompName":"DatePicker","eSampleName":"Date Range","eCategoryName":"DatePicker"} }
 ,{ path: '/:theme/datepicker/date-format.html', component: DatePickerdateformat, meta: {"eCompName":"DatePicker","eSampleName":"Format","eCategoryName":"DatePicker"} }
 ,{ path: '/:theme/datepicker/special-dates.html', component: DatePickerspecialdates, meta: {"eCompName":"DatePicker","eSampleName":"Special Dates","eCategoryName":"DatePicker"} }
+,{ path: '/:theme/datepicker/two-way.html', component: DatePickertwoway, meta: {"eCompName":"DatePicker","eSampleName":"Two-Way Binding","eCategoryName":"DatePicker"} }
 ,{ path: '/:theme/daterangepicker/default.html', component: DateRangePickerdefault, meta: {"eCompName":"DateRangePicker","eSampleName":"Default Functionalities","eCategoryName":"DateRangePicker"} }
 ,{ path: '/:theme/daterangepicker/day-span.html', component: DateRangePickerdayspan, meta: {"eCompName":"DateRangePicker","eSampleName":"Day Span","eCategoryName":"DateRangePicker"} }
 ,{ path: '/:theme/daterangepicker/date-range.html', component: DateRangePickerdaterange, meta: {"eCompName":"DateRangePicker","eSampleName":"Date Range","eCategoryName":"DateRangePicker"} }
 ,{ path: '/:theme/daterangepicker/date-format.html', component: DateRangePickerdateformat, meta: {"eCompName":"DateRangePicker","eSampleName":"Format","eCategoryName":"DateRangePicker"} }
 ,{ path: '/:theme/daterangepicker/presets.html', component: DateRangePickerpresets, meta: {"eCompName":"DateRangePicker","eSampleName":"Presets","eCategoryName":"DateRangePicker"} }
+,{ path: '/:theme/daterangepicker/two-way.html', component: DateRangePickertwoway, meta: {"eCompName":"DateRangePicker","eSampleName":"Two-Way Binding","eCategoryName":"DateRangePicker"} }
 ,{ path: '/:theme/datetimepicker/default.html', component: DateTimePickerdefault, meta: {"eCompName":"DateTimePicker","eSampleName":"Default Functionalities","eCategoryName":"DateTimePicker"} }
 ,{ path: '/:theme/datetimepicker/disabled.html', component: DateTimePickerdisabled, meta: {"eCompName":"DateTimePicker","eSampleName":"Disabled Dates","eCategoryName":"DateTimePicker"} }
 ,{ path: '/:theme/datetimepicker/date-time-range.html', component: DateTimePickerdatetimerange, meta: {"eCompName":"DateTimePicker","eSampleName":"DateTime Range","eCategoryName":"DateTimePicker"} }
 ,{ path: '/:theme/datetimepicker/date-time-format.html', component: DateTimePickerdatetimeformat, meta: {"eCompName":"DateTimePicker","eSampleName":"Format","eCategoryName":"DateTimePicker"} }
 ,{ path: '/:theme/datetimepicker/special-dates.html', component: DateTimePickerspecialdates, meta: {"eCompName":"DateTimePicker","eSampleName":"Special Dates","eCategoryName":"DateTimePicker"} }
-,{ path: '/:theme/diagram/defaultfunctionality.html', component: Diagramdefaultfunctionality, meta: {"eCompName":"Diagram","eSampleName":"Default Functionalities","eCategoryName":"Getting Started"} }
+,{ path: '/:theme/datetimepicker/two-way.html', component: DateTimePickertwoway, meta: {"eCompName":"DateTimePicker","eSampleName":"Two-Way Binding","eCategoryName":"DateTimePicker"} }
+,{ path: '/:theme/diagram/default-functionality.html', component: Diagramdefaultfunctionality, meta: {"eCompName":"Diagram","eSampleName":"Default Functionalities","eCategoryName":"Getting Started"} }
 ,{ path: '/:theme/diagram/shape-gallery.html', component: Diagramshapegallery, meta: {"eCompName":"Diagram","eSampleName":"Shapes","eCategoryName":"Getting Started"} }
 ,{ path: '/:theme/diagram/node.html', component: Diagramnode, meta: {"eCompName":"Diagram","eSampleName":"Nodes","eCategoryName":"Getting Started"} }
 ,{ path: '/:theme/diagram/connector.html', component: Diagramconnector, meta: {"eCompName":"Diagram","eSampleName":"Connectors","eCategoryName":"Getting Started"} }
@@ -711,14 +836,20 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/diagram/pert-chart.html', component: Diagrampertchart, meta: {"eCompName":"Diagram","eSampleName":"PERT Chart","eCategoryName":"Automatic Layouts"} }
 ,{ path: '/:theme/diagram/remote-data.html', component: Diagramremotedata, meta: {"eCompName":"Diagram","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/diagram/local-data.html', component: Diagramlocaldata, meta: {"eCompName":"Diagram","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/diagram/venndiagram.html', component: Diagramvenndiagram, meta: {"eCompName":"Diagram","eSampleName":"Venn Diagram","eCategoryName":"Static Diagram"} }
+,{ path: '/:theme/diagram/crud.html', component: Diagramcrud, meta: {"eCompName":"Diagram","eSampleName":"CRUD","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/diagram/logical-circuit.html', component: Diagramlogicalcircuit, meta: {"eCompName":"Diagram","eSampleName":"Logic Circuit Diagram","eCategoryName":"Use Case Diagram"} }
+,{ path: '/:theme/diagram/uml-activity.html', component: Diagramumlactivity, meta: {"eCompName":"Diagram","eSampleName":"UML Activity Diagram","eCategoryName":"Use Case Diagram"} }
+,{ path: '/:theme/diagram/network-diagram.html', component: Diagramnetworkdiagram, meta: {"eCompName":"Diagram","eSampleName":"Network Diagram","eCategoryName":"Use Case Diagram"} }
+,{ path: '/:theme/diagram/uml-class-diagram.html', component: Diagramumlclassdiagram, meta: {"eCompName":"Diagram","eSampleName":"UML Class Diagram","eCategoryName":"Use Case Diagram"} }
+,{ path: '/:theme/diagram/venn-diagram.html', component: Diagramvenndiagram, meta: {"eCompName":"Diagram","eSampleName":"Venn Diagram","eCategoryName":"Static Diagram"} }
 ,{ path: '/:theme/diagram/fishbone-diagram.html', component: Diagramfishbonediagram, meta: {"eCompName":"Diagram","eSampleName":"Fishbone Diagram","eCategoryName":"Static Diagram"} }
 ,{ path: '/:theme/dialog/default.html', component: Dialogdefault, meta: {"eCompName":"Dialog","eSampleName":"Default Functionalities","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/custom-dialog.html', component: Dialogcustomdialog, meta: {"eCompName":"Dialog","eSampleName":"Custom Dialogs","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/modal-dialog.html', component: Dialogmodaldialog, meta: {"eCompName":"Dialog","eSampleName":"Modal","eCategoryName":"Dialog"} }
-,{ path: '/:theme/dialog/dialog-contents-via-ajax.html', component: Dialogdialogcontentsviaajax, meta: {"eCompName":"Dialog","eSampleName":"Ajax","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/template.html', component: Dialogtemplate, meta: {"eCompName":"Dialog","eSampleName":"Template","eCategoryName":"Dialog"} }
+,{ path: '/:theme/dialog/dialog-contents-via-ajax.html', component: Dialogdialogcontentsviaajax, meta: {"eCompName":"Dialog","eSampleName":"Ajax","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/draggable.html', component: Dialogdraggable, meta: {"eCompName":"Dialog","eSampleName":"Draggable","eCategoryName":"Dialog"} }
+,{ path: '/:theme/dialog/resizable.html', component: Dialogresizable, meta: {"eCompName":"Dialog","eSampleName":"Resizable","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/position.html', component: Dialogposition, meta: {"eCompName":"Dialog","eSampleName":"Positioning","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/animation.html', component: Dialoganimation, meta: {"eCompName":"Dialog","eSampleName":"Animation","eCategoryName":"Dialog"} }
 ,{ path: '/:theme/dialog/multiple-dialogs.html', component: Dialogmultipledialogs, meta: {"eCompName":"Dialog","eSampleName":"Multiple Dialogs","eCategoryName":"Dialog"} }
@@ -733,14 +864,15 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/document-editor/headers-and-footers.html', component: DocumentEditorheadersandfooters, meta: {"eCompName":"DocumentEditor","eSampleName":"Headers and Footers","eCategoryName":"Editing Features"} }
 ,{ path: '/:theme/document-editor/table-of-contents.html', component: DocumentEditortableofcontents, meta: {"eCompName":"DocumentEditor","eSampleName":"Table of Contents","eCategoryName":"Editing Features"} }
 ,{ path: '/:theme/document-editor/print.html', component: DocumentEditorprint, meta: {"eCompName":"DocumentEditor","eSampleName":"Print","eCategoryName":"Print"} }
-,{ path: '/:theme/drop-down-list/default.html', component: DropDownListdefault, meta: {"eCompName":"DropDownList","eSampleName":"Default Functionalities","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/grouping-icon.html', component: DropDownListgroupingicon, meta: {"eCompName":"DropDownList","eSampleName":"Grouping and Icons","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/data-binding.html', component: DropDownListdatabinding, meta: {"eCompName":"DropDownList","eSampleName":"Data Binding","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/template.html', component: DropDownListtemplate, meta: {"eCompName":"DropDownList","eSampleName":"Template","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/filtering.html', component: DropDownListfiltering, meta: {"eCompName":"DropDownList","eSampleName":"Filtering","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/cascading.html', component: DropDownListcascading, meta: {"eCompName":"DropDownList","eSampleName":"Cascading","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/inline.html', component: DropDownListinline, meta: {"eCompName":"DropDownList","eSampleName":"Inline","eCategoryName":"DropDownList"} }
-,{ path: '/:theme/drop-down-list/diacritics-filtering.html', component: DropDownListdiacriticsfiltering, meta: {"eCompName":"DropDownList","eSampleName":"Diacritics Filtering","eCategoryName":"DropDownList"} }
+,{ path: '/:theme/document-editor/right-to-left.html', component: DocumentEditorrighttoleft, meta: {"eCompName":"DocumentEditor","eSampleName":"Right To Left","eCategoryName":"RTL"} }
+,{ path: '/:theme/drop-down-list/default.html', component: DropdownListdefault, meta: {"eCompName":"Dropdown List","eSampleName":"Default Functionalities","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/grouping-icon.html', component: DropdownListgroupingicon, meta: {"eCompName":"Dropdown List","eSampleName":"Grouping and Icons","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/data-binding.html', component: DropdownListdatabinding, meta: {"eCompName":"Dropdown List","eSampleName":"Data Binding","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/template.html', component: DropdownListtemplate, meta: {"eCompName":"Dropdown List","eSampleName":"Template","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/filtering.html', component: DropdownListfiltering, meta: {"eCompName":"Dropdown List","eSampleName":"Filtering","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/cascading.html', component: DropdownListcascading, meta: {"eCompName":"Dropdown List","eSampleName":"Cascading","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/inline.html', component: DropdownListinline, meta: {"eCompName":"Dropdown List","eSampleName":"Inline","eCategoryName":"Dropdown List"} }
+,{ path: '/:theme/drop-down-list/diacritics-filtering.html', component: DropdownListdiacriticsfiltering, meta: {"eCompName":"Dropdown List","eSampleName":"Diacritics Filtering","eCategoryName":"Dropdown List"} }
 ,{ path: '/:theme/grid/grid-overview.html', component: DataGridgridoverview, meta: {"eCompName":"Data Grid","eSampleName":"Overview","eCategoryName":"Data Grid"} }
 ,{ path: '/:theme/grid/default.html', component: DataGriddefault, meta: {"eCompName":"Data Grid","eSampleName":"Default Functionalities","eCategoryName":"Data Grid"} }
 ,{ path: '/:theme/grid/grouping.html', component: DataGridgrouping, meta: {"eCompName":"Data Grid","eSampleName":"Grouping","eCategoryName":"Data Grid"} }
@@ -772,6 +904,8 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/grid/detail-template.html', component: DataGriddetailtemplate, meta: {"eCompName":"Data Grid","eSampleName":"Detail Template","eCategoryName":"Rows"} }
 ,{ path: '/:theme/grid/row-height.html', component: DataGridrowheight, meta: {"eCompName":"Data Grid","eSampleName":"Row Height","eCategoryName":"Rows"} }
 ,{ path: '/:theme/grid/row-drag-and-drop.html', component: DataGridrowdraganddrop, meta: {"eCompName":"Data Grid","eSampleName":"Row Drag and Drop","eCategoryName":"Rows"} }
+,{ path: '/:theme/grid/drag-and-drop-within-grid.html', component: DataGriddraganddropwithingrid, meta: {"eCompName":"Data Grid","eSampleName":"Row Drag And Drop Within Grid","eCategoryName":"Rows"} }
+,{ path: '/:theme/grid/row-spanning.html', component: DataGridrowspanning, meta: {"eCompName":"Data Grid","eSampleName":"Row Spanning","eCategoryName":"Rows"} }
 ,{ path: '/:theme/grid/filtering.html', component: DataGridfiltering, meta: {"eCompName":"Data Grid","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
 ,{ path: '/:theme/grid/filter-menu.html', component: DataGridfiltermenu, meta: {"eCompName":"Data Grid","eSampleName":"Filter Menu","eCategoryName":"Filtering"} }
 ,{ path: '/:theme/grid/searching.html', component: DataGridsearching, meta: {"eCompName":"Data Grid","eSampleName":"Search","eCategoryName":"Filtering"} }
@@ -788,30 +922,38 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/grid/command-column.html', component: DataGridcommandcolumn, meta: {"eCompName":"Data Grid","eSampleName":"Command Column","eCategoryName":"Editing"} }
 ,{ path: '/:theme/grid/export.html', component: DataGridexport, meta: {"eCompName":"Data Grid","eSampleName":"Default Exporting","eCategoryName":"Exporting"} }
 ,{ path: '/:theme/grid/advance-export.html', component: DataGridadvanceexport, meta: {"eCompName":"Data Grid","eSampleName":"Advanced Exporting","eCategoryName":"Exporting"} }
-,{ path: '/:theme/heatmap/default.html', component: HeatMapdefault, meta: {"eCompName":"HeatMap","eSampleName":"Default Functionalities","eCategoryName":"HeatMap"} }
-,{ path: '/:theme/heatmap/calendar-heatmap.html', component: HeatMapcalendarheatmap, meta: {"eCompName":"HeatMap","eSampleName":"Calendar Heatmap","eCategoryName":"HeatMap"} }
-,{ path: '/:theme/heatmap/bubble-types.html', component: HeatMapbubbletypes, meta: {"eCompName":"HeatMap","eSampleName":"Bubble Types","eCategoryName":"Bubble HeatMap"} }
-,{ path: '/:theme/heatmap/color-and-size-attributes.html', component: HeatMapcolorandsizeattributes, meta: {"eCompName":"HeatMap","eSampleName":"Color and Size Attributes","eCategoryName":"Bubble HeatMap"} }
-,{ path: '/:theme/heatmap/array-row.html', component: HeatMaparrayrow, meta: {"eCompName":"HeatMap","eSampleName":"Row","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/heatmap/array-cell.html', component: HeatMaparraycell, meta: {"eCompName":"HeatMap","eSampleName":"Cell","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/heatmap/row-json-binding.html', component: HeatMaprowjsonbinding, meta: {"eCompName":"HeatMap","eSampleName":"JSON Row","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/heatmap/cell-json-binding.html', component: HeatMapcelljsonbinding, meta: {"eCompName":"HeatMap","eSampleName":"JSON Cell","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/heatmap/empty-points.html', component: HeatMapemptypoints, meta: {"eCompName":"HeatMap","eSampleName":"Empty Points","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/inversed-axis.html', component: HeatMapinversedaxis, meta: {"eCompName":"HeatMap","eSampleName":"Inversed Axis","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/opposed-axis.html', component: HeatMapopposedaxis, meta: {"eCompName":"HeatMap","eSampleName":"Opposed Axis","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/legend.html', component: HeatMaplegend, meta: {"eCompName":"HeatMap","eSampleName":"Legend Placement","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/large-data.html', component: HeatMaplargedata, meta: {"eCompName":"HeatMap","eSampleName":"Large Data","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/palette-mode.html', component: HeatMappalettemode, meta: {"eCompName":"HeatMap","eSampleName":"Palette Mode","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/rendering-mode.html', component: HeatMaprenderingmode, meta: {"eCompName":"HeatMap","eSampleName":"Rendering Mode","eCategoryName":"Features"} }
-,{ path: '/:theme/heatmap/tooltip-template.html', component: HeatMaptooltiptemplate, meta: {"eCompName":"HeatMap","eSampleName":"Tooltip Template","eCategoryName":"Features"} }
-,{ path: '/:theme/linear-gauge/default.html', component: LinearGaugedefault, meta: {"eCompName":"LinearGauge","eSampleName":"Default Functionalities","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/container.html', component: LinearGaugecontainer, meta: {"eCompName":"LinearGauge","eSampleName":"Container","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/ranges.html', component: LinearGaugeranges, meta: {"eCompName":"LinearGauge","eSampleName":"Ranges","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/data.html', component: LinearGaugedata, meta: {"eCompName":"LinearGauge","eSampleName":"Data Sample","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/axes.html', component: LinearGaugeaxes, meta: {"eCompName":"LinearGauge","eSampleName":"Axes and Pointers","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/annotation.html', component: LinearGaugeannotation, meta: {"eCompName":"LinearGauge","eSampleName":"Annotation","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/tooltip.html', component: LinearGaugetooltip, meta: {"eCompName":"LinearGauge","eSampleName":"Tooltip","eCategoryName":"Linear Gauge"} }
-,{ path: '/:theme/linear-gauge/style.html', component: LinearGaugestyle, meta: {"eCompName":"LinearGauge","eSampleName":"Styles","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/grid/master-details-export.html', component: DataGridmasterdetailsexport, meta: {"eCompName":"Data Grid","eSampleName":"Hierarchy Exporting","eCategoryName":"Exporting"} }
+,{ path: '/:theme/grid/print.html', component: DataGridprint, meta: {"eCompName":"Data Grid","eSampleName":"Print","eCategoryName":"Exporting"} }
+,{ path: '/:theme/heatmap/default.html', component: HeatmapChartdefault, meta: {"eCompName":"Heatmap Chart","eSampleName":"Default Functionalities","eCategoryName":"Heatmap Chart"} }
+,{ path: '/:theme/heatmap/calendar-heatmap.html', component: HeatmapChartcalendarheatmap, meta: {"eCompName":"Heatmap Chart","eSampleName":"Calendar Heatmap","eCategoryName":"Heatmap Chart"} }
+,{ path: '/:theme/heatmap/bubble-types.html', component: HeatmapChartbubbletypes, meta: {"eCompName":"Heatmap Chart","eSampleName":"Bubble Types","eCategoryName":"Bubble HeatMap"} }
+,{ path: '/:theme/heatmap/color-and-size-attributes.html', component: HeatmapChartcolorandsizeattributes, meta: {"eCompName":"Heatmap Chart","eSampleName":"Color and Size Attributes","eCategoryName":"Bubble HeatMap"} }
+,{ path: '/:theme/heatmap/array-row.html', component: HeatmapChartarrayrow, meta: {"eCompName":"Heatmap Chart","eSampleName":"Row","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/heatmap/array-cell.html', component: HeatmapChartarraycell, meta: {"eCompName":"Heatmap Chart","eSampleName":"Cell","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/heatmap/row-json-binding.html', component: HeatmapChartrowjsonbinding, meta: {"eCompName":"Heatmap Chart","eSampleName":"JSON Row","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/heatmap/cell-json-binding.html', component: HeatmapChartcelljsonbinding, meta: {"eCompName":"Heatmap Chart","eSampleName":"JSON Cell","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/heatmap/empty-points.html', component: HeatmapChartemptypoints, meta: {"eCompName":"Heatmap Chart","eSampleName":"Empty Points","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/inversed-axis.html', component: HeatmapChartinversedaxis, meta: {"eCompName":"Heatmap Chart","eSampleName":"Inversed Axis","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/opposed-axis.html', component: HeatmapChartopposedaxis, meta: {"eCompName":"Heatmap Chart","eSampleName":"Opposed Axis","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/multi-level-labels.html', component: HeatmapChartmultilevellabels, meta: {"eCompName":"Heatmap Chart","eSampleName":"Multi Level Labels","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/cell-selection.html', component: HeatmapChartcellselection, meta: {"eCompName":"Heatmap Chart","eSampleName":"Selection","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/legend.html', component: HeatmapChartlegend, meta: {"eCompName":"Heatmap Chart","eSampleName":"Legend Placement","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/large-data.html', component: HeatmapChartlargedata, meta: {"eCompName":"Heatmap Chart","eSampleName":"Large Data","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/palette-mode.html', component: HeatmapChartpalettemode, meta: {"eCompName":"Heatmap Chart","eSampleName":"Palette Mode","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/rendering-mode.html', component: HeatmapChartrenderingmode, meta: {"eCompName":"Heatmap Chart","eSampleName":"Rendering Mode","eCategoryName":"Features"} }
+,{ path: '/:theme/heatmap/tooltip-template.html', component: HeatmapCharttooltiptemplate, meta: {"eCompName":"Heatmap Chart","eSampleName":"Tooltip Template","eCategoryName":"Features"} }
+,{ path: '/:theme/inplace-editor/default.html', component: InPlaceEditordefault, meta: {"eCompName":"InPlaceEditor","eSampleName":"Overview","eCategoryName":"InPlaceEditor"} }
+,{ path: '/:theme/inplace-editor/dropdowns.html', component: InPlaceEditordropdowns, meta: {"eCompName":"InPlaceEditor","eSampleName":"Dropdown Components","eCategoryName":"InPlaceEditor"} }
+,{ path: '/:theme/inplace-editor/pickers.html', component: InPlaceEditorpickers, meta: {"eCompName":"InPlaceEditor","eSampleName":"Date Components","eCategoryName":"InPlaceEditor"} }
+,{ path: '/:theme/inplace-editor/edit-post.html', component: InPlaceEditoreditpost, meta: {"eCompName":"InPlaceEditor","eSampleName":"Edit Post","eCategoryName":"Use Case"} }
+,{ path: '/:theme/linear-gauge/default.html', component: LinearGaugedefault, meta: {"eCompName":"Linear Gauge","eSampleName":"Default Functionalities","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/container.html', component: LinearGaugecontainer, meta: {"eCompName":"Linear Gauge","eSampleName":"Container","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/ranges.html', component: LinearGaugeranges, meta: {"eCompName":"Linear Gauge","eSampleName":"Ranges","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/data.html', component: LinearGaugedata, meta: {"eCompName":"Linear Gauge","eSampleName":"Data Sample","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/axes.html', component: LinearGaugeaxes, meta: {"eCompName":"Linear Gauge","eSampleName":"Axes and Pointers","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/annotation.html', component: LinearGaugeannotation, meta: {"eCompName":"Linear Gauge","eSampleName":"Annotation","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/tooltip.html', component: LinearGaugetooltip, meta: {"eCompName":"Linear Gauge","eSampleName":"Tooltip","eCategoryName":"Linear Gauge"} }
+,{ path: '/:theme/linear-gauge/style.html', component: LinearGaugestyle, meta: {"eCompName":"Linear Gauge","eSampleName":"Styles","eCategoryName":"Linear Gauge"} }
 ,{ path: '/:theme/listview/default.html', component: ListViewdefault, meta: {"eCompName":"ListView","eSampleName":"Default Functionalities","eCategoryName":"ListView"} }
 ,{ path: '/:theme/listview/remote-list.html', component: ListViewremotelist, meta: {"eCompName":"ListView","eSampleName":"Remote List","eCategoryName":"ListView"} }
 ,{ path: '/:theme/listview/checklist.html', component: ListViewchecklist, meta: {"eCompName":"ListView","eSampleName":"Checklist","eCategoryName":"ListView"} }
@@ -829,7 +971,11 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/maps/bubble.html', component: Mapsbubble, meta: {"eCompName":"Maps","eSampleName":"Bubble","eCategoryName":"Features"} }
 ,{ path: '/:theme/maps/navigation-line.html', component: Mapsnavigationline, meta: {"eCompName":"Maps","eSampleName":"Navigation Lines","eCategoryName":"Features"} }
 ,{ path: '/:theme/maps/legend.html', component: Mapslegend, meta: {"eCompName":"Maps","eSampleName":"Legend","eCategoryName":"Features"} }
+,{ path: '/:theme/maps/color-mapping.html', component: Mapscolormapping, meta: {"eCompName":"Maps","eSampleName":"Color Mapping","eCategoryName":"Features"} }
 ,{ path: '/:theme/maps/annotation.html', component: Mapsannotation, meta: {"eCompName":"Maps","eSampleName":"Annotations","eCategoryName":"Features"} }
+,{ path: '/:theme/maps/osm.html', component: Mapsosm, meta: {"eCompName":"Maps","eSampleName":"OpenStreetMap","eCategoryName":"Map Providers"} }
+,{ path: '/:theme/maps/osm-with-navigation-lines.html', component: Mapsosmwithnavigationlines, meta: {"eCompName":"Maps","eSampleName":"Osm with Navigation Line","eCategoryName":"Map Providers"} }
+,{ path: '/:theme/maps/osm-with-sublayers.html', component: Mapsosmwithsublayers, meta: {"eCompName":"Maps","eSampleName":"Osm with Sublayer","eCategoryName":"Map Providers"} }
 ,{ path: '/:theme/maps/tooltip.html', component: Mapstooltip, meta: {"eCompName":"Maps","eSampleName":"Tooltip","eCategoryName":"User Interaction"} }
 ,{ path: '/:theme/maps/selection.html', component: Mapsselection, meta: {"eCompName":"Maps","eSampleName":"Selection & Highlight","eCategoryName":"User Interaction"} }
 ,{ path: '/:theme/maps/zooming.html', component: Mapszooming, meta: {"eCompName":"Maps","eSampleName":"Zooming & Panning","eCategoryName":"User Interaction"} }
@@ -841,146 +987,186 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/maps/earthquake.html', component: Mapsearthquake, meta: {"eCompName":"Maps","eSampleName":"Earthquake indication","eCategoryName":"Use Cases"} }
 ,{ path: '/:theme/maps/highlighted-region.html', component: Mapshighlightedregion, meta: {"eCompName":"Maps","eSampleName":"Highlighted region","eCategoryName":"Use Cases"} }
 ,{ path: '/:theme/maps/pie.html', component: Mapspie, meta: {"eCompName":"Maps","eSampleName":"Map with Pie chart","eCategoryName":"Use Cases"} }
+,{ path: '/:theme/maps/map-with-slider.html', component: Mapsmapwithslider, meta: {"eCompName":"Maps","eSampleName":"Map with Slider","eCategoryName":"Use Cases"} }
 ,{ path: '/:theme/maps/seat-selection.html', component: Mapsseatselection, meta: {"eCompName":"Maps","eSampleName":"Bus seat booking","eCategoryName":"Use Cases"} }
-,{ path: '/:theme/maskedtextbox/default.html', component: MaskedTextBoxdefault, meta: {"eCompName":"MaskedTextBox","eSampleName":"Default Functionalities","eCategoryName":"MaskedTextBox"} }
-,{ path: '/:theme/maskedtextbox/custom-mask.html', component: MaskedTextBoxcustommask, meta: {"eCompName":"MaskedTextBox","eSampleName":"Custom Mask","eCategoryName":"MaskedTextBox"} }
-,{ path: '/:theme/maskedtextbox/formats.html', component: MaskedTextBoxformats, meta: {"eCompName":"MaskedTextBox","eSampleName":"Formats","eCategoryName":"MaskedTextBox"} }
-,{ path: '/:theme/multi-select/default.html', component: MultiSelectdefault, meta: {"eCompName":"MultiSelect","eSampleName":"Default Functionalities","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/data-binding.html', component: MultiSelectdatabinding, meta: {"eCompName":"MultiSelect","eSampleName":"Data Binding","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/grouping-icon.html', component: MultiSelectgroupingicon, meta: {"eCompName":"MultiSelect","eSampleName":"Grouping","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/template.html', component: MultiSelecttemplate, meta: {"eCompName":"MultiSelect","eSampleName":"Template","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/filtering.html', component: MultiSelectfiltering, meta: {"eCompName":"MultiSelect","eSampleName":"Filtering","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/custom-value.html', component: MultiSelectcustomvalue, meta: {"eCompName":"MultiSelect","eSampleName":"Custom Value","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/chip-customization.html', component: MultiSelectchipcustomization, meta: {"eCompName":"MultiSelect","eSampleName":"Chip Customization","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/checkbox.html', component: MultiSelectcheckbox, meta: {"eCompName":"MultiSelect","eSampleName":"CheckBox","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/selection-limit.html', component: MultiSelectselectionlimit, meta: {"eCompName":"MultiSelect","eSampleName":"Selection Limit","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/multi-select/diacritics-filtering.html', component: MultiSelectdiacriticsfiltering, meta: {"eCompName":"MultiSelect","eSampleName":"Diacritics Filtering","eCategoryName":"MultiSelect"} }
-,{ path: '/:theme/numerictextbox/default.html', component: NumericTextBoxdefault, meta: {"eCompName":"NumericTextBox","eSampleName":"Default Functionalities","eCategoryName":"NumericTextBox"} }
-,{ path: '/:theme/numerictextbox/range-validation.html', component: NumericTextBoxrangevalidation, meta: {"eCompName":"NumericTextBox","eSampleName":"Range Validation","eCategoryName":"NumericTextBox"} }
-,{ path: '/:theme/numerictextbox/custom-format.html', component: NumericTextBoxcustomformat, meta: {"eCompName":"NumericTextBox","eSampleName":"Custom Format","eCategoryName":"NumericTextBox"} }
-,{ path: '/:theme/numerictextbox/restrict-decimals.html', component: NumericTextBoxrestrictdecimals, meta: {"eCompName":"NumericTextBox","eSampleName":"Restrict Decimals","eCategoryName":"NumericTextBox"} }
-,{ path: '/:theme/pivot-view/default.html', component: PivotGriddefault, meta: {"eCompName":"Pivot Grid","eSampleName":"Default Functionalities","eCategoryName":"Pivot Grid"} }
-,{ path: '/:theme/pivot-view/local.html', component: PivotGridlocal, meta: {"eCompName":"Pivot Grid","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/pivot-view/remote.html', component: PivotGridremote, meta: {"eCompName":"Pivot Grid","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/pivot-view/field-list.html', component: PivotGridfieldlist, meta: {"eCompName":"Pivot Grid","eSampleName":"Field List","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/grouping-bar.html', component: PivotGridgroupingbar, meta: {"eCompName":"Pivot Grid","eSampleName":"Grouping Bar","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/conditional-formatting.html', component: PivotGridconditionalformatting, meta: {"eCompName":"Pivot Grid","eSampleName":"Conditional Formatting","eCategoryName":"User Interaction"} }
-,{ path: '/:theme/pivot-view/calculated-field.html', component: PivotGridcalculatedfield, meta: {"eCompName":"Pivot Grid","eSampleName":"Calculated Field","eCategoryName":"Formula"} }
-,{ path: '/:theme/pivot-view/aggregation.html', component: PivotGridaggregation, meta: {"eCompName":"Pivot Grid","eSampleName":"Aggregation","eCategoryName":"Formula"} }
-,{ path: '/:theme/pivot-view/sorting.html', component: PivotGridsorting, meta: {"eCompName":"Pivot Grid","eSampleName":"Default Sorting","eCategoryName":"Sorting"} }
-,{ path: '/:theme/pivot-view/value-sorting.html', component: PivotGridvaluesorting, meta: {"eCompName":"Pivot Grid","eSampleName":"Value Sorting","eCategoryName":"Sorting"} }
-,{ path: '/:theme/pivot-view/filtering.html', component: PivotGridfiltering, meta: {"eCompName":"Pivot Grid","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/pivot-view/label-filtering.html', component: PivotGridlabelfiltering, meta: {"eCompName":"Pivot Grid","eSampleName":"Label Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/pivot-view/value-filtering.html', component: PivotGridvaluefiltering, meta: {"eCompName":"Pivot Grid","eSampleName":"Value Filtering","eCategoryName":"Filtering"} }
-,{ path: '/:theme/pivot-view/charts.html', component: PivotGridcharts, meta: {"eCompName":"Pivot Grid","eSampleName":"Chart","eCategoryName":"Integration"} }
-,{ path: '/:theme/pivot-view/virtual-scrolling.html', component: PivotGridvirtualscrolling, meta: {"eCompName":"Pivot Grid","eSampleName":"Virtual Scrolling","eCategoryName":"Scrolling"} }
-,{ path: '/:theme/pivot-view/exporting.html', component: PivotGridexporting, meta: {"eCompName":"Pivot Grid","eSampleName":"Export","eCategoryName":"Miscellaneous"} }
-,{ path: '/:theme/range-navigator/default.html', component: RangeNavigatordefault, meta: {"eCompName":"Range Navigator","eSampleName":"Default","eCategoryName":"Range Navigator"} }
-,{ path: '/:theme/range-navigator/light-weight.html', component: RangeNavigatorlightweight, meta: {"eCompName":"Range Navigator","eSampleName":"Lightweight","eCategoryName":"Range Navigator"} }
-,{ path: '/:theme/range-navigator/date-time.html', component: RangeNavigatordatetime, meta: {"eCompName":"Range Navigator","eSampleName":"DateTime","eCategoryName":"Axis"} }
-,{ path: '/:theme/range-navigator/double.html', component: RangeNavigatordouble, meta: {"eCompName":"Range Navigator","eSampleName":"Numeric Axis","eCategoryName":"Axis"} }
-,{ path: '/:theme/range-navigator/logarithmic.html', component: RangeNavigatorlogarithmic, meta: {"eCompName":"Range Navigator","eSampleName":"Logarithmic Axis","eCategoryName":"Axis"} }
-,{ path: '/:theme/range-navigator/multilevel.html', component: RangeNavigatormultilevel, meta: {"eCompName":"Range Navigator","eSampleName":"Multilevel Labels","eCategoryName":"Axis"} }
-,{ path: '/:theme/range-navigator/period-selector.html', component: RangeNavigatorperiodselector, meta: {"eCompName":"Range Navigator","eSampleName":"Default","eCategoryName":"Period Selector"} }
-,{ path: '/:theme/range-navigator/period-selector-stocks.html', component: RangeNavigatorperiodselectorstocks, meta: {"eCompName":"Range Navigator","eSampleName":"Stock Chart","eCategoryName":"Period Selector"} }
-,{ path: '/:theme/range-navigator/empty-data.html', component: RangeNavigatoremptydata, meta: {"eCompName":"Range Navigator","eSampleName":"Empty Points","eCategoryName":"Customization"} }
-,{ path: '/:theme/range-navigator/filter.html', component: RangeNavigatorfilter, meta: {"eCompName":"Range Navigator","eSampleName":"Filter","eCategoryName":"Customization"} }
-,{ path: '/:theme/range-navigator/export.html', component: RangeNavigatorexport, meta: {"eCompName":"Range Navigator","eSampleName":"Print and Export","eCategoryName":"Export"} }
-,{ path: '/:theme/range-navigator/right-to-left.html', component: RangeNavigatorrighttoleft, meta: {"eCompName":"Range Navigator","eSampleName":"RTL","eCategoryName":"RTL"} }
-,{ path: '/:theme/rte/tools.html', component: RichTextEditortools, meta: {"eCompName":"RichTextEditor","eSampleName":"Overview","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/default.html', component: RichTextEditordefault, meta: {"eCompName":"RichTextEditor","eSampleName":"Default Functionalities","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/image.html', component: RichTextEditorimage, meta: {"eCompName":"RichTextEditor","eSampleName":"Image","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/inline.html', component: RichTextEditorinline, meta: {"eCompName":"RichTextEditor","eSampleName":"Inline","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/iframe.html', component: RichTextEditoriframe, meta: {"eCompName":"RichTextEditor","eSampleName":"IFrame","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/print.html', component: RichTextEditorprint, meta: {"eCompName":"RichTextEditor","eSampleName":"Print","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/ajax-load.html', component: RichTextEditorajaxload, meta: {"eCompName":"RichTextEditor","eSampleName":"Ajax Content","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/api.html', component: RichTextEditorapi, meta: {"eCompName":"RichTextEditor","eSampleName":"API","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/events.html', component: RichTextEditorevents, meta: {"eCompName":"RichTextEditor","eSampleName":"Events","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/blog-posting.html', component: RichTextEditorblogposting, meta: {"eCompName":"RichTextEditor","eSampleName":"Use Case","eCategoryName":"RichTextEditor"} }
-,{ path: '/:theme/rte/types.html', component: RichTextEditortypes, meta: {"eCompName":"RichTextEditor","eSampleName":"Type","eCategoryName":"Toolbar"} }
-,{ path: '/:theme/rte/custom-toolbar.html', component: RichTextEditorcustomtoolbar, meta: {"eCompName":"RichTextEditor","eSampleName":"Custom Tool","eCategoryName":"Toolbar"} }
-,{ path: '/:theme/rte/markdown-editor.html', component: RichTextEditormarkdowneditor, meta: {"eCompName":"RichTextEditor","eSampleName":"Overview","eCategoryName":"Markdown Editor"} }
-,{ path: '/:theme/rte/markdown-preview.html', component: RichTextEditormarkdownpreview, meta: {"eCompName":"RichTextEditor","eSampleName":"Preview","eCategoryName":"Markdown Editor"} }
-,{ path: '/:theme/rte/markdown-format.html', component: RichTextEditormarkdownformat, meta: {"eCompName":"RichTextEditor","eSampleName":"Custom Format","eCategoryName":"Markdown Editor"} }
-,{ path: '/:theme/schedule/default.html', component: Scheduledefault, meta: {"eCompName":"Schedule","eSampleName":"Default Functionalities","eCategoryName":"Schedule"} }
-,{ path: '/:theme/schedule/local-data.html', component: Schedulelocaldata, meta: {"eCompName":"Schedule","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/schedule/remote-data.html', component: Scheduleremotedata, meta: {"eCompName":"Schedule","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/schedule/default-events.html', component: Scheduledefaultevents, meta: {"eCompName":"Schedule","eSampleName":"Normal Events","eCategoryName":"Appointments"} }
-,{ path: '/:theme/schedule/recurrence-events.html', component: Schedulerecurrenceevents, meta: {"eCompName":"Schedule","eSampleName":"Recurring Events","eCategoryName":"Appointments"} }
-,{ path: '/:theme/schedule/timezone.html', component: Scheduletimezone, meta: {"eCompName":"Schedule","eSampleName":"Timezone","eCategoryName":"Appointments"} }
-,{ path: '/:theme/schedule/views.html', component: Scheduleviews, meta: {"eCompName":"Schedule","eSampleName":"Basic Views","eCategoryName":"Views"} }
-,{ path: '/:theme/schedule/timeline.html', component: Scheduletimeline, meta: {"eCompName":"Schedule","eSampleName":"Timeline Views","eCategoryName":"Views"} }
-,{ path: '/:theme/schedule/agenda.html', component: Scheduleagenda, meta: {"eCompName":"Schedule","eSampleName":"Agenda View","eCategoryName":"Views"} }
-,{ path: '/:theme/schedule/month-agenda.html', component: Schedulemonthagenda, meta: {"eCompName":"Schedule","eSampleName":"Month Agenda View","eCategoryName":"Views"} }
-,{ path: '/:theme/schedule/view-configuration.html', component: Scheduleviewconfiguration, meta: {"eCompName":"Schedule","eSampleName":"Individual View Settings","eCategoryName":"Views"} }
-,{ path: '/:theme/schedule/extended-views.html', component: Scheduleextendedviews, meta: {"eCompName":"Schedule","eSampleName":"View Intervals","eCategoryName":"Views"} }
-,{ path: '/:theme/schedule/timeline-resource.html', component: Scheduletimelineresource, meta: {"eCompName":"Schedule","eSampleName":"Room Scheduler","eCategoryName":"Multiple Resources"} }
-,{ path: '/:theme/schedule/resources.html', component: Scheduleresources, meta: {"eCompName":"Schedule","eSampleName":"Fare Calendar","eCategoryName":"Multiple Resources"} }
-,{ path: '/:theme/schedule/group-editing.html', component: Schedulegroupediting, meta: {"eCompName":"Schedule","eSampleName":"Shared Events","eCategoryName":"Multiple Resources"} }
-,{ path: '/:theme/schedule/group-customworkdays.html', component: Schedulegroupcustomworkdays, meta: {"eCompName":"Schedule","eSampleName":"Different Work Days","eCategoryName":"Multiple Resources"} }
-,{ path: '/:theme/schedule/addremove-resources.html', component: Scheduleaddremoveresources, meta: {"eCompName":"Schedule","eSampleName":"Show/Hide Resources","eCategoryName":"Multiple Resources"} }
-,{ path: '/:theme/schedule/resource-grouping.html', component: Scheduleresourcegrouping, meta: {"eCompName":"Schedule","eSampleName":"Horizontal Grouping","eCategoryName":"Resource Grouping"} }
-,{ path: '/:theme/schedule/timeline-resourcegrouping.html', component: Scheduletimelineresourcegrouping, meta: {"eCompName":"Schedule","eSampleName":"Timeline Grouping","eCategoryName":"Resource Grouping"} }
-,{ path: '/:theme/schedule/group-bydate.html', component: Schedulegroupbydate, meta: {"eCompName":"Schedule","eSampleName":"Date-wise Grouping  ","eCategoryName":"Resource Grouping"} }
-,{ path: '/:theme/schedule/group-bychild.html', component: Schedulegroupbychild, meta: {"eCompName":"Schedule","eSampleName":"Hierarchical Grouping ","eCategoryName":"Resource Grouping"} }
-,{ path: '/:theme/schedule/cell-template.html', component: Schedulecelltemplate, meta: {"eCompName":"Schedule","eSampleName":"Cell","eCategoryName":"Templates"} }
-,{ path: '/:theme/schedule/dateheader-template.html', component: Scheduledateheadertemplate, meta: {"eCompName":"Schedule","eSampleName":"Date Header","eCategoryName":"Templates"} }
-,{ path: '/:theme/schedule/events-template.html', component: Scheduleeventstemplate, meta: {"eCompName":"Schedule","eSampleName":"Events","eCategoryName":"Templates"} }
-,{ path: '/:theme/schedule/tooltip.html', component: Scheduletooltip, meta: {"eCompName":"Schedule","eSampleName":"Tooltip","eCategoryName":"Templates"} }
-,{ path: '/:theme/schedule/editor-validation.html', component: Scheduleeditorvalidation, meta: {"eCompName":"Schedule","eSampleName":"Field Validation","eCategoryName":"Editor Window"} }
-,{ path: '/:theme/schedule/editor-customfields.html', component: Scheduleeditorcustomfields, meta: {"eCompName":"Schedule","eSampleName":"Additional Fields","eCategoryName":"Editor Window"} }
-,{ path: '/:theme/schedule/editor-template.html', component: Scheduleeditortemplate, meta: {"eCompName":"Schedule","eSampleName":"Editor Template","eCategoryName":"Editor Window"} }
-,{ path: '/:theme/schedule/header-rows.html', component: Scheduleheaderrows, meta: {"eCompName":"Schedule","eSampleName":"Header Rows","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/time-scale.html', component: Scheduletimescale, meta: {"eCompName":"Schedule","eSampleName":"Timescale","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/header-bar.html', component: Scheduleheaderbar, meta: {"eCompName":"Schedule","eSampleName":"Header Bar","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/scroll-to.html', component: Schedulescrollto, meta: {"eCompName":"Schedule","eSampleName":"Scroll Time","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/work-days.html', component: Scheduleworkdays, meta: {"eCompName":"Schedule","eSampleName":"Work Days","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/hide-weekend.html', component: Schedulehideweekend, meta: {"eCompName":"Schedule","eSampleName":"Hide Weekend","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/work-hours.html', component: Scheduleworkhours, meta: {"eCompName":"Schedule","eSampleName":"Work Hours","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/startend-hour.html', component: Schedulestartendhour, meta: {"eCompName":"Schedule","eSampleName":"Day Hour Limit","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/cell-dimension.html', component: Schedulecelldimension, meta: {"eCompName":"Schedule","eSampleName":"Cell Dimension","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/read-only.html', component: Schedulereadonly, meta: {"eCompName":"Schedule","eSampleName":"Read-only Events","eCategoryName":"Customization"} }
-,{ path: '/:theme/schedule/receditor-generaterule.html', component: Schedulereceditorgeneraterule, meta: {"eCompName":"Schedule","eSampleName":"Rule Generator","eCategoryName":"Recurrence Editor"} }
-,{ path: '/:theme/schedule/receditor-populaterule.html', component: Schedulereceditorpopulaterule, meta: {"eCompName":"Schedule","eSampleName":"Populate Rule","eCategoryName":"Recurrence Editor"} }
-,{ path: '/:theme/schedule/keyboard-interaction.html', component: Schedulekeyboardinteraction, meta: {"eCompName":"Schedule","eSampleName":"Keyboard Interaction","eCategoryName":"Miscellaneous"} }
-,{ path: '/:theme/schedule/events.html', component: Scheduleevents, meta: {"eCompName":"Schedule","eSampleName":"Events","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/maskedtextbox/default.html', component: InputMaskdefault, meta: {"eCompName":"Input Mask","eSampleName":"Default Functionalities","eCategoryName":"Input Mask"} }
+,{ path: '/:theme/maskedtextbox/custom-mask.html', component: InputMaskcustommask, meta: {"eCompName":"Input Mask","eSampleName":"Custom Mask","eCategoryName":"Input Mask"} }
+,{ path: '/:theme/maskedtextbox/formats.html', component: InputMaskformats, meta: {"eCompName":"Input Mask","eSampleName":"Formats","eCategoryName":"Input Mask"} }
+,{ path: '/:theme/menu/default.html', component: MenuBardefault, meta: {"eCompName":"Menu Bar","eSampleName":"Default Functionalities","eCategoryName":"Menu Bar"} }
+,{ path: '/:theme/menu/data-binding.html', component: MenuBardatabinding, meta: {"eCompName":"Menu Bar","eSampleName":"Data Binding","eCategoryName":"Menu Bar"} }
+,{ path: '/:theme/menu/scrollable.html', component: MenuBarscrollable, meta: {"eCompName":"Menu Bar","eSampleName":"Scrollable","eCategoryName":"Menu Bar"} }
+,{ path: '/:theme/menu/template.html', component: MenuBartemplate, meta: {"eCompName":"Menu Bar","eSampleName":"Template","eCategoryName":"Menu Bar"} }
+,{ path: '/:theme/menu/api.html', component: MenuBarapi, meta: {"eCompName":"Menu Bar","eSampleName":"API","eCategoryName":"Menu Bar"} }
+,{ path: '/:theme/menu/toolbar-integration.html', component: MenuBartoolbarintegration, meta: {"eCompName":"Menu Bar","eSampleName":"Toolbar Integration","eCategoryName":"Menu Bar"} }
+,{ path: '/:theme/multi-select/default.html', component: MultiSelectDropdowndefault, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Default Functionalities","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/data-binding.html', component: MultiSelectDropdowndatabinding, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Data Binding","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/grouping-icon.html', component: MultiSelectDropdowngroupingicon, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Grouping","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/template.html', component: MultiSelectDropdowntemplate, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Template","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/filtering.html', component: MultiSelectDropdownfiltering, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Filtering","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/custom-value.html', component: MultiSelectDropdowncustomvalue, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Custom Value","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/chip-customization.html', component: MultiSelectDropdownchipcustomization, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Chip Customization","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/checkbox.html', component: MultiSelectDropdowncheckbox, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"CheckBox","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/selection-limit.html', component: MultiSelectDropdownselectionlimit, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Selection Limit","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/multi-select/diacritics-filtering.html', component: MultiSelectDropdowndiacriticsfiltering, meta: {"eCompName":"MultiSelect Dropdown","eSampleName":"Diacritics Filtering","eCategoryName":"MultiSelect Dropdown"} }
+,{ path: '/:theme/numerictextbox/default.html', component: NumericTextboxdefault, meta: {"eCompName":"Numeric Textbox","eSampleName":"Default Functionalities","eCategoryName":"Numeric Textbox"} }
+,{ path: '/:theme/numerictextbox/range-validation.html', component: NumericTextboxrangevalidation, meta: {"eCompName":"Numeric Textbox","eSampleName":"Range Validation","eCategoryName":"Numeric Textbox"} }
+,{ path: '/:theme/numerictextbox/custom-format.html', component: NumericTextboxcustomformat, meta: {"eCompName":"Numeric Textbox","eSampleName":"Custom Format","eCategoryName":"Numeric Textbox"} }
+,{ path: '/:theme/numerictextbox/restrict-decimals.html', component: NumericTextboxrestrictdecimals, meta: {"eCompName":"Numeric Textbox","eSampleName":"Restrict Decimals","eCategoryName":"Numeric Textbox"} }
+,{ path: '/:theme/pdfviewer/default.html', component: PDFViewerdefault, meta: {"eCompName":"PDF Viewer","eSampleName":"Default Functionalities","eCategoryName":"PDF Viewer"} }
+,{ path: '/:theme/pdfviewer/custom-toolbar.html', component: PDFViewercustomtoolbar, meta: {"eCompName":"PDF Viewer","eSampleName":"Custom Toolbar","eCategoryName":"PDF Viewer"} }
+,{ path: '/:theme/pivot-view/default.html', component: PivotTabledefault, meta: {"eCompName":"Pivot Table","eSampleName":"Default Functionalities","eCategoryName":"Pivot Table"} }
+,{ path: '/:theme/pivot-view/local.html', component: PivotTablelocal, meta: {"eCompName":"Pivot Table","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/pivot-view/remote.html', component: PivotTableremote, meta: {"eCompName":"Pivot Table","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/pivot-view/field-list.html', component: PivotTablefieldlist, meta: {"eCompName":"Pivot Table","eSampleName":"Field List","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/grouping-bar.html', component: PivotTablegroupingbar, meta: {"eCompName":"Pivot Table","eSampleName":"Grouping Bar","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/conditional-formatting.html', component: PivotTableconditionalformatting, meta: {"eCompName":"Pivot Table","eSampleName":"Conditional Formatting","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/summary-customization.html', component: PivotTablesummarycustomization, meta: {"eCompName":"Pivot Table","eSampleName":"Show/Hide Totals","eCategoryName":"User Interaction"} }
+,{ path: '/:theme/pivot-view/calculated-field.html', component: PivotTablecalculatedfield, meta: {"eCompName":"Pivot Table","eSampleName":"Calculated Field","eCategoryName":"Formula"} }
+,{ path: '/:theme/pivot-view/aggregation.html', component: PivotTableaggregation, meta: {"eCompName":"Pivot Table","eSampleName":"Aggregation","eCategoryName":"Formula"} }
+,{ path: '/:theme/pivot-view/sorting.html', component: PivotTablesorting, meta: {"eCompName":"Pivot Table","eSampleName":"Default Sorting","eCategoryName":"Sorting"} }
+,{ path: '/:theme/pivot-view/value-sorting.html', component: PivotTablevaluesorting, meta: {"eCompName":"Pivot Table","eSampleName":"Value Sorting","eCategoryName":"Sorting"} }
+,{ path: '/:theme/pivot-view/filtering.html', component: PivotTablefiltering, meta: {"eCompName":"Pivot Table","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/pivot-view/label-filtering.html', component: PivotTablelabelfiltering, meta: {"eCompName":"Pivot Table","eSampleName":"Label Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/pivot-view/value-filtering.html', component: PivotTablevaluefiltering, meta: {"eCompName":"Pivot Table","eSampleName":"Value Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/pivot-view/charts.html', component: PivotTablecharts, meta: {"eCompName":"Pivot Table","eSampleName":"Chart","eCategoryName":"Integration"} }
+,{ path: '/:theme/pivot-view/virtual-scrolling.html', component: PivotTablevirtualscrolling, meta: {"eCompName":"Pivot Table","eSampleName":"Virtual Scrolling","eCategoryName":"Scrolling"} }
+,{ path: '/:theme/pivot-view/drill-through.html', component: PivotTabledrillthrough, meta: {"eCompName":"Pivot Table","eSampleName":"Drill Through","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/pivot-view/editing.html', component: PivotTableediting, meta: {"eCompName":"Pivot Table","eSampleName":"Editing","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/pivot-view/hyper-link.html', component: PivotTablehyperlink, meta: {"eCompName":"Pivot Table","eSampleName":"Hyperlink","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/pivot-view/defer-update.html', component: PivotTabledeferupdate, meta: {"eCompName":"Pivot Table","eSampleName":"Defer Layout Update","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/pivot-view/exporting.html', component: PivotTableexporting, meta: {"eCompName":"Pivot Table","eSampleName":"Export","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/query-builder/default.html', component: QueryBuilderdefault, meta: {"eCompName":"Query Builder","eSampleName":"Default Functionalities","eCategoryName":"Query Builder"} }
+,{ path: '/:theme/query-builder/template.html', component: QueryBuildertemplate, meta: {"eCompName":"Query Builder","eSampleName":"Template","eCategoryName":"Query Builder"} }
+,{ path: '/:theme/query-builder/grid.html', component: QueryBuildergrid, meta: {"eCompName":"Query Builder","eSampleName":"Integration with Data Grid","eCategoryName":"Query Builder"} }
+,{ path: '/:theme/range-navigator/default.html', component: RangeSelectordefault, meta: {"eCompName":"Range Selector","eSampleName":"Default","eCategoryName":"Range Selector"} }
+,{ path: '/:theme/range-navigator/light-weight.html', component: RangeSelectorlightweight, meta: {"eCompName":"Range Selector","eSampleName":"Lightweight","eCategoryName":"Range Selector"} }
+,{ path: '/:theme/range-navigator/date-time.html', component: RangeSelectordatetime, meta: {"eCompName":"Range Selector","eSampleName":"DateTime","eCategoryName":"Axis"} }
+,{ path: '/:theme/range-navigator/double.html', component: RangeSelectordouble, meta: {"eCompName":"Range Selector","eSampleName":"Numeric Axis","eCategoryName":"Axis"} }
+,{ path: '/:theme/range-navigator/logarithmic.html', component: RangeSelectorlogarithmic, meta: {"eCompName":"Range Selector","eSampleName":"Logarithmic Axis","eCategoryName":"Axis"} }
+,{ path: '/:theme/range-navigator/multilevel.html', component: RangeSelectormultilevel, meta: {"eCompName":"Range Selector","eSampleName":"Multilevel Labels","eCategoryName":"Axis"} }
+,{ path: '/:theme/range-navigator/period-selector.html', component: RangeSelectorperiodselector, meta: {"eCompName":"Range Selector","eSampleName":"Default","eCategoryName":"Period Selector"} }
+,{ path: '/:theme/range-navigator/period-selector-stocks.html', component: RangeSelectorperiodselectorstocks, meta: {"eCompName":"Range Selector","eSampleName":"Stock Chart","eCategoryName":"Period Selector"} }
+,{ path: '/:theme/range-navigator/empty-data.html', component: RangeSelectoremptydata, meta: {"eCompName":"Range Selector","eSampleName":"Empty Points","eCategoryName":"Customization"} }
+,{ path: '/:theme/range-navigator/filter.html', component: RangeSelectorfilter, meta: {"eCompName":"Range Selector","eSampleName":"Filter","eCategoryName":"Customization"} }
+,{ path: '/:theme/range-navigator/export.html', component: RangeSelectorexport, meta: {"eCompName":"Range Selector","eSampleName":"Print and Export","eCategoryName":"Export"} }
+,{ path: '/:theme/range-navigator/right-to-left.html', component: RangeSelectorrighttoleft, meta: {"eCompName":"Range Selector","eSampleName":"RTL","eCategoryName":"RTL"} }
+,{ path: '/:theme/rich-text-editor/tools.html', component: RichTextEditortools, meta: {"eCompName":"Rich Text Editor","eSampleName":"Overview","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/default.html', component: RichTextEditordefault, meta: {"eCompName":"Rich Text Editor","eSampleName":"Default Functionalities","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/image.html', component: RichTextEditorimage, meta: {"eCompName":"Rich Text Editor","eSampleName":"Image","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/inline.html', component: RichTextEditorinline, meta: {"eCompName":"Rich Text Editor","eSampleName":"Inline","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/iframe.html', component: RichTextEditoriframe, meta: {"eCompName":"Rich Text Editor","eSampleName":"IFrame","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/print.html', component: RichTextEditorprint, meta: {"eCompName":"Rich Text Editor","eSampleName":"Print","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/ajax-load.html', component: RichTextEditorajaxload, meta: {"eCompName":"Rich Text Editor","eSampleName":"Ajax Content","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/api.html', component: RichTextEditorapi, meta: {"eCompName":"Rich Text Editor","eSampleName":"API","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/events.html', component: RichTextEditorevents, meta: {"eCompName":"Rich Text Editor","eSampleName":"Events","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/blog-posting.html', component: RichTextEditorblogposting, meta: {"eCompName":"Rich Text Editor","eSampleName":"Use Case","eCategoryName":"Rich Text Editor"} }
+,{ path: '/:theme/rich-text-editor/types.html', component: RichTextEditortypes, meta: {"eCompName":"Rich Text Editor","eSampleName":"Type","eCategoryName":"Toolbar"} }
+,{ path: '/:theme/rich-text-editor/custom-toolbar.html', component: RichTextEditorcustomtoolbar, meta: {"eCompName":"Rich Text Editor","eSampleName":"Custom Tool","eCategoryName":"Toolbar"} }
+,{ path: '/:theme/rich-text-editor/markdown-editor.html', component: RichTextEditormarkdowneditor, meta: {"eCompName":"Rich Text Editor","eSampleName":"Overview","eCategoryName":"Markdown Editor"} }
+,{ path: '/:theme/rich-text-editor/markdown-preview.html', component: RichTextEditormarkdownpreview, meta: {"eCompName":"Rich Text Editor","eSampleName":"Preview","eCategoryName":"Markdown Editor"} }
+,{ path: '/:theme/rich-text-editor/markdown-format.html', component: RichTextEditormarkdownformat, meta: {"eCompName":"Rich Text Editor","eSampleName":"Custom Format","eCategoryName":"Markdown Editor"} }
+,{ path: '/:theme/schedule/default.html', component: Schedulerdefault, meta: {"eCompName":"Scheduler","eSampleName":"Default Functionalities","eCategoryName":"Scheduler"} }
+,{ path: '/:theme/schedule/local-data.html', component: Schedulerlocaldata, meta: {"eCompName":"Scheduler","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/schedule/remote-data.html', component: Schedulerremotedata, meta: {"eCompName":"Scheduler","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/schedule/calendar-integration.html', component: Schedulercalendarintegration, meta: {"eCompName":"Scheduler","eSampleName":"Sync Google Calendar","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/schedule/recurrence-events.html', component: Schedulerrecurrenceevents, meta: {"eCompName":"Scheduler","eSampleName":"Recurring Events","eCategoryName":"Appointments"} }
+,{ path: '/:theme/schedule/block-events.html', component: Schedulerblockevents, meta: {"eCompName":"Scheduler","eSampleName":"Blocking Dates and Time","eCategoryName":"Appointments"} }
+,{ path: '/:theme/schedule/timezone.html', component: Schedulertimezone, meta: {"eCompName":"Scheduler","eSampleName":"Timezone","eCategoryName":"Appointments"} }
+,{ path: '/:theme/schedule/external-dragdrop.html', component: Schedulerexternaldragdrop, meta: {"eCompName":"Scheduler","eSampleName":"External Drag and Drop","eCategoryName":"Appointments"} }
+,{ path: '/:theme/schedule/virtual-scrolling.html', component: Schedulervirtualscrolling, meta: {"eCompName":"Scheduler","eSampleName":"Virtual Scrolling ","eCategoryName":"Scrolling"} }
+,{ path: '/:theme/schedule/views.html', component: Schedulerviews, meta: {"eCompName":"Scheduler","eSampleName":"Basic Views","eCategoryName":"Views"} }
+,{ path: '/:theme/schedule/timeline.html', component: Schedulertimeline, meta: {"eCompName":"Scheduler","eSampleName":"Timeline Views","eCategoryName":"Views"} }
+,{ path: '/:theme/schedule/agenda.html', component: Scheduleragenda, meta: {"eCompName":"Scheduler","eSampleName":"Agenda View","eCategoryName":"Views"} }
+,{ path: '/:theme/schedule/month-agenda.html', component: Schedulermonthagenda, meta: {"eCompName":"Scheduler","eSampleName":"Month Agenda View","eCategoryName":"Views"} }
+,{ path: '/:theme/schedule/view-configuration.html', component: Schedulerviewconfiguration, meta: {"eCompName":"Scheduler","eSampleName":"Individual View Settings","eCategoryName":"Views"} }
+,{ path: '/:theme/schedule/extended-views.html', component: Schedulerextendedviews, meta: {"eCompName":"Scheduler","eSampleName":"View Intervals","eCategoryName":"Views"} }
+,{ path: '/:theme/schedule/timeline-resource.html', component: Schedulertimelineresource, meta: {"eCompName":"Scheduler","eSampleName":"Room Scheduler","eCategoryName":"Multiple Resources"} }
+,{ path: '/:theme/schedule/resources.html', component: Schedulerresources, meta: {"eCompName":"Scheduler","eSampleName":"Fare Calendar","eCategoryName":"Multiple Resources"} }
+,{ path: '/:theme/schedule/group-editing.html', component: Schedulergroupediting, meta: {"eCompName":"Scheduler","eSampleName":"Shared Events","eCategoryName":"Multiple Resources"} }
+,{ path: '/:theme/schedule/group-customworkdays.html', component: Schedulergroupcustomworkdays, meta: {"eCompName":"Scheduler","eSampleName":"Different Work Days","eCategoryName":"Multiple Resources"} }
+,{ path: '/:theme/schedule/addremove-resources.html', component: Scheduleraddremoveresources, meta: {"eCompName":"Scheduler","eSampleName":"Show/Hide Resources","eCategoryName":"Multiple Resources"} }
+,{ path: '/:theme/schedule/resource-grouping.html', component: Schedulerresourcegrouping, meta: {"eCompName":"Scheduler","eSampleName":"Horizontal Grouping","eCategoryName":"Resource Grouping"} }
+,{ path: '/:theme/schedule/timeline-resourcegrouping.html', component: Schedulertimelineresourcegrouping, meta: {"eCompName":"Scheduler","eSampleName":"Timeline Grouping","eCategoryName":"Resource Grouping"} }
+,{ path: '/:theme/schedule/group-bydate.html', component: Schedulergroupbydate, meta: {"eCompName":"Scheduler","eSampleName":"Date-wise Grouping  ","eCategoryName":"Resource Grouping"} }
+,{ path: '/:theme/schedule/group-bychild.html', component: Schedulergroupbychild, meta: {"eCompName":"Scheduler","eSampleName":"Hierarchical Grouping ","eCategoryName":"Resource Grouping"} }
+,{ path: '/:theme/schedule/cell-template.html', component: Schedulercelltemplate, meta: {"eCompName":"Scheduler","eSampleName":"Cell","eCategoryName":"Templates"} }
+,{ path: '/:theme/schedule/dateheader-template.html', component: Schedulerdateheadertemplate, meta: {"eCompName":"Scheduler","eSampleName":"Date Header","eCategoryName":"Templates"} }
+,{ path: '/:theme/schedule/events-template.html', component: Schedulereventstemplate, meta: {"eCompName":"Scheduler","eSampleName":"Events","eCategoryName":"Templates"} }
+,{ path: '/:theme/schedule/tooltip.html', component: Schedulertooltip, meta: {"eCompName":"Scheduler","eSampleName":"Tooltip","eCategoryName":"Templates"} }
+,{ path: '/:theme/schedule/editor-validation.html', component: Schedulereditorvalidation, meta: {"eCompName":"Scheduler","eSampleName":"Field Validation","eCategoryName":"Editor Window"} }
+,{ path: '/:theme/schedule/editor-customfields.html', component: Schedulereditorcustomfields, meta: {"eCompName":"Scheduler","eSampleName":"Additional Fields","eCategoryName":"Editor Window"} }
+,{ path: '/:theme/schedule/editor-template.html', component: Schedulereditortemplate, meta: {"eCompName":"Scheduler","eSampleName":"Editor Template","eCategoryName":"Editor Window"} }
+,{ path: '/:theme/schedule/header-rows.html', component: Schedulerheaderrows, meta: {"eCompName":"Scheduler","eSampleName":"Header Rows","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/time-scale.html', component: Schedulertimescale, meta: {"eCompName":"Scheduler","eSampleName":"Timescale","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/context-menu.html', component: Schedulercontextmenu, meta: {"eCompName":"Scheduler","eSampleName":"Context Menu","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/header-bar.html', component: Schedulerheaderbar, meta: {"eCompName":"Scheduler","eSampleName":"Header Bar","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/scroll-to.html', component: Schedulerscrollto, meta: {"eCompName":"Scheduler","eSampleName":"Scroll Time","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/work-days.html', component: Schedulerworkdays, meta: {"eCompName":"Scheduler","eSampleName":"Work Days","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/hide-weekend.html', component: Schedulerhideweekend, meta: {"eCompName":"Scheduler","eSampleName":"Hide Non-Working Days","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/work-hours.html', component: Schedulerworkhours, meta: {"eCompName":"Scheduler","eSampleName":"Work Hours","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/startend-hour.html', component: Schedulerstartendhour, meta: {"eCompName":"Scheduler","eSampleName":"Day Hour Limit","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/cell-dimension.html', component: Schedulercelldimension, meta: {"eCompName":"Scheduler","eSampleName":"Cell Dimension","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/read-only.html', component: Schedulerreadonly, meta: {"eCompName":"Scheduler","eSampleName":"Read-only Events","eCategoryName":"Customization"} }
+,{ path: '/:theme/schedule/receditor-generaterule.html', component: Schedulerreceditorgeneraterule, meta: {"eCompName":"Scheduler","eSampleName":"Rule Generator","eCategoryName":"Recurrence Editor"} }
+,{ path: '/:theme/schedule/receditor-populaterule.html', component: Schedulerreceditorpopulaterule, meta: {"eCompName":"Scheduler","eSampleName":"Populate Rule","eCategoryName":"Recurrence Editor"} }
+,{ path: '/:theme/schedule/keyboard-interaction.html', component: Schedulerkeyboardinteraction, meta: {"eCompName":"Scheduler","eSampleName":"Keyboard Interaction","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/schedule/events.html', component: Schedulerevents, meta: {"eCompName":"Scheduler","eSampleName":"Events","eCategoryName":"Miscellaneous"} }
 ,{ path: '/:theme/sidebar/default.html', component: Sidebardefault, meta: {"eCompName":"Sidebar","eSampleName":"Default Functionalities","eCategoryName":"Sidebar"} }
 ,{ path: '/:theme/sidebar/docking-sidebar.html', component: Sidebardockingsidebar, meta: {"eCompName":"Sidebar","eSampleName":"Dock","eCategoryName":"Sidebar"} }
 ,{ path: '/:theme/sidebar/api.html', component: Sidebarapi, meta: {"eCompName":"Sidebar","eSampleName":"API","eCategoryName":"Sidebar"} }
 ,{ path: '/:theme/sidebar/sidebar-list.html', component: Sidebarsidebarlist, meta: {"eCompName":"Sidebar","eSampleName":"Sidebar With ListView","eCategoryName":"Sidebar"} }
-,{ path: '/:theme/sidebar/multiple-sidebar.html', component: Sidebarmultiplesidebar, meta: {"eCompName":"Sidebar","eSampleName":"Multiple Sidebar","eCategoryName":"Sidebar"} }
-,{ path: '/:theme/slider/default.html', component: Sliderdefault, meta: {"eCompName":"Slider","eSampleName":"Default Functionalities","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/ticks.html', component: Sliderticks, meta: {"eCompName":"Slider","eSampleName":"Ticks","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/tooltip.html', component: Slidertooltip, meta: {"eCompName":"Slider","eSampleName":"Tooltip","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/orientation.html', component: Sliderorientation, meta: {"eCompName":"Slider","eSampleName":"Vertical  Orientation","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/format.html', component: Sliderformat, meta: {"eCompName":"Slider","eSampleName":"Formatting","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/limits.html', component: Sliderlimits, meta: {"eCompName":"Slider","eSampleName":"Limits","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/api.html', component: Sliderapi, meta: {"eCompName":"Slider","eSampleName":"API","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/events.html', component: Sliderevents, meta: {"eCompName":"Slider","eSampleName":"Events","eCategoryName":"Slider"} }
-,{ path: '/:theme/slider/thumb-customization.html', component: Sliderthumbcustomization, meta: {"eCompName":"Slider","eSampleName":"Thumb","eCategoryName":"Customization"} }
-,{ path: '/:theme/slider/bar-customization.html', component: Sliderbarcustomization, meta: {"eCompName":"Slider","eSampleName":"Bar","eCategoryName":"Customization"} }
-,{ path: '/:theme/slider/ticks-customization.html', component: Slidertickscustomization, meta: {"eCompName":"Slider","eSampleName":"Ticks","eCategoryName":"Customization"} }
-,{ path: '/:theme/slider/tooltip-customization.html', component: Slidertooltipcustomization, meta: {"eCompName":"Slider","eSampleName":"Tooltip","eCategoryName":"Customization"} }
-,{ path: '/:theme/slider/azure-pricing.html', component: Sliderazurepricing, meta: {"eCompName":"Slider","eSampleName":"Cloud Pricing","eCategoryName":"Use Case"} }
-,{ path: '/:theme/smith-chart/default.html', component: SmithChartdefault, meta: {"eCompName":"SmithChart","eSampleName":"Default","eCategoryName":"Smith Chart"} }
-,{ path: '/:theme/smith-chart/custom.html', component: SmithChartcustom, meta: {"eCompName":"SmithChart","eSampleName":"Customization","eCategoryName":"Smith Chart"} }
-,{ path: '/:theme/smith-chart/print-export.html', component: SmithChartprintexport, meta: {"eCompName":"SmithChart","eSampleName":"Print and Export","eCategoryName":"Smith Chart"} }
-,{ path: '/:theme/sparkline/default.html', component: Sparklinedefault, meta: {"eCompName":"Sparkline","eSampleName":"Default","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/sparkline/series-types.html', component: Sparklineseriestypes, meta: {"eCompName":"Sparkline","eSampleName":"Series Types","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/sparkline/axis-types.html', component: Sparklineaxistypes, meta: {"eCompName":"Sparkline","eSampleName":"Axis value types","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/sparkline/spark-grid.html', component: Sparklinesparkgrid, meta: {"eCompName":"Sparkline","eSampleName":"Sparkline in Grid","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/sparkline/customization.html', component: Sparklinecustomization, meta: {"eCompName":"Sparkline","eSampleName":"Customization","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/sparkline/live-update.html', component: Sparklineliveupdate, meta: {"eCompName":"Sparkline","eSampleName":"Live Update","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/sparkline/range-band.html', component: Sparklinerangeband, meta: {"eCompName":"Sparkline","eSampleName":"Range Band","eCategoryName":"Sparkline"} }
-,{ path: '/:theme/tab/default.html', component: Tabdefault, meta: {"eCompName":"Tab","eSampleName":"Default Functionalities","eCategoryName":"Tab"} }
-,{ path: '/:theme/tab/orientation.html', component: Taborientation, meta: {"eCompName":"Tab","eSampleName":"Orientation","eCategoryName":"Tab"} }
-,{ path: '/:theme/tab/responsive.html', component: Tabresponsive, meta: {"eCompName":"Tab","eSampleName":"Responsive Modes","eCategoryName":"Tab"} }
-,{ path: '/:theme/tab/wizard.html', component: Tabwizard, meta: {"eCompName":"Tab","eSampleName":"Wizard","eCategoryName":"Tab"} }
-,{ path: '/:theme/textboxes/default.html', component: TextBoxesdefault, meta: {"eCompName":"TextBoxes","eSampleName":"Default Functionalities","eCategoryName":"Textboxes"} }
+,{ path: '/:theme/slider/default.html', component: RangeSliderdefault, meta: {"eCompName":"Range Slider","eSampleName":"Default Functionalities","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/ticks.html', component: RangeSliderticks, meta: {"eCompName":"Range Slider","eSampleName":"Ticks","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/tooltip.html', component: RangeSlidertooltip, meta: {"eCompName":"Range Slider","eSampleName":"Tooltip","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/orientation.html', component: RangeSliderorientation, meta: {"eCompName":"Range Slider","eSampleName":"Vertical  Orientation","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/format.html', component: RangeSliderformat, meta: {"eCompName":"Range Slider","eSampleName":"Formatting","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/limits.html', component: RangeSliderlimits, meta: {"eCompName":"Range Slider","eSampleName":"Limits","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/api.html', component: RangeSliderapi, meta: {"eCompName":"Range Slider","eSampleName":"API","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/events.html', component: RangeSliderevents, meta: {"eCompName":"Range Slider","eSampleName":"Events","eCategoryName":"Range Slider"} }
+,{ path: '/:theme/slider/thumb-customization.html', component: RangeSliderthumbcustomization, meta: {"eCompName":"Range Slider","eSampleName":"Thumb","eCategoryName":"Customization"} }
+,{ path: '/:theme/slider/bar-customization.html', component: RangeSliderbarcustomization, meta: {"eCompName":"Range Slider","eSampleName":"Bar","eCategoryName":"Customization"} }
+,{ path: '/:theme/slider/ticks-customization.html', component: RangeSlidertickscustomization, meta: {"eCompName":"Range Slider","eSampleName":"Ticks","eCategoryName":"Customization"} }
+,{ path: '/:theme/slider/tooltip-customization.html', component: RangeSlidertooltipcustomization, meta: {"eCompName":"Range Slider","eSampleName":"Tooltip","eCategoryName":"Customization"} }
+,{ path: '/:theme/slider/azure-pricing.html', component: RangeSliderazurepricing, meta: {"eCompName":"Range Slider","eSampleName":"Cloud Pricing","eCategoryName":"Use Case"} }
+,{ path: '/:theme/smith-chart/default.html', component: SmithChartdefault, meta: {"eCompName":"Smith Chart","eSampleName":"Default","eCategoryName":"Smith Chart"} }
+,{ path: '/:theme/smith-chart/custom.html', component: SmithChartcustom, meta: {"eCompName":"Smith Chart","eSampleName":"Customization","eCategoryName":"Smith Chart"} }
+,{ path: '/:theme/smith-chart/print-export.html', component: SmithChartprintexport, meta: {"eCompName":"Smith Chart","eSampleName":"Print and Export","eCategoryName":"Smith Chart"} }
+,{ path: '/:theme/sparkline/default.html', component: SparklineChartsdefault, meta: {"eCompName":"Sparkline Charts","eSampleName":"Default","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/sparkline/series-types.html', component: SparklineChartsseriestypes, meta: {"eCompName":"Sparkline Charts","eSampleName":"Series Types","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/sparkline/axis-types.html', component: SparklineChartsaxistypes, meta: {"eCompName":"Sparkline Charts","eSampleName":"Axis value types","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/sparkline/spark-grid.html', component: SparklineChartssparkgrid, meta: {"eCompName":"Sparkline Charts","eSampleName":"Sparkline in Grid","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/sparkline/customization.html', component: SparklineChartscustomization, meta: {"eCompName":"Sparkline Charts","eSampleName":"Customization","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/sparkline/live-update.html', component: SparklineChartsliveupdate, meta: {"eCompName":"Sparkline Charts","eSampleName":"Live Update","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/sparkline/range-band.html', component: SparklineChartsrangeband, meta: {"eCompName":"Sparkline Charts","eSampleName":"Range Band","eCategoryName":"Sparkline Charts"} }
+,{ path: '/:theme/splitter/default.html', component: Splitterdefault, meta: {"eCompName":"Splitter","eSampleName":"Default Functionalities","eCategoryName":"Splitter"} }
+,{ path: '/:theme/splitter/accordion-navigation-menu.html', component: Splitteraccordionnavigationmenu, meta: {"eCompName":"Splitter","eSampleName":"Accordion Navigation Menu","eCategoryName":"Use Case"} }
+,{ path: '/:theme/splitter/details-view.html', component: Splitterdetailsview, meta: {"eCompName":"Splitter","eSampleName":"Details View","eCategoryName":"Use Case"} }
+,{ path: '/:theme/splitter/outlook-style-layout.html', component: Splitteroutlookstylelayout, meta: {"eCompName":"Splitter","eSampleName":"Outlook-style Layout","eCategoryName":"Use Case"} }
+,{ path: '/:theme/splitter/code-editor-layout.html', component: Splittercodeeditorlayout, meta: {"eCompName":"Splitter","eSampleName":"Code Editor Layout","eCategoryName":"Use Case"} }
+,{ path: '/:theme/stock-chart/default.html', component: StockChartdefault, meta: {"eCompName":"Stock Chart","eSampleName":"Default","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/ohlc.html', component: StockChartohlc, meta: {"eCompName":"Stock Chart","eSampleName":"OHLC","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/multi-pane.html', component: StockChartmultipane, meta: {"eCompName":"Stock Chart","eSampleName":"Candlestick and volume","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/multiple-series.html', component: StockChartmultipleseries, meta: {"eCompName":"Stock Chart","eSampleName":"Multiple Series","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/spline.html', component: StockChartspline, meta: {"eCompName":"Stock Chart","eSampleName":"Spline","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/area.html', component: StockChartarea, meta: {"eCompName":"Stock Chart","eSampleName":"Area","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/spline-area.html', component: StockChartsplinearea, meta: {"eCompName":"Stock Chart","eSampleName":"Spline Area","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/inversed-area.html', component: StockChartinversedarea, meta: {"eCompName":"Stock Chart","eSampleName":"Inversed Area","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/plot-line.html', component: StockChartplotline, meta: {"eCompName":"Stock Chart","eSampleName":"Plot lines","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/strip-line.html', component: StockChartstripline, meta: {"eCompName":"Stock Chart","eSampleName":"Plot band","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/period-customization.html', component: StockChartperiodcustomization, meta: {"eCompName":"Stock Chart","eSampleName":"Intraday","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/disabled-navigator.html', component: StockChartdisablednavigator, meta: {"eCompName":"Stock Chart","eSampleName":"Hide Range Selector","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/stock-chart/disabled-period.html', component: StockChartdisabledperiod, meta: {"eCompName":"Stock Chart","eSampleName":"Hide Period Selector","eCategoryName":"Stock Chart"} }
+,{ path: '/:theme/tab/default.html', component: Tabsdefault, meta: {"eCompName":"Tabs","eSampleName":"Default Functionalities","eCategoryName":"Tabs"} }
+,{ path: '/:theme/tab/orientation.html', component: Tabsorientation, meta: {"eCompName":"Tabs","eSampleName":"Orientation","eCategoryName":"Tabs"} }
+,{ path: '/:theme/tab/responsive.html', component: Tabsresponsive, meta: {"eCompName":"Tabs","eSampleName":"Responsive Modes","eCategoryName":"Tabs"} }
+,{ path: '/:theme/tab/wizard.html', component: Tabswizard, meta: {"eCompName":"Tabs","eSampleName":"Wizard","eCategoryName":"Tabs"} }
+,{ path: '/:theme/textboxes/default.html', component: TextBoxdefault, meta: {"eCompName":"TextBox","eSampleName":"Default Functionalities","eCategoryName":"TextBox"} }
+,{ path: '/:theme/textboxes/two-way-binding.html', component: TextBoxtwowaybinding, meta: {"eCompName":"TextBox","eSampleName":"Two-way Binding","eCategoryName":"TextBox"} }
 ,{ path: '/:theme/timepicker/default.html', component: TimePickerdefault, meta: {"eCompName":"TimePicker","eSampleName":"Default Functionalities","eCategoryName":"TimePicker"} }
 ,{ path: '/:theme/timepicker/time-format.html', component: TimePickertimeformat, meta: {"eCompName":"TimePicker","eSampleName":"Format","eCategoryName":"TimePicker"} }
 ,{ path: '/:theme/timepicker/time-range.html', component: TimePickertimerange, meta: {"eCompName":"TimePicker","eSampleName":"Time Range","eCategoryName":"TimePicker"} }
 ,{ path: '/:theme/timepicker/list-formatting.html', component: TimePickerlistformatting, meta: {"eCompName":"TimePicker","eSampleName":"Time Duration","eCategoryName":"TimePicker"} }
+,{ path: '/:theme/timepicker/two-way.html', component: TimePickertwoway, meta: {"eCompName":"TimePicker","eSampleName":"Two-Way Binding","eCategoryName":"TimePicker"} }
 ,{ path: '/:theme/toast/default.html', component: Toastdefault, meta: {"eCompName":"Toast","eSampleName":"Default Functionalities","eCategoryName":"Toast"} }
 ,{ path: '/:theme/toast/types.html', component: Toasttypes, meta: {"eCompName":"Toast","eSampleName":"Types","eCategoryName":"Toast"} }
 ,{ path: '/:theme/toast/template.html', component: Toasttemplate, meta: {"eCompName":"Toast","eSampleName":"Template","eCategoryName":"Toast"} }
@@ -996,6 +1182,48 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/tooltip/tooltip-menu.html', component: Tooltiptooltipmenu, meta: {"eCompName":"Tooltip","eSampleName":"Tooltip menu","eCategoryName":"Tooltip"} }
 ,{ path: '/:theme/tooltip/html-template.html', component: Tooltiphtmltemplate, meta: {"eCompName":"Tooltip","eSampleName":"HTML Content","eCategoryName":"Tooltip"} }
 ,{ path: '/:theme/tooltip/api.html', component: Tooltipapi, meta: {"eCompName":"Tooltip","eSampleName":"API","eCategoryName":"Tooltip"} }
+,{ path: '/:theme/tree-grid/default.html', component: TreeGriddefault, meta: {"eCompName":"Tree Grid","eSampleName":"Default Functionalities","eCategoryName":"Tree Grid"} }
+,{ path: '/:theme/tree-grid/localdata.html', component: TreeGridlocaldata, meta: {"eCompName":"Tree Grid","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/tree-grid/remotedata.html', component: TreeGridremotedata, meta: {"eCompName":"Tree Grid","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/tree-grid/selfreference.html', component: TreeGridselfreference, meta: {"eCompName":"Tree Grid","eSampleName":"Self Reference","eCategoryName":"Data Binding"} }
+,{ path: '/:theme/tree-grid/columnformatting.html', component: TreeGridcolumnformatting, meta: {"eCompName":"Tree Grid","eSampleName":"Column Formatting","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/columntemplate.html', component: TreeGridcolumntemplate, meta: {"eCompName":"Tree Grid","eSampleName":"Column Template","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/reorder.html', component: TreeGridreorder, meta: {"eCompName":"Tree Grid","eSampleName":"Reorder","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/resizing.html', component: TreeGridresizing, meta: {"eCompName":"Tree Grid","eSampleName":"Resize","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/columnmenu.html', component: TreeGridcolumnmenu, meta: {"eCompName":"Tree Grid","eSampleName":"Column Menu","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/cellalignment.html', component: TreeGridcellalignment, meta: {"eCompName":"Tree Grid","eSampleName":"Cell Alignment","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/autowrap.html', component: TreeGridautowrap, meta: {"eCompName":"Tree Grid","eSampleName":"AutoWrap Column Cells","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/showhide.html', component: TreeGridshowhide, meta: {"eCompName":"Tree Grid","eSampleName":"Show or Hide Column","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/headertemplate.html', component: TreeGridheadertemplate, meta: {"eCompName":"Tree Grid","eSampleName":"Header Template","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/stackedheader.html', component: TreeGridstackedheader, meta: {"eCompName":"Tree Grid","eSampleName":"Stacked Header","eCategoryName":"Columns"} }
+,{ path: '/:theme/tree-grid/rowhover.html', component: TreeGridrowhover, meta: {"eCompName":"Tree Grid","eSampleName":"Row Hover","eCategoryName":"Rows"} }
+,{ path: '/:theme/tree-grid/rowheight.html', component: TreeGridrowheight, meta: {"eCompName":"Tree Grid","eSampleName":"Row Height","eCategoryName":"Rows"} }
+,{ path: '/:theme/tree-grid/inline-editing.html', component: TreeGridinlineediting, meta: {"eCompName":"Tree Grid","eSampleName":"Inline Editing","eCategoryName":"Editing"} }
+,{ path: '/:theme/tree-grid/dialogediting.html', component: TreeGriddialogediting, meta: {"eCompName":"Tree Grid","eSampleName":"Dialog Editing","eCategoryName":"Editing"} }
+,{ path: '/:theme/tree-grid/lock-row.html', component: TreeGridlockrow, meta: {"eCompName":"Tree Grid","eSampleName":"Lock Row","eCategoryName":"Editing"} }
+,{ path: '/:theme/tree-grid/cell-edittype.html', component: TreeGridcelledittype, meta: {"eCompName":"Tree Grid","eSampleName":"Cell Edit Type","eCategoryName":"Editing"} }
+,{ path: '/:theme/tree-grid/commandcolumn.html', component: TreeGridcommandcolumn, meta: {"eCompName":"Tree Grid","eSampleName":"Command Column","eCategoryName":"Editing"} }
+,{ path: '/:theme/tree-grid/edittemplate.html', component: TreeGridedittemplate, meta: {"eCompName":"Tree Grid","eSampleName":"Edit Template","eCategoryName":"Editing"} }
+,{ path: '/:theme/tree-grid/sorting.html', component: TreeGridsorting, meta: {"eCompName":"Tree Grid","eSampleName":"Multi Sorting","eCategoryName":"Sorting"} }
+,{ path: '/:theme/tree-grid/sorting-api.html', component: TreeGridsortingapi, meta: {"eCompName":"Tree Grid","eSampleName":"Sorting API","eCategoryName":"Sorting"} }
+,{ path: '/:theme/tree-grid/filtering.html', component: TreeGridfiltering, meta: {"eCompName":"Tree Grid","eSampleName":"Default Filtering","eCategoryName":"Filtering"} }
+,{ path: '/:theme/tree-grid/filtermenu.html', component: TreeGridfiltermenu, meta: {"eCompName":"Tree Grid","eSampleName":"Menu Filter","eCategoryName":"Filtering"} }
+,{ path: '/:theme/tree-grid/search.html', component: TreeGridsearch, meta: {"eCompName":"Tree Grid","eSampleName":"Search","eCategoryName":"Filtering"} }
+,{ path: '/:theme/tree-grid/paging.html', component: TreeGridpaging, meta: {"eCompName":"Tree Grid","eSampleName":"Default Paging","eCategoryName":"Paging"} }
+,{ path: '/:theme/tree-grid/paging-api.html', component: TreeGridpagingapi, meta: {"eCompName":"Tree Grid","eSampleName":"Paging API","eCategoryName":"Paging"} }
+,{ path: '/:theme/tree-grid/selection.html', component: TreeGridselection, meta: {"eCompName":"Tree Grid","eSampleName":"Default Selection","eCategoryName":"Selection"} }
+,{ path: '/:theme/tree-grid/selection-api.html', component: TreeGridselectionapi, meta: {"eCompName":"Tree Grid","eSampleName":"Selection API","eCategoryName":"Selection"} }
+,{ path: '/:theme/tree-grid/aggregate.html', component: TreeGridaggregate, meta: {"eCompName":"Tree Grid","eSampleName":"Default Aggregate","eCategoryName":"Aggregates"} }
+,{ path: '/:theme/tree-grid/custom-aggregate.html', component: TreeGridcustomaggregate, meta: {"eCompName":"Tree Grid","eSampleName":"Custom Aggregate","eCategoryName":"Aggregates"} }
+,{ path: '/:theme/tree-grid/contextmenu.html', component: TreeGridcontextmenu, meta: {"eCompName":"Tree Grid","eSampleName":"Default Context Menu","eCategoryName":"Context Menu"} }
+,{ path: '/:theme/tree-grid/custom-contextmenu.html', component: TreeGridcustomcontextmenu, meta: {"eCompName":"Tree Grid","eSampleName":"Custom Context Menu","eCategoryName":"Context Menu"} }
+,{ path: '/:theme/tree-grid/export.html', component: TreeGridexport, meta: {"eCompName":"Tree Grid","eSampleName":"Default Exporting","eCategoryName":"Exporting"} }
+,{ path: '/:theme/tree-grid/print.html', component: TreeGridprint, meta: {"eCompName":"Tree Grid","eSampleName":"Print","eCategoryName":"Exporting"} }
+,{ path: '/:theme/tree-grid/conditionalformatting.html', component: TreeGridconditionalformatting, meta: {"eCompName":"Tree Grid","eSampleName":"Conditional Formatting","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/tree-grid/toolbar-template.html', component: TreeGridtoolbartemplate, meta: {"eCompName":"Tree Grid","eSampleName":"Toolbar Template","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/tree-grid/events.html', component: TreeGridevents, meta: {"eCompName":"Tree Grid","eSampleName":"Events","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/tree-grid/keyboard.html', component: TreeGridkeyboard, meta: {"eCompName":"Tree Grid","eSampleName":"KeyBoard Interaction","eCategoryName":"Miscellaneous"} }
+,{ path: '/:theme/tree-grid/gridlines.html', component: TreeGridgridlines, meta: {"eCompName":"Tree Grid","eSampleName":"Grid Lines","eCategoryName":"Miscellaneous"} }
 ,{ path: '/:theme/treemap/default.html', component: TreeMapdefault, meta: {"eCompName":"TreeMap","eSampleName":"Default Functionalities","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/layout.html', component: TreeMaplayout, meta: {"eCompName":"TreeMap","eSampleName":"Layout","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/drilldown.html', component: TreeMapdrilldown, meta: {"eCompName":"TreeMap","eSampleName":"Drilldown","eCategoryName":"TreeMap"} }
@@ -1003,6 +1231,7 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/treemap/label.html', component: TreeMaplabel, meta: {"eCompName":"TreeMap","eSampleName":"Data Label","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/tooltip.html', component: TreeMaptooltip, meta: {"eCompName":"TreeMap","eSampleName":"Tooltip","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/election.html', component: TreeMapelection, meta: {"eCompName":"TreeMap","eSampleName":"Legend","eCategoryName":"TreeMap"} }
+,{ path: '/:theme/treemap/color-mapping.html', component: TreeMapcolormapping, meta: {"eCompName":"TreeMap","eSampleName":"Color Mapping","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/selection.html', component: TreeMapselection, meta: {"eCompName":"TreeMap","eSampleName":"Selection & Highlight","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/print.html', component: TreeMapprint, meta: {"eCompName":"TreeMap","eSampleName":"Print & Export","eCategoryName":"TreeMap"} }
 ,{ path: '/:theme/treemap/pie.html', component: TreeMappie, meta: {"eCompName":"TreeMap","eSampleName":"TreeMap with Pie","eCategoryName":"TreeMap"} }
@@ -1013,15 +1242,14 @@ export default [{path: '/', redirect: '/material/grid/gridoverview'},{ path: '/:
 ,{ path: '/:theme/treeview/multiple-selection.html', component: TreeViewmultipleselection, meta: {"eCompName":"TreeView","eSampleName":"Multiple Selection","eCategoryName":"TreeView"} }
 ,{ path: '/:theme/treeview/drag-and-drop.html', component: TreeViewdraganddrop, meta: {"eCompName":"TreeView","eSampleName":"Drag and Drop","eCategoryName":"TreeView"} }
 ,{ path: '/:theme/treeview/template.html', component: TreeViewtemplate, meta: {"eCompName":"TreeView","eSampleName":"Template","eCategoryName":"TreeView"} }
-,{ path: '/:theme/treeview/right-to-left.html', component: TreeViewrighttoleft, meta: {"eCompName":"TreeView","eSampleName":"RTL","eCategoryName":"TreeView"} }
 ,{ path: '/:theme/treeview/local-data.html', component: TreeViewlocaldata, meta: {"eCompName":"TreeView","eSampleName":"Local Data","eCategoryName":"Data Binding"} }
 ,{ path: '/:theme/treeview/remote-data.html', component: TreeViewremotedata, meta: {"eCompName":"TreeView","eSampleName":"Remote Data","eCategoryName":"Data Binding"} }
-,{ path: '/:theme/uploader/default.html', component: Uploaderdefault, meta: {"eCompName":"Uploader","eSampleName":"Default Functionalities","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/chunk-upload.html', component: Uploaderchunkupload, meta: {"eCompName":"Uploader","eSampleName":"Chunk Upload","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/custom-file-list.html', component: Uploadercustomfilelist, meta: {"eCompName":"Uploader","eSampleName":"Template","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/preload-files.html', component: Uploaderpreloadfiles, meta: {"eCompName":"Uploader","eSampleName":"Preload Files","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/file-validation.html', component: Uploaderfilevalidation, meta: {"eCompName":"Uploader","eSampleName":"File Validation","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/image-preview.html', component: Uploaderimagepreview, meta: {"eCompName":"Uploader","eSampleName":"Image Preview","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/file-upload-with-forms.html', component: Uploaderfileuploadwithforms, meta: {"eCompName":"Uploader","eSampleName":"Form Support","eCategoryName":"Uploader"} }
-,{ path: '/:theme/uploader/custom-drop-area.html', component: Uploadercustomdroparea, meta: {"eCompName":"Uploader","eSampleName":"Custom Drop Area","eCategoryName":"Uploader"} }
+,{ path: '/:theme/uploader/default.html', component: FileUploaddefault, meta: {"eCompName":"File Upload","eSampleName":"Default Functionalities","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/chunk-upload.html', component: FileUploadchunkupload, meta: {"eCompName":"File Upload","eSampleName":"Chunk Upload","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/custom-file-list.html', component: FileUploadcustomfilelist, meta: {"eCompName":"File Upload","eSampleName":"Template","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/preload-files.html', component: FileUploadpreloadfiles, meta: {"eCompName":"File Upload","eSampleName":"Preload Files","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/file-validation.html', component: FileUploadfilevalidation, meta: {"eCompName":"File Upload","eSampleName":"File Validation","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/image-preview.html', component: FileUploadimagepreview, meta: {"eCompName":"File Upload","eSampleName":"Image Preview","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/file-upload-with-forms.html', component: FileUploadfileuploadwithforms, meta: {"eCompName":"File Upload","eSampleName":"Form Support","eCategoryName":"File Upload"} }
+,{ path: '/:theme/uploader/custom-drop-area.html', component: FileUploadcustomdroparea, meta: {"eCompName":"File Upload","eSampleName":"Custom Drop Area","eCategoryName":"File Upload"} }
 ];

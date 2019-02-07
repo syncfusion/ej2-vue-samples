@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="col-lg-9 control-section">
+    <div class="col-lg-9 control-section" style="overflow: auto">
         <div class="content-wrapper">
         <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :width="width" :height="height" :gridSettings="gridSettings" :showFieldList="showFieldList">           
         </ejs-pivotview>
@@ -99,7 +99,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { PivotViewPlugin, FieldList } from "@syncfusion/ej2-vue-pivotview";
+import { PivotViewPlugin, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import { defaultData } from "./data-source";
 import {
   CheckBoxPlugin,
@@ -116,7 +116,9 @@ enableRipple(false);
 Vue.use(PivotViewPlugin);
 Vue.use(CheckBoxPlugin);
 Vue.use(DropDownListPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -154,13 +156,11 @@ export default Vue.extend({
   },
   methods: {
     ddl_onChange: function(args: dropEventArgs) {
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       pivotGridObj.gridSettings.gridLines = <GridLine>args.value;
     },
     checkbox_onChange: function(args: checkEventArgs) {
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       let target = (<any>args.event).target;
       if (target.id === "reorder") {
         pivotGridObj.gridSettings.allowReordering = args.checked;

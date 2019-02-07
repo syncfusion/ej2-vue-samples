@@ -13,7 +13,7 @@
     </div>
     <div id="action-description">
         <p>
-            This sample demonstrates how to display multiple dialogs one over the other. The second dialog is configured with draggable behavior to adjust its position. You can invoke the second dialog from first dialog's button. Enable the <code>open dialog</code> button to reopen the dialog if the first dialog is closed.
+            This example demonstrates how to display multiple dialogs one over the other. The second dialog is configured with draggable behavior to adjust its position. You can invoke the second dialog from first dialog's button. Enable the <code>open dialog</code> button to reopen the dialog if the first dialog is closed.
         </p>
     </div>
     <div id="description">

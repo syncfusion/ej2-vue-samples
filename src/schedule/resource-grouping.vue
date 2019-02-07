@@ -23,13 +23,13 @@
         <div id="action-description">
             <p>
                 This demo illustrates the timings of different flight services on a specific route say between Barcelona and Los Angeles,
-                on a daily basis. Here, the Schedule is grouped based on the 3 Airline services.
+                on a daily basis. Here, the Scheduler is grouped based on the 3 Airline services.
             </p>
         </div>
 
         <div id="description">
             <p>
-                In this demo, the schedule has been grouped with multiple resources by making use of the property
+                In this demo, the Scheduler has been grouped with multiple resources by making use of the property
                 <code>group</code>. The resources to be grouped depends on the values of
                 <code>resources</code> option within the
                 <code>group</code> property, which accepts the array of resource names. The resource header has been customized
@@ -47,7 +47,7 @@
                 <code>true</code> by default. This option is not applicable on desktop mode. </p>
             <p>
                 Note: If the
-                <code>group</code> property is not defined, then the default schedule will be rendered with no grouping on
+                <code>group</code> property is not defined, then the default Scheduler will be rendered with no grouping on
                 layout, but the appointments of all the resources will be displayed on a single schedule.
             </p>
         </div>

@@ -1,0 +1,51 @@
+// tslint:disable
+export let data: object[] = [
+    { x: 0, xval: 'AUDI', yval: 1 },
+    { x: 1, xval: 'BMW', yval: 5 },
+    { x: 2, xval: 'BUICK', yval: -1 },
+    { x: 3, xval: 'CETROEN', yval: -6 },
+    { x: 4, xval: 'CHEVROLET', yval: 0 },
+    { x: 5, xval: 'FIAT', yval: 1 },
+    { x: 6, xval: 'FORD', yval: -2 },
+    { x: 7, xval: 'HONDA', yval: 7 },
+    { x: 8, xval: 'HYUNDAI', yval: -9 },
+    { x: 9, xval: 'JEEP', yval: 0 },
+    { x: 10, xval: 'KIA', yval: -10 },
+    { x: 11, xval: 'MAZDA', yval: 3 },
+    { x: 12, xval: 'MERCEDES', yval: 13 },
+    { x: 13, xval: 'NISSAN', yval: 5 },
+    { x: 14, xval: 'OPEL/VHALL', yval: -6 },
+    { x: 15, xval: 'PEUGEOT', yval: 0 },
+    { x: 16, xval: 'RENAULT', yval: 7 },
+    { x: 17, xval: 'SKODA', yval: 5 },
+    { x: 18, xval: 'SUBARU', yval: 5 },
+    { x: 19, xval: 'SUZUKI', yval: 11 },
+    { x: 20, xval: 'TOYOTA', yval: 5 },
+    { x: 21, xval: 'VOLKSWAGEN', yval: 3 }
+];
+
+
+export let data2: object[] = [
+    { x: 0, xval: 'AUDI', yval: 1847613 },
+    { x: 1, xval: 'BMW', yval: 2030331 },
+    { x: 2, xval: 'BUICK', yval: 1465823 },
+    { x: 3, xval: 'CETROEN', yval: 999888 },
+    { x: 4, xval: 'CHEVROLET', yval: 3857388 },
+    { x: 5, xval: 'FIAT', yval: 1503806 },
+    { x: 6, xval: 'FORD', yval: 5953122 },
+    { x: 7, xval: 'HONDA', yval: 4967689 },
+    { x: 8, xval: 'HYUNDAI', yval: 3951176 },
+    { x: 9, xval: 'JEEP', yval: 1390130 },
+    { x: 10, xval: 'KIA', yval: 2511293 },
+    { x: 11, xval: 'MAZDA', yval: 1495557 },
+    { x: 12, xval: 'MERCEDES', yval: 2834181 },
+    { x: 13, xval: 'NISSAN', yval: 4834694 },
+    { x: 14, xval: 'OPEL/VHALL', yval: 996559 },
+    { x: 15, xval: 'PEUGEOT', yval: 1590300 },
+    { x: 16, xval: 'RENAULT', yval: 2275227 },
+    { x: 17, xval: 'SKODA', yval: 1180672 },
+    { x: 18, xval: 'SUBARU', yval: 1050390 },
+    { x: 19, xval: 'SUZUKI', yval: 2891415 },
+    { x: 20, xval: 'TOYOTA', yval: 7843423 },
+    { x: 21, xval: 'VOLKSWAGEN', yval: 6639250 }
+];

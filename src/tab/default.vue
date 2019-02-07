@@ -15,7 +15,7 @@
     <div id="description">
         <p>The <code>Tab</code> is a content panel to show multiple contents in specific space one at a time.</p>
         <p>The default sample illustrates to render simple Tab by defining header and content as <code>items</code> collections.</p>
-        <p>More information about Tab can be found in this <a href="" target="_blank">documentation</a> section.</p>
+        <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
     </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
-            <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
+            <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
         </div>
     </div>
 </div>
@@ -12,12 +12,12 @@
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%;">
-                    <ejs-checkbox id='xOpposed' label='Change X-Axis Position' checked="true" :change="valueXChange"></ejs-checkbox>
+                    <ejs-checkbox id='xOpposed' ref='xAxisOpposed' label='Change X-Axis Position' checked="true" :change="valueXChange"></ejs-checkbox>
                     </td>
                 </tr>
                  <tr style="height: 50px">
                     <td style="width: 40%;">
-                    <ejs-checkbox id='yOpposed' label='Change Y-Axis Position' checked="true" :change="valueYChange"></ejs-checkbox>
+                    <ejs-checkbox id='yOpposed' ref='yAxisOpposed' label='Change Y-Axis Position' checked="true" :change="valueYChange"></ejs-checkbox>
                     </td>
                 </tr>
             </tbody>
@@ -46,8 +46,10 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { opposedAxisData } from '../heatmap/data';
+import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { opposedAxisData } from './data.json';
 Vue.use(HeatMapPlugin);
+Vue.use(CheckBoxPlugin);
 export default Vue.extend({
 data:function(){
 return{
@@ -96,15 +98,11 @@ methods: {
     },
     valueXChange: function(args)
     {
-        let heatmap = document.getElementById('container');
-        let checkbox = document.getElementById('xOpposed');
-        heatmap.ej2_instances[0].xAxis.opposedPosition= checkbox.ej2_instances[0].checked;
+        this.$refs.heatmap.ej2Instances.xAxis.opposedPosition = this.$refs.xAxisOpposed.ej2Instances.checked;
     },
     valueYChange: function(args)
     {
-        let heatmap = document.getElementById('container');
-        let checkbox = document.getElementById('yOpposed');
-        heatmap.ej2_instances[0].yAxis.opposedPosition= checkbox.ej2_instances[0].checked;
+        this.$refs.heatmap.ej2Instances.yAxis.opposedPosition = this.$refs.yAxisOpposed.ej2Instances.checked;
     }
   }
 })

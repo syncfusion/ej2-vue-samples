@@ -5,8 +5,7 @@
     </div>
    <div id="action-description">
     <p>
-        The following sample demonstrates the default functionalities of the DateRangePicker. Today's date is always highlighted in the popup calendar and it get focused if there's no selected date. Select a date range from the popup calendar and the selected
-        <code>date range</code> will be displayed in the DateRangePicker element.
+        The following sample demonstrates the default functionalities of the DateRangePicker. Today's date is always highlighted in the popup calendar and it get focused if there's no selected date. Select a date range from the popup calendar and the selected <code>date range</code> will be displayed in the DateRangePicker element. 
     </p>
 </div>
 <div id="description">

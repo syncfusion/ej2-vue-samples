@@ -23,10 +23,6 @@
 </div>
 </template>
 <style>
-    .control-wrapper {
-        margin: 0 auto;
-        width: 325px;
-    }
 
     .inlinecss.e-ddl .e-input-group-icon.e-ddl-icon {
         display: none;
@@ -67,6 +63,7 @@
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { Query } from '@syncfusion/ej2-data';
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 
@@ -79,17 +76,7 @@ export default Vue.extend ({
             popupWidth: '140px',
             value: 'Michael',
             watermark: 'Select an employee',
-            data: [
-                { Name: 'Andrew', Eimg: '7'},
-                { Name: 'Anne', Eimg: '1' },
-                { Name: 'Janet', Eimg: '3'},
-                { Name: 'Laura', Eimg: '2'},
-                { Name: 'Margaret', Eimg: '6'},
-                { Name: 'Michael', Eimg: '9'},
-                { Name: 'Nancy', Eimg: '4'},
-                { Name: 'Robert', Eimg: '8'},
-                { Name: 'Steven', Eimg: '10'}
-            ],
+            data: data['employees'],
         };
     }
 });

@@ -31,7 +31,9 @@
     </div>
     <div id="action-description">
     <p>
-        In this sample, the DatePicker has been configured with the <code>dd-MMM-yy</code> date format. To change this current date format, go to the properties panel at the right side and select a date format from the available options.
+        In this sample, the DatePicker has been configured with the <code>dd-MMM-yy</code> date format.
+        To change this current date format, go to the properties panel at the right side and select a date format from the dropdown options.
+        For mobile mode touch the icon at the right side and select a date format from the dropdown options.
     </p>
 </div>
 <div id="description">

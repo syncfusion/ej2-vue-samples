@@ -9,14 +9,16 @@
     <div class="col-lg-4 property-section">
         <div id="property" title="Properties">
             <div style="margin-left: 50px; padding-top:25px;">
-                <ejs-checkbox id="checkAutoUpload" label="Auto Upload" :change= "change"  checked="true" name="FileUploader"></ejs-checkbox>
+                <ejs-checkbox id="checkAutoUpload" label="Auto Upload" :change= "change" :checked="true" name="FileUploader"></ejs-checkbox>
+            </div>
+            <div style="margin-left: 50px; padding-top:25px;">
+                <ejs-checkbox id="sequentialUpload" label="Sequential Upload" :change= "changed" :checked="false" name="FileUploader"></ejs-checkbox>
             </div>
         </div>
     </div>
     <div id="action-description">
-      <p>This sample demonstrates the default functionalities of the Uploader component. Browse the files which you want to upload to the server. 
-          The selected files are submitted to server on upload button click. If you click on the clear button, the selected / uploaded files are cleared from list.</p>
-      <p>Also, provided option to enable/disable the auto upload feature in the property panel</p>
+      <p>This example demonstrates the default functionalities of the file upload component with auto upload and sequential upload options.
+          Browse or drag-and-drop the files which you want to upload to the server and upload it.</p>
     </div>
 
     <div id="description">
@@ -27,7 +29,7 @@
         <p>The progress bar displays for each file upload to denote its upload progress. 
             Once the file upload gets success, the progress bar disappear and corresponding upload status message will be displayed in same place.</p>
         <p>More information on the Uploader instantiation can be found in this
-             <a href='https://ej2.syncfusion.com/vue/documentation/uploader/getting-started.html' target="_blank">
+             <a href='https://ej2.syncfusion.com/vue/documentation/uploader/getting-started/' target="_blank">
              documentation </a> section.</p>
     </div>
 </div>
@@ -63,6 +65,10 @@ export default Vue.extend({
           dropElement: '.control-fluid',
           change: (args) => {
             this.$refs.uploadObj.autoUpload = args.checked;
+            this.$refs.uploadObj.clearAll();
+        },
+        changed: (args) => {
+            this.$refs.uploadObj.sequentialUpload = args.checked;
             this.$refs.uploadObj.clearAll();
         }
         }

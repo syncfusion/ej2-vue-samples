@@ -1,27 +1,32 @@
 {
-    "name": "NumericTextBox",
+    "name": "Numeric Textbox",
     "directory": "numerictextbox",
-    "category": "Editors",
+    "category": "Inputs",
+    "ftName": "numerictextbox",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "category": "NumericTextBox"
+            "category": "Numeric Textbox",
+            "description": "The NumericTextBox component is used to get the number inputs from the user. Also it can be act as the currency textbox and percentage textbox to get the currency and percentage inputs."
         },
         {
             "url": "range-validation",
             "name": "Range Validation",
-            "category": "NumericTextBox"
+            "category": "Numeric Textbox",
+            "description": "The NumericTextBox has the options to restrict the input value between a specific range using the min, max, and strictMode properties. In this demo, numeric textbox is restricted between 10 to 100 through the min and max properties."
         },
         {
             "url": "custom-format",
             "name": "Custom Format",
-            "category": "NumericTextBox"
+            "category": "Numeric Textbox",
+            "description": "The NumericTextBox provides an option to customize the display format of the numeric value using the format property."
         },
         {
             "url": "restrict-decimals",
             "name": "Restrict Decimals",
-            "category": "NumericTextBox"
+            "category": "Numeric Textbox",
+            "description": "The NumericTextBox provides an option to restrict the number of decimal values, by using the decimals property. So we can make it to accept the integer value alone."
         }
     ]
 }

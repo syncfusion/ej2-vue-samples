@@ -1,8 +1,8 @@
 <template>
 <div>
-<div class="control-section">
+<div class="control-section" style="overflow: auto">
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :load="load" :gridSettings="gridSettings" :width="width" :height="height" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :showFieldList="showFieldList" :showGroupingBar="showGroupingBar" :enableRtl="enableRtl">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :load="load" :gridSettings="gridSettings" :width="width" :height="height" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :showFieldList="showFieldList" :showGroupingBar="showGroupingBar" :enableRtl="enableRtl">        
         </ejs-pivotview>
     </div>
 </div>
@@ -30,12 +30,13 @@ import {
   FieldList,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -81,8 +82,7 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function(args: any) {
-      let pivotGridObj = (<any>document.getElementById("pivotview"))
-        .ej2_instances[0];
+      let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       if (pivotGridObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";

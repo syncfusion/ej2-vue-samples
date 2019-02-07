@@ -91,7 +91,7 @@
 <div id="description">
     <p>By default, card elements are stacked one after another vertically. You can customize the card with specific direction by adding <strong>e-card-horizontal</strong> to align elements horizontally. Using <strong>e-card-stacked</strong> class, you can split the horizontal layout with a stacked element on left or right of the card.</p>
     <p>More information about Card can be found in this
-        <a href="" target="_blank"> documentation section</a>.</p>
+        <a href="https://ej2.syncfusion.com/vue/documentation/card/getting-started/" target="_blank"> documentation section</a>.</p>
 </div>
 </div>
 </template>
@@ -102,6 +102,11 @@
 
     .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-actions button:last-child {
         margin-left: 20px;
+    }
+
+    .fabric .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-actions button:last-child,
+    .highcontrast .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-actions button:last-child {
+        margin-left: 7px;
     }
 
     .card-control-section.horizontal_card_layout .e-card.e-card-horizontal.e-product .e-card-stacked> :first-child,

@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-lineargauge style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :annotations='annotations' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad' :loaded='gaugeLoaded' :resized='gaugeResized'>
+<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :annotations='annotations' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad' :loaded='gaugeLoaded' :resized='gaugeResized'>
 <e-axes>
 <e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
 <e-pointers>
@@ -135,53 +135,53 @@ methods: {
     }
     },
     gaugeResized: function(args){
-        let cotainerObj=document.getElementById('tooltipContainer');
+        // let cotainerObj=document.getElementById('tooltipContainer');
         if (args.currentSize.width < 500) {
-        cotainerObj.ej2_instances[0].axes[1].majorTicks.interval = 2;
-        cotainerObj.ej2_instances[0].axes[1].minorTicks.interval = 1;
-        cotainerObj.ej2_instances[0].orientation = 'Vertical';
-        cotainerObj.ej2_instances[0].annotations[0].x = -57;
-        cotainerObj.ej2_instances[0].annotations[0].y = -30;
-        cotainerObj.ej2_instances[0].annotations[1].x = 50;
-        cotainerObj.ej2_instances[0].annotations[1].y = -45;
+        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 2;
+        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 1;
+        this.$refs.lineargauge.ej2Instances.orientation = 'Vertical';
+        this.$refs.lineargauge.ej2Instances.annotations[0].x = -57;
+        this.$refs.lineargauge.ej2Instances.annotations[0].y = -30;
+        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
+        this.$refs.lineargauge.ej2Instances.annotations[1].y = -45;
     } else {
-        cotainerObj.ej2_instances[0].axes[1].majorTicks.interval = 1;
-        cotainerObj.ej2_instances[0].axes[1].minorTicks.interval = 0.5;
-        cotainerObj.ej2_instances[0].orientation = 'Horizontal';
-        cotainerObj.ej2_instances[0].annotations[0].x = 35;
-        cotainerObj.ej2_instances[0].annotations[0].y = -58;
-        cotainerObj.ej2_instances[0].annotations[1].x = 50;
-        cotainerObj.ej2_instances[0].annotations[1].y = 52;
+        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 1;
+        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 0.5;
+        this.$refs.lineargauge.ej2Instances.orientation = 'Horizontal';
+        this.$refs.lineargauge.ej2Instances.annotations[0].x = 35;
+        this.$refs.lineargauge.ej2Instances.annotations[0].y = -58;
+        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
+        this.$refs.lineargauge.ej2Instances.annotations[1].y = 52;
     }
     },
     gaugeLoad: function(args){
-    let cotainerObj=document.getElementById('tooltipContainer');
+    // let cotainerObj=document.getElementById('tooltipContainer');
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : 'Material';
     args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1));
-    let width = parseInt(((cotainerObj.ej2_instances[0].width, cotainerObj.ej2_instances[0].element.offsetWidth) || cotainerObj.ej2_instances[0].element.offsetWidth || 600), 10);
+    let width = parseInt(((this.$refs.lineargauge.ej2Instances.width, this.$refs.lineargauge.ej2Instances.element.offsetWidth) || this.$refs.lineargauge.ej2Instances.element.offsetWidth || 600), 10);
     if (width < 500) {
-        cotainerObj.ej2_instances[0].axes[1].majorTicks.interval = 2;
-        cotainerObj.ej2_instances[0].axes[1].minorTicks.interval = 1;
-        cotainerObj.ej2_instances[0].orientation = 'Vertical';
-        cotainerObj.ej2_instances[0].annotations[0].x = -57;
-        cotainerObj.ej2_instances[0].annotations[0].y = -30;
-        cotainerObj.ej2_instances[0].annotations[1].x = 50;
-        cotainerObj.ej2_instances[0].annotations[1].y = -45;
+        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 2;
+        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 1;
+        this.$refs.lineargauge.ej2Instances.orientation = 'Vertical';
+        this.$refs.lineargauge.ej2Instances.annotations[0].x = -57;
+        this.$refs.lineargauge.ej2Instances.annotations[0].y = -30;
+        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
+        this.$refs.lineargauge.ej2Instances.annotations[1].y = -45;
     } else {
-        cotainerObj.ej2_instances[0].axes[1].majorTicks.interval = 1;
-        cotainerObj.ej2_instances[0].axes[1].minorTicks.interval = 0.5;
-        cotainerObj.ej2_instances[0].orientation = 'Horizontal';
-        cotainerObj.ej2_instances[0].annotations[0].x = 35;
-        cotainerObj.ej2_instances[0].annotations[0].y = -58;
-        cotainerObj.ej2_instances[0].annotations[1].x = 50;
-        cotainerObj.ej2_instances[0].annotations[1].y = 52;
+        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 1;
+        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 0.5;
+        this.$refs.lineargauge.ej2Instances.orientation = 'Horizontal';
+        this.$refs.lineargauge.ej2Instances.annotations[0].x = 35;
+        this.$refs.lineargauge.ej2Instances.annotations[0].y = -58;
+        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
+        this.$refs.lineargauge.ej2Instances.annotations[1].y = 52;
     }
     },
     gaugeLoaded: function(args){
-        let cotainerObj=document.getElementById('tooltipContainer');
+        // let cotainerObj=document.getElementById('tooltipContainer');
         if (document.getElementById('tooltipContainer')) {
-        if (cotainerObj.ej2_instances[0].availableSize.width < 500) {
+        if (this.$refs.lineargauge.ej2Instances.availableSize.width < 500) {
             document.getElementById('tooltipContainer_Annotation_0').style.transform = 'rotate(270deg)';
             document.getElementById('tooltipContainer_Annotation_1').style.transform = 'rotate(270deg)';
         } else {

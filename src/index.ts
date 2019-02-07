@@ -29,7 +29,7 @@ import * as hljs from './common/lib/highlightjs';
 import * as searchJson from './common/search-index.json';
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
-import { setTimeout } from "timers";
+//import { setTimeout } from "timers";
 
 loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
 L10n.load(Locale);
@@ -73,6 +73,7 @@ let currencyDropDown: DropDownList;
 let settingPopup: Popup;
 let sidebar: Sidebar;
 let settingSidebar: Sidebar;
+let prev: string = '';
 let sbHeader: HTMLElement;
 let settingElement: HTMLElement
 let resetSearch: Element;
@@ -202,6 +203,8 @@ let sampleBrowser: Vue = new Vue({
         },
 
         updateDescription: function () {
+            let curUrl: string = location.hash;
+            if(prev != curUrl) {
             select('.description-section', this.$el).innerHTML = '';
             if (select('#description')) {
                 select('.description-section', this.$el)
@@ -211,6 +214,8 @@ let sampleBrowser: Vue = new Vue({
             if (select('#action-description') !== null) {
                 select('.sb-action-description', this.$el)
                     .appendChild(select('#action-description'));
+              }
+            prev = curUrl;  
             }
         },
 
@@ -229,10 +234,10 @@ let sampleBrowser: Vue = new Vue({
             let title: HTMLElement = <HTMLElement>document.querySelector('title');
 
             if ((controlName || sampleName) == undefined) {
-                title.innerHTML = 'Essential JS 2 for Vue (Preview) · Syncfusion '
+                title.innerHTML = 'Syncfusion Vue UI Components '
             }
             else
-                title.innerHTML = controlName + ' · ' + sampleName + ' · Essential JS 2 for Vue (Preview) · Syncfusion ';
+                title.innerHTML = controlName + ' · ' + sampleName + ' · Syncfusion Vue UI Components ';
         },
 
         updateBreadCrumb: function () {
@@ -249,9 +254,9 @@ let sampleBrowser: Vue = new Vue({
                         text: 'name', hasChildren: 'hasChild', htmlAttributes: 'url'
                     },
                     nodeClicked: this.controlSelect,
-                    nodeTemplate: '<span class="e-list-text" role="listitem">${name}' +
-                        '${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type} tree">Updated</span>' +
-                        '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type} tree">${type}</span>${/if}${/if}</span>'
+                    nodeTemplate:  '<div><span class="tree-text">${name}</span>' +
+                    '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">Updated</span>' +
+                    '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">${type}</span>${/if}${/if}'
                 },
                 '#controlTree');
             let controlList: ListView = new ListView(
@@ -259,7 +264,7 @@ let sampleBrowser: Vue = new Vue({
                     dataSource: controlSampleData[location.hash.split('/')[2]] || controlSampleData.grid,
                     fields: { id: 'uid', text: 'name', groupBy: 'order', htmlAttributes: 'data' },
                     select: this.controlSelect,
-                    template: '<div class="e-text-content e-icon-wrapper"> <span class="e-list-text" role="listitem">${name}' +
+                    template: '<div class="e-text-content ${if(type)}e-icon-wrapper${/if}"> <span class="e-list-text" role="listitem">${name}' +
                         '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type}">Updated</span>' +
                         '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type}">${type}</span>${/if}${/if}' +
                         '${if(directory)}<div class="e-icons e-icon-collapsible"></div>${/if}</div>',
@@ -396,6 +401,7 @@ let sampleBrowser: Vue = new Vue({
                 let samples: any = controlSampleData[<string>control.getAttribute('control-name')];
                 if (JSON.stringify(data) !== JSON.stringify(samples)) {
                     list.dataSource = samples;
+                    list.dataBind();
                 }
                 let selectSample: Element = select('[sample-name="' + hash.slice(-1)[0].split('.html')[0] + '"]');
                 if (selectSample) {
@@ -747,7 +753,7 @@ let sampleBrowser: Vue = new Vue({
             for (let sb of sbArray) {
                 let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
                 if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
-                    ele.href = sb == 'aspnetcore' ? 'https://aspdotnetcore.syncfusion.com' : 'https://aspnetmvc.syncfusion.com';
+                      ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
                 } else {
                     ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
                         (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');
@@ -789,6 +795,7 @@ let sampleBrowser: Vue = new Vue({
             this.updatesourceTab();
             (elasticlunr as any).clearStopWords();
             searchInstance = (elasticlunr as any).Index.load(searchJson);
+            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 500);
         },
 
         setMouseOrTouch: function (e: MouseEvent): void {

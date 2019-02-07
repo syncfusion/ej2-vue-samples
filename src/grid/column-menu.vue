@@ -10,7 +10,7 @@
         :groupSettings='groupOptions' :allowFiltering='true' :filterSettings='filterSettings'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' showInColumnChooser='false' width='120'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' :showInColumnChooser='false' width='120'></e-column>
                 <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' width='120'></e-column>
                 <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='150'></e-column>

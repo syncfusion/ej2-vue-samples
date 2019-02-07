@@ -49,6 +49,7 @@ import {
   DataBinding,
   DiagramElement,
   StackPanel,
+  randomId,
   VerticalAlignment
 } from "@syncfusion/ej2-vue-diagrams";
 
@@ -68,6 +69,7 @@ function getTextElement(
 ): DiagramElement {
   let textElement: TextElement = new TextElement();
   textElement.content = text;
+  textElement.id = randomId();
   textElement.width = width;
   textElement.height = 25;
   textElement.horizontalAlignment = alignment;
@@ -153,10 +155,12 @@ export default Vue.extend({
 function getNodeTemplate(node: NodeModel): StackPanel {
   let table: StackPanel = new StackPanel();
   table.style.fill = "#0069d9";
+  table.id = randomId();
   table.orientation = "Vertical";
   let nameKey: string = "id";
   let stack: StackPanel = new StackPanel();
   stack.children = [];
+  stack.id = randomId();
   stack.height = 25;
   stack.orientation = "Horizontal";
   stack.style.fill = "white";

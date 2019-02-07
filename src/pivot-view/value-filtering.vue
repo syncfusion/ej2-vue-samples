@@ -1,13 +1,13 @@
 <template>
 <div>
-    <div class="col-lg-8 control-section">
+    <div class="col-lg-8 control-section" style="overflow: auto">
     <div class="content-wrapper">
-        <ejs-pivotview id="PivotView" ref="pivotgrid_instance" :dataSource="dataSource" :gridSettings="gridSettings" :dataBound="ondataBound" :width="width" :height="height">        
+        <ejs-pivotview id="PivotView" ref="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :dataBound="ondataBound" :width="width" :height="height">        
         </ejs-pivotview>
     </div>
 </div>
 
-<div class="col-lg-4 property-section pivotgrid-section">
+<div class="col-lg-4 property-section pivotgrid-property-section">
     <table id="property" title="Properties" style="width: 100%;height:100%;">
         <tbody>
             <tr style="height: 50px">
@@ -16,8 +16,8 @@
                     </div>
                 </td>
                 <td style="padding-bottom: 16px">
-                    <div style="margin-left: -40px">
-                        <ejs-dropdownlist id='fields' :dataSource='fields' index=0 width='100%' :change='onFieldChange'></ejs-dropdownlist>
+                    <div>
+                        <ejs-dropdownlist id='fields' ref="fields" :dataSource='fields' index=0 width='100%' :change='onFieldChange'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -27,8 +27,8 @@
                     </div>
                 </td>
                 <td style="padding-bottom: 16px">
-                    <div style="margin-left: -40px">
-                        <ejs-dropdownlist id='measures' :dataSource='measures' :fields='measureFields' index=0 width='100%' :change='onMeasureChange'></ejs-dropdownlist>
+                    <div>
+                        <ejs-dropdownlist id='measures' ref="measures" :dataSource='measures' :fields='measureFields' index=0 width='100%' :change='onMeasureChange'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -38,8 +38,8 @@
                     </div>
                 </td>
                 <td style="padding-bottom: 16px">
-                    <div class="conditionscls" style="margin-left: -40px">
-                        <ejs-dropdownlist id='conditions' ref="conditions_instance" :dataSource='operators' value="DoesNotEquals" width='100%' :change='onOperatorChange'></ejs-dropdownlist>
+                    <div class="conditionscls">
+                        <ejs-dropdownlist id='conditions' ref="conditions" :dataSource='operators' value="DoesNotEquals" width='100%' :change='onOperatorChange'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -49,8 +49,8 @@
                     </div>
                 </td>
                 <td style="padding-bottom: 16px">
-                    <div class="value1cls" style="margin-left: -40px">
-                        <ejs-numerictextbox id="value1" ref="value1_instance" :value='input1Value' width='100%' :change="onValue1Change" :placeholder="Input1PlaceHolder"></ejs-numerictextbox>
+                    <div class="value1cls">
+                        <ejs-numerictextbox id="value1" ref="value1" :value='input1Value' width='100%' :change="onValue1Change" :placeholder="Input1PlaceHolder"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>
@@ -59,19 +59,19 @@
                     <div>Value 2:
                     </div>
                 </td>
-                <td class="value2cls" style="margin-left: -40px">
-                    <div style="margin-left: -40px;margin-top:-5px">
-                        <ejs-numerictextbox id="value2" ref="value2_instance" :value="input2Value" width='100%' :change="onValue2Change" :placeholder="Input2PlaceHolder"></ejs-numerictextbox>
+                <td class="value2cls">
+                    <div style="margin-top:-5px">
+                        <ejs-numerictextbox id="value2" ref="value2" :value="input2Value" width='100%' :change="onValue2Change" :placeholder="Input2PlaceHolder"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
               <td colspan="2">
                   <div style="float:right;margin-right: 4px">
-                      <ejs-button id="clear" ref="clearbtn_instance" v-on:click.native="onClear">Clear</ejs-button>
+                      <ejs-button id="clear" ref="clear" v-on:click.native="onClear">Clear</ejs-button>
                   </div>
                   <div style="float:right;margin-right: 4px">
-                      <ejs-button id="apply" ref="applybtn_instance" v-on:click.native="onClick" isPrimary='true'>Apply</ejs-button>
+                      <ejs-button id="apply" ref="apply" v-on:click.native="onClick" isPrimary='true'>Apply</ejs-button>
                   </div>
               </td>
             </tr>
@@ -145,8 +145,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { PivotViewPlugin, Operators } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
+import { PivotViewPlugin, Operators, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import {
   DropDownListPlugin,
@@ -164,7 +163,9 @@ Vue.use(PivotViewPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(NumericTextBoxPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 let fieldCollections: { [key: string]: FilterModel } = {};
 let operators: string[] = [
   "Equals",
@@ -224,8 +225,8 @@ export default Vue.extend({
       height: 300,
       gridSettings: { columnWidth: 140 },
       memberFields: { text: "Member" },
-      input1Value: '9590',
-      input2Value: '17500',
+      input1Value: '0',
+      input2Value: '0',
       fields: fields,
       measures: measures,
       measureFields: measureFields,
@@ -239,25 +240,18 @@ export default Vue.extend({
   methods: {
     ondataBound: function(args: any) {
       fieldCollections = {};
-      var pivotGridObj = (<any>document.getElementById("PivotView"))
-        .ej2_instances[0];
+      var pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       for (let field of pivotGridObj.dataSource.filterSettings) {
         fieldCollections[field.name] = field;
       }
     },
     onClick: function() {
-      var pivotGridObj = (<any>document.getElementById("PivotView"))
-        .ej2_instances[0];
-        var fieldsddl = (<any>document.getElementById("fields"))
-        .ej2_instances[0];
-        var measuresddl = (<any>document.getElementById("measures"))
-        .ej2_instances[0];
-        var operatorddl = (<any>document.getElementById("conditions"))
-        .ej2_instances[0];
-        var valueInput1 = (<any>document.getElementById("value1"))
-        .ej2_instances[0];
-        var valueInput2 = (<any>document.getElementById("value2"))
-        .ej2_instances[0];
+      var pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
+        var fieldsddl = (<any>this.$refs.fields).ej2Instances;
+        var measuresddl = (<any>this.$refs.measures).ej2Instances;
+        var operatorddl = (<any>this.$refs.conditions).ej2Instances;
+        var valueInput1 = (<any>this.$refs.value1).ej2Instances;
+        var valueInput2 = (<any>this.$refs.value2).ej2Instances;
       let filterOptions: FilterModel[] = [];
       filterOptions = [{
           name: fieldsddl.value,
@@ -270,19 +264,18 @@ export default Vue.extend({
       pivotGridObj.dataSource.filterSettings = filterOptions;
     },
     onClear: function() {
-      var pivotGridObj = (<any>document.getElementById("PivotView"))
-        .ej2_instances[0];
+      var pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
+      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
+      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
       pivotGridObj.dataSource.filterSettings = [];
+      valueInput1.value = '0';
+      valueInput2.value = '0';
     },
     onFieldChange: function(args: ChangeEventArgs) {
-      var measuresddl = (<any>document.getElementById("measures"))
-        .ej2_instances[0];
-      var operatorddl = (<any>document.getElementById("conditions"))
-        .ej2_instances[0];
-      var valueInput1 = (<any>document.getElementById("value1"))
-        .ej2_instances[0];
-      var valueInput2 = (<any>document.getElementById("value2"))
-        .ej2_instances[0];
+      var measuresddl = (<any>this.$refs.measures).ej2Instances;
+      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
+      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
+      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
       if (fieldCollections[args.value as string]) {
         measuresddl.value = fieldCollections[args.value as string].measure;
         operatorddl.value = fieldCollections[args.value as string].condition;
@@ -293,13 +286,10 @@ export default Vue.extend({
       }
     },
     onOperatorChange: function(args: ChangeEventArgs) {
-      var measuresddl = (<any>document.getElementById("measures"))
-        .ej2_instances[0];
-      var fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      var valueInput1 = (<any>document.getElementById("value1"))
-        .ej2_instances[0];
-      var valueInput2 = (<any>document.getElementById("value2"))
-        .ej2_instances[0];
+      var measuresddl = (<any>this.$refs.measures).ej2Instances;
+      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
+      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
       if (args.value === "Between" || args.value === "NotBetween") {
         (document.querySelector(".input2cls") as HTMLElement).style.display = "";
       } else {
@@ -314,15 +304,11 @@ export default Vue.extend({
       );
     },
     onValue1Change: function(e: NumericEventArgs) {
-      var measuresddl = (<any>document.getElementById("measures"))
-        .ej2_instances[0];
-      var fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      var operatorddl = (<any>document.getElementById("conditions"))
-        .ej2_instances[0];
-      var valueInput1 = (<any>document.getElementById("value1"))
-        .ej2_instances[0];
-      var valueInput2 = (<any>document.getElementById("value2"))
-        .ej2_instances[0];
+      var measuresddl = (<any>this.$refs.measures).ej2Instances;
+      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
+      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
+      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
       setFilters(
         fieldsddl.value as string,
         measuresddl.value as string,
@@ -332,15 +318,11 @@ export default Vue.extend({
       );
     },
     onValue2Change: function(e: NumericEventArgs) {
-      var measuresddl = (<any>document.getElementById("measures"))
-        .ej2_instances[0];
-      var fieldsddl = (<any>document.getElementById("fields")).ej2_instances[0];
-      var operatorddl = (<any>document.getElementById("conditions"))
-        .ej2_instances[0];
-      var valueInput1 = (<any>document.getElementById("value1"))
-        .ej2_instances[0];
-      var valueInput2 = (<any>document.getElementById("value2"))
-        .ej2_instances[0];
+      var measuresddl = (<any>this.$refs.measures).ej2Instances;
+      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
+      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
+      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
       setFilters(
         fieldsddl.value as string,
         measuresddl.value as string,
@@ -357,5 +339,13 @@ export default Vue.extend({
 .e-pivotview {
   width: 100%;
   height: 100%;
+}
+
+.pivotgrid-property-section table tr td:first-child {
+  width: 20%;
+}
+
+.pivotgrid-property-section {
+  overflow: auto;
 }
 </style>

@@ -52,10 +52,10 @@ export default Vue.extend({
         zoomSettings: {
             enable: false
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/india.json'),
+        shapeData: new MapAjax('./src/maps/map-data/india.json'),
         shapePropertyPath: 'NAME_1',
         shapeDataPath: 'Name',
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/heatmap-datasource.json'),
+        dataSource: new MapAjax('./src/maps/map-data/heatmap-datasource.json'),
         tooltipSettings: {
                     visible: true,
                     valuePath: 'population',

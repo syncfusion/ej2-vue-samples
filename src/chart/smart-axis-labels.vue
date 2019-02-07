@@ -125,7 +125,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
@@ -204,15 +204,15 @@ export default Vue.extend({
    updated: function () {
     this.$nextTick(function() {
       this.$refs.chart.ej2Instances.dataBind();
-      this.$refs.chart.ej2Instances.refresh();
     });
   },
+  
   methods: {
     actionChange: function(args) {
      let axis = document.getElementById('actionId').value;
         let primaryXAxis = extend({}, this.primaryXAxis);
             primaryXAxis.labelIntersectAction = axis;
-            this.primaryXAxis = primaryXAxis; 
+            this.primaryXAxis = primaryXAxis;
     },
      labelChange: function(args) {
        let label = document.getElementById('labelId').value;

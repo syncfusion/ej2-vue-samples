@@ -88,7 +88,7 @@
 </div>
 <div id="description">
     <p>Cards in this sample have a hidden content within the DOM (Document Object Model), which is set behind the visible card. On the click action handler of front card, the back-side content is shown with a flip animation.</p>
-    <p>More information about Card can be found in this<a href="" target="_blank"> documentation</a> section.</p>
+    <p>More information about Card can be found in this<a href="https://ej2.syncfusion.com/vue/documentation/card/getting-started/" target="_blank"> documentation</a> section.</p>
 </div>
 </div>
 </template>

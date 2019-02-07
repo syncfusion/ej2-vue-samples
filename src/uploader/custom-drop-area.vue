@@ -20,13 +20,13 @@
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates how to configure custom drop area of the Uploader. You can drop the files into specified custom drop area location to upload. </p>
+        <p>This example demonstrates how to configure custom drop area of the Uploader. You can drop the files into specified custom drop area location to upload. </p>
     </div>
 
     <div id="description">
-        <p>The Uploader component allows to set any external element as drop area using the <a href="https://ej2.syncfusion.com/vue/documentation/uploader/api-uploaderComponent.html#droparea" target="_blank">dropArea</a> property.  </p>   
+        <p>The Uploader component allows to set any external element as drop area using the <a href="https://ej2.syncfusion.com/vue/documentation/api/uploader/#droparea" target="_blank">dropArea</a> property.  </p>   
 
-        <p>For more information, you can refer the <a href="https://ej2.syncfusion.com/vue/documentation/uploader/file-source.html#drag-and-drop" target="_blank">dropArea</a> API from the documentation.</p>   
+        <p>For more information, you can refer the <a href="https://ej2.syncfusion.com/vue/documentation/uploader/file-source/#drag-and-drop" target="_blank">dropArea</a> API from the documentation.</p>   
     </div>
 </div>
 </template>
@@ -226,7 +226,7 @@
         overflow: hidden;
         white-space: nowrap;
     }
-    .sample_wrapper #UploaderDropTarget .e-upload.e-control {
+    .customdroparea .sample_wrapper #UploaderDropTarget .e-upload {
         float: right;
     }
  

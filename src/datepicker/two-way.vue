@@ -6,14 +6,14 @@
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-      <ejs-datepicker id="datepicker" :placeholder="waterMark" v-model="date"></ejs-datepicker>
+      <ejs-datepicker id="first_date" :placeholder="waterMark" v-model="date"></ejs-datepicker>
      </div>
     </div>
 </div> 
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-      <ejs-datepicker id="datepicker2" :placeholder="waterMark"  v-model="date"></ejs-datepicker>
+      <ejs-datepicker id="second_date" :placeholder="waterMark"  v-model="date"></ejs-datepicker>
     </div>
     </div>
 </div>
@@ -51,11 +51,13 @@ export default Vue.extend({
 
 
 <style>
+
 #wrapper {
   max-width: 246px;
   margin: 30px auto;
   padding-top: 15px;
 }
+
 #dateWrapper .control-label {
   text-align: center;
   width: 200px;

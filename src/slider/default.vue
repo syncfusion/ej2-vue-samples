@@ -3,15 +3,15 @@
     <div class='content-wrapper'>
         <div class='sliderwrap default'>
             <label class='labeltext'>Default Slider</label>
-            <ejs-slider id='default' :value='value'></ejs-slider>
+            <ejs-slider id='default' v-model="value"></ejs-slider>
         </div>
         <div class='sliderwrap default'>
             <label class='labeltext'>MinRange Slider</label>
-            <ejs-slider id='minrange' :value='value' :type='mintype'></ejs-slider>
+            <ejs-slider id='minrange' v-model="minValue" type="MinRange"></ejs-slider>
         </div>
         <div class='sliderwrap default'>
             <label class='labeltext'>Range Slider</label>
-            <ejs-slider id='range' :value='rangevalue' :type='rangetype'></ejs-slider>
+            <ejs-slider id='range' v-model="rangevalue" type="Range"></ejs-slider>
         </div>
     </div>
     <div id="action-description">
@@ -80,9 +80,8 @@ export default Vue.extend({
   data: function() {
     return {
       value: 30,
-      rangevalue: [30,70],
-      mintype: 'MinRange',
-      rangetype: 'Range',
+      minValue: 30,
+      rangevalue: [30,70]
     };
   }
 });

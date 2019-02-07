@@ -1,12 +1,12 @@
 {
-    "name": "ColorPicker",
+    "name": "Color Picker",
     "directory": "color-picker",
-    "category": "Editors",
+    "category": "Inputs",
     "ftName": "color-picker",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
-            "category": "ColorPicker",
+            "category": "Color Picker",
             "api": {
                 "ColorPicker": [
                     "value",
@@ -20,7 +20,7 @@
         {
             "url": "inline",
             "name": "Inline Mode",
-            "category": "ColorPicker",
+            "category": "Color Picker",
             "api": {
                 "ColorPicker": [
                     "value",
@@ -35,7 +35,7 @@
         {
             "url": "custom",
             "name": "Custom Palettes",
-            "category": "ColorPicker",
+            "category": "Color Picker",
             "api": {
                 "ColorPicker": [
                     "value",
@@ -51,7 +51,7 @@
         {
             "url": "api",
             "name": "API",
-            "category": "ColorPicker",
+            "category": "Color Picker",
             "api": {
                 "ColorPicker": [
                     "value",

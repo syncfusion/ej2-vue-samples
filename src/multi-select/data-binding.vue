@@ -71,14 +71,15 @@
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { Query, DataManager, ODataAdaptor } from '@syncfusion/ej2-data';
+import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 Vue.use(CheckBoxPlugin);
 
 var remoteData = new DataManager({
-    url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Customers',
-    adaptor: new ODataAdaptor,
+    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    adaptor: new WebApiAdaptor,
     crossDomain: true
 });
 
@@ -87,31 +88,11 @@ export default Vue.extend ({
         return {
             localFields: { text: 'Name', value: 'Code' },
             localWaterMark: 'Select countries',
-            countries: [
-                { Name: 'Australia', Code: 'AU' },
-                { Name: 'Bermuda', Code: 'BM' },
-                { Name: 'Canada', Code: 'CA' },
-                { Name: 'Cameroon', Code: 'CM' },
-                { Name: 'Denmark', Code: 'DK' },
-                { Name: 'France', Code: 'FR' },
-                { Name: 'Finland', Code: 'FI' },
-                { Name: 'Germany', Code: 'DE' },
-                { Name: 'Greenland', Code: 'GL' },
-                { Name: 'Hong Kong', Code: 'HK' },
-                { Name: 'India', Code: 'IN' },
-                { Name: 'Italy', Code: 'IT' },
-                { Name: 'Japan', Code: 'JP' },
-                { Name: 'Mexico', Code: 'MX' },
-                { Name: 'Norway', Code: 'NO' },
-                { Name: 'Poland', Code: 'PL' },
-                { Name: 'Switzerland', Code: 'CH' },
-                { Name: 'United Kingdom', Code: 'GB' },
-                { Name: 'United States', Code: 'US' }
-            ],
+            countries:data['countries'],
             data: remoteData,
-            remoteFields: { text: 'ContactName', value: 'CustomerID' },
-            query: new Query().select(['ContactName', 'CustomerID']),
-            remoteWaterMark: 'Select customers',
+            remoteFields: { text: 'FirstName', value: 'EmployeeID' },
+            query: new Query().select(['FirstName', 'EmployeeID']).take(10).requiresCount(),
+            remoteWaterMark: 'Select names',
         };
     }
 });

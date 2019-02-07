@@ -5,7 +5,8 @@
     </div>
     <div id="action-description">
     <p>
-        In the following sample, a specific date ranges from 7th to 27th of the current month has been set to select from the Calendar. All the other dates are out of range and <code>restricted</code> to set or select.
+         Date Range sample illustrates the date selection within the specific range in a calendar by using min and max properties.
+        Here, the date selection range was <code>restricted</code> within a range from 7th to 27th days in a month.
     </p>
 </div>
 <div id="description">

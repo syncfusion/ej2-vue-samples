@@ -7,14 +7,9 @@
         <e-layer :shapeData='shapeData3' :type='type3' :markerSettings='markerSettings3' :shapeSettings='shapeSettings3'></e-layer>      
     </e-layers>
 </ejs-maps>    
-    <div style="float: right; margin-right: 10px;">Source:
-        <a href="http://www.samsung.com/semiconductor/about-us/location/" target="_blank">www.samsung.com</a>
-     </div>
-	<div id="markercircle" style="display:none;">
-		<svg width="30" height="30">
-			<circle class="svgcircle" cx=15 cy=15 r=6 stroke='rgba(77, 77, 77, 0.8)'  fill='rgba(0, 77, 153, 0.8)'/>
-		</svg>
-	</div>
+<div style="float: right; margin-right: 10px;">Source:
+    <a href="http://www.samsung.com/semiconductor/about-us/location/" target="_blank">www.samsung.com</a>
+</div>
 <div id="action-description">
         <p>
             This sample illustrates the layers along with sublayers. California and Texas map is rendered on the top of US map to depict the office locations of Samsung in USA.
@@ -37,12 +32,6 @@
         color: black;
         font-weight: 500
     }
-	
-	.svgcircle{
-        -webkit-animation: opac 1.5s ease-out infinite;
-        animation: opac 1.5s ease-out infinite;
-    }
-
     @keyframes opac {
         0% {
             stroke-opacity: 0.6;
@@ -57,6 +46,7 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, MapsTooltip, DataLabel, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
+import Template from './multilayer-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data:function(){
@@ -71,7 +61,7 @@ export default Vue.extend({
                 size: '16px'
             }
         },
-        shapeData1: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/usa.json'),
+        shapeData1: new MapAjax('./src/maps/map-data/usa.json'),
         shapeSettings1: {
                     fill: '#E5E5E5',
                     border: {
@@ -84,7 +74,7 @@ export default Vue.extend({
                     labelPath: 'iso_3166_2',
                     smartLabelMode: 'Hide'
         },
-        shapeData2: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/texas.json'),
+        shapeData2: new MapAjax('./src/maps/map-data/texas.json'),
         type2: 'SubLayer',
         shapeSettings2: {
                     fill: 'rgba(141, 206, 255, 0.6)',
@@ -98,7 +88,7 @@ export default Vue.extend({
                         visible: true,
                         width: 20,
                         height: 20,
-                        template: '#markercircle',
+                        template: function () { return {template: Template}; },
                         dataSource: [
                             {
                                 latitude: 30.267153,
@@ -123,7 +113,7 @@ export default Vue.extend({
                         template: '<div style="color:black;">TX</div>'
                     }
         ],
-        shapeData3: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/california.json'),
+        shapeData3: new MapAjax('./src/maps/map-data/california.json'),
         type3: 'SubLayer',
         shapeSettings3: {
                     fill: 'rgba(141, 206, 255, 0.6)',
@@ -149,7 +139,7 @@ export default Vue.extend({
                             valuePath: 'name',
                             format: '<b>${name}</b><br>Regional Office,<br>Research and Development Center'
                         },
-                        template: '#markercircle'
+                        template: function () { return {template: Template}; }
                     },
                     {
                         visible: true,
@@ -177,4 +167,3 @@ methods:{
 }
 })
 </script>
-

@@ -34,7 +34,7 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { emptyPointDataSource } from '../heatmap/data';
+import { emptyPointDataSource } from './data.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){

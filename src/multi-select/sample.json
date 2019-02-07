@@ -1,56 +1,56 @@
 {
-    "name": "MultiSelect",
+    "name": "MultiSelect Dropdown",
     "directory": "multi-select",
-    "category": "Editors",
+    "category": "Dropdowns",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "data-binding",
             "name": "Data Binding",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "grouping-icon",
             "name": "Grouping",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "template",
             "name": "Template",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "filtering",
             "name": "Filtering",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "custom-value",
             "name": "Custom Value",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "chip-customization",
             "name": "Chip Customization",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "checkbox",
             "name": "CheckBox",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "selection-limit",
             "name": "Selection Limit",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         },
         {
             "url": "diacritics-filtering",
             "name": "Diacritics Filtering",
-            "category": "MultiSelect"
+            "category": "MultiSelect Dropdown"
         }
     ]
 }

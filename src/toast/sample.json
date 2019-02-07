@@ -7,30 +7,30 @@
         "url": "default",
         "name": "Default Functionalities",
         "category": "Toast",
-        "description": "The sample demonstrates about default functionalities of a Toast component which is a notification component and helps to design reminder like an alert."
+        "description": "The sample demonstrates about default functionalities of a Toast component and helps to design reminder like an alert in Vue platform."
     },
     {
         "url": "types",
         "name": "Types",
         "category": "Toast",
-        "description": "The sample demonstrates how to design success, warning, information, and error messages using Toast component based on CSS classes."
+        "description": "The sample demonstrates how to design success, warning, information, and error messages using Toast component based on CSS classes in Vue platform."
     },
     {
         "url": "template",
         "name": "Template",
         "category": "Toast",
-        "description": "The sample demonstrates how to design alarm and a reminder like application by customizing the content of Toast component using an HTML template."
+        "description": "The sample demonstrates how to design a reminder application by customizing the content of Toast component using an HTML template in Vue platform."
     },
     {
         "url": "positions",
         "name": "Positions",
         "category": "Toast",
-        "description": "The sample demonstrates how to display the toast notification with various built-in positions or custom position based on target or page."
+        "description": "The sample demonstrates how to display the toast notification with various built-in or custom position based on target or page in Vue platform."
     },
     {
         "url": "api",
         "name": "API",
         "category": "Toast",
-        "description": "The sample exposes all the available properties, methods, and events of Toast component which helps to create flexible toast notification."
+        "description": "The sample exposes the available properties, methods, and events of Toast component which helps to create flexible toast notification in Vue platform."
     }]
 }

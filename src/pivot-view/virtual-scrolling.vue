@@ -2,14 +2,14 @@
 <div>
 <div class="control-section" style="overflow: auto">
    <div style="margin-bottom: 5px">
-        <ejs-button id="apply-btn" class="e-info" :isPrimary="true" v-on:click.native="btnClick">Load 100K Data</ejs-button>
+        <ejs-button id="load-btn" ref="loadbtn" class="e-info" :isPrimary="true" v-on:click.native="btnClick">Load 100K Data</ejs-button>
         <span id="popup">
             <span id="gif" className="image"></span>
         </span>
         <span id="performanceTime">Time Taken: 0 sec</span>
     </div>
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :enableVirtualization="enableVirtualization" :gridSettings="gridSettings" :dataBound="dataBound" :width="width" :height="height">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :enableVirtualization="enableVirtualization" :gridSettings="gridSettings" :dataBound="dataBound" :width="width" :height="height">        
         </ejs-pivotview>
     </div>
 </div>
@@ -133,7 +133,7 @@ function show() {
 export default Vue.extend({
   methods: {
     dataBound: function(args: any) {
-      var button = (<any>document.getElementById("apply-btn")).ej2_instances[0];
+      var button = (<any>this.$refs.loadbtn).ej2Instances;
       if (date1 && isInit) {
           date2 = new Date().getTime();
           (<any>document.getElementById('performanceTime')).innerHTML = 'Time Taken: ' + (date2 - date1) / 1000 + ' sec';
@@ -143,7 +143,7 @@ export default Vue.extend({
       (<any>document.getElementById('popup')).style.display = 'none';
     },
     btnClick: function() {
-      var pivotGridObj = (<any>document.getElementById("pivotview")).ej2_instances[0];
+      var pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
       show();
       isInit = true;
       pivotGridObj.dataSource.data = data(100000) as IDataSet[];
@@ -183,7 +183,6 @@ export default Vue.extend({
 .image {
   position: absolute;
   background-repeat: no-repeat;
-  background-image: url("./images/spinner.gif");
   background-position: center;
   width: 16px;
   height: 28px;

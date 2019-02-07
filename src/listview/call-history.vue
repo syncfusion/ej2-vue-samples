@@ -1,50 +1,67 @@
 <template>
   <div class="call-history col-lg-12 control-section">
-      <div class="layoutWrapper">
-          <div class="speaker">
-              <div class="camera"></div>
+    <div class="layoutWrapper">
+      <div class="speaker">
+        <div class="camera"></div>
+      </div>
+      <div class="layout">
+        <div id="list-container">
+          <div class="tabContainer">
+            <!-- Tab element -->
+            <div id="tab" tabindex="1">
+              <ejs-tab id="tab_default" ref="listTab" tabindex="1" :selected="onSelected">
+                <e-tabitems>
+                  <e-tabitem :header="tabHeader[0]" content="#all"></e-tabitem>
+                  <e-tabitem :header="tabHeader[1]" content="#received"></e-tabitem>
+                  <e-tabitem :header="tabHeader[2]" content="#missed"></e-tabitem>
+                </e-tabitems>
+              </ejs-tab>
+            </div>
           </div>
-          <div class="layout">
-              <div id="list-container">
-                  <div class="tabContainer">
-                      <!-- Tab element -->
-                      <div id="tab" tabindex="1">
-                          <ejs-tab id="tab_default" ref="listTab" tabindex="1" :selected='onSelected'>
-                              <e-tabitems>
-                                  <e-tabitem :header='tabHeader[0]' content="#all">
-                                  </e-tabitem>
-                                  <e-tabitem :header='tabHeader[1]' content="#received">
-                                  </e-tabitem>
-                                  <e-tabitem :header='tabHeader[2]' content="#missed">
-                                  </e-tabitem>
-                              </e-tabitems>
-                          </ejs-tab>
-                      </div>
-                  </div>
-                  <ejs-listview id="all" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :template="listTemplate">
-                  </ejs-listview>
-                  <ejs-listview id="received" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :template="listTemplate">
-                  </ejs-listview>
-                  <ejs-listview id="missed" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :actionComplete="onComplete"
-                      :template="listTemplate">
-                  </ejs-listview>
-              </div>
-          </div>
-          <div class="outerButton"> </div>
+          <ejs-listview ref="allcall"
+            id="all"
+            :dataSource="callHistoryData"
+            :cssClass="cssClass"
+            style="display:none"
+            :fields="listFields"
+            :template="listTemplate"
+          ></ejs-listview>
+          <ejs-listview ref="receivedcall"
+            id="received"
+            :dataSource="callHistoryData"
+            :cssClass="cssClass"
+            style="display:none"
+            :fields="listFields"
+            :template="listTemplate"
+          ></ejs-listview>
+          <ejs-listview ref="missedcall"
+            id="missed"
+            :dataSource="callHistoryData"
+            :cssClass="cssClass"
+            style="display:none"
+            :fields="listFields"
+            :actionComplete="onComplete"
+            :template="listTemplate"
+          ></ejs-listview>
+        </div>
       </div>
-      <div id="action-description">
-          <p>This sample demonstrates the call history application using listview. Click on the checklist
-              to filter the data in contacts list.
-          </p>
-      </div>
-      <div id="description">
-          <p>This sample filters out the data from listview based on the data selected from the checklist.
-              Here, listview utilizes the
-              <code>template</code>
-              <code>showIcon</code> properties to repesent the call history application. The Tab component
-              is used in this sample for navigation purposes.
-          </p>
-      </div>
+      <div class="outerButton"></div>
+    </div>
+    <div id="action-description">
+      <p>
+        This sample demonstrates the call history application using listview. Click on the checklist
+        to filter the data in contacts list.
+      </p>
+    </div>
+    <div id="description">
+      <p>
+        This sample filters out the data from listview based on the data selected from the checklist.
+        Here, listview utilizes the
+        <code>template</code>
+        <code>showIcon</code> properties to repesent the call history application. The Tab component
+        is used in this sample for navigation purposes.
+      </p>
+    </div>
   </div>
 </template>
 <style>
@@ -59,7 +76,6 @@
   margin-bottom: 15px;
   border-radius: 28px;
   position: relative;
-
 }
 
 .layoutWrapper .speaker {
@@ -205,7 +221,7 @@
 }
 
 .layout #list-container .e-icon {
-  font-family: "e-icons";
+  font-family: "e-customized-icons";
   background: transparent;
   color: black;
 }
@@ -223,6 +239,14 @@
 .highcontrast .layoutWrapper {
   border-color: white;
 }
+
+@font-face {
+  font-family: "e-customized-icons";
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,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)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 </style>
 <script>
 import Vue from "vue";
@@ -235,7 +259,7 @@ Vue.use(TabPlugin);
 export default Vue.extend({
   data: function() {
     return {
-      cssClass: 'e-list-template',
+      cssClass: "e-list-template",
       callHistoryData: [
         {
           text: "Smith",
@@ -398,17 +422,17 @@ export default Vue.extend({
   },
   methods: {
     onSelected: function(args) {
-      let element01 = document.getElementById("all");
-      let element02 = document.getElementById("received");
-      let element03 = document.getElementById("missed");
-      if (element01 !== undefined && element01.ej2_instances !== undefined) {
+      let element01 = this.$refs.allcall;
+      let element02 = this.$refs.receivedcall;
+      let element03 = this.$refs.missedcall;
+      if (element01 !== undefined && element01.ej2Instances !== undefined) {
         let listObjects = [element01, element02, element03];
         let newData = [];
         newData = this.filterData(
           this.callHistoryData,
           this.types[args.selectedIndex]
         );
-        listObjects[args.selectedIndex].ej2_instances[0].dataSource = newData;
+        listObjects[args.selectedIndex].ej2Instances.dataSource = newData;
       }
     },
     filterData: function(dataSource, value) {

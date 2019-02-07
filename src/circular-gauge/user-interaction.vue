@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge style='display:block' align='center' id='user-container' :enablePointerDrag='enablePointerDrag' :dragMove='dragMove' :dragEnd='dragEnd'>
+<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='user-container' :enablePointerDrag='enablePointerDrag' :dragMove='dragMove' :dragEnd='dragEnd'>
 <e-axes>
 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0  maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
 <e-pointers>
@@ -123,45 +123,45 @@ methods: {
     },
     dragMove: function(args){
             let content = '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique;"><span>';
-            let cotainerObj=document.getElementById('user-container');
+            // let cotainerObj=document.getElementById('user-container');
             let pointerValue = Math.round(args.currentValue);
             document.getElementById('pointerValue').innerHTML = 'Pointer Value <span> &nbsp;&nbsp;&nbsp;' + pointerValue;
             (document.getElementById('value')).value = pointerValue.toString();
-            cotainerObj.ej2_instances[0].setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
+            this.$refs.circulargauge.ej2Instances.setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
         },
      dragEnd:function(args){
-            let cotainerObj=document.getElementById('user-container');
+            // let cotainerObj=document.getElementById('user-container');
             let pointerValue = Math.round(args.currentValue);
-            setPointersValue(cotainerObj.ej2_instances[0], pointerValue);
+            setPointersValue(this.$refs.circulargauge.ej2Instances, pointerValue);
         },
     pointerValue:function(args){
-            let cotainerObj=document.getElementById('user-container');      
+            // let cotainerObj=document.getElementById('user-container');      
             let pointerValue = parseInt((document.getElementById('value')).value, 10);
-            setPointersValue(cotainerObj.ej2_instances[0], pointerValue);
+            setPointersValue(this.$refs.circulargauge.ej2Instances, pointerValue);
             document.getElementById('pointerValue').innerHTML = 'Pointer Value <span> &nbsp;&nbsp;&nbsp;' + pointerValue;        
     },
     enableDrag:function(args){
-        let cotainerObj=document.getElementById('user-container');             
+        // let cotainerObj=document.getElementById('user-container');             
         let value = (document.getElementById('enable')).checked;
-        cotainerObj.ej2_instances[0].enablePointerDrag = value;        
+        this.$refs.circulargauge.ej2Instances.enablePointerDrag = value;        
     }
 }
 })
  function setPointersValue(circulargauge, pointerValue) {
-        let cotainerObj=document.getElementById('user-container');                    
-        let color = getRangeColor(pointerValue,cotainerObj.ej2_instances[0].axes[0].ranges, cotainerObj.ej2_instances[0].axes[0].pointers[0].color);
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].color = color;
-        cotainerObj.ej2_instances[0].axes[0].pointers[1].color = color;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
-        cotainerObj.ej2_instances[0].axes[0].pointers[1].animation.enable = true;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].needleTail.color = color;
-        cotainerObj.ej2_instances[0].axes[0].pointers[1].needleTail.color = color;
-        cotainerObj.ej2_instances[0].axes[0].pointers[0].cap.border.color = color;
-        cotainerObj.ej2_instances[0].axes[0].pointers[1].cap.border.color = color;
-        cotainerObj.ej2_instances[0].setPointerValue(0, 1, pointerValue);
-        cotainerObj.ej2_instances[0].setPointerValue(0, 0, pointerValue);
+        // let cotainerObj=document.getElementById('user-container');                    
+        let color = getRangeColor(pointerValue,circulargauge.axes[0].ranges, circulargauge.axes[0].pointers[0].color);
+        circulargauge.axes[0].pointers[0].color = color;
+        circulargauge.axes[0].pointers[1].color = color;
+        circulargauge.axes[0].pointers[0].animation.enable = true;
+        circulargauge.axes[0].pointers[1].animation.enable = true;
+        circulargauge.axes[0].pointers[0].needleTail.color = color;
+        circulargauge.axes[0].pointers[1].needleTail.color = color;
+        circulargauge.axes[0].pointers[0].cap.border.color = color;
+        circulargauge.axes[0].pointers[1].cap.border.color = color;
+        circulargauge.setPointerValue(0, 1, pointerValue);
+        circulargauge.setPointerValue(0, 0, pointerValue);
         let content = '<div style="font-size: 14px;color:' + color + ';font-weight: lighter;font-style: oblique;"><span>';
-        cotainerObj.ej2_instances[0].setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
+        circulargauge.setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
     }
 </script>
 

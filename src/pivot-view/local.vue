@@ -1,8 +1,8 @@
 <template>
 <div>
-<div class="control-section">
+<div class="control-section" style="overflow: auto">
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :load="onLoad" :gridSettings="gridSettings" :width="width" :height="height">        
         </ejs-pivotview>
     </div>
 </div>
@@ -20,18 +20,18 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
-import { renewableEnergy } from "./data-source";
+import { PivotViewPlugin, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let data: IDataSet[] = require('./rData.json');
 export default Vue.extend({
   data: () => {
     return {
       dataSource: {
-        data: renewableEnergy,
         expandAll: false,
         enableSorting: true,
         formatSettings: [
@@ -60,6 +60,26 @@ export default Vue.extend({
       height: 300,
       width: "100%"
     };
+  },
+  methods: {
+    onLoad(): void {
+        let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances;
+        if (data[0].Year === undefined) {
+            let date: Date;
+            for (let ln: number = 0, lt: number = data.length; ln < lt; ln++) {
+                date = new Date(data[ln].Date.toString());
+                let dtYr: number = date.getFullYear();
+                let dtMn: number = date.getMonth();
+                let dtdv: number = (dtMn + 1) / 3;
+                data[ln].Year = 'FY ' + dtYr;
+                data[ln].Quarter = dtdv <= 1 ? 'Q1 ' + ('FY ' + dtYr) : dtdv <= 2 ? 'Q2 ' + ('FY ' + dtYr) :
+                    dtdv <= 3 ? 'Q3 ' + ('FY ' + dtYr) : 'Q4 ' + ('FY ' + dtYr);
+                data[ln].HalfYear = (dtMn + 1) / 6 <= 1 ? 'H1 ' + ('FY ' + dtYr) : 'H2' + ('FY ' + dtYr);
+                delete (data[ln].Date);
+            }
+        }
+        pivotGridObj.dataSource.data = data;
+    }
   }
 });
 </script>

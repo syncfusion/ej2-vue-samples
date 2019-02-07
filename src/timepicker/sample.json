@@ -1,34 +1,47 @@
 {
     "name": "TimePicker",
     "directory": "timepicker",
-    "category": "Editors",
+    "category": "Calendars",
+    "type": "updated",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "TimePicker",
             "hideOnDevice": true,
-            "api":{"TimePicker": [ "placeholder" ]}
+            "api":{"TimePicker": [ "placeholder" ]},
+            "description": "This example demonstrates a simple, mobile-friendly and responsive Vue TimePicker to select a time"
         },
         {
             "url": "time-format",
             "name": "Format",
             "category": "TimePicker",
             "hideOnDevice": true,
-            "api":{"TimePicker": [ "value", "step", "format" ]}
+            "api":{"TimePicker": [ "value", "step", "format" ]},
+            "description": "This example demonstrates how to disable the specific range of times(min and max) in a Vue TimePicker"
         },
         {
             "url": "time-range",
             "name": "Time Range",
             "category": "TimePicker",
             "hideOnDevice": true,
-            "api":{"TimePicker": [ "placeholder", "value", "readonly", "enabled", "min", "change" ]}
+            "api":{"TimePicker": [ "placeholder", "value", "readonly", "enabled", "min", "change" ]},
+            "description": "This example demonstrates how to change the time format in the input field based on the format in a Vue TimePicker"
         },
 		{
             "url": "list-formatting",
             "name": "Time Duration",
             "category": "TimePicker",
             "hideOnDevice": true,
-            "api":{"TimePicker": [ "value", "itemRender" ]}
+            "api":{"TimePicker": [ "value", "itemRender" ]},
+            "description": "This example demonstrates how to disable specific times like past time, current time in a Vue TimePicker"
+        },
+        {
+            "url": "two-way",
+            "name": "Two-Way Binding",
+            "category": "TimePicker",
+            "type" : "new",
+            "hideOnDevice": true,
+            "api":{"TimePicker": [ "value" ]}
         }
     ]
 }

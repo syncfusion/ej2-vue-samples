@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
                     :eventRendered="oneventRendered" :showWeekend='showWeekend' :workDays='[1, 3, 4, 5]'>
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -20,7 +20,7 @@
                     <tr style="height: 50px">
                         <td style="width: 30%">
                             <div>
-                                Work Days
+                                Working Days
                             </div>
                         </td>
                         <td style="width: 70%;">
@@ -35,12 +35,12 @@
                     <tr style="height: 50px">
                         <td style="width: 30%">
                             <div>
-                                Weekend Days
+                                Non-Working Days
                             </div>
                         </td>
                         <td style="width: 70%;">
                             <div>
-                                <ejs-button isToggle="true" v-on:click.native="btnClick">Show</ejs-button>
+                                <ejs-button class="e-active" isToggle="true" v-on:click.native="btnClick">Show</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -60,7 +60,7 @@
                 <code>showWeekend</code> property is used either to show or hide the weekend days of a week and it is not
                 applicable on
                 <code>workweek</code> view. By default, it is set to
-                <code>true</code>. The days which are not a part of the working days collection of a Schedule are usually
+                <code>true</code>. The days which are not a part of the working days collection of a Scheduler are usually
                 considered as weekend days here.
             </p>
             <p>
@@ -116,36 +116,30 @@
         },
         methods: {
             onMultiSelectChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let value = (args.value).slice(0).map(Number).sort();
-                scheduleObj.ej2_instances[0].workDays = value.length === 0 ? [0] : value;
-                scheduleObj.ej2_instances[0].dataBind();
+                scheduleObj.workDays = value.length === 0 ? [0] : value;
+                scheduleObj.dataBind();
             },
 
             btnClick: function (event) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 var toggleBtn = event.target.ej2_instances[0];
                 if (toggleBtn.element.classList.contains("e-active")) {
                     toggleBtn.content = "Hide";
-                    scheduleObj.ej2_instances[0].showWeekend = true;
+                    scheduleObj.showWeekend = true;
                 } else {
                     toggleBtn.content = "Show";
-                    scheduleObj.ej2_instances[0].showWeekend = false;
+                    scheduleObj.showWeekend = false;
                 }
             },
 
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

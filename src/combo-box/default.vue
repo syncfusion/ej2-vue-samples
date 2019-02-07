@@ -16,15 +16,11 @@
     </div>
 </div>
 </template>
-<style>
-    .control-wrapper {
-        margin: 0 auto;
-        width: 250px;
-    }
-</style>
+
 <script>
 import Vue from "vue";
 import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './dataSource.json';
 
 Vue.use(ComboBoxPlugin);
 
@@ -32,10 +28,7 @@ export default Vue.extend ({
     data: function() {
         return {
             waterMark: 'e.g. Basketball',
-            sportsData: ['American Football', 'Badminton', 'Basketball', 'Cricket',
-                'Football', 'Golf',
-                'Hockey', 'Rugby', 'Snooker', 'Tennis'
-            ]
+            sportsData:data['sportsDataa']
         };
     }
 });

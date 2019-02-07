@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-             <ejs-treemap id='import-container' :load='load' :titleSettings='titleSettings' :selectionSettings='selectionSettings' :highlightSettings='highlightSettings' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :levels='levels' ></ejs-treemap>
+             <ejs-treemap ref="treemap" id='import-container' :load='load' :titleSettings='titleSettings' :selectionSettings='selectionSettings' :highlightSettings='highlightSettings' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :levels='levels' ></ejs-treemap>
         </div>
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://www.indexmundi.com/trade/imports/?country=jp" target="_blank">www.indexmundi.com</a>
@@ -22,7 +22,7 @@
                     </td>
                     <td style="width: 40%;">
                         <div>
-                            <ejs-checkbox id="highlightEnable"  checked="true" :change="changeHighlight"></ejs-checkbox>
+                            <ejs-checkbox ref="highlightEnable" id="highlightEnable"  checked="true" :change="changeHighlight"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -32,7 +32,7 @@
                     </td>
                     <td style="width: 40%;">
                         <div>
-                        <ejs-dropdownlist id='highlightMode' :dataSource='highlightModedata' index=0 :placeholder='highlightModeplaceholder' :width='highlightModewidth' :change='changeHighlightmode'></ejs-dropdownlist>        
+                        <ejs-dropdownlist ref="highlightMode" id='highlightMode' :dataSource='highlightModedata' index=0 :placeholder='highlightModeplaceholder' :width='highlightModewidth' :change='changeHighlightmode'></ejs-dropdownlist>        
                         </div>
                     </td>
                 </tr>
@@ -47,7 +47,7 @@
                     </td>
                     <td style="width: 40%;">
                         <div>
-                            <ejs-checkbox checked="true" id="SelectionEnable" :change="changeSelection"></ejs-checkbox>
+                            <ejs-checkbox ref="selectionEnable" checked="true" id="SelectionEnable" :change="changeSelection"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
                     </td>
                     <td style="width: 40%;">
                         <div>
-                        <ejs-dropdownlist id='selectionMode' :dataSource='selectionModedata' index=0 :placeholder='selectionModeplaceholder' :width='selectionModewidth' :change='changeSelectionmode'></ejs-dropdownlist>       
+                        <ejs-dropdownlist ref="selectionMode" id='selectionMode' :dataSource='selectionModedata' index=0 :placeholder='selectionModeplaceholder' :width='selectionModewidth' :change='changeSelectionmode'></ejs-dropdownlist>       
                         </div>
                     </td>
                 </tr>
@@ -155,28 +155,20 @@ methods:{
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
     changeHighlightmode:function(args){
-        let treemap = document.getElementById('import-container');
-        let highlightMode = document.getElementById('highlightMode');
-        treemap.ej2_instances[0].highlightSettings.mode = highlightMode.ej2_instances[0].value;
-        treemap.ej2_instances[0].refresh();
+        this.$refs.treemap.ej2Instances.highlightSettings.mode = this.$refs.highlightMode.ej2Instances.value;
+        this.$refs.treemap.ej2Instances.refresh();
     },
     changeSelectionmode:function(args){
-        let treemap = document.getElementById('import-container');
-        let highlightMode = document.getElementById('selectionMode');
-        treemap.ej2_instances[0].selectionSettings.mode = selectionMode.ej2_instances[0].value;
-        treemap.ej2_instances[0].refresh();
+        this.$refs.treemap.ej2Instances.selectionSettings.mode = this.$refs.selectionMode.ej2Instances.value;
+        this.$refs.treemap.ej2Instances.refresh();
     },
     changeHighlight:function(args){
-        let treemap = document.getElementById('import-container');
-        let element = document.getElementById('highlightEnable');
-        treemap.ej2_instances[0].highlightSettings.enable = element.ej2_instances[0].checked;
-        treemap.ej2_instances[0].refresh();
+        this.$refs.treemap.ej2Instances.highlightSettings.enable = this.$refs.highlightEnable.ej2Instances.checked;
+        this.$refs.treemap.ej2Instances.refresh();
     },
     changeSelection:function(args){
-        let treemap = document.getElementById('import-container');
-        let element = document.getElementById('SelectionEnable');
-        treemap.ej2_instances[0].selectionSettings.enable = element.ej2_instances[0].checked;
-        treemap.ej2_instances[0].refresh();   
+        this.$refs.treemap.ej2Instances.selectionSettings.enable = this.$refs.selectionEnable.ej2Instances.checked;
+        this.$refs.treemap.ej2Instances.refresh();   
     }
 }
 })

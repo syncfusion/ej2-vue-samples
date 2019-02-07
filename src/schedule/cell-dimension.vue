@@ -22,7 +22,7 @@
         </div>
         <div id="description">
             <p>
-                In this demo, the height and width of the Schedule cells are set by overriding the default CSS class.
+                In this demo, the height and width of the Scheduler cells are set by overriding the default CSS class.
             </p>
         </div>
     </div>
@@ -70,16 +70,11 @@
         },
         methods: {
             onEventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

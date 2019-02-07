@@ -14,7 +14,7 @@
 
     <div id="description">
         <p>The Accordion is a vertically collapsible content panel which is displaying panels, one or multiple at a time within the available space. This sample illustrates the simple Accordion rendering with <code>multiple</code> expand mode.</p>
-        <p>More information about Accordion can be found in this <a href="" target="_blank">documentation</a> section.</p>
+        <p>More information about Accordion can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/accordion/getting-started/" target="_blank">documentation</a> section.</p>
     </div>
   </div>
 </div>

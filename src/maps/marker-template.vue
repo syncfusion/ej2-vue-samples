@@ -53,7 +53,7 @@ data:function(){
                 size: '16px'
             }
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/australia.json'),
+        shapeData: new MapAjax('./src/maps/map-data/australia.json'),
         shapeDataPath: 'STATE_NAME',
         markerSettings: [
                     {

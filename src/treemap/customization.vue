@@ -32,6 +32,7 @@ import Vue from 'vue';
 import { TreeMapPlugin,TreeMapTooltip} from "@syncfusion/ej2-vue-treemap";
 import { Browser } from '@syncfusion/ej2-base';
 import { Metals } from '../treemap/treemap-data/metals';
+import Template from './customization-temp.vue';
 Vue.use(TreeMapPlugin);
 export default Vue.extend({
 data:function(){
@@ -56,8 +57,7 @@ return{
             templatePosition: 'Center',
             border: { color: 'black', width: 0.5 },
             labelFormat: ' ${Sport} - ${Gold}',
-            labelTemplate: '<div><img src="src/treemap/image/{{:GameImage}}"' +
-            ' style="height:{{:ItemHeight}};width:{{:ItemWidth}};"></img></div>'
+            labelTemplate: function () { return {template: Template}; },
         }
 }
 },

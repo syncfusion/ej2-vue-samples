@@ -3,7 +3,7 @@
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
             <div align='center'>
-                <ejs-lineargauge style='display:block' align='center' id='boxContainer' :title='title' :container='container'>
+                <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container'>
                     <e-axes>
                         <e-axis minimum=0 maximum=180 :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
                             <e-pointers>
@@ -129,14 +129,12 @@ export default Vue.extend({
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
         changeContainer: function (args) {
-            let cotainerObj = document.getElementById('boxContainer');
-            cotainerObj.ej2_instances[0].container.type = containerMode.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.container.type = containerMode.value;
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         changeOrientation: function (args) {
-            let cotainerObj = document.getElementById('boxContainer');
-            cotainerObj.ej2_instances[0].orientation = orientationMode.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.orientation = orientationMode.value;
+            this.$refs.lineargauge.ej2Instances.refresh();
         }
     }
 });

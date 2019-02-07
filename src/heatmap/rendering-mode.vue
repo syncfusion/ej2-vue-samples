@@ -3,7 +3,7 @@
     <div class="control-section col-lg-9">
         <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' renderingMode='SVG' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
+        <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' renderingMode='SVG' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
         </div>
         </div>
     </div>
@@ -16,10 +16,10 @@
                     </td>
                     <td style="width: 40%;">
                         <div class="row">
-                            <ejs-radiobutton id='svg' label="SVG" name="renderingMode" value="SVG" checked="true" :change='renderChange'></ejs-radiobutton>
+                            <ejs-radiobutton id='svg' ref='svgMode' label="SVG" name="renderingMode" value="SVG" checked="true" :change='renderChange'></ejs-radiobutton>
                         </div>
                         <div class="row">
-                            <ejs-radiobutton id='canvas' label="Canvas" name="renderingMode" value="Canvas" :change='renderChange'></ejs-radiobutton>
+                            <ejs-radiobutton id='canvas' ref='canvasMode' label="Canvas" name="renderingMode" value="Canvas" :change='renderChange'></ejs-radiobutton>
                         </div>
                     </td>
                 </tr>
@@ -50,7 +50,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { renderModeData } from '../heatmap/data';
+import { renderModeData } from './data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(RadioButtonPlugin);
 export default Vue.extend({
@@ -99,9 +99,7 @@ methods: {
     },
     renderChange : function()
     {
-        let heatmap = document.getElementById('container');
-        let fixedRadioButton = document.getElementById('svg');
-        heatmap.ej2_instances[0].renderingMode = fixedRadioButton.ej2_instances[0].checked ? 'SVG' : 'Canvas';
+        this.$refs.heatmap.ej2Instances.renderingMode = this.$refs.svgMode.ej2Instances.checked ? 'SVG' : 'Canvas';
     }
   }
 })

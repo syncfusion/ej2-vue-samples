@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :actionBegin="onActionBegin"
+                <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :actionBegin="onActionBegin"
                     :popupOpen="onPopupOpen" :eventRendered="onEventRendered" :showQuickInfo="showQuickInfo" :editorTemplate='editorTemplate'>
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -16,7 +16,7 @@
         <div id="action-description">
             <p>This demo showcases the way of customizing the look of events that are displayed on Schedule. Any kind of text,
                 images and links can be added to customize the look of the events. Here, the webinar sessions on specific
-                topic that are scheduled on respective week days have been displayed on schedule across its respective time
+                topic that are scheduled on respective week days have been displayed on Scheduler across its respective time
                 duration.
             </p>
         </div>
@@ -90,7 +90,7 @@
                 }
             },
             onActionBegin: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
+                let scheduleObj = this.$refs.ScheduleObj;
                 if (args.requestType === 'eventCreate' || args.requestType === 'eventChange') {
                     let data;
                     if (args.requestType === 'eventCreate') {

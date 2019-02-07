@@ -7,42 +7,42 @@
         "url": "basic",
         "name": "Basic Card",
         "category": "Card",
-        "description": "The sample demonstrates how to design basic card and weather layout card using Essential JS2 Card component. The component is pure CSS component and more flexible."
+        "description": "The sample demonstrates how to design basic card and weather layout card in Vue platform. The component is pure CSS component and more flexible."
     },{
         "url": "vertical",
         "name": "Vertical Card",
         "category": "Card",
-        "description": "The sample demonstrates how to design a business card and profile card using a vertical layout of Card component based on its CSS classes."
+        "description": "The sample demonstrates how to design a business card and profile card using a vertical layout of card component in Vue platform."
     },
     {
         "url": "horizontal",
         "name": "Horizontal Card",
         "category": "Card",
-        "description": "The sample demonstrates how to design product card with icon and its specification using horizontal layout in Card component."
+        "description": "The sample demonstrates how to design product card with icon and its specification using horizontal layout in card component in Vue platform."
     },
     {
         "url": "swipeable",
         "name": "Swipeable Card",
         "category": "Card",
-        "description": "The sample demonstrates how to design a stacked card with swipeable action (left or right direction) and corresponding images using Card component."
+        "description": "The sample demonstrates how to design a stacked card with swipeable action and corresponding images using card component in Vue platform."
     },
     {
         "url": "flip",
         "name": "Flip Card",
         "category": "Card",
-        "description": "The sample demonstrates how to achieve flip (rotate) behavior to the card to show hidden information which is on a back side in the Card component."
+        "description": "The sample demonstrates how to achieve flip behavior to the card to show hidden information which is on a back side on the card in Vue platform."
     },
     {
         "url": "reveal",
         "name": "Reveal Card",
         "category": "Card",
-        "description": "The sample demonstrates how to render a card with reveal layouts. Hidden information of Card can be revealed to visible while action on “Know more”."
+        "description": "The sample demonstrates how to render a card with reveal layouts, hidden information can be revealed while action on “Know more” in Vue platform."
     },
     {
         "url": "tile",
-        "name": "Tile Card",
+        "name": "Tile View",
         "category": "Card",
-        "description": "The sample demonstrates how to design tile-view with filtering and searching using a template engine, data manager, and Card component."
+        "description": "The sample demonstrates how to design tile-view with filtering and searching using a template engine, data manager, and card component in Vue platform."
     }
     ]
 }

@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :currentView='currentView' :selectedDate='selectedDate' :eventSettings='eventSettings'
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :currentView='currentView' :selectedDate='selectedDate' :eventSettings='eventSettings'
                     :eventRendered="oneventRendered">
                     <e-views>
                         <e-view option="Day" startHour="07:00" endHour="18:00"></e-view>
@@ -122,12 +122,12 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
                     (args.element.firstChild).style.borderLeftColor = categoryColor;
                 } else {
                     args.element.style.backgroundColor = categoryColor;

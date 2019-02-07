@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
                     :eventRendered="oneventRendered" :workHours="workHours">
                     <e-views>
                         <e-view option="Day"></e-view>
@@ -55,7 +55,7 @@
         </div>
         <div id="action-description">
             <p>
-                This demo showcases how to set the required working hours on Schedule, thus visually highlighting the cells underlying the
+                This demo showcases how to set the required working hours on Scheduler, thus visually highlighting the cells underlying the
                 given work hour range.
             </p>
         </div>
@@ -63,7 +63,7 @@
         <div id="description">
             <p>
                 In this demo, the work hours are set by using the
-                <code>workHours</code> property and it usually applies only on the working days defined for the Schedule.
+                <code>workHours</code> property and it usually applies only on the working days defined for the Scheduler.
                 It can either be highlighted or not by defining the
                 <code>highlight</code> option within the
                 <code>workHours</code> property. The working hour range can be defined by making use of the
@@ -73,7 +73,7 @@
             </p>
             <p>
                 To set discontinuous working hours on a day, then the default
-                <code>workHours</code> on Schedule needs to be disabled by setting false to
+                <code>workHours</code> on Scheduler needs to be disabled by setting false to
                 <code>highlight</code> option within it. Then, make use of the
                 <code>setWorkHours</code> method which accepts the days collection and the start & end hour values as parameters.
             </p>
@@ -107,25 +107,19 @@
         },
         methods: {
             onSubmit: function () {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let start = document.getElementById('startTime');
                 let end = document.getElementById('endTime');
-                scheduleObj.ej2_instances[0].workHours.start = start.value;
-                scheduleObj.ej2_instances[0].workHours.end = end.value;
-                scheduleObj.ej2_instances[0].dataBind();
+                scheduleObj.ej2Instances.workHours.start = start.value;
+                scheduleObj.ej2Instances.workHours.end = end.value;
+                scheduleObj.dataBind();
             },
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+                args.element.style.backgroundColor = categoryColor;
             }
         }
     });

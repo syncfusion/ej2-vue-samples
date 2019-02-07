@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-             <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :layoutType='layoutType' :weightValuePath='weightValuePath' :rangeColorValuePath='rangeColorValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings'></ejs-treemap>
+             <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :layoutType='layoutType' :weightValuePath='weightValuePath' :rangeColorValuePath='rangeColorValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings'></ejs-treemap>
         </div>
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" http://zeenews.india.com/photos/business/worlds-10-best-selling-smartphone-brands-2033958/samsung-2033959" target="_blank">zeenews.india.com</a>
@@ -28,7 +28,7 @@
                     </td>
                     <td style="width: 60%;">
                         <div style="margin-left: -10px">
-                        <ejs-dropdownlist id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>        
+                        <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>        
                         </div>
                     </td>
                 </tr>
@@ -45,14 +45,14 @@
                 <tr id="button-control" style="height: 50px" align='center'>
                     <td>
                         <div style="margin-left: 40%;">
-                            <ejs-button id='togglebtn1' :iconCss='iconCss' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
+                            <ejs-button id='togglebtn1' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
                         </div>
                     </td>
                 </tr>
                 <tr id="button-control" style="height: 50px">
                     <td align="center">
                         <div style="margin-left: 40%;">
-                            <ejs-button id='togglebtn' :iconCss='iconCss' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>
+                            <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -90,6 +90,12 @@
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
         font-size: 13px !important;
         font-weight: 400 !important;
+    }
+    #togglebtn {
+        width: 80px;
+    }
+    #togglebtn1 {
+        width: 80px;
     }
 </style>
 <script>
@@ -133,7 +139,7 @@ return{
                 }
             ]
         },
-        iconCss: 'e-icons e-play-icon', cssClass: 'e-flat', isPrimary: true,content1:'Export',content2:'Print',
+        cssClass: 'e-info', isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
         modewidth: 90,
         modedata:['JPEG','PNG','SVG','PDF']
 }
@@ -148,14 +154,11 @@ methods:{
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
     clickExport:function(args){
-        let treemap = document.getElementById('container');
-        let mode = document.getElementById('mode');
         let fileName = ((document.getElementById('fileName'))).value;
-        treemap.ej2_instances[0].export(mode.ej2_instances[0].value, fileName);
+        this.$refs.treemap.ej2Instances.export(this.$refs.mode.ej2Instances.value, fileName);
     },
     clickPrint:function(args){
-        let treemap = document.getElementById('container');
-        treemap.ej2_instances[0].print();
+        this.$refs.treemap.ej2Instances.print();
     }
 }
 })

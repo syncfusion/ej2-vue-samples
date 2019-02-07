@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
                     :eventRendered="onEventRendered">
                 </ejs-schedule>
             </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div id="action-description">
-            <p>This demo illustrates how to enable tooltip on schedule events as well as the way to customize it. The tooltip
+            <p>This demo illustrates how to enable tooltip on Scheduler events as well as the way to customize it. The tooltip
                 can be customized to display any of the information in a formatted style by making use of the tooltip template
                 option.
             </p>
@@ -155,32 +155,32 @@
         },
         methods: {
             onChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
+                let scheduleObj = this.$refs.ScheduleObj;
                 if (args.checked) {
-                    scheduleObj.eventSettings.enableTooltip = true;
+                    scheduleObj.ej2Instances.eventSettings.enableTooltip = true;
                 } else {
-                    scheduleObj.eventSettings.enableTooltip = false;
+                    scheduleObj.ej2Instances.eventSettings.enableTooltip = false;
                 }
                 scheduleObj.dataBind();
             },
 
             onTemplateChange: function (args) {
-                let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
+                let scheduleObj = this.$refs.ScheduleObj;
                 if (args.checked) {
-                    scheduleObj.eventSettings.tooltipTemplate = this.template;
+                    scheduleObj.ej2Instances.eventSettings.tooltipTemplate = this.template;
                 } else {
-                    scheduleObj.eventSettings.tooltipTemplate = null;
+                    scheduleObj.ej2Instances.eventSettings.tooltipTemplate = null;
                 }
                 scheduleObj.dataBind();
             },
 
             onEventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
                     (args.element.firstChild).style.borderLeftColor = categoryColor;
                 } else {
                     args.element.style.backgroundColor = categoryColor;

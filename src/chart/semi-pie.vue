@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section">
         <ejs-accumulationchart ref='pie' :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
-             :legendSettings='legendSettings' :tooltip='tooltip'>
+             :legendSettings='legendSettings' :tooltip='tooltip' :enableAnimation='false'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :innerRadius='innerRadius' :startAngle='startAngle' 
                 :endAngle='endAngle' xName='x' yName='y' :dataLabel='dataLabel' name='Agricultural' radius='90%' :explode= 'isExplode'> </e-accumulation-series>
@@ -16,37 +16,46 @@
             <br/><br/>
             <tbody><tr style="height: 50px">
                 <td>
-                    <div>Start Angle
-                        <p id="startangle" style="font-weight: normal;">270</p>
-                    </div>
+                    <div>Start Angle</div>
                 </td>
                 <td>
                     <div data-role="rangeslider">
                         <input type="range" name="range-min" id="rangeMin" value="270" min="0" max="360" style="width:90%" @touchmove='rangeMin' @pointermove='rangeMin' @change='rangeMin' autocomplete="off">
                     </div>
                 </td>
+                <td>
+                    <div data-role="rangeslider">
+                       <p id="startangle" style="font-weight: normal;padding-top:10px">270</p> 
+                    </div>
+                </td>
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div>End Angle
-                        <p id="endangle" style="font-weight: normal;">90</p>
-                    </div>
+                    <div>End Angle</div>
                 </td>
                 <td>
                     <div data-role="rangeslider">
                         <input type="range" name="range-max" id="rangeMax" value="90" min="0" max="360" style="width:90%" @touchmove='rangeMax' @pointermove='rangeMax' @change='rangeMax' autocomplete="off">
                     </div>
                 </td>
+                <td>
+                    <div data-role="rangeslider">
+                      <p id="endangle" style="font-weight: normal;padding-top:10px">90</p>  
+                    </div>
+                </td>
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div>Inner Radius
-                        <p id="innerradius" style="font-weight: normal;">0.40</p>
-                    </div>
+                    <div>Inner Radius</div>
                 </td>
                 <td>
                     <div data-role="rangeslider">
                         <input type="range" name="range-max" id="radiusValue" value="40" min="0" max="50" style="width:90%" @touchmove='radiusValue' @pointermove='radiusValue' @change='radiusValue' autocomplete="off">
+                    </div>
+                </td>
+                <td>
+                    <div data-role="rangeslider">
+                        <p id="innerradius" style="font-weight: normal;padding-top:10px">0.40</p>   
                     </div>
                 </td>
             </tr>
@@ -82,12 +91,13 @@ Vue.use(AccumulationChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
          theme: theme,
+         enableAnimation : false,
       seriesData: [
                  { x: 'Australia', y: 53, text: 'AUS: 14%' },
                     { x: 'China', y: 56, text: 'CHN: 15%' },

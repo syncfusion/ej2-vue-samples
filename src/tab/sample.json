@@ -1,34 +1,37 @@
 {
-    "name": "Tab",
+    "name": "Tabs",
     "directory": "tab",
     "category": "Navigation",
     "ftName" :"tabs",
+    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
-        "category": "Tab",
-        "description": "The sample demonstrates about default functionalities of the Tab component (also known as Tabbed UI) which is navigation component.",
+        "category": "Tabs",
+        "description": "The sample demonstrates about default functionalities of the Tab component (also known as Tabbed UI) which is navigation component in Vue platform.",
         "api":{"Tab": ["text", "iconCss", "content", "items"]}
     },
     {
         "url": "orientation",
         "name": "Orientation",
-        "category": "Tab",
-        "description": "The sample demonstrates how to customize the orientation of Tab component along with feasibility to customize the Tab header styles.",
+        "category": "Tabs",
+        "type": "update",
+        "description": "The sample demonstrates how to customize the orientation of Tab component along with feasibility to customize the Tab header styles in Vue platform.",
         "api":{"Tab": ["headerPlacement", "showCloseButton"]}
     },
     {
         "url": "responsive",
         "name": "Responsive Modes",
-        "category": "Tab",
-        "description": "The sample illustrates that responsive mode of Tab component that aligns tab items in a  scrollable or popup mode if there is no enough space.",
+        "category": "Tabs",
+        "type": "update",
+        "description": "The sample illustrates that responsive mode of Tab component that aligns tab items in a scrollable or popup mode in Vue platform.",
         "api":{"Tab": ["overflowMode"]}
     },
     {
         "url": "wizard",
         "name": "Wizard",
-        "category": "Tab",
-        "description": "This sample demonstrates how to design a wizard-like application with the sequential action using the Tab component. For example, a train reservation system.",
+        "category": "Tabs",
+        "description": "This sample demonstrates how to design a wizard-like application with the sequential action using the Tab component in Vue platform.",
         "api":{"Tab": ["disabled"]}
     }
     ]

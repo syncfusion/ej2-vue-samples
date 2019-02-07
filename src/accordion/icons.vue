@@ -43,7 +43,7 @@
 
     <div id="description">
         <p>This Accordion is populated with icons which renders by mapping the <code>iconCss</code> field. This sample illustrates the some of the games list.</p>
-        <p>More information about Accordion can be found in this <a href="" target="_blank">documentation</a> section.</p>
+        <p>More information about Accordion can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/accordion/getting-started/" target="_blank">documentation</a> section.</p>
     </div>
          </div>
     </div>

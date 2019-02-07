@@ -21,15 +21,15 @@
         </div>
     </div>
       <div id="action-description">
-      <p>This sample demonstrates how to customize the file list with template. Browse or select the files to view the file list template.</p>
+      <p>This example demonstrates how to customize the file list with template. Browse or select the files to view the file list template.</p>
     </div>
 
     <div id="description">
        <p>The Uploader component allows to customize its file list using
-           <a href='https://ej2.syncfusion.com/vue/documentation/uploader/api-uploaderComponent.html#template' target="_blank"> template</a>  property.
+           <a href='https://ej2.syncfusion.com/vue/documentation/api/uploader/#template' target="_blank"> template</a>  property.
          The template used for each file in file list.</p>
        <p>For more information, you can refer to the 
-           <a href= 'https://ej2.syncfusion.com/vue/documentation/uploader/template.html' target="_blank">
+           <a href= 'https://ej2.syncfusion.com/vue/documentation/uploader/template/' target="_blank">
            Template </a> section from the documentation.</p>
     </div>
 </div>

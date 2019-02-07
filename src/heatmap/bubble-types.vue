@@ -3,7 +3,7 @@
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
+        <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
@@ -18,7 +18,7 @@
                         <div>Bubble Type:</div>
                     </td>
                     <td style="width: 60%;">
-                    <ejs-dropdownlist id='bubbleType' index=0 :dataSource='bubbleData' :popupHeight='height' :change='changeType'></ejs-dropdownlist>
+                    <ejs-dropdownlist id='bubbleType' ref='bubbleType' index=0 :dataSource='bubbleData' :popupHeight='height' :change='changeType'></ejs-dropdownlist>
                     </td>
                 </tr>
             </tbody>
@@ -49,7 +49,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { tableBubbleData } from '../heatmap/data';
+import { tableBubbleData } from './data.json';
 Vue.use(DropDownListPlugin);
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
@@ -112,9 +112,7 @@ methods: {
         args.content = [args.xLabel + ' | ' + args.yLabel + ' : ' + args.value + ' %'];
     },
     changeType: function() {
-        let heatmap = document.getElementById('container');
-        let legend = document.getElementById('bubbleType');
-        heatmap.ej2_instances[0].cellSettings.bubbleType = legend.ej2_instances[0].value.toString();
+        this.$refs.heatmap.ej2Instances.cellSettings.bubbleType = this.$refs.bubbleType.ej2Instances.value.toString();
     }
   }
 })

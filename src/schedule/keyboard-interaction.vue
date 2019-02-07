@@ -2,20 +2,20 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"></ejs-schedule>
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"></ejs-schedule>
             </div>
         </div>
 
         <div id="action-description">
             <p>
-                This demo showcases the keyboard shortcuts applicable on Schedule and also lists out in below description, how those applicable
-                shortcuts interacts with Schedule actions.
+                This demo showcases the keyboard shortcuts applicable on Scheduler and also lists out in below description, how those applicable
+                shortcuts interacts with Scheduler actions.
             </p>
         </div>
 
         <div id="description">
             <p>
-                All the Schedule actions can be controlled via keyboard keys and is availed by using
+                All the Scheduler actions can be controlled via keyboard keys and is availed by using
                 <code>allowKeyboardInteraction</code> property which is set to true by default. The applicable key combinations
                 and its relative functionalities are listed below.
             </p>
@@ -33,14 +33,14 @@
                         <kbd>Alt</kbd> +
                         <kbd>j</kbd>
                     </td>
-                    <td>Focuses the Schedule [Provided from application end].</td>
+                    <td>Focuses the Scheduler [Provided from application end].</td>
                 </tr>
                 <tr>
                     <td style="padding:4px 0">
                         <kbd>Tab</kbd>
                     </td>
                     <td>
-                        Focuses the first or active item on the schedule header bar and then move the focus to the next available event elements.
+                        Focuses the first or active item on the Scheduler header bar and then move the focus to the next available event elements.
                         If no events present, then focus moves out of the component.
                     </td>
                 </tr>
@@ -51,7 +51,7 @@
                     </td>
                     <td>
                         Reverse focusing of the Tab functionality. Inverse focusing of event elements from the last one and then move onto the first
-                        or active item on Schedule header bar and then moves out of the component.
+                        or active item on Scheduler header bar and then moves out of the component.
                     </td>
                 </tr>
                 <tr>
@@ -119,7 +119,7 @@
                         <kbd>Right Arrow</kbd> keys
                     </td>
                     <td>
-                        On pressing any of these keys when focus is currently on the Schedule header bar, moves the focus to the previous or next
+                        On pressing any of these keys when focus is currently on the Scheduler header bar, moves the focus to the previous or next
                         items in the header bar.
                     </td>
                 </tr>
@@ -173,12 +173,12 @@
         },
         methods: {
             oneventRendered: function (args) {
-                let scheduleObj = document.getElementById('Schedule');
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
-                if (scheduleObj.ej2_instances[0].currentView === 'Agenda') {
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
                     (args.element.firstChild).style.borderLeftColor = categoryColor;
                 } else {
                     args.element.style.backgroundColor = categoryColor;

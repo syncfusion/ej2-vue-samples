@@ -2,9 +2,9 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge style='display:block' align='center' id='labels-container'>
+<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='labels-container'>
 <e-axes>
-    <e-axis :annotations='annotations' :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=180 >
+    <e-axis :annotations='annotations' :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=170 >
       <e-pointers>
           <e-pointer :type='type' :roundedCornerRadius='roundedCornerRadius' :value='value' :radius='radius' :color='color' :pointerWidth='pointerWidth' :animation='animation'></e-pointer>
       </e-pointers>  
@@ -22,7 +22,7 @@
                     </td>
                     <td>
                         <div>
-    <ejs-dropdownlist id='Ticks' :dataSource='ticksdata' :fields='ticksfields' value='major' index=0  :width='tickstwidth' :change='changeTicks'></ejs-dropdownlist>                      
+    <ejs-dropdownlist ref="tick" id='Ticks' :dataSource='ticksdata' :fields='ticksfields' value='major' index=0  :width='tickstwidth' :change='changeTicks'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <div>
-    <ejs-dropdownlist id='tickposition' :dataSource='tickpositiondata' index=0  :width='tickpositionwidth' :change='changeTickposition'></ejs-dropdownlist>                      
+    <ejs-dropdownlist id='tickposition' ref="tickPos" :dataSource='tickpositiondata' index=0  :width='tickpositionwidth' :change='changeTickposition'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -42,7 +42,7 @@
                     </td>
                     <td>
                         <div>
-    <ejs-dropdownlist id='labelposition' :dataSource='labelpositiondata' index=0  :width='labelpositionwidth' :change='changeLabelposition'></ejs-dropdownlist>                      
+    <ejs-dropdownlist id='labelposition' ref="labelPos" :dataSource='labelpositiondata' index=0  :width='labelpositionwidth' :change='changeLabelposition'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <div>
-                            <input type="range" id="tickOffset" v-on:pointermove="tickOffset" v-on:touchmove="tickOffset" v-on:change="tickOffset" value="0" min="0" max="50" style="width:90%" />
+                            <input type="range" ref="tickOff" id="tickOffset" v-on:pointermove="tickOffset" v-on:touchmove="tickOffset" v-on:change="tickOffset" value="0" min="0" max="50" style="width:90%" />
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -62,7 +62,7 @@
                     </td>
                     <td>
                         <div>
-                            <input type="range" id="tickHeight" v-on:pointermove="tickHeight" v-on:touchmove="tickHeight" v-on:change="tickHeight" value="10" min="1" max="50" style="width:90%" />
+                            <input type="range" ref="tickHeight" id="tickHeight" v-on:pointermove="tickHeight" v-on:touchmove="tickHeight" v-on:change="tickHeight" value="10" min="1" max="50" style="width:90%" />
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -72,10 +72,18 @@
                     </td>
                     <td>
                         <div>
-                            <input type="range" id="labelOffset" v-on:pointermove="labelOffset" v-on:touchmove="labelOffset" v-on:change="labelOffset" value="0" min="0" max="50" style="width:90%" />
+                            <input type="range" ref="labelOff" id="labelOffset" v-on:pointermove="labelOffset" v-on:touchmove="labelOffset" v-on:change="labelOffset" value="0" min="0" max="50" style="width:90%" />
                         </div>
                     </td>
                 </tr>&nbsp;
+                <tr>
+                    <td>
+                        <div id='height'> Enable Pointer </div>
+                    </td>
+                <td style="width: 50%">
+                    <ejs-checkbox  id="enable" ref="enable" name="enable" :change='changeEnablePointer'></ejs-checkbox>
+                </td>
+            </tr>
             </tbody>
             <br/>
         </table>
@@ -135,7 +143,7 @@ data:function(){
             },
             radius: '75%',
             minimum: 0, 
-            maximum: 180,
+            maximum: 170,
             type: 'RangeBar',
             roundedCornerRadius: 10,
             pointerWidth: 10,
@@ -150,7 +158,7 @@ data:function(){
             tickstwidth:120,
             tickpositiondata:['Inside','Outside'],
             tickpositionwidth:120,
-            labelpositiondata:['Inside','Outside'],
+            labelpositiondata:['Outside','Inside'],
             labelpositionwidth:120
     }
 },
@@ -165,69 +173,75 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
     changeTicks:function(args){
-            let cotainerObj=document.getElementById('labels-container');
-            let tickPosition=document.getElementById('tickposition');
+            // let cotainerObj=document.getElementById('labels-container');
+            // let tickPosition=document.getElementById('tickposition');
             let tick; let isMajorTicks = args.value === 'major';
             if (isMajorTicks) {
-                tick = cotainerObj.ej2_instances[0].axes[0].majorTicks;
+                tick = this.$refs.circulargauge.ej2Instances.axes[0].majorTicks;
             } else {
-                tick = cotainerObj.ej2_instances[0].axes[0].minorTicks;
+                tick = this.$refs.circulargauge.ej2Instances.axes[0].minorTicks;
             }
-            tickPosition.ej2_instances[0].value = tick.position;
-            (document.getElementById('tickOffset')).value = tick.offset.toString();
-            (document.getElementById('tickHeight')).value = tick.height.toString();
+            this.$refs.tickPos.ej2Instances.value = tick.position;
+            this.$refs.tickOff.value = tick.offset.toString();
+            this.$refs.tickHeight.value = tick.height.toString();
             document.getElementById('offset').innerHTML = 'Tick Offset <span>&nbsp;&nbsp;&nbsp;' + tick.offset;
             document.getElementById('height').innerHTML = 'Tick Height <span>&nbsp;&nbsp;&nbsp;' + tick.height;  
     },
     changeTickposition:function(args){
-            let cotainerObj=document.getElementById('labels-container');
-            let tickPosition=document.getElementById('tickposition');
+            // let cotainerObj=document.getElementById('labels-container');
+            // let tickPosition=document.getElementById('tickposition');
             let tick; let isMajorTicks = args.value === 'major';
-            let value = tickPosition.ej2_instances[0].value.toString();
+            let value = this.$refs.tickPos.ej2Instances.value;
             if (isMajorTicks) {
-                cotainerObj.ej2_instances[0].axes[0].majorTicks.position = value;
+                this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.position = value;
             } else {
-                cotainerObj.ej2_instances[0].axes[0].minorTicks.position = value;
+                this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.position = value;
             }
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.circulargauge.ej2Instances.refresh();
     },
     changeLabelposition:function(args){
-            let cotainerObj=document.getElementById('labels-container');
-            let labelPosition=document.getElementById('labelposition');
-            cotainerObj.ej2_instances[0].axes[0].labelStyle.position = labelPosition.value.toString();
-            cotainerObj.ej2_instances[0].refresh();
+            // let cotainerObj=document.getElementById('labels-container');
+            // let labelPosition=document.getElementById('labelposition');
+            this.$refs.circulargauge.ej2Instances.axes[0].labelStyle.position = this.$refs.labelPos.ej2Instances.value;
+            this.$refs.circulargauge.ej2Instances.refresh();
     },
     tickOffset:function(args){
-            let cotainerObj=document.getElementById('labels-container');
+            // let cotainerObj=document.getElementById('labels-container');
             let isMajorTicks = args.value === 'major';
-            let value = parseInt((document.getElementById('tickOffset')).value, 10);
+            let value = parseInt(this.$refs.tickOff.value, 10);
             if (isMajorTicks) {
-                cotainerObj.ej2_instances[0].axes[0].majorTicks.offset = value;
+                this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.offset = value;
             } else {
-                cotainerObj.ej2_instances[0].axes[0].minorTicks.offset = value;
+                this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.offset = value;
             }
             document.getElementById('offset').innerHTML = 'Tick Offset <span>&nbsp;&nbsp;&nbsp;' + value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.circulargauge.ej2Instances.refresh();
     },
     tickHeight:function(args){
-            let cotainerObj=document.getElementById('labels-container');
+            // let cotainerObj=document.getElementById('labels-container');
             let isMajorTicks = args.value === 'major';
-            let value = parseInt((document.getElementById('tickHeight')).value, 10);
+            let value = parseInt(this.$refs.tickHeight.value, 10);
             if (isMajorTicks) {
-                cotainerObj.ej2_instances[0].axes[0].majorTicks.height = value;
+                this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.height = value;
             } else {
-                cotainerObj.ej2_instances[0].axes[0].minorTicks.height = value;
+                this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.height = value;
             }
             document.getElementById('height').innerHTML = 'Tick Height <span>&nbsp;&nbsp;&nbsp;' + value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.circulargauge.ej2Instances.refresh();
     },
     labelOffset:function(args){
-            let cotainerObj=document.getElementById('labels-container');
-            let value = parseInt((document.getElementById('labelOffset')).value, 10);
-            cotainerObj.ej2_instances[0].axes[0].labelStyle.offset = value;
+            // let cotainerObj=document.getElementById('labels-container');
+            let value = parseInt(this.$refs.labelOff.value, 10);
+            this.$refs.circulargauge.ej2Instances.axes[0].labelStyle.offset = value;
             document.getElementById('labelOffsetValue').innerHTML = 'Label Offset <span>&nbsp;&nbsp;&nbsp;' + value;
-            cotainerObj.ej2_instances[0].refresh();
-    }
+            this.$refs.circulargauge.ej2Instances.refresh();
+    },
+    changeEnablePointer:function(e){
+        let element = (document.getElementById('enable'));
+        let boolean = (event.target).checked;
+        this.$refs.circulargauge.ej2Instances.axes[0].showLastLabel = boolean;       
+        this.$refs.circulargauge.ej2Instances.refresh();
+    },
 }
 })
 </script>

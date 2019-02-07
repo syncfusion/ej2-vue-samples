@@ -35,7 +35,7 @@
         <br>
         <ejs-toolbar overflowMode='Popup'>
            <e-items>
-                <e-item :template='template' overflow='Show'></e-item>
+                <e-item :template='vueTemplate' overflow='Show'></e-item>
                 <e-item prefixIcon='e-icon-day e-icons' tooltipText='Today' text='Today' overflow='Hide' align='Right'></e-item>
                 <e-item type='Separator'></e-item>
                 <e-item prefixIcon='e-icon-week e-icons' tooltipText='Week' text='Week' overflow='Hide' align='Right'></e-item>
@@ -54,11 +54,11 @@
         
         <ul>
           <li>In first Toolbar, the popup will be shown when the content exceeds the available viewing area.</li>
-          <li>The second Toolbar is set with priority for specific toolbar items using <strong><code><a target="_blank" class="code" href="http://ej2.syncfusion.com/documentation/toolbar/api-item.html#showalwaysinpopup-boolean">showAlwaysInPopup</a></code></strong>, which is always displayed in the popup.</li>
+          <li>The second Toolbar is set with priority for specific toolbar items using <strong><code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#showalwaysinpopup">showAlwaysInPopup</a></code></strong>, which is always displayed in the popup.</li>
         </ul>
         <br>
         <br>
-        <p>You can set priority to toolbar item using <strong><code><a target="_blank" class="code" href="http://ej2.syncfusion.com/documentation/toolbar/api-item.html#overflow-string"> overflow</a></code></strong> property. Possible values are as follows,</p>
+        <p>You can set priority to toolbar item using <strong><code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#overflow"> overflow</a></code></strong> property. Possible values are as follows,</p>
         <table style="width:100%">
           <tr>
             <th><strong>Overflow</strong></th>
@@ -353,10 +353,24 @@
 import Vue from "vue";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
 Vue.use(ToolbarPlugin);
+
+var Template1 = Vue.component("demo", {
+  template: '<div class="e-tool-name">' + new Date().toLocaleString('en-us', { month: 'long' }) + ' ' + new Date().getFullYear() + '</div>',
+  data() {
+    return {
+      data: {}
+    };
+  }
+});
+
 export default Vue.extend({
     data: function(){
         return {
-            template : '<div class="e-tool-name">' + new Date().toLocaleString('en-us', { month: 'long' }) + ' ' + new Date().getFullYear() + '</div>'
+            vueTemplate: function () {
+                return {
+                    template : Template1
+                }
+            }
         }
    }
 });

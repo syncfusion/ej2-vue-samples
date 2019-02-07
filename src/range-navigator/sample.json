@@ -1,21 +1,20 @@
 {
-    "name": "Range Navigator",
+    "name": "Range Selector",
     "directory": "range-navigator",
     "category": "Data Visualization",
     "ftName": "rangenavigator",
-    "type": "preview",
     "samples": [
         {
             "url": "default",
             "name": "Default",
             "description": "This demo for Essential JS2 Range Navigator control shows the default rendering of range navigator with range area series.",
-            "category": "Range Navigator"
+            "category": "Range Selector"
         },
         {
             "url": "light-weight",
             "name": "Lightweight",
             "description": "This demo for Essential JS2 Range Navigator control shows the rendering of light-weight range navigator.",
-            "category": "Range Navigator"
+            "category": "Range Selector"
         },
         {
             "url": "date-time",

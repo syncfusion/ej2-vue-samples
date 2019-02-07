@@ -1,8 +1,8 @@
 <template>
 <div>
-    <div class="col-lg-8 control-section">
+    <div class="col-lg-8 control-section" style="overflow: auto">
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSource="dataSource" :gridSettings="gridSettings" :width="width" :height="height">        
         </ejs-pivotview>
     </div>
 </div>
@@ -74,8 +74,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
+import { PivotViewPlugin, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import {
   RadioButtonPlugin ,
 } from "@syncfusion/ej2-vue-buttons";
@@ -84,7 +83,9 @@ enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(RadioButtonPlugin );
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -106,7 +107,7 @@ export default Vue.extend({
   },
   methods: {
     onRadioChange: function(args: any) {
-        let pivotGridObj = (<any>(document.getElementById('pivotview'))).ej2_instances[0];
+        let pivotGridObj = (<any>this.$refs.pivotview).ej2Instances; 
         let id: string = (args.event.target as HTMLElement).id;
         if (id !== 'collapse') {
             /** To restrict multiple times grid rendering on property change. */

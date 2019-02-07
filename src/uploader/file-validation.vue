@@ -8,19 +8,19 @@
         </div>
     </div>
     <div id="action-description">
-      <p>This sample demonstrates how to validate the files before uploading it to server. Only document files (DOC, DOCX, XLS, XLSX), and the files should contain minimum 10 KB and maximum 28 MB sizes to upload it into server.This sample limits maximum files count as 5 to upload.</p>
+      <p>This example demonstrates how to validate the files before uploading it to server. Only document files (DOC, DOCX, XLS, XLSX), and the files should contain minimum 10 KB and maximum 28 MB sizes to upload it into server.This sample limits maximum files count as 5 to upload.</p>
     </div>
 
     <div id="description">
         <p>The Uploader component allows to validate the file’s type, and limit the file size using
-            <a href='https://ej2.syncfusion.com/vue/documentation/uploader/api-uploaderComponent.html#allowedextensions' target="_blank"> allowedExtensions </a>,
-            <a href='https://ej2.syncfusion.com/vue/documentation/uploader/api-uploaderComponent.html#minfilesize' target="_blank"> minFileSize </a> , and
-            <a href= 'https://ej2.syncfusion.com/vue/documentation/uploader/api-uploaderComponent.html#maxfilesize' target="_blank"> maxFileSize </a>
+            <a href='https://ej2.syncfusion.com/vue/documentation/api/uploader/#allowedextensions' target="_blank"> allowedExtensions </a>,
+            <a href='https://ej2.syncfusion.com/vue/documentation/api/uploader/#minfilesize' target="_blank"> minFileSize </a> , and
+            <a href= 'https://ej2.syncfusion.com/vue/documentation/api/uploader/#maxfilesize' target="_blank"> maxFileSize </a>
             properties. You can also achieve limit the files count before uploading it using 
-            <a href='https://ej2.syncfusion.com/vue/documentation/uploader/api-uploaderComponent.html#selected' target="_blank">select</a>
+            <a href='https://ej2.syncfusion.com/vue/documentation/api/uploader/#selected' target="_blank">select</a>
             event.
         </p>
-        <p>For more information, you can refer to the <a href='https://ej2.syncfusion.com/vue/documentation/uploader/validation.html' target="_blank">
+        <p>For more information, you can refer to the <a href='https://ej2.syncfusion.com/vue/documentation/uploader/validation/' target="_blank">
          Validation </a> section from the documentation.</p>
     </div>
 </div>

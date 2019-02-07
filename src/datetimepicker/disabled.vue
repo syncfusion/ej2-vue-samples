@@ -5,7 +5,8 @@
     </div>
     <div id="action-description">
     <p>
-        In the following sample, all the weekends (Saturday and Sunday) of a month are <code>disabled</code>, and these dates are restricted to set or select in the DateTimePicker.
+        In the following sample, all the weekends (Saturday and Sunday) of a month are
+        <code>disabled</code>, and these dates are restricted to set or select in the DateTimePicker.
     </p>
 </div>
 <div id="description">

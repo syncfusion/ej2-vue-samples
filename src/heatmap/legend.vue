@@ -3,7 +3,7 @@
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
+        <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
     </div>
     <div style="float: right; margin-right: 10px;">
@@ -17,7 +17,7 @@
                         <div>Position:</div>
                     </td>
                     <td style="width: 40%;">
-                    <ejs-dropdownlist id='legendPosition' index=0 :dataSource='legendData' :popupHeight='height' :change='changePosition'></ejs-dropdownlist>
+                    <ejs-dropdownlist id='legendPosition' ref='legendPosition' index=0 :dataSource='legendData' :popupHeight='height' :change='changePosition'></ejs-dropdownlist>
                     </td>
                 </tr>
             </tbody>
@@ -46,7 +46,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { legendSampleData } from '../heatmap/data';
+import { legendSampleData } from './data.json';
 Vue.use(DropDownListPlugin);
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
@@ -75,11 +75,13 @@ return{
         paletteSettings: {
              palette: [{ value: 0, color: '#6EB5D0' },
             { value: 10, color: '#7EDCA2' },
-            { value: 20, color: '#DCD57E' },
+            { value: 19, color: '#DCD57E' },
+            { value: 22, color: '#DCD57E' }
             ]
         },
         legendSettings: {
-            position: 'Left'
+            position: 'Left',
+             labelFormat: '{value}\xB0 C'
         },
         height:'200px',
         legendData:['Left','Right','Top','Bottom']
@@ -101,9 +103,7 @@ methods: {
         args.content = [args.xLabel + ' | ' + args.yLabel + ' : ' + args.value + '\xB0 C'];
     },
     changePosition: function() {
-        let heatmap = document.getElementById('container');
-        let legend = document.getElementById('legendPosition');
-        heatmap.ej2_instances[0].legendSettings.position = legend.ej2_instances[0].value.toString();
+        this.$refs.heatmap.ej2Instances.legendSettings.position = this.$refs.legendPosition.ej2Instances.value.toString();
     }
   }
 })

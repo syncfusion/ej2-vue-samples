@@ -2,75 +2,73 @@
     "name": "TreeMap",
     "directory": "treemap",
     "category": "Data Visualization",
-    "ftName": "treemap",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "description": "This demo for Essential JS2 TreeMap control visualizes the sales of cars across various countries in 2017.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "layout",
             "name": "Layout",
-            "description": "This demo for Essential JS2 TreeMap control illustrates the GDP nominal of top 10 countries in the year 2015. The layout of the TreeMap can also be changed.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "drilldown",
             "name": "Drilldown",
-            "description": "This demo for Essential JS2 TreeMap control demonstrates drill-down with the continents at the top level followed by regions and countries.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "customization",
             "name": "Customization",
-            "description": "This demo for Essential JS2 TreeMap control depicts the gold medal categories of the 2016 US Summer Olympics. Each category is denoted with label template.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "label",
             "name": "Data Label",
-            "description": "This demo for Essential JS2 TreeMap control depicts the population level of various countries in 2017 along with data labels.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "tooltip",
             "name": "Tooltip",
-            "description": "This demo for Essential JS2 TreeMap control depicts the number of international airports available in various countries in South America along with tooltip.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "election",
             "name": "Legend",
-            "description": "This demo for Essential JS2 TreeMap control visualizes the 2016 U.S.A. presidential election results. Default and interactive are the two types of legend.",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "type": "update"
+        },
+        {
+            "url": "color-mapping",
+            "name": "Color Mapping",
+            "category": "TreeMap",
+            "api": {},
+            "type": "new"
         },
         {
             "url": "selection",
             "name": "Selection & Highlight",
-            "description": "This demo for Essential JS2 TreeMap control depicts the details of goods imported by Japan. Selection and highlight options have been enabled.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "print",
             "name": "Print & Export",
-            "description": "This demo for Essential JS2 TreeMap control depicts the top 10 best-selling smartphone brands. Print and export options have been enabled.",
             "category": "TreeMap",
             "api": {}
         },
         {
             "url": "pie",
             "name": "TreeMap with Pie",
-            "description": "This demo for Essential JS2 TreeMap control visualizes the population level of various continents in 2011 based on the gender and age group.",
             "category": "TreeMap",
             "api": {}
         }     

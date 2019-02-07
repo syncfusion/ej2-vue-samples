@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-            <ejs-circulargauge style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
+            <ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
                 <e-axes>
                     <e-axis :radius='radius' :startAngle='startAngle' minimum=0 maximum=8 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                         <e-pointers>
@@ -22,7 +22,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='poiterColor' :dataSource='poiterColordata' index=0 :width='poiterColorwidth' :placeholder='poiterColorplaceholder' :change='changePoitercolor'></ejs-dropdownlist>
+                        <ejs-dropdownlist ref="pointer" id='poiterColor' :dataSource='poiterColordata' index=0 :width='poiterColorwidth' :placeholder='poiterColorplaceholder' :change='changePoitercolor'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -32,7 +32,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='labelColor' :dataSource='labelColordata' index=0 :width='labelColorwidth' :placeholder='labelColorplaceholder' :change='changeLabelcolor'></ejs-dropdownlist>
+                        <ejs-dropdownlist ref="label" id='labelColor' :dataSource='labelColordata' index=0 :width='labelColorwidth' :placeholder='labelColorplaceholder' :change='changeLabelcolor'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -132,18 +132,18 @@ export default Vue.extend({
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
         changePoitercolor: function (args) {
-            let cotainerObj = document.getElementById('direction-container');
-            let pointerColor = document.getElementById('poiterColor');
-            let rangeColor = pointerColor.ej2_instances[0].value.toString();
-            cotainerObj.ej2_instances[0].axes[0].pointers[0].color = rangeColor;
-            cotainerObj.ej2_instances[0].setPointerValue(0, 0, cotainerObj.ej2_instances[0].axes[0].pointers[0].value);
+            // let cotainerObj = document.getElementById('direction-container');
+            // let pointerColor = document.getElementById('poiterColor');
+            let rangeColor = this.$refs.pointer.ej2Instances.value.toString();
+            this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].color = rangeColor;
+            this.$refs.circulargauge.ej2Instances.setPointerValue(0, 0, this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].value);
         },
         changeLabelcolor: function (args) {
-            let cotainerObj = document.getElementById('direction-container');
-            let labelColor = document.getElementById('labelColor');
-            let rangeColor = labelColor.ej2_instances[0].value.toString();
-            cotainerObj.ej2_instances[0].axes[0].ranges[0].color = rangeColor;
-            cotainerObj.ej2_instances[0].refresh();
+            // let cotainerObj = document.getElementById('direction-container');
+            // let labelColor = document.getElementById('labelColor');
+            let rangeColor = this.$refs.label.ej2Instances.value.toString();
+            this.$refs.circulargauge.ej2Instances.axes[0].ranges[0].color = rangeColor;
+            this.$refs.circulargauge.ej2Instances.refresh();
         },
         axisLabelRender: function (args) {
             let value = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', ''];

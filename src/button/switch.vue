@@ -29,14 +29,14 @@
     <p>
         In this sample, checked state is achieved by using the 
         <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/switch/api-switch.html#checked-boolean">checked
+        href="http://ej2.syncfusion.com/vue/documentation/api/switch#checked">checked
         </a></code> property, and disabled state is achieved by using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/angular/documentation/switch/api-switch.html#disabled-boolean">disabled
+        href="http://ej2.syncfusion.com/vue/documentation/api/switch#disabled">disabled
         </a></code> property.
     </p>
     <p>
         More information on Switch can be found in the
-        <a target="_blank" href="http://ej2.syncfusion.com/angular/documentation/switch/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/switch/getting-started">
         documentation section</a>.
     </p>
 </div>

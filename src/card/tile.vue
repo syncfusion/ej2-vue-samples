@@ -99,8 +99,8 @@
     <p>This sample demonstrates filter and search of the <code>card</code> based on categories, and text containing the card. You can use search box to search cards, and you can filter choosing categories in multi-select component.</p>
 </div>
 <div id="description">
-    <p>Card is a small container in which user can show defined content in specific structure and it is flexible and extensible. This sample demonstrates to render the <code>Card</code> Using <a target="_blank" href="http://ej2.syncfusion.com/documentation/base/template-engine.html">Template Engine</a> and it can be filtered based on <a target="_blank" href="http://ej2.syncfusion.com/documentation/data/getting-started.html">data Manager</a>.</p>
-    <p>More information about Card can be found in this<a href="" target="_blank"> documentation</a> section.</p>
+    <p>Card is a small container in which user can show defined content in specific structure and it is flexible and extensible. This sample demonstrates to render the <code>Card</code> Using <a target="_blank" href="https://ej2.syncfusion.com/documentation/common/template-engine/">Template Engine</a> and it can be filtered based on <a target="_blank" href="https://ej2.syncfusion.com/documentation/data/getting-started/">data Manager</a>.</p>
+    <p>More information about Card can be found in this<a href="https://ej2.syncfusion.com/vue/documentation/card/getting-started/" target="_blank"> documentation</a> section.</p>
 </div>
     </div>
 </template>

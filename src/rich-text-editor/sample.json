@@ -1,0 +1,83 @@
+{
+    "name": "Rich Text Editor",
+    "directory": "rich-text-editor",
+    "category": "Editors",
+    "type": "preview",
+    "samples": [{
+            "url": "tools",
+            "name": "Overview",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "image",
+            "name": "Image",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "inline",
+            "name": "Inline",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "iframe",
+            "name": "IFrame",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "print",
+            "name": "Print",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "ajax-load",
+            "name": "Ajax Content",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "events",
+            "name": "Events",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "blog-posting",
+            "name": "Use Case",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "types",
+            "name": "Type",
+            "category": "Toolbar"
+        },
+        {
+            "url": "custom-toolbar",
+            "name": "Custom Tool",
+            "category": "Toolbar"
+        },
+        {
+            "url": "markdown-editor",
+            "name": "Overview",
+            "type": "update",
+            "category": "Markdown Editor"
+        },
+        {
+            "url": "markdown-preview",
+            "name": "Preview",
+            "category": "Markdown Editor"
+        },
+        {
+            "url": "markdown-format",
+            "name": "Custom Format",
+            "category": "Markdown Editor"
+        }
+    ]
+}

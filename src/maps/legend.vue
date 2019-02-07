@@ -1,7 +1,9 @@
 <template>
 <div>
-<div class="control-section">
-<ejs-maps id='container' align="center" :load='load' :tooltipRender='tooltipRender' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
+<div class="col-lg-9 control-section">
+    <div class="content-wrapper">
+    <div align="center">
+<ejs-maps ref="maps" id='container' align="center" :load='load' :tooltipRender='tooltipRender' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'></e-layer>
     </e-layers>
@@ -10,6 +12,40 @@
        <a href="https://simple.wikipedia.org/wiki/List_of_countries_by_population_density" target="_blank">simple.wikipedia.org</a>
     </div>
 </div>
+</div>
+</div>
+<div class="col-lg-3 property-section">
+        <table id="property" title="Properties" style="width: 100%">
+            <tbody>
+                <tr style="height: 50px">
+                    <td style="width: 10%">
+                        <div class="property-text" style="padding: 0px;">Type</div>
+                    </td>
+                    <td style="width: 30%;">
+                    <ejs-dropdownlist id='legendMode' style="width:100;" :dataSource='legendModeData' index=0 :width='labelswidth' :change='changeLegendMode'></ejs-dropdownlist>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td style="width: 10%">
+                        <div class="property-text" style="padding: 0px;">Position</div>
+                    </td>
+                    <td style="width: 30%">
+                    <ejs-dropdownlist id='legendPosition' style="width:100%;" :dataSource='positionData' index=0 :width='labelswidth' :change='changeLegendPosition'></ejs-dropdownlist>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td style="width: 10%">
+                        <div class="property-text" style="padding: 0px;">Remaining items in data source</div>
+                    </td>
+                    <td style="width: 30%">
+                        <div>
+                            <ejs-checkbox id="opacity" :change="changeOpcity"></ejs-checkbox>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 <div id="action-description">
         <p>
            This sample visualizes grouping of countries in the legend based on its population density. The legend will be displayed at the top of the map.
@@ -35,7 +71,11 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+Vue.use(CheckBoxPlugin);
 Vue.use(MapsPlugin);
+Vue.use(DropDownListPlugin);
 export default Vue.extend({
   data:function(){
       return{
@@ -52,19 +92,22 @@ export default Vue.extend({
             visible: true,
             position: 'Top'
         },
-        shapeData: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/world-map.json'),
+        legendModeData: ["Default", "Interactive"],
+        positionData: ["Top", "Bottom", "Left", "Right"],
+        labelswidth: 120,
+        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        dataSource: new MapAjax(location.origin + location.pathname + 'src/maps/map-data/legend-datasource.json'),
+        dataSource: new MapAjax('./src/maps/map-data/legend-datasource.json'),
         tooltipSettings: {
                     visible: true,
                     valuePath: 'name',
                     format: '${name} : ${density} per square kms'
-        },
-        shapeSettings: {
-        colorValuePath: 'density',
-        fill: '#E5E5E5',
-        colorMapping: [
+                },
+                shapeSettings: {
+                    colorValuePath: 'density',
+                    fill: '#E5E5E5',
+                    colorMapping: [
                         {
                             from: 0.00001, to: 100, color: 'rgb(153,174,214)', label: '<100'
                         },
@@ -79,9 +122,12 @@ export default Vue.extend({
                         },
                         {
                             from: 500, to: 19000, color: 'rgb(0,51,153)', label: '>500'
+                        },
+                        {
+                            color: null, label: null
                         }
                     ]
-        }
+                }
       }
   },
 provide: {
@@ -98,6 +144,56 @@ methods:{
           if (!args.options.data) {
                 args.cancel = true;
             }
+    },
+    changeLegendMode: function(args) {
+            let maps= this.$refs.maps.ej2Instances; 
+            maps.legendSettings.mode = args.value;
+            if (args.value === 'Interactive') {
+                if (maps.legendSettings.orientation === 'Horizontal' || maps.legendSettings.orientation === 'None') {
+                    maps.legendSettings.height = '10';
+                    maps.legendSettings.width = '';
+                } else {
+                    maps.legendSettings.height = '70%';
+                    maps.legendSettings.width = '10';
+                }
+            } else {
+                maps.legendSettings.height = '';
+                maps.legendSettings.width = '';
+            }
+            maps.refresh();
+
+    },
+    changeLegendPosition: function(args) {
+            let maps= this.$refs.maps.ej2Instances;
+            maps.legendSettings.position = args.value;
+            if (args.value === 'Left' || args.value === 'Right') {
+                maps.legendSettings.orientation = 'Vertical';
+                if (maps.legendSettings.mode === 'Interactive') {
+                    maps.legendSettings.height = '70%';
+                    maps.legendSettings.width = '10';
+                } else {
+                    maps.legendSettings.height = '';
+                    maps.legendSettings.width = '';
+                }
+            } else {
+                maps.legendSettings.orientation = 'Horizontal';
+                if (maps.legendSettings.mode === 'Interactive') {
+                    maps.legendSettings.height = '10';
+                    maps.legendSettings.width = '';
+                }
+            }
+            maps.refresh();
+    },
+    changeOpcity: function(args) {
+        let maps= this.$refs.maps.ej2Instances;
+        if (args.checked) {
+            maps.layers[0].shapeSettings.colorMapping[5].color = 'lightgrey';
+            maps.layers[0].shapeSettings.colorMapping[5].label = 'No Data';
+        } else {
+            maps.layers[0].shapeSettings.colorMapping[5].color = null;
+            maps.layers[0].shapeSettings.colorMapping[5].label = null;
+        }
+        maps.refresh();
     }
 }
 })

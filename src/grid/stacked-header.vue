@@ -1,13 +1,13 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the Grid component with the stacked header feature. In this sample, we have shown multiple level of column headers.
+        <p>This sample demonstrates the Grid component with the stacked header and resize feature. In this sample, we have shown multiple level of column headers.
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' >
+        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign="Center"></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign="Center" minWidth='10'></e-column>
                 <e-column headerText='Order Details' :columns='orderColumns'></e-column>
                 <e-column headerText='Ship Details' :columns='shipColumns'></e-column>
             </e-columns>
@@ -17,17 +17,24 @@
      <div id="description">
         <p>The Grid columns can be stacked/grouped in order to show multiple level of column headers. It can be done by
             setting the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#columns-any">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel#columns">
         columns->columns
         </a></code> property.
-        </p>         
+        </p>
+        <p>The Grid columns can be resized by clicking and dragging at the right edge of columns header. To enable column, resize behavior, set <code><a target="_blank" class="code"
+            href="http://ej2.syncfusion.com/vue/documentation/api/grid#allowresizing">allowResizing
+            </a></code> property as true. You can also prevent the resize of the particular column by setting
+            <code><a target="_blank" class="code"
+            href="http://ej2.syncfusion.com/vue/documentation/api/grid/column#allowresizing">columns->allowResizing
+            </a></code> as false in columns definition.
+        </p> 
         <p>
             In this demo, the columns <strong>OrderDate, Freight</strong> are grouped under <strong>Order Details</strong>,
             the columns <strong>ShippedDate, ShipCountry</strong> are grouped under <strong>Ship Details</strong>. 
         </p>
-         <p>
+        <p>
             More information on the stacked header configuration can be found in this 
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#columns-any">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel#columns">documentation section</a>.
         </p>
     </div>
 
@@ -35,7 +42,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { GridPlugin, Page } from '@syncfusion/ej2-vue-grids';
+import { GridPlugin, Page, Resize } from '@syncfusion/ej2-vue-grids';
 import { orderDetails } from './data-source';
 
 Vue.use(GridPlugin);
@@ -50,14 +57,16 @@ export default Vue.extend({
                 headerText: 'Order Date',
                 format: 'yMd',
                 width: 130,
-                textAlign: 'Right'
+                textAlign: 'Right',
+                minWidth: 10
             },
             {
                 field: 'Freight',
                 headerText: 'Freight ($)',
                 width: 120,
                 format: 'C1',
-                textAlign: 'Right'
+                textAlign: 'Right',
+                minWidth: 10
             }
         ],
         shipColumns: [
@@ -66,18 +75,20 @@ export default Vue.extend({
                 headerText: 'Shipped Date',
                 format: 'yMd',
                 textAlign: 'Right',
-                width: 150
+                width: 150,
+                minWidth: 10
             },
             {
                 field: 'ShipCountry',
                 headerText: 'Ship Country',
-                width: 150
+                width: 150,
+                minWidth: 10
             }
         ]
         }
   },
   provide: {
-      grid: [Page]
+      grid: [Page, Resize]
   }
 })
 </script>

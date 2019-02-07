@@ -9,8 +9,7 @@
     </div>
     <div id="action-description">
     <p>
-        The following sample demonstrates the default functionalities of the Calendar. Today's date is always <code>highlighted</code> in the Calendar and it get <code>focused</code> if there is no selected date. Click the desired date from the Calendar
-        and the selected date will be displayed in the below label.
+        The following sample demonstrates the default functionalities of the Calendar. Today's date is always <code>highlighted</code> in the Calendar and it get <code>focused</code> if there is no selected date. Click/Touch the desired date from the Calendar and the selected date will be displayed in the below label.
     </p>
 </div>
 <div id="description">

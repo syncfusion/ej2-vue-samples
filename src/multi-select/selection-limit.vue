@@ -4,7 +4,7 @@
         <div class="col-lg-8 content-wrapper">
             <div class="control-styles">
                 <h4>Selection Limit</h4>
-                <ejs-multiselect id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
+                <ejs-multiselect ref="multiselectInstance" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='mode' :popupHeight='popHeight' :showDropDownIcon='true' :maximumSelectionLength='maxSelection'
                     :filterBarPlaceholder='filterPlaceholder'></ejs-multiselect>
             </div>
@@ -58,6 +58,7 @@ import Vue from "vue";
 import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import * as data from './dataSource.json';
 
 Vue.use(MultiSelectPlugin);
 Vue.use(NumericTextBoxPlugin);
@@ -72,33 +73,13 @@ export default Vue.extend ({
             mode: 'CheckBox',
             filterPlaceholder: 'Search countries',
             maxSelection: 3,
-            countries: [
-                { Name: 'Australia', Code: 'AU' },
-                { Name: 'Bermuda', Code: 'BM' },
-                { Name: 'Canada', Code: 'CA' },
-                { Name: 'Cameroon', Code: 'CM' },
-                { Name: 'Denmark', Code: 'DK' },
-                { Name: 'France', Code: 'FR' },
-                { Name: 'Finland', Code: 'FI' },
-                { Name: 'Germany', Code: 'DE' },
-                { Name: 'Greenland', Code: 'GL' },
-                { Name: 'Hong Kong', Code: 'HK' },
-                { Name: 'India', Code: 'IN' },
-                { Name: 'Italy', Code: 'IT' },
-                { Name: 'Japan', Code: 'JP' },
-                { Name: 'Mexico', Code: 'MX' },
-                { Name: 'Norway', Code: 'NO' },
-                { Name: 'Poland', Code: 'PL' },
-                { Name: 'Switzerland', Code: 'CH' },
-                { Name: 'United Kingdom', Code: 'GB' },
-                { Name: 'United States', Code: 'US' }
-            ],
+            countries: data['countries'],
             min: 1
         };
     },
     methods: {
         btnClick: function() {
-            var multiObj = document.getElementById('multiselect-checkbox').ej2_instances[0];
+            var multiObj = this.$refs.multiselectInstance.ej2Instances;
             multiObj.value = null;
             this.maxSelection = parseFloat(document.getElementById('maxSel').value);
         }

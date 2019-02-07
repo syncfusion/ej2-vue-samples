@@ -14,9 +14,8 @@
     </div>
     <div id="action-description">
                     <p>
-                        The following sample demonstrates the multiple date selection functionalities of the Calendar.
-                         Click the desired date from the Calendar and the selected date will be added to the values property of the calendar.
-        </p>
+                         The following sample demonstrates the multiple date selection functionalities of the Calendar. Click /Touch the desired date from the Calendar and the selected date will be added to the values property of the calendar.
+                   </p>
                 </div>
                 <div id="description">
                     <p>

@@ -105,7 +105,7 @@
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { RangeNavigatorPlugin, ChartPlugin, SplineAreaSeries, StepLineSeries, DateTime, Crosshair,
-  Tooltip} from "@syncfusion/ej2-vue-charts";
+  Tooltip, Export} from "@syncfusion/ej2-vue-charts";
 import { exportData } from "./data-source";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
@@ -117,7 +117,7 @@ Vue.use(ButtonPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
 let borderColor = ["#FF4081", "#007897", "#428BCA", "#FFD939"];
 let regionColor = [ "rgba(255, 64, 129, 0.3)", " rgba(0, 120, 151, 0.3)",
@@ -153,7 +153,7 @@ export default Vue.extend({
   },
   provide: {
     rangeNavigator: [DateTime],
-    chart: [SplineAreaSeries, DateTime, Crosshair, Tooltip]
+    chart: [SplineAreaSeries, DateTime, Crosshair, Tooltip, Export]
   },
   methods: {
    changed: function(args) {
@@ -169,7 +169,7 @@ export default Vue.extend({
       let rangeComponent = document.getElementById("containerExport").ej2_instances[0];
       let chart = document.getElementById("chartExport").ej2_instances[0];
       let dropDown = document.getElementById("exporttype").ej2_instances[0];
-      rangeComponent.export(dropDown.value, fileName, null, [rangeComponent, chart]);
+      chart.exportModule.export(dropDown.value, fileName, null, [rangeComponent, chart]);
     },
     mode: function(args) {
       var rangeComponent = document.getElementById("containerExport").ej2_instances;

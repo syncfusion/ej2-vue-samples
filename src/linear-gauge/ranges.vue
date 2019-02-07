@@ -2,7 +2,7 @@
 <div>
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
-        <ejs-lineargauge style='display:block' align='center' id='rangeContainer' :orientation='orientation' :annotations='annotations'>
+        <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='rangeContainer' :orientation='orientation' :annotations='annotations'>
             <e-axes>
                 <e-axis :labelStyle='labelStyle' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :ranges='ranges'>
                     <e-pointers>
@@ -22,7 +22,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='rangeIndex' :dataSource='rangedata' :fields='rangefields' value='0' index=0 :width='rangewidth' :change='changeRange'></ejs-dropdownlist>
+                        <ejs-dropdownlist ref="selectRange" id='rangeIndex' :dataSource='rangedata' :fields='rangefields' value='0' index=0 :width='rangewidth' :change='changeRange'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr><br/>
@@ -33,7 +33,7 @@
                 <td>
                     <div>
                         <div class="e-float-input" style='margin-top: 0px;'>
-                            <input type="text" value="#F03E3E" id='color' v-on:change="changeRangecolor" style="width:100%;margin-left:-10px;">
+                            <input type="text" ref="rangeColor" value="#F03E3E" id='color' v-on:change="changeRangecolor" style="width:100%;margin-left:-10px;">
                         </div>
 
                     </div>
@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='useRangeColor' :dataSource='rangecolordata' value='font' :fields='rangecolorfields' index=0 :width='rangecolorwidth' :change='changeFontcolor'></ejs-dropdownlist>
+                        <ejs-dropdownlist ref="rangeFontColor" id='useRangeColor' :dataSource='rangecolordata' value='font' :fields='rangecolorfields' index=0 :width='rangecolorwidth' :change='changeFontcolor'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr><br/>
@@ -57,7 +57,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="100" style="width:90%;" />
+                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="100" style="width:90%;" />
                     </div>
                 </td>
             </tr><br/>
@@ -69,7 +69,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="32" min="0" max="100" style="width:90%;" />
+                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="32" min="0" max="100" style="width:90%;" />
                     </div>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="15" min="0" max="30" style="width:90%;" />
+                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="15" min="0" max="30" style="width:90%;" />
                     </div>
                 </td>
             </tr>
@@ -95,7 +95,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="15" min="0" max="30" style="width:90%;" />
+                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="15" min="0" max="30" style="width:90%;" />
                     </div>
                 </td>
             </tr>
@@ -235,70 +235,59 @@ export default Vue.extend({
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
         changeRange: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
+            // let cotainerObj = document.getElementById('rangeContainer');
             let start = document.getElementById('start');
             let end = document.getElementById('end');
             let rangeColor = document.getElementById('color');
             let startWidth = document.getElementById('startWidth');
             let endWidth = document.getElementById('endWidth');
-            start.value = cotainerObj.ej2_instances[0].axes[0].ranges[args.value].start.toString();
-            end.value = cotainerObj.ej2_instances[0].axes[0].ranges[args.value].end.toString();
-            startWidth.value = cotainerObj.ej2_instances[0].axes[0].ranges[args.value].startWidth.toString();
-            endWidth.value = cotainerObj.ej2_instances[0].axes[0].ranges[args.value].endWidth.toString();
-            rangeColor.value = cotainerObj.ej2_instances[0].axes[0].ranges[args.value].color.toString();
+            start.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].start.toString();
+            end.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].end.toString();
+            startWidth.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].startWidth.toString();
+            endWidth.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].endWidth.toString();
+            rangeColor.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].color.toString();
             document.getElementById('startWidthValue').innerHTML = 'Range Start Width<span>&nbsp;&nbsp;&nbsp;' + startWidth.value;
             document.getElementById('endWidthValue').innerHTML = 'Range End Width<span>&nbsp;&nbsp;&nbsp;' + endWidth.value;
             document.getElementById('startRangeValue').innerHTML = 'Range Start <span>&nbsp;&nbsp;&nbsp;' + start.value;
             document.getElementById('endRangeValue').innerHTML = 'Range End <span>&nbsp;&nbsp;&nbsp;' + end.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         changeFontcolor: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
-            cotainerObj.ej2_instances[0].axes[0].labelStyle.useRangeColor = (args.value === 'range') ? true : false;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.axes[0].labelStyle.useRangeColor = (args.value === 'range') ? true : false;
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         changeRangecolor: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
-            let dropdownObj = document.getElementById('rangeIndex');
             let ele = document.getElementById('color');
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].color = ele.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].color = ele.value;
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeStart: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
-            let dropdownObj = document.getElementById('rangeIndex');
             let start = document.getElementById('start');
             let end = document.getElementById('end');
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].start = parseInt(start.value, 10);
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].end = parseInt(end.value, 10);
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].start = parseInt(start.value, 10);
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].end = parseInt(end.value, 10);
             document.getElementById('startRangeValue').innerHTML = 'Range Start <span>&nbsp;&nbsp;&nbsp;' + start.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeEnd: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
-            let dropdownObj = document.getElementById('rangeIndex');
             let start = document.getElementById('start');
             let end = document.getElementById('end');
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].start = parseInt(start.value, 10);
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].end = parseInt(end.value, 10);
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].start = parseInt(start.value, 10);
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].end = parseInt(end.value, 10);
             document.getElementById('endRangeValue').innerHTML = 'Range End <span>&nbsp;&nbsp;&nbsp;' + end.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeStartwidth: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
-            let dropdownObj = document.getElementById('rangeIndex');
             let ele = document.getElementById('startWidth');
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].startWidth = parseInt(ele.value, 10);
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].startWidth = parseInt(ele.value, 10);
             document.getElementById('startWidthValue').innerHTML = 'Range Start Width<span>&nbsp;&nbsp;&nbsp;' + ele.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeEndwidth: function (args) {
-            let cotainerObj = document.getElementById('rangeContainer');
-            let dropdownObj = document.getElementById('rangeIndex');
             let ele = document.getElementById('endWidth');
-            cotainerObj.ej2_instances[0].axes[0].ranges[+dropdownObj.ej2_instances[0].value].endWidth = parseInt(ele.value, 10);
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].endWidth = parseInt(ele.value, 10);
             document.getElementById('endWidthValue').innerHTML = 'Range End Width<span>&nbsp;&nbsp;&nbsp;' + ele.value;
-            cotainerObj.ej2_instances[0].refresh();
+            this.$refs.lineargauge.ej2Instances.refresh();
         }
     }
 });

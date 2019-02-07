@@ -32,12 +32,13 @@ import {
   IDataSet,
   FieldList
 } from "@syncfusion/ej2-vue-pivotview";
-import { Pivot_Data } from "./data-source";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
-
+/* tslint:disable */
+declare var require: any;
+let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-9 control-section">
-           <ejs-smithchart id='container' :load='load' :horizontalAxis='horizontalAxis' :radialAxis='radialAxis' :legendSettings='legendSettings'>
+           <ejs-smithchart ref="smithchart" id='container' :load='load' :horizontalAxis='horizontalAxis' :radialAxis='radialAxis' :legendSettings='legendSettings'>
                 <e-seriesCollection>
                     <e-series :points='points' :name='name' :enableAnimation='enableAnimation' :tooltip='tooltip' :marker='marker'></e-series>
                 </e-seriesCollection>
@@ -16,7 +16,7 @@
                     </td>
                     <td style="width: 60%;">
                         <div style="margin-left: -10px">
-                            <ejs-dropdownlist id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>  
+                            <ejs-dropdownlist ref="dropdown" id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>  
                         </div>
                     </td>
                 </tr>
@@ -26,21 +26,21 @@
                     </td>
                     <td style="width: 60%;">
                         <div class="e-float-input" style="margin-top: 0px;">
-                            <input type="text" value="Smith chart" id="fileName" style="margin-left: -10px;width:90px;">
+                            <input type="text" ref="name" value="Smith chart" id="fileName" style="margin-left: -10px;width:90px;">
                         </div>
                     </td>
                 </tr>
                 <tr id="button-control1">
                     <td>
                         <div style="height: 45px">
-                            <ejs-button id='togglebtn1' :iconCss='iconCss' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
+                            <ejs-button id='togglebtn1' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
                         </div>
                     </td>
                 </tr>
                 <tr id="button-control2">
                     <td>
                         <div style="height: 45px">
-                            <ejs-button id='togglebtn2' :iconCss='iconCss' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>                       
+                            <ejs-button id='togglebtn2' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>                       
                         </div>
                     </td>
                 </tr>
@@ -67,6 +67,12 @@
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
         font-size: 13px !important;
         font-weight: 400 !important;
+    }
+    #togglebtn1 {
+        width: 80px;
+    }
+    #togglebtn2 {
+        width: 80px;
     }
 </style>
 <script>
@@ -127,7 +133,7 @@ return{
                         width: 2,
                     }
             },
-          iconCss: 'e-icons e-play-icon', cssClass: 'e-flat', isPrimary: true,content1:'Export',content2:'Print',
+          cssClass: 'e-info', isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
           modedata:['JPEG','PNG','SVG','PDF'],
           modewidth:90
 }
@@ -142,14 +148,11 @@ methods:{
             args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
     clickExport:function(args){
-        let smithchart = document.getElementById('container');
-        let mode = document.getElementById('mode');
-        let fileName = ((document.getElementById('fileName'))).value;
-        smithchart.ej2_instances[0].export(mode.ej2_instances[0].value, fileName);
+        let fileName = this.$refs.name.value;
+        this.$refs.smithchart.ej2Instances.export(this.$refs.dropdown.ej2Instances.value, fileName);
     },
    clickPrint:function(args){
-        let smithchart = document.getElementById('container');
-        smithchart.ej2_instances[0].print();
+        this.$refs.smithchart.ej2Instances.print();
    } 
 }
 })

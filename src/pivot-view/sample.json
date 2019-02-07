@@ -1,14 +1,14 @@
 {
-    "name": "Pivot Grid",
+    "name": "Pivot Table",
     "directory": "pivot-view",
     "category": "Grids",
-    "type": "preview",
     "ftName": "pivot-grid",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "category": "Pivot Grid",
+            "category": "Pivot Table",
             "hideOnDevice": false,
             "description": "This demo for Essential JS2 Pivot Table control shows the basic rendering of the pivotgrid with minimum configuration",
             "api": {}
@@ -33,8 +33,8 @@
             "url": "field-list",
             "name": "Field List",
             "category": "User Interaction",
-            "hideOnDevice": false,
             "type": "update",
+            "hideOnDevice": false,
             "description": "This demo for Essential JS2 Pivot Table control demonstrate the field list feature of the pivotgrid widget, field list allows the user to rearrange the fields between different axes, including column, row, value, and filter along with filter and sort options",
             "api": {}
         },
@@ -51,9 +51,17 @@
             "name": "Conditional Formatting",
             "category": "User Interaction",
             "hideOnDevice": false,
-            "type": "new",
             "description": "This demo for Essential JS2 Pivot Table control demonstrate formatting the appearance of the pivot grid cells with values based on the applied conditions",
             "api": {}
+        },
+        {
+            "url": "summary-customization",
+            "name": "Show/Hide Totals",
+            "category": "User Interaction",
+            "hideOnDevice": false,
+            "type": "new",
+            "api": {},
+            "description": "This demo for Essential JS2 Pivot Table control demonstrate the summary customization feature of the pivotgrid widget"
         },
         {
             "url": "calculated-field",
@@ -68,6 +76,7 @@
             "name": "Aggregation",
             "category": "Formula",
             "hideOnDevice": false,
+            "type": "update",
             "description": "This demo for Essential JS2 Pivot Table control shows different types of aggregation for value fields",
             "api": {}
         },
@@ -100,7 +109,6 @@
             "name": "Label Filtering",
             "category": "Filtering",
             "hideOnDevice": false,
-            "type": "new",
             "description": "This demo for Essential JS2 Pivot Table control demonstrate label filtering of field headers either by including or excluding them",
             "api": {}
         },
@@ -109,7 +117,6 @@
             "name": "Value Filtering",
             "category": "Filtering",
             "hideOnDevice": false,
-            "type": "new",
             "description": "This demo for Essential JS2 Pivot Table control demonstrate the filtering of field headers based on the grand total (value based)",
             "api": {}
         },
@@ -126,9 +133,43 @@
             "name": "Virtual Scrolling",
             "category": "Scrolling",
             "hideOnDevice": false,
-            "type": "new",
             "description": "This demo for Essential JS2 Pivot Table control shows virtual scrolling option available vertically and horizontally to load large records with ease",
             "api": {}
+        },
+        {
+            "url": "drill-through",
+            "name": "Drill Through",
+            "category": "Miscellaneous",
+            "hideOnDevice": false,
+            "type": "new",
+            "description": "This demo for Essential JS2 Pivot Table control shows the raw items of any value cells in pivot grid",
+            "api": {}
+        },
+        {
+            "url": "editing",
+            "name": "Editing",
+            "category": "Miscellaneous",
+            "hideOnDevice": false,
+            "type": "new",
+            "description": "This demo for Essential JS2 Pivot Table control allows to edit, add and delete the value cells in pivot grid",
+            "api": {}
+        },
+        {
+            "url": "hyper-link",
+            "name": "Hyperlink",
+            "category": "Miscellaneous",
+            "type": "new",
+            "description": "This demo for Essential JS2 Pivot Table control shows hyperlink option on cells of the pivotgrid widget",
+            "api": {}
+        },
+        {
+            "url": "defer-update",
+            "name": "Defer Layout Update",
+            "category": "Miscellaneous",
+            "hideOnDevice": false,
+            "type": "new",
+            "api": {},
+            "description": "This demo for Essential JS2 Pivot Table control demonstrate defer layout update feature of the pivotgrid widget"
         },
         {
             "url": "exporting",

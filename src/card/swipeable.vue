@@ -118,7 +118,7 @@
 </div>
 <div id="description">
     <p>The sample illustrates stacked collection of card overlapping each other, which can be bound to swipe actions to move cards one after the other. CSS animation is used to achieve swiping on every left or right swipe.</p>
-    <p>More information about Card can be found in this<a href="" target="_blank"> documentation</a> section.</p>
+    <p>More information about Card can be found in this<a href="https://ej2.syncfusion.com/vue/documentation/card/getting-started/" target="_blank"> documentation</a> section.</p>
 </div>
 </div>
 </template>

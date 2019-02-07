@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :currentView='currentView' :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :currentView='currentView' :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
                     :group='group' :popupOpen="onPopupOpen" :resourceHeaderTemplate='resourceTemplate'
                     :actionBegin="onActionBegin" :renderCell="onRenderCell">
                     <e-views>
@@ -177,14 +177,18 @@
         },
         methods: {
             onActionBegin: function (args) {
-                if (args.requestType === 'eventCreate' && (args.data).length > 0) {
-                    let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
-                    let eventData = args.data[0];
+                let isEventChange = (args.requestType === 'eventChange');
+                if ((args.requestType === 'eventCreate' && (args.data).length > 0)|| isEventChange) {
+                    let scheduleObj = this.$refs.ScheduleObj.ej2Instances;
+                    let eventData = (isEventChange)? args.data: args.data[0];
                     let eventField = scheduleObj.eventFields;
                     let startDate = eventData[eventField.startTime];
                     let endDate = eventData[eventField.endTime];
                     let resourceIndex = [1, 2, 3].indexOf(eventData.DoctorId);
-                    args.cancel = !scheduleObj.isSlotAvailable(startDate, endDate, resourceIndex);
+                    args.cancel = !this.isValidateTime(startDate, endDate, resourceIndex, scheduleObj);
+                    if (!args.cancel) {
+                        args.cancel = !scheduleObj.isSlotAvailable(startDate, endDate, resourceIndex);
+                    }
                 }
             },
             onPopupOpen: function (args) {
@@ -197,6 +201,12 @@
                 if (args.element.classList.contains('e-work-hours') || args.element.classList.contains('e-work-cells')) {
                     addClass([args.element], ['willsmith', 'alice', 'robson'][parseInt(args.element.getAttribute('data-group-index'), 10)]);
                 }
+            },
+            isValidateTime: function(startDate, endDate, resIndex, scheduleObj) {
+                var resource = scheduleObj.getResourcesByIndex(resIndex);
+                var startHour = parseInt(resource.resourceData.startHour.toString().slice(0, 2), 10);
+                var endHour = parseInt(resource.resourceData.endHour.toString().slice(0, 2), 10);
+                return (startHour <= startDate.getHours() && endHour >= endDate.getHours());
             }
         }
     });

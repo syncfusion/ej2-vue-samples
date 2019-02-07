@@ -38,7 +38,7 @@ import { AccumulationChartPlugin, AccumulationLegend, PieSeries, AccumulationDat
 Vue.use(AccumulationChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
@@ -72,7 +72,7 @@ export default Vue.extend({
     startAngle: 0,
     endAngle: 360,
     tooltip: {
-        enable: true, header: '<b>${point.x}</b>', format: 'Composition: <b>${point.y}%</b>'
+        enable: false, header: '<b>${point.x}</b>', format: 'Composition: <b>${point.y}%</b>'
     },
     title: 'Education Institutional Revenue'
 
@@ -83,8 +83,8 @@ export default Vue.extend({
         let centerTitle = document.getElementById('center_title');
         centerTitle.style.fontSize = this.getFontSize(args.accumulation.initialClipRect.width);
         let rect = centerTitle.getBoundingClientRect();
-        centerTitle.style.top = (args.accumulation.center.y + args.accumulation.element.offsetTop - (rect.height / 2)) + 'px';
-        centerTitle.style.left = (args.accumulation.center.x + args.accumulation.element.offsetLeft - (rect.width / 2)) + 'px';
+        centerTitle.style.top = (args.accumulation.origin.y + args.accumulation.element.offsetTop - (rect.height / 2)) + 'px';
+        centerTitle.style.left = (args.accumulation.origin.x + args.accumulation.element.offsetLeft - (rect.width / 2)) + 'px';
         centerTitle.style.visibility = 'visible';
         let points = args.accumulation.visibleSeries[0].points;
         for (let point of points) {

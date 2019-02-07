@@ -59,14 +59,14 @@
     </div> 
 
     <div id="action-description">
-        <p>This sample demonstrates the Uploader component supported with HTML form upload. Fill the mandatory details in a form and click the submit button.</p>
+        <p>This example demonstrates the Uploader component supported with HTML form upload. Fill the mandatory details in a form and click the submit button.</p>
     </div>
 
     <div id="description">    
         <p>The Uploader component works in synchronous mode using HTML form. When the end-user submits the form, the selected files are submitted to server with
         the <code>name</code> attribute of input element.</p>
         
-        <p>More information on the form support can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/uploader/form-support.html" target="_blank"> documentation</a> section.</p>
+        <p>More information on the form support can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/uploader/form-support/" target="_blank"> documentation</a> section.</p>
     </div>
 </div>
 </template>

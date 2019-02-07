@@ -24,7 +24,7 @@
     </div>
     <div id="action-description">
         <p>
-           This sample demonstrates how to open or close the dialog with animation effects by clicking the appropriate button.
+           This example demonstrates how to open or close the dialog with animation effects by clicking the appropriate button.
         </p>
     </div>
     <div id="description">
@@ -32,7 +32,7 @@
             The dialog can be opened or closed with animation effect using the <code>animationSettings</code> property. You can also customize the duration of animation and delay to begin animation. Disables the dialog's animation by setting the animation effect as none. 
         </p>
         More information on the animation effect of Dialog can be found in
-        the <a href="https://ej2.syncfusion.com/vue/documentation/dialog/animation.html" target="_blank"> documentation section</a>.
+        the <a href="https://ej2.syncfusion.com/vue/documentation/dialog/animation/" target="_blank"> documentation section</a>.
     </div>
   </div>
 </template>
