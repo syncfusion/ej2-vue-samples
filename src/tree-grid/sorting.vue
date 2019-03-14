@@ -101,7 +101,7 @@
   </div>
   
   </template>
-
+<!-- custom code start -->
   <style>
     @media screen and (max-width: 590px) {
         .sortingenabled {
@@ -109,7 +109,7 @@
         }
     }
 </style>
-
+<!-- custom code end -->
   <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Page, Sort, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";

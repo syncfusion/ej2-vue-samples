@@ -148,13 +148,6 @@
         display: none;
     }
 
-    .schedule-demo-heading {
-        font-size: 16px;
-        padding-bottom: 15px;
-        text-align: center;
-        font-weight: 500
-    }
-
     .e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip {
         width: 217px;
     }
@@ -300,6 +293,14 @@
         margin-top: 0px;
     }
 
+    /* custom code start*/
+    .schedule-demo-heading {
+        font-size: 16px;
+        padding-bottom: 15px;
+        text-align: center;
+        font-weight: 500
+    }
+    
     .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-1 .e-frame {
         background-color: #EA7A57;
         border-color: transparent;
@@ -320,6 +321,7 @@
             font-size: 14px;
         }
     }
+    /* custom code end*/
 </style>
 <script>
     import Vue from "vue";
@@ -446,6 +448,7 @@
                 return finalData;
             },
 
+             //custom code start 
             generateEvents: function (scheduleObj) {
                 var collections = [];
                 var dataCollections = [
@@ -492,6 +495,7 @@
                 var filteredCollection = this.filterByFare(collections, scheduleObj);
                 return filteredCollection;
             },
+            //custom code end 
 
             onChange: function (args) {
                 let scheduleObj = document.getElementById('Schedule').ej2_instances[0];

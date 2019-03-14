@@ -13,6 +13,7 @@
         <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>
     </div>
     <br/>
+
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://www.whatarethe7continents.com/biggest-largest-smallest-continents/" target="_blank">Seven Continents</a>
     </div>
@@ -70,6 +71,7 @@ data:function(){
 provide: {
     maps: [Zoom, Bubble, MapsTooltip]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -78,5 +80,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 }
+/* custom code end */
 })
 </script>

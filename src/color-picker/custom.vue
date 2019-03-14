@@ -36,13 +36,13 @@
         </li>
         <li>Using the
             <code>
-                <a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker/#presetcolors">presetColors
+                <a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/color-picker/#presetcolors">presetColors
                 </a>
             </code> property, you can specify the custom colors to be loaded.</li>
     </ul>
     <p>
         More information about ColorPicker can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/color-picker/how-to/customize-colorpicker">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/color-picker/how-to/customize-colorpicker">
             documentation section</a>.
     </p>
 </div>
@@ -51,6 +51,7 @@
 </template>
 
 <style>
+/* custom code start */
 /* Common sample level styles */
 #custom-control {
     margin: auto 0;
@@ -109,7 +110,7 @@
 #custom-control.e-mobile-control #custom-content .col-xs-12 {
     flex: 0 0 auto;
 }
-
+/* custom code end */
 /* Circle palette customization */
 .e-container .e-palette .e-circle-palette {
     border: 0;

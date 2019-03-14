@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='labels-container'>
+<ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='labels-container'>
 <e-axes>
     <e-axis :annotations='annotations' :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=170 >
       <e-pointers>
@@ -13,6 +13,7 @@
 </ejs-circulargauge>
         </div>
     </div>
+
     <div class="col-lg-4 property-section">
         <table id="property" title="Properties" style="width: 100%; margin:10px">
             <tbody>
@@ -166,12 +167,15 @@ provide: {
     circulargauge: [Annotations]
 },
 methods: {
+    /* custom code start */
      load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     changeTicks:function(args){
             // let cotainerObj=document.getElementById('labels-container');
             // let tickPosition=document.getElementById('tickposition');

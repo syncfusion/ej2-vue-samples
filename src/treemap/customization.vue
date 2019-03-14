@@ -3,6 +3,7 @@
     <div class="control-section">
         <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
+
     <div style="float: right; margin-right: 10px;">Source:
         <a href=" https://en.wikipedia.org/wiki/United_States_at_the_2016_Summer_Olympics" target="_blank"> en.wikipedia.org</a>
     </div>
@@ -64,6 +65,7 @@ return{
 provide:{
         treemap:[TreeMapTooltip]
 },
+/* custom code start */
 methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
@@ -71,5 +73,6 @@ methods:{
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     }
 }
+/* custom code end */
 })
 </script>

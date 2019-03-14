@@ -35,8 +35,8 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { TreeGridPlugin, Column, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { QueryCellInfoEventArgs } from '@syncfusion/ej2-grids';
+import { TreeGridPlugin, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { QueryCellInfoEventArgs, Column } from '@syncfusion/ej2-grids';
 import { sampleData } from "./data-source";
 
 Vue.use(TreeGridPlugin);

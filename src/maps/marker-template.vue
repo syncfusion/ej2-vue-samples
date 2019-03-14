@@ -5,7 +5,8 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :shapeDataPath='shapeDataPath' :tooltipSettings='tooltipSettings' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>        
+</ejs-maps>
+      
     <div style="float: right; margin-right: 10px;">Source:
         <a href="http://www.bom.gov.au/calendar/annual/climate.shtml" target="_blank">www.bom.gov.au</a>
      </div>
@@ -133,6 +134,7 @@ data:function(){
 provide: {
     maps: [Marker]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -141,6 +143,7 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     } 
 }
+/* custom code end */
 })
 </script>
 

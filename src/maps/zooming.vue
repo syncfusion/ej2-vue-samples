@@ -9,6 +9,7 @@
 </ejs-maps>    
     <div id="height_slider"></div>        
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -80,6 +81,7 @@
         </div>
 </div>
 </template>
+
  <style>
      .slider-content-wrapper {
         width: 40%;
@@ -188,12 +190,15 @@ provide: {
     maps: [Zoom]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     changeZoom:function(args){
         let element = (document.getElementById('zoom'));
         this.$refs.maps.ej2Instances.zoomSettings.enable = element.checked;

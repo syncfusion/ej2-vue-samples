@@ -48,6 +48,7 @@
          </div>
     </div>
 </template>
+/* custom code start */
 <style>
  @font-face {
         font-family: 'acrdn-icons';
@@ -191,6 +192,7 @@
         }
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { AccordionPlugin } from "@syncfusion/ej2-vue-navigations";

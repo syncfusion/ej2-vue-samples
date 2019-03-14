@@ -1,6 +1,6 @@
 <template>
     <div class="control-section">
-        <ejs-diagram style='display:block' id="diagram" :mode='mode' :width='width' :tool='tool' :height='height' :created='created' :connectors='connectors' :nodes='nodes' :snapSettings='snapSettings' :getConnectorDefaults='getConnectorDefaults'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :mode='mode' :width='width' :tool='tool' :height='height' :connectors='connectors' :nodes='nodes' :snapSettings='snapSettings' :getConnectorDefaults='getConnectorDefaults'></ejs-diagram>
         <div id="action-description">
             <p>
                 This sample visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.
@@ -28,7 +28,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
     DiagramPlugin,
@@ -48,9 +48,9 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 
 Vue.use(DiagramPlugin);
-let diagramInstance: any;
+let diagramInstance;
 //Initializes the nodes for the diagram
-let nodes: NodeModel[] = [
+let nodes = [
     {
         id: 'Equipment', width: 120, height: 40, offsetX: 300, offsetY: 80,
         annotations: [{ content: 'Equipment', style: { color: 'white' } }],
@@ -267,7 +267,7 @@ let nodes: NodeModel[] = [
     },
 ];
 //Initializes the Connectors for the diagram
-let connectors: ConnectorModel[] = [
+let connectors = [
     CreateConnector('equipellise', '5,5', 'Equipment', 'ellipse1', '#A52A2A', 2),
     CreateConnector('connect12', '5,5', 'ellipse1', 'ellipse2', '#A52A2A', 2),
     CreateConnector('connect13', '5,5', 'ellipse2', 'ellipse3', '#A52A2A', 2),
@@ -312,8 +312,8 @@ let connectors: ConnectorModel[] = [
 ];
 
 function CreateConnector(
-    name: string, lineDashArray: string, source: string, target: string, lineColor: string, lineWidth: number): ConnectorModel {
-    let connector: ConnectorModel = {};
+    name, lineDashArray, source, target, lineColor, lineWidth) {
+    let connector = {};
     connector.id = name;
     connector.sourceID = source;
     connector.targetID = target;
@@ -340,7 +340,6 @@ export default Vue.extend({
             mode: "SVG",
             nodes: nodes,
             connectors: connectors,
-            created: created,
             tool: DiagramTools.ZoomPan,
             snapSettings: { constraints: SnapConstraints.None },
             getConnectorDefaults: getConnectorDefaults
@@ -350,18 +349,13 @@ export default Vue.extend({
         diagram: [UndoRedo, DataBinding]
     },
     mounted: function() {
-        let diagramObj: any = document.getElementById("diagram");
-        diagramInstance = diagramObj.ej2_instances[0];
+        diagramInstance = this.$refs.diagramObj.ej2Instances;
         diagramInstance.fitToPage("Width");
     }
 });
-function created(): void {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
-    diagramInstance.fitToPage({ mode: "width" });
-}
-function getConnectorDefaults(connector: ConnectorModel): void {
-    connector.targetDecorator = { shape: 'Arrow', width: 5, height: 5 } as DecoratorModel;
+
+function getConnectorDefaults(connector) {
+    connector.targetDecorator = { shape: 'Arrow', width: 5, height: 5 };
     if (connector.id !== 'connect33' && connector.id !== 'connect34' &&
         connector.id !== 'connect35' && connector.id !== 'connect36') {
         connector.targetDecorator.style = {};

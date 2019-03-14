@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
 <div class="col-lg-8 control-section">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :selectionChange='selectionChange' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :selectionChange='selectionChange' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings'></ejs-diagram>
     </div>
     <div class="col-lg-4 property-section">
     <div class="property-panel-header">
@@ -16,7 +16,7 @@
                 </div>
                 <div>
                     <!-- Enable or disable the visibility of the Port -->
-                        <ejs-multiselect id='portsVisiblity'
+                        <ejs-multiselect ref='portsVisiblityObj' id='portsVisiblity'
                                         :enabled='portsVisiblityenabled'
                                         :dataSource='portsVisiblitydataSource'
                                         :fields='portsVisiblityfields'
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                      <!-- DropDownList is used to apply the shape of the Port. -->
-                        <ejs-dropdownlist id='shape' 
+                        <ejs-dropdownlist ref='shapeObj' id='shape' 
                                           :enabled='shapeenabled'
                                           :placeholder='shapeplaceholder'
                                           :dataSource='shapedataSource'
@@ -49,7 +49,7 @@
                 </div>
                 <div style="padding-bottom: 8px">
                     <!-- colorpicker is used to apply the fill color of the Port. -->
-                     <ejs-colorpicker id="fill"       
+                     <ejs-colorpicker ref="fillObj" id="fill"       
                                  :value='fillcolorvalue'
                                  :change='fillchange'></ejs-colorpicker>
                 </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div style="padding-bottom: 8px">
                     <!-- colorpicker is used to apply the Stroke color of the Port. -->
-                    <ejs-colorpicker id="border" :value='strokecolorvalue' :change='borderchange'></ejs-colorpicker>
+                    <ejs-colorpicker ref="borderObj" id="border" :value='strokecolorvalue' :change='borderchange'></ejs-colorpicker>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div style="padding-bottom: 8px">
                     <!-- NumericTextBox is used to apply the StrokeWidth of the Port. -->
-                        <ejs-numerictextbox id='width' 
+                        <ejs-numerictextbox ref='widthObj' id='width' 
                                             :enabled='widthenabled'
                                             :format='widthformat'
                                             :value='widthvalue'
@@ -85,7 +85,7 @@
                 </div>
                 <div style="padding-bottom: 8px">
                      <!-- NumericTextBox is used to apply the size of the Port. -->
-                        <ejs-numerictextbox id='size' 
+                        <ejs-numerictextbox ref= 'sizeObj' id='size' 
                                             :enabled='sizeenabled'
                                             :format='sizeformat'
                                             :value='sizevalue'
@@ -146,7 +146,7 @@
 </style>
 
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -183,16 +183,16 @@ Vue.use(NumericTextBoxPlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(ColorPickerPlugin);
 
-let diagramInstance: any;
-let portVisibilityDrop: MultiSelect | any;
-let portFillDrop: ColorPicker | any;
-let portBorderDrop: ColorPicker | any;
-let portShapeDrop: DropDownList | any;
-let portSizeNum: NumericTextBox | any;
-let portWidthNum: NumericTextBox | any;
+let diagramInstance;
+let portVisibilityDrop;
+let portFillDrop;
+let portBorderDrop;
+let portShapeDrop;
+let portSizeNum;
+let portWidthNum;
 
 //Initializes the ports for the diagram
-let node1Port: CustomPort[] = [
+let node1Port = [
   {
     id: "port1",
     shape: "Circle",
@@ -240,7 +240,7 @@ let node1Port: CustomPort[] = [
   }
 ];
 
-let node2Port: CustomPort[] = [
+let node2Port = [
   {
     id: "port6",
     shape: "Circle",
@@ -279,7 +279,7 @@ let node2Port: CustomPort[] = [
   }
 ];
 
-let node3Port: CustomPort[] = [
+let node3Port = [
   {
     id: "port10",
     shape: "Circle",
@@ -309,7 +309,7 @@ let node3Port: CustomPort[] = [
   }
 ];
 
-let node4Port: CustomPort[] = [
+let node4Port = [
   {
     id: "port13",
     shape: "Circle",
@@ -339,7 +339,7 @@ let node4Port: CustomPort[] = [
   }
 ];
 
-let node5Port: CustomPort[] = [
+let node5Port = [
   {
     id: "port16",
     shape: "Circle",
@@ -369,7 +369,7 @@ let node5Port: CustomPort[] = [
   }
 ];
 
-let node6Port: CustomPort[] = [
+let node6Port = [
   {
     id: "port19",
     shape: "Circle",
@@ -390,7 +390,7 @@ let node6Port: CustomPort[] = [
   }
 ];
 
-let node7Port: CustomPort[] = [
+let node7Port = [
   {
     id: "port21",
     shape: "Circle",
@@ -411,11 +411,11 @@ let node7Port: CustomPort[] = [
   }
 ];
 
-let shape1: BasicShapeModel = { type: "Basic", shape: "Rectangle" };
+let shape1 = { type: "Basic", shape: "Rectangle" };
 
-let shape2: BasicShapeModel = { type: "Basic", shape: "Diamond" };
+let shape2 = { type: "Basic", shape: "Diamond" };
 
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "node1",
     offsetX: 100,
@@ -473,7 +473,7 @@ let nodes: NodeModel[] = [
     ports: node7Port
   }
 ];
-let connectors: ConnectorModel[] = [
+let connectors = [
   {
     id: "connector1",
     sourceID: "node1",
@@ -576,7 +576,7 @@ let connectors: ConnectorModel[] = [
 ];
 
 //Visibility collection of the Port.
-let visibility: { [key: string]: Object }[] = [
+let visibility = [
   { PortVisibility: PortVisibility.Visible, text: "Visible" },
   { PortVisibility: PortVisibility.Hidden, text: "Hidden" },
   { PortVisibility: PortVisibility.Hover, text: "Hover" },
@@ -584,7 +584,7 @@ let visibility: { [key: string]: Object }[] = [
 ];
 
 //Color collection of the Port.
-let color: { [key: string]: Object }[] = [
+let color = [
   { text: "White", color: "white" },
   { text: "#008080", color: "#008080" },
   { text: "#E4B123", color: "#E4B123" },
@@ -601,7 +601,7 @@ let color: { [key: string]: Object }[] = [
 ];
 
 //Shape collection of the Port.
-let shape: { [key: string]: Object }[] = [
+let shape = [
   { shape: "X", text: "X" },
   { shape: "Circle", text: "Circle" },
   { shape: "Square", text: "Square" },
@@ -618,7 +618,7 @@ export default Vue.extend({
       selectionChange: selectChange,
       snapSettings: { constraints: 0 },
       //Sets the default values of nodes
-      getNodeDefaults: (obj: Node) => {
+      getNodeDefaults: (obj) => {
         //Initialize shape
         if (
           obj.id === "node1" ||
@@ -638,7 +638,7 @@ export default Vue.extend({
         obj.height = 65;
         obj.width = 100;
         obj.style = { fill: "#ebf8fb", strokeColor: "#baeaf5" };
-        for (let i: number = 0; i < obj.ports.length; i++) {
+        for (let i = 0; i < obj.ports.length; i++) {
           //sets styles for the ports
           obj.ports[i].style = {
             fill: "#366f8c",
@@ -653,7 +653,7 @@ export default Vue.extend({
         };
       },
       //Sets the default values of connector
-      getConnectorDefaults: (connector: Connector) => {
+      getConnectorDefaults: (connector) => {
         //defines type of the connectors
         connector.type = "Orthogonal";
         connector.style = { strokeColor: "#8cdcef", strokeWidth: 1 };
@@ -674,12 +674,12 @@ export default Vue.extend({
       portsVisiblitychange: portVisibilityDropOnChange,
 
       fillcolorvalue: "#000",
-      fillchange: (args: ColorPickerEventArgs) => {
+      fillchange: (args) => {
         applyPortStyle("fill", args.currentValue.rgba);
       },
 
       strokecolorvalue: "#000",
-      borderchange: (args: ColorPickerEventArgs) => {
+      borderchange: (args) => {
         applyPortStyle("strokecolor", args.currentValue.rgba);
       },
 
@@ -694,7 +694,7 @@ export default Vue.extend({
       sizemin: 1,
       sizevalue: 6,
       sizestep: 1,
-      sizechange: (args: NumericChangeEventArgs | any) => {
+      sizechange: (args) => {
         applyPortStyle("size", args.value);
       },
 
@@ -702,34 +702,27 @@ export default Vue.extend({
       widthformat: "###.##",
       widthvalue: 1,
       widthstep: 0.5,
-      widthchange: (args: NumericChangeEventArgs | any) => {
+      widthchange: (args) => {
         applyPortStyle("strokewidth", args.value);
       }
     };
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.select([diagramInstance.nodes[0]]);
-    let portsVisiblityObj: any = document.getElementById("portsVisiblity");
-    portVisibilityDrop = portsVisiblityObj.ej2_instances[0];
-    let fillObj: any = document.getElementById("fill");
-    portFillDrop = fillObj.ej2_instances[0];
-    let borderObj: any = document.getElementById("border");
-    portBorderDrop = borderObj.ej2_instances[0];
-    let shapeObj: any = document.getElementById("shape");
-    portShapeDrop = shapeObj.ej2_instances[0];
-    let sizeObj: any = document.getElementById("size");
-    portSizeNum = sizeObj.ej2_instances[0];
-    let widthObj: any = document.getElementById("width");
-    portWidthNum = widthObj.ej2_instances[0];
+    portVisibilityDrop = this.$refs.portsVisiblityObj.ej2Instances;
+    portFillDrop = this.$refs.fillObj.ej2Instances;
+    portBorderDrop = this.$refs.borderObj.ej2Instances;
+    portShapeDrop = this.$refs.shapeObj.ej2Instances;
+    portSizeNum = this.$refs.sizeObj.ej2Instances;
+    portWidthNum = this.$refs.widthObj.ej2Instances;
   }
 });
 
 //get the port for the selected node.
-function getPort(): PointPortModel[] {
-  let node: NodeModel = diagramInstance.selectedItems.nodes[0];
-  let port: PointPortModel[] | any;
+function getPort() {
+  let node = diagramInstance.selectedItems.nodes[0];
+  let port;
   if (node) {
     port = node.ports;
   }
@@ -737,12 +730,12 @@ function getPort(): PointPortModel[] {
 }
 
 //enable or disable the property panel based on the Selection.
-function selectChange(args: any): void {
+function selectChange(args) {
   if (args.state === "Changed") {
-    let appearance: HTMLElement = document.getElementById(
+    let appearance = document.getElementById(
       "propertypanel"
-    ) as HTMLElement;
-    let selectedElement: HTMLCollection = document.getElementsByClassName(
+    );
+    let selectedElement = document.getElementsByClassName(
       "e-remove-selection"
     );
     if (args.newValue) {
@@ -751,7 +744,7 @@ function selectChange(args: any): void {
       }
       if (args.newValue[0] instanceof Node && selectedElement.length) {
         selectedElement[0].classList.remove("e-remove-selection");
-        let port: any = getPort()[0];
+        let port = getPort()[0];
         portVisibilityDrop.value = [];
           if (PortVisibility.Visible & port.visibility) {
                         portVisibilityDrop.value.push(PortVisibility.Visible);
@@ -784,10 +777,10 @@ function selectChange(args: any): void {
   }
 }
 //set the appearence of the Port.
-function applyPortStyle(propertyName: string, propertyValue: Object): void {
-  let ports: PointPortModel[] = getPort();
-  for (let j: number = 0; j < ports.length; j++) {
-    let port: PointPortModel | any = ports[j];
+function applyPortStyle(propertyName, propertyValue) {
+  let ports = getPort();
+  for (let j = 0; j < ports.length; j++) {
+    let port = ports[j];
     if (propertyName === "fill") {
       port.style.fill = propertyValue.toString();
     } else if (propertyName === "strokecolor") {
@@ -798,33 +791,33 @@ function applyPortStyle(propertyName: string, propertyValue: Object): void {
       port.style.strokeWidth = Number(propertyValue);
     } else if (propertyName === "visibility") {
       port.visibility = 0;
-      let propertyValue1: number[] = propertyValue as number[];
-      for (let i: number = 0; i < propertyValue1.length; i++) {
-        port.visibility += propertyValue1[i] as PortVisibility;
+      let propertyValue1 = propertyValue;
+      for (let i = 0; i < propertyValue1.length; i++) {
+        port.visibility += propertyValue1[i];
       }
     } else if (propertyName === "shape") {
-      port.shape = propertyValue as PortShapes;
+      port.shape = propertyValue;
     }
     diagramInstance.dataBind();
   }
 }
 //change the Visibility of the Port.
-function portVisibilityDropOnChange(args: MultiSelectChangeEventArgs): void {
-  let port: PointPortModel[] | any = getPort();
+function portVisibilityDropOnChange(args) {
+  let port = getPort();
   if (port) {
-    for (let j: number = 0; j < port.length; j++) {
+    for (let j = 0; j < port.length; j++) {
       port[j].visibility = 0;
-      for (let i: number = 0; i < args.value.length; i++) {
-        port[j].visibility += args.value[i] as PortVisibility;
+      for (let i = 0; i < args.value.length; i++) {
+        port[j].visibility += args.value[i];
       }
       diagramInstance.dataBind();
     }
   }
 }
 //change the shape of the Port.
-function portShapeDropOnChange(args: DropDownChangeEventArgs): void {
-  let port: PointPortModel[] = getPort();
-  for (let j: number = 0; j < port.length; j++) {
+function portShapeDropOnChange(args) {
+  let port = getPort();
+  for (let j = 0; j < port.length; j++) {
     switch (portShapeDrop.value) {
       case "X":
         port[j].shape = "X";
@@ -844,7 +837,4 @@ function portShapeDropOnChange(args: DropDownChangeEventArgs): void {
   }
 }
 
-export interface CustomPort extends PointPortModel {
-  text: string;
-}
 </script>

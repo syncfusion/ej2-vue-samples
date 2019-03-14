@@ -131,7 +131,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2019, 0, 10),
                 currentView: 'TimelineWeek',
                 timeScale: { enable: true, interval: 60, slotCount: 6 },
                 intervalValue: '60',

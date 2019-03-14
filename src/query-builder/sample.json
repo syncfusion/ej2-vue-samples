@@ -3,21 +3,19 @@
     "directory": "query-builder",
     "category": "Forms",
     "ftName": "query-builder",
-    "type": "preview",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Query Builder",
             "description": "This sample demonstrates the default functionalities of the Query Builder component. Click the plus button to add group or rules.",
-            "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "rules"]  }
+            "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "created"]  }
         },
         {
             "url": "template",
             "name": "Template",
             "category": "Query Builder",
-            "api": { "QueryBuilder": ["width","columns", "rules", "conditionChanged", "fieldChanged", "valueChanged", "operatorChanged", 
-                "ruleDelete", "groupDelete", "ruleInsert", "groupInsert"] },
+            "api": { "QueryBuilder": ["width","columns", "rule", "change"] },
             "description": "This sample demonstrates the integration of DropdownList, Slider controls as Templates in the Query Builder component.",
             "sourceFiles": [
                 { "displayName": "rule.json", "path":"src/query-builder/template-data.json" }
@@ -27,8 +25,7 @@
             "url": "grid",
             "name": "Integration with Data Grid",
             "category": "Query Builder",
-            "api": { "Query Builder": ["width", "dataSource", "columns", "rules", "conditionChanged", "fieldChanged", "valueChanged", "operatorChanged",
-                "ruleDelete", "groupDelete", "ruleInsert", "groupInsert"] },
+            "api": { "Query Builder": ["width", "dataSource", "columns", "rule", "change"] },
             "description": "This sample demonstrates the integration of Grid component to showcase the data population based on the created filters using Query Builder component."
         }
     ]

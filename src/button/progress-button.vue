@@ -78,21 +78,21 @@
         In this sample, the progress button contains the content, spinner, progress indicator, and a list of related features that
         can be achieved using
         <code>
-                    <a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/progress-button/api-progressButton.html#content">content,
+                    <a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/progress-button/#content">content,
                     </a>
         </code>
         <code>
-                    <a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/progress-button/api-progressButton.html#cssClass">cssClass,
+                    <a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/progress-button/#cssClass">cssClass,
                     </a>
         </code>and
         <code>
-                <a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/progress-button/api-progressButton.html#enableProgress">enableProgress
+                <a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/progress-button/#enableProgress">enableProgress
                 </a>
         </code>property.
     </p>
     <p>
         More information about progress button can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/progress-button/getting-started.html">
+        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/progress-button/getting-started">
             documentation section</a>.
     </p>
 </div>
@@ -119,7 +119,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* custom code start */
 #progress-button-control {
     width: 100%;
     margin: 6% 0;
@@ -144,6 +144,7 @@
 #contract.e-progress-active .e-btn-content {
     display: none;
 }
+/* custom code end */
 
 #contract {
     transition: all .3s cubic-bezier(.175, .885, .32, 1) 100ms;

@@ -2,7 +2,7 @@
 <div class="control-section">
   <div class="col-lg-8 control-section">
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
     </div>
 </div>
 <div class="col-lg-4 property-section">
@@ -11,7 +11,7 @@
         <tr>
             <td style="width:30%;"> Spring Length </td>
             <td style="width: 60%">
-                <ejs-numerictextbox id="springlength"      
+                <ejs-numerictextbox ref="springlengthObj" id="springlength"      
                                     :format='springlengthformat'
                                     :value='springlengthvalue'
                                     :step='springlengthstep'/>
@@ -20,7 +20,7 @@
         <tr>
             <td style="width:30%;">Spring Factor</td>
             <td style="width: 60%">
-                <ejs-numerictextbox id="springfactor" 
+                <ejs-numerictextbox ref="springfactorbj" id="springfactor" 
                                     :format='springfactorformat'
                                     :value='springfactorvalue'
                                     :step='springfactorstep'/>
@@ -29,7 +29,7 @@
         <tr>
             <td style="width:30%;">Maximum Iteration</td>
             <td style="width: 60%">
-                <ejs-numerictextbox id="maxiteration"       
+                <ejs-numerictextbox ref="maxiterationObj" id="maxiteration"       
                                     :format='maxiterationformat'
                                     :value='maxiterationvalue'
                                     :step='maxiterationstep'/>
@@ -64,7 +64,7 @@
 </template>
 <style>
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -84,10 +84,10 @@ import { symmetricData } from "./diagram-data";
 Diagram.Inject(DataBinding, SymmetricLayout);
 
 Vue.use(DiagramPlugin);
-let diagramInstance: any;
-let springLength: NumericTextBox;
-let springfactor: NumericTextBox;
-let maxiteration: NumericTextBox;
+let diagramInstance;
+let springLength;
+let springfactor;
+let maxiteration;
 
 export default Vue.extend({
   data: function() {
@@ -110,19 +110,19 @@ export default Vue.extend({
       //Sets the constraints of the SnapSettings
       snapSettings: { constraints: SnapConstraints.None },
       //Sets the default values of Node
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj,diagram) => {
         obj.height = 20;
         obj.width = 20;
         obj.style = { fill: "transparent", strokeWidth: 2 };
         return obj;
       },
       //Sets the default values of connector
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         if (connector.targetDecorator) connector.targetDecorator.shape = "None";
         connector.type = "Straight";
         return connector;
       },
-      setNodeTemplate: (obj: Node, diagram: Diagram) => {
+      setNodeTemplate: (obj, diagram) => {
         setNodeTemplate(obj, diagram);
       },
       tool: DiagramTools.ZoomPan,
@@ -144,16 +144,16 @@ export default Vue.extend({
     diagram: [DataBinding, SymmetricLayout]
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
-    let springlengthObj: any = document.getElementById("springlength");
-    springLength = springlengthObj.ej2_instances[0];
-    let springfactorbj: any = document.getElementById("springfactor");
-    springfactor = springfactorbj.ej2_instances[0];
-    let maxiterationObj: any = document.getElementById("maxiteration");
-    maxiteration = maxiterationObj.ej2_instances[0];
+    //let diagramObj: any = document.getElementById("diagram");
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+    //let springlengthObj: any = document.getElementById("springlength");
+    springLength = this.$refs.springlengthObj.ej2Instances;
+    //let springfactorbj: any = document.getElementById("springfactor");
+    springfactor = this.$refs.springfactorbj.ej2Instances;
+    //let maxiterationObj: any = document.getElementById("maxiteration");
+    maxiteration = this.$refs.maxiterationObj.ej2Instances;
     //used to apply the alignment of the layout.
-    let refreshObj: any = document.getElementById("refresh");
+    let refreshObj = document.getElementById("refresh");
     refreshObj.onclick = () => {
       diagramInstance.layout.springLength = springLength.value;
       diagramInstance.layout.springFactor = springfactor.value;
@@ -164,12 +164,9 @@ export default Vue.extend({
 });
 
 //Funtion to add the Template of the Node.
-function setNodeTemplate(obj: Node, diagram: Diagram): void {
-  let shape: BasicShapeModel = { type: "Basic", shape: "Ellipse" };
-  if (
-    !(obj.data as EmployeeInfo).Type ||
-    (obj.data as EmployeeInfo).Type === "Server"
-  ) {
+function setNodeTemplate(obj, diagram) {
+  let shape = { type: "Basic", shape: "Ellipse" };
+  if (!(obj.data).Type ||(obj.data).Type === "Server") {
     obj.width = 30;
     obj.height = 30;
     obj.shape = {
@@ -197,7 +194,4 @@ function setNodeTemplate(obj: Node, diagram: Diagram): void {
   }
 }
 
-export interface EmployeeInfo {
-  Type: string;
-}
 </script>

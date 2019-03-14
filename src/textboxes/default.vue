@@ -229,6 +229,19 @@
         font-size: 13px;
     }
     
+    .fabric .e-input-calendar:before {
+        content:'\e93a';
+    }
+    .bootstrap .e-input-calendar:before {
+        content:'\e960';
+    }
+    .bootstrap4 .e-input-calendar:before {
+        content:'\e7be';
+    }
+    .highcontrast .e-input-calendar:before {
+        content:'\e93a';
+    }
+
     .content-wrapper {
         width: 90%;
         margin: 0 auto;

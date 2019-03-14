@@ -56,7 +56,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2019, 0, 10),
                 currentView: 'Week',
                 date: new Date(2000, 0, 1, 9)
             }

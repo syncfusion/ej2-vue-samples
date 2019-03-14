@@ -3,7 +3,7 @@
 <div class="control-section">
     <div id="sparkline" class="row">
         <div class="cols-sample-area">
-            <ejs-grid id='Grid' :dataSource='dataSource' :allowSelection='allowSelection' :enableColumnVirtualization='enableColumnVirtualization' :enableHover='enableHover' height=400>
+            <ejs-grid id='Grid' :dataSource='dataSource' :allowSelection='allowSelection' :enableHover='enableHover' height=400>
                     <e-columns>
                         <e-column field="EmployeeID" headerText="ID" width=40 textAlign="Right" />
                         <e-column field="CustomerID" headerText="Name" width=60 />
@@ -65,8 +65,7 @@ export default Vue.extend({
 data:function(){
     return{
         dataSource: new DataManager(orderdata).executeLocal(new Query().take(20)),
-        allowSelection: false,
-        enableColumnVirtualization: true,
+        allowSelection: false,        
         enableHover: true,
         cTemplate: function () {
                 return {
@@ -123,11 +122,13 @@ mounted:function(){
             winloss.appendTo('#spkwl' + i);
         }
      }, 100);
+     /* custom code start */
  function load(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     }
+    /* custom code end */
 function getSparkData(type, count){
     if (type === 'line') {
         return lineData[count];

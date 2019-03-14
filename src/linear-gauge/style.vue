@@ -177,7 +177,8 @@ export default Vue.extend({
 provide: {
     lineargauge: [Annotations]
 },
-methods: {
+/* custom code start */
+methods: { 
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -185,6 +186,7 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 }
+/* custom code end */
 })
 </script>
 

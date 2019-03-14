@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-    <ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='range-container' :load='load' :loaded='loaded' :title='title' :titleStyle='titleStyle'>
+    <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='range-container' :loaded='loaded' :title='title' :titleStyle='titleStyle'>
         <e-axes>
             <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
                 <e-pointers>
@@ -134,12 +134,14 @@ export default Vue.extend({
     circulargauge: [Annotations]
 },
 methods: {
+    /* custom code start */
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     loaded: function(args) {
         let annotation = document.getElementById(args.gauge.element.id + '_Annotations_0');
         if (annotation) {

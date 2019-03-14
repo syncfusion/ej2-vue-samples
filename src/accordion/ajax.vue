@@ -147,6 +147,8 @@
         margin: 0 10% 0 10%;
         padding-bottom: 25px;
     }
+
+/* custom code start */
     #source_link {
         float: right;
         margin-right: 10px;
@@ -161,6 +163,7 @@
           margin-right: 0px; 
         }
     }
+/* custom code end */
 </style>
 <script>
 import Vue from "vue";

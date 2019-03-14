@@ -11,10 +11,11 @@
     <div id="description">
         <p>The <code>TreeView</code> component has an option to customize the node structure through the <code>nodeTemplate</code> property, so that the tree node can be formed with any custom structure.</p>
         <p>In this demo, the node is formed as like webmail with folder name and number of unread messages.</p>
-        <p>For more information, you can refer to the <a href="http://ej2.syncfusion.com/vue/treeview/template.html" target="_blank">Templates</a> section from the documentation.</p>
+        <p>For more information, you can refer to the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/template/" target="_blank">Templates</a> section from the documentation.</p>
     </div>
 </div>
 </template>
+/* custom code start */
 <style>
     .tree-template-control-wrapper {
 		max-width: 320px;
@@ -33,22 +34,15 @@
         vertical-align: middle;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource.json';
+import treeTemplateVue from "./tree-template.vue";
+import * as dataSource from './dataSource/template-data.json';
 
 Vue.use(TreeViewPlugin);
 
-var tTemplate = Vue.component("demo", {
-  template: '<div><div class="treeviewdiv"><div style="float:left"><span class="treeName">{{data.name}}</span></div>' +
-        '<div v-if="data.count" style="margin-right: 5px; float:right"><span class="treeCount e-badge e-badge-primary">{{data.count}}</span></div></div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
 
 export default Vue.extend ({
     data: function() {
@@ -56,7 +50,7 @@ export default Vue.extend ({
             fields: { dataSource: dataSource.templateData, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' },
             treeTemplate: function(e) {
                 return {
-                    template: tTemplate
+                    template: treeTemplateVue
                 };
             },
         };

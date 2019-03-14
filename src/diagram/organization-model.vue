@@ -2,7 +2,7 @@
 <div class="control-section">
  <div class="col-lg-8 control-section" style="width: 70%; float:left;">
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
     </div>
 </div>
 <div class="col-lg-4 property-section" style="width: 30%; float: right; height: 80%">
@@ -68,7 +68,7 @@
                 <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
             </div>
             <div class="col-xs-6">
-                <ejs-numerictextbox  id="hSpacing" 
+                <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" 
                       :min='hSpacingmin'
                       :max='hSpacingmax'
                       :step='hSpacingstep'
@@ -82,7 +82,7 @@
                 <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
             </div>
             <div class="col-xs-6">
-                <ejs-numerictextbox id="vSpacing" 
+                <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" 
                       :min='vSpacingmin'
                       :max='vSpacingmax'
                       :step='vSpacingstep'
@@ -177,7 +177,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -204,16 +204,13 @@ import { localBindData } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
 
-let diagramInstance: any;
-let orien: LayoutOrientation;
-let typ: SubTreeAlignments;
-let hSpacing: NumericTextBox;
-let vSpacing: NumericTextBox;
+let diagramInstance;
+let orien;
+let typ;
+let hSpacing;
+let vSpacing;
 
-export interface EmployeeInfo {
-  Role: string;
-  color: string;
-}
+
 
 export default Vue.extend({
   data: function() {
@@ -225,11 +222,11 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Id",
         parentId: "Manager",
-        dataManager: new DataManager(localBindData as JSON[]),
-        doBinding: (nodeModel: NodeModel, data: object, diagram: Diagram) => {
+        dataManager: new DataManager(localBindData),
+        doBinding: (nodeModel, data, diagram) => {
           nodeModel.shape = {
             type: "Text",
-            content: (data as EmployeeInfo).Role,
+            content: (data).Role,
             margin: { left: 10, right: 10, top: 10, bottom: 10 }
           };
         }
@@ -239,10 +236,10 @@ export default Vue.extend({
       //Configures automatic layout
       layout: {
         type: "OrganizationalChart",
-        getLayoutInfo: (node: Node, options: TreeInfo) => {
+        getLayoutInfo: (node, options) => {
           /* tslint:disable:no-string-literal */
           if (
-            (node.data as DataInfo)["Role"] === "General Manager" &&
+            (node.data)["Role"] === "General Manager" &&
             options.assistants &&
             options.children
           ) {
@@ -255,11 +252,11 @@ export default Vue.extend({
         }
       },
       //Defines the default node and connector properties
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj,diagram) => {
         /* tslint:disable:no-string-literal */
         return nodeDefaults(obj, diagram);
       },
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         return connectorDefaults(connector, diagram);
       },
 
@@ -286,20 +283,18 @@ export default Vue.extend({
     diagram: [DataBinding, HierarchicalTree, LayoutAnimation]
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
-    let hSpacingObj: any = document.getElementById("hSpacing");
-    hSpacing = hSpacingObj.ej2_instances[0];
-    let vSpacingObj: any = document.getElementById("vSpacing");
-    vSpacing = vSpacingObj.ej2_instances[0];
-    let orientationObj: any = document.getElementById(
-      "orientation"
-    ) as HTMLElement;
-    let patternObj: any = document.getElementById("pattern") as HTMLElement;
+    //let diagramObj: any = document.getElementById("diagram");
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+    //let hSpacingObj: any = document.getElementById("hSpacing");
+    hSpacing = this.$refs.hSpacingObj.ej2Instances;
+    //let vSpacingObj: any = document.getElementById("vSpacing");
+    vSpacing = this.$refs.vSpacingObj.ej2Instances;
+    let orientationObj = document.getElementById("orientation");
+    let patternObj = document.getElementById("pattern");
     //Click Event for orientation of the PropertyPanel.
-    orientationObj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+    orientationObj.onclick = (args) => {
+      let target = args.target;
+      let selectedElement = document.getElementsByClassName(
         "e-selected-orientation-style"
       );
       if (selectedElement.length) {
@@ -311,18 +306,18 @@ export default Vue.extend({
       if (
         target.className === "image-pattern-style e-selected-orientation-style"
       ) {
-          let id: string = target.id;
-          let orientation1: string = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
-          diagramInstance.layout.orientation = orientation1 as LayoutOrientation;
+          let id = target.id;
+          let orientation1 = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
+          diagramInstance.layout.orientation = orientation1;
           diagramInstance.dataBind();
           diagramInstance.doLayout();
           target.classList.add('e-selected-style');
       }
     };
     //Click Event for pattern of the PropertyPanel.
-    patternObj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedpatternElement: HTMLCollection = document.getElementsByClassName(
+    patternObj.onclick = (args) => {
+      let target = args.target;
+      let selectedpatternElement = document.getElementsByClassName(
         "e-selected-pattern-style"
       );
       if (selectedpatternElement.length) {
@@ -334,40 +329,40 @@ export default Vue.extend({
       if (target.className === "image-pattern-style e-selected-pattern-style") {
         switch (target.id) {
           case "pattern1":
-            orien = "Vertical".toString() as LayoutOrientation;
-            typ = "Alternate" as SubTreeAlignments;
+            orien = "Vertical".toString();
+            typ = "Alternate";
             break;
           case "pattern2":
-            orien = "Vertical".toString() as LayoutOrientation;
-            typ = "Left" as SubTreeAlignments;
+            orien = "Vertical".toString();
+            typ = "Left";
             break;
           case "pattern3":
-            orien = "Vertical".toString() as LayoutOrientation;
-            typ = "Left" as SubTreeAlignments;
+            orien = "Vertical".toString();
+            typ = "Left";
             break;
           case "pattern4":
-            orien = "Vertical".toString() as LayoutOrientation;
-            typ = "Right" as SubTreeAlignments;
+            orien = "Vertical".toString();
+            typ = "Right";
             break;
           case "pattern5":
-            orien = "Vertical".toString() as LayoutOrientation;
-            typ = "Right" as SubTreeAlignments;
+            orien = "Vertical".toString();
+            typ = "Right";
             break;
           case "pattern6":
-            orien = "Horizontal".toString() as LayoutOrientation;
-            typ = "Balanced" as SubTreeAlignments;
+            orien = "Horizontal".toString();
+            typ = "Balanced";
             break;
           case "pattern7":
-            orien = "Horizontal".toString() as LayoutOrientation;
-            typ = "Center" as SubTreeAlignments;
+            orien = "Horizontal".toString();
+            typ = "Center";
             break;
           case "pattern8":
-            orien = "Horizontal".toString() as LayoutOrientation;
-            typ = "Left" as SubTreeAlignments;
+            orien = "Horizontal".toString();
+            typ = "Left";
             break;
           case "pattern9":
-            orien = "Horizontal".toString() as LayoutOrientation;
-            typ = "Right" as SubTreeAlignments;
+            orien = "Horizontal".toString();
+            typ = "Right";
             break;
           default:
             if (selectedpatternElement.length) {
@@ -377,8 +372,8 @@ export default Vue.extend({
             }
         }
         diagramInstance.layout.getLayoutInfo = (
-          node: Node,
-          options: TreeInfo
+          node,
+          options
         ) => {
           if (target.id === "pattern4" || target.id === "pattern3") {
             options.offset = -50;
@@ -397,14 +392,14 @@ export default Vue.extend({
 
 //set orientation and type of the Layout.
 function getLayoutInfo(
-  node: Node,
-  options: TreeInfo,
-  orientation: LayoutOrientation,
-  type: SubTreeAlignments
-): void {
+  node,
+  options,
+  orientation,
+  type
+) {
   /* tslint:disable:no-string-literal */
   if (
-    (node.data as DataInfo)["Role"] === "General Manager" &&
+    (node.data)["Role"] === "General Manager" &&
     options.assistants &&
     options.children
   ) {
@@ -412,14 +407,14 @@ function getLayoutInfo(
     options.children.splice(0, 1);
   }
   if (!options.hasSubTree) {
-    options.orientation = orientation as SubTreeOrientation;
+    options.orientation = orientation;
     options.type = type;
   }
 }
 
 //sets default value for Node.
-function nodeDefaults(obj: Node, diagram: Diagram): Node {
-  obj.backgroundColor = (obj.data as EmployeeInfo).color;
+function nodeDefaults(obj, diagram) {
+  obj.backgroundColor = (obj.data).color;
   obj.style = { fill: "none", strokeColor: "none", color: "white" };
   obj.expandIcon = {
     height: 10,
@@ -444,23 +439,13 @@ function nodeDefaults(obj: Node, diagram: Diagram): Node {
 
 //sets default value for Connector.
 function connectorDefaults(
-  connector: ConnectorModel,
-  diagram: Diagram
-): ConnectorModel {
+  connector,
+  diagram
+) {
   if (connector.targetDecorator) connector.targetDecorator.shape = "None";
   connector.type = "Orthogonal";
   connector.constraints = 0;
   connector.cornerRadius = 0;
   return connector;
-}
-
-
-export interface EmployeeInfo {
-  Role: string;
-  color: string;
-}
-
-export interface DataInfo {
-  [key: string]: string;
 }
 </script>

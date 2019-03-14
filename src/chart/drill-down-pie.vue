@@ -51,12 +51,22 @@
 import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
 import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel, AccumulationAnnotation, AccumulationChartPlugin } from "@syncfusion/ej2-vue-charts";
+import {Template1} from "./drill-down-temp1.vue";
+import {Template2} from "./drill-down-temp2.vue";
 
 Vue.use(AccumulationChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
+let tempContent1 = function() {
+  return { template: Template1 };
+}; 
+
+let tempContent2 = function() {
+  return { template: Template2 };
+};
 
 export default Vue.extend({
   data: function() {
@@ -110,9 +120,8 @@ export default Vue.extend({
     onChartMouseClick: function (args) {
         let  accChart = document.getElementById("container").ej2_instances;
         let index = indexFinder(args.target);
-        let lightThemeContent = '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;">' +
-                '<img src="./src/chart/images/back.png" id="back" />';
-        let darkThemeContent = '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="./src/chart/images/white.png" id="back"/><div>';
+        let lightThemeContent = tempContent1;
+        let darkThemeContent = tempContent2;
         this.isExplode = false;
         if (document.getElementById('container_Series_' + index.series + '_Point_' + index.point) && !this.innerChart) {
             accChart[0].annotations = [{

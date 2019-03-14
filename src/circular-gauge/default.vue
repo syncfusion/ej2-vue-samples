@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-circulargauge style='display:block' align='center' id='gauge'>
+<ejs-circulargauge :load='load' style='display:block' align='center' id='gauge'>
 <e-axes>
 <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
 <e-pointers>
@@ -69,6 +69,7 @@ export default Vue.extend({
             }  
     }
    },
+   /* custom code start */
 methods: {
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -77,6 +78,7 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 }
+/* custom code end */
 })
 </script>
 

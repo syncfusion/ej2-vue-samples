@@ -59,8 +59,8 @@
 
     <div id="description">
         <p>The NumericTextBox has the options to restrict the input value between a specific range using the
-        <a href="http://ej2.syncfusion.com/documentation/numerictextbox/api-numericTextBox.html#min-number" target="_blank">min</a>,<a href="http://ej2.syncfusion.com/documentation/numerictextbox/api-numericTextBox.html#max-number" target="_blank">max</a>,
-        and <a href="http://ej2.syncfusion.com/documentation/numerictextbox/api-numericTextBox.html#strictmode-boolean" target="_blank">strictMode</a> properties.</p>
+        <a href="https://ej2.syncfusion.com/vue/documentation/api/numerictextbox#min" target="_blank">min</a>,<a href="https://ej2.syncfusion.com/vue/documentation/api/numerictextbox#max" target="_blank">max</a>,
+        and <a href="https://ej2.syncfusion.com/vue/documentation/api/numerictextbox#strictmode" target="_blank">strictMode</a> properties.</p>
         <ul>
             <li>
                 When you enable the <b>strictMode</b> property, the value will automatically change within a range on passing
@@ -75,7 +75,7 @@
         this range.</p>
         <p>
         More information on the range validation configuration can be found in the
-        <a href="https://ej2.syncfusion.com/vue/numerictextbox/getting-started.html#range-validation" target="_blank"> documentation section</a>.
+        <a href="https://ej2.syncfusion.com/vue/documentation/numerictextbox/getting-started/#range-validation" target="_blank"> documentation section</a>.
         </p>
     </div>
 </div>

@@ -1,0 +1,30 @@
+{
+    "name": "File Manager",
+    "directory": "file-manager",
+    "category": "Navigation",
+    "ftName" :"file-manager",
+    "type":"preview",
+    "samples": [{
+        "url": "overview",
+        "name": "Overview",
+        "category": "File Manager",
+        "description":"The FileManager component is used to explore a file system through a web application, similar to the windows explorer for windows.",
+        "api": { "FileManager": ["ajaxSettings", "view"] }
+    },
+    {
+        "url": "custom-thumbnail",
+        "name": "Custom Thumbnails",
+        "category": "File Manager",
+        "api": { "FileManager": ["ajaxSettings"] },
+        "description":"The FileManager component is used to explore a file system through a web application, similar to the windows explorer for windows."
+    },
+    {
+        "url": "default",
+        "name": "API",
+        "category": "File Manager",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "The FileManager component is used to explore a file system through a web application, similar to the windows explorer for windows."
+    }
+
+    ]
+}

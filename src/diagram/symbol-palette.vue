@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
 <div class="col-lg-8 control-section" id="palette-space">
-    <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :enableAnimation='enableAnimation' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
+    <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :enableAnimation='enableAnimation' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
                        :symbolWidth='symbolWidth'></ejs-symbolpalette>
 </div>
 <div class="col-lg-4 property-section">
@@ -12,7 +12,7 @@
             </td>
             <td>
                 <!-- DropDownList is used to change the expandMode of the Symbolpallete. -->
-                <ejs-dropdownlist id="expand" :index='expandindex'
+                <ejs-dropdownlist ref="expandObj" id="expand" :index='expandindex'
                                   :dataSource='expanddataSource'
                                   :change='expandchange'/>
             </td>
@@ -23,7 +23,7 @@
             </td>
             <td>
                 <!-- NumericTextBox is used to apply the size of the Symbol. -->
-                <ejs-numerictextbox id='size' 
+                <ejs-numerictextbox ref='sizeObj' id='size' 
                                     :value='sizevalue'
                                     :min='sizemin'
                                     :max='sizemax'
@@ -77,7 +77,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -112,7 +112,7 @@ Vue.use(NumericTextBoxPlugin);
 Vue.use(DropDownListPlugin);
 
 //Initialize the flowshapes for the symbol palatte
-let flowshapes: NodeModel[] = [
+let flowshapes = [
   { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
   { id: "Process", shape: { type: "Flow", shape: "Process" } },
   { id: "Sort", shape: { type: "Flow", shape: "Sort" } },
@@ -125,7 +125,7 @@ let flowshapes: NodeModel[] = [
   { id: "DirectData", shape: { type: "Flow", shape: "DirectData" } },
   { id: "SequentialData", shape: { type: "Flow", shape: "SequentialData" } }
 ];
-let basicShapes: NodeModel[] = [
+let basicShapes = [
   { id: "Rectangle", shape: { type: "Basic", shape: "Rectangle" } },
   { id: "Ellipse", shape: { type: "Basic", shape: "Ellipse" } },
   { id: "Parallelogram", shape: { type: "Basic", shape: "Parallelogram" } },
@@ -136,7 +136,7 @@ let basicShapes: NodeModel[] = [
   { id: "Star", shape: { type: "Basic", shape: "Star" } }
 ];
 //Initializes connector symbols for the symbol palette
-let connectorSymbols: ConnectorModel[] = [
+let connectorSymbols = [
   {
     id: "Link1",
     type: "Orthogonal",
@@ -179,14 +179,14 @@ let connectorSymbols: ConnectorModel[] = [
   }
 ];
 
-let expandMode: { [key: string]: Object }[] = [
+let expandMode = [
   { type: "Single", text: "Single" },
   { type: "Multiple", text: "Multiple" }
 ];
 
-let palette: any;
-let size: any;
-let expand: any;
+let palette;
+let size;
+let expand;
 
 export default Vue.extend({
   data: function() {
@@ -219,7 +219,7 @@ export default Vue.extend({
       symbolHeight: 80,
       symbolWidth: 80,
       //set Node default value
-      getNodeDefaults: (symbol: NodeModel): void => {
+      getNodeDefaults: (symbol) => {
         if (symbol.id === "Terminator" || symbol.id === "Process") {
           symbol.width = 80;
           symbol.height = 40;
@@ -234,7 +234,7 @@ export default Vue.extend({
         }
         symbol.style = { strokeWidth: 2 };
       },
-      getSymbolInfo: (symbol: Symbol): SymbolInfo => {
+      getSymbolInfo: (symbol) => {
         return { fit: true };
       },
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
@@ -242,7 +242,7 @@ export default Vue.extend({
       expanddataSource: expandMode,
       expandindex: 1,
       expandchange: () => {
-        palette.expandMode = expand.value as ExpandMode;
+        palette.expandMode = expand.value;
         palette.dataBind();
       },
 
@@ -269,19 +269,16 @@ export default Vue.extend({
     diagram: [UndoRedo]
   },
   mounted: function() {
-    let paletteObj: any = document.getElementById("symbolpalette");
-    palette = paletteObj.ej2_instances[0];
-    let sizeObj: any = document.getElementById("size");
-    size = sizeObj.ej2_instances[0];
-    let expandObj: any = document.getElementById("expand");
-    expand = expandObj.ej2_instances[0];
+    palette = this.$refs.paletteObj.ej2Instances;
+    size = this.$refs.sizeObj.ej2Instances;
+    expand = this.$refs.expandObj.ej2Instances;
     palette.dataBind();
   }
 });
 
 //Add or Remove the Text for Symbol palette item.
-function onHeaderIconChange(args: ChangeEventArgs): void {
-  for (let i: number = 0; i < palette.palettes.length; i++) {
+function onHeaderIconChange(args) {
+  for (let i= 0; i < palette.palettes.length; i++) {
     if (args.checked) {
       palette.palettes[i].iconCss = "shapes";
     } else {
@@ -290,31 +287,25 @@ function onHeaderIconChange(args: ChangeEventArgs): void {
   }
 }
 
-function onAnimationChange(args: ChangeEventArgs): void {
+function onAnimationChange(args) {
   palette.enableAnimation = args.checked;
 }
 
 //Add or Remove the Text for Symbol palette item.
-function onItemTextChange(args: ChangeEventArgs): void {
+function onItemTextChange(args) {
   if (args.checked) {
-    palette.getSymbolInfo = (symbol: Symbol): SymbolInfo => {
+    palette.getSymbolInfo = (symbol) => {
       if (symbol.text !== undefined) {
         return { description: { text: symbol.text, overflow: "Wrap" } };
       }
       return { description: { text: symbol.id } };
     };
   } else {
-    palette.getSymbolInfo = (symbol: Node | Connector): SymbolInfo => {
+    palette.getSymbolInfo = (symbol) => {
       return { description: { text: "" } };
     };
   }
   palette.dataBind();
 }
 
-interface Symbol extends NodeModel {
-  text?: string;
-}
-interface Shapes extends ShapeModel {
-  shape?: string;
-}
 </script>

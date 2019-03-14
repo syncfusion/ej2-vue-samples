@@ -25,7 +25,7 @@
        <p>
        More information on the PDF Viewer instantiation can be found in this
        <a target="_blank"
-       href="http://ej2.syncfusion.com/documentation/pdfviewer/getting-started.html#create-a-simple-pdfviewer">
+       href="https://ej2.syncfusion.com/vue/documentation/pdfviewer/getting-started">
        documentation section</a>.
        </p>
         </div>
@@ -38,7 +38,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch } from "@syncfusion/ej2-vue-pdfviewer";
+import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation } from "@syncfusion/ej2-vue-pdfviewer";
 
 Vue.use(PdfViewerPlugin);
 
@@ -50,7 +50,7 @@ export default Vue.extend({
         }
     },
 	provide: {
-      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch]
+      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation]
     }	
 });
 </script>

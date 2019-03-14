@@ -5,7 +5,7 @@
         <div class="row" align="center">
             <h4 id="days" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;" >AAPL 2012-17</h4>
             <div align='center'>
-                <ejs-rangenavigator style='display:block' align='center' id='containerEmpty' :value='value'
+                <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerEmpty' :value='value'
                     valueType='DateTime' :majorTickLines='majorTickLines' :majorGridLines='majorGridLines' :tooltip='tooltip'
                     :navigatorBorder:='navigatorBorder' :legendSettings='legendSettings' :width='width' :changed='changed' :theme='theme'>
                     <e-rangenavigator-series-collection>
@@ -16,7 +16,7 @@
                 </ejs-rangenavigator>
             </div>
             <div align='center'>
-                <ejs-chart style='display:block;' id='chartEmpty' align='center' :chartArea='chartArea' :width='width'
+                <ejs-chart style='display:block;' ref='chart' id='chartEmpty' align='center' :chartArea='chartArea' :width='width'
                  :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :theme='theme' :tooltip='chartTooltip'>
                     <e-series-collection>
                         <e-series :dataSource='data' xName='x' yName='open' type='Area' width=2 name='AAPL' :fill='fill' :border='border'></e-series>
@@ -156,14 +156,17 @@ export default Vue.extend({
     rangeNavigator: [AreaSeries, DateTime, RangeTooltip],
     chart: [AreaSeries, DateTime, Crosshair, Tooltip]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+        this.$refs.chart.ej2Instances.refresh();
+      });
+    },
   methods: {
    changed: function(args) {
-      var chart = document.getElementById("chartEmpty").ej2_instances;
-      if (chart) {
-        chart[0].primaryXAxis.zoomFactor = args.zoomFactor;
-        chart[0].primaryXAxis.zoomPosition = args.zoomPosition;
-        chart[0].dataBind();
-      }
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
+        this.$refs.chart.ej2Instances.dataBind();
     }
   }
 });

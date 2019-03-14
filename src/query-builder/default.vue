@@ -30,11 +30,13 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .e-query-builder {
         margin: 0 auto;
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import Vue from "vue";

@@ -13,6 +13,7 @@
         </ejs-lineargauge>
     </div>
     </div>
+
 <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%;">
             <tbody>
@@ -228,14 +229,19 @@ export default Vue.extend({
         lineargauge: [Annotations]
     },
     methods: {
+        /* custom code start */
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
+        /* custom code end */
         changeRange: function (args) {
+            /* custom code start */
             // let cotainerObj = document.getElementById('rangeContainer');
+            /* custom code end */
+            // Code for Property Panel
             let start = document.getElementById('start');
             let end = document.getElementById('end');
             let rangeColor = document.getElementById('color');

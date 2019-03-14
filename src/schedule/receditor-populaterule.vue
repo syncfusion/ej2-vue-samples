@@ -28,6 +28,7 @@
         </div>
     </div>
 </template>
+<!-- custom code start -->
 <style>
     .recurrence-editor-wrap {
         margin: 0 25%;
@@ -52,6 +53,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { RecurrenceEditorPlugin, RecurrenceEditorChangeEventArgs } from "@syncfusion/ej2-vue-schedule";

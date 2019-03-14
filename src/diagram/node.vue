@@ -2,7 +2,7 @@
 <div class="control-section">
 <div class="col-lg-9 control-section">
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
 <div class="col-lg-3 property-section">
@@ -34,7 +34,7 @@
         </div>
         <div class="row" style="padding-top: 8px">
             <!-- Enable or disable the AspectRatio for Node. -->
-            <ejs-checkbox id="aspectRatio"  
+            <ejs-checkbox ref="aspectRatioobj" id="aspectRatio"  
                           :checked='aspectRatiochecked'
                           :label='aspectRatiolabel'
                           :change='aspectRatiochange'/>
@@ -111,7 +111,7 @@
 </style>
 
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -138,7 +138,7 @@ import { Point } from "@syncfusion/ej2-diagrams/src/diagram/primitives/point";
 Vue.use(DiagramPlugin);
 Vue.use(CheckBoxPlugin);
 
-let nodes: NodeModel[] =  [
+let nodes =  [
   {id: 'sdlc', offsetX: 300, offsetY: 288, annotations: [{content: 'SDLC'}]},
   {id: 'support', offsetX: 150, offsetY: 250, annotations: [{content: 'Support'}]},
   {id: 'analysis', offsetX: 300, offsetY: 150, annotations: [{content: 'Analysis'}]},
@@ -147,7 +147,7 @@ let nodes: NodeModel[] =  [
   {id: 'deploy', offsetX: 200, offsetY: 400, annotations: [{content: 'Deploy'}]}
 ];
 
-let connections: ConnectorModel[] = [
+let connections = [
   {id: 'connector1', sourceID: 'analysis', targetID: 'design'},
   {id: 'connector2', sourceID: 'design', targetID: 'implement'},
   {id: 'connector3', sourceID: 'implement', targetID: 'deploy'},
@@ -155,9 +155,9 @@ let connections: ConnectorModel[] = [
   {id: 'connector5', sourceID: 'support', targetID: 'analysis'}
 ];
 
-let node: NodeModel;
-let diagramInstance: Diagram;
-let element: CheckBox;
+let node;
+let diagramInstance;
+let element;
 
 export default Vue.extend({
   data: function() {
@@ -167,17 +167,17 @@ export default Vue.extend({
       nodes: nodes,
       connectors: connections,
       //Sets the default values of a node
-      getNodeDefaults: (obj: NodeModel) => {
+      getNodeDefaults: (obj) => {
         obj.width = 100;
         obj.height = 100;
         obj.shape = { shape: "Ellipse" };
         obj.style = { fill: "#37909A", strokeColor: "#024249" };
-        (obj.annotations as ShapeAnnotationModel[])[0].margin = { left: 10, right: 10 };
-        (obj.annotations as ShapeAnnotationModel[])[0].style = { color: 'white', fill: 'none', strokeColor: 'none' };
+        obj.annotations[0].margin = { left: 10, right: 10 };
+        obj.annotations[0].style = { color: 'white', fill: 'none', strokeColor: 'none' };
         return obj;
       },
       //Sets the default values of a Connector
-      getConnectorDefaults: (connector: ConnectorModel) => {
+      getConnectorDefaults: (connector) => {
         if (connector.targetDecorator) {
           connector.targetDecorator.style = {
             fill: "#024249",
@@ -198,34 +198,32 @@ export default Vue.extend({
     };
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
-    let aspectRatioobj: any = document.getElementById("aspectRatio");
-    element = aspectRatioobj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObject.ej2Instances;
+    element = this.$refs.aspectRatioobj.ej2Instances;
     //Click event for Appearance of the Property Panel
-    let appearanceObj: any = document.getElementById("appearance");
+    let appearanceObj = document.getElementById("appearance");
     //Click event for Appearance of the Property Panel
-    appearanceObj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
+    appearanceObj.onclick = (args) => {
+      let target = args.target;
 
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+      let selectedElement = document.getElementsByClassName(
         "e-selected-style"
       );
       if (selectedElement.length) {
         selectedElement[0].classList.remove("e-selected-style");
       }
       if (target.className === "image-pattern-style") {
-        for (let i: number = 0; i < diagramInstance.nodes.length; i++) {
+        for (let i = 0; i < diagramInstance.nodes.length; i++) {
           node = diagramInstance.nodes[i];
           switch (target.id) {
             case "preview0":
               applyStyle(
                 node,
                 0,
-                undefined as any,
+                undefined,
                 ~NodeConstraints.Shadow,
-                undefined as any,
-                undefined as any,
+                undefined,
+                undefined,
                 target
               );
               break;
@@ -233,10 +231,10 @@ export default Vue.extend({
               applyStyle(
                 node,
                 2,
-                undefined as any,
+                undefined,
                 ~NodeConstraints.Shadow,
-                undefined as any,
-                undefined as any,
+                undefined,
+                undefined,
                 target
               );
               break;
@@ -246,8 +244,8 @@ export default Vue.extend({
                 2,
                 "5 5",
                 ~NodeConstraints.Shadow,
-                undefined as any,
-                undefined as any,
+                undefined,
+                undefined,
                 target
               );
               break;
@@ -258,12 +256,12 @@ export default Vue.extend({
                 "5 5",
                 ~NodeConstraints.Shadow,
                 "Radial",
-                undefined as any,
+                undefined,
                 target
               );
               break;
             case "preview4":
-              let shadow: ShadowModel = {
+              let shadow = {
                 angle: 45,
                 distance: 15,
                 opacity: 0.3,
@@ -274,7 +272,7 @@ export default Vue.extend({
                 2,
                 "5 5",
                 NodeConstraints.Shadow,
-                undefined as any,
+                undefined,
                 shadow,
                 target
               );
@@ -287,11 +285,11 @@ export default Vue.extend({
 });
 
 //Enable or disable the Constraints for Node.
-function changed(args: CheckBoxChangeEventArgs): void {
-  for (let i: number = 0; i < diagramInstance.nodes.length; i++) {
+function changed(args) {
+  for (let i = 0; i < diagramInstance.nodes.length; i++) {
     node = diagramInstance.nodes[i];
     if (node.constraints) {
-      if (args.event && (args.event.target as HTMLElement).id === "lock") {
+      if (args.event && (args.event.target).id === "lock") {
         if (args.checked) {
           node.constraints &= ~(
             NodeConstraints.Resize |
@@ -318,14 +316,14 @@ function changed(args: CheckBoxChangeEventArgs): void {
 //Set customStyle for Node.
 //Set customStyle for Node.
 function applyStyle( //it is in dedicated line here.
-  node: NodeModel,
-  width: number,
-  array: string,
-  con: NodeConstraints,
-  type: GradientType,
-  sh: ShadowModel,
-  target: HTMLElement
-): void {
+  node,
+  width,
+  array,
+  con,
+  type,
+  sh,
+  target
+) {
   if (node.style) {
     node.style.fill = "#37909A";
     node.style.strokeWidth = width;
@@ -336,7 +334,7 @@ function applyStyle( //it is in dedicated line here.
   if (!type && node.style && node.style.gradient) {
     node.style.gradient.type = "None";
   } else {
-    let gradient: GradientModel | LinearGradientModel | RadialGradientModel;
+    let gradient;
     gradient = {
       cx: 50,
       cy: 50,

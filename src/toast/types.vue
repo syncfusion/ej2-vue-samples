@@ -7,8 +7,8 @@
             <div id="toast_types">
                 <div>
                     <ejs-button ref='infoRef' class="e-btn e-control e-info" id="info_Toast" v-on:click.native="infoClick"> Info Message </ejs-button>
-                    <ejs-button ref='warningRef' class="e-btn e-control e-warning" id="warning_Toast" v-on:click.native="warningClick"> Warning Message </ejs-button>
                     <ejs-button ref='successRef' class="e-btn e-control e-success" id="success_Toast" v-on:click.native='successClick'> Success Message </ejs-button>
+                    <ejs-button ref='warningRef' class="e-btn e-control e-warning" id="warning_Toast" v-on:click.native="warningClick"> Warning Message </ejs-button>
                     <ejs-button ref='errorRef' class="e-btn e-control e-danger" id="error_Toast" v-on:click.native="errorClick">Danger Message</ejs-button>
                 </div>
                 <div style="padding-top: 15px">
@@ -45,9 +45,11 @@
     max-width: 160px;
   }
 
+  /* custom code start */
   #toast_types {
     text-align: center;
   }
+  /* custom code end */
 
   .toast-icons {
     font-family: 'Toast_icons' !important;

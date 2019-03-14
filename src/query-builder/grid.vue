@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="col-lg-12 control-section" style="min-height: auto;">
-            <ejs-querybuilder id="querybuilder" ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :conditionChanged="updateRule" :fieldChanged="updateRule" :valueChanged="updateRule" :operatorChanged="updateRule" :ruleDelete="updateRule" :groupDelete="updateRule" :ruleInsert="updateRule" :groupInsert="updateRule">
+            <ejs-querybuilder id="querybuilder" ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :change="updateRule">
                 <e-columns>
                     <e-column field='TaskID' label='Task ID' type='number' />
                     <e-column field='Name' label='Name' type='string' />
@@ -42,6 +42,7 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .e-querybuilder {
         margin: 4% auto;
@@ -50,6 +51,7 @@
         margin: 0 auto;
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import Vue from "vue";

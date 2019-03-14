@@ -62,6 +62,7 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
 ej-gridmaster,
 ej-griddetail {
@@ -77,7 +78,7 @@ ej-griddetail {
 }
 
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { GridPlugin, RowSelectEventArgs } from "@syncfusion/ej2-vue-grids";

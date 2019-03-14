@@ -2,7 +2,7 @@
     "name": "TimePicker",
     "directory": "timepicker",
     "category": "Calendars",
-    "type": "updated",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",

@@ -327,8 +327,8 @@ export default Vue.extend({
         this.$refs.slider &&
         this.$refs.rangeslider
       ) {
-        this.$refs.slider.ej2Instances.refreshTooltip();
-        this.$refs.rangeslider.ej2Instances.refreshTooltip();
+        this.$refs.slider.ej2Instances.refreshTooltip(this.$refs.slider.ej2Instances.tooltipTarget);
+        this.$refs.rangeslider.ej2Instances.refreshTooltip(this.$refs.rangeslider.ej2Instances.tooltipTarget);
       }
     }
   },

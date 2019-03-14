@@ -20,7 +20,7 @@
     </p>
     <p>
         More information about menu can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/menu/use-case-scenarios/#menu-in-toolbar">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/menu/use-case-scenarios/#menu-in-toolbar">
         documentation</a> section.
     </p>
 </div>
@@ -47,11 +47,12 @@
     text-transform: none;
     line-height: 1;
 }
-
+/* custom code start */
 .toolbar-menu-control {
     margin: 45px auto 0;
     max-width: 950px;
 }
+/* custom code end */
 
 /* Search and Shopping cart icons */
 .toolbar-menu-control .e-search::before {
@@ -110,11 +111,15 @@
     background-color: transparent;
 }
 
+/* custom code start */
+
 @media only screen and (max-width: 1300px) {
     .toolbar-menu-control {
         width: auto;
     }
 }
+/* custom code end */
+
 </style>
 
 <script>

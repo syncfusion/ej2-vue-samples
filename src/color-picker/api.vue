@@ -82,13 +82,13 @@
     </ul>
     <p>
         More information about ColorPicker can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/color-picker">
             documentation section</a>.
     </p>
 </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
     .property-panel-content {
         padding: 0 10px 10px 0;
@@ -110,7 +110,7 @@
         font-size: 20px;
     }
 </style>
-
+<!-- custom code end -->
 <script>
 import Vue from "vue";
 import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";

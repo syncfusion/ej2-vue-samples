@@ -80,11 +80,13 @@
     </div>
     </template>
 <style>
+    /* custom code start */
      .toast-pos-section #toast_pos_property {
         height: 500px;
         border: none;
         margin: auto;
     }
+    /* custom code end */
 
     #toast_pos_property td {
         width: 50%;

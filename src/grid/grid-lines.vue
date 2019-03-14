@@ -52,6 +52,7 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
 .e-mastertext {
     font-size: 15px;
@@ -66,7 +67,7 @@
     color: #212121;
 }
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from 'vue';
 import { removeClass, addClass } from '@syncfusion/ej2-base';

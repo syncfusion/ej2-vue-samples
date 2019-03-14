@@ -2,8 +2,7 @@
     "name": "InPlaceEditor",
     "directory": "inplace-editor",
     "ftName" :"inplace-editor",
-    "category": "Forms",
-    "type": "preview", 
+    "category": "Editors",
     "samples": [
         {
             "url": "default",

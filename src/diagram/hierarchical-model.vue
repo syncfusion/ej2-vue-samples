@@ -2,7 +2,7 @@
 <div class="control-section">
   <div class="col-lg-8 control-section">
     <div class="content-wrapper">
-      <ejs-diagram style='display:block' id="diagram" :mode='mode' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool'></ejs-diagram>
+      <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :mode='mode' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool'></ejs-diagram>
     </div>
   </div>
   <div class="col-lg-4 property-section">
@@ -35,7 +35,7 @@
           <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
         </div>
         <div class="col-xs-6">
-          <ejs-numerictextbox id="hSpacing" style="width: 90px"
+          <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" style="width: 90px"
                 :min='hSpacingmin'
                 :max='hSpacingmax'
                 :step='hSpacingstep'
@@ -48,7 +48,7 @@
         <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
       </div>
       <div class="col-xs-6">
-        <ejs-numerictextbox id="vSpacing" style="width: 90px" 
+        <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" style="width: 90px" 
                     :min='vSpacingmin'
                     :max='vSpacingmax'
                     :step='vSpacingstep'
@@ -58,7 +58,7 @@
     </div>
     <div class="row" style="padding-top: 8px">
       <!-- enable or disable the expandable option for Node. -->
-      <ejs-checkbox id="checked" style="width: 90px" 
+      <ejs-checkbox ref="checkedObj" id="checked" style="width: 90px" 
                     :label='checkedlabel'
                     :checked='checkedchecked'
                     :change='checkedchange'/>
@@ -139,7 +139,7 @@
   padding-right: 0px;
 }
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -164,10 +164,10 @@ import { hierarchicalTree } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
 
-let diagramInstance: any;
-let hSpacing: NumericTextBox;
-let vSpacing: NumericTextBox;
-let checkBoxObj: CheckBox;
+let diagramInstance;
+let hSpacing;
+let vSpacing;
+let checkBoxObj;
 
 export default Vue.extend({
   data: function() {
@@ -181,12 +181,12 @@ export default Vue.extend({
         //sets the fields to bind
         id: "Name",
         parentId: "Category",
-        dataManager: new DataManager(hierarchicalTree as JSON[]),
+        dataManager: new DataManager(hierarchicalTree),
         //binds the data with the nodess
-        doBinding: (nodeModel: NodeModel, data: object, diagram: Diagram) => {
+        doBinding: (nodeModel, data, diagram) => {
           nodeModel.shape = {
             type: "Text",
-            content: (data as EmployeeInfo).Name
+            content: (data).Name
           };
         }
       },
@@ -200,10 +200,10 @@ export default Vue.extend({
         enableAnimation: true
       },
       //Defines the default node and connector properties
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj, diagram) => {
         return nodeDefaults(obj, diagram);
       },
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         return connectorDefaults(connector, diagram);
       },
       hSpacingmin: 20,
@@ -245,28 +245,24 @@ export default Vue.extend({
     diagram: [DataBinding, HierarchicalTree, LayoutAnimation]
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
-    let hSpacingObj: any = document.getElementById("hSpacing");
-    hSpacing = hSpacingObj.ej2_instances[0];
-    let vSpacingObj: any = document.getElementById("vSpacing");
-    vSpacing = vSpacingObj.ej2_instances[0];
-    let checkedObj: any = document.getElementById("checked");
-    checkBoxObj = checkedObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+    hSpacing = this.$refs.hSpacingObj.ej2Instances;
+    vSpacing = this.$refs.vSpacingObj.ej2Instances;
+    checkBoxObj = this.$refs.checkedObj.ej2Instances;
     //Click event for Appearance of the Property Panel.
-    let obj: any = document.getElementById("appearance") as HTMLElement;
-    obj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+    let obj= document.getElementById("appearance") ;
+    obj.onclick = (args) => {
+      let target = args.target;
+      let selectedElement = document.getElementsByClassName(
         "e-selected-style"
       );
       if (selectedElement.length) {
         selectedElement[0].classList.remove("e-selected-style");
       }
       if (target.className === "image-pattern-style") {
-        let id: string = target.id;
-        let orientation1: string = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
-        diagramInstance.layout.orientation = orientation1 as LayoutOrientation;
+        let id = target.id;
+        let orientation1 = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
+        diagramInstance.layout.orientation = orientation1;
         diagramInstance.dataBind();
         diagramInstance.doLayout();
         target.classList.add('e-selected-style');
@@ -276,10 +272,7 @@ export default Vue.extend({
 });
 
 //update the orientation of the Layout.
-function updatelayout(
-  target: HTMLElement,
-  orientation: LayoutOrientation
-): void {
+function updatelayout(target, orientation) {
   diagramInstance.layout.orientation = orientation;
   diagramInstance.dataBind();
   diagramInstance.doLayout();
@@ -287,7 +280,7 @@ function updatelayout(
 }
 
 //sets node default value
-function nodeDefaults(obj: Node, diagram: Diagram): Node {
+function nodeDefaults(obj, diagram) {
   obj.style = {
     fill: "#659be5",
     strokeColor: "none",
@@ -296,7 +289,7 @@ function nodeDefaults(obj: Node, diagram: Diagram): Node {
   };
   obj.borderColor = "#3a6eb5";
   obj.backgroundColor = "#659be5";
-  (obj.shape as TextModel).margin = { left: 5, right: 5, bottom: 5, top: 5 };
+  (obj.shape).margin = { left: 5, right: 5, bottom: 5, top: 5 };
   obj.expandIcon = {
     height: 10,
     width: 10,
@@ -318,10 +311,7 @@ function nodeDefaults(obj: Node, diagram: Diagram): Node {
 }
 
 //sets connector default value
-function connectorDefaults(
-  connector: ConnectorModel,
-  diagram: Diagram
-): ConnectorModel {
+function connectorDefaults(connector,diagram) {
   if (connector.targetDecorator) connector.targetDecorator.shape = "None";
   connector.type = "Orthogonal";
   if (connector.style) connector.style.strokeColor = "#6d6d6d";
@@ -330,7 +320,4 @@ function connectorDefaults(
   return connector;
 }
 
-export interface EmployeeInfo {
-  Name: string;
-}
 </script>

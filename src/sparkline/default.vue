@@ -179,6 +179,7 @@
         </div>
     </div>
 </div>
+
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://www.indexmundi.com/g/g.aspx?v=21&v=21000&v=24&v=25&v=27&c=as&c=ch&c=fr&c=gm&c=in&c=rs&c=sn&c=sz&c=uk&c=us&l=en/"
             target="_blank"> www.indexmundi.com</a>
@@ -718,6 +719,7 @@ return{
 provide:{
     sparkline:[SparklineTooltip]
 },
+/* custom code start */
 methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
@@ -725,5 +727,6 @@ methods:{
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     }
 }
+/* custom code end */
 })
 </script>

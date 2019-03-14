@@ -10,6 +10,7 @@
             </ejs-smithchart>
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" style="width:100%" title="Properties">
             <tbody>
@@ -107,13 +108,14 @@ provide:{
     smithchart:[SmithchartLegend, TooltipRender]
 },
 methods:{
+    /* custom code start */
      load:function(args){
             let theme = location.hash.split('/')[1];
             theme = theme ? theme : 'Material';
             args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     changeRendering:function(args){
-        debugger
         let mode = document.getElementById('rendering');
         let element = args.value;
         this.$refs.smithchart.ej2Instances.renderType = element;

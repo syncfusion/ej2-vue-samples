@@ -16,6 +16,7 @@
 </div>
 </div>
 </template>
+/* custom code start */
 <style>
 .tree-control-wrapper {
         max-width: 500px;
@@ -44,10 +45,11 @@
 .e-treeview .e-list-icon.video { background-position: -10px -272px }
 .e-treeview .e-list-icon.exe { background-position: -10px -412px }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource.json';
+import * as dataSource from './dataSource/icons-data.json';
 
 Vue.use(TreeViewPlugin);
 

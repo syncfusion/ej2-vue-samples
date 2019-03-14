@@ -21,10 +21,11 @@
 <div id="description">
     <p>The TreeView component loads the data through the <code>dataSource</code> property, where the data can be either local data or remote data. In case of local data, the data structure can be hierarchical data or list data (with self-referential format i.e., mapped with the <b>id</b> and <b>parentID</b> fields).</p>
     <p>In this demo, the first TreeView is bound with the hierarchical data that contains array of nested objects. And the second TreeView is bound with the list type data where the parent-child relation is referred by the <b>id</b> and <b>parentID</b> mapping fields.</p>
-    <p>For more information, you can refer to the <a href="http://ej2.syncfusion.com/vue/treeview/data-binding.html" target="_blank">Data Binding</a> section from the documentation.</p>
+    <p>For more information, you can refer to the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/data-binding/" target="_blank">Data Binding</a> section from the documentation.</p>
 </div>
 </div>
 </template>
+/* custom code start */
 <style>
 .nested-data, .list-data {
         padding: 15px;
@@ -39,10 +40,11 @@
         padding: 0 10px;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource.json'
+import * as dataSource from './dataSource/local-data.json';
 
 Vue.use(TreeViewPlugin);
 

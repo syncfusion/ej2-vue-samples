@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
   <div class="col-lg-9 control-section">
-    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height'
+    <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height'
      :layout='layout' :getNodeDefaults='getNodeDefaults'
      :getConnectorDefaults='getConnectorDefaults' :contextMenuSettings='contextMenuSettings' 
      :dataSourceSettings='dataSourceSettings' :commandManager='commandManager'
@@ -157,7 +157,7 @@
   }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -178,12 +178,12 @@ import { DataManager } from "@syncfusion/ej2-data";
 import { keyBoardData } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
-let shape: BasicShapeModel = {
+let shape = {
   type: "Basic",
   shape: "Ellipse",
   cornerRadius: 10
 };
-let diagramInstance: any;
+let diagramInstance;
 
 export default Vue.extend({
   data: function() {
@@ -194,7 +194,7 @@ export default Vue.extend({
       snapSettings: { constraints: SnapConstraints.None },
       contextMenuSettings: { show: true },
       //Sets the default values of nodes
-      getNodeDefaults: (obj: Node) => {
+      getNodeDefaults: (obj) => {
         if (!obj.children) {
           obj.shape = shape;
           obj.width = 70;
@@ -210,9 +210,9 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "id",
         parentId: "ancestor",
-        dataManager: new DataManager(keyBoardData as JSON[]),
+        dataManager: new DataManager(keyBoardData),
         //binds the external data with node
-        doBinding: (nodeModel: NodeModel, data: DataInfo) => {
+        doBinding: (nodeModel, data) => {
           nodeModel.annotations = [
             {
               /* tslint:disable:no-string-literal */
@@ -234,23 +234,22 @@ export default Vue.extend({
     diagram: [UndoRedo, DiagramContextMenu, HierarchicalTree, DataBinding]
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
   }
 });
 
 //Custom command for Diagraming elements.
-function getCommandManagerSettings(): CommandManagerModel {   
-    let commandManager: CommandManagerModel = {
+function getCommandManagerSettings() {   
+    let commandManager = {
         commands: [{
             name: 'customGroup',
-            canExecute: (): boolean => {
+            canExecute: () => {
                 if (diagramInstance.selectedItems.nodes.length > 0 || diagramInstance.selectedItems.connectors.length > 0) {
                     return true;
                 }
                 return false;
             },
-            execute: (): void => {
+            execute: () => {
                 diagramInstance.group();
             },
             gesture: {
@@ -260,13 +259,13 @@ function getCommandManagerSettings(): CommandManagerModel {
         },
         {
             name: 'customUnGroup',
-            canExecute: (): boolean => {
+            canExecute: () => {
                 if (diagramInstance.selectedItems.nodes[0].children) {
                     return true;
                 }
                 return false;
             },
-            execute: (): void => {
+            execute: () => {
                 diagramInstance.unGroup();
             },
             gesture: {
@@ -276,40 +275,40 @@ function getCommandManagerSettings(): CommandManagerModel {
         },
         {
             name: 'navigationDown',
-            canExecute: (): boolean => {
+            canExecute: () => {
                 return true;
             },
-            execute: (): void => {
+            execute: () => {
                 navigateLevels(true);
             },
             gesture: { key: Keys.Down },
         },
         {
             name: 'navigationUp',
-            canExecute: (): boolean => {
+            canExecute: () => {
                 return true;
             },
-            execute: (): void => {
+            execute: () => {
                 navigateLevels(false);
             },
             gesture: { key: Keys.Up },
         },
         {
             name: 'navigationLeft',
-            canExecute: (): boolean => {
+            canExecute: () => {
                 return true;
             },
-            execute: (): void => {
+            execute: () => {
                 navigateToSiblings(true);
             },
             gesture: { key: Keys.Right },
         },
         {
             name: 'navigationRight',
-            canExecute: (): boolean => {
+            canExecute: () => {
                 return true;
             },
-            execute: (): void => {
+            execute: () => {
                 navigateToSiblings(false);
             },
             gesture: { key: Keys.Left },
@@ -319,50 +318,48 @@ function getCommandManagerSettings(): CommandManagerModel {
 }
 
 //Navigation for Child Node or parent Node
-function navigateLevels(isParent: boolean): void {
-    let node: Node = diagramInstance.selectedItems.nodes[0] as Node;
+function navigateLevels(isParent) {
+    let node = diagramInstance.selectedItems.nodes[0];
     if (node) {
-        let connectorId: string = isParent ? node.outEdges[0] : node.inEdges[0];
-        let altNode: NodeModel[] = isParent ? getNode(connectorId, false) : getNode(connectorId, true);
+        let connectorId = isParent ? node.outEdges[0] : node.inEdges[0];
+        let altNode = isParent ? getNode(connectorId, false) : getNode(connectorId, true);
         selectNode(altNode);
     }
 }
 //Navigate to left or right Sibling Node 
-function navigateToSiblings(isRightSibling: boolean): void {
-    let child: Node = diagramInstance.selectedItems.nodes[0] as Node;
+function navigateToSiblings(isRightSibling) {
+    let child = diagramInstance.selectedItems.nodes[0];
     if (child) {
-        let connectorId: string = child.inEdges[0];
-        let altConnectorId: string = '';
-        let parent: NodeModel[] = getNode(connectorId, true);
+        let connectorId = child.inEdges[0];
+        let altConnectorId = '';
+        let parent = getNode(connectorId, true);
         if (parent && parent.length > 0) {
-            for (let i: number = 0; i < (parent[0] as Node).outEdges.length; i++) {
-                if ((parent[0] as Node).outEdges[i] === connectorId) {
-                    altConnectorId = isRightSibling ? (parent[0] as Node).outEdges[i + 1] : (parent[0] as Node).outEdges[i - 1];
+            for (let i = 0; i < (parent[0]).outEdges.length; i++) {
+                if ((parent[0]).outEdges[i] === connectorId) {
+                    altConnectorId = isRightSibling ? (parent[0]).outEdges[i + 1] : (parent[0]).outEdges[i - 1];
                 }
             }
-            let sibling: NodeModel[] = getNode(altConnectorId, false);
+            let sibling = getNode(altConnectorId, false);
             selectNode(sibling);
         }
     }
 }
 //Get node elements
-function getNode(name: string, isParent: boolean): NodeModel[] {
-    let node: NodeModel[] = [];
-    let connector: ConnectorModel = diagramInstance.getObject(name) as ConnectorModel;
+function getNode(name, isParent) {
+    let node = [];
+    let connector= diagramInstance.getObject(name);
     if (connector) {
-        node.push(diagramInstance.getObject(isParent ? (connector.sourceID) : (connector.targetID)) as NodeModel);
+        node.push(diagramInstance.getObject(isParent ? (connector.sourceID) : (connector.targetID)));
     }
     return node;
 }
 //draw selector.
-function selectNode(node: NodeModel[]): void {
+function selectNode(node) {
     if (node && node.length > 0) {
         diagramInstance.clearSelection();
         diagramInstance.select(node);
     }
 }
 
-export interface DataInfo {
-  [key: string]: string;
-}
+
 </script>

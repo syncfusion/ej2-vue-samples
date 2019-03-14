@@ -9,7 +9,7 @@
             "name": "Default Functionalities",
             "category": "Context Menu",
             "api":{"ContextMenu":["target", "items", "beforeItemRender", "animationSettings"], "MenuItem":["text", "iconCss", "items", "separator"] },
-            "description": "This demo for Essential JS2 ContextMenu control shows the context menu items with icons, text and separator. It supports multiple levels of submenus."
+            "description": "This example demonstrates the Syncfusion Vue ContextMenu items with icons, text and separator."
         }
     ]
 }

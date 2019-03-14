@@ -6,12 +6,14 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>               
+</ejs-maps>
+             
             <div style="float: right; margin-right: 10px;">Source:
                 <a href="http://www.emapsworld.com/world-seven-wonder-map.html" target="_blank">en.wikipedia.org</a>
              </div>
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">   
             <tr style="height: 50px">
@@ -128,12 +130,14 @@ provide: {
     maps: [Marker, MapsTooltip]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     clickExport:function(args){     
            let fileName = ((document.getElementById('fileName'))).value;
            this.$refs.maps.ej2Instances.export(this.$refs.mode.ej2Instances.value, fileName);

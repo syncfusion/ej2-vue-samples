@@ -3,7 +3,6 @@
     "directory": "tab",
     "category": "Navigation",
     "ftName" :"tabs",
-    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
@@ -15,7 +14,6 @@
         "url": "orientation",
         "name": "Orientation",
         "category": "Tabs",
-        "type": "update",
         "description": "The sample demonstrates how to customize the orientation of Tab component along with feasibility to customize the Tab header styles in Vue platform.",
         "api":{"Tab": ["headerPlacement", "showCloseButton"]}
     },
@@ -23,7 +21,6 @@
         "url": "responsive",
         "name": "Responsive Modes",
         "category": "Tabs",
-        "type": "update",
         "description": "The sample illustrates that responsive mode of Tab component that aligns tab items in a scrollable or popup mode in Vue platform.",
         "api":{"Tab": ["overflowMode"]}
     },

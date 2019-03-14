@@ -3,7 +3,7 @@
 <div class="control-section">
      <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Score Comparision AUS vs SL</h4>
     <div align="center">
-         <ejs-rangenavigator style='display:block' align='center' id='containerDouble' :value='value' :tooltipRender='tooltipRender'
+         <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerDouble' :value='value' :tooltipRender='tooltipRender'
          labelPosition ='Outside' :width='width' :changed='changed' :theme='theme' :tooltip='tooltip' >
             <e-rangenavigator-series-collection >
                 <e-rangenavigator-series :dataSource='ausData' xName='x' type='Line' yName='y' ></e-rangenavigator-series>
@@ -12,7 +12,7 @@
         </ejs-rangenavigator>
     </div>
     <div align="center">
-        <ejs-chart style='display:block;' id='chartDouble' align='center' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block;' ref='chart' id='chartDouble' align='center' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
          height='350' :chartArea='chartArea' :annotations='annotations' :width='width' :theme='theme' :loaded='loaded'>
             <e-series-collection>
                 <e-series :dataSource='ausData' type='Spline' name='AUS' width=2 xName='x' yName='y' :animation='animation'>
@@ -114,20 +114,22 @@ export default Vue.extend({
     rangeNavigator: [RangeTooltip],
     chart: [SplineSeries, ChartAnnotation, Tooltip]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+        this.$refs.chart.ej2Instances.refresh();
+      });
+    },
   methods: {
      tooltipRender: function(args){
        args.text[0] = Math.round(parseFloat(args.text[0])).toString();
     },
     changed: function(args) {
-      var chart = document.getElementById("chartDouble").ej2_instances;
-      if (chart) {
-        chart[0].primaryXAxis.zoomFactor = args.zoomFactor;
-        chart[0].primaryXAxis.zoomPosition = args.zoomPosition;
-        chart[0].dataBind();
-      }
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
+        this.$refs.chart.ej2Instances.dataBind();
     },
     loaded: function(args) {
-      let chart = document.getElementById("chartDouble").ej2_instances;
       let series1 = args.chart.visibleSeries[0].interior;
       let series2 = args.chart.visibleSeries[1].interior;
       let html = "<table>";
@@ -138,7 +140,7 @@ export default Vue.extend({
         series2 + "; background: " + series2 + ';"></div></td><td style="padding-left:10px;">' +
         " Sri Lanka" + "</td>";
       html += "</table>";
-      chart[0].setAnnotationValue(
+      this.$refs.chart.ej2Instances.setAnnotationValue(
         0, '<div id="exchangeRate" style="line-height: 18px;' +
           "font-size: 13px;background: #fff; opacity:0.9; color: #464e56; " +
           " box-shadow:0 0 8px 0 rgba(70,78,86,.25); padding: 7px 10px;" +

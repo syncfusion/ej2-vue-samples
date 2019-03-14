@@ -146,7 +146,7 @@ export default Vue.extend({
   },
   methods: {
         changeEditorMode: function(args) {
-           var editMode = this.$refs.editorMode.$el.value;
+           var editMode = this.$refs.editorMode.ej2Instances.text;
            this.dropObj.mode = editMode;
            this.autoObj.mode = editMode;
            this.comboObbj.mode = editMode;
@@ -162,7 +162,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.$el.value === 'Inline') { return; }
+            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
             if (this.dropObj && this.dropObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.dropObj.enableEditMode = false;
             }
@@ -190,6 +190,7 @@ display: block;
 visibility: hidden;
 }
 
+/* custom code start */
 .inplace-control-section.drop-down-layout .control_wrapper  label {
     padding: 15px;
     text-align: left;
@@ -211,6 +212,7 @@ visibility: hidden;
     width: 200px;
     height: 100px;
 }
+/* custom code end */
 
 .inplace-control-section.drop-down-layout  {
     width: 70%;

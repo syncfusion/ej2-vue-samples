@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-circulargauge style='display:block' align='center' id='pointer-container' :title='title' :titleStyle='titleStyle' :centerY='centerY'>
+<ejs-circulargauge :load='load' style='display:block' align='center' id='pointer-container' :title='title' :titleStyle='titleStyle' :centerY='centerY'>
 <e-axes>
 <e-axis :radius='gaugeRadius' :startAngle='startAngle' minimum=0  maximum=14 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
 <e-pointers>
@@ -126,6 +126,7 @@ data:function(){
         animation7: { duration: 1500 }
     }
 },
+/* custom code start */
 methods: {
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -134,6 +135,7 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 },
+/* custom code end */
 provide: {
     circulargauge: [Annotations]
 }

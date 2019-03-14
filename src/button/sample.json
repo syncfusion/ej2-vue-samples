@@ -9,46 +9,46 @@
             "category": "Button",
             "ftName": "button",
             "api":{"Button":["isPrimary","cssClass", "iconCss", "isToggle", "iconPosition", "content"] },
-            "description": "This demo for Essential JS2 Button shows the its types (flat, toggle, outline, round, icon), sizes and styles (primary, success, info, warning) of buttons."
+            "description": "This example demonstrates the types (flat, toogle, outline, round), sizes and styles (primary, success, info, warning) of the Syncfusion Vue Button."
         },
         {
             "url": "button-group",
-            "name": "ButtonGroup",
+            "name": "Button Group",
             "category": "Button",
             "ftName": "button-group",
-            "description": "This demo for Syncfusion Essential JS2 Button Group control shows the horizontal group of buttons. This supports radio and checkbox type behaviors."
+            "description": "This example demonstrates the behaviors (default, checkbox, radio) of the Syncfusion Vue ButtonGroup."
         },
         {
-            "url": "check-box",
-            "name": "CheckBox",
+            "url": "checkbox",
+            "name": "Checkbox",
             "category": "Button",
             "ftName": "checkbox",
             "api":{"CheckBox":["label", "checked", "indeterminate", "disabled", "change"] },
-            "description": "This demo for Essential JS2 Check Box control shows the checked, unchecked, and indeterminate states of checkbox. It also provide supports for specifying label"
+            "description": "This example demonstrates the three different states (checked, unchecked, indeterminate) of the Syncfusion Vue CheckBox."
         },
         {
             "url": "radio-button",
-            "name": "RadioButton",
+            "name": "Radio Button",
             "category": "Button",
             "ftName": "radio-button",
             "api":{"RadioButton":["label", "name", "value", "checked"] },
-            "description": "This demo for Syncfusion Essential JS2 RadioButton control shows the radio button group functionality. It contains checked and unchecked state."
+            "description": "This example demonstrates the group functionality of the Syncfusion Vue RadioButton with checked and unchecked states."
         },
         {
             "url": "dropdown-button",
-            "name": "DropDownButton",
+            "name": "Dropdown Button",
             "category": "Button",
             "ftName": "dropdown-menu",
             "api":{"DropDownButton":["items", "cssClass", "iconCss"] },
-            "description": "This demo for Essential JS2 DropDown Button control shows the use cases of drop down button. The popup contains action items with text, icons and separator."
+            "description": "This example demonstrates the usecases of the Syncfusion Vue DropDownButton with icons, text and separator in popup action items."
         },
         {
             "url": "split-button",
-            "name": "SplitButton",
+            "name": "Split Button",
             "category": "Button",
             "ftName": "split-button",
             "api":{"SplitButton":[ "items", "content", "iconCss", "beforeItemRender"] },
-            "description": "This demo for Syncfusion Essential JS2 SplitButton control shows the use cases of split button. The icons, text and both can be loaded in primary splitbutton."
+            "description": "This example demonstrates the usecases of the Syncfusion Vue SplitButton with icons and text in primary splitbutton."
         },
         {
             "url": "switch",
@@ -56,15 +56,15 @@
             "category": "Button",
             "ftName": "toggle-switch-button",
             "api":{"Switch":[ "checked", "disabled"] },
-            "description": "This demo for Syncfusion Essential JS2 Switch control allows to toggle between the checked and unchecked states. It also provides support for custom UI."
+            "description": "This example demonstrates the toggle states (checked, unchecked) of the Syncfusion Vue Switch."
         },
         {
             "url": "progress-button",
-            "name": "ProgressButton",
+            "name": "Progress Button",
             "category": "Button",
             "ftName": "progress-button",
             "api":{"ProgressButton":["content", "iconCss", "cssClass", "duration", "disabled", "isPrimary", "enableProgress", "end", "begin", "spinSettings", "animationSettings"]},
-            "description": "This demo for Essential JS2 Progress button has progress indicator and spinner. It supports texts, icons, styles, sizes, positions, and its customization."
+            "description": "This example demonstrates the different functionalities of the Syncfusion Vue ProgressButton with spinner and progress indicator."
         }
     ]
 }

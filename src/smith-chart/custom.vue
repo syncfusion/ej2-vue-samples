@@ -8,6 +8,7 @@
                 </e-seriesCollection>
             </ejs-smithchart>
     </div>
+
     <div class="col-lg-3 property-section">
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
         <table id="property" style="width:100%" title="Properties">
@@ -204,11 +205,14 @@ mounted(){
     document.getElementById('radius1').innerHTML = 'Radius <span> ' + 1;
 },
 methods:{
+    /* custom code start*/
      load:function(args){
             let theme = location.hash.split('/')[1];
             theme = theme ? theme : 'Material';
             args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
+    // Code for Property Panel
     changeLegend:function(args){
         let element = args.value.toString();
         this.$refs.smithchart.ej2Instances.legendSettings.position = element;

@@ -8,169 +8,302 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "Maps",
-            "api": { }
+            "api": { },
+            "sourceFiles": [
+                {"displayName": "default.vue", "path": "./src/maps/default.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "default-datasource.json", "path": "./src/maps/map-data/default-datasource.json"}
+            ]
         },
         {
             "url": "projection",
             "name": "Projection",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "projection.vue", "path": "./src/maps/projection.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "projection-datasource.json", "path": "./src/maps/map-data/projection-datasource.json"}
+            ]
         },
         {
             "url": "multilayer",
             "name": "Multi-layers",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "multilayer.vue", "path": "./src/maps/multilayer.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "usa.json", "path": "./src/maps/map-data/usa.json"},
+                {"displayName": "texas.json", "path": "./src/maps/map-data/texas.json"},
+                {"displayName": "california.json", "path": "./src/maps/map-data/california.json"}
+            ]
         },
         {
             "url": "marker",
             "name": "Marker",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "marker.vue", "path": "./src/maps/marker.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "marker-location.ts", "path": "./src/maps/map-data/marker-location.ts"}
+            ]
         },
         {
             "url": "marker-template",
             "name": "Marker template",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "marker-template.vue", "path": "./src/maps/marker-template.vue"},
+                {"displayName": "australia.json", "path": "./src/maps/map-data/australia.json"}
+            ]
         },
         {
             "url": "data-label",
             "name": "Labels",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "data-label.vue", "path": "./src/maps/data-label.vue"},
+                {"displayName": "usa.json", "path": "./src/maps/map-data/usa.json"}
+            ]
         },
         {
             "url": "bubble",
             "name": "Bubble",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "bubble.vue", "path": "./src/maps/bubble.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "population-data.ts", "path": "./src/maps/map-data/population-data.ts"}
+            ]
         },
 		{
             "url": "navigation-line",
             "name": "Navigation Lines",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "navigation-line.vue", "path": "./src/maps/navigation-line.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "map-location.ts", "path": "./src/maps/map-data/map-location.ts"}
+            ]
         },
         {
             "url": "legend",
             "name": "Legend",
             "category": "Features",
             "api": {},
-            "type": "update"
+            "sourceFiles": [
+                {"displayName": "legend.vue", "path": "./src/maps/legend.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "legend-datasource.json", "path": "./src/maps/map-data/legend-datasource.json"}
+            ]
         },
         {
             "url": "color-mapping",
             "name": "Color Mapping",
             "category": "Features",
             "api": {},
-            "type": "new"
+            "sourceFiles": [
+                {"displayName": "color-mapping.vue", "path": "./src/maps/color-mapping.vue"},
+                {"displayName": "usa.json", "path": "./src/maps/map-data/usa.json"},
+                {"displayName": "color-mapping.json", "path": "./src/maps/map-data/color-mapping.json"}
+            ]
         },
         {
             "url": "annotation",
             "name": "Annotations",
             "category": "Features",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "annotation.vue", "path": "./src/maps/annotation.vue"},
+                {"displayName": "africa-continent.json", "path": "./src/maps/map-data/africa-continent.json"}
+            ]
         }, 
         {
             "url": "osm",
             "name": "OpenStreetMap",
             "category": "Map Providers",
             "api": {},
-            "type": "new"
+            
+            "sourceFiles": [
+                {"displayName": "osm.vue", "path": "./src/maps/osm.vue"}
+            ]
         },  
         {
             "url": "osm-with-navigation-lines",
             "name": "Osm with Navigation Line",
             "category": "Map Providers",
             "api": {},
-            "type": "new"
+            
+            "sourceFiles": [
+                {"displayName": "osm-with-navigation-lines.vue", "path": "./src/maps/osm-with-navigation-lines.vue"}
+            ]
         },             
         {
             "url": "osm-with-sublayers",
             "name": "Osm with Sublayer",
             "category": "Map Providers",
             "api": {},
-            "type": "new"
+            
+            "sourceFiles": [
+                {"displayName": "osm-with-sublayers.vue", "path": "./src/maps/osm-with-sublayers.vue"},
+                {"displayName": "africa.json", "path": "./src/maps/map-data/africa.json"}
+            ]
         },    
         {
             "url": "tooltip",
             "name": "Tooltip",
             "category": "User Interaction",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "tooltip.vue", "path": "./src/maps/tooltip.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "tooltip-datasource.json", "path": "./src/maps/map-data/tooltip-datasource.json"}
+            ]
         },        
         {
             "url": "selection",
             "name": "Selection & Highlight",
             "category": "User Interaction",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "selection.vue", "path": "./src/maps/selection.vue"},
+                {"displayName": "usa.json", "path": "./src/maps/map-data/usa.json"},
+                {"displayName": "selection-datasource.json", "path": "./src/maps/map-data/selection-datasource.json"}
+            ]
         },
         {
             "url": "zooming",
             "name": "Zooming & Panning",
             "category": "User Interaction",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "zooming.vue", "path": "./src/maps/zooming.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "zooming-datasource.json", "path": "./src/maps/map-data/zooming-datasource.json"}
+            ]
         },
         {
             "url": "drilldown",
             "name": "Drill Down",
             "category": "User Interaction",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "drilldown.vue", "path": "./src/maps/drilldown.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "default-datasource.json", "path": "./src/maps/map-data/default-datasource.json"},
+                {"displayName": "europe.json", "path": "./src/maps/map-data/europe.json"},
+                {"displayName": "asia.json", "path": "./src/maps/map-data/asia.json"},
+                {"displayName": "north-america.json", "path": "./src/maps/map-data/north-america.json"},
+                {"displayName": "south-america.json", "path": "./src/maps/map-data/south-america.json"},
+                {"displayName": "oceania.json", "path": "./src/maps/map-data/oceania.json"}
+            ]
         },
         {
             "url": "print",
             "name": "Print",
             "category": "Print and Export",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "print.vue", "path": "./src/maps/print.vue"},
+                {"displayName": "usa.json", "path": "./src/maps/map-data/usa.json"},
+                {"displayName": "print-datasource.json", "path": "./src/maps/map-data/print-datasource.json"}
+            ]
         },
         {
             "url": "export",
             "name": "Export",
             "category": "Print and Export",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "export.vue", "path": "./src/maps/export.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"}
+            ]
         },
         {
            "url": "heatmap",
            "name": "Heat Map",
            "category": "Use Cases",
-           "api": {}
+           "api": {},
+           "sourceFiles": [
+               {"displayName": "heatmap.vue", "path": "./src/maps/heatmap.vue"},
+               {"displayName": "india.json", "path": "./src/maps/map-data/india.json"},
+               {"displayName": "heatmap-datasource.json", "path": "./src/maps/map-data/heatmap-datasource.json"}
+           ]
        },
        {
            "url": "curved-lines",
            "name": "Flight routes",
            "category": "Use Cases",
-           "api": {}
+           "api": {},
+           "sourceFiles": [
+               {"displayName": "default.vue", "path": "./src/maps/default.vue"},
+               {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+               {"displayName": "navigation-data.ts", "path": "./src/maps/map-data/navigation-data.ts"}
+           ]
        },
        {
            "url": "earthquake",
            "name": "Earthquake indication",
            "category": "Use Cases",
-           "api": {}
+           "api": {},
+           "sourceFiles": [
+               {"displayName": "earthquake.vue", "path": "./src/maps/earthquake.vue"},
+               {"displayName": "asia.json", "path": "./src/maps/map-data/asia.json"}
+           ]
        },
        {
            "url": "highlighted-region",
            "name": "Highlighted region",
            "category": "Use Cases",
-           "api": {}
+           "api": {},
+           "sourceFiles": [
+               {"displayName": "highlighted-region.vue", "path": "./src/maps/highlighted-region.vue"},
+               {"displayName": "oklahoma.json", "path": "./src/maps/map-data/oklahoma.json"}
+           ]
        },
+       {
+        "url": "cyber-attack-map",
+        "name": "Cyber Attack Maps",
+        "category": "Use Cases",
+        "api": {},
+        "type": "new"
+    },
        {
            "url": "pie",
            "name": "Map with Pie chart",
            "category": "Use Cases",
-           "api": {}
+           "api": {},
+           "sourceFiles": [
+               {"displayName": "pie.vue", "path": "./src/maps/pie.vue"},
+               {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"}
+           ]
        },
        {
         "url": "map-with-slider",
         "name": "Map with Slider",
         "category": "Use Cases",
         "api": {},
-        "type": "new"
+        "sourceFiles": [
+            {"displayName": "map-with-slider.vue", "path": "./src/maps/map-with-slider.vue"},
+            {"displayName": "north-america.json", "path": "./src/maps/map-data/north-america.json"},
+            {"displayName": "population-growth.json", "path": "./src/maps/map-data/population-growth.json"}
+        ]
        },
        {
            "url": "seat-selection",
            "name": "Bus seat booking",
            "category": "Use Cases",
-           "api": {}
+           "api": {},
+           "sourceFiles": [
+               {"displayName": "seat-selection.vue", "path": "./src/maps/seat-selection.vue"},
+               {"displayName": "seat.json", "path": "./src/maps/map-data/seat.json"}
+           ]
        }
     ]
 }

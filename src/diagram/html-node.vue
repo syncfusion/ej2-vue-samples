@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
   <div class="control-section">
-    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings' :created='created'></ejs-diagram>
+    <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings'></ejs-diagram>
   </div>
   <div id="action-description">
     <p>
@@ -21,7 +21,7 @@
 <style>
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   Diagram,
@@ -39,12 +39,12 @@ import {
 Vue.use(DiagramPlugin);
 Vue.use(CircularGaugePlugin);
 
-let diagramInstance: any;
+let diagramInstance;
 
-let htmlcontent: string =
+let htmlcontent =
   '<div id="gauge" style="height:100%; width:100%; overflow:hidden;"> </div>';
-let shape: HtmlModel = { type: "HTML", content: htmlcontent };
-let node1: NodeModel = {
+let shape = { type: "HTML", content: htmlcontent };
+let node1 = {
   id: "node",
   offsetX: 450,
   offsetY: 200,
@@ -59,28 +59,25 @@ export default Vue.extend({
       width: "100%",
       height: "450px",
       nodes: [node1],
-      created: (args: Object): void => {
-        diagramInstance.fitToPage();
-      },
       snapSettings: { constraints: 0 }
     };
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+     diagramInstance.fitToPage();
     getHtmlContent();
   }
 });
 
 //Add Gauge control to Diagram.
-function getHtmlContent(): HTMLElement {
-  let div: HTMLElement = document.getElementById("gauge") as HTMLElement;
-  let circularGauge: CircularGauge = new CircularGauge({
-    load: (args?: ILoadedEventArgs) => {
-      let selectedTheme: string = location.hash.split("/")[1];
+function getHtmlContent() {
+  let div = document.getElementById("gauge");
+  let circularGauge = new CircularGauge({
+    load: (args) => {
+      let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       if (args)
-        args.gauge.theme = <GaugeTheme>(selectedTheme.charAt(0).toUpperCase() +
+        args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
           selectedTheme.slice(1));
     },
     axes: [

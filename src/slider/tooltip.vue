@@ -112,10 +112,6 @@
   </div>
 </template>
 <style>
-.material #property tr#slider-showon {
-  display: none;
-}
-
 .slider-tooltip .content-wrapper {
   width: 52%;
   margin: 0 auto;
@@ -182,12 +178,13 @@ export default Vue.extend({
   },
   methods: {
     changeTooltip: function(e) {
-      this.$refs.defaultSlider.tooltip = { placement: e.value };
-      this.$refs.rangeSlider.tooltip = { placement: e.value };
+      this.$refs.defaultSlider.ej2Instances.tooltip = { placement: e.value };
+      this.$refs.rangeSlider.ej2Instances.tooltip = { placement: e.value };
+      this.$refs.rangeSlider.ej2Instances.tooltipObj.dataBind();
     },
     changeShowon: function(e) {
-      this.$refs.defaultSlider.tooltip = { showOn: e.value };
-      this.$refs.rangeSlider.tooltip = { showOn: e.value };
+      this.$refs.defaultSlider.ej2Instances.tooltip = { showOn: e.value };
+      this.$refs.rangeSlider.ej2Instances.tooltip = { showOn: e.value };
     },
     onScroll: function() {
       if (
@@ -195,8 +192,8 @@ export default Vue.extend({
         this.$refs.defaultSlider &&
         this.$refs.rangeSlider
       ) {
-        this.$refs.defaultSlider.ej2Instances.refreshTooltip();
-        this.$refs.rangeSlider.ej2Instances.refreshTooltip();
+        this.$refs.defaultSlider.ej2Instances.refreshTooltip(this.$refs.defaultSlider.ej2Instances.tooltipTarget);
+        this.$refs.rangeSlider.ej2Instances.refreshTooltip(this.$refs.rangeSlider.ej2Instances.tooltipTarget);
       }
     }
   },

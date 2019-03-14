@@ -49,6 +49,7 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
 @media screen and (max-width: 590px) {
     .sortingenabled {
@@ -57,7 +58,7 @@
 }
 
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { GridPlugin, Sort, Page } from "@syncfusion/ej2-vue-grids";

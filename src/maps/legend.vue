@@ -7,13 +7,15 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'></e-layer>
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+   
     <div style="float: right; margin-right: 10px;">Source:
        <a href="https://simple.wikipedia.org/wiki/List_of_countries_by_population_density" target="_blank">simple.wikipedia.org</a>
     </div>
 </div>
 </div>
 </div>
+
 <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -134,12 +136,15 @@ provide: {
     maps: [Legend , MapsTooltip]
 },
 methods:{
+/* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     tooltipRender:function(args){
           if (!args.options.data) {
                 args.cancel = true;

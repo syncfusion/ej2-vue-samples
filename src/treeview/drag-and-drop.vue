@@ -31,10 +31,11 @@
 
     <div id="description">
         <p>The <code>TreeView</code> component allows users to drag any node and drop it on any other node in the same or different tree using <code>allowDragAndDrop</code> property. Additionally, it supports dropping a tree node to an external container using <code>nodeDragStop</code> event of the TreeView</p>
-        <p>For more information, you can refer to the <a href="http://ej2.syncfusion.com/vue/treeview/drag-and-drop.html" target="_blank">Drag and Drop</a> section from the documentation.</p>
+        <p>For more information, you can refer to the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/drag-and-drop/" target="_blank">Drag and Drop</a> section from the documentation.</p>
     </div>
 </div>
 </template>
+/* custom code start */
 <style>
     #overlay {
         position: absolute; 
@@ -118,12 +119,13 @@
         color: #fff;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
 import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
 import { closest, getComponent } from "@syncfusion/ej2-base";
-import * as dataSource from './dataSource.json';
+import * as dataSource from './dataSource/drag-data.json';
 
 Vue.use(TreeViewPlugin);
 Vue.use(ListViewPlugin);

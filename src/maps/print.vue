@@ -13,6 +13,7 @@
              </div>
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">    
             <tbody><tr id="button-control" style="height: 50px">
@@ -44,6 +45,7 @@
     </div>
 </div>
 </template>
+// custom code start
 <style>
     #button-control {
         width: 100%;
@@ -58,6 +60,7 @@
         content: '\e813';
     }
 </style>
+//  custom code end
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
@@ -128,12 +131,14 @@ provide: {
     maps: [ Legend, MapsTooltip]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     tooltipRender:function(args){
          if (args.options.toString().indexOf('population') > -1) {
                 args.cancel = true;

@@ -4,7 +4,8 @@
   "category": "Data Visualization",
   "type": "update",
   "ftName": "diagram",
-  "samples": [{
+  "samples": [
+    {
       "url": "default-functionality",
       "name": "Default Functionalities",
       "description": "This demo for Essential JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
@@ -31,7 +32,6 @@
     {
       "url": "annotation",
       "name": "Annotations",
-      "type": "update",
       "description": "This demo for Essential JS2 Diagram component illustrates the competitive environment of a business through five forces chart. The elements of the five force chart is described using nodes and annotations. Customizing the position and appearance of the annotation is illustrated in this example.",
       "category": "Getting Started"
     },
@@ -42,10 +42,11 @@
       "category": "Getting Started"
     },
     {
-      "url": "bpmn-editor",
-      "name": "BPMN Editor",
-      "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
-      "category": "Getting Started"
+      "url": "swimlane",
+      "name": "Swimlane",
+      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Getting Started",
+      "type": "new"
     },
     {
       "url": "html-node",
@@ -54,46 +55,62 @@
       "category": "Getting Started"
     },
     {
-      "url": "drawing-tool",
-      "name": "Drawing Tools",
-      "description": "This demo for Essential JS2 Diagram component visualizes how to build a diagram interactively using drawing tools. Continuous draw option, snapping, and undo/redo support are enabled to easily draw diagrams. Rulers, gridlines, and snapping options are enabled to easily align objects.",
-      "category": "User Interaction"
+      "url": "diagram-events",
+      "name": "Events",
+      "description": "This sample trace the diagram events while performing interaction in diagram.",
+      "category": "Getting Started",
+      "type": "new"
     },
     {
-      "url": "keyboard-functions",
-      "name": "Keyboard Interaction",
-      "description": "This demo for Essential JS2 Diagram component illustrates interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions.",
-      "category": "User Interaction"
+      "url": "tooltip",
+      "name": "Tooltip",
+      "description": "This sample shows the feature of tooltip in diagram control",
+      "category": "Getting Started",
+      "type": "new"
     },
     {
-      "url": "quick-commands",
-      "name": "User Handles",
-      "description": "This demo for Essential JS2 Diagram component visualizes a simple flow diagram along with options to execute the frequently used commands using user handles.",
-      "category": "User Interaction"
+      "url": "history-manager",
+      "name": "History Manager",
+      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Getting Started",
+      "type": "new"
     },
     {
-      "url": "symbol-palette",
-      "name": "Symbol Palette",
-      "description": "This example illustrates predefining shapes in a palette that can be easily dragged and dropped into the drawing area. Customizable options of the symbol palette are also illustrated in this example.",
-      "category": "User Interaction"
+      "url": "flow-execution",
+      "name": "Flow Execution",
+      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Getting Started",
+      "type": "new"
     },
     {
-      "url": "overview",
-      "name": "Overview Panel",
-      "description": "This demo for Essential JS2 Diagram component visualizes an organizational structure along with an overview for easily navigating the large organizational structure using Overview Panel.",
-      "category": "User Interaction"
+      "url": "bpmn-editor",
+      "name": "BPMN Editor",
+      "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
+      "category": "Use Case Diagram"
     },
     {
-      "url": "serialization",
-      "name": "Save and Load",
-      "description": "This demo for Essential JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
-      "category": "Print and Export"
+      "url": "logical-circuit",
+      "name": "Logic Circuit Diagram",
+      "description": "This sample visualizes implementation of three input Boolean functions using universal logic gates, and it is designed with diagram `custom` nodes.",
+      "category": "Use Case Diagram"
     },
     {
-      "url": "print-export",
-      "name": "Print and Export",
-      "description": "This demo for Essential JS2 Diagram component demonstrates printing and exporting the diagram as images.",
-      "category": "Print and Export"
+      "url": "uml-activity",
+      "name": "UML Activity Diagram",
+      "description": "This sample visualizes graphical representation of message flow from one activity to another in customer service with built-in `UML activity` shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "network-diagram",
+      "name": "Network Diagram",
+      "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "uml-class-diagram",
+      "name": "UML Class Diagram",
+      "description": "This sample visualizes the class diagram shapes.",
+      "category": "Use Case Diagram"
     },
     {
       "url": "hierarchical-model",
@@ -144,6 +161,48 @@
       "category": "Automatic Layouts"
     },
     {
+      "url": "drawing-tool",
+      "name": "Drawing Tools",
+      "description": "This demo for Essential JS2 Diagram component visualizes how to build a diagram interactively using drawing tools. Continuous draw option, snapping, and undo/redo support are enabled to easily draw diagrams. Rulers, gridlines, and snapping options are enabled to easily align objects.",
+      "category": "User Interaction"
+    },
+    {
+      "url": "keyboard-functions",
+      "name": "Keyboard Interaction",
+      "description": "This demo for Essential JS2 Diagram component illustrates interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions.",
+      "category": "User Interaction"
+    },
+    {
+      "url": "quick-commands",
+      "name": "User Handles",
+      "description": "This demo for Essential JS2 Diagram component visualizes a simple flow diagram along with options to execute the frequently used commands using user handles.",
+      "category": "User Interaction"
+    },
+    {
+      "url": "symbol-palette",
+      "name": "Symbol Palette",
+      "description": "This example illustrates predefining shapes in a palette that can be easily dragged and dropped into the drawing area. Customizable options of the symbol palette are also illustrated in this example.",
+      "category": "User Interaction"
+    },
+    {
+      "url": "overview",
+      "name": "Overview Panel",
+      "description": "This demo for Essential JS2 Diagram component visualizes an organizational structure along with an overview for easily navigating the large organizational structure using Overview Panel.",
+      "category": "User Interaction"
+    },
+    {
+      "url": "serialization",
+      "name": "Save and Load",
+      "description": "This demo for Essential JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
+      "category": "Print and Export"
+    },
+    {
+      "url": "print-export",
+      "name": "Print and Export",
+      "description": "This demo for Essential JS2 Diagram component demonstrates printing and exporting the diagram as images.",
+      "category": "Print and Export"
+    },
+    {
       "url": "remote-data",
       "name": "Remote Data",
       "description": "This demo for Essential JS2 Diagram component demonstrates binding remote data with the diagram using the Data Manager support.",
@@ -158,37 +217,8 @@
     {
       "url": "crud",
       "name": "CRUD",
-      "type": "new",
       "description": "This sample visualizes diagram elements created from database with diagram CRUD. Users can read, update, and delete database entities as diagram elements.",
       "category": "Data Binding"
-    },
-    {
-      "url": "logical-circuit",
-      "name": "Logic Circuit Diagram",
-      "type": "new",
-      "description": "This sample visualizes implementation of three input Boolean functions using universal logic gates, and it is designed with diagram `custom` nodes.",
-      "category": "Use Case Diagram"
-    },
-    {
-      "url": "uml-activity",
-      "name": "UML Activity Diagram",
-      "type": "new",
-      "description": "This sample visualizes graphical representation of message flow from one activity to another in customer service with built-in `UML activity` shapes.",
-      "category": "Use Case Diagram"
-    },
-    {
-      "url": "network-diagram",
-      "name": "Network Diagram",
-      "type": "new",
-      "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
-      "category": "Use Case Diagram"
-    },
-    {
-      "url": "uml-class-diagram",
-      "name": "UML Class Diagram",
-      "type": "new",
-      "description": "This sample visualizes the class diagram shapes.",
-      "category": "Use Case Diagram"
     },
     {
       "url": "venn-diagram",
@@ -202,6 +232,5 @@
       "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
       "category": "Static Diagram"
     }
-
   ]
 }

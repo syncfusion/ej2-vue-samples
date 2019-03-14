@@ -66,6 +66,7 @@
     </div>
 </div>
 </template>
+<!-- custom code start -->
 <style>
 .e-gridlist .e-tbar-btn.e-btn,
 .e-gridlist .e-btn  {
@@ -81,7 +82,7 @@
     padding: 1em;
 }
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";

@@ -1,10 +1,14 @@
 {
-    "name": "Tree Grid",
+    "name": "TreeGrid",
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
     "type": "Preview",
     "samples": [
+      {  
+        "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
+        "description": "This demo for Essential JS 2 treegrid component is an overview of how to display and manipulate large data with configuration options.", "type": "new"
+      },
       {  
         "url": "default", "name": "Default Functionalities", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
         "description": "This example shows how the Syncfusion Essential JS2 TreeGrid looks with its default configuration."
@@ -26,7 +30,13 @@
      },
      {
         "url":"columntemplate", "name": "Column Template", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","width","height","columns","rowHeight"] },
-        "description": "This demo explains how to define template columns in Syncfusion Essential JS2 TreeGrid control."
+        "description": "This demo explains how to define template columns in Syncfusion Essential JS2 TreeGrid control.",
+        "sourceFiles":[
+         { "displayName": "columntemplate.vue", "path":"src/tree-grid/columntemplate.vue" },
+         { "displayName": "template1.vue", "path":"src/tree-grid/template1.vue" },
+         { "displayName": "template2.vue", "path":"src/tree-grid/template2.vue" },
+         { "displayName": "template3.vue", "path":"src/tree-grid/template3.vue" }
+        ]
      },
      {
         "url":"reorder", "name": "Reorder", "category": "Columns","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","allowReordering","actionComplete","columns","allowPaging"] },
@@ -127,6 +137,14 @@
         "url":"selection-api", "name": "Selection API", "category":"Selection","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","allowSelection","selectionSettings","treeColumnIndex"] },
         "description": "This demo explains how to select and clear multiple rows using methods of Syncfusion Essential JS2 TreeGrid control."
      },
+	 {
+        "url":"checkbox-selection", "name": "Checkbox Selection", "category":"Selection","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex"] },
+        "description": "This demo explains how the check box selection feature can be used to select treegrid rows in Essential TypeScript TreeGrid control.", "type": "new"
+     },
+     {
+        "url":"checkbox-column", "name": "Checkbox Column", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex"] },
+        "description": "This demo explains how the hierarchy selection between the records using column checkboxes in Essential TypeScript TreeGrid control.", "type": "new"
+     },
      {
         "url":"aggregate", "name": "Default Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","columns","aggregates"] },
         "description": "This demo explains how to display the summary values such as average, minimum, etc., for the columns in Syncfusion Essential JS2 TreeGrid control."
@@ -173,5 +191,6 @@
         "url":"gridlines", "name": "Grid Lines", "category":"Miscellaneous","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex"] },
         "description": "This demo explains how to customize the grid lines in treegrid using Syncfusion Essential JS2 TreeGrid control."
      }
+     
     ]
 }

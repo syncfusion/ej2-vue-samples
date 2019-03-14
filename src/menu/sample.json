@@ -3,50 +3,52 @@
     "directory": "menu",
     "category": "Navigation",
     "ftName": "menu-bar",
-    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Menu Bar",
-            "description": "This demo for Syncfusion Essential JS2 Menu control demonstrates the default functionalities. It shows menu items with icon, text, separator and its sub menu.",
+            "description": "This example demonstrates the Syncfusion Vue Menu items with icons, text, separator and items submenu.",
             "api": { "Menu":["items", "orientation"], "MenuItem":["text", "iconCss", "items", "separator"] }
         },
         {
             "url": "data-binding",
             "name": "Data Binding",
             "category": "Menu Bar",
-            "description": "This demo for Essential JS2 Menu control shows data binding of the local data source. It can either be hierarchical or self-referential data.",
+            "description": "This example demonstrates how to bind local data source with Syncfusion Vue Menu component.",
             "api": { "Menu": ["items"] }
         },
         {
             "url": "scrollable",
             "name": "Scrollable",
             "category": "Menu Bar",
-    		"type": "new",
             "api":{ "Menu": ["items", "enableScrolling", "cssClass", "beforeOpen"] },
-            "description": "This demo for Essential JS2 Menu control shows the horizontal / vertical scrollable menu. It allows to load menu and sub menus with large number of menu items."
+            "description": "This example demonstrates how to load menu and sub menus with large number of menu items in horizontal / vertical scrollable Syncfusion Vue menu."
         },
         {
             "url": "template",
             "name": "Template",
             "category": "Menu Bar",
             "api":{ "Menu": ["items", "fields", "template"], "FieldSettings": ["text", "children"] },
-            "description": "This demo for Essential JS2 Menu control shows the template functionalities. It supports customization of menu items using data source with fields."
+            "description": "This example demonstrates how to customize Syncfusion Javascript Menu popup items by using templates.",
+            "sourceFiles":[
+                { "displayName": "template.vue", "path":"src/menu/template.vue" },
+                { "displayName": "template-data.json", "path":"src/menu/template-data.json" }
+            ]
         },
         {
             "url": "api",
             "name": "API",
             "category": "Menu Bar",
             "api": { "Menu": ["orientation", "showItemOnClick", "enableItems"] },
-            "description": "This demo for Essential JS2 Menu control shows the supported APIs and its functionalities. It includes enable/disable item, show item on click and orientation."
+            "description": "This example demonstrates the supported API's and its functionalities of the Syncfusion Vue Menu."
         },
         {
             "url": "toolbar-integration",
             "name": "Toolbar Integration",
             "category": "Menu Bar",
             "api":{ "Menu": ["items"] },
-            "description": "This demo for Essential JS2 Menu control shows integration of Menu in the toolbar control and its customization using button, drop-down button, and text box."
+            "description": "This example demonstrates the real use case of the Syncfusion Vue Menu in web application. It is integrated with toolbar component."
         }
     ]
 }

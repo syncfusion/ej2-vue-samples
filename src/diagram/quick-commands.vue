@@ -2,7 +2,7 @@
 <div class="control-section">
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getCustomTool='getCustomTool'
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getCustomTool='getCustomTool'
                      :getCustomCursor='getCustomCursor' :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
@@ -120,7 +120,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -144,10 +144,10 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 
 Vue.use(DiagramPlugin);
-let diagramInstance: Diagram;
+let diagramInstance;
 
 //Defines the nodes collection in diagram
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "NewIdea",
     width: 150,
@@ -223,7 +223,7 @@ let nodes: NodeModel[] = [
 ];
 
 //Defines the connectors collection in diagram
-let connectors: ConnectorModel[] = [
+let connectors = [
   {
     id: "connector1",
     type: "Straight",
@@ -258,7 +258,7 @@ let connectors: ConnectorModel[] = [
 ];
 
 //Defines the user handle collection for nodes in diagram
-let handles: UserHandleModel[] = [
+let handles= [
   {
     name: "clone",
     pathData:
@@ -285,7 +285,7 @@ export default Vue.extend({
       },
       snapSettings: { constraints: SnapConstraints.None },
       //set Node default value
-      getNodeDefaults: (node: Node) => {
+      getNodeDefaults: (node) => {
         return {
           style: { fill: "#578CA9", strokeColor: "none" },
           annotations: [{ style: { color: "white" } }]
@@ -299,17 +299,16 @@ export default Vue.extend({
     diagram: [DataBinding, MindMap, HierarchicalTree]
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
     diagramInstance.select([diagramInstance.nodes[0]]);
-    let appearanceObj: any = document.getElementById("appearance");
-    let patternObj: any = document.getElementById("pattern");
+    let appearanceObj = document.getElementById("appearance");
+    let patternObj= document.getElementById("pattern");
     //Change the postion of the UserHandle
-    appearanceObj.onclick = (args: MouseEvent) => {
-    let target: HTMLElement = args.target as HTMLElement;
-    let appearanceBlock: HTMLElement = document.getElementById('appearance') as HTMLElement;
-    let selectedElement: HTMLCollection = appearanceBlock.getElementsByClassName('e-selected-style') as HTMLCollection;
+    appearanceObj.onclick = (args) => {
+    let target = args.target ;
+    let appearanceBlock = document.getElementById('appearance');
+    let selectedElement = appearanceBlock.getElementsByClassName('e-selected-style');
     if (selectedElement.length) {
       selectedElement[0].classList.remove('e-selected-style');
     }
@@ -329,10 +328,10 @@ export default Vue.extend({
     diagramInstance.dataBind();
     };
     //Change the Appearence of the UserHandle
-    patternObj.onclick = (args: MouseEvent) => {
-    let target: HTMLElement = args.target as HTMLElement;
-    let patternBlock: HTMLElement = document.getElementById('pattern') as HTMLElement;
-    let selectedElement: HTMLCollection = patternBlock.getElementsByClassName('e-selected-style') as HTMLCollection;
+    patternObj.onclick = (args) => {
+    let target = args.target;
+    let patternBlock = document.getElementById('pattern');
+    let selectedElement = patternBlock.getElementsByClassName('e-selected-style');
     if (selectedElement.length) {
       selectedElement[0].classList.remove('e-selected-style');
     }
@@ -355,8 +354,8 @@ export default Vue.extend({
 });
 
 //Enable the clone Tool for UserHandle.
-function getTool(action: string): ToolBase {
-  let tool: ToolBase | any;
+function getTool(action) {
+  let tool;
   if (action === "clone") {
     tool = new CloneTool(diagramInstance.commandHandler);
   }
@@ -365,10 +364,10 @@ function getTool(action: string): ToolBase {
 
 //set the position of the userhandle.
 function setuserhandleposition(
-  offset: number,
-  side: Side,
-  target: HTMLElement
-): void {
+  offset,
+  side,
+  target
+) {
   if (diagramInstance.selectedItems.userHandles) {
     diagramInstance.selectedItems.userHandles[0].offset = offset;
     diagramInstance.selectedItems.userHandles[0].side = side;
@@ -376,7 +375,7 @@ function setuserhandleposition(
   target.classList.add("e-selected-style");
 }
 //set the style of the userhandle.
-function applyuserhandlestyle(bgcolor: string, target: HTMLElement): void {
+function applyuserhandlestyle(bgcolor, target) {
   if (diagramInstance.selectedItems.userHandles) {
     diagramInstance.selectedItems.userHandles[0].backgroundColor = bgcolor;
     diagramInstance.selectedItems.userHandles[0].pathColor = "White";
@@ -386,8 +385,8 @@ function applyuserhandlestyle(bgcolor: string, target: HTMLElement): void {
 
 //Defines the clone tool used to copy Node/Connector
 class CloneTool extends MoveTool {
-  public mouseDown(args: MouseEventArgs): void {
-    let newObject: any;
+   mouseDown(args) {
+    let newObject;
     if (
       diagramInstance.selectedItems.nodes &&
       diagramInstance.selectedItems.connectors
@@ -395,18 +394,18 @@ class CloneTool extends MoveTool {
       if (diagramInstance.selectedItems.nodes.length > 0) {
         newObject = cloneObject(
           diagramInstance.selectedItems.nodes[0]
-        ) as NodeModel;
+        );
       } else {
         newObject = cloneObject(
           diagramInstance.selectedItems.connectors[0]
-        ) as ConnectorModel;
+        );
       }
     }
     newObject.id += randomId();
     diagramInstance.paste([newObject]);
     args.source = diagramInstance.nodes[
       diagramInstance.nodes.length - 1
-    ] as IElement;
+    ];
     args.sourceWrapper = args.source.wrapper;
     super.mouseDown(args);
     this.inAction = true;

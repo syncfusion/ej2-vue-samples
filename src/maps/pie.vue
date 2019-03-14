@@ -6,6 +6,7 @@
                 <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
             </e-layers>
         </ejs-maps>
+
         <div style="float: right; margin-right: 10px;">Source:
             <a href="http://www.nationmaster.com/country-info/stats/People/Age-structure/55--64-years" target="_blank">www.nationmaster.com</a>
         </div>
@@ -143,11 +144,13 @@ export default Vue.extend({
         accumulation: [PieSeries, AccumulationDataLabel, AccumulationTooltip ]   
   },
     methods: {
+        /* custom code start */
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.maps.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
+        /* custom code end */
     loaded:function(args){
                 let markers = document.getElementById(args.maps.element.id + '_LayerIndex_0_Markers_Template_Group');
             if (markers) {

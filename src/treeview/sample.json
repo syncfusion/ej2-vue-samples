@@ -2,54 +2,91 @@
     "name": "TreeView",
     "directory": "treeview",
     "category": "Navigation",
+    "type": "update",
     "ftName" :"treeview",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "TreeView",
-            "description": "This demo demonstrates the basic tree view component that display the data in a hierarchical structure with the configuration options."
+            "description": "This demo demonstrates the basic tree view component that display the data in a hierarchical structure with the configuration options.",
+             "sourceFiles":[
+                { "displayName":"default.vue", "path":"src/treeview/default.vue" },
+                { "displayName":"default-data.json", "path":"src/treeview/dataSource/default-data.json" }
+            ]  
+
     },
 	{
             "url": "icons",
             "name": "Icons and Images",
             "category": "TreeView",
-            "description": "The tree view nodes can be rendered with any custom icons. This sample demonstrated like a file system with custom icons and images."
+            "description": "The tree view nodes can be rendered with any custom icons. This sample demonstrated like a file system with custom icons and images.",
+             "sourceFiles":[
+                { "displayName":"icons.vue", "path":"src/treeview/icons.vue" },
+                { "displayName":"icons-data.json", "path":"src/treeview/dataSource/icons-data.json" }
+            ]  
     },
 	{
             "url": "check-box",
             "name": "CheckBox",
+            "type": "update",
             "category": "TreeView",
-            "description": "This demo demonstrates the tree view with checkbox functionality, this allows the user to check more than one tree nodes."
+            "description": "This demo demonstrates the tree view with checkbox functionality, this allows the user to check more than one tree nodes.",
+             "sourceFiles":[
+                { "displayName":"check-box.vue", "path":"src/treeview/check-box.vue" },
+                { "displayName":"checkbox-data.json", "path":"src/treeview/dataSource/checkbox-data.json" }
+            ]  
     },
 	{
             "url": "node-editing",
             "name": "Node Editing",
             "category": "TreeView",
-            "description": "This demo showcases the node editing functionality of tree view, you can edit any node text by double click on it or pressing F2."
+            "description": "This demo showcases the node editing functionality of tree view, you can edit any node text by double click on it or pressing F2.",
+             "sourceFiles":[
+                { "displayName":"node-editing.vue", "path":"src/treeview/node-editing.vue" },
+                { "displayName":"nodeEdit-data.json", "path":"src/treeview/dataSource/nodeEdit-data.json" }
+            ]  
     },
 	{
             "url": "multiple-selection",
             "name": "Multiple Selection",
             "category": "TreeView",
-            "description": "The TreeView component allows to select multiple nodes by pressing CTRL key, also can select the range of nodes by pressing SHIFT key."
+            "description": "The TreeView component allows to select multiple nodes by pressing CTRL key, also can select the range of nodes by pressing SHIFT key.",
+             "sourceFiles":[
+                { "displayName":"multiple-selection.vue", "path":"src/treeview/multiple-selection.vue" },
+                { "displayName":"multiSelect-data.json", "path":"src/treeview/dataSource/multiSelect-data.json" }
+            ]  
     },
 	{
             "url": "drag-and-drop",
             "name": "Drag and Drop",
             "category": "TreeView",
-            "description": "The tree view nodes can be drag and drop from one position to another, also the drop can be done to another tree view or other external container."
+            "description": "The tree view nodes can be drag and drop from one position to another, also the drop can be done to another tree view or other external container.",
+             "sourceFiles":[
+                { "displayName":"drag-and-drop.vue", "path":"src/treeview/drag-and-drop.vue" },
+                { "displayName":"drag-data.json", "path":"src/treeview/dataSource/drag-data.json" }
+            ]  
     },
 	{
             "url": "template",
             "name": "Template",
             "category": "TreeView",
-            "description": " The tree view node can be customized through the template option. In this demo the tree view nodes are templated like an mail system."
+            "description": " The tree view node can be customized through the template option. In this demo the tree view nodes are templated like an mail system.",
+             "sourceFiles":[
+                { "displayName":"template.vue", "path":"src/treeview/template.vue" },
+                { "displayName":"template-data.json", "path":"src/treeview/dataSource/template-data.json" },
+                { "displayName":"tree-template.vue", "path":"src/treeview/tree-template.vue" }
+            ]  
+
     },
 	{
             "url": "local-data",
             "name": "Local Data",
             "category": "Data Binding",
-            "description": "This demo demonstrates the binding of local data to the tree view. The local data structure can be hierarchical data or list data."
+            "description": "This demo demonstrates the binding of local data to the tree view. The local data structure can be hierarchical data or list data.",
+             "sourceFiles":[
+                { "displayName":"local-data.vue", "path":"src/treeview/local-data.vue" },
+                { "displayName":"local-data.json", "path":"src/treeview/dataSource/local-data.json" }
+            ]  
     },
 	{
             "url": "remote-data",

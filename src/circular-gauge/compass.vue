@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-            <ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
+            <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
                 <e-axes>
                     <e-axis :radius='radius' :startAngle='startAngle' minimum=0 maximum=8 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                         <e-pointers>
@@ -14,6 +14,7 @@
             </ejs-circulargauge>
         </div>
     </div>
+
     <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tr style="height: 50px">
@@ -125,12 +126,15 @@ export default Vue.extend({
         }
     },
     methods: {
+        /* custom code start */
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
+        /* custom code end */
+// Code for Property Panel
         changePoitercolor: function (args) {
             // let cotainerObj = document.getElementById('direction-container');
             // let pointerColor = document.getElementById('poiterColor');

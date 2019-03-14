@@ -56,9 +56,11 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
     .e-rte-content .e-content.e-pre-source {
         width: 100%;
     }
+    /* custom code start */
     .sb-header {
         z-index: 100;
     }
+    /* custom code end */
     .e-icon-btn.e-active .e-md-preview.e-icons::before {
 		content: '\e350';
 	}
@@ -105,7 +107,7 @@ export default Vue.extend({
                 }
             };
             document.getElementById('MD_Preview').onclick = () => {
-                if (this.$refs.rteInstance.$el.classList.contains('e-rte-full-screen')) {
+                if (!this.$refs.rteInstance.$el.classList.contains('e-rte-full-screen')) {
                     this.fullPreview({ mode: true, type: '' });
                 }
                 document.getElementById('preview-code').classList.remove('e-active');
@@ -125,7 +127,7 @@ export default Vue.extend({
         var mdsource = document.getElementById('preview-code');
         var mdSplit = document.getElementById('MD_Preview');
         var id = this.$refs.rteInstance.getID() + 'html-view';
-        var htmlPreview = this.$refs.rteInstance.$el.querySelector('#' + id);
+        var htmlPreview = this.$refs.rteInstance.$el.parentNode.querySelector('#' + id);
             if (e.targetItem === 'Maximize' && isNullOrUndefined(e.args)) {
                 this.fullPreview({ mode: true, type: '' });
             } else if (!mdSplit.parentElement.classList.contains('e-overlay')) {

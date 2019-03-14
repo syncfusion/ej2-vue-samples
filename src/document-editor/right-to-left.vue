@@ -4,11 +4,11 @@
     <div class="sample-container">
         <div class="default-section">
           <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
-    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
+    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
-    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
-    <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
+    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
+    <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="تحميل" v-bind:select="onExport" :open="openExportDropDown" title="تحميل هذا المستند"></ejs-dropdownbutton>        
 </div>
 <ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar="true" :enableRtl="true" locale='ar-AE' style="height:600px"></ejs-documenteditorcontainer>            
         </div>

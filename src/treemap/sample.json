@@ -8,70 +8,126 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "default.vue", "path": "./src/treemap/default.vue"},
+                {"displayName": "car-sale.ts", "path": "./src/treemap/treemap-data/car-sale.ts"}
+            ]
         },
         {
             "url": "layout",
             "name": "Layout",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "type": "update",
+            "sourceFiles": [
+                {"displayName": "layout.vue", "path": "./src/treemap/layout.vue"},
+                {"displayName": "econmics.ts", "path": "./src/treemap/treemap-data/econmics.ts"}
+            ]
         },
         {
             "url": "drilldown",
             "name": "Drilldown",
             "category": "TreeMap",
-            "api": {}
+            "type": "update",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "drilldown.vue", "path": "./src/treemap/drilldown.vue"},
+                {"displayName": "drilldown-sample.ts", "path": "./src/treemap/treemap-data/drilldown-sample.ts"}
+            ]
         },
         {
             "url": "customization",
             "name": "Customization",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "customization.vue", "path": "./src/treemap/customization.vue"},
+                {"displayName": "metals.ts", "path": "./src/treemap/treemap-data/metals.ts"}
+            ]
         },
         {
             "url": "label",
             "name": "Data Label",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "label.vue", "path": "./src/treemap/label.vue"},
+                {"displayName": "country-population.ts", "path": "./src/treemap/treemap-data/country-population.ts"}
+            ]
         },
         {
             "url": "tooltip",
             "name": "Tooltip",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "tooltip.vue", "path": "./src/treemap/tooltip.vue"},
+                {"displayName": "airport-count.ts", "path": "./src/treemap/treemap-data/airport-count.ts"}
+            ]
         },
         {
             "url": "election",
             "name": "Legend",
             "category": "TreeMap",
+            "type": "update",
             "api": {},
-            "type": "update"
+            "sourceFiles": [
+                {"displayName": "election.vue", "path": "src/treemap/election.vue"},
+                {"displayName": "election-data.ts", "path": "src/treemap/treemap-data/election-data.ts"}
+            ]
         },
         {
             "url": "color-mapping",
             "name": "Color Mapping",
             "category": "TreeMap",
             "api": {},
-            "type": "new"
+            "sourceFiles": [
+                {"displayName": "color-mapping.vue", "path": "src/treemap/color-mapping.vue"},
+                {"displayName": "color.json", "path": "src/treemap/treemap-data/color.json"}
+            ]
         },
         {
             "url": "selection",
             "name": "Selection & Highlight",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "selection.vue", "path": "src/treemap/selection.vue"},
+                {"displayName": "import.ts", "path": "src/treemap/treemap-data/import.ts"}
+            ]
         },
         {
             "url": "print",
             "name": "Print & Export",
             "category": "TreeMap",
-            "api": {}
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "print.vue", "path": "src/treemap/print.vue"},
+                {"displayName": "product.ts", "path": "src/treemap/treemap-data/product.ts"}
+            ]
         },
         {
             "url": "pie",
             "name": "TreeMap with Pie",
             "category": "TreeMap",
-            "api": {}
-        }     
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "pie.vue", "path": "src/treemap/pie.vue"},
+                {"displayName": "pie-chart.ts", "path": "src/treemap/treemap-data/pie-chart.ts"}
+            ]
+        },
+        {
+            "url": "rtl",
+            "name": "RTL",
+            "category": "TreeMap",
+            "type": "new",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "rtl.vue", "path": "src/treemap/rtl.vue"},
+                {"displayName": "rtl-data.ts", "path": "src/treemap/treemap-data/rtl-data.ts"}
+            ]
+        }
         
     ]
 }

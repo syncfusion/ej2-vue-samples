@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
   <div class="col-lg-8 control-section">
-      <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
+      <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
   </div>
   <div class="col-lg-4 property-section">
       <div class="property-panel-header">
@@ -34,7 +34,7 @@
               </div>
               <div class="col-xs-7">
                   <!-- used NumericTextBox for left margin of the layout. -->
-                  <ejs-numerictextbox id='marginLeft'       
+                  <ejs-numerictextbox ref='marginLeftObject' id='marginLeft'       
                                       :value='marginLeftvalue'
                                       :step='marginLeftstep'
                                       :format='marginLeftformat'
@@ -47,7 +47,7 @@
               </div>
               <div class="col-xs-7">
                   <!-- used NumericTextBox for top margin of the layout. -->
-                  <ejs-numerictextbox id='marginTop' 
+                  <ejs-numerictextbox ref='marginTopObject' id='marginTop' 
                                       :value='marginTopvalue'
                                       :step='marginTopstep'
                                       :format='marginTopformat'
@@ -60,7 +60,7 @@
               </div>
               <div class="col-xs-7">
                   <!-- used NumericTextBox for horizontalspacing of the layout. -->
-                  <ejs-numerictextbox id='horiontal' 
+                  <ejs-numerictextbox ref='horiontalObj' id='horiontal' 
                                       :value='horiontalvalue'
                                       :step='horiontalstep'
                                       :format='horiontalformat'
@@ -73,7 +73,7 @@
               </div>
               <div class="col-xs-7">
                   <!-- used NumericTextBox for verticalspacing of the layout. -->
-                  <ejs-numerictextbox id='vertical' 
+                  <ejs-numerictextbox ref='verticalObj' id='vertical' 
                                       :value='verticalvalue'
                                       :step='verticalstep'
                                       :format='verticalformat'
@@ -146,7 +146,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -169,11 +169,11 @@ import { multiParentData } from "./diagram-data";
 
 Vue.use(DiagramPlugin);
 
-let diagramInstance: any;
-let marginTopObj: NumericTextBox;
-let marginLeftObj: NumericTextBox;
-let horizontalSpacingObj: NumericTextBox;
-let verticalSpacingObj: NumericTextBox;
+let diagramInstance;
+let marginTopObj;
+let marginLeftObj;
+let horizontalSpacingObj;
+let verticalSpacingObj;
 
 export default Vue.extend({
   data: function() {
@@ -189,14 +189,14 @@ export default Vue.extend({
         margin: { left: 10, right: 0, top: 50, bottom: 0 }
       },
       //Sets the default values of nodes
-      getNodeDefaults: (obj: Node) => {
+      getNodeDefaults: (obj) => {
         obj.width = 40;
         obj.height = 40;
         //Initialize shape
         obj.shape = { type: "Basic", shape: "Rectangle", cornerRadius: 7 };
       },
       //Sets the default values of connector
-      getConnectorDefaults: (connector: Connector) => {
+      getConnectorDefaults: (connector) => {
         connector.type = "Orthogonal";
         connector.cornerRadius = 7;
         connector.targetDecorator.height = 7;
@@ -207,9 +207,9 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Name",
         parentId: "ReportingPerson",
-        dataManager: new DataManager(multiParentData as JSON[]),
+        dataManager: new DataManager(multiParentData),
         //binds the external data with node
-        doBinding: (nodeModel: NodeModel, data: DataInfo, diagram: Diagram) => {
+        doBinding: (nodeModel, data, diagram) => {
           /* tslint:disable:no-string-literal */
           nodeModel.style = {
             fill: data["fillColor"],
@@ -225,28 +225,28 @@ export default Vue.extend({
       marginLeftvalue: 10,
       marginLeftstep: 1,
       marginLeftformat: "##.##",
-      marginLeftchange: (args: NumericChangeEventArgs) => {
+      marginLeftchange: (args) => {
         update("left");
       },
 
       marginTopvalue: 10,
       marginTopstep: 1,
       marginTopformat: "##.##",
-      marginTopchange: (args: NumericChangeEventArgs) => {
+      marginTopchange: (args) => {
         update("top");
       },
 
       horiontalvalue: 50,
       horiontalstep: 1,
       horiontalformat: "##.##",
-      horiontalchange: (args: NumericChangeEventArgs) => {
+      horiontalchange: (args) => {
         update("hspacing");
       },
 
       verticalvalue: 40,
       verticalstep: 1,
       verticalformat: "##.##",
-      verticalchange: (args: NumericChangeEventArgs) => {
+      verticalchange: (args) => {
         update("vspacing");
       }
     };
@@ -255,30 +255,25 @@ export default Vue.extend({
     diagram: [DataBinding, ComplexHierarchicalTree]
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
-    let marginLeftObject: any = document.getElementById("marginLeft");
-    marginLeftObj = marginLeftObject.ej2_instances[0];
-    let marginTopObject: any = document.getElementById("marginTop");
-    marginTopObj = marginTopObject.ej2_instances[0];
-    let horiontalObj: any = document.getElementById("horiontal");
-    horizontalSpacingObj = horiontalObj.ej2_instances[0];
-    let verticalObj: any = document.getElementById("vertical");
-    verticalSpacingObj = verticalObj.ej2_instances[0];
-    let obj: any = document.getElementById("appearance") as HTMLElement;
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+    marginLeftObj = this.$refs.marginLeftObject.ej2Instances;
+    marginTopObj = this.$refs.marginTopObject.ej2Instances;
+    let obj = document.getElementById("appearance");
+    horizontalSpacingObj = this.$refs.horiontalObj.ej2Instances;
+    verticalSpacingObj = this.$refs.verticalObj.ej2Instances;
     //Click Event for Appearance of the layout.
-    obj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+    obj.onclick = (args) => {
+      let target = args.target;
+      let selectedElement = document.getElementsByClassName(
         "e-selected-style"
       );
       if (selectedElement.length) {
         selectedElement[0].classList.remove("e-selected-style");
       }
       if (target.className === "image-pattern-style") {
-        let id: string = target.id;
-        let orientation1: string = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
-        diagramInstance.layout.orientation = orientation1 as LayoutOrientation;
+        let id = target.id;
+        let orientation1 = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
+        diagramInstance.layout.orientation = orientation1;
         diagramInstance.dataBind();
         diagramInstance.doLayout();
         target.classList.add('e-selected-style');
@@ -288,7 +283,7 @@ export default Vue.extend({
 });
 
 //Apply the Alignment for the layout.
-function update(value: string): void {
+function update(value) {
   if (value === "left") {
     diagramInstance.layout.margin.left = marginLeftObj.value;
   } else if (value === "top") {
@@ -301,7 +296,4 @@ function update(value: string): void {
   diagramInstance.dataBind();
 }
 
-export interface DataInfo {
-  [key: string]: string;
-}
 </script>

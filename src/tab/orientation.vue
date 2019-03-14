@@ -48,7 +48,7 @@
 </div>
 </template>
 <style>
-  .e-tab .e-content .e-item {
+#tab_orientation .e-tab .e-content .e-item {
     font-size: 12px;
     padding: 10px;
     text-align: justify;
@@ -58,12 +58,14 @@
         display: inherit;
     }
 
+/* custom code start */
     @media screen and (min-width: 768px) {
         .e-sample-resize-container {
             width: 75%;
             margin: 0 auto;
         }
     }
+/* custom code end */
 
     @media screen and (max-width: 481px) {
         .control-section.e-tab-section,
@@ -186,14 +188,15 @@ var Template1 = Vue.component("demo", {
 });
 
 var Template2 = Vue.component("demo", {
-  template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div id="ripple" class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/7.png" ' +
-        'alt="Janet Leverling" /></div><div class="left info"><div class="name">Janet Leverling</div> <div class="role">' +
-        'CEO</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div><div class="left info"><div class="name">' +
-        'Steven Buchanan</div> <div class="role">HR</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div><div ' +
-        'class="left info"><div class="name">Nancy Davolio</div> <div class="role">Product Manager</div></div></div></div></div>',
+   template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
+        '<div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" ' +
+        'alt="Robert King" /></div><div class="left info"><div class="name">Robert King</div> <div class="role">' +
+        'Team Lead</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
+        'src="src/tab/Employees/5.png" alt="Michael Suyama" /></div><div class="left info"><div class="name">' +
+        'Michael Suyama</div> <div class="role">Developer</div></div></div><div class="template-container"><div ' +
+        'class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div><div ' +
+        'class="left info"><div class="name">Margaret Peacock</div> <div class="role">Developer</div></div></div></div></div>',
+
   data() {
     return {
       data: {}

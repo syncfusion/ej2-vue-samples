@@ -21,7 +21,7 @@
           Using the
           <a
             target="_blank"
-            href="http://ej2.syncfusion.com/vue/documentation/api/color-picker/#value"
+            href="https://ej2.syncfusion.com/vue/documentation/api/color-picker/#value"
           >
             <code>value</code>
           </a> property, set the color value to picker and palette initially.
@@ -38,7 +38,7 @@
     </div>
   </div>
 </template>
-
+<!-- custom code start -->
 <style>
     #colorpicker-control {
         margin: 30px auto;
@@ -59,7 +59,7 @@
         font-size: 20px;
     }
 </style>
-
+<!-- custom code end -->
 <script>
 import Vue from "vue";
 import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";

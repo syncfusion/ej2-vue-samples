@@ -44,6 +44,7 @@
         </div>
     </div>
 </template>
+<!-- custom code start -->
 <style>
     #EventLog b {
         color: #388e3c;
@@ -54,6 +55,7 @@
         border-top: 1px solid #eee;
     }
 </style>
+<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { scheduleData } from './datasource';
@@ -67,7 +69,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2019, 0, 10),
                 currentView: 'Week'
             }
         },

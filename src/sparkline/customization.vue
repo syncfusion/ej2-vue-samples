@@ -22,10 +22,12 @@
             </table>
         </div>
     </div>
+
     <div style="float: right; margin-right: 10px;">Source:
     <a href=" http://carsalesbase.com/global-car-sales-2017" target="_blank">carsalesbase.com</a>
 </div>
 </div>
+
 <div class="col-lg-4 property-section">
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
     <table id="property" style="width:100%" title="Properties">
@@ -155,7 +157,6 @@
         opacity: 1 !important;
         position: relative !important;
     }
-
     .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
         font-size: 13px !important;
@@ -236,11 +237,14 @@ mounted(){
     this.start();    
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
+    // Code for Property Panel
     start: function(){
         if (this.$refs.spark.ej2Instances.value === 'salespercentage') {
             this.$refs.axisval.ej2Instances.min = 0;
@@ -281,8 +285,8 @@ methods:{
         } else {
             this.$refs.datalabel.ej2Instances.checked = false;
         }
-        if ((this.$refs.spark.ej2Instances.value === 'salespercentage' && this.$refs.percentage.ej2Instances.enableRtl.length) ||
-            (this.$refs.spark.ej2Instances.value === 'salescount' && this.$refs.sales.ej2Instances.enableRtl.length)) {
+        if ((this.$refs.spark.ej2Instances.value === 'salespercentage' && this.$refs.percentage.ej2Instances.enableRtl) ||
+            (this.$refs.spark.ej2Instances.value === 'salescount' && this.$refs.sales.ej2Instances.enableRtl)) {
             this.$refs.rtl.ej2Instances.checked = true;
         } else {
             this.$refs.rtl.ej2Instances.checked = false;

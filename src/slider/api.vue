@@ -271,7 +271,7 @@ export default Vue.extend({
     },
     onScroll: function() {
          if(!isNullOrUndefined(document.getElementById('apislider') && this.$refs.slider)){
-            this.$refs.slider.ej2Instances.refreshTooltip();
+            this.$refs.slider.ej2Instances.refreshTooltip(this.$refs.slider.ej2Instances.tooltipTarget);
          }
     }
   },

@@ -14,6 +14,7 @@
             </ejs-circulargauge>
         </div>
     </div>
+
     <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tr style="height: 50px">
@@ -32,7 +33,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="curVal" id="currentValue" value="1800" min="1000" max="2000" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
+                        <input type="range" ref="curVal" id="currentValue" value="18" min="10" max="20" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
                     </div>
                 </td>
             </tr>
@@ -187,12 +188,15 @@ mounted:function(){
     currentLine.style.background = color;
 },
 methods:{
+    /* custom code start */
      load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     usageClick:function(){
         let random = this.$refs.customizationgauge1;
         document.getElementById('customizationgauge1').style.display="none";
@@ -245,7 +249,7 @@ methods:{
     changeCurrentval:function(){
          if(document.getElementById('customizationgauge1').style.display=="block"){
         //    let gauge = document.getElementById('customizationgauge1');
-              let value = +(document.getElementById('currentValue')).value;
+              let value =  document.getElementById('currentValue').value * 100;
             if (isUsage) {
                 this.$refs.customizationgauge1.ej2Instances.setPointerValue(0, 0, value);
             } else {
@@ -258,7 +262,7 @@ methods:{
          else{
             //  let gauge = document.getElementById('customizationgauge2');
             let isUsage = true;
-              let value = +(document.getElementById('currentValue')).value;
+              let value = document.getElementById('currentValue').value * 100;
             if (isUsage) {
                 this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 0, value);
             } else {

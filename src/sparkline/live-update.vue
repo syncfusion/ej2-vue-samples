@@ -140,11 +140,13 @@ mounted(){
     this.update3();
 },
 methods:{
+    /* custom code start */
      load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     update: function() {
         let spark = document.getElementById('spark-container1');
         let gauge = this.$refs.spark1.ej2Instances;

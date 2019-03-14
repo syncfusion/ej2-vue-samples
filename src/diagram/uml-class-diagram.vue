@@ -20,7 +20,7 @@
 </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -33,9 +33,9 @@ import {
 
 Vue.use(DiagramPlugin);
 
-let diagramInstance: Diagram;
+let diagramInstance;
 
-let nodes: NodeModel[] = [
+let nodes = [
     {
       id: 'Patient',
       shape: {
@@ -51,7 +51,7 @@ let nodes: NodeModel[] = [
           methods: [createMethods('getHistory', 'History')]
         },
         classifier: 'Class'
-      } as UmlClassifierShapeModel,
+      },
       offsetX: 200,
       offsetY: 250
     },
@@ -67,7 +67,7 @@ let nodes: NodeModel[] = [
           ]
         },
         classifier: 'Class'
-      } as UmlClassifierShapeModel,
+      },
       offsetX: 240,
       offsetY: 545
     },
@@ -84,7 +84,7 @@ let nodes: NodeModel[] = [
           ]
         },
         classifier: 'Class'
-      } as UmlClassifierShapeModel,
+      },
       offsetX: 405,
       offsetY: 105
     },
@@ -102,7 +102,7 @@ let nodes: NodeModel[] = [
           methods: [createMethods('getDepartment', 'String')]
         },
         classifier: 'Class'
-      } as UmlClassifierShapeModel,
+      },
       offsetX: 638,
       offsetY: 100
     },
@@ -115,7 +115,7 @@ let nodes: NodeModel[] = [
           methods: [createMethods('getStaffCount', 'Int')]
         },
         classifier: 'Class'
-      } as UmlClassifierShapeModel,
+      },
       offsetX: 638,
       offsetY: 280
     },
@@ -137,7 +137,7 @@ let nodes: NodeModel[] = [
           ]
         },
         classifier: 'Class'
-      } as UmlClassifierShapeModel,
+      },
       offsetX: 635,
       offsetY: 455
     },
@@ -152,7 +152,7 @@ let nodes: NodeModel[] = [
     createNode('SurgicalTechnologist', 1015, 630, 'SurgicalTechnologist')
   ];
 
-let connectors: ConnectorModel[] = [
+let connectors = [
     createConnector('connect1', 'Patient', 'Person'),
     createConnector('connect2', 'Person', 'Hospital'),
     createConnector('connect3', 'Department', 'Hospital'),
@@ -179,19 +179,19 @@ export default Vue.extend({
       nodes: nodes,
       connectors: connectors,
        //Sets the default values of a node
-      getNodeDefaults: (obj: NodeModel) => {
+      getNodeDefaults: (obj) => {
         obj.style = { fill: '#26A0DA', strokeColor: 'white' };
         return obj;
       },
       //Sets the default values of a connector
-      getConnectorDefaults: (connector: ConnectorModel) => {
+      getConnectorDefaults: (connector) => {
         return connector;
       },
       //set an label style for nodes
-       setNodeTemplate: (node: NodeModel) => {
+       setNodeTemplate: (node) => {
         if (node.annotations && node.annotations.length > 0) {
-        for (let i: number = 0; i < node.annotations.length; i++) {
-           let annotation: ShapeAnnotationModel = node.annotations[i];
+        for (let i = 0; i < node.annotations.length; i++) {
+           let annotation = node.annotations[i];
            if(annotation && annotation.style) {
              annotation.style.color = 'white';
            }
@@ -203,8 +203,8 @@ export default Vue.extend({
 });
 
  //Create a connector.
-  function createConnector( id: string, sourceID: string, targetID: string ): ConnectorModel {
-    let connector: ConnectorModel = {};
+  function createConnector( id, sourceID, targetID ) {
+    let connector = {};
     connector.id = id;
     connector.sourceID = sourceID;
     connector.targetID = targetID;
@@ -212,8 +212,8 @@ export default Vue.extend({
   }
 
   //Create class Diagram shapes.
-  function createNode( id: string, offsetX: number, offsetY: number, className: string ): NodeModel {
-    let node: NodeModel = {};
+  function createNode( id, offsetX, offsetY, className ) {
+    let node = {};
     node.id = id;
     node.offsetX = offsetX;
     node.offsetY = offsetY;
@@ -223,17 +223,17 @@ export default Vue.extend({
         name: className
       },
       classifier: 'Class'
-    } as UmlClassifierShapeModel;
+    };
     return node;
   }
 
   //create class Property
-  function createProperty(name: string, type: string): object {
+  function createProperty(name, type) {
     return { name: name, type: type };
   }
 
   //create class Methods
-  function createMethods(name: string, type: string): object {
+  function createMethods(name, type) {
     return { name: name, type: type };
   }
 </script>

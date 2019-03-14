@@ -14,12 +14,12 @@
         In this demo, the parent menu is horizontally scrollable while the submenu and nested submenu are vertically scrollable.
     </p>
     <p>
-        More information about Menu can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/menu">documentation</a> section.
+        More information about Menu can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/menu">documentation</a> section.
     </p>
 </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
     /**
     * ej2 Menu styles
@@ -46,7 +46,7 @@
         }
     }
 </style>
-
+<!-- custom code end -->
 <script>
 import Vue from "vue";
 import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";

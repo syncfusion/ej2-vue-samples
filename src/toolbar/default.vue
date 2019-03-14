@@ -54,6 +54,7 @@
 
 </div>
 </template>
+/* custom code start */
 <style>
 @font-face {
     font-family: 'Material_toolbar';
@@ -320,6 +321,7 @@
     font-size: 16px;
 }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";

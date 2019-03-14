@@ -51,6 +51,7 @@
         font-size: 14px;
         margin-bottom: 4px;
     }
+    /* custom code start */
    .default-splitter .pane1 {
         margin: 20px auto;
         max-width: 440px;
@@ -59,6 +60,7 @@
         margin: 20px auto;
         max-width: 440px;
    }
+   /* custom code end */
     .default-splitter.control-section {          
         min-height: 370px;
         margin-bottom: 15px;

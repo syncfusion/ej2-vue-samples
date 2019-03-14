@@ -48,6 +48,32 @@
         "category": "Line Charts"
     },
     {
+        "url": "stacked-line",
+        "name": "Stacked Line",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacked line.",
+        "category": "Line Charts",
+        "type": "New",
+        "sourceFiles": [
+            {
+                "displayName": "stacked-line.vue",
+                "path": "./src/chart/stacked-line.vue"
+            }
+        ]
+    },
+    {
+        "url": "stacked-line-100",
+        "name": "100% Stacked Line",
+        "description": "This demo for Essential JS2 Chart control shows how to render the 100% stacked line.",
+        "category": "Line Charts",
+        "type": "New",
+        "sourceFiles": [
+            {
+                "displayName": "stacked-line-100.vue",
+                "path": "./src/chart/stacked-line-100.vue"
+            }
+        ]
+    },
+    {
         "url": "area",
         "name": "Area",
         "description": "This demo for Essential JS2 Chart control shows how to render the area series.",
@@ -105,7 +131,8 @@
         "url": "rounded-column",
         "name": "Rounded Column",
         "description": "This demo for Essential JS2 Chart control shows how to render the rounded column series.",
-        "category": "Bar Charts"
+        "category": "Bar Charts",
+        "type": "update"
     },
     {
         "url": "column-placement",
@@ -303,15 +330,13 @@
         "url": "default-pie",
         "name": "Pie",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie charts.",
-        "category": "Accumulation Charts",
-        "type": "update"
+        "category": "Accumulation Charts"
     },
     {
         "url": "pie-radius",
         "name": "Pie with Various Radius",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie chart with various radius",
-        "category": "Accumulation Charts",
-        "type": "new"
+        "category": "Accumulation Charts"
     },
     {
         "url": "donut",
@@ -335,7 +360,8 @@
         "url": "default-doughnut",
         "name": "Pie with Legend",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in pie charts.",
-        "category": "Accumulation Charts"
+        "category": "Accumulation Charts",
+        "type": "update"
     },
     {
         "url": "semi-pie",
@@ -431,8 +457,7 @@
         "url": "lazy-loading",
         "name": "Lazy Loading",
         "description": "This demo for Essential JS2 Chart control demonstrates the Lazy Loading behavior in chart.",
-        "category": "Data Binding",
-        "type": "New"
+        "category": "Data Binding"
     },
     {
         "url": "numeric",
@@ -456,7 +481,8 @@
         "url": "category",
         "name": "Category Axis",
         "description": "This demo for Essential JS2 Chart control shows how to render the category axis in charts.",
-        "category": "Chart Axes"
+        "category": "Chart Axes",
+        "type": "update"
     },
     {
         "url": "indexed",

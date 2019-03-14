@@ -12,7 +12,6 @@
           :min="min"
           :max="max"
           :step="step"
-          :created="onCreated"
           :tooltipChange="tooltipChangeHandler"
           :tooltip="tooltip"
           :renderingTicks="renderingTicksHandler"
@@ -71,86 +70,79 @@
   margin-top: 40px;
 }
 
-#defaultTooltip .e-material-handle,
-#out .e-material-handle,
-.bootstrap #out .e-handle,
-.bootstrap #defaultTooltip .e-handle,
-.fabric #out .e-handle,
-.fabric #defaultTooltip .e-handle,
-.highcontrast #out .e-handle,
-.highcontrast #defaultTooltip .e-handle {
-  background-color: #ffd939;
-  border-color: #ffd939;
-  z-index: 1;
-}
+#defaultTooltip .e-handle,
+    #out .e-handle,
+    .bootstrap #out .e-handle,
+    .bootstrap #defaultTooltip .e-handle,
+    .fabric #out .e-handle,
+    .fabric #defaultTooltip .e-handle,
+    .highcontrast #out .e-handle,
+    .highcontrast #defaultTooltip .e-handle {
+        background-color: #ffd939;
+        border-color: #ffd939;
+        z-index: 1;
+    }
 
-.e-bigger .content-wrapper {
-  width: 80%;
-}
+    .e-bigger .tooltipcustomization .content-wrapper {
+        width: 80%;
+    }
 
-.sliderwrap label {
-  padding-bottom: 26px;
-  font-size: 13px;
-  font-weight: 500;
-  margin-top: 15px;
-}
+    .sliderwrap label {
+        padding-bottom: 26px;
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 15px;
+    }
 
-.userselect {
-  -webkit-user-select: none;
-  /* Safari 3.1+ */
-  -moz-user-select: none;
-  /* Firefox 2+ */
-  -ms-user-select: none;
-  /* IE 10+ */
-  user-select: none;
-  /* Standard syntax */
-}
+    .userselect {
+        -webkit-user-select: none;
+        /* Safari 3.1+ */
+        -moz-user-select: none;
+        /* Firefox 2+ */
+        -ms-user-select: none;
+        /* IE 10+ */
+        user-select: none;
+        /* Standard syntax */
+    }
 
-.e-slider-tooltip.e-tooltip-wrap.e-tooltip-cutomization.e-popup.e-slider-tooltip
-  .e-tip-content,
-.e-slider-tooltip.e-tooltip-wrap.e-tooltip-cutomization.e-popup.e-material-range
-  .e-tip-content.e-material-tooltip-show {
-  color: #333;
-}
 
-.e-slider-tooltip.e-tooltip-wrap.e-tooltip-cutomization.e-popup.e-material-range
-  .e-arrow-tip-inner {
-  color: #ffd939;
-}
 
-.e-slider-tooltip.e-tooltip-wrap.e-tooltip-cutomization.e-popup.e-material-range.e-slider-horizontal-before
-  .e-arrow-tip-outer {
-  border-top-color: #ffd939;
-}
+    .e-slider-tooltip.e-tooltip-wrap.e-popup.e-tooltip-cutomization .e-tip-content,
+    .e-slider-tooltip.e-tooltip-wrap.e-popup.e-material-range.e-tooltip-cutomization .e-tip-content.e-material-tooltip-show {
+        color: #333;
+    }
 
-.e-slider-tooltip.e-tooltip-wrap.e-tooltip-cutomization.e-popup.e-material-range.e-slider-horizontal-after
-  .e-arrow-tip-outer {
-  border-bottom-color: #ffd939;
-}
+    .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup .e-arrow-tip-inner{
+        color: #ffd939;
+    }
 
-.e-slider-container .e-slider#defaultTooltip .e-range,
-.e-slider-container .e-slider#out .e-range {
-  background-color: #0375be;
-  z-index: unset;
-}
+    .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup .e-arrow-tip-outer {
+        border-top-color: #ffd939;
+    }
 
-.e-slider-tooltip.e-tooltip-wrap.e-popup.e-material-range.e-tooltip-cutomization,
-.e-slider-tooltip.e-tooltip-wrap.e-popup.e-tooltip-cutomization {
-  background-color: #ffd939;
-  border-color: #ffd939;
-}
+    .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup .e-arrow-tip-outer {
+        border-bottom-color: #ffd939;
+    }
 
-.bootstrap
-  .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup
-  .e-arrow-tip-outer {
-  border-top-color: #ffd939;
-}
+    .e-slider-container .e-slider#defaultTooltip .e-range,
+    .e-slider-container .e-slider#out .e-range {
+        background-color: #0375be;
+        z-index: unset;
+    }
+    .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup.e-material-default.e-slider-horizontal-after,
+    .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup.e-material-default.e-slider-horizontal-before,
+    .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup {
+        background-color: #ffd939;
+        border-color: #ffd939;
+    }
 
-.bootstrap
-  .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup
-  .e-arrow-tip-inner {
-  color: #ffd939;
-}
+    .bootstrap .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup .e-arrow-tip-outer {
+        border-top-color: #ffd939;
+    }
+
+    .bootstrap .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup .e-arrow-tip-inner {
+        color: #ffd939;
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -231,19 +223,13 @@ export default Vue.extend({
           new Date(Number(args.text)).toLocaleTimeString("en-us", custom);
       }
     },
-    onCreated: function(args) {
-      let defaultObj = this.$refs.defaultSlider.ej2Instances;
-
-      defaultObj.keyUp({ keyCode: 9, target: defaultObj.secondHandle });
-      defaultObj.secondHandle.focus();
-    },
     onScroll: function() {
       if (
         !isNullOrUndefined(document.getElementById("defaultTooltip")) &&
         this.$refs.defaultSlider
       ) {
-        this.$refs.defaultSlider.ej2Instances.refreshTooltip();
-        this.$refs.outSlider.ej2Instances.refreshTooltip();
+        this.$refs.defaultSlider.ej2Instances.refreshTooltip(this.$refs.defaultSlider.ej2Instances.tooltipTarget);
+        this.$refs.outSlider.ej2Instances.refreshTooltip(this.$refs.outSlider.ej2Instances.tooltipTarget);
       }
     }
   },

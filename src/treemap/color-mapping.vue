@@ -3,6 +3,7 @@
     <div class="col-lg-9 control-section">
         <ejs-treemap ref="treemap" id='container' align="center" :load='load' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -14,30 +15,30 @@
                     <ejs-dropdownlist id='colorMapping' style="width:110;" :dataSource='labelsdata' :fields='localFields' index=0 :width='labelswidth' :change='changeColor'></ejs-dropdownlist>
                 </td>
             </tr>
-            <tr >
+            <tr id="hideOne">
                 <td style="width: 40%">
                     <div class="property-text"> Change Opacity</div>
                 </td>
                 <td style="width: 40%;">
                     <div>
-                    <ejs-checkbox ref="opacity" id="opacity" :change="changeOpcity" :disabled=true></ejs-checkbox>
+                    <ejs-checkbox ref="opacity" id="opacity" :change="changeOpcity"></ejs-checkbox>
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr id="hideTwo">
                 <td style="width: 50%">
                     <div class="property-text" style="margin-top:12%">Min Opacity</div>
                 </td>
                 <td style="width: 50%;">
-                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:100%;margin-top: 20%" disabled />
+                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:100%;margin-top: 20%" />
                 </td>
             </tr>
-            <tr>
+            <tr id="hideThree">
                 <td style="width: 50%">
                     <div class="property-text" style="margin-top:12%">Max Opacity</div>
                 </td>
                 <td style="width: 50%;">
-                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:100%;margin-top: 20%" disabled />
+                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:100%;margin-top: 20%" />
                 </td>
             </tr>
             </tbody>
@@ -165,18 +166,36 @@ provide:{
     treemap:[TreeMapTooltip, TreeMapLegend]
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        let dropDownElement = document.getElementById('colorMapping');
+        let opacityCheck = document.getElementById('opacity');
+        if(dropDownElement.value === 'Desaturation'){
+            document.getElementById('hideOne').style.visibility = "visible"; 
+            if(opacityCheck.checked){
+                document.getElementById('hideTwo').style.visibility = "visible"; 
+                document.getElementById('hideThree').style.visibility = "visible"; 
+            } else{
+                document.getElementById('hideTwo').style.visibility = "hidden"; 
+                document.getElementById('hideThree').style.visibility = "hidden"; 
+            }            
+        } else{
+             document.getElementById('hideOne').style.visibility = "hidden";                 
+             document.getElementById('hideTwo').style.visibility = "hidden"; 
+             document.getElementById('hideThree').style.visibility = "hidden"; 
+        }        
     },
+    /* custom code end */
+    // Code for Property Panel
     changeColor:function(args){
         let treemap = this.$refs.treemap.ej2Instances;
         let opacity = this.$refs.opacity.ej2Instances;
         let sampleValue = args.value;
         let element = sampleValue.toString();
-            if (element === 'RangeColorMapping') {
-                opacity.disabled = true;
+            if (element === 'RangeColorMapping') {                
                 treemap.rangeColorValuePath = 'Area';
 				treemap.leafItemSettings.colorMapping[2].minOpacity = null;
                 treemap.leafItemSettings.colorMapping[2].maxOpacity = null;
@@ -223,8 +242,7 @@ methods:{
                 treemap.leafItemSettings.colorMapping[5].from = null;
                 treemap.legendSettings.title.text = 'Area';
                 treemap.refresh();
-            } else if (element === 'EqualColorMapping') {
-                opacity.disabled = true;
+            } else if (element === 'EqualColorMapping') {                
                 treemap.rangeColorValuePath = null;
                 treemap.leafItemSettings.colorMapping[0].from = null;
                 treemap.leafItemSettings.colorMapping[0].to = null;
@@ -264,8 +282,7 @@ methods:{
                 treemap.equalColorValuePath = 'Location';
                 treemap.legendSettings.title.text = 'Continent';
                 treemap.refresh();
-            }else if (element === 'DesaturationColorMapping') {
-                opacity.disabled = false;
+            }else if (element === 'DesaturationColorMapping') {                
                 treemap.rangeColorValuePath = 'Area';
                 treemap.equalColorValuePath = null;
                 let minOpacity = document.getElementById('minopacity');
@@ -308,23 +325,19 @@ methods:{
             treemap.leafItemSettings.colorMapping[0].minOpacity = parseFloat(minOpacity.value);
             treemap.leafItemSettings.colorMapping[0].maxOpacity = parseFloat(maxOpacity.value);
             treemap.leafItemSettings.colorMapping[1].minOpacity = parseFloat(minOpacity.value);
-            treemap.leafItemSettings.colorMapping[1].maxOpacity = parseFloat(maxOpacity.value);
-            minOpacity.disabled = false;
-            maxOpacity.disabled = false;
+            treemap.leafItemSettings.colorMapping[1].maxOpacity = parseFloat(maxOpacity.value);           
         } else {
             treemap.leafItemSettings.colorMapping[0].minOpacity = null;
             treemap.leafItemSettings.colorMapping[0].maxOpacity = null;
             treemap.leafItemSettings.colorMapping[1].minOpacity = null;
-            treemap.leafItemSettings.colorMapping[1].maxOpacity = null;
-            minOpacity.disabled = true;
-            maxOpacity.disabled = true;
+            treemap.leafItemSettings.colorMapping[1].maxOpacity = null;           
         }
         treemap.refresh();
     },
     changeMaxOpacity: function() {
         let treemap = this.$refs.treemap.ej2Instances;
         let opacity = this.$refs.opacity.ej2Instances;
-        if (opacity.checked && !opacity.disabled) {
+        if (opacity.checked) {
             let slider = document.getElementById('maxopacity');
             let maxOpacity = parseFloat(slider.value);
             treemap.leafItemSettings.colorMapping[0].maxOpacity = maxOpacity;
@@ -335,7 +348,7 @@ methods:{
     changeMinOpacity: function() {
         let treemap = this.$refs.treemap.ej2Instances;
         let opacity = this.$refs.opacity.ej2Instances;
-        if (opacity.checked && !opacity.disabled) {
+        if (opacity.checked) {
             let slider = document.getElementById('minopacity');
             let minOpacity = parseFloat(slider.value);
             treemap.leafItemSettings.colorMapping[0].minOpacity = minOpacity;

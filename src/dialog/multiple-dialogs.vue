@@ -25,6 +25,7 @@
 </template>
 
 <style>
+    /* custom code start */
 	#dlgbtn {
 	    margin-right: 5%;
     }
@@ -32,6 +33,7 @@
         height: 100%;
         min-height: 350px;
      }
+     /* custom code end */
 </style>
 
 <script>

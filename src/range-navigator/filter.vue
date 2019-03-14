@@ -3,7 +3,7 @@
 <div class="control-section">
    <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Filter From Hire Date</h4>
     <div align="center">
-        <ejs-rangenavigator style='display:block' align='center' id='containerFilter' :value='value' height='75'
+        <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerFilter' :value='value' height='75'
          labelPosition ='Outside' valueType='DateTime' allowSnapping =true intervalType='Quarter' enableGrouping= true,
             groupBy= 'Years' enableDeferredUpdate=true :dataSource='dataSource' xName='HireDate' yName='yValue' :width='width'
             :changed='changed' :theme='theme' animationDuration=500>
@@ -11,7 +11,7 @@
     </div>
     <br/>
     <div align="center">
-        <ejs-grid id='grid' :dataSource="gridData" height='350' :width='width'>
+        <ejs-grid id='grid' ref='gridref' :dataSource="gridData" height='350' :width='width'>
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' textAlign='Center'></e-column>
                 <e-column field='FirstName' headerText='Name'  textAlign='Center'></e-column>
@@ -73,19 +73,21 @@ export default Vue.extend({
   provide: {
     rangeNavigator: [DateTime]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+        this.$refs.gridref.ej2Instances.refresh();
+      });
+    },
   methods: {
   
     changed: function(args) {
-      var grid = document.getElementById("grid").ej2_instances;
-      if (grid) {
-        grid[0].dataSource = employeeData.filter(function(data) {
+        this.$refs.gridref.ej2Instances.dataSource = employeeData.filter(function(data) {
           return (
             data.HireDate >= new Date(+args.start) &&
             data.HireDate <= new Date(+args.end)
           );
         });
-        grid[0].refresh();
-      }
     }
   }
 });

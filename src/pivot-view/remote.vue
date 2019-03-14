@@ -10,6 +10,7 @@
 <div id="action-description">
     <p>This sample demonstrates the basic rendering of the pivotgrid widget with remote data.</p>
 </div>
+
 <div id="description">
     <p>The pivotgrid widget supports JSON data source. The
         <code>dataSource->data</code> property can be assigned with the result of DataManager to bind remote data.</p>
@@ -43,22 +44,17 @@ enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 
-let remoteData: IDataSet[];
-new DataManager({
+let remoteData: DataManager = new DataManager({
   url: "https://bi.syncfusion.com/northwindservice/api/orders",
   adaptor: new WebApiAdaptor(),
   crossDomain: true
-})
-  .executeQuery(new Query().take(8))
-  .then((e: ReturnOption) => {
-    remoteData = e.result as IDataSet[];
-  });
+});
 
 export default Vue.extend({
   data: () => {
     return {
       dataSource: {
-        data: remoteData as IDataSet[],
+        data: remoteData as DataManager,
         expandAll: true,
         filters: [],
         columns: [{ name: "ProductName", caption: "Product Name" }],

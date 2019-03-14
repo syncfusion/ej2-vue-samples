@@ -4,7 +4,7 @@
 
  <div class="content-wrapper" style="width: 100%">
       <ejs-toolbar id='toolbar' style="width:100%;height: 10%;margin-top: 10px;" :clicked='toolbarclicked' :items='toolbaritems'></ejs-toolbar>
-      <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings' :setNodeTemplate='setNodeTemplate'>
+      <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings' :setNodeTemplate='setNodeTemplate'>
       </ejs-diagram>
   </div>
   <div id="action-description">
@@ -83,7 +83,7 @@
   content: "\e722";
 }
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -108,7 +108,7 @@ Diagram.Inject(DataBinding, RadialTree);
 
 Vue.use(DiagramPlugin);
 
-let diagramInstance: any;
+let diagramInstance;
 
 export default Vue.extend({
   data: function() {
@@ -121,9 +121,9 @@ export default Vue.extend({
         //sets the fields to bind
         id: "Id",
         parentId: "ReportingPerson",
-        dataManager: new DataManager(radialTree as JSON[]),
+        dataManager: new DataManager(radialTree),
         //binds the data with the nodes
-        doBinding: (nodeModel: NodeModel, data: DataInfo, diagram: Diagram) => {
+        doBinding: (nodeModel, data, diagram) => {
           nodeModel.annotations = [
             {
               content: data.Name,
@@ -146,7 +146,7 @@ export default Vue.extend({
           if (data.Designation === "Managing Director") {
             nodeModel.width = 400;
             nodeModel.height = 400;
-            nodeModel.shape = { shape: "Ellipse" } as BasicShapeModel;
+            nodeModel.shape = { shape: "Ellipse" };
             nodeModel.style = { fill: "black" };
           } else if (data.Designation === "Project Manager") {
             nodeModel.width = 130;
@@ -156,7 +156,7 @@ export default Vue.extend({
           } else {
             nodeModel.width = 100;
             nodeModel.height = 100;
-            nodeModel.shape = { shape: "Ellipse" } as BasicShapeModel;
+            nodeModel.shape = { shape: "Ellipse" };
             nodeModel.style = { fill: "#afeeee" };
           }
         }
@@ -171,10 +171,10 @@ export default Vue.extend({
         root: "Category"
       },
       //Defines the default node and connector properties
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj, diagram) => {
         return obj;
       },
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         connector.type = "Straight";
         return connector;
       },
@@ -211,21 +211,20 @@ export default Vue.extend({
     diagram: [DataBinding, RadialTree]
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
 });
 
 //based on the option, Click event to perform ZoomIn,ZoomOut and Reset.
-function onItemClick(args: ClickEventArgs): void {
+function onItemClick(args) {
   switch (args.item.text) {
     case "Zoom In":
-      let zoomin: ZoomOptions = { type: "ZoomIn", zoomFactor: 0.2 };
+      let zoomin = { type: "ZoomIn", zoomFactor: 0.2 };
       diagramInstance.zoomTo(zoomin);
       break;
     case "Zoom Out":
-      let zoomout: ZoomOptions = { type: "ZoomOut", zoomFactor: 0.2 };
+      let zoomout = { type: "ZoomOut", zoomFactor: 0.2 };
       diagramInstance.zoomTo(zoomout);
       break;
     case "Reset":
@@ -234,7 +233,5 @@ function onItemClick(args: ClickEventArgs): void {
       break;
   }
 }
-export interface DataInfo {
-  [key: string]: string;
-}
+
 </script>

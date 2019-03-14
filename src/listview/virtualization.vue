@@ -126,6 +126,7 @@ import { ListViewPlugin, Virtualization } from "@syncfusion/ej2-vue-lists";
 import { Browser } from "@syncfusion/ej2-base";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import {createSpinner, hideSpinner, showSpinner} from "@syncfusion/ej2-popups";
+import { virtualizationData } from "./listData";
 Vue.use(ListViewPlugin);
 Vue.use(DropDownListPlugin);
 let commonData = [];
@@ -133,60 +134,10 @@ let dataSource = {};
 let endTime = undefined;
 let startTime = undefined;
 let liElement = undefined;
+let listObj = undefined;
 export default Vue.extend({
     beforeCreate: function() {
-        commonData = [{
-                name: "Nancy",
-                icon: "N",
-                id: "0"
-            },
-            {
-                name: "Andrew",
-                icon: "A",
-                id: "1"
-            },
-            {
-                name: "Janet",
-                icon: "J",
-                id: "2"
-            },
-            {
-                name: "Margaret",
-                imgUrl: "./src/listview/images/margaret.png",
-                id: "3"
-            },
-            {
-                name: "Steven",
-                icon: "S",
-                id: "4"
-            },
-            {
-                name: "Laura",
-                imgUrl: "./src/listview/images/laura.png",
-                id: "5"
-            },
-            {
-                name: "Robert",
-                icon: "R",
-                id: "6"
-            },
-            {
-                name: "Michael",
-                icon: "M",
-                id: "7"
-            },
-            {
-                name: "Albert",
-                imgUrl: "./src/listview/images/albert.png",
-                id: "8"
-            },
-            {
-                name: "Nolan",
-                icon: "N",
-                id: "9"
-            }
-        ];
-
+        commonData =virtualizationData;
         [
             [1010, "data1"],
             [5010, "data5"],

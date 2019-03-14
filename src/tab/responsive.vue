@@ -54,6 +54,7 @@
         display: inherit;
     }
 
+/* custom code start */
 
 @media screen and (max-width: 481px) {
         .control-section.e-tab-section,
@@ -67,6 +68,8 @@
         #tab_adaptive {
             overflow: hidden;
         }
+
+/* custom code end */
 
         #tab_adaptive .e-content {
             height: inherit !important;

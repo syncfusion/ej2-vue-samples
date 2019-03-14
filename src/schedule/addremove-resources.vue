@@ -67,6 +67,7 @@
 </template>
 
 <style>
+    /* custom code start*/
     .property-panel-content .e-checkbox-wrapper.personal .e-label {
         color: #808080;
     }
@@ -90,14 +91,16 @@
         background-color: #808000;
         border-color: transparent;
     }
-
-    .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
-        border-color: transparent;
-    }
+   
 
     .highcontrast .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
     .bootstrap .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
+    }
+    /* custom code end*/
+
+    .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
+        border-color: transparent;
     }
 
     .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
@@ -141,6 +144,7 @@
             schedule: [Month, TimelineViews, TimelineMonth, Resize, DragAndDrop]
         },
         methods: {
+            // custom code start
             generateCalendarData: function () {
                 var collections = [];
                 var dataCollections = [personalData, companyData, birthdayData, holidayData];
@@ -149,6 +153,7 @@
                 }
                 return collections;
             },
+            // custom code end
             onChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
                 let value = parseInt((args.event.target).getAttribute('value'), 10);

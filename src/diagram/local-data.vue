@@ -28,7 +28,7 @@
 </template>
 <style>
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -56,7 +56,7 @@ export default Vue.extend({
         parentId: "Category",
         dataManager: new DataManager(species),
         //binds the external data with node
-        doBinding: (nodeModel: NodeModel, data: DataInfo, diagram: Diagram) => {
+        doBinding: (nodeModel, data, diagram) => {
           nodeModel.annotations = [
             {
               /* tslint:disable:no-string-literal */
@@ -80,7 +80,7 @@ export default Vue.extend({
         margin: { top: 10, left: 10, right: 10, bottom: 0 }
       },
       //Sets the default values of nodes
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj, diagram) => {
         //Initialize shape
         obj.shape = { type: "Basic", shape: "Rectangle" };
         obj.style = { strokeWidth: 1 };
@@ -88,7 +88,7 @@ export default Vue.extend({
         obj.height = 30;
       },
       //Sets the default values of connector
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         connector.type = "Orthogonal";
         if (connector.style) connector.style.strokeColor = "#4d4d4d";
         if (connector.targetDecorator) connector.targetDecorator.shape = "None";
@@ -103,7 +103,4 @@ export default Vue.extend({
   }
 });
 
-export interface DataInfo {
-  [key: string]: string;
-}
 </script>

@@ -5,7 +5,8 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :animationDuration='animationDuration' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataLabelSettings='dataLabelSettings' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+
     <div style="float: right; margin-right: 10px;">Source:
        <a href="https://en.wikipedia.org/wiki/2009_Sumatra_earthquakes" target="_blank">en.wikipedia.org</a>
     </div>
@@ -86,6 +87,7 @@ export default Vue.extend({
 provide: {
     maps: [Zoom, Marker]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -94,5 +96,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }  
 }
+/* custom code end */
 })
 </script>

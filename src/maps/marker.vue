@@ -5,7 +5,8 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :dataSource='dataSource' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+   
     <div style="float: right; margin-right: 10px;">Source:
             <a href="http://www.citymayors.com/statistics/largest-cities-population-125.html" target="_blank">www.citymayors.com</a>
          </div>
@@ -77,6 +78,7 @@ data:function(){
 provide: {
     maps: [Marker, MapsTooltip]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -85,6 +87,7 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     } 
 }
+/* custom code end */
 })
 </script>
     

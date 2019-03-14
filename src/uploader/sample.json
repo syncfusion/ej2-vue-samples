@@ -2,73 +2,104 @@
     "name": "File Upload",
     "directory": "uploader",
     "category": "Inputs",
-    "type": "update",
     "ftName": "file-upload",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "type": "update",
-            "description":"This sample demonstrates default functionalities of the file uploader component, including automatic upload and asynchronous mode options.",
-            "api":{"Uploader": [ "asyncSettings", "dropArea" ]} 
+            "description":"This example demonstrates default functionalities of the Vue file uploader component, including automatic upload and asynchronous mode options.",
+            "api":{"Uploader": [ "asyncSettings", "dropArea" ]},
+            "sourceFiles":[
+                { "displayName":"default.vue", "path":"src/uploader/default.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         },
         {
             "url": "chunk-upload",
             "name": "Chunk Upload",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "description":"This sample demonstrates how to upload files as chunks in the file upload component, which helps when uploading a large file to a server.",
-            "api":{"Uploader": [ "asyncSettings","dropArea" ]} 
+            "description":"This example demonstrates how to upload files as chunks in the Vue file upload component, which helps when uploading a large file to a server.",
+            "api":{"Uploader": [ "asyncSettings","dropArea" ]},
+            "sourceFiles":[
+                { "displayName":"chunk-upload.vue", "path":"src/uploader/chunk-upload.vue" },
+                { "displayName":"save file", "path":"src/uploader/chunk-upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/chunk-upload-remove-file.cs" }
+            ]
         },
         {
             "url": "custom-file-list",
             "name": "Template",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "description":"This sample demonstrates how to customize the file list with buttons using a template, and how to upload a file programmatically in the file upload component.",
-            "api":{"Uploader": [ "asyncSettings","dropArea", "selected", "progress", "success", "failure"]}
+            "description":"This example demonstrates how to customize the file list with buttons using a template and upload a file programmatically using the Vue file upload.",
+            "api":{"Uploader": [ "asyncSettings","dropArea", "selected", "progress", "success", "failure"]},
+            "sourceFiles":[
+                { "displayName":"custom-file-list.vue", "path":"src/uploader/custom-file-list.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         },
         {
             "url": "preload-files",
             "name": "Preload Files",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "description":"This sample demonstrates how to preload files in the file upload component, which helps users view and manipulate server files.",
-            "api":{"Uploader": [ "asyncSettings", "files", "dropArea" ]} 
+            "description":"This example demonstrates how to preload files in the Vue file upload component, which helps users view and manipulate server files.",
+            "api":{"Uploader": [ "asyncSettings", "files", "dropArea" ]},
+            "sourceFiles":[
+                { "displayName":"preload-files.vue", "path":"src/uploader/preload-files.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         },
         {
             "url": "file-validation",
             "name": "File Validation",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "description":"This sample shows how to validate files before uploading them to a server by allowing or denying certain file extensions, setting minimum and maximum file sizes, and alerting users about duplicate files.",
-            "api":{"Uploader": [ "asyncSettings", "allowedExtensions", "dropArea", "minFileSize", "maxFileSize", "selected" ]}
+            "description":"The example covers validations in Vue file upload such as allowing/denying file extensions, set min/max file size, duplicate file, and more.",
+            "api":{"Uploader": [ "asyncSettings", "allowedExtensions", "dropArea", "minFileSize", "maxFileSize", "selected" ]},
+            "sourceFiles":[
+                { "displayName":"file-validation.vue", "path":"src/uploader/file-validation.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         },
         {
             "url": "image-preview",
             "name": "Image Preview",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "description":"This sample demonstrates how to display a preview of an image file before and after uploading it to a server.",
-            "api":{"Uploader": [ "asyncSettings", "allowedExtensions", "dropArea", "selected", "progress", "success", "failure"]}
+            "description":"This example demonstrates how to display a preview of an image file before and after uploading it to a server in Vue file upload.",
+            "api":{"Uploader": [ "asyncSettings", "allowedExtensions", "dropArea", "selected", "progress", "success", "failure"]},
+            "sourceFiles":[
+                { "displayName":"image-preview.vue", "path":"src/uploader/image-preview.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         },
         {
             "url": "file-upload-with-forms",
             "name": "Form Support",
             "category": "File Upload",
-            "hideOnDevice": true,
-            "description":"This sample demonstrates how to integrate the file upload component in an HTML form (synchronous mode) and submit a form with selected files.",
-            "api":{"Uploader": [ "dropArea", "autoUpload", "allowedExtensions", "selected"  ]} 
+            "description":"This example demonstrates how to integrate the Vue file upload control in an HTML form (synchronous mode) and submit a form with selected files.",
+            "api":{"Uploader": [ "dropArea", "autoUpload", "allowedExtensions", "selected"  ]},
+            "sourceFiles":[
+                { "displayName":"file-upload-with-forms.vue", "path":"src/uploader/file-upload-with-forms.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         },
         {
             "url": "custom-drop-area",
             "name": "Custom Drop Area",
             "category": "File Upload",
             "hideOnDevice": true,
-            "description":"This sample demonstrates how to upload a file using drag and drop and how to configure a custom drop area for the file upload component.",
-            "api":{"Uploader": [ "asyncSettings","dropArea", "template", "allowedExtensions", "success", "failure", "selected", "progress" ]}
+            "description":"This example demonstrates how to upload a file using drag and drop and how to configure a custom drop area for the Vue file upload component.",
+            "api":{"Uploader": [ "asyncSettings","dropArea", "template", "allowedExtensions", "success", "failure", "selected", "progress" ]},
+            "sourceFiles":[
+                { "displayName":"custom-drop-area.vue", "path":"src/uploader/custom-drop-area.vue" },
+                { "displayName":"save file", "path":"src/uploader/upload-save-file.cs" },
+                { "displayName":"remove file", "path":"src/uploader/upload-remove-file.cs" }
+            ]
         }
     ]
 }

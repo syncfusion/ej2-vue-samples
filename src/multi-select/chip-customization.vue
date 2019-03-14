@@ -26,9 +26,9 @@
 </template>
 <style>
     #chipcustomization .chipcontent {
-        width: 135%;
         margin: 0 auto;
-        margin-left: 165px;
+        margin-left: 70px;
+        margin-right: 70px;
     }
 
     #chipcustomization .e-multi-select-wrapper .e-chips {

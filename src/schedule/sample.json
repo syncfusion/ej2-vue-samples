@@ -46,7 +46,6 @@
             "url": "calendar-integration",
             "name": "Sync Google Calendar",
             "category": "Data Binding",
-            "type": "new",
             "description": "This example shows how to integrate Google Calendar events into Vue Scheduler.",
             "api": {
                 "Schedule": [
@@ -75,8 +74,23 @@
             "url": "block-events",
             "name": "Blocking Dates and Time",
             "category": "Appointments",
-            "type": "new",
             "description": "This example shows how to block specific days or time intervals on Vue Scheduler",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "currentView",
+                    "selectedDate",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "search-events",
+            "name": "Search Events",
+            "category": "Appointments",
+            "type": "new",
+            "description": "This example shows how to search the scheduler events based on specific field criteria.",
             "api": {
                 "Schedule": [
                     "width",
@@ -105,7 +119,6 @@
             "url": "external-dragdrop",
             "name": "External Drag and Drop",
             "category": "Appointments",
-            "type": "new",
             "description": "This example shows how to drag and drop the events from an external source into Vue scheduler.",
             "api": {
                 "Schedule": [
@@ -125,7 +138,6 @@
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling ",
             "category": "Scrolling",
-            "type": "new",
             "hideOnDevice": true,
             "description": "This example illustrates how to enable the virtual loading of resources and its events in Vue Scheduler.",
             "api": {
@@ -226,7 +238,6 @@
             "url": "timeline-resource",
             "name": "Room Scheduler",
             "category": "Multiple Resources",
-            "type": "update",
             "description": "This demo for Essential JS2 Scheduler control shows how to design the room scheduling calendar and manage the events booked on a particular time interval.",
             "api": {
                 "Schedule": [
@@ -243,6 +254,21 @@
             "name": "Fare Calendar",
             "category": "Multiple Resources",
             "description": "This demo for Essential JS2 Scheduler control shows how to customize the scheduler to showcase it as an Airfare calendar.",
+            "api": {
+                "Schedule": [
+                    "currentView",
+                    "views",
+                    "selectedDate",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "resource",
+            "name": "Resources",
+            "category": "Multiple Resources",
+            "type": "new",
+            "description": "This example depicts how to show or hide the resource events on JavaScript Scheduler based on the resource selection.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -295,6 +321,22 @@
             }
         },
         {
+            "url": "adaptive-rows",
+            "name": "Adaptive Rows",
+            "category": "Multiple Resources",
+            "type": "new",
+            "description": "This example demonstrates how to block specific days or time intervals on HTML5 JavaScript Scheduler.",
+            "api": {
+                "Schedule": [
+                    "currentView",
+                    "views",
+                    "selectedDate",
+                    "eventSettings",
+                    "enableAdaptiveRows"
+                ]
+            }
+        },
+        {
             "url": "resource-grouping",
             "name": "Horizontal Grouping",
             "category": "Resource Grouping",
@@ -312,7 +354,6 @@
             "url": "timeline-resourcegrouping",
             "name": "Timeline Grouping",
             "category": "Resource Grouping",
-            "type": "update",
             "description": "This demo for Essential JS2 Scheduler control shows how the calendars of multiple resources are grouped in timeline view layouts.",
             "api": {
                 "Schedule": [
@@ -485,7 +526,6 @@
             "url": "context-menu",
             "name": "Context Menu",
             "category": "Customization",
-            "type": "new",
             "description": "This example shows how to enable the context menu on Vue Scheduler and perform the related actions using menu options.",
             "api": {
                 "Schedule": [
@@ -599,7 +639,6 @@
             "url": "read-only",
             "name": "Read-only Events",
             "category": "Customization",
-            "type": "update",
             "description": "This demo for Essential JS2 Scheduler control shows how to make specific events on the scheduler to be displayed in a read-only mode.",
             "api": {
                 "Schedule": [
@@ -608,6 +647,35 @@
                     "eventClick",
                     "popupOpen",
                     "eventRendered"
+                ]
+            }
+        },
+        {
+            "url": "excel-export",
+            "name": "Excel Exporting",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This example demonstrates how to export the Essential JS2 Scheduler events to the excel file format at client-side.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "currentView",
+                    "selectedDate",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "calendar-export-import",
+            "name": "Export and Import ICS",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This example shows how to export the Scheduler events to a calendar file, and also how to import events from an .ics file into our Essential JS2 Scheduler.",
+            "api": {
+                "Schedule": [
+                    "importICalendar",
+                    "exportToICalendar"
                 ]
             }
         },

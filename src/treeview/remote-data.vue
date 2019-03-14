@@ -22,6 +22,7 @@
 </div>
 </div>
 </template>
+/* custom code start */
 <style>
 .tree-control-wrapper {
         max-width: 500px;
@@ -36,6 +37,7 @@
         font-size: 20px;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";

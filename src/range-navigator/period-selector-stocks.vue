@@ -14,14 +14,14 @@
   </div>
     <br>
     <div align="center">
-        <ejs-rangenavigator style='display:block' align='center' id='containerStock' valueType= 'DateTime'  disableRangeSelector=true
+        <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerStock' valueType= 'DateTime'  disableRangeSelector=true
         :dataSource='data' xName='x' yName='close' :theme='theme' :width='widthRange' :load='load' :loaded='loadedRange' :changed='changed'
         :periodSelectorSettings='periodSelectorSettings'>
     </ejs-rangenavigator>
    </div>
    <div align="center">
 
-      <ejs-chart id='chartStock' align='center' style="display:block;" :primaryXAxis='primaryXAxis' 
+      <ejs-chart id='chartStock' ref='chart' align='center' style="display:block;" :primaryXAxis='primaryXAxis' 
             :primaryYAxis='primaryYAxis' :rows='rows' :axes = 'axes' height='350' :axisLabelRender='axisLabelRender'
             :loaded='loaded' :series='series' :tooltip='tooltip' :tooltipRender='tooltipRender' :pointRender='pointRender'
             :chartMouseLeave='chartMouseLeave' :chartMouseMove='chartMouseMove' :margin='margin' :chartArea='chartArea'
@@ -220,9 +220,8 @@ export default Vue.extend({
     },
 
     tooltipRender: function(args) {
-      var chart = document.getElementById("chartStock").ej2_instances;
       if (args.series.type === "Candle") {
-        chart[0].setAnnotationValue(0,annotationString + (getContent(args.text) + "</table>") + "</div>");
+        this.$refs.chart.ej2Instances.setAnnotationValue(0,annotationString + (getContent(args.text) + "</table>") + "</div>");
       }
       args.text = "";
     },
@@ -261,17 +260,17 @@ export default Vue.extend({
       }
     },
     chartMouseMove: function(args) {
-      var chart = document.getElementById("chartStock").ej2_instances;
-      if (!withInBounds(chart[0].mouseX,chart[0].mouseY,chart[0].chartAxisLayoutPanel.seriesClipRect)) {
+      var chart = this.$refs.chart.ej2Instances;
+      if (!withInBounds(chart.mouseX, chart.mouseY, chart.chartAxisLayoutPanel.seriesClipRect)) {
         setTimeout(() => { if (getElement("annotation")) { remove(getElement("annotation")); }}, 2000);
       }
     },
-    loadedRange: function(args) {
-      var range = document.getElementById("containerStock").ej2_instances;
+    loadedRange: function(args) {      
       if (!Browser.isDevice) {
         document.getElementById("containerStock_Secondary_Element").style.transform = "translate(14%)";
       }
-      let value = range[0].svgObject.getBoundingClientRect().left - range[0].element.getBoundingClientRect().left;
+      var range = this.$refs.range.ej2Instances;
+      let value = range.svgObject.getBoundingClientRect().left - range.element.getBoundingClientRect().left;
       document.getElementById("stockRange").style.transform = "translateX(" + (value - 10) + "px)";
     }
   }

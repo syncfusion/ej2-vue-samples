@@ -3,7 +3,7 @@
 <div class="control-section">   
      <h4 id="default" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Bitcoin (USD) Price Range</h4> 
     <div align="center">
-        <ejs-rangenavigator style='display:block' align='center' id='containerDefault' :valueType='valueType'
+        <ejs-rangenavigator ref='range' style='display:block' align='center' id='containerDefault' :valueType='valueType'
          :tooltip='tooltip' :value='value' :width='width' :labelFormat='labelFormat' :theme='theme' 
          :navigatorStyleSettings='navigatorStyleSettings'>
             <e-rangenavigator-series-collection>
@@ -26,7 +26,7 @@
         <p style="font-weight: 500">Injecting Module</p>
         <p>
          The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module in the <code>provide</code> section
-         Inject(DateTime)</code> method. To use the tooltip, inject the <code>RangeTooltip</code> module in the <code>provide</code> section.
+         Inject(DateTime) method. To use the tooltip, inject the <code>RangeTooltip</code> module in the <code>provide</code> section.
         </p>
 </div>
 <svg style="height: 0">
@@ -122,9 +122,15 @@ export default Vue.extend({
       border: { width: 2, color: borderColor[themes.indexOf(theme)] }
     };
   },
+  
   provide: {
     rangeNavigator: [DateTime, AreaSeries, RangeTooltip]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+      });
+    },
   methods: {
   
   }

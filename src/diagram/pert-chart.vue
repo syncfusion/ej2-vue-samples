@@ -2,7 +2,7 @@
 
 <div class="control-section">
     <div style="width:100%">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
     </div>
 <div id="action-description">
     <p>
@@ -28,7 +28,7 @@
 </template>
 <style>
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   SnapConstraints,
@@ -59,15 +59,15 @@ import { DataManager } from "@syncfusion/ej2-data";
 
 Vue.use(DiagramPlugin);
 
-let diagramInstance: Diagram;
+let diagramInstance;
 
 function getTextElement(
-  text: string,
-  alignment: HorizontalAlignment,
-  width?: number | any,
-  valignment?: VerticalAlignment | any
-): DiagramElement {
-  let textElement: TextElement = new TextElement();
+  text,
+  alignment,
+  width,
+  valignment
+) {
+  let textElement = new TextElement();
   textElement.content = text;
   textElement.id = randomId();
   textElement.width = width;
@@ -81,18 +81,18 @@ function getTextElement(
   textElement.relativeMode = "Object";
   return textElement;
 }
-let sDate: string = "startDate";
-let eDate: string = "endDate";
-let duration: string = "duration";
-let addRows: Function = (column: StackPanel, node: NodeModel) => {
+let sDate = "startDate";
+let eDate = "endDate";
+let duration = "duration";
+let addRows = (column, node) => {
   column.children.push(
-    getTextElement((node.data as DataInfo)[sDate], "Left", 70)
+    getTextElement((node.data)[sDate], "Left", 70)
   );
   column.children.push(
-    getTextElement((node.data as DataInfo)[duration], "Center", 30)
+    getTextElement((node.data)[duration], "Center", 30)
   );
   column.children.push(
-    getTextElement((node.data as DataInfo)[eDate], "Right", 70)
+    getTextElement((node.data)[eDate], "Right", 70)
   );
 };
 
@@ -105,11 +105,11 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "id",
         parentId: "Category",
-        dataManager: new DataManager(pertChartData as JSON[]),
+        dataManager: new DataManager(pertChartData),
         //binds the external data with node
-        doBinding: (nodeModel: NodeModel, data: object, diagram: Diagram) => {
-          let shape: string = "shape";
-          let name: string = "id";
+        doBinding: (nodeModel, data, diagram) => {
+          let shape = "shape";
+          let name = "id";
           /* tslint:disable:no-string-literal */
           nodeModel["shape"] = { type: "Text" };
         }
@@ -121,7 +121,7 @@ export default Vue.extend({
         horizontalSpacing: 70
       },
       //Sets the default values of connector
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         connector.type = "Straight";
         if (connector.style) connector.style.strokeColor = "#979797";
         if (connector.targetDecorator) {
@@ -135,7 +135,7 @@ export default Vue.extend({
         return connector;
       },
       //used to customize template of the node.
-      setNodeTemplate: (node: NodeModel) => {
+      setNodeTemplate: (node) => {
         return getNodeTemplate(node);
       },
       tool: DiagramTools.ZoomPan
@@ -145,20 +145,19 @@ export default Vue.extend({
     diagram: [DataBinding, HierarchicalTree, ComplexHierarchicalTree]
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
 });
 
 //customization of the node template.
-function getNodeTemplate(node: NodeModel): StackPanel {
-  let table: StackPanel = new StackPanel();
+function getNodeTemplate(node) {
+  let table = new StackPanel();
   table.style.fill = "#0069d9";
   table.id = randomId();
   table.orientation = "Vertical";
-  let nameKey: string = "id";
-  let stack: StackPanel = new StackPanel();
+  let nameKey = "id";
+  let stack = new StackPanel();
   stack.children = [];
   stack.id = randomId();
   stack.height = 25;
@@ -167,15 +166,12 @@ function getNodeTemplate(node: NodeModel): StackPanel {
   stack.horizontalAlignment = "Stretch";
   addRows(stack, node);
   table.children = [
-    getTextElement((node.data as DataInfo)[nameKey], "Stretch", 170, "Stretch"),
+    getTextElement((node.data)[nameKey], "Stretch", 170, "Stretch"),
     stack
   ];
-  (table.children[0].style as TextStyleModel).color = "white";
-  (table.children[0].style as TextStyleModel).fontSize = 14;
+  (table.children[0].style).color = "white";
+  (table.children[0].style).fontSize = 14;
   return table;
 }
 
-export interface DataInfo {
-  [key: string]: string;
-}
 </script>

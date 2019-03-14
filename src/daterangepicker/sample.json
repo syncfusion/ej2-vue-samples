@@ -2,6 +2,7 @@
     "name": "DateRangePicker",
     "directory": "daterangepicker",
     "category": "Calendars",
+	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -42,12 +43,21 @@
             "api":{"DateRangePicker": [ "placeholder", "presets" ]},
             "description": "This example demonstrates how to specify the predefined custom date ranges (presets range) like last month, last year and current week in the dropdown popup"
         },
+		{
+            "url": "month-range-picker",
+            "name": "Month Range Picker",
+            "category": "DateRangePicker",
+            "type": "new",
+            "hideOnDevice": true,
+            "api":{"DateRangePicker": [ "start", "depth" ]},
+            "description": "The Vue DateRangePicker component can act as a month and year picker. It helps you to select a month or year quickly with all months related properties."
+        },
         {
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "type": "new",
+            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "value" ]}
         }
     ]

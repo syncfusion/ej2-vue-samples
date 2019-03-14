@@ -3,7 +3,7 @@
 <div class="control-section">
       <h4 align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Inflation vs Goods Consumers</h4>
     <div align="center">
-         <ejs-rangenavigator style='display:block' align='center' id='containerLog' :value='value' labelIntersectAction='None'
+         <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerLog' :value='value' labelIntersectAction='None'
          labelPosition ='Outside' valueType='Logarithmic' :width='width' :load='load' :labelRender='labelRender' :changed='changed'
          :tooltip='tooltip' :theme='theme' :tooltipRender='tooltipRender'>
             <e-rangenavigator-series-collection>
@@ -13,7 +13,7 @@
         </ejs-rangenavigator>
     </div>
     <div align="center">
-        <ejs-chart style='display:block;' id='chartLog' align='center' :chartArea='chartArea' :width='width' 
+        <ejs-chart style='display:block;' ref='chart' id='chartLog' align='center' :chartArea='chartArea' :width='width' 
             :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :theme='theme'>
             <e-series-collection>
                 <e-series :dataSource='dataSource' type='StepArea' xName='x' yName='y' width='2' :marker='marker' :fill='fill' :border='border'>
@@ -145,17 +145,20 @@ export default Vue.extend({
     rangeNavigator: [Logarithmic, StepLineSeries, RangeTooltip],
     chart: [Logarithmic, StepAreaSeries]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+        this.$refs.chart.ej2Instances.refresh();
+      });
+    },
   methods: {
     load: function(args) {
       args.rangeNavigator.interval = 1;
     },
     changed: function(args) {
-      var chart = document.getElementById("chartLog").ej2_instances;
-      if (chart) {
-        chart[0].primaryXAxis.zoomFactor = args.zoomFactor;
-        chart[0].primaryXAxis.zoomPosition = args.zoomPosition;
-        chart[0].dataBind();
-      }
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
+        this.$refs.chart.ej2Instances.dataBind();
     },
     labelRender: function(args) {
       args.text = (+args.text).toExponential().toLocaleUpperCase();

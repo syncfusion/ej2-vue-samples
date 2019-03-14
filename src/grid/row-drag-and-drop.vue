@@ -57,6 +57,7 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
 #Grid {
   float: left;
@@ -73,7 +74,7 @@
   padding: 1em;
 }
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { GridPlugin, RowDD, Selection, Page } from "@syncfusion/ej2-vue-grids";

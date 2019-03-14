@@ -13,14 +13,13 @@
     </div>
     <div id="action-description">
     <p>
-        This sample demonstrates two-way binding support of the Textbox component. Enter a value in any textboxes to see in action.
+        This sample demonstrates two-way binding support of the Textbox component. Enter a value in any textboxes to see an action. 
     </p>
     </div>
 
     <div id="description">
-        <p>
-        In this sample, the two-way binding support is achieved using v-model directive in Vue. When you change a value in textbox, another textbox's value updates automatically.
-    </p>
+    <p>In this sample, the two-way binding support is achieved using the v-model directive in Vue. When you change a value in the textbox, another textbox's value updates automatically.</p>
+    <p>The v-model directive updates the template every time whenever the model gets updated and vice versa.</p>
     </div>
 </div>
 </template>

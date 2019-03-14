@@ -12,6 +12,7 @@
         <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>
     </div>
     <br/>
+
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://www.google.co.in/maps/dir/Los+Angeles,+CA,+USA/Mexico+City,+Mexico/@26.3645122,-117.6940069,5z/data=!4m14!4m13!1m5!1m1!1s0x80c2c75ddc27da13:0xe22fdf6f254608f4!2m2!1d-118.2436849!2d34.0522342!1m5!1m1!1s0x85ce0036b1352927:0xdefd9e4ee8d18a5b!2m2!1d-99.1013498!2d19.2464696!3e4?hl=en" target="_blank">www.google.co.in/maps</a>
     </div>  
@@ -145,6 +146,7 @@ data:function(){
 provide: {
     maps: [Zoom, Bubble, MapsTooltip, Marker, NavigationLine]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -153,5 +155,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 }
+/* custom code end */
 })
 </script>

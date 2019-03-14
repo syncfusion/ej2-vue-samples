@@ -13,7 +13,7 @@
     </p>
     <p>
         In this demo, <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/api/context-menu/#target">target
+        href="https://ej2.syncfusion.com/vue/documentation/api/context-menu/#target">target
         </a></code> property is set as '#contextmenutarget'. Hence, on right clicking the target element, the ContextMenu will open.
     </p>
     <p>
@@ -21,7 +21,7 @@
     </p>
     <p>
         More information about ContextMenu can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/context-menu/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/context-menu/getting-started">
         documentation section</a>.
     </p>
 </div>
@@ -48,7 +48,7 @@
   line-height: 1;
   text-transform: none;
 }
-
+/* custom code start */
 .contextmenu-control {
   margin: 5% 25%;
   width: auto;
@@ -84,7 +84,7 @@
   display: inline-block;
   line-height: 36px;
 }
-
+/* custom code end */
 .e-menu-item .e-cut::before {
   content: "\e264";
 }

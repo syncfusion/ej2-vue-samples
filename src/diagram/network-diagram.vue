@@ -5,21 +5,21 @@
       <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
     </div>
     <div id="palette-space" class="sb-mobile-palette">
-        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'
+        <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'
             :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin'
             :symbolWidth='symbolWidth' :symbolHeight='symbolHeight'>
         </ejs-symbolpalette>
        <div id="dropArea">
             <ejs-button id="browse" class="e-outline" :isPrimary="true" v-on:click.native="btnClick">IMPORT SVG FILES</ejs-button>
-            <ejs-uploader id='uploadFiles' name="UploadFiles" :asyncSettings='path' ref="uploadObj"
+            <ejs-uploader ref='uploadObj' id='uploadFiles' name="UploadFiles" :asyncSettings='path'
                 :dropArea='dropElement' :success='onUploadSuccess' :removing='onFileRemove'>
             </ejs-uploader>
         </div>
     </div>
 
     <div id="diagram-space" class="sb-mobile-diagram">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
-            :snapSettings='snapSettings' :created='created'>
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
+            :snapSettings='snapSettings'>
         </ejs-diagram>
     </div>
   </div>
@@ -138,7 +138,7 @@
         }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
@@ -190,36 +190,36 @@ Vue.use(DiagramPlugin);
 Vue.use(SymbolPalettePlugin);
 Vue.use(UploaderPlugin);
 Vue.use(ButtonPlugin);
-let isMobile: boolean;
-let diagramInstance: Diagram;
-let uploadObjInstance: Uploader;
-let paletteInstance: SymbolPalette;
-let id: number = 0;
+let isMobile;
+let diagramInstance;
+let uploadObjInstance;
+let paletteInstance;
+let id = 0;
 //Initializes the ports for the nodes.
-let port: PointPortModel[] = [
+let port = [
   { id: "port1", offset: { x: 0, y: 0.5 } },
   { id: "port2", offset: { x: 1, y: 0.5 } },
   { id: "port3", offset: { x: 0.5, y: 0.1 } },
   { id: "port4", offset: { x: 0.5, y: 0.92 } }
 ];
-let portrc: PointPortModel[] = [
+let portrc = [
   { id: "port1", offset: { x: 0.05, y: 0.5 } },
   { id: "port2", offset: { x: 1, y: 0.5 } },
   { id: "port3", offset: { x: 0.85, y: 0.1 } },
   { id: "port4", offset: { x: 0.6, y: 0.97 } }
 ];
-let porthmi: PointPortModel[] = [
+let porthmi = [
   { id: "port1", offset: { x: 0.34, y: 0.5 } },
   { id: "port2", offset: { x: 0.75, y: 0.5 } },
   { id: "port3", offset: { x: 0.5, y: 0.05 } },
   { id: "port4", offset: { x: 0.6, y: 0.9 } }
 ];
-let port2: PointPortModel[] = [
+let port2 = [
   { id: "port1", offset: { x: 0.45, y: 0.5 } },
   { id: "port2", offset: { x: 0.97, y: 0.5 } },
   { id: "port3", offset: { x: 0.5, y: 0.97 } }
 ];
-let portmo: PointPortModel[] = [
+let portmo = [
   { id: "port1", offset: { x: 0.02, y: 0.6 } },
   { id: "port2", offset: { x: 0.98, y: 0.625 } },
   { id: "port3", offset: { x: 0.5, y: 0.3 } },
@@ -227,7 +227,7 @@ let portmo: PointPortModel[] = [
 ];
 
 //Initializes the nodes for the diagram.
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "Server1",
     offsetX: 80,
@@ -472,7 +472,7 @@ let nodes: NodeModel[] = [
 ];
 
 //Initializes the connectors for the diagram.
-let connectors: ConnectorModel[] = [
+let connectors = [
   {
     id: "connectora",
     sourceID: "Server1",
@@ -625,7 +625,7 @@ let connectors: ConnectorModel[] = [
 ];
 
 // initializes the network symbols to the UML Shapes in the symbol palette.
-let symbols: NodeModel[] = [
+let symbols = [
   { id: "server", shape: { type: "Native", content: template1 } },
   { id: "workStation", shape: { type: "Native", content: template2 } },
   { id: "modem", shape: { type: "Native", content: template3 } },
@@ -645,13 +645,13 @@ let symbols: NodeModel[] = [
   { id: "Security-camera", shape: { type: "Native", content: template18 } },
   { id: "arrow1", shape: { type: "Path", data: arrow } }
 ];
-let sourcePoint: PointModel = { x: 0, y: 0 };
-let targetPoint: PointModel = { x: 40, y: 40 };
-let targetDecorator: DecoratorModel = { shape: "Arrow" };
-let style: StrokeStyleModel = { strokeWidth: 2 };
+let sourcePoint = { x: 0, y: 0 };
+let targetPoint = { x: 40, y: 40 };
+let targetDecorator = { shape: "Arrow" };
+let style = { strokeWidth: 2 };
 
 // initializes the connector symbols to the UML Shapes in the symbol palette.
-let connectorSymbols: ConnectorModel[] = [
+let connectorSymbols = [
   {
     id: "link11",
     type: "Straight",
@@ -670,7 +670,7 @@ let connectorSymbols: ConnectorModel[] = [
   }
 ];
 // Initializes the palettes to be displayed in the symbol palette.
-let palettes: PaletteModel[] = [
+let palettes = [
   { id: "network", expanded: true, symbols: symbols, title: "Network Shapes" },
   {
     id: "connectors",
@@ -701,19 +701,15 @@ export default Vue.extend({
         removeUrl:
           "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove"
       },
-    created: (args: Object): void => {
-      addEvents();
-      diagramInstance.fitToPage();
-    },
        //Sets the default values of a node
-    getNodeDefaults: (node: NodeModel): NodeModel => {
+    getNodeDefaults: (node) => {
       if (node.style) {
         node.style.strokeColor = "#5C90DF";
         node.style.fill = "transparent";
       }
       if (node.annotations && node.annotations.length !== 0) {
         if (node.annotations[0]) {
-          let annotation: ShapeAnnotationModel = node.annotations[0];
+          let annotation = node.annotations[0];
           if (annotation && annotation.style) {
             annotation.style.color = "black";
             annotation.style.fontSize = 12;
@@ -724,7 +720,7 @@ export default Vue.extend({
         }
       }
       if (node.ports && node.ports.length !== 0) {
-        for (let i: number = 0; i < node.ports.length; i++) {
+        for (let i = 0; i < node.ports.length; i++) {
           node.ports[i].visibility = PortVisibility.Hidden;
         }
       }
@@ -769,7 +765,7 @@ export default Vue.extend({
             node.width = 40;
             node.height = 50;
           }
-          (node.shape as Native).scale = "Stretch";
+          (node.shape).scale = "Stretch";
         }
         if (node.shape.type === "Text") {
           node.width = 127;
@@ -796,7 +792,7 @@ export default Vue.extend({
       return node;
     },
     //Sets the default values of a connector
-    getConnectorDefaults: (connector: Connector): Connector => {
+    getConnectorDefaults: (connector) => {
       connector.targetDecorator = {
         shape: "Arrow",
         width: 8,
@@ -805,14 +801,14 @@ export default Vue.extend({
       };
       connector.style.strokeColor = "#5C90DF";
       if (connector.annotations && connector.annotations.length !== 0) {
-        let annotation: PathAnnotationModel = connector.annotations[0];
+        let annotation = connector.annotations[0];
         if (annotation && annotation.style) {
           annotation.style.fill = "white";
         }
       }
       return connector;
     },
-    palettegetNodeDefaults: (symbol: NodeModel): void => {
+    palettegetNodeDefaults: (symbol) => {
       if (symbol.id === "arrow1") {
         symbol.width = 75;
         symbol.height = 60;
@@ -834,44 +830,43 @@ export default Vue.extend({
         if (symbol.style) {
           symbol.style.strokeColor = "";
         }
-        (symbol.shape as Native).scale = "Stretch";
+        (symbol.shape).scale = "Stretch";
       }
     },
-    getSymbolInfo: (symbol: NodeModel): SymbolInfo => {
+    getSymbolInfo: (symbol) => {
       return { fit: true };
     },
       dropElement: ".control-fluid"
     };
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
-    let paletteObj: any = document.getElementById("symbolpalette");
-    paletteInstance = paletteObj.ej2_instances[0];
-    let uploadObj: any = document.getElementById("uploadFiles");
-    uploadObjInstance = uploadObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+      addEvents();
+      diagramInstance.fitToPage();
+    paletteInstance = this.$refs.paletteObj.ej2Instances;
+    uploadObjInstance = this.$refs.uploadObj.ej2Instances;
   },
   methods: {
-    btnClick: (): boolean => {
+    btnClick: () => {
       if (
         !isNullOrUndefined(
           document.getElementsByClassName("e-file-select-wrap")
         )
       ) {
-        let obj: any = document.getElementsByClassName("e-file-select-wrap")[0];
+        let obj = document.getElementsByClassName("e-file-select-wrap")[0];
         obj.querySelector("button").click();
       }
       return false;
     },
-    onUploadSuccess: (arg: any): void => {
-      let file1: any = arg.file;
-      let file: any = file1.rawFile;
-      let reader: FileReader = new FileReader();
+    onUploadSuccess: (arg) => {
+      let file1 = arg.file;
+      let file = file1.rawFile;
+      let reader = new FileReader();
       reader.addEventListener(
         "load",
-        (event: any): void => {
-          let shape: NodeModel;
-          let shapeContent: string = event.target.result;
+        (event) => {
+          let shape;
+          let shapeContent = event.target.result;
           shape = {
             id: "newshape" + id.toString(),
             shape: { type: "Native", content: shapeContent }
@@ -883,28 +878,28 @@ export default Vue.extend({
       reader.readAsText(file);
       uploadObjInstance.clearAll();
     },
-    onFileRemove: (args: RemovingEventArgs): void => {
+    onFileRemove: (args) => {
       args.postRawFile = false;
     }
   }
 });
 
-function addEvents(): void {
+function addEvents() {
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
-    let paletteIcon: HTMLElement = document.getElementById(
+    let paletteIcon = document.getElementById(
       "palette-icon"
-    ) as HTMLElement;
+    );
     if (paletteIcon) {
       paletteIcon.addEventListener("click", openPalette, false);
     }
   }
 }
 
-function openPalette(): void {
-  let paletteSpace: HTMLElement = document.getElementById(
+function openPalette() {
+  let paletteSpace = document.getElementById(
     "palette-space"
-  ) as HTMLElement;
+  );
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
     if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {

@@ -31,11 +31,13 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
     .e-image {
         margin-right: 8px;
     }
 </style>
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";

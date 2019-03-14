@@ -6,7 +6,8 @@
         <e-layer :shapeData='shapeData2' :type='type2' :markerSettings='markerSettings2' :shapeSettings='shapeSettings2'></e-layer>
         <e-layer :shapeData='shapeData3' :type='type3' :markerSettings='markerSettings3' :shapeSettings='shapeSettings3'></e-layer>      
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+  
 <div style="float: right; margin-right: 10px;">Source:
     <a href="http://www.samsung.com/semiconductor/about-us/location/" target="_blank">www.samsung.com</a>
 </div>
@@ -157,6 +158,7 @@ export default Vue.extend({
 provide: {
     maps: [Marker, MapsTooltip, DataLabel, Zoom]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -165,5 +167,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     } 
 }
+/* custom code end */
 })
 </script>

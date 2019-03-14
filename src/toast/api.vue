@@ -2,7 +2,7 @@
 <div class="toast-api-section">
  <div class="col-lg-12 control-section">
     <div class="e-sample-resize-container">
-        <ejs-toast ref='apiRef' id='toastApi' :position='position' :beforeOpen='onBeforeOpen' :close='onclose' newestOnTop=true :created='created'></ejs-toast>
+        <ejs-toast ref='apiRef' id='toastApi' :position='position' :animation='showAnimation' :beforeOpen='onBeforeOpen' :close='onclose' newestOnTop=true :created='created'></ejs-toast>
         <div class="row">
             <div class='col-lg-6 padding'>
                 <div class="input-form">
@@ -101,7 +101,7 @@
  </div>
 </template>
 <style>
-
+    /* custom code start */
     .toast-api-section {
         padding-top: 0;
     }
@@ -125,6 +125,7 @@
     .toast-api-section .row {
         padding: 0 15px;
     }
+    /* custom code end */
 </style>
 <script>
 import Vue from "vue";
@@ -191,12 +192,13 @@ export default Vue.extend({
             ],
             easeValue: 'ease',
             animationValue: 'SlideBottomIn',
-            animationHideValue: 'SlideBottomOut'
+            animationHideValue: 'SlideBottomOut',
+            showAnimation: { show : { effect: 'SlideBottomIn' }, hide : { effect: 'SlideBottomOut'} }
         }
     },
     mounted: function(){
         this.prevDuplicates = false;
-        this.apiObj = document.getElementById('toastApi').ej2_instances[0];
+        this.apiObj = this.$refs.apiRef.ej2Instances;
     },
     methods: {
       onBeforeOpen: function(args) {
@@ -279,9 +281,12 @@ export default Vue.extend({
             this.apiObj.animation.show.easing = args.value.toString();
        },
        onHideEase: function(args){
-            this.apiObj.animation.hide.easing = asgs.value.toString();
+            this.apiObj.animation.hide.easing = args.value.toString();
        },
        created: function(args){
+            this.apiObj = this.$refs.apiRef.ej2Instances;
+            this.apiObj.animation.show.effect = this.$refs.showAnimationRef.value;
+            this.apiObj.animation.hide.effect = this.$refs.hideAnimationRef.value;
             document.addEventListener('click', function() {
                if (!isNullOrUndefined(this.$refs.apiRef) && !isNullOrUndefined(this.$refs.buttonShowRef) && event.target !== this.$refs.buttonShowRef.$el) {
                    this.$refs.apiRef.hide('All');

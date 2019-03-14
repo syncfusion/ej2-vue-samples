@@ -34,10 +34,12 @@
             margin-top: 15px;
             font-size: 12px;
         }
+        /* custom code start */
         .code-editor #target {
             margin: 20px auto;
             max-width: 600px;
         }
+        /* custom code end */
         .code-editor.control-section{            
             min-height: 370px;
             margin-bottom: 15px;

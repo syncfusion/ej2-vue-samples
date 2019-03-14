@@ -14,6 +14,7 @@
 </ejs-maps>           
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <br/>
         <table id="property" title="Seat Selection" style="width: 100%;font-weight:400 !important">
@@ -54,7 +55,7 @@
 </div>
 <div id="description">
             <p>
-              In this example, you can see how to render the normal geometry type shapes on the map to visualize a seating chart. Selection is enabled in this sample. You can use the <code>fill</code>, <code>width</code>, and <code>color</code> properties in the <code>selectionSettings</code> to customize the appearance of the shapes after selection.
+              In this example, you can see how to render the normal geometry type shapes on the map. Selection is enabled in this sample. You can use the <code>fill</code>, <code>width</code>, and <code>color</code> properties in the <code>selectionSettings</code> to customize the appearance of the shapes after selection.
             </p>
         <br/>
             <p style="font-weight: 500">Injecting Module</p>
@@ -123,12 +124,14 @@ export default Vue.extend({
       maps:[Selection]
   },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     itemSelection:function(args){
         let seatInfo = document.getElementById('selectedseats');
           if ((args.shapeData).fill === 'Orange') {

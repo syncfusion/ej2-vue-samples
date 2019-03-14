@@ -186,7 +186,7 @@ export default Vue.extend({
         !isNullOrUndefined(document.getElementById("minrange")) &&
         this.$refs.minslider
       ) {
-        this.$refs.minslider.ej2Instances.refreshTooltip();
+        this.$refs.minslider.ej2Instances.refreshTooltip(this.$refs.minslider.ej2Instances.tooltipTarget);
       }
     }
   },

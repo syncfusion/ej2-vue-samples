@@ -31,7 +31,7 @@
         </p>
         <p>
             More information on the line series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/documentation/api/chart/series/#type">documentation section</a>.
         </p> 
 </div>
 

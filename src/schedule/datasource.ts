@@ -9,146 +9,170 @@ export let scheduleData: Object[] = [
     {
         Id: 1,
         Subject: 'Explosion of Betelgeuse Star',
-        StartTime: new Date(2018, 1, 11, 9, 30),
-        EndTime: new Date(2018, 1, 11, 11, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 6, 9, 30),
+        EndTime: new Date(2019, 0, 6, 11, 0),
         CategoryColor: '#1aaa55'
     }, {
         Id: 2,
         Subject: 'Thule Air Crash Report',
-        StartTime: new Date(2018, 1, 12, 12, 0),
-        EndTime: new Date(2018, 1, 12, 14, 0),
+        Location: 'Newyork City',
+        StartTime: new Date(2019, 0, 7, 12, 0),
+        EndTime: new Date(2019, 0, 7, 14, 0),
         CategoryColor: '#357cd2'
     }, {
         Id: 3,
         Subject: 'Blue Moon Eclipse',
-        StartTime: new Date(2018, 1, 13, 9, 30),
-        EndTime: new Date(2018, 1, 13, 11, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 8, 9, 30),
+        EndTime: new Date(2019, 0, 8, 11, 0),
         CategoryColor: '#7fa900'
     }, {
         Id: 4,
         Subject: 'Meteor Showers in 2018',
-        StartTime: new Date(2018, 1, 14, 13, 0),
-        EndTime: new Date(2018, 1, 14, 14, 30),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 9, 13, 0),
+        EndTime: new Date(2019, 0, 9, 14, 30),
         CategoryColor: '#ea7a57'
     }, {
         Id: 5,
         Subject: 'Milky Way as Melting pot',
-        StartTime: new Date(2018, 1, 15, 12, 0),
-        EndTime: new Date(2018, 1, 15, 14, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 10, 12, 0),
+        EndTime: new Date(2019, 0, 10, 14, 0),
         CategoryColor: '#00bdae'
     }, {
         Id: 6,
         Subject: 'Mysteries of Bermuda Triangle',
-        StartTime: new Date(2018, 1, 15, 9, 30),
-        EndTime: new Date(2018, 1, 15, 11, 0),
+        Location: 'Bermuda',
+        StartTime: new Date(2019, 0, 10, 9, 30),
+        EndTime: new Date(2019, 0, 10, 11, 0),
         CategoryColor: '#f57f17'
     }, {
         Id: 7,
         Subject: 'Glaciers and Snowflakes',
-        StartTime: new Date(2018, 1, 16, 11, 0),
-        EndTime: new Date(2018, 1, 16, 12, 30),
+        Location: 'Himalayas',
+        StartTime: new Date(2019, 0, 11, 11, 0),
+        EndTime: new Date(2019, 0, 11, 12, 30),
         CategoryColor: '#1aaa55'
     }, {
         Id: 8,
         Subject: 'Life on Mars',
-        StartTime: new Date(2018, 1, 17, 9, 0),
-        EndTime: new Date(2018, 1, 17, 10, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 12, 9, 0),
+        EndTime: new Date(2019, 0, 12, 10, 0),
         CategoryColor: '#357cd2'
     }, {
         Id: 9,
         Subject: 'Alien Civilization',
-        StartTime: new Date(2018, 1, 19, 11, 0),
-        EndTime: new Date(2018, 1, 19, 13, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 14, 11, 0),
+        EndTime: new Date(2019, 0, 14, 13, 0),
         CategoryColor: '#7fa900'
     }, {
         Id: 10,
         Subject: 'Wildlife Galleries',
-        StartTime: new Date(2018, 1, 21, 11, 0),
-        EndTime: new Date(2018, 1, 21, 13, 0),
+        Location: 'Africa',
+        StartTime: new Date(2019, 0, 16, 11, 0),
+        EndTime: new Date(2019, 0, 16, 13, 0),
         CategoryColor: '#ea7a57'
     }, {
         Id: 11,
         Subject: 'Best Photography 2018',
-        StartTime: new Date(2018, 1, 22, 9, 30),
-        EndTime: new Date(2018, 1, 22, 11, 0),
+        Location: 'London',
+        StartTime: new Date(2019, 0, 17, 9, 30),
+        EndTime: new Date(2019, 0, 17, 11, 0),
         CategoryColor: '#00bdae'
     }, {
         Id: 12,
         Subject: 'Smarter Puppies',
-        StartTime: new Date(2018, 1, 9, 10, 0),
-        EndTime: new Date(2018, 1, 9, 11, 30),
+        Location: 'Sweden',
+        StartTime: new Date(2019, 0, 4, 10, 0),
+        EndTime: new Date(2019, 0, 4, 11, 30),
         CategoryColor: '#f57f17'
     }, {
         Id: 13,
         Subject: 'Myths of Andromeda Galaxy',
-        StartTime: new Date(2018, 1, 7, 10, 30),
-        EndTime: new Date(2018, 1, 7, 12, 30),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 2, 10, 30),
+        EndTime: new Date(2019, 0, 2, 12, 30),
         CategoryColor: '#1aaa55'
     }, {
         Id: 14,
         Subject: 'Aliens vs Humans',
-        StartTime: new Date(2018, 1, 5, 10, 0),
-        EndTime: new Date(2018, 1, 5, 11, 30),
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2019, 0, 1, 10, 0),
+        EndTime: new Date(2019, 0, 1, 11, 30),
         CategoryColor: '#357cd2'
     }, {
         Id: 15,
         Subject: 'Facts of Humming Birds',
-        StartTime: new Date(2018, 1, 20, 9, 30),
-        EndTime: new Date(2018, 1, 20, 11, 0),
+        Location: 'California',
+        StartTime: new Date(2019, 0, 15, 9, 30),
+        EndTime: new Date(2019, 0, 15, 11, 0),
         CategoryColor: '#7fa900'
     }, {
         Id: 16,
         Subject: 'Sky Gazers',
-        StartTime: new Date(2018, 1, 23, 11, 0),
-        EndTime: new Date(2018, 1, 23, 13, 0),
+        Location: 'Alaska',
+        StartTime: new Date(2019, 0, 18, 11, 0),
+        EndTime: new Date(2019, 0, 18, 13, 0),
         CategoryColor: '#ea7a57'
     }, {
         Id: 17,
         Subject: 'The Cycle of Seasons',
-        StartTime: new Date(2018, 1, 12, 5, 30),
-        EndTime: new Date(2018, 1, 12, 7, 30),
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2019, 0, 7, 5, 30),
+        EndTime: new Date(2019, 0, 7, 7, 30),
         CategoryColor: '#00bdae'
     }, {
         Id: 18,
         Subject: 'Space Galaxies and Planets',
-        StartTime: new Date(2018, 1, 12, 17, 0),
-        EndTime: new Date(2018, 1, 12, 18, 30),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 7, 17, 0),
+        EndTime: new Date(2019, 0, 7, 18, 30),
         CategoryColor: '#f57f17'
     }, {
         Id: 19,
         Subject: 'Lifecycle of Bumblebee',
-        StartTime: new Date(2018, 1, 15, 6, 0),
-        EndTime: new Date(2018, 1, 15, 7, 30),
+        Location: 'San Fransisco',
+        StartTime: new Date(2019, 0, 10, 6, 0),
+        EndTime: new Date(2019, 0, 10, 7, 30),
         CategoryColor: '#7fa900'
     }, {
         Id: 20,
         Subject: 'Alien Civilization',
-        StartTime: new Date(2018, 1, 15, 16, 0),
-        EndTime: new Date(2018, 1, 15, 18, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 10, 16, 0),
+        EndTime: new Date(2019, 0, 10, 18, 0),
         CategoryColor: '#ea7a57'
     }, {
         Id: 21,
         Subject: 'Alien Civilization',
-        StartTime: new Date(2018, 1, 11, 14, 0),
-        EndTime: new Date(2018, 1, 11, 16, 0),
+        Location: 'Space Centre USA',
+        StartTime: new Date(2019, 0, 6, 14, 0),
+        EndTime: new Date(2019, 0, 6, 16, 0),
         CategoryColor: '#ea7a57'
     }, {
         Id: 22,
         Subject: 'The Cycle of Seasons',
-        StartTime: new Date(2018, 1, 13, 14, 30),
-        EndTime: new Date(2018, 1, 13, 16, 0),
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2019, 0, 8, 14, 30),
+        EndTime: new Date(2019, 0, 8, 16, 0),
         CategoryColor: '#00bdae'
     }, {
         Id: 23,
         Subject: 'Sky Gazers',
-        StartTime: new Date(2018, 1, 16, 14, 30),
-        EndTime: new Date(2018, 1, 16, 16, 0),
+        Location: 'Greenland',
+        StartTime: new Date(2019, 0, 11, 14, 30),
+        EndTime: new Date(2019, 0, 11, 16, 0),
         CategoryColor: '#ea7a57'
     }, {
         Id: 24,
         Subject: 'Facts of Humming Birds',
-        StartTime: new Date(2018, 1, 17, 12, 30),
-        EndTime: new Date(2018, 1, 17, 14, 30),
+        Location: 'California',
+        StartTime: new Date(2019, 0, 12, 12, 30),
+        EndTime: new Date(2019, 0, 12, 14, 30),
         CategoryColor: '#7fa900'
     }
 ];
@@ -4879,5 +4903,86 @@ export let blockData: Object[] = [
         IsAllDay: false,
         IsBlock: true,
         EmployeeId: 3
+    }
+];
+export let resourceSampleData: Object[] = [
+    {
+        Id: 1,
+        Subject: 'Burning Man',
+        StartTime: new Date(2018, 5, 1, 15, 0),
+        EndTime: new Date(2018, 5, 1, 17, 30),
+        OwnerId: 1
+    }, {
+        Id: 2,
+        Subject: 'Marketing Forum',
+        StartTime: new Date(2018, 5, 3, 10, 0),
+        EndTime: new Date(2018, 5, 3, 11, 30),
+        OwnerId: 2
+    }, {
+        Id: 3,
+        Subject: 'Business Factory',
+        StartTime: new Date(2018, 5, 3, 13, 30),
+        EndTime: new Date(2018, 5, 3, 15, 0),
+        OwnerId: 3
+    }, {
+        Id: 4,
+        Subject: 'Burning Man',
+        StartTime: new Date(2018, 5, 4, 11, 30),
+        EndTime: new Date(2018, 5, 4, 13, 0),
+        OwnerId: 1
+    }, {
+        Id: 5,
+        Subject: 'Funnel Hacking',
+        StartTime: new Date(2018, 5, 5, 9, 30),
+        EndTime: new Date(2018, 5, 5, 11, 0),
+        OwnerId: 3
+    }, {
+        Id: 6,
+        Subject: 'The human gathering"',
+        StartTime: new Date(2018, 5, 5, 13, 0),
+        EndTime: new Date(2018, 5, 5, 14, 30),
+        OwnerId: 2
+    }, {
+        Id: 7,
+        Subject: 'Techweek',
+        StartTime: new Date(2018, 5, 6, 11, 0),
+        EndTime: new Date(2018, 5, 6, 12, 30),
+        OwnerId: 2
+    }, {
+        Id: 8,
+        Subject: 'Grow Conference',
+        StartTime: new Date(2018, 5, 7, 10, 0),
+        EndTime: new Date(2018, 5, 7, 11, 30),
+        OwnerId: 1
+    }, {
+        Id: 9,
+        Subject: 'Data Science Conference',
+        StartTime: new Date(2018, 5, 7, 13, 30),
+        EndTime: new Date(2018, 5, 7, 15, 0),
+        OwnerId: 1
+    }, {
+        Id: 10,
+        Subject: 'Blogcademy',
+        StartTime: new Date(2018, 5, 8, 12, 0),
+        EndTime: new Date(2018, 5, 8, 13, 30),
+        OwnerId: 3
+    }, {
+        Id: 11,
+        Subject: 'World Domination Summit',
+        StartTime: new Date(2018, 5, 9, 9, 30),
+        EndTime: new Date(2018, 5, 9, 11, 0),
+        OwnerId: 2
+    }, {
+        Id: 12,
+        Subject: 'Content Marketing',
+        StartTime: new Date(2018, 5, 9, 13, 0),
+        EndTime: new Date(2018, 5, 9, 14, 30),
+        OwnerId: 1
+    }, {
+        Id: 13,
+        Subject: 'Mobile World Conference',
+        StartTime: new Date(2018, 5, 15, 18, 0),
+        EndTime: new Date(2018, 5, 15, 20, 0),
+        OwnerId: 1
     }
 ];

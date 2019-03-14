@@ -12,6 +12,7 @@
         <title>Essential JS 2 for Angular - Sidebar > Default Functionalities</title>
         <div class="col-lg-12 col-sm-12 col-md-12">
          <span id="hamburger" class="e-icons menu default" v-on:click="openClick()"></span>
+            <!-- Sidebar element declaration -->
             <ejs-sidebar id="default-sidebar" ref="sidebar" :position="position">
                 <div class="title-header">
                     <div style="display:inline-block"> Sidebar</div>
@@ -26,13 +27,16 @@
                 <div class="title default">Main content</div>
                 <div class="sub-title"> Click the button to open/close the sidebar.
                     <div style="padding:20px" class="center-align">
+                        <!-- Button element declaration -->
                         <button ejs-button id="toggle" class="e-btn e-info" v-on:click="toggleClick">Toggle sidebar</button>
                     </div>
                     <p>Click the radio button to switch the sidebar position.</p>
                     <div class="column">
+                            <!-- RadioButton element declaration -->
                             <ejs-radiobutton id="left" label='Left' name='state' checked='true' :change="positionChange"></ejs-radiobutton>
                     </div>
                     <div class="column">
+                            <!-- RadioButton element declaration -->
                             <ejs-radiobutton id="right" label='Right' name='state' :change="positionChange"></ejs-radiobutton>
                     </div>
                 </div>
@@ -97,12 +101,12 @@ export default Vue.extend({
 
 <style>
   /* sample-level styles */
-
+/* custom code start */
  .center-align {
     text-align: center;
     padding: 20px;
 }
-
+/* custom code end */
 .title {
     text-align: center;
     font-size: 20px;
@@ -126,7 +130,7 @@ export default Vue.extend({
     font-size: 16px;
     padding: 10px;
 }
-
+/* custom code start */
 .center {
     text-align: center;
     display: none;
@@ -142,7 +146,7 @@ export default Vue.extend({
 .sb-content-tab #wrapper {
     display: none;
 }
-
+/* custom code end */
 #default-sidebar {
     background-color: rgb(25, 118, 210);
     color: #ffffff;
@@ -181,7 +185,7 @@ export default Vue.extend({
     cursor: pointer;
     line-height: 25px;
 }
-
+/* custom code start */
 .e-sidebar.e-left .title-header #close {
     float: right;
 }
@@ -189,7 +193,7 @@ export default Vue.extend({
 .e-sidebar.e-right .title-header #close {
     float: left;
 }
-
+/* custom code end */
 .title-header {
     text-align: center;
     font-size: 18px;

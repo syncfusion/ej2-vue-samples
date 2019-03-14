@@ -8,7 +8,7 @@
       <div id="diagram-space" style="width:calc(100% - 242px);height:445px; float:left;border-color: rgba(0, 0, 0, 0.12);border-width: 1px 1px 0px 0px;
                       border-style: solid;
                       border-left: none;">
-        <ejs-diagram style='display:block' id="diagram" :mode='mode' :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dragEnter='dragEnter' :snapSettings='snapSettings' :contextMenuSettings='contextMenuSettings' :contextMenuOpen='contextMenuOpen' :created='created' :contextMenuClick='contextMenuClick'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :mode='mode' :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dragEnter='dragEnter' :snapSettings='snapSettings' :contextMenuSettings='contextMenuSettings' :contextMenuOpen='contextMenuOpen' :contextMenuClick='contextMenuClick'></ejs-diagram>
       </div>
 
     </div>
@@ -400,7 +400,7 @@
   padding-bottom: 15px;
 }
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
@@ -438,8 +438,8 @@ import {
 Vue.use(DiagramPlugin);
 Vue.use(SymbolPalettePlugin);
 
-let diagram: Diagram;
-let nodes: NodeModel[] = [
+let diagram;
+let nodes = [
   {
     id: "start",
     width: 40,
@@ -450,7 +450,7 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "Start" }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "subProcess",
@@ -479,7 +479,7 @@ let nodes: NodeModel[] = [
           ]
         }
       }
-    } as BpmnShapeModel
+    } 
   },
   {
     id: "hazardEnd",
@@ -491,7 +491,7 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "End" }
-    } as BpmnShapeModel,
+    } ,
     annotations: [
       {
         id: "label2",
@@ -512,7 +512,7 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "End" }
-    } as BpmnShapeModel,
+    },
     annotations: [
       {
         id: "cancelledEndLabel2",
@@ -533,7 +533,7 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "End" }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "processesStart",
@@ -543,7 +543,7 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "Start" }
-    } as BpmnShapeModel,
+    },
     margin: { left: 40, top: 80 }
   },
   {
@@ -559,9 +559,9 @@ let nodes: NodeModel[] = [
         task: {
           type: "Service",
           loop: "ParallelMultiInstance"
-        } as BpmnTaskModel
-      } as BpmnActivityModel
-    } as BpmnShapeModel,
+        } 
+      }
+    },
     annotations: [
       {
         id: "serviceLabel2",
@@ -597,7 +597,7 @@ let nodes: NodeModel[] = [
           type: "Service"
         }
       }
-    } as BpmnShapeModel,
+    },
     annotations: [
       {
         id: "serviceLabel2",
@@ -619,7 +619,7 @@ let nodes: NodeModel[] = [
         event: "Intermediate",
         trigger: "Error"
       }
-    } as BpmnShapeModel,
+    },
     margin: { left: 350, top: 100 }
   },
   {
@@ -630,7 +630,7 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "End" }
-    } as BpmnShapeModel,
+    },
     margin: { left: 440, top: 80 }
   },
   {
@@ -649,7 +649,7 @@ let nodes: NodeModel[] = [
           offset: { x: 0.5, y: 1 }
         }
       }
-    } as BpmnShapeModel,
+    },
     annotations: [
       {
         id: "serviceLabel2",
@@ -668,11 +668,11 @@ let nodes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "End" }
-    } as BpmnShapeModel,
+    },
     margin: { left: 440, top: 210 }
   }
 ];
-let connectors: ConnectorModel[] = [
+let connectors = [
   { id: "connector1", sourceID: "start", targetID: "subProcess" },
   {
     id: "connector2",
@@ -751,7 +751,7 @@ let connectors: ConnectorModel[] = [
     segments: [{ type: "Orthogonal", length: 50, direction: "Bottom" }]
   }
 ];
-let bpmnShapes: NodeModel[] = [
+let bpmnShapes = [
   {
     id: "Start",
     width: 35,
@@ -760,7 +760,7 @@ let bpmnShapes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "Start" }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "NonInterruptingIntermediate",
@@ -770,7 +770,7 @@ let bpmnShapes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "NonInterruptingIntermediate" }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "End",
@@ -782,7 +782,7 @@ let bpmnShapes: NodeModel[] = [
       type: "Bpmn",
       shape: "Event",
       event: { event: "End" }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "Task",
@@ -796,7 +796,7 @@ let bpmnShapes: NodeModel[] = [
       activity: {
         activity: "Task"
       }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "Transaction",
@@ -819,7 +819,7 @@ let bpmnShapes: NodeModel[] = [
           }
         }
       }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "Task_Service",
@@ -834,7 +834,7 @@ let bpmnShapes: NodeModel[] = [
         activity: "Task",
         task: { type: "Service" }
       }
-    } as BpmnShapeModel
+    }
   },
   {
     id: "Gateway",
@@ -845,7 +845,7 @@ let bpmnShapes: NodeModel[] = [
     shape: {
       type: "Bpmn",
       shape: "Gateway",
-      gateway: { type: "Exclusive" } as BpmnGatewayModel
+      gateway: { type: "Exclusive" }
     }
   },
   {
@@ -883,10 +883,10 @@ let bpmnShapes: NodeModel[] = [
           }
         }
       }
-    } as BpmnShapeModel
+    }
   }
 ];
-let contextMenu: ContextMenuSettingsModel = {
+let contextMenu = {
   show: true,
   items: [
     {
@@ -997,17 +997,16 @@ export default Vue.extend({
       contextMenuOpen: contextMenuOpen,
       // tslint:disable-next-line:max-func-body-length
       contextMenuClick: contextMenuClick,
-      created: fitToPage,
-      dragEnter: (args: IDragEnterEventArgs): void => {
-        let obj: NodeModel = args.element as NodeModel;
+      dragEnter: (args) => {
+        let obj = args.element;
         if (obj instanceof Node) {
           if (
             obj &&
             obj.shape &&
-            (obj.shape as BpmnShape).activity &&
-            (obj.shape as BpmnShape).activity.subProcess
+            (obj.shape).activity &&
+            (obj.shape).activity.subProcess
           ) {
-            let activity: BpmnActivityModel = (obj.shape as BpmnShape).activity;
+            let activity = (obj.shape).activity;
             if (
               activity &&
               activity.subProcess &&
@@ -1026,14 +1025,14 @@ export default Vue.extend({
               }
             } else {
               if (obj) {
-                let oWidth: number = (obj.width as number) || 0;
-                let oHeight: number = (obj.height as number) || 0;
+                let oWidth = (obj.width) || 0;
+                let oHeight = (obj.height) || 0;
 
                 obj.width = 100;
                 obj.offsetX = obj.offsetX || 0;
                 obj.offsetY = obj.offsetY || 0;
                 obj.height = obj.height || 0;
-                obj.height *= (100 / (obj.width as number) || 1) as number;
+                obj.height *= (100 / (obj.width) || 1);
                 obj.offsetX += (obj.width - oWidth) / 2;
                 obj.offsetY += (obj.height - oHeight) / 2;
               }
@@ -1063,7 +1062,7 @@ export default Vue.extend({
       symbolHeight: 60,
       symbolWidth: 60,
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
-      getSymbolInfo: (symbol: NodeModel): SymbolInfo => {
+      getSymbolInfo: (symbol) => {
         return { fit: true };
       }
     };
@@ -1074,14 +1073,13 @@ export default Vue.extend({
 
 
   }, mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagram = obj.ej2_instances[0];
+    diagram = this.$refs.diagramObject.ej2Instances;
     diagram.fitToPage({ mode: "Width" });
   }
 });
 
-function getConnectors(): ConnectorModel[] {
-  let connectorSymbols: ConnectorModel[] = [
+function getConnectors(){
+  let connectorSymbols = [
     {
       id: "Link1",
       type: "Orthogonal",
@@ -1152,42 +1150,41 @@ function getConnectors(): ConnectorModel[] {
   ];
   return connectorSymbols;
 }
-function contextMenuClick(args: any): void {
-  let diagramContent: any = document.getElementById("diagram");
-  let diagram: Diagram = diagramContent.ej2_instances[0];
+function contextMenuClick(args) {
+  let diagram = this.$refs.diagramObject.ej2Instances;
   if (diagram && diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes.length > 0) {
-    let node: NodeModel = diagram.selectedItems.nodes[0];
-    let bpmnShape: BpmnShapeModel = diagram.selectedItems.nodes[0].shape as BpmnShapeModel;
+    let node = diagram.selectedItems.nodes[0];
+    let bpmnShape = diagram.selectedItems.nodes[0].shape;
     if (args.item.iconCss.indexOf('e-adhocs') > -1 && bpmnShape.activity && bpmnShape.activity.subProcess) {
       bpmnShape.activity.subProcess.adhoc = args.item.id === 'AdhocNone' ? false : true;
     }
     if (args.item.iconCss.indexOf('e-event') > -1 && bpmnShape.event) {
-      bpmnShape.event.event = (args.item.id as BpmnEvents);
+      bpmnShape.event.event = (args.item.id);
     }
 
     if (args.item.iconCss.indexOf('e-trigger') > -1) {
 
-      let trigger: string = args.item.id;
+      let trigger= args.item.id;
       trigger = (args.item.id === 'TriggerNone') ? 'None' :
         (args.item.id === 'triggerCompensation') ? 'Compensation' : args.item.id;
       if (bpmnShape.event) {
-        bpmnShape.event.trigger = (args.item.text as BpmnTriggers);
+        bpmnShape.event.trigger = (args.item.text );
       }
     }
     if (bpmnShape.activity) {
       if (args.item.iconCss.indexOf('e-loop') > -1) {
-        let loop: string = (args.item.id === 'LoopNone' as BpmnLoops) ? 'None' : args.item.id;
+        let loop = (args.item.id === 'LoopNone') ? 'None' : args.item.id;
 
         if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
-          bpmnShape.activity.task.loop = loop as BpmnLoops;
+          bpmnShape.activity.task.loop = loop;
         }
         if (bpmnShape.activity.activity === 'SubProcess' && bpmnShape.activity.subProcess) {
-          bpmnShape.activity.subProcess.loop = loop as BpmnLoops;
+          bpmnShape.activity.subProcess.loop = loop;
         }
 
       }
       if (args.item.iconCss.indexOf('e-compensation') > -1) {
-        let compensation: boolean = (args.item.id === 'CompensationNone') ? false : true;
+        let compensation= (args.item.id === 'CompensationNone') ? false : true;
         if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
           bpmnShape.activity.task.compensation = compensation;
         }
@@ -1197,7 +1194,7 @@ function contextMenuClick(args: any): void {
         }
       }
       if (args.item.iconCss.indexOf('e-call') > -1) {
-        let compensation: boolean = (args.item.id === 'CallNone') ? false : true;
+        let compensation = (args.item.id === 'CallNone') ? false : true;
         if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
           bpmnShape.activity.task.call = compensation;
         }
@@ -1212,45 +1209,45 @@ function contextMenuClick(args: any): void {
         }
       }
       if (args.item.iconCss.indexOf('e-boundry') > -1 && bpmnShape.activity.subProcess) {
-        let call: string = args.item.id;
+        let call = args.item.id;
         if (args.item.id !== 'Default') {
           call = (args.item.id === 'BoundryEvent') ? 'Event' : 'Call';
         }
-        bpmnShape.activity.subProcess.boundary = call as BpmnBoundary;
+        bpmnShape.activity.subProcess.boundary = call;
       }
       if (args.item.iconCss.indexOf('e-task') > -1) {
-        let task: string = args.item.id;
+        let task = args.item.id;
         if (task === 'TaskNone') { task = 'None'; }
         if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
-          bpmnShape.activity.task.type = task as BpmnTasks;
+          bpmnShape.activity.task.type = task;
         }
       }
     }
     if (args.item.iconCss.indexOf('e-data') > -1 && bpmnShape.dataObject) {
-      let call: string = args.item.id;
+      let call = args.item.id;
       if (args.item.id === 'DataObjectNone') {
         call = 'None';
       }
-      bpmnShape.dataObject.type = call as BpmnDataObjects;
+      bpmnShape.dataObject.type = call;
     }
     if (args.item.iconCss.indexOf('e-collection') > -1 && bpmnShape.dataObject) {
-      let call: boolean = (args.item.id === 'Collectioncollection') ? true : false;
+      let call= (args.item.id === 'Collectioncollection') ? true : false;
       bpmnShape.dataObject.collection = call;
     }
 
     if (args.item.iconCss.indexOf('e-gate') > -1 && bpmnShape.gateway) {
-      let task: string = args.item.id;
+      let task= args.item.id;
       if (task === 'GateWayNone') { task = 'None'; }
       if (task === 'GatewayParallel') { task = 'Parallel'; }
       if (bpmnShape.shape === 'Gateway') {
-        bpmnShape.gateway.type = task as BpmnGateways;
+        bpmnShape.gateway.type = task;
       }
     }
     diagram.dataBind();
   }
 }
-function contextMenuOpen(args: DiagramBeforeMenuOpenEventArgs): void {
-  let hiddenId: string[] = [];
+function contextMenuOpen(args) {
+  let hiddenId = [];
   if (args.element.className !== "e-menu-parent e-ul ") {
     hiddenId = [
       "Adhoc",
@@ -1267,8 +1264,8 @@ function contextMenuOpen(args: DiagramBeforeMenuOpenEventArgs): void {
       "GateWay"
     ];
   }
-  let diagramContent: any = document.getElementById("diagram");
-  let diagram: Diagram = diagramContent.ej2_instances[0];
+  
+  let diagram= this.$refs.diagramObject.ej2Instances;
   for (let item of args.items) {
     if (
       item &&
@@ -1278,7 +1275,7 @@ function contextMenuOpen(args: DiagramBeforeMenuOpenEventArgs): void {
       diagram.selectedItems.nodes &&
       diagram.selectedItems.nodes
     ) {
-      let node: BpmnShape = diagram.selectedItems.nodes[0].shape as BpmnShape;
+      let node = diagram.selectedItems.nodes[0].shape;
       if (node.shape !== "DataObject" && node.shape !== "Gateway") {
         if (item.text === "Ad-Hoc") {
           if (node.activity.activity === "SubProcess") {
@@ -1291,10 +1288,10 @@ function contextMenuOpen(args: DiagramBeforeMenuOpenEventArgs): void {
           item.text === "Activity-Type"
         ) {
           if (
-            (diagram.selectedItems.nodes[0].shape as BpmnShape).shape ===
+            (diagram.selectedItems.nodes[0].shape).shape ===
             "DataObject" ||
             node.shape === "Activity" ||
-            (diagram.selectedItems.nodes[0].shape as BpmnShape).shape ===
+            (diagram.selectedItems.nodes[0].shape).shape ===
             "Gateway"
           ) {
             hiddenId.splice(hiddenId.indexOf(item.id), 1);
@@ -1353,7 +1350,7 @@ function contextMenuOpen(args: DiagramBeforeMenuOpenEventArgs): void {
         args.parentItem.id === "TriggerResult" &&
         node.shape === "Event"
       ) {
-        let shape: BpmnShape = node;
+        let shape = node;
 
         if (
           item.text !== "None" &&
@@ -1440,9 +1437,5 @@ function contextMenuOpen(args: DiagramBeforeMenuOpenEventArgs): void {
   }
   args.hiddenItems = hiddenId;
 }
-function fitToPage(): void {
-  let diagramContent: any = document.getElementById("diagram");
-  let diagram: Diagram = diagramContent.ej2_instances[0];
-  diagram.fitToPage({ mode: 'Width' });
-}
+
 </script>
