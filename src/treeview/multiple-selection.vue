@@ -13,10 +13,11 @@
 <div id="description">
     <p>The <code>TreeView</code> component allows to select multiple nodes by enabling the <code>allowMultiSelection</code> property.</p>
     <p>In this demo, the TreeView is enabled with multiple selection</p>
-    <p>For more information, refer to the <a href="http://ej2.syncfusion.com/vue/treeview/multiple-selection.html" target="_blank">Multi Selection</a> section from the documentation.</p>
+    <p>For more information, refer to the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/multiple-selection/" target="_blank">Multi Selection</a> section from the documentation.</p>
 </div>
 </div>
 </template>
+/* custom code start */
 <style>
  .tree-control-wrapper {
         max-width: 500px;
@@ -25,10 +26,11 @@
         border-radius: 3px;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource.json';
+import * as dataSource from './dataSource/multiSelect-data.json';
 
 Vue.use(TreeViewPlugin);
 

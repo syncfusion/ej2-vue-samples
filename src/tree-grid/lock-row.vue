@@ -60,6 +60,9 @@
     .material .disableRow .e-rowcell{
         color: rgba(0, 0, 0, .38);
     }
+</style>
+<!-- custom code start -->
+<style>
     .fabric .disableRow .e-rowcell{
         color: #c8c8c8;
     }
@@ -70,6 +73,7 @@
         color: #757575;
     }
 </style>
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";

@@ -63,11 +63,13 @@
     </div>
 </div>
 </template>
+<!-- custom code start-->
 <style>
     #typeddl {
         min-width: 100px;
     }
 </style>
+<!-- custom code end -->
 <script>
 import Vue from "vue";
 import { GridPlugin, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-grids";

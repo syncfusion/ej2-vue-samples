@@ -12,10 +12,11 @@
 
 <div id="description">
     <p>The <code>TreeView</code> component has the built-in option to edit and modify the node text in inline by enabling the <code>allowEditing</code> property.</p>
-    <p>For more information, you can refer to the <a href="http://ej2.syncfusion.com/vue/treeview/node-editing.html" target="_blank">Node Editing</a> section from the documentation.</p>
+    <p>For more information, you can refer to the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/node-editing/" target="_blank">Node Editing</a> section from the documentation.</p>
 </div>
 </div>
 </template>
+/* custom code start */
 <style>
 .tree-control-wrapper {
         max-width: 500px;
@@ -24,10 +25,11 @@
         border-radius: 3px;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource.json'
+import * as dataSource from './dataSource/nodeEdit-data.json';
 
 Vue.use(TreeViewPlugin);
 

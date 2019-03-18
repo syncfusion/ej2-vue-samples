@@ -139,6 +139,7 @@ margin-top: -10px;
     border-bottom: 2px solid black;
 }
 </style>
+
 <script>
 import Vue from 'vue';
 import { MapsPlugin, MapsTooltip, Selection, Highlight, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
@@ -200,12 +201,14 @@ provide: {
     maps: [MapsTooltip, Selection, Highlight, Legend]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     itemSelection:function(args){
          if (args.shapeData !== isNullOrUndefined) {
                 let matched = navigator.userAgent;

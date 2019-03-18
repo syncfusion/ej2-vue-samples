@@ -29,12 +29,12 @@
                             </div>
                             <div class='toast-message'>
                                 With traffic, its likely to take 45 minutes to get to jenny's 24th Birthday Bash at Hillside Bar, 454 E.
-                                Olive Way by 10:00PM
+                                Olive Way by 10:00 PM
                             </div>
                         </div>
                     </div>
                     <img src="./src/toast/resource/map.jpg" width="100%" height="70%">
-                    <div class="snooze"> Snooze For </div>
+                    <div class="snooze"> Snooze </div>
                     <div id='snoozedropDown'>
                      <select id="snoozeDD">
                         <option value="2min">2 minutes</option>
@@ -107,10 +107,12 @@
         height: 50%;
     }
 
+    /* custom code start */
     .toast-template-section #reminder {
         text-align: center;
         margin: 15px;
     }
+    /* custom code end */
     
     #toast_custom .e-toast .e-toast-title,
     #toast_custom .e-toast .e-toast-message,

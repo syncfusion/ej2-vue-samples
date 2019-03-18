@@ -61,6 +61,7 @@
 </div>
 </template>
 <style>
+    /* custom code start */
         #EventLog b{
             color: #388e3c;
         }
@@ -68,7 +69,10 @@
             margin: 1px 10px 1px 0px;
             border-top: 1px solid #eee;
         }
-
+        .sb-header {
+            z-index: 100;
+        }
+    /* custom code end */
     .control-wrapper {
         margin: 0 auto;
     }
@@ -80,9 +84,6 @@
     .property-section .left-side {
         padding: 5px;
         width: 25%
-    }
-    .sb-header {
-        z-index: 100;
     }
 </style>
 <script>

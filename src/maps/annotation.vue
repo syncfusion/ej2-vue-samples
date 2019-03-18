@@ -5,7 +5,8 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+
     <div style="float: right; margin-right: 10px;">Source:
        <a href="https://en.wikipedia.org/wiki/Africa" target="_blank">en.wikipedia.org</a>
     </div>
@@ -77,6 +78,7 @@ export default Vue.extend({
 provide: {
     maps: [Annotations, Marker]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -85,5 +87,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 }
+/* custom code end */
 })
 </script>

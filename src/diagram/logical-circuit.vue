@@ -10,7 +10,7 @@
     </div>
 
     <div id="diagram-space" class="sb-mobile-diagram">
-      <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
+      <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
                     :snapSettings='snapSettings' :created='created'></ejs-diagram>
     </div>
   </div>
@@ -163,7 +163,7 @@
     }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { Browser, isNullOrUndefined } from "@syncfusion/ej2-base";
 import {
@@ -185,43 +185,43 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 Vue.use(DiagramPlugin);
 Vue.use(SymbolPalettePlugin);
-let diagramInstance: Diagram;
+let diagramInstance;
 
 
-    let isMobile: boolean;
+    let isMobile;
     /* tslint:disable */
-    let orData: string = 'M21.71,76.5h0a83.59,83.59,0,0,0,0-55.9l0-.1h1.58a66.37,66.37,0,0,1,54.1,28h0a66.37,66.37,0,0,1-54.1,28Z M 77,48.5 L 100,48.5 Z M 0,32.5 L 25,32.5Z M 0,65.5 L 25,65.5';
-    let andData: string = 'M21.5,20.5h28a28,28,0,0,1,28,28v0a28,28,0,0,1-28,28h-28a0,0,0,0,1,0,0v-56a0,0,0,0,1,0,0Z M78,48.5 L 100,48.5Z M0,32.5 L 21.4,32.5Z M0,65.5 L 21.4,65.5Z';
-    let notData: string = 'M0,50.5 L 23,50.5Z M82,50.5 L 100,50.5Z  M75.5,50.5 L23.5,78.5 L23.5,22.5 L75.5,50.5Z M 79,50.5 m -5, 0 a 5,5 0 1,0 10,0 a 5,5 0 1,0 -10,1Z';
+    let orData = 'M21.71,76.5h0a83.59,83.59,0,0,0,0-55.9l0-.1h1.58a66.37,66.37,0,0,1,54.1,28h0a66.37,66.37,0,0,1-54.1,28Z M 77,48.5 L 100,48.5 Z M 0,32.5 L 25,32.5Z M 0,65.5 L 25,65.5';
+    let andData = 'M21.5,20.5h28a28,28,0,0,1,28,28v0a28,28,0,0,1-28,28h-28a0,0,0,0,1,0,0v-56a0,0,0,0,1,0,0Z M78,48.5 L 100,48.5Z M0,32.5 L 21.4,32.5Z M0,65.5 L 21.4,65.5Z';
+    let notData = 'M0,50.5 L 23,50.5Z M82,50.5 L 100,50.5Z  M75.5,50.5 L23.5,78.5 L23.5,22.5 L75.5,50.5Z M 79,50.5 m -5, 0 a 5,5 0 1,0 10,0 a 5,5 0 1,0 -10,1Z';
     /* tslint:enable */
 
     // defines the shapes connection points
-    let orPort: PointPortModel[] = [
+    let orPort = [
         { id: 'Or_port1', offset: { x: 0.01, y: 0.215 } }, { id: 'Or_port2', offset: { x: 0.26, y: 0.5 } },
         { id: 'Or_port3', offset: { x: 0.01, y: 0.805 } }, { id: 'Or_port4', offset: { x: 0.99, y: 0.5 } }
     ];
-    let andPort: PointPortModel[] = [
+    let andPort = [
         { id: 'And_port1', offset: { x: 0.01, y: 0.215 } }, { id: 'And_port2', offset: { x: 0.22, y: 0.5 } },
         { id: 'And_port3', offset: { x: 0.01, y: 0.805 } }, { id: 'And_port4', offset: { x: 0.99, y: 0.5 } }
     ];
-    let notPort: PointPortModel[] = [
+    let notPort = [
         { id: 'Not_port1', offset: { x: 0.01, y: 0.5 } }, { id: 'Not_port2', offset: { x: 0.99, y: 0.5 } }
     ];
-    let flipPorts: PointPortModel[] = [
+    let flipPorts = [
         { offset: { x: 0.01, y: 0.221 } }, { offset: { x: 0.01, y: 0.779 } }, { offset: { x: 0.99, y: 0.221 } }, { offset: { x: 0.99, y: 0.779 } }
     ];
-    let jkPorts: PointPortModel[] = [
+    let jkPorts = [
         { offset: { x: 0.01, y: 0.27 } }, { offset: { x: 0.01, y: 0.5 } }, { offset: { x: 0.01, y: 0.720 } }, { offset: { x: 0.99, y: 0.270 } }, { offset: { x: 0.99, y: 0.720 } }, { offset: { x: 0.5, y: 0.01 } }, { offset: { x: 0.5, y: 0.99 } }
     ];
-    let rPorts: PointPortModel[] = [
+    let rPorts = [
         { offset: { x: 0.01, y: 0.210 } }, { offset: { x: 0.01, y: 0.778 } }, { offset: { x: 0.5, y: 0.218 } }, { offset: { x: 0.99, y: 0.210 } }, { offset: { x: 0.99, y: 0.778 } }
     ];
 
-    let decorator: DecoratorModel = {
+    let decorator = {
         height: 12, width: 12, shape: 'Circle', style: { fill: 'white', strokeColor: '#444', strokeWidth: 1 }
     };
 
-    let nodes: NodeModel[] = [createNode('OR1', 336, 161.5, 70, 80, orData, orPort),
+    let nodes = [createNode('OR1', 336, 161.5, 70, 80, orData, orPort),
     createNode('OR2', 336, 329, 70, 104, orData, orPort),
     createNode('OR3', 336, 470, 70, 104, orData, orPort),
     createNode('Not1', 157, 267, 58, 100, notData, notPort),
@@ -230,7 +230,7 @@ let diagramInstance: Diagram;
     createNode('And', 540, 329, 70, 104, andData, andPort)];
 
     /* tslint:disable */
-    let connectors: ConnectorModel[] = [
+    let connectors = [
         createConnector('line1', { x: 140, y: 130 }, { x: 0, y: 0 }, null, 'OR1', null, 'Or_port1', decorator, null, { content: 'A', margin: { left: -20 } }, true),
         createConnector('line2', { x: 140, y: 161.5 },{ x: 0, y: 0 }, null, 'OR1', null, 'Or_port2', decorator, null, { content: 'B', margin: { left: -20 } }, true),
         createConnector('line3', { x: 140, y: 195 }, { x: 0, y: 0 }, null, 'OR1', null, 'Or_port3', decorator, null, { content: 'C', margin: { left: -20 } }, true),
@@ -251,7 +251,7 @@ let diagramInstance: Diagram;
     /* tslint:disable */
 
     //defines nodes as logic gates on the symbol palette
-let items: (NodeModel | ConnectorModel)[] = [
+let items = [
   { id: 'Or', shape: { type: 'Path', data: orData }, ports: orPort },
   {
       id: 'Nor',
@@ -328,7 +328,7 @@ let items: (NodeModel | ConnectorModel)[] = [
 ];
     /* tslint:enable */
 
-let connections: ConnectorModel[] = [
+let connections = [
   {
     id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
     targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeColor: '#444' }
@@ -365,21 +365,21 @@ let connections: ConnectorModel[] = [
       snapSettings: {
           constraints: SnapConstraints.All & ~SnapConstraints.ShowLines
       },
-      created: (args: Object) => {
-        let diagramObj: any = document.getElementById("diagram");
-        diagramInstance = diagramObj.ej2_instances[0];
+      created: (args) => {
+        //let diagramObj = document.getElementById("diagram");
+        diagramInstance = this.$refs.diagramObj.ej2Instances;
         diagramInstance.fitToPage();
         addEvents();
       },
       //Sets the default values of a node
-      getNodeDefaults: (node: NodeModel) => {
+      getNodeDefaults: (node) => {
           if(node.style) {
              node.style.strokeWidth = 1;
              node.style.strokeColor = '#444';
           }
       },
       //Sets the default values of a connector
-      getConnectorDefaults: (connector: Connector) => {
+      getConnectorDefaults: (connector) => {
         if (connector.id !== 'line16') {
             connector.targetDecorator.shape = 'None';
         }
@@ -399,10 +399,10 @@ let connections: ConnectorModel[] = [
       symbolHeight: 60,
       symbolWidth: 60,
       symbolPreview: { height: 50, width: 50 },
-      getSymbolInfo: (symbol: NodeModel): SymbolInfo => {
+      getSymbolInfo: (symbol) => {
         return { fit: true };
       },
-       getSymbolDefaults: (symbol: NodeModel): void => {
+       getSymbolDefaults: (symbol) => {
           symbol.width = 55;
           symbol.height = 40;
           symbol.offsetX = 20;
@@ -416,10 +416,10 @@ let connections: ConnectorModel[] = [
 
     // Create nodes as logic gates
     function createNode(
-        id: string, offsetX: number, offsetY: number, height: number,
-        width: number, pathData: string, ports: PointPortModel[]): NodeModel {
+        id, offsetX, offsetY, height,
+        width, pathData, ports ) {
         // update node properties
-        let node: NodeModel = {};
+        let node = {};
         node.id = id;
         node.offsetX = offsetX;
         node.offsetY = offsetY;
@@ -431,14 +431,14 @@ let connections: ConnectorModel[] = [
     }
     // Create Connectors to connect two logic gates
     function createConnector(
-        id: string,
-        sourcePoint: any, targetPoint: any,
-        sourceID: any, targetID: any,
-        sourcePortID: any, targetPortID: any,
-        sourceDecorator: any, targetDecorator: any,
-        annotation: any, segments?: boolean, isStraight?: boolean): ConnectorModel {
+        id,
+        sourcePoint, targetPoint,
+        sourceID, targetID,
+        sourcePortID, targetPortID,
+        sourceDecorator, targetDecorator,
+        annotation, segments, isStraight) {
         // update connector properties
-        let connector: ConnectorModel = {};
+        let connector = {};
         connector.id = id;
         connector.sourcePoint = sourcePoint;
         connector.targetPoint = targetPoint;
@@ -468,18 +468,18 @@ let connections: ConnectorModel[] = [
         return connector;
     }
 
-function addEvents(): void {
+function addEvents() {
     isMobile = window.matchMedia('(max-width:550px)').matches;
     if (isMobile) {
-        let paletteIcon: HTMLElement = document.getElementById('palette-icon') as HTMLElement;
+        let paletteIcon = document.getElementById('palette-icon');
         if (paletteIcon) {
             paletteIcon.addEventListener('click', openPalette, false);
         }
     }
 }
 
-function openPalette(): void {
-    let paletteSpace: HTMLElement = document.getElementById('palette-space') as HTMLElement;
+function openPalette() {
+    let paletteSpace = document.getElementById('palette-space');
     isMobile = window.matchMedia('(max-width:550px)').matches;
     if (isMobile) {
         if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {

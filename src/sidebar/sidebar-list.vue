@@ -22,7 +22,7 @@
                     <!-- normal state element declaration -->
                     <div id="close" class="e-icons" v-on:click="closeClick"></div>
                     <div class="content-area">
-                        <!--List view element declaration-->
+                        <!--ListView element declaration-->
                         <ejs-listview id="menulist" :dataSource='dataList' :fields='fields' :select="onSelect"></ejs-listview>
                     </div>
                     <!-- end of normal state element declaration -->
@@ -105,7 +105,7 @@ export default Vue.extend({
     line-height: 300px;
     padding: 15px;
 }
-
+/* custom code start */
 @media(max-width:550px) {
     #head .text {
         display: none;
@@ -119,20 +119,21 @@ export default Vue.extend({
     font-weight: 400;
     margin-top: 20px;
 }
-
+/* custom code end */
 .textArea{
     height: 300px;
     line-height: 300px;
 }
-
+/* custom code start */
 .sb-content-tab .center {
     display: block;
 }
 
 .col-lg-12.col-sm-12.col-md-12,
 .control-section {
-    padding: 0px;
+    padding: 0;
 }
+/* custom code end */
 /* end of main content area styles */
 /* Header area styles */
 
@@ -142,19 +143,19 @@ export default Vue.extend({
     width: 100%;
     height: 50px;
     color: #fff;
-    padding: 0 30px;
+    padding: 0 15px;
     position: relative;
 }
-
+/* custom code start */
 body {
-    margin: 0px;
+    margin: 0;
 }
-
+/* custom code end */
 #hamburger.menu {
     font-size: 25px;
     cursor: pointer;
     float: left;
-    line-height: 50px;
+    line-height: 55px;
     position: absolute;
 }
 
@@ -180,11 +181,11 @@ body {
 }
 /* end of header area styles */
 /* sidebar styles */
-
+/* custom code start */
 .sb-content-tab #wrapper {
     display: none;
 }
-
+/* custom code end */
 #sidebar-menu {
     background: #f5f5f5;
     padding: 20px;

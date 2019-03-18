@@ -1,24 +1,32 @@
 {
   "Grids": [
     "Data Grid",
-    "Tree Grid",
+    "TreeGrid",
     "Pivot Table"
   ],
   "Data Visualization": [
     "Chart",
+    "Diagram",
     "Stock Chart",
+    "Maps",
+    "TreeMap",
+    "Heatmap Chart",
     "Circular Gauge",
     "Linear Gauge",
-    "Diagram",
-    "Heatmap Chart",
-    "Maps",
     "Range Selector",
-    "Smith Chart",
     "Sparkline Charts",
-    "TreeMap"
+    "Smith Chart"
+  ],
+  "Editors": [
+    "Rich Text Editor",
+    "DocumentEditor",
+    "Chips",
+    "Button",
+    "InPlaceEditor"
   ],
   "Calendars": [
     "Scheduler",
+    "Gantt",
     "Calendar",
     "DatePicker",
     "DateRangePicker",
@@ -31,23 +39,15 @@
     "Dropdown List",
     "MultiSelect Dropdown"
   ],
-  "Editors": [
-    "Rich Text Editor",
-    "DocumentEditor",
-    "Chips",
-    "Button"
-  ],
-  "Forms": [
-    "InPlaceEditor",
-    "Query Builder"
-  ],
-  "Layout": [
-    "Avatar",
-    "Card",
-    "Dialog",
-    "ListView",
-    "Tooltip",
-    "Splitter"
+  "Navigation": [
+    "Accordion",
+    "Context Menu",
+    "Menu Bar",
+    "Sidebar",
+    "Tabs",
+    "Toolbar",
+    "TreeView",
+    "File Manager"
   ],
   "Notifications": [
     "Badge",
@@ -61,14 +61,17 @@
     "File Upload",
     "Range Slider"
   ],
-  "Navigation": [
-    "Accordion",
-    "Context Menu",
-    "Menu Bar",
-    "Sidebar",
-    "Tabs",
-    "Toolbar",
-    "TreeView"
+  "Layout": [
+    "Dashboard Layout",
+    "Avatar",
+    "Card",
+    "Dialog",
+    "ListView",
+    "Tooltip",
+    "Splitter"
+  ],
+  "Forms": [
+    "Query Builder"
   ],
   "Viewer": [
     "PDF Viewer"

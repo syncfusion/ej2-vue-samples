@@ -3,12 +3,11 @@
     "directory": "document-editor",
     "category": "Editors",
     "ftName": "document-editor",
-    "type": "update",
+    "hideOnDevice": true,
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "type": "update",
             "category": "DocumentEditor",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
@@ -76,8 +75,7 @@
             "url": "right-to-left",
             "name": "Right To Left",
             "category": "RTL",
-            "type":"new",
-            "description": "The Document Editor component supports rtl for arabic user."
+            "description": "The Document Editor supports right to left for users who use right-to-left languages (Arabic, Hebrew, Urdu, etc.) in Vue platform."
         }
     ]
 }

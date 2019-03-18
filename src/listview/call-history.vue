@@ -1,67 +1,50 @@
 <template>
   <div class="call-history col-lg-12 control-section">
-    <div class="layoutWrapper">
-      <div class="speaker">
-        <div class="camera"></div>
-      </div>
-      <div class="layout">
-        <div id="list-container">
-          <div class="tabContainer">
-            <!-- Tab element -->
-            <div id="tab" tabindex="1">
-              <ejs-tab id="tab_default" ref="listTab" tabindex="1" :selected="onSelected">
-                <e-tabitems>
-                  <e-tabitem :header="tabHeader[0]" content="#all"></e-tabitem>
-                  <e-tabitem :header="tabHeader[1]" content="#received"></e-tabitem>
-                  <e-tabitem :header="tabHeader[2]" content="#missed"></e-tabitem>
-                </e-tabitems>
-              </ejs-tab>
-            </div>
+      <div class="layoutWrapper">
+          <div class="speaker">
+              <div class="camera"></div>
           </div>
-          <ejs-listview ref="allcall"
-            id="all"
-            :dataSource="callHistoryData"
-            :cssClass="cssClass"
-            style="display:none"
-            :fields="listFields"
-            :template="listTemplate"
-          ></ejs-listview>
-          <ejs-listview ref="receivedcall"
-            id="received"
-            :dataSource="callHistoryData"
-            :cssClass="cssClass"
-            style="display:none"
-            :fields="listFields"
-            :template="listTemplate"
-          ></ejs-listview>
-          <ejs-listview ref="missedcall"
-            id="missed"
-            :dataSource="callHistoryData"
-            :cssClass="cssClass"
-            style="display:none"
-            :fields="listFields"
-            :actionComplete="onComplete"
-            :template="listTemplate"
-          ></ejs-listview>
-        </div>
+          <div class="layout">
+              <div id="list-container">
+                  <div class="tabContainer">
+                      <!-- Tab element -->
+                      <div id="tab" tabindex="1">
+                          <ejs-tab id="tab_default" ref="listTab" tabindex="1" :selected='onSelected'>
+                              <e-tabitems>
+                                  <e-tabitem :header='tabHeader[0]' content="#all">
+                                  </e-tabitem>
+                                  <e-tabitem :header='tabHeader[1]' content="#received">
+                                  </e-tabitem>
+                                  <e-tabitem :header='tabHeader[2]' content="#missed">
+                                  </e-tabitem>
+                              </e-tabitems>
+                          </ejs-tab>
+                      </div>
+                  </div>
+                  <ejs-listview id="all" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :template="listTemplate">
+                  </ejs-listview>
+                  <ejs-listview id="received" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :template="listTemplate">
+                  </ejs-listview>
+                  <ejs-listview id="missed" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :actionComplete="onComplete"
+                      :template="listTemplate">
+                  </ejs-listview>
+              </div>
+          </div>
+          <div class="outerButton"> </div>
       </div>
-      <div class="outerButton"></div>
-    </div>
-    <div id="action-description">
-      <p>
-        This sample demonstrates the call history application using listview. Click on the checklist
-        to filter the data in contacts list.
-      </p>
-    </div>
-    <div id="description">
-      <p>
-        This sample filters out the data from listview based on the data selected from the checklist.
-        Here, listview utilizes the
-        <code>template</code>
-        <code>showIcon</code> properties to repesent the call history application. The Tab component
-        is used in this sample for navigation purposes.
-      </p>
-    </div>
+      <div id="action-description">
+          <p>This sample demonstrates the call history application using listview. Click on the checklist
+              to filter the data in contacts list.
+          </p>
+      </div>
+      <div id="description">
+          <p>This sample filters out the data from listview based on the data selected from the checklist.
+              Here, listview utilizes the
+              <code>template</code>
+              <code>showIcon</code> properties to repesent the call history application. The Tab component
+              is used in this sample for navigation purposes.
+          </p>
+      </div>
   </div>
 </template>
 <style>
@@ -76,6 +59,7 @@
   margin-bottom: 15px;
   border-radius: 28px;
   position: relative;
+
 }
 
 .layoutWrapper .speaker {
@@ -221,9 +205,16 @@
 }
 
 .layout #list-container .e-icon {
-  font-family: "e-customized-icons";
+  font-family: 'e-customized-icons';
   background: transparent;
   color: black;
+}
+
+@font-face {
+  font-family: 'e-customized-icons';
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj8iS4cAAAEoAAAAVmNtYXDS5tJrAAABjAAAAEBnbHlmdMAKbQAAAdQAAAOwaGVhZBNseyYAAADQAAAANmhoZWEHogNjAAAArAAAACRobXR4C9AAAAAAAYAAAAAMbG9jYQCaAdgAAAHMAAAACG1heHABEAEuAAABCAAAACBuYW1lc0cOBgAABYQAAAIlcG9zdNSlKbQAAAesAAAARwABAAADUv9qAFoEAAAA//UD8wABAAAAAAAAAAAAAAAAAAAAAwABAAAAAQAAtxzLE18PPPUACwPoAAAAANgtmycAAAAA2C2bJwAAAAAD8wPzAAAACAACAAAAAAAAAAEAAAADASIAAwAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQPwAZAABQAAAnoCvAAAAIwCegK8AAAB4AAxAQIAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA6QLpZwNS/2oAWgPzAJYAAAABAAAAAAAABAAAAAPoAAAD6AAAAAAAAgAAAAMAAAAUAAMAAQAAABQABAAsAAAABgAEAAEAAukC6Wf//wAA6QLpZ///AAAAAAABAAYABgAAAAEAAgAAAAAAmgHYAAIAAAAAA+oD6gAzAIcAAAEzHxghNT8WEx8THQEPEisBLxI9AT8SAgAQECQmKCgpKScTEhIREA8ODQwKCgQHBQQBAfwqAQMFBgcKCgwNDg8QERISEycpKSgoJiQgDQwMDAwXFhUUEhEPDQsJCAIDAQEBAQMCCAkLDQ8REhQVFhcMDAwMDQ0MDAwMFxYVFBIRDw0LCQgCAwEBAQEDAggJCw0PERIUFRYXDAwMDAGFAQMEBwkKDQ4ICAkKCgoLCwwMDAcNDg8Og3sPDw4NDgwMDAsLCgoKCQgIDg0KCQcEAwJnAQEBAgMHCgsNDxESExUWFwwMDQwNDA0MDAwXFhUTExAPDQwJBwMCAgEBAgIDBwkMDQ8QExMVFhcMDAwNDA0MDQwMFxYVExIRDw0LCgcDAgEBAAAAAwAAAAAD8wPzAF8AwAEhAAABDxMfFz8XLxcPAjcfFA8XLxc/Fx8CJw8UHxc/Fy8XDwIBqRQUFBISERAQDg0NCwoJBwcFBAIBAQIEBQcHCQoLDQ0OEBAREhIUFBQVFhYWFhYWFRUTFBISERAQDg0NCwoJBwcFBAIBAQIEBQcHCQoLDQ0OEBAREhIUExUVFhYWFhYWtg4NGxkZGBYWFRMSEA8OCwsIBwUDAQEDBQcICwsODxASExUWFhgZGRsbHB0dHh4dHRwbGxkZGBYWFRMSEA8NDAsIBwUDAQEDBQcICwsODxASExUVFxgZGRsbHB0dHh4dHd0QDx4eHBsaGRcWFRIREA0MCQgGAwEBAwYICQwNEBESFRYXGRobHB4eHyEgIiIiIiAhHx4eHBsaGRcWFRIREA0MCQgGAwEBAwYICQwNEBESFRYXGRobHB4eHyEgIiIiIiEDPAYICQoLDQ0OEBAREhITFBUVFRYXFhYWFRQUFBISERAQDg0MDAoJBwcFBAIBAQIEBQcHCQoMDA0OEBAREhIUFBQVFhYWFxYVFRUUExISERAQDg0NCwoJCAYFBAIBAQIEZAQECgwODxASExUVFxgYGhsbHB0dHh4dHRwbGxkZGBYWFBQSEA8NDAoJBwUDAQEDBQcICwsODxASExUWFhgZGRsbHB0dHh4dHRwbGxoYGBcVFRMSEA8OCwsIBwUDAQEDBTYFBQwNEBESFRYXGRobHB0fHyEgIiIiIiEgHx4eHBsaGRcWFBMRDw4MCQgGAwEBAwYICQwODxETFBYXGRobHB4eHyEgIiIiIiAhHx4eHBsaGRcWFRIRDw4MCQgGAwEBAwYAAAAAAAASAN4AAQAAAAAAAAABAAAAAQAAAAAAAQAHAAEAAQAAAAAAAgAHAAgAAQAAAAAAAwAHAA8AAQAAAAAABAAHABYAAQAAAAAABQALAB0AAQAAAAAABgAHACgAAQAAAAAACgAsAC8AAQAAAAAACwASAFsAAwABBAkAAAACAG0AAwABBAkAAQAOAG8AAwABBAkAAgAOAH0AAwABBAkAAwAOAIsAAwABBAkABAAOAJkAAwABBAkABQAWAKcAAwABBAkABgAOAL0AAwABBAkACgBYAMsAAwABBAkACwAkASMgZS1pY29uc1JlZ3VsYXJlLWljb25zZS1pY29uc1ZlcnNpb24gMS4wZS1pY29uc0ZvbnQgZ2VuZXJhdGVkIHVzaW5nIFN5bmNmdXNpb24gTWV0cm8gU3R1ZGlvd3d3LnN5bmNmdXNpb24uY29tACAAZQAtAGkAYwBvAG4AcwBSAGUAZwB1AGwAYQByAGUALQBpAGMAbwBuAHMAZQAtAGkAYwBvAG4AcwBWAGUAcgBzAGkAbwBuACAAMQAuADAAZQAtAGkAYwBvAG4AcwBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIAB1AHMAaQBuAGcAIABTAHkAbgBjAGYAdQBzAGkAbwBuACAATQBlAHQAcgBvACAAUwB0AHUAZABpAG8AdwB3AHcALgBzAHkAbgBjAGYAdQBzAGkAbwBuAC4AYwBvAG0AAAAAAgAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQIBAwEEAAh0ZW1wLWN1cxJGQl9DaGVja2JveF9zZWxlY3QAAAA=) format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .layout #list-container .e-icon:before {
@@ -239,14 +230,6 @@
 .highcontrast .layoutWrapper {
   border-color: white;
 }
-
-@font-face {
-  font-family: "e-customized-icons";
-  src: url(data:application/x-font-ttf;charset=utf-8;base64,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)
-    format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 </style>
 <script>
 import Vue from "vue";
@@ -254,149 +237,14 @@ import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
 import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
 import { Browser } from "@syncfusion/ej2-base";
 import callHistoryTemplate from "./call-history-template.vue";
+import { callHistory } from "./listData";
 Vue.use(ListViewPlugin);
 Vue.use(TabPlugin);
 export default Vue.extend({
   data: function() {
     return {
-      cssClass: "e-list-template",
-      callHistoryData: [
-        {
-          text: "Smith",
-          id: "received-01",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "2 hours ago",
-          category: "Today"
-        },
-        {
-          text: "Johnson",
-          id: "received-02",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Williams",
-          id: "missed-01",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "4 hours ago",
-          category: "Today"
-        },
-        {
-          text: "Jones",
-          id: "missed-02",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Brown",
-          id: "received-03",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Anderson",
-          id: "received-01",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "12 hours ago",
-          category: "Today"
-        },
-        {
-          text: "Thomas",
-          id: "received-02",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Jackson",
-          id: "missed-01",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Emily",
-          id: "missed-01",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "14 hours ago",
-          category: "Today"
-        },
-        {
-          text: "White",
-          id: "missed-02",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Jones",
-          id: "missed-02",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "18 hours ago",
-          category: "Today"
-        },
-        {
-          text: "Grace",
-          id: "missed-02",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Brooklyn",
-          id: "missed-02",
-          icon: "e-custom",
-          type: "missed",
-          group: "Missed",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Arianna",
-          id: "received-01",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "Yesterday",
-          category: "Yesterday"
-        },
-        {
-          text: "Katherine",
-          id: "received-02",
-          icon: "e-custom",
-          type: "received",
-          group: "Received",
-          time: "Yesterday",
-          category: "Yesterday"
-        }
-      ],
+      cssClass: 'e-list-template',
+      callHistoryData:callHistory,
       listFields: {
         text: "text",
         groupBy: "category"

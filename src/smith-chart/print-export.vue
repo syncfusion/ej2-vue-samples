@@ -7,6 +7,7 @@
                 </e-seriesCollection>
             </ejs-smithchart>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -59,7 +60,8 @@
 </div>
 </div>
 </template>
-<style>    
+<style>
+// custom code start
     .e-play-icon::before {
         content: '\e728';
     }
@@ -68,6 +70,7 @@
         font-size: 13px !important;
         font-weight: 400 !important;
     }
+    // custom code end
     #togglebtn1 {
         width: 80px;
     }
@@ -142,11 +145,13 @@ provide:{
     smithchart:[SmithchartLegend, TooltipRender]
 },
 methods:{
+    /* custom code start */
      load:function(args){
             let theme = location.hash.split('/')[1];
             theme = theme ? theme : 'Material';
             args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     clickExport:function(args){
         let fileName = this.$refs.name.value;
         this.$refs.smithchart.ej2Instances.export(this.$refs.dropdown.ej2Instances.value, fileName);

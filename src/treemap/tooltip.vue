@@ -3,6 +3,7 @@
     <div class="control-section">
         <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :legendSettings='legendSettings' align="center" :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
+
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org/wiki/List_of_international_airports_by_country" target="_blank">en.wikipedia.org</a>
     </div>
@@ -106,6 +107,7 @@ return{
 provide:{
     treemap:[TreeMapTooltip,TreeMapLegend]
 },
+/* custom code start */
 methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
@@ -113,5 +115,6 @@ methods:{
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     }
 }
+/* custom code end */
 })
 </script>

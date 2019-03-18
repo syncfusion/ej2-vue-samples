@@ -1,7 +1,7 @@
 <template>
     <div class="template-querybuilder-section">
         <div class="col-lg-8 control-section">
-            <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :conditionChanged="updateRule" :fieldChanged="updateRule" :valueChanged="updateRule" :operatorChanged="updateRule" :ruleDelete="updateRule" :groupDelete="updateRule" :ruleInsert="updateRule" :groupInsert="updateRule">
+            <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :change="updateRule">
                 <e-columns>
                     <e-column field='Category' label='Category' type='string' :template='categoryTemplate' />
                     <e-column field='PaymentMode' label='Payment Mode' type='string' :operators="paymentOperators" :template='paymentTemplate' />
@@ -50,6 +50,8 @@
     </div>
 </template>
 
+<!-- custom code start -->
+
 <style>
     /* EJ2 QueryBuider - Template sample styles */
     .template-querybuilder-section .e-control-wrapper.e-slider-container.e-horizontal {
@@ -79,6 +81,8 @@
 	  background-color: #000;
 	}
 </style>
+
+<!-- custom code end -->
 
 <script>
 import Vue from "vue";

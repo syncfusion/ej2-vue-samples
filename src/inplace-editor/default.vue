@@ -175,7 +175,7 @@ export default Vue.extend({
   },
   methods: {
         changeEditorMode: function(args) {
-           var editMode = this.$refs.editorMode.$el.value;
+           var editMode = this.$refs.editorMode.ej2Instances.text;
            this.editObj.mode = this.numericObj.mode = this.maskedObj.mode = editMode;
            this.editObj.dataBind();
            this.numericObj.dataBind();
@@ -202,7 +202,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.$el.value === 'Inline') { return; }
+            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
             if (this.editObj && this.editObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.editObj.enableEditMode = false;
             }
@@ -224,6 +224,7 @@ display: block;
 visibility: hidden;
 }
 
+/* custom code start */
 .inplace-control-section.default_layout .control_wrapper {
     width: 100%;
     max-width: 400px;
@@ -234,17 +235,18 @@ visibility: hidden;
     width: 100%;
 }
 
+.inplace-control-section.default_layout .control_wrapper table td {
+    width: 200px;
+    height: 100px;
+}
+/* custom code end */
+
 .inplace-control-section.default_layout .control_wrapper .control-center {
     text-align: center;
 }
 
 .inplace-control-section.default_layout .control_wrapper table {
     margin: auto;
-}
-
-.inplace-control-section.default_layout .control_wrapper table td {
-    width: 200px;
-    height: 100px;
 }
 
 .inplace-control-section.default_layout .e-inplaceeditor {

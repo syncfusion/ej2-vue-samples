@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block;height:250px' align='center' id='container2'>
+                        <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container2'>
                             <e-axes>
                                 <e-axis :radius='gauge2Radius' :startAngle='gauge2startAngle' minimum=0 maximum=100 :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :annotations='gauge2annotations'>
                                     <e-pointers>
@@ -16,7 +16,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block;height:250px' align='center' id='container1'>
+                        <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container1'>
                             <e-axes>
                                 <e-axis :radius='gauge1Radius' :startAngle='gauge1startAngle' minimum=0 maximum=100 :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :annotations='gauge1annotations'>
                                     <e-pointers>
@@ -27,7 +27,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block;height:250px' align='center' id='container3'>
+                        <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container3'>
                             <e-axes>
                                 <e-axis :radius='gauge3Radius' :startAngle='gauge3startAngle' minimum=0 maximum=100 :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations'>
                                     <e-pointers>
@@ -42,7 +42,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge ref="circulargauge1" style='display:block;height:250px' align='center' id='container4' :centerY='centerY4'>
+                        <ejs-circulargauge ref="circulargauge1" :load='load' style='display:block;height:250px' align='center' id='container4' :centerY='centerY4'>
                             <e-axes>
                                 <e-axis :radius='gauge4Radius' :startAngle='gauge4startAngle' minimum=0 maximum=100 :endAngle='gauge4endAngle' :majorTicks='gauge4majorTicks' :lineStyle='gauge4lineStyle' :minorTicks='gauge4minorTicks' :labelStyle='gauge4labelStyle' :annotations='gauge4annotations'>
                                     <e-pointers>
@@ -53,7 +53,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block;height:250px' align='center' id='container5' :centerY='centerY6'>
+                        <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container5' :centerY='centerY6'>
                             <e-axes>
                                 <e-axis :radius='gauge6Radius' :startAngle='gauge6startAngle' minimum=0 maximum=100 :endAngle='gauge6endAngle' :majorTicks='gauge6majorTicks' :lineStyle='gauge6lineStyle' :minorTicks='gauge6minorTicks' :labelStyle='gauge6labelStyle' :annotations='gauge6annotations'>
                                     <e-pointers>
@@ -65,7 +65,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge ref="circulargauge2" style='display:block;height:250px' align='center' id='container6' :centerY='centerY5'>
+                        <ejs-circulargauge ref="circulargauge2" :load='load' style='display:block;height:250px' align='center' id='container6' :centerY='centerY5'>
                             <e-axes>
                                 <e-axis :radius='gauge5Radius' :startAngle='gauge5startAngle' minimum=0 maximum=100 :endAngle='gauge5endAngle' :majorTicks='gauge5majorTicks' :lineStyle='gauge5lineStyle' :minorTicks='gauge5minorTicks' :labelStyle='gauge5labelStyle' :annotations='gauge5annotations'>
                                     <e-pointers>
@@ -427,12 +427,14 @@ export default Vue.extend({
                 }
             }, 2000)
         },
+        /* custom code start */
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         }
+        /* custom code end */
     }
 })
 </script>

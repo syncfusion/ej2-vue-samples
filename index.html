@@ -69,7 +69,7 @@
                     <div id="controlTree" class='e-view'></div>
                     <div id="controlSamples">
                         <div id="sb-left-back" class="back" role="button" tabindex="0">
-                            <div class="e-icons back-icon"></div>
+                            <div class="sb-icons sb-icon-Back"></div>
                             <div class='control-name'>All Controls</div>
                         </div>
                         <div id="controlList" class='e-view sb-control-list-top'></div>
@@ -78,11 +78,11 @@
                 <div class='sb-left-footer'>
                     <div class="sb-mobile-header-buttons">
                         <a href='https://www.syncfusion.com/products/essential-js2' target="_blank">
-                            <div class="sb-mobile-header-button">
+                            <div class="sb-mobile-header-about">
                                 About</div>
                         </a>
                         <a href='https://www.syncfusion.com/downloads/vue' target="_blank">
-                            <div class="sb-mobile-header-button">Pricing</div>
+                            <div class="sb-mobile-header-price">Pricing</div>
                         </a>
                     </div>
                     <div class='sb-left-footer-links'>
@@ -181,16 +181,20 @@
                             <span class="switch-text">Material</span>
                         </li>
                         <li id="fabric" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Fabric</span>
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">Fabric</span>
                         </li>
                         <li class="e-list" id="bootstrap" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Bootstrap</span>
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">Bootstrap</span>
                         </li>
-                        <li class="e-list" id="highcontrast">
+                        <!-- <li class="e-list" id="bootstrap4" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">High Contrast</span>
+                            <span class="switch-text">Bootstrap v4</span>
+                        </li> -->
+                        <li class="e-list" id="highcontrast">
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">High Contrast</span>
                         </li>
                     </ul>
                 </div>
@@ -207,9 +211,10 @@
                             </div>
                             <div class='setting-content  setting-theme-change'>
                                 <select id='sb-setting-theme' class='sb-setting-theme-select'>
-                                   <option value="material">Material</option>
+                                    <option value="material">Material</option>
                                     <option value="fabric">Fabric</option>
                                     <option value="bootstrap">Bootstrap</option>
+                                    <!-- <option value="bootstrap4">Bootstrap v4</option> -->
                                     <option value="highcontrast">High Contrast</option>
                                 </select>
                             </div>
@@ -315,23 +320,6 @@
                                     <div>
                                         <div class='sb-source-section'>
                                             <div id='sb-source-tab' class="">
-                                                <div id='sb-content-header' class="e-tab-header sb-content-tab-header heade">
-                                                    <div>
-                                                        <span id="sb-ts-snippet-header"></span>
-                                                        sdfsfs
-                                                    </div>
-                                                    <div>
-                                                        <span class="sb-html-snippet-header"></span> htmlfileName </div>
-
-                                                </div>
-                                                <div id="con" class="e-content sb-sample-content-area">
-                                                    <div>
-                                                        <div id="ts-src-tab" class="ts-source-content sb-src-code javascript">Vuecontent</div>
-                                                    </div>
-                                                    <div>
-                                                        <div id="html-src-tab" class="html-source-content sb-src-code xml">html Content</div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -346,7 +334,7 @@
                                     <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank">
+                                    <a href="https://www.syncfusion.com/forum/vue" target="_blank">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
                                     <a href="https://blog.syncfusion.com/" target="_blank">

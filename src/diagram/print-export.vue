@@ -8,12 +8,12 @@
           <e-item type= "Button"
         text= "Print"
         prefixIcon= "e-ddb-icons  e-print" ></e-item>
-    <e-item type= "Input"  id="checkbox"
+    <e-item type= "Input" ref="checkboxObject" id="checkbox"
        :template='checkBoxTemplate'></e-item>
     </e-items>
     </ejs-toolbar>
       <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors'
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors'
         :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
@@ -419,8 +419,7 @@ export default Vue.extend({
     }
   },
   mounted: function() {
-    let diagramObj = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
     let checkbox = document.getElementById("checkbox");
     checkBoxObj = checkbox.ej2_instances[0];

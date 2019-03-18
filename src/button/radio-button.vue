@@ -24,18 +24,18 @@
     </p>
     <p>
         In this sample, Credit/Debit Card option is checked by default, and it can be achieved by using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/api/radio-button/#checked">checked
+        href="https://ej2.syncfusion.com/vue/documentation/api/radio-button/#checked">checked
         </a></code> property.
     </p>
      <p>
         More information about RadioButton can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/radio-button/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/radio-button/getting-started">
         documentation section</a>.
     </p>
 </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
 /* RadioButton Styles */
 .radio-control {
@@ -77,6 +77,7 @@
   font-size: 20px;
 }
 </style>
+<!-- custom code end -->
 
 <script>
 import Vue from "vue";

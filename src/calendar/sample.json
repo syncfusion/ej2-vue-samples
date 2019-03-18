@@ -2,7 +2,7 @@
     "name": "Calendar",
     "directory": "calendar",
     "category": "Calendars",
-    "type": "update",
+	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -42,12 +42,20 @@
             "hideOnDevice": true,
             "api":{"Calendar": [ "isMultiSelection", "values" ]}
         },
+		{
+            "url": "month-picker",
+            "name": "Month Picker",
+            "category": "Calendar",
+            "type": "new",
+            "hideOnDevice": true,
+            "api":{"Calendar": [ "start", "depth" ]},
+            "description" :"The Vue Calendar component can act as a month and year picker. It helps you to select a month or year quickly with all month related properties" 
+        },
         {
             "url": "islamic-calendar",
             "name": "Islamic Calendar",
             "category": "Calendar",
-            "hideOnDevice": true,
-            "type": "new",
+            "hideOnDevice": true,            
             "api":{"Calendar": [ "isMultiSelection", "value", "min", "max" ]}
         }
     ]

@@ -181,9 +181,9 @@ export default Vue.extend({
         this.$refs.minSlider &&
         this.$refs.rangeSlider
       ) {
-        this.$refs.defaultSlider.ej2Instances.refreshTooltip();
-        this.$refs.minSlider.ej2Instances.refreshTooltip();
-        this.$refs.rangeSlider.ej2Instances.refreshTooltip();
+        this.$refs.defaultSlider.ej2Instances.refreshTooltip(this.$refs.defaultSlider.ej2Instances.tooltipTarget);
+        this.$refs.minSlider.ej2Instances.refreshTooltip(this.$refs.minSlider.ej2Instances.tooltipTarget);
+        this.$refs.rangeSlider.ej2Instances.refreshTooltip(this.$refs.rangeSlider.ej2Instances.tooltipTarget);
       }
     }
   },

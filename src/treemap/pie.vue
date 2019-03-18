@@ -3,6 +3,7 @@
 <div class="control-section">
     <ejs-treemap id='container' :load='load' :tooltipRendering='tooltipRendering' align="center" :loaded='loaded' :resize='resize' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
 </div>
+
 <div style="float: right; margin-right: 10px;">Source:
     <a href=" http://en.worldstat.info/Asia/" target="_blank">en.worldstat.info</a>
 </div>
@@ -64,11 +65,13 @@ data:function(){
     }
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     tooltipRendering:function(args){
             if (args.item['groupIndex'] !== 1 ) {
                 args.cancel = true;

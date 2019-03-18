@@ -213,7 +213,7 @@
 </div> 
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
         #EventLog b{
             color: #388e3c;
@@ -223,7 +223,7 @@
             border-top: 1px solid #eee;
         }
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";

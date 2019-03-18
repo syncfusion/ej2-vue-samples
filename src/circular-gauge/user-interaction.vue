@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='user-container' :enablePointerDrag='enablePointerDrag' :dragMove='dragMove' :dragEnd='dragEnd'>
+<ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='user-container' :enablePointerDrag='enablePointerDrag' :dragMove='dragMove' :dragEnd='dragEnd'>
 <e-axes>
 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0  maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
 <e-pointers>
@@ -15,6 +15,7 @@
             
         </div>
     </div>
+
     <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tr style="height: 50px">
@@ -115,12 +116,15 @@ provide: {
     circulargauge: [Annotations]
 },
 methods: {
+    /* custom code start */
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     dragMove: function(args){
             let content = '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique;"><span>';
             // let cotainerObj=document.getElementById('user-container');

@@ -46,7 +46,7 @@
     </div>
 </template>
 <style>
-
+/* custom code start*/
 .content-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -92,6 +92,14 @@
     height: 100%;
     padding: 0;
 }
+
+.title-text {
+    font-size: 18px;
+    margin: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+/* custom code end*/
 
 .treeview-external-drag #waitlist {
     width: 100%;
@@ -199,12 +207,6 @@
     font-size: 10px;
 }
 
-.title-text {
-    font-size: 18px;
-    margin: 0px;
-    font-weight: bold;
-    text-align: center;
-}
 
 .e-schedule.schedule-drag-drop .specialist-image {
     width: 45px;
@@ -217,9 +219,11 @@
 }
 
 @media (max-width: 550px) {
+    /* custom code start*/
     .schedule-container {
         padding-bottom: 10px
     }
+    /* custom code end*/
 
     .treeview-external-drag.e-treeview,
     .e-bigger .treeview-external-drag.e-treeview {

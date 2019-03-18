@@ -122,6 +122,17 @@
     content: '\e91b';
 }
 
+.sb-icon-Back:before {
+    content: '\e962';
+    font-size: 17px;
+}
+
+.sb-icons.sb-icon-Back {
+    vertical-align: middle;
+    display: table-cell;
+    width: 17px;
+}
+
 .sb-icons-plnkr:before {
     content: '\e911';
 }
@@ -226,6 +237,7 @@
 #sb-toggle-left {
     padding-left: 18px;
     font-size: 24px;
+    cursor: pointer;
 }
 
 #sb-header-text {
@@ -490,6 +502,15 @@
     background: #fff;
 }
 
+#search-input-wrapper .e-input-group.e-control-wrapper.e-ddl {
+    border: none;
+}
+
+#search-input-wrapper .e-input-group.e-control-wrapper.e-ddl.e-input-focus::before,
+#search-input-wrapper .e-input-group.e-control-wrapper.e-ddl.e-input-focus::after {
+    background: none;
+}
+
 .sb-search-result {
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
@@ -536,6 +557,13 @@
     font-size: 13px;
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
     font-weight: 400;
+}
+
+.sb-search-input .e-ddl .e-clear-icon {
+    background: #fff;
+    margin-left: -5px;
+    border-radius: 4px;
+    border: none;
 }
 
 .search-no-record {
@@ -937,6 +965,10 @@
 
 .sb-source-section .e-tab .e-tab-header .e-toolbar-item.e-active .e-tab-text {
     color: #3C78EF;
+}
+
+#sb-source-tab .e-tab-text {
+    text-transform: lowercase;
 }
 
 .sb-right-pane-overlay {
@@ -1559,9 +1591,9 @@ propertye pane
     .sb-mobile-header-buttons {
         display: table;
     }
-    .sb-mobile-header-button {
+    .sb-mobile-header-price {
         width: 114px;
-        background-color: #939393;
+        background-color: #3C78EF;
         font-weight: 500;
         line-height: 24px;
         text-align: center;
@@ -1571,7 +1603,23 @@ propertye pane
         margin-left: 16px;
         padding: 6px 12px;
         color: #ffffff;
+        border-radius: 2px;
     }
+    .sb-mobile-header-about {
+        width: 114px;
+        background-color: #ffffff;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: center;
+        border: 1px solid;
+        cursor: pointer;
+        display: inline-table;
+        margin-left: 16px;
+        padding: 6px 12px;
+        color: #3C78EF;
+        border-radius: 2px;
+    }
+
     .sb-mobile-header-button:active {
         background-color: #1783FF;
     }
@@ -1804,7 +1852,7 @@ body.highcontrast,
     border: none;
 }
 .highcontrast #controlList li.e-list-item {
-    line-height: 45px;
+    line-height: 36px;
     }
 
 .highcontrast .sb-content-section,

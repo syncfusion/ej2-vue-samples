@@ -34,7 +34,7 @@
 </template>
 <style>
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -61,7 +61,7 @@ export default Vue.extend({
         type: "HierarchicalTree",
         margin: { left: 0, right: 0, top: 100, bottom: 0 },
         verticalSpacing: 40,
-        getLayoutInfo: (node: Node, options: TreeInfo) => {
+        getLayoutInfo: (node, options) => {
           if (options.level === 3) {
             node.style.fill = "#3c418d";
           }
@@ -76,7 +76,7 @@ export default Vue.extend({
         }
       },
       //Sets the default values of nodes
-      getNodeDefaults: (obj: Node) => {
+      getNodeDefaults: (obj) => {
         obj.width = 80;
         obj.height = 40;
         //Initialize shape
@@ -84,7 +84,7 @@ export default Vue.extend({
         obj.style = { fill: "#048785", strokeColor: "Transparent" };
       },
       //Sets the default values of connector
-      getConnectorDefaults: (connector: Connector) => {
+      getConnectorDefaults: (connector) => {
         connector.type = "Orthogonal";
         connector.style.strokeColor = "#048785";
         connector.targetDecorator.shape = "None";
@@ -104,7 +104,7 @@ export default Vue.extend({
             .take(9)
         ),
         //binds the external data with node
-        doBinding: (nodeModel: NodeModel, data: DataInfo, diagram: Diagram) => {
+        doBinding: (nodeModel, data, diagram) => {
           nodeModel.annotations = [
             {
               /* tslint:disable:no-string-literal */
@@ -124,7 +124,4 @@ export default Vue.extend({
   }
 });
 
-export interface DataInfo {
-  [key: string]: string;
-}
 </script>

@@ -174,6 +174,7 @@ return{
 provide:{
     sparkline:[SparklineTooltip]
 },
+/* custom code start */
 methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
@@ -181,6 +182,7 @@ methods:{
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     }
 }
+/* custom code end */
 })
 </script>
 

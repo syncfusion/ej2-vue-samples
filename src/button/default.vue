@@ -85,7 +85,7 @@
           <a
             target="_blank"
             class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/api/button/#istoggle"
+            href="https://ej2.syncfusion.com/vue/documentation/api/button/#istoggle"
           >isToggle</a>
         </code> property. To change the text and icon you should handle click event.
       </p>
@@ -93,7 +93,7 @@
         More information about Button can be found in this
         <a
           target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/button/getting-started"
+          href="https://ej2.syncfusion.com/vue/documentation/button/getting-started"
         >documentation section</a>.
       </p>
     </div>
@@ -136,7 +136,7 @@
 #button-control .e-add-icon::before {
   content: "\e70a";
 }
-
+/* custom code start */
 #button-control {
   width: 100%;
   margin: 8% 0;
@@ -157,6 +157,7 @@
 #button-control .col-xs-12 {
   margin: 15px 0;
 }
+/* custom code end */
 </style>
 
 <script>

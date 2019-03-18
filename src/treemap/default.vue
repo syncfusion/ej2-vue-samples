@@ -5,6 +5,7 @@
         <ejs-treemap id='default-container' :load='load' :itemMove='itemMove' :itemClick='itemMove' :leafItemSettings='leafItemSettings' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :legendSettings='legendSettings' :palette='palette' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath' :levels='levels'></ejs-treemap>
     </div>
 </div>
+
 <div style="float: right; margin-right: 10px;">Source:
     <a href=" https://www.factorywarrantylist.com/car-sales-by-country.html/" target="_blank"> www.factorywarrantylist.com</a>
 </div>
@@ -66,11 +67,13 @@ return{
 }
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     itemMove:function(args){
         args.item['data'].Sales = args.item['weight'];
         args.treemap.tooltipSettings.format = args.item['groupIndex'] === 0 ? 'Country: ${Continent}<br>Sales: ${Sales}' :

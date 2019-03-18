@@ -30,22 +30,24 @@
     </p>
     <p>
         In this sample, SplitButton contains icon, content and list of action items, and can be added using
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/split-button/#iconcss">iconCss,
+        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/split-button/#iconcss">iconCss,
         </a></code>
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/split-button/#content">content
+        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/split-button/#content">content
         </a></code>and
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/split-button/#items">items
+        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/split-button/#items">items
         </a></code>property.
     </p>
     <p>
         More information about SplitButton can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/split-button/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/split-button/getting-started">
             documentation section</a>.
     </p>
 </div>
 </div>
 </template>
+
 <style>
+/* custom code start */
 #split-button-control {
   width: 100%;
   margin: 11% 0;
@@ -60,6 +62,8 @@
 #split-button-control .col-sm-6 {
   margin: 25px 0;
 }
+
+/* custom code end */
 
 /* SplitButton sample icons */
 @font-face {

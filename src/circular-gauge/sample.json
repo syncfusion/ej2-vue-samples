@@ -33,15 +33,13 @@
             "url": "semi-circular-gauge",
             "name": "Semi-circular Gauge",
             "category": "Circular Gauge",
-            "api":{"CircularGauge": [ "axes"]},
-            "type": "new"
+            "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "arc-gauge",
             "name": "Arc Gauge",
             "category": "Circular Gauge",
-            "api":{"CircularGauge": [ "axes"]},
-            "type": "new"
+            "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "compass",
@@ -86,11 +84,17 @@
             "api":{"CircularGauge": ["axes"]}
         },
         {
+            "url": "apple-watch-rings",
+            "name": "Apple Watch Rings",
+            "category": "Live",
+            "type": "new"
+        },
+        {
             "url": "speedometer",
             "name": "Speedometer",
             "category": "Live",
-            "api":{"CircularGauge": [ "axes"]},
-            "type": "new"
+            "api":{"CircularGauge": [ "axes"]}
         }
+        
     ]
 }

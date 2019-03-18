@@ -13,7 +13,7 @@
         </ejs-rangenavigator>
     </div>
     <div align="center">
-         <ejs-chart style='display:block;' id='chartDT' align='center' :chartArea='chartArea' :width='width' 
+         <ejs-chart style='display:block;' ref='chart' id='chartDT' align='center' :chartArea='chartArea' :width='width' 
             :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :tooltip='chartTooltip' :theme='theme'
             :legendSettings='legendSettings' :axisLabelRender='axisLabelRender'>
             <e-series-collection>
@@ -137,14 +137,17 @@ export default Vue.extend({
     rangeNavigator: [AreaSeries, DateTime, RangeTooltip],
     chart: [DateTime, SplineSeries, Tooltip, Crosshair]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+        this.$refs.chart.ej2Instances.refresh();
+      });
+    },
   methods: {
    changed: function(args) {
-      var chart = document.getElementById("chartDT").ej2_instances;
-      if (chart) {
-        chart[0].primaryXAxis.zoomFactor = args.zoomFactor;
-        chart[0].primaryXAxis.zoomPosition = args.zoomPosition;
-        chart[0].dataBind();
-      }
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
+        this.$refs.chart.ej2Instances.dataBind();
     },
     axisLabelRender: function(args){
         if (args.axis.name === 'primaryYAxis') {

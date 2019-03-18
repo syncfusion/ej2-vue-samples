@@ -2,19 +2,20 @@
     "name": "Numeric Textbox",
     "directory": "numerictextbox",
     "category": "Inputs",
+    "type": "update",
     "ftName": "numerictextbox",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Numeric Textbox",
-            "description": "The NumericTextBox component is used to get the number inputs from the user. Also it can be act as the currency textbox and percentage textbox to get the currency and percentage inputs."
+            "description": "The NumericTextBox is used to get the numbered inputs from the users and the currency and percentage text boxes to get the currency and percentage inputs."
         },
         {
             "url": "range-validation",
             "name": "Range Validation",
             "category": "Numeric Textbox",
-            "description": "The NumericTextBox has the options to restrict the input value between a specific range using the min, max, and strictMode properties. In this demo, numeric textbox is restricted between 10 to 100 through the min and max properties."
+            "description": "The NumericTextBox has options to restrict the input value between a specific range using min, max, and strictMode properties."
         },
         {
             "url": "custom-format",
@@ -26,7 +27,15 @@
             "url": "restrict-decimals",
             "name": "Restrict Decimals",
             "category": "Numeric Textbox",
-            "description": "The NumericTextBox provides an option to restrict the number of decimal values, by using the decimals property. So we can make it to accept the integer value alone."
+            "description": "The NumericTextBox provides an option to restrict the number of decimal values, by using the decimals property. So, it can only accept the integer value alone."
+        },
+        {
+            "url": "two-way",
+            "name": "Two-Way Binding",
+            "category": "Numeric Textbox",
+            "description": "This sample demonstrates the two way bindig in numeric textbox. when you change the value in one numeric textbox component, it will update in the other numeric textbox by using value property.",
+            "type" : "new"
         }
+
     ]
 }

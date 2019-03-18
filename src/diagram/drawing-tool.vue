@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
   <div class="col-lg-9 control-section">
-    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :rulerSettings='rulerSettings' :tool='tool'></ejs-diagram>
+    <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :rulerSettings='rulerSettings' :tool='tool'></ejs-diagram>
   </div>
   <div class="col-lg-3 property-section">
     <div class="property-panel-header">
@@ -141,7 +141,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -170,7 +170,7 @@ import { CheckBox, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(DiagramPlugin);
 
-let shape: { [key: string]: Object }[] = [
+let shape = [
   { shapeName: "BasicShape", shapeId: "Basic" },
   { shapeName: "FlowShape", shapeId: "Flow" },
   { shapeName: "Connector", shapeId: "Segment" },
@@ -179,7 +179,7 @@ let shape: { [key: string]: Object }[] = [
   { shapeName: "SVG", shapeId: "SVG" },
   { shapeName: "Text", shapeId: "Text" }
 ];
-let basic: BasicShapes[] = [
+let basic = [
   "Rectangle",
   "Ellipse",
   "Hexagon",
@@ -196,7 +196,7 @@ let basic: BasicShapes[] = [
   "Cylinder",
   "Diamond"
 ];
-let flow: FlowShapes[] = [
+let flow = [
   "Process",
   "Decision",
   "Document",
@@ -206,10 +206,10 @@ let flow: FlowShapes[] = [
   "DirectData",
   "SequentialData"
 ];
-let connector: Segments[] = ["Straight", "Orthogonal"];
-let node: NodeModel;
-let diagramInstance: any;
-let interval: number[];
+let connector = ["Straight", "Orthogonal"];
+let node;
+let diagramInstance;
+let interval;
 interval = [
   1,
   9,
@@ -232,11 +232,11 @@ interval = [
   0.25,
   9.75
 ];
-let gridlines: GridlinesModel = {
+let gridlines = {
   lineColor: "#e0e0e0",
   lineIntervals: interval
 };
-let snapSettings: SnapSettingsModel = {
+let snapSettings = {
   snapObjectDistance: 5,
   constraints:
     SnapConstraints.SnapToObject |
@@ -257,9 +257,9 @@ export default Vue.extend({
         dynamicGrid: false
       },
       //Sets the default values of a node
-      getNodeDefaults: (node: NodeModel) => {
-        let obj: NodeModel = node;
-        let basicShape: BasicShape = node.shape as BasicShape;
+      getNodeDefaults: (node) => {
+        let obj = node;
+        let basicShape = node.shape;
         if (
           basicShape.shape === "Rectangle" ||
           basicShape.shape === "Ellipse"
@@ -283,14 +283,13 @@ export default Vue.extend({
     diagram: [UndoRedo, Snapping]
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     SetShape("Rectangle");
-    let appearanceObj: any = document.getElementById("appearance");
+    let appearanceObj = document.getElementById("appearance");
     //Click Event used to decide the drawing object.
-    appearanceObj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+    appearanceObj.onclick = (args) => {
+      let target = args.target;
+      let selectedElement = document.getElementsByClassName(
         "e-selected-style"
       );
       if (
@@ -321,13 +320,13 @@ export default Vue.extend({
             SetShape("Polygon");
             break;
           case "straight":
-            setdrawobject(null as any, { type: "Straight" });
+            setdrawobject(null, { type: "Straight" });
             break;
           case "ortho":
-            setdrawobject(null as any, { type: "Orthogonal" });
+            setdrawobject(null, { type: "Orthogonal" });
             break;
           case "cubic":
-            setdrawobject(null as any, { type: "Bezier" });
+            setdrawobject(null, { type: "Bezier" });
             break;
           case "path":
             getPathShape();
@@ -356,15 +355,15 @@ export default Vue.extend({
   }
 });
 
-function onChange(args: ChangeEventArgs): void {
+function onChange(args) {
   diagramInstance.tool = args.checked
     ? DiagramTools.ContinuousDraw
     : DiagramTools.DrawOnce;
 }
 
 //Enable drawing object.
-function setdrawobject(node: NodeModel, connector: ConnectorModel): void {
-  let continuousDraw: any = document.getElementById("checked");
+function setdrawobject(node, connector) {
+  let continuousDraw = document.getElementById("checked");
   if (!continuousDraw.checked) {
     diagramInstance.tool = DiagramTools.DrawOnce;
   }
@@ -376,8 +375,8 @@ function setdrawobject(node: NodeModel, connector: ConnectorModel): void {
   diagramInstance.dataBind();
 }
 //Enable drawing Tool.
-function enableTool(): void {
-  let continuousDraw: any = document.getElementById("checked");
+function enableTool() {
+  let continuousDraw = document.getElementById("checked");
   if (!continuousDraw.checked) {
     diagramInstance.tool = DiagramTools.DrawOnce;
   }
@@ -385,44 +384,28 @@ function enableTool(): void {
 }
 
 //Set the Shape of the drawing Object.
-function SetShape(obj: string): void {
-  let drawingshape:
-    | NodeModel
-    | PathModel
-    | ImageModel
-    | TextModel
-    | ConnectorModel
-    | BasicShapes;
-  drawingshape = { type: "Basic", shape: obj } as NodeModel;
+function SetShape(obj) {
+  let drawingshape;
+  drawingshape = { type: "Basic", shape: obj} ;
   node = {
-    shape: drawingshape as NodeModel
+    shape: drawingshape
   };
   diagramInstance.drawingObject = node;
   enableTool();
 }
 //Set TextNode Shape.
-function getTextNode(): void {
-  let drawingshape:
-    | NodeModel
-    | PathModel
-    | ImageModel
-    | TextModel
-    | ConnectorModel;
+function getTextNode() {
+  let drawingshape;
   drawingshape = { type: "Text" };
   node = {
     shape: drawingshape
   };
-  setdrawobject(node, null as any);
+  setdrawobject(node, null);
 }
 //Set SVG Node
-function getSVGNode(): void {
+function getSVGNode() {
   // tslint:disable-next-line:max-line-length
-  let drawingshape:
-    | NodeModel
-    | PathModel
-    | ImageModel
-    | TextModel
-    | ConnectorModel;
+  let drawingshape;
   drawingshape = {
     type: "Native",
     content: getPath()
@@ -430,11 +413,11 @@ function getSVGNode(): void {
   node = {
     shape: drawingshape
   };
-  setdrawobject(node, null as any);
+  setdrawobject(node, null);
 }
 
-function getPath(): string {
-  let str: string =
+function getPath() {
+  let str =
     '<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="350.000000pt" ' +
     'height="229.000000pt" viewBox="0 0 350.000000 229.000000" ' +
     'preserveAspectRatio="xMidYMid meet"> <metadata>' +
@@ -457,27 +440,17 @@ function getPath(): string {
     "</g> </svg>";
   return str;
 }
-function getImageNode(): void {
-  let drawingshape:
-    | NodeModel
-    | PathModel
-    | ImageModel
-    | TextModel
-    | ConnectorModel;
+function getImageNode() {
+  let drawingshape;
   drawingshape = { type: "Image", source: "./src/diagram/employee.png" };
   node = {
     shape: drawingshape
   };
-  setdrawobject(node, null as any);
+  setdrawobject(node, null);
 }
-function getPathShape(): void {
+function getPathShape() {
   // tslint:disable-next-line:max-line-length
-  let drawingshape:
-    | NodeModel
-    | PathModel
-    | ImageModel
-    | TextModel
-    | ConnectorModel;
+  let drawingshape;
   drawingshape = {
     type: "Path",
     data:
@@ -486,10 +459,10 @@ function getPathShape(): void {
   node = {
     shape: drawingshape
   };
-  setdrawobject(node, null as any);
+  setdrawobject(node, null);
 }
-function getPorts(obj: NodeModel): PointPortModel[] {
-  let ports: PointPortModel[] = [
+function getPorts(obj) {
+  let ports = [
     createPort("port1", { x: 0, y: 0.5 }),
     createPort("port2", { x: 0.5, y: 1 }),
     createPort("port3", { x: 1, y: 0.5 }),
@@ -497,8 +470,8 @@ function getPorts(obj: NodeModel): PointPortModel[] {
   ];
   return ports;
 }
-function getPathPorts(obj: NodeModel): PointPortModel[] {
-  let ports: PointPortModel[] = [
+function getPathPorts(obj) {
+  let ports = [
     createPort("port1", { x: 0.5, y: 0 }),
     createPort("port2", { x: 0, y: 0.39 }),
     createPort("port3", { x: 1, y: 0.39 }),
@@ -507,8 +480,8 @@ function getPathPorts(obj: NodeModel): PointPortModel[] {
   ];
   return ports;
 }
-function getHexagonPorts(obj: NodeModel): PointPortModel[] {
-  let ports: PointPortModel[] = [
+function getHexagonPorts(obj) {
+  let ports = [
     createPort("port1", { x: 0, y: 0.5 }),
     createPort("port2", { x: 0.5, y: 0 }),
     createPort("port3", { x: 0.3, y: 0 }),
@@ -520,8 +493,8 @@ function getHexagonPorts(obj: NodeModel): PointPortModel[] {
   ];
   return ports;
 }
-function getPentagonPorts(obj: NodeModel): PointPortModel[] {
-  let ports: PointPortModel[] = [
+function getPentagonPorts(obj) {
+  let ports = [
     createPort("port1", { x: 0.5, y: 0 }),
     createPort("port2", { x: 0, y: 0.4 }),
     createPort("port3", { x: 1, y: 0.4 }),
@@ -530,8 +503,8 @@ function getPentagonPorts(obj: NodeModel): PointPortModel[] {
   ];
   return ports;
 }
-function createPort(id: string, offset: PointModel): PointPortModel {
-  let port: PointPortModel = {
+function createPort(id, offset) {
+  let port = {
     id: id,
     shape: "Square",
     offset: offset,
@@ -539,9 +512,5 @@ function createPort(id: string, offset: PointModel): PointPortModel {
     visibility: PortVisibility.Hover
   };
   return port;
-}
-
-interface SdlcNodeModel extends NodeModel {
-  text: string;
 }
 </script>

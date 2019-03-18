@@ -8,6 +8,7 @@
             id="default"
             ref="defaultSlider"
             v-model="value"
+            :enabled="enabled"
             :min="min"
             :max="max"
             :step="step"
@@ -21,6 +22,7 @@
             ref="rangeSlider"
             v-model="rangevalue"
             :type="rangetype"
+            :enabled="enabled"
             :min="min"
             :max="max"
             :step="step"
@@ -118,6 +120,7 @@ Vue.use(CheckBoxPlugin);
 export default Vue.extend({
   data: function() {
     return {
+      enabled:true,
       value: 30,
       min: 10,
       max: 90,

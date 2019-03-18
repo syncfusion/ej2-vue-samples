@@ -51,7 +51,9 @@ export default Vue.extend({
 </script>
 
 <style>
+    /* custom code start */
     .control-section{
         min-height: 350px;    
     }
+    /* custom code end */
 </style>

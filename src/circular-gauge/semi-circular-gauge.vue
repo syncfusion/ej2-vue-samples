@@ -13,6 +13,7 @@
 </ejs-circulargauge>
         </div>
     </div>
+
     <div class="col-lg-4 property-section">
         <table id="property" title="Properties" style="width: 100%; margin:10px">
             <tbody>
@@ -138,6 +139,7 @@ provide: {
     circulargauge: [Annotations]
 },
 methods: {
+    /* custom code start */
      load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
@@ -146,6 +148,8 @@ methods: {
         document.getElementById('startangle').value = args.gauge.axes[0].startAngle;
         document.getElementById('end').value = args.gauge.axes[0].endAngle;
     },
+    /* custom code end */
+    // Code for Property Panel
     angleStart:function(args){
       let min = parseInt(document.getElementById('startangle').value, 10);
       document.getElementById('rangeStart').innerHTML = 'Start Angle <span> &nbsp;&nbsp;&nbsp;' + min + '°';

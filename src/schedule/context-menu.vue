@@ -41,6 +41,33 @@
         content: '\e322';
     }
 
+    /* custom code start*/
+    .highcontrast .schedule-context-menu .e-menu-item .today::before,
+    .fabric .schedule-context-menu .e-menu-item .today::before {
+        content: '\e321';
+    }
+
+    .bootstrap .schedule-context-menu .e-menu-item .today::before {
+        content: '\e312';
+    }
+
+    .highcontrast .schedule-context-menu .e-menu-item .delete::before,
+    .fabric .schedule-context-menu .e-menu-item .delete::before {
+        content: '\eb00';
+    }
+
+    .highcontrast .schedule-context-menu .e-menu-item .new::before,
+    .fabric .schedule-context-menu .e-menu-item .new::before {
+        content: '\e823';
+    }
+
+    .highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
+    .fabric .schedule-context-menu .e-menu-item .recurrence::before {
+        content: '\e309';
+        font-weight: bold;
+    }
+    /* custom code end*/
+
     .schedule-context-menu .e-menu-item .delete::before {
         content: '\e94a';
     }
@@ -70,7 +97,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2019, 0, 10),
                 menuItems: [
                     {
                         text: 'New Event',

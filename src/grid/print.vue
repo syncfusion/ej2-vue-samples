@@ -60,6 +60,7 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
   .e-mastertext {
       font-size: 15px;
@@ -74,6 +75,7 @@
       color: #212121;
   }
 </style>
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { GridPlugin, DetailRow, Grid, HierarchyGridPrintMode, Toolbar } from "@syncfusion/ej2-vue-grids";

@@ -69,12 +69,14 @@
 </div>
 </template>
 <style>
+/* custom code start */
 .sb-header {
   z-index: 100;
 }
 .property-panel-table div {
   padding-left: 0;
 }
+/* custom code end */
 </style>
 <script>
 import Vue from "vue";

@@ -2,7 +2,7 @@
 <div class="control-section">
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
+        <ejs-diagram style='display:block' ref="diagramControl" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
         :selectionChange='selectionChange' :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
@@ -43,30 +43,30 @@
         </div>
           <div class="row" style="padding-top: 8px">
               <div class="col-xs-4 column-style">
-                  <ejs-button id="bold" style="width:100%"
+                  <ejs-button ref="boldObj" id="bold" style="width:100%"
                               :iconCss='boldiconCss'></ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button id="italic" style="width:100%"
+                  <ejs-button ref= "italicObj" id="italic" style="width:100%"
                               :iconCss='italiciconCss'></ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button id="underline" style="width:100%"
+                  <ejs-button ref="underlineObj" id="underline" style="width:100%"
                               :iconCss='underlineiconCss'></ejs-button>
               </div>
           </div>
         <div class="row" style="padding-top: 8px">
             <div class="col-xs-4 column-style">
-                <ejs-colorpicker id="fontcolor"       
+                <ejs-colorpicker ref="fontcolorObj" id="fontcolor"       
                                  :value='fontcolorvalue'
                                  :change='fontcolorchange'></ejs-colorpicker>
             </div>
             <div class="col-xs-4 column-style">
-                <ejs-numerictextbox id="fontSize" :min="0" :max="50" :step="1" :value="12"
+                <ejs-numerictextbox ref="fontSizeObj"  id="fontSize" :min="0" :max="50" :step="1" :value="12"
                 :change='fontSizechange'/>
             </div>
             <div class="col-xs-4 column-style">
-                <ejs-dropdownlist id="fontfamily" 
+                <ejs-dropdownlist ref="fontfamilyObj" id="fontfamily" 
                   :dataSource='fontfamilydataSource'
                   :fields='fontfamilyfields' 
                   :popupWidth='fontfamilypopupWidth'
@@ -82,7 +82,7 @@
           Templates
        </div>
        <div class="row col-xs-8" style="padding-left: 0px; padding-top: 8px">
-           <ejs-dropdownlist id="template"
+           <ejs-dropdownlist ref = "templatelistObj" id="template"
              :dataSource='templatelistdataSource'
              :fields='templatefields'
              :popupWidth='templatepopupwidth'
@@ -253,7 +253,7 @@
 
 
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -292,18 +292,18 @@ Vue.use(ColorPickerPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(CheckBoxPlugin);
 
-let diagramInstance: Diagram;
+let diagramInstance;
 
-let fontFamily: DropDownList;
-let fontSize: NumericTextBox;
-let fontColor: ColorPicker;
-let bold: Button;
-let italic: Button;
-let underLine: Button;
-let templateData: DropDownList;
+let fontFamily;
+let fontSize;
+let fontColor;
+let bold;
+let italic;
+let underLine;
+let templateData;
 
 //Initializes the nodes for the diagram
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "industry",
     offsetX: 280,
@@ -337,7 +337,7 @@ let nodes: NodeModel[] = [
 ];
 
 //Initializes the connector for the diagram
-let connectors: ConnectorModel[] = [
+let connectors = [
   {
     id: "connector1",
     sourceID: "potential",
@@ -389,7 +389,7 @@ let connectors: ConnectorModel[] = [
 ];
 
 //FontType Collection
-let fontType: { [key: string]: Object }[] = [
+let fontType= [
   { type: "Arial", text: "Arial" },
   { type: "Aharoni", text: "Aharoni" },
   { type: "Bell MT", text: "Bell MT" },
@@ -399,7 +399,7 @@ let fontType: { [key: string]: Object }[] = [
   { type: "Verdana", text: "Verdana" }
 ];
 
-let templateList: { [key: string]: Object }[] = [
+let templateList = [
   { value: "none", text: "None" },
   { value: "industry", text: "Industry Competitors" },
   { value: "suppliers", text: "Suppliers" },
@@ -415,18 +415,18 @@ export default Vue.extend({
       height: "645px",
       nodes: nodes,
       connectors: connectors,
-      selectionChange: (arg: ISelectionChangeEventArgs) => {
+      selectionChange: (arg) => {
         if (arg.state === "Changed") {
-          let selectedElement: HTMLCollection = document.getElementsByClassName(
+          let selectedElement = document.getElementsByClassName(
             "e-selected-style"
           );
           if (selectedElement.length) {
             selectedElement[0].classList.remove("e-selected-style");
           }
           if (arg.newValue[0]) {
-            let node: NodeModel = arg.newValue[0] as NodeModel;
-            let annotations: ShapeAnnotationModel[] = node.annotations as ShapeAnnotationModel[];
-            let offset: PointModel = annotations[0].offset as PointModel;
+            let node = arg.newValue[0];
+            let annotations = node.annotations;
+            let offset = annotations[0].offset;
             if (
               offset.x === 0 &&
               offset.y === 0 &&
@@ -482,8 +482,8 @@ export default Vue.extend({
         }
       },
       //Sets the default values of a node
-      getNodeDefaults: (node: NodeModel) => {
-        let obj: NodeModel = {
+      getNodeDefaults: (node) => {
+        let obj = {
           width: 150,
           height: 50,
           style: { fill: "#D5EDED", strokeColor: "#7DCFC9", strokeWidth: 1 },
@@ -492,7 +492,7 @@ export default Vue.extend({
         return obj;
       },
       //Sets the default values of a connector
-      getConnectorDefaults: (obj: Connector) => {
+      getConnectorDefaults: (obj) => {
         obj.type = "Orthogonal";
         obj.constraints = ConnectorConstraints.None;
       },
@@ -502,17 +502,17 @@ export default Vue.extend({
       underlineiconCss: "e-ddb-icons e-underline",
 
       fontcolorvalue: "#000",
-      fontcolorchange: (arg: ColorPickerEventArgs) => {
+      fontcolorchange: (arg) => {
         if (diagramInstance.selectedItems.nodes) {
           for (
-            let i: number = 0;
+            let i = 0;
             i < diagramInstance.selectedItems.nodes.length;
             i++
           ) {
-            let node: NodeModel = diagramInstance.selectedItems.nodes[i];
+            let node = diagramInstance.selectedItems.nodes[i];
             if (node.annotations) {
-              for (let j: number = 0; j < node.annotations.length; j++) {
-                (node.annotations[j].style as TextStyleModel).color =
+              for (let j = 0; j < node.annotations.length; j++) {
+                (node.annotations[j].style).color =
                   arg.currentValue.rgba;
               }
             }
@@ -549,28 +549,20 @@ export default Vue.extend({
     };
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramControl.ej2Instances;
     diagramInstance.select([diagramInstance.nodes[0]]);
-    let boldObj: any = document.getElementById("bold");
-    bold = boldObj.ej2_instances[0];
-    let italicObj: any = document.getElementById("italic");
-    italic = italicObj.ej2_instances[0];
-    let underlineObj: any = document.getElementById("underline");
-    underLine = underlineObj.ej2_instances[0];
-    let fontfamilyObj: any = document.getElementById("fontfamily");
-    fontFamily = fontfamilyObj.ej2_instances[0];
-    let fontSizeObj: any = document.getElementById("fontSize");
-    fontSize = fontSizeObj.ej2_instances[0];
-    let fontcolorObj: any = document.getElementById("fontcolor");
-    fontColor = fontcolorObj.ej2_instances[0];
-    let templatelistObj: any = document.getElementById("template");
-    templateData = templatelistObj.ej2_instances[0];
+    bold = this.$refs.boldObj.ej2Instances;
+    italic = this.$refs.italicObj.ej2Instances;
+    underLine = this.$refs.underlineObj.ej2Instances;
+    fontFamily = this.$refs.fontfamilyObj.ej2Instances;
+    fontSize = this.$refs.fontSizeObj.ej2Instances;
+    fontColor = this.$refs.fontcolorObj.ej2Instances;
+    templateData = this.$refs.templatelistObj.ej2Instances;
 
-    let appearance: HTMLElement = document.getElementById(
+    let appearance = document.getElementById(
       "propertypanel"
-    ) as HTMLElement;
-    let selectedElement: HTMLCollection = document.getElementsByClassName(
+    ) ;
+    let selectedElement = document.getElementsByClassName(
       "e-remove-selection"
     );
 
@@ -583,11 +575,11 @@ export default Vue.extend({
     underLine.element.onclick = () => {
       changed("underline");
     };
-    let obj: any = document.getElementById("appearance") as HTMLElement;
+    let obj = document.getElementById("appearance") ;
     //Click event for Appearance of the Property Panel
-    obj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+    obj.onclick = (args) => {
+      let target = args.target;
+      let selectedElement = document.getElementsByClassName(
         "e-selected-style"
       );
       if (selectedElement.length) {
@@ -601,25 +593,25 @@ export default Vue.extend({
 });
 
 //Apply the appearence of the Annotation
-function changed(value: string): void {
+function changed(value) {
   if (diagramInstance.selectedItems.nodes) {
-    for (let i: number = 0; i < diagramInstance.selectedItems.nodes.length; i++) {
-      let node: NodeModel = diagramInstance.selectedItems.nodes[i];
+    for (let i = 0; i < diagramInstance.selectedItems.nodes.length; i++) {
+      let node = diagramInstance.selectedItems.nodes[i];
       if (node.annotations) {
-        for (let j: number = 0; j < node.annotations.length; j++) {
+        for (let j = 0; j < node.annotations.length; j++) {
           if (value === "fontsize") {
-            (node.annotations[j].style as TextStyleModel).fontSize =
+            (node.annotations[j].style).fontSize =
               fontSize.value;
           } else if (value === "underline") {
-            (node.annotations[j].style as TextStyleModel).textDecoration =
+            (node.annotations[j].style).textDecoration =
               "Underline";
           } else if (value === "fontfamily") {
             (node.annotations[j]
-              .style as TextStyleModel).fontFamily = fontFamily.value.toString();
+              .style).fontFamily = fontFamily.value.toString();
           } else if (value === "bold") {
-            (node.annotations[j].style as TextStyleModel).bold = true;
+            (node.annotations[j].style).bold = true;
           } else if (value === "italic") {
-            (node.annotations[j].style as TextStyleModel).italic = true;
+            (node.annotations[j].style).italic = true;
           } else if (value === 'template') {
               if (templateData.value.toString() === 'none') {
                   node.annotations[j].template = '';
@@ -632,7 +624,7 @@ function changed(value: string): void {
                        '<img src="src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
                 }
             } else if (value === 'interaction') {
-              let annot: ShapeAnnotationModel = node.annotations[j];
+              let annot = node.annotations[j];
               if (annot && annot.constraints) {
                 annot.constraints = annot.constraints ^ AnnotationConstraints.Interaction;
               }
@@ -644,19 +636,19 @@ function changed(value: string): void {
 }
 }
 //Update the Annotation Position based on the selection
-function updatePosition(id: string): void {
-  let target: HTMLElement = document.getElementById(id) as HTMLElement;
+function updatePosition(id) {
+  let target = document.getElementById(id);
   if (diagramInstance.selectedItems.nodes) {
     for (
-      let i: number = 0;
+      let i= 0;
       i < diagramInstance.selectedItems.nodes.length;
       i++
     ) {
-      let node: NodeModel = diagramInstance.selectedItems.nodes[i];
+      let node = diagramInstance.selectedItems.nodes[i];
       if (node.annotations) {
         //we can refactor this code using a method
-        for (let j: number = 0; j < node.annotations.length; j++) {
-          let annotation: ShapeAnnotationModel = node.annotations[j];
+        for (let j = 0; j < node.annotations.length; j++) {
+          let annotation = node.annotations[j];
           switch (target.id) {
             case "left":
               setAnnotationPosition(annotation, 0, 0, "Top", "Left", target);
@@ -684,14 +676,14 @@ function updatePosition(id: string): void {
 }
 //set the Annotation Position
 function setAnnotationPosition( //it is in dedicated line here.
-  annotation: ShapeAnnotationModel,
-  offsetX: number,
-  offsetY: number,
-  vAlignment: VerticalAlignment,
-  hAlignment: HorizontalAlignment,
-  target: HTMLElement
-): void {
-  let offset: PointModel = annotation.offset as PointModel;
+  annotation,
+  offsetX,
+  offsetY,
+  vAlignment,
+  hAlignment,
+  target
+) {
+  let offset = annotation.offset;
   offset.x = offsetX;
   offset.y = offsetY;
   annotation.verticalAlignment = vAlignment;
@@ -708,16 +700,18 @@ function setAnnotationPosition( //it is in dedicated line here.
   target.classList.add("e-selected-style");
 }
 //Enable or disable the property panel
-function enableOptions(arg: ISelectionChangeEventArgs): void {
-  let appearance: HTMLElement = document.getElementById(
+function enableOptions(arg) {
+  let appearance = document.getElementById(
     "propertypanel"
-  ) as HTMLElement;
-  let selectedElement: HTMLCollection = document.getElementsByClassName(
+  ) ;
+  let selectedElement = document.getElementsByClassName(
     "e-remove-selection"
   );
   if (arg.newValue) {
     if (arg.newValue[0] instanceof Node) {
-      selectedElement[0].classList.remove("e-remove-selection");
+      if(selectedElement.length > 0) {
+         selectedElement[0].classList.remove("e-remove-selection");
+      }
     } else {
       if (!appearance.classList.contains("e-remove-selection")) {
         appearance.classList.add("e-remove-selection");

@@ -67,7 +67,7 @@
                   :fields="fields"
                   :mode="mode"
                   :select="onSelect"
-                  :remove="onRemove"
+                  :removed="onRemove"
                   :open="onOpen"
                   :placeholder="placeholder"
                 ></ejs-multiselect>

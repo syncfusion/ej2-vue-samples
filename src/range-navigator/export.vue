@@ -11,7 +11,7 @@
             <br>
             <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;"> Conns,Inc Stock Close Details</h4>
             <div align="center">
-                <ejs-rangenavigator style='display:block' align='center' id='containerExport' :value='value' groupBy='Quarter'
+                <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerExport' :value='value' groupBy='Quarter'
                     valueType='DateTime' intervalType='Months' labelFormat='MMM' enableGrouping=true :dataSource='dataSource' xName='xDate'
                     yName='Close' :width='width' :changed='changed' :theme='themes' animationDuration=500>
                 </ejs-rangenavigator>
@@ -19,7 +19,7 @@
             <br>
             <br>
             <div align="center">
-                <ejs-chart style='display:block;' id='chartExport' align='center' :chartArea='chartArea' :width='width' :primaryXAxis='primaryXAxis'
+                <ejs-chart style='display:block;' ref='chart' id='chartExport' align='center' :chartArea='chartArea' :width='width' :primaryXAxis='primaryXAxis'
                     :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings' height='350' :theme='themes'>
                     <e-series-collection>
                         <e-series :dataSource='dataSource' name='Close' xName='xDate' yName='Close' width='2' type='SplineArea' :border='border' :fill='fill'></e-series>
@@ -36,7 +36,7 @@
                         </td>
                         <td style="width: 60%;">
                             <div>
-                            <ejs-dropdownlist id='exporttype' index=0 :dataSource='dropDownData' width='80'></ejs-dropdownlist>
+                            <ejs-dropdownlist ref='dropdown' id='exporttype' index=0 :dataSource='dropDownData' width='80'></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -155,25 +155,27 @@ export default Vue.extend({
     rangeNavigator: [DateTime],
     chart: [SplineAreaSeries, DateTime, Crosshair, Tooltip, Export]
   },
+  updated: function() {
+    this.$nextTick(function() {
+        this.$refs.range.ej2Instances.refresh();
+        this.$refs.chart.ej2Instances.refresh();
+      });
+    },
   methods: {
    changed: function(args) {
-      var chart = document.getElementById("chartExport").ej2_instances;
-      if (chart) {
-        chart[0].primaryXAxis.zoomFactor = args.zoomFactor;
-        chart[0].primaryXAxis.zoomPosition = args.zoomPosition;
-        chart[0].dataBind();
-      }
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
+        this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
+        this.$refs.chart.ej2Instances.dataBind();
     },
     onClick: function(args) {
       let fileName = document.getElementById("fileName").value;
-      let rangeComponent = document.getElementById("containerExport").ej2_instances[0];
-      let chart = document.getElementById("chartExport").ej2_instances[0];
-      let dropDown = document.getElementById("exporttype").ej2_instances[0];
+      let rangeComponent = this.$refs.range.ej2Instances;
+      let chart = this.$refs.chart.ej2Instances;
+      let dropDown = this.$refs.dropdown.ej2Instances;
       chart.exportModule.export(dropDown.value, fileName, null, [rangeComponent, chart]);
     },
     mode: function(args) {
-      var rangeComponent = document.getElementById("containerExport").ej2_instances;
-      rangeComponent[0].print(["containerExport", "chartExport"]);
+      this.$refs.range.ej2Instances.print(["containerExport", "chartExport"]);
     }
   }
 });

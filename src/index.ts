@@ -9,6 +9,7 @@ import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
 import { Button } from '@syncfusion/ej2-buttons';
+import { Toast } from '@syncfusion/ej2-notifications';
 import { Grid } from '@syncfusion/ej2-grids';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
 import { DataManager, Query, DataUtil } from '@syncfusion/ej2-data';
@@ -29,7 +30,7 @@ import * as hljs from './common/lib/highlightjs';
 import * as searchJson from './common/search-index.json';
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
-//import { setTimeout } from "timers";
+import { setTimeout } from "timers";
 
 loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
 L10n.load(Locale);
@@ -37,8 +38,10 @@ setCulture('en');
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript'];
+//Regex for removing hidden
+const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'material';
-const themeCollection: string[] = ['material', 'fabric', 'bootstrap', 'highcontrast'];
+const themeCollection: string[] = ['material', 'fabric', 'bootstrap', 'bootstrap4', 'highcontrast'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -72,6 +75,7 @@ let themeDropDown: DropDownList;
 let currencyDropDown: DropDownList;
 let settingPopup: Popup;
 let sidebar: Sidebar;
+let sourceTabItems: object[] = [];
 let settingSidebar: Sidebar;
 let prev: string = '';
 let sbHeader: HTMLElement;
@@ -160,7 +164,7 @@ let sampleBrowser: Vue = new Vue({
         sb.vars.mobilePreference = select('.sb-mobile-preference', this.$el);
         sbContentOverlay = <HTMLElement>select('.sb-content-overlay', this.$el);
         sbBodyOverlay = <HTMLElement>select('.sb-body-overlay', this.$el);
-        sb.vars.contentTab = new Tab({ selecting: this.preventTabSwipe }, "#sb-content");
+        sb.vars.contentTab = new Tab({ selected: this.changeTab, selecting: this.preventTabSwipe }, "#sb-content");
         sb.vars.source = select('.sb-content', this.$el);
         if (Browser.isIE) {
             window.addEventListener('hashchange', () => {
@@ -205,17 +209,17 @@ let sampleBrowser: Vue = new Vue({
         updateDescription: function () {
             let curUrl: string = location.hash;
             if(prev != curUrl) {
-            select('.description-section', this.$el).innerHTML = '';
-            if (select('#description')) {
-                select('.description-section', this.$el)
-                    .appendChild(select('#description'));
-            }
-            select('.sb-action-description', this.$el).innerHTML = '';
-            if (select('#action-description') !== null) {
-                select('.sb-action-description', this.$el)
-                    .appendChild(select('#action-description'));
-              }
-            prev = curUrl;  
+                select('.description-section', this.$el).innerHTML = '';
+                if (select('#description')) {
+                    select('.description-section', this.$el)
+                        .appendChild(select('#description'));
+                }
+                select('.sb-action-description', this.$el).innerHTML = '';
+                if (select('#action-description') !== null) {
+                    select('.sb-action-description', this.$el)
+                        .appendChild(select('#action-description'));
+                }
+                prev = curUrl;
             }
         },
 
@@ -255,8 +259,8 @@ let sampleBrowser: Vue = new Vue({
                     },
                     nodeClicked: this.controlSelect,
                     nodeTemplate:  '<div><span class="tree-text">${name}</span>' +
-                    '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">Updated</span>' +
-                    '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">${type}</span>${/if}${/if}'
+                        '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">Updated</span>' +
+                        '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">${type}</span>${/if}${/if}'
                 },
                 '#controlTree');
             let controlList: ListView = new ListView(
@@ -279,11 +283,17 @@ let sampleBrowser: Vue = new Vue({
         getSampleList: function (): Controls[] | { [key: string]: Object }[] {
             if (Browser.isDevice) {
                 let tempList: Controls[] = <Controls[]>extend([], samplesJSON.samplesList);
+                let tempLists: any = [];
                 for (let temp of tempList) {
+                    if(temp.hideOnDevice == true)
+                    {
+                        continue;
+                    }
                     let data: DataManager = new DataManager((temp as any).samples);
                     temp.samples = <Samples[]>data.executeLocal(new Query());
+                    tempLists = tempLists.concat(temp);
                 }
-                return tempList;
+                return tempLists;
             }
             return samplesJSON.samplesList;
         },
@@ -486,9 +496,19 @@ let sampleBrowser: Vue = new Vue({
                             expand: true,
                             boolean: 'AND'
                         });
+                        let value:any = [];
+                        if (Browser.isDevice) {
+                            for (let file of val) {
+                                if (file.doc.hideOnDevice !== true) {
+                                   value = value.concat(file);
+                                }
+                            }
+                        }
                         let query: Query = new Query().take(10).select('doc');
                         let fields: any = searchInstance.fields;
-                        e.updateData(val, query, fields);
+                        let searchValue: any = Browser.isDevice ? value : val;
+                        e.updateData(searchValue, query, fields);
+
                     },
                     placeholder: 'Search here...',
                     noRecordsTemplate: '<div class="search-no-record">We’re sorry. We cannot find any matches for your search term.</div>',
@@ -545,13 +565,11 @@ let sampleBrowser: Vue = new Vue({
             cultureDropDown.appendTo('#sb-setting-culture');
             currencyDropDown.appendTo('#sb-setting-currency');
             sb.vars.sourceTab = new Tab({
+                items: [],
                 cssClass: 'sb-source-code-section',
                 headerPlacement: 'Bottom',
+                selected: this.dynamicTab,
                 selecting: this.preventTabSwipe,
-                items: [
-                    { header: { text: 'TabItem1' }, content: 'Tab Item1 Content' },
-                    { header: { text: 'TabItem2' }, content: 'Tab Item2 Content' }
-                ]
             }, "#sb-source-tab")
             let tabHeader: HTMLElement = <HTMLElement>document.getElementById('sb-content-header');
             tabHeader.appendChild(tabContentToolbar);
@@ -581,6 +599,18 @@ let sampleBrowser: Vue = new Vue({
                     cssClass: 'e-flat', iconPosition: 'Right'
                 },
                 '#mobile-next-sample');
+        },
+
+        changeTab: function (args: any): void {
+            if (args.selectedIndex === 1) {
+                sb.vars.sourceTab.items = sourceTabItems;
+                sb.vars.sourceTab.refresh();
+                this.rendercopycode();
+                this.dynamicTabCreation(sb.vars.sourceTab);
+            }
+        },
+
+        rendercopycode: function (): void {
             let ele: HTMLElement = createElement('div', { className: 'copy-tooltip', innerHTML: '<div class="e-icons copycode"></div>' });
             this.$el.querySelector('#sb-source-tab').appendChild(ele);
             let copiedTooltip: Tooltip = new Tooltip({
@@ -590,7 +620,31 @@ let sampleBrowser: Vue = new Vue({
                 closeDelay: 500
             });
             copiedTooltip.appendTo(ele);
+            select('.copycode').addEventListener('click', this.copyCode);
         },
+
+        dynamicTab: function (e: any): void {
+            let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content_' + e.selectedIndex);
+            let codeEle: any = blockEle.children[0];
+            codeEle.innerHTML = sb.vars.sourceTab.items[e.selectedIndex].data;
+            codeEle.innerHTML = codeEle.innerHTML.replace(reg,'');
+            codeEle.classList.add('sb-src-code');
+            this.highlightCode(codeEle);
+        },
+
+        dynamicTabCreation: function (obj: any): void {
+            let blockEle: Element = obj.element.querySelector('#e-content_' + obj.selectedItem).children[0];
+            blockEle.innerHTML = obj.items[obj.selectedItem].data;
+            blockEle.innerHTML = blockEle.innerHTML.replace(reg,'');
+            blockEle.classList.add('sb-src-code');
+           this.highlightCode(blockEle);
+         
+        },
+
+        highlightCode: function(codeEle: Element): void {
+            codeEle.classList.add("sb-src-code");
+            hljs.highlightBlock(codeEle);
+          },
 
         eventBinding: function (): void {
             let fn: Function = (e: MouseEvent) => {
@@ -636,7 +690,7 @@ let sampleBrowser: Vue = new Vue({
                     }
                 }
             })
-            select('.copycode').addEventListener('click', this.copyCode);
+
             window.addEventListener('resize', this.processResize);
             sbRightPane.addEventListener('click', () => {
                 if (isMobile && this.isLeftPaneOpen()) {
@@ -753,7 +807,7 @@ let sampleBrowser: Vue = new Vue({
             for (let sb of sbArray) {
                 let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
                 if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
-                      ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
+                    ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
                 } else {
                     ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
                         (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');
@@ -1021,7 +1075,7 @@ let sampleBrowser: Vue = new Vue({
             }
         },
         copyCode: function (): void {
-            let copyElem: HTMLElement = select('#ts-src-tab') as HTMLElement;
+            let copyElem: HTMLElement = select('#sb-source-tab .e-item.e-active') as HTMLElement;
             let textArea: HTMLTextAreaElement = createElement('textArea') as HTMLTextAreaElement;
             textArea.textContent = copyElem.textContent;
             document.body.appendChild(textArea);
@@ -1073,44 +1127,52 @@ let sampleBrowser: Vue = new Vue({
             return lines.join('\n');
         },
 
+        sourceFileList: function (node: any): void {
+            for (let samples of node.curViewDS) {
+                if (samples.url == location.hash.split('/')[3].replace('.html', '')) {
+                    return samples.sourceFiles;
+                }
+            }
+        },
+        generatepath: function(path:any): void{
+            let splitPath: string = path.split('/')[1];
+            let filePath:any = [{path:`src/${path}.vue`,displayName:`${splitPath}.vue`}]
+            return filePath;
+        },
+
         updatesourceTab: function (): void {
-            let curDir: any = location.hash.split('/')[2];
+            let curDir: any = location.hash.split('/').slice(2).join('/').replace('.html','');
             let curSample: any = location.hash.split('/')[3].replace('.html', '');
-            let ajaxvue: Ajax = new Ajax('src/' + curDir + '/' + curSample + '.vue', 'GET', true);
+            let sourcePromise: Array<Promise<Ajax>> = [];
+            let ajaxvue: any = new Ajax('src/' + curDir + '.vue', 'GET', false);
+            let sObj: any = [];
             this.SbLink();
             sb.vars.contentTab.selectedItem = 0;
             sb.vars.sourceTab.selectedItem = 0;
+            let sampleListFile: ListView = (select('#controlList', this.$el) as any).ej2_instances[0];
+            let sourceFiles: any = this.sourceFileList(sampleListFile) as any || this.generatepath(curDir);
+            if (sourceFiles) {
+                for (let i: number = 0; i < sourceFiles.length; i++) {
+                    sourcePromise.push((new Ajax(sourceFiles[i].path, 'GET', false)).send());
+                    sObj.push({
+                        header: { text: sourceFiles[i].displayName },
+                        data: '',
+                        content: sourceFiles[i].displayName
+                    });
+                }
+            }
+            Promise.all(sourcePromise).then((results: Object[]): void => {
+                results.forEach((value, index) => {
+                    let sampleContent: string = value.toString();
+                    sampleContent = this.getStringWithOutDescription(sampleContent, /(\'|\")description/g);
+                    sampleContent = this.getStringWithOutDescription(sampleContent, /(\'|\")action-description/g)
+                    sampleContent = sampleContent.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+                    sObj[index].data = sampleContent;
+                })
+                sourceTabItems = sObj;
+            })
+
             ajaxvue.send().then((value: Object): void => {
-                const a: RegExp = /import ([a-z])\w+ from ".\/([a-z])\w+.vue/;
-                let n: any = value.toString();
-                let b: string = n.match(a);
-                if (b) {
-                    let child = b[0].split(' ')[3].replace('"./', '');
-                    this.$el.querySelectorAll('.sb-source-code-section>.e-tab-header .e-tab-text')[1].innerHTML = child;
-                    let ajaxvu: Ajax = new Ajax('src/' + curDir + '/' + child, 'GET', true);
-                    ajaxvue.send().then((value: Object): void => {
-                        this.$el.querySelectorAll('.sb-source-code-section>.e-tab-header .e-tab-text')[0].innerHTML = location.hash.split('/')[3].replace('.html', '.vue');
-                        let sampleContent = value.toString();
-                        sampleContent = this.getStringWithOutDescription(sampleContent, /(\'|\")description/g);
-                        sampleContent = this.getStringWithOutDescription(sampleContent, /(\'|\")action-description/g)
-                        sb.vars.codesnippet.innerHTML = sampleContent.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
-                        hljs.highlightBlock(sb.vars.codesnippet);
-                    })
-                    ajaxvu.send().then((result: Object) => {
-                        this.$el.querySelector('#html-src-tab').innerHTML = result.toString().replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
-                        hljs.highlightBlock(this.$el.querySelector('#html-src-tab'));
-                    })
-                }
-                else {
-                    this.$el.querySelectorAll('.sb-source-code-section>.e-tab-header .e-tab-text')[1].innerHTML = '';
-                    this.$el.querySelector('#html-src-tab').innerHTML = '';
-                    let content = value.toString();
-                    content = this.getStringWithOutDescription(content, /(\'|\")description/g);
-                    content = this.getStringWithOutDescription(content, /(\'|\")action-description/g)
-                    this.$el.querySelectorAll('.sb-source-code-section>.e-tab-header .e-tab-text')[0].innerHTML = location.hash.split('/')[3].replace('.html', '.vue');
-                    sb.vars.codesnippet.innerHTML = content.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
-                    hljs.highlightBlock(sb.vars.codesnippet);
-                }
                 let controlSec: Element = <HTMLElement>document.getElementById('control-content');
                 let comp: Element = <HTMLElement>controlSec.querySelector('.property-panel-section');
                 if (comp) {
@@ -1129,8 +1191,24 @@ let sampleBrowser: Vue = new Vue({
                         select('.sb-mobile-setting').classList.add('sb-hide');
                     }
                 }
-
-
+                if (Browser.isDevice) {
+                    if (location.hash && samplesAr.indexOf(location.hash) == -1) {
+                        let toastObj: Toast = new Toast({
+                            position: {
+                                X: 'Right'
+                            }
+                        });
+                        let hideLocation: string = location.hash.split('/')[2];
+                        toastObj.appendTo('#sb-home');
+                        setTimeout(
+                            () => {
+                                toastObj.show({
+                                    content: `${hideLocation} component not supported in mobile device`
+                                });
+                            }, 200);
+                        window.location.hash = "#/material/grid/grid-overview.html"
+                    }
+                }
                 let curIndex: number = samplesAr.indexOf(location.hash);
                 let samLength: number = samplesAr.length - 1;
                 if (curIndex === samLength) {
@@ -1204,3 +1282,7 @@ let sampleBrowser: Vue = new Vue({
     }
 }
 );
+
+if ('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/src/service-worker.js');
+    }

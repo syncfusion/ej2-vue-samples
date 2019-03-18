@@ -9,6 +9,7 @@
     <div class="col-lg-12 col-sm-12 col-md-12">
         <div id="wrapper">
             <title>Essential JS 2 for Angular - Sidebar > Dock</title>
+            <!-- sidebar element declaration-->
             <ejs-sidebar  id="dockSidebar" :enableDock='enableDock' :width='width' :dockSize='dockSize' ref="dockSidebar" :position = "position">
                 <div class="dock">
                     <ul>
@@ -40,9 +41,11 @@
                 <div class="sub-title">Click the radio button to switch the sidebar position
                     <div className="center-align">
                         <div class="column">
+                            <!-- RadioButton element declaration-->
                             <ejs-radiobutton id="left" label='Left' name='state' checked='true' :change="positionChange"></ejs-radiobutton>
                         </div>
                         <div class="column">
+                            <!-- RadioButton element declaration-->
                             <ejs-radiobutton id="right" label='Right' name='state' :change="positionChange"></ejs-radiobutton>
                         </div>
                     </div>
@@ -108,7 +111,7 @@ export default Vue.extend({
     display: inline-block;
     padding: 10px;
 }
-
+/* custom code start */
 .center {
     text-align: center;
     display: none;
@@ -126,7 +129,7 @@ export default Vue.extend({
 .sb-content-tab #wrapper {
     display: none;
 }
-
+/* custom code end */
 #dockSidebar.e-sidebar.e-right.e-close {
     visibility: visible;
     transform: translateX(0%);

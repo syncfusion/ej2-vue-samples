@@ -2,7 +2,7 @@
 
 <div class="col-lg-12 control-section">
     <div id="wrapper" style="width:100%">
-            <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings' :tool='tool'></ejs-diagram>
+            <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings' :tool='tool'></ejs-diagram>
     </div>
 <div id="action-description">
     <p>
@@ -21,7 +21,7 @@
 </template>
 <style>
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   BasicShapeModel,
@@ -34,11 +34,11 @@ import {
   NodeModel
 } from "@syncfusion/ej2-vue-diagrams";
 Vue.use(DiagramPlugin);
-let diagramInstance: Diagram;
+let diagramInstance;
 //Initialize shape
-let shape: BasicShapeModel = { type: "Basic", shape: "Ellipse" };
+let shape = { type: "Basic", shape: "Ellipse" };
 //Initialize Diagram Nodes
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "datascience",
     offsetX: 450,
@@ -128,8 +128,7 @@ export default Vue.extend({
     };
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObject.ej2Instances;
     diagramInstance.fitToPage();
   }
 });

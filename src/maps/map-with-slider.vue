@@ -12,6 +12,7 @@
         <div id="mapannotation" style="width:300px"></div>
     </div>
     <br><br>
+  
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org/wiki/List_of_North_American_countries_by_population" target="_blank">Population growth in North America</a>
      </div>
@@ -132,12 +133,14 @@ provide: {
     maps: [Legend, Annotations, MapsTooltip]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     loaded: function(args) {
             if (!isNullOrUndefined(document.getElementById('mapslider_Annotation_0'))) {
                 this.annotationRender(sliderVal);

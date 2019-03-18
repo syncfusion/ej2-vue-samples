@@ -71,51 +71,6 @@
 </div>
 </div>
 </template>
-<style>
-.e-mastertext {
-    font-size: 15px;
-    font-family: Roboto;
-    opacity: 0.87;
-    padding: 1em;
-}
-.select-wrap {
-    padding: 0 0 10px 0;
-    font-family: Roboto;
-    padding: 1em;
-}
-
-.select-wrap select {
-    height: 28px;
-    width: 100%;
-    border-width: 0 0 2px 0;
-    background: transparent;
-}
-
-.select-wrap select:focus {
-    border-bottom-style: solid;
-    border-color: #ff4081;
-}
-
-.select-wrap select, 
-.select-wrap select option {
-    outline: none;
-    font-size: 14px;
-    padding: .2em;
-    height: 30px;
-}
-
-@media (min-width: 480px) and (max-width:639px) {
-    .select-wrap {
-        width: 40%
-    }
-}
-
-@media (min-width:640px) {
-    .select-wrap {
-        width: 25%
-    }
-}
-</style>
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";

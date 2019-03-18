@@ -14,6 +14,7 @@
 </ejs-circulargauge>
         </div>
     </div>
+
     <div class="col-lg-4 property-section">
         <table id="property" title="Properties" style="width: 100%; margin:10px">
             <tbody>
@@ -183,12 +184,15 @@ beforeDestroy () {
        clearInterval(this.intervalid1)
 },
 methods: {
+    /* custom code start */
      load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.gauge.theme = 
            selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     setIntervalStart : function(){       
         let gauge = this.$refs.circulargauge.ej2Instances;   
             this.intervalid1 = setInterval(function(){   

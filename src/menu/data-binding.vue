@@ -14,12 +14,12 @@
         In this demo, the component is bound with the list type data where the parent-child relation is referred by id and parentId mapping fields.
     </p>
     <p>
-        More information about Menu can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/menu/data-source-binding-and-custom-menu-items/#data-binding">data binding</a> section.
+        More information about Menu can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/menu/data-source-binding-and-custom-menu-items/#data-binding">data binding</a> section.
     </p>
 </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
     /**
     * ej2 Menu styles
@@ -29,7 +29,7 @@
         text-align: center;
     }
 </style>
-
+<!-- custom code end -->
 <script>
 import Vue from "vue";
 import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";

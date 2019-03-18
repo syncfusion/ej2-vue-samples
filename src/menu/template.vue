@@ -23,13 +23,13 @@
             </ul>
             <p>
                 For more information, you can refer to the 
-                <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/menu/data-source-binding-and-custom-menu-items/#custom-menu-items">
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/menu/data-source-binding-and-custom-menu-items/#custom-menu-items">
                 templates</a> section from the documentation.
             </p>
         </div>  
     </div>
 </template>
-
+<!-- custom code start -->
 <style>
 /* EJ2 Menu - template sample styles */
 .template-menu-control {
@@ -95,10 +95,12 @@
     pointer-events: none;
 }
 </style>
+<!-- custom code end -->
 
 <script lang="ts">
 import Vue from "vue";
 import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
+import dataSource from './template-data.json';
 import menutemplateVue from "./menu-template.vue";
 
 Vue.use(MenuPlugin);
@@ -106,39 +108,7 @@ Vue.use(MenuPlugin);
 export default Vue.extend({
   data: function() {
     return {
-        data: [
-            {
-                category: 'Products',
-                options: [
-                    { value: 'JavaScript', url: 'javascript' },
-                    { value: 'Angular', url: 'angular' },
-                    { value: 'ASP.NET Core', url: 'core' },
-                    { value: 'ASP.NET MVC', url: 'mvc' }
-                ]
-            },
-            {
-                category: 'Services',
-                options: [
-                    { value: 'Application Development', count: '1200+' },
-                    { value: 'Maintenance & Support', count: '3700+' },
-                    { value: 'Quality Assurance' },
-                    { value: 'Cloud Integration', count: '900+' }
-                ]
-            },
-            {
-                category: 'About Us',
-                options: [
-                    {
-                        id: 'about',
-                        about: {
-                            value: "We are on a mission to provide world-class best software solutions for web, mobile and desktop platforms. Around 900+ applications are desgined and delivered to our customers to make digital & strengthen their businesses."
-                        }
-                    }
-                ]
-            },
-            { category: 'Careers' },
-            { category: 'Sign In' }
-        ],
+        data: dataSource.templateData,
         menuFields: {
             text: ['category', 'value'],
             children: ['options']

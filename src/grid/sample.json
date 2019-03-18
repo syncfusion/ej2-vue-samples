@@ -3,14 +3,17 @@
     "directory": "grid",
     "category": "Grids",
     "ftName": "datagrid",
-    "type": "update",
     "samples": [{
             "url": "grid-overview",
             "name": "Overview",
             "category": "Data Grid",
             "description": "This demo for Essential JS 2 grid component is an overview of how to display and manipulate large data with configuration options.",
             "hideOnDevice": false,
-            "api":{"Grid":["dataSource","enableVirtualization","allowFiltering","allowSorting","allowSelection","selectionSettings","height","columns","dataBound"] }
+            "api":{"Grid":["dataSource","enableVirtualization","allowFiltering","allowSorting","allowSelection","selectionSettings","height","columns","dataBound"] },
+            "sourceFiles":[
+                { "displayName": "grid-overview.vue", "path":"src/grid/grid-overview.vue" },
+                { "displayName":"grid-overview.css","path":"styles/Grid/style.css" }
+            ]
         },
         {
             "url": "default",
@@ -98,7 +101,11 @@
             "category": "Scrolling",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] }
+            "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },
+            "sourceFiles":[
+                { "displayName": "virtual-scrolling.vue", "path":"src/grid/virtual-scrolling.vue" },
+                { "displayName":"virtual-scrolling.css","path":"styles/Grid/virtual-scrolling.css" }
+            ]
         },
         {
             "url": "local-data",
@@ -154,7 +161,11 @@
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid component shows the usage of the header template feature.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
+            "api": { "Grid": ["columns", "dataSource"] },
+            "sourceFiles":[
+                { "displayName": "header-template.vue", "path":"src/grid/header-template.vue" },
+                { "displayName":"header-template.css","path":"styles/Grid/header-template.css" }
+            ]
         },
         {
             "url": "stacked-header",
@@ -162,7 +173,6 @@
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid component shows the usage of the stacked header feature.",
             "hideOnDevice": false,
-            "type": "update",
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
@@ -227,7 +237,11 @@
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid component shows the usage of the row template feature.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "rowTemplate"] }
+            "api": { "Grid": ["columns", "dataSource", "rowTemplate"] },
+            "sourceFiles":[
+                { "displayName": "row-template.vue", "path":"src/grid/row-template.vue" },
+                { "displayName":"row-template.css","path":"styles/Grid/row-template.css" }
+            ]
         },
         {
             "url": "detail-template",
@@ -235,7 +249,11 @@
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid component shows the usage of the detail template feature.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "rowTemplate"] }
+            "api": { "Grid": ["columns", "dataSource", "rowTemplate"] },
+            "sourceFiles":[
+                { "displayName": "detail-template.vue", "path":"src/grid/detail-template.vue" },
+                { "displayName":"detail-template.css","path":"styles/Grid/detail-template.css" }
+            ]
         },
         {
             "url": "row-height",
@@ -243,7 +261,11 @@
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid component shows the row height feature.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
+            "api": { "Grid": ["columns", "dataSource"] },
+            "sourceFiles":[
+                { "displayName": "row-height.vue", "path":"src/grid/row-height.vue" },
+                { "displayName":"row-height.css","path":"styles/Grid/row-height.css" }
+            ]
         },
         {
             "url": "row-drag-and-drop",
@@ -258,7 +280,6 @@
             "name": "Row Drag And Drop Within Grid",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged within a grids using the row drag-and-drop feature.",
-            "type": "new",
             "api": { "Grid": ["columns", "dataSource", "allowRowDragAndDrop"] }
         },
         {
@@ -267,7 +288,6 @@
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid control shows the usage of the row and column spanning feature.",
             "hideOnDevice": true,
-            "type": "new",
             "api": { "Grid": ["dataSource","allowTextWrap","columns","queryCellInfo","gridLines","width","height"] }
         },
         {
@@ -276,7 +296,11 @@
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component shows how to place a filter bar row in the header to filter grid rows.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] }
+            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] },
+            "sourceFiles":[
+                { "displayName": "filtering.vue", "path":"src/grid/filtering.vue" },
+                { "displayName":"filtering.css","path":"styles/Grid/filtering.css" }
+            ]
         },
         {
             "url": "filter-menu",
@@ -284,7 +308,11 @@
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] }
+            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] },
+            "sourceFiles":[
+                { "displayName": "filter-menu.vue", "path":"src/grid/filter-menu.vue" },
+                { "displayName":"filter-menu.css","path":"styles/Grid/filter-menu.css" }
+            ]
         },
         {
             "url": "searching",
@@ -346,7 +374,6 @@
             "url": "inline-editing",
             "name": "Inline Editing",
             "category": "Editing",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the inline editing operation.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -405,7 +432,6 @@
             "category": "Exporting",
             "description": "This demo for Essential JS 2 grid component shows how to export the hierarchy grid content.",
             "hideOnDevice": false,
-            "type": "new",
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport", "childGrid"] }
         },
         {
@@ -414,7 +440,6 @@
             "category": "Exporting",
             "description": "This demo for Essential JS 2 grid component shows how to print the grid content.",
             "hideOnDevice": true,
-            "type": "update",
             "api": { "Grid": ["columns", "dataSource", "childGrid", "toolbar"] }
         }
     ]

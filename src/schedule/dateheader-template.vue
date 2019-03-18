@@ -148,7 +148,7 @@
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
                 cssClass: 'schedule-date-header-template',
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2019, 0, 10),
                 dateHeaderTemplate: function () {
                     return { template: dateHeaderTemplate }
                 },

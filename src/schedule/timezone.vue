@@ -94,11 +94,16 @@
         },
         methods: {
             oneventRendered: function (args) {
+                let scheduleObj = this.$refs.ScheduleObj;
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
+                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
+                    (args.element.firstChild).style.borderLeftColor = categoryColor;
+                } else {
                     args.element.style.backgroundColor = categoryColor;
+                }
             },
             onTimezoneDropDownChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;

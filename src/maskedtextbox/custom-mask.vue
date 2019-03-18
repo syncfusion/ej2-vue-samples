@@ -19,16 +19,16 @@
 <div id="description">
     <p>The custom mask is achieved by the following ways:</p>
     <p style="font-weight: 500">Custom characters:</p>
-    <p>You can form the <b><a href="http://ej2.syncfusion.com/documentation/maskedtextbox/api-maskedTextBox.html#mask-string" target="_blank">mask</a></b> with any non-mask elements (literals), and you can configure the behavior of that non-mask element as mask element
-    through the <b><a href="http://ej2.syncfusion.com/documentation/maskedtextbox/api-maskedTextBox.html#customcharacters-object" target="_blank">customCharacters</a></b> property.</p>
+    <p>You can form the <b><a href="https://ej2.syncfusion.com/vue/documentation/api/maskedtextbox/#mask" target="_blank">mask</a></b> with any non-mask elements (literals), and you can configure the behavior of that non-mask element as mask element
+    through the <b><a href="https://ej2.syncfusion.com/vue/documentation/api/maskedtextbox/#customcharacters" target="_blank">customCharacters</a></b> property.</p>
     <p>In this demo, the “Time” mask '99 : 99 >PM' contains the literals P and M, where it is configured to allow the inputs
     as 'P', 'A', 'p', 'a', and 'M', 'm'.</p>
     <p style="font-weight: 500">Regular expression:</p>
     <p>Alternatively, you can use the regular expressions as mask element to validate the input of the particular input place.</p>
     <p>Here, in the “IP Address” example, each character is masked by an regular expression to allow a particular range of
     values.</p>
-    <p>For more information, you can refer to the <b><a href="https://ej2.syncfusion.com/vue/maskedtextbox/mask-configuration.html#custom-characters" target="_blank">Custom characters</a></b> and
-    <b><a href="https://ej2.syncfusion.com/vue/maskedtextbox/mask-configuration.html#regular-expression" target="_blank">Regular expression</a></b> sections from the documentation.</p>
+    <p>For more information, you can refer to the <b><a href="https://ej2.syncfusion.com/vue/documentation/maskedtextbox/mask-configuration/#custom-characters" target="_blank">Custom characters</a></b> and
+    <b><a href="https://ej2.syncfusion.com/vue/documentation/maskedtextbox/mask-configuration/#regular-expression" target="_blank">Regular expression</a></b> sections from the documentation.</p>
 </div>
 </div>
 </template>

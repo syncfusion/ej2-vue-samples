@@ -27,15 +27,15 @@
     <ul>
         <li>Color picker/palette is rendered inline by using the inline
             <code>
-                <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker/#inline">inline</a>
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/color-picker/#inline">inline</a>
             </code> property set to <i>true</i>.</li>
         <li>Using the
             <code>
-                <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker/#mode">mode</a>
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/color-picker/#mode">mode</a>
               </code> property, you can specify the mode <i>(Picker/ Palette)</i> of the ColorPicker.</li>
         <li>Using the
             <code>
-                <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker/#showbuttons">showButtons</a>
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/color-picker/#showbuttons">showButtons</a>
               </code> property, you can enable or disable the control <i>(apply/cancel)</i> buttons.</li>
         <li>To render the 'Palette' / 'Picker' alone you can hide the mode switcher using <code>
                 <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/color-picker/#modeswitcher">modeSwitcher</a>
@@ -43,13 +43,13 @@
     </ul>
     <p>
         More information about ColorPicker can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/color-picker/getting-started/#inline-type">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/color-picker/getting-started/#inline-type">
          documentation section</a>.</p>
 </div>
 
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
 /* Common sample level styles */
 #inline-control {
@@ -108,6 +108,7 @@
     margin-top: 5px;
 }
 </style>
+<!-- custom code end -->
 
 <script>
 import Vue from "vue";

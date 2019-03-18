@@ -215,10 +215,15 @@
         padding-top: 10px;
     }
 
+/* custom code start */
+
     @media (max-width: 450px) {
         .e-sample-resize-container {
             height: 450px;
         }
+    
+/* custom code end */
+
         .responsive-align {
             width: 75%;
             margin: 0 auto;

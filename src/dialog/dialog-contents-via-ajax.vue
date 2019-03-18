@@ -23,10 +23,12 @@
 </template>
 
 <style>
-	.control-section {
+	/* custom code start */
+    .control-section {
         height: 100%;
         min-height: 350px;
     }
+    /* custom code end */
     .ajaxsample .e-dialog .e-dlg-header >img.img1 {
         height: 20px;
         width: 20px;

@@ -27,6 +27,10 @@
 </template>
 
 <style>
+    .e-btn-hide {
+	    display: none;
+	}
+    /* custom code start */
 	#defaultDialog {
 	    left:23%;
 	}
@@ -34,9 +38,7 @@
         height: 100%;
         min-height: 350px;
     }
-    .e-btn-hide {
-	    display: none;
-	}
+    
     .dlgbtn {
         margin-right: 10px;
     }
@@ -52,6 +54,7 @@
             margin-bottom: 0px;
         }
     }
+    /* custom code end */
 </style>
 
 <script>

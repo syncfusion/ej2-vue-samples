@@ -232,12 +232,14 @@ provide: {
     maps: [Highlight, MapsTooltip, Marker]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
     loaded: function (args) {
         let mapsSVG = document.getElementById('mapdrilldown_svg');
         mapsSVG.addEventListener('touchmove', (e) => {

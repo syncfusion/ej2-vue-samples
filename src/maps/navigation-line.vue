@@ -5,7 +5,8 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :navigationLineSettings='navigationLineSettings' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+
     <div style="float: right; margin-right: 10px;">Source:
        <a href="http://www.lineaships.com/en/linea-peninsular/" target="_blank">www.lineaships.com</a>
     </div>
@@ -28,6 +29,7 @@
     </div>
 </div> 
 </template>
+// custom code start
 <style>
     #navigationLine_layerIndex_0_line_Group{
         stroke-dasharray: 10px 10px;
@@ -46,6 +48,7 @@
         }
     }
 </style>
+// custom code end
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, Zoom, NavigationLine, MapAjax } from '@syncfusion/ej2-vue-maps';
@@ -160,6 +163,7 @@ export default Vue.extend({
 provide: {
     maps: [Zoom, NavigationLine,Marker]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -168,5 +172,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }
 }
+/* custom code end */
 })
 </script>

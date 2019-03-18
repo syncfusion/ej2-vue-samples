@@ -60,10 +60,6 @@ export default Vue.extend({
         },
         tooltip: {
             enable: true,
-            fill: '#fffff',
-            textStyle: {
-                color: '#fffff'
-            }
         },
         orientation: 'Horizontal',
         minimum: 0,
@@ -155,10 +151,12 @@ methods: {
     }
     },
     gaugeLoad: function(args){
+        /* custom code start */
     // let cotainerObj=document.getElementById('tooltipContainer');
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : 'Material';
     args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1));
+    /* custom code end */
     let width = parseInt(((this.$refs.lineargauge.ej2Instances.width, this.$refs.lineargauge.ej2Instances.element.offsetWidth) || this.$refs.lineargauge.ej2Instances.element.offsetWidth || 600), 10);
     if (width < 500) {
         this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 2;

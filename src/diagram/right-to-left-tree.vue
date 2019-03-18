@@ -28,7 +28,7 @@
 </template>
 <style>
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   Diagram,
@@ -63,8 +63,8 @@ export default Vue.extend({
         id: "Name",
         parentId: "Category",
         dataManager: new DataManager(artificialIntelligence),
-        doBinding: (nodeModel: NodeModel, data: DataInfo, diagram: Diagram) => {
-          let nameKey: string = "Name";
+        doBinding: (nodeModel, data, diagram) => {
+          let nameKey = "Name";
           nodeModel.annotations = [{ content: data[nameKey] }];
         }
       },
@@ -80,12 +80,12 @@ export default Vue.extend({
       //Enables zoom pan tool
       tool: DiagramTools.ZoomPan,
       //Sets the default values of a node
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj, diagram) => {
         obj.width = 120;
         obj.style = { fill: "#034d6d", strokeWidth: 1 };
-        let key: string = "branch";
+        let key = "branch";
         //Initialize shape
-        if ((obj.data as DataInfo)[key] === "root") {
+        if ((obj.data)[key] === "root") {
           obj.shape = { type: "Basic", shape: "Ellipse" };
           obj.height = 120;
         } else {
@@ -99,9 +99,9 @@ export default Vue.extend({
           obj.height = 60;
         }
         //Set ports and annotations
-        obj.ports = getPorts((obj.data as DataInfo)[key] === "root");
-        let annotation: ShapeAnnotationModel = obj.annotations[0];
-        if ((obj.data as DataInfo)[key] !== "root") {
+        obj.ports = getPorts((obj.data)[key] === "root");
+        let annotation = obj.annotations[0];
+        if ((obj.data )[key] !== "root") {
           annotation.offset = { y: 1 };
           annotation.verticalAlignment = "Bottom";
           annotation.margin = { bottom: 10 };
@@ -111,7 +111,7 @@ export default Vue.extend({
         return obj;
       },
       //Sets the default values of a Connector
-      getConnectorDefaults: (connector: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (connector, diagram) => {
         connector.type = "Bezier";
         connector.sourcePortID = "port1";
         connector.targetPortID = "port2";
@@ -126,8 +126,8 @@ export default Vue.extend({
 });
 
 //Create and add ports for Node.
-function getPorts(root: any): PointPortModel[] {
-  let ports: PointPortModel[] = [
+function getPorts(root) {
+  let ports = [
     {
       id: "port1",
       shape: "Circle",
@@ -146,7 +146,7 @@ function getPorts(root: any): PointPortModel[] {
     }
   ];
   if (!root) {
-    (ports[0] as PointPort).offset.y = 1;
+    (ports[0]).offset.y = 1;
   } else {
     ports[0].verticalAlignment = "Center";
     ports[0].horizontalAlignment = "Center";
@@ -154,7 +154,4 @@ function getPorts(root: any): PointPortModel[] {
   return ports;
 }
 
-export interface DataInfo {
-  [key: string]: string;
-}
 </script>

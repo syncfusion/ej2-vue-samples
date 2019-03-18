@@ -39,6 +39,7 @@
 
 </div>
 </template>
+<!-- custom code start -->
 <style>
 #buttonSet {
   float: right;
@@ -47,7 +48,7 @@
   min-width: 148px;
 }
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { GridPlugin, Freeze, Resize, Sort } from "@syncfusion/ej2-vue-grids";

@@ -151,7 +151,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
@@ -168,8 +168,8 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 Vue.use(DiagramPlugin);
 Vue.use(SymbolPalettePlugin);
-let isMobile: boolean;
-let interval: number[];
+let isMobile;
+let interval;
 interval = [
   1,
   9,
@@ -193,13 +193,13 @@ interval = [
   9.75
 ];
 
-let gridlines: GridlinesModel = {
+let gridlines = {
   lineColor: "#e0e0e0",
   lineIntervals: interval
 };
 
 //Initializes the nodes for the diagram
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "NewIdea",
     height: 60,
@@ -333,7 +333,7 @@ let nodes: NodeModel[] = [
   }
 ];
 //Initializes the connector for the diagram
-let connectors: ConnectorModel[] = [
+let connectors = [
   {
     id: "connector1",
     sourceID: "NewIdea",
@@ -388,7 +388,7 @@ let connectors: ConnectorModel[] = [
 ];
 
 //Initialize the flowshapes for the symbol palatte
-let flowshapes: NodeModel[] = [
+let flowshapes = [
   { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
   { id: "Process", shape: { type: "Flow", shape: "Process" } },
   { id: "Decision", shape: { type: "Flow", shape: "Decision" } },
@@ -425,7 +425,7 @@ let flowshapes: NodeModel[] = [
 ];
 
 //Initializes connector symbols for the symbol palette
-let connectorSymbols: ConnectorModel[] = [
+let connectorSymbols = [
   {
     id: "Link1",
     type: "Orthogonal",
@@ -479,16 +479,16 @@ export default Vue.extend({
         horizontalGridlines: gridlines,
         verticalGridlines: gridlines
       },      
-      created: (args: Object) => {
+      created: (args) => {
         addEvents();
       },
       //Sets the default values of a node
-      getNodeDefaults: (node: NodeModel) => {
-        let obj: NodeModel = {};
+      getNodeDefaults: (node) => {
+        let obj = {};
         if (obj.width === undefined) {
           obj.width = 145;
         } else {
-          let ratio: number = 100 / obj.width;
+          let ratio = 100 / obj.width;
           obj.width = 100;
           if (obj.height) {
             obj.height *= ratio;
@@ -502,19 +502,19 @@ export default Vue.extend({
         return obj;
       },
       //Sets the default values of a connector
-      getConnectorDefaults: (obj: Connector) => {
+      getConnectorDefaults: (obj) => {
         if (obj.id.indexOf("connector") !== -1) {
           obj.type = "Orthogonal";
           obj.targetDecorator = { shape: "Arrow", width: 10, height: 10 };
         }
       },
       //Sets the Node style for DragEnter element.
-      dragEnter: (args: IDragEnterEventArgs): void => {
-        let obj: NodeModel = args.element as NodeModel;
+      dragEnter: (args) => {
+        let obj = args.element;
         if (obj instanceof Node && obj.width && obj.height) {
-          let oWidth: number = obj.width;
-          let oHeight: number = obj.height;
-          let ratio: number = 100 / obj.width;
+          let oWidth = obj.width;
+          let oHeight = obj.height;
+          let ratio = 100 / obj.width;
           obj.width = 100;
           obj.height *= ratio;
           if (obj.offsetX) obj.offsetX += (obj.width - oWidth) / 2;
@@ -543,7 +543,7 @@ export default Vue.extend({
       paletteheight: "700px",
       symbolHeight: 60,
       symbolWidth: 60,
-      palettegetNodeDefaults: (symbol: NodeModel): void => {
+      palettegetNodeDefaults: (symbol) => {
         if (symbol.id === "Terminator" || symbol.id === "Process") {
           symbol.width = 80;
           symbol.height = 40;
@@ -564,15 +564,15 @@ export default Vue.extend({
         }
       },
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
-      getSymbolInfo: (symbol: NodeModel): SymbolInfo => {
+      getSymbolInfo: (symbol) => {
         return { fit: true };
       }
     };
   }
 });
 
-function getPorts(): PointPortModel[] {
-  let ports: PointPortModel[] = [
+function getPorts() {
+  let ports = [
     { id: "port1", shape: "Circle", offset: { x: 0, y: 0.5 } },
     { id: "port2", shape: "Circle", offset: { x: 0.5, y: 1 } },
     { id: "port3", shape: "Circle", offset: { x: 1, y: 0.5 } },
@@ -581,18 +581,18 @@ function getPorts(): PointPortModel[] {
   return ports;
 }
 
-function addEvents(): void {
+function addEvents() {
     isMobile = window.matchMedia('(max-width:550px)').matches;
     if (isMobile) {
-        let paletteIcon: HTMLElement = document.getElementById('palette-icon') as HTMLElement;
+        let paletteIcon = document.getElementById('palette-icon');
         if (paletteIcon){
             paletteIcon.addEventListener('click', openPalette, false);
         }
     }
 }
 
-function openPalette(): void {
-  let paletteSpace: HTMLElement = document.getElementById('palette-space') as HTMLElement;
+function openPalette() {
+  let paletteSpace = document.getElementById('palette-space');
   isMobile = window.matchMedia('(max-width:550px)').matches;
   if (isMobile) {
     if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {

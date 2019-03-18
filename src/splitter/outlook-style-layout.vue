@@ -30,10 +30,12 @@
 </div>
 </template>
 <style>
+    /* custom code start */
     .outlook-style #target {
         margin: 20px auto;
         max-width: 820px;
     }
+    /* custom code end */
     .outlook-style #discard {
         margin-left: 7px;
     }

@@ -2,11 +2,10 @@
 <div class="control-section">
 <div class="col-lg-9 control-section">
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' id="diagram" :width='width'
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width'
          :height='height' :nodes='nodes' :connectors='connectors' :layout='layout'
          :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
-         :snapSettings='snapSettings' :setNodeTemplate='setNodeTemplate'
-         :created='created'></ejs-diagram>
+         :snapSettings='snapSettings' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
     </div>
 </div>
 <div class="col-lg-3 property-section">
@@ -132,7 +131,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   Node,
@@ -162,18 +161,18 @@ import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons/src/check-box/checkb
 Vue.use(DiagramPlugin);
 Vue.use(CheckBoxPlugin);
 
-let diagramInstance: Diagram;
-let node: NodeModel;
-let connector: ConnectorModel;
+let diagramInstance;
+let node;
+let connector;
 
 //Initialize shape
-let shape: BasicShapeModel = {
+let shape = {
   type: "Basic",
   shape: "Rectangle",
   cornerRadius: 10
 };
 //Initialize Diagram Nodes
-let nodes: NodeModel[] = [
+let nodes = [
   { id: "node1", annotations: [{ content: "Promotion" }] },
   { id: "node2", annotations: [{ content: "Lead" }] },
   { id: "node3", annotations: [{ content: "Account" }] },
@@ -183,7 +182,7 @@ let nodes: NodeModel[] = [
 ];
 
 //Initialize Diagram connectors
-let connectors: ConnectorModel[] = [
+let connectors = [
   { id: "connectr", sourceID: "node1", targetID: "node2" },
   {
     id: "connectr1",
@@ -249,12 +248,9 @@ export default Vue.extend({
         verticalSpacing: 75,
         margin: { left: 30, right: 0, top: 0, bottom: 0 }
       },
-      created: (args: Object) => {
-        diagramInstance.updateViewPort();
-      },
       snapSettings: { constraints: 0 },
       //Sets the default values of nodes
-      getNodeDefaults: (obj: Node) => {
+      getNodeDefaults: (obj) => {
         if (obj.id !== "node1") {
           //Set ports
           obj.ports = getPorts(obj);
@@ -268,7 +264,7 @@ export default Vue.extend({
         }
       },
       //Sets the default values of connector
-      getConnectorDefaults: (obj: Connector) => {
+      getConnectorDefaults: (obj) => {
         obj.type = "Bezier";
         obj.style.strokeColor = "#6f409f";
         obj.style.strokeWidth = 2;
@@ -280,9 +276,9 @@ export default Vue.extend({
         };
       },
       //Customizes the content of the node
-      setNodeTemplate: (obj: NodeModel): StackPanel => {
+      setNodeTemplate: (obj) => {
         if (obj.id === "node6") {
-          let canvas: StackPanel = new StackPanel();
+          let canvas = new StackPanel();
           canvas.children = [];
           canvas.id = randomId();
           canvas.style.strokeWidth = 0;
@@ -293,10 +289,10 @@ export default Vue.extend({
           canvas.children.push(getTextElement("Smart Contents", "#db8ec9"));
           return canvas;
         }
-        return null as any;
+        return null;
       },
-      change: (args: CheckBoxChangeEventArgs) => {
-        for (let i: number = 0; i < diagramInstance.connectors.length; i++) {
+      change: (args) => {
+        for (let i = 0; i < diagramInstance.connectors.length; i++) {
           connector = diagramInstance.connectors[i];
           if (connector.constraints) {
             if (args.checked) {
@@ -321,13 +317,14 @@ export default Vue.extend({
     diagram: [HierarchicalTree]
   },
   mounted: function() {
-    let diagramObj: any = document.getElementById("diagram");
-    diagramInstance = diagramObj.ej2_instances[0];
-    let obj: any = document.getElementById("appearance") as HTMLElement;
+    //let diagramObj = document.getElementById("diagram");
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
+    diagramInstance.updateViewPort();
+    let obj = document.getElementById("appearance");
     //Click Event for Appearance of the layout.
-    obj.onclick = (args: MouseEvent) => {
-      let target: HTMLElement = args.target as HTMLElement;
-      let selectedElement: HTMLCollection = document.getElementsByClassName(
+    obj.onclick = (args) => {
+      let target = args.target;
+      let selectedElement = document.getElementsByClassName(
         "e-selected-style"
       );
       if (selectedElement.length) {
@@ -378,8 +375,8 @@ export default Vue.extend({
 });
 
 //creation of the TextElement.
-function getTextElement(text: string, color: string): TextElement {
-  let textElement: TextElement = new TextElement();
+function getTextElement(text, color) {
+  let textElement = new TextElement();
   textElement.width = 80;
   textElement.id = randomId();
   textElement.height = 35;
@@ -394,9 +391,9 @@ function getTextElement(text: string, color: string): TextElement {
 }
 
 //creation of Port for Node.
-function getPorts(obj: Node): PointPortModel[] {
+function getPorts(obj)  {
   if (obj.id === "node2") {
-    let node2Ports: PointPortModel[] = [
+    let node2Ports  = [
       {
         id: "port1",
         offset: { x: 1, y: 0.25 },
@@ -415,7 +412,7 @@ function getPorts(obj: Node): PointPortModel[] {
     ];
     return node2Ports;
   } else if (obj.id === "node6") {
-    let node6Ports: PointPortModel[] = [
+    let node6Ports = [
       {
         id: "port4",
         offset: { x: 0, y: 0.46 },
@@ -434,7 +431,7 @@ function getPorts(obj: Node): PointPortModel[] {
     ];
     return node6Ports;
   } else {
-    let ports: PointPortModel[] = [
+    let ports = [
       {
         id: "portIn",
         offset: { x: 0, y: 0.5 },
@@ -452,19 +449,19 @@ function getPorts(obj: Node): PointPortModel[] {
 
 //ConnectorStyle customization
 function applyConnectorStyle(
-  dashedLine: boolean,
-  sourceDec: boolean,
-  isRounded: boolean,
-  type: Segments,
-  target: HTMLElement, strokeWidth?: number
-): void {
-    let connector: ConnectorModel;
-    for (let i: number = 0; i < diagramInstance.connectors.length; i++) {
+  dashedLine,
+  sourceDec,
+  isRounded,
+  type,
+  target, strokeWidth
+) {
+    let connector;
+    for (let i = 0; i < diagramInstance.connectors.length; i++) {
         connector = diagramInstance.connectors[i];
-        (connector.style as StrokeStyleModel).strokeWidth = !strokeWidth ? 2 : strokeWidth;
+        (connector.style).strokeWidth = !strokeWidth ? 2 : strokeWidth;
         connector.type = type;
         connector.cornerRadius = isRounded ? 5 : 0;
-        (connector.style as StrokeStyleModel).strokeDashArray = dashedLine ? '5,5' : '';
+        (connector.style).strokeDashArray = dashedLine ? '5,5' : '';
         if (sourceDec) {
             connector.sourceDecorator = {
                 style: {

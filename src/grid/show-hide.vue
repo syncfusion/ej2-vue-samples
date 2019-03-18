@@ -48,6 +48,7 @@
     </div>
 </div>
 </template>
+<!-- custom code start -->
 <style>
 .e-gridlist .e-tbar-btn.e-btn,
 .e-gridlist .e-btn  {
@@ -67,7 +68,7 @@
 }
 
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from 'vue';
 import { removeClass, addClass } from '@syncfusion/ej2-base';

@@ -48,7 +48,13 @@
     .sb-header {
         z-index: 100;
     }
-
+    .highcontrast .cm-s-default .cm-tag {color: #00ff00;}
+    .highcontrast .cm-s-default .cm-string {color: #ffd939;}
+    .highcontrast .cm-s-default .cm-attribute {color: #f00;}
+    .highcontrast .CodeMirror {
+        background: black;
+        color: white;
+    }
 </style>
 <script>
 import Vue from "vue";

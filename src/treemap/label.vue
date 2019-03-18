@@ -6,6 +6,7 @@
             <a href=" https://www.populationpyramid.net/population-size-per-country/2017" target="_blank"> www.populationpyramid.net</a>
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -40,6 +41,7 @@
 </div>
 </div>
 </template>
+// custom code start
 <style>
     .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
@@ -47,6 +49,7 @@
         font-weight: 400 !important;
     }
 </style>
+// custom code end
 <script>
 import Vue from 'vue';
 import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
@@ -99,11 +102,13 @@ provide:{
     treemap:[TreeMapTooltip, TreeMapLegend]
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     changeLabels:function(args){
         this.$refs.treemap.ej2Instances.leafItemSettings.interSectAction = this.$refs.labelMode.ej2Instances.value;
         this.$refs.treemap.ej2Instances.refresh();

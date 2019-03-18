@@ -1,0 +1,46 @@
+{
+    "name": "Dashboard Layout",
+    "directory": "dashboard-layout",
+    "category": "Layout",
+    "type": "preview",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Dashboard Layout"
+        },
+        {
+            "url": "predefinedlayouts",
+            "name": "Predefined Layouts",
+            "category": "Dashboard Layout"
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Dashboard Layout"
+        },
+        {
+            "url": "dynamic",
+            "name": "Editable Dashboard",
+            "category": "Dashboard Layout",
+            "sourceFiles":[
+                { "displayName":"dynamic.vue","path":"./src/dashboard-layout/dynamic.vue" },
+                { "displayName":"linetemplate.vue","path":"./src/dashboard-layout/linetemplate.vue" },
+                { "displayName":"pietemplate.vue","path":"./src/dashboard-layout/pietemplate.vue" },
+                { "displayName":"splinetemplate.vue","path":"./src/dashboard-layout/splinetemplate.vue" }
+            ]
+        },
+        {
+            "url": "seodashboard",
+            "name": "SEO Analytics Dashboard",
+            "category": "Use Case",
+            "sourceFiles":[
+                { "displayName":"seodashboard.vue","path":"./src/dashboard-layout/seodashboard.vue" },
+                { "displayName":"linetemplate.vue","path":"./src/dashboard-layout/linetemplate.vue" },
+                { "displayName":"usage.vue","path":"./src/dashboard-layout/useage.vue" },
+                { "displayName":"maptemplate.vue","path":"./src/dashboard-layout/map.vue" },
+                { "displayName":"activeVisitors.vue","path":"./src/dashboard-layout/activeVisitors.vue" },
+                { "displayName":"splinetemplate.vue","path":"./src/dashboard-layout/splinetemplate.vue" }
+            ]
+        }
+    ]
+}

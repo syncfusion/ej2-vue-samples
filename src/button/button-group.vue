@@ -57,7 +57,7 @@
         </ul>
         <p>
             More information on ButtonGroup can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/button-group/getting-started">
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/button-group/getting-started">
                 documentation section</a>.
         </p>
     </div>
@@ -110,6 +110,7 @@
     content: '\e703';
 }
 
+/* custom code start */
 .button-group-section {
     width: 320px;
     margin: 0 auto;
@@ -142,6 +143,7 @@
         overflow-y: scroll;
     }
 }
+/* custom code end */
 </style>
 <script>
 import Vue from "vue";

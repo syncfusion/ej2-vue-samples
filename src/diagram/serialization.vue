@@ -21,7 +21,7 @@
         </div>
 
         <div id="diagram-space" class="sb-mobile-diagram">
-            <ejs-diagram style='display:block' id="diagram"       
+            <ejs-diagram style='display:block' ref="diagramObj" id="diagram"       
             :width='width'
             :height='height'
             :nodes='nodes'
@@ -216,7 +216,7 @@
   }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -245,10 +245,10 @@ Vue.use(DiagramPlugin);
 Vue.use(ToolbarPlugin);
 Vue.use(UploaderPlugin);
 
-let diagramInstance: Diagram;
+let diagramInstance;
 
 //Initializes the nodes for the diagram
-let nodes: NodeModel[] = [
+let nodes = [
   {
     id: "Start",
     height: 50,
@@ -351,7 +351,7 @@ let nodes: NodeModel[] = [
   }
 ];
 //Initializes the connector for the diagram
-let connectors: ConnectorModel[] = [
+let connectors = [
   {
     id: "connector1",
     sourceID: "Start",
@@ -374,7 +374,7 @@ let connectors: ConnectorModel[] = [
   { id: "connector6", sourceID: "Hit", targetID: "Relay" },
   { id: "connector7", sourceID: "Relay", targetID: "Alarm" }
 ];
-let interval: number[];
+let interval;
 interval = [
   1,
   9,
@@ -397,7 +397,7 @@ interval = [
   0.25,
   9.75
 ];
-let gridlines: GridlinesModel = {
+let gridlines = {
   lineColor: "#e0e0e0",
   lineIntervals: interval
 };
@@ -413,7 +413,7 @@ export default Vue.extend({
         horizontalGridlines: gridlines,
         verticalGridlines: gridlines
       },
-      getConnectorDefaults: (args: ConnectorModel, diagram: Diagram) => {
+      getConnectorDefaults: (args, diagram) => {
         if (args.targetDecorator) {
           args.targetDecorator.height = 5;
           args.targetDecorator.width = 5;
@@ -443,7 +443,7 @@ export default Vue.extend({
         }
       ],
       //set default value for Node.
-      palettegetNodeDefaults: (symbol: NodeModel): void => {
+      palettegetNodeDefaults: (symbol) => {
         if (symbol.id === "Terminator" || symbol.id === "Process") {
           symbol.width = 80;
           symbol.height = 40;
@@ -462,7 +462,7 @@ export default Vue.extend({
         if (symbol.style) symbol.style.strokeWidth = 2;
       },
       palettesymbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
-      palettegetSymbolInfo: (symbol: NodeModel): SymbolInfo => {
+      palettegetSymbolInfo: (symbol) => {
         return { fit: true };
       },
       palettewidth: "100%",
@@ -470,16 +470,16 @@ export default Vue.extend({
       palettesymbolHeight: 60,
       palettesymbolWidth: 60,
 
-      toolbarclicked: (args: ClickEventArgs) => {
+      toolbarclicked: (args) => {
         if (args.item.text === "New") {
           diagramInstance.clear();
         } else if (args.item.text === "Load") {
-          let element: HTMLCollection = document.getElementsByClassName(
+          let element = document.getElementsByClassName(
             "e-file-select-wrap"
           );
-          let htmlButtonElement: HTMLButtonElement = element[0].querySelector(
+          let htmlButtonElement = element[0].querySelector(
             "button"
-          ) as HTMLButtonElement;
+          );
           htmlButtonElement.click();
         } else if (args.item.id === 'palette-icon') {
           openPalette();
@@ -522,38 +522,37 @@ export default Vue.extend({
     diagram: [UndoRedo, DiagramContextMenu]
   },
   mounted: function() {
-    let obj: any = document.getElementById("diagram");
-    diagramInstance = obj.ej2_instances[0];
+    diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
 });
 
 //save the diagram object in json data.
-function download(data: string): void {
-  let dataStr: string =
+function download(data) {
+  let dataStr =
     "data:text/json;charset=utf-8," + encodeURIComponent(data);
-  let a: HTMLAnchorElement = document.createElement("a");
+  let a = document.createElement("a");
   a.href = dataStr;
   a.download = "Diagram.json";
   document.body.appendChild(a);
   a.click();
 }
 
-function onUploadSuccess(args: { [key: string]: Object }): void {
-  let file1: { [key: string]: Object } = args.file as { [key: string]: Object };
-  let file: Blob = file1.rawFile as Blob;
-  let reader: FileReader = new FileReader();
+function onUploadSuccess(args) {
+  let file1  = args.file;
+  let file= file1.rawFile;
+  let reader = new FileReader();
   reader.readAsText(file);
   reader.onloadend = loadDiagram;
 }
 
 //Load the diagraming object.
-function loadDiagram(event: ProgressEvent): void {
-  diagramInstance.loadDiagram((event.target as FileReader).result);
+function loadDiagram(event) {
+  diagramInstance.loadDiagram((event.target).result);
 }
 
 //Initialize the flowshapes for the symbol palatte
-let flowshapes: NodeModel[] = [
+let flowshapes= [
   { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
   { id: "Process", shape: { type: "Flow", shape: "Process" } },
   { id: "Decision", shape: { type: "Flow", shape: "Decision" } },
@@ -589,7 +588,7 @@ let flowshapes: NodeModel[] = [
   { id: "Delay", shape: { type: "Flow", shape: "Delay" } }
 ];
 //Initializes connector symbols for the symbol palette
-let connectorSymbols: ConnectorModel[] = [
+let connectorSymbols = [
   {
     id: "Link1",
     type: "Orthogonal",
@@ -632,9 +631,9 @@ let connectorSymbols: ConnectorModel[] = [
   }
 ];
 
-function openPalette(): void {
-  let paletteSpace: HTMLElement = document.getElementById('palette-space') as HTMLElement;
-  let isMobile: boolean = window.matchMedia('(max-width:550px)').matches;
+function openPalette() {
+  let paletteSpace = document.getElementById('palette-space') ;
+  let isMobile = window.matchMedia('(max-width:550px)').matches;
   if (isMobile) {
     if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {
       paletteSpace.classList.add('sb-mobile-palette-open');

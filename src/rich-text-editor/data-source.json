@@ -1,0 +1,8 @@
+{
+    "formatData" :[
+        { "Id": "prompt", "format": "Prompt" },        
+        { "Id": "plainTextFormatting", "format": "Plain Text" },
+        { "Id": "keepFormating", "format": "Keep Format" },
+        { "Id": "cleanFormatting", "format": "Clean Format" }
+    ]
+}

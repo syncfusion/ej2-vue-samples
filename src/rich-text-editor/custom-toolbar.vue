@@ -144,9 +144,11 @@
         user-select: none;
     }
 
+    /* custom code start */
     #rteSection {
         height: 500px;
     }
+    /* custom code end */
 
     @media (min-width: 320px) and (max-width: 480px) {
         .fabric.e-bigger #rteDialog {

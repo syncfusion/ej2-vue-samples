@@ -66,7 +66,7 @@
 
     <div id="description">
         <p>Here, the "Value" and "Masked Value" labels from the properties panel returns the raw value (unmasked value) and masked value of the MaskedTextBox component.
-        You can also get these raw value and masked value anytime through the <b><a href="http://ej2.syncfusion.com/documentation/maskedtextbox/api-maskedTextBox.html#value-string" target="_blank">value</a></b> property and <b><a href="http://ej2.syncfusion.com/documentation/maskedtextbox/api-maskedTextBox.html#getmaskedvalue" target="_blank">getMaskedValue</a></b> method.</p>
+        You can also get these raw value and masked value anytime through the <b><a href="https://ej2.syncfusion.com/vue/documentation/api/maskedtextbox/#value" target="_blank">value</a></b> property and <b><a href="https://ej2.syncfusion.com/vue/documentation/api/maskedtextbox/#getmaskedvalue" target="_blank">getMaskedValue</a></b> method.</p>
     </div>
 </div>
 </template>

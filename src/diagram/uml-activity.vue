@@ -132,7 +132,7 @@
         border-left: 1px solid rgba(0, 0, 0, 0.12);
     }
 </style>
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
@@ -155,12 +155,12 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 Vue.use(DiagramPlugin);
 Vue.use(SymbolPalettePlugin);
-let diagram: Diagram;
-let palette: SymbolPalette;
-let isMobile: boolean;
+let diagram;
+let palette;
+let isMobile;
 
 //Initializes the nodes for the diagram
-let nodes: NodeModel[] = [
+let nodes = [
   {
      id: 'Start', height: 40, width: 40, offsetX: 300, offsetY: 20,
         shape: { type: 'UmlActivity', shape: 'InitialNode' }
@@ -206,7 +206,7 @@ let nodes: NodeModel[] = [
     }
 ];
 //Initializes the connector for the diagram
-let connectors: ConnectorModel[] = [
+let connectors = [
   { id: "connector1", sourceID: "Start", targetID: "ReceiveCall" },
   { id: "connector2", sourceID: "ReceiveCall", targetID: "node2" },
   {
@@ -302,7 +302,7 @@ let connectors: ConnectorModel[] = [
   { id: "connector13", sourceID: "CloseCall", targetID: "node11" }
 ];
 
-let umlActivityShapes: NodeModel[] = [
+let umlActivityShapes = [
   { id: "Action", shape: { type: "UmlActivity", shape: "Action" } },
   { id: "Decision", shape: { type: "UmlActivity", shape: "Decision" } },
   { id: "MergeNode", shape: { type: "UmlActivity", shape: "MergeNode" } },
@@ -337,12 +337,12 @@ export default Vue.extend({
       snapSettings: {
         constraints: SnapConstraints.None
       },
-      created: (args: Object) => {
+      created: (args) => {
         addEvents();
       },
       //Sets the default values of a node
-      getNodeDefaults: (obj: NodeModel) => {
-        let style: ShapeStyleModel = obj.style as ShapeStyleModel;
+      getNodeDefaults: (obj) => {
+        let style = obj.style;
         obj.ports = getNodePorts(obj);
         if (obj.ports) {
           for (var i = 0; i < obj.ports.length; i++) {
@@ -356,7 +356,7 @@ export default Vue.extend({
         return obj;
       },
       // sets the default values of a Connector.
-      getConnectorDefaults: (obj: ConnectorModel): void => {
+      getConnectorDefaults: (obj) => {
        if (obj && obj.id && obj.id.indexOf('connector') !== -1) {
           obj.type = 'Orthogonal'; obj.cornerRadius = 10;
           obj.targetDecorator = { shape: 'OpenArrow', style: { strokeColor: '#444', fill: '#444' } };
@@ -381,7 +381,7 @@ export default Vue.extend({
       paletteheight: "100%",
       symbolHeight: 60,
       symbolWidth: 60,
-      palettegetNodeDefaults: (symbol: NodeModel): void => {
+      palettegetNodeDefaults: (symbol) => {
         if (symbol.id === "Terminator" || symbol.id === "Process") {
           symbol.width = 80;
           symbol.height = 40;
@@ -402,7 +402,7 @@ export default Vue.extend({
         }
       },
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
-      getSymbolInfo: (symbol: NodeModel): SymbolInfo => {
+      getSymbolInfo: (symbol) => {
         return { fit: true };
       }
     };
@@ -410,9 +410,9 @@ export default Vue.extend({
 });
 
 // create and add ports for node.
-function getNodePorts(obj: NodeModel): PointPortModel[] {
+function getNodePorts(obj) {
   if (obj.id === "node2" || obj.id === "node9") {
-    let node2Ports: PointPortModel[] = [
+    let node2Ports= [
       { id: "port1", offset: { x: 0.2, y: 1 } },
       { id: "port2", offset: { x: 0.8, y: 1 } },
       { id: "port3", offset: { x: 0.2, y: 0 } },
@@ -420,7 +420,7 @@ function getNodePorts(obj: NodeModel): PointPortModel[] {
     ];
     return node2Ports;
   } else {
-    let ports: PointPortModel[] = [
+    let ports = [
       { id: "portLeft", offset: { x: 0, y: 0.5 } },
       { id: "portRight", offset: { x: 1, y: 0.5 } },
       { id: "portBottom", offset: { x: 0.5, y: 1 } },
@@ -430,8 +430,8 @@ function getNodePorts(obj: NodeModel): PointPortModel[] {
   }
 }
 
-function setPaletteNodeDefaults(symbol: NodeModel): NodeModel {
-  let style: ShapeStyleModel = symbol.style as ShapeStyleModel;
+function setPaletteNodeDefaults(symbol) {
+  let style = symbol.style;
     if (symbol.id === 'JoinNode') {
         symbol.width = 20; symbol.height = 50;
     } else if (symbol.id === 'ForkNode') {
@@ -448,8 +448,8 @@ function setPaletteNodeDefaults(symbol: NodeModel): NodeModel {
     return symbol;
 }
 
-function getConnectorStyle(dashArrayed?: boolean) {
-  let style: StrokeStyleModel = {};
+function getConnectorStyle(dashArrayed) {
+  let style = {};
   if (dashArrayed) {
     style = { strokeWidth: 2, strokeColor: "#444", strokeDashArray: "4 4" };
   } else {
@@ -459,14 +459,14 @@ function getConnectorStyle(dashArrayed?: boolean) {
 }
 
 // initializes connector symbols to the connector palette in the symbol palette
-function getConnectors(): ConnectorModel[] {
-  let sourcePoint: PointModel = { x: 0, y: 0 };
-  let targetPoint: PointModel = { x: 40, y: 40 };
-  let targetDecorator: DecoratorModel = {
+function getConnectors(){
+  let sourcePoint = { x: 0, y: 0 };
+  let targetPoint = { x: 40, y: 40 };
+  let targetDecorator = {
     shape: "Arrow",
     style: { fill: "#444", strokeColor: "#444" }
   };
-  let connectorSymbols: ConnectorModel[] = [
+  let connectorSymbols = [
     {
       id: "Link2",
       sourcePoint: sourcePoint,
@@ -495,22 +495,22 @@ function getConnectors(): ConnectorModel[] {
   return connectorSymbols;
 }
 
-function addEvents(): void {
+function addEvents() {
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
-    let paletteIcon: HTMLElement = document.getElementById(
+    let paletteIcon = document.getElementById(
       "palette-icon"
-    ) as HTMLElement;
+    );
     if (paletteIcon) {
       paletteIcon.addEventListener("click", openPalette, false);
     }
   }
 }
 
-function openPalette(): void {
-  let paletteSpace: HTMLElement = document.getElementById(
+function openPalette() {
+  let paletteSpace = document.getElementById(
     "palette-space"
-  ) as HTMLElement;
+  );
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
     if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {

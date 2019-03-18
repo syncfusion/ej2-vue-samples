@@ -29,20 +29,20 @@
     <p>
         In this sample, checked state is achieved by using the 
         <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/api/switch#checked">checked
+        href="https://ej2.syncfusion.com/vue/documentation/api/switch#checked">checked
         </a></code> property, and disabled state is achieved by using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/api/switch#disabled">disabled
+        href="https://ej2.syncfusion.com/vue/documentation/api/switch#disabled">disabled
         </a></code> property.
     </p>
     <p>
         More information on Switch can be found in the
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/switch/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/switch/getting-started">
         documentation section</a>.
     </p>
 </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
 
 /* Switch Styles */
@@ -77,6 +77,7 @@
     pointer-events: none;
 }
 </style>
+<!-- custom code end -->
 
 <script>
 import Vue from "vue";

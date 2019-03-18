@@ -52,7 +52,7 @@
     </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
 
   .e-input {
@@ -64,7 +64,7 @@
   };
 
 </style>
-
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, TreeGridComponent, Aggregate, Page } from "@syncfusion/ej2-vue-treegrid";

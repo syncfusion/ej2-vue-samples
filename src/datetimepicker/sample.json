@@ -2,6 +2,7 @@
     "name": "DateTimePicker",
     "directory": "datetimepicker",
     "category": "Calendars",
+	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",

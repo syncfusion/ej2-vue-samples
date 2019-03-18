@@ -37,6 +37,7 @@
         </div>
     </div>
 </template>
+<!-- custom code start -->
 <style>
     @media (min-width: 481px) {
         .schedule-wrapper {
@@ -44,6 +45,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { fifaEventsData } from './datasource';

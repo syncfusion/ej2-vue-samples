@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block:height:250px' align='center' id='gauge1'>
+                        <ejs-circulargauge :load='load' style='display:block:height:250px' align='center' id='gauge1'>
                             <e-axes>
                                 <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :annotations='gauge1annotations' :ranges='gauge1ranges'>
                                     <e-pointers>
@@ -16,7 +16,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:blaaock:height:250px' align='center' id='gauge2'>
+                        <ejs-circulargauge :load='load' style='display:blaaock:height:250px' align='center' id='gauge2'>
                             <e-axes>
                                 <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :annotations='gauge2annotations' :ranges='gauge2ranges'>
                                     <e-pointers>
@@ -27,7 +27,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge style='display:block:height:250px' align='center' id='gauge3'>
+                        <ejs-circulargauge :load='load' style='display:block:height:250px' align='center' id='gauge3'>
                             <e-axes>
                                 <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations' :ranges='gauge3ranges'>
                                     <e-pointers>
@@ -285,12 +285,14 @@ export default Vue.extend({
         circulargauge: [Annotations]
     },
     methods: {
+        /* custom code start */
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
+        /* custom code end */
         toolTipInterval1: function () {
             setInterval(function () {
                 let germany = document.getElementById('gauge1');
@@ -344,7 +346,6 @@ export default Vue.extend({
     }
 })
 </script>
-
 <style>
 #templateWrap img {
     width: 16px;

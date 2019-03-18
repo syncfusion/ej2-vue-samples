@@ -210,9 +210,9 @@ export default Vue.extend({
         this.$refs.kilometerSlider &&
         this.$refs.timeSlider
       ) {
-        this.$refs.currencySlider.ej2Instances.refreshTooltip();
-        this.$refs.kilometerSlider.ej2Instances.refreshTooltip();
-        this.$refs.timeSlider.ej2Instances.refreshTooltip();
+        this.$refs.currencySlider.ej2Instances.refreshTooltip(this.$refs.currencySlider.ej2Instances.tooltipTarget);
+        this.$refs.kilometerSlider.ej2Instances.refreshTooltip(this.$refs.kilometerSlider.ej2Instances.tooltipTarget);
+        this.$refs.timeSlider.ej2Instances.refreshTooltip(this.$refs.timeSlider.ej2Instances.tooltipTarget);
       }
     }
   },

@@ -10,6 +10,7 @@
                 <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :animationDuration='animationDuration' :markerSettings='markerSettings'></e-layer>
             </e-layers>
         </ejs-maps>
+
         <div style="float: right; margin-right: 10px;">Source:
             <a href="https://www.google.co.in/maps/search/atm+in+oklahoma/@35.3864432,-98.2888719,8z/data=!3m1!4b1" target="_blank">www.google.co.in/maps</a>
         </div>
@@ -124,6 +125,7 @@ export default Vue.extend({
     provide: {
         maps: [Zoom, Marker, MapsTooltip]
     },
+    /* custom code start */
     methods: {
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
@@ -132,5 +134,6 @@ export default Vue.extend({
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         }
     }
+    /* custom code end */
 })
 </script>

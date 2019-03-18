@@ -5,7 +5,8 @@
     <e-layers>
         <e-layer :shapeData='shapeData' :animationDuration='animationDuration' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :navigationLineSettings='navigationLineSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
-</ejs-maps>    
+</ejs-maps>
+
     <div style="float: right; margin-right: 10px;">Source:
        <a href="https://www.tibettravel.org/nepal-map/nepal-india-map.html" target="_blank">www.tibettravel.org</a>
     </div>
@@ -261,6 +262,7 @@ export default Vue.extend({
 provide: {
     maps: [Marker, MapsTooltip, NavigationLine,Zoom ]
 },
+/* custom code start */
 methods:{
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
@@ -269,5 +271,6 @@ methods:{
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     }  
 }
+/* custom code end */
 })
 </script>

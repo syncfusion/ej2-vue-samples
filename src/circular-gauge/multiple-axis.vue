@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='axis-container' :title='title' :titleStyle='titleStyle'>
+<ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='axis-container' :title='title' :titleStyle='titleStyle'>
 <e-axes>
 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0  maximum=160 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
 <e-pointers>
@@ -18,6 +18,7 @@
 </ejs-circulargauge>
         </div>
     </div>
+
     <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tr>
@@ -134,12 +135,15 @@ data:function(){
     }
 },
 methods: {
+    /* custom code start */
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
+    // Code for Property Panel
     changeAxisindex:function(args){
             let axisIndex = 0;
             // let cotainerObj=document.getElementById('axis-container');

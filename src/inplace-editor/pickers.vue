@@ -137,14 +137,14 @@ export default Vue.extend({
     };
   },
   mounted: function(){
-       this.dateObj = this.$refs.dateObj.ej2Instances;
+      this.dateObj = this.$refs.dateObj.ej2Instances;
       this.timeObj = this.$refs.timeObj.ej2Instances;
       this.dateTimeObj = this.$refs.dateTimeObj.ej2Instances;
       this.dateRangeObj = this.$refs.dateRangeObj.ej2Instances;
   },
   methods: {
         changeEditorMode: function(args) {
-           var editMode = this.$refs.editorMode.$el.value;
+           var editMode = this.$refs.editorMode.ej2Instances.text;
            this.dateObj.mode = editMode;
            this.timeObj.mode = editMode;
            this.dateTimeObj.mode = editMode;
@@ -160,7 +160,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.$el.value === 'Inline') { return; }
+            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
             if (this.dateObj && this.dateObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.dateObj.enableEditMode = false;
             }
@@ -188,6 +188,7 @@ display: block;
 visibility: hidden;
 }
 
+/* custom code start */
 .inplace-control-section.pickers-layout .control_wrapper {
     margin: auto;
     max-width: 400px;
@@ -205,6 +206,7 @@ visibility: hidden;
 .inplace-control-section.pickers-layout .control_wrapper table td .control-label {
     margin-bottom: 0px;
 }
+/* custom code end */
 
 .inplace-control-section.pickers-layout  {
     width: 70%;

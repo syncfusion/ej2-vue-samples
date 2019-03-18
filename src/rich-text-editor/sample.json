@@ -1,8 +1,8 @@
 {
     "name": "Rich Text Editor",
+    "type": "update",
     "directory": "rich-text-editor",
     "category": "Editors",
-    "type": "preview",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -21,6 +21,12 @@
         {
             "url": "inline",
             "name": "Inline",
+            "category": "Rich Text Editor"
+        },
+        {
+            "url": "paste-cleanup",
+            "name": "Paste Cleanup",
+            "type": "new",
             "category": "Rich Text Editor"
         },
         {
@@ -66,7 +72,6 @@
         {
             "url": "markdown-editor",
             "name": "Overview",
-            "type": "update",
             "category": "Markdown Editor"
         },
         {

@@ -37,7 +37,7 @@
     #control-container {
         padding: 0px !important;
     }
-    /* Set black background color, white text and some padding */
+
     #templateWrap img {
         border-radius: 30px;
         width: 30px;
@@ -113,6 +113,7 @@ provide: {
     lineargauge: [Annotations]
 },
 methods: {
+    /* custom code start */
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -120,11 +121,11 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
     gaugeLoad: function(args){
-    let count = 0;
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : "Material";
-    args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+    args.gauge.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+    /* custom code end */
+    let count = 0;
     if (this.count === undefined) {
     this.$refs.lineargauge.ej2Instances.annotations = [
             {

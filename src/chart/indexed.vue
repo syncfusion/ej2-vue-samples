@@ -135,7 +135,7 @@ export default Vue.extend({
       this.primaryXAxis = primaryXAxis;
       if (this.primaryXAxis.isIndexed) {
        this.seriesType = 'Column';
-       this.seriesMarker.visible = false;
+       this.marker.visible = false;
        let primaryXAxis = extend({},this.primaryXAxis);
        primaryXAxis.labelRotation = 0;
        this.primaryXAxis = primaryXAxis;
@@ -144,7 +144,7 @@ export default Vue.extend({
        this.crosshair = crosshair;
       } else {
          this.seriesType = 'Line';
-         this.seriesMarker.visible = true;
+         this.marker.visible = true;
        let primaryXAxis = extend({},this.primaryXAxis);
        primaryXAxis.labelRotation = 90;
        this.primaryXAxis = primaryXAxis;

@@ -4,6 +4,7 @@
         <div class="content-wrapper">
              <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :layoutType='layoutType' :weightValuePath='weightValuePath' :rangeColorValuePath='rangeColorValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings'></ejs-treemap>
         </div>
+
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" http://zeenews.india.com/photos/business/worlds-10-best-selling-smartphone-brands-2033958/samsung-2033959" target="_blank">zeenews.india.com</a>
         </div>
@@ -18,6 +19,7 @@
             In this example, you can see how to export and print the rendered TreeMap. The TreeMap can be exported to JPEG, PNG, SVG, and PDF formats.
         </p>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -148,11 +150,13 @@ provide:{
     treemap:[TreeMapTooltip]
 },
 methods:{
+    /* custom code start */
      load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     clickExport:function(args){
         let fileName = ((document.getElementById('fileName'))).value;
         this.$refs.treemap.ej2Instances.export(this.$refs.mode.ej2Instances.value, fileName);

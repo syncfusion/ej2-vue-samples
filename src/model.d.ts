@@ -4,6 +4,7 @@ export interface Controls {
     name: string;
     uid: string;
     type: string;
+    hideOnDevice: boolean;
     samples: Samples[];
 }
 export interface MyWindow extends Window {

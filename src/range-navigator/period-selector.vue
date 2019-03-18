@@ -26,14 +26,14 @@
             <div class="row" align="center">
 
     <div align="center">
-      <ejs-rangenavigator style='display:block' align='center' id='containerTop' valueType='DateTime'
+      <ejs-rangenavigator style='display:block' ref='top' align='center' id='containerTop' valueType='DateTime'
         labelPosition='Outside' disableRangeSelector=true :width='width' :load='loadPeriodic' :dataSource='dataSource' xName='date' yName='Close'
         :theme='theme' :changed='changedTop' :loaded='loadedPeriodic' :periodSelectorSettings='periodSelectorSettingsTop' >
        </ejs-rangenavigator>
    </div>
    <div align="center" style="width: 90%">
 
-       <ejs-chart style='display:block' align='center' id='chartPeriod' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+       <ejs-chart style='display:block' ref='chart' align='center' id='chartPeriod' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :zoomSettings='zoomSettings' :tooltip='tooltip' height='250' :width='width' :crosshair='crosshair' :chartArea='chartArea'
             :theme='theme' :legendSettings='legendSettings' :axisLabelRender='axisLabelRender' :load='chartLoad'
             :tooltipRender='tooltipRender' :chartMouseMove='chartMouseMove' :axisRangeCalculated='axisRangeCalculated'>
@@ -48,7 +48,7 @@
         </ejs-chart>
    </div>
     <div align="center">
-        <ejs-rangenavigator style='display:block' align='center' id='containerBottom' valueType='DateTime' :value='valueBottom'
+        <ejs-rangenavigator style='display:block' ref='bottom' align='center' id='containerBottom' valueType='DateTime' :value='valueBottom'
         labelPosition='Outside' :width='width' :theme='theme' :changed='changedBottom'>
            <e-rangenavigator-series-collection>
                <e-rangenavigator-series :dataSource='dataSource' type='Line' xName='date' yName='Close'>
@@ -200,25 +200,26 @@ export default Vue.extend({
       }
     },
     changedBottom: function(args) {
-      var chart = document.getElementById("chartPeriod").ej2_instances;
-      var rangeTop = document.getElementById("containerTop").ej2_instances;
+      
+      var rangeTop = this.$refs.top.ej2Instances;
       if (rangeTop) {
-        rangeTop[0].periodSelectorModule.datePicker.startDate = args.start;
-        rangeTop[0].periodSelectorModule.datePicker.endDate = args.end;
-        rangeTop[0].dataBind();
+        rangeTop.periodSelectorModule.datePicker.startDate = args.start;
+        rangeTop.periodSelectorModule.datePicker.endDate = args.end;
+        rangeTop.dataBind();
       }
+      var chart = this.$refs.chart.ej2Instances;
       if (chart) {
-        chart[0].primaryXAxis.zoomFactor = 1;
-        chart[0].primaryXAxis.zoomPosition = 0;
+        chart.primaryXAxis.zoomFactor = 1;
+        chart.primaryXAxis.zoomPosition = 0;
         let filterData = dataBind.filter(dataBind => {
           return (
             dataBind["date"].getTime() >= args.start.getTime() &&
             dataBind["date"].getTime() <= args.end.getTime()
           );
         });
-        chart[0].series[0].dataSource = filterData;
-        chart[0].setAnnotationValue(0, '<div id="annotation"></div>');
-        chart[0].refresh();
+        chart.series[0].dataSource = filterData;
+        chart.setAnnotationValue(0, '<div id="annotation"></div>');
+        chart.refresh();
       }
     },
     axisLabelRender: function(args) {
@@ -227,7 +228,6 @@ export default Vue.extend({
       }
     },
     tooltipRender: function(args) {
-      var chart = document.getElementById("chartPeriod").ej2_instances;
       if (args.text.length > 0) {
         let text = args.text.split("<br/>");
         let html = "<table><thead>" + text[0] + "</thead>";
@@ -238,7 +238,7 @@ export default Vue.extend({
            (+value[1].split(' <b>')[1].split('</b>')[0]).toFixed(2) + '</td></tr>';
         }
         html += "</table>";
-        chart[0].setAnnotationValue(
+        this.$refs.chart.ej2Instances.setAnnotationValue(
           0,
           '<div id="annotation" style="line-height: 18px; font-size: 13px;background: #fff; opacity:0.9; color: #464e56; ' +
             ' box-shadow:0 0 8px 0 rgba(70,78,86,.25); padding: 7px 10px; border-radius: 3px">' +
@@ -248,8 +248,8 @@ export default Vue.extend({
       args.text = "";
     },
     chartMouseMove: function(args) {
-      var chart = document.getElementById("chartPeriod").ej2_instances;
-      if (!withInBounds(chart[0].mouseX, chart[0].mouseY, chart[0].chartAxisLayoutPanel.seriesClipRect)) {
+      var chart = this.$refs.chart.ej2Instances;
+      if (!withInBounds(chart.mouseX, chart.mouseY, chart.chartAxisLayoutPanel.seriesClipRect)) {
         setTimeout(() => {if (getElement("annotation")) {remove(getElement("annotation"));}}, 2000);
       }
     },
@@ -260,14 +260,13 @@ export default Vue.extend({
             "Open : <b>${point.open}</b><br/>Close : <b>${point.close}</b>" : "${point.x}<br/>Close : <b>${point.close}</b>";
     },
     axisRangeCalculated: function(args) {
-      var chart = document.getElementById("chartPeriod").ej2_instances;
-      chart[0].setAnnotationValue(0, "<div></div>");
+      this.$refs.chart.ej2Instances.setAnnotationValue(0, "<div></div>");
     },
     changeSwitch: function(args) {
-      var chart = document.getElementById("chartPeriod").ej2_instances;
-      chart[0].series[0].type = !args.checked ? "Line" : "Candle";
-      chart[0].annotations[0].content = "";
-      chart[0].refresh();
+      var chart = this.$refs.chart.ej2Instances;
+      chart.series[0].type = !args.checked ? "Line" : "Candle";
+      chart.annotations[0].content = "";
+      chart.refresh();
     }
   }
 });

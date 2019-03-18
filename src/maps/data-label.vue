@@ -7,6 +7,7 @@
     </e-layers>
 </ejs-maps>    
 </div>
+
 <div class="col-lg-3 property-section">
     <table id="property" title="Properties" style="width: 100%">
         <tbody>
@@ -100,12 +101,15 @@ export default Vue.extend({
     maps: [DataLabel , MapsTooltip]
 },
 methods:{
+    /* custom code start */
    load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+ /* custom code end */
+// Code for Property Panel 
 changeSmartlabelmode:function(args){   
         this.$refs.maps.ej2Instances.layers[0].dataLabelSettings.smartLabelMode = this.$refs.labelMode.ej2Instances.value;
         this.$refs.maps.ej2Instances.refresh();

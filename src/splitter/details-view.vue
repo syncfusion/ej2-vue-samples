@@ -64,10 +64,12 @@ export default Vue.extend({
         left: calc(50% - 1.5em);
         box-shadow: 0 16px 28px -8px rgba(0, 0, 0, .36), 0 4px 15px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
     }
+    /* custom code start */
     .details-view #target {
         margin: 20px auto;
         max-width: 710px;
     }
+    /* custom code end */
     /* ListView template customization */
 
     .details-view #ui-list.e-listview .showUI {

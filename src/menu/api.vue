@@ -62,7 +62,7 @@
 </div>
 </div>
 </template>
-
+<!-- custom code start -->
 <style>
     /**
     * ej2 Menu styles
@@ -81,7 +81,7 @@
         padding: 0;
     }
 </style>
-
+<!-- custom code end -->
 <script>
 import Vue from "vue";
 import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";

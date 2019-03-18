@@ -61,7 +61,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import {
   DiagramPlugin,
@@ -86,7 +86,7 @@ import {
 Vue.use(DiagramPlugin);
 Vue.use(DropDownListPlugin);
 
-let basicShapeModel: NodeModel[] = [
+let basicShapeModel = [
   {
     shape: { type: "Text", content: "Basic Shapes" },
     style: {
@@ -147,7 +147,7 @@ let basicShapeModel: NodeModel[] = [
   }
 ];
 
-let flowShapeModel: NodeModel[] = [
+let flowShapeModel= [
   {
     shape: { type: "Text", content: "Flow Shapes" },
     style: {
@@ -244,7 +244,7 @@ let flowShapeModel: NodeModel[] = [
   }
 ];
 
-let bpmnShapeModel: NodeModel[] = [
+let bpmnShapeModel= [
   {
     shape: { type: "Text", content: "BPMN Shapes" },
     style: {
@@ -327,7 +327,7 @@ let bpmnShapeModel: NodeModel[] = [
   }
 ];
 
-let diagramInstance: Diagram;
+let diagramInstance;
 
 export default Vue.extend({
   data: function() {
@@ -337,7 +337,7 @@ export default Vue.extend({
       snapSettings: { constraints: SnapConstraints.None },
       nodes: getNodes(),
       //Defines the default node and connector properties
-      getNodeDefaults: (obj: Node, diagram: Diagram) => {
+      getNodeDefaults: (obj, diagram) => {
         return obj;
       }
     };
@@ -354,11 +354,11 @@ function getNodes() {
   var offsety = 60;
   var count = 1;
   for (var i = 0; i < nodes1.length; i++) {
-    var node = nodes1[i] as NodeModel;
+    var node = nodes1[i];
     node.width = 40;
     node.height = 40;
     if (node.shape && node.shape.type === "Flow") {
-      let shapeType: any = (node.shape as FlowShapeModel).shape;
+      let shapeType = (node.shape).shape;
       if (shapeType === "Process" || shapeType === "Terminator") {
         node.height = 20;
       } else if (shapeType === "Decision") {
@@ -393,7 +393,7 @@ function getNodes() {
       node.width = 150;
       node.height = 100;
       node.offsetX = 90;
-      if (!((node.shape as TextModel).content === "Basic Shapes")) {
+      if (!((node.shape).content === "Basic Shapes")) {
         node.offsetX = 90;
         node.offsetY = offsety + 50;
         offsety = offsety + 100;
@@ -403,9 +403,4 @@ function getNodes() {
   return nodes1;
 }
 
-export interface GalleryInfo {
-  type: string;
-  shape: string;
-  text: string;
-}
 </script>

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section">
-        <ejs-circulargauge style='display:block' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :tooltip='tooltip'>
+        <ejs-circulargauge style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :tooltip='tooltip'>
             <e-axes>
                 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0 maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                     <e-pointers>
@@ -107,12 +107,14 @@ export default Vue.extend({
         circulargauge: [GaugeTooltip]
     },
     methods: {
+        /* custom code start */
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
+        /* custom code end */
         tooltipRender: function (args) {
             let imageName = ((args.pointer.currentValue >= 0 && args.pointer.currentValue <= 50) ? 'min' : 'max');
             let borderColor = ((args.pointer.currentValue >= 0 && args.pointer.currentValue <= 50) ? '#3A5DC8' : '#33BCBD');

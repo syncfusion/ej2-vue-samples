@@ -39,25 +39,30 @@
                         <div id="text">
                             <p class=" inline-element" style="width:70%"> <b>Toggle</b> - Toggles the sidebar to be open or closed state.
                             </p>
+                            <!-- Button element declaration -->
                             <ejs-button id="toggleSidebar"  v-on:click.native="toggleSidebar" class="inline-element right" cssClass="e-info">Toggle</ejs-button>
                         </div>
                         <div id="text">
                             <p class=" inline-element" style="width:70%"> <b>Position</b> - Allows to place the sidebar in right or left side of the page.
                             </p>
+                            <!-- Button element declaration -->
                             <ejs-button ref="sidebarTypesBtn" id="togglePosition"  isToggle="true" class="inline-element right" cssClass="e-info" v-on:click.native="onTypeChange">Right</ejs-button>
                         </div>
                         <div id="text">
                             <p class="inline-element" style="width:70%"><b>Types </b> - Specifies the act of expanding or collapsing the sidebar with main content.</p>
                             <div class="inline-element right">
+                                <!-- DropDownList element declaration -->
                                 <ejs-dropdownlist id="types"  :dataSource='dataTypes' :fields='fields' class="e-textbox  right" :placeholder='waterMark' :index='index' :popupHeight='height' cssClass='right' :change='onChange' :width='width'>
                                 </ejs-dropdownlist>
                             </div>
                         </div>
                         <div id="text">
                             <p class=" inline-element" style="width:70%"><b>Closing on document click</b> - Allows to collapse / close the sidebar on document click.</p>
+                            <!-- Button element declaration -->
                             <ejs-button  id="documentclick" ref="documentClickBtn"  isToggle="true" v-on:click.native="documentClick" class="inline-element right" cssClass="e-info" >True</ejs-button>
                         </div>
                         <p class=" inline-element" style="width:70%"><b>Backdrop</b> - Sets the backdrop over the main content area on open / expanded state.</p>
+                        <!-- Button element declaration -->
                         <ejs-button  id="backdrop" ref="backdropBtn" isToggle="true" v-on:click.native="backdrop" class="inline-element right" cssClass="e-info">True</ejs-button>
                     </div>
                 </div>
@@ -167,7 +172,7 @@ export default Vue.extend({
 
 <style>
     /* content area styles */
-
+/* custom code start */
   .responsive {
     width: 80%;
 }
@@ -181,17 +186,17 @@ export default Vue.extend({
 #overview,
 #properties,
 #content{
-    padding:0px 0px 22px
+    padding:0 0 22px
 }
 
 #text{
-    padding:0px 0px 17px;
+    padding:0 0 17px;
 }
 .center-align {
     text-align: center;
     padding: 20px;
 }
-
+/* custom code end */
 .title {
     color: #000000;
     font-weight: 500;
@@ -199,12 +204,13 @@ export default Vue.extend({
     font-size: 18px;
     margin: 0px;
 }
-
+/* custom code start */
 body {
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
     margin: 0px;
     font-size: 14px;
 }
+/* custom code end */
 /* End of content area styles */
 /* property content styles */
 
@@ -219,7 +225,7 @@ body {
     border: none;
     width: 75px;
 }
-
+/* custom code start */
 .inline-element {
     display: inline-block;
 }
@@ -227,13 +233,13 @@ body {
 .right {
     float: right;
 }
-
+/* custom code end */
 .list-group-item {
     border: none;
     padding: 60px 10px 10px 45px;
     font-size: 14px;
 }
-
+/* custom code start */
 .center {
     text-align: center;
     display: none;
@@ -251,7 +257,7 @@ body {
 .sb-content-tab #wrapper {
     display: none;
 }
-
+/* custom code end */
 .content {
     margin-bottom: 20px;
     overflow-y: auto;

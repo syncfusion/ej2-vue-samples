@@ -50,10 +50,16 @@
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, ColumnSeries, DateTimeCategory, Tooltip, StripLine, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
+import {Template} from "./date-category-temp1.vue";
 Vue.use(ChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
+
+let templateContent = function() {
+    return { template: Template}
+};
 export default Vue.extend({
   data: function() {
     return {
@@ -116,8 +122,8 @@ export default Vue.extend({
        let selectedTheme = location.hash.split('/')[1];
        selectedTheme = selectedTheme ? selectedTheme : 'Material';
        if (selectedTheme === 'highcontrast') {
-        args.chart.annotations[0].content = '<div style="color:#ffffff;font-family: bold; font-weight: 600">Christmas Offer<br> Dec 2017</div>';
-        args.chart.annotations[1].content = '<div style="color:#ffffff;font-family: bold; font-weight: 600">Christmas Offer<br> Dec 2017</div>';
+        args.chart.annotations[0].content = templateContent;
+        args.chart.annotations[1].content = templateContent;
        }
     }
   },

@@ -12,10 +12,11 @@
 <div id="description">
     <p>The <code>TreeView</code> component is used to display the data in a hierarchical structure with the configuration options to control the way of data is presented and manipulated. It will pull the data from a data source, such as an array of JSON objects, OData web services, or DataManager binding data fields to the <code>fields</code> property.</p>
     <p>In this demo, the TreeView is populated with its minimum default settings.</p>
-    <p>More information on the TreeView instantiation can be found in the <a href="http://ej2.syncfusion.com/vue/treeview/getting-started.html" target="_blank">documentation section</a>.</p>
+    <p>More information on the TreeView instantiation can be found in the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/getting-started/" target="_blank">documentation section</a>.</p>
 </div>
 </div>
 </template>
+/* custom code start */
 <style>
 .tree-control-wrapper {
         max-width: 500px;
@@ -24,10 +25,11 @@
         border-radius: 3px;
     }
 </style>
+/* custom code end */
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource.json';
+import * as dataSource from './dataSource/default-data.json';
 
 Vue.use(TreeViewPlugin);
 

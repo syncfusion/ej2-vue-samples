@@ -2,17 +2,24 @@
     "name": "PDF Viewer",
     "directory": "pdfviewer",
     "category": "Viewer",
-    "type": "preview",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "category": "PDF Viewer"
+            "category": "PDF Viewer",
+			"type": "update"
         },
 		{
             "url": "custom-toolbar",
             "name": "Custom Toolbar",
             "category": "PDF Viewer"
+        },
+        {
+            "url": "right-to-left",
+            "name": "Right To Left",
+            "category": "PDF Viewer",
+            "type": "new"
         }
     ]
 

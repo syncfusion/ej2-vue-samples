@@ -17,10 +17,10 @@
 
     <div id="description">
         <p>The NumericTextBox provides an option to restrict the number of decimal values, by using the
-        <a href="http://ej2.syncfusion.com/documentation/numerictextbox/api-numericTextBox.html#decimals-number" target="_blank"> decimals</a> property. To restrict the number of decimal values on typing, use the decimals and validateDecimalOnType properties.</p>
+        <a href="https://ej2.syncfusion.com/vue/documentation/api/numerictextbox#decimals" target="_blank"> decimals</a> property. To restrict the number of decimal values on typing, use the decimals and validateDecimalOnType properties.</p>
         <p>
         More information on the restrict decimals configuration can be found in the
-        <a href="http://ej2.syncfusion.com/vue/numerictextbox/getting-started.html#precision-of-numbers" target="_blank"> documentation section</a>.
+        <a href="https://ej2.syncfusion.com/vue/documentation/numerictextbox/getting-started/#precision-of-numbers" target="_blank"> documentation section</a>.
         </p>
     </div>
 </div>

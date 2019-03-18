@@ -27,12 +27,12 @@
 
 <div id="description">
      <p>The <b>MaskedTextBox</b> is a textbox extended component that allows the user to enter only the valid input based
-     on the provided <b><a href="http://ej2.syncfusion.com/documentation/maskedtextbox/api-maskedTextBox.html#mask-string" target="_blank">mask</a></b>. It is used to get the input with specific formats like Phone number, Date, Time, IP, Social security number, etc.</p>
-     <p>MaskedTextBox supports the list of <b><a href="https://ej2.syncfusion.com/vue/maskedtextbox/mask-configuration.html#standard-mask-elements" target="_blank">mask elements</a></b> based
+     on the provided <b><a href="https://ej2.syncfusion.com/vue/documentation/api/maskedtextbox/#mask" target="_blank">mask</a></b>. It is used to get the input with specific formats like Phone number, Date, Time, IP, Social security number, etc.</p>
+     <p>MaskedTextBox supports the list of <b><a href="https://ej2.syncfusion.com/vue/documentation/maskedtextbox/mask-configuration/#standard-mask-elements" target="_blank">mask elements</a></b> based
      on the standard
      <b><a href="https://msdn.microsoft.com/en-us/library/system.windows.forms.maskedtextbox.mask(v=vs.110).aspx" target="_blank"> MSDN</a></b> mask
      elements.</p>
-     <p>More information about the MaskedTextBox instantiation can be found in the <b><a href="https://ej2.syncfusion.com/vue/maskedtextbox/getting-started.html" target="_blank">documentation</a></b> section.</p>
+     <p>More information about the MaskedTextBox instantiation can be found in the <b><a href="https://ej2.syncfusion.com/vue/documentation/maskedtextbox/getting-started/" target="_blank">documentation</a></b> section.</p>
 </div>
 </div>
 </template>

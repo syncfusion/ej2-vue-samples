@@ -4,10 +4,12 @@
         <div class="content-wrapper">
              <ejs-treemap ref="treemap" id='import-container' :load='load' :titleSettings='titleSettings' :selectionSettings='selectionSettings' :highlightSettings='highlightSettings' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :levels='levels' ></ejs-treemap>
         </div>
+
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://www.indexmundi.com/trade/imports/?country=jp" target="_blank">www.indexmundi.com</a>
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -149,11 +151,14 @@ provide:{
     treemap:[TreeMapHighlight, TreeMapSelection]
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
+    // Code for Property Panel
     changeHighlightmode:function(args){
         this.$refs.treemap.ej2Instances.highlightSettings.mode = this.$refs.highlightMode.ej2Instances.value;
         this.$refs.treemap.ej2Instances.refresh();

@@ -31,10 +31,12 @@
     .accordion-view #content {
         padding: 18px;
     }
+    /* custom code start */
     .accordion-view #target {
         margin: 20px auto;
         max-width: 600px;
     }
+    /* custom code end */
     .accordion-view.control-section{            
         min-height: 370px;   
     }

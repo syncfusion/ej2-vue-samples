@@ -1,0 +1,154 @@
+{
+   "name": "Gantt",
+   "directory": "gantt",
+   "category": "Calendars",
+   "ftName": "gantt",
+   "type": "preview",
+   "samples": [
+      {
+         "url": "default",
+         "name": "Default Functionalities",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskSettings",
+               "height",
+               "highlightWeekends",
+               "eventMarkers"
+             ]
+         },
+         "description": "This example demonstrates the simple Gantt chart with summary task, child tasks, milestone tasks, dependencies with event markers of project"
+      },
+      {
+         "url": "remote-data",
+         "name": "Remote Data",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskSettings",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "includeWeekend",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This sample demonstrates the way of binding data to Gantt chart with remote service. The Gantt chart data source is bound to remote data using DataManager."
+      },
+      {
+         "url": "editing",
+         "name": "Editing",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "height",
+               "taskSettings",
+               "editSettings",
+               "toolbar",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceNameMapping",
+               "resourceIdMapping",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This example demonstrates the cell editing, dialog editing, taskbar editing and dependency editing support in Gantt"
+      },
+    
+      {
+         "url": "filtering",
+         "name": "Filtering",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "taskSettings",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "timelineSettings",
+               "labelSettings",
+               "toolbar",
+               "allowFiltering",
+               "includeWeekend",
+               "timelineSettings",
+               "splitterSettings",
+               "durationUnit",
+               "dayWorkingTime",
+               "projectStartDate",
+               "projectEndDate"
+             ]
+         },
+         "description": "This example demonstrates the filtering support with filter menu option for various types of columns in Gantt"
+      },
+      {
+         "url": "timeline",
+         "name": "Timeline",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskSettings",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "highlightWeekends",
+               "resourceNameMapping",
+               "resourceIdMapping",
+               "resources",
+               "timelineSettings",
+               "splitterSettings",
+               "treeColumnIndex",
+               "labelSettings",
+               "eventMarkers"
+            ]
+         },
+         "description": "This example demonstrates the various timeline mode options and properties available to customize the timeline in Gantt"
+      },
+      {
+         "url": "baseline",
+         "name": "Baseline",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "renderBaseline",
+               "taskSettings",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "includeWeekend",
+               "timelineSettings",
+               "tooltipSettings",
+               "durationUnit",
+               "dateFormat",
+               "dayWorkingTime",
+               "height",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "Baselines are enabled to view the deviation between the planned dates of tasks and actual progress of task dates"
+      }
+   ]
+}

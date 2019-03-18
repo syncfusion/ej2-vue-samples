@@ -2,10 +2,12 @@
 <div>
     <div class="col-lg-9 control-section">
         <ejs-treemap ref="treemap" id='layout-container' :load='load' align="center" :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
+
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://www.reinisfischer.com/top-10-largest-economies-world-gdp-nominal-2015" target="_blank">www.reinisfischer.com</a>
         </div>
     </div>
+
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
@@ -17,24 +19,20 @@
                     <ejs-dropdownlist ref="layoutMode" id='layoutMode' :dataSource='layoutModedata' :fields='labelsfields' value='Squarified' index=0  :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change='changeLayoutMode'></ejs-dropdownlist>        
                     </td>
                 </tr>
+                <tr style="height: 50px">
+                    <td style="width: 60%">
+                         <div class="property-text" style="padding-top: 0px !important">Render Direction</div>
+                    </td>
+                    <td style="width: 40%;">
+                    <ejs-dropdownlist ref="directionMode" id='directionMode' :dataSource='directionModedata' :fields='directionfields' value='TopLeftBottomRight' index=0  :placeholder='directionModeplaceholder' :width='directionModewidth' :change='changedirectionMode'></ejs-dropdownlist>        
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
-<div id="action-description">
-    <p>
-        This sample illustrates the GDP nominal of top 10 countries in the year 2015. The layout of the TreeMap can be changed by using the <code>Layout Type</code> in properties panel.
-    </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can change the layout of the TreeMap as desaturation color mapping has been applied to denote the weightage of the items by varying the fill color. The labels text also have been formatted and placed in multiple lines.
-    </p>
-    <p>
-        Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item in touch enabled devices.
-    </p>
-</div>
 </div>
 </template>
+// custom code start
 <style>
     .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
@@ -42,9 +40,10 @@
         font-weight: 400 !important;
     }
 </style>
+// custom code end
 <script>
 import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapPlugin,TreeMapTooltip, RenderingMode } from "@syncfusion/ej2-vue-treemap";
 import { econmics } from '../treemap/treemap-data/econmics';
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 Vue.use(TreeMapPlugin);
@@ -94,20 +93,34 @@ return{
         { Id:'SliceAndDiceAuto', level:'Auto'}],
         labelsfields:{ text: 'level', value: 'Id' },
         layoutModeplaceholder: 'Select layoutMode type',
-        layoutModewidth: 120
+        layoutModewidth: 120,
+        directionModedata:[
+        { Id:'TopLeftBottomRight', level:'TopLeftBottomRight'},
+        { Id:'TopRightBottomLeft', level:'TopRightBottomLeft'},
+        { Id:'BottomLeftTopRight', level:'BottomLeftTopRight'},
+        { Id:'BottomRightTopLeft', level:'BottomRightTopLeft'}],
+        directionfields:{ text: 'level', value: 'Id' },
+        directionModeplaceholder: 'Select layoutMode type',
+        directionModewidth: 115
 }
 },
 provide:{
     treemap:[TreeMapTooltip]
 },
 methods:{
+    /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
     },
+    /* custom code end */
     changeLayoutMode:function(args){
         this.$refs.treemap.ej2Instances.layoutType = this.$refs.layoutMode.ej2Instances.value;
+        this.$refs.treemap.ej2Instances.refresh();
+    },
+    changedirectionMode:function(args){
+        this.$refs.treemap.ej2Instances.renderDirection = this.$refs.directionMode.ej2Instances.value;
         this.$refs.treemap.ej2Instances.refresh();
     }
 }

@@ -13,6 +13,7 @@
      </ejs-lineargauge>
         </div>
     </div>
+
  <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%;">
             <tr>
@@ -118,6 +119,7 @@
 </div>
 </div>
 </template>
+{/* custom code start */}
 <style>
     #control-container {
         padding: 0px !important;
@@ -127,6 +129,7 @@
         height: 380px;
     }
 </style>
+{/* custom code end */}
 <script>
 import Vue from "vue";
 import { LinearGaugePlugin, Annotations } from "@syncfusion/ej2-vue-lineargauge";
@@ -177,12 +180,14 @@ provide: {
     lineargauge: [Annotations]
 },
 methods: {
+    /* custom code start */
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    /* custom code end */
   changePointertype: function(args){
     this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].type = pointerType.value;
     pointerPlace.enabled = (pointerType.value === 'Marker');
@@ -192,6 +197,7 @@ methods: {
        this.$refs.lineargauge.ej2Instances.axes[0].pointers[0].placement = pointerPlace.value;
        this.$refs.lineargauge.ej2Instances.refresh();
   },
+  // Code for Property Panel
 axisMin: function(args){
     let min = document.getElementById('min');
     let max = document.getElementById('max');

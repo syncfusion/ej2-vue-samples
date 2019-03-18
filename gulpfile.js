@@ -7,7 +7,7 @@ var config = require('./config.json')
 var sampleOrder = JSON.parse(fs.readFileSync(__dirname + '/src/common/sampleorder.json'));
 var sampleList;
 const elasticlunr = require('elasticlunr');
-var shelljs=require('shelljs');
+var shelljs = require('shelljs');
 //require('./build/samples');
 
 function generateSearchIndex(sampleArray) {
@@ -22,10 +22,12 @@ function generateSearchIndex(sampleArray) {
         var component = sampleCollection.name;
         var directory = sampleCollection.directory;
         var puid = sampleCollection.uid;
+        var hideOnDevice = sampleCollection.hideOnDevice;
         for (sample of sampleCollection.samples) {
             sample.component = component;
             sample.dir = directory;
             sample.parentId = puid;
+            sample.hideOnDevice = hideOnDevice;
             instance.addDoc(sample);
         }
     }
@@ -181,3 +183,15 @@ gulp.task('serve',['build'], function(done) {
         ignore: ['node_modules']
     })
 });
+
+gulp.task('ci-report', function(done)
+{
+    done();
+});
+
+// Install log task.
+gulp.task('ls-log', function () {
+    shelljs.mkdir('-p', './cireports/logs');
+    shelljs.exec('npm ls >./cireports/logs/install.log');
+});
+
