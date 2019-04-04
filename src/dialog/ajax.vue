@@ -50,7 +50,7 @@
         height: 278px;
     }
     .fabric .ajaxsample .e-dialog, .bootstrap .ajaxsample .e-dialog, .highcontrast .ajaxsample .e-dialog {
-        height: 330px;
+        height: 334px;
     }
     .highcontrast .ajaxsample .e-dialog .e-dlg-content {
         padding: 28px 25px 19px;
@@ -85,12 +85,11 @@ export default Vue.extend({
             animationSettings: { effect: 'None' },
             innerContent1: 'On October 17, Microsoft will release its Fall Creators Update for the Windows 10 platform.',
             innerContent2: 'Much like its previous counter part, the Spring Creators Update ...',
-            contentData: 'On October 17, Microsoft will release its Fall Creators Update for the Windows 10 platform.'
-            + 'Much like its previous counterpart, the Spring Creators Update, the release is set to deliver more features'
-            + 'to Windows 10 for both developers and users, with particular emphasis this time around on app modernization'
-            + 'mixed reality, and game development and software updates App modernization is the term Microsoft used in' 
-            + 'its press event to encompass the features that will affect most Windows 10 users. and'
-            + 'The updates primarily serve to make using Windows 10  easier and more productive all around. Some significant highlights include device',
+            contentData: 'On October 17, Microsoft will release its Fall Creators Update for the Windows 10 platform. '
+            + 'Much like its previous counterpart, the Spring Creators Update, the release is set to deliver more features '
+            + 'to Windows 10 for both developers and users, with particular emphasis this time around on app modernization, '
+            + 'mixed reality, and game development and software updates. App modernization is the term Microsoft used in ' 
+            + 'its press event to encompass the features that will affect most Windows 10 users and developers.',
             content: this.innerContent1 + this.innerContent2,
             dlgButtons: [{ click: this.dlgButtonClick.bind(this), buttonModel: { isPrimary:'true', content: 'More Details' } }]
         }

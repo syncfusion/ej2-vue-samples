@@ -103,6 +103,18 @@
     .highcontrast  .customdroparea .dropArea_wrap {
         background-color: #000;
     }
+
+    .bootstrap4 .customdroparea .dropArea_wrap {
+        background-color: #e9ecef;
+        border: 1px dashed rgba(0, 0, 0, 0.15);
+    }
+    .bootstrap4 .customdroparea .font-icons {
+        color: #495057;
+    }
+    .bootstrap4 .customdroparea .dropText {
+        color: #212529;
+    }
+
    .customdroparea .font-icons {
         position: relative;
         top: 25%;

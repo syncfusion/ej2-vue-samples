@@ -51,6 +51,14 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         .e-icon-btn.e-active .e-md-preview.e-icons::before {
 		  content: '\e350';
 	    }
+	    
+        .bootstrap4 .e-icon-btn.e-active .e-md-preview::before {
+         content: '\e790';
+        }
+
+        .bootstrap4 .e-icon-btn .e-md-preview::before {
+         content: '\e787';
+        }
     </style>
 <script>
 import Vue from "vue";
@@ -79,7 +87,7 @@ export default Vue.extend({
     methods: {
         created: function() {
             this.$refs.rteInstance.$el.parentNode.querySelector('.e-content').onkeyup = (Event) => {
-                this.markDownConversion();
+                this.MarkDownConversion();
             };
             document.getElementById('preview-code').onclick = () => {
                 this.fullPreview();
@@ -92,7 +100,7 @@ export default Vue.extend({
                 }
             };
         },
-        markDownConversion: function(){
+        MarkDownConversion: function(){
         if (document.getElementById('preview-code').classList.contains('e-active')) {
             var textArea = this.$refs.rteInstance.$el.parentNode.querySelector('.e-content');
             var id = this.$refs.rteInstance.getID() + 'html-view';

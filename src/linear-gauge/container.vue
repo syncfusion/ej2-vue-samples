@@ -3,7 +3,7 @@
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
             <div align='center'>
-                <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container'>
+                <ejs-lineargauge :load='load' ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container'>
                     <e-axes>
                         <e-axis minimum=0 maximum=180 :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
                             <e-pointers>
@@ -117,7 +117,7 @@ export default Vue.extend({
             orientationdata: ['Vertical', 'Horizontal'],
             orientationplaceholder: 'Select Range Bar Color',
             orientationwidth: 120,
-            containerdata: ['Normal', 'RoundedRectangle', 'Thermometer'],
+            containerdata: ['Thermometer', 'Normal', 'RoundedRectangle'],
             containerplaceholder: 'Select Range Bar Color',
             containerwidth: 120,
         }

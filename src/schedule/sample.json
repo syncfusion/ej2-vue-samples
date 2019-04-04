@@ -322,17 +322,17 @@
         },
         {
             "url": "adaptive-rows",
-            "name": "Adaptive Rows",
+            "name": "Row Auto Height",
             "category": "Multiple Resources",
             "type": "new",
-            "description": "This example demonstrates how to block specific days or time intervals on HTML5 JavaScript Scheduler.",
+            "description": "This example showcases how the work cells of Essential JS2 Scheduler auto adjusts its height based on the exceeding appointment count.",
             "api": {
                 "Schedule": [
                     "currentView",
                     "views",
                     "selectedDate",
                     "eventSettings",
-                    "enableAdaptiveRows"
+                    "rowAutoHeight"
                 ]
             }
         },

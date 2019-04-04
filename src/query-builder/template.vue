@@ -1,7 +1,7 @@
 <template>
     <div class="template-querybuilder-section">
         <div class="col-lg-8 control-section">
-            <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :change="updateRule">
+            <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :ruleChange="updateRule">
                 <e-columns>
                     <e-column field='Category' label='Category' type='string' :template='categoryTemplate' />
                     <e-column field='PaymentMode' label='Payment Mode' type='string' :operators="paymentOperators" :template='paymentTemplate' />
@@ -105,85 +105,30 @@ export default Vue.extend({
     return {
       dataSource: dataSource.expenseData,
       textAreaContent: '',
-      paymentOperators: [{ value: 'equal', key: 'Equal' }, { value: 'notequal', key: 'Not Equal' },{ value: 'in', key: 'In' },                { value: 'notin', key: 'Not In' }],
+      paymentOperators: [{ value: 'equal', key: 'Equal' }, { value: 'notequal', key: 'Not Equal' }],
       transOperators: [{key:'Equal',value:'equal'},{key:'Not Equal',value:'notequal'}],
       amountOperators: [{ key: 'Equal', value: 'equal' },{ key: 'Not equal', value: 'notequal' },{ key: 'Greater than', value: 'greaterthan' },
                 { key: 'Less than', value: 'lessthan' },{ key: 'Less than or equal', value: 'lessthanorequal' },
                 { key: 'Greater than or equal', value: 'greaterthanorequal' }],
-      categoryTemplate: {
-                create: () => {
-                    return createElement('input', { attrs: { 'type': 'text' } });
-                },
-                destroy: (args) => {
-                  let multiselect = getComponent(document.getElementById(args.elementId), 'multiselect');
-                  if(multiselect)
-                    multiselect.destroy();
-                  let textbox = getComponent(document.getElementById(args.elementId), 'textbox');
-                  if(textbox)
-                    textbox.destroy();
-                },
-                write: (args) => {
-                    if (inOperators.indexOf(args.operator) > -1) {
-                    new MultiSelect(
-                        {
-                            dataSource: ['Food', 'Travel', 'Shopping', 'Mortgage', 'Salary', 'Clothing', 'Bills'],
-                            value: args.values,
-                            mode: 'CheckBox',
-                            placeholder: 'Select category',
-                            change: (e) => {
-                                this.$refs.querybuilder.$el.ej2_instances[0].notifyChange(e.value, e.element);
-                            }
-                        },
-                        '#' + args.elements.id);
-                    }
-                    else {
-                        let inputobj = new TextBox({
-                            placeholder: 'Value',
-                            input: (e) => {
-                                this.$refs.querybuilder.$el.ej2_instances[0].notifyChange(e.value, e.event.target);
-                            }
-                        });
-                        inputobj.appendTo('#' + args.elements.id);
-                        inputobj.value = args.values;
-                        inputobj.dataBind();
-                    }
-                }
-            },
         paymentTemplate: {
                 create: () => {
                     return createElement('input', { attrs: { 'type': 'text' } });
                 },
                 destroy: (args) => {
-                    let multiselect = getComponent(document.getElementById(args.elementId), 'multiselect');
-                    if(multiselect)
-                        multiselect.destroy();
                     let dropdownlist = getComponent(document.getElementById(args.elementId), 'dropdownlist');
                     if(dropdownlist)
                         dropdownlist.destroy();
                 },
                 write: (args) => {
                     let ds = ['Cash', 'Debit Card', 'Credit Card', 'Net Banking', 'Wallet'];
-                    if (inOperators.indexOf(args.operator) > -1) {
-                        let multiSelectObj = new MultiSelect({
-                            dataSource: ds,
-                            value: args.values,
-                            mode: 'CheckBox',
-                            placeholder: 'Select Transaction',
-                            change: (e) => {
-                                this.$refs.querybuilder.$el.ej2_instances[0].notifyChange(e.value, e.element);
-                            }
-                        });
-                        multiSelectObj.appendTo('#' + args.elements.id);
-                    } else {
                         let dropDownObj = new DropDownList({
                             dataSource: ds,
                             value: args.values,
                             change: (e) => {
-                                this.$refs.querybuilder.$el.ej2_instances[0].notifyChange(e.itemData.value, e.element);
+                                this.$refs.querybuilder.ej2Instances.notifyChange(e.itemData.value, e.element);
                             }
                         });
                         dropDownObj.appendTo('#' + args.elements.id);
-                    }
                 }
             },
         transactionTemplate: {
@@ -200,7 +145,7 @@ export default Vue.extend({
                             label: 'Is Expensive',
                             checked: checked,
                             change: (e) => {
-                                this.$refs.querybuilder.$el.ej2_instances[0].notifyChange(e.checked ? 'expensive' : 'income', e.event.target);
+                                this.$refs.querybuilder.ej2Instances.notifyChange(e.checked ? 'expensive' : 'income', e.event.target);
                             }
                         },
                         '#' + args.elements.id);
@@ -223,7 +168,7 @@ export default Vue.extend({
                             // Initialize tooltip with placement and showOn
                             tooltip: { isVisible: true, placement: 'Before', showOn: 'Hover' },
                             change: (e) => {
-                                this.$refs.querybuilder.$el.ej2_instances[0].notifyChange(e.value, args.elements);
+                                this.$refs.querybuilder.ej2Instances.notifyChange(e.value, args.elements);
                             }
                         },
                         '#' + args.elements.id);
@@ -233,19 +178,19 @@ export default Vue.extend({
     };
   },
   methods: {
-        updateRule: function() {
-            if (this.$refs.sql_radiobutton.$el.ej2_instances[0].checked) {
-                this.textAreaContent = this.$refs.querybuilder.$el.ej2_instances[0].getSqlFromRules(this.$refs.querybuilder.$el.ej2_instances[0].rule);
+        updateRule: function(args) {
+            if (this.$refs.sql_radiobutton.ej2Instances.checked) {
+                this.textAreaContent = this.$refs.querybuilder.ej2Instances.getSqlFromRules(args.rule);
             } else {
-                this.textAreaContent = JSON.stringify({ condition: this.$refs.querybuilder.$el.ej2_instances[0].rule.condition, rules: this.$refs.querybuilder.$el.ej2_instances[0].rule.rules }, null, 4);
+                this.textAreaContent = JSON.stringify(args.rule, null, 4);
             }
         },
         changeValue: function() {
-            if (this.$refs.sql_radiobutton.$el.ej2_instances[0].checked) {
-                this.textAreaContent = this.$refs.querybuilder.$el.ej2_instances[0].getSqlFromRules(this.$refs.querybuilder.$el.ej2_instances[0].rule);
+            var validRule = this.$refs.querybuilder.ej2Instances.getValidRules(this.$refs.querybuilder.ej2Instances.rule);
+            if (this.$refs.sql_radiobutton.ej2Instances.checked) {
+                this.textAreaContent = this.$refs.querybuilder.ej2Instances.getSqlFromRules(validRule);
             } else {
-                this.textAreaContent = JSON.stringify({ condition: this.$refs.querybuilder.$el.ej2_instances[0].rule.condition, rules: this.$refs.querybuilder.$el.ej2_instances[0].rule.rules }, null, 4);
-
+                this.textAreaContent = JSON.stringify(validRule, null, 4);
             }
         },
         onScroll: function() {
@@ -257,7 +202,8 @@ export default Vue.extend({
     },
   mounted: function() {
     this.$nextTick(function () {
-        this.textAreaContent = JSON.stringify({ condition: this.$refs.querybuilder.$el.ej2_instances[0].rule.condition, rules: this.$refs.querybuilder.$el.ej2_instances[0].rule.rules }, null, 4);
+        var validRule = this.$refs.querybuilder.ej2Instances.getValidRules(this.$refs.querybuilder.ej2Instances.rule);
+        this.textAreaContent = JSON.stringify(validRule, null, 4);
     });
     if (!isNullOrUndefined(document.getElementById('right-pane'))) {
         document.getElementById('right-pane').addEventListener('scroll', this.onScroll.bind(this));

@@ -18,7 +18,7 @@
         </div>
         <div class="forum">
         <div id="createpostholder">
-                <ejs-richtexteditor ref="rteInstance" height='262px'></ejs-richtexteditor>
+                <ejs-richtexteditor id="outlook_rte" ref="rteInstance" height='262px'></ejs-richtexteditor>
                 <div id="buttonSection">
                     <ejs-button :isPrimary="isPrimary" id="send" >Send</ejs-button>
                     <ejs-button id="discard" >Discard</ejs-button>

@@ -1,9 +1,9 @@
 <template>
     <div id="container" style='display:block;height:100%, width:100%;'>
-         <ejs-chart class="chart-content" ref="lineInstance" style='display:block;height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea'>
+         <ejs-chart class="chart-content" :theme='theme' ref="lineInstance" style='display:block;height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Column' xName='x' yName='y' name='Jan' width=2 :marker='marker' > </e-series>
-                <e-series :dataSource='seriesData1' type='Column' xName='x' yName='y' name='Feb' width=2 :marker='marker' fill="#db3673"> </e-series>
+                <e-series :dataSource='seriesData1' type='Column' xName='x' yName='y' name='Feb' width=2 :marker='marker' fill="rgb(239, 183, 202)"> </e-series>
                 <e-series :dataSource='seriesData2' type='Column' xName='x' yName='y' name='Mar' width=2 :marker='marker' > </e-series>
             </e-series-collection>
         </ejs-chart>
@@ -15,9 +15,14 @@ import { ChartPlugin, ColumnSeries, Category } from "@syncfusion/ej2-vue-charts"
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default {
   data() {
     return {
+      theme: theme,
       seriesData: [
             { x: 'Jan', y: 46 }, { x: 'Feb', y: 27 }, { x: 'Mar', y: 26 }
               ],

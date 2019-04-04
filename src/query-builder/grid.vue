@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="col-lg-12 control-section" style="min-height: auto;">
-            <ejs-querybuilder id="querybuilder" ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :change="updateRule">
+            <ejs-querybuilder id="querybuilder" ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :ruleChange="updateRule">
                 <e-columns>
                     <e-column field='TaskID' label='Task ID' type='number' />
                     <e-column field='Name' label='Name' type='string' />
@@ -83,8 +83,8 @@ export default Vue.extend({
     };
   },
   methods: {
-        updateRule: function() {
-            var predicate = this.$refs.querybuilder.$el.ej2_instances[0].getPredicate(this.$refs.querybuilder.$el.ej2_instances[0].rule);
+        updateRule: function(args) {
+            var predicate = this.$refs.querybuilder.ej2Instances.getPredicate(args.rule);
             var fltrDataSource = [];
             var dataManagerQuery;
             if (isNullOrUndefined(predicate)) {
@@ -101,10 +101,10 @@ export default Vue.extend({
                 });
             });
             this.gridDataSource = fltrDataSource;
-            this.$refs.grid.$el.ej2_instances[0].refresh();
+            this.$refs.grid.ej2Instances.refresh();
         },
         onGridCreated: function() {
-            this.updateRule();
+            this.updateRule({rule: this.$refs.querybuilder.ej2Instances.getValidRules(this.$refs.querybuilder.ej2Instances.rule)});
         }
     },
   provide: {

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section">
-     <div style="padding:5px;direction: rtl;">
+     <div style="padding:5px;text-align: right;">
          <ejs-button id="add" class="e-btn e-info"  v-on:click.native="addPanel"> Add Panel </ejs-button>
     </div>
     <ejs-dashboardlayout ref="DashbordInstance" :columns="5" id='defaultLayout' :allowResizing="true" :cellSpacing="spacing">
@@ -74,15 +74,14 @@
 </div>
 <div id="action-description">
     <p>
-        The following sample demonstrates the default functionalities of the DashboardLayout component. Click the <code>Add Panle</code>
-        button to add panels dynamically to the dashboardlayout.
+        The following sample demonstrates the default functionalities of the DashboardLayout component. Click the <code>Add Panel</code> button to add panels dynamically to the dashboard layout.
     </p>
 </div>
 
 <div id="description">
     <p>
         The DashboardLayout component provides the capability to arrange, resize and reorder the panels within the
-        dashboardlayout.
+        dashboard layout.
     </p>
 </div>
 </div>
@@ -108,12 +107,14 @@ export default Vue.extend ({
                 'id': this.count.toString() + '_layout', 'sizeX': 1, 'sizeY': 1, 'row': 0, 'col': 0,
                 content: '<span id="close" class="e-template-icon e-clear-icon"></span><div class="text-align">' + this.count.toString() + '</div>'
             }];
-            this.count = this.count + 1;
             this.$refs.DashbordInstance.addPanel(panel[0]);
+            var closeIcon = document.getElementById(this.count.toString() + '_layout').querySelector('.e-clear-icon');
+            closeIcon.addEventListener('click', this.onCloseIconHandler);
+            this.count = this.count + 1;
         },
-        onCloseIconHandler: function() {
-        if (event.target.closest('.e-panel')) {
-            this.$refs.DashbordInstance.removePanel(event.target.closest('.e-panel').id);
+        onCloseIconHandler: function(event) {
+        if (event.target.offsetParent) {
+            this.$refs.DashbordInstance.removePanel(event.target.offsetParent.id);
         }
     }
     },
@@ -162,5 +163,8 @@ export default Vue.extend ({
         right: 0;
         cursor: pointer;
     }
-
+/* high contrast style */
+    body.highcontrast #defaultLayout.e-dashboardlayout.e-control .e-panel {
+        background: #000;
+    }
 </style>

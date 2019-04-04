@@ -53,6 +53,13 @@
         display: block;
         text-decoration: none;
     }
+	.bootstrap .accordion-view #splitter .e-list-parent.e-ul li:nth-child(3),
+	.bootstrap4	.accordion-view #splitter .e-list-parent.e-ul li:nth-child(3) {
+		border-bottom: none;
+	}
+	.bootstrap4 .accordion-view #splitter .e-listview {
+		border: none;
+	}
 </style>
 <script>
 import Vue from "vue";

@@ -17,7 +17,7 @@
 
         <ejs-dialog :buttons='promptDlgButtons'  ref="promptDialog" v-bind:visible="false" :header='promptHeader' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :open="dialogOpen" :close="dialogClose" :width='promptWidth'>
 
-            <table style="border-collapse: separate;border-spacing: 10px;width:100%;padding: 0px 20px 20px;">
+            <table style="border-collapse: separate;border-spacing: 10px;width:85%;margin: 0px -5px 0px;">
                 <tr>
                     <td>SSID:</td>
                 </tr>

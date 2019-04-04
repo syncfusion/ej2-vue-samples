@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div class="content-wrapper">
-            <div id='chipcustomization' class='col-lg-6'>
+            <div id='chipcustomization'>
                 <div class="chipcontent">
                     <h4>Chip Customization</h4>
                     <ejs-multiselect id='countries' :dataSource='colorsData' :placeholder='chipPlaceholder' :fields='chipFields' :mode='chipMode' :value='chipValue' :tagging='onTagging'></ejs-multiselect>
@@ -25,10 +25,14 @@
 </div>
 </template>
 <style>
+
+    #chipcustomization {
+        width: 100%;
+    }
+
     #chipcustomization .chipcontent {
         margin: 0 auto;
-        margin-left: 70px;
-        margin-right: 70px;
+        width: 50%;
     }
 
     #chipcustomization .e-multi-select-wrapper .e-chips {

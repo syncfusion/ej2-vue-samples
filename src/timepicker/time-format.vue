@@ -1,6 +1,6 @@
 <template>
-<div class="control-section">
-    <div class="control_wrapper">
+<div class="control-section time-format">
+    <div class="control_wrapper time_range">
         <div class="tabs-wrap">
             <div class="wrap">
          <ejs-timepicker id="timepicker" :placeholder="waterMarkText" :value='value' :step='interval' :format='customFormat'></ejs-timepicker>
@@ -53,7 +53,7 @@ export default Vue.extend({
   margin: 0 auto;
 }
 
-.control_wrapper {
+.control_wrapper.time_range {
   margin: 0 auto;
   display: block;
   max-width: 300px;
@@ -64,7 +64,7 @@ export default Vue.extend({
   padding: 0px 0px 10px;
 }
 
-.e-bigger .control-section {
+.e-bigger .control-section.time-format {
   margin-top: 60px;
 }
 

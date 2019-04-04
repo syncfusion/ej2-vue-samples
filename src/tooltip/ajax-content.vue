@@ -1,6 +1,6 @@
 <template>
   <div class="control-section">
-      <ejs-tooltip ref="tooltip" style="display:block;" class="e-prevent-select" :content="content" target="#countrylist [title]" position='RightCenter'
+      <ejs-tooltip ref="tooltip" style="display:block;" class="e-prevent-select" :content="content" target="#countrylist [title]" position='RightCenter' cssClass= 'e-ajax-content'
         :beforeRender="onBeforeRender">
 
         <!-- ListView element -->
@@ -113,6 +113,17 @@
         }
 
 	}
+    
+	.bootstrap4 .e-tooltip-wrap.e-ajax-content .contentWrap {
+		padding: 0; 
+		line-height: 18px;
+    }
+	
+	.bootstrap4 .e-tooltip-wrap.e-ajax-content .def {
+        display: inline-block;
+    }
+
+    
 </style>
 <script>
 import Vue from "vue";

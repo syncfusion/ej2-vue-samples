@@ -1,9 +1,9 @@
 <template>
   <div>
-     <div id="target" class="col-lg-12 control-section">
+     <div id="target" class="col-lg-12 control-section resizable">
         <ejs-button id='dlgbtn' v-on:click.native="buttonClick">Open Dialog</ejs-button>
 
-        <ejs-dialog header='Resize Me' ref="dialogObj" allowDragging='true' :animationSettings='animationSettings' content='This is a dialog with resizable support.' enableResize='true' showCloseIcon='true' :target='target' :width='width' :open="dialogOpen"
+        <ejs-dialog header='Resize Me!!!' ref="dialogObj" allowDragging='true' :animationSettings='animationSettings' content='This is a dialog with resizable support.' enableResize='true' showCloseIcon='true' :target='target' :width='width' :open="dialogOpen"
             :close="dialogClose">
         </ejs-dialog>
     </div>
@@ -55,4 +55,11 @@ export default Vue.extend({
         min-height: 350px;    
     }
     /* custom code end */
+    .material .resizable .e-dialog, .bootstrap .resizable .e-dialog, 
+    .bootstrap4 .resizable .e-dialog {
+        min-height: 125px;
+    }
+    .fabric .resizable .e-dialog, .highcontrast .resizable .e-dialog {
+        min-height: 135px;
+    }
 </style>

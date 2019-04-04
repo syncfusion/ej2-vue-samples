@@ -55,6 +55,9 @@
     .highcontrast .e-list-icon {
         color: rgba(255, 255, 255, 0.57);
     }
+    .bootstrap4 .e-list-icon {
+        color: #495057;
+    }
     .twitter:before {
         content: "\a701";
     }

@@ -92,7 +92,7 @@ export default  Vue.extend({
   data: () => {
     return {
       data: sampleData,
-      editSettings: { allowEditing: true },
+      editSettings: { allowEditing: true, mode: 'Row' },
       pageSettings: {pageSize: 10},
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},

@@ -9,7 +9,7 @@
                         </label>
                     </td>
                     <td>
-                        <ejs-inplaceeditor ref="dateObj" id="datePickerEle" mode="Inline" type="Date" :value="datePickerValue" :model="datePickerModel" :created='created'>
+                        <ejs-inplaceeditor ref="dateObj" id="datePickerEle" mode="Inline" type="Date" :value="datePickerValue" :model="datePickerModel">
                         </ejs-inplaceeditor>
                     </td>
                 </tr>
@@ -19,7 +19,7 @@
                         </label>
                     </td>
                     <td>
-                        <ejs-inplaceeditor ref="timeObj" id="timePickerEle" mode="Inline" type="Time" :value="timePickerValue" :model="timePickerModel" :created='created'>
+                        <ejs-inplaceeditor ref="timeObj" id="timePickerEle" mode="Inline" type="Time" :value="timePickerValue" :model="timePickerModel">
                         </ejs-inplaceeditor>
                     </td>
                 </tr>
@@ -29,7 +29,7 @@
                         DateTimePicker </label>
                     </td>
                     <td>
-                        <ejs-inplaceeditor ref="dateTimeObj" id="dateTimePickerEle" mode="Inline" type="DateTime" :value="dateTimePickerValue" :model="dateTimePickerModel" :created='created'>
+                        <ejs-inplaceeditor ref="dateTimeObj" id="dateTimePickerEle" mode="Inline" type="DateTime" :value="dateTimePickerValue" :model="dateTimePickerModel">
                         </ejs-inplaceeditor>
                     </td>
                 </tr>
@@ -141,6 +141,7 @@ export default Vue.extend({
       this.timeObj = this.$refs.timeObj.ej2Instances;
       this.dateTimeObj = this.$refs.dateTimeObj.ej2Instances;
       this.dateRangeObj = this.$refs.dateRangeObj.ej2Instances;
+      this.editorMode = this.$refs.editorMode.ej2Instances;
   },
   methods: {
         changeEditorMode: function(args) {
@@ -160,7 +161,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
+            if (this.editorMode.text === 'Inline') { return; }
             if (this.dateObj && this.dateObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.dateObj.enableEditMode = false;
             }
@@ -208,16 +209,6 @@ visibility: hidden;
 }
 /* custom code end */
 
-.inplace-control-section.pickers-layout  {
-    width: 70%;
-    float: left;
-}
-
-#pickerProperty {
-    width: 30%;
-    float: left;
-}
-
 #pickerProperty table td {
     width: 50%;
 }
@@ -227,4 +218,18 @@ visibility: hidden;
     padding-top: 10px;
 }
 
+@media (max-width: 768px) {
+    .inplace-control-section.pickers-layout {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .inplace-control-section .control_wrapper table tr td:nth-child(1) {
+        width: 130px;
+    }
+
+    .inplace-control-section .control_wrapper table tr td:nth-child(2) {
+        width: 200px;
+    }
+}
 </style>

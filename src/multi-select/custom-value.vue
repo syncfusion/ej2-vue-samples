@@ -21,8 +21,6 @@
 </div>
 </div>
 </template>
-<style>
-</style>
 <script>
 import Vue from "vue";
 import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";

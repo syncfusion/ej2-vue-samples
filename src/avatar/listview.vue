@@ -116,6 +116,16 @@
     .avatar-listview .pic04 {
         background-image: url('./images/pic04.png');
     }
+
+ .bootstrap4 #letterAvatarList .e-list-item {
+        line-height: 30px;
+        padding: 8px 16px 8px 16px;
+    }
+
+    .bootstrap4 #letterAvatarList .e-list-item .e-avatar {
+        top: calc(100% - 48px);
+    }
+
 </style>
 <script>
 import Vue from "vue";

@@ -832,6 +832,7 @@
 
 .sb-left-pane .e-listview .e-list-item.e-active {
     background-color: #d2ebff;
+    color: #000000;
 }
 
 #controlTree .fabric .sb-left-pane .e-listview .e-list-item.e-active {
@@ -887,6 +888,7 @@
     top: 66px;
     height: calc(100% - 66px);
     -webkit-overflow-scrolling: touch;
+    border: none;
 }
 
 .sb-left-back {
@@ -1914,6 +1916,7 @@ body.highcontrast,
 
 .sb-left-pane .e-treeview .e-list-text {
     width: 100%;
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
 }
 
 .sb-left-pane .e-treeview .e-text-content{

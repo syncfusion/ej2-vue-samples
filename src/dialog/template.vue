@@ -103,6 +103,9 @@ export default Vue.extend({
     .bootstrap .template .e-dialog .e-dlg-header-content {
         background-color: #428bca;
     }
+    .bootstrap4 .template .e-dialog .e-dlg-header-content {
+        background-color: #007bff;
+    }
     .template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
         top: 5px;
         left: -11px;
@@ -111,6 +114,11 @@ export default Vue.extend({
         top: 3px;
         left: -11px;
     }
+    .bootstrap4 .template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn,
+    .bootstrap4.e-bigger .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+        top: 8px;
+    }
+
     .template .e-dialog .e-dlg-header {
         position: relative;
     }
@@ -182,6 +190,9 @@ export default Vue.extend({
     .highcontrast .template .e-dialog .e-footer-content{
         border-top: 0.5px solid #fff;
     }
+    .bootstrap4 .template .e-dialog .e-footer-content{
+        border-top: 1px solid #e9ecef;
+    }
     .highcontrast .template .dialogContent .dialogText{
         background-color: #bfbfbf;
     }
@@ -212,6 +223,11 @@ export default Vue.extend({
     .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
         background-color: rgba(255,255,255, 0.10);
     }
+    .bootstrap4 .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap4 .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
+        background-color : transparent;
+    }
+
     .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:active .e-icon-dlg-close,
     .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus .e-icon-dlg-close,
     .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover .e-icon-dlg-close {

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section multiselect-databinding">
             <div id='local' style="margin: 0px auto; width:64%; padding-top: 40px;">
                     <h4> Local Data</h4>
                     <ejs-multiselect id='localData' :dataSource='countries' :fields='localFields'
@@ -62,8 +62,7 @@
         opacity: 0.54;
     }
 
-    .control-section,
-    .content-wrapper {
+    .control-section.multiselect-databinding {
         min-height: 350px;
     }
 </style>

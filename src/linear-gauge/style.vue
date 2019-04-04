@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
  <div class="row">
-<ejs-lineargauge id='container1' :orientation='orientation1' style="height:100px;">
+<ejs-lineargauge :load='load' id='container1' :orientation='orientation1' style="height:100px;">
                  <e-axes>
                      <e-axis :line='line1' :majorTicks='majorTicks1' :minorTicks='minorTicks1'>
                         <e-pointers>
@@ -12,7 +12,7 @@
 </ejs-lineargauge>
     </div>
     <div class="row">
-<ejs-lineargauge id='container2' :orientation='orientation2' :container='container2' style="height:100px;">
+<ejs-lineargauge :load='load' id='container2' :orientation='orientation2' :container='container2' style="height:100px;">
                  <e-axes>
                      <e-axis :line='line2' :labelStyle='labelStyle2' :ranges='ranges2' :majorTicks='majorTicks2'>
                           <e-pointers>
@@ -23,7 +23,7 @@
 </ejs-lineargauge>
     </div>
     <div class="row">
-<ejs-lineargauge id='container3' :orientation='orientation3' style="height:130px;">
+<ejs-lineargauge :load='load' id='container3' :orientation='orientation3' style="height:130px;">
                  <e-axes>
                      <e-axis :line='line3' :majorTicks='majorTicks3' :minorTicks='minorTicks3'>
                           <e-pointers>
@@ -35,7 +35,7 @@
 </ejs-lineargauge>
     </div>
     <div class="row">
-<ejs-lineargauge id='container4' :orientation='orientation4' :container='container4' style="height:100px;">
+<ejs-lineargauge :load='load' id='container4' :orientation='orientation4' :container='container4' style="height:100px;">
                  <e-axes>
                      <e-axis :line='line4' :labelStyle='labelStyle4' :majorTicks='majorTicks4' :minorTicks='minorTicks4'>
                           <e-pointers>

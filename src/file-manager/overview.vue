@@ -25,11 +25,11 @@
 </style>
 <script>
 import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerPlugin, NavigationPane, Toolbar, LargeIconsView, DetailsView, FileManagerComponent, ContextMenu, BreadCrumbBar } from "@syncfusion/ej2-vue-filemanager";
 
 Vue.use(FileManagerPlugin);
 
-let hostUrl = 'https://ej2services.syncfusion.com/production/web-services/';
+let hostUrl = 'https://ng2jq.syncfusion.com/ej2services/';
 export default Vue.extend ({
      data: function() {
         return {            
@@ -44,7 +44,7 @@ export default Vue.extend ({
         };
     },
     provide: {
-            filemanager: [NavigationPane, Toolbar, DetailsView]
+            filemanager: [NavigationPane, DetailsView, LargeIconsView, ContextMenu,BreadCrumbBar, Toolbar]
     }
 });
 </script>

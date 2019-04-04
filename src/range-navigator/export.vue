@@ -94,11 +94,11 @@
 }
 
  .e-export-icon::before {
-   content: '\e728';
+   content: '\e720';
  }
 
 .e-print-icon::before {
-  content: '\e813';
+  content: '\e34b';
 }
 </style>
 <script>

@@ -63,7 +63,7 @@
 </template>
 <style>
 .e-play-icon::before {
-        content: '\e728';
+        content: '\e720';
     }
 </style>
 <script>

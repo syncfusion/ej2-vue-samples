@@ -15,17 +15,14 @@
             "url": "template",
             "name": "Template",
             "category": "Query Builder",
-            "api": { "QueryBuilder": ["width","columns", "rule", "change"] },
-            "description": "This sample demonstrates the integration of DropdownList, Slider controls as Templates in the Query Builder component.",
-            "sourceFiles": [
-                { "displayName": "rule.json", "path":"src/query-builder/template-data.json" }
-            ]
+            "api": { "QueryBuilder": ["width","columns", "rule", "ruleChange"] },
+            "description": "This sample demonstrates the integration of DropdownList, Slider controls as Templates in the Query Builder component."
         },
         {
             "url": "grid",
             "name": "Integration with Data Grid",
             "category": "Query Builder",
-            "api": { "Query Builder": ["width", "dataSource", "columns", "rule", "change"] },
+            "api": { "Query Builder": ["width", "dataSource", "columns", "rule", "ruleChange"] },
             "description": "This sample demonstrates the integration of Grid component to showcase the data population based on the created filters using Query Builder component."
         }
     ]

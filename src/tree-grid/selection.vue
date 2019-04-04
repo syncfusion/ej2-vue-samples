@@ -20,7 +20,7 @@
                         <div>Selection Type</div>
                     </td>
                     <td style="width: 70%;padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='type' width='90px' id='type' :dataSource='typedata' value='Single' :fields='ddlfields' :change="ontypeChange"></ejs-dropdownlist>                      
+                        <ejs-dropdownlist ref='type' width='90px' id='type' :dataSource='typedata' value='Multiple' :fields='ddlfields' :change="ontypeChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr style="height: 50px">

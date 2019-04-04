@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-12 control-section outlook-style">
         <div id="target" class="control_wrapper">
-            <ejs-splitter id='splitter' ref="splitterObj" width='100%' height='498px'>
+            <ejs-splitter id='splitter' ref="splitterObj" width='100%' height='498px' :resizeStop='onSplitterResize'>
                     <e-panes>
                         <e-pane size="28%" min="27%" :content='pane1Content'></e-pane>
                         <e-pane size="33%" min ="23%" :content='pane2Content'></e-pane>
@@ -65,6 +65,10 @@
         padding-left: 3px;
         padding-right: 4px;
     }
+	
+	.outlook-style #splitter #template ul.e-list-parent.e-ul {
+		padding: 0 0 0 16px;
+	}
 </style>
 <script>
 import Vue from "vue";
@@ -88,6 +92,11 @@ export default Vue.extend({
             pane3Content: function () {
                 return { template : pane3Content }
             }
+        }
+    },
+    methods: {
+        onSplitterResize: function() {
+            this.$el.querySelector('#outlook_rte').ej2_instances[0].refresh();
         }
     }
 });

@@ -9,7 +9,7 @@
                     TextBox </label>
                 </td>
                 <td>
-                    <ejs-inplaceeditor ref="editObj" id="inplace_editor" mode="Inline" type="Text" value="Andrew" submitOnEnter= "true" :model="textModel" :popupSettings= "textPopupSettings" :created='created'>
+                    <ejs-inplaceeditor ref="editObj" id="inplace_editor" mode="Inline" type="Text" value="Andrew" submitOnEnter= "true" :model="textModel" :popupSettings= "textPopupSettings">
                     </ejs-inplaceeditor>
                 </td>
             </tr>
@@ -19,7 +19,7 @@
                     NumericTextBox </label>
                 </td>
                 <td>
-                    <ejs-inplaceeditor ref="numericObj" id="numericTextBoxEle" mode="Inline" type="Numeric" value="$100.00" :model="numericTextBoxModel" :created='created'>
+                    <ejs-inplaceeditor ref="numericObj" id="numericTextBoxEle" mode="Inline" type="Numeric" value="$100.00" :model="numericTextBoxModel">
                     </ejs-inplaceeditor>
                 </td>
             </tr>
@@ -172,6 +172,7 @@ export default Vue.extend({
     this.editObj = this.$refs.editObj.ej2Instances;
     this.numericObj = this.$refs.numericObj.ej2Instances;
     this.maskedObj = this.$refs.maskedObj.ej2Instances;
+    this.editorMode = this.$refs.editorMode.ej2Instances;
   },
   methods: {
         changeEditorMode: function(args) {
@@ -202,7 +203,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
+            if (this.editorMode.text === 'Inline') { return; }
             if (this.editObj && this.editObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.editObj.enableEditMode = false;
             }
@@ -257,16 +258,6 @@ visibility: hidden;
     width: 50%;
 }
 
-.inplace-control-section.default_layout  {
-    width: 70%;
-    float: left;
-}
-
-#defaultProperty {
-    width: 30%;
-    float: left;
-}
-
 @media (max-width: 1200px) {
     .inplace-control-section.default_layout  {
         width: 100%;
@@ -274,9 +265,12 @@ visibility: hidden;
 }
 
 @media (max-width: 768px) {
-    .inplace-control-section .control_wrapper table td {
-        width: 50%;
-        padding-right: 30px;
+    .inplace-control-section .control_wrapper table tr td:nth-child(1) {
+        width: 130px;
+    }
+
+    .inplace-control-section .control_wrapper table tr td:nth-child(2) {
+        width: 200px;
     }
 }
 

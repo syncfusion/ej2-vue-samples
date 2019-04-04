@@ -1,6 +1,6 @@
 <template>
 <div class="col-lg-12 control-section">
-    <div class="control_wrapper">
+    <div class="control_wrapper month-picker">
         <div id="container" style="overflow:auto">
               <ejs-calendar id="calendar" :change="onValueChange" :start="start" :depth="depth"></ejs-calendar>
             <span id="date_label"> Selected Value: </span>
@@ -55,7 +55,7 @@ export default Vue.extend({
   margin-left: 5px;
 }
 
-.control_wrapper {
+.control_wrapper.month-picker {
   max-width: 300px;
   margin: 0 auto;
 }

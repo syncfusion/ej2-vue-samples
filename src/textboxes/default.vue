@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-lg-12 control-section">
-    <div class="content-wrapper">
+    <div class="content-wrapper textbox-default">
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6"><b>Floating Label</b></div>
         </div>
@@ -222,6 +222,10 @@
         content: '\e335';
         font-family: e-icons;
     }
+
+    .bootstrap4 .e-input-picture:before {
+        content: '\e776';
+    }
     
     .e-input-calendar:before {
         content: '\e901';
@@ -242,13 +246,13 @@
         content:'\e93a';
     }
 
-    .content-wrapper {
+    .content-wrapper.textbox-default {
         width: 90%;
         margin: 0 auto;
         min-width: 185px;
     }
     
-    .content-wrapper div.row {
+    .content-wrapper.textbox-default div.row {
         padding: 15px 0px;
     }
 
@@ -259,7 +263,7 @@
     }
     
     @media only screen and (max-width: 480px) {
-        .content-wrapper,
+        .content-wrapper.textbox-default,
         {
             width: 92%;
         }
@@ -269,7 +273,7 @@
             padding: 10px 5px;
             width: 100%;
         }
-        .content-wrapper div.row {
+        .content-wrapper.textbox-default div.row {
             padding: 0px;
         }
     }

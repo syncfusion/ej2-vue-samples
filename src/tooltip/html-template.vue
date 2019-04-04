@@ -124,4 +124,9 @@ export default Vue.extend({
 #democontent a {
   color: #62e0f7;
 }
+
+.bootstrap4 .e-tooltip-template-css {
+  filter: none;
+}
+
 </style>

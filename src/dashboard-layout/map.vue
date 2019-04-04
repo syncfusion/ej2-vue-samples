@@ -1,6 +1,6 @@
 <template>
 <div class="maps-container">
-<ejs-maps class="map-container" style='display:block;height:100%;width:100%;' ref="mapInstance" :legendSettings='legendSettings'>
+<ejs-maps class="map-container" :load='load' style='display:block;height:100%;width:100%;' ref="mapInstance" :legendSettings='legendSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
@@ -125,7 +125,14 @@ data:function(){
 provide: {
     maps: [Legend, Marker, MapsTooltip]
 },
-mounted(){
+methods: {
+    load: function(args) {
+      let selectedTheme = location.hash.split("/")[1];
+      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      args.maps.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+    } 
+},
+mounted() {
     this.$refs.mapInstance.height ="100%";
     this.$refs.mapInstance.width ="100%";
   }

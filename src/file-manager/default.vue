@@ -3,7 +3,7 @@
     <div class="col-lg-8 control-section">
         <div class="sample-container">
            <ejs-filemanager id="file" ref="fileObject" :ajaxSettings='ajaxSettings' :view='view'
-                :toolbarSettings='toolbarSettings' :navigationPaneSettings='navigationPaneSettings'>
+                 :navigationPaneSettings='navigationPaneSettings'>
             </ejs-filemanager>
         </div>
     </div>
@@ -51,14 +51,14 @@
 
 <script>
 import Vue from "vue";
-import { FileManagerPlugin ,NavigationPane, Toolbar, DetailsView, ContextMenu, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerPlugin ,NavigationPane, DetailsView, LargeIconsView, ContextMenu, BreadCrumbBar, Toolbar, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(CheckBoxPlugin);
 Vue.use(FileManagerPlugin);
 
 
-let hostUrl = 'https://ej2services.syncfusion.com/production/web-services/';
+let hostUrl = 'https://ng2jq.syncfusion.com/ej2services/';
 
 export default Vue.extend ({
     data: function() {
@@ -71,10 +71,6 @@ export default Vue.extend ({
                 downloadUrl: hostUrl + 'api/FileManager/Download' 
             },
             view:"LargeIcons",        
-            toolbarSettings:
-            {
-                visible: true
-            },           
             navigationPaneSettings:
             {
                 visible: false
@@ -82,7 +78,7 @@ export default Vue.extend ({
         };
     },   
     provide: {
-            filemanager: [NavigationPane, Toolbar, DetailsView, ContextMenu]
+            filemanager: [NavigationPane, DetailsView, LargeIconsView, ContextMenu, BreadCrumbBar, Toolbar]
     },
     methods: {
         onChange: function(args) {    

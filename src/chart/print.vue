@@ -44,7 +44,7 @@
 </template>
 <style>
 .e-play-icon::before {
-        content: '\e813';
+        content: '\e34b';
     }
 </style>
 <script>

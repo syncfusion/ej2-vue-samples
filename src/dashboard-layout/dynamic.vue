@@ -22,13 +22,18 @@
 </div>
 <div id="action-description">
     <p>
-        The following sample demonstrates a editable dashboard layout. Initially the dashboardlayout component doesn't allow to drag, resize or reorder the panels. After clicking the edit button, the layout becomes editable which allows to drag and reorder the panels as per the requirement and also you can add new panels to the layout with predefined templates by clicking the add new button and reorder them by dragging and placing in the required position.Drag and resizing of the panles are not applicable in mobile resolution.
+        The following sample demonstrates a editable dashboard layout. Initially the DashboardLayout component doesn't
+        allow to drag, resize or reorder the panels. After clicking the edit button, the layout becomes editable which
+        allows to drag and reorder the
+        panels as per the requirement and also you can add new panels to the layout with predefined templates by
+        clicking the add new button and reorder them by dragging and placing in the required position. Drag and resizing
+        of the panles are not applicable in mobile resolution.
     </p>
 </div>
 
 <div id="description">
     <p>
-        The following sample demonstrates about using the dashboardlayout as an editable layout.
+        The following sample demonstrates about using the dashboard layout as an editable layout.
     </p>
 </div>
 </div>
@@ -70,12 +75,12 @@ export default Vue.extend ({
     },
     methods: {
          toggleClick: function(args) {
-              if (this.$refs.toggleBtn.$el.classList.contains('e-active')) {                  
+              if (this.$refs.toggleBtn.$el.textContent == 'Edit') { 
                     this.$refs.DashbordInstance.allowResizing = true;
                     this.$refs.DashbordInstance.allowDragging = true;
                     this.$refs.toggleBtn.$el.textContent = 'Save';
                     this.$refs.toggleBtn.iconCss = "save";
-                    document.getElementById('dialogBtn').style.display = 'block';                   
+                    document.getElementById('dialogBtn').style.display = 'block';
             } else {
                 this.$refs.DashbordInstance.allowResizing = false;
                 this.$refs.DashbordInstance.allowDragging = false;
@@ -193,7 +198,7 @@ export default Vue.extend ({
 
 
 #edit_dashboard .e-panel-content {
-    height: calc(100% - 35px);
+    height: calc(100% - 35px) !important;
     overflow: hidden;
     width:100%;
 }
@@ -250,6 +255,15 @@ export default Vue.extend ({
 
 #edit_dashboard{
     display: block;
+}
+/* highcontrast style */
+
+body.highcontrast #edit_dashboard.e-dashboardlayout.e-control .e-panel {
+    background: #000;
+}
+
+body.highcontrast #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+    color: rgba(255, 255, 255, 0.54);
 }
 
 </style>

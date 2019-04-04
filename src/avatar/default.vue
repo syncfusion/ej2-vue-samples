@@ -161,5 +161,10 @@
         padding: 10px 0 10px 0;
         overflow: visible;
     }
+
+    .bootstrap4 .e-avatar-showcase.e-card {
+        box-shadow: none;
+    }
+
 </style>
     

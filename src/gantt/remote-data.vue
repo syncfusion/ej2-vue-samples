@@ -56,10 +56,9 @@
         property.
         More information on the data binding can be found in this documentation section.
     </p>
-    <p style="font-weight: 500">Injecting Module:</p>
     <p>
-        Gantt component features are segregated into individual feature-wise modules. To use a selection, inject the
-        Selection module using the <code>Gantt.Inject(Selection)</code> method
+        Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the
+        <code>Selection</code> module.
     </p>
 </div>
 </div>
@@ -122,6 +121,9 @@ export default Vue.extend({
             projectStartDate: new Date('02/24/2019'),
             projectEndDate: new Date('06/10/2019')
         };
+  },
+  provide: {
+      gantt: [Selection, DayMarkers]
   }
 });
 </script>

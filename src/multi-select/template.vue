@@ -138,6 +138,22 @@
     .e-bigger:not(.bootstrap) #employees_popup.e-popup .empImage {
         margin: 10px 16px;
     }
+    .bootstrap4 .header {
+        color: #6c757d;
+    }
+
+    .bootstrap4 #multi-template_popup.e-popup .empImage {
+        margin: 1px 16px;
+    }
+
+    .bootstrap4 #multi-template_popup.e-popup .job {
+        margin-top: 0;
+    }
+
+     .bootstrap4 #multi-template_popup.e-popup .job {
+        margin-top: -15px;
+    }
+
 </style>
 <script>
 import Vue from "vue";

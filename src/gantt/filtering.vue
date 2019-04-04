@@ -28,6 +28,12 @@
         </div>
     </div>
 </div>
+<div id="action-description">
+    <p>This sample visualizes the manned lunar mission, which landed the first human on the Moon using the Apollo 11
+        spacecraft in the year 1969. It also demonstrates the filtering feature available in the Gantt chart. You can filter
+        a particular column using the filter menu available in the columns. This sample is also enabled with the toolbar
+        searching option to filter the Gantt content across all the columns.</p>
+</div>
 
 <div id="description">
     <p>
@@ -51,20 +57,17 @@
             not have any parent and child record then only the filtered records are displayed.</li>
         <li><code>None</code> - Only the filtered records are displayed.</li>
     </p>
-    <p style="font-weight: 500">Injecting Module:</p>
+
     <p>
         Gantt component features are segregated into individual feature-wise modules. To use filtering feature, we need
-        to inject <code>Filter</code> using the <code>Gantt.Inject(Filter)</code> method, and use a toolbar by injecting
-        the Toolbar
-        module using
-        the <code>Gantt.Inject(Toolbar)</code> method.
+        to inject <code>Filter</code> module, and use the toolbar support we need to inject <code>Toolbar</code> module.
     </p>
 </div>
 </div>
 </template>
 <script>
 import Vue from "vue";
-import { GanttPlugin, Filter, Toolbar } from "@syncfusion/ej2-vue-gantt";
+import { GanttPlugin, Filter, Toolbar, Selection } from "@syncfusion/ej2-vue-gantt";
 import { filteredData } from './data-source';
 Vue.use(GanttPlugin);
 export default Vue.extend({
@@ -115,15 +118,15 @@ export default Vue.extend({
     methods: {
             actionComplete: function(args) {
                 if (args.requestType == "filterafteropen" && (args.columnName === "StartDate" || args.columnName === "EndDate")) {
-                    args.filterModel.dlgDiv.querySelector('.e-datetimepicker').ej2_instances[0].min = new Date(1969, 5, 16);
-                    args.filterModel.dlgDiv.querySelector('.e-datetimepicker').ej2_instances[0].max = new Date(1969, 8, 16);
+                    args.filterModel.dlgDiv.querySelector('.e-datetimepicker').ej2_instances[0].min = new Date(1969, 5, 1);
+                    args.filterModel.dlgDiv.querySelector('.e-datetimepicker').ej2_instances[0].max = new Date(1969, 8, 30);
                     args.filterModel.dlgDiv.querySelector('.e-datetimepicker').ej2_instances[0].showTodayButton = false;
                     args.filterModel.dlgDiv.querySelector('.e-datetimepicker').ej2_instances[0].dataBind();
                 }
               }
     },
   provide: {
-      gantt: [Filter, Toolbar]
+      gantt: [Filter, Toolbar, Selection]
   }
 });
 </script>

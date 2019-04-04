@@ -1,20 +1,33 @@
 <template>
-<div class="col-lg-12 control-section">
-    <ejs-listview id='groupedList' :dataSource='data' :fields='fields' :cssClass='cssClass' :groupTemplate='grouptemplate'
-        :showHeader='header' :headerTitle='title' :template='datatemplate'></ejs-listview>
+  <div class="col-lg-12 control-section">
+    <ejs-listview
+      id="groupedList"
+      :dataSource="data"
+      :fields="fields"
+      :cssClass="cssClass"
+      :groupTemplate="grouptemplate"
+      :showHeader="header"
+      :headerTitle="title"
+      :template="datatemplate"
+    ></ejs-listview>
     <div id="action-description">
-        <p>This sample demonstrates the Group Templates functionalities of ListView. Click any list item
-            from the settings option to select and highlight an option.
-        </p>
+      <p>
+        This sample demonstrates the Group Templates functionalities of ListView. Click any list item
+        from the settings option to select and highlight an option.
+      </p>
     </div>
     <div id="description">
-        <p>ListView component has an option to custom design the group header title with the help of
-            <code>groupTemplate</code> property.</p>
-        <p>In this example, both the group header and list item is customized using the
-            <code>groupTemplate</code> and
-            <code>template</code> property.</p>
+      <p>
+        ListView component has an option to custom design the group header title with the help of
+        <code>groupTemplate</code> property.
+      </p>
+      <p>
+        In this example, both the group header and list item is customized using the
+        <code>groupTemplate</code> and
+        <code>template</code> property.
+      </p>
     </div>
-</div>
+  </div>
 </template>
 <style>
 /* ListView position alignment */
@@ -51,6 +64,10 @@
   font-family: sans-serif;
   font-size: 18px;
   line-height: 26px;
+}
+
+.bootstrap4 #groupedList.e-listview .e-active .icon {
+  color: #fff;
 }
 
 /* ListView template customization */

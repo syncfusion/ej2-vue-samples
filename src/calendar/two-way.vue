@@ -2,7 +2,7 @@
 <div id="calendarWrapper" class="control-section">
 <div class="control-label">Two-Way Binding</div>
    <div class="col-lg-6">
-        <div class="control_wrapper">
+        <div class="control_wrapper two-way">
             <div id="container" style="overflow:auto">
               <ejs-calendar id="calendar" v-model="date"></ejs-calendar>
             </div>
@@ -53,7 +53,7 @@ export default Vue.extend({
   margin-left: 5px;
 }
 
-.control_wrapper {
+.control_wrapper.two-way {
   max-width: 300px;
   margin: 0 auto;
 }

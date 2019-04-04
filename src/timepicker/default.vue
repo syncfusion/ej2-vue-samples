@@ -1,6 +1,6 @@
 <template>
-<div class="control-section">
-    <div class="control_wrapper">
+<div class="control-section timepicker-default">
+    <div class="control_wrapper timepicker_default">
         <div class="tabs-wrap">
             <div class="wrap">
          <ejs-timepicker id="timepicker" :placeholder="waterMarkText"></ejs-timepicker>
@@ -39,7 +39,7 @@ export default Vue.extend({
 </script>
 
 <style>
-.control_wrapper {
+.control_wrapper.timepicker_default {
   display: block;
   margin: 0 auto;
   max-width: 300px;
@@ -50,7 +50,7 @@ export default Vue.extend({
   padding: 0 0px 10px;
 }
 
-.e-bigger .control-section {
+.e-bigger .control-section.timepicker-default {
   margin-top: 60px;
 }
 </style>
