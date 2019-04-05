@@ -1,6 +1,6 @@
 <template>
   <div id="container" style='display:block;height:100%, width:100%;'>
-      <ejs-chart class="chart-content" ref="splineInstance" style='display:block;height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+      <ejs-chart class="chart-content" ref="splineInstance" :theme='theme' style='display:block;height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :height='height' :width='width' :border='border'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='SplineArea' xName='x' yName='y' name='Jan' width=2 opacity=0.5 :fill="fill0"></e-series>
@@ -16,10 +16,14 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, SplineAreaSeries, Legend, DateTime } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       seriesData: [
             { x: new Date(2002, 0, 1), y: 2.2 }, { x: new Date(2003, 0, 1), y: 3.4 },
             { x: new Date(2004, 0, 1), y: 2.8 }, { x: new Date(2005, 0, 1), y: 1.6 },
@@ -59,7 +63,7 @@ export default Vue.extend({
         },
        width :"100%",
        fill1: 'rgb(0, 189, 174)',
-       fill0: '#e56590e6',
+       fill0: 'rgb(239, 183, 202)',
        height: "99%"
     };
   },

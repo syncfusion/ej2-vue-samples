@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-group" style="padding-top: 11px;">
                             <div class="e-float-input">
-                                <input type="email" id="email" name="Email" data-validation="email" data-required-message="* Enter your email" required="" data-msg-containerid="mailError">
+                                <input type="email" id="email" name="Email" data-validation="email" data-required-message="* Please enter valid email" required="" data-msg-containerid="mailError">
                                 <span class="e-float-line"></span>
                                 <label class="e-float-text e-label-top" for="email">Email</label>
                             </div>
@@ -147,6 +147,9 @@
             margin-top: -29px;
             position: relative;
         }      
+        .bootstrap4 .form-support button#browse {
+			margin-top: -33px;
+        }  
         .e-bigger.bootstrap .form-support button#browse {
             top: -12px;
         }

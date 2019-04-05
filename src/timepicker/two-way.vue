@@ -1,6 +1,6 @@
 <template>
-<div class="control section">
-<div id="timeWrapper" class="col-lg-12 control-section">
+<div>
+<div id="timeWrapper" class="col-lg-12 control-section two-way">
 <div class="control-label"> Two-Way Binding</div>
 <div class="col-lg-6 ">
     <div id="wrapper">
@@ -54,7 +54,7 @@ export default Vue.extend({
   padding-top: 15px;
 }
 
-.e-bigger .control-section {
+.e-bigger .control-section.two-way {
   margin-top: 60px;
 }
 #timeWrapper .control-label {

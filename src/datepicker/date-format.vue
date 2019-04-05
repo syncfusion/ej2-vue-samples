@@ -3,7 +3,7 @@
 <div class="col-lg-8 control-section dateformat">
     <div class="content-wrapper">
         <div class="content">
-            <div id="control_wrapper">
+            <div id="control_wrapper" class="control_wrapper date-format">
                 <ejs-datepicker :value="date" :placeholder="waterMarkText" :format="dateFormat"></ejs-datepicker>
             </div>
         </div>
@@ -71,11 +71,13 @@ export default Vue.extend({
 
 
 <style>
-#control_wrapper {
+
+.control_wrapper.date-format {
     max-width: 246px;
     margin: 30px auto;
     padding-top: 15px;
 }
+
 #property.property-section, #property.property-section{
     margin: 30px auto;
     padding-top: 50px;

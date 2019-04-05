@@ -64,7 +64,6 @@
   padding: 10px;
   position: relative;
   text-align: center;
-  color: gray;
   line-height: 17;
   font-size: 14px;
 }
@@ -78,11 +77,6 @@
     line-height: 19;
     font-size: 12px;
   }
-}
-
-#listview .e-list-icon {
-  display: inline-block;
-  line-height: 36px;
 }
 /* custom code end */
 .e-menu-item .e-cut::before {

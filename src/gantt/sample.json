@@ -4,6 +4,7 @@
    "category": "Calendars",
    "ftName": "gantt",
    "type": "preview",
+   "hideOnDevice": true,
    "samples": [
       {
          "url": "default",
@@ -149,6 +150,55 @@
             ]
          },
          "description": "Baselines are enabled to view the deviation between the planned dates of tasks and actual progress of task dates"
+      },
+      {
+         "url": "taskbar-template",
+         "name": "Taskbar Template",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "rowHeight",
+               "taskbarHeight",
+               "dayWorkingTime",
+               "durationUnit",
+               "eventMarkers",
+               "height",
+               "taskbarTemplate",
+               "milestoneTemplate",
+               "projectStartDate",
+               "projectEndDate",
+               "timelineSettings",
+               "splitterSettings",
+               "labelSettings",
+               "tooltipSettings"
+            ]
+         },
+         "description": "This example demonstrates the taskbar template support with child taskbar template, parent taskbar template and milestone template."
+      },
+      {
+         "url": "unscheduled-task",
+         "name": "Unscheduled Tasks",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "editSettings",
+               "toolbar",
+               "height",
+               "labelSettings",
+               "allowUnscheduledTasks",
+               "projectStartDate",
+               "projectEndDate",
+               "toolbarClick"
+            ]
+         },
+         "description": "This example demonstrates the unscheduled tasks in Gantt with custom toolbar item and dynamic add support."
       }
    ]
 }

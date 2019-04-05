@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div id="multiselect-sample" class="control-section">
-        <div class="col-lg-8 content-wrapper">
+    <div id="multiselect-sample">
+        <div class="col-lg-8 content-wrapper control-section">
             <div class="control-styles">
                 <h4>CheckBox</h4>
                 <ejs-multiselect id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'

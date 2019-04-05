@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <div id='group' class='col-lg-6'>
                 <div class="content">
-                    <h4>Grouping</h4>
+                    <h3>Grouping</h3>
                     <ejs-autocomplete id='vegetables' :showPopupButton='true' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-autocomplete>
                 </div>
             </div>
             <div id='icon' class='col-lg-6'>
                 <div class="content">
-                    <h4> Icons</h4>
+                    <h3> Icons</h3>
                     <ejs-autocomplete id='icons' :showPopupButton='true' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields'></ejs-autocomplete>
                 </div>
             </div>
@@ -61,6 +61,9 @@
     }
     .highcontrast .e-list-icon {
         color: rgba(255, 255, 255, 0.57);
+    }
+    .bootstrap4 .e-list-icon {
+        color: #495057;
     }
     .twitter:before {
         content: "\a701";

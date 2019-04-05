@@ -1,9 +1,9 @@
 <template>
 <div>
-<div class=" col-lg-8 control-section dateformat">
+<div class=" col-lg-8 control-section datetimeformat">
     <div class=" content-wrapper">
         <div class="content">
-            <div id="control_wrapper">
+            <div id="control_wrapper"  class="control_wrapper datetimepicker_format">
                 <ejs-datetimepicker id="datetimepicker" :placeholder="waterMarkText" :value="date" :format="dateFormat"></ejs-datetimepicker>
             </div>
         </div>
@@ -72,7 +72,7 @@ export default Vue.extend({
 
 
 <style>
-#control_wrapper {
+.control_wrapper.datetimepicker_format {
   max-width: 246px;
   margin: 30px auto;
   padding-top: 15px;
@@ -82,7 +82,7 @@ export default Vue.extend({
   margin: 30px auto;
   padding-top: 5px;
 }
-.control-section {
+.control-section.datetimeformat {
   padding: 5%;
 }
 

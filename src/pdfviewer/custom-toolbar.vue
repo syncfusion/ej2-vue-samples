@@ -155,11 +155,13 @@
         content: '\e91c';
     }
 
-    .e-pv-download-document-icon::before {
+    #customToolbar .e-pv-download-document-icon::before {
+	    padding-left: 4px;
         content: '\e914';
     }
 
-    .e-pv-print-document-icon::before {
+    #customToolbar .e-pv-print-document-icon::before {
+	    padding-left: 1px;
         content: '\e917';
     }
 

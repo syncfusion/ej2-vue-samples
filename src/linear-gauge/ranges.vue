@@ -2,7 +2,7 @@
 <div>
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
-        <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='rangeContainer' :orientation='orientation' :annotations='annotations'>
+        <ejs-lineargauge :load='load' ref="lineargauge" style='display:block' align='center' id='rangeContainer' :orientation='orientation' :annotations='annotations'>
             <e-axes>
                 <e-axis :labelStyle='labelStyle' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :ranges='ranges'>
                     <e-pointers>

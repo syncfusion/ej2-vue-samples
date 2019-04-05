@@ -14,8 +14,8 @@
                 </ejs-dropdownlist></td>
             </tr>
             <tr>
-                <td class="left-side">Enabled</td>
-                <td><ejs-checkbox id="sample" :change= "enabledHandler" cssClass= "multiline" :checked="true" name="Multiline"></ejs-checkbox></td>
+                <td class="left-side">Disabled</td>
+                <td><ejs-checkbox id="sample" :change= "enabledHandler" cssClass= "multiline" :checked="false" name="Multiline"></ejs-checkbox></td>
             </tr>
             <tr>
                 <td class="left-side">Read only</td>
@@ -104,7 +104,7 @@ export default Vue.extend({
           },
         
         enabledHandler: (args) => {
-           this.$refs.textareaObj.enabled = args.checked;
+           this.$refs.textareaObj.enabled = !args.checked;
         },
         readonlyHandler: (args) => {
           this.$refs.textareaObj.readonly = args.checked;

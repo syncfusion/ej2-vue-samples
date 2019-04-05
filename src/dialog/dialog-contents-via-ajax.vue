@@ -36,6 +36,9 @@
         margin-top: 4px;
         float: left;
     }
+    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header >img.img1 {
+        margin-top: 0px;
+    }
     .ajaxsample .e-footer-content button.e-control.e-btn.e-flat {
         width: 100%
     }
@@ -44,6 +47,9 @@
 	}
     .ajaxsample .e-dlg-header-content {
        min-height: 65px; 
+    }
+    .bootstrap4 .ajaxsample .e-dlg-header-content {
+       min-height: 50px; 
     }
 	.ajaxsample .e-dialog .e-icon-dlg-close::before{
 	    top: 6px;

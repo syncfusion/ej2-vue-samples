@@ -37,17 +37,18 @@
     "AutoComplete",
     "ComboBox",
     "Dropdown List",
-    "MultiSelect Dropdown"
+    "MultiSelect Dropdown",
+    "List Box"
   ],
   "Navigation": [
     "Accordion",
     "Context Menu",
+    "File Manager",
     "Menu Bar",
     "Sidebar",
     "Tabs",
     "Toolbar",
-    "TreeView",
-    "File Manager"
+    "TreeView"
   ],
   "Notifications": [
     "Badge",
@@ -62,9 +63,9 @@
     "Range Slider"
   ],
   "Layout": [
-    "Dashboard Layout",
     "Avatar",
     "Card",
+    "Dashboard Layout",
     "Dialog",
     "ListView",
     "Tooltip",

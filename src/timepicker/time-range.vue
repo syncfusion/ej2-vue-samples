@@ -96,9 +96,6 @@ export default Vue.extend({
 });
 </script>
 <style>
-.control-section {
-  margin: 30px;
-}
 
 #component_wrapper {
   display: block;
@@ -113,7 +110,7 @@ export default Vue.extend({
   padding: 3%;
 }
 
-.e-bigger .control-section {
+.e-bigger .control-section.range {
   margin-top: 60px;
 }
 

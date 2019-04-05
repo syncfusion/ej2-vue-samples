@@ -1,6 +1,6 @@
 <template>
 <div class="col-lg-12 control-section">
-    <div class="control_wrapper">
+    <div class="control_wrapper special_dates">
         <div id="container" style="overflow:auto">
               <ejs-calendar :renderDayCell="load" :class="cssClass" :change="onValueChange"></ejs-calendar>
             <span id="date_label"> Selected Value: </span>
@@ -79,7 +79,7 @@ export default Vue.extend({
   margin-left: 5px;
 }
 
-.control_wrapper {
+.control_wrapper.special_dates {
   max-width: 300px;
   margin: 0 auto;
 }
@@ -110,8 +110,15 @@ export default Vue.extend({
   font-weight: normal;
 }
 
+.bootstrap4 .e-customStyle span.e-icons.highlight:before {
+  vertical-align: none;
+}
 .e-bigger .e-customStyle.e-calendar span.e-icons.highlight:before {
   top: -3px;
+}
+
+.bootstrap4 .e-customStyle span.e-icons.highlight {
+  margin-bottom: 3px;
 }
 
 body.highcontrast .e-bigger .e-customStyle.e-calendar span.e-icons.highlight:before {

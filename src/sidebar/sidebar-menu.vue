@@ -120,7 +120,6 @@ export default Vue.extend({
     </div>
     <!-- sample level element  -->
     <div id="wrapper">
-        <title>Essential JS 2 for Angular - Sidebar > SideBar Menu</title>
         <div class="col-lg-12 col-sm-12 col-md-12">
             <div class="col-lg-12 col-sm-12 col-md-12">
   <div class="header-section dock-menu" id="header">
@@ -202,15 +201,14 @@ export default Vue.extend({
      padding-left: 15px;
      margin: 0;
  }
-/* custom code start */
+ 
  @media(max-width:500px) {
-
-     #header .right-header.list.support,
+	 #header .right-header.list.support,
      #header .right-header.list.tour {
-         display: none;
-     }
+     display: none;
+	 }
  }
-/* custom code end */
+	
  /* text input styles */
  #header .search-icon {
      float: left;

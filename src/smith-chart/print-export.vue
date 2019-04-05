@@ -16,7 +16,7 @@
                         <div>Export Type</div>
                     </td>
                     <td style="width: 60%;">
-                        <div style="margin-left: -10px">
+                        <div style="margin-left: -30px">
                             <ejs-dropdownlist ref="dropdown" id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>  
                         </div>
                     </td>
@@ -27,7 +27,7 @@
                     </td>
                     <td style="width: 60%;">
                         <div class="e-float-input" style="margin-top: 0px;">
-                            <input type="text" ref="name" value="Smith chart" id="fileName" style="margin-left: -10px;width:90px;">
+                            <input type="text" ref="name" value="Smith chart" id="fileName" style="margin-left: -10px;width: 100px">
                         </div>
                     </td>
                 </tr>
@@ -138,7 +138,7 @@ return{
             },
           cssClass: 'e-info', isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
           modedata:['JPEG','PNG','SVG','PDF'],
-          modewidth:90
+          modewidth:100
 }
 },
 provide:{

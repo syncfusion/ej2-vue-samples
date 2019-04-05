@@ -1,6 +1,6 @@
 <template>
-<div class="control-section">
-    <div class="control_wrapper">
+<div class="control-section list-formatting">
+    <div class="control_wrapper timepicker_format">
         <div class="tabs-wrap">
             <div class="wrap">
                  <ejs-timepicker id="timepicker" ref="timeObj"  :placeholder="waterMarkText" :value="value" :cssClass="cssValue" :itemRender="itemRanderHandler" v-on:open="onOpen" :scrollTo="scrollTo" ></ejs-timepicker>
@@ -83,7 +83,7 @@ export default Vue.extend({
 </script>
 
 <style>
-.control_wrapper {
+.control_wrapper.timepicker_format {
   display: block;
   margin: 0 auto;
   max-width: 300px;
@@ -94,7 +94,7 @@ export default Vue.extend({
   padding: 0 0px 10px;
 }
 
-.e-bigger .control-section {
+.e-bigger .control-section.list-formatting {
   margin-top: 60px;
 }
 
@@ -106,10 +106,29 @@ export default Vue.extend({
   color: #727070;
 }
 
+body.bootstrap4 .e-custom-style.e-timepicker.e-popup li span {
+  color: #6c757d;
+}
+
+body.bootstrap4 .e-custom-style.e-timepicker.e-popup li.e-disabled span {
+  color: #adb5bd;
+}
+
 .e-custom-style.e-timepicker.e-popup li.e-disabled span {
   height: 25px;
   width: 25px;
   font-size: 15px;
+}
+
+.e-custom-style.e-timepicker.e-popup li.e-disabled span:before {
+  content: "\e212";
+  position: absolute;
+  right: 10px;
+  line-height: 36px;
+}
+
+.e-bigger .e-custom-style.e-timepicker.e-popup li.e-disabled span:before {
+  line-height: 48px;
 }
 
 body.highcontrast .e-custom-style.e-timepicker.e-popup li.e-hover span:hover,
@@ -120,7 +139,16 @@ body.highcontrast
   color: #fff;
 }
 
+body.bootstrap4 .e-custom-style.e-timepicker.e-popup li.e-hover span:hover,
+body.bootstrap4 .e-custom-style.e-timepicker.e-popup li.e-active.e-hover span {
+  color: #6c757d;
+}
+
 body.highcontrast .e-custom-style.e-timepicker.e-popup li.e-active span {
   color: #000;
+}
+
+body.bootstrap4 .e-custom-style.e-timepicker.e-popup li.e-active span {
+  color: #fff;
 }
 </style>

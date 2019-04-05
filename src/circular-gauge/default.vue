@@ -5,7 +5,7 @@
 <e-axes>
 <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
 <e-pointers>
-<e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :cap='cap' :needleTail='needleTail'></e-pointer>
+<e-pointer :value='value' :radius='pointerRadius'  :pointerWidth='pointerWidth' :cap='cap' :needleTail='needleTail'></e-pointer>
 </e-pointers>
 </e-axis>
 </e-axes>
@@ -42,7 +42,7 @@ export default Vue.extend({
             majorTicks: {
                 width: 0
             },
-            lineStyle: { width: 8, color: '#E0E0E0' },
+            lineStyle: { width: 8 },
             minorTicks: {
                 width: 0
             },
@@ -56,15 +56,12 @@ export default Vue.extend({
             },
             value: 60,
             pointerRadius: '60%',
-            color: '#757575',
             pointerWidth: 7,
             cap: {
                     radius: 8,
-                    color: '#757575',
                     border: { width: 0 }
             },
             needleTail: {
-                    color: '#757575',
                     length: '25%'
             }  
     }

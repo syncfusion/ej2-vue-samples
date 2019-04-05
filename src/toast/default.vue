@@ -28,6 +28,10 @@
         content: "\e705";
         font-size: 17px;
     }
+    .bootstrap4 #toast_default .e-meeting::before {
+        content: "\e763";
+        font-size: 20px;
+    }
     </style>
 
 <script>

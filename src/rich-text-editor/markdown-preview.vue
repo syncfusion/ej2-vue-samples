@@ -64,6 +64,14 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
     .e-icon-btn.e-active .e-md-preview.e-icons::before {
 		content: '\e350';
 	}
+	.bootstrap4 .e-icon-btn.e-active .e-md-preview::before {
+        content: '\e790';
+    }
+
+    .bootstrap4 .e-icon-btn .e-md-preview::before {
+        content: '\e787';
+    }
+
 </style>
 <script>
 import Vue from "vue";
@@ -92,7 +100,7 @@ export default Vue.extend({
         created: function() {
             this.textArea = this.$refs.rteInstance.$el.parentNode.querySelector('.e-content');
             this.textArea.onkeyup = (Event) => {
-                this.markDownConversion();
+                this.MarkDownConversion();
             };
             document.getElementById('preview-code').onclick = () => {
                 this.fullPreview({ mode: true, type: 'preview'});
@@ -116,7 +124,7 @@ export default Vue.extend({
                 }
             };
         },
-        markDownConversion: function(){
+        MarkDownConversion: function(){
         if (document.getElementById('MD_Preview').classList.contains('e-active')) {
             var id = this.$refs.rteInstance.getID() + 'html-view';
             var htmlPreview = this.$refs.rteInstance.$el.parentNode.querySelector('#' + id);
@@ -138,7 +146,7 @@ export default Vue.extend({
                 mdSplit.classList.remove('e-active');
                 mdsource.classList.remove('e-active');
                 }
-            this.markDownConversion();
+            this.MarkDownConversion();
             }
         },
         fullPreview: function(event){

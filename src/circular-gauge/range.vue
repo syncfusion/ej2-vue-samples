@@ -2,11 +2,11 @@
 <div>
 <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='range-container'>
+<ejs-circulargauge :load='load' ref="circulargauge" style='display:block' align='center' id='range-container'>
 <e-axes>
 <e-axis :radius='gaugeRadius' :startAngle='startAngle' minimum=0  maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
 <e-pointers>
-<e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :cap='cap' :needleTail='needleTail'></e-pointer>
+<e-pointer :value='value' :radius='pointerRadius'  :pointerWidth='pointerWidth' :cap='cap' :needleTail='needleTail'></e-pointer>
 </e-pointers>
 </e-axis>
 </e-axes>
@@ -138,7 +138,7 @@ data:function(){
             labelStyle: {
                 position: 'Inside', useRangeColor: false,
                 font: { size: '12px', fontFamily: 'Roboto', fontStyle: 'Regular' }
-            }, majorTicks: { height: 10, offset: 5, color: '#9E9E9E' }, minorTicks: { height: 0 },
+            }, majorTicks: { height: 10, offset: 5 }, minorTicks: { height: 0 },
             annotations: [{
                 content: '<div><span style="font-size:14px; color:#9E9E9E; font-family:Regular">Speedometer</span></div>',
                 radius: '30%', angle: 0, zIndex: '1'
@@ -155,8 +155,8 @@ data:function(){
             pointerRadius: '60%', 
             color: '#757575', 
             pointerWidth: 8,
-            cap: { radius: 7, color: '#757575' },
-            needleTail: { length: '18%', color: '#757575' },
+            cap: { radius: 7 },
+            needleTail: { length: '18%'},
             rangeselectdata:[
             { Id:'0', level:'Low'},
             { Id:'1', level:'Medium'},

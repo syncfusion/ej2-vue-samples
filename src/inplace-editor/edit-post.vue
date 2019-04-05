@@ -7,13 +7,13 @@
                     <div class="form-group">
                         <label class="col-sm-6 control-label" style="text-align: left;font-size: 14px;">
                         Title</label>
-                        <ejs-inplaceeditor ref="titleObj" id="inplace_title_editor" data-underline='false' mode="Inline" emptyText="Enter your question title" name="Title" value="Succinctly E-Book about TypeScript" :validationRules="textValidationRules" :model="textModel" :created='created'>
+                        <ejs-inplaceeditor ref="titleObj" id="inplace_title_editor" data-underline='false' mode="Inline" emptyText="Enter your question title" name="Title" value="Succinctly E-Book about TypeScript" :validationRules="textValidationRules" :model="textModel" >
                         </ejs-inplaceeditor>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-6 control-label" style="text-align: left;font-size: 14px;">
                         Comments</label>
-                        <ejs-inplaceeditor ref="rteObj" id="inplace_comment_editor" data-underline='false' mode="Inline" editableOn= "EditIconClick" submitOnEnter="false" type="RTE" emptyText="Enter your comment" name="rte" value="The extensive adoption of JavaScript for application development, and the ability to use HTML and JavaScript to create Windows Store apps, has made JavaScript a vital part of the Windows development ecosystem. Microsoft has done extensive work to make JavaScript easier to use." :popupSettings="popupSettings" :validationRules="commentValidationRules" :model="commentModel" :created='created'>
+                        <ejs-inplaceeditor ref="rteObj" id="inplace_comment_editor" data-underline='false' mode="Inline" editableOn= "EditIconClick" submitOnEnter="false" type="RTE" emptyText="Enter your comment" name="rte" value="The extensive adoption of JavaScript for application development, and the ability to use HTML and JavaScript to create Windows Store apps, has made JavaScript a vital part of the Windows development ecosystem. Microsoft has done extensive work to make JavaScript easier to use." :popupSettings="popupSettings" :validationRules="commentValidationRules" :model="commentModel">
                         </ejs-inplaceeditor>
                     </div>
                     <div class="form-group">
@@ -122,6 +122,7 @@ export default Vue.extend({
         this.titleObj = this.$refs.titleObj.ej2Instances;
         this.tagObj = this.$refs.tagObj.ej2Instances;
         this.rteObj = this.$refs.rteObj.ej2Instances;
+        this.editorMode = this.$refs.editorMode.ej2Instances;
         this.rteObj.popupSettings.model.width = (document.querySelector('#inplace-editor-control.form-layout')).offsetWidth;
         this.chipOnCreate(this.tagObj.value);
   },
@@ -155,7 +156,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
+            if (this.editorMode.text === 'Inline') { return; }
             if (this.titleObj && this.titleObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.titleObj.enableEditMode = false;
             }
@@ -233,16 +234,6 @@ visibility: hidden;
         padding-top: 7px;
         margin-bottom: 0;
     }
-}
-
-.inplace-editor-control-section.form-layout  {
-    width: 70%;
-    float: left;
-}
-
-#editorProperty {
-    width: 30%;
-    float: left;
 }
 
 #editorProperty table td {

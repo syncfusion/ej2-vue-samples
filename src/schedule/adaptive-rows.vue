@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" width="100%" height="650px" :enableAdaptiveRows="true" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
+                <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" width="100%" height="650px" :rowAutoHeight="true" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
                     :group='group'>
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
@@ -22,7 +22,7 @@
                     <tbody>                        
                         <tr style="height: 50px">
                             <td style="width: 100%">
-                                <ejs-checkbox label="Enable Adaptive rows" :checked="true" :change="onChange"></ejs-checkbox>
+                                <ejs-checkbox label="Row Auto Height" :checked="true" :change="onChange"></ejs-checkbox>
                             </td>
                         </tr>
                     </tbody>
@@ -38,7 +38,7 @@
 
         <div id="description">
             <p>
-                In this example, <code>enableAdaptiveRows</code> property is set as <code>true</code> to auto-adjust the height
+                In this example, <code>rowAutoHeight</code> property is set as <code>true</code> to auto-adjust the height
         of work cells based
         on the number of appointments present in the same time ranges. Also, this functionality is applicable only on
         all the timeline views as well as on the calendar month view. When this option is disabled, the height of the
@@ -55,7 +55,6 @@
     .adaptive-rows.e-schedule .e-timeline-view .e-resource-left-td {
         width: 120px;
     }
-
     .adaptive-rows.e-schedule .e-timeline-view .e-resource-text {
         padding-left: 20px;
     }
@@ -110,7 +109,7 @@
         methods: {           
             onChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.enableAdaptiveRows = args.checked;               
+                scheduleObj.rowAutoHeight = args.checked;               
             }
         }
     });

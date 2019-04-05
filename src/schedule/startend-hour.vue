@@ -19,7 +19,7 @@
                     <tr style="height: 50px">
                         <td style="width: 30%">
                             <div>
-                                Work Start
+                                Start Hour
                             </div>
                         </td>
                         <td style="width: 70%;">
@@ -32,7 +32,7 @@
                     <tr style="height: 50px">
                         <td style="width: 30%">
                             <div>
-                                Work End
+                                End Hour
                             </div>
                         </td>
                         <td style="width: 70%;">

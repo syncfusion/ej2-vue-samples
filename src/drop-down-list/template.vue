@@ -130,13 +130,28 @@
         text-indent: 0;
     }
 
-    .e-bigger:not(.bootstrap) #employees_popup .e-dropdownbase .e-list-item {
+    .e-bigger:not(.bootstrap) #multi-template_popup .e-dropdownbase .e-list-item {
         line-height: 42px;
         height: 80px;
     }
 
-    .e-bigger:not(.bootstrap) #employees_popup.e-popup .empImage {
+    .e-bigger:not(.bootstrap) #multi-template_popup.e-popup .empImage {
         margin: 10px 16px;
+    }
+    .bootstrap4 #multi-template_popup.e-popup .empImage {
+        margin: 0px 16px;
+    }
+
+    .bootstrap4 #multi-template_popup.e-popup .job {
+        margin-top: 0;
+    }
+
+    .bootstrap4 #multi-template_popup.e-popup .job {
+        margin-top: -15px;
+    }
+
+    .bootstrap4 .header {
+        color: #6c757d;
     }
 </style>
 <script>

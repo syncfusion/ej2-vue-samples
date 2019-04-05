@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="control-section">
-        <div class="col-lg-8  content-wrapper" style="height: 350px">
+    <div>
+        <div class="col-lg-8  content-wrapper control-section" style="height: 350px">
             <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
                 <ejs-autocomplete id='sample-list' :dataSource='countriesData' :filterType='filterType' :highlight='true' :fields='fields' placeholder='e.g. Australia'></ejs-autocomplete>
             </div>

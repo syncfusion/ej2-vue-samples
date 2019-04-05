@@ -9,7 +9,6 @@
     </div>
     <!-- sample level element  -->
     <div id="wrapper">
-        <title>Essential JS 2 for Angular - Sidebar > API</title>
         <!-- sample level element declaration -->
         <div class="col-lg-12 col-sm-12 col-md-12">
             <!-- sidebar element declaration -->

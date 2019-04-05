@@ -36,13 +36,22 @@ The quick toolbar has the following items</p>
 </div>
 </template>
 <style>
-.e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
+    .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
         content: "\e341";
     }
 
     .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
         content: "\e354";
     }
+
+    .bootstrap4 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
+        content: "\e752";
+    }
+    
+    .bootstrap4 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
+        content: "\e778";
+    }
+
 </style>
 <script>
 import Vue from "vue";

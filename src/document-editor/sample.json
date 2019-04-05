@@ -2,6 +2,7 @@
     "name": "DocumentEditor",
     "directory": "document-editor",
     "category": "Editors",
+    "type": "update",
     "ftName": "document-editor",
     "hideOnDevice": true,
     "samples": [
@@ -69,6 +70,7 @@
             "url": "print",
             "name": "Print",
             "category": "Print",
+            "type": "update",
             "description": "The Document Editor component is used to view and print Word documents in web applications by injecting only the modules that are necessary."
         },
         {
@@ -76,6 +78,13 @@
             "name": "Right To Left",
             "category": "RTL",
             "description": "The Document Editor supports right to left for users who use right-to-left languages (Arabic, Hebrew, Urdu, etc.) in Vue platform."
+        },
+        {
+            "url": "custom-context-menu",
+            "name": "Custom Context Menu",
+            "category": "Customization",
+            "type": "new",
+            "description": "The Document Editor supports custom options for users who use to add custom options in context menu."
         }
     ]
 }

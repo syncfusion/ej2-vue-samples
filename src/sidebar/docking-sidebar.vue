@@ -8,7 +8,6 @@
     </div>
     <div class="col-lg-12 col-sm-12 col-md-12">
         <div id="wrapper">
-            <title>Essential JS 2 for Angular - Sidebar > Dock</title>
             <!-- sidebar element declaration-->
             <ejs-sidebar  id="dockSidebar" :enableDock='enableDock' :width='width' :dockSize='dockSize' ref="dockSidebar" :position = "position">
                 <div class="dock">

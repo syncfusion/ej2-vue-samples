@@ -62,13 +62,12 @@ export default Vue.extend({
 </script>
 
 <style>
-#control_wrapper {
+#control_wrapper.multiselectWrapper {
   max-width: 330px;
   margin: 0 auto;
+  float: none;
 }
-#control_wrapper.multiselectWrapper{
-    float: none;
-}
+
 .contentValue {
    padding: 10px;
     overflow: auto;

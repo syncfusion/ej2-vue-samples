@@ -627,4 +627,9 @@ span.e-label .offer {
   padding-top: 12px;
   padding-bottom: 16px;
 }
+
+.bootstrap4 #pricing-slider .row {
+	box-shadow: none;
+}
+
 </style>

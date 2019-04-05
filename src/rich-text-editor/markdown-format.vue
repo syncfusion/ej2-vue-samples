@@ -36,19 +36,20 @@
             .e-md-preview::before {
                 content: '\e345';
             }
-                .e-rte-content .e-content {
-                float: right;
-                width: 50%;
-                overflow: auto;
-                height: inherit;
-                padding: 8px;
-            }
             .e-rte-content .e-content.e-pre-source{
                 width: 100%;
             }
             .e-icon-btn.e-active .e-md-preview.e-icons::before {
 		        content: '\e350';
 	        }
+	        .bootstrap4 .e-icon-btn.e-active .e-md-preview::before {
+                content: '\e790';
+            }
+
+            .bootstrap4 .e-icon-btn .e-md-preview::before {
+                content: '\e787';
+            }
+
         
         </style>
 <script>
@@ -84,13 +85,13 @@ export default Vue.extend({
     methods: {
         created: function() {
             this.$refs.rteInstance.$el.parentNode.querySelector('.e-content').onkeyup = (Event) => {
-                this.markDownConversion();
+                this.MarkDownConversion();
             };
             document.getElementById('preview-code').onclick = () => {
                 this.fullPreview();
             };
         },
-        markDownConversion: function(){
+        MarkDownConversion: function(){
         if (document.getElementById('preview-code').classList.contains('e-active')) {
             var textArea = this.$refs.rteInstance.$el.parentNode.querySelector('.e-content');
             var id = this.$refs.rteInstance.getID() + 'html-view';

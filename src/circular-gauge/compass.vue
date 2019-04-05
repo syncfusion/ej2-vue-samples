@@ -68,34 +68,29 @@ export default Vue.extend({
         return {
             radius: '70%',
             lineStyle: {
-                width: 10,
-                color: '#E0E0E0'
+                width: 10
             },
             labelStyle: {
                 font: {
                     size: '12px',
                     fontFamily: 'Roboto'
                 },
-                useRangeColor: true,
                 autoAngle: true,
                 hiddenLabel: 'Last'
             },
             majorTicks: {
                 height: 15,
-                interval: 1,
-                color: '#9E9E9E'
+                interval: 1
             },
             minorTicks: {
                 height: 10,
-                interval: 0.5,
-                color: '#9E9E9E'
+                interval: 0.5
             },
             startAngle: 0,
             endAngle: 360,
             ranges: [{
                 start: 7,
-                end: 7,
-                color: '#f03e3e'
+                end: 7
             }],
             value1: 7,
             pointerRadius1: '50%',

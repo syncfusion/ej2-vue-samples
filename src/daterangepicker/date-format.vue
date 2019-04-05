@@ -1,9 +1,9 @@
 <template>
 <div>
-<div class=" col-lg-8 control-section dateformat">
+<div class=" col-lg-8 control-section daterangeformat">
     <div class="content-wrapper">
         <div class="content">
-            <div id="control_wrapper">
+            <div id="control_wrapper" class="control_wrapper datarangepicker_format">
                 <ejs-daterangepicker :startDate="startValue" :placeholder="waterMarkText" :endDate="endValue" :format="dateFormat" :separator="separate"></ejs-daterangepicker>
             </div>
         </div>
@@ -72,17 +72,18 @@ export default Vue.extend({
 </script>
 
 <style>
-#control_wrapper {
+.control_wrapper.datarangepicker_format {
   max-width: 275px;
   margin: 30px auto;
   padding-top: 15px;
 }
+
 #property.property-section,
 #property.property-section {
   margin: 30px auto;
   padding-top: 50px;
 }
-.control-section {
+.control-section.daterangeformat {
   padding: 5%;
 }
 

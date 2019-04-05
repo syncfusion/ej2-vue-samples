@@ -244,7 +244,12 @@ export default Vue.extend({
         onInsert: function() {
             var activeEle = this.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
             if (activeEle) {
-                this.ranges.insertNode(document.createTextNode(activeEle.textContent));
+                if (this.$refs.customObj.ej2Instances.formatter.getUndoRedoStack().length === 0) {
+                    this.$refs.customObj.ej2Instances.formatter.saveData();
+                }
+                this.$refs.customObj.ej2Instances.executeCommand('insertText', activeEle.textContent);
+                this.$refs.customObj.ej2Instances.formatter.saveData();
+                this.$refs.customObj.ej2Instances.formatter.enableUndo(this.$refs.customObj.ej2Instances);
             }
             this.dialogOverlay();
         },

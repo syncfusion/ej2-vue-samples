@@ -9,7 +9,7 @@
                         DropDownList </label>
                     </td>
                     <td>
-                        <ejs-inplaceeditor ref="dropObj" id="dropdownEle" mode="Inline" type="DropDownList" value="Canada" :model="dropdownModel" :created='created'>
+                        <ejs-inplaceeditor ref="dropObj" id="dropdownEle" mode="Inline" type="DropDownList" value="Canada" :model="dropdownModel">
                         </ejs-inplaceeditor>
                     </td>
                 </tr>
@@ -19,7 +19,7 @@
                         AutoComplete </label>
                     </td>
                     <td>
-                        <ejs-inplaceeditor ref="autoObj" id="autoCompleteEle" mode="Inline" type="AutoComplete" value="Australia" :model="autoCompleteModel" :created='created'>
+                        <ejs-inplaceeditor ref="autoObj" id="autoCompleteEle" mode="Inline" type="AutoComplete" value="Australia" :model="autoCompleteModel">
                         </ejs-inplaceeditor>
                     </td>
                 </tr>
@@ -29,7 +29,7 @@
                         </label>
                     </td>
                     <td>
-                        <ejs-inplaceeditor ref="comboObbj" id="comboBoxEle" mode="Inline" type="ComboBox" value="Finland" :model="comboBoxModel" :created='created'>
+                        <ejs-inplaceeditor ref="comboObbj" id="comboBoxEle" mode="Inline" type="ComboBox" value="Finland" :model="comboBoxModel">
                         </ejs-inplaceeditor>
                     </td>
                 </tr>
@@ -143,6 +143,7 @@ export default Vue.extend({
       this.autoObj = this.$refs.autoObj.ej2Instances;
       this.comboObbj = this.$refs.comboObbj.ej2Instances;
       this.multiObj = this.$refs.multiObj.ej2Instances;
+      this.editorMode = this.$refs.editorMode.ej2Instances;
   },
   methods: {
         changeEditorMode: function(args) {
@@ -162,7 +163,7 @@ export default Vue.extend({
             }
         },
         onScroll: function() {
-            if (this.$refs.editorMode.ej2Instances.text === 'Inline') { return; }
+            if (this.editorMode.text === 'Inline') { return; }
             if (this.dropObj && this.dropObj.element.querySelectorAll('.e-editable-open').length > 0) {
                 this.dropObj.enableEditMode = false;
             }
@@ -214,16 +215,6 @@ visibility: hidden;
 }
 /* custom code end */
 
-.inplace-control-section.drop-down-layout  {
-    width: 70%;
-    float: left;
-}
-
-#dropdownProperty  {
-    width: 30%;
-    float: left;
-}
-
 #dropdownProperty table td {
     width: 50%;
 }
@@ -232,5 +223,4 @@ visibility: hidden;
     padding-left: 10px;
     padding-top: 10px;
 }
-
 </style>

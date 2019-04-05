@@ -1,7 +1,7 @@
 <template>
    <div class="control-section">
          <div align='center'>
-             <ejs-lineargauge style='display:block' align='center' id='defaultContainer' :orientation='orientation' :annotations='annotations'>
+             <ejs-lineargauge :load='load' style='display:block' align='center' id='defaultContainer' :orientation='orientation' :annotations='annotations'>
                 <e-axes>
                     <e-axis :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle' >
                         <e-pointers>
@@ -50,12 +50,10 @@ export default Vue.extend({
         offset:-50,
         markerType:'Triangle',
         placement:'Near',
-        majorTicks: {  
-            color: '#9E9E9E',
+        majorTicks: { 
             interval: 10
         },
         minorTicks:{
-            color: '#9E9E9E',
             interval: 2
         },
         labelStyle:{

@@ -49,12 +49,9 @@
         width: 100%;
     }
     #colorpicker-control h4 {
-        color: rgba(0, 0, 0, 0.64);
         margin-bottom: 20px;
     }
-    .highcontrast #colorpicker-control h4 {
-        color: rgba(255, 255, 255, 0.64);
-    }
+
     .e-bigger #colorpicker-control h4 {
         font-size: 20px;
     }

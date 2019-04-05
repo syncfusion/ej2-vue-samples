@@ -1,6 +1,7 @@
 <template>
 <div>
       <div class="col-md-8 control-section">
+        <div class="content-wrapper">
         <ejs-gantt ref='gantt' id="GanttContainer" :dataSource = "data"
         :taskFields = "taskFields"
         :height = "height"
@@ -18,8 +19,19 @@
         >
         </ejs-gantt>
       </div>
+    </div>
         <div class="col-md-4 property-section">
     <table id="property" title="Properties" style="width: 100%">
+        <tr>
+            <td style="width: 30%">
+                <div style="padding-top: 8px">Unit width</div>
+            </td>
+            <td style="width: 70%;">
+                <div>
+                    <ejs-numerictextbox ref='unitWidth' id="unitWidth" :min='10' format='##' :value='33' :change='unitWidthChange'></ejs-numerictextbox>
+                </div>
+            </td>
+        </tr>
         <tr>
             <td style="width: 30%">
                 <div><b>Top tier</b></div>
@@ -133,7 +145,6 @@
         </tr>
     </table>
         </div>
-        </div>
     <div id="action-description">
     <p>This sample illustrates the different phases from planning to delivery, involved in a software development
         lifecycle.
@@ -148,7 +159,7 @@
         header texts can be customized by using the <code>timelineSettings.topTier</code> and <code>timelineSettings.bottomTier</code> properties.
         Using these properties, you can change the format, count, and units of the timeline header texts.
     </p>
-    <p></p>
+    <p>
     Gantt chart has built-in support for many timeline modes such as minutes, hour, day, week, month and year.
     </p>
     <p> The
@@ -158,13 +169,10 @@
         Tooltip is enabled by default for the timeline headers, to see the tooltip in action, hover a point or tap on a
         point in touch enabled devices.
     </p>
-    <p style="font-weight: 500">Injecting Module:</p>
+
     <p>
-        Gantt component features are segregated into individual feature-wise modules. To use a selection, inject the
-        Selection module using the <code>Gantt.Inject(Selection)</code> method, and use a sort by injecting the Sort
-        module using
-        the <code>Gantt.Inject(Sort)</code> method. To use markers, inject the
-        DayMarkers module using the <code>Gantt.Inject(DayMarkers)</code> method.
+        Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the
+        <code>Selection</code> module. To use markers in Gantt, inject the <code>DayMarkers</code> module.
     </p>
 </div>
 </div>
@@ -194,12 +202,10 @@ export default Vue.extend({
                 progress: 'progress',
                 dependency: 'predecessor',
                 child: 'subtasks',
-                notes: 'notes',
-                resourceInfo: 'resourceInfo',
-            },   
+            },
             check:'true',         
             projectStartDate: new Date('02/03/2019'),
-            projectEndDate: new Date('04/09/2019'),            
+            projectEndDate: new Date('03/23/2019'),            
             resources: projectResources,
             timelineSettings: {
                 topTier: {
@@ -211,8 +217,8 @@ export default Vue.extend({
                 }
             },
             splitterSettings: {
-                columnIndex: 1
-            },            
+                columnIndex: 0
+            },          
             labelSettings: {
                 rightLabel: 'taskName',
             },
@@ -248,7 +254,6 @@ export default Vue.extend({
         { id: 'h : mm a', format: '0 : 00 AM' },
             ],
             unit : [
-                 { id: 'None', unit: 'None' },
         { id: 'Year', unit: 'Year' },
         { id: 'Month', unit: 'Month' },
         { id: 'Week', unit: 'Week' },
@@ -297,7 +302,6 @@ export default Vue.extend({
   },
    topUnitChange: function(e) {
     let unit = e.value;
-    this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit = unit;
     if (unit === 'Year') {
       this.$refs.topTierFormat.ej2Instances.dataSource = this.yearformat;
     } else if (unit === 'Month') {
@@ -310,6 +314,8 @@ export default Vue.extend({
       this.$refs.topTierFormat.ej2Instances.dataSource = this.hourformat;
     }
     this.$refs.topTierFormat.ej2Instances.refresh();
+    this.updateUnitWidth(unit, 'top');
+    this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit = unit;
   },
    bottomUnitChange: function(e) {
     let unit = e.value;
@@ -326,6 +332,8 @@ export default Vue.extend({
       this.$refs.bottomTierFormat.ej2Instances.dataSource = this.hourformat;
     }
     this.$refs.bottomTierFormat.ej2Instances.refresh();
+    this.updateUnitWidth(unit, 'bottom');
+    this.$refs.gantt.ej2Instances.timelineSettings.bottomTier.unit = unit;
   },
    bottomFormatChange: function(e) {
     let format = e.value;
@@ -334,6 +342,40 @@ export default Vue.extend({
    topFormatChange: function(e) {
     let format = e.value;
     this.$refs.gantt.ej2Instances.timelineSettings.topTier.format = format.toString();
+  },
+  unitWidthChange: function(e) {
+    let width = e.value;
+    this.$refs.gantt.ej2Instances.timelineSettings.timelineUnitSize = width;
+  },
+  updateUnitWidth: function(unit, tier) {
+    let topUnit = tier === 'top' ? unit : this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit;
+    let bottomUnit = tier === 'bottom' ? unit : this.$refs.gantt.ej2Instances.timelineSettings.bottomTier.unit;
+    let units = ['None', 'Hour', 'Day', 'Week', 'Month', 'Year'];
+    let bootomCellUnit;
+    let unitWidth;
+    if (units.indexOf(topUnit) === 0 && units.indexOf(bottomUnit) === 0) {
+        bootomCellUnit = 'Day';
+    } else if (units.indexOf(topUnit) === 0 && units.indexOf(bottomUnit) > 0) {
+        bootomCellUnit = bottomUnit;
+    } else if (units.indexOf(topUnit) > 0 && units.indexOf(bottomUnit) === 0) {
+        bootomCellUnit = topUnit;
+    } else if (units.indexOf(topUnit) <= units.indexOf(bottomUnit)) {
+        bootomCellUnit = topUnit;
+    } else {
+        bootomCellUnit = bottomUnit;
+    }
+    if (bootomCellUnit === 'Year') {
+        unitWidth = 2000;
+    } else if (bootomCellUnit === 'Month') {
+        unitWidth = 300;
+    } else if (bootomCellUnit === 'Week') {
+        unitWidth = 150;
+    } else if (bootomCellUnit === 'Day') {
+        unitWidth = 33;
+    } else if (bootomCellUnit === 'Hour') {
+        unitWidth = 25;
+    }
+    this.$refs.unitWidth.ej2Instances.value = unitWidth;
   }
   },
   provide: {

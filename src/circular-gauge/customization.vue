@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="curVal" id="currentValue" value="18" min="10" max="20" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
+                        <input type="range" ref="curVal" id="currentValue" min="1000" max="2000" value="1800" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
                     </div>
                 </td>
             </tr>
@@ -249,7 +249,7 @@ methods:{
     changeCurrentval:function(){
          if(document.getElementById('customizationgauge1').style.display=="block"){
         //    let gauge = document.getElementById('customizationgauge1');
-              let value =  document.getElementById('currentValue').value * 100;
+              let value =  document.getElementById('currentValue').value;
             if (isUsage) {
                 this.$refs.customizationgauge1.ej2Instances.setPointerValue(0, 0, value);
             } else {
@@ -262,7 +262,7 @@ methods:{
          else{
             //  let gauge = document.getElementById('customizationgauge2');
             let isUsage = true;
-              let value = document.getElementById('currentValue').value * 100;
+              let value = document.getElementById('currentValue').value;
             if (isUsage) {
                 this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 0, value);
             } else {

@@ -67,7 +67,7 @@
     </div>
     
     <div id="description">
-      The sample demonstrates the realtime SEO data analytics dasboard layout.
+      The sample demonstrates the realtime SEO data analytics dashboard layout.
     </div>
     </div>
 </template>
@@ -180,6 +180,12 @@ export default  Vue.extend({
     padding: 10px;
     height: 35px;
     margin: 0 15px 0 15px;
+  }
+
+  #analysisLayout.e-dashboardlayout  .e-panel-content {
+    height: calc(100% - 35px) !important;
+    overflow: hidden;
+    width: 100%;
   }
 
   #sidebar-section {
@@ -340,7 +346,6 @@ export default  Vue.extend({
   }
 
   .analysis {
-    margin-left: 13px;
     font-size: 18px;
     padding: 12px;
     text-align: left;
@@ -359,7 +364,7 @@ export default  Vue.extend({
 
   .card-content.text {
     font-size: 15px;
-    text-align: end;
+    text-align: right;
     color: #66696b;
   }
 
@@ -370,7 +375,7 @@ export default  Vue.extend({
 
   .card-content.number {
     font-size: 16px;
-    text-align: end;
+    text-align: right;
     padding-top: 10px;
   }
 
@@ -402,9 +407,8 @@ export default  Vue.extend({
 
   .searchContent {
     display: inline-block;
-    margin-left: 5px;
     position: absolute;
-    left: 7%;
+    left: 60px;
   }
 
 
@@ -458,4 +462,32 @@ export default  Vue.extend({
     height: 100%;
     width:100%;
   }
+
+   /* styles for highcontrast theme */
+
+  body.highcontrast #sidebar-section{
+    border: 1px solid #969696;
+  }
+
+  body.highcontrast .dashboard-header{
+    border-bottom: 1px solid #969696;
+  }
+
+  body.highcontrast #dashboardSidebar .e-icons::before {
+    color: #fff;
+  }
+
+  body.highcontrast #dashboardSidebar li.sidebar-item.filterHover,
+  body.highcontrast #dashboardSidebar {
+    background: #000;
+  }
+
+body.highcontrast #analysisLayout.e-dashboardlayout.e-control .e-panel {
+    background: #000;
+}
+
+body.highcontrast #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+    color: rgba(255, 255, 255, 0.54);
+}
+
 </style>

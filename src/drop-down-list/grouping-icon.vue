@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <div id='group' class='col-lg-6'>
                 <div class="content">
-                    <h4>Grouping</h4>
+                    <h3>Grouping</h3>
                     <ejs-dropdownlist id='vegetables' :dataSource='vegetableData' :placeholder='groupWaterMark' :popupHeight='height' :fields='groupFields'></ejs-dropdownlist>
                 </div>
             </div>
             <div id='icon' class='col-lg-6'>
                 <div class="content">
-                    <h4> Icons</h4>
+                    <h3> Icons</h3>
                     <ejs-dropdownlist id='icons' :showPopupButton='true' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields' popupHeight='height'></ejs-dropdownlist>
                 </div>
             </div>
@@ -51,6 +51,9 @@
     .e-list-icon {
         font-family: 'Socialicons' !important;
         color: rgba(0, 0, 0, .57);
+    }
+    .bootstrap4 .e-list-icon {
+        color: #495057;
     }
     .highcontrast .e-list-icon {
         color: rgba(255, 255, 255, 0.57);

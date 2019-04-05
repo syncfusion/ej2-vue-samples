@@ -159,6 +159,12 @@ export default Vue.extend({
             document.getElementById("documenteditor_title_contentEditor").contentEditable = 'true';
             document.getElementById("documenteditor_title_contentEditor").focus();
             window.getSelection().selectAllChildren(document.getElementById("documenteditor_title_contentEditor"));
+        },
+        documentChangedEvent: function () {
+            var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
+            this.documentTitle = obj.documentName === '' ? 'Untitled Document' : obj.documentName;
+            document.getElementById("documenteditor_title_name").textContent = obj.documentName ;
+            setTimeout(() => { obj.scrollToPage(1); }, 10);
         }
     },
     mounted() {
@@ -168,6 +174,9 @@ export default Vue.extend({
           obj.open(JSON.stringify(data));
           obj.documentName='Styles';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/import';
+          obj.documentChange = () => {
+                this.documentChangedEvent();
+            };
        });
     }
 });

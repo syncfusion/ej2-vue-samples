@@ -1,6 +1,7 @@
 <template>
 <div>
     <div class="col-lg-8 control-section" id="predefined-container">
+        <div class="content-wrapper" style="max-width:100%">
         <ejs-dashboardlayout ref="dashboard" :columns="6" id="predefined-dashboard" :cellSpacing="spacing">
             <e-panels>
                 <e-panel :row="0" :col="0" :sizeX="4" :sizeY="3" header="<div class='e-header-text'>Header Area</div><div class='header-border'></div>" content="<div class='panel-content'>Content Area</div>"></e-panel>
@@ -8,6 +9,7 @@
                 <e-panel :row="3" :col="0" :sizeX="6" :sizeY="1" header="<div class='e-header-text'>Header Area</div><div class='header-border'></div>" content="<div class='panel-content'>Content Area</div>"></e-panel>
             </e-panels>
         </ejs-dashboardlayout>
+        </div>
     </div>
       <div id="propertyWrapper" class="col-lg-4 property-section">
             <div class="property-panel-header">
@@ -29,21 +31,18 @@
             </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12" style="padding:10px">
-                 <ejs-button id="add" v-on:click.native="onButtonClick">Reset</ejs-button>
+                 <ejs-button id="reset" v-on:click.native="onButtonClick">Reset</ejs-button>
             </div>
       </div>
     <div id="action-description">
         <p>
-            This sample demonstrates, the functionality of dynamically updating the panels inside the DashboardLayout
-            by slecting it from the pre-defined templates in the properties panel.
-            Go to the properties panel section and select any of the pre-defined layout, based on selection the
-            panles are updated in the dashboardlayout dynamically
-            inside the DashboardLayout. Click the <code>reset</code> button to rest the panels settings of the layout.
+            This sample demonstrates, the functionality of dynamically updating the panels inside the DashboardLayout by slecting it from the pre-defined values in the properties panel. Go to the properties panel section and select any of the pre-defined layout,
+        based on selection the panles are updated in the dashboard layout dynamically inside the DashboardLayout. Click the <code>reset</code> button to reset the panels settings of the layout.
         </p>
     </div>
     <div id="description">
         <p>
-            This sample demonstrates how to update the panels dynamically in the dashboardlayout component.
+            This sample demonstrates how to update the panels dynamically in the dashboard layout component.
     </div>
 </div>
 </template>
@@ -167,18 +166,8 @@ export default Vue.extend({
 @import "../../node_modules/@syncfusion/ej2-vue-layouts/styles/material.css";
 
  #sizeX,
-    #sizeY,
-    #cellspacing {
+    #sizeY {
         height: 18px !important;
-    }
-    
-    .form-label {
-        margin-bottom: 0;
-        font-size: 12px;
-        line-height: 1.5;
-        font-size: 13px;
-        font-weight: 500;
-        color: rgba(0, 0, 0, 0.61);
     }
 
     .row .e-btn {
@@ -210,9 +199,6 @@ export default Vue.extend({
     .e-panel .e-header-text {
         padding: 12px 0 12px 0;
     }
-    #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
-        color: rgba(0, 0, 0, 0.61);
-    }
 
     #predefined-dashboard .e-panel-content {
         height: calc(100% - 28px);
@@ -222,10 +208,6 @@ export default Vue.extend({
     
     #predefined-dashboard .e-panel .e-header-text {
         padding: 12px 0 12px 0;
-    }
-
-    #predefined-dashboard.e-dashboardlayout.e-control .e-panel:hover {
-        border: 0px;
     }
     
     .row {
@@ -242,7 +224,7 @@ export default Vue.extend({
         padding: 15px;
     }
     
-    #predefined-dashboard #reset {
+    #reset {
         display: block;
         margin: 0 auto;
         width: 90px;
@@ -286,6 +268,11 @@ export default Vue.extend({
         text-align: center;
     }
     
+    .e-selected-style {
+        border-color: #006CE6;
+        border-width: 2px;
+    }
+    
     .image-pattern-style#template1::before {
         content: "\e700";
     }
@@ -300,10 +287,6 @@ export default Vue.extend({
     
     .image-pattern-style#template4::before {
         content: "\e703";
-    }
-
-    #predefined-container{
-        padding-left:0px;
     }
     
     .image-pattern-style#template5::before {
@@ -321,7 +304,7 @@ export default Vue.extend({
         -o-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
-    }
+    }f
     
     .image-pattern-style#template8::before {
         content: "\e702";
@@ -359,12 +342,14 @@ export default Vue.extend({
     .sb-property-border {
         border: 1px solid lightgray;
     }
+/* highcontrast theme style */
 
-    #predefined-dashboard.e-dashboardlayout.e-control .e-panel,
-    #predefined-dashboard.e-dashboardlayout.e-control .e-panel:hover,
-    #predefined-dashboard.e-dashboardlayout.e-control .e-panel:active {
-        border: 1px solid rgba(0, 0, 0, .125);
-    }
+body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel {
+    background: #000;
+}
 
+body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+    color: rgba(255, 255, 255, 0.54);
+}
 
 </style>

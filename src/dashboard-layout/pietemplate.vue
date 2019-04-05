@@ -1,6 +1,6 @@
 <template>
     <div id="app" style='display:block;height:100%; width:100%;'>
-         <ejs-accumulationchart class="chart-content" ref="accumulationInstance" style='display:block;height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip"> 
+         <ejs-accumulationchart class="chart-content" :theme='theme' ref="accumulationInstance" style='display:block;height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip"> 
             <e-accumulation-series-collection>
                 <e-accumulation-series :palettes='palettes' :dataSource='seriesData' xName='x' yName='y' innerRadius="40%" :dataLabel="dataLabel"> </e-accumulation-series>
             </e-accumulation-series-collection>
@@ -11,9 +11,14 @@
 import Vue from "vue";
 import { AccumulationChartPlugin, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default {
   data() {
     return {
+      theme: theme,
       seriesData:  [
         { 'x': 'Jan', y: 12.5, text: 'January' },
         { 'x': 'Feb', y: 25, text: 'February' },
@@ -24,7 +29,7 @@ export default {
      tooltip: {
         enable: true, header: '<b>${point.x}</b>', format: 'Composition: <b>${point.y}</b>'
      },
-     palettes: ['#00bdaed1', '#357cd2bf', '#e56691e8'],
+     palettes: ['#00bdae', '#357cd2', '#e56691'],
     };
   },
   provide: {

@@ -8,7 +8,6 @@
           :renderBaseline="true"
           :taskFields="taskFields"
           :columns="columns"
-          :treeColumnIndex="1"
           :allowSelection="true"
           :includeWeekend="true"
           :timelineSettings="timelineSettings"
@@ -42,10 +41,8 @@
         The baseline will appear for all type of tasks in the project such as child tasks, parent tasks and also for
         milestones. You can change the color for the baselines using <code>baselineColor</code> property.
     </p>
-    <p style="font-weight: 500">Injecting Module:</p>
     <p>
-        Gantt component features are segregated into individual feature-wise modules. To use a selection, inject the
-        Selection module using the <code>Gantt.Inject(Selection)</code> method.
+        Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the <code>Selection</code> module.
     </p>
 
 </div>
@@ -89,7 +86,7 @@ export default Vue.extend({
             },
             dateFormat: 'hh:mm a',
             height: '450px',
-            dayWorkingTime: [{ from: 1, to: 24 }],
+            dayWorkingTime: [{ from: 0, to: 24 }],
             projectStartDate: new Date('03/05/2018 09:30:00 AM'),
             projectEndDate: new Date('03/05/2018 07:00:00 PM'),
             tooltipSettings: {
