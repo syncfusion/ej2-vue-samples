@@ -1,5 +1,7 @@
-<template v-if="${getCellContent(data)} !== '' ">
+<template>
+<div v-if="getCellContent(data) !== ''">
     <span class="template-wrap" v-html=getCellContent(data)></span>
+</div>
 </template>
 
 <script lang='ts'>

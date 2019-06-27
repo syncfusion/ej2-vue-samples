@@ -1,3 +1,350 @@
+<template>
+<div id="app">
+        <aside id='left-sidebar'>
+            <div class='sb-left-pane e-view'>
+                <div class="sb-left-pane-header">
+                    <div class="sb-header-top">
+                        <div class="sb-ej2">
+                            <div class="sb-mobile-logo"></div>
+                            <div class="sb-name">Essential JS 2</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sb-home" onclick="document.getElementById('sb-home').click()">
+                    <div class="sb-home-link sb-icons sb-icon-Home"></div>
+                    <div class="sb-home-text">
+                        <span>HOME</span>
+                    </div>
+                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html"></a>
+                </div>
+                <div class='sb-control-navigation'>
+                    <div id="controlTree" class='e-view'></div>
+                    <div id="controlSamples">
+                        <div id="sb-left-back" class="back" role="button" tabindex="0">
+                            <div class="sb-icons sb-icon-Back"></div>
+                            <div class='control-name'>All Controls</div>
+                        </div>
+                        <div id="controlList" class='e-view sb-control-list-top'></div>
+                    </div>
+                </div>
+                <div class='sb-left-footer'>
+                    <div class="sb-mobile-header-buttons">
+                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank">
+                            <div class="sb-mobile-header-about">
+                                About</div>
+                        </a>
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">
+                            <div class="sb-mobile-header-price">Pricing</div>
+                        </a>
+                    </div>
+                    <div class='sb-left-footer-links'>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <aside id='right-sidebar' class="sb-hide">
+            <div class="sb-mobile-right-pane">
+                <div class="sb-mobile-preference sb-hide"></div>
+                <div class="sb-mobile-prop-pane sb-hide"></div>
+                <div class="sb-mobile-right-pane-close sb-icons"></div>
+            </div>
+        </aside>
+        <div class="sample-browser e-view" rol>
+            <div class="sb-mobile-overlay sb-hide"></div>
+            <div id='sample-header' class="sb-header e-view" role="banner">
+                <div class='sb-header-left sb-left sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger" aria-label="toggle all controls navigation"
+                            title='toggle leftpane'></div>
+                    </div>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div id='sb-header-text' class='e-sb-header-text'>
+                            <span class='sb-header-text-left'>Essential JS 2 for</span>
+                            <span class='sb-header-text-right'>Vue</span>
+                        </div>
+                    </div>
+
+                    <div class='sb-header-item sb-table-cell sb-lang-toggler-wrapper'>
+                        <span id='sb-switcher' role="button" tabindex="0" class='sb-lang-toggler sb-icons sb-icon-Dropdown' aria-label="change the samplebrowser"></span>
+                    </div>
+                </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class="sb-header-item sb-table-cell">
+                        <div id="header-theme-switcher" role="button" tabindex="0" class="theme-wrapper" title='Change theme of sample browser'>
+                            <div id="sb-theme-text" class="sb-theme-text">
+                                <span class="sb-header-text-left">CHOOSE THEME</span>
+                            </div>
+                            <div class="sb-theme-switcher-wrapper">
+                                <span id="sb-theme-switcher" class="sb-theme-switch sb-icons sb-icon-Dropdown"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='sb-header-item sb-table-cell sb-search-wrapper'>
+                        <div class='sb-search-btn' id='sb-trigger-search' role="button" tabindex="0" aria-label="toggle sample search" title="Toggle sample search">
+                            <span class='sb-settings sb-icons sb-icon-Search'></span>
+                        </div>
+                    </div>
+                    <div class='sb-header-item sb-table-cell sb-settings-wrapper'>
+                        <div class='sb-setting-btn' role="button" tabindex="0" aria-label="toggle settings menu" tabindex="">
+                            <span class='sb-settings sb-icons sb-icon-Settings-Preferences'></span>
+                        </div>
+                    </div>
+                    <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
+                    <div class="sb-header-splitter sb-download-splitter"></div>
+                    <div class='sb-header-item sb-table-cell sb-download-wrapper'>
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">                
+                        <button id='download-now' class='sb-download-btn'>
+                                    <span class='sb-download-text'>Download Now</span>
+                            </button>
+                        </a>                    
+                    </div>
+                </div>
+            </div>
+
+
+            <div id='sb-popup-section' class='sb-popups'>
+                <div id='sb-switcher-popup' role='navigation' class='sb-switch-popup'>
+                    <ul id='switch-sb' role="list">
+                        <li class='sb-current' role="listiem">Vue</li>
+                        <li>
+                            <a id='angular'>Angular</a>
+                        </li>
+                        <li role="listiem">
+                            <a id='react'>React</a>
+                        </li>
+                        <li role="listiem">
+                            <a id='javascript'>JavaScript (ES5)</a>
+                        </li>
+                        <li role="listiem">
+                            <a id='typescript'>JavaScript</a>
+                        </li>
+                        <li role="listiem">
+                            <a id='aspnetcore'>ASP.NET Core</a>
+                        </li>
+                        <li role="listiem">
+                            <a id='aspnetmvc'>ASP.NET MVC</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id='theme-switcher-popup' class='sb-theme-popup'>
+                    <ul id="themelist" class="options" role="list">
+                        <li class='active' id="material" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material</span>
+                        </li>
+                        <li id="fabric" role="listitem">
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">Fabric</span>
+                        </li>
+                        <li class="e-list" id="bootstrap" role="listitem">
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">Bootstrap</span>
+                        </li>
+                        <li class="e-list" id="bootstrap4" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap v4</span>
+                        </li>
+                        <li class="e-list" id="highcontrast">
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">High Contrast</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id='settings-popup' class='sb-setting-popup'>
+                    <div class='sb-setting-header'>
+                        <span> Preferences
+                        </span>
+                    </div>
+                    <div class='sb-setting-content'>
+                        <div class='sb-setting-item sb-setting-theme-section'>
+                            <div class='setting-label'>
+                                <div class='sb-icons sb-setting-icons sb-icon-Palette'></div>
+                                <div class='sb-setting-text'>Theme Selection</div>
+                            </div>
+                            <div class='setting-content  setting-theme-change'>
+                                <select id='sb-setting-theme' class='sb-setting-theme-select'>
+                                    <option value="material">Material</option>
+                                    <option value="fabric">Fabric</option>
+                                    <option value="bootstrap">Bootstrap</option>
+                                    <option value="bootstrap4">Bootstrap v4</option>
+                                    <option value="highcontrast">High Contrast</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='sb-setting-item sb-responsive-section'>
+                            <div class='setting-label'>
+                                <div class='sb-icons sb-setting-icons sb-icon-Responsive'></div>
+                                <div class='sb-setting-text'>Mode Selection</div>
+                            </div>
+                            <div class='setting-content btn-group setting-responsive'>
+                                <div id='touch' role="button" tabindex="0" class="sb-responsive-items set-border-radious-touch" title="Increased padding for actionable items to accommodate user touches">Touch</div>
+                                <div id='mouse' role="button" tabindex="0" class="sb-responsive-items set-border-radious-mouse" title="Default control sizes, optimized for use with mouse">Mouse</div>
+                            </div>
+                        </div>
+                        <div class='sb-setting-item sb-setting-culture'>
+                            <div class='setting-label'>
+                                <div class='sb-icons sb-setting-icons sb-icon-Localization'></div>
+                                <div class='sb-setting-text'>Localization</div>
+                            </div>
+                            <div class='setting-content'>
+                                <select id='sb-setting-culture' class='sb-setting-culture-select'>
+                                    <option value="en">English*</option>
+                                    <option value="de">German - Germany*</option>
+                                    <option value="fr-CH">French - Switzerland*</option>
+                                    <option value="ar">Arabic*</option>
+                                    <option value="zh">Chinese - China*</option>
+                                </select>
+                            </div>
+                            <div class="sb-setting-translate">
+                                <span>* Translated by Google Translator</span>
+                            </div>
+                        </div>
+                        <div class='sb-setting-item sb-setting-currency'>
+                            <div class='setting-label'>
+                                <div class='sb-icons sb-setting-icons sb-icon-Currency'></div>
+                                <div class='sb-setting-text'>Currency</div>
+                            </div>
+                            <div class='setting-content'>
+                                <select id='sb-setting-currency' class='sb-setting-currency-content'>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="AED">AED</option>
+                                    <option value="CHF">CHF</option>
+                                    <option value="CNY">CNY</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sb-content e-view">
+                <div class='sb-right-pane e-view' id='right-pane'>
+                    <div class="sb-content-overlay">
+                        <div class="sb-loading">
+                            <svg class="circular" height="40" width="40">
+                                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class='sb-desktop-wrapper'>
+                        <div id='component-name' role='header' class='sb-component-name sb-rightpane-padding'>
+                            <h1 class='sb-sample-text'>Chart</h1>
+                        </div>
+                        <div id='sample-bread-crumb' class='sb-bread-crumb sb-rightpane-padding'>
+                            <div class='sb-bread-crumb-text'>
+                                <div class='category-text bread-ctexta'> </div>
+                                <div class='category-seperator sb-icons sb-icon-Next seperator'> </div>
+                                <div class='component  bread-ctext'></div>
+                                <div class="component-seperator sb-icons  sb-icon-Next seperator"> </div>
+                                <div class='crumb-sample '></div>
+                            </div>
+
+                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html"></a>
+                        </div>
+                        <div class='sb-action-description sb-rightpane-padding'>
+                            Componet Action Description
+                        </div>
+                        <div class='sb-content-tab' id='content-tab'>
+                            <div id="sb-content" class='sb-content-section'>
+                                <div id='sb-content-header' class="e-tab-header sb-content-tab-header">
+                                    <div>
+                                        <span class="sb-icons sb-icon-Demo"></span>
+                                        <span class="sb-tab-title"> DEMO </span>
+                                    </div>
+                                    <div>
+                                        <span class="sb-icons sb-icon-Code"></span>
+                                        <span class="sb-tab-title"> SOURCE </span>
+                                    </div>
+                                </div>
+                                <div class="e-content sb-sample-content-area">
+                                    <div>
+                                        <div class='sb-demo-section'>
+                                            <div class="control-fluid">
+                                                <div class="container-fluid">
+                                                    <div id="control-content">
+                                                        <router-view></router-view>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class='sb-source-section'>
+                                            <div id='sb-source-tab' class="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='description-section sb-rightpane-padding'>
+                        </div>
+                        <div class="sb-footer">
+                            <div class="sb-footer-left">
+                                <div class="sb-footer-links">
+                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank">
+                                        <div class="sb-footer-link">Documentation</div>
+                                    </a>
+                                    <a href="https://www.syncfusion.com/forum/vue" target="_blank">
+                                        <div class="sb-footer-link">Forum</div>
+                                    </a>
+                                    <a href="https://blog.syncfusion.com/" target="_blank">
+                                        <div class="sb-footer-link">Blog</div>
+                                    </a>
+                                    <a href="https://www.syncfusion.com/kb/" target="_blank">
+                                        <div class="sb-footer-link">Knowledge Base</div>
+                                    </a>
+                                </div>
+                                <div class="sb-footer-copyright">Copyright © 2001-2019 Syncfusion Inc.</div>
+                            </div>
+                            <div class="sb-footer-logo">
+                                <a href="https://www.syncfusion.com/" target="_blank">
+                                    <div class="sb-footer-logo-icon"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="e-search-overlay sb-hide">
+                    <div class='sb-search-input' id='search-input-wrapper' data-value=''>
+                        <input type='text' aria-required="true" id='search-input' aria-label="search samples">
+                        <span class='e-icons sb-reset-icon'></span>
+                        <span class='e-icons  sb-search-icon'></span>
+
+                    </div>
+                </div>
+                <div class="sb-body-overlay e-view">
+                    <div class="sb-loading">
+                        <svg class="circular" height="40" width="40">
+                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class='sb-mobilefooter e-view sample-navigation' id='mobile-footer'>
+                    <button id='mobile-prev-sample' class="sb-navigation-prev sb-left" aria-label="previous sample">
+                        PREVIOUS
+                    </button>
+                    <button id='mobile-next-sample' class="sb-navigation-next sb-right" aria-label="next sample">
+                        NEXT
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
+
+
+
+
+
+
+<script lang="ts">
 /* Vue imports */
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -7,7 +354,7 @@ import { Browser, extend, Animation, Ajax, closest, createElement, detach, enabl
 import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr } from '@syncfusion/ej2-base';
 import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
-import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
+import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns';
 import { Button } from '@syncfusion/ej2-buttons';
 import { Toast } from '@syncfusion/ej2-notifications';
 import { Grid } from '@syncfusion/ej2-grids';
@@ -25,12 +372,10 @@ import * as enCultureData from './common/cldr-data/main/fr-CH/all.json';
 import * as chinaCultureData from './common/cldr-data/main/zh/all.json';
 import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
-import * as elasticlunr from './common/lib/elasticlunr';
-import * as hljs from './common/lib/highlightjs';
 import * as searchJson from './common/search-index.json';
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
-import { setTimeout } from "timers";
+//import { setTimeout } from "timers";
 
 loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
 L10n.load(Locale);
@@ -74,6 +419,7 @@ let switcherPopup: Popup;
 let themeDropDown: DropDownList;
 let currencyDropDown: DropDownList;
 let settingPopup: Popup;
+//declare let searchJson: any;
 let sidebar: Sidebar;
 let sourceTabItems: object[] = [];
 let settingSidebar: Sidebar;
@@ -82,6 +428,8 @@ let sbHeader: HTMLElement;
 let settingElement: HTMLElement
 let resetSearch: Element;
 let searchEle: any;
+declare let hljs: any;
+declare let elasticlunr: any;
 declare let window: MyWindow;
 let apiGrid: Grid;
 let samplesList: Controls[] | { [key: string]: Object }[];
@@ -110,11 +458,12 @@ aria-label="previous sample">
 </div>`;
 contentToolbarTemplate = sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
 tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', innerHTML: contentToolbarTemplate });
-
-/* vue instance */
-let sampleBrowser: Vue = new Vue({
-    el: "#app",
-    data: {
+export default Vue.extend({
+  name: 'app',
+     data: function(){
+       return{
+       myJson: searchJson,
+       }
     },
     router,
     created: function () {
@@ -122,6 +471,7 @@ let sampleBrowser: Vue = new Vue({
     },
 
     updated: function () {
+      
         sb.vars.contentTab.selectedItem = 0;
         this.updateBreadCrumb();
         this.updateDescription();
@@ -131,7 +481,6 @@ let sampleBrowser: Vue = new Vue({
     mounted: function () {
         sb.vars.controlTree = select('#controlTree', this.$el);
         sb.vars.breadCrumbObject = {};
-
         /* breadCrumb updates */
         sb.vars.breadCrumbObject.component = select('.sb-bread-crumb-text>.category-text', this.$el);
         sb.vars.breadCrumbObject.categorySeparator = select('.category-seperator', this.$el);
@@ -224,7 +573,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         breadCrumbUpdate(controlName: string, category: string, sampleName: string) {
-            let ele: Element = this.$el.querySelector('#sample-bread-crumb');
+            let ele: Element = this.$el.querySelector('#sample-bread-crumb') as Element;
             sb.vars.breadCrumbObject.component.innerHTML = controlName;
             if (category && controlName.toLowerCase() !== category.toLowerCase()) {
                 sb.vars.breadCrumbObject.subCategory.innerHTML = category;
@@ -245,7 +594,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         updateBreadCrumb: function () {
-            this.$el.querySelector('#component-name .sb-sample-text').innerHTML = this.$router.currentRoute.meta.eCompName;
+            (this.$el.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = this.$router.currentRoute.meta.eCompName;
             this.breadCrumbUpdate(this.$router.currentRoute.meta.eCompName, this.$router.currentRoute.meta.eCategoryName, this.$router.currentRoute.meta.eSampleName);
         },
 
@@ -466,6 +815,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         rendersbPopup: function (): void {
+            
             switcherPopup = new Popup(sb.vars.sample, {
                 relateTo: sb.vars.switch, position: { X: 'left' },
                 collision: { X: 'flip', Y: 'flip' },
@@ -612,7 +962,7 @@ let sampleBrowser: Vue = new Vue({
 
         rendercopycode: function (): void {
             let ele: HTMLElement = createElement('div', { className: 'copy-tooltip', innerHTML: '<div class="e-icons copycode"></div>' });
-            this.$el.querySelector('#sb-source-tab').appendChild(ele);
+            (this.$el.querySelector('#sb-source-tab') as HTMLElement).appendChild(ele);
             let copiedTooltip: Tooltip = new Tooltip({
                 content: 'Copied to clipboard ',
                 position: 'BottomCenter',
@@ -638,15 +988,16 @@ let sampleBrowser: Vue = new Vue({
             blockEle.innerHTML = blockEle.innerHTML.replace(reg,'');
             blockEle.classList.add('sb-src-code');
            this.highlightCode(blockEle);
-         
         },
 
         highlightCode: function(codeEle: Element): void {
             codeEle.classList.add("sb-src-code");
+            
             hljs.highlightBlock(codeEle);
           },
 
         eventBinding: function (): void {
+            
             let fn: Function = (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -660,7 +1011,7 @@ let sampleBrowser: Vue = new Vue({
                 this.headerAction('changeTheme');
 
             });
-            document.addEventListener('click', this.headerAction.bind(this, 'closePopup'));
+            document.addEventListener('click', (this.headerAction.bind(this, 'closePopup')) as any);
             searchButton.addEventListener('click', (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -702,15 +1053,13 @@ let sampleBrowser: Vue = new Vue({
             headerSetting.addEventListener('click', this.viewMobilePrefPane);
             select('.sb-mobile-setting').addEventListener('click', this.viewMobilePropPane);
             select('#next-sample').addEventListener('click', this.onNextButtonClick);
-
             select('#prev-sample').addEventListener('click', this.onPrevButtonClick);
             select('#mobile-next-sample').addEventListener('click', this.onNextButtonClick);
-
             select('#mobile-prev-sample').addEventListener('click', this.onPrevButtonClick);
         },
 
         changeRtl(args: any): void {
-            let elementlist: HTMLElement[] = selectAll('.e-control', this.$el.querySelector('#control-content'));
+            let elementlist: HTMLElement[] = selectAll('.e-control', this.$el.querySelector('#control-content') as HTMLElement);
 
             for (let control of elementlist) {
                 let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
@@ -832,6 +1181,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         loadTheme: function (theme: string): void {
+            
             let body: HTMLElement = document.body;
             if (body.classList.length > 0) {
                 for (let themeItem of themeCollection) {
@@ -847,8 +1197,9 @@ let sampleBrowser: Vue = new Vue({
             this.eventBinding();
             this.sampleArray();
             this.updatesourceTab();
+            
             (elasticlunr as any).clearStopWords();
-            searchInstance = (elasticlunr as any).Index.load(searchJson);
+            searchInstance = (elasticlunr as any).Index.load(this.myJson);
             setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 500);
         },
 
@@ -1093,7 +1444,7 @@ let sampleBrowser: Vue = new Vue({
                 for (let sample of samples) {
                     let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material';
                     let control: string = node.directory;
-                    let sampleUrl: string = sample.url;
+                    let sampleUrl: any = sample.url;
                     let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
                     samplesAr.push('#' + loc);
                 }
@@ -1101,6 +1452,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         getStringWithOutDescription: function (code: string, descRegex: RegExp): string {
+            
             let lines: string[] = code.split('\n');
             let desStartLine: any = null;
             let desEndLine: any = null;
@@ -1136,21 +1488,23 @@ let sampleBrowser: Vue = new Vue({
         },
         generatepath: function(path:any): void{
             let splitPath: string = path.split('/')[1];
-            let filePath:any = [{path:`src/${path}.vue`,displayName:`${splitPath}.vue`}]
+            let filePath:any = [{path:`source/${path}.vue`,displayName:`${splitPath}.vue`}]
             return filePath;
         },
 
         updatesourceTab: function (): void {
+            
             let curDir: any = location.hash.split('/').slice(2).join('/').replace('.html','');
             let curSample: any = location.hash.split('/')[3].replace('.html', '');
             let sourcePromise: Array<Promise<Ajax>> = [];
-            let ajaxvue: any = new Ajax('src/' + curDir + '.vue', 'GET', false);
+            let ajaxvue: any = new Ajax('source/' + curDir + '.vue', 'GET', false);
             let sObj: any = [];
             this.SbLink();
             sb.vars.contentTab.selectedItem = 0;
             sb.vars.sourceTab.selectedItem = 0;
             let sampleListFile: ListView = (select('#controlList', this.$el) as any).ej2_instances[0];
             let sourceFiles: any = this.sourceFileList(sampleListFile) as any || this.generatepath(curDir);
+            
             if (sourceFiles) {
                 for (let i: number = 0; i < sourceFiles.length; i++) {
                     sourcePromise.push((new Ajax(sourceFiles[i].path, 'GET', false)).send());
@@ -1256,6 +1610,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         loadJSON: function (): void {
+            
             let switchText: string = localStorage.getItem('ej2-switch') ||
                 (window.screen.width > 1366 ? 'touch' : 'mouse');
             if (Browser.isDevice || window.screen.width <= 850) {
@@ -1280,9 +1635,5 @@ let sampleBrowser: Vue = new Vue({
             this.loadTheme(selectedTheme);
         }
     }
-}
-);
-
-if ('serviceWorker' in navigator){
-    navigator.serviceWorker.register('/src/service-worker.js');
-    }
+});
+</script>
