@@ -8,7 +8,7 @@ var sampleOrder = JSON.parse(fs.readFileSync(__dirname + '/src/common/sampleorde
 var sampleList;
 const elasticlunr = require('elasticlunr');
 var shelljs = require('shelljs');
-//require('./build/samples');
+require('./build/samples');
 
 function generateSearchIndex(sampleArray) {
     elasticlunr.clearStopWords();
@@ -168,17 +168,32 @@ gulp.task('copy', function (done) {
      var files=glob.sync('./node_modules/@syncfusion/ej2/*.css')
      files.forEach(file=>
      {  
-        shelljs.cp(file,'./styles');    
+        shelljs.cp(file,'./public/styles');    
      })
 });
 
+gulp.task('copy-source', function () {
+    var localeJson = glob.sync(__dirname + '/src/**/*', {
+      silent: true,
+      ignore: ['/src/common/**/', '/src/common']
+    });
+    if (localeJson.length) {
+      for (var i = 0; i < localeJson.length; i++) {
+        if (localeJson[i].indexOf('/common') == -1) {
+          console.log(localeJson[i])
+          shelljs.cp('-R', localeJson[i], localeJson[i].replace('src', 'public/source'));
+        }
+      }
+    }
+  }); 
+
 gulp.task('build', function(done) {
-    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && npm run build', done)
+    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source && npm run build', done)
 });
 
 gulp.task('serve',['build'], function(done) {
     const serve = require('serve')
-    const server = serve(__dirname, {
+    const server = serve(__dirname + '/dist', {
         port: 3000,
         ignore: ['node_modules']
     })

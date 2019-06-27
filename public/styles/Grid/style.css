@@ -1,0 +1,218 @@
+@font-face {
+font-family: 'Grid control Font';
+src:
+url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj1tSfQAAAEoAAAAVmNtYXDnE+ddAAABkAAAADpnbHlmWm7FjgAAAdgAAAPkaGVhZBFF/fMAAADQAAAANmhoZWEIHwQFAAAArAAAACRobXR4EAAAAAAAAYAAAAAQbG9jYQKaAUgAAAHMAAAACm1heHABEACgAAABCAAAACBuYW1lmuAR1QAABbwAAAKdcG9zdHgFC7MAAAhcAAAAQgABAAAEAAAAAFwEAAAAAAADwgABAAAAAAAAAAAAAAAAAAAABAABAAAAAQAAJ9BcPl8PPPUACwQAAAAAANcy3IEAAAAA1zLcgQAAAAADwgP0AAAACAACAAAAAAAAAAEAAAAEAJQAAgAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5wDnAgQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAEAAAABAAAAAAAAAIAAAADAAAAFAADAAEAAAAUAAQAJgAAAAQABAABAADnAv//AADnAP//AAAAAQAEAAAAAQACAAMAAAAAAAAAqAFIAfIAAAABAAAAAAPBA/MAkwAAASMPDRUfBQ8FHw4VDxYhLxY1Pw8vAz8DLxcjDwUBhQEIEQoKCwoEBQMEAwIBAQEBAwQFBggGAwIBAQICBQcKDAUEBwUFBgYICAYHCQkUFxcXPRUUFBAODAoMCQQEAgIBA4QBBAQEBQsKCw0PEhQUFh0sFxcUCQkHBgoMCAgDAwIBDAsGBQUDAgECBAcKDgYDAgEBAQMDBAUGBwkJCwsODxAOEQoLDA0ODwwNDg8PDxAD2gQLCQwOEgoLDA0NDxAREhMUFhYYGgoMBwgICQoKCgoKCiEUFgoLCQkIBncICAcHDgwLCRUKCw0NDg0OFBIMCwoQDxYTCwwMEw4ODQ4NDAoJChALDA4HBwgIdwwTERULDQ0OCQsHCAkJCgsMDA0NNiMaGxsODQ0NDAsLCgkJBwYEBA4ICQMEAwIBAQECAwMFBQABAAAAAAPCA/QAjQAAAQ8VFRcVDwcVHwwPFCEvFTM/Cy8INy8aAegOGhgVExAODAoMCwcKCAUFBAcGAgUDAQEDBgkHBAMBAQICBAcTCgsMDBkjMgUGBwgJCQsligkJCQ8OCwoJCgUFBgOEBgoGCAkLDQ4RCQkKC3UlCgoJCAcGBSITEhEPGRUPDwYDAgEBAQEJAgUCAQEBAQECAwYGCgsLDAwMDA0RCwoRDwQDCA8QEBERA/MCBQcJCQoKCwsPERAOEA0ODh8hEC8vEycZGRggJQoICAcGBQUFBAYKBQMDAwQCAQ4LCgkIBwYQRgYGBw8PEBEQGA8THR0iEBAQERAPDgYGBgU7EAYHCAkKCw4BAgICBwYHCAYHBwcGBgYVCBYLCrUUFBMTER8bHRkRDwwLCAcIBAIDAQYDBggFBQIBAAIAAAAAA14D9AA/AJIAAAEPDy8PPw8fDgUVHwcJAT8HNS8dKwEPHQJ9AQIDBAUGCAgJCQoLDAwMDQ0MDAwLCgkJCAgGBQQDAgEBAgMEBQYICAkJCgsMDAwNDQwMDAsKCQkICAYFBAMC/iYBAwQHCAkLDAEnAScMCwkIBwQDAQICAwQFBQcHBwkJCgoLDAwMDg0PDg8QEBAREBIREhISEhESEBEQEBAPDg8NDgwMDAsKCgkJBwcHBQUEAwICApYNDAwMCwoJCQgIBgUEAwIBAQIDBAUGCAgJCQoLDAwMDQ0MDAwLCgkJCAgGBQQDAgEBAgMEBQYICAkJCgsMDAwiDg4bGhkZGBcW/lMBrRYXGBkZGhscExMSEhISEREREA8PDw4NDQ0LCwsJCQgIBgYFBAQCAgICBAQFBgYICAkJCwsLDQ0NDg8PDxARERESEhISEwAAAAAAABIA3gABAAAAAAAAAAEAAAABAAAAAAABABEAAQABAAAAAAACAAcAEgABAAAAAAADABEAGQABAAAAAAAEABEAKgABAAAAAAAFAAsAOwABAAAAAAAGABEARgABAAAAAAAKACwAVwABAAAAAAALABIAgwADAAEECQAAAAIAlQADAAEECQABACIAlwADAAEECQACAA4AuQADAAEECQADACIAxwADAAEECQAEACIA6QADAAEECQAFABYBCwADAAEECQAGACIBIQADAAEECQAKAFgBQwADAAEECQALACQBmyBHcmlkIGNvbnRyb2wgRm9udFJlZ3VsYXJHcmlkIGNvbnRyb2wgRm9udEdyaWQgY29udHJvbCBGb250VmVyc2lvbiAxLjBHcmlkIGNvbnRyb2wgRm9udEZvbnQgZ2VuZXJhdGVkIHVzaW5nIFN5bmNmdXNpb24gTWV0cm8gU3R1ZGlvd3d3LnN5bmNmdXNpb24uY29tACAARwByAGkAZAAgAGMAbwBuAHQAcgBvAGwAIABGAG8AbgB0AFIAZQBnAHUAbABhAHIARwByAGkAZAAgAGMAbwBuAHQAcgBvAGwAIABGAG8AbgB0AEcAcgBpAGQAIABjAG8AbgB0AHIAbwBsACAARgBvAG4AdABWAGUAcgBzAGkAbwBuACAAMQAuADAARwByAGkAZAAgAGMAbwBuAHQAcgBvAGwAIABGAG8AbgB0AEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAFMAeQBuAGMAZgB1AHMAaQBvAG4AIABNAGUAdAByAG8AIABTAHQAdQBkAGkAbwB3AHcAdwAuAHMAeQBuAGMAZgB1AHMAaQBvAG4ALgBjAG8AbQAAAAACAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQBAgEDAQQBBQAETWFsZQZGZW1hbGUITG9jYXRpb24AAAAA) format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+[class^="sf-icon-"], [class*=" sf-icon-"] {
+ font-family: 'Grid control Font' !important;
+speak: none;
+font-size: 55px;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.sf-icon-Male:before { content: "\e700"; }
+.sf-icon-Female:before { content: "\e701"; }
+.sf-icon-Location:before { content: "\e702"; }
+
+.fabric .empimg {
+    background-color: #0078d6;
+}
+
+.material .empimg {
+    background-color: #e3165b;
+}
+
+.highcontrast .empimg {
+    background-color: #ffd939;
+}
+
+_:-ms-fullscreen,
+:root .highcontrast .e-userimg.sf-icon-Male::before,
+_:-ms-fullscreen,
+:root .highcontrast .e-userimg.sf-icon-FeMale::before {
+    color: black;
+}
+
+.highcontrast .e-userimg.sf-icon-Male::before,
+.highcontrast .e-userimg.sf-icon-FeMale::before {
+    color: black;
+}
+
+.bootstrap .empimg {
+    background-color: #0078d6;
+}
+
+#Emptext {
+    top: -12px;
+    left: 41px;
+    position: relative;
+}
+
+.empimg {
+    height: 27px;
+    width: 29px;
+    border-radius: 14px;
+}
+
+#overviewgrid.e-rtl #Emptext{
+top: -12px;
+left: -41px;
+position: relative;
+}
+
+.e-userimg.sf-icon-Male::before,
+.e-userimg.sf-icon-FeMale::before {
+    font-size: 13px;
+}
+
+.e-userimg.sf-icon-Male, .e-userimg.sf-icon-FeMale {  
+    margin: 0px 8px;
+    line-height: 26px;
+    color: white; 
+    font-size: 13px;
+}
+
+.e-userimg.sf-icon-Male::before {
+    content: '\e700';
+}
+
+.e-userimg.sf-icon-FeMale::before {
+    content: '\e701';
+}
+
+.highcontrast #overviewgrid td.e-rowcell.e-selectionbackground.e-active {
+    background-color: transparent;
+    color: white;
+}
+
+.e-bigger #overviewgrid .statustxt {
+    position: relative;
+    top: -2px;
+}
+
+.rating .star {
+    font-size: 132%;
+    color: lightgrey;
+}
+
+.rating .star.checked {
+    color: #ffa600;
+}
+
+.rating .star:before {
+    content: '★';
+}
+
+ #overviewgrid td.e-rowcell.e-selectionbackground.e-active {
+    background-color: transparent;
+}
+
+ #overviewgrid .e-image {
+    height: 13px;
+    width: 14px;
+}
+
+#overviewgrid td.e-rowcell .statustxt.e-activecolor {
+    color: #00cc00;
+    position: relative;
+    top: 9px;
+}
+
+ #overviewgrid td.e-rowcell .statustxt.e-inactivecolor {
+    color: #e60000;
+    position: relative;
+    top: 9px;
+}
+
+.statustemp.e-inactivecolor {
+    background-color: #ffd7cc;
+    width: 64px;
+}
+
+.statustemp.e-activecolor {
+    background-color: #ccffcc;
+    width: 57px;
+}
+
+.statustxt.e-activecolor {
+    color: #00cc00;
+}
+
+.statustxt.e-inactivecolor {
+    color: #e60000;
+}
+
+.statustemp {
+    position: relative;
+    height: 19px;
+    border-radius: 5px;
+    text-align: center
+}
+
+.highcontrast #msg {
+    color: #FFFFFF
+}
+
+#msg {
+    font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.95;
+    color: #333;
+    float: right;
+    margin-top: 3px;
+}
+
+@media only screen and (max-width: 370px) {
+    #msg {
+        float: left;
+        margin-top: 3px;
+    }
+    #overviewgrid.e-default {
+        margin-top: 36px;
+    }
+}
+
+#samplecontainer {
+    padding-top: 5px;
+}
+
+#myProgress {
+    position: relative;
+    height: 18px;
+    width: 10em;
+    text-align: left;
+    background-color: white;
+}
+
+.highcontrast #overviewgrid #myProgress {
+    background-color: black;
+}
+
+#myBar {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: #00b300;
+}
+
+#myBar.progressdisable {
+    background-color: #df2222;
+}
+
+#label {
+    position: relative;
+    left: 10px;
+    line-height: 18px;
+    font-size: 10px;
+    color: white;
+}
