@@ -1,6 +1,7 @@
 {
     "name": "ComboBox",
     "directory": "combo-box",
+    "type": "update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -8,7 +9,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates the default functionalities of the Vue combo box component with minimum configuration.",
             "sourceFiles":[
-                { "displayName": "default.vue", "path":"src/combo-box/default.Vue" },
+                { "displayName": "default.vue", "path":"src/combo-box/default.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -18,7 +19,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates the default functionalities of the Vue combo box component with minimum configuration.",
             "sourceFiles":[
-                { "displayName": "grouping-icon.vue", "path":"src/combo-box/grouping-icon.Vue" },
+                { "displayName": "grouping-icon.vue", "path":"src/combo-box/grouping-icon.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -28,7 +29,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates how to bind with local data source and fetch data from remote data service in the Vue combo box component.",
             "sourceFiles":[
-                { "displayName": "data-binding.vue", "path":"src/combo-box/data-binding.Vue" },
+                { "displayName": "data-binding.vue", "path":"src/combo-box/data-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -38,7 +39,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates the addition of a new value that is not present in the predefined list of the Vue combo box component.",
             "sourceFiles":[
-                { "displayName": "custom-value.vue", "path":"src/combo-box/custom-value.Vue" },
+                { "displayName": "custom-value.vue", "path":"src/combo-box/custom-value.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -48,7 +49,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates how to customize the appearance of each item in the Vue combo box component pop-up list using the template.",
             "sourceFiles":[
-                { "displayName": "template.vue", "path":"src/combo-box/template.Vue" },
+                { "displayName": "template.vue", "path":"src/combo-box/template.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -58,7 +59,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue combo box component.",
             "sourceFiles":[
-                { "displayName": "filtering.vue", "path":"src/combo-box/filtering.Vue" },
+                { "displayName": "filtering.vue", "path":"src/combo-box/filtering.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -68,7 +69,7 @@
             "category": "ComboBox",
             "description": "This example demonstrates how to create a related combo box (Cascading ComboBox) using the Vue combo box component.",
             "sourceFiles":[
-                { "displayName": "cascading.vue", "path":"src/combo-box/cascading.Vue" },
+                { "displayName": "cascading.vue", "path":"src/combo-box/cascading.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },
@@ -78,7 +79,18 @@
             "category": "ComboBox",
             "description": "This example demonstrates how to achieve the diacritics filter functionalities in the Vue combo box component.",
             "sourceFiles":[
-                { "displayName": "diacritics-filtering.vue", "path":"src/combo-box/diacritics-filtering.Vue" },
+                { "displayName": "diacritics-filtering.vue", "path":"src/combo-box/diacritics-filtering.vue" },
+                { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "two-way-binding",
+            "name": "Two-way Binding",
+            "category": "ComboBox",
+            "type": "new",
+            "description": "The Vue Combo Box component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve sync with data in the DOM.",
+            "sourceFiles":[
+                { "displayName": "two-way.vue", "path":"src/combo-box/two-way-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         }

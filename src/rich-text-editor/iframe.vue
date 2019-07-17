@@ -37,12 +37,17 @@
 .sb-header {
     z-index: 100;
 }
-
+.sb-content.e-view.hide-header {
+    top: 0 !important;
+}
+.sb-header.e-view.hide-header {
+    display: none;
+}
 </style>
 <script>
 import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
 
 Vue.use(RichTextEditorPlugin);
 
@@ -82,6 +87,8 @@ export default Vue.extend({
             this.$refs.rteInstance.dataBind();
         },
         handleFullScreen: function(e) {
+        var sbCntEle = document.querySelector('.sb-content.e-view');
+        var sbHdrEle = document.querySelector('.sb-header.e-view');
         var leftBar;
         var transformElement;
         if (Browser.isDevice) {
@@ -92,11 +99,17 @@ export default Vue.extend({
             transformElement = document.querySelector('#right-pane');
         }
         if (e.targetItem === 'Maximize') {
+            if (Browser.isDevice && Browser.isIos) {
+                addClass([sbCntEle, sbHdrEle], ['hide-header']);
+            }
             addClass([leftBar], ['e-close']);
             removeClass([leftBar], ['e-open']);
             if (!Browser.isDevice) { transformElement.style.marginLeft = '0px'; }
             transformElement.style.transform = 'inherit';
         } else if (e.targetItem === 'Minimize') {
+            if (Browser.isDevice && Browser.isIos) {
+                removeClass([sbCntEle, sbHdrEle], ['hide-header']);
+            }
             removeClass([leftBar], ['e-close']);
             if (!Browser.isDevice) {
             addClass([leftBar], ['e-open']);
@@ -109,7 +122,7 @@ export default Vue.extend({
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
     }
 });
 </script>

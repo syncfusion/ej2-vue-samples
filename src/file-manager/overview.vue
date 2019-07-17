@@ -15,6 +15,10 @@
         <p>
             The <b>File Manager</b> component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete, refresh and so on.
         </p>
+         <p>
+            <b>Note: </b>File Manager's upload functionality is restricted in the online demo. If you need to test upload functionality, please install 
+            <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
+        </p>
     </div>
 </div>
 </template>
@@ -25,11 +29,13 @@
 </style>
 <script>
 import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, LargeIconsView, DetailsView, FileManagerComponent, ContextMenu, BreadCrumbBar } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
 
 Vue.use(FileManagerPlugin);
-
-let hostUrl = 'https://ng2jq.syncfusion.com/ej2services/';
+/**
+ * File Manager full functionalities sample
+ */
+let hostUrl = 'https://ej2services.syncfusion.com/production/web-services/';
 export default Vue.extend ({
      data: function() {
         return {            
@@ -44,7 +50,7 @@ export default Vue.extend ({
         };
     },
     provide: {
-            filemanager: [NavigationPane, DetailsView, LargeIconsView, ContextMenu,BreadCrumbBar, Toolbar]
+            filemanager: [NavigationPane, DetailsView, Toolbar]
     }
 });
 </script>

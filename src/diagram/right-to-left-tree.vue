@@ -62,7 +62,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Name",
         parentId: "Category",
-        dataManager: new DataManager(artificialIntelligence),
+        dataSource: new DataManager(artificialIntelligence),
         doBinding: (nodeModel, data, diagram) => {
           let nameKey = "Name";
           nodeModel.annotations = [{ content: data[nameKey] }];

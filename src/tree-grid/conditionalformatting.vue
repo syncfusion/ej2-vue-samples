@@ -15,7 +15,7 @@
     </div>
 
     <div id="action-description">
-    <p>This samples demonstrates the way of customizing the cells by adding icons for Priority column and highlight the cells of Duration column based on certain condition using <code>queryCellInfo</code> event.
+    <p>This samples demonstrates the way of customizing the cells by adding icons for Priority column and highlighted the cells of Progress column based on certain condition using <code>queryCellInfo</code> event.
     </p>
 </div>
 
@@ -25,7 +25,7 @@
             that contains the details of the cell.
     </p> 
     <p>
-        In this demo, we have customized the column values by adding icons for Priority column and highlighted the Duration column based on certain condition using queryCellInfo event.
+        In this demo, we have customized the column values by adding icons for Priority column and highlighted the cells of Progress column based on certain condition using queryCellInfo event.
     </p>  
 </div>
 

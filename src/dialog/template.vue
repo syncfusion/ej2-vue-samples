@@ -110,7 +110,7 @@ export default Vue.extend({
         top: 5px;
         left: -11px;
     }
-    .e-bigger .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+    .e-bigger .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
         top: 3px;
         left: -11px;
     }

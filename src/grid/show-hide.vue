@@ -107,6 +107,7 @@ export default Vue.extend({
         } else {
             (<GridComponent>this.$refs.grid).hideColumns(element.innerHTML, 'headerText');
         }
+        this.flag = true;
     },
     dataBound: function() {
         this.flag = true;

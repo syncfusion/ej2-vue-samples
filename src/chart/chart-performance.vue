@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-lg-9 control-section">
-        <ejs-chart ref="chart" style="display:block;" :loaded="onChartLoad" :primaryXAxis='primaryXAxis' :theme='theme' >
+        <ejs-chart ref="chart" style="display:block;" :loaded="onChartLoad" :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :theme='theme' >
             <e-series-collection>
                 <e-series :dataSource='seriesData' :marker='marker' :xName='xName' :yName='yName' :animation='animation' type='Line'> </e-series>
             </e-series-collection>
@@ -31,12 +31,12 @@
 
     <div id="action-description">
     <p>
-        This sample demonstrates the performance of EJ2 chart to render 100K points.
+        This sample demonstrates the performance of EJ2 chart to render 100K points in canvas mode.
     </p>
 </div>
 <div id="description">
     <p>
-     Chart includes several data rendering optimizations to achieve the best possible performance when plotting large volumes of data as well as handling high frequency real-time data.In this demo, chart is rendered with 100K points.
+        Chart includes several data rendering optimizations to achieve the best possible performance when plotting large volumes of data as well as handling high frequency real-time data.In this demo, chart is rendered with 100K points in canvas mode.
     </p>
 </div>
 
@@ -66,6 +66,7 @@ export default Vue.extend({
         theme: theme,
         dt1: 0,
         seriesData: [],
+        enableCanvas: true,
         primaryXAxis: {
             majorGridLines: { color: 'transparent' }
         },

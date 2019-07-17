@@ -2,7 +2,8 @@
     <div>
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" width='100%' height='650px' :eventSettings="eventSettings" :currentView="currentView">
+                <ejs-schedule id="Schedule" width='100%' height='650px' :eventSettings="eventSettings" :currentView="currentView"
+                :popupOpen="onPopupOpen" :actionBegin="onActionBegin" :dragStop="onDragStop" :resizeStop="onResizeStop">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -48,7 +49,29 @@
         },
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Resize, DragAndDrop]
-        }        
+        },
+        methods: {
+            onPopupOpen: function (args) {
+                if ((!args.target.classList.contains('e-appointment') && (args.type === 'QuickInfo')) || (args.type === 'Editor')) {
+                    args.cancel = this.onEventCheck(args);
+                }
+            },
+            onActionBegin(args) {
+                if ((args.requestType === 'eventCreate') || args.requestType === 'eventChange') {
+                    args.cancel = this.onEventCheck(args);
+                }
+            },
+            onDragStop(args) {
+                args.cancel = this.onEventCheck(args);
+            },
+            onResizeStop(args) {
+                args.cancel = this.onEventCheck(args);
+            },
+            onEventCheck(args) {
+                var eventObj = args.data instanceof Array ? args.data[0] : args.data;
+                return (eventObj.StartTime < new Date());
+            }
+        }
     });
 
 </script>

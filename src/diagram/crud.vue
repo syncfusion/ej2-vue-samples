@@ -271,7 +271,7 @@ export default Vue.extend({
 
 function dlgButtonClick(evt: Event) {
   let selectedItem: NodeModel | ConnectorModel | any = {};
-  let dialogHeader: string = dialog.header;
+  let dialogHeader: string = dialog.header as string;
   let description: string = (document.getElementById('Description') as HTMLInputElement).value;
   let color: string = (document.getElementById('Color') as HTMLInputElement).value;
   if (diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes.length > 0) {
@@ -426,7 +426,7 @@ function toolbarClickEvent(args: ClickEventArgs) {
 }
 //open a dialog control on clicking the toolbar items
 function openDialog(title: string, description: string, color: string, isNode: boolean): void {
-  dialog.header = title;
+  dialog.header = title as string;
   if (isNode) {
     hideClassElement('.showDropdown', 'none');
     hideClassElement('.showLabel', 'block');

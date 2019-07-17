@@ -36,11 +36,11 @@
         },
         {
             "url": "dropdown-button",
-            "name": "Dropdown Button",
+            "name": "Dropdown Menu",
             "category": "Button",
             "ftName": "dropdown-menu",
             "api":{"DropDownButton":["items", "cssClass", "iconCss"] },
-            "description": "This example demonstrates the usecases of the Syncfusion Vue DropDownButton with icons, text and separator in popup action items."
+            "description": "This example demonstrates the usecases of the Syncfusion Vue DropDownMenu with icons, text and separator in popup action items."
         },
         {
             "url": "split-button",

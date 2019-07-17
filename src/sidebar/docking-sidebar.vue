@@ -79,7 +79,8 @@ export default Vue.extend({
     },
     methods: {
         newTabClick: function() {
-          document.getElementById('newTab').setAttribute('href', location.href.split('#')[0] + 'samples/sidebar/docking-sidebar/index.html');
+          var URL = location.href.replace(location.search, '');
+          document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/docking-sidebar/index.html');
         },
         toggleClick: function() {
            this.$refs.dockSidebar.toggle();

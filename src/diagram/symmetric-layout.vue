@@ -105,7 +105,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Id",
         parentId: "Source",
-        dataManager: new DataManager(symmetricData)
+        dataSource: new DataManager(symmetricData)
       },
       //Sets the constraints of the SnapSettings
       snapSettings: { constraints: SnapConstraints.None },

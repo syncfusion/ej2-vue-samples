@@ -160,7 +160,7 @@ export default Vue.extend({
             visible: false
         },
     
-       directiondata : [ 'Both', 'Minus', 'Plus', ],
+       directiondata : [ 'Both', 'Minus', 'Plus' ],
        errordata : [ 'Fixed', 'Percentage', 'StandardDeviation', 'StandardError', 'Custom' ],
        drawdata : [ 'Vertical', 'Horizontal', 'Both'],
        animation: { enable: false },
@@ -179,7 +179,7 @@ export default Vue.extend({
            let errordirection = document.getElementById('direction').value;
            this.$refs.chart.ej2Instances.series[0].animation.enable = false;
            this.$refs.chart.ej2Instances.series[0].errorBar.type = errordirection;
-            this.$refs.chart.ej2Instances.refresh();
+           this.$refs.chart.ej2Instances.refresh();
 
     },
      errorBarTypeChange:function(args){
@@ -201,7 +201,7 @@ export default Vue.extend({
             args.fill = bootstrapColors[args.point.index % 10];
         }
     },
-     errorBarMode:function(args){
+     errorBarMode:function(args) {
         let errormode = document.getElementById('drawmode').value;
         this.$refs.chart.ej2Instances.series[0].animation.enable = false;
         this.$refs.chart.ej2Instances.series[0].errorBar.direction = errormode;

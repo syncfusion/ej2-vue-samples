@@ -163,9 +163,11 @@ export default Vue.extend({
     },
   methods: {
    changed: function(args) {
+     if(document.getElementById('chartExport').children.length) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
         this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
         this.$refs.chart.ej2Instances.dataBind();
+     }
     },
     onClick: function(args) {
       let fileName = document.getElementById("fileName").value;

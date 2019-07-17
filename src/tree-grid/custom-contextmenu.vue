@@ -15,7 +15,7 @@
     </div>
 
     <div id="action-description">
-    <p>This sample demonstrates the usage of custom context menu in TreeGrid component. Right click anywhere on the TreeGrid to view custom context menu.
+    <p>This sample demonstrates the usage of custom context menu in TreeGrid component. Right click anywhere on a parent row in the TreeGrid to view custom context menu.
     </p>
 </div>
 
@@ -61,8 +61,9 @@ export default Vue.extend({
    methods:{
       contextMenuOpen:function (arg: BeforeOpenCloseEventArgs) {
                 let elem: Element = arg.event.target as Element;
-                let uid = (elem.closest('.e-row') as HTMLTableRowElement).getAttribute('data-uid');
-                if (isNullOrUndefined(getValue('hasChildRecords', (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data))) {
+                let row: Element | null = elem.closest('.e-row');
+                let uid = row && row.getAttribute('data-uid');
+                if (uid === null || isNullOrUndefined(getValue('hasChildRecords', (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data))) {
                     arg.cancel = true;
                 } else {
                     let flag: boolean = getValue('expanded', (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data);

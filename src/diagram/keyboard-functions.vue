@@ -210,7 +210,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "id",
         parentId: "ancestor",
-        dataManager: new DataManager(keyBoardData),
+        dataSource: new DataManager(keyBoardData),
         //binds the external data with node
         doBinding: (nodeModel, data) => {
           nodeModel.annotations = [

@@ -91,7 +91,7 @@ export default Vue.extend({
         this.$refs.dashboard.$el.ej2_instances[0].addPanel(panel[0]);
       },
       removePanel: function (args) {
-        if (this.$refs.dashboard.$el.ej2_instances[0].panels.length != 0) {
+        if (this.$refs.dashboard.$el.ej2_instances[0].panels.length > 0) {
             for (var i = this.$refs.dashboard.$el.ej2_instances[0].panels.length - 1; i < this.$refs.dashboard.$el.ej2_instances[0].panels.length; i++) {
                 this.$refs.dashboard.$el.ej2_instances[0].removePanel(this.$refs.dashboard.$el.ej2_instances[0].panels[this.$refs.dashboard.$el.ej2_instances[0].panels.length - 1 - i].id);
             }
@@ -99,19 +99,10 @@ export default Vue.extend({
       },
     onChange: function(args) {
         if (args.event.currentTarget.id === "floating") {
-            if (args.checked) {
-                this.$refs.dashboard.$el.ej2_instances[0].allowFloating = true;
-            } else {
-                this.$refs.dashboard.$el.ej2_instances[0].allowFloating = false;
-            }
+            this.$refs.dashboard.$el.ej2_instances[0].allowFloating = args.checked;
         }
         if (args.event.currentTarget.id === "resizing") {
-            if (args.checked) {
-                this.$refs.dashboard.$el.ej2_instances[0].allowResizing = true;
-            } else {
-
-                this.$refs.dashboard.$el.ej2_instances[0].allowResizing = false;
-            }
+            this.$refs.dashboard.$el.ej2_instances[0].allowResizing = args.checked;
         }
     },
     valueChange: function(args) {

@@ -2,7 +2,6 @@
     "name": "DatePicker",
     "directory": "datepicker",
     "category": "Calendars",
-	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -47,7 +46,6 @@
             "url": "month-picker",
             "name": "Month Picker",
             "category": "DatePicker",
-            "type": "new",
             "hideOnDevice": true,
             "api":{"DatePicker": [ "start", "depth" ]},
             "description": "The Vue DatePicker component can act as a month and year picker. It helps you to select a month or year quickly with all months related properties."
@@ -56,7 +54,6 @@
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "DatePicker",
-            "type": "new",
             "hideOnDevice": true,
             "api":{"DatePicker": [ "value" ]}
         }

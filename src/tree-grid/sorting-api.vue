@@ -106,8 +106,8 @@ export default Vue.extend({
       columnsName: [
         { id: 'taskID', name: 'Task ID' },
         { id: 'taskName', name: 'Task Name' },
-        { id: 'startdate', name: 'Start Date' },
-        { id: 'progress', name: 'Progress' }
+        { id: 'startDate', name: 'Start Date' },
+        { id: 'duration', name: 'Duration' }
     ],
       direction: [
         { id: 'Ascending', name: 'Ascending' },

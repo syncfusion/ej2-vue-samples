@@ -20,7 +20,7 @@
                 </td>
                 <td>
                     <div data-role="rangeslider">
-                        <input type="range" name="range-min" id="rangeMin" value="270" min="0" max="360" style="width:90%" @touchmove='rangeMin' @pointermove='rangeMin' @change='rangeMin' autocomplete="off">
+                        <input type="range" name="range-min" id="rangeMin" value="270" min="0" max="360" style="width:90%" @touchmove='rangeMin' @change='rangeMin' autocomplete="off">
                     </div>
                 </td>
                 <td>

@@ -33,7 +33,7 @@
         </ejs-toolbar>
         <br>
         <br>
-        <ejs-toolbar overflowMode='Popup'>
+        <ejs-toolbar overflowMode='Popup' id="toolbar_Popalways">
            <e-items>
                 <e-item :template='vueTemplate' overflow='Show'></e-item>
                 <e-item prefixIcon='e-icon-day e-icons' tooltipText='Today' text='Today' overflow='Hide' align='Right'></e-item>
@@ -109,7 +109,7 @@
     text-transform: none;
 }
 
-#toolbar_popalways .e-tbar-btn .e-icons {
+#toolbar_Popalways .e-tbar-btn .e-icons {
     font-family: 'Material_toolbar2', 'e-icons';
 }
 

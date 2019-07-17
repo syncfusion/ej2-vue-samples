@@ -3,7 +3,6 @@
     "directory": "list-box",
     "category": "Dropdowns",
     "ftName": "list-box",
-    "type": "preview",
     "samples": [
         { "url": "default", "name": "Default Functionalities", "description": "This example demonstrates the default functionalities of Syncfusion TypeScript ListBox component with minimum configuration.", "category": "List Box", "api": { "ListBox": ["dataSource"] } },
         { "url": "dual-list-box", "name": "Dual ListBox", "description": "This example demonstrates how to move items between the two list boxes using dual list box functionality.", "category": "List Box", "api": { "ListBox": ["dataSource", "fields", "scope", "toolbarSettings", "height"] }},

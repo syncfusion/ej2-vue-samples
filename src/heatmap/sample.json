@@ -2,7 +2,6 @@
     "name": "Heatmap Chart",
     "directory": "heatmap",
     "category": "Data Visualization",
-    "type": "update",
     "ftName": "heatmap",
     "samples": [
         {
@@ -93,7 +92,6 @@
             "url": "cell-selection",
             "name": "Selection",
             "category": "Features",
-            "type": "update",
             "description": "This demo for Essential JS2 Heatmap control shows how to select the cell",
             "api": {}
         },

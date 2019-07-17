@@ -181,7 +181,7 @@ export default Vue.extend({
         //sets the fields to bind
         id: "Name",
         parentId: "Category",
-        dataManager: new DataManager(hierarchicalTree),
+        dataSource: new DataManager(hierarchicalTree),
         //binds the data with the nodess
         doBinding: (nodeModel, data, diagram) => {
           nodeModel.shape = {

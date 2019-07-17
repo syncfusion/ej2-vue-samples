@@ -440,7 +440,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { RichTextEditorPlugin, Link, Image, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Link, Image, QuickToolbar, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 
 Vue.use(RichTextEditorPlugin);
@@ -522,7 +522,7 @@ export default Vue.extend({
     }
     },
     provide:{
-        richtexteditor:[Link, Image, HtmlEditor, Toolbar]
+        richtexteditor:[Link, Image, QuickToolbar, HtmlEditor, Toolbar]
     }
 });
 </script>

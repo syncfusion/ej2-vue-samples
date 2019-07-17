@@ -96,6 +96,17 @@
     .bootstrap.e-bigger #list.e-listview .e-list-item {
         line-height: 47px;
     }
+    .bootstrap4.e-bigger #list, .bootstrap4.e-bigger #tree1, .bootstrap4.e-bigger #tree2 {
+		height: 384px;
+        overflow: auto;
+    }
+    .bootstrap4 #list, .bootstrap4 #tree1, .bootstrap4 #tree2 {
+		height: 320px;
+        overflow: auto;
+    }
+    .bootstrap4.e-bigger .e-drag-item.e-treeview .e-list-text {
+        margin-left: 12px;
+    }
     .tree-content {
         margin: 0 auto;
         border: 1px solid #dddddd;

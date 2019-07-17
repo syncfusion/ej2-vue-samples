@@ -37,6 +37,13 @@
             ]
         },
         {
+            "url": "hamburger-mode",
+            "name": "Hamburger Mode",
+            "category": "Menu Bar",
+            "api":{ "Menu": ["hamburgerMode", "title"] },
+            "description": "This example demonstrates the hamburger mode of the Syncfusion Vue Menu that enables the adaptive view."
+        },
+        {
             "url": "api",
             "name": "API",
             "category": "Menu Bar",
@@ -46,7 +53,7 @@
         {
             "url": "toolbar-integration",
             "name": "Toolbar Integration",
-            "category": "Menu Bar",
+            "category": "Use Case",
             "api":{ "Menu": ["items"] },
             "description": "This example demonstrates the real use case of the Syncfusion Vue Menu in web application. It is integrated with toolbar component."
         }

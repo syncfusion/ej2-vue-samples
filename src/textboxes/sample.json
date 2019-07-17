@@ -2,7 +2,6 @@
     "name": "TextBox",
     "directory": "textboxes",
     "category": "Inputs",
-    "type": "update",
     "ftName": "textbox",
     "samples": [{
             "url": "default",
@@ -15,7 +14,6 @@
             "url": "multiline",
             "name": "Multiline TextBox",
             "category": "TextBox",
-            "type": "new",
             "hideOnDevice": true,
             "description":"The example exposes a Vue Multiline TextBox (textarea). It helps to render address, feedback, and more in a form with customizable rows and columns."
         },
@@ -23,7 +21,6 @@
             "url": "two-way-binding",
             "name": "Two-way Binding",
             "category": "TextBox",
-            "type": "new",
             "hideOnDevice": true,
             "description":"The Vue TextBox component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve sync with data in the DOM."
         }

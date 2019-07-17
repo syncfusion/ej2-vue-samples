@@ -67,7 +67,8 @@ Vue.use(SidebarPlugin, TreeViewPlugin);
            this.$refs.sidebarInstance.toggle();
         },
         newTabClick: function() {
-           document.getElementById('newTab').setAttribute('href', location.href.split('#')[0] + 'samples/sidebar/sidebar-treeview/index.html');
+            var URL = location.href.replace(location.search, '');
+           document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/sidebar-treeview/index.html');
         }
     }
 }

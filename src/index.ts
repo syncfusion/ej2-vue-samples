@@ -660,7 +660,7 @@ let sampleBrowser: Vue = new Vue({
                 this.headerAction('changeTheme');
 
             });
-            document.addEventListener('click', this.headerAction.bind(this, 'closePopup'));
+            // document.addEventListener('click', this.headerAction.bind(this, 'closePopup'));
             searchButton.addEventListener('click', (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();

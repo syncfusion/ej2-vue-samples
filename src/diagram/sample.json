@@ -2,7 +2,6 @@
   "name": "Diagram",
   "directory": "diagram",
   "category": "Data Visualization",
-  "type": "update",
   "ftName": "diagram",
   "samples": [
     {
@@ -45,8 +44,7 @@
       "url": "swimlane",
       "name": "Swimlane",
       "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started",
-      "type": "new"
+      "category": "Getting Started"
     },
     {
       "url": "html-node",
@@ -58,29 +56,25 @@
       "url": "diagram-events",
       "name": "Events",
       "description": "This sample trace the diagram events while performing interaction in diagram.",
-      "category": "Getting Started",
-      "type": "new"
+      "category": "Getting Started"
     },
     {
       "url": "tooltip",
       "name": "Tooltip",
       "description": "This sample shows the feature of tooltip in diagram control",
-      "category": "Getting Started",
-      "type": "new"
+      "category": "Getting Started"
     },
     {
       "url": "history-manager",
       "name": "History Manager",
       "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started",
-      "type": "new"
+      "category": "Getting Started"
     },
     {
       "url": "flow-execution",
       "name": "Flow Execution",
       "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started",
-      "type": "new"
+      "category": "Getting Started"
     },
     {
       "url": "bpmn-editor",

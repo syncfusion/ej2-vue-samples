@@ -2,7 +2,6 @@
     "name": "Circular Gauge",
     "directory": "circular-gauge",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -20,8 +19,7 @@
             "url": "labels",
             "name": "Tick and Labels",
             "category": "Circular Gauge",
-            "api":{"CircularGauge": [ "axes"]},
-			"type": "update"
+            "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "customization",
@@ -86,8 +84,7 @@
         {
             "url": "apple-watch-rings",
             "name": "Apple Watch Rings",
-            "category": "Live",
-            "type": "new"
+            "category": "Live"
         },
         {
             "url": "speedometer",

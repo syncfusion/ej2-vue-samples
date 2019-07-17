@@ -2,7 +2,6 @@
     "name": "TreeMap",
     "directory": "treemap",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -19,7 +18,6 @@
             "name": "Layout",
             "category": "TreeMap",
             "api": {},
-            "type": "update",
             "sourceFiles": [
                 {"displayName": "layout.vue", "path": "./src/treemap/layout.vue"},
                 {"displayName": "econmics.ts", "path": "./src/treemap/treemap-data/econmics.ts"}
@@ -29,7 +27,6 @@
             "url": "drilldown",
             "name": "Drilldown",
             "category": "TreeMap",
-            "type": "update",
             "api": {},
             "sourceFiles": [
                 {"displayName": "drilldown.vue", "path": "./src/treemap/drilldown.vue"},
@@ -70,7 +67,6 @@
             "url": "election",
             "name": "Legend",
             "category": "TreeMap",
-            "type": "update",
             "api": {},
             "sourceFiles": [
                 {"displayName": "election.vue", "path": "src/treemap/election.vue"},
@@ -121,7 +117,6 @@
             "url": "rtl",
             "name": "RTL",
             "category": "TreeMap",
-            "type": "new",
             "api": {},
             "sourceFiles": [
                 {"displayName": "rtl.vue", "path": "src/treemap/rtl.vue"},

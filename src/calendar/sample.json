@@ -2,7 +2,6 @@
     "name": "Calendar",
     "directory": "calendar",
     "category": "Calendars",
-	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -46,7 +45,6 @@
             "url": "month-picker",
             "name": "Month Picker",
             "category": "Calendar",
-            "type": "new",
             "hideOnDevice": true,
             "api":{"Calendar": [ "start", "depth" ]},
             "description" :"The Vue Calendar component can act as a month and year picker. It helps you to select a month or year quickly with all month related properties" 

@@ -4,7 +4,7 @@
     <div class="sample-container">
         <div class="default-section">
           <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
-    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
+    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" style="float: right" id="documenteditor_title_contentEditor" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
@@ -75,6 +75,12 @@
 
 .e-de-icon-Download:before {
     content: "\e728";
+}
+
+.e-de-padding-right-rtl {
+        float: right;
+        padding-top: 2px;
+        padding-left: 12px;
 }
 
 </style>
@@ -313,6 +319,7 @@ L10n.load({
             'Style based on': 'نمط استنادا إلى',
             'Style for following paragraph': 'نمط للفقرة التالية',
             'Formatting': 'التنسيق',
+            'Formatting restrictions': 'قيود التنسيق',
             'Numbering and Bullets': 'الترقيم والتعداد النقطي',
             'Numbering': 'ترقيم',
             'Update Field': 'تحديث الحقل',
@@ -362,7 +369,52 @@ L10n.load({
             'Page': 'صفحه',
             'Fit one page': 'احتواء صفحه واحد',
             'Fit page width': 'احتواء عرض الصفحة',
-            'The current page number in the document. Click or tap to navigate specific page.': 'رقم الصفحة الحالية في المستند. انقر أأو اضغط للتنقل في صفحه معينه'
+            'The current page number in the document. Click or tap to navigate specific page.': 'رقم الصفحة الحالية في المستند. انقر أأو اضغط للتنقل في صفحه معينه',
+            'Format restrictions': 'قيود التنسيق',
+            'Allow formatting': 'السماح بالتنسيق',
+            'Editing restrictions': 'قيود التحرير',
+            'Read only': 'للقراءة فقط',
+            'User permissions': 'أذونات المستخدم',
+            'Everyone': 'الجميع',
+            'Add Users': 'أضافه مستخدمين',
+            'Enforcing Protection': 'فرض الحماية',
+            'Enter User': 'ادخل المستخدم',
+            'Users': 'المستخدمين',
+            'Enter new password': 'ادخل كلمه مرور جديد',
+            'Reenter new password': 'أعاده إدخال كلمه مرور جديده',
+            'Your permissions': 'الأذونات الخاصة بك',
+            // tslint:disable-next-line:max-line-length
+            'This document is protected from unintenional editing.You may edit in this region,but all changes will be tracked.': 'هذا المستند محمي من التحرير غير الموجه. يمكنك التحرير في هذه المنطقة ، ولكن سيتم تعقب كافة التغييرات',
+            'You may format text only with certain styles.': 'يمكنك تنسيق النص فقط مع أنماط معينه',
+            'Stop Protection': 'إيقاف الحماية',
+            'Unprotect Document': 'إلغاء حماية المستند',
+            'Password': 'كلمه المرور',
+            /* tslint:disable */
+            'Select parts of the document and choose users who are allowed to freely edit them.': 'حدد أجزاء من المستند واختر المستخدمين الذين يسمح لهم بالقيام بعملية تحرير هاهم بحرية',
+            "Don't add space between the paragraphs of the same styles": 'عدم إضافة مسافة بين فقرات نفس الأنماط',
+            "The password don't match": "كلمة المرور لا تتطابق",
+            /* tslint:enable */
+            'More users': 'المزيد من المستخدمين',
+            'Yes, Start Enforcing Protection': 'نعم، ابدأ فرض الحماية',
+            'Start Enforcing Protection': 'بدء تشغيل الحماية القسرية',
+            'Reenter new password to confirm': 'إعادة إدخال كلمة مرور جديدة للتأكيد',
+            // tslint:disable-next-line:max-line-length
+            'This document is protected from unintentional editing.You may edit in this region.': 'هذا المستند محمي من التحرير غير المقصود. يمكنك تحرير في هذه المنطقة.',
+            'Spelling Editor': 'محرر التدقيق الإملائي',
+            'Spelling': 'الاملائي',
+            'Spell Check': 'التدقيق الإملائي',
+            'Underline errors': 'أخطاء التسطير',
+            'Ignore': 'تجاهل',
+            'Ignore all': 'تجاهل الكل',
+            'Add to Dictionary': 'إضافة إلى القاموس',
+            'Change': 'تغيير',
+            'Change All': 'تغيير الكل',
+            'Suggestions': 'اقتراحات',
+            'The password is incorrect': 'كلمة المرور غير صحيحة',
+            'Error in establishing connection with web server': 'خطأ في تأسيس اتصال مع ملقم ويب',
+            'Highlight the regions I can edit': 'تسليط الضوء على المناطق التي يمكنني تحريرها',
+            'Show All Regions I Can Edit': 'إظهار كافة المناطق التي يمكنني تحريرها',
+            'Find Next Region I Can Edit': 'البحث عن المنطقة التالية التي يمكنني تحريرها'
         },
         'documenteditorcontainer': {
             'New': 'الجديد',
@@ -500,7 +552,27 @@ L10n.load({
                 'تم رفض الوصول إلى حافظه النظام من خلال البرنامج النصي بسبب نهج أمان المستعرضات. بدلا ' + '</br>' +
                 '1. يمكنك تمكين الحافظة الداخلية لقطع ونسخ ولصق داخل المكون' + '</br>' +
                 '2. يمكنك استخدام اختصارات لوحه المفاتيح (ctrl + X ، ctrl + C و ctrl + V) لقص ونسخ ولصق مع الحافظة النظام',
-            'Restrict editing.': 'تقييد التحرير'
+            'Restrict editing.': 'تقييد التحرير',
+            'Format restrictions': 'قيود التنسيق',
+            'Allow formatting': 'السماح بالتنسيق',
+            'Editing restrictions': 'قيود التحرير',
+            'Read only': 'للقراءة فقط',
+            'User permissions': 'أذونات المستخدم',
+            'Everyone': 'الجميع',
+            'Add Users': 'أضافه مستخدمين',
+            'Enforcing Protection': 'فرض الحماية',
+            'Enter User': 'ادخل المستخدم',
+            'Users': 'المستخدمين',
+            'Enter new password': 'ادخل كلمه مرور جديد',
+            'Reenter new password': 'أعاده إدخال كلمه مرور جديده',
+            'Your permissions': 'الأذونات الخاصة بك',
+            // tslint:disable-next-line:max-line-length
+            'This document is protected from unintenional editing.You may edit in this region,but all changes will be tracked.': 'هذا المستند محمي من التحرير غير الموجه. يمكنك التحرير في هذه المنطقة ، ولكن سيتم تعقب كافة التغييرات',
+            'You may format text only with certain styles.': 'يمكنك تنسيق النص فقط مع أنماط معينه',
+            'Stop Protection': 'إيقاف الحماية',
+            'Unprotect Document': 'إلغاء حماية المستند',
+            'Password': 'كلمه المرور',
+            'Protections': 'الحمايه'
         },
         'colorpicker': {
             'Apply': 'تطبيق',
@@ -520,13 +592,13 @@ export default Vue.extend({
     data: function() {
         return {
           hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
-          documentName : 'Right to Left',
+          documentName : 'الشروع',
           documentTitle: 'Untitled Document',
-          iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
+          iconStyle: 'float:left;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
             titileStyle: 'text-transform:capitalize;font-weight:400;font-family:inherit;text-overflow:ellipsis;white-space:pre;overflow:hidden;user-select:none;cursor:text',
-            openIconCss: 'e-de-icon-Open e-de-padding-right',
-            printIconCss: 'e-de-icon-Print e-de-padding-right',
-            exportIconCss: 'e-de-icon-Download e-de-padding-right',
+            openIconCss: 'e-de-icon-Open e-de-padding-right-rtl',
+            printIconCss: 'e-de-icon-Print e-de-padding-right-rtl',
+            exportIconCss: 'e-de-icon-Download e-de-padding-right-rtl',
             exportItems: [
                 { text: 'Microsoft Word (.docx)', id: 'word' },
                 { text: 'Syncfusion Document Text (.sfdt)', id: 'sfdt' }
@@ -601,7 +673,7 @@ export default Vue.extend({
           this.$refs.doceditcontainer.ej2Instances.locale='ar-AE';
           obj.open(JSON.stringify(data));
           obj.documentName='Right to Left';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/import';
+          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           obj.documentChange = () => {
                 this.documentChangedEvent();
             };

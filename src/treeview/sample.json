@@ -2,7 +2,6 @@
     "name": "TreeView",
     "directory": "treeview",
     "category": "Navigation",
-    "type": "update",
     "ftName" :"treeview",
     "samples": [{
             "url": "default",
@@ -28,7 +27,6 @@
 	{
             "url": "check-box",
             "name": "CheckBox",
-            "type": "update",
             "category": "TreeView",
             "description": "This demo demonstrates the tree view with checkbox functionality, this allows the user to check more than one tree nodes.",
              "sourceFiles":[

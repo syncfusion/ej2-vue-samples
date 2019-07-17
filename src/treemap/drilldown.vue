@@ -98,9 +98,9 @@ return{
             border: { color: 'black', width: 0.5 }
         },
         levels: [
-            { groupPath: 'Continent', fill: '#336699', border: { color: 'black', width: 0.5 } },
-            { groupPath: 'States', fill: '#336699', border: { color: 'black', width: 0.5 } },
-            { groupPath: 'Region', showHeader: true, fill: '#336699', border: { color: 'black', width: 0.5 } },
+            { groupPath: 'Continent', border: { color: 'black', width: 0.5 } },
+            { groupPath: 'States', border: { color: 'black', width: 0.5 } },
+            { groupPath: 'Region', showHeader: true, border: { color: 'black', width: 0.5 } },
         ],
         headerdata:[
             {value: 'Near', text: 'Near'},

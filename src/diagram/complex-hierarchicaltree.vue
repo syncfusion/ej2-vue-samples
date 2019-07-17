@@ -207,7 +207,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Name",
         parentId: "ReportingPerson",
-        dataManager: new DataManager(multiParentData),
+        dataSource: new DataManager(multiParentData),
         //binds the external data with node
         doBinding: (nodeModel, data, diagram) => {
           /* tslint:disable:no-string-literal */

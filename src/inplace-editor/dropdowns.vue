@@ -115,15 +115,15 @@ export default Vue.extend({
         multiValue: ['Canada', 'Bermuda'],
         dropdownModel: {
             dataSource: dropdownData,
-            placeholder: 'Find a countries'
+            placeholder: 'Find a country'
         },
         autoCompleteModel: {
             dataSource: dropdownData,
-            placeholder: ' Type to search countries'
+            placeholder: ' Type to search country'
         },
         comboBoxModel: {
             dataSource: dropdownData,
-            placeholder: 'Find a countries'
+            placeholder: 'Find a country'
         },
         multiSelectModel: {
             dataSource: dropdownData,

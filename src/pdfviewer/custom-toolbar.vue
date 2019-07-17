@@ -24,7 +24,7 @@
     </input>
 
     <div class="control-section">
-      <ejs-pdfviewer id="pdfviewer" ref="pdfviewer" :pageChange="pageChange" :documentLoad="documentLoad" :serviceUrl="serviceUrl" :documentPath="documentPath" :enableToolbar="enableToolbar"></ejs-pdfviewer>
+      <ejs-pdfviewer id="pdfviewer" ref="pdfviewer" :pageChange="pageChange" :documentLoad="documentLoad" :serviceUrl="serviceUrl" :documentPath="documentPath" :enableToolbar="enableToolbar" :enableNavigationToolbar="enableNavigationToolbar"></ejs-pdfviewer>
     </div>
 
     <div id="action-description">
@@ -155,13 +155,11 @@
         content: '\e91c';
     }
 
-    #customToolbar .e-pv-download-document-icon::before {
-	    padding-left: 4px;
+    .e-pv-download-document-icon::before {
         content: '\e914';
     }
 
-    #customToolbar .e-pv-print-document-icon::before {
-	    padding-left: 1px;
+    .e-pv-print-document-icon::before {
         content: '\e917';
     }
 
@@ -277,6 +275,7 @@
                 serviceUrl: "https://ej2services.syncfusion.com/production/web-services/api/pdfviewer",
                 documentPath: "Hive_Succinctly.pdf",
                 enableToolbar: false,
+                enableNavigationToolbar: false,
                 pageNoTemplate: '<div class=""><input type="text" class="e-input-group e-pv-current-page-number" id="currentPage" /></div>',
                 pageTextTemplate: '<div class=""><span class="e-pv-total-page-number" id="totalPage">of 0</span></div>'
             }

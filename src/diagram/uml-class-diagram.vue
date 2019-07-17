@@ -40,7 +40,7 @@ let nodes = [
       id: 'Patient',
       shape: {
         type: 'UmlClassifier',
-        class: {
+        classShape: {
           name: 'Patient',
           attributes: [
             createProperty('accepted', 'Date'),
@@ -59,7 +59,7 @@ let nodes = [
       id: 'Doctor',
       shape: {
         type: 'UmlClassifier',
-        class: {
+        classShape: {
           name: 'Doctor',
           attributes: [
             createProperty('specialist', 'String[*]'),
@@ -75,7 +75,7 @@ let nodes = [
       id: 'Person',
       shape: {
         type: 'UmlClassifier',
-        class: {
+        classShape: {
           name: 'Person',
           attributes: [
             createProperty('name', 'Name'),
@@ -92,7 +92,7 @@ let nodes = [
       id: 'Hospital',
       shape: {
         type: 'UmlClassifier',
-        class: {
+        classShape: {
           name: 'Hospital',
           attributes: [
             createProperty('name', 'Name'),
@@ -110,7 +110,7 @@ let nodes = [
       id: 'Department',
       shape: {
         type: 'UmlClassifier',
-        class: {
+        classShape: {
           name: 'Department',
           methods: [createMethods('getStaffCount', 'Int')]
         },
@@ -123,7 +123,7 @@ let nodes = [
       id: 'Staff',
       shape: {
         type: 'UmlClassifier',
-        class: {
+        classShape: {
           name: 'Staff',
           attributes: [
             createProperty('joined', 'Date'),
@@ -219,7 +219,7 @@ export default Vue.extend({
     node.offsetY = offsetY;
     node.shape = {
       type: 'UmlClassifier',
-      class: {
+      classShape: {
         name: className
       },
       classifier: 'Class'

@@ -73,6 +73,10 @@
         display: grid;
         height: 100%;
     }
+     .default-splitter .splitterContent.e-rtl div.e-pane-horizontal, .default-splitter .splitterContent.e-rtl div.e-pane-vertical {
+      justify-content: initial;
+    text-align: initial;
+    }
 </style>
 <script>
 import Vue from "vue";

@@ -64,7 +64,7 @@
             </p>
             <p>
                 To start using the export and import ICS functionality in Scheduler, you need to import the
-                <code>ICalendarExport</code> and <code>ICalendarImport</code> modules from <code>@syncfusion/ej2-schedule</code>
+                <code>ICalendarExport</code> and <code>ICalendarImport</code> modules from <code>@syncfusion/ej2-vue-schedule</code>
                 package and then inject them into the <code>provide</code> section.
             </p>
         </div>

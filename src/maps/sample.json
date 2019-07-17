@@ -61,6 +61,17 @@
             ]
         },
         {
+            "url": "marker-cluster",
+            "name": "Marker clustering",
+            "category": "Features",
+            "api": {},
+            "type": "new",
+            "sourceFiles": [
+                {"displayName": "marker-cluster.vue", "path": "./src/maps/marker-cluster.vue"},
+                {"displayName": "cluster-data.ts", "path": "./src/maps/map-data/marker-cluster.ts"}
+            ]
+        },
+        {
             "url": "data-label",
             "name": "Labels",
             "category": "Features",
@@ -271,9 +282,18 @@
         "url": "cyber-attack-map",
         "name": "Cyber Attack Maps",
         "category": "Use Cases",
-        "api": {},
-        "type": "new"
-    },
+        "api": {}
+       },
+       {
+            "url": "dynamic-marker",
+            "name": "Dynamic markers",
+            "category": "Use Cases",
+            "api": {},
+            "type": "new",
+            "sourceFiles": [
+                {"displayName": "dynamic-marker.vue", "path": "./src/maps/dynamic-marker.vue"}
+            ]
+        },
        {
            "url": "pie",
            "name": "Map with Pie chart",

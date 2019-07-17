@@ -32,7 +32,7 @@
         </p>
         <p>
         To start using Excel exporting functionality in Scheduler, you need to import the <code>ExcelExport</code> module from
-        <code>@syncfusion/ej2-schedule</code> package and then inject it into the <code>provide</code> section.
+        <code>@syncfusion/ej2-vue-schedule</code> package and then inject it into the <code>provide</code> section.
         </p>
         </div> 
     </div>

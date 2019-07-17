@@ -18,8 +18,7 @@
         {
             "url": "right-to-left",
             "name": "Right To Left",
-            "category": "PDF Viewer",
-            "type": "new"
+            "category": "PDF Viewer"
         }
     ]
 

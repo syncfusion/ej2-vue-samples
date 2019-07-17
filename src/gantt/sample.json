@@ -199,6 +199,53 @@
             ]
          },
          "description": "This example demonstrates the unscheduled tasks in Gantt with custom toolbar item and dynamic add support."
+      },
+	  {
+         "url": "zooming",
+         "name": "Zooming",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskSettings",
+               "toolbar",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This example demonstrates the zooming support of the Gantt chart timeline and ZoomToFit support of the Gantt chart."
+      },
+      {
+         "url": "context-menu",
+         "name": "Context Menu",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "height",
+               "taskSettings",
+               "editSettings",
+               "toolbar",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceNameMapping",
+               "resourceIdMapping",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "enableContextMenu",
+               "contextMenuItems"
+            ]
+         },
+         "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion Gantt control."
       }
    ]
 }

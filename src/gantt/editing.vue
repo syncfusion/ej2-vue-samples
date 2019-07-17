@@ -127,7 +127,7 @@ export default Vue.extend({
             ],
             labelSettings: {
                 leftLabel: 'TaskName',
-                rightLabel: '${if(taskData.subtasks)}${taskData.Duration} ${else if(resources)}${resources}${/if}'
+                rightLabel: 'resources'
             },
             editDialogFields: [
                 { type: 'General', headerText: 'General' },
