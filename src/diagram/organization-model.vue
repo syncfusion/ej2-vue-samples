@@ -222,7 +222,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Id",
         parentId: "Manager",
-        dataManager: new DataManager(localBindData),
+        dataSource: new DataManager(localBindData),
         doBinding: (nodeModel, data, diagram) => {
           nodeModel.shape = {
             type: "Text",

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="col-md-12 control-section">
+        <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule height="650px" id='Schedule' :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
                     :eventRendered="oneventRendered">
@@ -10,6 +10,19 @@
                         <e-view option="Month"></e-view>
                     </e-views>
                 </ejs-schedule>
+            </div>
+        </div>
+        <div class="col-lg-3 property-section">
+            <div id="property" class="property-panel-table" title="Properties">
+                <table id="property" title="Properties" style="width: 100%">
+                    <tbody>
+                        <tr style="height: 50px">
+                            <td style="width: 100%">
+                                <ejs-checkbox label="Enable Following Events" :checked="false" :change="onChange"></ejs-checkbox>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -77,9 +90,11 @@
 <script>
     import Vue from "vue";
     import { recurrenceData } from './datasource';
+    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
     import { extend } from '@syncfusion/ej2-base';
     import { SchedulePlugin, Day, Week, Month, EventRenderedArgs, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
+    Vue.use(CheckBoxPlugin);
     export default Vue.extend({
         data: function () {
             return {
@@ -98,6 +113,11 @@
                     return;
                 }
                 args.element.style.backgroundColor = categoryColor;
+            },            
+            onChange: function (args) {
+                this.eventSettings = {
+                    editFollowingEvents: args.checked
+                };
             }
         }
     });

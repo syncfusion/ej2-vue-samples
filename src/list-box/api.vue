@@ -2,7 +2,7 @@
     <div>
         <div class="col-lg-8 control-section">
             <div id="listbox-api-control">
-                <ejs-listbox :dataSource="data" :fields="fields" :selectionSettings="selectionSettings" :sortOrder="sortOrder"></ejs-listbox>
+                <ejs-listbox ref="listBoxObj" :dataSource="data" :fields="fields" :selectionSettings="selectionSettings" :sortOrder="sortOrder"></ejs-listbox>
             </div>
         </div>
         <div class="col-lg-4 property-section">
@@ -35,15 +35,14 @@
             <p>This sample demonstrates the API functionalities of the ListBox component by using its properties from the property pane. Select any combination of properties from the property pane to achieve desired functionalities in ListBox.</p>
         </div>
         <div id="description">
-            <p>In this demo, a ListBox is rendered with grouping feature by setting the <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/api/list-box/fieldSettingsModel/#groupby"><code>groupBy</code></a> property
-                in <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/api/list-box/#fields"><code>fields</code></a> property. This sample has been showcased with following set of properties,</p>
+            <p>In this demo, a ListBox is rendered with grouping feature by setting the <code>groupBy</code> property in <code>fields.</code> This sample has been showcased with following set of properties,</p>
             <ul>
                 <li>You can switch to <code>Single</code> or <code>Multiple</code> selection mode by selecting the mode from the selection mode dropdown list.</li>
                 <li>You can switch to <code>None</code>, <code>Ascending</code>, or <code>Descending</code> sort orders by selecting the sort order from the sort order dropdown list.</li>
             </ul>
-            <p>In this sample, by default, grouping is enabled and vegetableData is grouped based on its category. The user can change the sort order and selection type using dropdownlist.</p>
+            <p>In this sample, by default, grouping is enabled and <code>vegetableData</code> is grouped based on its category. The user can change the sort order and selection type using dropdownlist.</p>
             <p>More information about the ListBox api can be found in the
-                <a href="https://ej2.syncfusion.com/documentation/vue/api/list-box/" target="_blank"> documentation</a> section.
+                <a href="https://ej2.syncfusion.com/documentation/api/list-box/" target="_blank"> documentation section</a>.
             </p>
         </div>
     </div>

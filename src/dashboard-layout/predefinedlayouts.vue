@@ -351,5 +351,7 @@ body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel {
 body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
-
+body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .panel-content {
+    color: rgba(255, 255, 255, 0.54);
+}
 </style>

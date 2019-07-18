@@ -2,7 +2,7 @@
     <div class="control-section">
       <div class="col-md-8 control-section">
           <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-              :chartArea='chartArea' :tooltip='tooltip' :animation='animation'>
+              :chartArea='chartArea' :tooltip='tooltip'>
               <e-series-collection>
                   <e-series :dataSource='seriesData' :type='seriesType'  xName='x' yName='car' name='Car' width=2> </e-series>
                   <e-series :dataSource='seriesData' :type='seriesType'  xName='x' yName='trucks' name='Trucks' width=2 > </e-series>
@@ -23,7 +23,7 @@
                     </td>
                     <td>
                         <div>
-                             <input type="checkbox" id="dec" @change='indexed' :width='datawidth' >
+                             <input type="checkbox" id="dec" @change='changeEvent'  disabled />
                         </div>
                     </td>
                 </tr>
@@ -33,7 +33,7 @@
                     </td>
                     <td>
                         <div>
-                            <ejs-dropdownlist id='SelectSeriesType' :change='dropType' :dataSource='dropdata' index=0 :width='serieswidth' ></ejs-dropdownlist>                      
+                            <ejs-dropdownlist ref="dropdown" id='SelectSeriesType' :change='changeEvent' :dataSource='dropdata' index=0 :width='serieswidth' ></ejs-dropdownlist>                      
                             
                         </div>
                     </td>
@@ -109,7 +109,6 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
                 width: 0
             }
         },
-        datawidth: 120,
         dropdata: ["None", "X", "Y"],
 
       serieswidth: 120,
@@ -118,7 +117,6 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
     tooltip: {
             enable: true
         },
-        animation: {enable: 'false'},  
         title: "Vehicle Sales by Region"
       };
     },
@@ -131,17 +129,9 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
     });
   },
     methods: {
-      dropType: function(args) {
-           let drop = document.getElementById('SelectSeriesType');
-       this.sortDataSource(drop.value);
+      changeEvent: function(args) {
+       this.sortDataSource(this.$refs.dropdown.ej2Instances.value);
     },
-       
-
-       indexed: function(args){
-          let index = document.getElementById('dec');
-       this.sortDataSource(index.value);
-       },
-
         sortDataSource: function (value) {
         let element = document.getElementById('dec');
         let isDecending = element.checked;
@@ -155,7 +145,14 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
             element.disabled = true;
             sortData = this.seriesData;
         }
-       this.seriesData = sortData; 
+        this.$refs.chart.ej2Instances.series[0].animation.enable = false;
+        this.$refs.chart.ej2Instances.series[1].animation.enable = false;
+        this.$refs.chart.ej2Instances.series[2].animation.enable = false;
+        this.$refs.chart.ej2Instances.series[3].animation.enable = false;
+        this.$refs.chart.ej2Instances.series[0].dataSource = sortData;
+        this.$refs.chart.ej2Instances.series[1].dataSource = sortData;
+        this.$refs.chart.ej2Instances.series[2].dataSource = sortData;
+        this.$refs.chart.ej2Instances.series[3].dataSource = sortData;
     }
     },
    

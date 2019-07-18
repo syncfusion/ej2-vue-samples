@@ -25,8 +25,8 @@
         },
         {
             "url": "paste-cleanup",
-            "name": "Paste Cleanup",
-            "type": "new",
+            "name": "Paste from MS Word",
+            "type": "update",
             "category": "Rich Text Editor"
         },
         {
@@ -65,13 +65,20 @@
             "category": "Toolbar"
         },
         {
-            "url": "custom-toolbar",
-            "name": "Custom Tool",
-            "category": "Toolbar"
+            "url": "insert-emoticons",
+            "name": "Insert Emoticons",
+            "type": "new",
+            "category": "Custom Tool"
+        },
+        {
+            "url": "insert-special-characters",
+            "name": "Insert Special Characters",
+            "category": "Custom Tool"
         },
         {
             "url": "markdown-editor",
             "name": "Overview",
+            "type": "update",
             "category": "Markdown Editor"
         },
         {

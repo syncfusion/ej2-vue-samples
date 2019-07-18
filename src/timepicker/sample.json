@@ -2,7 +2,6 @@
     "name": "TimePicker",
     "directory": "timepicker",
     "category": "Calendars",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -39,7 +38,6 @@
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "TimePicker",
-            "type" : "new",
             "hideOnDevice": true,
             "api":{"TimePicker": [ "value" ]}
         }

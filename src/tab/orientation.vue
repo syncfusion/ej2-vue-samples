@@ -140,6 +140,10 @@
     content: '\e7fc';
     position: relative;
 }
+.bootstrap4 .e-tab .e-tab-header .e-close-icon:before{
+    content: '\e745';
+    position: relative;
+}
 #tab_orientation .e-listview:not(.e-list-template) .e-list-item {
     height: 63px;
 }

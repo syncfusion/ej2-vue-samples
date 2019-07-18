@@ -208,7 +208,6 @@ export default Vue.extend({
             let forwardForecast; let backwardForecast; let polynomialOrder; let period;
             if (trend !== 'Power') {
                 this.seriesData = series1; 
-                this.name = 'Rupees';
 
                   let primaryXAxis = extend({}, this.primaryXAxis);
             primaryXAxis.title = '';
@@ -226,10 +225,11 @@ export default Vue.extend({
             let marker = extend({}, this.marker);
             marker.visible = false;
             this.marker = marker;
+            
                 }
             } else {
                 this.seriesData = powerData;
-                this.name = 'Meters';
+                this.name = 'Power';
 
                   let primaryXAxis = extend({}, this.primaryXAxis);
             primaryXAxis.title = 'Seconds';

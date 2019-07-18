@@ -18,6 +18,7 @@
                 <code>dataSource</code> property available within the
                 <code>eventSettings</code> needs to be assigned with the valid local JSON data.
             </p>
+            <p>The <code>eventRendered</code> event is used to customize the events. In this sample, background color of the event is changed based on the custom field 'CategoryColor'</p>
         </div>
     </div>
 </template>

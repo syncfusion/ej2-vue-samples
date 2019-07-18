@@ -663,5 +663,100 @@
         {
             "text": "Logout"
         }
+    ],
+    "hamburgerData": [
+        {
+            "text": "Accessories",
+            "items": [
+                {
+                    "text": "Mobile",
+                    "id": "mobile",
+                    "items": [
+                        {
+                            "text": "Headphones"
+                        },
+                        {
+                            "text": "Batteries"
+                        },
+                        {
+                            "text": "Memory Cards"
+                        }
+                    ]
+                },
+                {
+                    "text": "Laptops"
+                },
+                {
+                    "text": "Desktop PC",
+                    "items": [
+                        {
+                            "text": "Pendrives"
+                        },
+                        {
+                            "text": "External Hard Disks"
+                        }
+                    ]
+                },
+                {
+                    "text": "Camera",
+                    "items": [
+                        {
+                            "text": "Lens"
+                        },
+                        {
+                            "text": "Tripods"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "text": "Fashion",
+            "items": [
+                {
+                    "text": "Men"
+                },
+                {
+                    "text": "Women"
+                }
+            ]
+        },
+        {
+            "text": "Home & Living",
+            "items": [
+                {
+                    "text": "Furniture"
+                },
+                {
+                    "text": "Decor"
+                },
+                {
+                    "text": "Smart Home Automation"
+                },
+                {
+                    "text": "Dining & Serving"
+                }
+            ]
+        },
+        {
+            "text": "Entertainment",
+            "items": [
+                {
+                    "text": "Televisions"
+                },
+                {
+                    "text": "Home Theatres"
+                },
+                {
+                    "text": "Gaming Laptops"
+                }
+            ]
+        },
+        {
+            "text": "Contact Us"
+        },
+        {
+            "text": "Help"
+        }
     ]
 }

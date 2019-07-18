@@ -196,6 +196,8 @@ export default Vue.extend({
         primaryXAxis.startAngle = value;
         this.primaryXAxis = primaryXAxis;
         document.getElementById("st-lbl").innerHTML = "Start Angle: " + value;
+        this.$refs.chart.ej2Instances.series[0].animation.enable = false;
+        this.$refs.chart.ej2Instances.series[1].animation.enable = false;
     },
     polarType: function(args) {
         this.seriesType = SelectSeriesType.value;

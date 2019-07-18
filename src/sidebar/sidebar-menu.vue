@@ -100,7 +100,8 @@ export default Vue.extend({
   },
     methods: {
         newTabClick: function() {
-           document.getElementById('newTab').setAttribute('href', location.href.split('#')[0] + 'samples/sidebar/sidebar-menu/index.html');
+           var URL = location.href.replace(location.search, '');
+           document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/sidebar-menu/index.html');
         },
         
         toggleClick: function() {

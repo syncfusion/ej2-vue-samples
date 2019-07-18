@@ -26,7 +26,7 @@
             </td>
             <td style="width: 70%;padding-right: 5px">
                 <div id='numericbox'>
-                    <ejs-numerictextbox ref='start' :min=0 format='##'></ejs-numerictextbox>
+                    <ejs-numerictextbox ref='start' width='110px' :min=0 format='##'></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
@@ -36,7 +36,7 @@
             </td>
             <td style="width: 70%;padding-right: 5px">
                 <div>
-                    <ejs-numerictextbox ref='to' :min=0 format='##'></ejs-numerictextbox>
+                    <ejs-numerictextbox ref='to' width='110px' :min=0 format='##'></ejs-numerictextbox>
                 </div>
             </td>
         </tr>

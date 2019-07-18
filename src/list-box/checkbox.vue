@@ -7,12 +7,11 @@
             <p>This sample demonstrates the checkbox functionalities of the ListBox. Click one or more items from the list of items in the ListBox.</p>
         </div>
         <div id="description">
-            <p>The <code>ListBox</code> component has built-in support to select multiple items from the list. The Checkbox selection can be enabled by setting the
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/list-box/selectionSettingsModel/#showcheckbox"><code>showCheckbox</code> as <code>true</code>
-                in the <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/api/list-box/#selectionsettings"><code>selectionSettings</code></a> property.</p>
+            <p>The <code>ListBox</code> component has built-in support to select multiple items from the list. The <code>CheckBox</code> selection can be enabled by setting the <code>type</code> as
+                <code>CheckBox</code> in the <code>selectionSettings</code> property.</p>
             <p>To perform the checkbox feature in the ListBox, the <code>CheckBoxSelection</code> module has to be injected at the application level.</p>
-            <p>More information about checkbox selection in ListBox can be found in the
-                <a href="https://ej2.syncfusion.com/documentation/vue/list-box/" target="_blank"> documentation</a> section.
+            <p> More information about checkbox selection in ListBox can be found in the
+                <a href="https://ej2.syncfusion.com/vue/documentation/list-box/" target="_blank"> documentation section</a>.
             </p>
         </div>
     </div>
@@ -20,7 +19,7 @@
 <!-- custom code start -->
 <style>
     #listbox-selection {
-        width: 380px;
+        width: 25%;
         margin: auto;
     }
     @media screen and (max-width: 590px) {

@@ -76,6 +76,12 @@
 .property-panel-table div {
   padding-left: 0;
 }
+.sb-content.e-view.hide-header {
+    top: 0 !important;
+}
+.sb-header.e-view.hide-header {
+    display: none;
+}
 /* custom code end */
 </style>
 <script>
@@ -156,6 +162,8 @@ export default Vue.extend({
       this.$refs.rteInstance.dataBind();
     },
     handleFullScreen: function(e) {
+      var sbCntEle = document.querySelector('.sb-content.e-view');
+      var sbHdrEle = document.querySelector('.sb-header.e-view');
       var leftBar;
       var transformElement;
       if (Browser.isDevice) {
@@ -168,6 +176,9 @@ export default Vue.extend({
         transformElement = document.querySelector("#right-pane");
       }
       if (e.targetItem === "Maximize") {
+        if (Browser.isDevice && Browser.isIos) {
+          addClass([sbCntEle, sbHdrEle], ['hide-header']);
+        }
         addClass([leftBar], ["e-close"]);
         removeClass([leftBar], ["e-open"]);
         if (!Browser.isDevice) {
@@ -175,6 +186,9 @@ export default Vue.extend({
         }
         transformElement.style.transform = "inherit";
       } else if (e.targetItem === "Minimize") {
+        if (Browser.isDevice && Browser.isIos) {
+          removeClass([sbCntEle, sbHdrEle], ['hide-header']);
+        }
         removeClass([leftBar], ["e-close"]);
         if (!Browser.isDevice) {
           addClass([leftBar], ["e-open"]);

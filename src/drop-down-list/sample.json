@@ -1,6 +1,7 @@
 {
     "name": "Dropdown List",
     "directory": "drop-down-list",
+    "type": "update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -8,7 +9,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates the default functionalities of the Vue drop-down list component with minimum configuration.",
             "sourceFiles":[
-                { "displayName": "default.vue", "path":"src/drop-down-list/default.Vue" },
+                { "displayName": "default.vue", "path":"src/drop-down-list/default.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -18,7 +19,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how to group based on the different categories with individual header and icon support using Vue drop-down list component.",
             "sourceFiles":[
-                { "displayName": "grouping-icon.vue", "path":"src/drop-down-list/grouping-icon.Vue" },
+                { "displayName": "grouping-icon.vue", "path":"src/drop-down-list/grouping-icon.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -28,7 +29,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how to bind with local data source and fetch data from remote data service in the Vue drop-down list component.",
             "sourceFiles":[
-                { "displayName": "data-binding.vue", "path":"src/drop-down-list/data-binding.Vue" },
+                { "displayName": "data-binding.vue", "path":"src/drop-down-list/data-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -38,7 +39,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how to customize the appearance of each item in the Vue drop-down list component pop-up list using the template.",
             "sourceFiles":[
-                { "displayName": "template.vue", "path":"src/drop-down-list/template.Vue" },
+                { "displayName": "template.vue", "path":"src/drop-down-list/template.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -48,7 +49,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue drop-down list component.",
             "sourceFiles":[
-                { "displayName": "filtering.vue", "path":"src/drop-down-list/filtering.Vue" },
+                { "displayName": "filtering.vue", "path":"src/drop-down-list/filtering.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -58,7 +59,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how to create a related drop-down list (Cascading DropDownList) using the Vue drop-down list component.",
             "sourceFiles":[
-                { "displayName": "cascading.vue", "path":"src/drop-down-list/cascading.Vue" },
+                { "displayName": "cascading.vue", "path":"src/drop-down-list/cascading.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -68,7 +69,7 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how to render the Vue drop-down list component in line with highlighted contents.",
             "sourceFiles":[
-                { "displayName": "inline.vue", "path":"src/drop-down-list/inline.Vue" },
+                { "displayName": "inline.vue", "path":"src/drop-down-list/inline.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },
@@ -78,7 +79,18 @@
             "category": "Dropdown List",
             "description": "This example demonstrates how to achieve the diacritics filter functionalities in the Vue drop-down list component.",
             "sourceFiles":[
-                { "displayName": "diacritics-filtering.vue", "path":"src/drop-down-list/diacritics-filtering.Vue" },
+                { "displayName": "diacritics-filtering.vue", "path":"src/drop-down-list/diacritics-filtering.vue" },
+                { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "two-way-binding",
+            "name": "Two-way Binding",
+            "type": "new",
+            "category": "Dropdown List",
+            "description": "The Vue Dropdown List component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve in sync with data in the DOM.",
+            "sourceFiles":[
+                { "displayName": "two-way.vue", "path":"src/drop-down-list/two-way-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         }

@@ -54,7 +54,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Name",
         parentId: "Category",
-        dataManager: new DataManager(species),
+        dataSource: new DataManager(species),
         //binds the external data with node
         doBinding: (nodeModel, data, diagram) => {
           nodeModel.annotations = [

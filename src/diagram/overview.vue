@@ -80,7 +80,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "Id",
         parentId: "ReportingPerson",
-        dataManager: new DataManager(data)
+        dataSource: new DataManager(data)
       },
       //Sets the default values of Node
       getNodeDefaults: (obj, diagram) => {

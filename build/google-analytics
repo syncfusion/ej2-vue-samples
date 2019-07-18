@@ -1,0 +1,50 @@
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-233131-15', 'auto');
+        ga('set', 'page', window.location.pathname.replace(/\/$/, '') + window.location.hash.replace(/(#|material\/|fabric\/|bootstrap\/|highcontrast\/)/g, ''));
+        ga('send', 'pageview');
+        window.addEventListener("hashchange", function () {
+            ga('set', 'page', window.location.pathname.replace(/\/$/, '') + window.location.hash.replace(/(#|material\/|fabric\/|bootstrap\/|highcontrast\/)/g, ''));
+            ga('send', 'pageview');
+        }, false);
+    </script>
+    <script>
+        // To get cookie value
+        function getCookieValue(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieValues = decodedCookie.split(';');
+            for (var i = 0; i < cookieValues.length; i++) {
+                var cookie = cookieValues[i];
+                while (cookie.charAt(0) == ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // Referral url and current url should not be same to avoid multiple entries
+        if (document.referrer && document.referrer.split('/')[2] != window.location.host) {
+            var existingCookieValue = getCookieValue("SampleSiteReferrer");
+            var currentUrl = "";
+            if (existingCookieValue.indexOf(window.location.host) === -1) {
+                currentUrl = "," + window.location.href;
+            }
+            if (existingCookieValue != "undefined" && existingCookieValue != undefined && existingCookieValue != "") {
+                existingCookieValue = existingCookieValue + currentUrl;
+                document.cookie = "SampleSiteReferrer" + "=" + existingCookieValue + ";path=/;domain=syncfusion.com";
+            }
+            else {
+                document.cookie = "SampleSiteReferrer" + "=" + document.referrer + currentUrl + ";path=/;domain=syncfusion.com";
+            }
+        }
+    </script>

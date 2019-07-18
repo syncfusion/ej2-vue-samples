@@ -18,14 +18,14 @@
         <div id="description">
             <p>The ListBox component allows the user to drag and drop a desired item from one list box into another list box. The drag and drop feature can be enabled by using the following properties,</p>
             <ul>
-                <li>To drag and drop a desired item within the ListBox, the <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/api/list-box/#allowdraganddrop"><code>allowDragAndDrop</code></a> property should be set to <code>true.</code></li>
-                <li>To drag and drop between two listboxes, the <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/api/list-box/#scope"><code>scope</code></a> property should be set to both the listboxes.</li>
+                <li>To drag and drop a desired item within the ListBox, the <code>allowDragAndDrop</code> property should be set to <code>true.</code></li>
+                <li>To drag and drop between two listboxes, the <code>scope</code> property should be set to both the listboxes.</li>
             </ul>
-            <p>In this sample, a list of countries is loaded in Group A and another list of countries is loaded in Group B. You can drag and drop an item or multiple items from
-                Group A to Group B, and vice versa. Save changes is enabled in the sample for Group B, so that by clicking update button, user can save the
-                changes in json using Datamanager <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/api/data/dataManager/#savechanges"><code>saveChanges</code></a> method.</p>
+            <p>In this sample, a list of countries is loaded in <code>Group A</code> and another list of countries is loaded in <code>Group B.</code> You can drag and drop an item or multiple items from
+                <code>Group A</code> to <code>Group B</code>, and vice versa. Save changes is enabled in the sample for <code>Group B</code>, so that by clicking save changes button, user can save the
+                changes in json using <code>Datamanager</code> save changes method.</p>
             <p>More information about drag and drop functionalities in the ListBox can be found in the
-                <a href="https://ej2.syncfusion.com/documentation/vue/list-box/" target="_blank"> documentation</a> section.
+                <a href="https://ej2.syncfusion.com/vue/documentation/list-box/" target="_blank"> documentation section</a>.
             </p>  
         </div>
     </div>

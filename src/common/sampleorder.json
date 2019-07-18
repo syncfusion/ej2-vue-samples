@@ -1,7 +1,7 @@
 {
   "Grids": [
     "Data Grid",
-    "TreeGrid",
+    "Tree Grid",
     "Pivot Table"
   ],
   "Data Visualization": [
@@ -15,7 +15,8 @@
     "Linear Gauge",
     "Range Selector",
     "Sparkline Charts",
-    "Smith Chart"
+    "Smith Chart",
+    "Barcode"
   ],
   "Editors": [
     "Rich Text Editor",

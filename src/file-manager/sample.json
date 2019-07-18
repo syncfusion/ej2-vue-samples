@@ -3,12 +3,12 @@
     "directory": "file-manager",
     "category": "Navigation",
     "ftName" :"file-manager",
-    "type":"preview",
+    "type":"update",
     "samples": [{
         "url": "overview",
         "name": "Overview",
         "category": "File Manager",
-        "description":"The FileManager component is used to explore a file system through a web application, similar to the windows explorer for windows.",
+        "description":"This example demonstrates full view of the File Manager like a windows explorer UI  in a Vue File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] }
     },
     {
@@ -16,14 +16,46 @@
         "name": "Custom Thumbnails",
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings"] },
-        "description":"The FileManager component is used to explore a file system through a web application, similar to the windows explorer for windows."
+        "description":"This example demonstrates how to use the custom thumbnails in a Vue File Manager."
     },
     {
         "url": "default",
         "name": "API",
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] },
-        "description": "The FileManager component is used to explore a file system through a web application, similar to the windows explorer for windows."
+        "description": "This example demonstrates how to render the File Manager without the navigation pane in a Vue File Manager."
+    },
+    {
+        "url": "drag-drop",
+        "name": "Drag and Drop",
+        "category": "File Manager",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to drag and drop the files in a Vue File Manager."
+    },
+    {
+        "url": "file-upload",
+        "name": "File Upload",
+        "category": "Use Case",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to render the File Manager component inside the Dialog component in a Vue File Manager."
+    },
+    {
+        "url": "azure-service",
+        "name": "Azure Blob Provider",
+        "category": "Cloud Service Providers",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the azure service in a Vue File Manager."
+    },
+    {
+        "url": "sql-server-provider",
+        "name": "SQL Database Provider",
+        "category": "Cloud Service Providers",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the sql server database service in a Vue File Manager."
     }
 
     ]

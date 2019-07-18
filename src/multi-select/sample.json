@@ -1,6 +1,7 @@
 {
     "name": "MultiSelect Dropdown",
     "directory": "multi-select",
+    "type":"update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -8,7 +9,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates the default functionalities of the Vue multiselect component with minimum configuration.",
             "sourceFiles":[
-                { "displayName": "default.vue", "path":"src/multi-select/default.Vue" },
+                { "displayName": "default.vue", "path":"src/multi-select/default.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -18,7 +19,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to bind with local data source and fetch data from remote data service in the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "data-binding.vue", "path":"src/multi-select/data-binding.Vue" },
+                { "displayName": "data-binding.vue", "path":"src/multi-select/data-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -28,7 +29,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to group based on the different categories with individual header and icon support using the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "grouping-icon.vue", "path":"src/multi-select/grouping-icon.Vue" },
+                { "displayName": "grouping-icon.vue", "path":"src/multi-select/grouping-icon.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -38,7 +39,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to customize the appearance of each item in the Vue multiselect component pop-up list using the template.",
             "sourceFiles":[
-                { "displayName": "template.vue", "path":"src/multi-select/template.Vue" },
+                { "displayName": "template.vue", "path":"src/multi-select/template.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -48,7 +49,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "filtering.vue", "path":"src/multi-select/filtering.Vue" },
+                { "displayName": "filtering.vue", "path":"src/multi-select/filtering.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -58,7 +59,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates the addition of a new value that is not present in the predefined list of the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "custom-value.vue", "path":"src/multi-select/custom-value.Vue" },
+                { "displayName": "custom-value.vue", "path":"src/multi-select/custom-value.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -68,7 +69,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to customize the appearance of the selected chip element in the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "chip-customization.vue", "path":"src/multi-select/chip-customization.Vue" },
+                { "displayName": "chip-customization.vue", "path":"src/multi-select/chip-customization.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -78,7 +79,18 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to select the multiple values through checkbox in the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "checkbox.vue", "path":"src/multi-select/checkbox.Vue" },
+                { "displayName": "checkbox.vue", "path":"src/multi-select/checkbox.vue" },
+                { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "grouping-with-checkbox",
+            "name": "Grouping with CheckBox",
+            "type": "new",
+            "category": "MultiSelect Dropdown",
+            "description": "This example demonstrates how to select all the grouped list item values through checkbox in the Vue MultiSelect component.",
+            "sourceFiles":[
+                { "displayName": "grouping-with-checkbox.vue", "path":"src/multi-select/grouping-with-checkbox.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -88,7 +100,7 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates the maximum selection limit functionalities with checkbox of the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "selection-limit.vue", "path":"src/multi-select/selection-limit.Vue" },
+                { "displayName": "selection-limit.vue", "path":"src/multi-select/selection-limit.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },
@@ -98,7 +110,18 @@
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to achieve the diacritics filter functionalities in the Vue multiselect component.",
             "sourceFiles":[
-                { "displayName": "diacritics-filtering.vue", "path":"src/multi-select/diacritics-filtering.Vue" },
+                { "displayName": "diacritics-filtering.vue", "path":"src/multi-select/diacritics-filtering.vue" },
+                { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "two-way-binding",
+            "name": "Two-way Binding",
+            "type": "new",
+            "category": "MultiSelect Dropdown",
+            "description": "The Vue Multiselect component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve in sync with data in the DOM.",
+            "sourceFiles":[
+                { "displayName": "two-way.vue", "path":"src/multi-select/two-way-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         }

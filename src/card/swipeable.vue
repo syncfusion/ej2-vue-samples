@@ -341,7 +341,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { Touch, ScrollEventArgs, SwipeEventArgs, closest } from '@syncfusion/ej2-base';
+import { Touch, ScrollEventArgs, SwipeEventArgs, closest, isNullOrUndefined } from '@syncfusion/ej2-base';
 export default Vue.extend({
     
 	mounted: function() {
@@ -380,7 +380,7 @@ export default Vue.extend({
     },
      touchSwipeHandler: function(e) {
             var ele = closest(e.originalEvent.target, '.e-card');
-            if (!ele.classList.contains('e-card')) {
+            if (isNullOrUndefined(ele)) {
                 return;
             }
             if (ele.parentElement.querySelector('.card-out')) {

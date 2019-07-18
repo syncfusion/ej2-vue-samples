@@ -2,7 +2,6 @@
     "name": "DateRangePicker",
     "directory": "daterangepicker",
     "category": "Calendars",
-	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -47,7 +46,6 @@
             "url": "month-range-picker",
             "name": "Month Range Picker",
             "category": "DateRangePicker",
-            "type": "new",
             "hideOnDevice": true,
             "api":{"DateRangePicker": [ "start", "depth" ]},
             "description": "The Vue DateRangePicker component can act as a month and year picker. It helps you to select a month or year quickly with all months related properties."
@@ -56,7 +54,6 @@
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "DateRangePicker",
-            "type": "new",
             "hideOnDevice": true,
             "api":{"DateRangePicker": [ "value" ]}
         }

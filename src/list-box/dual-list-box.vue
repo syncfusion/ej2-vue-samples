@@ -25,7 +25,7 @@
                 <li><code>moveAllFrom</code> -  Moves all the items from Group B list box to Group A.</li>
             </ul>
             <p> More information about the dual list box can be found in the
-                <a href="https://ej2.syncfusion.com/documentation/vue/list-box/" target="_blank"> documentation</a> section.
+                <a href="https://ej2.syncfusion.com/vue/documentation/list-box/" target="_blank"> documentation section</a>.
             </p>  
         </div>
     </div>

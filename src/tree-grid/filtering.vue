@@ -126,7 +126,7 @@ export default Vue.extend({
     },
    methods:{
        onChange: function(e: ChangeEventArgs): void {
-        this.filterSettings = { type: 'FilterBar', hierarchyMode: <any>e.value, mode: 'Immediate'};
+        // this.filterSettings = { type: 'FilterBar', hierarchyMode: <any>e.value, mode: 'Immediate'};
         (<TreeGridComponent>this.$refs.treegrid).clearFiltering();
         dropDownFilter.value = 'All';
     }

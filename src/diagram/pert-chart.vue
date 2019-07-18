@@ -105,7 +105,7 @@ export default Vue.extend({
       dataSourceSettings: {
         id: "id",
         parentId: "Category",
-        dataManager: new DataManager(pertChartData),
+        dataSource: new DataManager(pertChartData),
         //binds the external data with node
         doBinding: (nodeModel, data, diagram) => {
           let shape = "shape";

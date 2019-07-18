@@ -3,7 +3,6 @@
     "directory": "slider",
     "category": "Inputs",
     "ftName" : "slider",
-	"type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -74,7 +73,6 @@
             "url": "tooltip-customization",
             "name": "Tooltip",
             "category": "Customization",
-            "type": "update",
             "description": "Demo of Essential JS 2 slider control customization of slider tooltip text and background color with formatted text values."
         },
         {

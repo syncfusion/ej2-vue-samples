@@ -39,12 +39,12 @@ new Vue({
                 </h3>
                 <div class="inline-element responsive">
                     <div id="text">
-                        <p class=" inline-element" style="width:70%"> <b>Toggle</b> - Toggles the sidebar to be open or closed state.
+                        <p class="inline-element" style="width:70%"> <b>Toggle</b> - Toggles the sidebar to be open or closed state.
                         </p>
                         <ejs-button id="toggleSidebar"  v-on:click.native="toggleSidebar" class="inline-element right" cssClass="e-info">Toggle</ejs-button>
                     </div>
                     <div id="text">
-                        <p class=" inline-element" style="width:70%"> <b>Position</b> - Allows to place the sidebar in right or left side of the page.
+                        <p class="inline-element" style="width:70%"> <b>Position</b> - Allows to place the sidebar in right or left side of the page.
                         </p>
                         <ejs-button ref="sidebarTypesBtn" id="togglePosition"  isToggle="true" class="inline-element right" cssClass="e-info" v-on:click.native="onTypeChange">Right</ejs-button>
                     </div>

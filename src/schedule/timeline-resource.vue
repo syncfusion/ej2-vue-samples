@@ -203,8 +203,7 @@
                         args.type === 'DeleteAlert') ? data.element[0] : args.target;
                     if (!isNullOrUndefined(target) && target.classList.contains('e-work-cells')) {
                         let scheduleObj = this.$refs.ScheduleObj;
-                        if ((target.classList.contains('e-read-only-cells')) ||
-                            (!scheduleObj.isSlotAvailable(data.endTime, data.endTime, data.groupIndex))) {
+                        if ((target.classList.contains('e-read-only-cells')) || (!scheduleObj.isSlotAvailable(data))) {
                             args.cancel = true;
                         }
                     } else if (!isNullOrUndefined(target) && target.classList.contains('e-appointment') &&
@@ -240,8 +239,7 @@
                     } else if (args.requestType === 'eventChange') {
                         data = args.data;
                     }
-                    let groupIndex = scheduleObj.ej2Instances.eventBase.getGroupIndexFromEvent(data);
-                    if (!scheduleObj.isSlotAvailable(data.StartTime, data.EndTime, groupIndex)) {
+                    if (!scheduleObj.isSlotAvailable(data)) {
                         args.cancel = true;
                     }
                 }

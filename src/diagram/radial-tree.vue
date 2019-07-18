@@ -121,7 +121,7 @@ export default Vue.extend({
         //sets the fields to bind
         id: "Id",
         parentId: "ReportingPerson",
-        dataManager: new DataManager(radialTree),
+        dataSource: new DataManager(radialTree),
         //binds the data with the nodes
         doBinding: (nodeModel, data, diagram) => {
           nodeModel.annotations = [

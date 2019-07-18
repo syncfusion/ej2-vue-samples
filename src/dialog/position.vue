@@ -3,9 +3,9 @@
      <div id="target" class="col-lg-12 control-section">
          <ejs-button id="dialogBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
     
-        <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' width='406px' ref='dialogObj'
+        <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' width='452px' ref='dialogObj'
             target='#target' :open='dialogOpen' :close='dialogClose' closeOnEscape='false'>
-            <table style='width:371px' id ='poschange'>
+            <table style='width: 405px' id ='poschange'>
                 <tr>
                     <td><ejs-radiobutton id='radio1' label='Left Top' value='left top' name='xy' :change='changePosition' ></ejs-radiobutton></td>
                     <td><ejs-radiobutton id='radio2' label='Center Top' value='center top' name='xy' :change='changePosition'></ejs-radiobutton></td>

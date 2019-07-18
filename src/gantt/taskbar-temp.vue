@@ -1,7 +1,7 @@
 <template>
     <template v-if="data.TaskName == 'Oscar moments'">
       <div class="e-gantt-child-taskbar e-custom-moments" style="height:100%;border-radius:5px;">
-        <template v-if="data.ganttProperties.duration < 4">
+        <template v-if="data.taskDuration < 4">
           <img class="moments" height="32px" width="32px">
         </template>
         <template v-else>
@@ -18,7 +18,7 @@
         class="e-gantt-child-taskbar e-custom-performance"
         style="height:100%;border-radius:5px;"
       >
-        <template v-if="data.ganttProperties.duration <= 5">
+        <template v-if="data.taskDuration <= 5">
           <img class="face-mask" height="32px" width="32px">
         </template>
         <template v-else>
@@ -35,27 +35,27 @@
         class="e-gantt-parent-taskbar e-custom-parent"
         style="height:100%;border-radius:5px;text-overflow:ellipsis;"
       >
-        <template v-if="data.ganttProperties.duration < 4">
+        <template v-if="data.taskDuration < 4">
           <img class="oscar" height="32px" width="32px">
         </template>
         <template v-else>
-          <template v-if="data.taskData.Winner && data.taskData.Movie">
+          <template v-if="data.Winner && data.Movie">
             <img class="oscar" height="32px" width="32px">
             <span
               class="e-task-label"
               style="position:absolute; top:13px;font-size:14px;"
-            >{{data.taskData.Winner}}</span>
+            >{{data.Winner}}</span>
             <span
               class="e-task-label"
               style="position:absolute;top:33px;font-size:10px;text-overflow:ellipsis;"
-            >{{data.taskData.Movie}}</span>
+            >{{data.Movie}}</span>
           </template>
-          <template v-else-if="data.taskData.Movie">
+          <template v-else-if="data.Movie">
             <img class="oscar" height="32px" width="32px">
             <span
               class="e-task-label"
               style="position:absolute; top:13px;font-size:12px;text-overflow:ellipsis;"
-            >{{data.taskData.Movie}}</span>
+            >{{data.Movie}}</span>
           </template>
           <template v-else>
             <span class="e-task-label"></span>

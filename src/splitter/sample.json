@@ -3,7 +3,6 @@
     "directory": "splitter",
     "category": "Layout",
     "ftName": "splitter",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -17,8 +16,7 @@
             "name": "Expand and Collapse",
             "category": "Splitter",
             "hideOnDevice": true,
-            "description":"The example presents collapsible Splitter Component that exposes expand and collapse action of panes with a different orientation and resizable panes.",
-            "type": "new"
+            "description":"The example presents collapsible Splitter Component that exposes expand and collapse action of panes with a different orientation and resizable panes."
         },
         {
             "url": "accordion-navigation-menu",

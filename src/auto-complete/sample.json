@@ -1,6 +1,7 @@
 {
     "name": "AutoComplete",
     "directory": "auto-complete",
+    "type": "update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -8,7 +9,7 @@
             "category": "AutoComplete",
             "description": "This example demonstrates the default functionalities of the Vue autocomplete component with minimum configuration.",
             "sourceFiles":[
-                { "displayName": "default.vue", "path":"src/auto-complete/default.Vue" },
+                { "displayName": "default.vue", "path":"src/auto-complete/default.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },
@@ -18,7 +19,7 @@
             "category": "AutoComplete",
             "description": "This example demonstrates how to group based on the different categories with individual header and icon support using the Vue autocomplete component.",
             "sourceFiles":[
-                { "displayName": "grouping-icon.vue", "path":"src/auto-complete/grouping-icon.Vue" },
+                { "displayName": "grouping-icon.vue", "path":"src/auto-complete/grouping-icon.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },
@@ -28,7 +29,7 @@
             "category": "AutoComplete",
             "description": "This example demonstrates how to bind with local data source and fetch data from remote data service in the Vue autocomplete component.",
             "sourceFiles":[
-                { "displayName": "data-binding.vue", "path":"src/auto-complete/data-binding.Vue" },
+                { "displayName": "data-binding.vue", "path":"src/auto-complete/data-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },
@@ -38,7 +39,7 @@
             "category": "AutoComplete",
             "description": "This example demonstrates how to customize the appearance of each item in the Vue autocomplete component pop-up list using template.",
             "sourceFiles":[
-                { "displayName": "template.vue", "path":"src/auto-complete/template.Vue" },
+                { "displayName": "template.vue", "path":"src/auto-complete/template.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },
@@ -48,7 +49,7 @@
             "category": "AutoComplete",
             "description": "This example demonstrates how to highlight the searched characters in the suggested list items of the Vue autocomplete component.",
             "sourceFiles":[
-                { "displayName": "highlight.vue", "path":"src/auto-complete/highlight.Vue" },
+                { "displayName": "highlight.vue", "path":"src/auto-complete/highlight.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },
@@ -58,7 +59,7 @@
             "category": "AutoComplete",
             "description": "This example demonstrates how to achieve the custom filtering functionalities in the Vue autocomplete component.",
             "sourceFiles":[
-                { "displayName": "custom-filtering.vue", "path":"src/auto-complete/custom-filtering.Vue" },
+                { "displayName": "custom-filtering.vue", "path":"src/auto-complete/custom-filtering.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },
@@ -68,7 +69,18 @@
             "category": "AutoComplete",
             "description": "This example demonstrates how to achieve the diacritics filter functionalities in the Vue autocomplete component.",
             "sourceFiles":[
-                { "displayName": "diacritics-filtering.vue", "path":"src/auto-complete/diacritics-filtering.Vue" },
+                { "displayName": "diacritics-filtering.vue", "path":"src/auto-complete/diacritics-filtering.vue" },
+                { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "two-way-binding",
+            "name": "Two-way-Binding",
+            "category": "AutoComplete",
+            "type": "new",
+            "description": "The Vue Autocomplete component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve in sync with data in the DOM. ",
+            "sourceFiles":[
+                { "displayName": "two-way.vue", "path":"src/auto-complete/two-way-binding.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         }

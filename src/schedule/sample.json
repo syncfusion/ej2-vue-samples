@@ -59,6 +59,7 @@
             "url": "recurrence-events",
             "name": "Recurring Events",
             "category": "Appointments",
+            "type": "update",
             "description": "This demo for Essential JS2 Scheduler control shows the scheduler with recurring meetings handled on a regular pattern.",
             "api": {
                 "Schedule": [
@@ -89,7 +90,6 @@
             "url": "search-events",
             "name": "Search Events",
             "category": "Appointments",
-            "type": "new",
             "description": "This example shows how to search the scheduler events based on specific field criteria.",
             "api": {
                 "Schedule": [
@@ -267,7 +267,6 @@
             "url": "resource",
             "name": "Resources",
             "category": "Multiple Resources",
-            "type": "new",
             "description": "This example depicts how to show or hide the resource events on JavaScript Scheduler based on the resource selection.",
             "api": {
                 "Schedule": [
@@ -324,7 +323,6 @@
             "url": "adaptive-rows",
             "name": "Row Auto Height",
             "category": "Multiple Resources",
-            "type": "new",
             "description": "This example showcases how the work cells of Essential JS2 Scheduler auto adjusts its height based on the exceeding appointment count.",
             "api": {
                 "Schedule": [
@@ -624,6 +622,7 @@
             "url": "cell-dimension",
             "name": "Cell Dimension",
             "category": "Customization",
+            "type": "update",
             "description": "This demo for Essential JS2 Scheduler control shows how to set the width and height of the cells by overriding the default CSS classes.",
             "api": {
                 "Schedule": [
@@ -654,7 +653,6 @@
             "url": "excel-export",
             "name": "Excel Exporting",
             "category": "Exporting",
-            "type": "new",
             "description": "This example demonstrates how to export the Essential JS2 Scheduler events to the excel file format at client-side.",
             "api": {
                 "Schedule": [
@@ -670,12 +668,27 @@
             "url": "calendar-export-import",
             "name": "Export and Import ICS",
             "category": "Exporting",
-            "type": "new",
             "description": "This example shows how to export the Scheduler events to a calendar file, and also how to import events from an .ics file into our Essential JS2 Scheduler.",
             "api": {
                 "Schedule": [
                     "importICalendar",
                     "exportToICalendar"
+                ]
+            }
+        },
+        {
+            "url": "print",
+            "name": "Print",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This example demonstrates how to print the Essential JS2 Scheduler element at client-side with themes enabled.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "currentView",
+                    "selectedDate",
+                    "eventSettings"
                 ]
             }
         },

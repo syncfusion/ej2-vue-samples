@@ -2,7 +2,6 @@
     "name": "Sidebar",
     "directory": "sidebar",
     "category": "Navigation",
-    "type":"update",
     "samples": [
         {
             "url": "default",
@@ -32,7 +31,6 @@
             "url": "sidebar-menu",
             "name": "Sidebar Menu",
             "category": "Sidebar",
-            "type":"new",
             "hideOnDevice": true,
             "api": { "Sidebar": ["width", "mediaQuery","target","dockSize","enableDock"] },
             "description": "This example demonstrates how to render Menu for navigation purpose inside the Vue Sidebar"
@@ -41,7 +39,6 @@
             "url": "responsive-panel",
             "name": "Responsive Panel",
             "category": "Sidebar",
-            "type":"new",
             "hideOnDevice": true,
             "api": { "Sidebar": ["width", "mediaQuery","target"] },
             "description": "This example demonstrates how to render TreeView for navigation purpose inside the Vue Sidebar"

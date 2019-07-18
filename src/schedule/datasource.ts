@@ -3767,7 +3767,7 @@ export let readonlyEventsData: Object[] = [
         Subject: 'Quality Analysis',
         StartTime: new Date(currentTime + msPerHour * 1),
         EndTime: new Date(currentTime + msPerHour * 3),
-        IsReadonly: true,
+        IsReadonly: false,
     }, {
         Id: 6,
         Subject: 'Customer meeting – John Mackenzie',

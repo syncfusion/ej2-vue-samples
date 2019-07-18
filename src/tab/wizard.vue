@@ -136,7 +136,7 @@
                         <button id="makePayment" class='e-btn' v-on:click='btnClicked'>Pay</button>
                     </div>
                 </div>
-                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height=390 :showCloseButton=false :select="tabSelected">
+                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height=390 :showCloseButton=false :selecting="tabSelecting">
                     <e-tabitems>
                         <e-tabitem :header='headerText0' content="#booking"></e-tabitem>
                         <e-tabitem :header='headerText1' content="#selectTrain" disabled=true></e-tabitem>
@@ -331,10 +331,9 @@ export default Vue.extend({
                       if (!isNullOrUndefined(startPoint.value) && startPoint.value === endPoint.value) {
                           err1.innerText = '* Arrival point can\'t be same as Departure';
                        } else {
-                            tabObj.enableTab(0, false);
                             tabObj.enableTab(1, true);
+                            tabObj.enableTab(0, false);
                             this.filterTrains(args);
-                            tabObj.select(1);
                             err1.innerText = '';
                             err2.innerText = '';
                        }
@@ -347,7 +346,6 @@ export default Vue.extend({
                             err2.innerText = '* Select your convenient train';
                       } else {
                             tabObj.enableTab(2, true);
-                            tabObj.select(2);
                             tabObj.enableTab(1, false);
                             err2.innerText = '';
                        }
@@ -361,7 +359,6 @@ export default Vue.extend({
                             err3.innerText = '* Please enter passenger details';
                        } else {
                             tabObj.enableTab(3, true);
-                            tabObj.select(3);
                             tabObj.enableTab(2, false);
                             err3.innerText = '';
                             this.finalizeDetails(args);
@@ -391,7 +388,7 @@ export default Vue.extend({
            trainSelected: function(args){
                  this.selectedTrain = args.data;
             },
-           tabSelected: function(args){
+           tabSelecting: function(args){
                  if (args.isSwiped)
                       args.cancel = true;
            },

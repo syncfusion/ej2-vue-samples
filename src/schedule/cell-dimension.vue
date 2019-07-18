@@ -9,6 +9,8 @@
                         <e-view option="Week"></e-view>
                         <e-view option="WorkWeek"></e-view>
                         <e-view option="Month"></e-view>
+                        <e-view option="TimelineWeek"></e-view>
+                        <e-view option="TimelineMonth"></e-view>
                     </e-views>
                 </ejs-schedule>
             </div>
@@ -47,12 +49,22 @@
     .schedule-cell-dimension.e-schedule .e-month-view .e-work-cells {
         height: 200px;
     }
+
+    .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-content-wrap table col,
+    .schedule-cell-dimension.e-schedule .e-timeline-view .e-content-wrap table col {
+        width: 100px;
+    }
+
+    .schedule-cell-dimension.e-schedule .e-timeline-view .e-work-cells,
+    .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-work-cells {
+        height: 600px;
+    }
 </style>
 <script>
     import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, View, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, TimelineViews, View, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {
@@ -66,7 +78,7 @@
             }
         },
         provide: {
-            schedule: [Day, Week, WorkWeek, Month, Resize, DragAndDrop]
+            schedule: [Day, Week, WorkWeek, Month, TimelineMonth, TimelineViews, Resize, DragAndDrop]
         },
         methods: {
             onEventRendered: function (args) {
