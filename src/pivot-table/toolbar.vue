@@ -26,6 +26,7 @@
           :newReport="newReport"
 		  :toolbarRender="beforeToolbarRender"
 		  :displayOption="displayOption"
+      :chartSettings="chartSettings"
         ></ejs-pivotview>
       </div>
     </div>
@@ -113,6 +114,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-vue-charts";
 import {
   PivotViewPlugin,
   GroupingBar,
@@ -158,6 +160,14 @@ export default Vue.extend({
       allowConditionalFormatting: true,
       allowPdfExport: true,
       displayOption: { view:'Both' },
+      chartSettings: {
+        load: (args: ILoadedEventArgs) => {
+          let selectedTheme: string = location.hash.split("/")[1];
+          selectedTheme = selectedTheme ? selectedTheme : "Material";
+          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)) as ChartTheme;
+        }
+      },
       showToolbar: true,
       allowCalculatedField: true,
       showFieldList: true,

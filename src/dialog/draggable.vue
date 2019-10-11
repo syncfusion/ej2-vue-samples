@@ -1,7 +1,7 @@
 <template>
   <div>
      <div id="target" class="col-lg-12 control-section">
-        <ejs-button id='dlgbtn' v-on:click.native="buttonClick">Open Dialog</ejs-button>
+        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
 
         <ejs-dialog header='Drag Me!!!' :isModal='isModal' ref="dialogObj" :animationSettings='animationSettings' content='This is a dialog with draggable support.' allowDragging='true' showCloseIcon='true' :target='target' :width='width' :open="dialogOpen"
             :close="dialogClose">
@@ -26,14 +26,15 @@
 import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 Vue.use(DialogPlugin);
-
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
             target: '#target',
             animationSettings:  { effect: 'None' },
             isModal: true,
-            width:  '300px'            
+            width: '300px',
+            ShowBtn: false            
         }
     },
     methods: {
@@ -41,10 +42,10 @@ export default Vue.extend({
             this.$refs.dialogObj.show();
         },
         dialogClose: function() {
-            document.querySelector('#dlgbtn').style.display='block';
+            this.ShowBtn = true;
         },
         dialogOpen: function() {
-            document.querySelector('#dlgbtn').style.display='none';
+            this.ShowBtn = false;
         }
     }
 });

@@ -1,7 +1,7 @@
 <template>
   <div>
      <div class="col-lg-12 control-section template">
-        <ejs-button id='dlgbtn' v-on:click.native="BtnClick">Open</ejs-button>
+        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="BtnClick">Open</ejs-button>
 
         <ejs-dialog :header='header' ref="dialogObj" :footerTemplate='footer' :content='contenttemplateVue' :height='height' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen"
             :close="dialogClose">
@@ -46,18 +46,19 @@ export default Vue.extend({
             },
             target: '.control-section',
             animationSettings:  { effect: 'None' },
-            width:  '435px'            
+            width:  '435px',
+            ShowBtn: false            
         }
     },
     methods: {
         dialogClose: function() {
-            document.getElementById('dlgbtn').style.display = '';
+            this.ShowBtn = true;
         },    
         BtnClick: function() {
             this.$refs.dialogObj.show();
         },
         dialogOpen: function() {
-            document.getElementById('dlgbtn').style.display = 'none';
+            this.ShowBtn = false;
             document.getElementById('sendButton').keypress = (e) => {
                 if (e.keyCode === 13) { this.updateTextValue(); }
             };    
@@ -77,7 +78,6 @@ export default Vue.extend({
         updateTextValue: function() {
             var enteredVal = document.getElementById('inVal');
             var dialogTextElement = document.getElementsByClassName('dialogText')[0];
-            var dialogTextWrap = document.getElementsByClassName('dialogContent')[0];
             if (!isNullOrUndefined(document.getElementsByClassName('contentText')[0])) {
                 detach(document.getElementsByClassName('contentText')[0]);
             }

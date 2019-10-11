@@ -65,7 +65,6 @@
             "name": "Marker clustering",
             "category": "Features",
             "api": {},
-            "type": "new",
             "sourceFiles": [
                 {"displayName": "marker-cluster.vue", "path": "./src/maps/marker-cluster.vue"},
                 {"displayName": "cluster-data.ts", "path": "./src/maps/map-data/marker-cluster.ts"}
@@ -107,6 +106,7 @@
             "url": "legend",
             "name": "Legend",
             "category": "Features",
+            "type": "update",
             "api": {},
             "sourceFiles": [
                 {"displayName": "legend.vue", "path": "./src/maps/legend.vue"},
@@ -289,7 +289,6 @@
             "name": "Dynamic markers",
             "category": "Use Cases",
             "api": {},
-            "type": "new",
             "sourceFiles": [
                 {"displayName": "dynamic-marker.vue", "path": "./src/maps/dynamic-marker.vue"}
             ]

@@ -74,12 +74,21 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .sb-header.e-view.hide-header {
       display: none;
   }
+  .e-rte-content .e-content {
+		float: right;
+		width: 50%;
+		overflow: auto;
+		height: inherit;
+		padding: 8px;
+		height: 100%;
+	}
+
 </style>
 
 <script>
   import Vue from "vue";
   import { Browser, addClass, removeClass, isNullOrUndefined } from "@syncfusion/ej2-base";
-  import { RichTextEditorPlugin, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
+  import { RichTextEditorPlugin, Toolbar, Link, Image, MarkdownEditor, Table, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-vue-base';
 
   Vue.use(RichTextEditorPlugin);
@@ -159,6 +168,11 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
           }
           this.markDownConversion();
         }
+        if (args.requestType === 'SourceCode') {
+            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#preview-code').parentElement.classList.add('e-overlay');
+        } else if (args.requestType === 'Preview') {
+            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#preview-code').parentElement.classList.remove('e-overlay');
+        }
       },
       fullPreview: function(event){
         if ((this.mdsource.classList.contains('e-active') || this.mdSplit.classList.contains('e-active')) && event.mode) {
@@ -225,7 +239,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         }
       },
       provide:{
-          richtexteditor:[Toolbar, Link, Image, Table, MarkdownEditor]
+          richtexteditor:[Toolbar, Link, Image, Table, MarkdownEditor, QuickToolbar]
       }
   });
 </script>

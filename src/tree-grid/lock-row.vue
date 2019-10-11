@@ -69,6 +69,9 @@
     .bootstrap .disableRow .e-rowcell{
         color: rgba(0, 0, 0, .35);
     }
+    .bootstrap4 .disableRow .e-rowcell{
+        color: rgba(0, 0, 0, .35)
+    }
     .highcontrast .disableRow .e-rowcell{
         color: #757575;
     }

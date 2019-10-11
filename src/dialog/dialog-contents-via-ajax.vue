@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-lg-12 control-section ajaxsample" style="padding:10px;position:relative;">
-        <ejs-button id='ajaxBtn' v-on:click.native="ajaxBtnClick">Open</ejs-button>
+        <ejs-button id='ajaxBtn' v-if="ShowBtn" v-on:click.native="ajaxBtnClick">Open</ejs-button>
         <ejs-dialog ref="dialogObj" :header='header' :buttons='dlgButtons' :content='contentData' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen" :close="dialogClose">
         </ejs-dialog>
     </div>
@@ -9,7 +9,7 @@
         <p>
             This sample demonstrates that the content of dialog can be loaded from external HTML file.
             Click "more details" on dialog to load the content dynamically from external HTML file.
-            Click “open” to show the dialog again, if it is closed. 
+            Click "open" to show the dialog again, if it is closed. 
         </p>
     </div>
     <div id="description">
@@ -57,6 +57,9 @@
     .material .ajaxsample .e-dialog {
         height: 278px;
     }
+    .e-bigger.material .ajaxsample .e-dialog {
+        height: 300px;
+    }
     .fabric .ajaxsample .e-dialog, .bootstrap .ajaxsample .e-dialog, .highcontrast .ajaxsample .e-dialog {
         height: 330px;
     }
@@ -81,14 +84,14 @@ import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 import { Ajax } from '@syncfusion/ej2-base';
 Vue.use(DialogPlugin);
 Vue.use(ButtonPlugin);
-
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
             header: '<img class="img1" src="src/dialog/images/dialog-img2.png">Whats Coming from Microsoft this Fall',
             target:'.control-section',
             showCloseIcon:  true,
-            ajaxHeight:  '270px',
+            ajaxHeight:  '300px',
             width:'500px',
             animationSettings: { effect: 'None' },
             innerContent1: 'On October 17, Microsoft will release its Fall Creators Update for the Windows 10 platform.',
@@ -100,30 +103,27 @@ export default Vue.extend({
             + 'its press event to encompass the features that will affect most Windows 10 users. and'
             + 'The updates primarily serve to make using Windows 10  easier and more productive all around. Some significant highlights include device',
             content: this.innerContent1 + this.innerContent2,
-            dlgButtons: [{ click: this.dlgButtonClick.bind(this), buttonModel: { isPrimary:'true', content: 'More Details' } }]
+            dlgButtons: [{ click: this.dlgButtonClick.bind(this), buttonModel: { isPrimary:'true', content: 'More Details' } }],
+            ShowBtn: false
         }
-    },
-    mounted: function(){
-        document.getElementById('ajaxBtn').focus();
     },
     methods: {
         dialogClose: function() {
-            document.getElementById('ajaxBtn').style.display = '';
+            this.ShowBtn = true;
         },
         ajaxBtnClick: function() {
             this.$refs.dialogObj.show();
         },
         dialogOpen: function() {
-            document.getElementById('ajaxBtn').style.display = 'none';
+            this.ShowBtn = false;
         },
         dlgButtonClick: function() {
-            let localObj = this;
             if (document.querySelector('.e-footer-content .e-btn').textContent === 'More Details') {
                 let ajax = new Ajax('./src/dialog/blog.html', 'GET', true);
                 ajax.onSuccess = (data) => {
                     this.$refs.dialogObj.content = data;
-                };
-                ajax.send();
+                };                
+                ajax.send();                
                 document.querySelector('.e-footer-content .e-btn').textContent = 'Less Details';
             } else {
                 this.$refs.dialogObj.content = this.contentData;

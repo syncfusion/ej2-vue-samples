@@ -135,9 +135,6 @@ export default Vue.extend({
            this.titleObj.mode = editMode;
            this.tagObj.mode = editMode;
            this.rteObj.mode = editMode;
-           this.titleObj.dataBind();
-           this.tagObj.dataBind();
-           this.rteObj.dataBind();
         },
         chipOnCreate: function() {
             this.tagObj.element.querySelector('.e-editable-value').innerHTML = this.chipCreation(this.tagObj.value);
@@ -157,13 +154,13 @@ export default Vue.extend({
         },
         onScroll: function() {
             if (this.editorMode.text === 'Inline') { return; }
-            if (this.titleObj && this.titleObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.titleObj && this.$refs.titleObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.titleObj.enableEditMode = false;
             }
-            if (this.tagObj && this.tagObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.tagObj && this.$refs.tagObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.tagObj.enableEditMode = false;
             }
-            if (this.rteObj && this.rteObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.rteObj && this.$refs.rteObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.rteObj.enableEditMode = false;
             }
         }

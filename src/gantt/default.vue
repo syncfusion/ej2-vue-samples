@@ -11,6 +11,7 @@
         :highlightWeekends= 'true'         
         :taskFields= "taskFields"
         :labelSettings= "labelSettings"
+        :treeColumnIndex= "1"
         :eventMarkers= "eventMarkers"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate"

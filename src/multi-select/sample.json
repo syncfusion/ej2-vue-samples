@@ -1,7 +1,6 @@
 {
     "name": "MultiSelect Dropdown",
     "directory": "multi-select",
-    "type":"update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -86,7 +85,6 @@
         {
             "url": "grouping-with-checkbox",
             "name": "Grouping with CheckBox",
-            "type": "new",
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to select all the grouped list item values through checkbox in the Vue MultiSelect component.",
             "sourceFiles":[
@@ -117,7 +115,6 @@
         {
             "url": "two-way-binding",
             "name": "Two-way Binding",
-            "type": "new",
             "category": "MultiSelect Dropdown",
             "description": "The Vue Multiselect component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve in sync with data in the DOM.",
             "sourceFiles":[

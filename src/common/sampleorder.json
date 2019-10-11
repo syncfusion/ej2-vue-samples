@@ -2,7 +2,8 @@
   "Grids": [
     "Data Grid",
     "Tree Grid",
-    "Pivot Table"
+    "Pivot Table",
+    "Spreadsheet"
   ],
   "Data Visualization": [
     "Chart",

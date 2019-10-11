@@ -12,7 +12,7 @@
                     <ejs-button ref='errorRef' class="e-btn e-control e-danger" id="error_Toast" v-on:click.native="errorClick">Danger Message</ejs-button>
                 </div>
                 <div style="padding-top: 15px">
-                    <ejs-button ref='hideButtonRef' class="e-btn e-control" id="hideToast" v-on:click.native="hideClick"> Hide All </ejs-button>
+                    <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn e-control" id="hideToast" v-on:click.native="hideClick"> Hide All </ejs-button>
                 </div>
             </div>
               <div id="action-description">
@@ -90,10 +90,12 @@ import Vue from "vue";
 import { ToastPlugin, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 Vue.use(ToastPlugin);
+let ShowBtn = undefined;
 export default Vue.extend({
    data: function(){
         return {
-            position: { X: 'Right' }
+            position: { X: 'Right' },
+            ShowBtn: false
         }
    },
    mounted: function() {
@@ -130,12 +132,12 @@ export default Vue.extend({
             }.bind(this));
         },
         onclose: function(e){
-            if (e.toastContainer.childElementCount === 0 ) {
-                document.getElementById('hideToast').style.display = 'none';
+            if (this.$refs.toastRef.$el.childElementCount === 0 ) {
+              this.ShowBtn = false;
             }
         },
         onbeforeOpen: function(e){
-             document.getElementById('hideToast').style.display = 'inline-block';
+            this.ShowBtn = true;
         }
     }
 });

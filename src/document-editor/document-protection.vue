@@ -219,7 +219,7 @@ export default Vue.extend({
           editor.open(JSON.stringify(data));
           editor.documentName='Document Protection';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
-          editor.documentChange = () => {
+          this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
           };
           this.$refs.usercolorpicker.ej2Instances.value = editor.userColor;

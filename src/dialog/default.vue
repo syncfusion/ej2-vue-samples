@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-12 control-section">
         <!-- Render Button to open the Dialog -->
-        <ejs-button id='dlgbtn' v-on:click.native="BtnClick">Open</ejs-button>
+        <ejs-button id='dlgbtn' v-if="OpenBtn" v-on:click.native="BtnClick">Open</ejs-button>
 
         <ejs-dialog :buttons='dlgButtons' ref="dialogObj" :header='header' :animationSettings='animationSettings' :content='content' showCloseIcon=true :target='target' width='500px' :open="dialogOpen"
             :close="dialogClose">
@@ -61,7 +61,7 @@
 import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 Vue.use(DialogPlugin);
-
+let OpenBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
@@ -71,7 +71,8 @@ export default Vue.extend({
             + '<br> The Succinctly series was born in 2012 out of a desire to provide concise technical e-books for software developers'
             + 'Each title in the Succinctly series is written by a carefully chosen expert and provides essential content in about 100 pages.</p>',
             animationSettings: { effect: 'None' },
-            dlgButtons: [{ click: this.dlgBtnClick, buttonModel: { isPrimary:'true', content: 'Learn More' } }]
+            dlgButtons: [{ click: this.dlgBtnClick, buttonModel: { isPrimary:'true', content: 'Learn More' } }],
+            OpenBtn: false
         }
     },
     methods: {
@@ -79,10 +80,10 @@ export default Vue.extend({
             this.$refs.dialogObj.show();
         },
         dialogClose: function() {
-            document.getElementById('dlgbtn').style.display = '';
+            this.OpenBtn = true;
         },
         dialogOpen: function() {
-            document.getElementById('dlgbtn').style.display = 'none';
+            this.OpenBtn = false;
         },
         dlgBtnClick: function() {
             window.open('https://www.syncfusion.com/company/about-us');

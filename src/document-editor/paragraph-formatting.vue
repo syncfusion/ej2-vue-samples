@@ -180,7 +180,7 @@ export default Vue.extend({
           obj.open(JSON.stringify(data));
           obj.documentName='Paragraph Formatting';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
-          obj.documentChange = () => {
+          this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
        });

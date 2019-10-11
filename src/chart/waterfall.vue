@@ -5,7 +5,7 @@
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legendSettings' :animation='animation' :connector='connector' :textRender='textRender'
             :axisLabelRender='axisLabelRender'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Waterfall' xName='x' yName='y' name='Male' width=2
+                <e-series :dataSource='seriesData' type='Waterfall' xName='x' yName='y' width=2
                 :columnWidth='columnWidth' :connector='connector' :intermediateSumIndexes:='intermediate' :sumIndexes='sum' :marker='marker'
                  negativeFillColor='#e56590'> </e-series>
             </e-series-collection>

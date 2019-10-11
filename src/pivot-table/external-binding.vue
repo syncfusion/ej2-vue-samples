@@ -27,6 +27,7 @@
           :xAxis="xAxis"
           :yAxis="yAxis"
           :dataSource="heatmapDataSource"
+          :dataSourceSettings="heatmapDataSourceSettings"
           :load="heatmapInsLoad"
         ></ejs-heatmap>
       </div>
@@ -124,8 +125,8 @@ export default Vue.extend({
         title: { text: "Sum of Units Sold" },
         labels: []
       },
-      heatmapDataSource: {
-        data: [],
+      heatmapDataSource: [],
+      heatmapDataSourceSettings: {
         isJsonData: true,
         adaptorType: 'Table',
         xDataMapping: 'xMember'
@@ -187,7 +188,7 @@ export default Vue.extend({
     heatmapUpdate: function() {      
       let pivotObj = (<any>this.$refs.pivotview_heatmap).ej2Instances;
       let heatmap = (<any>this.$refs.heatmap).ej2Instances;
-      (heatmap.dataSource as any).data = jsonDataSource;
+      heatmap.dataSource = jsonDataSource;
       heatmap.legendSettings = {
         position: 'Top'
       };

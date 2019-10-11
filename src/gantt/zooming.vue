@@ -12,6 +12,7 @@
         :height="height"
         :toolbar="toolbar"
         :taskFields="taskFields"
+        :treeColumnIndex= "1"
         :projectStartDate="projectStartDate"
         :projectEndDate="projectEndDate">
        </ejs-gantt>

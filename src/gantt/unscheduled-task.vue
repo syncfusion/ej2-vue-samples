@@ -63,7 +63,7 @@ export default Vue.extend({
             rightLabel: 'TaskType'
         },
         columns: [
-          {field: 'TaskId', width: 60 },
+          {field: 'TaskId', width: 90, },
           {field: 'TaskName', width: 80 },
           {field: 'StartDate', width: 120},
           {field: 'EndDate', width: 120 },

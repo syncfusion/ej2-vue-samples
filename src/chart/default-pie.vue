@@ -121,6 +121,7 @@
     <div id="action-description">
     <p>
       This sample demonstrates pie chart for mobile browser usage statistics. <code>Datalabel</code> shows the Information about the points.
+      While hovering on the slice, border will be highlighted.
     </p>
 </div>
 <div id="description">
@@ -172,7 +173,7 @@ export default Vue.extend({
         legendSettings: {
             visible: false,
         },
-           tooltip: { enable: false, format: '${point.x} : <b>${point.y}%</b>' },
+           tooltip: { enable: true, format: '${point.x} : <b>${point.y}%</b>' },
 
       startAngle: '0',
       endAngle: '360',

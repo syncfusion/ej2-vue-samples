@@ -1,0 +1,187 @@
+{
+    "name": "Spreadsheet",
+    "directory": "spreadsheet",
+    "category": "Grids",
+    "ftName": "spreadsheet",
+    "type": "preview",
+    "hideOnDevice": true,
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Spreadsheet",
+            "api": {
+                "Spreadsheet": [
+                    "height",
+                    "width",
+                    "sheets"
+                ],
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "name"
+                ],
+                "rangeSettings": [
+                    "dataSource"
+                ]
+            },
+            "description": "This example demonstrates the default functionalities of the Syncfusion JS 2 Spreadsheet that includes editing, importing & exporting.",
+            "sourceFiles": [
+                {
+                    "displayName": "default.vue",
+                    "path": "src/spreadsheet/default.vue"
+                },
+                {
+                    "displayName": "default-data.json",
+                    "path": "src/spreadsheet/default-data.json"
+                }
+            ]
+        },
+        {
+            "url": "formula",
+            "name": "Formula",
+            "category": "Spreadsheet",
+            "api": {
+                "Spreadsheet": [
+                    "height",
+                    "width",
+                    "sheets"
+                ],
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "selectedRange",
+                    "name"
+                ],
+                "cells": [
+                    "value",
+                    "index"
+                ],
+                "rangeSettings": [
+                    "dataSource",
+                    "startCell"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of using basic formulas with minimum configuration.",
+            "sourceFiles": [
+                {
+                    "displayName": "formula.vue",
+                    "path": "src/spreadsheet/formula.vue"
+                },
+                {
+                    "displayName": "formula-data.json",
+                    "path": "src/spreadsheet/formula-data.json"
+                }
+            ]
+        },
+        {
+            "url": "cell-data-binding",
+            "name": "Cell Data Binding",
+            "category": "Data Binding",
+            "api": {
+                "sheets": [
+                    "rows",
+                    "columns",
+                    "selectedRange",
+                    "name"
+                ],
+                "rows": [
+                    "cells",
+                    "index"
+                ],
+                "cells": [
+                    "value",
+                    "style"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the cell data binding with minimum configuration."
+        },
+        {
+            "url": "remote-data-binding",
+            "name": "Remote Data Binding",
+            "category": "Data Binding",
+            "api": {
+                "Spreadsheet": [
+                    "sheets"
+                ],
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "name"
+                ],
+                "rangeSettings": [
+                    "dataSource",
+                    "query",
+                    "startCell"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of data binding with remote service using DataManager."
+        },
+        {
+            "url": "cell-formatting",
+            "name": "Cell Formatting",
+            "category": "Formatting",
+            "api": {
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "name"
+                ],
+                "rows": [
+                    "cells",
+                    "index"
+                ],
+                "cells": [
+                    "value",
+                    "style"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of cell formatting with minimum configuration.",
+            "sourceFiles": [
+                {
+                    "displayName": "cell-formatting.vue",
+                    "path": "src/spreadsheet/cell-formatting.vue"
+                },
+                {
+                    "displayName": "cell-formatting-data.json",
+                    "path": "src/spreadsheet/cell-format-data.json"
+                }
+            ]
+        },
+        {
+            "url": "number-formatting",
+            "name": "Number Formatting",
+            "category": "Formatting",
+            "api": {
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "name",
+                    "selectedRange"
+                ],
+                "rows": [
+                    "cells"
+                ],
+                "cells": [
+                    "value",
+                    "formatCode"
+                ],
+                "rangeSettings": [
+                    "dataSource",
+                    "startCell"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of number formatting with minimum configuration.",
+            "sourceFiles": [
+                {
+                    "displayName": "number-formatting.vue",
+                    "path": "src/spreadsheet/number-formatting.vue"
+                },
+                {
+                    "displayName": "number-formatting-data.json",
+                    "path": "src/spreadsheet/number-format-data.json"
+                }
+            ]
+        }
+    ]
+}

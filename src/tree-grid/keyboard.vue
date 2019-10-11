@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' height='900'>
+           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :editSettings='editSettings' height='900'>
             <e-columns>
                  <e-column field='taskID' headerText='Task ID' width='90' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                  <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
@@ -226,7 +226,7 @@
 <!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
-import { TreeGridPlugin, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridPlugin, Page, Edit, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
 import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
@@ -247,7 +247,7 @@ export default Vue.extend({
     };
   },
   provide: {
-      treegrid: [ Page ]
+      treegrid: [ Page, Edit ]
     },
    methods:{
   }

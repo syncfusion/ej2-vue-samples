@@ -1,0 +1,169 @@
+{
+    "orderDetails": [
+        {
+            "Order ID": 10248,
+            "Customer Name": "Paul Henriot",
+            "Order Date": "7/4/1996",
+            "Address": "59 rue de l Abbaye",
+            "City": "Reims",
+            "Postal Code": "51100",
+            "Country": "France",
+            "Status": "Delivered",
+            "Freight": "$32.38"
+        },
+        {
+            "Order ID": 10249,
+            "Customer Name": "Karin Josephs",
+            "Order Date": "7/5/1996",
+            "Address": "Luisenstr. 48",
+            "City": "Münster",
+            "Postal Code": "44087",
+            "Country": "Germany",
+            "Status": "Delivered",
+            "Freight": "$11.61"
+        },
+        {
+            "Order ID": 10250,
+            "Customer Name": "Mario Pontes",
+            "Order Date": "7/8/1996",
+            "Address": "Rua do Paço, 67",
+            "City": "Rio de Janeiro",
+            "Postal Code": "05454876",
+            "Country": "Brazil",
+            "Status": "Shipped",
+            "Freight": "$65.83"
+        },
+        {
+            "Order ID": 10251,
+            "Customer Name": "Mary Saveley",
+            "Order Date": "7/4/1996",
+            "Address": "2, rue du Commerce",
+            "City": "Lyon",
+            "Postal Code": "69004",
+            "Country": "France",
+            "Status": "Delivered",
+            "Freight": "$41.34"
+        },
+        {
+            "Order ID": 10252,
+            "Customer Name": "Pascale Cartrain",
+            "Order Date": "7/8/1996",
+            "Address": "Boulevard Tirou, 255",
+            "City": "Charleroi",
+            "Postal Code": "6000",
+            "Country": "Belgium",
+            "Status": "Shipped",
+            "Freight": "$51.3"
+        },
+        {
+            "Order ID": 10253,
+            "Customer Name": "Carlos Hernández",
+            "Order Date": "7/1/1996",
+            "Address": "Rua do Paço, 67",
+            "City": "Rio de Janeiro",
+            "Postal Code": "05454876",
+            "Country": "Brazil",
+            "Status": "Cancelled",
+            "Freight": "$58.17"
+        },
+        {
+            "Order ID": 10254,
+            "Customer Name": "Yang Wang",
+            "Order Date": "7/18/1996",
+            "Address": "Hauptstr. 31",
+            "City": "Bern",
+            "Postal Code": "3012",
+            "Country": "Switzerland",
+            "Status": "Pending",
+            "Freight": "$22.98"
+        },
+        {
+            "Order ID": 10255,
+            "Customer Name": "Antonio Moreno",
+            "Order Date": "7/7/1996",
+            "Address": "Starenweg 5",
+            "City": "Genève",
+            "Postal Code": "1204",
+            "Country": "Switzerland",
+            "Status": "Delivered",
+            "Freight": "$148.33"
+        },
+        {
+            "Order ID": 10256,
+            "Customer Name": "Paula Parente",
+            "Order Date": "7/10/1996",
+            "Address": "Rua do Mercado, 12",
+            "City": "Resende",
+            "Postal Code": "08737363",
+            "Country": "Brazil",
+            "Status": "Shipped",
+            "Freight": "$13.97"
+        },
+        {
+            "Order ID": 10257,
+            "Customer Name": "Michael Holz",
+            "Order Date": "7/9/1996",
+            "Address": "Carrera 22 con Ave. Carlos Soublette",
+            "City": "San Cristóbal",
+            "Postal Code": "5022",
+            "Country": "Venezuela",
+            "Status": "Delivered",
+            "Freight": "$81.91"
+        },
+        {
+            "Order ID": 10258,
+            "Customer Name": "Roland Mendel",
+            "Order Date": "7/3/1996",
+            "Address": "Kirchgasse 6",
+            "City": "Graz",
+            "Postal Code": "8010",
+            "Country": "Austria",
+            "Status": "Cancelled",
+            "Freight": "$140.51"
+        },
+        {
+            "Order ID": 10259,
+            "Customer Name": "Francisco Chang",
+            "Order Date": "7/22/1996",
+            "Address": "Sierras de Granada 9993",
+            "City": "México D.F.",
+            "Postal Code": "05022",
+            "Country": "Mexico",
+            "Status": "Pending",
+            "Freight": "$3.25"
+        },
+        {
+            "Order ID": 10260,
+            "Customer Name": "Henriette Pfalzheim",
+            "Order Date": "7/12/1996",
+            "Address": "Mehrheimerstr. 369",
+            "City": "Köln",
+            "Postal Code": "50739",
+            "Country": "Germany",
+            "Status": "Delivered",
+            "Freight": "$55.09"
+        },
+        {
+            "Order ID": 10261,
+            "Customer Name": "Bernardo Batista",
+            "Order Date": "7/15/1996",
+            "Address": "Rua da Panificadora, 12",
+            "City": "Rio de Janeiro",
+            "Postal Code": "02389673",
+            "Country": "Brazil",
+            "Status": "Shipped",
+            "Freight": "$3.05"
+        },
+        {
+            "Order ID": 10262,
+            "Customer Name": "Paula Wilson",
+            "Order Date": "7/8/1996",
+            "Address": "2817 Milton Dr.",
+            "City": "Albuquerque",
+            "Postal Code": "87110",
+            "Country": "USA",
+            "Status": "Delivered",
+            "Freight": "$48.29"
+        }
+    ]
+}

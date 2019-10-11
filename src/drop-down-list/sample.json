@@ -1,7 +1,6 @@
 {
     "name": "Dropdown List",
     "directory": "drop-down-list",
-    "type": "update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -86,7 +85,6 @@
         {
             "url": "two-way-binding",
             "name": "Two-way Binding",
-            "type": "new",
             "category": "Dropdown List",
             "description": "The Vue Dropdown List component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve in sync with data in the DOM.",
             "sourceFiles":[

@@ -1,7 +1,7 @@
 <template>
   <div>
      <div id="target" class="col-lg-12 control-section">
-         <ejs-button id="dialogBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
+         <ejs-button id="dialogBtn" v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
     
         <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' width='452px' ref='dialogObj'
             target='#target' :open='dialogOpen' :close='dialogClose' closeOnEscape='false'>
@@ -45,12 +45,13 @@ import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 import { RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 Vue.use(DialogPlugin);
 Vue.use(RadioButtonPlugin);
-
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
             footerTemplate: '<span id="posvalue" style="float:left;margin-left:8px;padding:10px;">Position: { X: "Center", Y: "Center" }</span>',
-            position: { X: 'center', Y: 'center' }    
+            position: { X: 'center', Y: 'center' },
+            ShowBtn: false    
         }
     },
     mounted: function(){
@@ -67,10 +68,10 @@ export default Vue.extend({
             document.getElementById('posvalue').innerHTML = 'Position: { X: "' + txt[0] + '", Y: "' + txt[1] + '" }';
         },
         dialogClose() {
-            document.querySelector('#dialogBtn').style.display='inline-block';
+            this.ShowBtn = true;
         },
         dialogOpen() {
-            document.querySelector('#dialogBtn').style.display='none';
+            this.ShowBtn = false;
         }
     }
 });

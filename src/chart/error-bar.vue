@@ -210,13 +210,13 @@ export default Vue.extend({
     verticalErrorBar: function(e) {
         let vertical = document.getElementById('vertical').value;
         this.$refs.chart.ej2Instances.series[0].animation.enable = false;
-        this.$refs.chart.ej2Instances.series[0].errorBar.verticalError = vertical;
+        this.$refs.chart.ej2Instances.series[0].errorBar.verticalError = parseInt(vertical, 10);
         this.$refs.chart.ej2Instances.refresh();  
     },
     horizontalErrorBar: function(e) {
         let horizontal = document.getElementById('horizontal').value;
         this.$refs.chart.ej2Instances.series[0].animation.enable = false;
-        this.$refs.chart.ej2Instances.series[0].errorBar.horizontalError = horizontal;
+        this.$refs.chart.ej2Instances.series[0].errorBar.horizontalError = parseInt(horizontal, 10);
         this.$refs.chart.ej2Instances.refresh();  
      }
   }

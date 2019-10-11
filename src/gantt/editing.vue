@@ -112,7 +112,7 @@ export default Vue.extend({
                 },
             },
             columns: [
-                { field: 'TaskID', width: 50 },
+                { field: 'TaskID', width: 90 },
                 { field: 'TaskName', headerText: 'Job Name', width: '250', clipMode: 'EllipsisWithTooltip' },
                 { field: 'StartDate' },
                 { field: 'Duration' },

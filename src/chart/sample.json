@@ -482,7 +482,6 @@
         "name": "Chart Performance",
         "description": "This demo for Essential JS2 Chart control shows the performance when plotting large volumes of data and handling high frequency real-time data.",
         "category": "Benchmark",
-        "type": "update",
         "sourceFiles": [
             {"displayName": "chart-performance.vue", "path": "./src/chart/chart-performance.vue"}
         ]
@@ -490,6 +489,7 @@
     {
         "url": "default-pie",
         "name": "Pie",
+        "type":"update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
@@ -508,6 +508,7 @@
     {
         "url": "donut",
         "name": "Donut",
+        "type":"update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the doughnut charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
@@ -529,7 +530,6 @@
         "name": "Funnel",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the funnel charts.",
         "category": "Accumulation Charts",
-        "type":"update",
         "sourceFiles": [
             {"displayName": "funnel.vue", "path": "./src/chart/funnel.vue"}
         ]
@@ -891,6 +891,7 @@
         "name": "Range Selection",
         "description": "This demo for Essential JS2 Chart control demonstrates the range selection in chart.",
         "category": "User Interaction",
+        "type": "update",
         "sourceFiles": [
             {"displayName": "range-selection.vue", "path": "./src/chart/range-selection.vue"}
         ]
@@ -929,7 +930,6 @@
         "name": "Data Editing",
         "description": "This demo sample for Essential JavaScript2 Chart control demonstrates the data editing behavior in chart.",
         "category": "User Interaction",
-        "type":"new",
         "sourceFiles": [
             {"displayName": "data-editing.vue", "path": "./src/chart/data-editing.vue"}
         ]

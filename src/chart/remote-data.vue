@@ -5,7 +5,7 @@
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :crosshair='crosshair' :labelRender='labelRender' :loadedChart='loadedChart' :pointRender='pointRender'
             :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Column' xName='Assignee' yName='Estimate' :query='queries' name='Story Point' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='CustomerID' yName='Freight' :query='queries' name='Story Point' width=2 :marker='marker'> </e-series>
                 
             </e-series-collection>
         </ejs-chart>
@@ -100,7 +100,7 @@ selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 let dataManager = new DataManager({
-    url: 'https://mvc.syncfusion.com/Services/Northwnd.svc/Tasks/'
+    url: 'https://ej2services.syncfusion.com/production/web-services/api/Orders'
 });
 let query = new Query().take(5).where('Estimate', 'lessThan', 3, false);
 

@@ -78,7 +78,7 @@
         </div>
         <div class="row center">
             <ejs-button ref='buttonShowRef' id="toastBtnShow" class="e-btn e-primary" v-on:click.native='showClicked'>Show Toasts</ejs-button>
-            <ejs-button ref='hideButtonRef' id="toastBtnHide" class="e-btn e-primary" v-on:click.native='hideClicked' style="display: none">Hide all</ejs-button>
+            <ejs-button ref='hideButtonRef' id="toastBtnHide" v-if="ShowBtn" class="e-btn e-primary" v-on:click.native='hideClicked'>Hide all</ejs-button>
         </div>
     </div>
     <div id="action-description">
@@ -135,6 +135,7 @@ import { DropDownList, ChangeEventArgs as dropdownsChange } from '@syncfusion/ej
 import { Effect, isNullOrUndefined } from '@syncfusion/ej2-base';
 
 Vue.use(ToastPlugin);
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function(){
         return {
@@ -193,7 +194,8 @@ export default Vue.extend({
             easeValue: 'ease',
             animationValue: 'SlideBottomIn',
             animationHideValue: 'SlideBottomOut',
-            showAnimation: { show : { effect: 'SlideBottomIn' }, hide : { effect: 'SlideBottomOut'} }
+            showAnimation: { show : { effect: 'SlideBottomIn' }, hide : { effect: 'SlideBottomOut'} },
+            ShowBtn: false
         }
     },
     mounted: function(){
@@ -202,7 +204,7 @@ export default Vue.extend({
     },
     methods: {
       onBeforeOpen: function(args) {
-         document.getElementById('toastBtnHide').style.display = 'inline-block';
+         this.ShowBtn = true;
          if (this.prevDuplicates) {
             args.cancel = this.preventDuplicate(args);
         }
@@ -295,7 +297,7 @@ export default Vue.extend({
        },
         onclose: function(e){
             if (e.toastContainer.childElementCount === 0 ) {
-                document.getElementById('toastBtnHide').style.display = 'none';
+                this.ShowBtn = false;
             }
         },
     }

@@ -37,7 +37,7 @@ L10n.load(Locale);
 setCulture('en');
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
-const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript'];
+const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'material';
@@ -660,7 +660,7 @@ let sampleBrowser: Vue = new Vue({
                 this.headerAction('changeTheme');
 
             });
-            // document.addEventListener('click', this.headerAction.bind(this, 'closePopup'));
+            document.addEventListener('click', this.headerAction.bind(this, 'closePopup'));
             searchButton.addEventListener('click', (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();

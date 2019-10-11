@@ -35,11 +35,10 @@ export default Vue.extend({
     },
     methods: {
         onCreate: function() {
-            var localObj = this
             let ajax = new Ajax('./src/rich-text-editor/ajax-content.html', 'GET', false);
-    ajax.send().then((data)  => {
-        localObj.value = data;
-    });
+            ajax.send().then((data)  => {
+                this.$refs.rteInstance.value = data;
+            });
         }
     },
     provide:{

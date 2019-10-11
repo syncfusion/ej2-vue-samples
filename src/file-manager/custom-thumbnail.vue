@@ -7,7 +7,7 @@
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates the custom thumbnail of the File Manager you can customize with your own icon.</p>
+        <p>This sample demonstrates the custom thumbnail of the File Manager you can customize with your own icon using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#showthumbnail">showThumbnail </a> property.</p>
     </div>
 
     <div id="description">
