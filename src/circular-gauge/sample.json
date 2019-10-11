@@ -2,6 +2,7 @@
     "name": "Circular Gauge",
     "directory": "circular-gauge",
     "category": "Data Visualization",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -31,6 +32,7 @@
             "url": "semi-circular-gauge",
             "name": "Semi-circular Gauge",
             "category": "Circular Gauge",
+            "type": "update",
             "api":{"CircularGauge": [ "axes"]}
         },
         {
@@ -38,6 +40,13 @@
             "name": "Arc Gauge",
             "category": "Circular Gauge",
             "api":{"CircularGauge": [ "axes"]}
+        },
+        {
+            "url": "legend",
+            "name": "Legend",
+            "category": "Circular Gauge",
+            "type": "new",
+            "api":{"CircularGauge": [ "legend"]}
         },
         {
             "url": "compass",
@@ -73,6 +82,7 @@
             "url": "tooltip",
             "name": "Tooltip",
             "category": "User Interaction",
+            "type": "update",
             "api":{"CircularGauge": ["axes", "tooltip", "tooltipRender"]}
         },
         {

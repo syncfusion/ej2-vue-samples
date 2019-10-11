@@ -3,6 +3,7 @@
   "directory": "diagram",
   "category": "Data Visualization",
   "ftName": "diagram",
+  "type": "update",
   "samples": [
     {
       "url": "default-functionality",
@@ -75,6 +76,13 @@
       "name": "Flow Execution",
       "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
       "category": "Getting Started"
+    },
+    {
+      "url": "line-routing",
+      "name": "Line Routing",
+      "description": "This sample visualizes the connectors that are automatically re-routing or moving away if any shape found on the connectors path.",
+      "category": "Getting Started",
+      "type": "new"
     },
     {
       "url": "bpmn-editor",

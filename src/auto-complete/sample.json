@@ -1,7 +1,6 @@
 {
     "name": "AutoComplete",
     "directory": "auto-complete",
-    "type": "update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -77,7 +76,6 @@
             "url": "two-way-binding",
             "name": "Two-way-Binding",
             "category": "AutoComplete",
-            "type": "new",
             "description": "The Vue Autocomplete component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve in sync with data in the DOM. ",
             "sourceFiles":[
                 { "displayName": "two-way.vue", "path":"src/auto-complete/two-way-binding.vue" },

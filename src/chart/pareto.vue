@@ -10,7 +10,7 @@
     </div>
    <div id="action-description">
     <p>
-       This sample illustrates a pareto chart with line and column series. Trackball shows the information about the data point
+       This sample illustrates a Pareto chart with line and column series. Trackball shows the information about the data point
         closest to the mouse.
     </p>
 </div>

@@ -3,9 +3,9 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section" id="rteSection">
-        <ejs-richtexteditor ref="rteObj" :toolbarSettings="toolbarSettings" :created="onCreate">
+        <ejs-richtexteditor ref="rteObj" :toolbarSettings="toolbarSettings" :created="onCreate"  :actionComplete='actionComplete'>
         <p style="margin-right:10px">The custom command "insert special character" is configured as the last item of the toolbar. Click on the command and choose the special character you want to include from the popup.</p></ejs-richtexteditor>
-        <ejs-dialog id='rteDialog' :buttons='dlgButtons' :header='header' ref="dialogObj" :overlayClick='dialogOverlay' :visible='visible' height='340px' width='395px' :showCloseIcon='showCloseIcon' :isModal='modal'  :target='target' :created="dialogCreate">
+        <ejs-dialog id='rteDialog' :buttons='dlgButtons' :header='header' ref="dialogObj" :overlayClick='dialogOverlay' :visible='visible' height='340px' width='43%' :showCloseIcon='showCloseIcon' :isModal='modal'  :target='target' :created="dialogCreate">
         </ejs-dialog>
         <div id="customTbarDialog" style="display: none">
                 <div id="rteSpecial_char">
@@ -144,16 +144,13 @@
         user-select: none;
     }
 
-    /* custom code start */
-    #rteSection {
-        height: 500px;
-    }
-    /* custom code end */
-
     @media (min-width: 320px) and (max-width: 480px) {
         .fabric.e-bigger #rteDialog {
             min-width: 281px;
         }
+		#rteSpecial_char {
+        padding: 15px 0 15px 20px;
+		}
 
         .fabric #rteDialog {
             min-width: 241px;
@@ -227,15 +224,22 @@ export default Vue.extend({
             proxy.saveSelection = proxy.selection.save(proxy.range, document);
             proxy.$refs.dialogObj.ej2Instances.content = document.getElementById('rteSpecial_char');
             proxy.$refs.dialogObj.ej2Instances.dataBind();
-            proxy.$refs.dialogObj.ej2Instances.show();
+            proxy.$refs.dialogObj.show();
         };
+        },
+        actionComplete: function(args) {
+           if (args.requestType === 'SourceCode') {
+            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#custom_tbar').parentElement.classList.add('e-overlay');
+        } else if (args.requestType === 'Preview') {
+            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#custom_tbar').parentElement.classList.remove('e-overlay');
+        }
         },
         dialogCreate: function() {
             var dialogCtn = document.getElementById('rteSpecial_char');
             var proxy = this;
             dialogCtn.onclick = function (e) {
             var target = e.target;
-            var activeEle = proxy.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
+            var activeEle = proxy.$refs.dialogObj.$el.querySelector('.char_block.e-active');
             if (target.classList.contains('char_block')) {
                 target.classList.add('e-active');
                 if (activeEle) {
@@ -245,7 +249,7 @@ export default Vue.extend({
         };
         }, 
         onInsert: function() {
-            var activeEle = this.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
+            var activeEle = this.$refs.dialogObj.$el.querySelector('.char_block.e-active');
             if (activeEle) {
                 if (this.$refs.rteObj.ej2Instances.formatter.getUndoRedoStack().length === 0) {
                  this.$refs.rteObj.ej2Instances.formatter.saveData();
@@ -258,11 +262,11 @@ export default Vue.extend({
             this.dialogOverlay();
         },
         dialogOverlay: function() {
-             var activeEle = this.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
+             var activeEle = this.$refs.dialogObj.$el.querySelector('.char_block.e-active');
             if (activeEle) {
                 activeEle.classList.remove('e-active');
             }
-            this.$refs.dialogObj.ej2Instances.hide();
+            this.$refs.dialogObj.hide();
         }
     },
     provide:{

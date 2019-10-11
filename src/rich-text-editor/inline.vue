@@ -69,7 +69,6 @@ export default Vue.extend({
     methods: {
     changeCheck: function(args) {
       this.$refs.rteInstance.ej2Instances.inlineMode.onSelection = args.checked;
-      this.$refs.rteInstance.dataBind();
     }
     },
     provide:{

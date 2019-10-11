@@ -100,7 +100,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { PivotViewPlugin, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
-// import { defaultData } from "./data-source";
+import { defaultData } from "./data-source";
 import {
   CheckBoxPlugin,
   ChangeEventArgs as checkEventArgs
@@ -132,7 +132,7 @@ export default Vue.extend({
           { name: "Sold", caption: "Units Sold" },
           { name: "Amount", caption: "Sold Amount" }
         ],
-        // dataSource: defaultData,
+        dataSource: defaultData,
         expandAll: false,
         filters: []
       },

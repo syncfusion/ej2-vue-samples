@@ -21,7 +21,7 @@
     <div>
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>
             <e-columns>
-                <e-column field='EmpID' headerText='Employee ID' width='95'></e-column>
+                <e-column field='EmpID' headerText='Employee ID' width='100'></e-column>
                 <e-column field='Name' headerText='Name' width='100'></e-column>
                 <e-column field='DOB' headerText='DOB' width='90' format='yMd' textAlign='Right'></e-column>
                 <e-column headerText='Tax Per Annum' width='100' :template='template1' ></e-column>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="col-lg-12 control-section" style="padding:10px;position:relative;">
-        <ejs-button class='dlgbtn' id='alertbtn' v-on:click.native="alertBtnClick">Alert</ejs-button>
+        <ejs-button class='dlgbtn' id='alertbtn' v-if="ShowBtn" v-on:click.native="alertBtnClick">Alert</ejs-button>
 
-        <ejs-button class='dlgbtn' v-on:click.native="confirmBtnClick">Confirm</ejs-button>
+        <ejs-button class='dlgbtn' v-if="ShowBtn" v-on:click.native="confirmBtnClick">Confirm</ejs-button>
 
-        <ejs-button class='dlgbtn' v-on:click.native="promptBtnClick">Prompt</ejs-button>
+        <ejs-button class='dlgbtn' v-if="ShowBtn" v-on:click.native="promptBtnClick">Prompt</ejs-button>
 
         <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :open="dialogOpen" :close="dialogClose" :target='target'
             :width='alertWidth'>
@@ -15,7 +15,7 @@
             :width='confirmWidth'>
         </ejs-dialog>
 
-        <ejs-dialog :buttons='promptDlgButtons'  ref="promptDialog" v-bind:visible="false" :header='promptHeader' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :open="dialogOpen" :close="dialogClose" :width='promptWidth'>
+        <ejs-dialog :buttons='promptDlgButtons' ref="promptDialog" v-bind:visible="false" :header='promptHeader' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :open="dialogOpen" :close="dialogClose" :width='promptWidth'>
 
             <table style="border-collapse: separate;border-spacing: 10px;width:85%;margin: 0px -5px 0px;">
                 <tr>
@@ -64,7 +64,7 @@
 	}
     /* custom code start */
 	.dlgbtn {
-	    margin-right: 5%;
+	    margin-right: 2%;
     }
     .control-section {
         height: 100%;
@@ -77,7 +77,7 @@
 import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 Vue.use(DialogPlugin);
-
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
@@ -95,7 +95,8 @@ export default Vue.extend({
             animationSettings: { effect: 'None' },
             alertDlgButtons: [{ click: this.alertDlgBtnClick, buttonModel: { content: 'Dismiss', isPrimary: true } }],
             confirmDlgButtons: [{ click: this.confirmDlgBtnClick, buttonModel: { content: 'Yes', isPrimary: true } }, { click: this.confirmDlgBtnClick, buttonModel: { content: 'No' } }],
-            promptDlgButtons: [{ click: this.promptDlgBtnClick, buttonModel: { content: 'Connect', isPrimary: true } }, { click: this.promptDlgBtnClick, buttonModel: { content: 'Cancel' } }]
+            promptDlgButtons: [{ click: this.promptDlgBtnClick, buttonModel: { content: 'Connect', isPrimary: true } }, { click: this.promptDlgBtnClick, buttonModel: { content: 'Cancel' } }],
+            ShowBtn: true
         }
     },
     mounted: function(){
@@ -121,14 +122,10 @@ export default Vue.extend({
             this.$refs.promptDialog.show();
         },
         dialogClose: function() {
-            (document.querySelectorAll('.dlgbtn')[0]).classList.remove('e-btn-hide');
-            (document.querySelectorAll('.dlgbtn')[1]).classList.remove('e-btn-hide');
-            (document.querySelectorAll('.dlgbtn')[2]).classList.remove('e-btn-hide');
+            this.ShowBtn = true;
         },
         dialogOpen: function() {
-            (document.querySelectorAll('.dlgbtn')[0]).classList.add('e-btn-hide');
-            (document.querySelectorAll('.dlgbtn')[1]).classList.add('e-btn-hide');
-            (document.querySelectorAll('.dlgbtn')[2]).classList.add('e-btn-hide');
+            this.ShowBtn = false;
         }
     }
 });

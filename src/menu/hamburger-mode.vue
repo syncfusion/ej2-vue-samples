@@ -89,7 +89,6 @@
 
     .deviceLayout.tabletview {
         width: 767px;
-        z-index: 1;
     }
 
     .deviceLayout .speaker {

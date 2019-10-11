@@ -1,11 +1,11 @@
 <template>
         <div class="col-lg-12 control-section toast-default-section">
             <div class="e-sample-resize-container">
-                <ejs-toast ref='defaultRef' id='toast_default' :position='position' :created='created' :close='onclose' :beforeOpen='onbeforeOpen'></ejs-toast>
+                <ejs-toast ref='toastRef' id='toast_default' :position='position' :created='created' :close='onclose' :beforeOpen='onbeforeOpen'></ejs-toast>
                 <div class="col-lg-12 col-sm-12 col-md-12 center">
                     <div id="toastBtnDefault" style="margin: auto;text-align: center">
                         <ejs-button ref='showButtonRef' class="e-btn" id="toastBtnShow" v-on:click.native="showBtnClick">Show Toasts</ejs-button>
-                        <ejs-button ref='hideButtonRef' class="e-btn" id="toastBtnHide" v-on:click.native="hideBtnClick">Hide All</ejs-button>
+                        <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn" id="toastBtnHide" v-on:click.native="hideBtnClick">Hide All</ejs-button>
                     </div>
                 </div>
             </div>
@@ -39,17 +39,19 @@ import Vue from "vue";
 import { ToastPlugin, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 Vue.use(ToastPlugin);
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function(){
         return {
             position: {
                 X: 'Right'
-            }
+            },
+            ShowBtn: false
         }
     },
     mounted: function() {
         setTimeout(() => {
-            this.$refs.defaultRef.show({
+            this.$refs.toastRef.show({
                 title: 'Adaptive Tiles Meeting', content: 'Conference Room 01 / Building 135 10:00 AM-10:30 AM',
                 icon: 'e-meeting'
             });
@@ -57,25 +59,25 @@ export default Vue.extend({
     },
     methods: {
         showBtnClick: function(args){
-            this.$refs.defaultRef.show();
+            this.$refs.toastRef.show();
         },
         hideBtnClick: function(args){
-            this.$refs.defaultRef.hide('All');
+            this.$refs.toastRef.hide('All');
         },
         created: function(args){
             document.addEventListener('click', function() {
-               if (!isNullOrUndefined(this.$refs.defaultRef) && !isNullOrUndefined(this.$refs.showButtonRef) && event.target !== this.$refs.showButtonRef.$el) {
-                   this.$refs.defaultRef.hide('All');
+               if (!isNullOrUndefined(this.$refs.toastRef) && !isNullOrUndefined(this.$refs.showButtonRef) && event.target !== this.$refs.showButtonRef.$el) {
+                   this.$refs.toastRef.hide('All');
                }
             }.bind(this));
         },
-        onclose: function(e){
-            if (e.toastContainer.childElementCount === 0 ) {
-                document.getElementById('toastBtnHide').style.display = 'none';
-             }
+        onclose: function(){
+            if (this.$refs.toastRef.$el.childElementCount === 0 ) {
+                this.ShowBtn = false;
+            }
         },
-        onbeforeOpen: function(e){
-             document.getElementById('toastBtnHide').style.display = 'inline-block';
+        onbeforeOpen: function(){
+            this.ShowBtn = true;
         }
     }
 });

@@ -3,8 +3,7 @@
    "directory": "gantt",
    "category": "Calendars",
    "ftName": "gantt",
-   "type": "preview",
-   "hideOnDevice": true,
+   "type": "new",
    "samples": [
       {
          "url": "default",
@@ -246,6 +245,33 @@
             ]
          },
          "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion Gantt control."
+      },
+      {
+         "url": "exporting",
+         "name": "Exporting",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "height",
+               "taskSettings",
+               "toolbar",
+               "treeColumnIndex",
+               "allowSelection",
+               "allowExcelExport",
+               "gridLines",
+               "resourceNameMapping",
+               "resourceIdMapping",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion TypeScript Gantt control."
       }
    ]
 }

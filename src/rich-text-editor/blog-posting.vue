@@ -108,7 +108,7 @@
 
                 <div id="createpostholder">
                     <form novalidate="novalidate">
-                        <ejs-richtexteditor ref="rteInstance" :value="value" placeholder="Write a reply"></ejs-richtexteditor>
+                        <ejs-richtexteditor ref="rteInstance" v-model="value" v-bind:value="value" placeholder="Write a reply"></ejs-richtexteditor>
                         <div id="buttonSection">
                             <table>
                                 <tbody><tr>
@@ -458,8 +458,7 @@ export default Vue.extend({
             var answerElement = this.$refs.rteInstance.$el.parentNode.querySelector('.e-content');
             answerElement.innerHTML = '';
             this.value = '';
-            this.$refs.rteInstance.dataBind();
-            this.$refs.rteInstance.refresh();
+            setTimeout(() => { this.$refs.rteInstance.ej2Instances.refresh(); } );
             },
             clickSubmit: function() {
                 var empCount = 0
@@ -500,8 +499,7 @@ export default Vue.extend({
             countEle.innerHTML = count.toString() + ' Answers';
             answerElement.innerHTML = '';
             this.value = '';
-            this.$refs.rteInstance.dataBind();
-            this.$refs.rteInstance.refresh();
+            setTimeout(() => { this.$refs.rteInstance.ej2Instances.refresh(); } );
                 }
             },
             getMonthName: function(index) {

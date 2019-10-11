@@ -29,10 +29,18 @@
       "api": {}
     },
     {
+      "url": "olap",
+      "name": "OLAP",
+      "category": "Data Binding",
+      "type": "new",
+      "hideOnDevice": false,
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
+      "api": {}
+    },
+    {
       "url": "pivot-chart",
       "name": "Pivot Chart",
       "category": "Integration",
-      "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate integration of pivot table data into a simple chart component",
       "api": {}

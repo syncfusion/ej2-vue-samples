@@ -2,6 +2,17 @@
   <div class="control-section">
     <div class="col-lg-12 control-section">
     <div class="content-wrapper textbox-default">
+        <div class="row material2">
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6"><b>Outlined and Filled</b></div>
+        </div>
+        <div class="row material2">
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                <ejs-textbox floatLabelType="Auto" cssClass="e-outline" placeholder="Outlined"></ejs-textbox>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 filled">
+                <ejs-textbox floatLabelType="Auto" cssClass="e-filled" placeholder="Filled"></ejs-textbox>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6"><b>Floating Label</b></div>
         </div>
@@ -133,6 +144,14 @@
         <tr>
             <th>Types</th>
             <th>Description</th>
+        </tr>
+        <tr>
+            <td>Outlined & Filled textbox</td>
+            <td>You can render the following two types of text fields in the material theme by adding <b>e-outline</b> and <b>e-filled</b> class to cssClass API.
+                <ul>
+                    <li>Filled text fields</li>
+                    <li>Outlined text fields</li>
+                </ul> </td>
         </tr>
         <tr>
             <td>Floating Label</td>
@@ -277,7 +296,16 @@
             padding: 0px;
         }
     }
-    
+    .e-outline.e-float-input,
+    .e-outline.e-float-input.e-control-wrapper {
+        margin-top: 0;
+    }
+    .fabric .row.material2,
+    .bootstrap .row.material2,
+    .bootstrap4 .row.material2,
+    .highcontrast .row.material2 {
+        display: none;
+    }
     #description td {
         vertical-align: top;
     }

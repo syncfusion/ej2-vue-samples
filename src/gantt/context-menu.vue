@@ -205,24 +205,24 @@ export default Vue.extend({
         let record = args.rowData;
       if (args.type !== 'Header') {
         if (!record.hasChildRecords) {
-            document.querySelectorAll('li#expandrow')[0].setAttribute('style', 'display: none;');
-            document.querySelectorAll('li#collapserow')[0].setAttribute('style', 'display: none;');
+          args.hideItems.push('Collapse the Row');
+          args.hideItems.push('Expand the Row');
         } else {
-            let flag = record.expanded;
-            let val = flag ? 'none' : 'block';
-            document.querySelectorAll('li#expandrow')[0].setAttribute('style', 'display: ' + val + ';');
-            val = !flag ? 'none' : 'block';
-            document.querySelectorAll('li#collapserow')[0].setAttribute('style', 'display: ' + val + ';');
+            if(record.expanded) {
+              args.hideItems.push('Expand the Row');
+            } else {
+                args.hideItems.push('Collapse the Row');
+            }
         }
     }
   },
       contextMenuClick:function (args) {
         let record = args.rowData;
         if (args.item.id === 'collapserow') {
-           this.$refs.gantt.ej2Instances.collapseByID(record.ganttProperties.taskId);
+           this.$refs.gantt.ej2Instances.collapseByID(Number(record.ganttProperties.taskId));
           }
         if (args.item.id === 'expandrow') {
-            this.$refs.gantt.ej2Instances.expandByID(record.ganttProperties.taskId);
+            this.$refs.gantt.ej2Instances.expandByID(Number(record.ganttProperties.taskId));
         }  
     }
   }

@@ -3,9 +3,9 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section" id="rteSection">
-        <ejs-richtexteditor ref="customObj" :toolbarSettings="toolbarSettings" :created="onCreate">
+        <ejs-richtexteditor ref="customObj" :toolbarSettings="toolbarSettings" :created="onCreate" :actionComplete='actionComplete' >
         <p style="margin-right:10px">The custom command "insert special character" is configured as the last item of the toolbar. Click on the command and choose the special character you want to include from the popup.</p></ejs-richtexteditor>
-        <ejs-dialog id='rteDialog' :buttons='dlgButtons' :header='header' ref="dialogObj" :overlayClick='dialogOverlay' :visible='visible' height='340px' width='395px' :showCloseIcon='showCloseIcon' :isModal='modal'  :target='target' :open='onOpen' :created="dialogCreate">
+        <ejs-dialog id='rteDialog' :buttons='dlgButtons' :header='header' ref="dialogObj" :overlayClick='dialogOverlay' :visible='visible' height='340px' width='43%' :showCloseIcon='showCloseIcon' :isModal='modal'  :target='target' :open='onOpen' :created="dialogCreate">
         </ejs-dialog>
         </div>
     </div>
@@ -301,15 +301,22 @@ export default Vue.extend({
             proxy.$refs.dialogObj.ej2Instances.content = document.getElementById('tab_default');
             document.getElementById("tab_default").style.display='block';
             proxy.$refs.dialogObj.ej2Instances.dataBind();
-            proxy.$refs.dialogObj.ej2Instances.show();
+            proxy.$refs.dialogObj.show();
         };
+        },
+         actionComplete: function(args) {
+           if (args.requestType === 'SourceCode') {
+            this.$refs.customObj.ej2Instances.getToolbar().querySelector('#emot_tbar').parentElement.classList.add('e-overlay');
+        } else if (args.requestType === 'Preview') {
+            this.$refs.customObj.ej2Instances.getToolbar().querySelector('#emot_tbar').parentElement.classList.remove('e-overlay');
+        }
         },
         dialogCreate: function() {
             var dialogCtn = document.getElementById('tab_default');
             var proxy = this;
             dialogCtn.onclick = function (e) {
             var target = e.target;
-            var activeEle = proxy.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
+            var activeEle = proxy.$refs.dialogObj.$el.querySelector(".char_block.e-active");
             if (target.classList.contains('char_block')) {
                 target.classList.add('e-active');
                 if (activeEle) {
@@ -319,7 +326,7 @@ export default Vue.extend({
         };
         }, 
         onInsert: function() {
-            var activeEle = this.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
+            var activeEle = this.$refs.dialogObj.$el.querySelector('.char_block.e-active');
             if (activeEle) {
                 if (this.$refs.customObj.ej2Instances.formatter.getUndoRedoStack().length === 0) {
                     this.$refs.customObj.ej2Instances.formatter.saveData();
@@ -335,11 +342,11 @@ export default Vue.extend({
             document.getElementById("tab_default").ej2_instances[0].refresh();
         },
         dialogOverlay: function() {
-             var activeEle = this.$refs.dialogObj.ej2Instances.element.querySelector('.char_block.e-active');
+             var activeEle = this.$refs.dialogObj.$el.querySelector('.char_block.e-active');
             if (activeEle) {
                 activeEle.classList.remove('e-active');
             }
-            this.$refs.dialogObj.ej2Instances.hide();
+            this.$refs.dialogObj.hide();
         }
     },
     provide:{

@@ -31,7 +31,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation } from "@syncfusion/ej2-vue-pdfviewer";
+import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields } from "@syncfusion/ej2-vue-pdfviewer";
 import { L10n, setCulture  } from '@syncfusion/ej2-base';
 
 Vue.use(PdfViewerPlugin);
@@ -44,7 +44,7 @@ export default Vue.extend({
         }
     },
 	provide: {
-      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation]
+      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields]
     }	
 });
 //PDF Viewer Arabic Sample Locale
@@ -89,8 +89,8 @@ L10n.load({
             'No Text Found': 'لم يتم العثور على نص',
             // tslint:disable-next-line:max-line-length
             'Server error': 'خدمة الانترنت لا يستمع. يعتمد قوات الدفاع الشعبي المشاهد على خدمة الويب لجميع ميزاته. يرجى بدء خدمة الويب للمتابعة.',
-            'Undo' : 'فك',
-            'Redo' : 'فعل ثانية',
+            'Undo': 'فك',
+            'Redo': 'فعل ثانية',
             'Annotation': 'إضافة أو تعديل التعليقات التوضيحية',
             'Highlight': 'تسليط الضوء على النص',
             'Underline': 'تسطير النص',
@@ -167,7 +167,29 @@ L10n.load({
             'Post': 'بريد',
             'Page': 'صفحة',
             'Add a comment': 'أضف تعليق',
-            'Add a reply': 'أضف رد'
+            'Add a reply': 'أضف رد',
+            'Import Annotations': 'استيراد التعليقات التوضيحية',
+            'Export Annotations': 'شروح التصدير',
+            'Add': 'أضف',
+            'Clear': 'واضح',
+            'Bold': 'بالخط العريض',
+            'Italic': 'مائل',
+            'Strikethroughs': 'يتوسطه',
+            'Underlines': 'تحت الخط',
+            'Superscript': 'حرف فوقي',
+            'Subscript': 'الفرعية النصي',
+            'Align left': 'محاذاة اليسار',
+            'Align right': 'محاذاة اليمين',
+            'Center': 'مركز',
+            'Justify': 'برر',
+            'Font color': 'لون الخط',
+            'Text Align': 'محاذاة النص',
+            'Text Properties': 'نوع الخط',
+            'Draw Signature': 'ارسم التوقيع',
+            'Create': 'خلق',
+            'Font family': 'خط العائلة',
+            'Font size': 'حجم الخط',
+            'Free Text': 'نص حر'
         }
     }
 });

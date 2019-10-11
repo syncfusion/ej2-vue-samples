@@ -150,10 +150,6 @@ export default Vue.extend({
            this.timeObj.mode = editMode;
            this.dateTimeObj.mode = editMode;
            this.dateRangeObj.mode = editMode;
-           this.dateObj.dataBind();
-           this.timeObj.dataBind();
-           this.dateTimeObj.dataBind();
-           this.dateRangeObj.dataBind();
         },
         created: function() {
             if (document.getElementById("right-pane")) {
@@ -162,16 +158,16 @@ export default Vue.extend({
         },
         onScroll: function() {
             if (this.editorMode.text === 'Inline') { return; }
-            if (this.dateObj && this.dateObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.dateObj && this.$refs.dateObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.dateObj.enableEditMode = false;
             }
-            if (this.timeObj && this.timeObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.timeObj && this.$refs.timeObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.timeObj.enableEditMode = false;
             }
-            if (this.dateTimeObj && this.dateTimeObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.dateTimeObj && this.$refs.dateTimeObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.dateTimeObj.enableEditMode = false;
             }
-            if (this.dateRangeObj && this.dateRangeObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.dateRangeObj && this.$refs.dateRangeObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.dateRangeObj.enableEditMode = false;
             }
         }
@@ -193,6 +189,7 @@ visibility: hidden;
 .inplace-control-section.pickers-layout .control_wrapper {
     margin: auto;
     max-width: 400px;
+    border: none;
 }
 
 .inplace-control-section.pickers-layout .control_wrapper table {

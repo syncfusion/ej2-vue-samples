@@ -53,7 +53,22 @@
         <li><code>actionBegin</code> - Triggers before the execution of command.</li>
         <li><code>actionComplete</code> - Triggers after the execution of command.</li>
         <li><code>created</code> - Triggers when the component is created.</li>
+        <li><code>beforeDialogOpen</code> – Event triggers when the dialog is being opened..</li>
+        <li><code>dialogOpen</code> – Event triggers when a dialog is opened.</li>
+        <li><code>dialogClose</code> – Event triggers after the dialog has been closed.</li>
+        <li><code>beforeQuickToolbarOpen</code> – Event triggers when the quick toolbar is being opened.</li>
+        <li><code>quickToolbarOpen</code> – Event triggers when a quick toolbar is opened.</li>
+        <li><code>quickToolbarClose</code> – Event triggers after the quick toolbar has been closed.</li>
+        <li><code>imageSelected</code> – Event triggers when the image is selected or dragged into the insert image dialog</li>
+        <li><code>imageUploading</code> – Event triggers when the selected image begins to upload in the insert image dialog</li>
+        <li><code>imageUploadSuccess</code> – Event triggers when the image is successfully uploaded to the server side</li>
+        <li><code>imageUploadFailed</code> – Event triggers when there is an error in the image upload</li>
+        <li><code>imageRemoving</code> – Event triggers when the selected image is cleared from the insert image dialog</li>
         <li><code>destroyed</code> – Triggers when the component is destroyed.</li>
+        <li><code>beforeSanitizeHtml</code> – Event triggers before sanitize the value. It's only applicable to editorMode as `HTML`</li>
+        <li><code>resizing</code> – Triggers only when resizing the image</li>
+        <li><code>resizeStart</code> –Triggers only when start resize the image</li>
+        <li><code>resizeStop</code> – Triggers only when stop resize the image</li>
     </ul>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.</p>
@@ -101,7 +116,7 @@
 <script>
 import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(RichTextEditorPlugin);
@@ -115,7 +130,7 @@ export default Vue.extend({
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
                 'LowerCase', 'UpperCase', '|',
                 'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
-                'Outdent', 'Indent', '|',
+                'Outdent', 'Indent', '|','CreateTable',
                 'CreateLink', 'Image', '|', 'ClearFormat', 'Print',
                 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
         }
@@ -143,11 +158,74 @@ export default Vue.extend({
         this.appendElement('RichTextEditor <b>blur</b> event called<hr>');
         },
         change: function() {
-        this.appendElement('RidhTextEditor <b>change</b> event called<hr>');
+        this.appendElement('RichTextEditor <b>change</b> event called<hr>');
         },
         toolbarClick: function() {
-        this.appendElement('RidhTextEditor <b>toolbar click</b> event called<hr>');
+        this.appendElement('RichTextEditor <b>toolbar click</b> event called<hr>');
         },
+        beforeDialogOpen: function() {
+         this.appendElement('RichTextEditor <b>beforeDialogOpen</b> event called<hr>');
+        },
+        dialogOpen: function() {
+             this.appendElement('RichTextEditor <b>dialogOpen</b> event called<hr>');
+        },
+
+        dialogClose: function() {
+             this.appendElement('RichTextEditor <b>dialogClose</b> event called<hr>');
+        },
+
+        beforeQuickToolbarOpen: function() {
+             this.appendElement('RichTextEditor <b>beforeQuickToolbarOpen</b> event called<hr>');
+        },
+
+        quickToolbarOpen: function() {
+         this.appendElement('RichTextEditor <b>quickToolbarOpen</b> event called<hr>');
+        },
+
+        quickToolbarClose: function() {
+             this.appendElement('RichTextEditor <b>quickToolbarClose</b> event called<hr>');
+        },
+
+        imageSelected: function() {
+             this.appendElement('RichTextEditor <b>imageSelected</b> event called<hr>');
+        },
+
+        imageUploading: function() {
+             this.appendElement('RichTextEditor <b>imageUploading</b> event called<hr>');
+        },
+
+        imageUploadSuccess: function() {
+             this.appendElement('RichTextEditor <b>imageUploadSuccess</b> event called<hr>');
+        },
+
+        imageUploadFailed: function() {
+             this.appendElement('RichTextEditor <b>imageUploadFailed</b> event called<hr>');
+        },
+
+        imageRemoving: function() {
+             this.appendElement('RichTextEditor <b>imageRemoving</b> event called<hr>');
+        },
+
+        destroyed: function() {
+             this.appendElement('RichTextEditor <b>destroyed</b> event called<hr>');
+        },
+
+        beforeSanitizeHtml: function() {
+             this.appendElement('RichTextEditor <b>beforeSanitizeHtml</b> event called<hr>');
+        },
+
+        resizing: function() {
+             this.appendElement('RichTextEditor <b>resizing</b> event called<hr>');
+        },
+
+        resizeStart: function() {
+             this.appendElement('RichTextEditor <b>resizeStart</b> event called<hr>');
+        },
+
+        resizeStop: function() {
+             this.appendElement('RichTextEditor <b>resizeStop</b> event called<hr>');
+        },
+
         appendElement: function(html) {
              var span = document.createElement('span');
              span.innerHTML = html
@@ -191,7 +269,7 @@ export default Vue.extend({
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table]
     }
 });
 </script>

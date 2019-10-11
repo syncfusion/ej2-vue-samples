@@ -50,7 +50,7 @@
         <p>
             Tap to select a point or series, double tap and drag to enable rectangular selection in touch enabled devices.
         </p>
-        <p>Chart supports five mode of selection which can be set using
+        <p>Chart supports seven mode of selection which can be set using
             <code>SelectionMode</code> property.
         </p>
         <ul>
@@ -66,6 +66,8 @@
                 <code>DragX</code> - Rectangular selection with respect to horizontal axis.</li>
             <li>
                 <code>DragY</code> - Rectangular selection with respect to vertical axis.</li>
+            <li>
+                <code>Lasso</code> - Select free form of selection area points.</li>
         </ul>
         <br>
         <p style="font-weight: 500">Injecting Module</p>

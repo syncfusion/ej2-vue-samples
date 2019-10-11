@@ -59,7 +59,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         editorMode: "Markdown",
         formatter: new MarkdownFormatter({ listTags: { 'OL': '1., 2., 3.'} }),
         toolbarSettings: {
-          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", "OrderedList", "UnorderedList", "|",
+          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", "OrderedList", "UnorderedList", 'SuperScript', 'SubScript', "|",
             "CreateLink", "Image", "CreateTable", "|",
             { tooltipText: "Preview", template: '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn">' +
               '<span class="e-btn-icon e-md-preview e-icons"></span></button>'
@@ -82,9 +82,9 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         this.mdsource.onclick = e => {
           this.fullPreview();
           if (e.currentTarget.classList.contains("e-active")) {
-            this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           } else {
-            this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           }
         };
       },

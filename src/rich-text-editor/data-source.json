@@ -4,5 +4,9 @@
         { "Id": "plainTextFormatting", "format": "Plain Text" },
         { "Id": "keepFormating", "format": "Keep Format" },
         { "Id": "cleanFormatting", "format": "Clean Format" }
+    ],
+    "saveFormat": [
+        { "Id": "Blob", "format": "blob" },
+        { "Id": "Base64", "format": "base" }
     ]
 }

@@ -1,7 +1,8 @@
 <template>
 <div>
     <div class="control-section">
-        <ejs-circulargauge style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :tooltip='tooltip'>
+        <ejs-circulargauge ref="circulargauge" style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' 
+        :dragEnd='dragEnd' :tooltip='tooltip'>
             <e-axes>
                 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0 maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                     <e-pointers>
@@ -13,12 +14,12 @@
     </div>
     <div id="action-description">
         <p>
-            This sample visualizes the tooltip of pointer value in gauge. To see the tooltip in action, hover pointer or tap the pointer.
+            This sample visualizes the tooltip of the pointer value and ranges in gauge. To see the tooltip in action, hover pointer or tap the pointer.
         </p>
     </div>
     <div id="description">
         <p>
-            In this example, you can see how to show the tooltip for pointer in gauge, to see the tooltip in action, hover pointer or tap on pointer in touch enabled devices.
+            In this example, you can see how to show the tooltip for pointer and ranges in gauge, to see the tooltip in action, hover pointer or range bar or tap on pointer or range bar in touch enabled devices.
         </p>
         <br>
         <p style="font-weight: 500">Injecting Module</p>
@@ -98,6 +99,7 @@ export default Vue.extend({
             }],
             tooltip: {
                 enable: true,
+                type: ['Range', 'Pointer'],
                 enableAnimation: false
             },
             enablePointerDrag: true
@@ -116,12 +118,51 @@ export default Vue.extend({
         },
         /* custom code end */
         tooltipRender: function (args) {
-            let imageName = ((args.pointer.currentValue >= 0 && args.pointer.currentValue <= 50) ? 'min' : 'max');
-            let borderColor = ((args.pointer.currentValue >= 0 && args.pointer.currentValue <= 50) ? '#3A5DC8' : '#33BCBD');
-            args.tooltip.template = '<div id="templateWrap" style="border:2px solid ' + borderColor +
-                '"><img src="src/circular-gauge/images/' + imageName + '.png"/><div class="des" style="color: ' +
-                borderColor + '"><span>${value} MPH</span></div></div>';
+			let imageName ; let borderColor;
+			let textColor;
+            if(args.pointer) {
+                imageName = ((args.pointer.currentValue >= 0 && args.pointer.currentValue <= 50) ? 'min' : 'max');
+                borderColor = ((args.pointer.currentValue >= 0 && args.pointer.currentValue <= 50) ? '#3A5DC8' : '#33BCBD');
+				textColor = this.$refs.circulargauge.ej2Instances.theme.toLowerCase() === 'highcontrast' ? 'White' : borderColor;
+                if (this.$refs.circulargauge.ej2Instances.theme.toLowerCase() === 'highcontrast') {
+                    args.tooltip.template = '<div id="templateWrap" style="border:2px solid ' + borderColor +
+                        ';background-color:black"><img src="src/circular-gauge/images/' + imageName
+                        + '.png"/><div class="des" style="color: ' + textColor + '"><span>${value} MPH</span></div></div>';
+                } else {
+                     args.tooltip.template = '<div id="templateWrap" style="border:2px solid ' + borderColor +
+                        '"><img src="src/circular-gauge/images/' + imageName + '.png"/><div class="des" style="color: ' +
+                        borderColor + '"><span>${value} MPH</span></div></div>';
+                }   
+            } else if (args.range){
+                imageName = ((args.range.start >= 0 && args.range.end <= 50)) ? 'min' : 'max';
+                borderColor = ((args.range.start >= 0 && args.range.end <= 50)) ? '#3A5DC8' : '#33BCBD';
+				textColor = this.$refs.circulargauge.ej2Instances.theme.toLowerCase() === 'highcontrast' ? 'White' : borderColor;
+                let start = args.range.start;
+                let end = args.range.end;
+                 if (this.$refs.circulargauge.ej2Instances.theme.toLowerCase() === 'highcontrast') {
+                     args.tooltip.rangeSettings.template = '<div id=templateWrap style="padding:5px;border:2px solid'
+                        + borderColor + ';color: ' + textColor + ';background-color:black"><img src="src/circular-gauge/images/'
+                        + imageName + '.png"/> <span>' + start + ' - ' + end + ' MPH  </span> </div>';
+                 } else {
+                      args.tooltip.rangeSettings.template = '<div id=templateWrap style="padding:5px;border:2px solid'
+                        + borderColor + ';color: ' + borderColor + '"><img src="src/circular-gauge/images/'
+                        + imageName + '.png"/> <span>' + start + ' - ' + end + ' MPH  </span> </div>';
+                 }
+            }
+        },
+        dragEnd: function (args) {
+        if (args.currentValue >= 0 && args.currentValue <= 50) {
+            args.pointer.color = '#3A5DC8';
+            args.pointer.cap.border.color = '#3A5DC8';  
         }
+        else {
+            args.pointer.color = '#33BCBD';
+            args.pointer.cap.border.color = '#33BCBD';
+        }
+		args.pointer.value = args.currentValue;
+        args.pointer.animation.enable = false;
+        this.$refs.circulargauge.ej2Instances.refresh();
+    }
     }
 })
 </script>

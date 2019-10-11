@@ -152,10 +152,6 @@ export default Vue.extend({
            this.autoObj.mode = editMode;
            this.comboObbj.mode = editMode;
            this.multiObj.mode = editMode;
-           this.dropObj.dataBind();
-           this.autoObj.dataBind();
-           this.comboObbj.dataBind();
-           this.multiObj.dataBind();
         },
         created: function() {
             if (document.getElementById("right-pane")) {
@@ -164,16 +160,16 @@ export default Vue.extend({
         },
         onScroll: function() {
             if (this.editorMode.text === 'Inline') { return; }
-            if (this.dropObj && this.dropObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.dropObj && this.$refs.dropObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.dropObj.enableEditMode = false;
             }
-            if (this.autoObj && this.autoObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.autoObj && this.$refs.autoObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.autoObj.enableEditMode = false;
             }
-            if (this.comboObbj && this.comboObbj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.comboObbj && this.$refs.comboObbj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.comboObbj.enableEditMode = false;
             }
-            if (this.multiObj && this.multiObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.multiObj && this.$refs.multiObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.multiObj.enableEditMode = false;
             }
         }
@@ -203,6 +199,7 @@ visibility: hidden;
 .inplace-control-section.drop-down-layout .control_wrapper {
     margin: auto;
     max-width: 400px;
+    border: none;
 }
 
 .inplace-control-section.drop-down-layout .control_wrapper table {

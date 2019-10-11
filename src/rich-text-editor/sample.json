@@ -6,6 +6,7 @@
     "samples": [{
             "url": "tools",
             "name": "Overview",
+            "type": "update",
             "category": "Rich Text Editor"
         },
         {
@@ -16,6 +17,7 @@
         {
             "url": "image",
             "name": "Image",
+            "type": "update",
             "category": "Rich Text Editor"
         },
         {
@@ -45,6 +47,12 @@
             "category": "Rich Text Editor"
         },
         {
+            "url": "resize-editor",
+            "name": "Resize Editor",
+            "category": "Rich Text Editor",
+            "type": "new"
+        },
+        {
             "url": "api",
             "name": "API",
             "category": "Rich Text Editor"
@@ -52,12 +60,25 @@
         {
             "url": "events",
             "name": "Events",
+            "type": "update",
             "category": "Rich Text Editor"
         },
         {
             "url": "blog-posting",
             "name": "Use Case",
             "category": "Rich Text Editor"
+        },
+        {
+            "url": "auto-save",
+            "name": "Auto Save",
+            "category": "Rich Text Editor",
+            "type": "new"
+        },
+        {
+            "url": "two-way-binding",
+            "name": "Two Way Binding",
+            "category": "Rich Text Editor",
+            "type": "new"
         },
         {
             "url": "types",
@@ -67,7 +88,6 @@
         {
             "url": "insert-emoticons",
             "name": "Insert Emoticons",
-            "type": "new",
             "category": "Custom Tool"
         },
         {
@@ -90,6 +110,12 @@
             "url": "markdown-format",
             "name": "Custom Format",
             "category": "Markdown Editor"
+        },
+        {
+            "url": "tribute",
+            "name": "Tribute JS",
+            "type": "new",
+            "category": "Third-parties Integration"
         }
     ]
 }

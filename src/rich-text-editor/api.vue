@@ -141,7 +141,7 @@ export default Vue.extend({
     data: function() {
         return {
             showCharCount: true,
-            maxLength: 2000,
+            maxLength: 1000,
             enabled: true,
             readOnly: false,
             checked: false,
@@ -153,25 +153,25 @@ export default Vue.extend({
     },
     methods: {
         onChange: function() {
-            this.maxLength = this.$refs.numericInstance.ej2Instances.value;
+            this.maxLength = this.$refs.numericInstance.$el.value;
         },
         changeCheck: function() {
-            this.readOnly = this.$refs.checkInstance1.ej2Instances.checked;
+            this.readOnly = this.$refs.checkInstance1.$el.checked;
         },
         changeState: function() {
-            this.enabled = this.$refs.checkInstance2.ej2Instances.checked;
+            this.enabled = this.$refs.checkInstance2.$el.checked;
         },
         changeHtml: function() {
-            this.enableHtmlEncode = this.$refs.checkInstance3.ej2Instances.checked;
+            this.enableHtmlEncode = this.$refs.checkInstance3.$el.checked;
         },
         getValue: function() {
-            alert(this.$refs.rteInstance.ej2Instances.value);
+            alert(this.$refs.rteInstance.$el.value);
         },
         getSelection: function() {
-            alert(this.$refs.rteInstance.ej2Instances.getSelection());
+            alert(this.$refs.rteInstance.getSelection());
         },
         selectAll: function() {
-            this.$refs.rteInstance.ej2Instances.selectAll();
+            this.$refs.rteInstance.selectAll();
         }
     },
     provide:{

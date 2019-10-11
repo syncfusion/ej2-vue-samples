@@ -8,7 +8,7 @@
     </div>
     <div id="action-description">
         <p>
-            This sample demonstrates the full features of the File Manager that includes toolbar, navigation pane and details view.
+            This sample demonstrates the full features of the File Manager that includes <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#navigationpanesettings" target="_blank"> toolbar</a>, <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#toolbarsettings" target="_blank"> navigation pane</a> and <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#detailsviewsettings" target="_blank"> details view.</a>
         </p>
     </div>
     <div id="description">

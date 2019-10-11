@@ -172,10 +172,10 @@ export default Vue.extend({
     axisChange: function () {
         let target = document.getElementById('axisElements');
         if (this.axis.index === 0) {
-            target.checked = this.$refs.chart.primaryXAxis.placeNextToAxisLine;
+            target.checked = this.$refs.chart.ej2Instances.primaryXAxis.placeNextToAxisLine;
             this.crossValue.value = +this.$refs.chart.ej2Instances.primaryXAxis.crossesAt;
         } else {
-            target.checked = this.$refs.chart.ej2Instances.placeNextToAxisLine;
+            target.checked = this.$refs.chart.ej2Instances.primaryYAxis.placeNextToAxisLine;
             this.crossValue.value = +this.$refs.chart.ej2Instances.primaryYAxis.crossesAt;
         }
     },
