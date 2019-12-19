@@ -159,7 +159,6 @@ export default Vue.extend({
     onFloatChange: function(args) {
       this.$refs.rteInstance.ej2Instances.toolbarSettings.enableFloating =
         args.checked;
-      this.$refs.rteInstance.dataBind();
     },
     handleFullScreen: function(e) {
       var sbCntEle = document.querySelector('.sb-content.e-view');
@@ -200,7 +199,7 @@ export default Vue.extend({
     actionCompleteHandler: function(e) {
         var proxy = this;
         setTimeout(function() {
-          proxy.$refs.rteInstance.ej2Instances.toolbarModule.refreshToolbarOverflow();
+          proxy.$refs.rteInstance.ej2Instances.refreshUI();
         }, 400);
     }
   },

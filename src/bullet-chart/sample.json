@@ -1,0 +1,80 @@
+{
+    "name": "Bullet Chart",
+    "directory": "bullet-chart",
+    "category": "Data Visualization",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with default functionalty",
+            "sourceFiles": [
+                {
+                    "displayName": "default.vue",
+                    "path": "./src/bullet-chart/default.vue"
+                }
+            ]
+        },
+        {
+            "url": "multiple-data",
+            "name": "Multiple Data",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with local data",
+            "sourceFiles": [
+                {
+                    "displayName": "multiple-data.vue",
+                    "path": "./src/bullet-chart/multiple-data.vue"
+                }
+            ]
+        },
+        {
+            "url": "right-to-left",
+            "name": "RTL",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with RTL",
+            "sourceFiles": [
+                {
+                    "displayName": "right-to-left.vue",
+                    "path": "./src/bullet-chart/right-to-left.vue"
+                }
+            ]
+        },
+        {
+            "url": "bar-customization",
+            "name": "Feature and Target Bar",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with feature and target bar",
+            "sourceFiles": [
+                {
+                    "displayName": "bar-customization.vue",
+                    "path": "./src/bullet-chart/bar-customization.vue"
+                }
+            ]
+        },
+        {
+            "url": "customization",
+            "name": "Range and Label Settings",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with range and label settings",
+            "sourceFiles": [
+                {
+                    "displayName": "customization.vue",
+                    "path": "./src/bullet-chart/customization.vue"
+                }
+            ]
+        },
+        {
+            "url": "tooltip",
+            "name": "Tooltip Template",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with tooltip template",
+            "sourceFiles": [
+                {
+                    "displayName": "tooltip.vue",
+                    "path": "./src/bullet-chart/tooltip.vue"
+                }
+            ]
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div style="width:300px;margin:0 auto;padding-bottom:10px">
-            <img src="src/maps/images/atm.png" style="width:25px;height:25px;float:left">
+            <img src="src/maps/images/atm.png" alt="ATM indication" style="width:25px;height:25px;float:left">
             <div style="padding-left:30px;font-size:18px;font-weight:400;">ATM locations in Oklahoma, USA</div>
         </div>
         <ejs-maps id='container' :load='load' :centerPosition='centerPosition' :zoomSettings='zoomSettings'>

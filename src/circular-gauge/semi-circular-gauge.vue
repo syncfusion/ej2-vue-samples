@@ -4,10 +4,10 @@
         <div class="content-wrapper" align='center'>
 <ejs-circulargauge ref="circulargauge" style='display:block' align='center' :load='load' id='semi-container' :moveToCenter='false'>
 <e-axes>
-    <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=100 >
+    <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' :hideIntersectingLabel='true' minimum=0 maximum=100 >
       <e-pointers>
           <e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :animation='animation' :cap='cap' :needleTail="needleTail"></e-pointer>
-      </e-pointers>  
+      </e-pointers>
     </e-axis>
 </e-axes>
 </ejs-circulargauge>
@@ -52,7 +52,7 @@
                     <div class="property-text"> Radius based on angle</div>
                 </td>
                 <td style="width: 40%;">
-                    <div>
+                    <div style="padding-top: 0px">
                         <ejs-checkbox ref="angle" id="angle" :change="onChange"></ejs-checkbox>
                     </div>
                 </td>
@@ -77,6 +77,16 @@
                     </div>
                 </td>
             </tr>&nbsp;
+            <tr >
+                <td style="width: 40%">
+                    <div class="property-text"> Hide intersecting labels</div>
+                </td>
+                <td style="width: 40%;">
+                    <div style="padding-top: 0px">
+                        <ejs-checkbox checked="true" ref="Hide" id="label" :change="hideLabel"></ejs-checkbox>
+                    </div>
+                </td>
+            </tr>
             </tbody>
             <br/>
         </table>
@@ -89,6 +99,7 @@
 <div id="description">
     <p>
         In this example, you can see how to render the circular gauge with modified start and end angles to form semi or quarter circular gauges. By enabling the radius based on angle option, circular gauge radius will be calculated based on the start and end angles.
+		You can also hide the intersect labels using 'hideIntersectingLabel' property.
     </p>
     <p>
         More information on the ranges can be found in this 
@@ -119,7 +130,7 @@ data:function(){
                 font: { fontWeight: 'normal' }
             },
             majorTicks: {
-                position: 'Inside', width: 2, height: 12, interval: 20
+                position: 'Inside', width: 2, height: 12, interval: 4
             },
             minorTicks: {
                 position: 'Inside', height: 5, width: 1, interval: 2
@@ -202,6 +213,10 @@ methods: {
              centerY.disabled = false;
              this.$refs.circulargauge.ej2Instances.moveToCenter = false;
         }
+        this.$refs.circulargauge.ej2Instances.refresh();
+    },
+    hideLabel: function(args) {
+        this.$refs.circulargauge.ej2Instances.axes[0].hideIntersectingLabel = args.checked;
         this.$refs.circulargauge.ej2Instances.refresh();
     }
 }

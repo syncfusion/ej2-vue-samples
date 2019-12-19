@@ -17,7 +17,7 @@
                         <div>Position:</div>
                     </td>
                     <td style="width: 40%;">
-                    <ejs-dropdownlist id='legendPosition' ref='legendPosition' index=0 :dataSource='legendData' :popupHeight='height' :change='changePosition'></ejs-dropdownlist>
+                    <ejs-dropdownlist id='legendPosition' ref='legendPosition' index=3 :dataSource='legendData' :popupHeight='height' :change='changePosition'></ejs-dropdownlist>
                     </td>
                 </tr>
             </tbody>
@@ -46,14 +46,14 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { legendSampleData } from './data.json';
+import { legendSampleData } from './heatmap-data/legend-sample-data.json';
 Vue.use(DropDownListPlugin);
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){
 return{
         titleSettings: {
-            text: 'Hourly Weather Forecast (in Celsius)',
+            text: 'Hourly Weather Forecast',
             textStyle: {
                 size: '15px',
                 fontWeight: '500',
@@ -80,8 +80,11 @@ return{
             ]
         },
         legendSettings: {
-            position: 'Left',
-             labelFormat: '{value}\xB0 C'
+            position: 'Bottom',
+             labelFormat: '{value}\xB0 C',
+             title: {
+                 text: 'Celsius'
+             }
         },
         height:'200px',
         legendData:['Left','Right','Top','Bottom']

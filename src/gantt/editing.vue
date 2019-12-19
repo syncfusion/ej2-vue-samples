@@ -23,6 +23,7 @@
             :editDialogFields= "editDialogFields"
             :projectStartDate= "projectStartDate"
             :projectEndDate= "projectEndDate"
+            :splitterSettings= "splitterSettings"
         >
         </ejs-gantt>
         <div style="float: right; margin: 10px;">Source:
@@ -112,7 +113,7 @@ export default Vue.extend({
                 },
             },
             columns: [
-                { field: 'TaskID', width: 50 },
+                { field: 'TaskID', width: 90 },
                 { field: 'TaskName', headerText: 'Job Name', width: '250', clipMode: 'EllipsisWithTooltip' },
                 { field: 'StartDate' },
                 { field: 'Duration' },
@@ -136,7 +137,10 @@ export default Vue.extend({
                 { type: 'Notes' },
             ],
             projectStartDate: new Date('03/25/2019'),
-            projectEndDate: new Date('07/28/2019')
+            projectEndDate: new Date('07/28/2019'),
+            splitterSettings: {
+                columnIndex: 2
+            }
       };
   },
   provide: {

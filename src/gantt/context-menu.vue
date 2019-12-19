@@ -31,6 +31,7 @@
           :editDialogFields="editDialogFields"
           :projectStartDate="projectStartDate"
           :projectEndDate="projectEndDate"
+          :splitterSettings="splitterSettings"
         ></ejs-gantt>
         <div style="float: right; margin: 10px;">
           Source:
@@ -64,7 +65,7 @@
             <li><code>SortAscending </code> - Sort the current column in ascending order.</li>
             <li><code>SortDescending </code> - Sort the current column in descending order.</li>
             <li><code>DeleteDependency </code> - Delete the dependency of the current record.</li>
-            <li><code>Convert </code> - Convert the normal task in to milestone task and vice versa.</li>
+            <li><code>Convert </code> - Convert the normal task into milestone task and vice versa.</li>
             <li><code>Add</code>
                 <ul>
                     <li><code>Above</code> - Add a new row above the selected row </li>
@@ -194,7 +195,10 @@ export default Vue.extend({
         { type: "Notes" }
       ],
       projectStartDate: new Date("03/25/2019"),
-      projectEndDate: new Date("07/28/2019")
+      projectEndDate: new Date("07/28/2019"),
+      splitterSettings: {
+        columnIndex: 2
+      }
     };
   },
     provide: {
@@ -205,24 +209,24 @@ export default Vue.extend({
         let record = args.rowData;
       if (args.type !== 'Header') {
         if (!record.hasChildRecords) {
-            document.querySelectorAll('li#expandrow')[0].setAttribute('style', 'display: none;');
-            document.querySelectorAll('li#collapserow')[0].setAttribute('style', 'display: none;');
+          args.hideItems.push('Collapse the Row');
+          args.hideItems.push('Expand the Row');
         } else {
-            let flag = record.expanded;
-            let val = flag ? 'none' : 'block';
-            document.querySelectorAll('li#expandrow')[0].setAttribute('style', 'display: ' + val + ';');
-            val = !flag ? 'none' : 'block';
-            document.querySelectorAll('li#collapserow')[0].setAttribute('style', 'display: ' + val + ';');
+            if(record.expanded) {
+              args.hideItems.push('Expand the Row');
+            } else {
+                args.hideItems.push('Collapse the Row');
+            }
         }
     }
   },
       contextMenuClick:function (args) {
         let record = args.rowData;
         if (args.item.id === 'collapserow') {
-           this.$refs.gantt.ej2Instances.collapseByID(record.ganttProperties.taskId);
+           this.$refs.gantt.ej2Instances.collapseByID(Number(record.ganttProperties.taskId));
           }
         if (args.item.id === 'expandrow') {
-            this.$refs.gantt.ej2Instances.expandByID(record.ganttProperties.taskId);
+            this.$refs.gantt.ej2Instances.expandByID(Number(record.ganttProperties.taskId));
         }  
     }
   }

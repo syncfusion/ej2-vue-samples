@@ -43,6 +43,7 @@
             "url": "marker",
             "name": "Marker",
             "category": "Features",
+            "type": "update",
             "api": {},
             "sourceFiles": [
                 {"displayName": "marker.vue", "path": "./src/maps/marker.vue"},
@@ -65,7 +66,6 @@
             "name": "Marker clustering",
             "category": "Features",
             "api": {},
-            "type": "new",
             "sourceFiles": [
                 {"displayName": "marker-cluster.vue", "path": "./src/maps/marker-cluster.vue"},
                 {"displayName": "cluster-data.ts", "path": "./src/maps/map-data/marker-cluster.ts"}
@@ -200,6 +200,18 @@
             ]
         },
         {
+            "url": "programmatic-zoom",
+            "name": "Zoom to fit all markers",
+            "category": "User Interaction",
+            "type": "new",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "programmatic-zoom.vue", "path": "./src/maps/programmatic-zoom.vue"},
+                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+                {"displayName": "marker-location.ts", "path": "./src/maps/map-data/marker-location.ts"}
+            ]
+        },
+        {
             "url": "drilldown",
             "name": "Drill Down",
             "category": "User Interaction",
@@ -289,7 +301,6 @@
             "name": "Dynamic markers",
             "category": "Use Cases",
             "api": {},
-            "type": "new",
             "sourceFiles": [
                 {"displayName": "dynamic-marker.vue", "path": "./src/maps/dynamic-marker.vue"}
             ]
@@ -315,6 +326,18 @@
             {"displayName": "population-growth.json", "path": "./src/maps/map-data/population-growth.json"}
         ]
        },
+       {
+        "url": "sales-map",
+        "name": "Sales map",
+        "category": "Use Cases",
+        "type": "new",
+        "api": {},
+        "sourceFiles": [
+            {"displayName": "sales-map.vue", "path": "./src/maps/sales-map.vue"},
+            {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
+            {"displayName": "marker-location.ts", "path": "./src/maps/map-data/marker-location.ts"}
+        ]
+    },
        {
            "url": "seat-selection",
            "name": "Bus seat booking",

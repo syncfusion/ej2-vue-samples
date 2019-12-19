@@ -47,7 +47,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { opposedAxisData } from './data.json';
+import { opposedAxisData } from './heatmap-data/opposed-axis-data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(CheckBoxPlugin);
 export default Vue.extend({

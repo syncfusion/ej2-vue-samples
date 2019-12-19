@@ -1,7 +1,7 @@
 <template>
   <div>
      <div id="target" class="col-lg-12 control-section resizable">
-        <ejs-button id='dlgbtn' v-on:click.native="buttonClick">Open Dialog</ejs-button>
+        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
 
         <ejs-dialog header='Resize Me!!!' ref="dialogObj" allowDragging='true' :animationSettings='animationSettings' content='This is a dialog with resizable support.' enableResize='true' showCloseIcon='true' :target='target' :width='width' :open="dialogOpen"
             :close="dialogClose">
@@ -26,13 +26,14 @@
 import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 Vue.use(DialogPlugin);
-
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
             target: '#target',
             animationSettings:  { effect: 'None' },
-            width:  '300px'            
+            width:  '300px',
+            ShowBtn: false            
         }
     },
     methods: {
@@ -40,10 +41,10 @@ export default Vue.extend({
             this.$refs.dialogObj.show();
         },
         dialogClose: function() {
-            document.querySelector('#dlgbtn').style.display='block';
+            this.ShowBtn = true;
         },
         dialogOpen: function() {
-            document.querySelector('#dlgbtn').style.display='none';
+            this.ShowBtn = false;
         }
     }
 });

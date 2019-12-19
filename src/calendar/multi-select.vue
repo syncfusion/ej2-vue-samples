@@ -2,7 +2,7 @@
 <div class="col-lg-12 control-section">
     <div id="control_wrapper" class="col-lg-6 col-sm-8 col-md-8 multiselectWrapper">
         <div id="container" style="overflow:auto">
-              <ejs-calendar :values="date" :isMultiSelection="multiSelection" :created="onValueChange" :change="onValueChange"></ejs-calendar>
+              <ejs-calendar :values="date" :isMultiSelection="multiSelection" :created="onCreated" :change="onValueChange"></ejs-calendar>
         </div>         
     </div>
     <div class="valuesWrapper col-lg-6 col-sm-8 col-md-8">
@@ -49,11 +49,18 @@ export default Vue.extend({
     };
   },
   methods: {
-    onValueChange: function(args) {
+    onCreated: function () {
       let element = document.getElementById("multiSelect");
       element.innerHTML = "";
       for (let index = 0; index < this.date.length; index++) {
         element.prepend(document.createTextNode(this.date[index]));
+        element.prepend(document.createElement("br"));
+      }
+    },
+    onValueChange: function (args) {
+      if (args.isInteracted) {
+        let element = document.getElementById("multiSelect");
+        element.prepend(args.value);
         element.prepend(document.createElement("br"));
       }
     }

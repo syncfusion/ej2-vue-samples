@@ -16,7 +16,11 @@
             "name": "Expand and Collapse",
             "category": "Splitter",
             "hideOnDevice": true,
-            "description":"The example presents collapsible Splitter Component that exposes expand and collapse action of panes with a different orientation and resizable panes."
+            "description":"The example presents collapsible Splitter Component that exposes expand and collapse action of panes with a different orientation and resizable panes.",
+            "sourceFiles":[
+                { "displayName":"expand-and-collapse.vue", "path":"src/splitter/expand-and-collapse.vue" },
+                { "displayName":"expand-collapse-content.vue", "path":"src/splitter/expand-collapse-content.vue" }
+            ]
         },
         {
             "url": "accordion-navigation-menu",
@@ -37,14 +41,27 @@
             "name": "Outlook-style Layout",
             "category": "Use Case",
             "hideOnDevice": true,
-            "description":"The example explains how to construct an outlook style layout using Vue Splitter, TreeView, ListView, and Rich Text Editor with multiple panes."
+            "description":"The example explains how to construct an outlook style layout using Vue Splitter, TreeView, ListView, and Rich Text Editor with multiple panes.",
+            "sourceFiles":[
+                { "displayName":"outlook-style-layout.vue", "path":"src/splitter/outlook-style-layout.vue" },
+                { "displayName":"outlook-pane1-content.vue", "path":"src/splitter/outlook-pane1-content.vue" },
+                { "displayName":"outlook-pane2-content.vue", "path":"src/splitter/outlook-pane2-content.vue" }
+            ]
         },
         {
             "url": "code-editor-layout",
             "name": "Code Editor Layout",
             "category": "Use Case",
             "hideOnDevice": true,
-            "description":"The example shows how to construct code editor layout (UI) using Vue Splitter with multiple, nested, different oriented, and resizable panes."
+            "description":"The example shows how to construct code editor layout (UI) using Vue Splitter with multiple, nested, different oriented, and resizable panes.",
+            "sourceFiles":[
+                { "displayName":"code-editor-layout.vue", "path":"src/splitter/code-editor-layout.vue" },
+                { "displayName":"code-editor-pane.vue", "path":"src/splitter/code-editor-pane.vue" },
+                { "displayName":"code-editor-pane1content.vue", "path":"src/splitter/code-editor-pane1content.vue" },
+                { "displayName":"code-editor-pane2content.vue", "path":"src/splitter/code-editor-pane2content.vue" },
+                { "displayName":"code-editor-pane3content.vue", "path":"src/splitter/code-editor-pane3content.vue" },
+                { "displayName":"code-editor-pane4content.vue", "path":"src/splitter/code-editor-pane4content.vue" }
+            ]
         }
     ]
 }

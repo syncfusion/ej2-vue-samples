@@ -32,7 +32,7 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { defaultData } from './data.json';
+import { defaultData } from './heatmap-data/default-data.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){

@@ -26,6 +26,7 @@
         <li><code>FullScreen</code> - Stretches the editor to the maximum width and height of the browser window.</li>
         <li><code>Format</code> – Formats the sentence in different ways such as heading level, quotation, and code snippet</li>
         <li><code>Styles</code> – Allows you to apply inline styles to the selected content like bold, italic, and more.</li>
+        <li><code>Insert Code</code> - Allows you to apply code format to the selected parent nodes. In the above sample, the style for the code format ('pre' tag) is applied by adding the background color.</li>
     </ul>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table</code> into the <code>provide</code> section.</p>
@@ -63,6 +64,14 @@
     .highcontrast .CodeMirror {
         background: black;
         color: white;
+    }
+    .e-richtexteditor .e-rte-content .e-content pre {
+        padding: 10px;
+        background: #F4F5F7;
+    }
+    .highcontrast .e-richtexteditor .e-rte-content .e-content pre {
+        padding: 10px;
+        background: #303030;
     }
 </style>
 <script>
@@ -116,7 +125,7 @@ export default Vue.extend({
             toolbarSettings: {
                 items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-                'LowerCase', 'UpperCase', '|',
+                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
                 'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
                 'Outdent', 'Indent', '|',
                 'CreateTable', 'CreateLink', 'Image', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
@@ -126,7 +135,7 @@ export default Vue.extend({
     methods: {
         mirrorConversion: function(e) {
             var textArea = this.$refs.rteObj.ej2Instances.contentModule.getEditPanel();
-            var id = this.$refs.rteObj.getID() +  'mirror-view';
+            var id = this.$refs.rteObj.ej2Instances.getID() +  'mirror-view';
             var mirrorView = this.$refs.rteObj.$el.parentNode.querySelector('#' + id);
             var charCount = this.$refs.rteObj.$el.parentNode.querySelector('.e-rte-character-count');
             if (e.targetItem === 'Preview') {

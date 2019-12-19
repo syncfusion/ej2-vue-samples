@@ -4,7 +4,7 @@
     <div class="sample-container">
         <div class="default-section">
           <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
-    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" style="float: right" id="documenteditor_title_contentEditor" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
+    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
@@ -75,12 +75,6 @@
 
 .e-de-icon-Download:before {
     content: "\e728";
-}
-
-.e-de-padding-right-rtl {
-        float: right;
-        padding-top: 2px;
-        padding-left: 12px;
 }
 
 </style>
@@ -369,6 +363,7 @@ L10n.load({
             'Page': 'صفحه',
             'Fit one page': 'احتواء صفحه واحد',
             'Fit page width': 'احتواء عرض الصفحة',
+            // tslint:disable-next-line:max-line-length
             'The current page number in the document. Click or tap to navigate specific page.': 'رقم الصفحة الحالية في المستند. انقر أأو اضغط للتنقل في صفحه معينه',
             'Format restrictions': 'قيود التنسيق',
             'Allow formatting': 'السماح بالتنسيق',
@@ -414,7 +409,25 @@ L10n.load({
             'Error in establishing connection with web server': 'خطأ في تأسيس اتصال مع ملقم ويب',
             'Highlight the regions I can edit': 'تسليط الضوء على المناطق التي يمكنني تحريرها',
             'Show All Regions I Can Edit': 'إظهار كافة المناطق التي يمكنني تحريرها',
-            'Find Next Region I Can Edit': 'البحث عن المنطقة التالية التي يمكنني تحريرها'
+            'Find Next Region I Can Edit': 'البحث عن المنطقة التالية التي يمكنني تحريرها',
+            'Keep source formatting': 'الاحتفاظ بتنسيق المصدر',
+            'Match destination formatting': 'مطابقه تنسيق الوجهة',
+            'Text only': 'النص فقط',
+            'Comments': 'تعليقات',
+            'Type your comment': 'اكتب تعليقك',
+            'Post': 'وظيفه',
+            'Reply': 'الرد',
+            'New Comment': 'تعليق جديد',
+            'Edit': 'تحرير',
+            'Resolve': 'حل',
+            'Reopen': 'فتح',
+            'No comments in this document': 'لا توجد تعليقات في هذا المستند',
+            'more': 'اكثر',
+            'Type your comment hear': 'اكتب تعليقك الاستماع',
+            'Next Comment': 'التعليق التالي',
+            'Previous Comment': 'التعليق السابق',
+            "Un-posted comments": "Un-نشر التعليقات",
+            "Added comments not posted. If you continue, that comment will be discarded.": "لم يتم نشر التعليقات المضافة. إذا قمت بالمتابعة ، سيتم تجاهل هذا التعليق."
         },
         'documenteditorcontainer': {
             'New': 'الجديد',
@@ -423,10 +436,11 @@ L10n.load({
             'Redo': 'اعاده',
             'Image': 'الصوره',
             'Table': 'الجدول',
-             'of': 'من',
+            'of': 'من',
             'Page': 'صفحه',
             'Fit one page': 'احتواء صفحه واحد',
             'Fit page width': 'احتواء عرض الصفحة',
+            // tslint:disable-next-line:max-line-length
             'The current page number in the document. Click or tap to navigate specific page.': 'رقم الصفحة الحالية في المستند. انقر أأو اضغط للتنقل في صفحه معينه',
             'Link': 'الارتباط',
             'Bookmark': 'الاشاره المرجعيه',
@@ -572,7 +586,12 @@ L10n.load({
             'Stop Protection': 'إيقاف الحماية',
             'Unprotect Document': 'إلغاء حماية المستند',
             'Password': 'كلمه المرور',
-            'Protections': 'الحمايه'
+            'Protections': 'الحمايه',
+            'Error in establishing connection with web server': 'خطا في تاسيس اتصال مع ملقم ويب',
+            'Single': 'واحد',
+            'Double': 'انقر نقرا مزدوجا',
+            "New comment": "تعليق جديد",
+            'Comments': 'تعليقات'
         },
         'colorpicker': {
             'Apply': 'تطبيق',
@@ -592,13 +611,13 @@ export default Vue.extend({
     data: function() {
         return {
           hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
-          documentName : 'الشروع',
+          documentName : 'Right to Left',
           documentTitle: 'Untitled Document',
-          iconStyle: 'float:left;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
+          iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
             titileStyle: 'text-transform:capitalize;font-weight:400;font-family:inherit;text-overflow:ellipsis;white-space:pre;overflow:hidden;user-select:none;cursor:text',
-            openIconCss: 'e-de-icon-Open e-de-padding-right-rtl',
-            printIconCss: 'e-de-icon-Print e-de-padding-right-rtl',
-            exportIconCss: 'e-de-icon-Download e-de-padding-right-rtl',
+            openIconCss: 'e-de-icon-Open e-de-padding-right',
+            printIconCss: 'e-de-icon-Print e-de-padding-right',
+            exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
                 { text: 'Microsoft Word (.docx)', id: 'word' },
                 { text: 'Syncfusion Document Text (.sfdt)', id: 'sfdt' }
@@ -674,7 +693,7 @@ export default Vue.extend({
           obj.open(JSON.stringify(data));
           obj.documentName='Right to Left';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
-          obj.documentChange = () => {
+          this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
        });

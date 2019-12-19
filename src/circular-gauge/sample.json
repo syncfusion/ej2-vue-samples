@@ -40,6 +40,12 @@
             "api":{"CircularGauge": [ "axes"]}
         },
         {
+            "url": "legend",
+            "name": "Legend",
+            "category": "Circular Gauge",
+            "api":{"CircularGauge": [ "legend"]}
+        },
+        {
             "url": "compass",
             "name": "Direction Compass",
             "category": "Circular Gauge",

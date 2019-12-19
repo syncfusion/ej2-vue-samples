@@ -1,7 +1,6 @@
 {
     "name": "ComboBox",
     "directory": "combo-box",
-    "type": "update",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",
@@ -87,7 +86,6 @@
             "url": "two-way-binding",
             "name": "Two-way Binding",
             "category": "ComboBox",
-            "type": "new",
             "description": "The Vue Combo Box component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve sync with data in the DOM.",
             "sourceFiles":[
                 { "displayName": "two-way.vue", "path":"src/combo-box/two-way-binding.vue" },

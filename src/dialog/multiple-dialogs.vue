@@ -1,14 +1,14 @@
 <template>
   <div>
     <div id="target" class="col-lg-12 control-section" style="padding:10px;position:relative;">
-        <ejs-button id='dlgbtn' v-on:click.native="buttonClick">Open Dialog</ejs-button>
+        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
 
         <ejs-dialog ref='dialogObj' :visible="true" header='First Dialog' showCloseIcon='true' :animationSettings='animationSettings' width='330px'
             target='#target' content='<p>This is the first dialog and acts as a parent dialog, you can open the second (child) dialog by clicking "Next".</p>' :buttons='dlgButton' :open='dialogOpen' :close='dialogClose'>
         </ejs-dialog>
 
         <ejs-dialog ref='secondDialog' :visible="false" header='Second Dialog' :isModal='isModal' showCloseIcon='true' :animationSettings='animationSettings' width='285px'
-            target='#target' content='<p>This is the second dialog and act as a child dialog.</p>' :buttons='dlg2Button'>
+            target='#target' content='<p>This is the second dialog and act as a child dialog.</p>' :buttons='secondDlgButton'>
         </ejs-dialog>
     </div>
     <div id="action-description">
@@ -40,28 +40,27 @@
 import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 Vue.use(DialogPlugin);
-
+let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
             dlgButton: [{'click': () => { this.$refs.secondDialog.show();}, buttonModel: { isPrimary:'true', content: 'Next' }}],
-
-            dlg2Button: [{ 'click': () => { this.$refs.secondDialog.hide(); },buttonModel: { isPrimary:'true', content: 'Close' }}],
-
+            secondDlgButton: [{ 'click': () => { this.$refs.secondDialog.hide(); },buttonModel: { isPrimary:'true', content: 'Close' }}],
             animationSettings: { effect: 'None' },
             isModal: true,
+            ShowBtn: false
         }
     },
     methods: {
-            buttonClick: function(args){
-                this.$refs.dialogObj.show();
-            },
-            dialogClose: function() {
-                document.querySelector('#dlgbtn').style.display='block';
-            },
-            dialogOpen: function() {
-                document.querySelector('#dlgbtn').style.display='none';
-            }
+        buttonClick: function(args){
+            this.$refs.dialogObj.show();
+        },
+        dialogClose: function() {
+            this.ShowBtn = true;
+        },
+        dialogOpen: function() {
+            this.ShowBtn = false;
+        }
     }
 });
 </script>

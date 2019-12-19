@@ -49,7 +49,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { tableBubbleData } from './data.json';
+import { tableBubbleData } from './heatmap-data/table-bubble-data.json';
 Vue.use(DropDownListPlugin);
 Vue.use(HeatMapPlugin);
 export default Vue.extend({

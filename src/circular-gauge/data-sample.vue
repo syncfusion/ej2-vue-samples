@@ -105,7 +105,7 @@ export default Vue.extend({
         }];
         return {
             gauge1annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
+                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
                 angle: 180,
                 zIndex: '1',
                 radius: '30%'
@@ -163,7 +163,7 @@ export default Vue.extend({
                 color: '#777777'
             },
             gauge2annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
+                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
                 angle: 180,
                 zIndex: '1',
                 radius: '30%'
@@ -221,7 +221,7 @@ export default Vue.extend({
                 color: '#777777'
             },
             gauge3annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
+                content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
                 angle: 180,
                 zIndex: '1',
                 radius: '30%'
@@ -333,9 +333,9 @@ export default Vue.extend({
                     germany.ej2_instances[0].setPointerValue(0, 0, value1);
                     usa.ej2_instances[0].setPointerValue(0, 0, value2);
                     uk.ej2_instances[0].setPointerValue(0, 0, value3);
-                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
+                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
+                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
+                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
 
 
                 } else {

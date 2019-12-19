@@ -62,7 +62,7 @@ Vue.use(FileManagerPlugin);
 /**
  * File Manager API sample
  */
-let hostUrl = 'https://ej2services.syncfusion.com/production/web-services/';
+let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
 export default Vue.extend ({
     data: function() {

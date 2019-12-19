@@ -50,7 +50,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { renderModeData } from './data.json';
+import { renderModeData } from './heatmap-data/render-mode-data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(RadioButtonPlugin);
 export default Vue.extend({

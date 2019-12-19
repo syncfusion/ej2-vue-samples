@@ -1,5 +1,6 @@
 {
     "name": "Dialog",
+    "type": "update",
     "directory": "dialog",
     "category": "Layout",
     "ftName": "modal-dialog",
@@ -71,6 +72,14 @@
             "name": "Multiple Dialogs",
             "category": "Dialog",
             "description":"This example shows how to display multiple dialogs sequentially and open multiple dialogs simultaneously for both modal and modeless Vue dialogs.",
+            "hideOnDevice": true
+        },
+        {
+            "url": "components-dialog",
+            "name": "Components inside Dialog",
+            "type": "new",
+            "category": "Dialog",
+            "description":"This example demonstrates how to render other Vue Syncfusion components inside the dialog component.",
             "hideOnDevice": true
         }
     ]

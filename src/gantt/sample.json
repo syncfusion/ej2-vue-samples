@@ -3,8 +3,7 @@
    "directory": "gantt",
    "category": "Calendars",
    "ftName": "gantt",
-   "type": "preview",
-   "hideOnDevice": true,
+   "type": "update",
    "samples": [
       {
          "url": "default",
@@ -13,36 +12,14 @@
          "api": {
             "Gantt": [
                "dataSource",
-               "taskSettings",
+               "taskFields",
                "height",
                "highlightWeekends",
-               "eventMarkers"
+               "eventMarkers",
+			      "labelSettings"
              ]
          },
          "description": "This example demonstrates the simple Gantt chart with summary task, child tasks, milestone tasks, dependencies with event markers of project"
-      },
-      {
-         "url": "remote-data",
-         "name": "Remote Data",
-         "category": "Gantt",
-         "api": {
-            "Gantt": [
-               "dataSource",
-               "height",
-               "taskSettings",
-               "columns",
-               "treeColumnIndex",
-               "allowSelection",
-               "gridLines",
-               "highlightWeekends",
-               "timelineSettings",
-               "labelSettings",
-               "includeWeekend",
-               "projectStartDate",
-               "projectEndDate"
-            ]
-         },
-         "description": "This sample demonstrates the way of binding data to Gantt chart with remote service. The Gantt chart data source is bound to remote data using DataManager."
       },
       {
          "url": "editing",
@@ -53,7 +30,7 @@
                "dataSource",
                "dateFormat",
                "height",
-               "taskSettings",
+               "taskFields",
                "editSettings",
                "toolbar",
                "columns",
@@ -61,7 +38,7 @@
                "allowSelection",
                "gridLines",
                "resourceNameMapping",
-               "resourceIdMapping",
+               "resourceIDMapping",
                "resources",
                "highlightWeekends",
                "timelineSettings",
@@ -73,7 +50,86 @@
          },
          "description": "This example demonstrates the cell editing, dialog editing, taskbar editing and dependency editing support in Gantt"
       },
-    
+      {
+         "url": "selection",
+         "name": "Selection",
+         "category": "Gantt",
+         "type": "update",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "treeColumnIndex",
+               "allowSelection",
+               "highlightWeekends",
+               "labelSettings",
+               "selectionSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This example demonstrates the various selection support of row and cell with different type in Syncfusion Essential JS2 Gantt"
+      },
+      {
+         "url": "context-menu",
+         "name": "Context Menu",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+              "dataSource",
+               "dateFormat",
+               "height",
+               "taskFields",
+               "editSettings",
+               "toolbar",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceNameMapping",
+               "resourceIDMapping",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+			   "enableContextMenu",
+			   "contextMenuItems"
+            ]
+         },
+         "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion Gantt control."
+      },
+      {
+         "url": "exporting",
+         "name": "Exporting",
+         "category": "Gantt",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "height",
+               "taskFields",
+               "toolbar",
+               "allowExcelExport",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceNameMapping",
+               "resourceIDMapping",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "toolbarClick"
+            ]
+         },
+         "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion TypeScript Gantt control."
+      },
       {
          "url": "filtering",
          "name": "Filtering",
@@ -82,7 +138,7 @@
             "Gantt": [
                "dataSource",
                "dateFormat",
-               "taskSettings",
+               "taskFields",
                "columns",
                "treeColumnIndex",
                "height",
@@ -102,39 +158,250 @@
          "description": "This example demonstrates the filtering support with filter menu option for various types of columns in Gantt"
       },
       {
-         "url": "timeline",
-         "name": "Timeline",
+         "url": "events",
+         "name": "Events",
+         "category": "Gantt",
+         "type": "update",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "toolbar",
+               "treeColumnIndex",
+               "allowSelection",
+               "highlightWeekends",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "toolbarClick"
+            ]
+         },
+         "description": "This demo demonstrates the basic functionalities of the events that are available in the Syncfusion Essential JS2 Gantt."
+      },
+      {
+         "url": "keyboard-interactions",
+         "name": "Keyboard Interactions",
          "category": "Gantt",
          "api": {
             "Gantt": [
                "dataSource",
-               "taskSettings",
+               "height",
+               "taskFields",
+               "toolbar",
+               "allowKeyboard",
+               "columns",
+               "editSettings",
+               "treeColumnIndex",
+               "highlightWeekends",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo demonstrates the key combinations used to perform corresponding Gantt actions in Syncfusion Essential JS2 Gantt."
+      },
+      {
+         "url": "drag-and-drop",
+         "name": "Row Drag And Drop",
+         "category": "Gantt",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "columns",
+               "editSettings",
+               "treeColumnIndex",
+               "height",
+               "highlightWeekends",
+               "allowRowDragAndDrop",
+               "labelSettings",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+             ]
+         },
+         "description": "This demo demonstrates how to drag and drop the gantt rows by using drag icon in left side of gantt column of Syncfusion Essential JS2 Gantt."
+      },
+      {
+         "url": "local-data",
+         "name": "Local Data",
+         "category": "Data Binding",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "highlightWeekends",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This example demonstrates the way of binding local data to Gantt chart with an array of JavaScript objects."
+      },
+      {
+         "url": "remote-data",
+         "name": "Remote Data",
+         "category": "Data Binding",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "includeWeekend",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This sample demonstrates the way of binding data to Gantt chart with remote service. The Gantt chart data source is bound to remote data using DataManager."
+      },
+      {
+         "url": "self-reference-data",
+         "name": "Self Reference Data",
+         "category": "Data Binding",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "highlightWeekends",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This example demonstrates the way of binding self-referential flat data with parentID to the Gantt chart."
+      },
+      {
+         "url": "work-week",
+         "name": "Workweek",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "height",
+               "highlightWeekends",
+               "workWeek",
+			   "labelSettings"
+            ]
+         },
+         "description": "This sample demonstrates the way to bind the customizable array of working days in a week for project."
+      },
+      {
+         "url": "working-time-range",
+         "name": "Working Time Range",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
                "treeColumnIndex",
                "height",
                "projectStartDate",
                "projectEndDate",
                "highlightWeekends",
-               "resourceNameMapping",
-               "resourceIdMapping",
-               "resources",
                "timelineSettings",
-               "splitterSettings",
+               "dayWorkingTime"
+            ]
+         },
+         "description": "This example demonstrates how to customize the working time of a day for the whole project. We can define working time in different intervals."
+      },
+      {
+         "url": "holidays",
+         "name": "Holidays",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
                "treeColumnIndex",
-               "labelSettings",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "holidays"
+            ]
+         },
+         "description": "This example demonstrates how to define holidays in the project, which should be considered while calculating the duration and on rendering taskbars."
+      },
+      {
+         "url": "resource-allocation",
+         "name": "Resource Allocation",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "resourceIDMapping",
+               "resourceNameMapping",
+               "resources",
+               "resourceInfo"
+            ]
+         },
+         "description": "This example demonstrates how to allocate available resources to the task based on their skills and availability"
+      },
+      {
+         "url": "event-markers",
+         "name": "Event Markers",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
                "eventMarkers"
             ]
          },
-         "description": "This example demonstrates the various timeline mode options and properties available to customize the timeline in Gantt"
+         "description": "This example demonstrates how to highlight the different stages in the project development cycle just like bookmark."
+      },
+      {
+         "url": "indicators",
+         "name": "Indicators",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "indicators"
+            ]
+         },
+         "description": "This example demonstrates how to highlight some important details of tasks on specified date in the project with the label and icons."
       },
       {
          "url": "baseline",
          "name": "Baseline",
-         "category": "Gantt",
+         "category": "Scheduling Concepts",
          "api": {
             "Gantt": [
                "dataSource",
                "renderBaseline",
-               "taskSettings",
+               "taskFields",
                "columns",
                "treeColumnIndex",
                "allowSelection",
@@ -152,9 +419,205 @@
          "description": "Baselines are enabled to view the deviation between the planned dates of tasks and actual progress of task dates"
       },
       {
+         "url": "unscheduled-task",
+         "name": "Unscheduled Tasks",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "editSettings",
+               "toolbar",
+               "height",
+               "labelSettings",
+               "allowUnscheduledTasks",
+               "projectStartDate",
+               "projectEndDate",
+               "toolbarClick",
+               "splitterSettings",
+               "columns"
+            ]
+         },
+         "description": "This example demonstrates the unscheduled tasks in Gantt with custom toolbar item and dynamic add support."
+      },
+      {
+         "url": "timeline",
+         "name": "Timeline API",
+         "category": "Timeline",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "highlightWeekends",
+               "resourceNameMapping",
+               "resourceIDMapping",
+               "resources",
+               "timelineSettings",
+               "splitterSettings",
+               "treeColumnIndex",
+               "labelSettings",
+               "eventMarkers"
+            ]
+         },
+         "description": "This example demonstrates the various timeline mode options and properties available to customize the timeline in Gantt"
+      },
+      {
+         "url": "zooming",
+         "name": "Zooming",
+         "category": "Timeline",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "height",
+               "toolbar",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This example demonstrates the zooming support of the Gantt chart timeline and ZoomToFit support of the Gantt chart."
+      },
+      {
+         "url": "column-menu",
+         "name": "Column Menu",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "allowFiltering",
+               "allowSorting",
+               "showColumnMenu",
+               "height",
+               "columns",
+               "highlightWeekends",
+               "labelSettings",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains the default functionalities of the Column Menu in Syncfusion Essential JS2 Gantt."
+      },
+      {
+         "url": "showhide",
+         "name": "Show or Hide Column",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "columns",
+               "highlightWeekends",
+               "labelSettings",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains how to hide or show the columns of Gantt dynamically using Syncfusion Essential JS2 Gantt methods."
+      },
+      {
+         "url": "reorder",
+         "name": "Column Reorder",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "allowReordering",
+               "height",
+               "columns",
+               "highlightWeekends",
+               "labelSettings",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains how to reorder the columns of Gantt by simple drag and drop of columns using Syncfusion Essential JS2 Gantt." 
+      },
+      {
+         "url": "resizing",
+         "name": "Column Resize",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "allowResizing",
+               "height",
+               "columns",
+               "highlightWeekends",
+               "labelSettings",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains how to resize the width of the Gantt columns in Syncfusion Essential Javascript 2 Gantt control"
+      },
+      {
+         "url": "column-template",
+         "name": "Column Template",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "rowHeight",
+               "columns",
+               "highlightWeekends",
+               "labelSettings",
+               "resourceNameMapping",
+               "resourceIDMapping",
+               "resources",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains how to customize column headers to show additional HTML elements, such as icons, images, etc. in Syncfusion Essential JS2 Gantt control."
+      },
+      {
+         "url": "header-template",
+         "name": "Header Template",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "columns",
+               "highlightWeekends",
+               "labelSettings",
+               "resourceNameMapping",
+               "resourceIDMapping",
+               "resources",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This demo explains how to customize column headers to show additional HTML elements, such as icons, images, etc. in Syncfusion Essential JS2 Gantt control."
+      },
+      {
          "url": "taskbar-template",
          "name": "Taskbar Template",
-         "category": "Gantt",
+         "category": "Customization",
          "api": {
             "Gantt": [
                "dataSource",
@@ -181,71 +644,135 @@
          "description": "This example demonstrates the taskbar template support with child taskbar template, parent taskbar template and milestone template."
       },
       {
-         "url": "unscheduled-task",
-         "name": "Unscheduled Tasks",
-         "category": "Gantt",
+         "url": "tasklabel-template",
+         "name": "Task Label Template",
+         "category": "Customization",
          "api": {
             "Gantt": [
                "dataSource",
                "taskFields",
-               "editSettings",
-               "toolbar",
+               "columns",
+               "highlightWeekends",
+               "treeColumnIndex",
+               "rowHeight",
                "height",
+               "resourceNameMapping",
+               "resourceIDMapping",
+               "resources",
+               "projectStartDate",
+               "projectEndDate",
+               "splitterSettings",
+               "labelSettings"
+            ]
+         },
+         "description": "This demo explains how to render label template for the left, right, and task labels in Syncfusion Essential JS2 Gantt."
+      },
+      {
+          "url": "tooltip-template",
+          "name": "Tooltip Template",
+         "category": "Customization",
+          "api": {
+             "Gantt": [
+                "dataSource",
+                "height",
+                "taskFields",
+                "renderBaseline",
+                "treeColumnIndex",
+                "columns",
+                "resourceNameMapping",
+                "resourceIDMapping",
+                "resources",
+                "highlightWeekends",
+                "labelSettings",
+                "tooltipSettings",
+                "projectStartDate",
+                "projectEndDate"
+             ]
+          },
+          "description": "This demo explains how to render tooltip template for taskbar and baseline in Syncfusion Essential JS2 Gantt."
+       },
+      {
+         "url": "toolbar-template",
+         "name": "Toolbar Template",
+         "category": "Customization",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "allowFiltering",
+               "columns",
+               "toolbar",
+               "treeColumnIndex",
+               "highlightWeekends",
                "labelSettings",
-               "allowUnscheduledTasks",
                "projectStartDate",
                "projectEndDate",
                "toolbarClick"
             ]
          },
-         "description": "This example demonstrates the unscheduled tasks in Gantt with custom toolbar item and dynamic add support."
+         "description": "This demo explains how to render custom toolbar elements in a toolbar, by which any custom operation can be performed in Syncfusion Essential JS2 Gantt."
       },
-	  {
-         "url": "zooming",
-         "name": "Zooming",
-         "category": "Gantt",
+      {
+         "url": "grid-lines",
+         "name": "Grid Lines",
+         "category": "Customization",
          "api": {
             "Gantt": [
                "dataSource",
                "height",
-               "taskSettings",
-               "toolbar",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "gridLines",
+               "highlightWeekends",
+               "labelSettings",
                "projectStartDate",
                "projectEndDate"
             ]
          },
-         "description": "This example demonstrates the zooming support of the Gantt chart timeline and ZoomToFit support of the Gantt chart."
+         "description": "This demo explains how to customize the grid lines in Gantt by selecting values from dropdown using Syncfusion Essential JS2 Gantt."
       },
       {
-         "url": "context-menu",
-         "name": "Context Menu",
-         "category": "Gantt",
+         "url": "sorting",
+         "name": "Default",
+         "category": "Sorting",
          "api": {
             "Gantt": [
                "dataSource",
-               "dateFormat",
-               "height",
-               "taskSettings",
-               "editSettings",
-               "toolbar",
+               "taskFields",
                "columns",
                "treeColumnIndex",
-               "allowSelection",
-               "gridLines",
-               "resourceNameMapping",
-               "resourceIdMapping",
-               "resources",
-               "highlightWeekends",
-               "timelineSettings",
+               "height",
                "labelSettings",
+               "splitterSettings",
+               "allowSorting",
+               "sortSettings",
+               "projectStartDate",
+               "projectEndDate"
+             ]
+         },
+         "description": "This demo demonstrates how to sort multiple columns of Gantt by holding the CTRL key and clicking the column headers of Syncfusion Essential JS2 Gantt."
+      },
+      {
+         "url": "sorting-api",
+         "name": "Sorting API",
+         "category": "Sorting",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "highlightWeekends",
+               "allowSorting",
                "labelSettings",
                "projectStartDate",
-               "projectEndDate",
-               "enableContextMenu",
-               "contextMenuItems"
-            ]
+               "projectEndDate"
+             ]
          },
-         "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion Gantt control."
+         "description": "This demo demonstrates how to sort columns and clear sorted columns dynamically using the sortColumn and clearSorting method of Syncfusion Essential JS2 Gantt."
       }
    ]
 }

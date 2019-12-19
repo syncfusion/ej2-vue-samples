@@ -37,7 +37,7 @@ L10n.load(Locale);
 setCulture('en');
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
-const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript'];
+const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'material';
@@ -224,7 +224,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         breadCrumbUpdate(controlName: string, category: string, sampleName: string) {
-            let ele: Element = this.$el.querySelector('#sample-bread-crumb');
+            let ele: Element = this.$el.querySelector('#sample-bread-crumb') as Element;
             sb.vars.breadCrumbObject.component.innerHTML = controlName;
             if (category && controlName.toLowerCase() !== category.toLowerCase()) {
                 sb.vars.breadCrumbObject.subCategory.innerHTML = category;
@@ -245,7 +245,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         updateBreadCrumb: function () {
-            this.$el.querySelector('#component-name .sb-sample-text').innerHTML = this.$router.currentRoute.meta.eCompName;
+            (this.$el.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = this.$router.currentRoute.meta.eCompName;
             this.breadCrumbUpdate(this.$router.currentRoute.meta.eCompName, this.$router.currentRoute.meta.eCategoryName, this.$router.currentRoute.meta.eSampleName);
         },
 
@@ -612,7 +612,7 @@ let sampleBrowser: Vue = new Vue({
 
         rendercopycode: function (): void {
             let ele: HTMLElement = createElement('div', { className: 'copy-tooltip', innerHTML: '<div class="e-icons copycode"></div>' });
-            this.$el.querySelector('#sb-source-tab').appendChild(ele);
+            (this.$el.querySelector('#sb-source-tab')as HTMLElement).appendChild(ele);
             let copiedTooltip: Tooltip = new Tooltip({
                 content: 'Copied to clipboard ',
                 position: 'BottomCenter',
@@ -624,7 +624,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         dynamicTab: function (e: any): void {
-            let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content_' + e.selectedIndex);
+            let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content-sb-source-tab_' + e.selectedIndex);
             let codeEle: any = blockEle.children[0];
             codeEle.innerHTML = sb.vars.sourceTab.items[e.selectedIndex].data;
             codeEle.innerHTML = codeEle.innerHTML.replace(reg,'');
@@ -633,7 +633,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         dynamicTabCreation: function (obj: any): void {
-            let blockEle: Element = obj.element.querySelector('#e-content_' + obj.selectedItem).children[0];
+            let blockEle: Element = obj.element.querySelector('#e-content'+ obj.tabId + '_' + obj.selectedItem ).children[0];
             blockEle.innerHTML = obj.items[obj.selectedItem].data;
             blockEle.innerHTML = blockEle.innerHTML.replace(reg,'');
             blockEle.classList.add('sb-src-code');
@@ -660,7 +660,7 @@ let sampleBrowser: Vue = new Vue({
                 this.headerAction('changeTheme');
 
             });
-            // document.addEventListener('click', this.headerAction.bind(this, 'closePopup'));
+            document.addEventListener('click', (this.headerAction.bind(this, 'closePopup') as any));
             searchButton.addEventListener('click', (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -710,7 +710,7 @@ let sampleBrowser: Vue = new Vue({
         },
 
         changeRtl(args: any): void {
-            let elementlist: HTMLElement[] = selectAll('.e-control', this.$el.querySelector('#control-content'));
+            let elementlist: HTMLElement[] = selectAll('.e-control', (this.$el.querySelector('#control-content') as HTMLElement));
 
             for (let control of elementlist) {
                 let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
@@ -808,6 +808,8 @@ let sampleBrowser: Vue = new Vue({
                 let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
                 if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
                     ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
+                } else if (sb === 'blazor') {
+                    ele.href = 'https://blazor.syncfusion.com/demos/';
                 } else {
                     ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
                         (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');

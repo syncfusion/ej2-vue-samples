@@ -29,7 +29,6 @@
         "url": "drag-drop",
         "name": "Drag and Drop",
         "category": "File Manager",
-        "type": "new",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to drag and drop the files in a Vue File Manager."
     },
@@ -37,7 +36,6 @@
         "url": "file-upload",
         "name": "File Upload",
         "category": "Use Case",
-        "type": "new",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to render the File Manager component inside the Dialog component in a Vue File Manager."
     },
@@ -45,7 +43,6 @@
         "url": "azure-service",
         "name": "Azure Blob Provider",
         "category": "Cloud Service Providers",
-        "type": "new",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to configure and use the azure service in a Vue File Manager."
     },
@@ -53,10 +50,37 @@
         "url": "sql-server-provider",
         "name": "SQL Database Provider",
         "category": "Cloud Service Providers",
-        "type": "new",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to configure and use the sql server database service in a Vue File Manager."
+    },
+	{
+        "url": "nodejs-file-provider",
+        "name": "NodeJS File Provider",
+        "category": "Cloud Service Providers",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the nodejs server database service in a Vue File Manager."
+    },
+    {
+        "url": "amazon-s3-provider",
+        "name": "Amazon S3 File Provider",
+        "category": "Cloud Service Providers",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the Amazon S3 provider service in a Vue File Manager."
+    },
+    {
+        "url": "firebase",
+        "name": "Firebase Realtime File Provider",
+        "category": "Cloud Service Providers",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the firebase realtime database service in a Vue File Manager."
+    },
+    {
+        "url": "FTPFileProvider",
+        "name": "FTP File Provider",
+        "category": "Cloud Service Providers",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the File Transfer Protocol in a vue File Manager."
     }
-
     ]
 }

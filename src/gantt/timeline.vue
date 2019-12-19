@@ -15,7 +15,6 @@
         :splitterSettings = "splitterSettings"
         :treeColumnIndex = '1'
         :labelSettings = "labelSettings"
-        :eventMarkers = "eventMarkers"
         >
         </ejs-gantt>
       </div>
@@ -222,12 +221,6 @@ export default Vue.extend({
             labelSettings: {
                 rightLabel: 'taskName',
             },
-            eventMarkers: [
-                {
-                    day: '02/08/2019',
-                    label: 'Project kick-off'
-                }
-            ],
             yearformat: [
                     { id: 'MMM "yy', format: 'Jan "18' },
                     { id: 'y', format: '2018' },

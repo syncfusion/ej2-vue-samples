@@ -186,15 +186,12 @@ export default Vue.extend({
         },
         deniedTagChange: function() {
             this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.deniedTags = (eval)('[' + this.$refs.deniedTagsInstance.ej2Instances.value + ']');
-            this.$refs.rteInstance.ej2Instances.dataBind();
         },
         deniedAttrsChange: function() {
             this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.deniedAttrs = (eval)('[' + this.$refs.deniedAttributesInstance.ej2Instances.value + ']');
-            this.$refs.rteInstance.ej2Instances.dataBind();
         },
         allowStyleChange: function() {
             this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.allowedStyleProps = (eval)('[' + this.$refs.allowedStylePropertiesInstance.ej2Instances.value + ']');
-            this.$refs.rteInstance.ej2Instances.dataBind();
         }
     },
     provide:{

@@ -20,7 +20,6 @@
     .toolback {
         border-radius: 4px;
         border: 1px #abb9c6;
-        opacity: 90%;
         background: rgba(53, 63, 76, 0.90);
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
         padding-bottom: 10px;

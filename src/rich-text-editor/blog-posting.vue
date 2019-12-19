@@ -108,7 +108,7 @@
 
                 <div id="createpostholder">
                     <form novalidate="novalidate">
-                        <ejs-richtexteditor ref="rteInstance" :value="value" placeholder="Write a reply"></ejs-richtexteditor>
+                        <ejs-richtexteditor ref="rteInstance" v-model="value" v-bind:value="value" placeholder="Write a reply"></ejs-richtexteditor>
                         <div id="buttonSection">
                             <table>
                                 <tbody><tr>
@@ -440,6 +440,7 @@
 </style>
 <script>
 import Vue from "vue";
+import { isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
 import { RichTextEditorPlugin, Link, Image, QuickToolbar, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 
@@ -458,8 +459,7 @@ export default Vue.extend({
             var answerElement = this.$refs.rteInstance.$el.parentNode.querySelector('.e-content');
             answerElement.innerHTML = '';
             this.value = '';
-            this.$refs.rteInstance.dataBind();
-            this.$refs.rteInstance.refresh();
+            setTimeout(() => { this.$refs.rteInstance.ej2Instances.refresh(); } );
             },
             clickSubmit: function() {
                 var empCount = 0
@@ -467,7 +467,8 @@ export default Vue.extend({
                 var comment = answerElement.innerHTML;
                 var empList = ['emp1','emp2','emp3'];
                 var nameList = ['Anne Dodsworth', 'Janet Leverling', 'Laura Callahan'];
-                if (comment !== null && comment.trim() !== '' && answerElement.innerText.trim() !== '') {
+                if (comment !== null && comment.trim() !== '' && (answerElement.innerText.trim() !== '' ||
+                !isNOU(answerElement.querySelector('img')) || !isNOU(answerElement.querySelector('table')))) {
                     var answer = document.querySelector('.answer');
                     var cloneAnswer = answer.cloneNode(true);
                      var authorName = cloneAnswer.querySelector('.authorname');
@@ -500,8 +501,7 @@ export default Vue.extend({
             countEle.innerHTML = count.toString() + ' Answers';
             answerElement.innerHTML = '';
             this.value = '';
-            this.$refs.rteInstance.dataBind();
-            this.$refs.rteInstance.refresh();
+            setTimeout(() => { this.$refs.rteInstance.ej2Instances.refresh(); } );
                 }
             },
             getMonthName: function(index) {

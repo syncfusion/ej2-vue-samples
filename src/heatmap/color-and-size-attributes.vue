@@ -2,7 +2,7 @@
 <div>
 <div class="control-section">
     <div class="content-wrapper">
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
+        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org" target='_blank'>https://en.wikipedia.org/</a>
@@ -51,8 +51,7 @@ return{
         yAxis: {
             labels:  ['Jan-Feb', 'Mar-Apr', 'May-Jun', 'Jul-Aug', 'Sep-Oct', 'Nov-Dec']
         },
-        dataSource:  {
-            data: [
+        dataSource: [
             { Year: '2017', Months: 'Jan-Feb', Accidents: 4, Fatalities: 39 },
             { Year: '2017', Months: 'Mar-Apr', Accidents: 3, Fatalities: 8 },
             { Year: '2017', Months: 'May-Jun', Accidents: 1, Fatalities: 3 },
@@ -89,7 +88,8 @@ return{
             { Year: '2012', Months: 'Jul-Aug', Accidents: 0, Fatalities: 0 },
             { Year: '2012', Months: 'Sep-Oct', Accidents: 3, Fatalities: 33 },
             { Year: '2012', Months: 'Nov-Dec', Accidents: 4, Fatalities: 42 }
-    ],
+        ],
+        dataSourceSettings:  {
             isJsonData: true,
             adaptorType: 'Cell',
             xDataMapping: 'Year',

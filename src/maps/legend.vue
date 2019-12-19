@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="col-lg-9 control-section">
+<div class="col-lg-8 control-section">
     <div class="content-wrapper">
     <div align="center">
 <ejs-maps ref="maps" id='container' align="center" :load='load' :tooltipRender='tooltipRender' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
@@ -16,12 +16,12 @@
 </div>
 </div>
 
-<div class="col-lg-3 property-section">
+<div class="col-lg-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 10%">
-                        <div class="property-text" style="padding: 0px;">Type</div>
+                        <div class="property-text" style="padding: 0px;">Legend mode </div>
                     </td>
                     <td style="width: 30%;">
                     <ejs-dropdownlist id='legendMode' style="width:100;" :dataSource='legendModeData' index=0 :width='labelswidth' :change='changeLegendMode'></ejs-dropdownlist>
@@ -29,19 +29,29 @@
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 10%">
-                        <div class="property-text" style="padding: 0px;">Position</div>
+                        <div class="property-text" style="padding: 0px;">Legend position </div>
                     </td>
                     <td style="width: 30%">
                     <ejs-dropdownlist id='legendPosition' style="width:100%;" :dataSource='positionData' index=0 :width='labelswidth' :change='changeLegendPosition'></ejs-dropdownlist>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 10%">
-                        <div class="property-text" style="padding: 0px;">Remaining items in data source</div>
+                    <td style="width: 70%">
+                        <div class="property-text" style="padding: 0px;">Show legend for remaining data source items</div>
                     </td>
-                    <td style="width: 30%">
-                        <div>
+                    <td style="width: 20%">
+                        <div style="padding-top:0px;">
                             <ejs-checkbox id="opacity" :change="changeOpcity"></ejs-checkbox>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td style="width: 70%">
+                        <div class="property-text" style="padding: 0px;">Show population density while the legend item is toggled</div>
+                    </td>
+                    <td style="width: 20%">
+                        <div style="padding-top:0px;">
+                            <ejs-checkbox id="toggleLegend" :change="changetoggle"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -55,7 +65,7 @@
     </div>
     <div id="description">
         <p>
-          In this example, you can see how to render a legend in the maps. A legend item denotes the value of a shape. Any number of legend items can be added to the legend. You can bind the desired colors to the shapes, if its values are within the specified range using the <code>ColorMapping</code> property.
+          In this example, you can see how to render a legend in the maps. A legend item denotes the value of a shape. Any number of legend items can be added to the legend. You can bind the desired colors to the shapes, if its values are within the specified range using the <code>ColorMapping</code> property. You can also show or hide color mapping related to population density while toggling the legend item
     
         </p>
         <p>
@@ -85,7 +95,7 @@ export default Vue.extend({
             enable: false
         },
         titleSettings: {
-            text: 'Population density (per square kilometers) - 2015',
+            text: 'Population density (per square kilometer) - 2015',
             textStyle: {
                 size: '16px'
             }
@@ -104,7 +114,7 @@ export default Vue.extend({
         tooltipSettings: {
                     visible: true,
                     valuePath: 'name',
-                    format: '${name} : ${density} per square kms'
+                    format: '${name} : ${density}'
                 },
                 shapeSettings: {
                     colorValuePath: 'density',
@@ -198,6 +208,11 @@ methods:{
             maps.layers[0].shapeSettings.colorMapping[5].color = null;
             maps.layers[0].shapeSettings.colorMapping[5].label = null;
         }
+        maps.refresh();
+    },
+    changetoggle: function(args) {
+        let maps= this.$refs.maps.ej2Instances;
+        maps.legendSettings.toggleLegendSettings.enable = args.checked;
         maps.refresh();
     }
 }

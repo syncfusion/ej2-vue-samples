@@ -46,7 +46,7 @@ import Vue from 'vue';
 import { HeatMapPlugin, Tooltip } from "@syncfusion/ej2-vue-heatmap";
 import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip as chartTooltip, Legend} from "@syncfusion/ej2-vue-charts";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { chartData, cellSeletionData } from './data.json';
+import { chartData, cellSeletionData } from './heatmap-data/cell-seletion-data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(ChartPlugin);
