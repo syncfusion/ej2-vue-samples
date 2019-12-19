@@ -5,7 +5,7 @@
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Spline' xName='x' yName='y' name='Rupees' :marker='marker1'>
                     <e-trendlines>
-                        <e-trendline :type='type' :forwardForecast='forwardForecast' :polynomialOrder='polynomialOrder' :period='period' :backwardForecast='backwardForecast' :width='3' :marker='marker' :name='name' fill='#C64A75'>
+                        <e-trendline :type='type' :forwardForecast='forwardForecast' :polynomialOrder='polynomialOrder' :period='period' :backwardForecast='backwardForecast' :width='3' :marker='marker' :name='name' fill='#C64A75'>
                         </e-trendline>
                     </e-trendlines>
                 </e-series>
@@ -117,7 +117,7 @@ import Vue from "vue";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
 import { EmitType, extend } from '@syncfusion/ej2-base';
-import { ChartPlugin, ScatterSeries, Category, Tooltip, Trendlines, SplineSeries, LineSeries } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, ScatterSeries, Category, Tooltip, Trendlines, SplineSeries, LineSeries, Legend } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
 Vue.use(NumericTextBoxPlugin);
@@ -156,7 +156,7 @@ export default Vue.extend({
         periodEnabled: false,
 
         type: 'Linear',
-        name: 'Linear',
+        name: 'Trends',
         fValue: 1,
            //Initializing Primary X Axis
     primaryXAxis: {
@@ -179,7 +179,7 @@ export default Vue.extend({
     marker1: {
         visible :true
     },
-    legendSettings : { visible: false },
+    legendSettings : { visible: true },
 
     title: 'Historical Indian Rupee Rate (INR USD)',
 
@@ -188,7 +188,7 @@ export default Vue.extend({
    };
   },
   provide: {
-    chart: [Category, Tooltip, ScatterSeries, SplineSeries, LineSeries, Trendlines]
+    chart: [Category, Tooltip, ScatterSeries, SplineSeries, LineSeries, Trendlines, Legend]
   },
    updated: function () {
     this.$nextTick(function() {

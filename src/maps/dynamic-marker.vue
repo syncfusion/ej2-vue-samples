@@ -239,7 +239,6 @@ methods:{
             dynamicMarker[markerIndex].fill = '#DB4537';
             dynamicMarker[markerIndex].height = (markerShape.value !== 'Image') ? 12 : 20;
             dynamicMarker[markerIndex].width = (markerShape.value !== 'Image') ? 12 : 20;
-            dynamicMarker[markerIndex].offset.y = -10;
             dynamicMarker[markerIndex].imageUrl = (markerShape.value !== 'Image') ? '' : 'src/maps/images/ballon.png';
             dynamicMarker[markerIndex].shape = (markerShape.value !== 'Image') ? markerShape.value : 'Image';
         }

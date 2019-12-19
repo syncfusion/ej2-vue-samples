@@ -7,7 +7,7 @@
         <ejs-treegrid :dataSource='data' childMapping='states' :height='400' :allowReordering='true' :allowFiltering='true'
         :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' :actionFailure='actionFailure'>
             <e-columns>
-                <e-column field='name' headerText='Province' width='170' :template="flagtemplate"></e-column>
+                <e-column field='name' headerText='Province' width='195' :template="flagtemplate"></e-column>
                 <e-column field='population' headerText='Population (Million)' width='188' textAlign='Right'></e-column>
                 <e-column field='gdp' headerText='GDP Rate %' :template='gdpTemplate' width='150'></e-column>
                 <e-column field='rating' headerText='Credit Rating' width='150' :template='ratingTemplate' :allowFiltering='false'></e-column>
@@ -150,7 +150,7 @@ export default Vue.extend({
     flagtemplate: function () {
         return {
             template: Vue.component('flagtemplate', {
-                template: `<div class="image" style="display: inline-block"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</img></div>`,
+                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</img></div>`,
             data: function () { return { data: { } }; },
             })
         }

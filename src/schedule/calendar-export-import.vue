@@ -36,7 +36,7 @@
                         <td style="width: 50%;">
                             <ejs-uploader id='ics-import' :cssClass='cssClass' name="ics-import" :buttons="buttons"
                                 :showFileList="showFileList" :multiple="multiple" :allowedExtensions="extensions"
-                                :selected="onSelect">
+                                :selected="onSelect" />
                         </td>
                     </tr>
                 </tbody>

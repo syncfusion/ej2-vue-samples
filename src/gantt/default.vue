@@ -11,7 +11,7 @@
         :highlightWeekends= 'true'         
         :taskFields= "taskFields"
         :labelSettings= "labelSettings"
-        :eventMarkers= "eventMarkers"
+        :treeColumnIndex= "1"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate"
         >
@@ -29,8 +29,8 @@
         taskbars, timeline units and dependency lines in touch enabled devices.
     </p>
     <p>
-        Gantt component features are segregated into individual feature-wise modules. To use a selection support and event markers we need to inject the
-        <code>Selection</code>, <code>DayMarkers</code> modules.
+        Gantt component features are segregated into individual feature-wise modules. To use a selection support we need to inject the
+        <code>Selection</code> module.
     </p>
 </div>
 </div>
@@ -59,22 +59,7 @@ export default Vue.extend({
                 leftLabel: 'TaskName'
             },
             projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
-            eventMarkers: [
-                {
-                    day: new Date('04/09/2019'),
-                    label: 'Research phase'
-                }, {
-                    day: new Date('04/30/2019'),
-                    label: 'Design phase'
-                }, {
-                    day: new Date('05/23/2019'),
-                    label: 'Production phase'
-                }, {
-                    day: new Date('06/20/2019'),
-                    label: 'Sales and marketing phase'
-                }
-            ]
+            projectEndDate: new Date('07/06/2019')
       };
   },
   provide: {

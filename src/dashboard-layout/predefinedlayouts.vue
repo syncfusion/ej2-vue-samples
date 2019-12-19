@@ -36,13 +36,14 @@
       </div>
     <div id="action-description">
         <p>
-            This sample demonstrates, the functionality of dynamically updating the panels inside the DashboardLayout by slecting it from the pre-defined values in the properties panel. Go to the properties panel section and select any of the pre-defined layout,
+            This sample demonstrates, the functionality of dynamically updating the panels inside the DashboardLayout by selecting it from the pre-defined values in the properties panel. Go to the properties panel section and select any of the pre-defined layout,
         based on selection the panles are updated in the dashboard layout dynamically inside the DashboardLayout. Click the <code>reset</code> button to reset the panels settings of the layout.
         </p>
     </div>
     <div id="description">
         <p>
             This sample demonstrates how to update the panels dynamically in the dashboard layout component.
+        </p>
     </div>
 </div>
 </template>

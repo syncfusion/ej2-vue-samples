@@ -2,14 +2,12 @@
     "name": "Scheduler",
     "directory": "schedule",
     "category": "Calendars",
-    "type": "update",
     "ftName": "scheduler",
-    "samples": [
-        {
+    "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "Scheduler",
-            "description": "This demo for Essential JS2 Scheduler control shows how the flat Scheduler looks like with its default set of minimal configurations.",
+            "description": "This demo shows how the Scheduler control functionalities work with the default set of minimal configurations in a Vue application.",
             "api": {
                 "Schedule": [
                     "height",
@@ -22,7 +20,7 @@
             "url": "local-data",
             "name": "Local Data",
             "category": "Data Binding",
-            "description": "This demo for Essential JS2 Scheduler control shows the way of binding an array of JavaScript objects (local JSON datasource).",
+            "description": "This demo shows how to populate appointments in the Vue Scheduler through local data sources like JSON data types with the proper date format.",
             "api": {
                 "Schedule": [
                     "eventSettings",
@@ -34,7 +32,7 @@
             "url": "remote-data",
             "name": "Remote Data",
             "category": "Data Binding",
-            "description": "This demo for Essential JS2 Scheduler control shows the way of binding remote services by using the DataManager.",
+            "description": "This demo shows how to populate appointments or events in the Vue Scheduler through remote data sources such as web services, web API, URL, and OData.",
             "api": {
                 "Schedule": [
                     "eventSettings",
@@ -46,7 +44,7 @@
             "url": "calendar-integration",
             "name": "Sync Google Calendar",
             "category": "Data Binding",
-            "description": "This example shows how to integrate Google Calendar events into Vue Scheduler.",
+            "description": "This example shows how to synchronously work with Vue Scheduler and Google Calendar by converting Scheduler events to the required format.",
             "api": {
                 "Schedule": [
                     "eventSettings",
@@ -54,13 +52,12 @@
                     "selectedDate"
                 ]
             }
-        },        
+        },
         {
             "url": "recurrence-events",
             "name": "Recurring Events",
             "category": "Appointments",
-            "type": "update",
-            "description": "This demo for Essential JS2 Scheduler control shows the scheduler with recurring meetings handled on a regular pattern.",
+            "description": "This demo shows how to define recurring events (appointments) with different patterns and rules that meet iCalendar specifications in the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "width",
@@ -75,7 +72,7 @@
             "url": "block-events",
             "name": "Blocking Dates and Time",
             "category": "Appointments",
-            "description": "This example shows how to block specific days or time intervals on Vue Scheduler",
+            "description": "This example shows how to block specific days or time intervals on the Vue Scheduler that helps to mark unavailable time or days in Calendar.",
             "api": {
                 "Schedule": [
                     "width",
@@ -90,7 +87,7 @@
             "url": "search-events",
             "name": "Search Events",
             "category": "Appointments",
-            "description": "This example shows how to search the scheduler events based on specific field criteria.",
+            "description": "This example shows how to filter the appointments or events of the Vue Scheduler based on a search string in a particular field or all fields.",
             "api": {
                 "Schedule": [
                     "width",
@@ -102,10 +99,10 @@
             }
         },
         {
-        "url": "timezone",
+            "url": "timezone",
             "name": "Timezone",
             "category": "Appointments",
-            "description": "This demo for Essential JS2 Scheduler control shows how the events are displayed in different timings as per the selected timezone.",
+            "description": "This demo shows how the Vue Scheduler works with different time zones. The events in the Scheduler automatically adapt to the selected time zone.",
             "api": {
                 "Schedule": [
                     "timezone",
@@ -119,7 +116,7 @@
             "url": "external-dragdrop",
             "name": "External Drag and Drop",
             "category": "Appointments",
-            "description": "This example shows how to drag and drop the events from an external source into Vue scheduler.",
+            "description": "This demo shows the ability to drag and drop appointments from an external source (such as the DataGrid, ListView, etc.)  into the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -139,7 +136,7 @@
             "name": "Virtual Scrolling ",
             "category": "Scrolling",
             "hideOnDevice": true,
-            "description": "This example illustrates how to enable the virtual loading of resources and its events in Vue Scheduler.",
+            "description": "This example illustrates how to achieve high performance in the Vue Scheduler using virtual scrolling to load resources and events on demand.",
             "api": {
                 "Schedule": [
                     "views",
@@ -153,7 +150,7 @@
             "url": "views",
             "name": "Basic Views",
             "category": "Views",
-            "description": "This demo for Essential JS2 Scheduler control shows the usage of basic views such as Day, Week, Work Week and Month.",
+            "description": "This example demonstrates the basic views (day, week, workweek, and month) of the Vue Scheduler control with their default configurations.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -167,7 +164,7 @@
             "url": "timeline",
             "name": "Timeline Views",
             "category": "Views",
-            "description": "This demo for Essential JS2 Scheduler control shows how the timeline scheduler looks like with its default set of configurations.",
+            "description": "This example presents timeline views (day, week, workweek, and month) of the Vue Scheduler with their default configurations.",
             "api": {
                 "Schedule": [
                     "height",
@@ -180,7 +177,7 @@
             "url": "agenda",
             "name": "Agenda View",
             "category": "Views",
-            "description": "This demo for Essential JS2 Scheduler control shows the agenda view and the configurations available in it.",
+            "description": "This demo shows the agenda view of the Vue Schedule that displays events as a list with virtual scrolling, with a number of initially loaded days.",
             "api": {
                 "Schedule": [
                     "agendaDaysCount",
@@ -196,7 +193,7 @@
             "url": "month-agenda",
             "name": "Month Agenda View",
             "category": "Views",
-            "description": "This demo for Essential JS2 Scheduler control shows the layout of Month Agenda view and how it works.",
+            "description": "This demo presents the Vue Scheduler month-agenda view, which follows the month-view layout while displaying events for a selected date.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -207,10 +204,22 @@
             }
         },
         {
+            "url": "year",
+            "name": "Year View",
+            "category": "Views",
+            "description": "This example presents a year view of the Vue Scheduler that displays appointments or events for an entire year with a horizontal or vertical layout.",
+            "api": {
+                "Schedule": [
+                    "views",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
             "url": "view-configuration",
             "name": "Individual View Settings",
             "category": "Views",
-            "description": "This demo for Essential JS2 Scheduler control shows how to customize each of the view with specific configurations.",
+            "description": "TThis demo shows how to configure different settings for each view in the Vue Scheduler, like applying event templates to the month view alone.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -224,7 +233,7 @@
             "url": "extended-views",
             "name": "View Intervals",
             "category": "Views",
-            "description": "This demo for Essential JS2 Scheduler control shows how to display n number of days, weeks and months on a single view.",
+            "description": "This demo shows how to design own custom views like 3 days, 2 weeks, 4 months apart from the default day, work week, month in Vue Event Scheduler.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -238,7 +247,7 @@
             "url": "timeline-resource",
             "name": "Room Scheduler",
             "category": "Multiple Resources",
-            "description": "This demo for Essential JS2 Scheduler control shows how to design the room scheduling calendar and manage the events booked on a particular time interval.",
+            "description": "This demo shows how to design a meeting room calendar, conference room calendar, and cabin room manager using our Vue event calendar control.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -253,7 +262,7 @@
             "url": "resources",
             "name": "Fare Calendar",
             "category": "Multiple Resources",
-            "description": "This demo for Essential JS2 Scheduler control shows how to customize the scheduler to showcase it as an Airfare calendar.",
+            "description": "This demo is a real-time airfare calendar showcase application with flight and airfare details using the Vue Scheduler control.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -267,7 +276,7 @@
             "url": "resource",
             "name": "Resources",
             "category": "Multiple Resources",
-            "description": "This example depicts how to show or hide the resource events on JavaScript Scheduler based on the resource selection.",
+            "description": "This demo shows how to define recurring events (appointments) with different patterns and rules that meet iCalendar specifications in the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -281,7 +290,7 @@
             "url": "group-editing",
             "name": "Shared Events",
             "category": "Multiple Resources",
-            "description": "This demo for Essential JS2 Scheduler control shows the usage of single event that are shared by multiple resources.",
+            "description": "This demo presents event (appointment) sharing, which enables a single event to be shared by multiple resources in the Vue Scheduler event calendar. ",
             "api": {
                 "Schedule": [
                     "resourceHeaderTemplate",
@@ -295,7 +304,7 @@
             "url": "group-customworkdays",
             "name": "Different Work Days",
             "category": "Multiple Resources",
-            "description": "This demo for Essential JS2 Scheduler control shows how to set different working days for each of the resources.",
+            "description": "This demo shows how to set different workdays for each resource in a group to build a doctor availability application in the Vue event calendar.",
             "api": {
                 "Schedule": [
                     "resourceHeaderTemplate",
@@ -309,7 +318,7 @@
             "url": "addremove-resources",
             "name": "Show/Hide Resources",
             "category": "Multiple Resources",
-            "description": "This demo for Essential JS2 Scheduler control shows how to dynamically add or remove the resources to and from the scheduler layout.",
+            "description": "This demo shows how to dynamically add or remove resources from the Vue Scheduler layout along with their appointments (events).",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -323,7 +332,7 @@
             "url": "adaptive-rows",
             "name": "Row Auto Height",
             "category": "Multiple Resources",
-            "description": "This example showcases how the work cells of Essential JS2 Scheduler auto adjusts its height based on the exceeding appointment count.",
+            "description": "This demo shows how the work cells of the Vue Scheduler adjust their height automatically based on the number of events present in those time ranges.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -338,7 +347,7 @@
             "url": "resource-grouping",
             "name": "Horizontal Grouping",
             "category": "Resource Grouping",
-            "description": "This demo for Essential JS2 Scheduler control shows how the calendars of multiple resources are grouped in default view layouts.",
+            "description": "This demo shows how to group multiple resources (e.g., airlines) in the Vue Scheduler. The resource header can be customized using a template.",
             "api": {
                 "Schedule": [
                     "resourceHeaderTemplate",
@@ -352,7 +361,7 @@
             "url": "timeline-resourcegrouping",
             "name": "Timeline Grouping",
             "category": "Resource Grouping",
-            "description": "This demo for Essential JS2 Scheduler control shows how the calendars of multiple resources are grouped in timeline view layouts.",
+            "description": "This demo shows how to group multiple resources with timeline views in the Vue Schedule and how to display resources with expanded and collapsed headers.",
             "api": {
                 "Schedule": [
                     "group",
@@ -365,7 +374,7 @@
             "url": "group-bydate",
             "name": "Date-wise Grouping  ",
             "category": "Resource Grouping",
-            "description": "This demo for Essential JS2 Scheduler control shows how the resources are grouped under each date.",
+            "description": "This demo shows how to group multiple resources by date in the Vue Scheduler. The resource row is rendered under each date in the header.",
             "api": {
                 "Schedule": [
                     "group",
@@ -378,7 +387,7 @@
             "url": "group-bychild",
             "name": "Hierarchical Grouping ",
             "category": "Resource Grouping",
-            "description": "This demo for Essential JS2 Scheduler control shows how to group the child level resources against each of the parent level resources.",
+            "description": "This demo shows how to group resources in a hierarchical structure for parent-child resources in the Vue Scheduler control.",
             "api": {
                 "Schedule": [
                     "startHour",
@@ -393,7 +402,7 @@
             "url": "cell-template",
             "name": "Cell",
             "category": "Templates",
-            "description": "This demo for Essential JS2 Scheduler control shows how to customize the background of the specific cells using cell template option.",
+            "description": "This demo shows how to customize the default appearance of work cells with images, links, and coloring styles using cell templates in the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "width",
@@ -409,7 +418,7 @@
             "url": "dateheader-template",
             "name": "Date Header",
             "category": "Templates",
-            "description": "This demo for Essential JS2 Scheduler control shows how to customize the date header cells using the template option.",
+            "description": "This demo shows how to customize the default appearance of date header cells with images and links using the template option in the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "cssClass",
@@ -424,7 +433,7 @@
             "url": "events-template",
             "name": "Events",
             "category": "Templates",
-            "description": "This demo for Essential JS2 Scheduler control shows how to customize the appearance of events using event template option.",
+            "description": "This demo shows how to customize the look and feel of appointments (events) in the Vue Shceduler with images and links by using an event template.",
             "api": {
                 "Schedule": [
                     "width",
@@ -440,7 +449,7 @@
             "url": "tooltip",
             "name": "Tooltip",
             "category": "Templates",
-            "description": "This demo for Essential JS2 Scheduler control shows how to display tooltip over events as well as the way to customize it using template option.",
+            "description": "This demo shows how to enable tooltips (popovers) in Vue Scheduler appointments (events) and customize them using a tooltip template.",
             "api": {
                 "Schedule": [
                     "width",
@@ -454,7 +463,7 @@
             "url": "editor-validation",
             "name": "Field Validation",
             "category": "Editor Window",
-            "description": "This demo for Essential JS2 Scheduler control shows the way of adding default and custom validation rules to the editor fields of scheduler.",
+            "description": "This demo covers the Appointment field validation that adds default and custom validation rules to the editor fields of the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "width",
@@ -468,7 +477,7 @@
             "url": "editor-customfields",
             "name": "Additional Fields",
             "category": "Editor Window",
-            "description": "This demo for Essential JS2 Scheduler control shows how to add additional fields to the default editor window.",
+            "description": "This demo shows how to customize appointment editor (event window) with additional fields using pop-up open events in the Vue event calendar.",
             "api": {
                 "Schedule": [
                     "selectedDate",
@@ -481,7 +490,7 @@
             "url": "editor-template",
             "name": "Editor Template",
             "category": "Editor Window",
-            "description": "This demo for Essential JS2 Scheduler control shows the way of customizing the default editor window with custom template design.",
+            "description": "This demo shows how to design custom appointment (event) editor windows by adding or removing fields from the Vue Scheduler appointment window.",
             "api": {
                 "Schedule": [
                     "editorTemplate",
@@ -496,7 +505,7 @@
             "url": "header-rows",
             "name": "Header Rows",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control shows how to display the additional header rows on timeline view.",
+            "description": "This demo shows how to include additional header rows like week number and month number on the timeline view in the Vue event calendar.",
             "api": {
                 "Schedule": [
                     "height",
@@ -510,7 +519,7 @@
             "url": "time-scale",
             "name": "Timescale",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control shows how to customize the grid lines of scheduler with different duration and count",
+            "description": "This demo shows how to customize the default timescale with interval, show/hide gridlines, slots count, and template in Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "height",
@@ -524,7 +533,7 @@
             "url": "context-menu",
             "name": "Context Menu",
             "category": "Customization",
-            "description": "This example shows how to enable the context menu on Vue Scheduler and perform the related actions using menu options.",
+            "description": "This example shows how to integrate the context menu within the Vue Scheduler and control the related functionalities using menu options.",
             "api": {
                 "Schedule": [
                     "width",
@@ -538,7 +547,7 @@
             "url": "header-bar",
             "name": "Header Bar",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control shows the way of adding custom items onto the scheduler header bar.",
+            "description": "This demo shows how to use templating to customize the header bar of the Vue Scheduler with images, links, styles, and other UI controls.",
             "api": {
                 "Schedule": [
                     "width",
@@ -554,7 +563,7 @@
             "url": "scroll-to",
             "name": "Scroll Time",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control shows the way of manually scrolling to specific time on scheduler.",
+            "description": "This example demonstrates how to scroll to a specific time programmatically based on the selected time in the Vue Scheduler control.",
             "api": {
                 "Schedule": [
                     "width",
@@ -569,7 +578,7 @@
             "url": "work-days",
             "name": "Work Days",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control showcases how to set customized working days as well as first day of a week on scheduler.",
+            "description": "This demo shows how to customize the workdays and the first day of the week to fit different work schedules in the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "workDays",
@@ -583,7 +592,7 @@
             "url": "hide-weekend",
             "name": "Hide Non-Working Days",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control depicts the way to show or hide the weekend days of a week.",
+            "description": "This demo shows how to show or hide weekend days in the Vue Scheduler, which is similar to the workweek view, but with customizable workdays.",
             "api": {
                 "Schedule": [
                     "showWeekend"
@@ -594,7 +603,7 @@
             "url": "work-hours",
             "name": "Work Hours",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control showcases how to set the work hour range on scheduler.",
+            "description": "This demo shows how to customize the work hour range on the Vue Scheduler calendar, allowing business hours other than 9 AM to 6 PM.",
             "api": {
                 "Schedule": [
                     "workHours",
@@ -608,7 +617,7 @@
             "url": "startend-hour",
             "name": "Day Hour Limit",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control depicts how to restrict the start and end hours on scheduler.",
+            "description": "This demo shows how to limit the start and end hours in the Vue Scheduler which is applicable for all views and used here to render business hours only.",
             "api": {
                 "Schedule": [
                     "startHour",
@@ -622,8 +631,7 @@
             "url": "cell-dimension",
             "name": "Cell Dimension",
             "category": "Customization",
-            "type": "update",
-            "description": "This demo for Essential JS2 Scheduler control shows how to set the width and height of the cells by overriding the default CSS classes.",
+            "description": "This demo shows how to change the default width and height of work cells, allowing the Vue Scheduler to be viewable zoomed in or zoomed out.",
             "api": {
                 "Schedule": [
                     "cssClass",
@@ -638,7 +646,7 @@
             "url": "read-only",
             "name": "Read-only Events",
             "category": "Customization",
-            "description": "This demo for Essential JS2 Scheduler control shows how to make specific events on the scheduler to be displayed in a read-only mode.",
+            "description": "This demo shows how to make specific events in the Vue Scheduler read-only, making them viewable but not editable by end users.",
             "api": {
                 "Schedule": [
                     "eventSettings",
@@ -653,7 +661,7 @@
             "url": "excel-export",
             "name": "Excel Exporting",
             "category": "Exporting",
-            "description": "This example demonstrates how to export the Essential JS2 Scheduler events to the excel file format at client-side.",
+            "description": "This example demonstrates how to export Vue Scheduler events (appointments) to the Microsoft Excel file format on the client side.",
             "api": {
                 "Schedule": [
                     "width",
@@ -668,7 +676,7 @@
             "url": "calendar-export-import",
             "name": "Export and Import ICS",
             "category": "Exporting",
-            "description": "This example shows how to export the Scheduler events to a calendar file, and also how to import events from an .ics file into our Essential JS2 Scheduler.",
+            "description": "This demo shows how to handle exporting to ICS and importing from ICS in the Vue Scheduler. The ICS file must come from Google Calendar or MS Outlook.",
             "api": {
                 "Schedule": [
                     "importICalendar",
@@ -680,8 +688,7 @@
             "url": "print",
             "name": "Print",
             "category": "Exporting",
-            "type": "new",
-            "description": "This example demonstrates how to print the Essential JS2 Scheduler element at client-side with themes enabled.",
+            "description": "This sample demonstrates how to print all the appointments (events) in the Vue Scheduler on the client side using the Print Library.",
             "api": {
                 "Schedule": [
                     "width",
@@ -696,20 +703,20 @@
             "url": "receditor-generaterule",
             "name": "Rule Generator",
             "category": "Recurrence Editor",
-            "description": "This demo for Essential JS2 Scheduler control showcases the recurrence rule generation based on the options selected from the recurrence editor."
+            "description": "This demo showcases how to generate various recurrence pattern rules, such as daily, weekly, monthly, and yearly, using the Recurrence Editor."
         },
         {
             "url": "receditor-populaterule",
             "name": "Populate Rule",
             "category": "Recurrence Editor",
-            "description": "This demo for Essential JS2 Scheduler control shows how to fill the recurrence editor fields with values based on the provided recurrence rule string."
+            "description": "This demo shows how to populate a predefined set of recurrence rules in the Recurrence Editor fields to help users create recurring events."
         },
         {
             "url": "keyboard-interaction",
             "name": "Keyboard Interaction",
             "category": "Miscellaneous",
             "hideOnDevice": true,
-            "description": "This demo for Essential JS2 Scheduler control showcases the keyboard shortcuts available on scheduler.",
+            "description": "This demo showcases all the available keyboard shortcuts that help users perform actions using only the keyboard in the Vue Scheduler control.",
             "api": {
                 "Schedule": [
                     "width",
@@ -724,7 +731,7 @@
             "url": "events",
             "name": "Events",
             "category": "Miscellaneous",
-            "description": "This demo for Essential JS2 Scheduler control shows the client-side events that triggers on respective scheduler actions.",
+            "description": "This demo lists the client-side events triggered on Vue Scheduler actions in the Event Tracer. The Event Tracer also includes a Clear option.",
             "api": {
                 "Schedule": [
                     "width",

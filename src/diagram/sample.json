@@ -77,6 +77,12 @@
       "category": "Getting Started"
     },
     {
+      "url": "line-routing",
+      "name": "Line Routing",
+      "description": "This sample visualizes the connectors that are automatically re-routing or moving away if any shape found on the connectors path.",
+      "category": "Getting Started"
+    },
+    {
       "url": "bpmn-editor",
       "name": "BPMN Editor",
       "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",

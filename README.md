@@ -52,6 +52,10 @@ To compile the source files, use the below command
 npm run build
 ```
 
+### Serving deployed build
+
+https://cli.vuejs.org/guide/deployment.html
+
 ## Components Catalog
 
 <table>
@@ -65,8 +69,17 @@ npm run build
             <a href="src/grid">DataGrid</a>
         </td>
         <td>
-            <a href="src/pivot-view">Pivot Table (Preview)</a>
+            <a href="src/tree-grid">Tree Grid</a>
         </td>
+        <td>
+            <a href="src/pivot-view">Pivot Table (Updated)</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="src/spreadsheet">Spreadsheet (Preview)</a>
+        </td>
+        <td></td> 
         <td></td>
     </tr>
     <tr>
@@ -76,40 +89,51 @@ npm run build
     </tr>
     <tr>
         <td>
-            <a href="src/chart">Charts</a>
+            <a href="src/chart">Charts (Updated)</a>
         </td>
+        <td>
+            <a href="src/diagram">Diagram</a>
+        </td>
+        <td>
+            <a href="src/stock-chart">Stock Chart</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="src/maps">Maps</a>
+        </td>
+        <td>
+            <a href="src/treemap">TreeMap</a>
+        </td>
+        <td>
+            <a href="src/heatmap">Heatmap chart</a>
+        </td>     
+    </tr>
+    <tr>
         <td>
             <a href="src/circular-gauge">Circular Gauge</a>
         </td>
         <td>
             <a href="src/linear-gauge">Linear Gauge</a>
         </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="src/diagram">Diagram (Preview)</a>
-        </td>
-        <td>
-            <a href="src/heatmap">Heatmap chart</a>
-        </td>
-        <td>
-            <a href="src/maps">Maps</a>
-        </td>
-    </tr>
-    <tr>
         <td>
             <a href="src/range-navigator">Range Selector</a>
-        </td>
-        <td>
-            <a href="src/smith-chart">Smith Chart</a>
-        </td>
+        </td>        
+    </tr>
+    <tr>
         <td>
             <a href="src/sparkline">Sparkline Charts</a>
         </td>
+         <td>
+            <a href="src/smith-chart">Smith Chart</a>
+        </td>
+        <td>
+            <a href="src/barcode">Barcode</a>
+        </td>
     </tr>
     <tr>
         <td>
-            <a href="src/treemap">TreeMap</a>
+            <a href="src/bullet-chart">Bullet Chart (Preview)</a>
         </td>
         <td></td>
         <td></td>
@@ -121,11 +145,20 @@ npm run build
     </tr>
     <tr>
         <td>
-            <a href="src/rte">Rich Text Editor (Preview)</a>
+            <a href="src/rich-text-editor">Rich Text Editor (Updated)</a>
         </td>
         <td>
-            <a href="src/document-editor">Word Processor (Preview)</a>
+            <a href="src/document-editor">DocumentEditor (Updated)</a>
         </td>
+        <td>
+            <a href="src/chips">Chips</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="src/inplace-editor">InplaceEditor</a>
+        </td>
+        <td></td>
         <td></td>
     </tr>
     <tr>
@@ -138,22 +171,29 @@ npm run build
             <a href="src/schedule">Scheduler</a>
         </td>
         <td>
-            <a href="src/calendar">Calendar</a>
+            <a href="src/gantt">Gantt (Updated)</a>
         </td>
         <td>
+            <a href="src/calendar">Calendar</a>
+        </td>
+    </tr>
+    <tr>
+       <td>
             <a href="src/datepicker">DatePicker</a>
+        </td>
+        <td>
+            <a href="src/daterangepicker">DateRangePicker</a>
+        </td>
+        <td>
+            <a href="src/datetimepicker">DateTimePicker</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="src/daterangepicker">Date Range Picker</a>
+            <a href="src/timepicker">TimePicker</a>
         </td>
-        <td>
-            <a href="src/datetimepicker">DateTime Picker</a>
-        </td>
-        <td>
-            <a href="src/timepicker">Time Picker</a>
-        </td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td colspan="3" rowspan="1">
@@ -162,21 +202,32 @@ npm run build
     </tr>
     <tr>
         <td>
-            <a href="src/button">Button</a>
+            <a href="src/button/default.vue">Button</a>
         </td>
         <td>
             <a href="src/button/button-group.vue">Button Group</a>
         </td>
         <td>
-            <a href="src/button/dropdown-button.vue">Dropdown Menu</a>
+            <a href="src/button/checkbox.vue">Checkbox</a>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="src/button/progress-button.vue">Progress Button (Preview)</a>
+            <a href="src/button/radio-button.vue">Radio Button</a>
+        </td>
+        <td>
+            <a href="src/button/dropdown-button.vue">Dropdown Menu</a>
         </td>
         <td>
             <a href="src/button/split-button.vue">Split Button</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="src/button/switch.vue">Switch</a>
+        </td>
+        <td>
+            <a href="src/button/progress-button.vue">Progress Button</a>
         </td>
         <td></td>
     </tr>
@@ -200,7 +251,9 @@ npm run build
         <td>
             <a href="src/multi-select">MultiSelect Dropdown</a>
         </td>
-        <td></td>
+        <td>
+            <a href="src/list-box">List Box</a>
+        </td>
         <td></td>
     </tr>
     <tr>
@@ -216,25 +269,41 @@ npm run build
             <a href="src/context-menu">Context Menu</a>
         </td>
         <td>
-            <a href="src/menu">Menu Bar (Preview)</a>
+            <a href="src/file-manager">File Manager (Updated)</a>
         </td>
     </tr>
     <tr>
+        <td>
+            <a href="src/menu">Menu Bar</a>
+        </td>
         <td>
             <a href="src/sidebar">Sidebar</a>
         </td>
         <td>
             <a href="src/tab">Tabs</a>
         </td>
+    </tr>
+    <tr>
         <td>
             <a href="src/toolbar">Toolbar</a>
         </td>
-    </tr>
-    <tr>
         <td>
             <a href="src/treeview">TreeView</a>
         </td>
         <td></td>
+    </tr>
+        <tr>
+        <td colspan="3" rowspan="1">
+            <b>NOTIFICATIONS<b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="src/badge">Badge</a>
+        </td>
+        <td>
+            <a href="src/toast">Toast</a>
+        </td>
         <td></td>
     </tr>
     <tr>
@@ -255,24 +324,13 @@ npm run build
     </tr>
     <tr>
         <td>
-            <a href="src/button/radio-button.vue">Radio Button</a>
-        </td>
-        <td>
-            <a href="src/button/check-box.vue">Checkbox</a>
-        </td>
-        <td>
             <a href="src/color-picker">Color Picker</a>
         </td>
-    </tr>
-    <tr>
         <td>
             <a href="src/uploader">File Upload</a>
         </td>
         <td>
             <a href="src/slider">Range Slider</a>
-        </td>
-        <td>
-            <a href="src/button/switch.vue">Toggle Switch Button</a>
         </td>
     </tr>
     <tr>
@@ -288,30 +346,49 @@ npm run build
             <a href="src/card">Card</a>
         </td>
         <td>
-            <a href="src/dialog">Dialog</a>
+            <a href="src/dashboard-layout">Dashboard Layout</a>
         </td>
     </tr>
     <tr>
+        <td>
+            <a href="src/dialog">Dialog (Updated)</a>
+        </td>
         <td>
             <a href="src/listview">ListView</a>
         </td>
         <td>
             <a href="src/tooltip">Tooltip</a>
         </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="src/splitter">Splitter</a>
+        </td>
+        <td></td>
         <td></td>
     </tr>
     <tr>
         <td colspan="3" rowspan="1">
-            <b>NOTIFICATIONS<b>
+            <b>FORMS<b>
         </td>
     </tr>
     <tr>
         <td>
-            <a href="src/badge">Badge</a>
+            <a href="src/query-builder">Query Builder</a>
         </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="3" rowspan="1">
+            <b>VIEWER<b>
+        </td>
+    </tr>
+    <tr>
         <td>
-            <a href="src/toast">Toast</a>
+            <a href="src/pdfviewer">PDF Viewer (Updated)</a>
         </td>
+        <td></td>
         <td></td>
     </tr>
 </table>

@@ -38,7 +38,11 @@
             "url": "template",
             "name": "Template",
             "category": "Customization",
-            "description":"Demo of Essential JS 2 ListView control rendering customized elements inside list items. This sample is a news feed application built using a list view."
+            "description":"Demo of Essential JS 2 ListView control rendering customized elements inside list items. This sample is a news feed application built using a list view.",
+            "sourceFiles": [
+                {"displayName": "template.vue", "path": "./src/listview/template.vue"},
+                {"displayName": "list-template.vue", "path": "./src/listview/list-template.vue"}
+            ]
         },
         {
             "url": "group-template",

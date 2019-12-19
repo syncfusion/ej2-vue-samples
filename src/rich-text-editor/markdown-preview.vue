@@ -74,12 +74,13 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .sb-header.e-view.hide-header {
       display: none;
   }
+
 </style>
 
 <script>
   import Vue from "vue";
   import { Browser, addClass, removeClass, isNullOrUndefined } from "@syncfusion/ej2-base";
-  import { RichTextEditorPlugin, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
+  import { RichTextEditorPlugin, Toolbar, Link, Image, MarkdownEditor, Table, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-vue-base';
 
   Vue.use(RichTextEditorPlugin);
@@ -115,7 +116,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
       created: function() {
         this.rteObj = this.$refs.rteInstance.ej2Instances;
         this.textArea = this.rteObj.contentModule.getEditPanel();
-        this.id = this.$refs.rteInstance.getID() + "html-preview";
+        this.id = this.$refs.rteInstance.ej2Instances.getID() + "html-preview";
         this.mdsource = document.getElementById("preview-code");
         this.htmlPreview = this.rteObj.element.querySelector(this.id);
         this.previewTextArea = this.rteObj.element.querySelector(".e-rte-content");
@@ -132,7 +133,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
           }
         };
         document.getElementById('MD_Preview').onclick = () => {
-          if (!this.$refs.rteInstance.$el.classList.contains('e-rte-full-screen')) {
+          if (this.$refs.rteInstance.$el.classList.contains('e-rte-full-screen')) {
             this.fullPreview({ mode: true, type: '' });
           }
           this.mdsource.classList.remove('e-active');
@@ -225,7 +226,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         }
       },
       provide:{
-          richtexteditor:[Toolbar, Link, Image, Table, MarkdownEditor]
+          richtexteditor:[Toolbar, Link, Image, Table, MarkdownEditor, QuickToolbar]
       }
   });
 </script>

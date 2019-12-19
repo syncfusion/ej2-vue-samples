@@ -21,10 +21,16 @@
                   <div>Selection Mode</div>
                </td>
                <td>
-                  <div>
-                       <ejs-dropdownlist id='selmode' :change='mode' :dataSource='selectdata' index=0 :width='selectwidth' ></ejs-dropdownlist>  
-                  </div>
+                  <ejs-dropdownlist id='selmode' :change='mode' :dataSource='selectdata' index=0 :width='selectwidth' ></ejs-dropdownlist>
                </td>
+            </tr>
+              <tr id='' style="height: 50px">
+                <td style="width: 80%">
+                    <div> Enable Multi Selection:</div>
+                </td>
+                <td style="width: 50%; padding-left: 10px; padding-right:10px">
+                    <input type="checkbox" id="multiselect" @change='check'>
+                </td>
             </tr>
         </table>
     </div>
@@ -43,7 +49,7 @@
     <p>
          Tap to select a point or series, double tap and drag to enable rectangular selection in touch enabled devices.
     </p>
-    <p>Chart supports five mode of selection which can be set using <code>SelectionMode</code> property.
+    <p>Chart supports seven mode of selection which can be set using <code>SelectionMode</code> property.
     </p>
     <ul>
           <li><code>Series</code> - Select the series in chart.</li>
@@ -52,6 +58,7 @@
           <li><code>DragXY</code> - Rectangular selection with respect to both axis.</li>
           <li><code>DragX</code> - Rectangular selection with respect to horizontal axis.</li>
           <li><code>DragY</code> - Rectangular selection with respect to vertical axis.</li>
+          <li><code>Lasso</code> - Select free form of selection area points.</li>
     </ul> 
     <br>
     <p style="font-weight: 500">Injecting Module</p>
@@ -125,7 +132,7 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
         },
         chartArea: { border: { width: 0 } },
 
-          selectdata : [ 'DragXY', 'DragX', 'DragY'],
+          selectdata : [ 'DragXY', 'DragX', 'DragY', 'Lasso'],
 
        selectwidth:120,
 
@@ -160,6 +167,12 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
     methods: {
       mode: function(){
           this.seriesMode=selmode.value;
+      },
+       check: function(e) {
+        this.$refs.chart.ej2Instances.allowMultiSelection  = e.target.checked;
+        this.$refs.chart.ej2Instances.series[0].animation.enable = false;
+        this.$refs.chart.ej2Instances.series[1].animation.enable = false;
+        this.$refs.chart.ej2Instances.refresh();
       }
     },
    

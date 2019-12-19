@@ -29,7 +29,7 @@
     <div id="action-description">
     <p>
         This sample demonstrates the default and template support of filterbar in TreeGrid.
-        In this sample, type the value in the filterbar and press enter to filter particular column or select the date value from filterbar template of Start Date column. The filtering is based on hierarchy mode.
+        In this sample, type the value in the filterbar and press enter to filter particular column or select a value from filterbar template of Duration column. The filtering is based on hierarchy mode.
     </p>
 </div>
     <div id="description">

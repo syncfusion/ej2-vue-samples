@@ -96,6 +96,7 @@ methods:{
     let dataSource = chartData['data'];
     let name = chartData['name'];
     let chart= new AccumulationChart({
+        legendSettings: {visible: false},
         series: [
             {
                 explode: true,
@@ -112,6 +113,7 @@ methods:{
                 yName: 'y'
             }
         ],
+        
         background: 'transparent',
         tooltip: {
             enable: true,

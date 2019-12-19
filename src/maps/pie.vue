@@ -177,6 +177,7 @@ export default Vue.extend({
             enable: true,
             format: '${point.x} : ${point.y}%'
         },
+        legendSettings: {visible: false},
         series: [
             {
                 explode: true,

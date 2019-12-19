@@ -4,9 +4,9 @@
         <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
          :tooltip='tooltip'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y' name='Cardioid (unidirectional)' width=2 drawType='Spline' dashArray='5 5 2' > </e-series>
-                 <e-series :dataSource='seriesData1' :type='seriesType' xName='x' yName='y' name='Omnidirectional' width=2 drawType='Spline' dashArray='2' > </e-series>
-                  <e-series :dataSource='seriesData2' :type='seriesType' xName='x' yName='y' name='Bidirectional' width=2 drawType='Spline' > </e-series>
+                <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y' name='Cardioid (unidirectional)' width=2 drawType='Spline' dashArray='5 5 2' :isClosed='isClosed'> </e-series>
+                 <e-series :dataSource='seriesData1' :type='seriesType' xName='x' yName='y' name='Omnidirectional' width=2 drawType='Spline' dashArray='2' :isClosed='isClosed'> </e-series>
+                  <e-series :dataSource='seriesData2' :type='seriesType' xName='x' yName='y' name='Bidirectional' width=2 drawType='Spline' :isClosed='isClosed'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -118,7 +118,9 @@ export default Vue.extend({
 
       seriesType: "Polar",
 
-      title: "Microphone Types Polar Patterns"
+      title: "Microphone Types Polar Patterns",
+
+      isClosed: false
     };
   },
   provide: {

@@ -141,7 +141,7 @@ export default Vue.extend({
             // let cotainerObj = document.getElementById('direction-container');
             // let labelColor = document.getElementById('labelColor');
             let rangeColor = this.$refs.label.ej2Instances.value.toString();
-            this.$refs.circulargauge.ej2Instances.axes[0].ranges[0].color = rangeColor;
+            this.$refs.circulargauge.ej2Instances.axes[0].labelStyle.font.color = rangeColor;
             this.$refs.circulargauge.ej2Instances.refresh();
         },
         axisLabelRender: function (args) {

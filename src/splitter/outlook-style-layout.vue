@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-12 control-section outlook-style">
         <div id="target" class="control_wrapper">
-            <ejs-splitter id='splitter' ref="splitterObj" width='100%' height='498px' :resizeStop='onSplitterResize'>
+            <ejs-splitter id='splitter' ref="splitterObj" width='100%' height='498px' :resizing='onSplitterResize'>
                     <e-panes>
                         <e-pane size="28%" min="27%" :content='pane1Content'></e-pane>
                         <e-pane size="33%" min ="23%" :content='pane2Content'></e-pane>
@@ -73,12 +73,64 @@
 <script>
 import Vue from "vue";
 import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
+import { RichTextEditorPlugin, Link, Image, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
 import pane1Content from "./outlook-pane1-content.vue";
 import pane2Content from "./outlook-pane2-content.vue";
-import pane3Content from "./outlook-pane3-content.vue";
 
+let rteobj = undefined;
 
+Vue.use(TextBoxPlugin);
+Vue.use(RichTextEditorPlugin);
+Vue.use(ButtonPlugin);
 Vue.use(SplitterPlugin);
+
+var pane3Content = Vue.component("pane3", {
+  template: `<div>
+    <div style="width: 100%; padding: 15px;">
+        <table>
+            <tr>
+                <td><ejs-button cssClass='e-flat e-outline' isprimary=true >To...</ejs-button></td>
+                <td><ejs-textbox id="firstname" /></td>
+            </tr>
+            <tr>
+                <td><ejs-button cssClass='e-flat e-outline'>Cc...</ejs-button></td>
+                <td><ejs-textbox id="lastname" /></td>
+            </tr>
+            <tr>
+                <td><div id="subject-text">Subject</div></td>
+                <td><ejs-textbox id="subject" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="forum">
+        <div id="createpostholder">
+            <ejs-richtexteditor id="outlook_rte" ref="rteInstance" height='262px'></ejs-richtexteditor>
+            <div id="buttonSection">
+                <ejs-button :isPrimary="isPrimary" id="send" >Send</ejs-button>
+                <ejs-button id="discard" >Discard</ejs-button>
+            </div>
+        </div>
+    </div>
+</div>`,
+  data() {
+    return {
+      isPrimary: true
+    };
+  },
+    mounted() {
+        bus.$emit("rteInst", this.$refs.rteInstance);
+        this.$nextTick(function () {
+            this.$refs.rteInstance.ej2_instances.refresh();
+        })
+    },
+    provide:{
+        richtexteditor:[Link, Image, HtmlEditor, Toolbar]
+    }
+});
+
+var bus = new Vue({});
 
 export default Vue.extend({
     data: function() {
@@ -94,9 +146,14 @@ export default Vue.extend({
             }
         }
     },
+    mounted() {
+        bus.$on('rteInst', instance => {
+            rteobj = instance.ej2Instances;
+        });
+    },
     methods: {
         onSplitterResize: function() {
-            this.$el.querySelector('#outlook_rte').ej2_instances[0].refresh();
+            rteobj.refreshUI();
         }
     }
 });

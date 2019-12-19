@@ -33,7 +33,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { Internationalization } from '@syncfusion/ej2-base';
-import { calendarDataSource } from './data.json';
+import { calendarDataSource } from './heatmap-data/calendar-data-source.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){

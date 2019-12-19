@@ -275,7 +275,7 @@
                 serviceUrl: "https://ej2services.syncfusion.com/production/web-services/api/pdfviewer",
                 documentPath: "Hive_Succinctly.pdf",
                 enableToolbar: false,
-                enableNavigationToolbar: false,
+				enableNavigationToolbar: false,
                 pageNoTemplate: '<div class=""><input type="text" class="e-input-group e-pv-current-page-number" id="currentPage" /></div>',
                 pageTextTemplate: '<div class=""><span class="e-pv-total-page-number" id="totalPage">of 0</span></div>'
             }

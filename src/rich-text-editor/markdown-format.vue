@@ -89,7 +89,7 @@
         formatter: new MarkdownFormatter({
           listTags: { OL: "2. ", UL: "+ " },
           formatTags: { Blockquote: "> " },
-          selectionTags: { Bold: " __ ", Italic: " _ " }
+          selectionTags: { Bold: "__", Italic: "_" }
         })
       };
     },
@@ -97,7 +97,7 @@
       created: function() {
         this.rteObj = this.$refs.rteInstance.ej2Instances;
         this.textArea = this.rteObj.contentModule.getEditPanel();
-        this.id = this.$refs.rteInstance.getID() + "html-preview";
+        this.id = this.$refs.rteInstance.ej2Instances.getID() + "html-preview";
         this.mdsource = document.getElementById("preview-code");
         this.htmlPreview = this.rteObj.element.querySelector(this.id);
         this.previewTextArea = this.rteObj.element.querySelector(".e-rte-content");

@@ -3,8 +3,9 @@
     <div class="templatewrap">
         <p v-html=getCellContent(data.date)></p>
     </div>
-</div>
+</div>   
 </template>
+
 <script lang='ts'>
     import { Internationalization } from '@syncfusion/ej2-base';
 

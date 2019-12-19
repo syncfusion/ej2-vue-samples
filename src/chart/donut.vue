@@ -13,6 +13,7 @@
    <div id="action-description">
     <p>
     This sample visualizes the project cost breakdown statistics by using doughnut series. Datalabel shows the Information about the points.
+    While hovering on the slice, border will be highlighted.
     </p>
 </div>
 <div id="description">
@@ -24,7 +25,7 @@
 
     </p>
     <p>
-        . Inner radius and outer radius of the chart can be changed by <code>innerRadius</code> and <code>radius</code> property.
+        Inner radius and outer radius of the chart can be changed by <code>innerRadius</code> and <code>radius</code> property.
     </p>
 </div>
 </div>
@@ -95,7 +96,7 @@ export default Vue.extend({
             visible: true,
             position: 'Top'
         },
-         tooltip: { enable: false},
+         tooltip: { enable: true},
 
 
      explodeIndex: 3,

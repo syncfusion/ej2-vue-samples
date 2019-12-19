@@ -2,11 +2,11 @@
 <div>
 <div class="col-lg-9 control-section">
         <div style="width:200px;margin:auto;padding-bottom:20px">
-            <img src="src/maps/images/bus-icon.png" style="width:25px;height:25px;float:left">
+            <img src="src/maps/images/bus-icon.png" alt="Bus icon" style="width:25px;height:25px;float:left">
             <div style="padding-left:30px;font-size:20px;font-weight:400;">Bus seat selection</div>
         </div>        
         <div style="border: 3px solid darkgray;width:200px;display:block;margin:auto;border-radius:5px">
-            <img src="src/maps/images/wheel.png" style="width:30px;height:30px;margin-left:18%;margin-top:10px">
+            <img src="src/maps/images/wheel.png" alt="Steering wheel icon" style="width:30px;height:30px;margin-left:18%;margin-top:10px">
 <ejs-maps id='maps' :load='load' :projectionType='projectionType' :itemSelection='itemSelection' :height='height' :zoomSettings='zoomSettings'>
     <e-layers>
         <e-layer :geometryType='geometryType' :shapeData='shapeData'  :selectionSettings='selectionSettings' :shapeSettings='shapeSettings'></e-layer>

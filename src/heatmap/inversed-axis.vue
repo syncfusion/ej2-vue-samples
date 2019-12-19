@@ -50,7 +50,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { inveredAxisData } from './data.json';
+import { inveredAxisData } from './heatmap-data/invered-axis-data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(CheckBoxPlugin);
 export default Vue.extend({

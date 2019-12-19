@@ -29,10 +29,17 @@
       "api": {}
     },
     {
+      "url": "olap",
+      "name": "OLAP",
+      "category": "Data Binding",
+      "hideOnDevice": false,
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
+      "api": {}
+    },
+    {
       "url": "pivot-chart",
       "name": "Pivot Chart",
       "category": "Integration",
-      "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate integration of pivot table data into a simple chart component",
       "api": {}
@@ -105,6 +112,7 @@
       "url": "calculated-field",
       "name": "Calculated Field",
       "category": "Formula",
+	  "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows calculated field, and it allows users to add calculated items",
       "api": {}

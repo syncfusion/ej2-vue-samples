@@ -14,7 +14,7 @@
 </div>
 <div id="description">
         <p>
-            The Calendar has the <code>Start</code> and the <code>Depth<code> properties that provide options to restrict users from navigating to any Calendar view (year, month, or decade). </p>
+            The Calendar has the <code>Start</code> and the <code>Depth</code> properties that provide options to restrict users from navigating to any Calendar view (year, month, or decade). </p>
         <p>More information on the Calendar Start/Depth can be found in the
         <a href="https://ej2.syncfusion.com/vue/documentation/api/calendar/#start" target="_blank">Start</a>|<a href="https://ej2.syncfusion.com/vue/documentation/api/calendar/#depth" target="_blank">Depth</a> documentation section.</p>
 </div>

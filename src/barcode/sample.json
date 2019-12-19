@@ -1,8 +1,7 @@
 {
   "name": "Barcode",
   "directory": "barcode",
-  "category": "Data Visualization",
-  "type": "preview",
+  "category": "Data Visualization", 
   "ftName": "barcode",
   "samples": [
     {

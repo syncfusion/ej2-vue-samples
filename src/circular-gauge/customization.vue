@@ -19,11 +19,11 @@
         <table id="property" title="Properties" style="width: 100%">
             <tr style="height: 50px">
                 <td>
-                    <img id='random' src="src/circular-gauge/images/gauge-one.png" style="margin-left:25px;margin-top:10px;" v-on:click="randomClick"/>
+                    <img id='random' src="src/circular-gauge/images/gauge-one.png" alt="Customized gauge 1" style="margin-left:25px;margin-top:10px;" v-on:click="randomClick"/>
                     <div id="random_line" style="display:block;left: 0px;background: #ff4081;padding-top: 0px;height: 2px !important;width: 85px;margin: 2px 2px 2px 17px;"></div>
                 </td>
                 <td>
-                    <img id='usage' src="src/circular-gauge/images/gauge-two.png" style="margin-left:25px;margin-top:10px;" v-on:click="usageClick" />
+                    <img id='usage' src="src/circular-gauge/images/gauge-two.png" alt="Customized gauge 2" style="margin-left:25px;margin-top:10px;" v-on:click="usageClick" />
                     <div id="usage_line" style="display:none;left: 0px;background: #ff4081;padding-top: 0px;height: 2px !important;width: 85px;margin: 2px 2px 2px 17px;"></div>
                 </td>
             </tr>

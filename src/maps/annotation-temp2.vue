@@ -1,6 +1,6 @@
 <template>
     <div id="compass-maps">
-        <img src="src/maps/images/compass.svg" height="75px" width="75px"/>
+        <img src="src/maps/images/compass.svg" alt="Direction compass" height="75px" width="75px"/>
     </div>
 </template>
 

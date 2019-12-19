@@ -7,7 +7,7 @@
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates the custom thumbnail of the File Manager you can customize with your own icon.</p>
+        <p>This sample demonstrates the custom thumbnail of the File Manager you can customize with your own icon using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#showthumbnail">showThumbnail </a> property.</p>
     </div>
 
     <div id="description">
@@ -103,7 +103,7 @@ Vue.use(FileManagerPlugin);
 /**
  * File Manager custom thumbnail sample
  */
-let hostUrl = 'https://ej2services.syncfusion.com/production/web-services/';
+let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
 export default Vue.extend ({
      data: function() {

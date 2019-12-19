@@ -12,8 +12,11 @@
         :height="height"
         :toolbar="toolbar"
         :taskFields="taskFields"
+        :treeColumnIndex= "1"
         :projectStartDate="projectStartDate"
-        :projectEndDate="projectEndDate">
+        :projectEndDate="projectEndDate"
+        :columns= "columns"
+        :splitterSettings="splitterSettings">
        </ejs-gantt>
     </div>
 
@@ -63,7 +66,19 @@ export default Vue.extend({
       },
       toolbar: ["ZoomIn", "ZoomOut", "ZoomToFit"],
       projectStartDate: new Date("03/24/2019"),
-      projectEndDate: new Date("04/28/2019")
+      projectEndDate: new Date("04/28/2019"),
+      columns: [
+                { field: 'TaskID'},
+                { field: 'TaskName', width: '250' },
+                { field: 'StartDate' },
+                { field: 'EndDate' },
+                { field: 'Duration' },
+                { field: 'Predecessor' },
+                { field: 'Progress' }
+      ],
+      splitterSettings:{
+        columnIndex: 2
+      }
     };
   },
   provide: {

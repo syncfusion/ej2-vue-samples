@@ -43,7 +43,7 @@
 <script>
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { multiLevelLabelData } from './data.json';
+import { multiLevelLabelData } from './heatmap-data/multi-level-label-data.json';
 Vue.use(HeatMapPlugin);
 export default Vue.extend({
 data:function(){

@@ -218,7 +218,6 @@ methods:{
         let element = (document.getElementById('singletap'));
         let ele1 = document.getElementById('doubletap');
         this.$refs.maps.ej2Instances.zoomSettings.zoomOnClick = element.checked;
-        this.$refs.maps.ej2Instances.zoomSettings.doubleClickZoom = (!element.checked);
         if (element.checked) {
             ele1.disabled = true;
         } else {
@@ -228,7 +227,6 @@ methods:{
     changeDoubletap:function(args){      
         let element = (document.getElementById('doubletap'));
         this.$refs.maps.ej2Instances.zoomSettings.doubleClickZoom = element.checked;
-        this.$refs.maps.ej2Instances.zoomSettings.zoomOnClick = (!element.checked);
         let ele1 = document.getElementById('singletap');
         if (element.checked) {
             ele1.disabled = true;

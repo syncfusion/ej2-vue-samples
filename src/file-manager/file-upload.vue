@@ -68,7 +68,7 @@
     /**
     * File Manager real time use case sample
      */
-    let hostUrl = 'https://ej2services.syncfusion.com/production/web-services/';
+    let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
     let contextmenuItems = ['Open', '|', 'Cut', 'Copy', 'Delete', 'Rename', '|', 'Details'];
 
     export default Vue.extend({

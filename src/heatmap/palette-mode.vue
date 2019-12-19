@@ -62,7 +62,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { RadioButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { palatteSampleData } from './data.json';
+import { palatteSampleData } from './heatmap-data/palatte-sample-data.json';
 Vue.use(HeatMapPlugin);
 Vue.use(RadioButtonPlugin, CheckBoxPlugin);
 export default Vue.extend({

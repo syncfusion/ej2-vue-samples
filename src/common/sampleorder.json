@@ -2,7 +2,8 @@
   "Grids": [
     "Data Grid",
     "Tree Grid",
-    "Pivot Table"
+    "Pivot Table",
+    "Spreadsheet"
   ],
   "Data Visualization": [
     "Chart",
@@ -16,7 +17,8 @@
     "Range Selector",
     "Sparkline Charts",
     "Smith Chart",
-    "Barcode"
+    "Barcode",
+    "Bullet Chart"
   ],
   "Editors": [
     "Rich Text Editor",

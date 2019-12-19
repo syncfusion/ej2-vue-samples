@@ -31,7 +31,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { defaultTableDataSource } from './data.json';
+import { defaultTableDataSource } from './heatmap-data/default-table-data-source.json';
 Vue.use(HeatMapPlugin);
 Vue.use(RadioButtonPlugin);
 export default Vue.extend({

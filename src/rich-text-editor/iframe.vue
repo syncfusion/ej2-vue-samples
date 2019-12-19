@@ -47,7 +47,7 @@
 <script>
 import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
 
 Vue.use(RichTextEditorPlugin);
 
@@ -55,13 +55,12 @@ export default Vue.extend({
     data: function() {
         return {
             toolbarSettings: {
-        items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
+         items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-                'LowerCase', 'UpperCase', '|',
+                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
                 'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
                 'Outdent', 'Indent', '|',
-                'CreateLink', 'Image', '|', 'ClearFormat', 'Print',
-                'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+                'CreateTable', 'CreateLink', 'Image', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
     },
     height: 500,
     iframeSettings: {
@@ -70,22 +69,6 @@ export default Vue.extend({
         };
     },
     methods: {
-        onChange: function(e) {
-            switch (this.$refs.dropdownInstance.ej2Instances.value) {
-            case 1:
-                this.$refs.rteInstance.toolbarSettings.type = ToolbarType.Expand;
-                break;
-            case 2:
-                this.$refs.rteInstance.toolbarSettings.type = ToolbarType.MultiRow;
-                break;
-            }
-        this.$refs.rteInstance.enableFloating = this.$refs.checkInstance.ej2Instances.checked;
-        this.$refs.rteInstance.dataBind();
-        },
-        onFloatChange: function(args) {
-            this.$refs.rteInstance.ej2Instances.toolbarSettings.enableFloating = args.checked;
-            this.$refs.rteInstance.dataBind();
-        },
         handleFullScreen: function(e) {
         var sbCntEle = document.querySelector('.sb-content.e-view');
         var sbHdrEle = document.querySelector('.sb-header.e-view');
@@ -122,7 +105,7 @@ export default Vue.extend({
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor]
     }
 });
 </script>

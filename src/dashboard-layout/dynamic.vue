@@ -23,8 +23,9 @@
 <div id="action-description">
     <p>
         The following sample demonstrates a editable dashboard layout. Initially the DashboardLayout component doesn't
-        allow to drag, resize or reorder the panels. After clicking the edit button, the layout becomes editable which
-        allows to drag and reorder the
+        allow to<a href="https://ej2.syncfusion.com/vue/documentation/api/dashboard-layout#allowdragging" target="_blank">drag</a>, 
+        <a href="https://ej2.syncfusion.com/vue/documentation/api/dashboard-layout#allowresizing" target="_blank">resize</a> or reorder the panels. After clicking the edit button, 
+        the layout becomes editable which allows to drag and reorder the
         panels as per the requirement and also you can add new panels to the layout with predefined templates by
         clicking the add new button and reorder them by dragging and placing in the required position. Drag and resizing
         of the panles are not applicable in mobile resolution.
@@ -91,12 +92,8 @@ export default Vue.extend ({
         },
         onPanelResize: function(args) {
             var dashboardObject = this.$refs.DashbordInstance;
-        if (dashboardObject && args.element && args.element.querySelector('.e-panel-container .e-panel-content div') &&
-            dashboardObject.$el.querySelector('.e-holder')) {
+        if (dashboardObject && args.element && args.element.querySelector('.e-panel-container .e-panel-content div')) {
             var chartObj = (args.element.querySelector('.e-panel-container .e-panel-content div.e-control')).ej2_instances[0];
-            var holderElementHeight = parseInt((dashboardObject.$el.querySelector('.e-holder')).style.height, 10);
-            var panelContanierElement = args.element.querySelector('.e-panel-content');
-            panelContanierElement.style.height = holderElementHeight - 35 + 'px';
             chartObj.height = '95%';
             chartObj.width = '100%';
             chartObj.refresh();

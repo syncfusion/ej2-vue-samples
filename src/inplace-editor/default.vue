@@ -178,24 +178,16 @@ export default Vue.extend({
         changeEditorMode: function(args) {
            var editMode = this.$refs.editorMode.ej2Instances.text;
            this.editObj.mode = this.numericObj.mode = this.maskedObj.mode = editMode;
-           this.editObj.dataBind();
-           this.numericObj.dataBind();
-           this.maskedObj.dataBind();
         },
         onEditableOn: function(args) {
            var editableOn = this.$refs.editableOn.ej2Instances.value;
            this.editObj.editableOn = this.numericObj.editableOn = this.maskedObj.editableOn = editableOn;
-           this.editObj.dataBind();
-           this.numericObj.dataBind();
-           this.maskedObj.dataBind();
         },
-        onChange: function(args) {
-            var checkObj = this.$refs.checkObj1.ej2Instances;
-            checkObj.checked ? this.editObj.showButtons = this.numericObj.showButtons = this.maskedObj.showButtons = true : this.editObj.showButtons = this.numericObj.showButtons = this.maskedObj.showButtons = false;
+        onChange: function(args) {            
+            this.$refs.checkObj1.ej2Instances.checked ? this.editObj.showButtons = this.numericObj.showButtons = this.maskedObj.showButtons = true : this.editObj.showButtons = this.numericObj.showButtons = this.maskedObj.showButtons = false;
         },
-        onChangeEnable: function(args) {
-            var checkObj1 = this.$refs.checkObj2.ej2Instances;
-            checkObj1.checked ? this.editObj.disabled = this.numericObj.disabled = this.maskedObj.disabled = true : this.editObj.disabled = this.numericObj.disabled = this.maskedObj.disabled = false;
+        onChangeEnable: function(args) {            
+            this.$refs.checkObj2.ej2Instances.checked ? this.editObj.disabled = this.numericObj.disabled = this.maskedObj.disabled = true : this.editObj.disabled = this.numericObj.disabled = this.maskedObj.disabled = false;
         },
         created: function() {
             if (document.getElementById("right-pane")) {
@@ -204,13 +196,13 @@ export default Vue.extend({
         },
         onScroll: function() {
             if (this.editorMode.text === 'Inline') { return; }
-            if (this.editObj && this.editObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.editObj && this.$refs.editObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.editObj.enableEditMode = false;
             }
-            if (this.numericObj && this.numericObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.numericObj && this.$refs.numericObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.numericObj.enableEditMode = false;
             }
-            if (this.maskedObj && this.maskedObj.element.querySelectorAll('.e-editable-open').length > 0) {
+            if (this.$refs.maskedObj && this.$refs.maskedObj.$el.querySelectorAll('.e-editable-open').length > 0) {
                 this.maskedObj.enableEditMode = false;
             }
         }
@@ -230,6 +222,7 @@ visibility: hidden;
     width: 100%;
     max-width: 400px;
     margin: auto;
+    border: none;
 }
 
 .inplace-control-section.default_layout .control-wrapper {

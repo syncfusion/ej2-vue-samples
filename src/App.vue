@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class='sb-header-item sb-table-cell sb-settings-wrapper'>
-                        <div class='sb-setting-btn' role="button" tabindex="0" aria-label="toggle settings menu" tabindex="">
+                        <div class='sb-setting-btn' role="button" tabindex="0" aria-label="toggle settings menu">
                             <span class='sb-settings sb-icons sb-icon-Settings-Preferences'></span>
                         </div>
                     </div>
@@ -123,6 +123,9 @@
                         </li>
                         <li role="listiem">
                             <a id='aspnetmvc'>ASP.NET MVC</a>
+                        </li>
+                        <li role="listiem">
+                            <a id='blazor'>Blazor</a>
                         </li>
                     </ul>
                 </div>
@@ -289,7 +292,7 @@
                                     <a href="https://www.syncfusion.com/forum/vue" target="_blank">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
-                                    <a href="https://blog.syncfusion.com/" target="_blank">
+                                    <a href="https://syncfusion.com/blogs" target="_blank">
                                         <div class="sb-footer-link">Blog</div>
                                     </a>
                                     <a href="https://www.syncfusion.com/kb/" target="_blank">
@@ -338,12 +341,6 @@
 
 </template>
 
-
-
-
-
-
-
 <script lang="ts">
 /* Vue imports */
 import Vue from "vue";
@@ -354,7 +351,7 @@ import { Browser, extend, Animation, Ajax, closest, createElement, detach, enabl
 import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr } from '@syncfusion/ej2-base';
 import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
-import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns';
+import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
 import { Button } from '@syncfusion/ej2-buttons';
 import { Toast } from '@syncfusion/ej2-notifications';
 import { Grid } from '@syncfusion/ej2-grids';
@@ -372,17 +369,19 @@ import * as enCultureData from './common/cldr-data/main/fr-CH/all.json';
 import * as chinaCultureData from './common/cldr-data/main/zh/all.json';
 import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
+// import * as elasticlunr from './common/lib/elasticlunr';
+// import * as hljs from './common/lib/highlightjs';
 import * as searchJson from './common/search-index.json';
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
-//import { setTimeout } from "timers";
+// import { setTimeout } from "timers";
 
 loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
 L10n.load(Locale);
 setCulture('en');
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
-const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript'];
+const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'material';
@@ -419,7 +418,6 @@ let switcherPopup: Popup;
 let themeDropDown: DropDownList;
 let currencyDropDown: DropDownList;
 let settingPopup: Popup;
-//declare let searchJson: any;
 let sidebar: Sidebar;
 let sourceTabItems: object[] = [];
 let settingSidebar: Sidebar;
@@ -458,6 +456,8 @@ aria-label="previous sample">
 </div>`;
 contentToolbarTemplate = sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
 tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', innerHTML: contentToolbarTemplate });
+
+/* vue instance */
 export default Vue.extend({
   name: 'app',
      data: function(){
@@ -471,7 +471,6 @@ export default Vue.extend({
     },
 
     updated: function () {
-      
         sb.vars.contentTab.selectedItem = 0;
         this.updateBreadCrumb();
         this.updateDescription();
@@ -481,6 +480,7 @@ export default Vue.extend({
     mounted: function () {
         sb.vars.controlTree = select('#controlTree', this.$el);
         sb.vars.breadCrumbObject = {};
+
         /* breadCrumb updates */
         sb.vars.breadCrumbObject.component = select('.sb-bread-crumb-text>.category-text', this.$el);
         sb.vars.breadCrumbObject.categorySeparator = select('.category-seperator', this.$el);
@@ -815,7 +815,6 @@ export default Vue.extend({
         },
 
         rendersbPopup: function (): void {
-            
             switcherPopup = new Popup(sb.vars.sample, {
                 relateTo: sb.vars.switch, position: { X: 'left' },
                 collision: { X: 'flip', Y: 'flip' },
@@ -974,7 +973,7 @@ export default Vue.extend({
         },
 
         dynamicTab: function (e: any): void {
-            let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content_' + e.selectedIndex);
+            let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content-sb-source-tab_' + e.selectedIndex);
             let codeEle: any = blockEle.children[0];
             codeEle.innerHTML = sb.vars.sourceTab.items[e.selectedIndex].data;
             codeEle.innerHTML = codeEle.innerHTML.replace(reg,'');
@@ -983,21 +982,20 @@ export default Vue.extend({
         },
 
         dynamicTabCreation: function (obj: any): void {
-            let blockEle: Element = obj.element.querySelector('#e-content_' + obj.selectedItem).children[0];
+            let blockEle: Element = obj.element.querySelector('#e-content'+ obj.tabId + '_' + obj.selectedItem ).children[0];
             blockEle.innerHTML = obj.items[obj.selectedItem].data;
             blockEle.innerHTML = blockEle.innerHTML.replace(reg,'');
             blockEle.classList.add('sb-src-code');
            this.highlightCode(blockEle);
+         
         },
 
         highlightCode: function(codeEle: Element): void {
             codeEle.classList.add("sb-src-code");
-            
             hljs.highlightBlock(codeEle);
           },
 
         eventBinding: function (): void {
-            
             let fn: Function = (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -1011,7 +1009,7 @@ export default Vue.extend({
                 this.headerAction('changeTheme');
 
             });
-            document.addEventListener('click', (this.headerAction.bind(this, 'closePopup')) as any);
+            document.addEventListener('click', (this.headerAction.bind(this, 'closePopup') as any));
             searchButton.addEventListener('click', (e: MouseEvent) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -1053,13 +1051,15 @@ export default Vue.extend({
             headerSetting.addEventListener('click', this.viewMobilePrefPane);
             select('.sb-mobile-setting').addEventListener('click', this.viewMobilePropPane);
             select('#next-sample').addEventListener('click', this.onNextButtonClick);
+
             select('#prev-sample').addEventListener('click', this.onPrevButtonClick);
             select('#mobile-next-sample').addEventListener('click', this.onNextButtonClick);
+
             select('#mobile-prev-sample').addEventListener('click', this.onPrevButtonClick);
         },
 
         changeRtl(args: any): void {
-            let elementlist: HTMLElement[] = selectAll('.e-control', this.$el.querySelector('#control-content') as HTMLElement);
+            let elementlist: HTMLElement[] = selectAll('.e-control', (this.$el.querySelector('#control-content') as HTMLElement));
 
             for (let control of elementlist) {
                 let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
@@ -1157,6 +1157,8 @@ export default Vue.extend({
                 let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
                 if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
                     ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
+                } else if (sb === 'blazor') {
+                    ele.href = 'https://blazor.syncfusion.com/demos/';
                 } else {
                     ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
                         (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');
@@ -1181,7 +1183,6 @@ export default Vue.extend({
         },
 
         loadTheme: function (theme: string): void {
-            
             let body: HTMLElement = document.body;
             if (body.classList.length > 0) {
                 for (let themeItem of themeCollection) {
@@ -1197,9 +1198,8 @@ export default Vue.extend({
             this.eventBinding();
             this.sampleArray();
             this.updatesourceTab();
-            
             (elasticlunr as any).clearStopWords();
-            searchInstance = (elasticlunr as any).Index.load(this.myJson);
+            searchInstance = (elasticlunr as any).Index.load(searchJson);
             setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 500);
         },
 
@@ -1444,7 +1444,7 @@ export default Vue.extend({
                 for (let sample of samples) {
                     let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material';
                     let control: string = node.directory;
-                    let sampleUrl: any = sample.url;
+                    let sampleUrl: string = sample.url;
                     let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
                     samplesAr.push('#' + loc);
                 }
@@ -1452,7 +1452,6 @@ export default Vue.extend({
         },
 
         getStringWithOutDescription: function (code: string, descRegex: RegExp): string {
-            
             let lines: string[] = code.split('\n');
             let desStartLine: any = null;
             let desEndLine: any = null;
@@ -1488,23 +1487,21 @@ export default Vue.extend({
         },
         generatepath: function(path:any): void{
             let splitPath: string = path.split('/')[1];
-            let filePath:any = [{path:`source/${path}.vue`,displayName:`${splitPath}.vue`}]
+            let filePath:any = [{path:`src/${path}.vue`,displayName:`${splitPath}.vue`}]
             return filePath;
         },
 
         updatesourceTab: function (): void {
-            
             let curDir: any = location.hash.split('/').slice(2).join('/').replace('.html','');
             let curSample: any = location.hash.split('/')[3].replace('.html', '');
             let sourcePromise: Array<Promise<Ajax>> = [];
-            let ajaxvue: any = new Ajax('source/' + curDir + '.vue', 'GET', false);
+            let ajaxvue: any = new Ajax('src/' + curDir + '.vue', 'GET', false);
             let sObj: any = [];
             this.SbLink();
             sb.vars.contentTab.selectedItem = 0;
             sb.vars.sourceTab.selectedItem = 0;
             let sampleListFile: ListView = (select('#controlList', this.$el) as any).ej2_instances[0];
             let sourceFiles: any = this.sourceFileList(sampleListFile) as any || this.generatepath(curDir);
-            
             if (sourceFiles) {
                 for (let i: number = 0; i < sourceFiles.length; i++) {
                     sourcePromise.push((new Ajax(sourceFiles[i].path, 'GET', false)).send());
@@ -1610,7 +1607,6 @@ export default Vue.extend({
         },
 
         loadJSON: function (): void {
-            
             let switchText: string = localStorage.getItem('ej2-switch') ||
                 (window.screen.width > 1366 ? 'touch' : 'mouse');
             if (Browser.isDevice || window.screen.width <= 850) {
@@ -1635,5 +1631,7 @@ export default Vue.extend({
             this.loadTheme(selectedTheme);
         }
     }
-});
+}
+);
+
 </script>

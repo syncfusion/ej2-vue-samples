@@ -8,12 +8,12 @@
                 <tbody><tr>
                     <td>
                         <div style="padding:25px 0 0 0;">
-                            <ejs-radiobutton id='dropdownRadio' label="Position" name="toastPos" value="Position" checked="true" :change='checkboxChange2' ></ejs-radiobutton>
+                            <ejs-radiobutton id='dropdownRadio' ref="dropdownRef" label="Position" name="toastPos" value="Position" checked="true" :change='checkboxChange2' ></ejs-radiobutton>
                         </div>
                     </td>
                     <td>
                         <div style="padding:25px 0 0 0;">
-                         <ejs-radiobutton id='customRedio' label="Custom" name="toastPos" value="Custom" :change='checkboxChange3' ></ejs-radiobutton>
+                         <ejs-radiobutton id='customRedio' ref="customRef" label="Custom" name="toastPos" value="Custom" :change='checkboxChange3' ></ejs-radiobutton>
                          </div>
                     </td>
                 </tr>
@@ -48,19 +48,19 @@
                 <tr>
                     <td>
                         <div style="padding:25px 0 0 0;">
-                            <ejs-radiobutton id='radio1' label="Target" name="toast" value="Target" :change='checkboxChange' ></ejs-radiobutton>
+                            <ejs-radiobutton id='radio1' ref="targetRef" label="Target" name="toast" value="Target" :change='checkboxChange' ></ejs-radiobutton>
                         </div>
                     </td>
                     <td>
                         <div style="padding:25px 0 0 0;">
-                             <ejs-radiobutton id='radio2' label="Global" name="toast" value="Global" checked="true" :change='checkboxChange1' ></ejs-radiobutton>
+                             <ejs-radiobutton id='radio2' ref="globalRef" label="Global" name="toast" value="Global" checked="true" :change='checkboxChange1' ></ejs-radiobutton>
                         </div>
                     </td>
                 </tr>
             </tbody></table>
             <div id="toast_btn" style="padding-top: 25px">
                 <ejs-button ref='showButtonRef' class="e-btn e-control" id="show_Toast" style="margin-right: 15px" v-on:click.native="showClicked">Show Toasts</ejs-button>
-                <ejs-button ref='hideButtonRef' class="e-btn e-control" id="hideTosat" v-on:click.native="hideClicked">Hide All</ejs-button>
+                <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn e-control" id="hideToast" v-on:click.native="hideClicked">Hide All</ejs-button>
             </div>
         </div>
         </div>
@@ -119,6 +119,7 @@ import { RadioButton, ChangeEventArgs as CheckBoxChange } from '@syncfusion/ej2-
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 
 Vue.use(ToastPlugin);
+let ShowBtn = undefined;
 export default Vue.extend({
      data: function(){
         return {
@@ -135,7 +136,8 @@ export default Vue.extend({
                 { Id: 'bottomfullwidth', Text: 'Bottom Full Width' }
             ],
             dropFields: { text: 'Text', value: 'Id' },
-            dropValue: 'bottomright'
+            dropValue: 'bottomright',
+            ShowBtn: false
         }
     },
     mounted: function(){
@@ -144,7 +146,7 @@ export default Vue.extend({
         },200);
         this.initialWid = this.$refs.toastRef.ej2Instances.width.toString();
         this.customFlag = false;
-        this.obj = document.getElementById("toast_pos").ej2_instances[0];
+        this.obj = this.$refs.toastRef.ej2Instances;
     },
     methods: {
       valueChange: function(e){
@@ -158,24 +160,21 @@ export default Vue.extend({
             },args);
        },
        checkboxChange: function(args){
-            var checkboxObj = args.event.target.ej2_instances[0];
-            if (checkboxObj.checked) {
+            if (this.$refs.targetRef.ej2Instances.checked) {
                 this.$refs.toastRef.hide('All');
                 this.obj.target = '#toast_pos_target';
                 this.toastShow(1000);
             }
        },  
        checkboxChange1: function(args){
-          var checkboxObj = args.event.target.ej2_instances[0];
-            if (checkboxObj.checked) {
+            if (this.$refs.globalRef.ej2Instances.checked) {
                 this.$refs.toastRef.hide('All');
                 this.obj.target = document.body;
                 this.toastShow(1000);
             }
        },  
        checkboxChange2: function(args){
-            var checkboxObj = args.event.target.ej2_instances[0];
-            if (checkboxObj.checked) {
+            if (this.$refs.dropdownRef.ej2Instances.checked) {
                 this.$refs.toastRef.hide('All');
                 document.getElementById('dropdownChoose').style.display = 'table-cell';
                 document.getElementById('customChoose').style.display = 'none';
@@ -185,8 +184,7 @@ export default Vue.extend({
         }
        },  
        checkboxChange3: function(args){
-            var checkboxObj = args.event.target.ej2_instances[0];
-            if (checkboxObj.checked) {
+            if (this.$refs.customRef.ej2Instances.checked) {
             this.$refs.toastRef.hide('All');
             document.getElementById('dropdownChoose').style.display = 'none';
             document.getElementById('customChoose').style.display = 'table-cell';
@@ -239,11 +237,11 @@ export default Vue.extend({
         },
         onclose: function(e){
             if (e.toastContainer.childElementCount === 0 ) {
-                document.getElementById('hideTosat').style.display = 'none';
+                this.ShowBtn = false;
             }
         },
         onbeforeOpen: function(e){
-             document.getElementById('hideTosat').style.display = 'inline-block';
+             this.ShowBtn = true;
         }
     }
 });

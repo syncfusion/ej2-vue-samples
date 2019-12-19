@@ -17,7 +17,7 @@
             <li><code>AutoFit</code> - Auto fit current column.</li>
             <li><code>AutoFitAll</code> - Auto fit all columns.</li>
             <li><code>ColumnChooser</code> - Choose the column visibility.</li>
-            <li><code>Filter</code> - Filter option is shown to filter the current column.
+            <li><code>Filter</code> - Filter option is shown to filter the current column.</li>
     </ul>
     
     <br/>
@@ -33,7 +33,7 @@
 </div>
     <div>
         <ejs-treegrid :dataSource="data" :treeColumnIndex='1' :allowPaging='true' :showColumnMenu='true' childMapping='subtasks'
-         :allowFiltering='true' :filterSettings='filterSettings' :allowResizing='true' :pageSettings='pageSettings'>
+         :allowFiltering='true' :filterSettings='filterSettings' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='120'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
