@@ -580,7 +580,7 @@ let sampleBrowser: Vue = new Vue({
             let next: Tooltip = new Tooltip({
                 content: 'Next Sample'
             });
-            select('#right-pane').addEventListener('scroll', function (event) {
+            select('#right-pane').addEventListener('scroll', function () {
                 next.close();
                 previous.close();
             });
