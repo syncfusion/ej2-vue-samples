@@ -1,5 +1,5 @@
 <template>
-  <div class="listdefault control-section">
+  <div class="list-default control-section">
     <div id = 'flat-list'>
     <h4>Flat List</h4>
     <!-- ListView element -->
@@ -11,61 +11,48 @@
     <ejs-listview id='sample-list-group' :dataSource='groupData' :fields='fields'></ejs-listview>
     </div>
       <div id="action-description">
-       <p>This sample demonstrates the default functionalities of the ListView. Click any list item to select and highlight an item.</p>
+        <p>This sample demonstrates the default functionalities of the ListView. Click any item from the list to select and highlight it.</p>
     </div>
     <div id="description">
-         <p>
-        ListView component represent data in interactive hierarchical structure interface across different layouts or views, that also has the features of data-binding, template rendering, and grouping.
-    </p>
-    <p>
-        The group list allows to group the relevant items under a logical category by mapping the groupBy field.
-    </p>
-    <p>
-        In this sample, Cars are grouped based on their category.
-    </p>
+        <p>The ListView component represents data in interactive hierarchical structure interface across different layouts or views, that also has the features such as data binding, template rendering, and grouping.</p>
+
+        <p>The group list allows you to group the relevant items under a logical category by mapping the <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view/fieldSettings/#groupby'>groupBy</a></code> field.</p>
+
+        <p>In this sample, <b>Cars</b> are grouped based on their <b>Category</b>.</p>
 
     </div>
   </div>
 </template>
 <style>
-#sample-list {
-    max-width: 500px;
-}
-#sample-list,#sample-list-flat,#sample-list-group {
+.list-default #sample-list-flat,.list-default #sample-list-group {
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin: auto;    
 }
-.listdefault.control-section {
+.list-default.control-section {
     overflow: auto;
     padding-bottom: 10px;
 }
-#flat-list, #group-list {
+.list-default #flat-list, .list-default #group-list {
     width: 50%;
     padding: 10px;
     margin: auto;
 }
-#flat-list {
+.list-default #flat-list {
     float: left;
 }
-#group-list {
+.list-default #group-list {
     float: right;
 }
-#flat-list h4, #group-list h4 {
+.list-default #flat-list h4, .list-default #group-list h4 {
     padding-left: 15px;
 }
-.e-listview .e-list-icon {
+.list-default .e-listview .e-list-icon {
     height: 24px;
     width: 30px;
 }
-#listview {
-    max-width: 500px;
-    margin: auto;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-}
 @media (max-width: 590px) {
-    #flat-list, #group-list {
+    .list-default #flat-list, .list-default #group-list {
         width: 100%;
     }
 }

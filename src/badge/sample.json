@@ -22,12 +22,20 @@
         "url": "listview",
         "name": "ListView",
         "category": "Integration",
-        "description": "Demo integrating the Essential JS 2 Badge and ListView components to display a notification count in a list item to achieve a Gmail-like user interface."
+        "description": "Demo integrating the Essential JS 2 Badge and ListView components to display a notification count in a list item to achieve a Gmail-like user interface.",
+        "sourceFiles": [
+            {"displayName": "listview.vue", "path": "./src/badge/listview.vue"},
+            {"displayName": "listdata.ts",  "path": "./src/badge/listData.ts"}
+        ]
     }, {
         "url": "accordion",
         "name": "Accordion",
         "category": "Integration",
-        "description": "Demo integrating the Essential JS 2 Badge and Accordion components to display an unread notification count in a header to achieve an Outlook-like user interface"
+        "description": "Demo integrating the Essential JS 2 Badge and Accordion components to display an unread notification count in a header to achieve an Outlook-like user interface",
+        "sourceFiles": [
+            {"displayName": "accordian.vue", "path": "./src/badge/accordion.vue"},
+            {"displayName": "accordian-template.vue", "path": "./src/badge/accordion-template.vue"}
+        ]
     }, {
         "url": "toolbar",
         "name": "Toolbar",

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-cell-binding">
-        <ejs-spreadsheet  ref="spreadsheet" :showRibbon="false" :showFormulaBar="false" :dataBound="dataBound">
+        <ejs-spreadsheet  ref="spreadsheet" :showRibbon="false" :showFormulaBar="false" :created="created">
             <e-sheets>
                 <e-sheet name="Monthly Budget" selectedRange="D13">
                     <e-rows>
@@ -103,16 +103,16 @@
                         </e-row>
                         <e-row>
                             <e-cells>
-                                <e-cell :index="totalDiffColIndex" value="Total Difference:"></e-cell>
+                                <e-cell :index="2" value="Total Difference:"></e-cell>
                                 <e-cell formula="=D2+D12" format="$#,##0.00"></e-cell>
                             </e-cells>
                         </e-row>
                     </e-rows>
                     <e-columns>
-                        <e-column :width="width1"></e-column>
-                        <e-column :width="width2"></e-column>
-                        <e-column :width="width1"></e-column>
-                        <e-column :width="width3"></e-column>
+                        <e-column :width="110"></e-column>
+                        <e-column :width="115"></e-column>
+                        <e-column :width="110"></e-column>
+                        <e-column :width="100"></e-column>
                     </e-columns>
                 </e-sheet>
             </e-sheets>
@@ -135,8 +135,8 @@
             </ul>
         </p>
         <p>
-            More information about cell data binding can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/">
+            More information about cell data binding feature can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/data-binding/#cell-data-binding">
             documentation</a> section.
         </p>
      </div>
@@ -159,20 +159,14 @@ Vue.use(SpreadsheetPlugin);
 export default Vue.extend({
    data: () => {
     return {
-        totalDiffColIndex: 2,
-        width1: 110,
-        width2: 115,
-        width3: 100
     }
   },
   methods: {
-    dataBound: function() {
-      var spreadsheet = this.$refs.spreadsheet;
-      if (!spreadsheet.ej2Instances.isOpen && spreadsheet.ej2Instances.sheets[spreadsheet.ej2Instances.activeSheetTab - 1].name === 'Monthly Budget') {
+    created: function() {
+        var spreadsheet = this.$refs.spreadsheet;
         spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A1:D1');
         spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'right' }, 'C13');
         spreadsheet.cellFormat({ fontWeight: 'bold' }, 'D13');
-      }
     }
   }
 });

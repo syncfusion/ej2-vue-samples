@@ -6,7 +6,7 @@
 
 <div id="description">
     <p>
-        TreeGrid has an option to show column menu while click on multiple icon of each column. The column menu has an integrated option to interact the features like sorting, filtering, column chooser and and autoFit.  
+        Tree Grid has an option to show column menu while click on multiple icon of each column. The column menu has an integrated option to interact the features like sorting, filtering, column chooser and and autoFit.  
         This features can be enabled by defining the <code>showColumnMenu
         </code> as true. The default items are
         <br>

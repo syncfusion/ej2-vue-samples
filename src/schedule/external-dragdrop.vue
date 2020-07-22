@@ -45,7 +45,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 /* custom code start*/
 .content-wrapper {
     display: -ms-flexbox;
@@ -269,7 +269,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getConsultantName(this.data).toLowerCase() + '.png';
+                return './source/schedule/images/' + this.getConsultantName(this.data).toLowerCase() + '.png';
             }
         },
         methods: {

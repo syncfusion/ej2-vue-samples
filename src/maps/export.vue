@@ -1,8 +1,8 @@
 <template>
-<div>
+<div id="map-export-sample">
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-<ejs-maps ref="maps" id='container' :load='load' :titleSettings='titleSettings'>
+<ejs-maps ref="maps" :allowPdfExport='allowPdfExport' :allowImageExport='allowImageExport' id='container' :load='load' :titleSettings='titleSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
@@ -15,7 +15,18 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">   
+        <table id="property" title="Properties" style="width: 100%">
+              <tr style="height: 50px">
+                <td style="width: 40%">
+                    <div>Map Type:
+                    </div>
+                </td>
+                <td style="width: 60%;">
+                    <div style="margin-left: -10px">
+             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width=90></ejs-dropdownlist>                                 
+                    </div>
+                </td>
+            </tr>
             <tr style="height: 50px">
                 <td style="width: 40%">
                     <div>Export Type:
@@ -37,52 +48,56 @@
                     </div>
                 </td>
             </tr>
-            <tr id="button-control" style="height: 50px" align='center'>
-                <td>
+            <tr id="button-control" style="height: 50px">
+                <td align='center'>
                     <div>
-                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
+                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
                     </div>
                 </td>
             </tr>
         </table>
     </div>
 <div id="action-description">
-    <p>
-        This sample illustrates the exporting feature in Maps. By clicking the Export button, you can export the map in PNG, JPEG, SVG or in PDF formats. 
+    <p> 
+        This sample illustrates the exporting feature in Maps. You can modify the map type to geometric or OSM using the Map type dropdown list in this sample. By clicking the Export button, you can export the map in PNG, JPEG, SVG or in PDF formats.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the export. The rendered map can be exported as either JPEG, PNG, SVG and PDF formats. It can be achieved using Blob and it is supported only in modern browsers. Also this sample visualizes the locations of the wonders in the world using markers.
+       In this example, you can see how to render and configure the export functionality. The rendered map can be exported as either JPEG, PNG, SVG and PDF formats. Also this sample visualizes the locations of the wonders in the world using markers. Export functionality is done by <code>export</code> method when <code>allowImageExport</code> and <code>allowPdfExport</code> is set as true.
     </p>
-    <p>
-            Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over a marker or tap a marker in touch enabled devices.
-        </p>
         <br/>
-        <p style="font-weight: 500">Injecting Module</p>
+         <p style="font-weight: 500"> <b>Injecting Module</b></p>
         <p>
-        Maps component features are segregated into individual feature-wise modules. To use a marker, inject the <code>Marker</code> module using the <code>Maps.Inject(Marker)</code> method.
+       Maps component features are segregated into individual feature-wise modules. To use a marker, inject the <code>Marker</code> module using the <code>provide</code> section. To make use of the export support, we need to inject the <code>ImageExport</code> and <code>PdfExport</code> module using the <code>provide</code> section.
         </p>
+         <p>
+        More information on export can be found in this
+        <a
+          target="_blank"
+          href="https://ej2.syncfusion.com/documentation/maps/print/#export"
+        >documentation section</a>.
+      </p> 
 </div>
 </div>
 </template>
 <style>
-    #button-control {
+    #map-export-sample #button-control {
         width: 100%;
         text-align: center;
     }
 
-    #control-container {
+    #map-export-sample #control-container {
         padding: 0px !important;
     }
 
-    .e-play-icon::before {
-        content: '\e728';
+    #map-export-sample .e-play-icon::before {
+        content: "\e728";
     }
 </style>
 <script>
 import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsPlugin, Marker, MapsTooltip, MapAjax, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 Vue.use(MapsPlugin);
@@ -91,6 +106,8 @@ Vue.use(ButtonPlugin);
 export default Vue.extend({
   data:function(){
       return{
+        allowImageExport: true,
+        allowPdfExport: true,
         titleSettings: {
             text: 'Location of the Wonders in the World',
             textStyle: {
@@ -123,11 +140,13 @@ export default Vue.extend({
                     }
                 ],
         modedata:['JPEG','PNG','SVG','PDF'],
-        cssClass: 'e-info', isPrimary: true, content:'Export', style: 'text-transform:none !important'
+        layerdata:['Geometry', 'OSM'],
+        iconCss: 'e-icons e-play-icon',
+        cssClass: 'e-flat', isPrimary: true, content:'Export', style: 'text-transform:none !important; margin-left:50%'
       }
   },
 provide: {
-    maps: [Marker, MapsTooltip]
+    maps: [Marker, MapsTooltip, ImageExport, PdfExport]
 },
 methods:{
     /* custom code start */
@@ -137,12 +156,27 @@ methods:{
       args.maps.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
     },
+    changeLayerType: function(args){
+            // let cotainerObj=document.getElementById('labels-container');
+            // let tickPosition=document.getElementById('tickposition');
+            let modeData = ['JPEG','PNG','PDF','SVG'];
+            if (this.$refs.layertype.ej2Instances.value === 'OSM') {
+                if (this.$refs.mode.ej2Instances.value === 'SVG') {
+                    this.$refs.mode.ej2Instances.value = modeData[0];
+                }
+                    this.$refs.mode.ej2Instances.dataSource = modeData.slice(0, 3);
+                } else {
+                    this.$refs.mode.ej2Instances.dataSource = modeData;
+                }
+                this.$refs.maps.ej2Instances.layers[this.$refs.maps.ej2Instances.layers.length - 1].layerType = this.$refs.layertype.ej2Instances.value;
+                this.$refs.maps.ej2Instances.refresh();
+    },
     /* custom code end */
     clickExport:function(args){     
            let fileName = ((document.getElementById('fileName'))).value;
            this.$refs.maps.ej2Instances.export(this.$refs.mode.ej2Instances.value, fileName);
-
     }
+
 }
 })
 </script>

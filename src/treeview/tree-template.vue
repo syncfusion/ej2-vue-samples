@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="treeviewdiv">
-            <div style="float:left">
+            <div class="nodetext">
                 <span class="treeName">{{data.name}}</span>
             </div>
-            <div v-if="data.count" style="margin-right: 5px; float:right">
+            <div v-if="data.count" class="nodebadge">
                 <span class="treeCount e-badge e-badge-primary">{{data.count}}</span>
             </div>
         </div>

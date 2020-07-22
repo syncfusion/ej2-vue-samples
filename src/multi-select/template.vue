@@ -3,7 +3,7 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:64%; padding-top: 40px;">
          <h4>Template</h4>
-            <ejs-multiselect id='multi-template' :dataSource='data' :fields='fields' :placeholder='watermark'
+            <ejs-multiselect id='multi-template' :dataSource='data' :fields='fields' cssClass='multiselect-template' :placeholder='watermark'
              :headerTemplate='hTemplate' :itemTemplate='iTemplate' popupHeight="450px"></ejs-multiselect>
         </div>
     </div>
@@ -25,7 +25,7 @@
 </div>
 </template>
 <style>
-    .header {
+    .multiselect-template .header {
         font-weight: 600;
         color: rgba(0, 0, 0, .54);
         height: 48px;
@@ -35,14 +35,14 @@
         font-family: "Segoe UI", "GeezaPro", "DejaVu Serif";
     }
 
-    .fabric .header {
+    .fabric .multiselect-template .header {
         background-color: #fff;
         border-bottom: 1px solid #ccc;
         color: #0078d7;
         font-weight: 400;
     }
 
-    .bootstrap .header {
+    .bootstrap .multiselect-template .header {
         background-color: #fff;
         border-bottom: 1px solid #ccc;
         color: #777;
@@ -54,103 +54,103 @@
         padding: 0 0 0 24px;
     }
 
-    .highcontrast .header {
+    .highcontrast .multiselect-template .header {
         color: #fff;
         background-color: #000;
     }
 
-    .e-bigger.bootstrap .header {
+    .e-bigger.bootstrap .multiselect-template .header {
         line-height: 44px;
         height: 44px;
         font-size: 13px;
     }
 
-    .bootstrap .info,
-    .e-bigger.bootstrap .info {
+    .bootstrap .multiselect-template .info,
+    .e-bigger.bootstrap .multiselect-template .info {
         margin-left: 25px;
     }
 
-    .bootstrap .job {
+    .bootstrap .multiselect-template .job {
         opacity: .54;
         font-size: 14px;
         margin-top: -25px;
         margin-bottom: 20px;
     }
 
-    .e-bigger.bootstrap .job {
+    .e-bigger.bootstrap .multiselect-template .job {
         font-size: 15px;
         margin-top: -32px;
         margin-bottom: 17px;
     }
 
-    .bootstrap .ename {
+    .bootstrap .multiselect-template .ename {
         font-size: 15px;
         margin-top: 20px;
         opacity: .87;
         padding: 3px 0 20px;
     }
 
-    .e-bigger.bootstrap .ename {
+    .e-bigger.bootstrap .multiselect-template .ename {
         font-size: 16px;
         padding-bottom: 15px;
     }
 
-    .bootstrap .empImage,
-    .e-bigger.bootstrap .empImage {
+    .bootstrap .multiselect-template .empImage,
+    .e-bigger.bootstrap .multiselect-template .empImage {
         margin: 0px 10px 0 20px;
     }
 
-    .info {
+    .multiselect-template .info {
         margin-left: 17px;
     }
 
-    .ename {
+    .multiselect-template .ename {
         display: block !important;
         opacity: .87;
         font-size: 16px;
         margin-top: 8px;
     }
 
-    .job {
+    .multiselect-template .job {
         opacity: .54;
         font-size: 14px;
         margin-top: -15px;
         margin-bottom: 7px;
     }
 
-    .empImage {
+    .multiselect-template .empImage {
         margin: 6px 16px;
         float: left;
         width: 50px;
         height: 50px;
     }
 
-    #employees_popup.e-popup .e-list-item * {
+    .multiselect-template .e-list-item * {
         display: block;
         text-indent: 0;
     }
 
-    .e-bigger:not(.bootstrap) #employees_popup .e-dropdownbase .e-list-item {
+    .e-bigger:not(.bootstrap) .multiselect-template .e-dropdownbase .e-list-item {
         line-height: 42px;
         height: 80px;
     }
 
-    .e-bigger:not(.bootstrap) #employees_popup.e-popup .empImage {
+    .e-bigger:not(.bootstrap) .multiselect-template.e-popup .empImage {
         margin: 10px 16px;
     }
-    .bootstrap4 .header {
+    .bootstrap4 .multiselect-template .header {
         color: #6c757d;
     }
 
-    .bootstrap4 #multi-template_popup.e-popup .empImage {
+    .bootstrap4 .multiselect-template.e-popup .empImage {
         margin: 1px 16px;
     }
 
-    .bootstrap4 #multi-template_popup.e-popup .job {
+    .bootstrap4 .multiselect-template.e-popup .job {
         margin-top: 0;
     }
 
-     .bootstrap4 #multi-template_popup.e-popup .job {
+     .bootstrap4 .multiselect-template.e-popup .job {
         margin-top: -15px;
     }
 

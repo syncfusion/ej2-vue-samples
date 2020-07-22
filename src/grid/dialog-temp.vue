@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 .form-group.col-md-6 {
     width: 250px;
 }

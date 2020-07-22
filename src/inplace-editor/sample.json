@@ -12,7 +12,7 @@
         },
         {
             "url": "dropdowns",
-            "name": "Dropdown Components",
+            "name": "DropDown Components",
             "category": "InPlaceEditor",
             "description":"This sample demonstrates the usage of dropdown components such as Autocomplete, ComboBox, DropDownList, and MultiSelect in Vue platform."
         },

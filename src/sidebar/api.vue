@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section sidebar-api">
     <!-- sample level element  -->
     <div class="col-lg-12 col-sm-12 col-md-12 center">
         Click/Touch the button to view the sample
@@ -12,11 +12,11 @@
         <!-- sample level element declaration -->
         <div class="col-lg-12 col-sm-12 col-md-12">
             <!-- sidebar element declaration -->
-            <span id="hamburger" class="e-icons menu" v-on:click="openClick"></span>
+            <span id="hamburger" class="sidebar-icons menu" v-on:click="openClick"></span>
             <ejs-sidebar id="default-sidebar" ref="sidebarInstance" :position="position" :showBackdrop='showBackdrop' :closeOnDocumentClick='closeOnDocumentClick' :type='type'>
                 <div class="title-header">
                     <div style="display:inline-block"> Sidebar </div>
-                    <span id="close" class="e-icons" v-on:click="closeClick"></span></div>
+                    <span id="close" class="sidebar-icons" v-on:click="closeClick"></span></div>
                 <div class="sub-title">
                     Place your primary content here.
                 </div>
@@ -141,7 +141,7 @@ export default Vue.extend({
         }
     },
     onTypeChange:function() {
-        if (this.$refs.sidebarTypesBtn.$el.classList.contains('e-active')) {
+        if (this.$refs.sidebarTypesBtn.$el.textContent == 'Right') {
             this.$refs.sidebarTypesBtn.$el.textContent = 'Left';
             this.position = 'Right';
             document.getElementById("hamburger").className += " e-rtl";
@@ -172,32 +172,28 @@ export default Vue.extend({
 
 <style>
     /* content area styles */
-/* custom code start */
-  .responsive {
+ /* custom code start */
+  .sidebar-api .responsive {
     width: 80%;
-}
+   }
 
 @media(max-width:550px) {
-    .responsive {
+    .sidebar-api .responsive {
         width: 100%;
     }
 }
 
-#overview,
-#properties,
-#content{
+.sidebar-api #overview,
+.sidebar-api #properties,
+.sidebar-api #content{
     padding:0 0 22px
 }
 
-#text{
+.sidebar-api #text{
     padding:0 0 17px;
 }
-.center-align {
-    text-align: center;
-    padding: 20px;
-}
 /* custom code end */
-.title {
+.sidebar-api .title {
     color: #000000;
     font-weight: 500;
     line-height: 24px;
@@ -205,7 +201,7 @@ export default Vue.extend({
     margin: 0px;
 }
 /* custom code start */
-body {
+body.ej2-new-sidebar {
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
     margin: 0px;
     font-size: 14px;
@@ -214,33 +210,33 @@ body {
 /* End of content area styles */
 /* property content styles */
 
-#types {
+.sidebar-api #types {
     background-color: #ffffff;
     border: none;
     border-radius: 2px;
 }
 
-.inline-element.right.e-btn {
+.sidebar-api .inline-element.right.e-btn {
     color: white;
     border: none;
     width: 75px;
 }
 /* custom code start */
-.inline-element {
+.sidebar-api .inline-element {
     display: inline-block;
 }
 
-.right {
+.sidebar-api .right {
     float: right;
 }
 /* custom code end */
-.list-group-item {
+.sidebar-api .list-group-item {
     border: none;
     padding: 60px 10px 10px 45px;
     font-size: 14px;
 }
 /* custom code start */
-.center {
+.sidebar-api .center {
     text-align: center;
     display: none;
     font-size: 13px;
@@ -248,57 +244,57 @@ body {
     margin-top: 20px;
 }
 
-.sb-content-tab .center {
+.sb-content-tab .sidebar-api .center {
     display: block;
 }
 /* end of property content styles */
 /* sidebar styles */
 
-.sb-content-tab #wrapper {
+.sb-content-tab .sidebar-api #wrapper {
     display: none;
 }
 /* custom code end */
-.content {
+.sidebar-api .content {
     margin-bottom: 20px;
     overflow-y: auto;
 }
 
-#wrapper #close:before {
+.sidebar-api #wrapper #close:before {
     content: "\e945";
 }
 
-.title-header {
+.sidebar-api .title-header {
     text-align: center;
     font-size: 18px;
     padding: 15px;
 }
 
-.sub-title {
+.sidebar-api .sub-title {
     text-align: center;
     font-size: 16px;
     padding: 10px;
 }
 
-.e-sidebar .title-header #close {
+.sidebar-api .e-sidebar .title-header #close {
     color: #fafafa;
     cursor: pointer;
     line-height: 25px;
 }
 
-.e-sidebar.e-left .title-header #close {
+.sidebar-api .e-sidebar.e-left .title-header #close {
     float: right;
 }
 
-.e-sidebar.e-right .title-header #close {
+.sidebar-api .e-sidebar.e-right .title-header #close {
     float: left;
 }
 
-#default-sidebar {
+.sidebar-api #default-sidebar {
     background: #2196f3;
     color: #ffffff;
 }
 
-#hamburger.menu {
+.sidebar-api #hamburger.menu {
     font-size: 25px;
     cursor: pointer;
     float: left;
@@ -307,35 +303,35 @@ body {
     z-index: 1000;
 }
 
-#hamburger.menu:before {
+.sidebar-api #hamburger.menu:before {
     content: '\e10d';
 }
 
-#hamburger.menu.e-rtl{
+.sidebar-api #hamburger.menu.e-rtl{
     position:relative;
     float: right;
 }
 
-#wrapper #close:before {
+.sidebar-api #wrapper #close:before {
     content: "\e945";
 }
 
-.e-sidebar .title-header #close {
+.sidebar-api .e-sidebar .title-header #close {
     color: #fafafa;
     cursor: pointer;
     line-height: 25px;
 }
 
-.e-sidebar.e-left .title-header #close {
+.sidebar-api .e-sidebar.e-left .title-header #close {
     float: right;
 }
 
-.e-sidebar.e-right .title-header #close {
+.sidebar-api .e-sidebar.e-right .title-header #close {
     float: left;
 }
 
 @font-face {
-    font-family: 'e-icons';
+    font-family: 'sidebar-icons';
     src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
     font-weight: normal;
     font-style: normal;

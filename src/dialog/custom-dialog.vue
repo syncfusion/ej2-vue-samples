@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 	.e-btn-hide {
 		display: none;
 	}

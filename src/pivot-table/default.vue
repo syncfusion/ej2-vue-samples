@@ -1303,14 +1303,21 @@ export default Vue.extend({
       },
       width: "100%",
       gridSettings: { columnWidth: 140 },
-      height: 300
+      height: 290
     };
   }
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

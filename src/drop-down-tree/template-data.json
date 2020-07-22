@@ -1,0 +1,14 @@
+{
+    "templateData" : [
+        { "id": 1, "name": "Steven Buchanan", "eimg": "styles/images/Employees/10.png", "job": "General Manager", "hasChild": true, "expanded": true, "status":"busy" },
+        { "id": 2, "pid": 1, "name": "Laura Callahan", "eimg": "styles/images/Employees/2.png", "job": "Product Manager", "hasChild": true, "status":"online" },
+        { "id": 3, "pid": 2, "name": "Andrew Fuller", "eimg": "styles/images/Employees/7.png", "job": "Team Lead", "hasChild": true, "status":"away" },
+        { "id": 4, "pid": 3, "name": "Anne Dodsworth", "eimg": "styles/images/Employees/1.png", "job": "Developer", "status":"busy" },
+        { "id": 10, "pid": 3, "name": "Lilly", "eimg": "styles/images/Employees/5.png", "job": "Developer", "status":"online" },
+        { "id": 5, "pid": 1, "name": "Nancy Davolio", "eimg": "styles/images/Employees/4.png", "job": "Product Manager", "hasChild": true, "status":"away" },
+        { "id": 6, "pid": 5, "name": "Michael Suyama", "eimg": "styles/images/Employees/9.png", "job": "Team Lead", "hasChild": true, "status":"online" },
+        { "id": 7, "pid": 6, "name": "Robert King", "eimg": "styles/images/Employees/8.png", "job": "Developer ", "status":"online" },
+        { "id": 11, "pid": 6, "name": "Mary", "eimg": "styles/images/Employees/6.png", "job": "Developer ", "status":"away" },
+        { "id": 9, "pid": 1, "name": "Janet Leverling", "eimg": "styles/images/Employees/3.png", "job": "HR", "status":"online" }
+    ]
+}

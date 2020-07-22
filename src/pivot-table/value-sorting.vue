@@ -33,12 +33,12 @@ import {
   FieldList
 } from "@syncfusion/ej2-vue-pivotview";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -77,8 +77,15 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

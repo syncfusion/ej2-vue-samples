@@ -35,9 +35,7 @@
 </div>
 </div>
 </template>
-<style>
 
-</style>
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';

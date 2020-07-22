@@ -187,8 +187,16 @@ gulp.task('copy-source', function () {
     }
   }); 
 
+gulp.task('src-ship', function (done) {
+    var indexFile = fs.readFileSync('./dist/index.html','utf8');
+    indexFile = indexFile.replace(/\"\/app.js\"/g, `"./app.js"`);
+    fs.writeFileSync('./dist/index.html', indexFile, 'utf8');
+    shelljs.cp('-rf', ['./public', './**.config.js', './**.json', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
+    done();
+});
+
 gulp.task('build', function(done) {
-    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source && npm run build', done)
+    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source && npm run build && gulp src-ship', done)
 });
 
 gulp.task('serve',['build'], function(done) {

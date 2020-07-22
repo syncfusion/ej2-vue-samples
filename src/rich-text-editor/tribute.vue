@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteObj" :value="value" :created="onCreate"  placeholder="Type @ to get the employee list with their email IDs."></ejs-richtexteditor>
+        <ejs-richtexteditor ref="rteObj" :created="onCreate"  placeholder="Type @ to get the employee list with their email IDs."></ejs-richtexteditor>
         </div>
     </div>
 </div>
@@ -15,10 +15,9 @@
     <p>The Rich Text Editor allows you to integrate the third-party libraries such as Tribute JS or At JS for mentions. If you want to tag or address someone directly during a conversation, the mentions library will be helpful. Type @ to show autocomplete
         popup with a list of matching items based on the provided key-value pair.</p>
     <p>For example, type '@' in the above sample to show the employee list with their mail IDs in the autocomplete popup.</p>
-</div>
-</div>
+</div></div>
 </template>
-<style>
+<style >
     .tribute-container {
         position: absolute;
         top: 0;

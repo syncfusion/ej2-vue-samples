@@ -42,7 +42,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 #wrapper {
   max-width: 246px;
   margin: 30px auto;

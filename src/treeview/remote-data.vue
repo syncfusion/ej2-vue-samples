@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="col-lg-12 control-section">
+<div class="col-lg-12 control-section tree-remote">
     <div class="tree-control-wrapper">
      <span id="loading">Loading...</span>
             <ejs-treeview id="treeview" :created="show" :dataBound="hide" :fields='fields'></ejs-treeview>
@@ -24,14 +24,14 @@
 </template>
 /* custom code start */
 <style>
-.tree-control-wrapper {
+.tree-remote .tree-control-wrapper {
         max-width: 500px;
         min-height: 50px;
         margin: auto;
         border: 1px solid #dddddd;
         border-radius: 3px;
     }
-    #loading {
+    .tree-remote #loading {
         display: inline-block;
         margin: 10px 41%;
         font-size: 20px;

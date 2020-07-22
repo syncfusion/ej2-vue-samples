@@ -36,7 +36,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 /* RadioButton Styles */
 .radio-control {
   margin: 5% 0 5% 40%;

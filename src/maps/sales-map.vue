@@ -57,7 +57,7 @@ import {
   MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
-import { salesmapdata } from "./map-data/marker-location";
+import { salesmapdata } from "../maps/map-data/marker-location";
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data: function() {

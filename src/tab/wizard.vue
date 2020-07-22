@@ -157,7 +157,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 .e-content .e-item {
         font-size: 12px;
         margin: 10px;

@@ -39,7 +39,7 @@ let instance = new Internationalization();
         },
         computed: {
             image: function() {
-                return 'src/gantt/images/' + this.data.ganttProperties.resourceNames + '.png';
+                return 'source/gantt/images/' + this.data.ganttProperties.resourceNames + '.png';
             }
         }
     };

@@ -61,7 +61,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
 .e-play-icon::before {
         content: '\e720';
     }

@@ -1,12 +1,12 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-number-format">
-      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :dataBound="dataBound">
+      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :created="created">
         <e-sheets>
           <e-sheet name="Stock Details" selectedRange="F15">
-            <e-rangesettings>
-              <e-rangesetting :dataSource="dataSource"></e-rangesetting>
-            </e-rangesettings>
+            <e-ranges>
+              <e-range :dataSource="dataSource"></e-range>
+            </e-ranges>
             <e-rows>
               <e-row :height="height1"></e-row>
               <e-row :index="rowIndex" :height="height2">
@@ -24,13 +24,13 @@
               <e-row :height="height2">
                 <e-cells>
                   <e-cell :index="colIndex1" value="Minimum stock value:"></e-cell>
-                  <e-cell :index="colIndex2" formula="=MIN(E2:E11)"></e-cell>
+                  <e-cell :index="colIndex2" formula="=MIN(E2:E11)" format="0.00"></e-cell>
                 </e-cells>
               </e-row>
               <e-row :height="height2">
                 <e-cells>
                   <e-cell :index="colIndex1" value="Non-profitable days:"></e-cell>
-                  <e-cell :index="colIndex2" formula="=COUNTIF(F2:F11,'<=0')" ></e-cell>
+                  <e-cell :index="colIndex2" formula='=COUNTIF(F2:F11,"<=0")' ></e-cell>
                 </e-cells>
               </e-row>
             </e-rows>
@@ -48,17 +48,19 @@
     </div>
     <div id="action-description">
       <p>
-        This sample demonstrates the analysis of a company's stock value for a certain period with formula feature.
+        This sample demonstrates the analysis of a company's stock value for a certain period with formula and named range feature.
       </p>
     </div>
     <div id="description">
       <p>
         The <code>Spreadsheet</code> component provides a built-in calculation library that supports most commonly used
-          formulas. In this demo, a formula is specified to a cell using the <code>formula</code> property.
+          formulas. In this demo, a formula is specified to a cell using the <code>formula</code> property.The ranges are specified
+        using its name and its defined using <code>definedNames</code> property.
+
       </p>
       <p>
-        More information about formula support can be found in this
-          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/">
+        More information about formula and named range support can be found in this
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/formulas/">
             documentation</a> section.
       </p>
     </div>
@@ -90,19 +92,19 @@ export default Vue.extend({
       colIndex2: 5,
       width1: 100,
       width2: 130,
-      width3: 140
+      width3: 140,
+      definedNames: [
+        { name: 'Profit', refersTo: '=F2:F11' },
+        { name: 'High', refersTo: '=D2:D11'}
+      ]
     }
   },
   methods: {
-    dataBound: function() {
+    created: function() {
         var spreadsheet = this.$refs.spreadsheet;
-        if (!spreadsheet.ej2Instances.isOpen && spreadsheet.ej2Instances.sheets[spreadsheet.ej2Instances.activeSheetTab - 1].name === 'Stock Details') {
-            spreadsheet.cellFormat
-                ({ fontWeight: 'bold', backgroundColor: '#4ECDC4', textAlign: 'center', fontSize: '14px' }, 'A1:F1');
-            spreadsheet.cellFormat({ backgroundColor: '#F2F2F2' }, 'A2:F11');
-            spreadsheet.cellFormat({ fontWeight: 'bold', backgroundColor: '#C6EFCE' }, 'A12:F15');
-            spreadsheet.numberFormat('0.00', 'F2:F11');
-        }
+        spreadsheet.cellFormat({ fontWeight: 'bold', backgroundColor: '#279377', color: '#fff', textAlign: 'center',verticalAlign: 'middle', fontSize: '14px' }, 'A1:F1');
+        spreadsheet.cellFormat({ fontWeight: 'bold', backgroundColor: '#EEEEEE' }, 'A12:F15');
+        spreadsheet.numberFormat('0.00', 'F2:F11');
     }
   }
 });

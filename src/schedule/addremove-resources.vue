@@ -66,7 +66,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     /* custom code start*/
     .property-panel-content .e-checkbox-wrapper.personal .e-label {
         color: #808080;

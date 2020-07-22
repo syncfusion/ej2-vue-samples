@@ -1,12 +1,12 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-number-format">
-      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :showFormulaBar="false" :dataBound="dataBound">
+      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :showFormulaBar="false" :created="created">
         <e-sheets>
           <e-sheet name="Restaurant Invoice" selectedRange="E17">
-            <e-rangesettings>
-              <e-rangesetting :dataSource="dataSource" startCell="A3"></e-rangesetting>
-            </e-rangesettings>
+            <e-ranges>
+              <e-range :dataSource="dataSource" startCell="A3"></e-range>
+            </e-ranges>
             <e-rows>
               <e-row :height="height">
                 <e-cells>
@@ -66,7 +66,7 @@
       </p>
       <p>
         More information about number formatting can be found in this
-          <a target="_blank" href="https://ej2.syncfusion.com/documentation/vue/spreadsheet/">
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/formatting/#number-formatting">
             documentation</a> section.
       </p>
     </div>
@@ -103,22 +103,20 @@ export default Vue.extend({
     }
   },
   methods: {
-    dataBound: function() {
+    created: function() {
         var spreadsheet = this.$refs.spreadsheet;
-        if (!spreadsheet.ej2Instances.isOpen && spreadsheet.ej2Instances.sheets[spreadsheet.ej2Instances.activeSheetTab - 1].name === 'Restaurant Invoice') {
-            spreadsheet.cellFormat({ fontWeight: 'bold' }, 'A1:E2');
-            spreadsheet.cellFormat({ textAlign: 'center', fontWeight: 'bold' }, 'A3:E3');
-            spreadsheet.cellFormat({ textAlign: 'center' }, 'A4:A14');
-            spreadsheet.cellFormat({ textAlign: 'center' }, 'C4:C14');
-            spreadsheet.cellFormat({ fontWeight: 'bold' }, 'B17');
-            spreadsheet.cellFormat({ fontWeight: 'bold' }, 'E17');
-            spreadsheet.cellFormat({ backgroundColor: '#F9FBE7' }, 'A4:E15');
-            spreadsheet.cellFormat({ backgroundColor: '#1E88E5', color: '#F5F5F5' }, 'A1:E2');
-            spreadsheet.cellFormat({ backgroundColor: '#BBDEFB' }, 'A3:E3');
-            spreadsheet.cellFormat({ backgroundColor: '#B3E5FC' }, 'A15:E17');
-            spreadsheet.numberFormat('$#,##0.00', 'D4:E14');
-            spreadsheet.numberFormat('$#,##0.00', 'E15:E17');
-        }
+        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'A1:E2');
+        spreadsheet.cellFormat({ textAlign: 'center', fontWeight: 'bold' }, 'A3:E3');
+        spreadsheet.cellFormat({ textAlign: 'center' }, 'A4:A14');
+        spreadsheet.cellFormat({ textAlign: 'center' }, 'C4:C14');
+        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'B17');
+        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'E17');
+        spreadsheet.cellFormat({ backgroundColor: '#F9FBE7' }, 'A4:E15');
+        spreadsheet.cellFormat({ backgroundColor: '#1E88E5', color: '#F5F5F5' }, 'A1:E2');
+        spreadsheet.cellFormat({ backgroundColor: '#BBDEFB' }, 'A3:E3');
+        spreadsheet.cellFormat({ backgroundColor: '#B3E5FC' }, 'A15:E17');
+        spreadsheet.numberFormat('$#,##0.00', 'D4:E14');
+        spreadsheet.numberFormat('$#,##0.00', 'E15:E17');
     }
   }
 });

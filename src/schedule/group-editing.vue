@@ -42,7 +42,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .groupediting.e-schedule .e-month-view .e-appointment .e-appointment-details {
         padding: 1px;
         padding-left: 3px;
@@ -115,7 +115,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getEmployeeImage(this.data) + '.png';
+                return './source/schedule/images/' + this.getEmployeeImage(this.data) + '.png';
             }
         },
         methods: {

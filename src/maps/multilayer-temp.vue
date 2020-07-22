@@ -5,7 +5,7 @@
     </svg>
 </div>
 </template>
-<style>	
+<style scoped>	
 	.svgcircle{
         -webkit-animation: opac 1.5s ease-out infinite;
         animation: opac 1.5s ease-out infinite;

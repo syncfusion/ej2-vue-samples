@@ -30,7 +30,7 @@
 </div> 
 </template>
 // custom code start
-<style>
+<style scoped>
     #navigationLine_layerIndex_0_line_Group{
         stroke-dasharray: 10px 10px;
         stroke-linejoin: round; stroke-linecap: round;
@@ -52,7 +52,7 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, Zoom, NavigationLine, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { penisular_location, penisular_marker } from './map-data/map-location';
+import { penisular_location, penisular_marker } from '../maps/map-data/map-location';
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data:function(){
@@ -128,7 +128,7 @@ export default Vue.extend({
                         animationDuration: 0,
                         offset: {
                             x: 0,
-                            y: -5
+                            y: -15
                         }
                     },
                     {

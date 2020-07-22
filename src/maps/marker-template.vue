@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="maps-marker-temp-sample">
 <div class="control-section">
 <ejs-maps id='markertemp' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
     <e-layers>
@@ -30,7 +30,7 @@
 </div>
 </template>
 <style>
-    .markerTemplate {
+    #maps-marker-temp-sample .markerTemplate {
         height:30px;
         width:30px;
         display:block;

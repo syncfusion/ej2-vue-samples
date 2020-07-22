@@ -38,7 +38,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 .control_wrapper.timepicker_default {
   display: block;
   margin: 0 auto;

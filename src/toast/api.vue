@@ -78,7 +78,7 @@
         </div>
         <div class="row center">
             <ejs-button ref='buttonShowRef' id="toastBtnShow" class="e-btn e-primary" v-on:click.native='showClicked'>Show Toasts</ejs-button>
-            <ejs-button ref='hideButtonRef' id="toastBtnHide" v-if="ShowBtn" class="e-btn e-primary" v-on:click.native='hideClicked'>Hide all</ejs-button>
+            <ejs-button ref='hideButtonRef' id="toastBtnHide" v-if="ShowBtn" class="e-btn e-primary" v-on:click.native='hideClicked' style="margin-Left:3px;">Hide all</ejs-button>
         </div>
     </div>
     <div id="action-description">
@@ -100,11 +100,16 @@
  </div>
  </div>
 </template>
-<style>
+<style >
     /* custom code start */
     .toast-api-section {
         padding-top: 0;
     }
+
+    .toast-api-section .control-section {
+        min-height: 650px;
+    }
+
     .toast-api-section .input-form {
         margin: 33px 0;
     }

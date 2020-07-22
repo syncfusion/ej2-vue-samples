@@ -114,13 +114,13 @@ import Vue from "vue";
 import { PivotViewPlugin, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(RadioButtonPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 export default Vue.extend({
   data: () => {
     return {
@@ -155,7 +155,7 @@ export default Vue.extend({
         mode: "Normal"
       },
       width: "100%",
-      height: 300
+      height: 290
     };
   },
   methods: {
@@ -182,8 +182,15 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

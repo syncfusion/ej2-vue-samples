@@ -4,7 +4,7 @@
         <ejs-accumulationchart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' 
          :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='seriesData' xName='x' yName='y' startAngle=0 :dataLabel='dataLabel' endAngle=360 innerRadius='0%' name='RIO' > </e-accumulation-series>
+                <e-accumulation-series :dataSource='seriesData' xName='x' yName='y' startAngle=60 :dataLabel='dataLabel' innerRadius='0%' name='RIO' > </e-accumulation-series>
              
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -17,12 +17,12 @@
 <div id="description">
     <p> In this example, you can see how to arrange the labels smartly without overlapping with each other. You can use <code>enableSmartLabels</code> property to enable or disable the action. Legend with paging is enabled in this sample.</p>
     <p style="font-weight: 500"> Injecting Module </p>
-    <p> Accumulation chart component features are segregated into individual feature-wise modules. To use datalabel, we need to inject <code>AccumulationDataLabel</code> using <code>provide: {accumulationchart: [AccumulationDataLabel]},</code> method.</p>
+    <p> Accumulation chart component features are segregated into individual feature-wise modules. To use DataLabel, we need to inject <code>AccumulationDataLabel</code> using <code>provide: {accumulationchart: [AccumulationDataLabel]},</code> method.</p>
 </div>
 </div>
 
 </template>
-<style>
+<style scoped>
 
 </style>
 <script>
@@ -64,7 +64,7 @@ export default Vue.extend({
      
         dataLabel: {
                     visible: true, position: 'Outside',
-                    connectorStyle: { length: '10%' }, name: 'text',
+                    connectorStyle: { length: '20px', type: 'Curve' }, name: 'text',
                 },
 
         legendSettings: {
@@ -73,7 +73,7 @@ export default Vue.extend({
           
         tooltip: { enable: true, format: '${point.x} : <b>${point.y}%</b>' },
       
-      title: "RIO Olympics Gold"
+      title: "Rio Olympics Gold"
     };
   },
   provide: {

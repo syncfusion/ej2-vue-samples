@@ -9,10 +9,9 @@
           :gridSettings="gridSettings"
           :width="width"
           :height="height"
-          :load="load"
-          :dataBound="dataBound"
           :allowExcelExport="allowExcelExport"
           :allowConditionalFormatting="allowConditionalFormatting"
+          :allowNumberFormatting="allowNumberFormatting"
           :allowPdfExport="allowPdfExport"
           :showToolbar="showToolbar"
           :allowCalculatedField="allowCalculatedField"
@@ -102,6 +101,12 @@
         <td>Allows user to customize cells base on certain conditions.</td>
         </tr>
         <tr>
+            <td style="vertical-align: top;padding: 4px 0;">
+                <code>Number formatting:</code>
+            </td>
+            <td>Allows user to dynamically apply number formatting to value fields.</td>
+        </tr>
+        <tr>
         <td style="vertical-align: top;padding: 4px 0;">
         <code>Field List:</code>
         </td>
@@ -124,15 +129,16 @@ import {
   Toolbar,
   PDFExport,
   ExcelExport,
-  ConditionalFormatting
+  ConditionalFormatting,
+  NumberFormatting
 } from "@syncfusion/ej2-vue-pivotview";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare let require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 export default Vue.extend({
   data: () => {
     return {
@@ -147,20 +153,21 @@ export default Vue.extend({
         dataSource: Pivot_Data,
         expandAll: false,
         values: [
-          { name: "In_Stock", caption: "In Stock" },
           { name: "Sold", caption: "Units Sold" },
           { name: "Amount", caption: "Sold Amount" }
         ],
         filters: [{ name: "Product_Categories", caption: "Product Categories" }]
       },
       width: "100%",
-      height: 300,
+      height: 450,
       gridSettings: { columnWidth: 140 },
       allowExcelExport: true,
       allowConditionalFormatting: true,
+      allowNumberFormatting: true,
       allowPdfExport: true,
       displayOption: { view:'Both' },
       chartSettings: {
+         title: "Sales Analysis",
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -183,7 +190,7 @@ export default Vue.extend({
         "Export",
         "SubTotal",
         "GrandTotal",
-        "ConditionalFormatting",
+        "Formatting",
         "FieldList"
       ]
     };
@@ -264,14 +271,21 @@ export default Vue.extend({
       }
     },
     renameReport: function(args: any) {
-      let reportCollection = [];
+      let reportsCollection = [];
       if (
         localStorage.pivotviewReports &&
         localStorage.pivotviewReports !== ""
       ) {
-        reportCollection = JSON.parse(localStorage.pivotviewReports);
+        reportsCollection = JSON.parse(localStorage.pivotviewReports);
       }
-      reportCollection.map(function(item: any) {
+      if (args.isReportExists) {
+        for (let i = 0; i < reportsCollection.length; i++) {
+          if (reportsCollection[i].reportName === args.rename) {
+            reportsCollection.splice(i, 1);
+          }
+        }
+      }
+      reportsCollection.map(function(item: any) {
         if (args.reportName === item.reportName) {
           item.reportName = args.rename;
         }
@@ -280,7 +294,7 @@ export default Vue.extend({
         localStorage.pivotviewReports &&
         localStorage.pivotviewReports !== ""
       ) {
-        localStorage.pivotviewReports = JSON.stringify(reportCollection);
+        localStorage.pivotviewReports = JSON.stringify(reportsCollection);
       }
     },
     newReport: function() {
@@ -313,18 +327,19 @@ export default Vue.extend({
       Toolbar,
       PDFExport,
       ExcelExport,
-      ConditionalFormatting
+      ConditionalFormatting,
+      NumberFormatting
     ]
   }
 });
 </script>
 
-<style>
-#PivotView_PivotFieldList {
+<style scoped>
+/deep/ #PivotView_PivotFieldList {
   width: auto !important;
 }
 
-#pivotview {
+/deep/ #pivotview {
   width: 100%;
 }
 
@@ -332,5 +347,12 @@ export default Vue.extend({
   #pivot-grid-section {
     overflow: auto;
   }
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

@@ -15,8 +15,8 @@
         :maximum="maximum1"
         :interval="interval1"
         title="Revenue"
-        labelFormat="${value}"
-        subtitle="U.S. $ (1,000s)"
+        labelFormat="${value}K"
+        subtitle="U.S. $"
         :titlePosition="titlePosition"
       >
         <e-bullet-range-collection>
@@ -158,7 +158,7 @@ export default Vue.extend({
   data: function() {
     return {
       width: Browser.isDevice ? "100%" : "80%",
-      margin1: { left: Browser.isDevice ? 10 : 35 },
+      margin1: { left: Browser.isDevice ? 10 : 62 },
       margin2: { left: Browser.isDevice ? 10 : 80 },
       margin3: { left: Browser.isDevice ? 10 : 22 }, 
       margin4: { left: Browser.isDevice ? 10 : 22 },

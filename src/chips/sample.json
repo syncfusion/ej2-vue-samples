@@ -9,6 +9,10 @@
     }, {
         "url": "api",
         "name": "API",
-        "category": "Chips"
+        "category": "Chips",
+        "sourceFiles": [
+            {"displayName": "api.vue", "path": "./src/chips/api.vue"},
+            {"displayName": "data.json", "path": "./src/chips/data.json"}
+        ]
     }]
 }

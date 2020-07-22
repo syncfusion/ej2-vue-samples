@@ -2,6 +2,7 @@
     "name": "Circular Gauge",
     "directory": "circular-gauge",
     "category": "Data Visualization",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -46,6 +47,13 @@
             "api":{"CircularGauge": [ "legend"]}
         },
         {
+            "url": "gradient-color",
+            "name": "Gradient Color",
+            "type": "new",
+            "category": "Circular Gauge",
+            "api":{"CircularGauge": [ "axes"]}
+        },
+        {
             "url": "compass",
             "name": "Direction Compass",
             "category": "Circular Gauge",
@@ -71,7 +79,7 @@
         },
         {
             "url": "user-interaction",
-            "name": "Pointer Drag",
+            "name": "Pointer & Ranges Drag",
             "category": "User Interaction",
             "api":{"CircularGauge": ["axes", "enablePointerDrag", "dragEnd", "dragMove"]}
         },
@@ -80,6 +88,13 @@
             "name": "Tooltip",
             "category": "User Interaction",
             "api":{"CircularGauge": ["axes", "tooltip", "tooltipRender"]}
+        },
+        {
+            "url": "export",
+            "name": "Print & Export",
+            "category": "Export",
+            "type": "update",
+            "api":{"CircularGauge": ["axes"]}
         },
         {
             "url": "data-sample",

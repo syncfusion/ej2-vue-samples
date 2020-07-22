@@ -39,7 +39,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
    #waterfallContainer_Series_0_Connector_ {
         stroke-dasharray: 10px 10px;
         stroke-linejoin: round; stroke-linecap: round;

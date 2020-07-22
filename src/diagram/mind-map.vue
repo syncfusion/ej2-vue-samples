@@ -2,7 +2,7 @@
 <div class="control-section">
     <div class="diagram-control">
         <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :selectionChange='selectionChange' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'
-        :getCustomTool='getCustomTool' :getCustomCursor='getCustomCursor'></ejs-diagram>
+        :getCustomTool='getCustomTool'></ejs-diagram>
         <input id="palette" style="visibility: hidden;position: absolute" type="color" name="favcolor" value="#000000">
     </div>
 
@@ -28,7 +28,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 </style>
 
 <script>

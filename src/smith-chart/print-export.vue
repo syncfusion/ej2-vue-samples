@@ -60,8 +60,7 @@
 </div>
 </div>
 </template>
-<style>
-// custom code start
+<style scoped>
     .e-play-icon::before {
         content: '\e728';
     }
@@ -70,7 +69,7 @@
         font-size: 13px !important;
         font-weight: 400 !important;
     }
-    // custom code end
+    
     #togglebtn1 {
         width: 80px;
     }

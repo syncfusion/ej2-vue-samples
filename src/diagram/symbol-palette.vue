@@ -71,7 +71,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .property-panel-table div {
   padding-left: 0px;
 }

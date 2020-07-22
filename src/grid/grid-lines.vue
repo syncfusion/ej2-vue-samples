@@ -30,7 +30,7 @@
      <div id="description">
         <p>
             The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#gridlines-gridline">
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#gridlines">
         gridLines</a></code> property is used to control the line visibility that separates the rows and columns.
             The Grid allow us to display the following grid lines,
         </p>
@@ -45,7 +45,7 @@
         </p>
          <p>
             More information on the gridLines configuration can be found in this 
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#gridlines-gridline">documentation section</a>.
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#gridlines">documentation section</a>.
         </p>
 
     </div>
@@ -53,7 +53,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 .e-mastertext {
     font-size: 15px;
     font-family: Roboto;

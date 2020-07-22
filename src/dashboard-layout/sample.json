@@ -38,7 +38,9 @@
                 { "displayName":"usage.vue","path":"./src/dashboard-layout/useage.vue" },
                 { "displayName":"maptemplate.vue","path":"./src/dashboard-layout/map.vue" },
                 { "displayName":"activeVisitors.vue","path":"./src/dashboard-layout/activeVisitors.vue" },
-                { "displayName":"splinetemplate.vue","path":"./src/dashboard-layout/splinetemplate.vue" }
+                { "displayName":"splinetemplate.vue","path":"./src/dashboard-layout/splinetemplate.vue" },
+                { "displayName":"default-datasource.json","path":"./src/dashboard-layout/map-data/default-datasource.json" },
+                { "displayName":"world-map.json","path":"./src/dashboard-layout/map-data/world-map.json" }
             ]
         }
     ]

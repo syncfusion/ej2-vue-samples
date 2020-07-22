@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-upload">
         <div id='uploadFileManager' class="fileupload">
             <ejs-uploader ref="uploadObj" id='defaultfileupload' name="UploadFiles">
             </ejs-uploader>
@@ -31,25 +31,25 @@
 
 <style>
 
-    .fileupload {
+    .file-upload .fileupload {
         max-width: 500px;
         margin: auto;
     }
-    #openBtn {
+    .file-upload #openBtn {
         position: absolute;
         top: 34px;
         left: 43%;
     }
-    #target {
+    .file-upload #target {
         height: 550px;
     }
-    #dialog {
+    .file-upload #dialog {
         top: 20px !important;
         max-height: 500px !important;
         left: 30px !important;
     }
 
-    #uploadFileManager .e-file-drop, #uploadFileManager .e-css.e-btn {
+    .file-upload #uploadFileManager .e-file-drop, .file-upload #uploadFileManager .e-css.e-btn {
         display: none;
     }
 

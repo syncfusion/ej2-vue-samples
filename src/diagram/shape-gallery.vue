@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
 <div style="width:100%">
-    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :getNodeDefaults='getNodeDefaults'
+    <ejs-diagram  ref="diagramObject"  style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :getNodeDefaults='getNodeDefaults'
                  :snapSettings='snapSettings'></ejs-diagram>
     </div>
 <div id="action-description">
@@ -27,7 +27,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -333,7 +333,7 @@ export default Vue.extend({
   data: function() {
     return {
       width: "100%",
-      height: "499px",
+      height: "800px",
       snapSettings: { constraints: SnapConstraints.None },
       nodes: getNodes(),
       //Defines the default node and connector properties
@@ -344,6 +344,10 @@ export default Vue.extend({
   },
   provide: {
     diagram: [BpmnDiagrams]
+  },
+  mounted: function() {
+    let diagram = this.$refs.diagramObject.ej2Instances;
+    diagram.fitToPage();
   }
 });
 

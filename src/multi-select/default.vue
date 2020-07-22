@@ -35,7 +35,7 @@
      </div>
 </div>
 </template>
-<style>
+<style scoped>
     .m-control-wrapper {
         margin: 0 auto;
         width: 64%;

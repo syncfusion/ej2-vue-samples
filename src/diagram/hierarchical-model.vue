@@ -97,7 +97,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;

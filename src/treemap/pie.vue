@@ -26,7 +26,7 @@
 import Vue from 'vue';
 import { TreeMapPlugin,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { Continent_Data } from '../treemap/treemap-data/pie-chart';
-import { AccumulationChartPlugin, AccumulationChart,  PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
+import { AccumulationChartPlugin, AccumulationChart,  PieSeries, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 import Template from './pie-temp.vue';
 Vue.use(TreeMapPlugin);
 Vue.use(AccumulationChartPlugin);
@@ -106,7 +106,7 @@ methods:{
                 palettes: ['#1E1E1E', '#00BDAE', '#FFFFFF'],
                 dataSource: dataSource,
                 dataLabel: {
-                    visible: true
+                    visible: false
                 },
                 type: 'Pie',
                 xName: 'x',
@@ -210,7 +210,7 @@ methods:{
 }
 },
 provide:{
-    accumulationchart:[PieSeries, AccumulationDataLabel, AccumulationTooltip],
+    accumulationchart:[PieSeries, AccumulationTooltip],
     treemap:[TreeMapTooltip]
 }
 })

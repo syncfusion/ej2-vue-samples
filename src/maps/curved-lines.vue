@@ -33,8 +33,8 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, MapsTooltip, NavigationLine,Zoom , MapAjax} from '@syncfusion/ej2-vue-maps';
-import { markerLocation } from './map-data/map-location';
-import { data } from './map-data/navigation-data';
+import { markerLocation } from '../maps/map-data/map-location';
+import { data } from '../maps/map-data/navigation-data';
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data:function(){

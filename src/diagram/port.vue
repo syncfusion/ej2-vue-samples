@@ -120,7 +120,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .sb-child-row {
   margin-top: 8px;
 }
@@ -709,13 +709,14 @@ export default Vue.extend({
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
-    diagramInstance.select([diagramInstance.nodes[0]]);
+    diagramInstance.fitToPage();
     portVisibilityDrop = this.$refs.portsVisiblityObj.ej2Instances;
     portFillDrop = this.$refs.fillObj.ej2Instances;
     portBorderDrop = this.$refs.borderObj.ej2Instances;
     portShapeDrop = this.$refs.shapeObj.ej2Instances;
     portSizeNum = this.$refs.sizeObj.ej2Instances;
     portWidthNum = this.$refs.widthObj.ej2Instances;
+    diagramInstance.select([diagramInstance.nodes[0]]);
   }
 });
 
@@ -770,7 +771,7 @@ function selectChange(args) {
         portShapeDrop.dataBind();
         portSizeNum.value = port.height;
         portSizeNum.dataBind();
-        portWidthNum.value = port[0].style.strokeWidth;
+        portWidthNum.value = port.style.strokeWidth;
         portWidthNum.dataBind();
       }
     }

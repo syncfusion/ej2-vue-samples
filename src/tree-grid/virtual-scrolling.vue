@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the TreeGrid component with the virtual scrolling feature. Scroll the TreeGrid content vertically to load rows.
+        <p>This sample demonstrates the Tree Grid component with the virtual scrolling feature. Scroll the Tree Grid content vertically to load rows.
         </p>
     </div>
     <div>
@@ -20,7 +20,7 @@
 
     <div id="description">
         <p>
-            The TreeGrid UI virtualization allows you to render only rows visible within the view-port without buffering the entire datasource.
+            The Tree Grid UI virtualization allows you to render only rows visible within the view-port without buffering the entire datasource.
         To enable the virtualization, set <code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualization">
         enableVirtualization </a></code> property as true.
@@ -33,7 +33,7 @@
             enableVirtualization </a></code>.
         </p>   
         <p style='font-weight: 500'>Injecting Module:</p>
-        <p>TreeGrid features are segregated into individual feature-wise modules.
+        <p>Tree Grid features are segregated into individual feature-wise modules.
         To use virtual scrolling feature, we need to inject
         <code> VirtualScroll </code> into the provide section.
         </p>

@@ -3,13 +3,15 @@
         <ejs-listview id='listview_template' ref="list" :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template='listTemplate'></ejs-listview>
 
         <div id="action-description">
-            <p>This sample demonstrates the Template functionalities of the ListView. Click any news header or thumbnail to open the complete article. To navigate back to the news list, click the back icon at the top left area.
+            <p>This sample demonstrates the template functionalities of the ListView. Click any news header or thumbnail to open
+               the complete article. To navigate back to the news list, click the back icon at the top left area.
             </p>
         </div>
 
         <div id="description">
-            <p>The above template represents the customizability of the ListView component. Here, data is loaded from JSON and its value is directly mapped to our ListView datasource to load the content.</p>
-            <p>This sample, also have the additional elements like bookmark, comments, and share that can be customized to perform the appropriate action by adding our own events.</p>
+            <p>The above template represents the customizability of the ListView component. Here, list data is loaded and its value is directly mapped to your ListView datasource to load the content.</p>
+    
+            <p>This sample also have the additional elements such as bookmark, comments, and share that can be customized to perform the appropriate action by adding your own events.</p>
         </div>
     </div>
 </template>
@@ -32,6 +34,12 @@
     right: 20px;
 }
 
+#listview_template.e-listview.e-rtl .e-list-header #list-logo {
+    margin-top: 2.5px;
+    position: absolute;
+    right: 280px;
+}
+
 /* ListView template customization */
 
 @font-face {
@@ -41,8 +49,14 @@
     font-style: normal;
 }
 
+#listview_template.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+    padding-left: 1.0666em;
+    padding-right: 122px;
+}
+
 #listview_template.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
     padding-left: 122px;
+    padding-right: 1.0666em;
 }
 
 #listview_template.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
@@ -60,6 +74,10 @@
 
 #listview_template.e-listview #list-logo {
     float: right;
+}
+
+#listview_template.e-listview.e-rtl.e-list-template .clearfix.desc.e-list-wrapper {
+    padding-right: 16px;
 }
 
 #listview_template.e-listview.e-list-template .clearfix.desc.e-list-wrapper {
@@ -163,6 +181,16 @@
     background-color: #685708;
     border-color: #fff;
     color: #fff;
+}
+
+.highcontrast #listview_template.e-listview.e-list-template .e-list-item.e-active .e-list-item-header,
+.highcontrast #listview_template.e-listview.e-list-template .e-list-item.e-active .e-list-content {
+    color: #fff;
+}
+
+.bootstrap4 #listview_template.e-listview.e-list-template .e-list-item.e-active .e-list-item-header,
+.bootstrap4 #listview_template.e-listview.e-list-template .e-list-item.e-active .e-list-content {
+    color: #333333;
 }
 
 /* Media query */

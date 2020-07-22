@@ -36,7 +36,7 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Bubble, MapsTooltip, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { internetUsers } from './map-data/population-data';
+import { internetUsers } from '../maps/map-data/population-data';
 import Template from './bubble-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({

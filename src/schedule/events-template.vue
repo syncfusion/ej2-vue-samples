@@ -32,7 +32,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .schedule-event-template.e-schedule .e-vertical-view .e-content-wrap .e-appointment,
     .schedule-event-template.e-schedule .e-timeline-view .e-content-wrap .e-appointment {
         border-radius: 8px;
@@ -126,7 +126,7 @@
         },
         computed: {
             getImage: function() {
-                return 'src/schedule/images/' + this.data.ImageName + '.svg';
+                return 'source/schedule/images/' + this.data.ImageName + '.svg';
             }
         },
         methods: {

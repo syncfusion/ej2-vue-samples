@@ -15,8 +15,7 @@
         :treeColumnIndex= "1"
         :columns= "columns"
         :splitterSettings= "splitterSettings"
-        :resourceNameMapping= "resourceNameMapping"
-        :resourceIDMapping= "resourceIdMapping"
+        :resourceFields= "resourceFields"
         :resources= "resources"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
@@ -67,8 +66,10 @@ export default Vue.extend({
                 { field: 'Progress' },
                 { field: 'resources' },
             ],
-            resourceNameMapping: 'resourceName',
-            resourceIdMapping: 'resourceId',
+            resourceFields: {
+                id: 'resourceId',
+                name: 'resourceName'
+            },
             resources: editingResources,
             labelSettings: {
                 leftLabel: function () {

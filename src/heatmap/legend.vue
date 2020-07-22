@@ -46,7 +46,7 @@
 import Vue from 'vue';
 import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { legendSampleData } from './heatmap-data/legend-sample-data.json';
+import { legendSampleData } from './legend-sample-data.json';
 Vue.use(DropDownListPlugin);
 Vue.use(HeatMapPlugin);
 export default Vue.extend({

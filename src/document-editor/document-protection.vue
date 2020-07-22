@@ -9,21 +9,21 @@
                 <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
     <div class="content-wrapper">
-            <div class="heading-section">
+            <div class="heading-section de-heading">
                 <h5><b>User Permission</b></h5>
             </div>
 
-            <div class="control-label"><b>Current User</b>
+            <div class="control-label lable-padding"><b>Current User</b>
             </div>
-            <div class="control-label">
+            <div class="control-label lable-padding">
                 <ejs-dropdownlist id='ddlelement' :dataSource='userDetails' :value='currentUser'  :change='onUserChange'></ejs-dropdownlist></td>
             </div>
-            <div class="control-label"><b>User Color</b>
+            <div class="control-label lable-padding"><b>User Color</b>
             </div>
             <ejs-colorpicker ref="usercolorpicker" id="color-picker" :change='onUserColorChange' ></ejs-colorpicker>
         </div>
@@ -66,18 +66,14 @@
     margin: 5px;
 }
 
-.property-panel-table div {
-        padding-left: 0px;
-    }
+.heading-section.de-heading {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
 
-    .heading-section {
-        padding-bottom: 20px;
-        padding-top: 20px;
-    }
-
-    .control-label {
-        padding-bottom: 15px;
-    }
+.control-label.lable-padding {
+    padding-bottom: 15px;
+}
 
 
 [contenteditable="true"].single-line {
@@ -113,7 +109,7 @@ import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from "./data-document-protection.json";
+import { dataProtection } from "./data";
 import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
 
 Vue.use(DocumentEditorContainerPlugin);
@@ -212,11 +208,10 @@ export default Vue.extend({
     },
     mounted() {
         this.$nextTick(function () {
-          this.$refs.doceditcontainer.ej2Instances.locale='en-US';
           var editor = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           editor.currentUser = 'engineer@mycompany.com';
           this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;
-          editor.open(JSON.stringify(data));
+          editor.open(JSON.stringify(dataProtection));
           editor.documentName='Document Protection';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {

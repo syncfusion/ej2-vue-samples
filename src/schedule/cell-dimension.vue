@@ -30,7 +30,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .schedule-cell-dimension.e-schedule .e-vertical-view .e-date-header-wrap table col,
     .schedule-cell-dimension.e-schedule .e-vertical-view .e-content-wrap table col {
         width: 200px;

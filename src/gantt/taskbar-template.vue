@@ -167,49 +167,37 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.e-custom-parent {
+<style scoped>
+/deep/ .e-custom-parent {
   background-color: #6d619b;
   border: 1px solid #3f51b5;
 }
 
-.e-custom-moments {
+/deep/ .e-custom-moments {
   background-color: #7ab748;
   border: 1px solid #3f51b5;
 }
 
-.e-custom-performance {
+/deep/ .e-custom-performance {
   background-color: #ad7a66;
   border: 1px solid #3f51b5;
 }
 
-.oscar {
-  content: url("images/oscar.svg");
-}
-
-.face-mask {
-  content: url("images/face-mask.svg");
-}
-
-.moments {
-  content: url("images/moments.svg");
-}
-
-.moments,
-.face-mask,
-.oscar {
+/deep/ .moments,
+/deep/ .face-mask,
+/deep/ .oscar {
   position: relative;
   top: 14px;
   left: 5px;
   padding-right: 4px;
 }
 
-#taskbarTemplate .e-milestone-top {
+/deep/ .e-milestone-top {
   border-bottom-color: #7ab748 !important;
   border-bottom: 1px solid #3f51b5;
 }
 
-#taskbarTemplate .e-milestone-bottom {
+/deep/ .e-milestone-bottom {
   border-top-color: #7ab748 !important;
   border-top: 1px solid #3f51b5;
 }

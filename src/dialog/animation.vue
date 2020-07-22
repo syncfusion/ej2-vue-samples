@@ -1,21 +1,21 @@
 <template>
   <div>
-     <div id="target" class="col-lg-12 control-section">
+     <div id="target" class="col-lg-12 control-section dialog-animation-sample">
         <div id='customization'>      
             <div class='animate'>
-               <ejs-button v-on:click.native='buttonClick' id='Zoom'>Zoom</ejs-button>
+               <ejs-button v-on:click.native='buttonClick' id='Zoom' cssClass='e-outline' isPrimary=true>Zoom In/Out</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipXDown'>FlipX Down</ejs-button>
+                <ejs-button v-on:click.native='buttonClick' id='FlipXDown' cssClass='e-outline' isPrimary=true>FlipX Down</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipXUp'>FlipX Up</ejs-button>
+                <ejs-button v-on:click.native='buttonClick' id='FlipXUp' cssClass='e-outline' isPrimary=true>FlipX Up</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipYLeft'>FlipY Left</ejs-button>
+                <ejs-button v-on:click.native='buttonClick' id='FlipYLeft' cssClass='e-outline' isPrimary=true>FlipY Left</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipYRight'>FlipY Right</ejs-button>
+                <ejs-button v-on:click.native='buttonClick' id='FlipYRight' cssClass='e-outline' isPrimary=true>FlipY Right</ejs-button>
             </div>
         </div>             
         <ejs-dialog id='dialog' header='Animation Dialog' content='The dialog is configured with animation effect. It is opened or closed with "Zoom In or Out" animation.' showCloseIcon='true' :isModal='isModal' :animationSettings='animationSettings' width='285px' ref='dialogObj'
@@ -55,8 +55,8 @@ export default Vue.extend({
             var effect = e.target.getAttribute('id');
             let txt = e.target.parentElement.innerText;
             txt = (txt === 'Zoom In/Out') ? 'Zoom In or Out' : txt;
-            this.$refs.dialogObj.content = 'The dialog is configured with animation effect. It is opened or closed with "' + txt + '" animation.';
-            this.$refs.dialogObj.animationSettings = { effect: effect, duration: 400};
+            this.$refs.dialogObj.ej2Instances.content = 'The dialog is configured with animation effect. It is opened or closed with "' + txt + '" animation.';
+            this.$refs.dialogObj.ej2Instances.animationSettings = { effect: effect, duration: 400};
             setTimeout(() => {
                 this.$refs.dialogObj.show();
             },400);
@@ -65,7 +65,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>            
+<style scoped>            
     #customization {
         display: table;
         margin: 0 auto;
@@ -76,16 +76,7 @@ export default Vue.extend({
         padding-left: 20px;
     }
 
-    #customization .e-btn.e-outline:hover,
-    #customization .e-css.e-btn.e-outline:hover,
-    #customization .e-btn.e-outline:hover:focus, 
-    #customization .e-css.e-btn.e-outline:hover:focus,
-    #customization .e-btn.e-outline:focus,
-    #customization .e-css.e-btn.e-outline:focus {
-        background-color: #ffffff;
-        border-color: #0078d6;
-        color:#0078d6;
-        outline: none;
+    .dialog-animation-sample .animate > .e-outline {
+        text-transform: capitalize;
     }
-
 </style>

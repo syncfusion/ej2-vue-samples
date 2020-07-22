@@ -15,7 +15,7 @@
     </div>
 
     <div id="action-description">
-    <p>This sample demonstrates the TreeGrid component with the row hover feature. Move the mouse over the TreeGrid rows
+    <p>This sample demonstrates the Tree Grid component with the row hover feature. Move the mouse over the Tree Grid rows
         to see the hover effect.
     </p>
 </div>
@@ -25,7 +25,7 @@
         </code> property as true.
     </p>
     <p>In this demo, by enabling the <code>enableHover
-    </code> property, you can move the mouse over TreeGrid rows to see the hover effect.</p>
+    </code> property, you can move the mouse over Tree Grid rows to see the hover effect.</p>
 </div>
 
 </div>

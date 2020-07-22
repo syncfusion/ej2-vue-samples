@@ -20,7 +20,7 @@
         <p>
         The Grid provides a way to use a custom element in header element. 
         <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#headertemplate-string">columns->headerTemplate
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#headertemplate">columns->headerTemplate
         </a></code> property accepts a vue component, which will be used 
         as the template for the header cell.
         </p>
@@ -31,7 +31,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
 @import "../../styles/Grid/header-template.css";
 </style>
 <script lang="ts">

@@ -1,8 +1,8 @@
 <template>
-<div>
+<div id="map-with-slider">
 <div class="control-section">
     <div>
-    <ejs-maps ref="maps" id='mapslider' :load='load' :loaded='loaded' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings' :annotations='annotations'>
+    <ejs-maps ref="maps" id='mapslider' :load='load' :loaded='loaded' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :annotations='annotations'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'></e-layer>
     </e-layers>
@@ -42,14 +42,14 @@
             background-color: #4B4B4B ;
         }
     #mapslider_Annotation_0 .e-control-wrapper.e-slider-container.e-horizontal .e-slider-track {
-        background: -webkit-linear-gradient(left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
         background: linear-gradient(left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
         background: -moz-linear-gradient(left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
+         background: -webkit-linear-gradient(left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
     }
-    .e-limit-bar.e-limits {
+    #map-with-slider .e-limit-bar.e-limits {
         background-color: transparent !important;
     }
-    .e-control-wrapper.e-slider-container.e-horizontal .e-range {
+    #map-with-slider .e-control-wrapper.e-slider-container.e-horizontal .e-range {
         height: 0px !important;
     }
     #mapannotation.e-control.e-slider .e-slider-track {

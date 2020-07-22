@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-sql">
          <div class="sample-container">
             <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' >
             </ejs-filemanager>
@@ -17,7 +17,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-sql .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section avatar-badge">
 
-        <div class="sample_container avatar-badge">
+        <div class="sample_container">
             <div class="avatar-block">
                 <!-- Card Component -->
                 <div class="e-card e-avatar-showcase">
@@ -9,7 +9,7 @@
                         <div class="avatar-sub-block">
                             <!-- xSmall Avatar-->
                             <div class="e-avatar e-avatar-xsmall">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification e-badge-circle">6</span>
@@ -17,7 +17,7 @@
                         <div class="avatar-sub-block">
                             <!-- Small Avatar-->
                             <div class="e-avatar e-avatar-small">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification e-badge-circle">12</span>
@@ -25,7 +25,7 @@
                         <div class="avatar-sub-block">
                             <!-- Avatar-->
                             <div class="e-avatar">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification">46</span>
@@ -33,7 +33,7 @@
                         <div class="avatar-sub-block">
                             <!-- Large Avatar-->
                             <div class="e-avatar e-avatar-large">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification">82</span>
@@ -41,7 +41,7 @@
                         <div class="avatar-sub-block">
                             <!-- xLarge Avatar-->
                             <div class="e-avatar e-avatar-xlarge">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification">99+</span>
@@ -57,7 +57,7 @@
                         <div class="avatar-sub-block">
                             <!-- xSmall Circle Avatar-->
                             <div class="e-avatar e-avatar-circle e-avatar-xsmall">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification e-badge-circle">6</span>
@@ -65,7 +65,7 @@
                         <div class="avatar-sub-block">
                             <!-- Small Circle Avatar-->
                             <div class="e-avatar e-avatar-circle e-avatar-small">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification e-badge-circle">12</span>
@@ -73,7 +73,7 @@
                         <div class="avatar-sub-block">
                             <!-- Circle Avatar-->
                             <div class="e-avatar e-avatar-circle">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification">46</span>
@@ -81,7 +81,7 @@
                         <div class="avatar-sub-block">
                             <!-- Large Circle Avatar-->
                             <div class="e-avatar e-avatar-circle e-avatar-large">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification">82</span>
@@ -89,7 +89,7 @@
                         <div class="avatar-sub-block">
                             <!-- xLarge Circle Avatar-->
                             <div class="e-avatar e-avatar-circle e-avatar-xlarge">
-                                <img src="src/avatar/images/pic01.png" alt="profile_pic">
+                                <img src="./images/pic01.png" alt="profile_pic">
                             </div>
                             <!-- Notification Badge -->
                             <span class="e-badge e-badge-primary e-badge-overlap e-badge-notification">99+</span>
@@ -113,19 +113,19 @@
     </div>
 </template>
 <style>
-    .control-section {
+    .avatar-badge {
         overflow: auto;
         padding-left: 0px;
         padding-right: 0px;
     }
 
-    .sample_container.avatar-badge .avatar-sub-block {
+    .avatar-badge .sample_container .avatar-sub-block {
         display: inline-block;
         position: relative;
-        margin: 7px
+        margin: 9px
     }
 
-    .sample_container.avatar-badge .avatar-block {
+    .avatar-badge .sample_container .avatar-block {
         display: inline-block;
         vertical-align: top;
     }
@@ -133,26 +133,26 @@
     /* Media Queries for various devices */
 
     @media only screen and (max-width: 965px) {
-        .sample_container.avatar-badge {
+        .avatar-badge .sample_container {
             max-width: 332px;
             margin: auto;
             margin-top: 0;
         }
-        .circleAvatar {
+        .avatar-badge .circleAvatar {
             margin-top: 15px;
         }
-        .e-avatar-showcase.e-card {
+        .avatar-badge .e-avatar-showcase.e-card {
             width: 320px;
         }
     }
 
     @media only screen and (min-width: 965px) {
-        .sample_container.avatar-badge {
+        .avatar-badge .sample_container {
             max-width: 825px;
             margin: auto;
             margin-top: 70px;
         }
-        .e-avatar-showcase.e-card {
+        .avatar-badge .e-avatar-showcase.e-card {
             width: 400px;
         }
     }
@@ -198,7 +198,7 @@
         color: rgba(0, 0, 0, 0.75)
     }
 
-    .bootstrap4 .e-avatar-showcase.e-card {
+    .bootstrap4 .avatar-badge .e-avatar-showcase.e-card {
         box-shadow: none;
     }
 

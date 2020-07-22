@@ -29,7 +29,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .e-schedule .e-read-only {
         opacity: .8;
     }

@@ -10,7 +10,7 @@
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
 </div>
-<ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>            
+<ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
     <div id="action-description">
@@ -80,7 +80,7 @@
 import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import * as data from "./data-chart.json";
+import { chartDocument } from "./data";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
@@ -92,7 +92,7 @@ export default Vue.extend({
     data: function() {
         return {
           hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
-          documentName : 'Getting Started',
+          documentName : 'chart',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
             titileStyle: 'text-transform:capitalize;font-weight:400;font-family:inherit;text-overflow:ellipsis;white-space:pre;overflow:hidden;user-select:none;cursor:text',
@@ -168,9 +168,8 @@ export default Vue.extend({
     },
     mounted() {
         this.$nextTick(function () {
-          this.$refs.doceditcontainer.ej2Instances.locale='en-US';
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-          obj.open(JSON.stringify(data));
+          obj.open(JSON.stringify(chartDocument));
           obj.documentName='Chart';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {

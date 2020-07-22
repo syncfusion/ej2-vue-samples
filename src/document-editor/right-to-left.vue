@@ -10,7 +10,7 @@
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="تحميل" v-bind:select="onExport" :open="openExportDropDown" title="تحميل هذا المستند"></ejs-dropdownbutton>        
 </div>
-<ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar="true" :enableRtl="true" locale='ar-AE' style="height:600px"></ejs-documenteditorcontainer>            
+<ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar="true" :enableRtl="true" locale='ar-AE' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
    <div id="action-description">
@@ -83,7 +83,7 @@ import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { L10n, setCulture  } from '@syncfusion/ej2-base';
-import * as data from './data-right-to-left.json';
+import { rtlDocument } from "./data";
 
 L10n.load({
     'ar-AE': {
@@ -316,6 +316,7 @@ L10n.load({
             'Formatting restrictions': 'قيود التنسيق',
             'Numbering and Bullets': 'الترقيم والتعداد النقطي',
             'Numbering': 'ترقيم',
+            'Form Fields': 'حقول النموذج',
             'Update Field': 'تحديث الحقل',
             'Edit Field': 'تحرير الحقل',
             'Bookmark': 'الإشارة المرجعية',
@@ -427,8 +428,48 @@ L10n.load({
             'Next Comment': 'التعليق التالي',
             'Previous Comment': 'التعليق السابق',
             "Un-posted comments": "Un-نشر التعليقات",
-            "Added comments not posted. If you continue, that comment will be discarded.": "لم يتم نشر التعليقات المضافة. إذا قمت بالمتابعة ، سيتم تجاهل هذا التعليق."
-        },
+            "Added comments not posted. If you continue, that comment will be discarded.": "لم يتم نشر التعليقات المضافة. إذا قمت بالمتابعة ، سيتم تجاهل هذا التعليق.",
+            "Drop Down Form Field": "حقل نموذج منسدل",
+            "Drop-down items": "عناصر منسدلة",
+            "Items in drop-down list": "العناصر في القائمة المنسدلة",
+            "ADD": "أضف",
+            "REMOVE": "إزالة",
+            "Field settings": "الإعدادات الميدانية",
+            "Tooltip": "تلميح",
+            "Drop-down enabled": "تم تمكين القائمة المنسدلة",
+            "Check Box Form Field": "حقل نموذج خانة الاختيار",
+            "Check box size": "حجم خانة الاختيار",
+            "Auto": "تلقاءي",
+            "Default value": "القيمة الافتراضية",
+            "Not checked": "غير مدقق",
+            "Checked": "التحقق",
+            "Check box enabled": "تم تمكين خانة الاختيار",
+            "Text Form Field": "حقل نموذج نصي",
+            "Type": "نوع",
+            "Default text": "النص الافتراضي",
+            "Maximum length": "الحد الأقصى لطول",
+            "Text format": "تنسيق النص",
+            "Fill-in enabled": "تم تمكين التعبئة",
+            "Default number": "الرقم الافتراضي",
+            "Default date": "التاريخ الافتراضي",
+            "Date format": "صيغة التاريخ",
+            "Merge Track": "لن يتم وضع علامة على هذا الإجراء كتغيير. هل تريد الاستمرار?",
+            "UnTrack": "لا يمكن تعقبها",
+            "Accept": "قبول",
+            "Reject": "رفض",
+            "Previous Changes": "التغييرات السابقة",
+            "Next Changes": "التغييرات القادمة",
+            "Inserted": "تم إدراجها",
+            "Deleted": "تم الحذف",
+            "Changes": "التغييرات",
+            "Accept all": "قبول الكل",
+            "Reject all": "رفض الكل",
+            "No changes": "لا تغييرات",
+            "Accept Changes": "قبول التغييرات",
+            "Reject Changes": "رفض التغييرات",
+            "User": "المستعمل",
+            "View": "رأي"    
+		},
         'documenteditorcontainer': {
             'New': 'الجديد',
             'Open': 'فتح',
@@ -591,7 +632,15 @@ L10n.load({
             'Single': 'واحد',
             'Double': 'انقر نقرا مزدوجا',
             "New comment": "تعليق جديد",
-            'Comments': 'تعليقات'
+            'Comments': 'تعليقات',		
+            "Web layout": "تخطيط ويب",
+            "Text Form": "شكل نصي",
+            "Check Box": "خانة اختيار",
+            "DropDown": "اسقاط",
+            "Update Fields": "تحديث الحقول",
+            "Update cross reference fields": "تحديث حقول الإسناد الترافقي",
+            "Track Changes": "تتبع التغييرات التي تم إجراؤها في المستند",
+            "TrackChanges": "تعقب التغيرات"
         },
         'colorpicker': {
             'Apply': 'تطبيق',
@@ -689,8 +738,7 @@ export default Vue.extend({
         
         this.$nextTick(function () {
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-          this.$refs.doceditcontainer.ej2Instances.locale='ar-AE';
-          obj.open(JSON.stringify(data));
+          obj.open(JSON.stringify(rtlDocument));
           obj.documentName='Right to Left';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {

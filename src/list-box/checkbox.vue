@@ -17,7 +17,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     #listbox-selection {
         width: 25%;
         margin: auto;

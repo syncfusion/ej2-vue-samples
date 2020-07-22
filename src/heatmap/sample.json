@@ -1,30 +1,29 @@
 {
-    "name": "Heatmap Chart",
+    "name": "HeatMap Chart",
     "directory": "heatmap",
-    "type": "update",
     "category": "Data Visualization",
     "ftName": "heatmap",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
-            "category": "Heatmap Chart",
+            "category": "HeatMap Chart",
             "description": "This demo for Essential JS2 Heatmap control shows the heat map control displayed with minimum configuration",
             "api": {},
             "sourceFiles": [
                 {"displayName": "default.vue", "path": "./src/heatmap/default.vue"},
-                {"displayName": "default-data.json", "path": "./src/heatmap/heatmap-data/default-data.json"}
+                {"displayName": "default-data.json", "path": "./src/heatmap/default-data.json"}
             ]
         },
         {
             "url": "calendar-heatmap",
             "name": "Calendar Heatmap",
-            "category": "Heatmap Chart",
+            "category": "HeatMap Chart",
             "description": "This demo for Essential JS2 Heatmap control for displays the time series data and displays the axis labels at specific time interval.",
             "api": {},
             "sourceFiles": [
                 {"displayName": "calendar-heatmap.vue", "path": "./src/heatmap/calendar-heatmap.vue"},
-                {"displayName": "calendar-data-source.json", "path": "./src/heatmap/heatmap-data/calendar-data-source.json"}
+                {"displayName": "calendar-data-source.json", "path": "./src/heatmap/calendar-data-source.json"}
 
             ]
          },
@@ -36,7 +35,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "bubble-types.vue", "path": "./src/heatmap/bubble-types.vue"},
-                {"displayName": "table-bubble-data.json", "path": "./src/heatmap/heatmap-data/table-bubble-data.json"}
+                {"displayName": "table-bubble-data.json", "path": "./src/heatmap/table-bubble-data.json"}
 
             ]
         },
@@ -83,7 +82,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "empty-points.vue", "path": "./src/heatmap/empty-points.vue"},
-                {"displayName": "empty-point-data-source.json", "path": "./src/heatmap/heatmap-data/empty-point-data-source.json"}
+                {"displayName": "empty-point-data-source.json", "path": "./src/heatmap/empty-point-data-source.json"}
             ]
         },
         {
@@ -94,7 +93,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "inversed-axis.vue", "path": "./src/heatmap/inversed-axis.vue"},
-                {"displayName": "invered-axis-data.json", "path": "./src/heatmap/heatmap-data/invered-axis-data.json"}
+                {"displayName": "invered-axis-data.json", "path": "./src/heatmap/invered-axis-data.json"}
             ]
         },
         {
@@ -105,7 +104,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "opposed-axis.vue", "path": "./src/heatmap/opposed-axis.vue"},
-                {"displayName": "opposed-axis-data.json", "path": "./src/heatmap/heatmap-data/opposed-axis-data.json"}
+                {"displayName": "opposed-axis-data.json", "path": "./src/heatmap/opposed-axis-data.json"}
             ]
         },
         {
@@ -116,7 +115,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "multi-level-labels.vue", "path": "./src/heatmap/multi-level-labels.vue"},
-                {"displayName": "multi-level-label-data.json", "path": "./src/heatmap/heatmap-data/multi-level-label-data.json"}
+                {"displayName": "multi-level-label-data.json", "path": "./src/heatmap/multi-level-label-data.json"}
             ]
         },
         {
@@ -127,19 +126,18 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "cell-selection.vue", "path": "./src/heatmap/cell-selection.vue"},
-                {"displayName": "cell-seletion-data.json", "path": "./src/heatmap/heatmap-data/cell-seletion-data.json"}
+                {"displayName": "cell-seletion-data.json", "path": "./src/heatmap/cell-seletion-data.json"}
             ]
         },
         {
             "url": "legend",
             "name": "Legend Placement",
-            "type": "update",
             "category": "Features",
             "description": "This demo for Essential JS2 Heatmap control shows how to place the heatmap legend in different positions.",
             "api": {},
             "sourceFiles": [
                 {"displayName": "legend.vue", "path": "./src/heatmap/legend.vue"},
-                {"displayName": "legend-sample-data.json", "path": "./src/heatmap/heatmap-data/legend-sample-data.json"}
+                {"displayName": "legend-sample-data.json", "path": "./src/heatmap/legend-sample-data.json"}
             ]
         },
         {
@@ -150,7 +148,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "large-data.vue", "path": "./src/heatmap/large-data.vue"},
-                {"displayName": "large-data.json", "path": "./src/heatmap/heatmap-data/large-data.json"}
+                {"displayName": "large-data.json", "path": "./src/heatmap/large-data.json"}
             ]
         },
         {
@@ -161,7 +159,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "palette-mode.vue", "path": "./src/heatmap/palette-mode.vue"},
-                {"displayName": "palatte-sample-data.json", "path": "./src/heatmap/heatmap-data/palatte-sample-data.json"}
+                {"displayName": "palatte-sample-data.json", "path": "./src/heatmap/palatte-sample-data.json"}
             ]
         },
         {
@@ -172,7 +170,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "rendering-mode.vue", "path": "./src/heatmap/rendering-mode.vue"},
-                {"displayName": "render-mode-data.json", "path": "./src/heatmap/heatmap-data/render-mode-data.json"}
+                {"displayName": "render-mode-data.json", "path": "./src/heatmap/render-mode-data.json"}
             ]
         },
         {
@@ -183,7 +181,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "tooltip-template.vue", "path": "./src/heatmap/tooltip-template.vue"},
-                {"displayName": "default-table-data-source.json", "path": "./src/heatmap/heatmap-data/default-table-data-source.json"}
+                {"displayName": "default-table-data-source.json", "path": "./src/heatmap/default-table-data-source.json"}
             ]
         }
     ]

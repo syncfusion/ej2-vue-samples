@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="col-lg-12 control-section">
+<div class="col-lg-12 control-section tree-default">
     <div class="tree-control-wrapper">
         <ejs-treeview id='treeview' :fields='fields'></ejs-treeview>
     </div>
@@ -18,7 +18,7 @@
 </template>
 /* custom code start */
 <style>
-.tree-control-wrapper {
+.tree-default .tree-control-wrapper {
         max-width: 500px;
         margin: auto;
         border: 1px solid #dddddd;
@@ -29,7 +29,7 @@
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource/default-data.json';
+import * as dataSource from './default-data.json';
 
 Vue.use(TreeViewPlugin);
 

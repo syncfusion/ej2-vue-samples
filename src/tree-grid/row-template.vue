@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the TreeGrid component with the row template feature. In this sample, we have rendered each TreeGrid
+        <p>This sample demonstrates the Tree Grid component with the row template feature. In this sample, we have rendered each Tree Grid
         row using the template.
     </p>
     </div>
@@ -17,7 +17,7 @@
     </div>
     <div id="description">
     <p>
-        The TreeGrid provides a way to use a custom layout for its rows using template feature. The 
+        The Tree Grid provides a way to use a custom layout for its rows using template feature. The 
         <code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/treegrid/row/#row-template">rowTemplate
         </a></code> property accepts either string or HTML element`s ID value, which will be used 
@@ -32,14 +32,14 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
-    .border {
+<style scoped>
+    /deep/ .border {
         border-color: #e0e0e0;
         border: 1px solid #e0e0e0;
         border-width: 1px 0px 0px 0px;
     }
 
-    img {
+    /deep/ img {
         width: 60px;
         height: 60px;
         vertical-align: baseline;

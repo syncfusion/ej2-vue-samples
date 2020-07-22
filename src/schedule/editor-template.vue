@@ -32,7 +32,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .custom-event-editor .e-textlabel {
         padding-right: 15px;
         text-align: right;

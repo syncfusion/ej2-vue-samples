@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-overview">
          <div class="sample-container">
             <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :view='view' >
             </ejs-filemanager>
@@ -23,7 +23,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-overview .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

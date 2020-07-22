@@ -120,7 +120,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     #control-container {
         padding: 0px !important;
     }

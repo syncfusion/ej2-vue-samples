@@ -26,8 +26,8 @@
         </p>
         <p>
         In this demo sample, the first column and two rows are set to frozen by using the  <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#frozenrows-number">frozenRows</a></code>  and 
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#frozenrows-number">frozenColumns
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#frozenrows">frozenRows</a></code>  and 
+        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#frozencolumns">frozenColumns
         </a></code>  properties.
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
@@ -40,7 +40,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 #buttonSet {
   float: right;
 }

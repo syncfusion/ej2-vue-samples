@@ -8,8 +8,7 @@
         :taskFields= "taskFields"
         :labelSettings= "labelSettings"
         :splitterSettings= "splitterSettings"
-        :resourceNameMapping= "resourceNameMapping"
-        :resourceIDMapping= "resourceIdMapping"
+        :resourceFields= "resourceFields"
         :resources= "resources"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
@@ -40,8 +39,8 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
-    .e-image {
+<style scoped>
+   /deep/ .e-image {
         margin-right: 8px;
     }
 </style>
@@ -69,8 +68,10 @@ export default Vue.extend({
                 dependency: 'Predecessor',
                 child: 'subtasks'
             },
-            resourceNameMapping: 'resourceName',
-            resourceIdMapping: 'resourceId',
+            resourceFields: {
+                id: 'resourceId',
+                name: 'resourceName'
+            },
             resources: editingResources,
             labelSettings: {
                 leftLabel: 'TaskName'
@@ -92,7 +93,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/gantt/images/taskname.png";
+                        return "source/gantt/images/taskname.png";
                     }
                 }
           })}
@@ -109,7 +110,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/gantt/images/startdate.png";
+                        return "source/gantt/images/startdate.png";
                     }
                 }
           })}
@@ -126,7 +127,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/gantt/images/resources.png";
+                        return "source/gantt/images/resources.png";
                     }
                 }
           })}
@@ -143,7 +144,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/gantt/images/duration.png";
+                        return "source/gantt/images/duration.png";
                     }
                 }
           })}
@@ -160,7 +161,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/gantt/images/progress.png" ;
+                        return "source/gantt/images/progress.png" ;
                     }
                 }
           })}

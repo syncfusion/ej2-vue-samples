@@ -55,7 +55,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
     .toolback {
        border-radius: 4px;
        border: 1px #abb9c6;
@@ -81,8 +81,8 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, MapsTooltip, MapAjax, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
-import { topPopulation } from './map-data/marker-location';
-import { cluster } from './map-data/marker-cluster';
+import { topPopulation } from '../maps/map-data/marker-location';
+import { cluster } from '../maps/map-data/marker-cluster';
 Vue.use(MapsPlugin);
 export default Vue.extend({
 data:function(){

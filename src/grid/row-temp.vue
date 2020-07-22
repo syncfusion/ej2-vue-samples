@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     image: function() {
-      return 'src/grid/images/' + this.data.EmployeeID + '.png';
+      return 'source/grid/images/' + this.data.EmployeeID + '.png';
     }
   }
 }

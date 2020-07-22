@@ -147,6 +147,7 @@ import {
 import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { GroupSettingsModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { gData } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -154,7 +155,6 @@ Vue.use(ButtonPlugin);
 Vue.use(MultiSelectPlugin);
 /* tslint:disable */
 declare var require: any;
-let data: any = require("./gData.json");
 let selectedGroups: string[] = ["Years", "Months", "Days"];
 let groupData: string[] = ["Years", "Quarters", "Months", "Days"];
 export default Vue.extend({
@@ -163,7 +163,7 @@ export default Vue.extend({
       dataSourceSettings: {
         expandAll: false,
         enableSorting: true,
-        dataSource: extend([], data, null as any, true) as IDataSet[],
+        dataSource: extend([], gData, null as any, true) as IDataSet[],
         formatSettings: [
           { name: "Amount", format: "C0" },
           { name: "Sold", format: "N0" },
@@ -268,8 +268,8 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
 }
 
@@ -279,11 +279,11 @@ export default Vue.extend({
   }
 }
 
-.pivot-table-property-section {
+/deep/ .pivot-table-property-section {
     overflow: auto;
 }
 
-.pivot-table-property-section .e-multiselect {
+/deep/ .pivot-table-property-section .e-multiselect {
     padding: 0;
 }
 </style>

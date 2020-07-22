@@ -20,21 +20,21 @@
         methods: {
             getCellContent: function (date: Date) {
                 if (date.getMonth() === 10 && date.getDate() === 23) {
-                    return '<img src="src/schedule/images/thanksgiving-day.svg" /><div class="caption">Thanksgiving day</div>';
+                    return '<img src="source/schedule/images/thanksgiving-day.svg" /><div class="caption">Thanksgiving day</div>';
                 } else if (date.getMonth() === 11 && date.getDate() === 9) {
-                    return '<img src="src/schedule/images/get-together.svg" /><div class="caption">Party time</div>';
+                    return '<img src="source/schedule/images/get-together.svg" /><div class="caption">Party time</div>';
                 } else if (date.getMonth() === 11 && date.getDate() === 13) {
-                    return '<img src="src/schedule/images/get-together.svg" /><div class="caption">Party time</div>';
+                    return '<img src="source/schedule/images/get-together.svg" /><div class="caption">Party time</div>';
                 } else if (date.getMonth() === 11 && date.getDate() === 22) {
-                    return '<img src="src/schedule/images/birthday.svg" /><div class="caption">Happy birthday</div>';
+                    return '<img src="source/schedule/images/birthday.svg" /><div class="caption">Happy birthday</div>';
                 } else if (date.getMonth() === 11 && date.getDate() === 24) {
-                    return '<img src="src/schedule/images/christmas-eve.svg" /><div class="caption">Christmas Eve</div>';
+                    return '<img src="source/schedule/images/christmas-eve.svg" /><div class="caption">Christmas Eve</div>';
                 } else if (date.getMonth() === 11 && date.getDate() === 25) {
-                    return '<img src="src/schedule/images/christmas.svg" /><div class="caption">Christmas Day</div>';
+                    return '<img src="source/schedule/images/christmas.svg" /><div class="caption">Christmas Day</div>';
                 } else if (date.getMonth() === 0 && date.getDate() === 1) {
-                    return '<img src="src/schedule/images/newyear.svg" /><div class="caption">New Year\'s Day</div>';
+                    return '<img src="source/schedule/images/newyear.svg" /><div class="caption">New Year\'s Day</div>';
                 } else if (date.getMonth() === 0 && date.getDate() === 14) {
-                    return '<img src="src/schedule/images/get-together.svg" /><div class="caption">Get together</div>';
+                    return '<img src="source/schedule/images/get-together.svg" /><div class="caption">Get together</div>';
                 }
                 return '';
             }

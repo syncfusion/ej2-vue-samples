@@ -38,7 +38,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     @media (min-width: 481px) {
         .schedule-wrapper {
             margin: 0 25%;

@@ -51,7 +51,8 @@ import Vue from "vue";
 import { DateRangePickerPlugin } from "@syncfusion/ej2-vue-calendars";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DateRangePickerPlugin, RadioButtonPlugin);
+Vue.use(DateRangePickerPlugin);
+Vue.use(RadioButtonPlugin);
 export default Vue.extend({
   data: function() {
     return {
@@ -71,7 +72,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 .control_wrapper.datarangepicker_format {
   max-width: 275px;
   margin: 30px auto;

@@ -32,7 +32,7 @@
 
 
 </template>
-<style>
+<style scoped>
 </style>
 <script>
 import Vue from "vue";

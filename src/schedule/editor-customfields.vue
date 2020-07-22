@@ -28,7 +28,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .custom-field-row {
         margin-bottom: 20px;
     }

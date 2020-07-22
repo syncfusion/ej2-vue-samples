@@ -45,7 +45,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     #EventLog b {
         color: #388e3c;
     }

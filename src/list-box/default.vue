@@ -18,7 +18,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     #listbox-control {
         width: 25%;
         margin: auto;

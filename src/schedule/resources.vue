@@ -82,7 +82,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .e-tooltip-wrap.e-schedule-event-tooltip .airline-flex-row {
         display: flex;
         padding: 0 5px;

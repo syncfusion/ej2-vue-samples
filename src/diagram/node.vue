@@ -72,7 +72,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -199,6 +199,7 @@ export default Vue.extend({
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObject.ej2Instances;
+    diagramInstance.fitToPage();
     element = this.$refs.aspectRatioobj.ej2Instances;
     //Click event for Appearance of the Property Panel
     let appearanceObj = document.getElementById("appearance");

@@ -1,7 +1,7 @@
 <template>
-  <div class="control-section">
+  <div class="control-section tooltip-template">
     <ejs-tooltip ref="tooltip" :content="content" target=".toolbarContainer [title]" :beforeRender="onBeforeRender" :showTipPointer="show"
-       :width="170">
+       :width="170" cssClass="tooltip-template-settings">
         <div class="toolbarContainer">
 
             <!-- Toolbar element -->
@@ -45,11 +45,11 @@
         font-style: normal;
     }
 
-    .e-bigger .e-tbar-btn .tb-icons {
+    .e-bigger .tooltip-template .e-tbar-btn .tb-icons {
         font-size: 18px;
     }
 
-    .e-tbar-btn .tb-icons {
+    .tooltip-template .e-tbar-btn .tb-icons {
         font-family: 'tbicons';
         speak: none;
         font-size: 16px;
@@ -59,45 +59,45 @@
         text-transform: none;
     }
 
-    .e-cut-icon:before {
+    .tooltip-template .e-cut-icon:before {
         content: "\e719"
     }
 
-    .e-copy-icon:before {
+    .tooltip-template .e-copy-icon:before {
         content: "\e721"
     }
 
-    .e-paste-icon:before {
+    .tooltip-template .e-paste-icon:before {
         content: "\e712"
     }
 
-    .e-bold-icon:before {
+    .tooltip-template .e-bold-icon:before {
         content: "\e71a"
     }
 
-    .e-underline-icon:before {
+    .tooltip-template .e-underline-icon:before {
         content: "\e706";
     }
 
-    .e-italic-icon:before {
+    .tooltip-template .e-italic-icon:before {
         content: "\e710"
     }
 
-    #Toolbar {
+    .tooltip-template #Toolbar {
         margin: 10px auto;
     }
 
-    .toolbarContainer {
+    .tooltip-template .toolbarContainer {
         height: 60px;
         margin: 0 auto;
         width: 250px;
     }
 
-    .e-tooltip-wrap p {
+    .tooltip-template-settings.e-tooltip-wrap p {
         margin: 0;
     }
 
-    .e-tooltip-wrap h6 {
+    .tooltip-template-settings.e-tooltip-wrap h6 {
         color: inherit;
         font-family: inherit;
         font-size: 12px;
@@ -107,20 +107,20 @@
         margin-top: 3px;
     }
 
-    .e-bigger .toolbarContainer {
+    .e-bigger .tooltip-template .toolbarContainer {
         width: 350px;
     }
 
-    .e-bigger .e-tooltip-wrap p {
+    .e-bigger .tooltip-template-settings.e-tooltip-wrap p {
         font-size: 13px;
     }
 
-    .e-bigger .e-tooltip-wrap h6 {
+    .e-bigger .tooltip-template-settings.e-tooltip-wrap h6 {
         font-size: 14px;
     }
 
     @media screen and (max-width: 420px) {
-        .e-bigger .toolbarContainer {
+        .e-bigger .tooltip-template .toolbarContainer {
             width: 75%;
         }
     }

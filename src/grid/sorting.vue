@@ -22,7 +22,7 @@
      <div id="description">
         <p>
             Sorting feature enables us to order the data in a particular direction. It can be enabled by setting the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowsorting-boolean">allowSorting
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowsorting">allowSorting
         </a></code>
          as true.
         </p>
@@ -43,14 +43,14 @@
         </p>
         <p>
             More information on the sorting feature configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#sortsettings-sortsettingsmodel">documentation section</a>.
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/sorting.html">documentation section</a>.
         </p>
     </div>
 
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 @media screen and (max-width: 590px) {
     .sortingenabled {
         margin-top: 30px;

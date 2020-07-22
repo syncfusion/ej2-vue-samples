@@ -1,6 +1,5 @@
 {
     "name": "Dialog",
-    "type": "update",
     "directory": "dialog",
     "category": "Layout",
     "ftName": "modal-dialog",
@@ -34,7 +33,7 @@
         },
         {
             "url": "dialog-contents-via-ajax",
-            "name": "Ajax",
+            "name": "Ajax Content",
             "category": "Dialog",
             "description":"The example demonstrates how to load the content of the Vue dialog component from external sources such as a file or website using Ajax library.",
             "hideOnDevice": true
@@ -77,7 +76,6 @@
         {
             "url": "components-dialog",
             "name": "Components inside Dialog",
-            "type": "new",
             "category": "Dialog",
             "description":"This example demonstrates how to render other Vue Syncfusion components inside the dialog component.",
             "hideOnDevice": true

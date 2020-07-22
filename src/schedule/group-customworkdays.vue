@@ -50,7 +50,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .customschedule.e-schedule .e-month-view .e-work-days.willsmith,
     .customschedule.e-schedule .e-vertical-view .e-work-hours.willsmith {
         background-color: #faebd7;
@@ -124,7 +124,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getDoctorImage(this.data) + '.png';
+                return './source/schedule/images/' + this.getDoctorImage(this.data) + '.png';
             }
         },
         methods: {

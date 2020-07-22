@@ -29,7 +29,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     .e-headertext{
         font-weight: bolder;
     }

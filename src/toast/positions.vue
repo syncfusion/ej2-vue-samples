@@ -92,7 +92,7 @@
         width: 50%;
     }
 
-    .e-toast-icon.e-laura.e-icons {
+    #toast_pos .e-toast-icon.e-laura.e-icons {
         border-radius: 50%;
         background-image: url('./resource/laura.png');
         background-repeat: no-repeat;
@@ -117,7 +117,11 @@ import { ToastPlugin, Toast, ToastCloseArgs } from "@syncfusion/ej2-vue-notifica
 import { DropDownList, ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
 import { RadioButton, ChangeEventArgs as CheckBoxChange } from '@syncfusion/ej2-buttons';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
+import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 
+Vue.use(RadioButtonPlugin);
+Vue.use(DropDownListPlugin);
 Vue.use(ToastPlugin);
 let ShowBtn = undefined;
 export default Vue.extend({

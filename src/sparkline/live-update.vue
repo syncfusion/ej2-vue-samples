@@ -47,7 +47,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     .spark {
         float: left;
         width: 95%;
@@ -57,7 +57,7 @@
 <script>
 import Vue from 'vue';
 import { SparklinePlugin } from "@syncfusion/ej2-vue-charts";
-import { data, data2, data3, data4 } from "./live-update";
+import { data, data2, data3, data4 } from "./liveupdate";
 Vue.use(SparklinePlugin);
 export default Vue.extend({
 data:function(){

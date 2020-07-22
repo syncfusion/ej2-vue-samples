@@ -1,9 +1,9 @@
 {
    "name": "Gantt",
    "directory": "gantt",
+   "type": "update",
    "category": "Calendars",
    "ftName": "gantt",
-   "type": "update",
    "samples": [
       {
          "url": "default",
@@ -25,6 +25,7 @@
          "url": "editing",
          "name": "Editing",
          "category": "Gantt",
+         "type":"update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -37,8 +38,7 @@
                "treeColumnIndex",
                "allowSelection",
                "gridLines",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "highlightWeekends",
                "timelineSettings",
@@ -54,7 +54,6 @@
          "url": "selection",
          "name": "Selection",
          "category": "Gantt",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -75,6 +74,7 @@
          "url": "context-menu",
          "name": "Context Menu",
          "category": "Gantt",
+		   "type": "update",
          "api": {
             "Gantt": [
               "dataSource",
@@ -87,8 +87,7 @@
                "treeColumnIndex",
                "allowSelection",
                "gridLines",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "highlightWeekends",
                "timelineSettings",
@@ -117,8 +116,7 @@
                "treeColumnIndex",
                "allowSelection",
                "gridLines",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "highlightWeekends",
                "timelineSettings",
@@ -161,7 +159,6 @@
          "url": "events",
          "name": "Events",
          "category": "Gantt",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -205,7 +202,6 @@
          "url": "drag-and-drop",
          "name": "Row Drag And Drop",
          "category": "Gantt",
-         "type": "new",
          "api": {
             "Gantt": [
                "dataSource",
@@ -288,6 +284,77 @@
          "description": "This example demonstrates the way of binding self-referential flat data with parentID to the Gantt chart."
       },
       {
+         "url": "resource-allocation",
+         "name": "Resource Allocation",
+         "category": "Resources",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "resources",
+               "resourceInfo"
+            ]
+         },
+         "description": "This example demonstrates how to allocate available resources to the task based on their skills and availability"
+      },
+      {
+         "url": "resource-view",
+         "name": "Resource View",
+         "category": "Resources",
+         "type": "update",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "resourceFields",
+               "resources",
+               "resourceInfo",
+               "viewType",
+			   "showOverAllocation"
+            ]
+         },
+         "description": "This sample explains the Resource break down view in the Gantt chart that is how to visualize the list of tasks assigned to each resource in hierarchy manner."
+      },    
+      {
+         "url": "resource-multi-taskbar",
+         "name": "Resource Multi Taskbar",
+         "category": "Resources",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "enableMultiTaskbar",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "resourceFields",
+               "resources",
+               "resourceInfo",
+               "viewType",
+               "editSettings",
+               "columns",
+               "toolbar",
+               "labelSettings",
+               "splitterSettings",
+               "allowResizing",
+               "allowSelection",
+               "highlightWeekends",
+			   "showOverAllocation"
+            ]
+         },
+         "description": "This sample explains how to visualize the list of tasks assigned to each resource on a single parent row while collapsing the parent record."
+      },
+      {
          "url": "work-week",
          "name": "Workweek",
          "category": "Scheduling Concepts",
@@ -340,8 +407,8 @@
          "description": "This example demonstrates how to define holidays in the project, which should be considered while calculating the duration and on rendering taskbars."
       },
       {
-         "url": "resource-allocation",
-         "name": "Resource Allocation",
+         "url": "taskMode",
+         "name": "Task Scheduling Mode",
          "category": "Scheduling Concepts",
          "api": {
             "Gantt": [
@@ -351,13 +418,12 @@
                "height",
                "projectStartDate",
                "projectEndDate",
-               "resourceIDMapping",
-               "resourceNameMapping",
+               "resourceFields",
                "resources",
                "resourceInfo"
             ]
          },
-         "description": "This example demonstrates how to allocate available resources to the task based on their skills and availability"
+         "description": "This example demonstrates how to change the task modes depends upon tasks."
       },
       {
          "url": "event-markers",
@@ -453,8 +519,7 @@
                "projectStartDate",
                "projectEndDate",
                "highlightWeekends",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "timelineSettings",
                "splitterSettings",
@@ -581,8 +646,7 @@
                "columns",
                "highlightWeekends",
                "labelSettings",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "splitterSettings",
                "projectStartDate",
@@ -604,8 +668,7 @@
                "columns",
                "highlightWeekends",
                "labelSettings",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "splitterSettings",
                "projectStartDate",
@@ -656,8 +719,7 @@
                "treeColumnIndex",
                "rowHeight",
                "height",
-               "resourceNameMapping",
-               "resourceIDMapping",
+               "resourceFields",
                "resources",
                "projectStartDate",
                "projectEndDate",
@@ -679,8 +741,7 @@
                 "renderBaseline",
                 "treeColumnIndex",
                 "columns",
-                "resourceNameMapping",
-                "resourceIDMapping",
+                "resourceFields",
                 "resources",
                 "highlightWeekends",
                 "labelSettings",

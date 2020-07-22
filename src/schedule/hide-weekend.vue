@@ -72,7 +72,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .multi-prop div {
         padding-left: 0;
         padding-top: 0;

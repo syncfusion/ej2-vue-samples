@@ -14,8 +14,7 @@
           :gridLines="gridLines"
           :height="height"
           :treeColumnIndex="1"
-          :resourceNameMapping="resourceNameMapping"
-          :resourceIDMapping="resourceIdMapping"
+          :resourceFields= "resourceFields"
           :resources="resources"
           :highlightWeekends="true"
           :enableContextMenu="true"
@@ -59,6 +58,8 @@
             <li><code>AutoFitAll</code> - Auto fit all columns.</li>
             <li><code>AutoFit</code> - Auto fit the current column.</li>
             <li><code>TaskInformation</code> - Edit the current record.</li>
+            <li><code>Indent</code> - Indent the selected record to one level</li>
+            <li><code>Outdent</code> - Outdent the selected record to one level</li>
             <li><code>DeleteTask</code> - Delete the current record.</li>
             <li><code>Save</code> - Save the edited record.</li>
             <li><code>Cancel</code> - Cancel the edited state.</li>
@@ -119,6 +120,8 @@ export default Vue.extend({
         "Add",
         "DeleteDependency",
         "Convert",
+        "Indent",
+        "Outdent",
         { text: "Collapse the Row", target: ".e-content", id: "collapserow" },
         { text: "Expand the Row", target: ".e-content", id: "expandrow" }
       ],
@@ -153,8 +156,10 @@ export default Vue.extend({
       ],
       gridLines: "Both",
       height: "450px",
-      resourceNameMapping: "resourceName",
-      resourceIdMapping: "resourceId",
+      resourceFields: {
+        id: 'resourceId',
+        name: 'resourceName'
+      },
       resources: editingResources,
       timelineSettings: {
         topTier: {

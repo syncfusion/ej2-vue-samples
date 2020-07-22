@@ -34,7 +34,7 @@
         </p>
         <p>
             More information on the stacked header configuration can be found in this 
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel#columns">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/columns/#resize-stacked-column">documentation section</a>.
         </p>
     </div>
 

@@ -1,13 +1,13 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-    <p>This sample demonstrates the usage of template columns in TreeGrid. 
-       In this sample, we have shown Spark Line control in the TreeGrid columns.
+    <p>This sample demonstrates the usage of template columns in Tree Grid. 
+       In this sample, we have shown Spark Line control in the Tree Grid columns.
     </p>
 </div>
 <div id="description">
     <p>
-        The TreeGrid provides a way to use a custom layout for each cell using column template feature. 
+        The Tree Grid provides a way to use a custom layout for each cell using column template feature. 
         The <code>columns->template</code> property accepts either string or HTML element`s ID value, which will be used as the template for the cell.
     </p>
     <p>
@@ -21,7 +21,7 @@
     <div>
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>
             <e-columns>
-                <e-column field='EmpID' headerText='Employee ID' width='100'></e-column>
+                <e-column field='EmpID' headerText='Employee ID' width='120'></e-column>
                 <e-column field='Name' headerText='Name' width='100'></e-column>
                 <e-column field='DOB' headerText='DOB' width='90' format='yMd' textAlign='Right'></e-column>
                 <e-column headerText='Tax Per Annum' width='100' :template='template1' ></e-column>

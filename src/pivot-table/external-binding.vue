@@ -66,13 +66,13 @@ import {
   HeatMap, Adaptor, ILoadedEventArgs, HeatMapTheme
 } from "@syncfusion/ej2-vue-heatmap";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(HeatMapPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 let measureList: { [key: string]: string } = {};
 let heatmap: HeatMap;
 let init: boolean = true;

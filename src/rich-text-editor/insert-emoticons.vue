@@ -132,20 +132,20 @@
 </div>
 <div id="action-description">
     <p>
-        This sample shows how to add your own emoticons to toolbar of the rich text editor. 
+        This sample shows how to add your own emoticons to toolbar of the Rich Text Editor. 
         The <code>“&#128578;” </code>  emoticon is added to insert custom emoticons in the editor. 
         Click the “&#128578;” command to show the custom emoticons list, and then choose the emoticon to be inserted in the editor.
     </p>
 </div>
 <div id="description">
-    <p>The rich text editor allows you to configure your own commands to its toolbar using <code>toolbarSettings</code> property. 
+    <p>The Rich Text Editor allows you to configure your own commands to its toolbar using <code>toolbarSettings</code> property. 
         The command can be plain text, icon, or HTML template. 
         You can also define the order and group where the command should be included. 
         Bind the action to the command by getting its instance. </p>
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     #tab_default .char_block {
         display: inline-block;
     }

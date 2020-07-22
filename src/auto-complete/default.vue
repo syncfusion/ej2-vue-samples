@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section">
-        <div class="col-lg-12  content-wrapper" style="height: 350px">
+        <div class="col-lg-12" style="height: 350px">
             <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
                 <ejs-autocomplete id='games' :dataSource='sportsData' :placeholder='waterMark'></ejs-autocomplete>
             </div>

@@ -12,7 +12,7 @@
           :includeWeekend="true"
           :timelineSettings="timelineSettings"
           :tooltipSettings="tooltipSettings"
-          :durationUnit="Minute"
+          :durationUnit="durationUnit"
           :dateFormat="dateFormat"
           :height="height"
           :dayWorkingTime="dayWorkingTime"
@@ -58,6 +58,7 @@ export default Vue.extend({
   data: function() {
     return {
             dataSource: baselineData,
+            durationUnit: 'Minute',
             taskFields: {
                 id: 'TaskId',
                 name: 'TaskName',

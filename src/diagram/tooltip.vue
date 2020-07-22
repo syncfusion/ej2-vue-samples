@@ -88,7 +88,7 @@
     </div>
 </template>
 
- <style>
+ <style scoped>
 #tooltipDiagramSection .image-pattern-style {
     background-color: white;
     background-size: contain;

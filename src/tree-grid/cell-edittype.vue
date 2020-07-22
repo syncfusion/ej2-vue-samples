@@ -15,7 +15,7 @@
 
     <div id="action-description">
         <p>
-            This sample demonstrates the supported cell edit types of TreeGrid columns. The list of cell edit types are as follows,
+            This sample demonstrates the supported cell edit types of Tree Grid columns. The list of cell edit types are as follows,
         </p>
         <ul>
             <li><code>NumericTextBox</code> component for integers, double, and decimal data types.</li>
@@ -31,7 +31,7 @@
             The <code>columns.editType</code>  is used to customize the edit type of the particular column. You can set the columns.editType based on data type of the column.
         </p>
         <p>
-            In this sample, we show the following editTypes for the TreeGrid columns
+            In this sample, we show the following editTypes for the Tree Grid columns
         </p>
         <ul>
             <li><code>NumericTextBox</code></li>
@@ -43,7 +43,7 @@
         </ul>
         <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            TreeGrid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
+            Tree Grid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
             <code>
             Edit
             </code> module into the <code>provide</code> section.
@@ -62,7 +62,7 @@ Vue.use(TreeGridPlugin);
 export default  Vue.extend({
   data: () => {
     return {
-      data: sampleData,
+      data: sampleData.slice(0),
       editSettings: { allowDeleting: true, allowEditing: true, allowAdding: true, mode: 'Row' },
       editparams : { params: { format: 'n' } },
       dateparams: { params: { format: 'M/d/y hh:mm a' } },

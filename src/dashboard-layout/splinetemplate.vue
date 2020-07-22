@@ -79,7 +79,7 @@ export default Vue.extend({
 </script>
 
 <style>
-  .chart-content{
+  .dashboard-seo .chart-content, .dashboard-dynamic .chart-content{
     height: 100%;
     width:100%;
   }

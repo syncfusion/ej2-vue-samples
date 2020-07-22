@@ -1,8 +1,8 @@
 <template>
-<div>
+<div id="maps-print-sample">
    <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-<ejs-maps ref="maps" id='container' :titleSettings='titleSettings' :load='load' :tooltipRender='tooltipRender' format='n' :useGroupingSeparator='useGroupingSeparator' :legendSettings='legendSettings'>
+<ejs-maps ref="maps" id='container' :titleSettings='titleSettings' :load='load' :allowPrint='allowPrint' :tooltipRender='tooltipRender' format='n' :useGroupingSeparator='useGroupingSeparator' :legendSettings='legendSettings'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'></e-layer>
     </e-layers>
@@ -19,7 +19,7 @@
             <tbody><tr id="button-control" style="height: 50px">
                 <td align="center">
                     <div>
-                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickToggle'></ejs-button>
+                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickToggle'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -32,43 +32,46 @@
     </div>
     <div id="description">
         <p>
-            In this example, you can see how to render and configure the print. The rendered maps can be printed directly from the browser by calling the public method <code>print</code>. Also this sample visualizes the State-wise US population in the year 2010.
+            In this example, you can see how to render and configure the print functionality. The rendered maps can be printed directly from the browser by calling the <code>print</code> method when <code>allowPrint</code> is set as true. Also this sample visualizes the State-wise US population in the year 2010.
         </p>
-        <p>
-            Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over a marker or tap a marker in touch enabled devices.
-            </p>
             <br/>
-            <p style="font-weight: 500">Injecting Module</p>
+            <p style="font-weight: 500"> <b>Injecting Module</b></p>
             <p>
-            Maps component features are segregated into individual feature-wise modules. To use a legend, inject the <code>Legend</code> module using the <code>Maps.Inject(Legend)</code> method.
+          Maps component features are segregated into individual feature-wise modules. To use a legend, inject the <code>Legend</code> module using the <code>provide</code> section. To make use of the print support, we need to inject the <code> Print</code> module using the <code>provide</code> section.
             </p>
+             <p>
+        More information on print can be found in this
+        <a
+          target="_blank"
+          href="https://ej2.syncfusion.com/documentation/maps/print/#print"
+        >documentation section</a>.
+      </p> 
     </div>
 </div>
 </template>
-// custom code start
 <style>
-    #button-control {
+    #maps-print-sample #button-control {
         width: 100%;
         text-align: center;
     }
     
-    #control-container {
+    #maps-print-sample #control-container {
         padding: 0px !important;
     }
     
-    .e-play-icon::before {
-        content: '\e813';
+    #maps-print-sample .e-play-icon::before {
+        content: "\e34b";
     }
 </style>
-//  custom code end
 <script>
 import Vue from 'vue';
-import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsPlugin, Legend, MapsTooltip, MapAjax, Print } from '@syncfusion/ej2-vue-maps';
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 Vue.use(MapsPlugin,ButtonPlugin);
 export default Vue.extend({
   data:function(){
       return{
+        allowPrint: true,
         useGroupingSeparator: true,
         titleSettings: {
             text: 'State-wise US population - 2010',
@@ -124,11 +127,12 @@ export default Vue.extend({
                     valuePath: 'population',
                     format: 'State: ${name} <br> Population: ${population}'
                 },
-             cssClass: 'e-info', isPrimary: true, content:'Print', style: 'text-transform:none !important'
+             iconCss: 'e-icons e-play-icon',
+             cssClass: 'e-flat', isPrimary: true, content:'Print', style: 'text-transform:none !important'
           }
   },
 provide: {
-    maps: [ Legend, MapsTooltip]
+    maps: [ Legend, MapsTooltip, Print ]
 },
 methods:{
     /* custom code start */

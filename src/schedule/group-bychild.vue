@@ -46,7 +46,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .groupbychild.e-schedule:not(.e-device) .e-agenda-view .e-content-wrap table td:first-child {
         width: 90px;
     }

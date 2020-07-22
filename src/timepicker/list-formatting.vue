@@ -82,7 +82,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 .control_wrapper.timepicker_format {
   display: block;
   margin: 0 auto;

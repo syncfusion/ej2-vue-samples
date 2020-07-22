@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="chip-api">
     <div class="col-lg-8 control-section">
         <div id="chip-api-wrapper">
             <!-- initialize chip component -->
@@ -148,11 +148,11 @@ export default Vue.extend({
 </script>
 
 <style>
-#chip-api-wrapper .janet {
+.chip-api #chip-api-wrapper .janet {
   background-image: url("./images/janet.png");
 }
 
-#chip-api-wrapper {
+.chip-api #chip-api-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,11 +161,11 @@ export default Vue.extend({
 
 /* chips samples icons */
 
-#chip .e-chip-avatar.e-icon {
+.chip-api #chip .e-chip-avatar.e-icon {
   font-family: "e-user-icon";
 }
 
-#chip .e-chip-avatar.e-icon:before {
+.chip-api #chip .e-chip-avatar.e-icon:before {
   content: "\e700";
 }
 

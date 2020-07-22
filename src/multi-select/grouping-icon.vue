@@ -17,7 +17,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     #group,
    {
         margin: 0 auto;

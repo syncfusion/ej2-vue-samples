@@ -33,7 +33,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 
     .block-events.e-schedule .template-wrap {
         width: 100%;
@@ -87,7 +87,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getEmployeeName(this.data).toLowerCase() + '.png';
+                return './source/schedule/images/' + this.getEmployeeName(this.data).toLowerCase() + '.png';
             }
         },
         methods: {

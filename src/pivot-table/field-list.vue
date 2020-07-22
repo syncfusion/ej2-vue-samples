@@ -51,13 +51,13 @@ import {
   Browser,
   enableRipple
 } from "@syncfusion/ej2-base";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(PivotFieldListPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: function() {
     return {
@@ -134,18 +134,18 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview_flist {
+<style scoped>
+/deep/ #pivotview_flist {
   float: left;
   width: 58%;
 }
 
-#pivotfieldlist1 {
+/deep/ #pivotfieldlist1 {
   float: right;
   width: 42%;
 }
 
-.e-pivotfieldlist .e-static {
+/deep/ .e-pivotfieldlist .e-static {
   width: 100% !important;
 }
 </style>

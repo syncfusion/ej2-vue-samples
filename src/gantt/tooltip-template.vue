@@ -17,8 +17,7 @@
         :columns= "columns"
         :splitterSettings= "splitterSettings"
         :tooltipSettings= "tooltipSettings"
-        :resourceNameMapping= "resourceNameMapping"
-        :resourceIDMapping= "resourceIdMapping"
+        :resourceFields= "resourceFields"
         :resources= "resources"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
@@ -80,8 +79,10 @@ export default Vue.extend({
                 { field: 'BaselineEndDate' },
                 { field: 'resources' },
             ],
-            resourceNameMapping: 'resourceName',
-            resourceIdMapping: 'resourceId',
+            resourceFields: {
+                id: 'resourceId',
+                name: 'resourceName'
+            },
             resources: editingResources,
             labelSettings: {
                 leftLabel: 'TaskName',

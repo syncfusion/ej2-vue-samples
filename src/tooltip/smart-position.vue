@@ -1,5 +1,5 @@
 <template>
-  <div class="control-section">
+  <div class="control-section tooltip-smart">
     <ejs-tooltip ref="tooltip" id="targetContainer" content="Drag me anywhere, to start walking with me !!!" :offsetX="-15" target="#demoSmart"
         :animation="tooltipAnimation">
         <div id="demoSmart">
@@ -12,13 +12,13 @@
    
 </template>
 <style>
-#targetContainer {
+.tooltip-smart #targetContainer {
     border: 1px solid #dddddd;
     margin: 15px;
     min-height: 350px;
 }
-#demoSmart {
-    background-image: url('./images/smartposition.png');
+.tooltip-smart #demoSmart {
+    background-image: url('../images/tooltip/smartposition.png');
     background-size: 100px 100px;
     height: 100px;
     position: absolute;

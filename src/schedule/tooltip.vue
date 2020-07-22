@@ -52,7 +52,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .e-schedule-event-tooltip .tooltip-wrap {
         display: flex;
     }

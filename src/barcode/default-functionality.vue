@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-lg-8 control-section" style="width: 64%">
       <div
-        class="center"
+        class="barcodecenter"
         style="margin-left: 14px ;Margin-right:17px;padding-left: 16%;padding-bottom: 7%; margin-top:14px;min-width: 280px ;width: auto; border: 2px solid lightgray;min-height: 40%;padding-top: 35px;"
       >
         <div class="centercontrol" style=" margin: auto; width: 50%;height: 50%;">
@@ -307,19 +307,7 @@ padding-left: 18px;"
   margin-top: 8px;
 }
 
-/* .center {
-  margin-left: 14px;
-  margin-right: 17px;
-  margin-top: 14px;
-  min-width: 280px;
-  width: auto;
-  border: 2px solid lightgray;
-  min-height: 40%;
-  padding-top: 35px;
-  padding-left: 25%;
-  padding-bottom: 3%;
-} */
-.center {
+.barcodecenter {
   margin-left: 14px;
   margin-right: 17px;
   margin-top: 14px;

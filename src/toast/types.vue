@@ -69,19 +69,19 @@
     font-size: 30px;
   }
 
-  .toast-icons.e-success::before {
+  #toast_type .toast-icons.e-success::before {
     content: "\e701";
   }
 
-  .toast-icons.e-error::before {
+  #toast_type .toast-icons.e-error::before {
     content: "\e700";
   }
 
-  .toast-icons.e-info::before {
+  #toast_type .toast-icons.e-info::before {
     content: "\e704";
   }
 
-  .toast-icons.e-warning::before {
+  #toast_type .toast-icons.e-warning::before {
     content: "\e703";
   }
 </style>

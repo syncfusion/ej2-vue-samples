@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="col-lg-8 control-section">
-    <div id="colorpicker-control">
+    <div id="sb-colorpicker-control">
       <h4>Choose a color</h4>
       <ejs-colorpicker id="color-picker" ref="colorPicker" value="#0db1e7" :change="change"></ejs-colorpicker>
     </div>
@@ -90,20 +90,20 @@
 </template>
 <!-- custom code start -->
 <style>
-    .property-panel-content {
+    .property-section .property-panel-content {
         padding: 0 10px 10px 0;
         overflow: auto;
     }
-    #colorpicker-control {
+    #sb-colorpicker-control {
         margin: 30px auto;
         padding-top: 50px;
         text-align: center;
     }
-    #colorpicker-control h4 {
+    #sb-colorpicker-control h4 {
         margin-bottom: 20px;
     }
 
-    .e-bigger #colorpicker-control h4 {
+    .e-bigger #sb-colorpicker-control h4 {
         font-size: 20px;
     }
 </style>

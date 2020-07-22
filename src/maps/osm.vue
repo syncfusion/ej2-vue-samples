@@ -35,7 +35,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
         #popuposm_dialog-content {
           display: none !important
         }

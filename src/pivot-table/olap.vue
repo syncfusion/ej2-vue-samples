@@ -186,7 +186,7 @@ export default Vue.extend({
         ]
       },
       width: "100%",
-      height: 600,
+      height: 500,
       gridSettings: { columnWidth: 160 },
       allowExcelExport: true,
       allowConditionalFormatting: true,
@@ -197,6 +197,7 @@ export default Vue.extend({
       showFieldList: true,
       showGroupingBar: true,
       chartSettings: {
+         title: "Sales Analysis",
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -279,6 +280,13 @@ export default Vue.extend({
       ) {
         reportsCollection = JSON.parse(localStorage.pivotviewReports);
       }
+      if (args.isReportExists) {
+        for (let i = 0; i < reportsCollection.length; i++) {
+          if (reportsCollection[i].reportName === args.rename) {
+            reportsCollection.splice(i, 1);
+          }
+        }
+      }
       reportsCollection.map(function(item: any) {
         if (args.reportName === item.reportName) {
           item.reportName = args.rename;
@@ -356,12 +364,12 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#PivotView_PivotFieldList {
+<style scoped>
+/deep/ #PivotView_PivotFieldList {
   width: auto !important;
 }
 
-#pivotview {
+/deep/ #pivotview {
   width: 100%;
 }
 

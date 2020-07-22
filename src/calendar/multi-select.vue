@@ -68,7 +68,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 #control_wrapper.multiselectWrapper {
   max-width: 330px;
   margin: 0 auto;

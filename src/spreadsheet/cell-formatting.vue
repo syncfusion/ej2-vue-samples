@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-cell-format">
-      <ejs-spreadsheet ref="spreadsheet" :sheets="sheets" :showRibbon="false" :showFormulaBar="false" :beforeDataBound="beforeDataBound" :beforeCellRender="beforeCellRender"></ejs-spreadsheet>
+      <ejs-spreadsheet ref="spreadsheet" :sheets="sheets" :showRibbon="false" :showFormulaBar="false" :created="createdHandler" :beforeCellRender="beforeCellRender"></ejs-spreadsheet>
     </div>
     <div id="action-description">
       <p>
@@ -26,7 +26,7 @@
         </p>
         <p>
             More information about <code>cell formatting</code> can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/">
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/formatting/#text-and-cell-formatting">
               documentation</a> section.
         </p>
     </div>
@@ -52,12 +52,12 @@ export default Vue.extend({
       return {
           sheets: [{
               name: 'Order Details',
-              rangeSettings: [{ dataSource: dataSource.orderDetails }],
+              ranges: [{ dataSource: dataSource.orderDetails }],
               columns:  [{ width: 80 }, { width: 140 }, { width: 100 }, { width: 232 }, { width: 120 }, { width: 100 },
                   { width: 100 }, { width: 120 }, { width: 80 }],
               rows: [{
                   height: 36,
-                  // Applying cell formatting through cell binding
+                  //Applying cell formatting through cell binding
                   cells: [{ style: { textAlign: 'right' } }, { style: { textIndent: '2pt' } }, { style: { textAlign: 'right' } },
                       { style: { textIndent: '2pt' } }, { index: 5, style: { textAlign: 'right' } }, { index: 7, style: { textAlign: 'center' } },
                       { index: 8, style: { textAlign: 'right' } }] }, { height: 42 }, { height: 42 }, { height: 42 }, { height: 42 }, { height: 42 },
@@ -68,23 +68,23 @@ export default Vue.extend({
       }
   },
   methods: {
-    beforeDataBound: function() {
-      // Skip setting cell formatting for other sheets and imported sheets
-      if (this.applyCellFormat()) {
-            // Applying cell formatting dynamically using cellFormat method
-            this.$refs.spreadsheet.cellFormat({ fontWeight: 'bold', backgroundColor: '#4b5366', color: '#ffffff', fontSize: '12pt' }, 'A1:I1');
-            this.$refs.spreadsheet.cellFormat({ fontWeight: 'bold', textIndent: '2pt' }, 'B2:B16');
-            this.$refs.spreadsheet.cellFormat({ fontStyle: 'italic', textIndent: '2pt' }, 'D2:D16');
-            this.$refs.spreadsheet.cellFormat({ textIndent: '2pt' }, 'E1:E16');
-            this.$refs.spreadsheet.cellFormat({ textIndent: '2pt' }, 'G1:G16');
-            this.$refs.spreadsheet.cellFormat({ textAlign: 'center', fontWeight: 'bold' }, 'H2:H16');
-            this.$refs.spreadsheet.cellFormat({ fontFamily: 'Helvetica New', verticalAlign: 'middle' }, 'A1:I16');
-        }
+    createdHandler: function() {
+        //Applying cell formatting dynamically using cellFormat method
+        this.$refs.spreadsheet.cellFormat({ fontWeight: 'bold', backgroundColor: '#4b5366', color: '#ffffff', fontSize: '12pt' }, 'A1:I1');
+        this.$refs.spreadsheet.cellFormat({ fontWeight: 'bold', textIndent: '2pt' }, 'B2:B16');
+        this.$refs.spreadsheet.cellFormat({ fontStyle: 'italic', textIndent: '2pt' }, 'D2:D16');
+        this.$refs.spreadsheet.cellFormat({ textIndent: '2pt' }, 'E1:E16');
+        this.$refs.spreadsheet.cellFormat({ textIndent: '2pt' }, 'G1:G16');
+        this.$refs.spreadsheet.cellFormat({ textAlign: 'center', fontWeight: 'bold' }, 'H2:H16');
+        this.$refs.spreadsheet.cellFormat({ textAlign: 'center'}, 'A1:I1');
+        this.$refs.spreadsheet.cellFormat({ fontFamily: 'Helvetica New', verticalAlign: 'middle' }, 'A1:I16');
+        this.$refs.spreadsheet.cellFormat({ border: '1px solid #e0e0e0' }, 'A1:I16', 'Outer');
+        this.$refs.spreadsheet.cellFormat({ border: '1px solid #e0e0e0' }, 'A2:I15', 'Horizontal');
     },
     beforeCellRender: function(args) {
        if (this.applyCellFormat()) {
             if (args.cell && args.cell.value) {
-                // Applying cell formatting before rendering the particular cell
+                //Applying cell formatting before rendering the particular cell
                 switch (args.cell.value) {
                     case 'Delivered':
                         this.$refs.spreadsheet.cellFormat({ color: '#10c469', textDecoration: 'line-through' }, args.address);
@@ -103,7 +103,7 @@ export default Vue.extend({
       }
     },
     applyCellFormat: function() {
-      return !this.$refs.spreadsheet.ej2Instances.isOpen && this.$refs.spreadsheet.ej2Instances.sheets[this.$refs.spreadsheet.ej2Instances.activeSheetTab - 1].name === 'Order Details';
+      return !this.$refs.spreadsheet.ej2Instances.isOpen && this.$refs.spreadsheet.ej2Instances.sheets[this.$refs.spreadsheet.ej2Instances.activeSheetIndex].name === 'Order Details';
     }
   }
 });

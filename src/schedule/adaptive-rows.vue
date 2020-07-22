@@ -51,7 +51,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .adaptive-rows.e-schedule .e-timeline-view .e-resource-left-td {
         width: 120px;
     }

@@ -179,11 +179,11 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
 }
-.image {
+/deep/ .image {
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -191,26 +191,26 @@ export default Vue.extend({
   height: 28px;
 }
 
-.e-bigger .image {
+/deep/ .e-bigger .image {
   height: 36px;
 }
 
-#popup {
+/deep/ #popup {
   position: absolute;
   background-color: transparent;
   display: none;
   z-index: 100;
 }
-.div-button{
+/deep/ .div-button {
   margin: 5px 5px 5px 0;
 }
-#performanceTime {
+/deep/ #performanceTime {
   float: right;
   margin-top: 3px;
   margin-right: 27px;
 }
 
-.e-bigger #performanceTime{
+/deep/ .e-bigger #performanceTime{
   margin-top: 8px;
 }
 </style>

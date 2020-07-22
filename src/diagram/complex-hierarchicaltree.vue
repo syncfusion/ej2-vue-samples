@@ -108,7 +108,7 @@
   </div>
 </div>
 </template>
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -256,6 +256,7 @@ export default Vue.extend({
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
+    diagramInstance.fitToPage();
     marginLeftObj = this.$refs.marginLeftObject.ej2Instances;
     marginTopObj = this.$refs.marginTopObject.ej2Instances;
     let obj = document.getElementById("appearance");

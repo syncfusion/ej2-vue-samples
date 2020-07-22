@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-8 control-section">
-        <div id="spark-container" class="row">
+        <div id="spark-range-band" class="row">
             <div class="cols-sample-area" align="center">
                 <p>
                     <font size=4px> Sales Growth Comparison with various Products</font>
@@ -31,13 +31,13 @@
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <br>
         <table id="property" style="width:100%" title="Properties">
-            <tbody>
+            <tbody id="range-band-table">
                 <tr style="height: 30px ">
                     <td style="width: 50% ">
                         Range Band Min 1
                     </td>
                     <td style="width: 50% ">
-                        <ejs-slider id='range-min' :value='value' :type='type' :change='changeRangemin' max=6 min=0></ejs-slider>
+                        <ejs-slider id='range-min' v-bind:style="{ padding: '0px' }" :value='value' :type='type' :change='changeRangemin' max=6 min=0></ejs-slider>
                     </td>
                 </tr>
                 <tr style="height: 30px ">
@@ -45,7 +45,7 @@
                         Range Band Max 3
                     </td>
                     <td style="width: 50% ">
-                        <ejs-slider id='range-max' :value='value2' :type='type' :change='changeRangemax' max=6 min=0></ejs-slider>
+                        <ejs-slider id='range-max' v-bind:style="{ padding: '0px' }" :value='value2' :type='type' :change='changeRangemax' max=6 min=0></ejs-slider>
                     </td>
                 </tr>
             </tbody>
@@ -54,16 +54,16 @@
 </div>
 </template>
 <style>
-td{
+    #range-band-table td{
         padding: 10px;
     }
-    .e-headertext{
+    #spark-range-band .e-headertext{
         font-weight: bolder;
     }
-    #range-min > * {
+    #range-band-table #range-min > * {
         padding: 0px !important;
     }
-    #range-max > * {
+    #range-band-table #range-max > * {
         padding: 0px !important;
     }
 </style>
@@ -80,7 +80,7 @@ import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
 import { SparklinePlugin, Sparkline } from "@syncfusion/ej2-vue-charts";
 import columntempVue from "./column-template-one.vue";
 import columntempVue2 from "./column-template-two.vue";
-import { line } from "./range-band";
+import { line } from "./rangeband";
 Vue.use(GridPlugin);
 Vue.use(SliderPlugin);
 Vue.use(SparklinePlugin);

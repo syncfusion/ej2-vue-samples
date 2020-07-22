@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="tooltip-api">
     <div class="col-lg-8 control-section">
         <ejs-tooltip ref='tooltip' target='#default' opensOn='Click' :content='tContent' :created='created'>
             <!-- Tooltip element -->
@@ -157,7 +157,7 @@ export default Vue.extend({
 });
 </script>
 <style>
-.userselect {
+.tooltip-api .userselect {
   -webkit-user-select: none;
   /* Safari 3.1+ */
   -moz-user-select: none;
@@ -168,23 +168,23 @@ export default Vue.extend({
   /* Standard syntax */
 }
 
-#property {
+.tooltip-api #property {
   padding-top: 200px;
 }
 
-#default {
+.tooltip-api #default {
   position: absolute;
   left: calc(50% - 60px);
   top: 35%;
 }
 
-#value {
+.tooltip-api #value {
   height: 34px;
   width: 136px;
   padding-left: 10px;
 }
 
-.highcontrast #value {
+.highcontrast .tooltip-api #value {
   border: 1px solid;
   border-width: 1px;
   color: #fff;

@@ -16,7 +16,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .toolback {
         border-radius: 4px;
         border: 1px #abb9c6;
@@ -40,8 +40,6 @@
 </style>
 
 <script>
-
-import { internetUsers } from './map-data/population-data';
 
 export default {
   data () {

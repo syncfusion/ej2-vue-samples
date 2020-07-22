@@ -1,3 +1,20 @@
+.e-open:before {
+    content: none !important;
+}
+.content-wrapper {
+    width: auto !important;
+    margin-top: 0 !important;
+    display: flow-root !important;
+}
+span.e-input-group.e-control-wrapper.e-ddl {
+    left: 0 !important;
+}
+.container-fluid {
+    padding: 0;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
 .body {
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
 }
@@ -685,7 +702,10 @@
     content: '\e70a';
     font-size: 25px;
 }
-
+.bootstrap4 .copycode::before{
+    content:'\e77b';
+    font-size:25px;
+}
 .copy-tooltip {
     height: 32px;
     width: 32px;
@@ -1105,6 +1125,7 @@ a.code:visited {
 
 .e-bigger .sb-toolbar-splitter {
     height: 34px;
+    padding: 0 !important;
 }
 
 .sb-content-toolbar>div {
@@ -1122,6 +1143,11 @@ a.code:visited {
     line-height: 40px;
     color: #5a5a5a;
     cursor: pointer;
+}
+
+.sb-icons.sb-icon-Popout {
+    font-size: 25px !important;
+    line-height: 1.6em !important;
 }
 
 .sample-navigation>button {

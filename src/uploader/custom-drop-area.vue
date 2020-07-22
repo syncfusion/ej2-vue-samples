@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="col-lg-12 control-section uploader customdroparea">
+    <div class="col-lg-12 control-section uploader custom-drop-area">
         <div class="control_wrapper">
             <div class="sample_wrapper">
-                <div class="dropArea_wrap" id="dropTarget">
+                <div class="droparea-wrap" id="dropTarget">
                     <div class="font-icons">
                         <span class="e-icons sf-icon-pdf"></span>
                         <span class="e-icons sf-icon-txt"></span>
                         <span class="e-icons sf-icon-png"></span>
                     </div>
-                    <span class="dropText">Drop files here to upload</span>
+                    <span class="drop-text">Drop files here to upload</span>
                 </div>
-                <div id="UploaderDropTarget">
-                        <span id="drop" class="droparea"><a href="" id="browse"><u>Browse</u></a> </span>
-                        <ejs-uploader id='templateupload' name="UploadFiles" :template='uploaderTemplate' :allowedExtensions= 'extensions' :asyncSettings= "path" ref="uploadObj" :dropArea= "dropElement" :success= "onSuccess" :failure= "onFailure" :selected= "onSelect" :progress = "onProgress" :removing= "onFileRemove">
+                <div id="UploaderDropTarget" class="uploader-custom-drop-target">
+                        <span id="drop" class="droparea uploader-custom-drop-browse"><a href="" id="browse"><u>Browse</u></a> </span>
+                        <ejs-uploader id='templateupload' name="UploadFiles" :template='uploaderTemplate' :allowedExtensions= 'extensions' :asyncSettings= "path" ref="uploadObj" :dropArea= "dropElement" :success= "onSuccess" :failure= "onFailure" :selected= "onSelect" :progress = "onProgress" :removing= "onFileRemove" cssClass='uploader-custom-drop'>
                         </ejs-uploader>
                 </div>
             </div>
@@ -32,47 +32,44 @@
 </template>
 
 <style>
-   .customdroparea .template-icons {
+   .custom-drop-area .template-icons {
         padding-left: 3%;
     }
-    .customdroparea span.wrapper {
+    .custom-drop-area span.wrapper {
         height: 65px;
         display: block;
         padding: 2px;
     }
 
-    .customdroparea .e-upload .e-upload-files .e-upload-file-list, .e-bigger .customdroparea .e-upload .e-upload-files .e-upload-file-list {
+    .custom-drop-area .e-upload .e-upload-files .e-upload-file-list, .e-bigger .custom-drop-area .e-upload .e-upload-files .e-upload-file-list {
         min-height: 70px;
     }
 
-     .customdroparea a#browse {
+     .custom-drop-area a#browse {
          margin-left: 34%;
      }
-    .customdroparea .control_wrapper {        
-        margin: auto;
-    }
 
-    .customdroparea .e-upload {
+    .custom-drop-area .e-upload {
       width: 400px;
       border-top: none;
       border-bottom: none;
     }
-    .customdroparea .e-upload .e-upload-files {
+    .custom-drop-area .e-upload .e-upload-files {
         border-top: none;
     }    
-    .customdroparea #drop {
+    .custom-drop-area .uploader-custom-drop-browse {
         padding: 3% 30% 3%;
         display: block;        
         border: 1px dashed #c3c3cc; 
     }
 
-    .customdroparea #drop a {
+    .custom-drop-area .uploader-custom-drop-browse a {
         color: blue;
     }
-    .highcontrast .customdroparea #drop a {
+    .highcontrast .custom-drop-area .uploader-custom-drop-browse a {
         color:#ffd939;
     }
-    .customdroparea #UploaderDropTarget {
+    .custom-drop-area .uploader-custom-drop-target {
         min-height: 50px;
         padding-top: 15px;
         position: relative;
@@ -82,17 +79,17 @@
         width: 400px;
         left: 3%;
     }
-    .customdroparea .e-file-select-wrap {
+    .custom-drop-area .e-file-select-wrap {
         display: none;
     }
     
-    .customdroparea span.dropText {    
+    .custom-drop-area span.drop-text {    
         position: relative;
         left: 31%;
         top: 101px;
     }
 
-    .customdroparea .dropArea_wrap {
+    .custom-drop-area .droparea-wrap {
         width: 400px;
         height:250px;
         background-color: lightgrey;
@@ -100,35 +97,35 @@
         margin: 22px;
         border: 1px dashed grey;
     }
-    .highcontrast  .customdroparea .dropArea_wrap {
+    .highcontrast  .custom-drop-area .droparea-wrap {
         background-color: #000;
     }
 
-    .bootstrap4 .customdroparea .dropArea_wrap {
+    .bootstrap4 .custom-drop-area .droparea-wrap {
         background-color: #e9ecef;
         border: 1px dashed rgba(0, 0, 0, 0.15);
     }
-    .bootstrap4 .customdroparea .font-icons {
+    .bootstrap4 .custom-drop-area .font-icons {
         color: #495057;
     }
-    .bootstrap4 .customdroparea .dropText {
+    .bootstrap4 .custom-drop-area .drop-text {
         color: #212529;
     }
 
-   .customdroparea .font-icons {
+   .custom-drop-area .font-icons {
         position: relative;
         top: 25%;
         left: 32%;
         width: 150px;
    }
 
-    .customdroparea .upload-failed {
+    .custom-drop-area .upload-failed {
         color: #d9534f;
     }
-    .customdroparea .upload-success {
+    .custom-drop-area .upload-success {
         color: #107c10;
     }
-    .customdroparea span.upload-status {
+    .custom-drop-area span.upload-status {
         left: 45px;
         position: relative;
         font-size: 12px;
@@ -136,24 +133,24 @@
         padding: 5px;
         top: -8px;
     }
-	#UploaderDropTarget .e-upload .e-upload-files .e-file-reload-btn.e-icons:hover, #dropArea .e-upload .e-upload-files .e-file-reload-btn.e-icons {
+	.uploader-custom-drop-target .e-upload .e-upload-files .e-file-reload-btn.e-icons:hover, #dropArea .e-upload .e-upload-files .e-file-reload-btn.e-icons {
 		display: none;
 	}
-	#UploaderDropTarget .e-icons.e-file-abort-btn.e-upload-progress {
+	.uploader-custom-drop-target .e-icons.e-file-abort-btn.e-upload-progress {
 		background-image: none;
 		cursor: default;
 		opacity: .35;
 	}
-	#UploaderDropTarget .e-icons.e-file-delete-btn:hover {
+	.uploader-custom-drop-target .e-icons.e-file-delete-btn:hover {
 		background: none;
 	}
-    .customdroparea .e-upload .e-upload-files .e-file-remove-btn.e-icons, .customdroparea .e-upload .e-upload-files .e-file-delete-btn.e-icons {
+    .custom-drop-area .e-upload .e-upload-files .e-file-remove-btn.e-icons, .custom-drop-area .e-upload .e-upload-files .e-file-delete-btn.e-icons {
         top: 50%;
     }
 
-    .sf-icon-png:before, .sf-icon-PNG:before { content: "\e70a"; }
-    .sf-icon-pdf:before, .sf-icon-PDF:before { content: "\e70c"; }
-    .sf-icon-txt:before, .sf-icon-TXT:before { content: "\e70d"; }
+    .custom-drop-area .sf-icon-png:before, .custom-drop-area .sf-icon-PNG:before { content: "\e70a"; }
+    .custom-drop-area .sf-icon-pdf:before, .custom-drop-area .sf-icon-PDF:before { content: "\e70c"; }
+    .custom-drop-area .sf-icon-txt:before, .custom-drop-area .sf-icon-TXT:before { content: "\e70d"; }
 
     @font-face {
         font-family: 'FiletypeV2 Font';
@@ -163,7 +160,7 @@
         font-style: normal;
     }    
         
-    [class^="sf-icon-"], [class*=" sf-icon-"] {
+    .custom-drop-area [class^="sf-icon-"], .custom-drop-area [class*=" sf-icon-"] {
         font-family: 'FiletypeV2 Font' !important;
         speak: none;
         font-size: 35px;
@@ -177,19 +174,19 @@
         position: relative;
         top: 15px;
     }
-    .customdroparea .ul-element {
+    .custom-drop-area .ul-element {
         list-style: none;
         width: 100%;
         padding-left: 0;
     }
-    .customdroparea span.list-wrapper {
+    .custom-drop-area span.list-wrapper {
         max-height: 400px;
         display: block;
         margin-left: 10px;
         position: relative;
         top: 2px;
     }
-    .customdroparea .file-name {
+    .custom-drop-area .file-name {
         padding: 8px 6px 5px 12px;
         font-size: 13px;
         width: 76%;
@@ -197,11 +194,11 @@
         position: relative;
     }
 
-    .e-bigger .customdroparea .file-name {
+    .e-bigger .custom-drop-area .file-name {
         font-size: 14px;
     }
 
-    .customdroparea .file-size {
+    .custom-drop-area .file-size {
         padding: 4px;
         font-size: 13px;
         width: 18%;
@@ -209,11 +206,11 @@
         position: relative;
     }
 
-    .e-bigger .customdroparea .file-size {
+    .e-bigger .custom-drop-area .file-size {
         font-size: 14px;
     }
 
-    .customdroparea .file-lists {
+    .custom-drop-area .file-lists {
         border: 1px solid lightgray;
         padding: 0 6px 0 14px;
         margin-top: 15px;
@@ -221,29 +218,33 @@
         background: rgba(0, 0, 0, 0.04);
     }
 
-   .material .customdroparea .file-size, .material .customdroparea .file-name, .material .customdroparea .upload-status, .material .customdroparea .dropArea_wrap, .material .customdroparea #UploaderDropTarget {
+   .material .custom-drop-area .file-size, .material .custom-drop-area .file-name, .material .custom-drop-area .upload-status, .material .custom-drop-area .droparea-wrap, .material .custom-drop-area .uploader-custom-drop-target {
        font-family: 'Roboto', 'Segoe UI', 'GeezaPro', 'DejaVu Serif', 'sans-serif'
    }
 
-   .fabric .customdroparea .file-size, .fabric .customdroparea .file-name, .fabric .customdroparea .dropArea_wrap, .fabric .customdroparea .upload-status, .fabric .customdroparea  #UploaderDropTarget, .highcontrast .customdroparea .file-size, .highcontrast .customdroparea .upload-status, .highcontrast .customdroparea .file-name, .highcontrast  .customdroparea .dropArea_wrap, .highcontrast .customdroparea #UploaderDropTarget {
+   .fabric .custom-drop-area .file-size, .fabric .custom-drop-area .file-name, .fabric .custom-drop-area .droparea-wrap, .fabric .custom-drop-area .upload-status, .fabric .custom-drop-area  .uploader-custom-drop-target, .highcontrast .custom-drop-area .file-size, .highcontrast .custom-drop-area .upload-status, .highcontrast .custom-drop-area .file-name, .highcontrast  .custom-drop-area .droparea-wrap, .highcontrast .custom-drop-area .uploader-custom-drop-target {
        font-family: 'Segoe UI', 'GeezaPro', 'DejaVu Serif', 'sans-serif';
    }
 
-   .bootstrap .customdroparea .file-size, .bootstrap .customdroparea .file-name, .bootstrap .customdroparea .upload-status, .bootstrap .customdroparea .dropArea_wrap, .bootstrap .customdroparea #UploaderDropTarget {
+   .bootstrap .custom-drop-area .file-size, .bootstrap .custom-drop-area .file-name, .bootstrap .custom-drop-area .upload-status, .bootstrap .custom-drop-area .droparea-wrap, .bootstrap .custom-drop-area .uploader-custom-drop-target {
        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
    }
 
-    .customdroparea .file-size, .customdroparea .file-name {
+    .custom-drop-area .file-size, .custom-drop-area .file-name {
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
     }
-    .customdroparea .sample_wrapper #UploaderDropTarget .e-upload {
+    .custom-drop-area .sample_wrapper .uploader-custom-drop-target .e-upload {
         float: right;
     }
  
 </style>
-
+<style scoped>
+    .custom-drop-area .control_wrapper {        
+        margin: auto;
+    }
+</style>
 <script>
 import Vue from "vue";
 import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
@@ -256,10 +257,10 @@ export default Vue.extend({
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
+            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
           },
-          dropElement: '.dropArea_wrap',
+          dropElement: '.droparea-wrap',
           uploaderTemplate: function () {
                 return { template : uploaderTemplateVue}
             },

@@ -18,7 +18,7 @@
          <p>
             The Grid provides a way to use a custom layout for its rows using template feature. The
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#rowtemplate-string">rowTemplate
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#rowtemplate">rowTemplate
         </a></code> property accepts the template for the row.
         </p>
         <p>
@@ -29,7 +29,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
 @import "../../styles/Grid/row-template.css";
 </style>
 

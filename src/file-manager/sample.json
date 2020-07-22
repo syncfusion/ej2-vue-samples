@@ -3,7 +3,6 @@
     "directory": "file-manager",
     "category": "Navigation",
     "ftName" :"file-manager",
-    "type":"update",
     "samples": [{
         "url": "overview",
         "name": "Overview",
@@ -78,9 +77,15 @@
         "url": "FTPFileProvider",
         "name": "FTP File Provider",
         "category": "Cloud Service Providers",
-        "type": "new",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to configure and use the File Transfer Protocol in a vue File Manager."
+    },
+    {
+        "url": "ibm-cos-node-file-provider",
+        "name": "IBM Cloud File Provider",
+        "category": "Cloud Service Providers",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the IBM Cloud Object Storage file provider service in a vue File Manager."
     }
     ]
 }

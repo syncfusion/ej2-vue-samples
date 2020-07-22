@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-    <ejs-diagram id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
+    <ejs-diagram id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
         :setNodeTemplate='setNodeTemplate'></ejs-diagram>
 </div>
 <div id="action-description">
@@ -175,7 +175,7 @@ export default Vue.extend({
   data: function() {
     return {
       width: "100%",
-      height: "700px",
+      height: "800px",
       nodes: nodes,
       connectors: connectors,
        //Sets the default values of a node
@@ -199,6 +199,10 @@ export default Vue.extend({
         }
       }
     }
+  },
+  mounted: function() {
+       let diagram = this.$refs.diagramObj.ej2Instances;
+        diagram.fitToPage();
   }
 });
 

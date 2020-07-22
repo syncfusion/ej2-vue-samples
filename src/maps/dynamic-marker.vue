@@ -90,7 +90,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
         font-size: 13px;
@@ -104,7 +104,7 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, MapsTooltip, MapAjax, ILoadEventArgs,NavigationLine, MarkerSettingsModel, MarkerSettings, Zoom  } from '@syncfusion/ej2-vue-maps';
-import { topPopulation } from './map-data/marker-location';
+import { topPopulation } from '../maps/map-data/marker-location';
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { CheckBoxPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';

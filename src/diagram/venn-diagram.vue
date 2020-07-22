@@ -1,7 +1,7 @@
 <template>
 
 <div class="col-lg-12 control-section">
-    <div id="wrapper" style="width:100%">
+    <div id="wrapper-diagram" style="width:100%">
             <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :nodes='nodes' :snapSettings='snapSettings' :tool='tool'></ejs-diagram>
     </div>
 <div id="action-description">
@@ -19,7 +19,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
 </style>
 <script>
 import Vue from "vue";

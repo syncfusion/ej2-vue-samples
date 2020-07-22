@@ -44,7 +44,7 @@ export let highlight: object[] = [
     },
     {
         latitude: 34.0793936,
-        longkitude: -98.5583496
+        longitude: -98.5583496
     },
     {
         latitude: 36.1434199,
