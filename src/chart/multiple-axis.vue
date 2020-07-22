@@ -36,7 +36,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
 
 </style>
 <script>
@@ -55,7 +55,7 @@ export default Vue.extend({
          cloudTemplate: function () {
                     return {
                         template: Vue.component('cloudTemplate', {
-                            template: `<div id="chart_cloud"><img src="src/chart/images/cloud.png"  style="width: 41px; height: 41px"/></div>`,
+                            template: `<div id="chart_cloud"><img src="source/chart/images/cloud.png"  style="width: 41px; height: 41px"/></div>`,
                             data: function () { return { data: {} }; }
                         })
                     }
@@ -63,7 +63,7 @@ export default Vue.extend({
         sunTemplate: function () {
                     return {
                         template: Vue.component('sunTemplate', {
-                            template: `<div id="chart_sun"><img src="src/chart/images/sunny.png"  style="width: 41px; height: 41px"/></div>`,
+                            template: `<div id="chart_sun"><img src="source/chart/images/sunny.png"  style="width: 41px; height: 41px"/></div>`,
                             data: function () { return { data: {} }; }
                         })
                     }

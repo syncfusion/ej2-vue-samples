@@ -145,7 +145,7 @@ methods: {
     /* custom code end */
     // Code for Property Panel
     changeAxisindex:function(args){
-            let axisIndex = 0;
+            let axisIndex = parseInt(this.$refs.axis.ej2Instances.value);
             // let cotainerObj=document.getElementById('axis-container');
             // let direction=document.getElementById('axisDirection');
             // let axis=document.getElementById('axisIndex');
@@ -159,7 +159,7 @@ methods: {
             (document.getElementById('endAngle')).value = endAngle.toString();        
     },
     changeAxisdirection: function(args){
-            let axisIndex = 0;
+             let axisIndex = parseInt(this.$refs.axis.ej2Instances.value); 
             // let cotainerObj=document.getElementById('axis-container');
             // let direction=document.getElementById('axisDirection');
             this.$refs.circulargauge.ej2Instances.axes[axisIndex].direction = this.$refs.direction.ej2Instances.value.toString();
@@ -168,7 +168,7 @@ methods: {
             this.$refs.circulargauge.ej2Instances.refresh();        
     },
     startAnglechange:function(args){
-            let axisIndex = 0;       
+             let axisIndex = parseInt(this.$refs.axis.ej2Instances.value);       
             // let cotainerObj=document.getElementById('axis-container');      
             let value = parseInt((document.getElementById('startAngle')).value, 10);
             this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
@@ -181,7 +181,7 @@ methods: {
             this.$refs.circulargauge.ej2Instances.refresh();        
     },
     endAnglechange:function(args){
-            let axisIndex = 0;       
+           let axisIndex = parseInt(this.$refs.axis.ej2Instances.value);       
             // let cotainerObj=document.getElementById('axis-container');    
             let value = parseInt((document.getElementById('endAngle')).value, 10);
             this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;

@@ -54,7 +54,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .control-section {
   min-height: 450px;
 }

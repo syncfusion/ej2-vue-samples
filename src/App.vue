@@ -289,7 +289,7 @@
                                     <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forum/vue" target="_blank">
+                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
                                     <a href="https://syncfusion.com/blogs" target="_blank">
@@ -299,7 +299,7 @@
                                         <div class="sb-footer-link">Knowledge Base</div>
                                     </a>
                                 </div>
-                                <div class="sb-footer-copyright">Copyright © 2001-2019 Syncfusion Inc.</div>
+                                <div class="sb-footer-copyright"></div>
                             </div>
                             <div class="sb-footer-logo">
                                 <a href="https://www.syncfusion.com/" target="_blank">
@@ -371,7 +371,7 @@ import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
 // import * as elasticlunr from './common/lib/elasticlunr';
 // import * as hljs from './common/lib/highlightjs';
-import * as searchJson from './common/search-index.json';
+let searchJson: any = require('./common/search-index.json');
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
 // import { setTimeout } from "timers";
@@ -446,6 +446,11 @@ let sbContentOverlay: HTMLElement;
 let sbRightPane: HTMLElement;
 let headerSetting: HTMLElement;
 let mobileSetting: HTMLElement;
+let copyRight: HTMLElement;
+let hsplitter: string = '<div class="sb-toolbar-splitter sb-custom-item"></div>';
+// tslint:disable-next-line:no-multiline-string
+let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank">
+        <div class="sb-icons sb-icon-Popout"></div></a></div>`;
 let sampleNavigation: string = `<div class="sb-custom-item sample-navigation"><button id='prev-sample' class="sb-navigation-prev" 
 aria-label="previous sample">
 <span class='sb-icons sb-icon-Previous'></span>
@@ -454,7 +459,7 @@ aria-label="previous sample">
 <span class='sb-icons sb-icon-Next'></span>
 </button>
 </div>`;
-contentToolbarTemplate = sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
+contentToolbarTemplate = hsplitter + openNewTemplate + hsplitter + sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
 tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', innerHTML: contentToolbarTemplate });
 
 /* vue instance */
@@ -492,6 +497,8 @@ export default Vue.extend({
         leftToggle = <HTMLElement>select('#sb-toggle-left', this.$el);
         sb.vars.sample = select('#sb-switcher-popup', this.$el);
         // searchEle = select('#search-popup', this.$el);
+        copyRight = select('.sb-footer-copyright', this.$el);
+        copyRight.innerHTML = "Copyright © 2001 - " + new Date().getFullYear() + " Syncfusion Inc.";
         searchButton = select('#sb-trigger-search', this.$el);
         searchOverlay = select('.e-search-overlay', this.$el);
         inputele = select('#search-input', this.$el);
@@ -926,10 +933,14 @@ export default Vue.extend({
                 content: 'Previous Sample'
             });
             previous.appendTo('#prev-sample');
+            let openNew: Tooltip = new Tooltip({
+                content: 'Open in New Window'
+            });
+            openNew.appendTo('#openNew');
             let next: Tooltip = new Tooltip({
                 content: 'Next Sample'
             });
-            select('#right-pane').addEventListener('scroll', function (event) {
+            select('#right-pane').addEventListener('scroll', function (event: any) {
                 next.close();
                 previous.close();
             });
@@ -1054,7 +1065,7 @@ export default Vue.extend({
 
             select('#prev-sample').addEventListener('click', this.onPrevButtonClick);
             select('#mobile-next-sample').addEventListener('click', this.onNextButtonClick);
-
+            select('#openNew').addEventListener('click', this.onOpenNewButtonClick);
             select('#mobile-prev-sample').addEventListener('click', this.onPrevButtonClick);
         },
 
@@ -1207,7 +1218,6 @@ export default Vue.extend({
             let ele: HTMLElement = <any>closest(<any>e.target, '.sb-responsive-items');
             let switchType: string = ele.id;
             this.changeMouseOrTouch(switchType);
-            this.changeMouseOrTouch(switchType);
             this.headerAction('closePopup');
             localStorage.setItem('ej2-switch', switchType);
             location.reload();
@@ -1277,6 +1287,11 @@ export default Vue.extend({
             }
             window.hashString = location.hash;
             this.setSelectList();
+        },
+        onOpenNewButtonClick: function (arg: any): void {
+            let samplePath = location.href.split('#')[1].split('/');
+            (select('#openNew') as HTMLFormElement).href =
+            location.href.split('#')[0] + samplePath[2] + '/' + samplePath[3].replace('.html','/');
         },
 
         setLeftPaneHeight: function (): void {
@@ -1359,7 +1374,7 @@ export default Vue.extend({
                 }
             }
             if (switcherPopup) {
-                switcherPopup.refresh();
+                switcherPopup.refreshPosition();
             }
         },
 
@@ -1607,8 +1622,7 @@ export default Vue.extend({
         },
 
         loadJSON: function (): void {
-            let switchText: string = localStorage.getItem('ej2-switch') ||
-                (window.screen.width > 1366 ? 'touch' : 'mouse');
+            let switchText: string = localStorage.getItem('ej2-switch') || 'mouse';
             if (Browser.isDevice || window.screen.width <= 850) {
                 switchText = 'touch';
             }

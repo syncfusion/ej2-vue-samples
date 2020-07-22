@@ -14,6 +14,7 @@
 </template>
 <script>
 import Vue from "vue";
+import { DataManager, Query } from "@syncfusion/ej2-data";
 import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
  import { extend } from '@syncfusion/ej2-base';
 import { orderDetails } from "./data-source";
@@ -23,8 +24,8 @@ Vue.use(GridPlugin);
 export default Vue.extend({
   data: () => {
     return {
-      gridData: orderDetails,
-      pageSettings: { pageSizes: [5,10,12,20], pageSize: 5 }
+      gridData: new DataManager(orderDetails).executeLocal(new Query().take(15)),
+      pageSettings: { pageSizes: true, pageSize: 5 }
     };
   },
   provide: {

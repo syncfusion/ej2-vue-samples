@@ -29,19 +29,19 @@
 
    <div id="action-description">
     <p>
-        This sample demonstrates the TreeGrid searching feature. In this sample, use the search box from toolbar to search TreeGrid records and the hierarchy mode of searching can be changed using property panel.
+        This sample demonstrates the Tree Grid searching feature. In this sample, use the search box from toolbar to search Tree Grid records and the hierarchy mode of searching can be changed using property panel.
     </p>
 </div>
 
 <div id="description">
-    <p>The TreeGrid has an option to search its content using the search method with search key as the parameter.</p>
+    <p>The Tree Grid has an option to search its content using the search method with search key as the parameter.</p>
 
-    <p>The tree grid supports different types of search mode through the <code>searchSettings.hierarchyMode property</code>.</p>
+    <p>The Tree Grid supports different types of search mode through the <code>searchSettings.hierarchyMode property</code>.</p>
 
-    <p>The following are the types of search modes available in the tree grid.</p>
+    <p>The following are the types of search modes available in the Tree Grid.</p>
 
     <ul>
-        <li><code>Parent</code> - This is the default search hierarchy mode in the tree grid. It displays a searched record with its parent records. 
+        <li><code>Parent</code> - This is the default search hierarchy mode in the Tree Grid. It displays a searched record with its parent records. 
             If the searched records do not have any parent record, it displays only the searched record.</li>
 
         <li><code>Child</code> - Displays the searched record with its child record. 
@@ -53,11 +53,11 @@
         <li><code>None</code> - Displays only the searched record.</li>
     </ul>
 
-    <p>In this demo, The TreeGrid toolbar provides an option to search the TreeGrid's records. The user can type the text box in the toolbar and click search button or press Enter key to perform search operation. 
+    <p>In this demo, The Tree Grid toolbar provides an option to search the Tree Grid's records. The user can type the text box in the toolbar and click search button or press Enter key to perform search operation. 
         And also we have an option to change the searching hierarchy mode through property panel.</p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
-        TreeGrid features are segregated into individual feature-wise modules. To use searching feature, we need to inject Filter
+        Tree Grid features are segregated into individual feature-wise modules. To use searching feature, we need to inject Filter
         into the <code>provide</code> section.
     </p>
     <p>

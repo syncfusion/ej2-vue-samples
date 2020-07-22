@@ -146,6 +146,8 @@ export let flatData: any = [
     { text: 'Jaguar XJ220', id: 'list-08' },
     { text: 'McLaren P1', id: 'list-09' },
     { text: 'Ferrari LaFerrari', id: 'list-10' },
+    { text: 'Zenvo ST1', id: 'list-11' },
+    { text: 'Lamborghini Veneno', id: 'list-12' }
 ];
 export let groupDataList: any = [
     {
@@ -359,7 +361,7 @@ export let virtualizationData = [{
 },
 {
     name: "Margaret",
-    imgUrl: "./src/listview/images/margaret.png",
+    imgUrl: "./src/listview/images/laura.png",
     id: "3"
 },
 {
@@ -384,7 +386,7 @@ export let virtualizationData = [{
 },
 {
     name: "Albert",
-    imgUrl: "./src/listview/images/albert.png",
+    imgUrl: "./src/listview/images/laura.png",
     id: "8"
 },
 {

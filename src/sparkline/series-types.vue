@@ -53,7 +53,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
    td {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
         font-weight: 600;
@@ -90,7 +90,7 @@
 <script>
 import Vue from 'vue';
 import { SparklinePlugin,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
-import { data, data2, data3 } from "./series-types";
+import { data, data2, data3 } from "./seriestypes";
 Vue.use(SparklinePlugin);
 export default Vue.extend({
 data:function(){

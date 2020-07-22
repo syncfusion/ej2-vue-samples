@@ -29,9 +29,12 @@
             :snapSettings='snapSettings'
             :getConnectorDefaults='getConnectorDefaults'/>
         </div>
-        <ejs-uploader id="fileupload" name="UploadFiles"       
+          <div id="upload-container">
+          <ejs-uploader id="fileupload" name="UploadFiles"       
                       :asyncSettings='fileuploadasyncSettings'
-                      :success='fileuploadsuccess'/>
+                      :success='fileuploadsuccess'
+                      :showFileList ='showFile'/>
+           </div>
         
     </div>
 </div>
@@ -54,11 +57,13 @@
 </div>
 </template>
 
-<style>
+<style scoped>
   .e-file-select-wrap {
     display: none;
   }
-
+  #upload-container  {
+    display: none;
+  }
   .control-section {
     padding-top: 0px;
     padding-right: 0px;
@@ -287,7 +292,6 @@ let nodes = [
     annotations: [
       {
         content: "Ready to Get Up?",
-        margin: { top: 25, left: 10, right: 10, bottom: 10 }
       }
     ],
     style: { fill: "#c5efaf", strokeColor: "#797979" }
@@ -488,26 +492,20 @@ export default Vue.extend({
         }
       },
       toolbaritems: [
-        {
-          id: 'palette-icon',
-          prefixIcon: 'e-ddb-icons2 e-toggle-palette'
-        },
-        { text: "New", tooltipText: "New", prefixIcon: "e-ddb-icons e-new" },
+        { text: "New", tooltipText: "New", },
         {
           type: "Separator"
         },
         {
           text: "Save",
           tooltipText: "Save",
-          prefixIcon: "e-ddb-icons e-save"
         },
         {
           type: "Separator"
         },
         {
           text: "Load",
-          tooltipText: "Load",
-          prefixIcon: "e-ddb-icons e-open"
+          tooltipText: "Load"
         }
       ],
       fileuploadasyncSettings: {
@@ -515,7 +513,8 @@ export default Vue.extend({
         removeUrl:
           "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove"
       },
-      fileuploadsuccess: onUploadSuccess
+      fileuploadsuccess: onUploadSuccess,
+      showFile: true
     };
   },
   provide: {

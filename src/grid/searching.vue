@@ -24,7 +24,7 @@
         <p>In this demo, type in the search box to perform search operation.</p>
         <p>
             More information on the searching configuration can be found in this 
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#searchsettings-searchsettingsmodel">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/searching.html">documentation section</a>.
         </p>
     </div>
 

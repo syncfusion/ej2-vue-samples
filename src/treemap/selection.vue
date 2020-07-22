@@ -84,7 +84,7 @@
     </div>
 </div>
 </template>
- <style>
+ <style scoped>
         .property-text {
             font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
             font-size: 13px !important;

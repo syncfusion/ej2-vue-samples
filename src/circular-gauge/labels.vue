@@ -79,7 +79,7 @@
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div id='height'> Enable Pointer </div>
+                        <div id='height'> Show Last Label </div>
                     </td>
                 <td style="width: 50%">
                     <ejs-checkbox  id="enable" ref="enable" name="enable" :change='changeEnablePointer'></ejs-checkbox>
@@ -111,7 +111,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     #control-container {
         padding: 0px !important;
     }
@@ -157,9 +157,9 @@ data:function(){
             { Id:'minor', level:'Minor Ticks'}],
             ticksfields:{ text: 'level', value: 'Id' },
             tickstwidth:120,
-            tickpositiondata:['Inside','Outside'],
+            tickpositiondata:['Inside','Cross','Outside'],
             tickpositionwidth:120,
-            labelpositiondata:['Outside','Inside'],
+            labelpositiondata:['Outside','Cross','Inside'],
             labelpositionwidth:120
     }
 },

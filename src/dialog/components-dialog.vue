@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section dialog-components-sample">
         <!-- Render Button to open the Dialog -->
         <ejs-button id='dlgbtn' v-if="OpenBtn" v-on:click.native="BtnClick">Open</ejs-button>
 
@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
      .control-section {
 	left: 0px! important;
     top:0%! important;
@@ -29,7 +29,11 @@
     }
     .control-section {
         height: 100%;
-        min-height: 500px;
+        min-height: 480px;
+    }
+
+    .dialog-components-sample {
+        overflow-y: auto;
     }
 </style>
 

@@ -8,7 +8,7 @@
                    <ejs-richtexteditor ref="rteObj"  :enableAutoUrl="enableAutoUrl" :insertImageSettings="insertImageSettings" :quickToolbarSettings="quickToolbarSettings" :toolbarClick="onToolbarClick"><p>Rich Text Editor allows to insert images from online source as well as local 
                 computer where you want to insert the image in your content.</p>
                 <p><b>Get started Quick Toolbar to click on the image</b></p>
-                <p>It is possible to add custom style on the selected image inside the RichTextEditor through quick toolbar.</p>
+                <p>It is possible to add custom style on the selected image inside the Rich Text Editor through quick toolbar.</p>
                 <img id="rteImageID" style="width:300px; height:300px;transform: rotate(0deg);" alt="Logo" src="./images/RTEImage-Feather.png"></ejs-richtexteditor>
                 </div>
             </div>
@@ -45,12 +45,12 @@
  </div>
     
     <div id="action-description">
-            <p>This sample demonstrates the option to insert the image to the RichTextEditor content. Click the image button from the
+            <p>This sample demonstrates the option to insert the image to the Rich Text Editor content. Click the image button from the
             toolbar item to insert the image.</p>
     </div>
     
     <div id="description">
-         <p>Image tools used to insert an image to the RichTextEditor and click on the image to easily customize the image using quick toolbar. 
+         <p>Image tools used to insert an image to the Rich Text Editor and click on the image to easily customize the image using quick toolbar. 
     The quick toolbar has the following items</p>
     
     <ul><li><code>Replace</code> – can replace the image with some other image.</li>
@@ -68,7 +68,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
         content: "\e341";
     }

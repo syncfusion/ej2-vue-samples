@@ -88,7 +88,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -319,6 +319,7 @@ export default Vue.extend({
   mounted: function() {
     //let diagramObj = document.getElementById("diagram");
     diagramInstance = this.$refs.diagramObj.ej2Instances;
+    diagramInstance.fitToPage();
     diagramInstance.updateViewPort();
     let obj = document.getElementById("appearance");
     //Click Event for Appearance of the layout.

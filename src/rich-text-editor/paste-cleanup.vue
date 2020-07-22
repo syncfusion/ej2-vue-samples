@@ -5,26 +5,26 @@
         <div class="sample-container">
             <div class="default-section">
                 <ejs-richtexteditor ref="rteInstance" :pasteCleanupSettings="pasteCleanupSettings">
-                    <p>RichTextEditor is a WYSIWYG editing control which will reduce the effort for users while trying to express their formatting word content as HTML or Markdown format.</p>
+                    <p>Rich Text Editor is a WYSIWYG editing control which will reduce the effort for users while trying to express their formatting word content as HTML or Markdown format.</p>
                     <p><b>Paste cleanup properties:</b></p>
                     <ul>
                         <li>
-                            <p>prompt - specifies whether to enable the prompt when pasting in RichTextEditor.</p>
+                            <p>prompt - specifies whether to enable the prompt when pasting in Rich Text Editor.</p>
                         </li>
                         <li>
-                            <p>plainText - specifies whether to paste as plain text or not in RichTextEditor.</p>
+                            <p>plainText - specifies whether to paste as plain text or not in Rich Text Editor.</p>
                         </li>
                         <li>
-                            <p>keepFormat- specifies whether to keep or remove the format when pasting in RichTextEditor.</p>
+                            <p>keepFormat- specifies whether to keep or remove the format when pasting in Rich Text Editor.</p>
                         </li>
                         <li>
-                            <p>deniedTags - specifies the tags to restrict when pasting in RichTextEditor.</p>
+                            <p>deniedTags - specifies the tags to restrict when pasting in Rich Text Editor.</p>
                         </li>
                         <li>
-                            <p>deniedAttributes - specifies the attributes to restrict when pasting in RichTextEditor.</p>
+                            <p>deniedAttributes - specifies the attributes to restrict when pasting in Rich Text Editor.</p>
                         </li>
                         <li>
-                            <p>allowedStyleProperties - specifies the allowed style properties when pasting in RichTextEditor.</p>
+                            <p>allowedStyleProperties - specifies the allowed style properties when pasting in Rich Text Editor.</p>
                         </li>
                     </ul>
                 </ejs-richtexteditor>
@@ -125,7 +125,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .control_wrapper {
     max-width: 500px;
     margin: auto;

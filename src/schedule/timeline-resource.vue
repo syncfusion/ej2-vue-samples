@@ -45,7 +45,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
         vertical-align: bottom;
     }

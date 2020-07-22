@@ -28,7 +28,7 @@
 
     <div id="action-description">
     <p>
-        This sample demonstrates CRUD operations in TreeGrid. You can perform CRUD operations as follows,
+        This sample demonstrates CRUD operations in Tree Grid. You can perform CRUD operations as follows,
     </p>
     <ul>
         <li><code>Add </code> - To add new record, click Add toolbar button.</li>
@@ -42,7 +42,7 @@
 </div>
 <div id="description">
     <p>
-        The TreeGrid supports CRUD operations. This CRUD operations can be configured in TreeGrid using <code>editSettings</code>. Also, it has different modes to manipulate the datasource.
+        The Tree Grid supports CRUD operations. This CRUD operations can be configured in Tree Grid using <code>editSettings</code>. Also, it has different modes to manipulate the datasource.
     </p>
     <p>
         The available modes are,
@@ -60,7 +60,7 @@
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
-        TreeGrid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
+        Tree Grid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
         <code>
         Edit
         </code> module into the <code>provide</code> section.
@@ -82,7 +82,7 @@ Vue.use(TreeGridPlugin, DropDownListPlugin);
 export default  Vue.extend({
   data: () => {
     return {
-      data: sampleData,
+      data: sampleData.slice(0),
       editSettings: { allowDeleting: true, allowEditing: true, allowAdding: true, mode: 'Cell' },
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},

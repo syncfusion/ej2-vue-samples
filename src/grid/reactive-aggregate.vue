@@ -6,7 +6,7 @@
     <div>
         <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowGrouping='true' :groupSettings='groupSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' ></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit'></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' editType='datepickeredit' textAlign='Right' type='date' format='yMd'></e-column>

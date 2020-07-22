@@ -6,14 +6,16 @@
     </div>
     <div id="palette-space" class="sb-mobile-palette">
         <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'
-            :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin'
+            :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' 
             :symbolWidth='symbolWidth' :symbolHeight='symbolHeight'>
         </ejs-symbolpalette>
        <div id="dropArea">
             <ejs-button id="browse" class="e-outline" :isPrimary="true" v-on:click.native="btnClick">IMPORT SVG FILES</ejs-button>
+            <div class="uploadclass">
             <ejs-uploader ref='uploadObj' id='uploadFiles' name="UploadFiles" :asyncSettings='path'
                 :dropArea='dropElement' :success='onUploadSuccess' :removing='onFileRemove'>
             </ejs-uploader>
+            </div>
         </div>
     </div>
 
@@ -38,7 +40,7 @@
   </div>
 </div>
 </template>
-<style>
+<style scoped>
     #networkDiagram .sb-mobile-palette-bar {
             display: none;
         }
@@ -56,6 +58,7 @@
             border: 1px solid rgba(206, 131, 131, 0.12);
             border-left: none;
         }
+        .uploadclass { height: 0px; width: 0px; display: none !important; border: none !important; }
         #networkDiagram .container-fluid{
             padding-bottom: 15px;
         }

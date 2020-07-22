@@ -8,7 +8,7 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "PDF Viewer",
-			"type": "update"
+            "type": "update"
         },
 		{
             "url": "custom-toolbar",

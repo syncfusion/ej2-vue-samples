@@ -26,7 +26,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .schedule-celltemplate.e-schedule .e-month-view .e-work-cells {
         position: relative;
     }

@@ -1,18 +1,18 @@
 <template>
 <div class="control-section button-group-container">
-    <div class="button-group-section">
-        <div id="button-group-control">
+    <div class="sb-button-group-section">
+        <div id="sb-button-group-control">
             <div class="row">                
                 <p class="h5">Default</p>
                 <div id="icon" class="e-btn-group">
-                    <ejs-button id='watch' iconCss="bg-icons e-btngrp-watch"></ejs-button>
-                    <ejs-button id='star' iconCss="bg-icons e-btngrp-star"></ejs-button>
-                    <ejs-button id='download' iconCss="bg-icons e-btngrp-download"></ejs-button>
+                    <ejs-button id='watch' iconCss="sb-bg-icons e-btngrp-watch"></ejs-button>
+                    <ejs-button id='star' iconCss="sb-bg-icons e-btngrp-star"></ejs-button>
+                    <ejs-button id='download' iconCss="sb-bg-icons e-btngrp-download"></ejs-button>
                 </div>
             </div>
             <div class="row">                
                 <p class="h5">Single selection</p>
-                <div id="text" class="e-btn-group">
+                <div id="textonly" class="e-btn-group">
                     <input type="radio" id="left" name="align" value="left" />
                     <label class="e-btn" for="left">Left</label>
                     <input type="radio" id="center" name="align" value="center" disabled />
@@ -26,15 +26,15 @@
                 <div id="iconandtext" class="e-btn-group">
                     <input type="checkbox" id="bold" name="fontstyle" value="bold" checked />
                     <label class="e-btn" for="bold">
-                        <span class="e-btn-icon bg-icons e-btngrp-bold e-icon-left"></span>Bold
+                        <span class="e-btn-icon sb-bg-icons e-btngrp-bold e-icon-left"></span>Bold
                     </label>
                     <input type="checkbox" id="italic" name="fontstyle" value="italic" />
                     <label class="e-btn" for="italic">
-                        <span class="e-btn-icon bg-icons e-btngrp-italic e-icon-left"></span>Italic
+                        <span class="e-btn-icon sb-bg-icons e-btngrp-italic e-icon-left"></span>Italic
                     </label>
                     <input type="checkbox" id="underline" name="fontstyle" value="underline" />
                     <label class="e-btn" for="underline">
-                        <span class="e-btn-icon bg-icons e-btngrp-underline e-icon-left"></span>Underline
+                        <span class="e-btn-icon sb-bg-icons e-btngrp-underline e-icon-left"></span>Underline
                     </label>
                 </div>
             </div>                      
@@ -73,7 +73,7 @@
     font-style: normal;
 }
 
-.bg-icons {
+.sb-bg-icons {
     font-family: 'e-bg-icons' !important;
     speak: none;
     font-size: 14px;
@@ -111,35 +111,35 @@
 }
 
 /* custom code start */
-.button-group-section {
+.sb-button-group-section {
     width: 320px;
     margin: 0 auto;
     margin-top: 1.7%;
     margin-bottom: 1.7%;
 }
 
-.e-bigger .button-group-section {
+.e-bigger .sb-button-group-section {
     width: 350px;
 }
 
-.button-group-section .row {
+.sb-button-group-section .row {
     margin: 0 0 30px 0;
 }
 
-.button-group-section .row:last-child {
+.sb-button-group-section .row:last-child {
     margin-bottom: 0;
 }
 
-.button-group-section .row .p:first-child {
+.sb-button-group-section .row .p:first-child {
     margin-top: 0;
 }
 
 @media only screen and (max-width: 500px) {
-    .button-group-section {        
+    .sb-button-group-section {        
         margin-top: 0%;
         margin-bottom: 0%;
     }
-    .button-group-container {
+    .sb-button-group-container {
         overflow-y: scroll;
     }
 }

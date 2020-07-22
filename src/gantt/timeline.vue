@@ -8,9 +8,6 @@
         :highlightWeekends = 'true'
         :projectStartDate = "projectStartDate"
         :projectEndDate = "projectEndDate"
-        :resourceNameMapping =  'resourceName'
-        :resourceIDMapping = 'resourceId'
-        :resources = "resources"
         :timelineSettings = "timelineSettings"
         :splitterSettings = "splitterSettings"
         :treeColumnIndex = '1'
@@ -134,7 +131,7 @@
             </td>
             <td style="width: 70%">
                 <div>
-                   <ejs-dropdownlist ref='bottomTierFormat' id="btFormat" index = "1"
+                   <ejs-dropdownlist ref='bottomTierFormat' id="btFormat" index = "0"
                    :dataSource = "dayformat"
                     :fields = "formatFields"
                     :change = "bottomFormatChange">
@@ -179,7 +176,7 @@
 <script>
 import Vue from "vue";
 import { GanttPlugin,Selection, Sort, DayMarkers } from "@syncfusion/ej2-vue-gantt";
-import { projectData, projectResources } from './data-source';
+import { projectData } from './data-source';
 import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
@@ -202,10 +199,9 @@ export default Vue.extend({
                 dependency: 'predecessor',
                 child: 'subtasks',
             },
-            check:'true',         
+            check:'true',
             projectStartDate: new Date('02/03/2019'),
-            projectEndDate: new Date('03/23/2019'),            
-            resources: projectResources,
+            projectEndDate: new Date('03/23/2019'),
             timelineSettings: {
                 topTier: {
                     format: 'MMM dd, yyyy',
@@ -237,9 +233,9 @@ export default Vue.extend({
         { id: 'EEE MMM dd', format: 'Mon Jan 01' },
             ],
             dayformat: [
-                { id: 'EEE, dd', format: 'Mon, 01' },
-        { id: 'E', format: 'Mon' },
-        { id: 'dd', format: '01' },
+                { id: '', format: 'M' },
+                { id: 'EEE', format: 'Mon' },
+                { id: 'dd', format: '01' }
             ],
             hourformat : [
                  { id: 'hh', format: '00' },

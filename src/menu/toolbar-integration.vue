@@ -6,7 +6,7 @@
                 <e-item :template='menuTemplate'></e-item>
                 <e-item :template='searchTemplate' align='Right' ></e-item>
                 <e-item :template='ddbTemplate' align='Right' ></e-item>
-                <e-item prefixIcon='em-icons e-shopping-cart' align='Right' ></e-item>
+                <e-item prefixIcon='em-icons e-menu-shopping-cart' align='Right' ></e-item>
             </e-items>
         </ejs-toolbar>
     </div>
@@ -55,21 +55,21 @@
 /* custom code end */
 
 /* Search and Shopping cart icons */
-.toolbar-menu-control .e-search::before {
+.toolbar-menu-control .e-menu-search::before {
     content: '\e5b9';
 }
 
-.toolbar-menu-control .e-shopping-cart::before {
+.toolbar-menu-control .e-menu-shopping-cart::before {
     content: '\e7e8';
 }
 
 /* Shopping cart icon size and customization */
-.toolbar-menu-control .e-toolbar-items .e-toolbar-item .e-tbar-btn .e-btn-icon.e-shopping-cart {
+.toolbar-menu-control .e-toolbar-items .e-toolbar-item .e-tbar-btn .e-btn-icon.e-menu-shopping-cart {
     font-size: 20px;
     margin: 4px 1px 0 0;
 }
 
-.e-bigger .toolbar-menu-control .e-toolbar-items .e-toolbar-item .e-tbar-btn .e-btn-icon.e-shopping-cart {
+.e-bigger .toolbar-menu-control .e-toolbar-items .e-toolbar-item .e-tbar-btn .e-btn-icon.e-menu-shopping-cart {
     font-size: 30px;
     margin-top: 7px; 
 }
@@ -94,7 +94,7 @@
     padding-bottom: 4px;
 }
 
-.material .toolbar-menu-control .e-toolbar .e-input-group .e-search {
+.material .toolbar-menu-control .e-toolbar .e-input-group .e-menu-search {
     margin-bottom: 0;
 }
 
@@ -119,6 +119,9 @@
 	color: #6c757d;
 	box-shadow: none;
 }
+.bootstrap4 .toolbar-menu-control .e-menu-wrapper ul {
+        background-color: transparent;
+    }
 
 /* custom code start */
 
@@ -171,7 +174,7 @@ export default Vue.extend({
                 template: menutemplateVue
             }
         },
-        searchTemplate: '<div class="e-input-group"><input class="e-input" type="text" placeholder="Search" /><span class="e-input-group-icon em-icons e-search"></span></div>',
+        searchTemplate: '<div class="e-input-group"><input class="e-input" type="text" placeholder="Search" /><span class="e-input-group-icon em-icons e-menu-search"></span></div>',
         ddbTemplate: function() {
             return {
                 template: ddbtemplateVue

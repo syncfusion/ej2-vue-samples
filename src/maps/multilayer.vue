@@ -27,7 +27,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .markerTemplate {
         font-size: 12px;
         color: black;

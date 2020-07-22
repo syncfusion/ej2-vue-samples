@@ -10,7 +10,7 @@
                 Show flow execution
             </div>
             <div class="row property-panel-content" id="appearance">
-                <div class="row property-panel-content" style="width:260px;">
+                <div class="row property-panel-content" style="width:260px;overflow: hidden;">
                     <div class="row">
                         <div class="col-xs-7">
                             <ejs-radiobutton id='UnhighlightAll' label="None" value="UnhighlightAll" name='radio' :change='buttonChange'></ejs-radiobutton>
@@ -68,7 +68,7 @@
         </div>
     </div>
 </template>
-    <style>
+    <style scoped>
 #flowExecitionPropertySection .row {
     margin-left: 0px;
     margin-right: 0px;

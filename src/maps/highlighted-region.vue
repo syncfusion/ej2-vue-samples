@@ -36,7 +36,7 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { highlight, highlight1 } from './map-data/highlighted';
+import { highlight, highlight1 } from '../maps/map-data/highlighted';
 import Template from './earthquake-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({

@@ -26,7 +26,7 @@ AccumulationChart component features are segregated into individual feature-wise
 
 </div>
 </template>
-<style>
+<style scoped>
 .control-section {
     min-height: 450px;
 }

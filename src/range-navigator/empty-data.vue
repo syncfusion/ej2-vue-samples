@@ -66,7 +66,7 @@
 </div>
 </template>
   
-<style>
+<style scoped>
 #control-containerEmpty {
   padding: 0px !important;
 }

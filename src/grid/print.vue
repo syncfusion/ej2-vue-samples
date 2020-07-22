@@ -61,7 +61,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
   .e-mastertext {
       font-size: 15px;
       font-family: Roboto;

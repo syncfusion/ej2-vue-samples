@@ -1,5 +1,6 @@
 <template>
-<div class="col-lg-12 control-section">
+<div>
+<div class="col-lg-9 control-section">
     <div id="action-description">
         <p>
             This sample demonstrates the Grid Default Filtering feature. In this sample, type the value in the filterbar and press enter
@@ -7,16 +8,16 @@
         </p>
     </div>
     <div>
-        <div class="select-wrap">
+        <div class="select-wrap" style="width: fit-content">
             <ejs-dropdownlist id='ddlelement' :dataSource='ddldata' placeholder='Select category to filter' :change="onChange"></ejs-dropdownlist>
         </div>
 
         <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowFiltering='true' :pageSettings="pageOptions">
             <e-columns>
-                <e-column field='CategoryName' headerText='Category Name' width='170'></e-column>
+                <e-column field='CategoryName' headerText='Category Name' width='150'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='150'></e-column>
-                <e-column field='QuantityPerUnit' headerText='Quantity per unit' width='180' textAlign='Right'></e-column>
                 <e-column field='UnitsInStock' headerText='Units In Stock' width='150' textAlign='Right'></e-column>
+                <e-column field='Discontinued' headerText='Discontinued' width='150' textAlign='Center' displayAsCheckBox='true' type='boolean'></e-column>
             </e-columns>
         </ejs-grid>
     </div>
@@ -24,7 +25,7 @@
      <div id="description">
         <p>The filtering feature enables the user to view the reduced amount of records based on filter criteria.
             It can be enabled by setting <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowfiltering-boolean">allowFiltering
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowfiltering">allowFiltering
         </a></code> property as true. 
             A filter bar row will be rendered next to header which allows the end-users to filter data by entering text within its cells.</p>
          <p>Filterbar uses two modes which specifies how to start filtering. They are,</p>    
@@ -33,12 +34,21 @@
              <li><code>immediate</code> - Filter will start after user ends typing. This uses a time delay of <i>1500ms</i>
              to initiate filter after use stops typing. 
              It can be overridden using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#filtersettings-filtersettingsmodel">
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#filtersettings">
         filterSettings->immediateModeDelay
         </a></code> property.</li>
          </ul>
          <p>In this demo, you can either select the <strong>Category Name</strong> from the SELECT element or type the text in the 
           filter bar cells to filter the Grid. </p>
+          <p>Additionally, the grid records can also be filtered based on the selected filterbar operator. It can be enabled by setting
+         <br/>
+         <code>filterSettings->showFilterBarOperator</code> property as true.</p>
+         <p>In this demo, </p>
+         <ul>
+            <li>To enable or disable filterbar operator feature, check or uncheck the checkbox in the properties panel.</li>
+            <li>Now select the required filtering operator in the dropdown list on the filter bar cell and 
+                type the text in the filter bar cell to filter the Grid.</li>
+         </ul>
          <br>
          <p style="font-weight: 500">Injecting Module:</p>
         <p>
@@ -47,13 +57,25 @@
         </p>
           <p>
             More information on the filter configuration can be found in this 
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#filtersettings-filtersettingsmodel">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/filtering.html">documentation section</a>.
         </p>
     </div>
+</div>
 
+<div class="col-lg-3 property-section">
+    <table id="property" title="Properties" style="width: 100%">
+        <tr>
+            <div class="checkbox-control" style="padding-left: 0px">
+                <div class="row" style="padding-left: 5px">
+                    <ejs-checkbox label='Enable Filterbar Operator' labelPosition='Before' :change="filterbaroperator"></ejs-checkbox>
+                 </div>
+            </div>
+        </tr>
+    </table>
+</div>
 </div>
 </template>
-<style>
+<style scoped>
 @import "../../styles/Grid/filtering.css";
 </style>
 <script lang="ts">
@@ -61,9 +83,11 @@ import Vue from "vue";
 import { GridPlugin, Filter, Page, GridComponent } from "@syncfusion/ej2-vue-grids";
 import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { categoryData } from "./data-source";
+import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(GridPlugin);
 Vue.use(DropDownListPlugin);
+Vue.use(CheckBoxPlugin);
 
 export default Vue.extend({
   data: () => {
@@ -81,6 +105,14 @@ export default Vue.extend({
         } else {
             (<any>this.$refs.grid).filterByColumn('CategoryName', 'equal', e.value);
         }
+    },
+    filterbaroperator: function(args: any): void {
+        let grid = (document.getElementsByClassName('e-grid')[0] as any).ej2_instances[0]
+            if (args.checked) {
+                 grid.filterSettings.showFilterBarOperator = true;
+            } else {
+                grid.filterSettings.showFilterBarOperator = false;
+      }
     }
   },
   provide: {

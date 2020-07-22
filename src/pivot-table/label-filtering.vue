@@ -180,6 +180,7 @@ import {
 } from "@syncfusion/ej2-vue-inputs";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { FilterModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -188,7 +189,6 @@ Vue.use(DropDownListPlugin);
 Vue.use(MaskedTextBoxPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 let fieldCollections: { [key: string]: FilterModel } = {};
 let operators: string[] = [
   "Equals",
@@ -379,17 +379,24 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.e-pivotview {
+<style scoped>
+/deep/ .e-pivotview {
   width: 100%;
   height: 100%;
 }
 
-.pivottable-property-section table tr td:first-child {
+/deep/ .pivottable-property-section table tr td:first-child {
   width: 20%;
 }
 
-.pivottable-property-section {
+/deep/ .pivottable-property-section {
   overflow: auto;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

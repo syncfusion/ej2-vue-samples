@@ -51,7 +51,7 @@
                     </div>
                     <div class="row" style="padding-top: 10px">
                         <div class="col-xs-6" style="padding-left: 0px">
-                            <ejs-button ref="StartGroupAction" title="startGroupAction" id="StartGroupAction" style="width:100%;overflow: hidden;text-overflow: ellipsis" type="Button" isToggle=true :v-on:click='btnClick'>Start Group Action</ejs-button>
+                            <ejs-button ref="StartGroupAction" title="startGroupAction" id="StartGroupAction" style="width:100%;overflow: hidden;text-overflow: ellipsis" type="Button" isToggle=true >Start Group Action</ejs-button>
                         </div>
                         <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px">
                             <ejs-button ref="ClearHistory" id="ClearHistory" title="clearHistory">Clear History</ejs-button>
@@ -80,7 +80,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 #historyPropertySection .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -218,8 +218,8 @@ let redoButton;
 export default Vue.extend({
     data: function() {
         return {
-            width: "500px",
-            height: "580px",
+            width: "100%",
+            height: "600px",
             nodes: nodes,
             connectors: connectors,
             getNodeDefaults: getNodeDefaults,
@@ -239,6 +239,7 @@ export default Vue.extend({
     },
     mounted: function() {
         diagram = this.$refs.diagramObj.ej2Instances;
+        diagram.fitToPage();
         undoList = this.$refs.undoList.ej2Instances;
         redoList = this.$refs.redoList.ej2Instances;
         undoButton = this.$refs.undo.ej2Instances;

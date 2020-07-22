@@ -75,7 +75,7 @@ export default {
 };
 </script>
 <style>
- .chart-content, #container, .chart.e-control.e-accumulationchart{
+ .dashboard-seo .chart-content, .dashboard-seo #container, .dashboard-seo .chart.e-control.e-accumulationchart{
     height: 100%;
     width:100%;
   }

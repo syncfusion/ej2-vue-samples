@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-8 control-section multiline">
         <div class="multiline_wrapper">
-            <ejs-textbox ref="textareaObj" id="default" :multiline="true" floatLabelType="Auto" placeholder="Enter your address"></ejs-textbox>
+            <ejs-textbox ref="textareaObj" id="default" :multiline="true" :floatLabelType='floatLabelType' :enabled='enabled' :readonly='readOnly' placeholder="Enter your address"></ejs-textbox>
         </div>
     </div>
     <div class="col-lg-4 property-section">
@@ -49,7 +49,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
 .multiline_wrapper {
     margin: 40px 200px;
 }
@@ -89,25 +89,28 @@ export default Vue.extend({
         fields: { text: 'sizeTxt', value: 'sizeVal' },
           popupHeight: 200,
           currentIndex: 0,
+          floatLabelType: 'Auto',
+          enabled: true,
+          readOnly: false,
           floatHandler: (args) => {
             switch (args.value) {
                 case 'Auto':
-                    this.$refs.textareaObj.floatLabelType = 'Auto';
+                    this.floatLabelType = 'Auto';
                     break;
                 case 'Always':
-                    this.$refs.textareaObj.floatLabelType = 'Always';
+                    this.floatLabelType = 'Always';
                     break;
                 case 'Never':
-                    this.$refs.textareaObj.floatLabelType = 'Never';
+                    this.floatLabelType = 'Never';
                     break;
           }
           },
         
         enabledHandler: (args) => {
-           this.$refs.textareaObj.enabled = !args.checked;
+           this.enabled = !args.checked;
         },
         readonlyHandler: (args) => {
-          this.$refs.textareaObj.readonly = args.checked;
+          this.readOnly = args.checked;
         },
         rowHandler: (args) => {
           this.$refs.textareaObj.addAttributes({rows: args.value});

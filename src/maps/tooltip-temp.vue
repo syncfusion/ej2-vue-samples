@@ -17,7 +17,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
    .toolback {
        width: 100px;
        border-radius: 4px;

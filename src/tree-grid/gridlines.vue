@@ -29,7 +29,7 @@
 
     <div id="action-description">
     <p>
-        This sample demonstrates the default and template support of filterbar in TreeGrid.
+        This sample demonstrates the default and template support of filterbar in Tree Grid.
         In this sample, type the value in the filterbar and press enter to filter particular column or select the date value from filterbar template of Start Date column. The filtering is based on hierarchy mode.
     </p>
 </div>
@@ -46,9 +46,9 @@
         filterSettings->immediateModeDelay
         </code> property.</li>
     </ul>
-    <p>TreeGrid provides support for a set of filtering modes with <code>hierarchyMode</code> property. The below are the type of filter mode available in TreeGrid. </p>
+    <p>Tree Grid provides support for a set of filtering modes with <code>hierarchyMode</code> property. The below are the type of filter mode available in Tree Grid. </p>
     <ul>
-        <li><code>Parent</code> - This is the default filter hierarchy mode in TreeGrid. 
+        <li><code>Parent</code> - This is the default filter hierarchy mode in Tree Grid. 
         The filtered records are displayed with its parent records, if the filtered records not have any parent record then the filtered record only displayed.</li>
         <li><code>Child</code> - The filtered records are displayed with its child record, if the filtered records do not have any child record then only the filtered records are displayed.</li>
         <li><code>Both</code> - The filtered records are displayed with its both parent and child record.

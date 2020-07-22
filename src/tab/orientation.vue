@@ -177,12 +177,12 @@ Vue.use(TabPlugin);
 
 var Template1 = Vue.component("demo", {
   template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/1.png" ' +
+        '<div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" ' +
         'alt="Anne Dodsworth" /></div><div class="left info"><div class="name">Anne Dodsworth</div> <div class="role">' +
         'Product Manager</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/2.png" alt="Laura Callahan" /></div><div class="left info"><div class="name">' +
+        'src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div><div class="left info"><div class="name">' +
         'Laura Callahan</div> <div class="role">Team Lead</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="src/tab/Employees/3.png" alt="Andrew Fuller" /></div><div ' +
+        'class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div><div ' +
         'class="left info"><div class="name">Andrew Fuller</div> <div class="role">Developer</div></div></div></div></div>',
   data() {
     return {

@@ -9,7 +9,7 @@
         </ejs-chart>
  </div>
 </template>
-<style>
+<style scoped>
 
 </style>
 <script>

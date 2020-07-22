@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="control-section">
+    <div class="control-section rte-markdown-preview">
       <div class="sample-container">
         <div class="default-section">
           <div id="defaultRTE"> 
             <ejs-richtexteditor id="preview" ref="rteInstance" :toolbarSettings="toolbarSettings" :created="created" :actionBegin='handleFullScreen' :actionComplete='actionComplete' :editorMode="editorMode" :height="height">
-In RichTextEditor , you click the toolbar buttons to format the words and the changes are visible immediately. 
+In Rich Text Editor , you click the toolbar buttons to format the words and the changes are visible immediately. 
 Markdown is not like that. When you format the word in Markdown format, you need to add Markdown syntax to the word to indicate which words 
 and phrases should look different from each other
 
-RichTextEditor supports markdown editing when the editorMode set as **markdown** and using both *keyboard interaction* and *toolbar action*, you can apply the formatting to text.
+Rich Text Editor supports markdown editing when the editorMode set as **markdown** and using both *keyboard interaction* and *toolbar action*, you can apply the formatting to text.
 
 We can add our own custom formation syntax for the Markdown formation, [sample link](https://ej2.syncfusion.com/home/).
 
@@ -20,7 +20,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
     </div>
     <div id="action-description">
       <p>
-        This sample demonstrates how to preview markdown changes in rich text editor. 
+        This sample demonstrates how to preview markdown changes in Rich Text Editor. 
         Type or edit the display text, and apply format to view the preview of markdown. 
         You can preview the markdown changes immediately in the preview area.
       </p>
@@ -28,7 +28,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
 
     <div id="description">
       <p>
-        The rich text editor allows you to preview markdown changes immediately using <code>preview</code>. 
+        The Rich Text Editor allows you to preview markdown changes immediately using <code>preview</code>. 
         The third-party library <code>Marked</code> is used in this sample to convert markdown into HTML content.
       </p>
       <p><b>Injecting Module</b></p>
@@ -38,43 +38,42 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   </div>
 </template>
 <style>
-  .e-richtexteditor .e-rte-content .e-content{
+  .rte-markdown-preview .e-richtexteditor .e-rte-content .e-content{
     min-height: 150px;
   }
-  .e-richtexteditor .e-rte-content textarea.e-content {
+  .rte-markdown-preview .e-richtexteditor .e-rte-content textarea.e-content {
     float: left;
     border-right: 1px solid rgba(0, 0, 0, 0.12);
   }
-  .e-richtexteditor .e-rte-content {
+  .rte-markdown-preview .e-richtexteditor .e-rte-content {
     overflow: hidden;
   }
-  .e-md-preview::before {
+  .rte-markdown-preview .e-md-preview::before {
     content: '\e345';
   }
-  .e-rte-content .e-content.e-pre-source {
+  .rte-markdown-preview .e-rte-content .e-content.e-pre-source {
     width: 100%;
+  }
+  .rte-markdown-preview .e-icon-btn.e-active .e-md-preview.e-icons::before {
+    content: '\e350';
+  }
+  .bootstrap4 .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before {
+    content: '\e790';
+  }
+  .bootstrap4 .rte-markdown-preview .e-icon-btn .e-md-preview::before {
+    content: '\e787';
   }
   /* custom code start */
   .sb-header {
     z-index: 100;
   }
   /* custom code end */
-  .e-icon-btn.e-active .e-md-preview.e-icons::before {
-    content: '\e350';
-  }
-  .bootstrap4 .e-icon-btn.e-active .e-md-preview::before {
-    content: '\e790';
-  }
-  .bootstrap4 .e-icon-btn .e-md-preview::before {
-    content: '\e787';
-  }
   .sb-content.e-view.hide-header {
     top: 0 !important;
   }
   .sb-header.e-view.hide-header {
       display: none;
   }
-
 </style>
 
 <script>

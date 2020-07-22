@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div  class="badge-toolbar">
         <div class="col-lg-12 control-section">
-            <div class="sample_container badge-toolbar">
+            <div class="sample_container">
                 <ejs-toolbar id="toolbar">
                     <e-items>
                         <e-item :template="notification"></e-item>
@@ -26,27 +26,27 @@
 </template>
 
 <style>
-    .sample_container.badge-toolbar {
+    .badge-toolbar .sample_container {
         display: table;
         margin: auto;
         margin-top: 117px;
     }
 
     @media only screen and (max-width: 550px) {
-        .sample_container.badge-toolbar #toolbar .header {
+        .badge-toolbar .sample_container #toolbar .header {
             display: none;
         }
 
-        .material .sample_container.badge-toolbar .e-toolbar .e-toolbar-items:first-child>.e-toolbar-item:last-child {
+        .material .badge-toolbar .sample_container .e-toolbar .e-toolbar-items:first-child>.e-toolbar-item:last-child {
             margin-right: 9px;
         }
 
-        .bootstrap .sample_container.badge-toolbar .e-toolbar .e-toolbar-items:first-child>.e-toolbar-item:last-child {
+        .bootstrap .badge-toolbar .sample_container .e-toolbar .e-toolbar-items:first-child>.e-toolbar-item:last-child {
             margin-right: 10px;
         }
     }
 
-    .sample_container.badge-toolbar .badge-block {
+    .badge-toolbar .sample_container .badge-block {
         position: relative;
         display: inline-block;
         margin: 20px 13px 10px 10px;

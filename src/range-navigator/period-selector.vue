@@ -77,7 +77,7 @@
 </div>
 </div></div>
 </template>
-<style>
+<style scoped>
 .e-switch-wrapper {
   margin-top: 5%;
 }

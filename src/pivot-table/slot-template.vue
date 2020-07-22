@@ -1,8 +1,8 @@
   
 <template>
-<div v-if="getCellContent(data) !== ''">
+<span v-if="getCellContent(data) !== ''">
     <span class="template-wrap" v-html=getCellContent(data)></span>
-</div>
+</span>
 </template>
 
 <script lang='ts'>

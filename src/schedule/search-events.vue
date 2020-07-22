@@ -80,7 +80,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     .header-customization {
         padding-bottom: 10px;
     }

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="file-api">
 		<div class="col-lg-8 control-section">
 			<div class="sample-container">
 			   <ejs-filemanager id="file" ref="fileObject" :ajaxSettings='ajaxSettings' :view='view'
@@ -37,15 +37,15 @@
 </template>
 
 <style>
-    .property-panel-table div {
+    .file-api .property-panel-table div {
         padding-top: 0;
     }
 
-    #tool {
+    .file-api #tool {
         padding-top: 5px;
     }
 
-    #tool_toggle {
+    .file-api #tool_toggle {
         width: 100px;
     }
 
@@ -90,7 +90,7 @@ export default Vue.extend ({
 			if (args.event.currentTarget.id === "toolbar") {
 			    fileobj.toolbarSettings.visible = args.checked;
 		    }
-        }   
+        }
     }
 });
 </script>

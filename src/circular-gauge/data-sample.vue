@@ -346,7 +346,7 @@ export default Vue.extend({
     }
 })
 </script>
-<style>
+<style scoped>
 #templateWrap img {
     width: 16px;
     height: 16px;

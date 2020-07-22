@@ -49,7 +49,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     /**
     * ej2 Menu styles customization
     */

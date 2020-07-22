@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :annotations='annotations' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad' :loaded='gaugeLoaded' :resized='gaugeResized'>
+<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad'>
 <e-axes>
 <e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
 <e-pointers>
@@ -39,14 +39,14 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
   #control-container {
         padding: 0px !important;
     }
 </style>
 <script>
 import Vue from "vue";
-import { LinearGaugePlugin, Annotations, GaugeTooltip } from "@syncfusion/ej2-vue-lineargauge";
+import { LinearGaugePlugin, GaugeTooltip } from "@syncfusion/ej2-vue-lineargauge";
 Vue.use(LinearGaugePlugin);
 export default Vue.extend({
  data:function(){
@@ -93,28 +93,10 @@ export default Vue.extend({
         offset2: -15,
         value2: 16.5,
         color2: '#4d94ff',
-        annotations: [
-            {
-                content: '<div id="first"><h1 style="font-size:15px;color: #686868"">Inches</h1></div>',
-                axisIndex: 0,
-                axisValue: 5.4,
-                x: 35,
-                y: -58,
-                zIndex: '1'
-            },
-            {
-                content: '<div id="second"><h1 style="font-size:15px;color: #686868"">Centimeters</h1></div>',
-                axisIndex: 1,
-                axisValue: 16.5,
-                x: 50,
-                y: 52,
-                zIndex: '1'
-            }
-        ]
     }
  },
  provide: {
-    lineargauge: [Annotations, GaugeTooltip]
+    lineargauge: [GaugeTooltip]
 },
 methods: {
     renderTooltip: function(args){
@@ -125,67 +107,12 @@ methods: {
         args.text = '';
     }
     },
-    gaugeResized: function(args){
-        // let cotainerObj=document.getElementById('tooltipContainer');
-        if (args.currentSize.width < 500) {
-        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 2;
-        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 1;
-        this.$refs.lineargauge.ej2Instances.orientation = 'Vertical';
-        this.$refs.lineargauge.ej2Instances.annotations[0].x = -57;
-        this.$refs.lineargauge.ej2Instances.annotations[0].y = -30;
-        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
-        this.$refs.lineargauge.ej2Instances.annotations[1].y = -45;
-    } else {
-        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 1;
-        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 0.5;
-        this.$refs.lineargauge.ej2Instances.orientation = 'Horizontal';
-        this.$refs.lineargauge.ej2Instances.annotations[0].x = 35;
-        this.$refs.lineargauge.ej2Instances.annotations[0].y = -58;
-        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
-        this.$refs.lineargauge.ej2Instances.annotations[1].y = 52;
-    }
-    },
     gaugeLoad: function(args){
         /* custom code start */
-    // let cotainerObj=document.getElementById('tooltipContainer');
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : 'Material';
     args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1));
-    if (args.gauge.theme.toLowerCase().indexOf('dark') > 1 || args.gauge.theme.toLowerCase() === 'highcontrast') {
-        args.gauge.annotations[0].content = '<div id="first"><h1 style="font-size:15px; color: #DADADA">Inches</h1></div>';
-        args.gauge.annotations[1].content = '<div id="second"><h1 style="font-size:15px; color: #DADADA">Centimeters</h1></div>';
-    }
     /* custom code end */
-    let width = parseInt(((this.$refs.lineargauge.ej2Instances.width, this.$refs.lineargauge.ej2Instances.element.offsetWidth) || this.$refs.lineargauge.ej2Instances.element.offsetWidth || 600), 10);
-    if (width < 500) {
-        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 2;
-        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 1;
-        this.$refs.lineargauge.ej2Instances.orientation = 'Vertical';
-        this.$refs.lineargauge.ej2Instances.annotations[0].x = -57;
-        this.$refs.lineargauge.ej2Instances.annotations[0].y = -30;
-        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
-        this.$refs.lineargauge.ej2Instances.annotations[1].y = -45;
-    } else {
-        this.$refs.lineargauge.ej2Instances.axes[1].majorTicks.interval = 1;
-        this.$refs.lineargauge.ej2Instances.axes[1].minorTicks.interval = 0.5;
-        this.$refs.lineargauge.ej2Instances.orientation = 'Horizontal';
-        this.$refs.lineargauge.ej2Instances.annotations[0].x = 35;
-        this.$refs.lineargauge.ej2Instances.annotations[0].y = -58;
-        this.$refs.lineargauge.ej2Instances.annotations[1].x = 50;
-        this.$refs.lineargauge.ej2Instances.annotations[1].y = 52;
-    }
-    },
-    gaugeLoaded: function(args){
-        // let cotainerObj=document.getElementById('tooltipContainer');
-        if (document.getElementById('tooltipContainer')) {
-        if (this.$refs.lineargauge.ej2Instances.availableSize.width < 500) {
-            document.getElementById('tooltipContainer_Annotation_0').style.transform = 'rotate(270deg)';
-            document.getElementById('tooltipContainer_Annotation_1').style.transform = 'rotate(270deg)';
-        } else {
-            document.getElementById('tooltipContainer_Annotation_0').style.transform = '';
-            document.getElementById('tooltipContainer_Annotation_1').style.transform = '';
-        }
-    }
     }
 }
 });

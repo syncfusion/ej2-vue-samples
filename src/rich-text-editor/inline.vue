@@ -27,14 +27,14 @@
 </div>
 
 <div id="description">
-    <p>The rich text editor provides an option to display toolbar on demand using mode property. Set mode as inline to enable
+    <p>The Rich Text Editor provides an option to display toolbar on demand using mode property. Set mode as inline to enable
         inline editor. The toolbar becomes visible only when the content is selected</p>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .e-richtexteditor.e-rte-inline  .e-rte-content, .e-richtexteditor.e-rte-inline .e-source-content {
     background: #fff;
     color: #333;

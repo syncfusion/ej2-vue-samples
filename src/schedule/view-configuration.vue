@@ -41,7 +41,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .e-schedule .e-agenda-view .e-appointment .subject {
         font-size: 14px;
     }

@@ -28,7 +28,7 @@
         </div> 
     </div>
 </template>
-<style>
+<style scoped>
     /* custom code start*/
     @font-face {
         font-family: 'Schedule_print';

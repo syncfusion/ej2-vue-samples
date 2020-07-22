@@ -11,7 +11,9 @@
             <div id='icon' class='col-lg-6'>
                 <div class="content">
                     <h3> Icons</h3>
-                    <ejs-autocomplete id='icons' :showPopupButton='true' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields'></ejs-autocomplete>
+                    <ejs-autocomplete id='icons' :showPopupButton='true' 
+                    cssClass='autocomplete-icon-css'
+                    :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields'></ejs-autocomplete>
                 </div>
             </div>
         </div>
@@ -35,7 +37,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .content {
         width: 250px;
         margin: 0 auto;
@@ -55,53 +57,57 @@
         font-style: normal;
     }
 
-    .e-list-icon {
+    
+</style>
+    
+<style>
+    .autocomplete-icon-css .e-list-icon {
         font-family: 'Socialicons' !important;
         color: rgba(0, 0, 0, .57);
     }
-    .highcontrast .e-list-icon {
+    .highcontrast .autocomplete-icon-css .e-list-icon {
         color: rgba(255, 255, 255, 0.57);
     }
-    .bootstrap4 .e-list-icon {
+    .bootstrap4 .autocomplete-icon-css .e-list-icon {
         color: #495057;
     }
-    .twitter:before {
+    .autocomplete-icon-css .twitter:before {
         content: "\a701";
     }
 
-    .vimeo:before {
+    .autocomplete-icon-css .vimeo:before {
         content: "\a702";
     }
 
-    .youtube:before {
+    .autocomplete-icon-css .youtube:before {
         content: "\a709";
     }
 
-    .whatsapp:before {
+    .autocomplete-icon-css .whatsapp:before {
         content: "\a700";
     }
 
-    .skype:before {
+    .autocomplete-icon-css .skype:before {
         content: "\a708";
     }
 
-    .instagram:before {
+    .autocomplete-icon-css .instagram:before {
         content: "\a703";
     }
 
-    .google-plus:before {
+    .autocomplete-icon-css .google-plus:before {
         content: "\a706";
     }
 
-    .facebook:before {
+    .autocomplete-icon-css .facebook:before {
         content: "\a705";
     }
 
-    .tumblr:before {
+    .autocomplete-icon-css .tumblr:before {
         content: "\a707";
     }
 
-    .linkedin:before {
+    .autocomplete-icon-css .linkedin:before {
         content: "\a704";
     }
 </style>

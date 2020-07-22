@@ -1,5 +1,5 @@
 <template>
-  <div class="control-section">
+  <div class="control-section tooltip-ajax">
       <ejs-tooltip ref="tooltip" style="display:block;" class="e-prevent-select" :content="content" target="#countrylist [title]" position='RightCenter' cssClass= 'e-ajax-content'
         :beforeRender="onBeforeRender">
 
@@ -24,7 +24,7 @@
    
 </template>
 <style>
-   .contentWrap {
+    .e-ajax-content .contentWrap {
         padding: 3px 0;
         line-height: 16px;
     }
@@ -54,35 +54,35 @@
         vertical-align: middle;
     }
 
-    .sports-icon-cricket:before {
+    .e-ajax-content .sports-icon-cricket:before {
         content: "\e703";
     }
 
-    .sports-icon-archery:before {
+    .e-ajax-content .sports-icon-archery:before {
         content: "\e705";
     }
 
-    .sports-icon-table-tennis:before {
+    .e-ajax-content .sports-icon-table-tennis:before {
         content: "\e702";
     }
 
-    .sports-icon-baseball:before {
+    .e-ajax-content .sports-icon-baseball:before {
         content: "\e706";
     }
 
-    .sports-icon-hockey:before {
+    .e-ajax-content .sports-icon-hockey:before {
         content: "\e701";
     }
 
-    .sports-icon-shooting:before {
+    .e-ajax-content .sports-icon-shooting:before {
         content: "\e700";
     }
 
-    .def {
+    .e-ajax-content .def {
         float: right;
     }
 
-    #countrylist {
+    .tooltip-ajax #countrylist {
         border: 1px solid #dddddd;
         border-radius: 3px;
         max-width: 170px;
@@ -90,17 +90,17 @@
         overflow: hidden;
     }
 
-    .list-header {
+    .tooltip-ajax .list-header {
         text-align: center;
         color: rgba(0, 0, 0, 0.54);
     }
 
     @media (max-width: 481px) {
-        #countrylist {
+        .tooltip-ajax #countrylist {
             margin: 0;
         }
 
-        .list-header {
+        .tooltip-ajax .list-header {
             text-align: left;
         }
     }
@@ -151,7 +151,7 @@ export default Vue.extend({
    methods: {
        onBeforeRender: function(args){
             
-   let ajax = new Ajax('./src/tooltip/tooltipdata.json', 'GET', true);
+   let ajax = new Ajax('./source/tooltip/tooltipdata.json', 'GET', true);
         ajax.onSuccess = (data) => {
             data = JSON.parse(data);
             for (var i = 0; i < data.length; i++) {

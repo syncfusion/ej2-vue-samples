@@ -10,7 +10,7 @@
     </div>
 
     <div id="diagram-space" class="sb-mobile-diagram">
-      <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dragEnter='dragEnter'
+      <ejs-diagram style='display:block' id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' 
                     :snapSettings='snapSettings' :created='created'></ejs-diagram>
     </div>
   </div>
@@ -28,7 +28,7 @@
   </div>
 </div>
 </template>
-<style>
+<style scoped>
     #umlActivityDiagram .sb-mobile-palette {
         width: 210px;
         height: 100%;
@@ -406,6 +406,12 @@ export default Vue.extend({
         return { fit: true };
       }
     };
+  },
+  mounted: function() {
+    let rect = document.getElementById('diagram-space').getBoundingClientRect();
+    let panX = (rect.width - rect.x)/ 2;
+    let diagram = this.$refs.diagramObj.ej2Instances;
+    diagram.pan(panX, 0);
   }
 });
 

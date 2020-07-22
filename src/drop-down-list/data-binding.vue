@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section ddl-databinding">
-        <div class="col-lg-9 content-wrapper ddl-data-binding">
+        <div class="col-lg-9 ddl-data-binding">
             <div id='local' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
                 <div style="width: 250px;margin: 0 auto;">
                     <h4> Local Data</h4>
@@ -50,7 +50,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .property-panel-content {
         padding: 0 10px 10px 0;
     }

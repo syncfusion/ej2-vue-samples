@@ -43,7 +43,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 
 /* Switch Styles */
 .content-wrapper {

@@ -111,6 +111,7 @@ import {
 } from "@syncfusion/ej2-vue-dropdowns";
 import { GridLine } from "@syncfusion/ej2-vue-grids";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -118,7 +119,6 @@ Vue.use(CheckBoxPlugin);
 Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -177,8 +177,8 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
 }
 </style>

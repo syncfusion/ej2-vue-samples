@@ -38,7 +38,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 #control-containerFilter {
   padding: 0px !important;
 }

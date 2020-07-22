@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="col-lg-6 ">
-        <div class="control_wrapper">
+        <div class="control_wrapper two-way">
             <div id="container" style="overflow:auto">
               <ejs-calendar id="calendar" v-model="date"></ejs-calendar>
             </div>
@@ -45,7 +45,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 #date_label {
   display: block;
   width: 248px;

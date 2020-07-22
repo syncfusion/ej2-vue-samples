@@ -38,6 +38,9 @@
 import Vue from "vue";
 import { ToastPlugin, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+
+Vue.use(ButtonPlugin);
 Vue.use(ToastPlugin);
 let ShowBtn = undefined;
 export default Vue.extend({

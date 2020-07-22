@@ -20,7 +20,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     #tab_default .e-content .e-item {
         font-size: 12px;
         padding: 10px;

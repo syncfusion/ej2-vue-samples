@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
        <div align='center'>
-        <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart'
+        <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart-zooming'
             :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
             <e-series-collection>
                 <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' fill='url(#gradient-chart)' :border='border'>
@@ -59,7 +59,7 @@
 
   </div>
   </template>
-  <style>
+  <style scoped>
   #gradient-chart stop {
 		stop-color: #BDEDE9;
 	}

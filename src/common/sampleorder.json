@@ -11,14 +11,15 @@
     "Stock Chart",
     "Maps",
     "TreeMap",
-    "Heatmap Chart",
+    "HeatMap Chart",
     "Circular Gauge",
     "Linear Gauge",
     "Range Selector",
     "Sparkline Charts",
     "Smith Chart",
     "Barcode",
-    "Bullet Chart"
+    "Bullet Chart",
+    "Kanban"
   ],
   "Editors": [
     "Rich Text Editor",
@@ -40,6 +41,7 @@
     "AutoComplete",
     "ComboBox",
     "Dropdown List",
+    "Dropdown Tree",
     "MultiSelect Dropdown",
     "List Box"
   ],
@@ -55,7 +57,8 @@
   ],
   "Notifications": [
     "Badge",
-    "Toast"
+    "Toast",
+    "Progressbar"
   ],
   "Inputs": [
     "TextBox",

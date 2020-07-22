@@ -71,13 +71,6 @@
 
    
 </template>
-<style>
- #Tooltip {
-        position: absolute;
-        left: calc( 50% - 60px);
-        top: 45%;
-    }
-</style>
 <script>
 import Vue from "vue";
 import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";

@@ -36,15 +36,15 @@
     </div>
 
    <div id="action-description">
-            <p>This sample demonstrates all the events that have been triggered on all the TreeGrid operations with the help of Event Trace
+            <p>This sample demonstrates all the events that have been triggered on all the Tree Grid operations with the help of Event Trace
                 panel.
             </p>
         </div>
         <div id="description">
-            <p>The TreeGrid triggers events based on its actions. The events can be used as an extension
+            <p>The Tree Grid triggers events based on its actions. The events can be used as an extension
                 point to perform custom operations.
             </p>
-            <p>In this demo, perform TreeGrid actions like paging, sorting, reordering, filtering etc. and see
+            <p>In this demo, perform Tree Grid actions like paging, sorting, reordering, filtering etc. and see
                 the <strong>Event Trace</strong> panel for the events emitted.
             </p>
             <p>More information on the Grid events can be found in the documentation section.
@@ -53,7 +53,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
         #EventLog b{
             color: #388e3c;
         }
@@ -97,49 +97,49 @@ export default Vue.extend({
         log.insertBefore(span, log.firstChild);
     },
     beginEdit(): void {
-        this.appendElement('TreeGrid <b>beginEdit</b> event called<hr>');
+        this.appendElement('Tree Grid <b>beginEdit</b> event called<hr>');
     },
     columnDragStart(): void {
-        this.appendElement('TreeGrid <b>columnDragStart</b> event called<hr>');
+        this.appendElement('Tree Grid <b>columnDragStart</b> event called<hr>');
     },
     columnDrop(): void {
-        this.appendElement('TreeGrid <b>columnDrop</b> event called<hr>');
+        this.appendElement('Tree Grid <b>columnDrop</b> event called<hr>');
     },
     columnDrag(): void {
-        this.appendElement('TreeGrid <b>columnDrag</b> event called<hr>');
+        this.appendElement('Tree Grid <b>columnDrag</b> event called<hr>');
     },
     load(): void {
-        this.appendElement('TreeGrid <b>load</b> event called<hr>');
+        this.appendElement('Tree Grid <b>load</b> event called<hr>');
     },
     create(): void {
-        this.appendElement('TreeGrid <b>create</b> event called<hr>');
+        this.appendElement('Tree Grid <b>create</b> event called<hr>');
     },
     actionBegin(): void {
-        this.appendElement('TreeGrid <b>actionBegin</b> event called<hr>');
+        this.appendElement('Tree Grid <b>actionBegin</b> event called<hr>');
     },
     actionComplete(): void {
-        this.appendElement('TreeGrid <b>actionComplete</b> event called<hr>');
+        this.appendElement('Tree Grid <b>actionComplete</b> event called<hr>');
     },
     dataBound(): void {
-        this.appendElement('TreeGrid <b>dataBound</b> event called<hr>');
+        this.appendElement('Tree Grid <b>dataBound</b> event called<hr>');
     },
     rowSelecting(): void {
-        this.appendElement('TreeGrid <b>rowSelecting</b> event called<hr>');
+        this.appendElement('Tree Grid <b>rowSelecting</b> event called<hr>');
     },
     rowSelected(): void {
-        this.appendElement('TreeGrid <b>rowSelected</b> event called<hr>');
+        this.appendElement('Tree Grid <b>rowSelected</b> event called<hr>');
     },
     rowDeselecting(): void {
-        this.appendElement('TreeGrid <b>rowDeselecting</b> event called<hr>');
+        this.appendElement('Tree Grid <b>rowDeselecting</b> event called<hr>');
     },
     rowDeselected(): void {
-        this.appendElement('TreeGrid <b>rowDeselected</b> event called<hr>');
+        this.appendElement('Tree Grid <b>rowDeselected</b> event called<hr>');
     },
     expanded(): void {
-        this.appendElement('TreeGrid <b>expanded</b> event called<hr>');
+        this.appendElement('Tree Grid <b>expanded</b> event called<hr>');
     },
     collapsed(): void {
-        this.appendElement('TreeGrid <b>collapsed</b> event called<hr>');
+        this.appendElement('Tree Grid <b>collapsed</b> event called<hr>');
     },
     clear(): void {
         (<HTMLElement>document.getElementById('EventLog')).innerHTML = '';

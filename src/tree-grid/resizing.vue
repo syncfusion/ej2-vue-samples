@@ -15,12 +15,12 @@
     </div>
 
    <div id="action-description">
-    <p>This sample demonstrates the TreeGrid column resizing feature. Click and drag at the right corner of each column header to resize the column.
+    <p>This sample demonstrates the Tree Grid column resizing feature. Click and drag at the right corner of each column header to resize the column.
     </p>
 </div>
 <div id="description">
-    <p>The TreeGrid columns can be resized by clicking and dragging at the right edge of columns header. Set <code>allowResizing
-        </code> property as true, to enable column resizing behavior in treegrid. You can also prevent the resize of the particular column by setting
+    <p>The Tree Grid columns can be resized by clicking and dragging at the right edge of columns header. Set <code>allowResizing
+        </code> property as true, to enable column resizing behavior in Tree Grid. You can also prevent the resize of the particular column by setting
         <code>columns->allowResizing
         </code> as false in columns definition.
     </p>
@@ -33,7 +33,7 @@
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
-            TreeGrid features are segregated into individual feature-wise modules. 
+            Tree Grid features are segregated into individual feature-wise modules. 
             To use resize feature, we need to inject
             <code>Resize</code> module into the <code>provide</code> section. 
     </p>

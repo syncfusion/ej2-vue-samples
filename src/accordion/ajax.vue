@@ -112,7 +112,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
 
     @-moz-document url-prefix() {
       .e-accordion .e-content table {

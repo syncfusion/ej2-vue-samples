@@ -167,7 +167,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 #templateWrap img {
     border-radius: 30px;
     width: 30px;

@@ -28,12 +28,12 @@
 
     <div id="action-description">
     <p>
-        This samples demonstrates the way of preventing editing for certain row and disable the locked rows to differentiate edit and non-editable rows in TreeGrid.
+        This samples demonstrates the way of preventing editing for certain row and disable the locked rows to differentiate edit and non-editable rows in Tree Grid.
     </p>
 </div>
 <div id="description">
     <p>
-        The TreeGrid supports CRUD operations. This CRUD operations can be configured in TreeGrid using <code>editSettings</code>. Also, it has different modes to manipulate the datasource.
+        The Tree Grid supports CRUD operations. This CRUD operations can be configured in Tree Grid using <code>editSettings</code>. Also, it has different modes to manipulate the datasource.
     </p>
     <p>
         The available modes are,
@@ -44,11 +44,11 @@
         <li><code>Dialog</code></li>
     </ul>
     <p>
-        In this sample, we have provided an option in property panel to prevent editing for certain rows. Using <code>beginEdit</code>  event of treegrid, we prevent the editing for selected Task ID row in the dropdown and disable the corresponding row using <code>rowDataBound</code> event of TreeGrid.
+        In this sample, we have provided an option in property panel to prevent editing for certain rows. Using <code>beginEdit</code>  event of Tree Grid, we prevent the editing for selected Task ID row in the dropdown and disable the corresponding row using <code>rowDataBound</code> event of Tree Grid.
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
-        TreeGrid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
+        Tree Grid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
         <code>
         Edit
         </code> module into the <code>provide</code> method.
@@ -56,7 +56,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     .material .disableRow .e-rowcell{
         color: rgba(0, 0, 0, .38);
     }
@@ -94,7 +94,7 @@ Vue.use(CheckBoxPlugin)
 export default  Vue.extend({
   data: () => {
     return {
-      data: sampleData,
+      data: sampleData.slice(0),
       editSettings: { allowEditing: true, mode: 'Row' },
       pageSettings: {pageSize: 10},
       editparams : { params: { format: 'n' } },
@@ -130,7 +130,6 @@ export default  Vue.extend({
         beginEdit: function(args: BeginEditArgs) {
                 let key = 'taskID';
                 let value:Object[] = <Object[]>(<MultiSelectComponent>this.$refs.rows).ej2Instances.value;
-                debugger;
                 let rowval = getValue('taskID', args.rowData);
                 if (value.indexOf(rowval) !== -1) {
                     args.cancel = true;

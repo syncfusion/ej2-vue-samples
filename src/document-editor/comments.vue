@@ -1,33 +1,38 @@
 <template>
-<div class="control-section">
-  <div class="sample-container">
+<div>                
+    <div class="control-section">
+    <div class="sample-container">
         <div class="default-section">
             <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
-                    <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
-                </div>    
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
-                <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
+                    <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
+                </div>
+                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>            
+            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34'
+            :commentDelete="commentDelete"></ejs-documenteditorcontainer>
         </div>
-  </div>
-  <div id="action-description">
-        <p>This example demonstrates how to add and edit comments in a Word document using DocumentEditor.</p>
-  </div>
-  <div id="description">
-        <div>
-            <p>In this example, comments features in the document editor can be found.</p>
+    </div>
+</div>
+<div id="action-description">
+    <p>This example demonstrates how to add and edit comments in a Word document using DocumentEditor.</p>
+</div>
+<div id="description">
+    <div>
+        <p>In this example, comments features in the document editor can be found.</p>
         <ul>
             <li>Add a comment.</li>
             <li>Reply to a comment.</li>
             <li>Resolving the comment discussion.</li>
         </ul>
-            <p style="display: block"> More information about the document editor features can be found in this <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
-            </p>
-        </div>
-  </div>
-</div>    
+        <p style="display: block"> More information about the document editor features can be found in this <a
+                target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation
+                section.</a>
+        </p>
+    </div>
+</div>
+</div>
 </template>
 <style>
 
@@ -85,17 +90,15 @@
 import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import * as data from "./data-comments.json";
-
+import { comments } from "./data";
+import { DialogUtility } from '@syncfusion/ej2-popups';
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
-
-
 export default Vue.extend({
   components: {
     },
     data: function() {
-        return {
+        return {           
           hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
           documentName : 'Comments',
           documentTitle: 'Untitled Document',
@@ -113,7 +116,7 @@ export default Vue.extend({
     provide:{
         DocumentEditorContainer:[Toolbar]
     },
-      methods: {
+      methods: {        
         onExport: function (args) {
             switch (args.item.id) {
                 case 'word':
@@ -164,6 +167,19 @@ export default Vue.extend({
             document.getElementById("documenteditor_title_contentEditor").focus();
             window.getSelection().selectAllChildren(document.getElementById("documenteditor_title_contentEditor"));
         },
+         commentDelete:function(args) 
+        {  var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
+            if (args.author !== obj.currentUser) 
+            {
+                        args.cancel = true;
+                        DialogUtility.alert({
+                            title: 'Information',
+                            content: "Delete restriction enabled. Only the author of the comment can delete it.",
+                            showCloseIcon: true,
+                            closeOnEscape: true,
+                });
+            }
+        },
         documentChangedEvent: function () {
             var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
             this.documentTitle = obj.documentName === '' ? 'Untitled Document' : obj.documentName;
@@ -171,19 +187,20 @@ export default Vue.extend({
             setTimeout(() => { obj.scrollToPage(1); }, 10);
         }
     },
-    mounted() {
+    mounted() {       
         this.$nextTick(function () {
-          this.$refs.doceditcontainer.ej2Instances.locale='en-US';
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-          this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;
-          obj.currentUser = 'Nancy Davolio';
-          obj.open(JSON.stringify(data));
+          this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;          
+          obj.open(JSON.stringify(comments));
           obj.documentName='Comments';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
+          this.$refs.doceditcontainer.ej2Instances.documentEditor.showComments = true;
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
-                this.documentChangedEvent();
+          this.documentChangedEvent();
             };
        });
+
+       
     }
 });
 </script>

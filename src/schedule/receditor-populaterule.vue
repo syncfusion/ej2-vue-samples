@@ -29,7 +29,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     .recurrence-editor-wrap {
         margin: 0 25%;
     }

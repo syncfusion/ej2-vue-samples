@@ -24,19 +24,19 @@
 
 <style>
 	/* custom code start */
-    .control-section {
+    .control-section.ajaxsample {
         height: 100%;
         min-height: 350px;
     }
     /* custom code end */
-    .ajaxsample .e-dialog .e-dlg-header >img.img1 {
+    .ajaxsample .e-dialog .e-dlg-header > img.img1 {
         height: 20px;
         width: 20px;
 		margin-right: 10px;
         margin-top: 4px;
         float: left;
     }
-    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header >img.img1 {
+    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1 {
         margin-top: 0px;
     }
     .ajaxsample .e-footer-content button.e-control.e-btn.e-flat {
@@ -66,7 +66,7 @@
     .highcontrast .ajaxsample .e-dialog .e-dlg-content {
         padding: 28px 25px 19px;
     }
-	.e-bigger.e-dialog .e-footer-content .e-btn, .e-bigger .e-dialog .e-footer-content .e-btn{
+	.ajaxsample .e-bigger.e-dialog .e-footer-content .e-btn, .ajaxsample .e-bigger .e-dialog .e-footer-content .e-btn{
 	   margin-left: 0px;
     }
 	.ajaxsample .e-footer-content button.e-control.e-btn.e-flat {
@@ -88,21 +88,18 @@ let ShowBtn = undefined;
 export default Vue.extend({
     data: function() {
         return {
-            header: '<img class="img1" src="src/dialog/images/dialog-img2.png">Whats Coming from Microsoft this Fall',
+            header: '<img class="img1" src="./source/dialog/images/dialog-img2.png">Whats Coming from Microsoft this Fall',
             target:'.control-section',
             showCloseIcon:  true,
             ajaxHeight:  '300px',
             width:'500px',
             animationSettings: { effect: 'None' },
-            innerContent1: 'On October 17, Microsoft will release its Fall Creators Update for the Windows 10 platform.',
-            innerContent2: 'Much like its previous counter part, the Spring Creators Update ...',
             contentData: 'On October 17, Microsoft will release its Fall Creators Update for the Windows 10 platform.'
             + 'Much like its previous counterpart, the Spring Creators Update, the release is set to deliver more features'
             + 'to Windows 10 for both developers and users, with particular emphasis this time around on app modernization'
             + 'mixed reality, and game development and software updates App modernization is the term Microsoft used in' 
             + 'its press event to encompass the features that will affect most Windows 10 users. and'
             + 'The updates primarily serve to make using Windows 10  easier and more productive all around. Some significant highlights include device',
-            content: this.innerContent1 + this.innerContent2,
             dlgButtons: [{ click: this.dlgButtonClick.bind(this), buttonModel: { isPrimary:'true', content: 'More Details' } }],
             ShowBtn: false
         }
@@ -121,12 +118,12 @@ export default Vue.extend({
             if (document.querySelector('.e-footer-content .e-btn').textContent === 'More Details') {
                 let ajax = new Ajax('./src/dialog/blog.html', 'GET', true);
                 ajax.onSuccess = (data) => {
-                    this.$refs.dialogObj.content = data;
+                    this.$refs.dialogObj.ej2Instances.content = data;
                 };                
                 ajax.send();                
                 document.querySelector('.e-footer-content .e-btn').textContent = 'Less Details';
             } else {
-                this.$refs.dialogObj.content = this.contentData;
+                this.$refs.dialogObj.ej2Instances.content = this.contentData;
                 document.querySelector('.e-footer-content .e-btn').textContent = 'More Details';
             }
         }

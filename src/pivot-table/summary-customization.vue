@@ -108,13 +108,13 @@ import {
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 enableRipple(false);
 import { RadioButtonPlugin, ChangeArgs } from "@syncfusion/ej2-vue-buttons";
+import { Pivot_Data } from "./data-source";
 
 Vue.use(RadioButtonPlugin);
 Vue.use(PivotViewPlugin);
 Vue.use(MultiSelectPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 export default Vue.extend({
   data: () => {
     return {
@@ -252,20 +252,27 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#PivotView_PivotFieldList {
+<style scoped>
+/deep/ #PivotView_PivotFieldList {
   width: auto !important;
 }
 
-#pivotview {
+/deep/ #pivotview {
   width: 100%;
 }
 
-.pivot-table-property-section {
+/deep/ .pivot-table-property-section {
     overflow: auto;
 }
 
-.pivot-table-property-section .e-multiselect {
+/deep/ .pivot-table-property-section .e-multiselect {
     padding: 0;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

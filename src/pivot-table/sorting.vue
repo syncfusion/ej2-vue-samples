@@ -80,6 +80,7 @@ import {
   ChangeEventArgs as dropEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -88,7 +89,6 @@ Vue.use(ButtonPlugin);
 Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -205,20 +205,27 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.e-pivottable .e-static {
+<style scoped>
+/deep/ .e-pivottable .e-static {
   width: 80% !important;
 }
 
-.hdrlabel {
+/deep/ .hdrlabel {
   font-size: 13px;
 }
 
-.e-bigger .hdrlabel {
+/deep/ .e-bigger .hdrlabel {
   font-size: 14px;
 }
 
-#pivotview {
+/deep/ #pivotview {
   width: 100%;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

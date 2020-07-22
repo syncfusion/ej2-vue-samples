@@ -95,7 +95,7 @@ export default Vue.extend({
   }
 });
 </script>
-<style>
+<style scoped>
 
 #component_wrapper {
   display: block;

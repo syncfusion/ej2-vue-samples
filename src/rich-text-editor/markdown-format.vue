@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="control-section">
+    <div class="control-section rte-markdown-custom-format">
       <div class="sample-container">
         <div class="default-section">
           <div id="defaultRTE">
@@ -20,7 +20,7 @@
     </div>
 
     <div id="description">
-      The rich text editor allows you to customize the markdown syntax by overriding its default syntax. Configure the customized
+      The Rich Text Editor allows you to customize the markdown syntax by overriding its default syntax. Configure the customized
       markdown syntax using the <code>formatter</code>property
       <p>
         <b>Injecting Module</b>
@@ -37,25 +37,25 @@
 </template>
 
 <style>
-  .e-richtexteditor textarea.e-content {
+  .rte-markdown-custom-format .e-richtexteditor textarea.e-content {
     float: left;
   }
-  .e-richtexteditor .e-rte-content {
+  .rte-markdown-custom-format .e-richtexteditor .e-rte-content {
     overflow: hidden;
   }
-  .e-md-preview::before {
+  .rte-markdown-custom-format .e-md-preview::before {
     content: "\e345";
   }
-  .e-rte-content .e-content.e-pre-source {
+  .rte-markdown-custom-format .e-rte-content .e-content.e-pre-source {
     width: 100%;
   }
-  .e-icon-btn.e-active .e-md-preview.e-icons::before {
+  .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview.e-icons::before {
     content: "\e350";
   }
-  .bootstrap4 .e-icon-btn.e-active .e-md-preview::before {
+  .bootstrap4 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
     content: "\e790";
   }  
-  .bootstrap4 .e-icon-btn .e-md-preview::before {
+  .bootstrap4 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
     content: "\e787";
   }
 </style>

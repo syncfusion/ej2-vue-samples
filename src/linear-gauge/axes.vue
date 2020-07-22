@@ -4,7 +4,7 @@
         <div class="content-wrapper">
      <ejs-lineargauge :load='load' ref="lineargauge" style='display:block' align='center' id='axisContainer' :orientation='orientation' :annotations='annotations'>
         <e-axes>
-            <e-axis :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
+            <e-axis :line='line' :maximum='maximum' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                 <e-pointers>
                     <e-pointer :value='value' :height='height' :width='width' :color='color' :offset='offset'></e-pointer>
                 </e-pointers>
@@ -23,8 +23,8 @@
                     </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" v-on:pointermove="axisMin" v-on:touchmove="axisMin" v-on:change="axisMin" step='5' id="min" value="0" min="0" max="100" style="width:100%;"/>
+                    <div data-role="rangeslider">
+                        <input type="range" name="range-max" @touchmove='axisMin' @change='axisMin'  id="min" value="0" min="0" max="115" style="width:100%;" autocomplete="off">
                     </div>
                 </td>
             </tr>
@@ -32,12 +32,13 @@
             <tr>
                 <td>
                     <div id='maxValue'>Axis Maximum
-                        <span>&nbsp;&nbsp;&nbsp;100</span>
+                        <span>&nbsp;&nbsp;&nbsp;115</span>
                     </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" v-on:pointermove="axisMax" v-on:touchmove="axisMax" v-on:change="axisMax" step='5' id="max" value="100" min="0" max="100" style="width:100%;" />
+                    <div data-role="rangeslider">
+                       
+                        <input type="range" @change='axisMax' name="range-max" id="max" min="0" max="115" value="115" style="width:100%" autocomplete="off">
                     </div>
                 </td>
             </tr>
@@ -66,6 +67,17 @@
             <br/>
             <tr>
                 <td>
+                    <div>Show Last Label</div>
+                </td>
+                <td>
+                    <div>
+                        <input type="checkbox" id='lastlabel' v-on:change="lastLabel"/>
+                    </div>
+                </td>
+            </tr>
+            <br/>
+            <tr>
+                <td>
                     <div>Label Format</div>
                 </td>
                 <td>
@@ -77,7 +89,7 @@
             <br/>
             <tr>
                 <td>
-                    <div>Pointer type</div>
+                    <div>Pointer Type</div>
                 </td>
                 <td>
                     <div>
@@ -94,6 +106,7 @@
                     <div>
     <ejs-dropdownlist id='pointerPlace' :dataSource='pointerplacedata'  index=0 :placeholder='pointerplaceholder' :width='pointerplacewidth' :change='changePointerplace'></ejs-dropdownlist>                      
                     </div>
+                    <input type="range" name="range-max" id="rangeMax" min="0" max="115" value="115" style="width:90%" autocomplete="off">
                 </td>
             </tr>
         </table>
@@ -120,7 +133,7 @@
 </div>
 </template>
 {/* custom code start */}
-<style>
+<style scoped>
     #control-container {
         padding: 0px !important;
     }
@@ -137,20 +150,23 @@ import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 Vue.use(LinearGaugePlugin);
 Vue.use(DropDownListPlugin);
 export default Vue.extend({
+
 data:function(){
     return{
     orientation: 'Horizontal',
     line: {
         color: '#9E9E9E'
     },
-    value: 10,
+    maxValue: 115,
+    value: 20,
     height: 15,
     width: 15,
     color: '#757575',
     offset: 30,
+    maximum: 115,
     majorTicks: {
      color: '#9E9E9E',
-     interval: 10
+     interval: 20
     },
     minorTicks: {
      color: '#9E9E9E',
@@ -163,7 +179,7 @@ data:function(){
             content: '<div id="pointer" style="width:70px"><h1 style="font-size:14px;">' +
             '${axes[0].pointers[0].currentValue} MPH</h1></div>',
             axisIndex: 0,
-            axisValue: 10,
+            axisValue: 20,
             x: 10,
             y: 60,
             zIndex: '1'
@@ -221,6 +237,11 @@ axisMax:function(args){
 axisInverse:function(args){
     let ele = document.getElementById('axisInversed');
     this.$refs.lineargauge.ej2Instances.axes[0].isInversed = ele.checked;
+    this.$refs.lineargauge.ej2Instances.refresh();
+},
+lastLabel:function(args){
+    let ele = document.getElementById('lastlabel');
+    this.$refs.lineargauge.ej2Instances.axes[0].showLastLabel = ele.checked;
     this.$refs.lineargauge.ej2Instances.refresh();
 },
 axisOpposed:function(args){

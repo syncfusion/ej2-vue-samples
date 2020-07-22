@@ -20,7 +20,7 @@
 </div>
 </template>
 <style>
-  .e-content .e-item {
+  #tab_rtl .e-content .e-item {
         font-size: 12px;
         padding: 10px;
         text-align: justify;

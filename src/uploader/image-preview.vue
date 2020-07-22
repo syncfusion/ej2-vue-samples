@@ -3,11 +3,11 @@
         <div class="col-lg-8 control-section file-preview">
             <div class="control_wrapper">
                 <!-- Initialize Uploader -->
-                <div id="dropArea" style="height: auto; overflow: auto">
-                    <span id="dropPreview"> Drop image (JPG, PNG) files here or <a href="" id="browse"><u>Browse</u></a></span>
+                <div id="dropArea" class="uploader-image-preview-drop-area" style="height: auto; overflow: auto">
+                    <span id="dropPreview" class='uploader-image-preview-drop-preview'> Drop image (JPG, PNG) files here or <a href="" id="browse"><u>Browse</u></a></span>
                      <ejs-uploader id='imagePreview' name="UploadFiles" :asyncSettings= "path" ref="uploadObj" :allowedExtensions= 'extensions'
                          :dropArea= "dropElement" :selected= "onFileSelect" :progress= "onFileUpload"
-                         :success= "onUploadSuccess" :failure= "onUploadFailed" :removing= "onFileRemove">
+                         :success= "onUploadSuccess" :failure= "onUploadFailed" :removing= "onFileRemove" cssClass='uploader-preview'>
                     </ejs-uploader>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 
     .file-preview .control_wrapper {
         max-width: 505px;
@@ -49,48 +49,19 @@
         left: 20px;
         position: relative;
     }
-    .file-preview  .e-file-select-wrap {
-        display: none;
-    }
-    .file-preview  .e-upload {
-        border: none;
-        margin-top: 10px;
-        width: 100%;
-    }
-    .file-preview  #dropPreview {
+    .file-preview  .uploader-image-preview-drop-preview {
         font-size: 14px;
     }
     .e-bigger .file-preview  #drop {
         font-size: 15px;
     }
-    .file-preview  #dropArea {
+    .file-preview  .uploader-image-preview-drop-area {
         border: 1px dashed #c3c3cc;
         position: relative;
         text-align: center;
         padding: 20px 0 10px;
     }
-    .file-preview  #dropArea .e-upload .e-upload-files {
-        text-align: initial;
-        border-top: none;
-    }
-    #dropArea .e-upload-files .e-file-delete-btn.e-icons,
-    #dropArea .e-upload-files .e-file-remove-btn.e-icons {
-        top: 120px;
-        background-color: white;
-        border-radius: 50%;
-        font-size: 12px;
-        left: 80px;
-    }
-    #dropArea .e-upload-files li .e-file-remove-btn.e-icons.e-upload-icon {
-        font-size: 14px;
-        left: 20px;
-    }
-    #dropArea .e-upload-files li:hover .e-icons {
-        visibility: visible;
-    }
-    #dropArea .e-upload-files li .e-icons {
-        visibility: hidden;
-    }
+    
     @font-face {
         font-family: 'Uploader_Icon';
         src:
@@ -98,7 +69,96 @@
         font-weight: normal;
         font-style: normal;
     }
-    #dropArea .e-upload .e-upload-files .e-icons.e-upload-icon{
+    .highcontrast .uploader-image-preview-drop-area .e-upload-files .e-file-remove-btn.e-icons,
+    .highcontrast .uploader-image-preview-drop-area .e-upload-files .e-file-delete-btn.e-icons {
+        background-color: #ffd939;
+    }
+    .highcontrast .uploader-image-preview-drop-area .e-upload .e-upload-files .e-file-delete-btn.e-icons::before,
+    .highcontrast .uploader-image-preview-drop-area .e-upload .e-upload-files .e-file-remove-btn.e-icons::before{
+        color: black;
+    }
+    .uploader-image-preview-drop-area .e-upload .e-upload-files .e-upload-file-list {
+        border: 0;
+        display: inline-block;
+        width: 165px;
+    }
+    
+    
+    
+    .material .uploader-image-preview-drop-area span a {
+        color:#ff4081;
+    }
+    .fabric .uploader-image-preview-drop-area span a {
+        color: #1763ff;
+    }
+    .bootstrap .uploader-image-preview-drop-area span a {
+        color: #1f496e;
+    }
+    .highcontrast .uploader-image-preview-drop-area span a {
+        color: #ffd939;
+    }
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		.uploader-image-preview-drop-area .e-upload .e-upload-files .e-file-remove-btn.e-icons, .uploader-image-preview-drop-area .e-bigger .e-upload .e-upload-files .e-file-remove-btn.e-icons {
+		   padding: 18px 25px 18px 12px;
+		}
+	}
+</style>
+<style>
+    .uploader-preview .e-file-select-wrap {
+        display: none;
+    }
+    .uploader-preview.e-upload {
+        border: none;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .uploader-preview .upload-image {
+        width: 150px;
+        height: 150px;
+        display: inline-flex;
+        background-size: contain;
+        margin: 7px;
+        text-align: center;
+        line-height: 10;
+        border-radius: 5px;
+    }
+    .uploader-preview .upload-image:after {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: inherit;
+        height: inherit;
+        background: lightgray url('http://via.placeholder.com/300?text=Loading...') no-repeat center;
+        color: transparent;
+        border-radius: 5px;
+    }
+    .file-preview .uploader-preview.e-upload .e-upload-files {
+        text-align: initial;
+        border-top: none;
+    }
+    .uploader-preview .e-upload-files .e-file-delete-btn.e-icons,
+    .uploader-preview .e-upload-files .e-file-remove-btn.e-icons {
+        top: 120px;
+        background-color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        left: 80px;
+    }
+    .uploader-preview .e-upload-files li .e-file-remove-btn.e-icons.e-upload-icon {
+        font-size: 14px;
+        left: 20px;
+    }
+    .uploader-preview .e-upload-files li:hover .e-icons {
+        visibility: visible;
+    }
+    .uploader-preview .e-upload-files li .e-icons {
+        visibility: hidden;
+    }
+    .uploader-preview.e-upload .e-upload-files .e-icons.e-upload-icon::before{
+        content: '\e700';
+    }
+    .uploader-preview.e-upload .e-upload-files .e-icons.e-upload-icon{
         font-family: 'Uploader_Icon';
         speak: none;
         font-size: 16px;
@@ -110,69 +170,12 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    #dropArea .e-upload .e-upload-files .e-icons.e-upload-icon::before{
-        content: '\e700';
-    }
-    #dropArea .e-upload .e-upload-files .e-icons:not(.e-uploaded):hover{
+    .uploader-preview..e-upload .e-upload-files .e-icons:not(.e-uploaded):hover{
         background-color: #e6e6e6;
         border-color: #adadad;
         color: #333;
     }
-    .highcontrast #dropArea .e-upload-files .e-file-remove-btn.e-icons,
-    .highcontrast #dropArea .e-upload-files .e-file-delete-btn.e-icons {
-        background-color: #ffd939;
-    }
-    .highcontrast #dropArea .e-upload .e-upload-files .e-file-delete-btn.e-icons::before,
-    .highcontrast #dropArea .e-upload .e-upload-files .e-file-remove-btn.e-icons::before{
-        color: black;
-    }
-    #dropArea .e-upload .e-upload-files .e-upload-file-list {
-        border: 0;
-        display: inline-block;
-        width: 165px;
-    }
-    .file-preview .upload-image {
-        width: 150px;
-        height: 150px;
-        display: inline-flex;
-        background-size: contain;
-        margin: 7px;
-        text-align: center;
-        line-height: 10;
-        border-radius: 5px;
-    }
-    .file-preview  .upload-image:after {
-        content: "";
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        width: inherit;
-        height: inherit;
-        background: lightgray url('http://via.placeholder.com/300?text=Loading...') no-repeat center;
-        color: transparent;
-        border-radius: 5px;
-    }
-    .highcontrast .file-preview  div.file-name {
-        color: white;
-    }
-    .file-preview  div.file-name {
-        color: rgba(0, 0, 0, 0.87);
-        font-size: 14px;
-        padding: 3px 10px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 90%;
-        white-space: nowrap;
-    }
-    .highcontrast .file-preview  div.file-size {
-        color: white;
-    }
-    .file-preview  div.file-size {
-        font-size: 13px;
-        padding: 3px 10px;
-        overflow: hidden;
-    }
-    .file-preview  .progressbar {
+    .file-preview .uploader-preview .progressbar {
         background: #ff4081;
         border: none;
         border-radius: 10px;
@@ -182,73 +185,81 @@
         top: -60px;
         position: relative;
     }
-    #dropArea progress {
+    .highcontrast .file-preview .uploader-preview  div.file-name {
+        color: white;
+    }
+    .file-preview .uploader-preview  div.file-name {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 14px;
+        padding: 3px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90%;
+        white-space: nowrap;
+    }
+    .highcontrast .file-preview .uploader-preview  div.file-size {
+        color: white;
+    }
+    .file-preview .uploader-preview  div.file-size {
+        font-size: 13px;
+        padding: 3px 10px;
+        overflow: hidden;
+    }
+    .uploader-preview progress {
         border: none;
         background: #fff;
    }
-   .highcontrast #dropArea progress {
+   .highcontrast .uploader-preview progress {
         border: none;
         background: black;
    }
-    .file-preview  progress::-webkit-progress-bar {
+    .file-preview .uploader-preview  progress::-webkit-progress-bar {
         border: none;
         background-color: #ffffff;
     }
-    .highcontrast .file-preview  progress::-webkit-progress-bar {
+    .highcontrast .file-preview .uploader-preview  progress::-webkit-progress-bar {
         border: none;
         background-color: #000000;
     }
-    .material .file-preview  progress::-webkit-progress-value {
+    .material .file-preview .uploader-preview  progress::-webkit-progress-value {
         border-radius: 2px; 
         background-color: #ff4081;
     }
-    .bootstrap .file-preview  progress::-webkit-progress-value {
+    .bootstrap .file-preview .uploader-preview  progress::-webkit-progress-value {
         border-radius: 2px; 
         background-color: #1f496e;
     }
-    .fabric .file-preview  progress::-webkit-progress-value {
+    .fabric .file-preview .uploader-preview  progress::-webkit-progress-value {
         background-color: #1763ff;
         border-radius: 2px; 
         top: -66px;
     }
-    .highcontrast .file-preview  progress::-webkit-progress-value {
+    .highcontrast .file-preview .uploader-preview  progress::-webkit-progress-value {
         background-color: #ffd939;
         border-radius: 2px; 
     }
-    .material .file-preview  progress::-moz-progress-bar {
+    .material .file-preview .uploader-preview progress::-moz-progress-bar {
         border-radius: 2px; 
         background-color: #ff4081;
     }
-    .bootstrap .file-preview  progress::-moz-progress-bar {
+    .bootstrap .file-preview .uploader-preview progress::-moz-progress-bar {
         border-radius: 2px; 
         background-color: #1f496e;
     }
-    .fabric .file-preview  progress::-moz-progress-bar {
+    .fabric .file-preview .uploader-preview progress::-moz-progress-bar {
         background-color: #1763ff;
         border-radius: 2px; 
         top: -66px;
     }
-    .highcontrast .file-preview  progress::-moz-progress-bar {
+    .highcontrast .file-preview .uploader-preview progress::-moz-progress-bar {
         background-color: #ffd939;
         border-radius: 2px; 
     }
-    .material #dropArea span a {
-        color:#ff4081;
+    .uploader-preview.e-upload .e-upload-files .e-upload-file-list {
+        border: 0;
+        display: inline-block;
+        width: 165px;
     }
-    .fabric #dropArea span a {
-        color: #1763ff;
-    }
-    .bootstrap #dropArea span a {
-        color: #1f496e;
-    }
-    .highcontrast #dropArea span a {
-        color: #ffd939;
-    }
-	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-		#dropArea .e-upload .e-upload-files .e-file-remove-btn.e-icons, #dropArea .e-bigger .e-upload .e-upload-files .e-file-remove-btn.e-icons {
-		   padding: 18px 25px 18px 12px;
-		}
-	}
 </style>
 <script>
 import Vue from "vue";
@@ -263,8 +274,8 @@ export default Vue.extend({
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
+            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.jpg, .png',

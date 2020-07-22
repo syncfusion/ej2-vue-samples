@@ -1,10 +1,10 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-    <p>This sample demonstrates custom aggregate functionality of the TreeGrid. In this sample, the custom aggregate value for the columns “Category” is displayed in column footer with dropdown to display the count of selected category name.</p>
+    <p>This sample demonstrates custom aggregate functionality of the Tree Grid. In this sample, the custom aggregate value for the columns “Category” is displayed in column footer with dropdown to display the count of selected category name.</p>
 </div>
 <div id="description">
-    <p>The TreeGrid supports aggregates which will be displayed at the footer and every hierarchy level.
+    <p>The Tree Grid supports aggregates which will be displayed at the footer and every hierarchy level.
     The aggregate configurations can be provided by the <code>aggregates</code> property.</p>
     <p>The built-in aggregates are,</p>
     <ul>
@@ -24,7 +24,7 @@
     <p>The template expression should be provided inside <code>${...}</code> the interpolation syntax.</p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
-        TreeGrid features are segregated into individual feature-wise modules. 
+        Tree Grid features are segregated into individual feature-wise modules. 
         To use aggregate feature, we need to inject
         <code>Aggregate</code> module into the <code>provide</code> section. 
     </p>
@@ -53,13 +53,13 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 
-  .e-input {
+  /deep/ .e-input {
        padding-bottom: 1px !important;
    }
    
-  .e-summarycell.e-templatecell {
+  /deep/ .e-treegrid .e-summarycell.e-templatecell {
     pointer-events:visible !important;
   };
 

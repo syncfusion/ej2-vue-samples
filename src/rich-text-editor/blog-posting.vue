@@ -130,7 +130,7 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates how to design forum application using rich text editor. You can type the content and click reply
+    <p>This sample demonstrates how to design forum application using Rich Text Editor. You can type the content and click reply
         button to post it. </p>
 </div>
 
@@ -144,7 +144,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
     .tagSection {
         float: left;
     }
@@ -371,6 +371,7 @@
         margin-top: 12px;
         font-family: roboto, SegoeUI;
         font-size: 13px;
+         overflow-wrap: break-word;
     }
 
     .highcontrast .posting {

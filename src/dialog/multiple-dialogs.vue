@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
     /* custom code start */
 	#dlgbtn {
 	    margin-right: 5%;

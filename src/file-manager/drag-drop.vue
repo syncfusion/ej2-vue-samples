@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-drag">
          <div class="sample-container">
             <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :allowDragAndDrop='allowDragAndDrop' >
             </ejs-filemanager>
@@ -21,7 +21,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-drag .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

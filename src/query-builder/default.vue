@@ -31,7 +31,7 @@
 </template>
 
 <!-- custom code start -->
-<style>
+<style scoped>
     .e-query-builder {
         margin: 0 auto;
     }

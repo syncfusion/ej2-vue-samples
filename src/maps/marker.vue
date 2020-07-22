@@ -99,7 +99,7 @@ import {
   MapsTooltip,
   MapAjax
 } from "@syncfusion/ej2-vue-maps";
-import { topPopulation } from "./map-data/marker-location";
+import { topPopulation } from "../maps/map-data/marker-location";
 import Template from "./marker-temp.vue";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 Vue.use(CheckBoxPlugin);

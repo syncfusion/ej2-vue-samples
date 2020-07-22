@@ -23,7 +23,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 #control-containerMulitiLvl {
   padding: 0px !important;
 }

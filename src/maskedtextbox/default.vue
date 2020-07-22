@@ -36,7 +36,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
  .mask-content-wrapper {
         width: 30%;
         margin: 0 auto;

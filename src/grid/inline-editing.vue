@@ -64,7 +64,7 @@
 </div>
 </template>
 <!-- custom code start-->
-<style>
+<style scoped>
     #typeddl {
         min-width: 100px;
     }

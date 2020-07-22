@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
     <div style="width:100%">
-        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool'></ejs-diagram>
+        <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool'></ejs-diagram>
     </div>
 
 <div id="action-description">
@@ -26,7 +26,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
 </style>
 <script>
 import Vue from "vue";

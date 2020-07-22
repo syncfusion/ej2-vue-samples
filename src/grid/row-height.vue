@@ -20,13 +20,13 @@
      <div id="description">
          <p>
             The Grid has support to provide <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowheight-number">rowHeight
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowheight">rowHeight
         </a></code> property.
         </p>
     </div>
 </div>
 </template>
-<style>
+<style scoped>
    @import "../../styles/Grid/row-height.css";
 </style>
 

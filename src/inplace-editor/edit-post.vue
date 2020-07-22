@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <label class="col-sm-6 control-label" style="text-align: left;font-size: 14px;">
                         Comments</label>
-                        <ejs-inplaceeditor ref="rteObj" id="inplace_comment_editor" data-underline='false' mode="Inline" editableOn= "EditIconClick" submitOnEnter="false" type="RTE" emptyText="Enter your comment" name="rte" value="The extensive adoption of JavaScript for application development, and the ability to use HTML and JavaScript to create Windows Store apps, has made JavaScript a vital part of the Windows development ecosystem. Microsoft has done extensive work to make JavaScript easier to use." :popupSettings="popupSettings" :validationRules="commentValidationRules" :model="commentModel">
+                        <ejs-inplaceeditor ref="rteObj" id="inplace_comment_editor" data-underline='false' mode="Inline" editableOn= "EditIconClick" submitOnEnter="false" type="RTE" emptyText="Enter your comment" name="rte" value="<p>The extensive adoption of JavaScript for application development, and the ability to use HTML and JavaScript to create Windows Store apps, has made JavaScript a vital part of the Windows development ecosystem. Microsoft has done extensive work to make JavaScript easier to use.</p>" :popupSettings="popupSettings" :validationRules="commentValidationRules" :model="commentModel">
                         </ejs-inplaceeditor>
                     </div>
                     <div class="form-group">
@@ -113,8 +113,8 @@ export default Vue.extend({
             dataSource: multiData,
             placeholder: 'Enter your tags'
         },
-        placeFields: { text: 'mode', value: 'id' },
-        dataPlace: [{ id: 'inline', mode: 'Inline' }, { id: 'popup', mode: 'Popup' }],
+        placeFields: { text: 'mode', value: 'value' },
+        dataPlace: [{ value: 'inline', mode: 'Inline' }, { value: 'popup', mode: 'Popup' }],
         dataValue: 'inline',
     };
   },
@@ -170,7 +170,7 @@ export default Vue.extend({
   },
 });
 </script>
-<style>
+<style scoped>
 
 .e-inplaceeditor-tip .e-editable-component .e-input-group .e-clear-icon.e-clear-icon-hide,
 .inplace-control-section.form-layout .e-inplaceeditor .e-editable-component .e-clear-icon-hide {

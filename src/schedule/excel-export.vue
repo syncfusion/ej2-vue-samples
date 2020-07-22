@@ -37,7 +37,7 @@
         </div> 
     </div>
 </template>
-<style>
+<style scoped>
     .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
         content: '\e242';
     }

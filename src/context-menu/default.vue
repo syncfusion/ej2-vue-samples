@@ -2,7 +2,7 @@
 <div class="control-section">
     <div class="contextmenu-control">
         <div id='contextmenutarget'></div>
-        <ejs-contextmenu id="contextmenu" ref="contextMenu" target="#contextmenutarget" :items="menuItems" :beforeItemRender="beforeItemRender"  ></ejs-contextmenu>
+        <ejs-contextmenu cssClass='e-cmenu-wrapper' id="contextmenu" ref="contextMenu" target="#contextmenutarget" :items="menuItems" :beforeItemRender="beforeItemRender"  ></ejs-contextmenu>
     </div>
     <div id="action-description">
     <p>This sample demonstrates the default functionalities of the ContextMenu. Right click/Touch hold the rectangular area to open the ContextMenu.</p>
@@ -79,107 +79,107 @@
   }
 }
 /* custom code end */
-.e-menu-item .e-cut::before {
+.e-menu-item .e-cm-cut::before {
   content: "\e264";
 }
 
-.e-menu-item .e-paste::before {
+.e-menu-item .e-cm-paste::before {
   content: "\e959";
 }
 
-.e-menu-item .e-font::before {
+.e-menu-item .e-cm-font::before {
   content: "\e262";
 }
 
-.e-menu-item .e-copy::before {
+.e-menu-item .e-cm-copy::before {
   content: "\e263";
 }
 
-.e-menu-item .e-link::before {
+.e-menu-item .e-cm-link::before {
   content: "\e265";
 }
 
-.e-menu-item .e-comment::before {
+.e-menu-item .e-cm-comment::before {
   content: "\e267";
 }
 
-.e-menu-item .e-pastetext::before {
+.e-menu-item .e-cm-pastetext::before {
   content: "\e261";
 }
 
-.e-menu-item .e-pastespecial::before {
+.e-menu-item .e-cm-pastespecial::before {
   content: "\e260";
 }
 
-.fabric .e-menu-item .e-cut::before {
+.fabric .e-menu-item .e-cm-cut::before {
   content: "\e251";
 }
 
-.fabric .e-menu-item .e-paste::before {
+.fabric .e-menu-item .e-cm-paste::before {
   content: "\e940";
 }
 
-.fabric .e-menu-item .e-font::before {
+.fabric .e-menu-item .e-cm-font::before {
   content: "\e252";
 }
 
-.fabric .e-menu-item .e-copy::before {
+.fabric .e-menu-item .e-cm-copy::before {
   content: "\e255";
 }
 
-.fabric .e-menu-item .e-link::before {
+.fabric .e-menu-item .e-cm-link::before {
   content: "\e254";
 }
 
-.fabric .e-menu-item .e-comment::before {
+.fabric .e-menu-item .e-cm-comment::before {
   content: "\e253";
 }
 
-.fabric .e-menu-item .e-pastetext::before {
+.fabric .e-menu-item .e-cm-pastetext::before {
   content: "\e258";
 }
 
-.fabric .e-menu-item .e-pastespecial::before {
+.fabric .e-menu-item .e-cm-pastespecial::before {
   content: "\e256";
 }
 
-.bootstrap .e-menu-item .e-cut::before {
+.bootstrap .e-menu-item .e-cm-cut::before {
   content: "\e248";
 }
 
-.bootstrap .e-menu-item .e-paste::before {
+.bootstrap .e-menu-item .e-cm-paste::before {
   content: "\e95a";
 }
 
-.bootstrap .e-menu-item .e-font::before {
+.bootstrap .e-menu-item .e-cm-font::before {
   content: "\e247";
 }
 
-.bootstrap .e-menu-item .e-copy::before {
+.bootstrap .e-menu-item cm-::before {
   content: "\e249";
 }
 
-.bootstrap .e-menu-item .e-link::before {
+.bootstrap .e-menu-item .e-cm-link::before {
   content: "\e245";
 }
 
-.bootstrap .e-menu-item .e-comment::before {
+.bootstrap .e-menu-item .e-cm-comment::before {
   content: "\e246";
 }
 
-.bootstrap .e-menu-item .e-pastetext::before {
+.bootstrap .e-menu-item .e-cm-pastetext::before {
   content: "\e257";
 }
 
-.bootstrap .e-menu-item .e-pastespecial::before {
+.bootstrap .e-menu-item .e-cm-pastespecial::before {
   content: "\e259";
 }
 
-.e-contextmenu-wrapper ul.e-contextmenu {
+.e-cmenu-wrapper ul.e-contextmenu {
   width: 176px;
 }
 
-.e-bigger .e-contextmenu-wrapper ul.e-contextmenu {
+.e-bigger .e-cmenu-wrapper ul.e-contextmenu {
   width: 186px;
 }
 </style>
@@ -196,23 +196,23 @@ export default Vue.extend({
       menuItems: [
         {
           text: "Cut",
-          iconCss: "e-cm-icons e-cut"
+          iconCss: "e-cm-icons e-cm-cut"
         },
         {
           text: "Copy",
-          iconCss: "e-cm-icons e-copy"
+          iconCss: "e-cm-icons e-cm-copy"
         },
         {
           text: "Paste",
-          iconCss: "e-cm-icons e-paste",
+          iconCss: "e-cm-icons e-cm-paste",
           items: [
             {
               text: "Paste Text",
-              iconCss: "e-cm-icons e-pastetext"
+              iconCss: "e-cm-icons e-cm-pastetext"
             },
             {
               text: "Paste Special",
-              iconCss: "e-cm-icons e-pastespecial"
+              iconCss: "e-cm-icons e-cm-pastespecial"
             }
           ]
         },
@@ -221,11 +221,11 @@ export default Vue.extend({
         },
         {
           text: "Link",
-          iconCss: "e-cm-icons e-link"
+          iconCss: "e-cm-icons e-cm-link"
         },
         {
           text: "New Comment",
-          iconCss: "e-cm-icons e-comment"
+          iconCss: "e-cm-icons e-cm-comment"
         }
       ]
     };

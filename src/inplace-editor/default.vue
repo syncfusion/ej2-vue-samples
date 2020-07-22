@@ -110,7 +110,7 @@
         </ul>
     </p>
     <p>
-        The edit on modes of In-place editor can be switched by selecting the appropriate values provided in a
+        The edit on modes of  <code>In-place Editor</code> can be switched by selecting the appropriate values provided in a
         drop-down. The applicable modes are as follows:
         <ul>
             <li>Click - Editor opens the edit input with single click of textbox.</li>
@@ -159,8 +159,8 @@ export default Vue.extend({
         maskedTextBoxModel: {
             mask: '000-000-0000'
         },
-        placeFields: { text: 'mode', value: 'id' },
-        dataPlace: [{ id: 'inline', mode: 'Inline' }, { id: 'popup', mode: 'Popup' }],
+        placeFields: { text: 'mode', value: 'value' },
+        dataPlace: [{ value: 'inline', mode: 'Inline' }, { value: 'popup', mode: 'Popup' }],
         dataValue: 'inline',
         editableFields: { text: 'editable', value: 'id' },
         editableData: [{ id: 'Click', editable: 'Click' }, { id: 'DblClick', editable: 'Double Click' }, { id: 'EditIconClick', editable: 'Edit Icon Click' }],
@@ -209,7 +209,7 @@ export default Vue.extend({
     },
 });
 </script>
-<style>
+<style scoped>
 
 .e-inplaceeditor-tip .e-editable-component .e-input-group .e-clear-icon.e-clear-icon-hide,
 .inplace-control-section.default_layout .e-inplaceeditor .e-editable-component .e-clear-icon-hide {

@@ -1,6 +1,6 @@
 
 <template>
-<div>
+<div id="maps-zoom-sample">
 <div class="col-lg-9 control-section">
 <ejs-maps ref="maps" id='mapszooming' :zoomSettings='zoomSettings' :load='load'>
     <e-layers>
@@ -19,6 +19,14 @@
                     </td>
                     <td>
                         <input type="checkbox" checked id="zoom" style="margin-top: 15px"  v-on:change='changeZoom' />
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td style="width: 50%">
+                        <div>Panning</div>
+                    </td>
+                    <td>
+                        <input type="checkbox" checked id="panning" style="margin-top: 15px"  v-on:change='changePan' />
                     </td>
                 </tr>
                 <tr style="height: 50px">
@@ -65,12 +73,13 @@
     </div>
     <div id="action-description">
             <p>
-                This sample depicts the zooming and panning options in the maps. You can customize these options by changing the Zooming, Mouse wheel zoom, Pinch zoom, Single-click zoom, and Double-click zoom in the Properties panel.
+                This sample depicts the zooming and panning options in the maps. You can customize these options by changing the Zooming, Panning, Mouse wheel zoom, Pinch zoom, Single-click zoom, and Double-click zoom in the Properties panel.
            </p>
         </div>
         <div id="description">
             <p>
-              In this example, you can see how to zoom and pan the map. The support has been provided for zooming with toolbar, rectangle zoom, pinch zoom, mouse wheel zoom, single-click and double-click zoom.
+                In this example, you can see how to zoom and pan the map. The support has been provided for zooming with the toolbar, rectangle zoom, pinch zoom, mouse wheel zoom, single-click, and double-click zoom.Panning can be enabled or disabled using
+                the Panning option. When it is disabled, the map will switch to zooming mode.
             </p>
         <br/>
             <p style="font-weight: 500">Injecting Module</p>
@@ -83,13 +92,13 @@
 </template>
 
  <style>
-     .slider-content-wrapper {
+     #maps-zoom-sample .slider-content-wrapper {
         width: 40%;
         margin: 0 auto;
         min-width: 185px;
     }
 
-    .slider-userselect {
+    #maps-zoom-sample .slider-userselect {
         -webkit-user-select: none;
         /* Safari 3.1+ */
         -moz-user-select: none;
@@ -100,62 +109,62 @@
         /* Standard syntax */
     }
 
-    .slider-labeltext {
+    #maps-zoom-sample .slider-labeltext {
         text-align: -webkit-left;
         font-weight: 500;
         font-size: 13px;
         padding-bottom: 10px;
     }
 
-    .slider_container {
+    #maps-zoom-sample .slider_container {
         margin-top: 40px;
     }
 
-    .e-bigger .slider-content-wrapper {
+    #maps-zoom-sample .e-bigger .slider-content-wrapper {
         width: 80%;
     }
 
-    #height_slider .e-tab-handle::after {
+    #maps-zoom-sample #height_slider .e-tab-handle::after {
         background-color: #f9920b;
     }
 
-    #height_slider.e-control.e-slider .e-slider-track {
+    #maps-zoom-sample #height_slider.e-control.e-slider .e-slider-track {
         height: 8px;
         top: calc(50% - 4px);
         border-radius: 0;
     }
-    .highcontrast #height_slider.e-control.e-slider .e-slider-track {
+    #maps-zoom-sample .highcontrast #height_slider.e-control.e-slider .e-slider-track {
         height: 10px;
         top: calc(50% - 5px);
         border-radius: 0;
     }
-    .fabric .slider_container .e-slider-hover .e-slider-track, .fabric .slider_container .e-slider-container:active .e-slider-track,
-    .fabric .slider_container .e-slider-container .e-slider .e-tab-track{
+    #maps-zoom-sample .fabric .slider_container .e-slider-hover .e-slider-track, #maps-zoom-sample .fabric .slider_container .e-slider-container:active .e-slider-track,
+    #maps-zoom-sample .fabric .slider_container .e-slider-container .e-slider .e-tab-track{
         background-color: #c8c8c8;
     }
 
-    #gradient_slider.e-control.e-slider .e-range {
+    #maps-zoom-sample #gradient_slider.e-control.e-slider .e-range {
         height: 6px;
         top: calc(50% - 3px);
         border-radius: 5px;
         background: linear-gradient(to top left, #f9f9f9 25%, #f9920b 90%);
     }
 
-    .fabric .slider_container .e-slider-hover .e-slider-track,
-    .fabric .slider_container .e-slider-container:active .e-slider-track,
-    .fabric .slider_container .e-slider-container .e-slider .e-tab-track {
+    #maps-zoom-sample .fabric .slider_container .e-slider-hover .e-slider-track,
+    #maps-zoom-sample .fabric .slider_container .e-slider-container:active .e-slider-track,
+    #maps-zoom-sample .fabric .slider_container .e-slider-container .e-slider .e-tab-track {
         background-color: #c8c8c8;
     }
 
-    #gradient_slider.e-control.e-slider .e-slider-track {
+    #maps-zoom-sample #gradient_slider.e-control.e-slider .e-slider-track {
         height: 8px;
         top: calc(50% - 4px);
         border-radius: 5px;
     }
-    #control-container {
+    #maps-zoom-sample #control-container {
         padding: 0px !important;
     }
-    #range > * {
+    #maps-zoom-sample #range > * {
         padding: 0px !important;
     }
 </style>
@@ -202,6 +211,11 @@ methods:{
     changeZoom:function(args){
         let element = (document.getElementById('zoom'));
         this.$refs.maps.ej2Instances.zoomSettings.enable = element.checked;
+        this.$refs.maps.ej2Instances.refresh();
+    },
+    changePan:function(args){
+        let element = (document.getElementById('panning'));
+        this.$refs.maps.ej2Instances.zoomSettings.enablePanning = element.checked;
         this.$refs.maps.ej2Instances.refresh();
     },
     changeMousewheel:function(args){

@@ -81,13 +81,13 @@ import {
   CheckBoxPlugin
 } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(CheckBoxPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require('./Pivot_Data.json');
 export default Vue.extend({
   data: () => {
     return {
@@ -157,12 +157,12 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#PivotView_PivotFieldList {
+<style scoped>
+/deep/ #PivotView_PivotFieldList {
   width: auto !important;
 }
 
-#pivotview {
+/deep/ #pivotview {
   width: 100%;
 }
 

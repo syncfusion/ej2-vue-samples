@@ -30,7 +30,7 @@ Vue.use(TreeGridPlugin);
 export default Vue.extend({
   data: () => {
     return {
-      data: sampleData,
+      data: sampleData.slice(0),
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog' },
       toolbar: ['Add', 'Edit', 'Delete'],
       taskidrules: { required: true, number: true },

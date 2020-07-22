@@ -9,7 +9,7 @@
 </div>
 </template>
 <style>
-    .markerTemplate {
+    .dashboard-seo .markerTemplate {
         font-size: 12px;
         color: white;
         text-shadow: 0px 1px 1px black;
@@ -140,7 +140,7 @@ mounted() {
 })
 </script>
 <style>
-.map-container,.maps-container{
+.dashboard-seo .map-container,.dashboard-seo .maps-container{
     height:100%;
     width: 100%;
 }

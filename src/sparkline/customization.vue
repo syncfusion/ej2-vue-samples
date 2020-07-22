@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="sprkline-custom-sample">
 <div class="col-lg-8 control-section">
     <div id="spark-container" class="row">
         <div class="cols-sample-area" align="center">
@@ -153,20 +153,13 @@
 </div>
 </template>
 <style>
-   .sparkinput {
-        opacity: 1 !important;
-        position: relative !important;
-    }
-    .property-text {
+    #sprkline-custom-sample .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
         font-size: 13px !important;
         font-weight: 400 !important;
     }
-    #axis > * {
+    #sprkline-custom-sample #axis > * {
         padding: 0px !important;
-    }
-    label{
-        height: 32px !important;
     }
 </style>
 <script>
@@ -175,7 +168,7 @@ import { SparklinePlugin,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { data, data2 } from "./customization";
+import { data, data2 } from "./customizationdata";
 Vue.use(SparklinePlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(CheckBoxPlugin);

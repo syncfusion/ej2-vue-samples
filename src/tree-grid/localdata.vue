@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-    <p>This demo shows the way of binding an array of JavaScript objects (local JSON datasource) to TreeGrid.
+    <p>This demo shows the way of binding an array of JavaScript objects (local JSON datasource) to Tree Grid.
     </p>
 </div>
     <div>
@@ -19,10 +19,10 @@
     </div>
 
      <div id="description">
-    <p>TreeGrid can be bound either to local or remote data services. 
+    <p>Tree Grid can be bound either to local or remote data services. 
         The <code>dataSource
         </code> property can be assigned either with the array of JavaScript objects or instance of <code>DataManager</code>.</p>
-    <p>In this demo, the array of JavaScript objects is assigned as the data source to the TreeGrid.</p>
+    <p>In this demo, the array of JavaScript objects is assigned as the data source to the Tree Grid.</p>
     <p>
         More information on the data binding can be found in this documentation section.
     </p>

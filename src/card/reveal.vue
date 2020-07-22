@@ -87,7 +87,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .card-control-section.reveal_card_layout .e-card #card_revealed .e-card-content table td,
     .card-control-section.reveal_card_layout .e-card #card_reveal .e-card-header .e-card-header-caption {
         text-align: left

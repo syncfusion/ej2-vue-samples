@@ -131,8 +131,8 @@ export default Vue.extend({
         dateRangePickerModel: {
             placeholder: 'Select a date range',
         },
-        placeFields: { text: 'mode', value: 'id' },
-        dataPlace: [{ id: 'inline', mode: 'Inline' }, { id: 'popup', mode: 'Popup' }],
+        placeFields: { text: 'mode', value: 'value' },
+        dataPlace: [{ value: 'inline', mode: 'Inline' }, { value: 'popup', mode: 'Popup' }],
         dataValue: 'inline'
     };
   },
@@ -177,7 +177,7 @@ export default Vue.extend({
   }
 });
 </script>
-<style>
+<style scoped>
 
 .e-inplaceeditor-tip .e-editable-component .e-input-group .e-clear-icon.e-clear-icon-hide,
 .inplace-control-section.pickers-layout .e-inplaceeditor .e-editable-component .e-clear-icon-hide {

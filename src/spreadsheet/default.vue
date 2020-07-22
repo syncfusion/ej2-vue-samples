@@ -1,12 +1,12 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-default-section">
-      <ejs-spreadsheet ref="spreadsheet" :openUrl="openUrl" :saveUrl="saveUrl" :dataBound="dataBound">
+      <ejs-spreadsheet ref="spreadsheet" :openUrl="openUrl" :saveUrl="saveUrl" :created="created">
         <e-sheets>
           <e-sheet name="Car Sales Report">
-            <e-rangesettings>
-              <e-rangesetting :dataSource="dataSource"></e-rangesetting>
-            </e-rangesettings>
+            <e-ranges>
+              <e-range :dataSource="dataSource"></e-range>
+            </e-ranges>
             <e-rows>
               <e-row :index="rowIndex" :cells="cells"></e-row>
             </e-rows>
@@ -30,15 +30,15 @@
     </div>
     <div id="description">
       <p>
-        The <code>Spreadsheet</code> component is used to organize and analyze data in a tabular format.
+        The <code>Spreadsheet</code> component is used to organize and analyze data in tabular format.
         It has a built-in calculation library that supports most commonly used formulas. Excel workbook files can be
         imported and exported by providing <code>openUrl</code> &
         <code>saveUrl</code> property.
       </p>
       <p>
         Data binding can be achieved by setting an array of JavaScript objects or an instance of Data Manager to the
-        <code>dataSource</code> property under the rangeSettings of sheet. The <code>cellFormat</code> and
-        <code>numberFormat</code> methods are used to apply format to a range of cells in the <code>dataBound</code> event.
+        <code>dataSource</code> property under the range of sheet. The <code>cellFormat</code> and
+        <code>numberFormat</code> methods are used to apply format to a <code>ranges</code> of cells in the <code>created</code> event.
       </p>
       <p>
         More information about the Spreadsheet component can be found in this
@@ -53,8 +53,39 @@
     #spreadsheet-default-section {
         height: 550px;
     }
+
+    .e-spreadsheet .e-main-panel .e-main-content {
+        margin-left: 0 !important;
+    }
+
     #sb-content .e-spreadsheet .e-tab .e-tab-text {
         display: inherit;
+    }
+
+    .ej2-new .sb-header,
+    .ej2-new .sb-bread-crumb,
+    .ej2-new #action-description,
+    .ej2-new #description-section,
+    .ej2-new #description {
+        display: none
+    }
+
+    .ej2-new .container-fluid,
+    .ej2-new .container-fluid .control-section,
+    #sidebar-section {
+        padding: 0px;
+    }
+
+    .ej2-new .sample-browser>.content.e-view {
+        top: 0px;
+        padding: 0px;
+        text-align: initial;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .ej2-new .control-section .control-section {
+        height: 100vh;
     }
 </style>
 <!-- custom code end -->
@@ -81,12 +112,10 @@ export default Vue.extend({
     }
   },
   methods: {
-    dataBound: function() {
+    created: function() {
       var spreadsheet = this.$refs.spreadsheet;
-      if (!spreadsheet.ej2Instances.isOpen && spreadsheet.ej2Instances.sheets[spreadsheet.ej2Instances.activeSheetTab - 1].name === 'Car Sales Report') {
-        spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:F1');
-        spreadsheet.numberFormat('$#,##0.00', 'F2:F31');
-      }
+      spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:F1');
+      spreadsheet.numberFormat('$#,##0.00', 'F2:F31');
     }
   }
 });

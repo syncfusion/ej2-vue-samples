@@ -71,7 +71,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     .calendar-import.e-upload {
         border: 0;
         padding-left: 0 !important;

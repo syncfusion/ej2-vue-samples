@@ -20,7 +20,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     /**
     * ej2 Menu styles
     */

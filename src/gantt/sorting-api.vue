@@ -26,7 +26,7 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div>
-                     <ejs-dropdownlist ref='columns' id='columns' width='110px' :dataSource='columnsData' value='TaskID' :fields='columnsFields' :change="columnChange"></ejs-dropdownlist>
+                     <ejs-dropdownlist ref='columns' id='columns' width='110px' :dataSource='columnsData' value='TaskID' :fields='columnsFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
@@ -36,7 +36,7 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div>
-                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='directionData' value='Ascending' :fields='directionFields' :change="directionChange"></ejs-dropdownlist>
+                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='directionData' value='Ascending' :fields='directionFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>

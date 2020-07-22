@@ -36,7 +36,7 @@
 
     <div id="action-description">
     <p>
-            This sample demonstrates the way of filtering TreeGrid columns using menu and excel filter UI. In this sample, click the filtering
+            This sample demonstrates the way of filtering Tree Grid columns using menu and excel filter UI. In this sample, click the filtering
             icon from column header to show filter UI for a particular column. You can change the filter type from the properties
             panel.
     </p>
@@ -45,7 +45,7 @@
     <p>The filtering feature enables the user to view the reduced amount of records based on filter criteria. It can be enabled
         by setting <code>allowFiltering
         </code> property as true.
-    <p>TreeGrid supports the following filter types. They are </p>
+    <p>Tree Grid supports the following filter types. They are </p>
             <ul>
                 <li><code>FilterBar</code></li>
                 <li><code>Menu</code></li>
@@ -53,9 +53,9 @@
             </ul>
             you can change the filter type by setting <code>filterSettings->type</code>
 
-    <p>TreeGrid provides support for a set of filtering modes with <code>hierarchyMode</code> property. The below are the type of filter mode available in TreeGrid. </p>
+    <p>Tree Grid provides support for a set of filtering modes with <code>hierarchyMode</code> property. The below are the type of filter mode available in Tree Grid. </p>
     <ul>
-        <li><code>Parent</code> - This is the default filter hierarchy mode in TreeGrid. 
+        <li><code>Parent</code> - This is the default filter hierarchy mode in Tree Grid. 
         The filtered records are displayed with its parent records, if the filtered records not have any parent record then the filtered record only displayed.</li>
         <li><code>Child</code> - The filtered records are displayed with its child record, if the filtered records do not have any child record then only the filtered records are displayed.</li>
         <li><code>Both</code> - The filtered records are displayed with its both parent and child record.
@@ -64,7 +64,7 @@
     </ul>
      <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            TreeGrid features are segregated into individual feature-wise modules. To use Filtering feature, we need to inject
+            Tree Grid features are segregated into individual feature-wise modules. To use Filtering feature, we need to inject
             <code>
             Filter
             </code> module into the <code>provide</code> section.

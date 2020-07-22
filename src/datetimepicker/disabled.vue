@@ -44,7 +44,7 @@ export default Vue.extend({
 
 
 
-<style>
+<style scoped>
 #wrapper {
   max-width: 246px;
   margin: 30px auto;

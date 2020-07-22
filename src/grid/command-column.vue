@@ -25,11 +25,11 @@
        <p>
             The Grid provides an option to render CRUD action buttons in a column by using the CommandColumn feature. The
             <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#commands-commandmodel">columns->commands
+            href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#commands">columns->commands
             </a></code> property accepts array of <code><a target="_blank" class="code"
                 href="http://ej2.syncfusion.com/vue/documentation/grid/api-commandModel.html">CommandModel
             </a></code> object. The predefined command button can be defined by using <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-commandModel.html#type-string">type
+                href="http://ej2.syncfusion.com/vue/documentation/grid/api-commandModel.html#type">type
             </a></code> property.
         </p>
         <p>The built-in command button are,</p>
@@ -46,7 +46,7 @@
         </p>
         <p>
             More information on the command column configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/column.html#command-column">
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/edit.html#command-column">
        documentation section</a>.
         </p>
     </div>

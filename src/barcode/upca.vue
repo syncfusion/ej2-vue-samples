@@ -2,7 +2,7 @@
   <div >
     <div class="col-lg-8 control-section" style="width: 64%">
       <div class="content-wrapper" style="width: 100%;height: 590px;">
-        <div class="center">
+        <div class="barcodecenter">
           <div class="centercontrol">
             <ejs-barcodegenerator
               id="barcode"

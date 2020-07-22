@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="badge-default">
         <div class="col-lg-12 control-section default">
-            <div class="sample_container badge-default">
+            <div class="sample_container">
                 <div class="e-btn-group e-custom-button">
                     <button id="update" class="e-btn">Updates
                         <!-- Notification Badge -->
@@ -66,11 +66,11 @@
 </template>
 
 <style>
-    .control-section {
+    .badge-default .control-section {
         overflow: auto;
     }
 
-    .sample_container.badge-default {
+    .badge-default .sample_container {
         max-width: 328px;
         margin: auto;
         margin-top: 130px;
@@ -85,23 +85,10 @@
     }
 
     @media only screen and (max-width: 400px) {
-        .sample_container.badge-default .e-btn-group {
+        .badge-default .sample_container .e-btn-group {
             left: calc(50% - 111px);
         }
-        .sample_container.badge-default #task {
-            display: none;
-        }
-    }
-
-    .badge-default .e-bigger .e-btn {
-        padding: 3px 10px;
-    }
-
-    @media only screen and (max-width: 400px) {
-        .sample_container.badge-default .e-btn-group {
-            left: calc(50% - 111px);
-        }
-        .sample_container.badge-default #task {
+        .badge-default .sample_container #task {
             display: none;
         }
     }
@@ -123,9 +110,9 @@
         color: white;
     }
 
-    .fabric .e-btn-group.e-custom-button .e-btn,
-    .material .e-btn-group.e-custom-button .e-btn,
-    .bootstrap .e-btn-group.e-custom-button .e-btn {
+    .fabric .badge-default .e-btn-group.e-custom-button .e-btn,
+    .material .badge-default .e-btn-group.e-custom-button .e-btn,
+    .bootstrap .badge-default .e-btn-group.e-custom-button .e-btn {
         background: #F6F7F9;
         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
         text-transform: initial;
@@ -150,7 +137,7 @@
         border-top-right-radius: 8px;
     }
 
-    .default .e-badge.e-badge-overlap {
+    .badge-default .default .e-badge.e-badge-overlap {
         transform: translateX(-110%);
         z-index: 100;
     }

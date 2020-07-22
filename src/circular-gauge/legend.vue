@@ -42,7 +42,7 @@
                     </td>
                     <td>
                         <div>
-                        <ejs-dropdownlist id='position' ref="legendPos" :dataSource='positiondata' :fields='positionfields' index=0  :width='positionwidth' :change='changePosition'></ejs-dropdownlist>                      
+                        <ejs-dropdownlist id='position' ref="legendPos" :dataSource='positiondata' index=0  :width='positionwidth' :change='changePosition'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <div>
-                        <ejs-dropdownlist id='alignment' ref="legendAlignment" :dataSource='alignmentdata' :fields='aligmentfields' index=0  :width='alignmentwidth' :change='changeAlignment'></ejs-dropdownlist>                      
+                        <ejs-dropdownlist id='alignment' ref="legendAlignment" :dataSource='alignmentdata' index=0  :width='alignmentwidth' :change='changeAlignment'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
@@ -89,7 +89,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     #control-container {
         padding: 0px !important;
     }

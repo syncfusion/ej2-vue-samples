@@ -51,7 +51,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .e-schedule .e-schedule-toolbar .user-icon {
         background-image: url('./images/nancy.png');
         background-position: center center;

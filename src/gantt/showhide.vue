@@ -77,7 +77,7 @@
   </div>
 </template>
 <!-- custom code start -->
-  <style>
+  <style scoped>
     #columnddl {
         min-width: 120px;
     }

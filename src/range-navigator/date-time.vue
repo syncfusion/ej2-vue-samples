@@ -64,7 +64,7 @@
 </svg>
 </div>
 </template>
-<style>
+<style scoped>
  #material-gradient-chart stop {
         stop-color: #00bdae;
     }

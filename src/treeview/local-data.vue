@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="col-lg-12 control-section">
+<div class="col-lg-12 control-section tree-local">
     <div class="col-lg-6 nested-data">
             <div class='tree-content'>
                 <h4>Hierarchical Data</h4>
@@ -27,16 +27,16 @@
 </template>
 /* custom code start */
 <style>
-.nested-data, .list-data {
+.tree-local .nested-data, .tree-local .list-data {
         padding: 15px;
         margin-bottom: 25px;
     }
-    .tree-content {
+    .tree-local .tree-content {
         margin: 0 auto;
         border: 1px solid #dddddd;
         border-radius: 3px;
     }
-    .tree-content h4 {
+    .tree-local .tree-content h4 {
         padding: 0 10px;
     }
 </style>
@@ -44,7 +44,7 @@
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import * as dataSource from './dataSource/local-data.json';
+import * as dataSource from './local-data.json';
 
 Vue.use(TreeViewPlugin);
 

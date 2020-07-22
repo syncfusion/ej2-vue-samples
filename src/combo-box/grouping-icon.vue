@@ -11,7 +11,7 @@
             <div id='icon' class='col-lg-6'>
                 <div class="content">
                     <h4> Icons</h4>
-                    <ejs-combobox id='icons' :showPopupButton='true' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields' :popupHeight='height'></ejs-combobox>
+                    <ejs-combobox id='icons' :showPopupButton='true' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields' cssClass='combobox-icons-css' :popupHeight='height'></ejs-combobox>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .content {
         width: 250px;
         margin: 0 auto;
@@ -47,54 +47,55 @@
         font-weight: normal;
         font-style: normal;
     }
-
-    .e-list-icon {
+</style>
+<style>
+.combobox-icons-css .e-list-icon {
         font-family: 'Socialicons' !important;
         color: rgba(0, 0, 0, .57);
     }
-    .highcontrast .e-list-icon {
+    .highcontrast .combobox-icons-css .e-list-icon {
         color: rgba(255, 255, 255, 0.57);
     }
-    .bootstrap4 .e-list-icon {
+    .bootstrap4 .combobox-icons-css .e-list-icon {
         color: #495057;
     }
-    .twitter:before {
+    .combobox-icons-css .twitter:before {
         content: "\a701";
     }
 
-    .vimeo:before {
+    .combobox-icons-css .vimeo:before {
         content: "\a702";
     }
 
-    .youtube:before {
+    .combobox-icons-css .youtube:before {
         content: "\a709";
     }
 
-    .whatsapp:before {
+   .combobox-icons-css .whatsapp:before {
         content: "\a700";
     }
 
-    .skype:before {
+    .combobox-icons-css .skype:before {
         content: "\a708";
     }
 
-    .instagram:before {
+    .combobox-icons-css .instagram:before {
         content: "\a703";
     }
 
-    .google-plus:before {
+    .combobox-icons-css .google-plus:before {
         content: "\a706";
     }
 
-    .facebook:before {
+    .combobox-icons-css .facebook:before {
         content: "\a705";
     }
 
-    .tumblr:before {
+    .combobox-icons-css .tumblr:before {
         content: "\a707";
     }
 
-    .linkedin:before {
+    .combobox-icons-css .linkedin:before {
         content: "\a704";
     }
 </style>

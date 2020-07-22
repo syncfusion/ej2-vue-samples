@@ -27,11 +27,11 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container3'>
+                         <ejs-circulargauge ref="circulargauge1" :load='load' style='display:block;height:250px' align='center' id='container4'>
                             <e-axes>
-                                <e-axis :radius='gauge3Radius' :startAngle='gauge3startAngle' minimum=0 maximum=100 :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations'>
+                                <e-axis :radius='gauge4Radius' :startAngle='gauge4startAngle' minimum=0 maximum=100 :endAngle='gauge4endAngle' :majorTicks='gauge4majorTicks' :lineStyle='gauge4lineStyle' :minorTicks='gauge4minorTicks' :labelStyle='gauge4labelStyle' :annotations='gauge4annotations'>
                                     <e-pointers>
-                                        <e-pointer :type='type3' :value='value3' :radius='pointerRadius3' :color='color3' :markerWidth='markerWidth3' :markerHeight='markerHeight3' :animation='animation3' :markerShape='markerShape3' :border='border3'></e-pointer>
+                                        <e-pointer :value='value4' :radius='pointerRadius4' :color='color4' :pointerWidth='pointerWidth4' :animation='animation4' :cap='cap4' :needleTail='needleTail4'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -42,15 +42,16 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge ref="circulargauge1" :load='load' style='display:block;height:250px' align='center' id='container4' :centerY='centerY4'>
+                          <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container3' :centerY='centerY3'>
                             <e-axes>
-                                <e-axis :radius='gauge4Radius' :startAngle='gauge4startAngle' minimum=0 maximum=100 :endAngle='gauge4endAngle' :majorTicks='gauge4majorTicks' :lineStyle='gauge4lineStyle' :minorTicks='gauge4minorTicks' :labelStyle='gauge4labelStyle' :annotations='gauge4annotations'>
+                                <e-axis :radius='gauge3Radius' :startAngle='gauge3startAngle' minimum=0 maximum=100 :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations'>
                                     <e-pointers>
-                                        <e-pointer :value='value4' :radius='pointerRadius4' :color='color4' :pointerWidth='pointerWidth4' :animation='animation4' :cap='cap4' :needleTail='needleTail4'></e-pointer>
+                                        <e-pointer value=70 radius='80%' color='green' :pointerWidth='pointerWidth3' :needleStartWidth='needleStartWidth3' :needleEndWidth='needleEndWidth3' :animation='animation3' :cap='cap3' :needleTail='needleTail3'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
                         </ejs-circulargauge>
+                     
                     </div>
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block;height:250px' align='center' id='container5' :centerY='centerY6'>
@@ -180,7 +181,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Inverted Triangle</div>'
+                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Marker</div>'
             }],
             gauge3startAngle: 270,
             gauge3endAngle: 90,
@@ -205,28 +206,29 @@ export default Vue.extend({
                 width: 0,
             },
             gauge3Radius: '90%',
-            type3: 'Marker',
-            markerShape3: 'Triangle',
-            pointerRadius3: '100%',
             animation3: {
                 enable: true,
                 duration: 1000
             },
-            value3: 70,
-            markerWidth3: 15,
-            markerHeight3: 15,
-            color3: '#1E7145',
-            border3: {
-                width: 1,
-                color: ' #1E7145'
+            cap3: {
+                radius: 8,
+                color: 'green'
             },
+            needleTail3: {
+                length: '0%'
+            },
+            value3: 70,
+            pointerWidth3: 2,
+            needleStartWidth3: 4,
+            needleEndWidth3: 4,
+            color3: '#1E7145',
             gauge3annotations: [{
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Triangle</div>'
+                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Customized Needle</div>'
             }],
-            centerY4: '40%',
+            centerY3: '40%',
             gauge4startAngle: 270,
             gauge4endAngle: 90,
             gauge4lineStyle: {
@@ -374,7 +376,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '25%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Multiple Needle</div>'
+                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Multiple Needles</div>'
             }],
             pointerRadius8: '60%',
             value8: 40,

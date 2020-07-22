@@ -43,14 +43,14 @@
                 used along with large data source.
             </p>
             <br/> More information on the Grid instantiation can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#create-a-simple-grid">documentation section</a>.
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
             </p>
         </div>
 
     </div>
 </template>
-<style>
-    @import "../../styles/Grid/style.css";   
+<style scoped>
+    @import "style.css"; 
 </style>
 
 <script>
@@ -75,8 +75,8 @@
                     return {
                         template: Vue.component('empTemplate', {
                             template: `<div>
-                            <div class="empimg">
-                                <span :class="{'e-userimg': true, 'sf-icon-Male': data.EmployeeImg == usermale, 'sf-icon-FeMale': data.EmployeeImg == userfemale}"></span>
+                            <div class="e-grid-empimg">
+                                <span :class="{'e-userimg': true, 'sf-grid-icon-Male': data.EmployeeImg == usermale, 'sf-grid-icon-FeMale': data.EmployeeImg == userfemale}"></span>
                                 </span>
                             </div>
                             <span id="Emptext">{{data.Employees}}</span>                            

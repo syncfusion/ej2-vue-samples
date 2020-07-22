@@ -55,7 +55,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .schedule-group.e-schedule .template-wrap {
         display: flex;
         text-align: left;
@@ -159,7 +159,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
+                return './source/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
             }
         },
         methods: {

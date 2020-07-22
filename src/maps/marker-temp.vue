@@ -16,7 +16,7 @@
     </div>        
 </div>
 </template>
-<style>
+<style scoped>
     .toolback {
         border-radius: 4px;
         border: 1px #abb9c6;
@@ -41,7 +41,7 @@
 
 <script>
 
-import { topPopulation } from './map-data/marker-location';
+import { topPopulation } from '../maps/map-data/marker-location';
 
 export default {
   data () {

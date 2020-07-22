@@ -5,7 +5,7 @@
             <div id='chipcustomization'>
                 <div class="chipcontent">
                     <h4>Chip Customization</h4>
-                    <ejs-multiselect id='countries' :dataSource='colorsData' :placeholder='chipPlaceholder' :fields='chipFields' :mode='chipMode' :value='chipValue' :tagging='onTagging'></ejs-multiselect>
+                    <ejs-multiselect id='countries' :dataSource='colorsData' :placeholder='chipPlaceholder' :fields='chipFields' cssClass='multiselect-chip-custom' :mode='chipMode' :value='chipValue' :tagging='onTagging'></ejs-multiselect>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
 
     #chipcustomization {
         width: 100%;
@@ -34,67 +34,68 @@
         margin: 0 auto;
         width: 50%;
     }
-
-    #chipcustomization .e-multi-select-wrapper .e-chips {
+</style>
+<style>
+    .multiselect-chip-custom .e-multi-select-wrapper .e-chips {
         opacity: 0.9;
     }
 
-    #chipcustomization .e-multi-select-wrapper .e-chips:hover {
+    .multiselect-chip-custom .e-multi-select-wrapper .e-chips:hover {
         opacity: 1;
     }
 
-    #chipcustomization .e-multi-select-wrapper .e-chips .e-chips-close.e-icon::before,
-    #chipcustomization .e-multi-select-wrapper .e-chips .e-chipcontent,
-    #chipcustomization .e-multi-select-wrapper .e-chips .e-chipcontent:hover {
+    .multiselect-chip-custom .e-multi-select-wrapper .e-chips .e-chips-close.e-icon::before,
+    .multiselect-chip-custom .e-multi-select-wrapper .e-chips .e-chipcontent,
+    .multiselect-chip-custom .e-multi-select-wrapper .e-chips .e-chipcontent:hover {
         color: #ffffff;
     }
-    #chipcustomization .e-chips.chocolate,
-    #chipcustomization .e-chips.chocolate:hover {
+    .multiselect-chip-custom .e-chips.chocolate,
+    .multiselect-chip-custom .e-chips.chocolate:hover {
         background-color: #75523C;
     }
 
-    #chipcustomization .e-chips.darkorange,
-    #chipcustomization .e-chips.darkorange:hover {
+    .multiselect-chip-custom .e-chips.darkorange,
+    .multiselect-chip-custom .e-chips.darkorange:hover {
         background-color: #FF843D;
     }
 
-    #chipcustomization .e-chips.darkred,
-    #chipcustomization .e-chips.darkred:hover {
+    .multiselect-chip-custom .e-chips.darkred,
+    .multiselect-chip-custom .e-chips.darkred:hover {
         background-color: #CA3832;
     }
 
-    #chipcustomization .e-chips.fuchsia,
-    #chipcustomization .e-chips.fuchsia:hover {
+    .multiselect-chip-custom .e-chips.fuchsia,
+    .multiselect-chip-custom .e-chips.fuchsia:hover {
         background-color: #D44FA3;
     }
 
-    #chipcustomization .e-chips.cadetblue,
-    #chipcustomization .e-chips.cadetblue:hover {
+    .multiselect-chip-custom .e-chips.cadetblue,
+    .multiselect-chip-custom .e-chips.cadetblue:hover {
         background-color: #3B8289;
     }
 
-    #chipcustomization .e-chips.hotpink,
-    #chipcustomization .e-chips.hotpink:hover {
+    .multiselect-chip-custom .e-chips.hotpink,
+    .multiselect-chip-custom .e-chips.hotpink:hover {
         background-color: #F23F82;
     }
 
-    #chipcustomization .e-chips.indigo,
-    #chipcustomization .e-chips.indigo:hover {
+    .multiselect-chip-custom .e-chips.indigo,
+    .multiselect-chip-custom .e-chips.indigo:hover {
         background-color: #2F5D81;
     }
 
-    #chipcustomization .e-chips.limegreen,
-    #chipcustomization .e-chips.limegreen:hover {
+    .multiselect-chip-custom .e-chips.limegreen,
+    .multiselect-chip-custom .e-chips.limegreen:hover {
         background-color: #4CD242;
     }
 
-    #chipcustomization .e-chips.orangered,
-    #chipcustomization .e-chips.orangered:hover {
+    .multiselect-chip-custom .e-chips.orangered,
+    .multiselect-chip-custom .e-chips.orangered:hover {
         background-color: #FE2A00;
     }
 
-    #chipcustomization .e-chips.tomato,
-    #chipcustomization .e-chips.tomato:hover {
+    .multiselect-chip-custom .e-chips.tomato,
+    .multiselect-chip-custom .e-chips.tomato:hover {
         background-color: #FF745C;
     }
 </style>

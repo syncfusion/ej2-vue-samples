@@ -11,7 +11,7 @@
 </template>
 <script>
 import Vue from "vue";
-import { ChartPlugin, ColumnSeries, Category } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
 
@@ -52,7 +52,7 @@ export default {
     };
   },
   provide: {
-    chart: [ColumnSeries, Category]
+    chart: [ColumnSeries, Category, DataLabel, Tooltip, Legend]
   },
   mounted(){
     this.$refs.lineInstance.height ="100%";
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style>
-  .chart-content, #container{
+  .dashboard-dynamic .chart-content, .dashboard-dynamic #container{
     height: 100%;
     width:100%;
   }

@@ -23,7 +23,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .schedule-context-menu .e-menu-item .new::before {
         content: '\e7f9';
     }

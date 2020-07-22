@@ -60,14 +60,14 @@
 </div>
 
 </template>
-<style>
+<style scoped>
 
 </style>
 <script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { EmitType } from "@syncfusion/ej2-base";
-import { ChartDataService } from "./chartdata.service";
+import { ChartDataService } from "./chart-data";
 import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
 import {
   ChartPlugin,
@@ -84,7 +84,7 @@ import {
   materialColors,
   bootstrapColors,
   highContrastColors
-} from "./theme-color";
+} from './theme-color';
 
 Vue.use(ChartPlugin);
 

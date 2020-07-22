@@ -1,13 +1,12 @@
 <template>
-<div class="control-section">
-   <div class="control-section">
+<div class="control-section"style="padding-top: 10px;">
+   <div>
     <ejs-toolbar id="toolbar_default" :clicked='onItemClick'>
     <e-items>
     <e-item  type= "Input"
         text= "Export" :template='template' ></e-item>
           <e-item type= "Button"
-        text= "Print"
-        prefixIcon= "e-ddb-icons  e-print" ></e-item>
+        text= "Print" ></e-item>
     <e-item type= "Input" ref="checkboxObject" id="checkbox"
        :template='checkBoxTemplate'></e-item>
     </e-items>
@@ -36,7 +35,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .e-bigger #toolbar_default .e-icons.e-caret,
 #toolbar_default .e-icons.e-caret {
   font-size: 12px;

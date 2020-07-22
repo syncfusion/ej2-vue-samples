@@ -33,7 +33,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     .e-schedule .template-wrap .subject {
         padding: 10px 25px;
     }

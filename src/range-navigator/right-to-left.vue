@@ -65,7 +65,7 @@
 </svg>
 </div>
 </template>
-<style>
+<style scoped>
 #control-containerRtl {
   padding: 0px !important;
 }

@@ -81,7 +81,7 @@ new Vue({
             fields:  { id: 'Id', text: 'Type', value: 'value' },
             position :'Left',
             showBackdrop: false,
-            closeOnDocumentClick: true,
+            closeOnDocumentClick: false,
             height: '220px',
             width:  '75px',
             waterMark: 'Select a Type',

@@ -44,7 +44,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
 .control_wrapper {
     max-width: 500px;
     margin: auto;
@@ -148,9 +148,9 @@ export default Vue.extend({
     onChange: function (e) {
       var proxy = this;
       if (e.checked) {
-        proxy.$refs.saveObj.saveInterval = 5000;
+        proxy.$refs.saveObj.ej2Instances.saveInterval = 5000;
       } else {
-        proxy.$refs.saveObj.saveInterval = 0;
+        proxy.$refs.saveObj.ej2Instances.saveInterval = 0;
         setTimeout(() => {
           this.Saving = false;
           this.Saved = false;

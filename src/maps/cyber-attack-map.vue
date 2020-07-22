@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="maps-cyber-sample">
 
 <div class="control-section">
 <ejs-maps id='container' :load='load' :loaded='loaded' :titleSettings='titleSettings' :zoomSettings='zoomSettings' >
@@ -34,7 +34,7 @@
 </div>
 </template>
 <style>
-    .name {
+    #maps-cyber-sample .name {
         margin-top: -6px;
         margin-left: -6px;
         font-size: 12px;
@@ -65,7 +65,7 @@
         }
     }
 
-    .pulse-css {
+    #maps-cyber-sample .pulse-css {
         width: 12px;
         height: 12px;
         -webkit-border-radius: 10px;
@@ -76,8 +76,8 @@
         animation-delay: 5s;
     }
 
-    .pulse-css:before,
-    .pulse-css:after {
+    #maps-cyber-sample .pulse-css:before,
+    #maps-cyber-sample .pulse-css:after {
         content: '';
         width: 9px;
         height: 9px;
@@ -95,7 +95,7 @@
         animation: pulse-css1 2s linear infinite;
     }
 
-    .parent_css {
+    #maps-cyber-sample .parent_css {
         width: 13px;
         height: 13px;
         background: #D2691E;
@@ -103,8 +103,8 @@
         animation-delay: 5s;
     }
 
-    .parent_css:before,
-    .parent_css:after {
+    #maps-cyber-sample .parent_css:before,
+    #maps-cyber-sample .parent_css:after {
         content: '';
         width: 9px;
         height: 9px;

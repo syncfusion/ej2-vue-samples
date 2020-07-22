@@ -55,6 +55,13 @@
             "category": "Calendar",
             "hideOnDevice": true,            
             "api":{"Calendar": [ "isMultiSelection", "value", "min", "max" ]}
+        },
+        {
+            "url": "two-way",
+            "name": "Two-Way Binding",
+            "category": "Calendar",
+            "hideOnDevice": true,
+            "api":{"Calendar": [ "value" ]}
         }
     ]
 }

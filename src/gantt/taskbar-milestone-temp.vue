@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="e-gantt-milestone" style="position:absolute;">
-      <img class="moments" height="24px" width="48px">
+      <img class="moments" src="source/gantt/images/moments.svg" height="24px" width="48px">
       <div
         class="e-milestone-top"
         style="border-right-width:26px; margin-top: -24px;border-left-width:26px;border-bottom-width:26px;"

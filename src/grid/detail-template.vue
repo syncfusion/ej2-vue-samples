@@ -21,7 +21,7 @@
           <p>
             The detail row template provides an additional information about a data row which can show or hide by clicking
             on expand or collapse button. The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/documentation/grid/api-grid.html#detailtemplate-string">
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#detailtemplate">
         detailTemplate</a></code> property accepts the template for the detail row.
         </p>
         <p>
@@ -36,7 +36,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
 @import "../../styles/Grid/detail-template.css";
 </style>
 

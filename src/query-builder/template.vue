@@ -52,7 +52,7 @@
 
 <!-- custom code start -->
 
-<style>
+<style scoped>
     /* EJ2 QueryBuider - Template sample styles */
     .template-querybuilder-section .e-control-wrapper.e-slider-container.e-horizontal {
         height: 0;

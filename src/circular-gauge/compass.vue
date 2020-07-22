@@ -152,7 +152,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 #control-container {
     padding: 0px !important;
 }

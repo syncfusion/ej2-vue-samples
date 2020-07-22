@@ -95,11 +95,11 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-    #unscheduledGantt .e-add-icon:before {
+<style scoped>
+    /deep/ #unscheduledGantt .e-add-icon:before {
         content: "\e506"
     }
-    .bootstrap4 #unscheduledGantt .e-add-icon:before {
+    /deep/ .bootstrap4 #unscheduledGantt .e-add-icon:before {
         content: "\e783"
     }
 </style>

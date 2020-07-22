@@ -22,11 +22,11 @@
      <div id="description">
         <p>The Grid columns can be shown/hidden dynamically by using column chooser. To enable column chooser behavior, set
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#showColumnChooser-boolean">showColumnChooser
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#showcolumnchooser">showColumnChooser
         </a></code> property as true. You can also prevent the display of a column in column chooser
             by setting
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#showInColumnChooser-boolean">columns->showInColumnChooser
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#showincolumnchooser">columns->showInColumnChooser
         </a></code> as false in columns definition.
 
         </p>

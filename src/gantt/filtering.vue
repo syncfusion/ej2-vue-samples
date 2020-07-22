@@ -14,7 +14,7 @@
             :height= "height"
             :timelineSettings= "timelineSettings"
             :splitterSettings= "splitterSettings"
-            :durationUnit= 'Hour'
+            :durationUnit= 'durationUnit'
             :dayWorkingTime= "dayWorkingTime"
             :labelSettings= "labelSettings"
             :projectStartDate= "projectStartDate"
@@ -75,6 +75,7 @@ export default Vue.extend({
       return{
             dataSource: filteredData,
             dateFormat: 'MM/dd/yyyy hh:mm:ss',
+            durationUnit: 'Hour',
             taskFields: {
                 id: 'TaskID',
                 name: 'TaskName',

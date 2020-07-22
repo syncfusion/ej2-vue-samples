@@ -9,7 +9,7 @@
                 <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
@@ -24,7 +24,7 @@
             <tr>
                 <td>
                     <div class="evtbtn" style="padding-bottom: 10px">
-                        <ejs-button v-on:click="clearLog" id="clear">Clear</ejs-button>
+                        <ejs-button v-on:click.native="clearLog" id="clear">Clear</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -108,7 +108,7 @@ import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as data from "./data-default.json";
+import { defaultDocument } from "./data";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(ButtonPlugin);
@@ -201,9 +201,8 @@ export default Vue.extend({
     },
     mounted() {
         this.$nextTick(function () {
-          this.$refs.doceditcontainer.ej2Instances.locale='en-US';
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-          obj.open(JSON.stringify(data));
+          obj.open(JSON.stringify(defaultDocument));
           obj.documentName='Getting Started';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
@@ -212,7 +211,7 @@ export default Vue.extend({
             setInterval(() => {
                 if (this.contentChanged) {
                     //You can save the document as below
-                    this.container.documentEditor.saveAsBlob('Docx').then((blob) => {
+                    this.$refs.doceditcontainer.ej2Instances.documentEditor.saveAsBlob('Docx').then((blob) => {
                         let exportedDocumment = blob;
                         //Now, save the document where ever you want.
                         /* tslint:disable */

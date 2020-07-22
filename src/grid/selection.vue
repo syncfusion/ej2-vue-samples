@@ -19,12 +19,12 @@
         <p>
             Selection provides an interactive support to highlight the row or cell that you select. Selection can be done through a simple
             Mouse down or Keyboard interaction. To enable selection, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowselection-boolean">
+        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowselection">
         allowSelection
         </a></code> as true.
         </p>
         <p>Grid component supports two types of selection which can be set using <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#selectionsettings-selectionsettingsmodel">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/selectionSettings/#type">
         selectionSettings->type
         </a></code> property.
             They are,</p>
@@ -33,7 +33,7 @@
             <li><code>Multiple</code> - Allows the user to select more than one row/cell at a time.</li>
         </ul>
         <p>Also, supports three modes of selection which can be set using <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#selectionsettings-selectionsettingsmodel">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/selectionSettings/#mode">
         selectionSettings->mode
         </a></code> property. They
             are,
@@ -54,7 +54,7 @@
         <p>In this demo, multiple row selection is enabled, click any row to select.</p>
         <p>
             More information on the selection configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#selectionsettings-selectionsettingsmodel">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/selection.html#selection">documentation section</a>.
         </p>
     </div>
 </div>

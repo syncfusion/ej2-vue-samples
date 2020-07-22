@@ -1,11 +1,11 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the overview of basic treegrid features such as sorting, filtering, conditional formatting, column template and scrolling.</p>
+        <p>This sample demonstrates the overview of basic Tree Grid features such as sorting, filtering, conditional formatting, column template and scrolling.</p>
     </div>
     <div>
         <ejs-treegrid :dataSource='data' childMapping='states' :height='400' :allowReordering='true' :allowFiltering='true'
-        :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' :actionFailure='actionFailure'>
+        :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' >
             <e-columns>
                 <e-column field='name' headerText='Province' width='195' :template="flagtemplate"></e-column>
                 <e-column field='population' headerText='Population (Million)' width='188' textAlign='Right'></e-column>
@@ -21,14 +21,14 @@
 
      <div id="description">
         <p>
-            The TreeGrid is used to represent the hierarchical data in a tabular format, combining the visual representation of Grid and TreeView controls. 
+            The Tree Grid is used to represent the hierarchical data in a tabular format, combining the visual representation of Grid and TreeView controls. 
             It represents the data from datasource such as an array of JSON objects, OData web services, or DataManager binding data fields to columns or self-referential datasource.
         </p>
         <p>
-            In this demo, TreeGrid features such as <code>sorting, filtering, conditional formatting, column template and scrolling</code> are used.
+            In this demo, Tree Grid features such as <code>sorting, filtering, conditional formatting, column template and scrolling</code> are used.
         </p>
         <p>
-            More information on the TreeGrid instantiation can be found in this
+            More information on the Tree Grid instantiation can be found in this
             <a target="_blank" 
                 href="https://ej2.syncfusion.com/documentation/treegrid/getting-started/">
                documentation section</a>.
@@ -37,14 +37,14 @@
 
 </div>
 </template>
-<style>
- .e-image {
+<style scoped>
+ /deep/ .e-image {
         height: 13px;
         width: 14px;
         vertical-align: middle;
     }
 
-    .statustemp {
+    /deep/ .statustemp {
         position: relative;
         height: 19px;
         border-radius: 15px;
@@ -54,66 +54,66 @@
         width: 47px;
     }
 
-    .statustemp.e-lowgdp {
+    /deep/ .statustemp.e-lowgdp {
         background-color: #FFDBDB;
         color: #BD0000;
 
     }
 
-    td.e-rowcell .statustxt {
+    /deep/ td.e-rowcell .statustxt {
         color: #00cc00;
         position: relative;
     }
 
-    td.e-rowcell .statustxt.e-lowgdp {
+    /deep/ td.e-rowcell .statustxt.e-lowgdp {
         color: #e60000;
         position: relative;
     }
 
-    .rating .star {
+    /deep/ .rating .star {
         font-size: 132%;
         color: lightgrey;
     }
 
-    .rating .star.checked {
+    /deep/ .rating .star.checked {
         color: #ffa600;
     }
 
-    .rating .star:before {
+    /deep/ .rating .star:before {
         content: '★';
     }
-    .negativeTimeZone {
+    /deep/ .negativeTimeZone {
         transform: rotate(180deg);
     }
-    #myBar {
+    /deep/ #myBar {
         position: absolute;
         width: 10%;
         height: 100%;
         background-color: #00b300;
     }
 
-    #myBar.progressdisable {
+    /deep/ #myBar.progressdisable {
         background-color: #df2222;
     }
 
-    #label {
+    /deep/ #label {
         position: relative;
         left: 10px;
         line-height: 18px;
         font-size: 10px;
         color: white;
     }
-    .highcontrast .e-grid #myProgress {
+    /deep/ .highcontrast .e-grid #myProgress {
         background-color: black;
     }
-    #myProgress {
+    /deep/ #myProgress {
         position: relative;
         height: 18px;
         width: 10em;
         text-align: left;
         background-color: white;
     }
-    #myBar.progressdisable {
+    /deep/ #myBar.progressdisable {
         background-color: #df2222;
     }
 </style>
@@ -168,7 +168,7 @@ export default Vue.extend({
     locationTemplate: function () {
         return {
             template: Vue.component('locationTemplate', {
-                template: '<div><img src="src/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
+                template: '<div><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }
@@ -190,7 +190,7 @@ export default Vue.extend({
     timezoneTemplate: function() {
         return {
             template: Vue.component('timezoneTemplate', {
-                template: `<div><img src="src/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</img></div>`,
+                template: `<div><img src="source/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</img></div>`,
             data: function() {
                     return {
                         data: {}
@@ -247,10 +247,10 @@ export default Vue.extend({
            let imageElement = (args.cell as Element).querySelector('.e-image') as HTMLImageElement;
            if (isNullOrUndefined(parentItem)) {
                let name: string = getObject('name', args.data);
-               imageElement.src = "src/tree-grid/images/" + name + ".png";
+               imageElement.src = "source/tree-grid/images/" + name + ".png";
            } else {
                let name: string = getObject('name', parentItem);
-               imageElement.src = "src/tree-grid/images/" + name + ".png";
+               imageElement.src = "source/tree-grid/images/" + name + ".png";
            }
         }
 

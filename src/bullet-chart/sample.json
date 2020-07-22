@@ -1,8 +1,7 @@
 {
     "name": "Bullet Chart",
     "directory": "bullet-chart",
-    "category": "Data Visualization",
-    "type": "preview",
+    "category": "Data Visualization",    
     "samples": [
         {
             "url": "default",
@@ -73,6 +72,18 @@
                 {
                     "displayName": "tooltip.vue",
                     "path": "./src/bullet-chart/tooltip.vue"
+                }
+            ]
+        },
+        {
+            "url": "bullet-legend",
+            "name": "Legend",
+            "category": "Bullet Chart",
+            "description": "This demo for Essential JS2 Bullet Chart control with legend",
+            "sourceFiles": [
+                {
+                    "displayName": "bullet-legend.vue",
+                    "path": "./src/bullet-chart/bullet-legend.vue"
                 }
             ]
         }

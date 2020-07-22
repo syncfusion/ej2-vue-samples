@@ -48,7 +48,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     #listbox-api-control {
         width: 49%;
         margin: auto;

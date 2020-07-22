@@ -3,7 +3,7 @@
   <div class="col-lg-9 control-section">
     <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height'
      :layout='layout' :getNodeDefaults='getNodeDefaults'
-     :getConnectorDefaults='getConnectorDefaults' :contextMenuSettings='contextMenuSettings' 
+      :contextMenuSettings='contextMenuSettings' 
      :dataSourceSettings='dataSourceSettings' :commandManager='commandManager'
      :snapSettings='snapSettings'></ejs-diagram>
   </div>
@@ -130,7 +130,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
   .control-section {
     padding-top: 0px;
     padding-bottom: 0px;

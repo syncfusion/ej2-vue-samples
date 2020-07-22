@@ -13,8 +13,7 @@
             :height= "height"
             :treeColumnIndex= "1"
             :toolbarClick= "toolbarClick"
-            :resourceNameMapping= "resourceNameMapping"
-            :resourceIDMapping= "resourceIdMapping"
+            :resourceFields= "resourceFields"
             :resources= "resources"
             :highlightWeekends= "true"
             :timelineSettings= "timelineSettings"
@@ -22,27 +21,29 @@
             :projectStartDate= "projectStartDate"
             :projectEndDate= "projectEndDate"
             :columns = "columns"
+            :allowPdfExport = "true"
             :splitterSettings= "splitterSettings">
         </ejs-gantt>
     </div>
 </div>
 
 <div id="action-description">
-    <p>This sample demonstrates client-side exporting of the Gantt, which allows you to export Gantt data to Excel and CSV formats. Using the Gantt toolbar buttons, you can export Gantt data to the desired format. </p>
+    <p>This sample demonstrates client-side exporting of the Gantt, which allows you to export Gantt data to Excel, PDF and CSV formats. Using the Gantt toolbar buttons, you can export Gantt data to the desired format. </p>
 </div>
 
 <div id="description">
-    <p>Gantt supports client-side exporting, which allows you to export its data to the Excel and CSV formats. </p>
-    <p>In this demo, we have defined actions in the <code>toolbarClick</code> event to export the Gantt data using the <code>excelExport</code> and <code>csvExport</code> methods.</p>
+    <p>Gantt supports client-side exporting, which allows you to export its data to the Excel, PDF and CSV formats. </p>
+    <p>In this demo, we have defined actions in the <code>toolbarClick</code> event to export the Gantt data using the <code>excelExport</code>, <code>pdfExport</code> and <code>csvExport</code> methods.</p>
 
     <p style="font-weight: 500">Injecting Module:</p>
     <p>To use Excel and CSV export features, inject the <code>ExcelExport</code> module using the <code>Gantt.Inject(ExcelExport)</code> method. </p>
+    <p>To use PDF feature, inject the <code>PdfExport</code> module using the <code>Gantt.Inject(PdfExport)</code> method. </p>
 </div>
 </div>
 </template>
 <script>
 import Vue from "vue";
-import { GanttPlugin, Selection, Toolbar, ExcelExport } from "@syncfusion/ej2-vue-gantt";
+import { GanttPlugin, Selection, Toolbar, ExcelExport, PdfExport } from "@syncfusion/ej2-vue-gantt";
 import { editingData, editingResources } from './data-source';
 Vue.use(GanttPlugin);
 export default Vue.extend({
@@ -61,11 +62,13 @@ export default Vue.extend({
                 child: 'subtasks',
                 resourceInfo: 'resources'
             },
-            toolbar: ['ExcelExport', 'CsvExport'],
+            toolbar: ['ExcelExport', 'CsvExport', 'PdfExport'],
             gridLines: 'Both',
             height: '450px',
-            resourceNameMapping: 'resourceName',
-            resourceIdMapping: 'resourceId',
+            resourceFields: {
+                id: 'resourceId',
+                name: 'resourceName'
+            },
             resources: editingResources,
             timelineSettings: {
                 topTier: {
@@ -89,8 +92,8 @@ export default Vue.extend({
                 { field: 'EndDate' },
                 { field: 'Duration' },
                 { field: 'Predecessor' },
-                { field: 'Progress' },
-                { field: 'resources' }
+                { field: 'resources' },
+                { field: 'Progress' }   
             ],
             splitterSettings: {
                 columnIndex: 2
@@ -98,16 +101,19 @@ export default Vue.extend({
       };
   },
   provide: {
-      gantt: [Selection, Toolbar, ExcelExport]
+      gantt: [Selection, Toolbar, ExcelExport, PdfExport]
   },
   methods:{
       toolbarClick:function (args) {
         if (args.item.id === 'GanttExport_excelexport') {
            this.$refs.gantt.ej2Instances.excelExport();
         }
-        if (args.item.id === 'GanttExport_csvexport') {
+        else if (args.item.id === 'GanttExport_csvexport') {
             this.$refs.gantt.ej2Instances.csvExport();
-        }  
+        } 
+        else if (args.item.id === 'GanttExport_pdfexport') {
+            this.$refs.gantt.ej2Instances.pdfExport();
+        } 
     }
   }
 });

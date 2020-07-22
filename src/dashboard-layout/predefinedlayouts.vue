@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="col-lg-8 control-section" id="predefined-container">
+    <div class="col-lg-8 control-section dashboard-predefined" id="predefined-container">
         <div class="content-wrapper" style="max-width:100%">
         <ejs-dashboardlayout ref="dashboard" :columns="6" id="predefined-dashboard" :cellSpacing="spacing">
             <e-panels>
@@ -11,7 +11,7 @@
         </ejs-dashboardlayout>
         </div>
     </div>
-      <div id="propertyWrapper" class="col-lg-4 property-section">
+      <div id="propertyWrapper" class="col-lg-4 property-section dashboard-predefined">
             <div class="property-panel-header">
                 Properties
             </div>
@@ -163,23 +163,15 @@ export default Vue.extend({
 });
 </script>
 <style>
-@import "../../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../../node_modules/@syncfusion/ej2-vue-layouts/styles/material.css";
-
- #sizeX,
-    #sizeY {
-        height: 18px !important;
-    }
-
-    .row .e-btn {
+    .dashboard-predefined .row .e-btn {
         display: inline;
     }
 
-    #predefined-dashboard {
+    .dashboard-predefined #predefined-dashboard {
         padding: 10px;
         width: 100%;
     }
-    #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-header {
+    .dashboard-predefined #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-header {
         font-size: 14px;
         font-weight: 500;
         height: 37px;
@@ -189,7 +181,7 @@ export default Vue.extend({
         border-bottom: 0.5px solid #e3e3e3;
     } 
     
-    #predefined-dashboard .panel-content {
+    .dashboard-predefined #predefined-dashboard .panel-content {
         vertical-align: middle;
         font-size: 15px;
         font-size: 15px;
@@ -197,45 +189,38 @@ export default Vue.extend({
         color: rgba(0, 0, 0, 0.61);
         text-align: center;
     }
-    .e-panel .e-header-text {
+    .dashboard-predefined .e-panel .e-header-text {
         padding: 12px 0 12px 0;
     }
 
-    #predefined-dashboard .e-panel-content {
+    .dashboard-predefined #predefined-dashboard .e-panel-content {
         height: calc(100% - 28px);
         width: 100%;
         display: block;
     }
     
-    #predefined-dashboard .e-panel .e-header-text {
+    .dashboard-predefined #predefined-dashboard .e-panel .e-header-text {
         padding: 12px 0 12px 0;
     }
     
-    .row {
+    .dashboard-predefined .row {
         margin-left: 0px;
         margin-right: 0px;
     }
     
-    .row-header {
+    .dashboard-predefined .row-header {
         font-size: 13px;
         font-weight: 500;
     }
     
-    #predefined-dashboard .e-panel-content {
+    .dashboard-predefined #predefined-dashboard .e-panel-content {
         padding: 15px;
     }
     
-    #reset {
+    .dashboard-predefined #reset {
         display: block;
         margin: 0 auto;
         width: 90px;
-    }
-    
-    @font-face {
-        font-family: 'e-icons';
-        src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
-        font-weight: normal;
-        font-style: normal;
     }
     
     @font-face {
@@ -245,7 +230,7 @@ export default Vue.extend({
         font-style: normal;
     }
     
-    .image-pattern-style {
+    .dashboard-predefined .image-pattern-style {
         font-family: 'e-image-icons';
         speak: none;
         font-size: 80px;
@@ -269,45 +254,45 @@ export default Vue.extend({
         text-align: center;
     }
     
-    .e-selected-style {
+    .dashboard-predefined .e-selected-style {
         border-color: #006CE6;
         border-width: 2px;
     }
     
-    .image-pattern-style#template1::before {
+    .dashboard-predefined .image-pattern-style#template1::before {
         content: "\e700";
     }
     
-    .image-pattern-style#template2::before {
+    .dashboard-predefined .image-pattern-style#template2::before {
         content: "\e701";
     }
     
-    .image-pattern-style#template3::before {
+    .dashboard-predefined .image-pattern-style#template3::before {
         content: "\e702";
     }
     
-    .image-pattern-style#template4::before {
+    .dashboard-predefined .image-pattern-style#template4::before {
         content: "\e703";
     }
     
-    .image-pattern-style#template5::before {
+    .dashboard-predefined .image-pattern-style#template5::before {
         content: "\e704";
     }
     
-    .image-pattern-style#template6::before {
+    .dashboard-predefined .image-pattern-style#template6::before {
         content: "\e705";
     }
     
-    .image-pattern-style#template7::before {
+    .dashboard-predefined .image-pattern-style#template7::before {
         content: "\e703";
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
         -o-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
-    }f
+    }
     
-    .image-pattern-style#template8::before {
+    .dashboard-predefined .image-pattern-style#template8::before {
         content: "\e702";
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
@@ -316,7 +301,7 @@ export default Vue.extend({
         transform: rotate(90deg);
     }
     
-    .image-pattern-style#template9::before {
+    .dashboard-predefined .image-pattern-style#template9::before {
         content: "\e701";
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
@@ -325,13 +310,7 @@ export default Vue.extend({
         transform: rotate(90deg);
     }
     
-    .e-clear-icon::before {
-        content: '\e932';
-        font-size: 12px;
-        font-family: 'e-icons';
-    }
-    
-    .header-border {
+    .dashboard-predefined .header-border {
         position: absolute;
         top: 0px;
         left: 0px;
@@ -339,20 +318,20 @@ export default Vue.extend({
         border-top: 5px solid #2684ff
     }
     
-    div#control,
-    .sb-property-border {
+    
+    .dashboard-predefined.sb-property-border {
         border: 1px solid lightgray;
     }
 /* highcontrast theme style */
 
-body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel {
+body.highcontrast .dashboard-predefined #predefined-dashboard.e-dashboardlayout.e-control .e-panel {
     background: #000;
 }
 
-body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+body.highcontrast .dashboard-predefined #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
-body.highcontrast #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .panel-content {
+body.highcontrast .dashboard-predefined #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .panel-content {
     color: rgba(255, 255, 255, 0.54);
 }
 </style>

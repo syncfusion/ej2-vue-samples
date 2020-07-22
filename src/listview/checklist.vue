@@ -15,18 +15,15 @@
     </div>
 
     <div id="description">
-        <p>ListView component support checkbox feature which used to select multiple items from the list. This feature can be
-		enabled by the property <code>showCheckBox</code>.</p>
-
+        <p>The ListView component has checkbox feature, which is used to select multiple items from the list. This feature can be enabled using the 
+           <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view#showcheckbox'>showCheckBox</a></code>property.</p>
+                    
         <p>In this sample, the checkbox is enabled on default list and group list.</p>
     </div>
   </div>
 </template>
 <style>
-#sample-list {
-    max-width: 500px;
-}
-#sample-list,#sample-list-flat,#sample-list-group {
+.checklist #sample-list-flat,.checklist #sample-list-group {
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin: auto;    
@@ -35,32 +32,26 @@
     overflow: auto;
     padding-bottom: 10px;
 }
-#flat-list, #group-list {
+.checklist #flat-list, .checklist #group-list {
     width: 50%;
     padding: 10px;
     margin: auto;
 }
-#flat-list {
+.checklist #flat-list {
     float: left;
 }
-#group-list {
+.checklist #group-list {
     float: right;
 }
-#flat-list h4, #group-list h4 {
+.checklist #flat-list h4, .checklist #group-list h4 {
     padding-left: 15px;
 }
-.e-listview .e-list-icon {
+.checklist .e-listview .e-list-icon {
     height: 24px;
     width: 30px;
 }
-#listview {
-    max-width: 500px;
-    margin: auto;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-}
 @media (max-width: 590px) {
-    #flat-list, #group-list {
+    .checklist #flat-list, .checklist #group-list {
         width: 100%;
     }
 }

@@ -41,7 +41,7 @@
 .accordion-view .content {
   padding: 9px;
 }
-#splitter .e-pane.e-pane-horizontal {
+.accordion-view #splitter .e-pane.e-pane-horizontal:nth-child(even) {
  padding : 10px;
 }
 .accordion-view
@@ -184,7 +184,7 @@ var jsChartContent = Vue.component("jsChart", {
 
 var pane1Content = Vue.component("pane1", {
   template: `  <div>
-    <div class="e-sample-resize-container">
+    <div>
         <ejs-accordion ref="Accordion_Nested" :expanding="expanding">
         <e-accordionitems>
             <e-accordionitem expanded='true' header='ASP.NET' content='#content1'></e-accordionitem>
@@ -289,6 +289,9 @@ export default Vue.extend({
     bus.$on("pane-content", paneContent => {
       this.$refs.splitterObj.ej2Instances.paneSettings[1].content = paneContent;
     });
+  }
+  ,destroyed: function() {
+    bus.$off("pane-content");
   }
 });
 </script>

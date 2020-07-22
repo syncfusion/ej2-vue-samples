@@ -95,7 +95,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
  .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-stacked {
         justify-content: flex-start;
     }

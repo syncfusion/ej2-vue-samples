@@ -37,7 +37,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 /* CheckBox Styles */
 .checkbox-control {
   margin: 12% 0 12% 40%;

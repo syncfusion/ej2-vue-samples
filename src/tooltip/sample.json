@@ -22,7 +22,11 @@
             "name": "Ajax Content",
             "category": "Tooltip",
             "description": "Demo of the Essential JS 2 Tooltip control loading dynamic content in tooltips through Ajax from JSON files.",
-            "hideOnDevice": true
+            "hideOnDevice": true,
+            "sourceFiles":[
+                { "displayName": "ajax-content.vue", "path":"src/tooltip/ajax-content.vue" },
+                { "displayName":"tooltipdata.json","path":"src/tooltip/tooltipdata.json" }
+            ]
         },
         {
             "url": "smart-position",

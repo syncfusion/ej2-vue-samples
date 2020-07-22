@@ -47,6 +47,10 @@
     padding: 0 10px;
     outline-color: transparent;
 }
+.e-template-menu.e-menu-wrapper .e-ul .e-menu-item{
+    height: 36px;
+    line-height: 36px;
+}
 
 /** Avatar customization */
 .e-template-menu.e-menu-wrapper ul .e-menu-item .e-avatar {

@@ -54,7 +54,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     .property-panel-content .e-checkbox-wrapper.margaret .e-frame {
         background-color: #ea7a57;
         border-color: transparent;
