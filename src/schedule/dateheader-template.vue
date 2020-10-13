@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="onEventRendered"
@@ -66,22 +66,22 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .schedule-date-header-template.e-schedule .e-vertical-view .e-header-cells,
-    .schedule-date-header-template.e-schedule .e-timeline-month-view .e-header-cells {
+<style>
+    .schedule-vue-sample .schedule-date-header-template.e-schedule .e-vertical-view .e-header-cells,
+    .schedule-vue-sample .schedule-date-header-template.e-schedule .e-timeline-month-view .e-header-cells {
         padding: 0;
         text-align: center !important;
     }
 
-    .schedule-date-header-template.e-schedule .date-text {
+    .schedule-vue-sample .schedule-date-header-template.e-schedule .date-text {
         font-size: 14px;
     }
 
-    .schedule-date-header-template.e-schedule.e-device .date-text {
+    .schedule-vue-sample .schedule-date-header-template.e-schedule.e-device .date-text {
         font-size: 12px;
     }
 
-    .schedule-date-header-template.e-schedule .weather-image {
+    .schedule-vue-sample .schedule-date-header-template.e-schedule .weather-image {
         width: 20px;
         height: 20px;
         background-position: center center;
@@ -89,11 +89,11 @@
         background-size: cover;
     }
 
-    .schedule-date-header-template.e-schedule .weather-text {
+    .schedule-vue-sample .schedule-date-header-template.e-schedule .weather-text {
         font-size: 11px;
     }
 
-    .schedule-date-header-template.e-schedule .e-month-view .weather-image {
+    .schedule-vue-sample .schedule-date-header-template.e-schedule .e-month-view .weather-image {
         float: right;
         margin: -20px 2px 0 0;
         width: 20px;

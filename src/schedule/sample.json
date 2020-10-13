@@ -3,7 +3,6 @@
     "directory": "schedule",
     "category": "Calendars",
     "ftName": "scheduler",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -136,7 +135,6 @@
             "url": "inline-editing",
             "name": "Inline Editing",
             "category": "Appointments",
-            "type": "new",
             "description": "The example showcases the inline mode of the Vue Scheduler that is used to create an appointment or edit an existing appointment's subject easily and quickly.",
             "api": {
                 "Schedule": [
@@ -224,7 +222,6 @@
             "url": "year",
             "name": "Year View",
             "category": "Views",
-            "type": "update",
             "description": "This example presents a year view of the Vue Scheduler that displays appointments or events for an entire year with a horizontal or vertical layout.",
             "api": {
                 "Schedule": [
@@ -481,7 +478,6 @@
             "url": "quick-info-template",
             "name": "Quick Info Template",
             "category": "Templates",
-            "type": "new",
             "description": "The example showcases the customized quick info popups for cells and events using the templates that help to override the built-in style in the Vue Scheduler.",
             "api": {
                 "Schedule": [

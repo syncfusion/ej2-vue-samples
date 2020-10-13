@@ -2,7 +2,6 @@
     "name": "TreeMap",
     "directory": "treemap",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -97,7 +96,6 @@
         {
             "url": "print",
             "name": "Print & Export",
-            "type": "update",
             "category": "TreeMap",
             "api": {},
             "sourceFiles": [

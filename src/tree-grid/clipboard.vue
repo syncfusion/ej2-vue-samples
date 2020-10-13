@@ -7,7 +7,7 @@
     </div>
     <div>
        <div class="col-md-9 control-section">
-           <ejs-treegrid ref='treegrid' id='treegrid' :dataSource='data' childMapping='subtasks' :allowSelection='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings' :selectionSettings="selectOptions"
+           <ejs-treegrid ref='treegrid' id='treegrid' :dataSource='data' :height='350' childMapping='subtasks' :allowSelection='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings' :selectionSettings="selectOptions"
          :toolbar='toolbar' :toolbarClick='clickHandler'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='90'></e-column>

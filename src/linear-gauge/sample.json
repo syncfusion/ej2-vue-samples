@@ -2,7 +2,6 @@
     "name": "Linear Gauge",
     "directory": "linear-gauge",
     "category": "Data Visualization",
-    "type": "update",
     "ftName": "lineargauge",
     "samples": [
         {
@@ -88,8 +87,7 @@
             "category": "Linear Gauge",
             "api": {
                 "LinearGauge": ["axes"]
-            },
-            "type": "new"
+            }
         },
         {
             "url": "style",
@@ -123,7 +121,6 @@
         {
             "url": "export",
             "name": "Print & Export",
-            "type": "update",
             "description": "This demo for Essential JS2 Linear Gauge control visualizes the available options for customization.",
             "category": "Linear Gauge",
             "api": {

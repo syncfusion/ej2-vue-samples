@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
@@ -51,8 +51,8 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .e-schedule .e-schedule-toolbar .user-icon {
+<style>
+    .schedule-vue-sample .e-schedule .e-schedule-toolbar .user-icon {
         background-image: url('./images/nancy.png');
         background-position: center center;
         background-repeat: no-repeat;
@@ -63,19 +63,19 @@
         width: 24px !important;
     }
 
-    .e-schedule .e-schedule-toolbar .e-toolbar-items .e-schedule-user-icon .e-tbar-btn:hover {
+    .schedule-vue-sample .e-schedule .e-schedule-toolbar .e-toolbar-items .e-schedule-user-icon .e-tbar-btn:hover {
         background-color: inherit;
     }
 
-    .e-schedule .e-schedule-toolbar .e-toolbar-items .e-schedule-user-icon .e-tbar-btn-text {
+    .schedule-vue-sample .e-schedule .e-schedule-toolbar .e-toolbar-items .e-schedule-user-icon .e-tbar-btn-text {
         display: none;
     }
 
-    .e-schedule .e-schedule-toolbar .e-toolbar-pop .e-schedule-user-icon .e-tbar-btn-text {
+    .schedule-vue-sample .e-schedule .e-schedule-toolbar .e-toolbar-pop .e-schedule-user-icon .e-tbar-btn-text {
         padding-left: 8px !important;
     }
 
-    .e-profile-wrapper {
+    .schedule-vue-sample .e-profile-wrapper {
         width: 210px;
         height: 80px;
         background-color: #fafafa;
@@ -83,12 +83,12 @@
         overflow: hidden;
     }
 
-    .e-profile-wrapper .profile-container {
+    .schedule-vue-sample .e-profile-wrapper .profile-container {
         display: flex;
         padding: 10px;
     }
 
-    .e-profile-wrapper .profile-image {
+    .schedule-vue-sample .e-profile-wrapper .profile-image {
         background-image: url('./images/nancy.png');
         background-position: center center;
         background-repeat: no-repeat;
@@ -99,22 +99,22 @@
         height: 60px;
     }
 
-    .e-profile-wrapper .content-wrap {
+    .schedule-vue-sample .e-profile-wrapper .content-wrap {
         padding-left: 10px;
     }
 
-    .e-profile-wrapper .name {
+    .schedule-vue-sample .e-profile-wrapper .name {
         font-size: 14px;
         line-height: 20px;
         font-weight: 500;
         margin-top: 2px;
     }
 
-    .e-profile-wrapper .destination {
+    .schedule-vue-sample .e-profile-wrapper .destination {
         font-size: 12px;
     }
 	
-	.e-profile-wrapper .status-icon {
+	.schedule-vue-sample .e-profile-wrapper .status-icon {
         height:6px;
         width:6px;
         background:green;
@@ -124,14 +124,14 @@
         margin-top:4px;
     }
 
-    .e-profile-wrapper .status {
+    .schedule-vue-sample .e-profile-wrapper .status {
         font-size: 11px;
     }
 
-    .highcontrast .e-profile-wrapper {
+    .highcontrast .schedule-vue-sample .e-profile-wrapper {
         border: 1px solid #969696
     }
-    .highcontrast .e-profile-wrapper .profile-container {
+    .highcontrast .schedule-vue-sample .e-profile-wrapper .profile-container {
         background-color: #000;
     }
 </style>

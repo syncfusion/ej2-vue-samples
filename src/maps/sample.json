@@ -2,7 +2,6 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -228,7 +227,6 @@
         {
             "url": "print",
             "name": "Print",
-            "type": "update",
             "category": "Print and Export",
             "api": {},
             "sourceFiles": [
@@ -240,7 +238,6 @@
         {
             "url": "export",
             "name": "Export",
-            "type": "update",
             "category": "Print and Export",
             "api": {},
             "sourceFiles": [

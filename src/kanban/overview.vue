@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kanban-vue-sample">
     <div class="col-md-12 control-section">
       <div class="content-wrapper">
         <ejs-kanban id="kanban" cssClass="kanban-overview" keyField="Status" :dataSource="kanbanData"
@@ -34,32 +34,32 @@
 </div>
 </template>
 <style>
-.kanban-overview.e-kanban .header-template-wrap {
+.kanban-vue-sample .kanban-overview.e-kanban .header-template-wrap {
   display: inline-flex;
   font-size: 15px;
   font-weight: 500;
 }
 
-.kanban-overview.e-kanban .header-template-wrap .header-icon {
+.kanban-vue-sample .kanban-overview.e-kanban .header-template-wrap .header-icon {
   font-family: "Kanban priority icons";
   margin-top: 3px;
   width: 10%;
 }
 
-.kanban-overview.e-kanban .header-template-wrap .header-text {
+.kanban-vue-sample .kanban-overview.e-kanban .header-template-wrap .header-text {
   margin-left: 15px;
 }
 
-.kanban-overview.e-kanban.e-rtl .header-template-wrap .header-text {
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .header-template-wrap .header-text {
     margin-right: 15px;
 }
 
-.kanban-overview.e-kanban.e-rtl .e-card-avatar {
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .e-card-avatar {
     left: 12px;
     right: auto;
 }
 
-.kanban-overview.e-kanban .e-card-avatar {
+.kanban-vue-sample .kanban-overview.e-kanban .e-card-avatar {
     width: 30px;
     height: 30px;
     text-align: center;
@@ -74,37 +74,37 @@
     padding: 10px 0px 0px 1px;
 }
 
-.kanban-overview.e-kanban .Open::before {
+.kanban-vue-sample .kanban-overview.e-kanban .Open::before {
   content: "\e700";
   color: #0251cc;
   font-size: 16px;
 }
 
-.kanban-overview.e-kanban .InProgress::before {
+.kanban-vue-sample .kanban-overview.e-kanban .InProgress::before {
   content: "\e703";
   color: #ea9713;
   font-size: 16px;
 }
 
-.kanban-overview.e-kanban .e-image img {
+.kanban-vue-sample .kanban-overview.e-kanban .e-image img {
   background: #ececec;
   border: 1px solid #c8c8c8;
   border-radius: 50%;
 }
 
-.kanban-overview.e-kanban .Review::before {
+.kanban-vue-sample .kanban-overview.e-kanban .Review::before {
   content: "\e701";
   color: #8e4399;
   font-size: 16px;
 }
 
-.kanban-overview.e-kanban .Close::before {
+.kanban-vue-sample .kanban-overview.e-kanban .Close::before {
   content: "\e702";
   color: #63ba3c;
   font-size: 16px;
 }
 
-.kanban-overview.e-kanban .e-card .e-card-tag-field {
+.kanban-vue-sample .kanban-overview.e-kanban .e-card .e-card-tag-field {
   background: #ececec;
   color: #6b6b6b;
   margin-right: 5px;
@@ -114,34 +114,34 @@
   padding: 4px;
 }
 
-.kanban-overview.e-kanban .e-card-custom-footer {
+.kanban-vue-sample .kanban-overview.e-kanban .e-card-custom-footer {
   display: flex;
   padding: 0px 12px 12px;
   line-height: 1;
   height: 35px;
 }
 
-.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low,
-.kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low {
+.kanban-vue-sample .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low,
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low {
     border-left: 3px solid #1F88E5;
 }
 
-.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High,
-.kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High {
+.kanban-vue-sample .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High,
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High {
     border-left: 3px solid #673AB8;
 }
 
-.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal,
-.kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal {
+.kanban-vue-sample .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal,
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal {
     border-left: 3px solid #02897B;
 }
 
-.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical,
-.kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical {
+.kanban-vue-sample .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical,
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical {
     border-left: 3px solid #E64A19;
 }
 
-.kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card {
+.kanban-vue-sample .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card {
     border-left: none
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="control-section">
             <div class="schedule-container">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -28,7 +28,7 @@
         </div> 
     </div>
 </template>
-<style scoped>
+<style>
     /* custom code start*/
     @font-face {
         font-family: 'Schedule_print';
@@ -38,15 +38,15 @@
         font-style: normal;
     }
     /* custom code end*/
-    .print.e-schedule .e-schedule-toolbar .e-icons {
+    .schedule-vue-sample .print.e-schedule .e-schedule-toolbar .e-icons {
         font-family: 'Schedule_print', 'e-icons';
     }
 
-    .print.e-schedule .e-schedule-toolbar .e-icon-schedule-print::before {
+    .schedule-vue-sample .print.e-schedule .e-schedule-toolbar .e-icon-schedule-print::before {
         content: '\e204';
     }
 
-    .print.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today {
+    .schedule-vue-sample .print.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today {
         display: none;
     }
 </style>

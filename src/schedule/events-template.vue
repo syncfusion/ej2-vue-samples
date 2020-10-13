@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='550px' :selectedDate="selectedDate" :eventSettings='eventSettings' :readonly="readonly"
@@ -32,33 +32,33 @@
 
     </div>
 </template>
-<style scoped>
-    .schedule-event-template.e-schedule .e-vertical-view .e-content-wrap .e-appointment,
-    .schedule-event-template.e-schedule .e-timeline-view .e-content-wrap .e-appointment {
+<style>
+    .schedule-vue-sample .schedule-event-template.e-schedule .e-vertical-view .e-content-wrap .e-appointment,
+    .schedule-vue-sample .schedule-event-template.e-schedule .e-timeline-view .e-content-wrap .e-appointment {
         border-radius: 8px;
     }
 
-    .schedule-event-template.e-schedule .e-vertical-view .e-content-wrap .e-appointment .e-appointment-details {
+    .schedule-vue-sample .schedule-event-template.e-schedule .e-vertical-view .e-content-wrap .e-appointment .e-appointment-details {
         padding: 0;
         height: 100%;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper {
         height: 100%;
         white-space: normal;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper .image {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .image {
         padding: 8px 0 4px;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper .image img {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .image img {
         height: 100%;
         width: 100%;
         padding: 10px 25%;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper .subject {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .subject {
         font-weight: 600;
         font-size: 15px;
         padding: 4px 4px 4px;
@@ -68,35 +68,35 @@
         overflow: hidden;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper .time {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .time {
         height: 50px;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper .time,
-    .schedule-event-template.e-schedule .template-wrapper .description {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .time,
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .description {
         font-size: 12px;
         padding: 4px 6px 4px;
         overflow: hidden;
     }
 
-    .schedule-event-template.e-schedule .template-wrapper .footer {
+    .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .footer {
         position: absolute;
         bottom: 0;
         height: 50px;
         width: 100%;
     }
 
-    .schedule-event-template.e-schedule .e-timeline-view .e-appointment .e-appointment-details {
+    .schedule-vue-sample .schedule-event-template.e-schedule .e-timeline-view .e-appointment .e-appointment-details {
         padding: 0;
         height: 100%;
         width: 100%;
     }
 
-    .schedule-event-template.e-schedule .e-timeline-view .template-wrapper {
+    .schedule-vue-sample .schedule-event-template.e-schedule .e-timeline-view .template-wrapper {
         width: 100%;
     }
 
-    .schedule-event-template.e-schedule .e-timeline-view .template-wrapper .subject {
+    .schedule-vue-sample .schedule-event-template.e-schedule .e-timeline-view .template-wrapper .subject {
         font-size: 16px;
         height: 36px;
         text-align: center;

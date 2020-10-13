@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
@@ -52,12 +52,12 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .e-schedule-event-tooltip .tooltip-wrap {
+<style>
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap {
         display: flex;
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .image {
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .image {
         background-image: url('./images/public-event.png');
         background-position: center center;
         background-repeat: no-repeat;
@@ -66,48 +66,48 @@
         height: 50px;
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .content-area {
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .content-area {
         padding-left: 6px;
         font-size: 12px;
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .maintenance {
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance {
         background-image: url('./images/maintenance.png');
     }
 
-    .fabric .e-schedule-event-tooltip .tooltip-wrap .maintenance,
-    .highcontrast .e-schedule-event-tooltip .tooltip-wrap .maintenance {
+    .fabric .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance,
+    .highcontrast .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance {
         background-image: url('./images/maintenance1.png');
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .public-event {
+    .schedule-vue-sample .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .public-event {
         background-image: url('./images/public-event.png');
     }
 
-    .fabric .e-schedule-event-tooltip .tooltip-wrap .public-event,
-    .highcontrast .e-schedule-event-tooltip .tooltip-wrap .public-event {
+    .fabric .schedule-vue-sample .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .public-event,
+    .highcontrast .schedule-vue-sample .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .public-event {
         background-image: url('./images/public-event1.png');
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .family-event {
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .family-event {
         background-image: url('./images/family-event.png');
     }
 
-    .fabric .e-schedule-event-tooltip .tooltip-wrap .family-event,
-    .highcontrast .e-schedule-event-tooltip .tooltip-wrap .family-event {
+    .fabric .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .family-event,
+    .highcontrast .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .family-event {
         background-image: url('./images/family-event1.png');
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .commercial-event {
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .commercial-event {
         background-image: url('./images/commercial-event.png');
     }
 
-    .fabric .e-schedule-event-tooltip .tooltip-wrap .commercial-event,
-    .highcontrast .e-schedule-event-tooltip .tooltip-wrap .commercial-event {
+    .fabric .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .commercial-event,
+    .highcontrast .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .commercial-event {
         background-image: url('./images/commercial-event1.png');
     }
 
-    .e-schedule-event-tooltip .tooltip-wrap .name {
+    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .name {
         font-weight: 500;
         font-size: 14px;
     }

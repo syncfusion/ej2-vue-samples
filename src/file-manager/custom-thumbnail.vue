@@ -97,7 +97,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 
 Vue.use(FileManagerPlugin);
 /**
@@ -120,7 +120,7 @@ export default Vue.extend ({
         };
     },
     provide: {
-            filemanager: [NavigationPane, Toolbar]
+            filemanager: [DetailsView, NavigationPane, Toolbar]
     }
 });
 </script>

@@ -3,7 +3,6 @@
   "directory": "pivot-table",
   "category": "Grids",
   "ftName": "pivot-table",
-  "type": "update",
   "samples": [{
       "url": "default",
       "name": "Default Functionalities",
@@ -15,7 +14,6 @@
     {
       "url": "local",
       "name": "Local Data",
-      "type": "update",
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with local JSON and CSV data",
@@ -24,7 +22,6 @@
     {
       "url": "remote",
       "name": "Remote Data",
-      "type": "update",
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with JSON and CSV remote data",
@@ -41,7 +38,6 @@
     {
       "url": "pivot-chart",
       "name": "Pivot Chart",
-      "type": "update",
       "category": "Integration",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate integration of pivot table data into a simple chart component",
@@ -106,7 +102,6 @@
     {
       "url": "toolbar",
       "name": "Toolbar",
-      "type": "update",
       "category": "User Interaction",
       "hideOnDevice": false,
       "api": {},

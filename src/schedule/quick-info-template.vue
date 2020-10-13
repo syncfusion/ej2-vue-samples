@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="schedule-vue-sample">
     <div class="control-section">
       <ejs-schedule id="schedule" height="650px" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
         <e-resources>
@@ -24,38 +24,38 @@
   </div>
 </template>
 
-<style scoped>
-.quick-info-header {
+<style>
+.schedule-vue-sample .quick-info-header {
   background-color: white;
   padding: 8px 18px;
 }
 
-.quick-info-header-content {
+.schedule-vue-sample .quick-info-header-content {
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
   padding: 5px 10px 5px;
 }
 
-.quick-info-title {
+.schedule-vue-sample .quick-info-title {
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.48px;
   height: 22px;
 }
 
-.duration-text {
+.schedule-vue-sample .duration-text {
   font-size: 11px;
   letter-spacing: 0.33px;
   height: 14px;
 }
 
-.content-area {
+.schedule-vue-sample .content-area {
   padding: 10px;
   width: auto;
 }
 
-.event-content {
+.schedule-vue-sample .event-content {
   height: 90px;
   display: flex;
   flex-direction: column;
@@ -63,9 +63,9 @@
   padding: 0 15px;
 }
 
-.meeting-type-wrap,
-.meeting-subject-wrap,
-.notes-wrap {
+.schedule-vue-sample .meeting-type-wrap,
+.schedule-vue-sample .meeting-subject-wrap,
+.schedule-vue-sample .notes-wrap {
   font-size: 11px;
   color: #666;
   letter-spacing: 0.33px;
@@ -73,13 +73,13 @@
   padding: 5px;
 }
 
-.event-content div label {
+.schedule-vue-sample .event-content div label {
   display: inline-block;
   min-width: 45px;
   color: #666;
 }
 
-.event-content div span {
+.schedule-vue-sample .event-content div span {
   font-size: 11px;
   color: #151515;
   letter-spacing: 0.33px;
@@ -87,25 +87,25 @@
   padding-left: 8px;
 }
 
-.cell-footer.e-btn {
+.schedule-vue-sample .cell-footer.e-btn {
   background-color: #ffffff;
   border-color: #878787;
   color: #878787;
 }
 
-.cell-footer {
+.schedule-vue-sample .cell-footer {
   padding-top: 10px;
 }
 
-.e-quick-popup-wrapper .e-cell-popup .e-popup-content {
+.schedule-vue-sample .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
   padding: 0 14px;
 }
 
-.e-quick-popup-wrapper .e-event-popup .e-popup-footer {
+.schedule-vue-sample .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
   display: block;
 }
 
-.e-quick-popup-wrapper .e-popup-footer button:first-child {
+.schedule-vue-sample .e-quick-popup-wrapper .e-popup-footer button:first-child {
   margin-right: 5px;
 }
 </style>

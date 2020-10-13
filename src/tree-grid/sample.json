@@ -2,7 +2,6 @@
     "name": "Tree Grid",
     "directory": "tree-grid",
     "category": "Grids",
-    "type": "update",
     "ftName": "treegrid",
     "samples": [
       {  
@@ -29,7 +28,7 @@
         "description": "This example illustrates binding self-referential flat data with parent ID to a Syncfusion Essential JS2 Tree Grid control."
      },
       {  
-        "url":"column-chooser", "name": "Column Chooser", "type": "New", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex","pageSettings"] },
+        "url":"column-chooser", "name": "Column Chooser", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex","pageSettings"] },
         "description":  "This example demonstrates how the column chooser feature can be used to dynamically show or hide columns  based on the specified format in Syncfusion Essential JS2 Tree Grid."
      },
      {  

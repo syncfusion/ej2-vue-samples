@@ -173,7 +173,7 @@
             "url": "conditional-formatting",
             "name": "Conditional Formatting",
             "category": "Formatting",
-            "type": "new",
+            "type": "update",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -213,6 +213,20 @@
                     "path": "src/spreadsheet/sorting-and-filtering-data.json"
                 }
             ]
+        },
+        {
+            "url": "image",
+            "name": "Image",
+            "category": "Illustrations",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "showRibbon",
+                    "showFormulaBar",
+                    "sheets"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows image feature."
         }
     ]
 }

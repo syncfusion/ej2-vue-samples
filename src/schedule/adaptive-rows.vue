@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" width="100%" height="650px" :rowAutoHeight="true" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
@@ -51,11 +51,11 @@
     </div>
 </template>
 
-<style scoped>
-    .adaptive-rows.e-schedule .e-timeline-view .e-resource-left-td {
+<style>
+    .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-resource-left-td {
         width: 120px;
     }
-    .adaptive-rows.e-schedule .e-timeline-view .e-resource-text {
+    .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-resource-text {
         padding-left: 20px;
     }
 </style>

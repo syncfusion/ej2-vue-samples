@@ -30,7 +30,7 @@
         HTML template design is compiled and then the resultant output display is directly assigned to the <code> content</code>property
         of the tooltip. The template compilation process needs to be done on the <code>beforeRender</code> event of the tooltip.</p>
     <p>More information about setting template content on the Tooltip can be found in the
-        <a href="http://ej2.syncfusion.com/vue/documentation/tooltip/content.html#template-content" target="_blank"> documentation section</a>.
+        <a href="https://ej2.syncfusion.com/vue/documentation/tooltip/content/#template-content" target="_blank"> documentation section</a>.
     </p>
             </div>
     </div>

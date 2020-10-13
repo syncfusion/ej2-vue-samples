@@ -124,6 +124,9 @@
         font-family: 'cross-circle';
         height: 36px;
     }
+    .custom-tree .e-rtl .custom-delete {
+        float: left;
+    }
     .highcontrast .e-active .custom-tree .e-list-item .custom-delete::before {
 	    color: #000;
 	}

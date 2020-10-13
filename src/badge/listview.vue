@@ -54,6 +54,22 @@
         margin-right: 16px;
     }
 
+    .badge-list .e-rtl .list_svg {
+        margin-left: 16px;
+        margin-right: 0;
+    }
+
+    .badge-list .listWrapper .e-badge {
+        float: right;
+        margin-top: 16px;
+        font-size: 12px;
+    }
+
+    .badge-list .e-rtl .listWrapper .e-badge {
+        float: left;
+    }
+
+
     .badge-list .list_text {
         width: 60%;
         display: inline-block;

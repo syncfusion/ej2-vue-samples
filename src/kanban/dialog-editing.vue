@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kanban-vue-sample">
     <div class="col-md-9 control-section">
       <div class="content-wrapper">
         <div class="kanban-section">

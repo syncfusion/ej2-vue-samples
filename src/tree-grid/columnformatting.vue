@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
+          <ejs-treegrid ref='treegrid' :dataSource='data' :height='350' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='orderID' headerText='Order ID' width='70' textAlign='Right'></e-column>
                 <e-column field='orderName' headerText='Order Name' width='150'></e-column>

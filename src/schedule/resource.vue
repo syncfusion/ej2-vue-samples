@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="schedule-vue-sample">
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
             <ejs-schedule id="schedule" ref="ScheduleObj" :cssClass="cssClass" width='100%' height='650px'
@@ -54,18 +54,18 @@
 </div>
 </template>
 <!-- custom code start -->
-<style scoped>
-    .property-panel-content .e-checkbox-wrapper.margaret .e-frame {
+<style>
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.margaret .e-frame {
         background-color: #ea7a57;
         border-color: transparent;
     }
 
-    .property-panel-content .e-checkbox-wrapper.robert .e-frame {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.robert .e-frame {
         background-color: #df5286;
         border-color: transparent;
     }
 
-    .property-panel-content .e-checkbox-wrapper.laura .e-frame {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.laura .e-frame {
         background-color: #865fcf;
         border-color: transparent;
     }

@@ -1,10 +1,10 @@
 <template>
   <div class="control-section">
-    <div id="cp-inline-control">
+    <div id="inline-control">
         <div class="row">
             <div id="preview"></div>
         </div>
-        <div id="cp-inline-content" class="row">
+        <div id="inline-content" class="row">
             <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
                 <h4>Inline Palette</h4>
                 <ejs-colorpicker id="inline-color-palette" mode="Palette" :modeSwitcher="false" :inline="true" :showButtons="false" :change="onChange"></ejs-colorpicker>
@@ -50,24 +50,24 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 /* Common sample level styles */
-#cp-inline-control {
+#inline-control {
     width: 100%;
     text-align: center;
 }
-#cp-inline-control .col-xs-12 {
+#inline-control .col-xs-12 {
     margin: 10px 0;
 }
-#cp-inline-control h4 {
+#inline-control h4 {
     margin-bottom: 20px;
 }
-.e-bigger #cp-inline-control h4 {
+.e-bigger #inline-control h4 {
     font-size: 20px;
 }
 
-#cp-inline-control #preview {
-    background: transparent url('./images/pen.png') no-repeat;
+#inline-control #preview {
+    background: transparent url('images/pen.png') no-repeat;
     display: inline-block;
     height: 80px;
     margin: 10px 0;
@@ -76,31 +76,31 @@
 }
 
 /* Preview area styles */
-#cp-inline-control.e-mobile-control #preview {
-    background: transparent url('./images/pen_mobile.png') no-repeat;
+#inline-control.e-mobile-control #preview {
+    background: transparent url('images/pen_mobile.png') no-repeat;
     background-color: #008000;
     height: 35px;
     width: 300px;
 }
-.highcontrast #cp-inline-control #preview {
-    background: transparent url('./images/pen_highcontrast.png') no-repeat;
+.highcontrast #inline-control #preview {
+    background: transparent url('images/pen_highcontrast.png') no-repeat;
     background-color: #008000;
 }
-.highcontrast #cp-inline-control.e-mobile-control #preview {
-    background: transparent url('./images/pen_mobile_highcontrast.png') no-repeat;
+.highcontrast #inline-control.e-mobile-control #preview {
+    background: transparent url('images/pen_mobile_highcontrast.png') no-repeat;
     background-color: #008000;
 }
 
 /* Common sample level styles for mobile */
-#cp-inline-control.e-mobile-control h4 {
+#inline-control.e-mobile-control h4 {
     margin-bottom: 15px;
 }
-#cp-inline-control.e-mobile-control #cp-inline-content {
+#inline-control.e-mobile-control #inline-content {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
 }
-#cp-inline-control.e-mobile-control #cp-inline-content .col-xs-12 {
+#inline-control.e-mobile-control #inline-content .col-xs-12 {
     flex: 0 0 auto;
     margin-top: 5px;
 }

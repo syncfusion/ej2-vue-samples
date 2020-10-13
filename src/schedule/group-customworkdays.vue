@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :currentView='currentView' :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -50,59 +50,59 @@
 
     </div>
 </template>
-<style scoped>
-    .customschedule.e-schedule .e-month-view .e-work-days.willsmith,
-    .customschedule.e-schedule .e-vertical-view .e-work-hours.willsmith {
+<style>
+    .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.willsmith,
+    .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.willsmith {
         background-color: #faebd7;
     }
 
-    .customschedule.e-schedule .e-month-view .e-work-days.alice,
-    .customschedule.e-schedule .e-vertical-view .e-work-hours.alice {
+    .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.alice,
+    .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.alice {
         background-color: #deecfc;
     }
 
-    .customschedule.e-schedule .e-month-view .e-work-days.robson,
-    .customschedule.e-schedule .e-vertical-view .e-work-hours.robson {
+    .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.robson,
+    .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.robson {
         background-color: #deeeac;
     }
 
-    .customschedule.e-schedule .e-vertical-view .e-resource-cells {
+    .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-resource-cells {
         height: 62px;
     }
 
-    .customschedule.e-schedule .template-wrap {
+    .schedule-vue-sample .customschedule.e-schedule .template-wrap {
         display: flex;
         text-align: left;
     }
 
-    .customschedule.e-schedule .template-wrap .resource-image {
+    .schedule-vue-sample .customschedule.e-schedule .template-wrap .resource-image {
         background-repeat: no-repeat;
         background-size: 45px;
         height: 45px;
         width: 45px;
     }
 
-    .customschedule.e-schedule .template-wrap .resource-details {
+    .schedule-vue-sample .customschedule.e-schedule .template-wrap .resource-details {
         padding-left: 10px;
     }
 
-    .customschedule.e-schedule.e-device .template-wrap .resource-details .resource-designation {
+    .schedule-vue-sample .customschedule.e-schedule.e-device .template-wrap .resource-details .resource-designation {
         display: none;
     }
 
 
-    .customschedule.e-schedule .template-wrap .resource-details .resource-name {
+    .schedule-vue-sample .customschedule.e-schedule .template-wrap .resource-details .resource-name {
         font-size: 16px;
         font-weight: 500;
         margin-top: 5px;
     }
 
-    .customschedule.e-schedule.e-device .template-wrap .resource-details .resource-name {
+    .schedule-vue-sample .customschedule.e-schedule.e-device .template-wrap .resource-details .resource-name {
         font-size: inherit;
         font-weight: inherit;
     }
 
-    .customschedule.e-schedule.e-device .e-resource-tree-popup .e-fullrow {
+    .schedule-vue-sample .customschedule.e-schedule.e-device .e-resource-tree-popup .e-fullrow {
         height: 50px;
     }
 </style>

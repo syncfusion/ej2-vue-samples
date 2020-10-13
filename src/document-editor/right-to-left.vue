@@ -4,7 +4,7 @@
     <div class="sample-container">
         <div class="default-section">
           <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
-    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
+    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" style="float:right;" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
@@ -364,8 +364,6 @@ L10n.load({
             'Page': 'صفحه',
             'Fit one page': 'احتواء صفحه واحد',
             'Fit page width': 'احتواء عرض الصفحة',
-            // tslint:disable-next-line:max-line-length
-            'The current page number in the document. Click or tap to navigate specific page.': 'رقم الصفحة الحالية في المستند. انقر أأو اضغط للتنقل في صفحه معينه',
             'Format restrictions': 'قيود التنسيق',
             'Allow formatting': 'السماح بالتنسيق',
             'Editing restrictions': 'قيود التحرير',
@@ -481,8 +479,6 @@ L10n.load({
             'Page': 'صفحه',
             'Fit one page': 'احتواء صفحه واحد',
             'Fit page width': 'احتواء عرض الصفحة',
-            // tslint:disable-next-line:max-line-length
-            'The current page number in the document. Click or tap to navigate specific page.': 'رقم الصفحة الحالية في المستند. انقر أأو اضغط للتنقل في صفحه معينه',
             'Link': 'الارتباط',
             'Bookmark': 'الاشاره المرجعيه',
             'Table of Contents': 'جدول المحتويات',
@@ -612,6 +608,7 @@ L10n.load({
             'Allow formatting': 'السماح بالتنسيق',
             'Editing restrictions': 'قيود التحرير',
             'Read only': 'للقراءة فقط',
+            'Current Page Number': 'رقم الصفحة الحالي في المستند. انقر أو اضغط للانتقال إلى صفحه معينه.',
             'User permissions': 'أذونات المستخدم',
             'Everyone': 'الجميع',
             'Add Users': 'أضافه مستخدمين',
@@ -660,9 +657,9 @@ export default Vue.extend({
     data: function() {
         return {
           hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
-          documentName : 'Right to Left',
+          documentName : 'الشروع',
           documentTitle: 'Untitled Document',
-          iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
+          iconStyle: 'float:left;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
             titileStyle: 'text-transform:capitalize;font-weight:400;font-family:inherit;text-overflow:ellipsis;white-space:pre;overflow:hidden;user-select:none;cursor:text',
             openIconCss: 'e-de-icon-Open e-de-padding-right',
             printIconCss: 'e-de-icon-Print e-de-padding-right',

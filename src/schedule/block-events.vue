@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="schedule-container">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -33,27 +33,26 @@
         </div>
     </div>
 </template>
-<style scoped>
-
-    .block-events.e-schedule .template-wrap {
+<style>
+    .schedule-vue-sample .block-events.e-schedule .template-wrap {
         width: 100%;
     }
 
-    .block-events.e-schedule .e-vertical-view .e-resource-cells {
+    .schedule-vue-sample .block-events.e-schedule .e-vertical-view .e-resource-cells {
         height: 58px;
     }
 
-    .block-events.e-schedule .e-timeline-view .e-resource-left-td,
-    .block-events.e-schedule .e-timeline-month-view .e-resource-left-td {
+    .schedule-vue-sample .block-events.e-schedule .e-timeline-view .e-resource-left-td,
+    .schedule-vue-sample .block-events.e-schedule .e-timeline-month-view .e-resource-left-td {
         width: 170px;
     }
 
-    .block-events.e-schedule .e-resource-cells.e-child-node .employee-category,
-    .block-events.e-schedule .e-resource-cells.e-child-node .employee-name {
+    .schedule-vue-sample .block-events.e-schedule .e-resource-cells.e-child-node .employee-category,
+    .schedule-vue-sample .block-events.e-schedule .e-resource-cells.e-child-node .employee-name {
         padding: 5px
     }
 
-    .block-events.e-schedule .employee-image {
+    .schedule-vue-sample .block-events.e-schedule .employee-image {
         width: 45px;
         height: 40px;
         float: left;
@@ -61,11 +60,11 @@
         margin-right: 10px;
     }
 
-    .block-events.e-schedule .employee-name {
+    .schedule-vue-sample .block-events.e-schedule .employee-name {
         font-size: 13px;
     }
 
-    .block-events.e-schedule .employee-designation {
+    .schedule-vue-sample .block-events.e-schedule .employee-designation {
         font-size: 10px;
     }
 </style>

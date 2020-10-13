@@ -140,6 +140,19 @@
         ]
     },
     {
+        "url": "stacked-step-area",
+        "name": "Stacked Step Area",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacking step area series.",
+        "category": "Area Charts",
+        "type": "new",
+        "sourceFiles": [
+            {
+                "displayName": "stacked-step-area.vue",
+                "path": "./src/chart/stacked-step-area.vue"
+            }
+        ]
+    },
+    {
         "url": "stacked-area-100",
         "name": "100% Stacked Area",
         "description": "This demo for Essential JS2 Chart control shows how to render the 100 percent stacking area series.",
@@ -555,7 +568,6 @@
         "name": "Smart Labels",
         "description": "This demo for Essential JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
         "category": "Accumulation Charts",
-        "type": "update",
         "sourceFiles": [
             {"displayName": "smart-labels.vue", "path": "./src/chart/smart-labels.vue"}
         ]
@@ -810,7 +822,7 @@
         "description": "This demo for Essential JS2 Chart control shows how to sort the series data in chart.",
         "category": "Chart Customization",
         "sourceFiles": [
-            {"displayName": "sorting.vue", "path": "./src/chart/sorting.vue"}
+            {"displayName": "axes-crossing.vue", "path": "./src/chart/axes-crossing.vue"}
         ]
     },
     {
