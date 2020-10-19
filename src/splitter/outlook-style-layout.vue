@@ -122,7 +122,8 @@ var pane3Content = Vue.component("pane3", {
     mounted() {
         bus.$emit("rteInst", this.$refs.rteInstance);
         this.$nextTick(function () {
-            this.$refs.rteInstance.ej2_instances.refresh();
+            this.$refs.rteInstance.refreshUI();
+             rteobj =  this.$refs.rteInstance;
         })
     },
     provide:{
@@ -145,11 +146,6 @@ export default Vue.extend({
                 return { template : pane3Content }
             }
         }
-    },
-    mounted() {
-        bus.$on('rteInst', instance => {
-            rteobj = instance.ej2Instances;
-        });
     },
     methods: {
         onSplitterResize: function() {

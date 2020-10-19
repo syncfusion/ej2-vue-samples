@@ -181,10 +181,10 @@ let pathData = 'M 120 24.9999 C 120 38.8072 109.642 50 96.8653 50 L 23.135' +
   ' 50 C 10.3578 50 0 38.8072 0 24.9999 L 0 24.9999 C' +
   '0 11.1928 10.3578 0 23.135 0 L 96.8653 0 C 109.642 0 120 11.1928 120 24.9999 Z';
 let port = [
-    { id:'Port1', offset: { x: 0, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
-    { id:'Port2',offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
-    { id:'Port3',offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
-    { id:'Port4',offset: { x: 0.5, y: 1 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw }
+    { id:'Port1', offset: { x: 0, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Default |  PortConstraints.Draw },
+    { id:'Port2',offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Default |  PortConstraints.Draw },
+    { id:'Port3',offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Default |  PortConstraints.Draw },
+    { id:'Port4',offset: { x: 0.5, y: 1 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Default |  PortConstraints.Draw }
 ]
 let diagram;
 //Initializes the nodes for the diagram.
@@ -193,10 +193,10 @@ let nodes = [
    id: 'swimlane',
             shape: {
                 type: 'SwimLane',
+                orientation: 'Horizontal',
                 header: {
                     annotation: { content: 'SALES PROCESS FLOW CHART', style: { fill: 'transparent' } },
                     height: 50, style: { fontSize: 11 },
-                    orientation: 'Horizontal',
                 },
                 lanes: [
                     {
@@ -312,7 +312,7 @@ let nodes = [
                 phases: [
                     {
                         id: 'phase1', offset: 170,
-                        header: { content: { content: 'Phase' } }
+                        header: { annotation: { content: 'Phase' } }
                     },
                 ],
                 phaseSize: 20,

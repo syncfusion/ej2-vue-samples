@@ -122,7 +122,7 @@ export default Vue.extend({
   methods: {
     toolbarClick: function(args) {
         if (args.item.id === 'showhidebar') {
-                    this.$refs.gantt.showOverAllocation =  this.$refs.gantt.showOverAllocation ? false : true;
+                    this.$refs.gantt.ej2Instances.showOverAllocation =  this.$refs.gantt.ej2Instances.showOverAllocation ? false : true;
                 }
     }
   }

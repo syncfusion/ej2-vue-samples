@@ -138,7 +138,7 @@
             color: #3D3E3C;
             letter-spacing: 0;
             margin-top: -2%;
-            top: 10px;
+            top: 20px;
             margin-left: 13.5%;
         }
 
@@ -230,7 +230,6 @@ export default Vue.extend({
       this.$refs.indeterminate.ej2Instances.refresh();
       this.$refs.buffer.ej2Instances.refresh();
       this.$refs.segment.ej2Instances.refresh();
-      this.$refs.active.ej2Instances.refresh();
     },
     load: function(args) {
         let selectedTheme = location.hash.split('/')[1];

@@ -103,7 +103,6 @@ provide:{
 /* custom code start */
 methods:{
     load:function(args){
-        debugger;
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));

@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :selectionSettings='selectionSettings' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :selectionSettings='selectionSettings' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column type='checkbox' width='50'></e-column>
                 <e-column field='taskID' headerText='Task ID' width='70' isPrimaryKey='true' textAlign='Right'></e-column>

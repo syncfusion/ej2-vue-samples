@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='currentView'
@@ -19,9 +19,7 @@
                 <tbody>
                     <tr style="height: 50px">
                         <td style="width: 30%">
-                            <div>
-                                Working Days
-                            </div>
+                            <div>Working Days</div>
                         </td>
                         <td style="width: 70%;">
                             <div class="multi-prop">
@@ -34,9 +32,7 @@
                     </tr>
                     <tr style="height: 50px">
                         <td style="width: 30%">
-                            <div>
-                                Non-Working Days
-                            </div>
+                            <div>Non-Working Days</div>
                         </td>
                         <td style="width: 70%;">
                             <div>
@@ -72,8 +68,8 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .multi-prop div {
+<style>
+    .schedule-vue-sample .multi-prop div {
         padding-left: 0;
         padding-top: 0;
     }

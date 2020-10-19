@@ -12,7 +12,7 @@
             height='160px'
             radius='100%'
             innerRadius='190%'
-            progressColor="white"
+            progressColor='white'
             :progressThickness='progressthickness1'
             :trackThickness='trackthickness1'
             cornerRadius='Round'
@@ -99,15 +99,14 @@
     #control-container {
         padding: 0px !important;
     }
-
+    
+   #full-container_Circulartrack {
+        opacity: 1 !important;
+    }
     .reload-btn {
             text-align: center;
             margin-top:6%;
         }
-
-     #full-container_Circulartrack {
-            opacity: 1 !important;
-       }
 
      #reLoad {
             border-radius: 4px;
@@ -177,9 +176,9 @@ export default Vue.extend({
                 case 'highcontrast':
                     args.progressBar.trackColor = '#FFD939';
                     args.progressBar.progressColor = '#000000';
-                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:20px;font-weight:bold;color:#000000;fill:#000000"><span>60%</span></div>';
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:20px;font-weight:bold;color:#000000;fill:#ffffff"><span>60%</span></div>';
                     break;
-                default:
+                default :
                     args.progressBar.trackColor = '#007bff';
                     break;
             }

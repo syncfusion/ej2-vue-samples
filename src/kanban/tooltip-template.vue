@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="kanban-vue-sample">
     <div class="col-md-9 control-section">
       <div class="content-wrapper">
-        <ejs-kanban ref= "KanbanObj" id="kanban" keyField="Status" :dataSource="kanbanData" :enableTooltip="enableTooltip"  :tooltipTemplate= "tooltipTemplate" 
-           :cardSettings="cardSettings">
+        <ejs-kanban ref= "KanbanObj" id="kanban" keyField="Status" :dataSource="kanbanData" :enableTooltip="enableTooltip" 
+            :tooltipTemplate= "tooltipTemplate" :cardSettings="cardSettings">
           <e-columns>
             <e-column headerText="To Do" keyField="Open"></e-column>
             <e-column headerText="In Progress" keyField="InProgress"></e-column>
@@ -58,16 +58,16 @@
 </div>
 </template>
 <style>
-    .e-kanbantooltiptemp {
+    .kanban-vue-sample .e-kanbantooltiptemp {
         width: 250px;
         padding: 3px;
     }
 
-    .e-kanbantooltiptemp>table {
+    .kanban-vue-sample .e-kanbantooltiptemp>table {
         width: 100%;
     }
 
-    .e-kanbantooltiptemp td {
+    .kanban-vue-sample .e-kanbantooltiptemp td {
         vertical-align: top;
     }
 </style>

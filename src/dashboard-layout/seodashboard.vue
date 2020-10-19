@@ -430,6 +430,10 @@ export default  Vue.extend({
     margin-left: 10px;
     margin-top: 10px;
   }
+  
+  #dashboardSidebar.e-sidebar .content-area{
+    margin: 0px;
+  }
 
   .dashboard-seo .card .e-icons {
     position: absolute;

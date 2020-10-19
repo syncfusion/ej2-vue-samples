@@ -1,7 +1,6 @@
 {
    "name": "Gantt",
    "directory": "gantt",
-   "type": "update",
    "category": "Calendars",
    "ftName": "gantt",
    "samples": [
@@ -25,7 +24,6 @@
          "url": "editing",
          "name": "Editing",
          "category": "Gantt",
-         "type":"update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -74,7 +72,6 @@
          "url": "context-menu",
          "name": "Context Menu",
          "category": "Gantt",
-		   "type": "update",
          "api": {
             "Gantt": [
               "dataSource",
@@ -305,7 +302,6 @@
          "url": "resource-view",
          "name": "Resource View",
          "category": "Resources",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -327,7 +323,6 @@
          "url": "resource-multi-taskbar",
          "name": "Resource Multi Taskbar",
          "category": "Resources",
-         "type": "new",
          "api": {
             "Gantt": [
                "dataSource",

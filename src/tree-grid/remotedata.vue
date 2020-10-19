@@ -5,7 +5,7 @@
     </p>
 </div>
     <div>
-        <ejs-treegrid :dataSource='data' idMapping='TaskID' parentIdMapping='parentItem' hasChildMapping='isParent' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-treegrid :dataSource='data' idMapping='TaskID' :height='350' parentIdMapping='parentItem' hasChildMapping='isParent' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='TaskID' headerText='Task ID' width='100' textAlign='Right'></e-column>
                 <e-column field='TaskName' headerText='Task Name' width='160'></e-column>

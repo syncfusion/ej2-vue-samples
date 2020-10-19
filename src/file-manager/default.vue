@@ -54,7 +54,7 @@
 
 <script>
 import Vue from "vue";
-import { FileManagerPlugin ,NavigationPane, Toolbar, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerPlugin ,NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(CheckBoxPlugin);
@@ -82,7 +82,7 @@ export default Vue.extend ({
         };
     },   
     provide: {
-            filemanager: [NavigationPane, Toolbar]
+            filemanager: [NavigationPane, Toolbar, DetailsView]
     },
     methods: {
         onChange: function(args) {

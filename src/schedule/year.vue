@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="schedule-vue-sample">
     <div class="col-md-12 control-section">
       <div class="content-wrapper">
         <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :eventSettings="eventSettings" :currentView="currentView" :eventRendered="onEventRendered">

@@ -2,14 +2,12 @@
     "name": "Progressbar",
     "directory": "progress-bar",
     "category": "Notifications",
-    "type": "update",
     "samples": [
         {
             "url": "linear",
             "name": "Linear",
             "category": "ProgressBar",
             "description": "This demo for Essential JS2 progress bar control",
-            "type": "update",
             "sourceFiles": [
                 {
                     "displayName": "linear.vue",
@@ -58,11 +56,10 @@
             "name": "Labels",
             "category": "ProgressBar",
             "description": "This demo for Essential JS2 progress bar control",
-            "type": "update",
             "sourceFiles": [
                 {
                     "displayName": "labels.vue",
-                    "path":  "./src/progress-bar/labels.vue"
+                    "path": "./src/progress-bar/labels.vue"
                 }
             ]
         },
@@ -74,7 +71,7 @@
             "sourceFiles": [
                 {
                     "displayName": "radius.vue",
-                    "path":  "./src/progress-bar/radius.vue"
+                    "path": "./src/progress-bar/radius.vue"
                 }
             ]
         },
@@ -83,11 +80,10 @@
             "name": "Stripes",
             "category": "ProgressBar",
             "description": "This demo for Essential JS2 progress bar control",
-            "type": "new",
             "sourceFiles": [
                 {
                     "displayName": "stripe.vue",
-                    "path":  "./src/progress-bar/stripe.vue"
+                    "path": "./src/progress-bar/stripe.vue"
                 }
             ]
         },
@@ -96,11 +92,10 @@
             "name": "Progress Segment",
             "category": "ProgressBar",
             "description": "This demo for Essential JS2 progress bar control",
-            "type": "new",
             "sourceFiles": [
                 {
                     "displayName": "progress_segment.vue",
-                    "path":  "./src/progress-bar/progress_segment.vue"
+                    "path": "./src/progress-bar/progress_segment.vue"
                 }
             ]
         }

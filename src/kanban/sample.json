@@ -2,7 +2,6 @@
     "name": "Kanban",
     "directory": "kanban",
     "category": "Data Visualization",
-    "type": "preview",
     "ftName": "kanban",
     "samples": [
         {
@@ -26,7 +25,6 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "Kanban",
-            "type": "update",
             "description": "The example demonstrates the default functionalities of JS Kanban with very minimal essential settings such as data source, columns, and card details.",
             "api": {
                 "Kanban": [
@@ -87,7 +85,6 @@
             "url": "search-filter",
             "name": "Search and Filter Cards",
             "category": "Kanban",
-            "type": "new",
             "description": "The example demo shows how to filter the cards and make searching when more number of cards on a JavaScript Kanban board that helps you to focus.",
             "api": {
                 "Kanban": [
@@ -104,7 +101,6 @@
             "url": "sorting",
             "name": "Sorting Cards",
             "category": "Kanban",
-            "type": "new",
             "description": "The example demonstrates how to sort the cards in the ascending or descending based on the data source order or indexing or custom field on the Kanban board.",
             "api": {
                 "Kanban": [

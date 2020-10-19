@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'></ejs-schedule>
@@ -10,9 +10,7 @@
                 <tbody>
                     <tr style="height: 50px">
                         <td style="width: 30%">
-                            <div>
-                                Current Date
-                            </div>
+                            <div>Current Date</div>
                         </td>
                         <td style="width: 70%;">
                             <div>

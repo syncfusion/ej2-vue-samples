@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' width='100%' :cssClass='cssClass' height='650px' :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -30,33 +30,33 @@
     </div>
 </template>
 
-<style scoped>
-    .schedule-cell-dimension.e-schedule .e-vertical-view .e-date-header-wrap table col,
-    .schedule-cell-dimension.e-schedule .e-vertical-view .e-content-wrap table col {
+<style>
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-vertical-view .e-date-header-wrap table col,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-vertical-view .e-content-wrap table col {
         width: 200px;
     }
 
-    .schedule-cell-dimension.e-schedule .e-vertical-view .e-time-cells-wrap table td,
-    .schedule-cell-dimension.e-schedule .e-vertical-view .e-work-cells {
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-vertical-view .e-time-cells-wrap table td,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-vertical-view .e-work-cells {
         height: 100px;
     }
 
-    .schedule-cell-dimension.e-schedule .e-month-view .e-work-cells,
-    .schedule-cell-dimension.e-schedule .e-month-view .e-date-header-wrap table col {
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-month-view .e-work-cells,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-month-view .e-date-header-wrap table col {
         width: 200px;
     }
 
-    .schedule-cell-dimension.e-schedule .e-month-view .e-work-cells {
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-month-view .e-work-cells {
         height: 200px;
     }
 
-    .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-content-wrap table col,
-    .schedule-cell-dimension.e-schedule .e-timeline-view .e-content-wrap table col {
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-content-wrap table col,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-view .e-content-wrap table col {
         width: 100px;
     }
 
-    .schedule-cell-dimension.e-schedule .e-timeline-view .e-work-cells,
-    .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-work-cells {
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-view .e-work-cells,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-work-cells {
         height: 600px;
     }
 </style>

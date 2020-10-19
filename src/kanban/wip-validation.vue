@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kanban-vue-sample">
     <div class="col-lg-9 control-section">
       <div class="content-wrapper">
       <div class="col-md-12">
@@ -87,24 +87,24 @@
 </div>
 </template>
 <style>
-    .property-panel-content .e-constraint-table {
+    .kanban-vue-sample .property-panel-content .e-constraint-table {
         width: 100%
     }
 
-    .property-panel-content .e-constraint-label {
+    .kanban-vue-sample .property-panel-content .e-constraint-label {
         width: 40%
     }
 
-    .property-panel-content .e-validate {
+    .kanban-vue-sample .property-panel-content .e-validate {
         padding-top: 13px;
         text-align: center;
     }
 
-    .property-panel-content td {
+    .kanban-vue-sample .property-panel-content td {
         padding-top: 10px;
     }
 
-    .property-panel-header {
+    .kanban-vue-sample .property-panel-header {
         padding-bottom: 0px;
     }
 </style>

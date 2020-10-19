@@ -70,7 +70,6 @@
             "url": "form-fields",
             "name": "Form Fields",
             "category": "Editing Features",
-            "type": "new",
             "description": "The Document Editor component in JavaScript platform allows users to design and fill legacy form fields (text, check box, and drop down) in a Word document." 
         },
         {
@@ -125,15 +124,20 @@
             "url": "comments",
             "name": "Comments",
             "category": "Review",
-			"type": "update",
             "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
         },
 		 {
             "url": "track-changes",
             "name": "Track Changes",
             "category": "Review",
-            "type": "new",
             "description": "The Document Editor component in JavaScript platform allows users to view, make changes and accept or reject them in a Word document." 
+        },
+        {
+            "url": "mail-merge",
+            "name": "Mail Merge",
+            "category": "Mail Merge",
+            "type": "new",
+            "description": "The Document Editor component provides support to mail merge document with the help of Syncfusion DocIO."
         }	
     ]
 }

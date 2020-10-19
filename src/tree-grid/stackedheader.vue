@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true'>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='1' :allowPaging='true'>
             <e-columns>
                 <e-column headerText='Order Details' :columns='orderColumns'></e-column>
                 <e-column headerText='Shipment Details' :columns='shipColumns'></e-column>

@@ -94,8 +94,13 @@
                     <div class='sb-header-item sb-table-cell sb-download-wrapper'>
                         <a href='https://www.syncfusion.com/downloads/vue' target="_blank">                
                         <button id='download-now' class='sb-download-btn'>
-                                    <span class='sb-download-text'>Download Now</span>
+                                    <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
+                        </a>
+                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank">
+                        <button class='sb-npm-btn'>
+                            <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span class="doc-npm-link">Install NPM</span>
+                        </button>
                         </a>                    
                     </div>
                 </div>
@@ -283,6 +288,37 @@
                         </div>
                         <div class='description-section sb-rightpane-padding'>
                         </div>
+                            <div class="ad-wrapper">
+                <div id='ad-image' class="ad-img">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-12">
+                                <div id="ad-banner-head" class="ad-header">Transform your Vue web apps today with Syncfusion Vue components</div>
+                            </div>
+                            <div class="col-sm-12 cnt-area">
+                                <div class="content-area">
+                                    <div class="ad-cnt-pt">
+                                        <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                        <div class="ad-cnt-text">65+ high-performance and responsive UI components</div>
+                                    </div>
+                                    <div class="ad-cnt-pt">
+                                        <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                        <div class="ad-cnt-text">Dedicated support</div>
+                                    </div>
+                                    <div class="ad-cnt-pt">
+                                        <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                        <div class="ad-cnt-text">Hassle-free licensing</div>
+                                    </div>
+                                </div>
+                                <a style="color:#ffff;text-decoration:none;"
+                                    href="https://www.syncfusion.com/downloads/vue">
+                                    <div class="free-trial">TRY IT FOR FREE</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">

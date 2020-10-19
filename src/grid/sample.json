@@ -26,11 +26,20 @@
         },
         {
             "url": "grouping",
-            "name": "Grouping",
-            "category": "Data Grid",
+            "name": "Default Grouping",
+            "category": "Grouping",
             "description": "This demo for Essential JS 2 grid component demonstrates the grouping feature of the grid component. The grid component has options to group records based on columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowGrouping", "allowSorting", "allowPaging"] }
+        },
+        {
+            "url": "lazy-load-grouping",
+            "name": "Lazy Load Grouping",
+            "category": "Grouping",
+            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
+            "hideOnDevice": false,
+            "type": "new",
+            "api": { "Grid": ["dataSource","allowPaging","allowGrouping","groupSettings","height","columns"] }
         },
         {
             "url": "grid-lines",
@@ -312,8 +321,7 @@
             "sourceFiles":[
                 { "displayName": "filtering.vue", "path":"src/grid/filtering.vue" },
                 { "displayName":"filtering.css","path":"styles/Grid/filtering.css" }
-            ],
-            "type": "update"
+            ]
         },
         {
             "url": "filter-menu",

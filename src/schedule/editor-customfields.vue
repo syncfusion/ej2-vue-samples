@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
@@ -28,8 +28,8 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .custom-field-row {
+<style>
+    .schedule-vue-sample .custom-field-row {
         margin-bottom: 20px;
     }
 </style>

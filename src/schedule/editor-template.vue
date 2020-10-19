@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :actionBegin="onActionBegin"
@@ -32,13 +32,13 @@
 
     </div>
 </template>
-<style scoped>
-    .custom-event-editor .e-textlabel {
+<style>
+    .schedule-vue-sample .custom-event-editor .e-textlabel {
         padding-right: 15px;
         text-align: right;
     }
 
-    .custom-event-editor td {
+    .schedule-vue-sample .custom-event-editor td {
         padding: 7px;
         padding-right: 16px;
     }

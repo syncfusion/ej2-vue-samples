@@ -2,7 +2,6 @@
     "name": "Circular Gauge",
     "directory": "circular-gauge",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -49,7 +48,6 @@
         {
             "url": "gradient-color",
             "name": "Gradient Color",
-            "type": "new",
             "category": "Circular Gauge",
             "api":{"CircularGauge": [ "axes"]}
         },
@@ -93,7 +91,6 @@
             "url": "export",
             "name": "Print & Export",
             "category": "Export",
-            "type": "update",
             "api":{"CircularGauge": ["axes"]}
         },
         {

@@ -70,7 +70,8 @@ export default Vue.extend({
                 dependency: 'Predecessor',
                 child: 'subtasks',
                 work: 'work',
-                resourceInfo: 'resources'
+                resourceInfo: 'resources',
+                type: 'taskType'
             },
             resourceFields: {
                 id: 'resourceId',

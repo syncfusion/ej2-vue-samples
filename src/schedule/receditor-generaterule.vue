@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper recurrence-editor-wrap">
                 <div style="padding-bottom:15px;">
@@ -34,17 +34,17 @@
     </div>
 </template>
 <!-- custom code start -->
-<style scoped>
-    .recurrence-editor-wrap {
+<style>
+    .schedule-vue-sample .recurrence-editor-wrap {
         margin: 0 25%;
     }
 
-    .rule-output-container {
+    .schedule-vue-sample .rule-output-container {
         height: auto;
         border: 1px solid #969696;
     }
 
-    #rule-output {
+    .schedule-vue-sample #rule-output {
         padding: 8px 4px;
         text-align: center;
         min-height: 20px;
@@ -53,7 +53,7 @@
     }
 
     @media (max-width: 580px) {
-        .recurrence-editor-wrap {
+        .schedule-vue-sample .recurrence-editor-wrap {
             margin: 0 5%;
         }
     }

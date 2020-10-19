@@ -1,5 +1,5 @@
 <template>
-<div v-if="type === 'monthCells' && getCellContent(data.date) !== '' ">
+<div v-if="data.type === 'monthCells' && getCellContent(data.date) !== '' ">
     <div class="templatewrap">
         <p v-html=getCellContent(data.date)></p>
     </div>

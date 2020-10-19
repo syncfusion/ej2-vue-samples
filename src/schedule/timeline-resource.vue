@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" width="100%" height="650px" :selectedDate='selectedDate' :currentView='currentView' :timeScale="timeScale" :workHours='workHours' :eventSettings='eventSettings'
@@ -45,22 +45,22 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
+<style>
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
         vertical-align: bottom;
     }
 
-    .room-scheduler.e-schedule.e-device .e-timeline-view .e-resource-left-td {
+    .schedule-vue-sample .room-scheduler.e-schedule.e-device .e-timeline-view .e-resource-left-td {
         width: 75px;
     }
 
-    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         display: flex;
         font-weight: 500;
         padding: 0;
     }
 
-    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
         border-top: 1px solid rgba(0, 0, 0, 0.12);
         flex: 0 0 33.3%;
@@ -70,17 +70,17 @@
         padding-left: 5px;
     }
 
-    .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
         border-right: 0;
     }
 
-    .room-scheduler.e-schedule .template-wrap {
+    .schedule-vue-sample .room-scheduler.e-schedule .template-wrap {
         display: flex;
         height: 100%;
         text-align: left;
     }
 
-    .room-scheduler.e-schedule .template-wrap>div {
+    .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
         flex: 0 0 33.3%;
         font-weight: 500;
@@ -90,40 +90,40 @@
         text-overflow: ellipsis;
     }
 
-    .room-scheduler.e-schedule .template-wrap>div:last-child {
+    .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div:last-child {
         border-right: 0;
     }
 
-    .room-scheduler.e-schedule .e-timeline-view .e-resource-cells,
-    .room-scheduler.e-schedule .e-timeline-month-view .e-resource-cells {
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-cells,
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-month-view .e-resource-cells {
         padding-left: 0;
     }
 
-    .room-scheduler.e-schedule .e-timeline-view .e-date-header-wrap table col,
-    .room-scheduler.e-schedule .e-timeline-view .e-content-wrap table col {
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-date-header-wrap table col,
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-content-wrap table col {
         width: 100px;
     } 
     
-    .room-scheduler.e-schedule .e-read-only {
+    .schedule-vue-sample .room-scheduler.e-schedule .e-read-only {
         opacity: .8;
     }
 
     @media (max-width: 550px) {
-        .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
+        .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
             width: 100px;
         }
-        .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
-        .room-scheduler.e-schedule .template-wrap>div {
+        .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+        .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div {
             flex: 0 0 100%;
         }
-        .room-scheduler.e-schedule .template-wrap>div:first-child {
+        .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div:first-child {
             border-right: 0;
         }
-        .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:first-child {
+        .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:first-child {
             border-right: 0;
         }
-        .room-scheduler.e-schedule .room-type,
-        .room-scheduler.e-schedule .room-capacity {
+        .schedule-vue-sample .room-scheduler.e-schedule .room-type,
+        .schedule-vue-sample .room-scheduler.e-schedule .room-capacity {
             display: none;
         }
     }

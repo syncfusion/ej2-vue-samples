@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper schedule-wrapper">
                 <ejs-schedule id='Schedule' height="510px" :selectedDate='selectedDate' :eventSettings='eventSettings'>
@@ -38,9 +38,9 @@
     </div>
 </template>
 <!-- custom code start -->
-<style scoped>
+<style>
     @media (min-width: 481px) {
-        .schedule-wrapper {
+        .schedule-vue-sample .schedule-wrapper {
             margin: 0 25%;
         }
     }

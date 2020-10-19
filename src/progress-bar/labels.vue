@@ -6,7 +6,7 @@
             id="percentage"
             ref="percentage"
             type='Linear'
-            height='40'
+            height='30'
             width='100%'
             :trackThickness='trackThickness'
             :progressThickness='progressThickness'
@@ -24,12 +24,12 @@
             id="Ratio"
             ref="ratio"
             type='Linear'
-            height='40'
+            height='30'
             width='100%'
             :trackThickness='trackThickness'
             :progressThickness='progressThickness'
             :value=value2
-            role='Info'
+            role='Warning'
             showProgressValue=true
             :labelStyle='label2'
             :animation='animation'
@@ -42,12 +42,12 @@
             id="Actual"
             ref="actual"
             type='Linear'
-            height='40'
+            height='30'
             width='100%'
             :trackThickness='trackThickness'
             :progressThickness='progressThickness'
             :value=value3
-            role='Warning'
+            role='Info'
             showProgressValue=true
             :labelStyle='label3'
             :animation='animation'
@@ -60,7 +60,7 @@
             id="Custom"
             ref="custom"
             type='Linear'
-            height='40'
+            height='30'
             width='100%'
             :trackThickness='trackThickness'
             :progressThickness='progressThickness'

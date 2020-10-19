@@ -1,6 +1,6 @@
 <template>
   <div class="control-section">
-    <div id="custom-cp-control">
+    <div id="custom-control">
         <div class="row">
             <div id="e-shirt-preview"></div>
         </div>
@@ -50,36 +50,36 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 /* custom code start */
 /* Common sample level styles */
-#custom-cp-control {
+#custom-control {
     margin: auto 0;
     text-align: center;
 }
-#custom-cp-control .col-lg-6 {
+#custom-control .col-lg-6 {
     margin-bottom: 20px;
 }
-#custom-cp-control .col-lg-6.e-circle-wrap {
+#custom-control .col-lg-6.e-circle-wrap {
     width: 26%;
 }
-#custom-cp-control .col-lg-6.e-square-wrap {
+#custom-control .col-lg-6.e-square-wrap {
     margin-top: 37px;
     width: 22%;
 }
-#custom-cp-control .col-lg-6.e-rounded-wrap {
+#custom-control .col-lg-6.e-rounded-wrap {
     margin-top: 35px;
     width: 19%;
 }
-#custom-cp-control .col-lg-6.e-scroll-wrap {
+#custom-control .col-lg-6.e-scroll-wrap {
     width: 33%;
 }
-#custom-cp-control.e-mobile-control .col-lg-6 {
+#custom-control.e-mobile-control .col-lg-6 {
     width: 55%;
 }
 
 /* Preview area styles */
-#custom-cp-control #e-shirt-preview {
+#custom-control #e-shirt-preview {
     background: transparent url('images/shirt.png') no-repeat;
     height: 320px;
     margin: 20px auto;
@@ -87,48 +87,48 @@
     width: 400px;
     background-color: rgb(244, 67, 54);
 }
-#custom-cp-control.e-mobile-control #e-shirt-preview {
+#custom-control.e-mobile-control #e-shirt-preview {
     margin-left: -21%;
     width: 320px;
 }
-.highcontrast #custom-cp-control #e-shirt-preview {
+.highcontrast #custom-control #e-shirt-preview {
     background: transparent url('images/shirt_highcontrast.png') no-repeat;
     background-color: rgb(244, 67, 54);
 }
 
 /* Common sample level styles for mobile */
 @media only screen and (min-width: 768px) {
-    #custom-cp-control.e-mobile-control .col-sm-12 {
+    #custom-control.e-mobile-control .col-sm-12 {
         width: 25%;
     }
 }
-#custom-cp-control.e-mobile-control #custom-content {
+#custom-control.e-mobile-control #custom-content {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
 }
-#custom-cp-control.e-mobile-control #custom-content .col-xs-12 {
+#custom-control.e-mobile-control #custom-content .col-xs-12 {
     flex: 0 0 auto;
 }
 /* custom code end */
 /* Circle palette customization */
-#custom-cp-control .e-container .e-palette .e-circle-palette {
+.e-container .e-palette .e-circle-palette {
     border: 0;
     height: 32px;
     width: 32px;
     border-radius: 20px;
     margin: 4px;
 }
-.e-bigger #custom-cp-control .e-container .e-palette .e-circle-palette {
+.e-bigger .e-container .e-palette .e-circle-palette {
     height: 32px;
     width: 32px;
 }
-#custom-cp-control .e-container .e-palette .e-circle-palette:hover {
+.e-container .e-palette .e-circle-palette:hover {
     box-shadow: none;
     transform: scale(1.2);
     transition: transform .2s ease-out;
 }
-#custom-cp-control .e-circle-palette .e-circle-selection {
+.e-circle-palette .e-circle-selection {
     height: 32px;
     width: 32px;
     border-radius: 20px;
@@ -136,24 +136,24 @@
     transform: scale(0);
     transition: transform 1.2s ease-in;
 }
-#custom-cp-control .e-circle-palette.e-selected .e-circle-selection {
+.e-circle-palette.e-selected .e-circle-selection {
     transform: scale(0.8);
     background-color: #fff;
     transition: transform .2s ease-out;
 }
-#custom-cp-control #circle-palette+.e-container,
-#custom-cp-control #scroll-palette+.e-container {
+#circle-palette+.e-container,
+#scroll-palette+.e-container {
     background-color: transparent;
     border-color: transparent;
     box-shadow: none;
 }
 
 /* Scrollable palette customization */
-#custom-cp-control #scroll-palette+.e-container .e-custom-palette.e-palette-group,
-.e-bigger #custom-cp-control #scroll-palette+.e-container .e-custom-palette.e-palette-group {
+#scroll-palette+.e-container .e-custom-palette.e-palette-group,
+.e-bigger #scroll-palette+.e-container .e-custom-palette.e-palette-group {
     height: 125px;
 }
-#custom-cp-control .e-container .e-palette .e-scroll-palette {
+.e-container .e-palette .e-scroll-palette {
     border: 0;
     color: #fff;
     line-height: 24px;
@@ -163,47 +163,47 @@
     margin-top: 2px;
     margin-left: 10px;
 }
-.e-bigger #custom-cp-control .e-container .e-palette .e-scroll-palette {
+.e-bigger .e-container .e-palette .e-scroll-palette {
     height: 24px;
     width: 35px;
 }
-#custom-cp-control .e-container .e-palette .e-scroll-palette.e-selected::before {
+.e-container .e-palette .e-scroll-palette.e-selected::before {
     content: '\e933';
 }
-.highcontrast #custom-cp-control .e-container .e-palette {
+.highcontrast .e-container .e-palette {
     border-bottom-color: transparent;
 }
 
 /* Square palette customization */
-#custom-cp-control .e-container .e-palette .e-square-palette,
-.e-bigger #custom-cp-control .e-container .e-palette .e-square-palette {
+.e-container .e-palette .e-square-palette,
+.e-bigger .e-container .e-palette .e-square-palette {
     width: 20px;
     height: 20px;
 }
-#custom-cp-control #square-palette+.e-container .e-custom-palette .e-palette,
-#custom-cp-control #rounded-palette+.e-container .e-custom-palette .e-palette {
+#square-palette+.e-container .e-custom-palette .e-palette,
+#rounded-palette+.e-container .e-custom-palette .e-palette {
     padding: 5px;
 }
 
 /* Rounded corner palette customization */
-#custom-cp-control .e-container .e-palette .e-rounded-palette {
+.e-container .e-palette .e-rounded-palette {
     border-radius: 4px;
     margin: 3px;
     height: 16px;
     width: 16px;
 }
-.e-bigger #custom-cp-control .e-container .e-palette .e-rounded-palette {
+.e-bigger .e-container .e-palette .e-rounded-palette {
     height: 16px;
     width: 16px;
 }
-#custom-cp-control .e-container .e-palette .e-rounded-palette:hover,
-#custom-cp-control .e-container .e-palette .e-scroll-palette:hover {
+.e-container .e-palette .e-rounded-palette:hover,
+.e-container .e-palette .e-scroll-palette:hover {
     box-shadow: none;
 }
-#custom-cp-control .e-container .e-palette .e-circle-palette.e-selected,
-#custom-cp-control .e-container .e-palette .e-rounded-palette.e-selected,
-#custom-cp-control .e-container .e-palette .e-square-palette.e-selected,
-#custom-cp-control .e-container .e-palette .e-scroll-palette.e-selected {
+.e-container .e-palette .e-circle-palette.e-selected,
+.e-container .e-palette .e-rounded-palette.e-selected,
+.e-container .e-palette .e-square-palette.e-selected,
+.e-container .e-palette .e-scroll-palette.e-selected {
     outline: none;
 }
 </style>

@@ -23,7 +23,7 @@
 <style>
     .dropdowntree-icon .control_wrapper {
         margin: 0 auto;
-        width:380px; 
+        max-width:380px; 
         padding-top: 15px
     }
     .dropdowntree-icons .e-treeview .e-list-img {

@@ -1,9 +1,9 @@
 <template>
 <div>
     <div class="control-section">
-        <div id='content' style="margin: 0px auto; width:350px; padding-top: 5px;">
+        <div id='content' style="margin: 0px auto; max-width:350px; padding-top: 5px;">
             <ejs-dropdowntree id='multi-template' :fields='fields' cssClass='ddt-template' :placeholder='watermark'
-             :headerTemplate='hTemplate' :itemTemplate='iTemplate' :footerTemplate='fTemplate' popupHeight="210px" width="350px"></ejs-dropdowntree>
+             :headerTemplate='hTemplate' :itemTemplate='iTemplate' :footerTemplate='fTemplate' popupHeight="210px" width="100%"></ejs-dropdowntree>
         </div>
     </div>
     <div id="action-description">
@@ -31,9 +31,19 @@
         font-size: 14px;
         margin: 0 auto;
         width: 100%;
-        padding-left: 20px;
+        padding: 0 20px;
     }
 
+    .e-rtl.ddt-template .e-badge.icons {
+        left: 0;
+        right: unset;
+    }
+
+    .e-rtl.ddt-template .eimage {
+        padding: 11px 0 11px 16px;
+        float: right;
+    }
+    
     .ddt-template .footer {
         vertical-align: middle;
         padding: 10px;

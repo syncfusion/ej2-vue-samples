@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "18.2.44",
+  "version": "18.3.35",
   "description": "Examples of Vue UI Components",
   "scripts": {
     "serve" : "node --max_old_space_size=4096 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",

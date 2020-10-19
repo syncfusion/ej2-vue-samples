@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kanban-vue-sample">
     <div class="col-md-8 control-section">
       <div class="content-wrapper">
         <ejs-kanban id="kanban" keyField="Status" :dataSource="kanbanData"
@@ -68,24 +68,24 @@
 </div>
 </template>
 <style>
-    .eventarea {
+    .kanban-vue-sample .eventarea {
         height: 245px;
         overflow: auto
     }
 
-    .EventLog {
+    .kanban-vue-sample .EventLog {
         word-break: normal;
     }
 
-    .evtbtn {
+    .kanban-vue-sample .evtbtn {
         padding-bottom: 10px
     }
 
-    #EventLog b {
+    .kanban-vue-sample #EventLog b {
         color: #388e3c;
     }
 
-    hr {
+    .kanban-vue-sample hr {
         margin: 1px 10px 1px 0px;
         border-top: 1px solid #eee;
     }

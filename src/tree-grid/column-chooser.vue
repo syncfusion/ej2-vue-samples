@@ -30,11 +30,11 @@
            documentation section.</a></p>
 </div>
     <div>
-        <ejs-treegrid :dataSource="data" :treeColumnIndex='1' :allowPaging='true' :showColumnChooser='true' :toolbar="toolbar" childMapping='subtasks'
+        <ejs-treegrid :dataSource="data" :treeColumnIndex='1' :height='350' :allowPaging='true' :showColumnChooser='true' :toolbar="toolbar" childMapping='subtasks'
          :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='120'></e-column>
-                <e-column field='taskName' headerText='Task Name' width='190' showInColumnChooser='false'></e-column>
+                <e-column field='taskName' headerText='Task Name' width='190' :showInColumnChooser='false'></e-column>
                 <e-column field='startDate' headerText='Start Date' textAlign='Right' format='yMd' type='date' width='130'></e-column>
                 <e-column field='duration' headerText='Duration' textAlign='Right'  width='100'></e-column>
                 <e-column field='progress' headerText='Progress' textAlign='Right' width='100'></e-column>

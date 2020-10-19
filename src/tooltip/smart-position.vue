@@ -1,16 +1,31 @@
 <template>
+<div>
   <div class="control-section tooltip-smart">
     <ejs-tooltip ref="tooltip" id="targetContainer" content="Drag me anywhere, to start walking with me !!!" :offsetX="-15" target="#demoSmart"
         :animation="tooltipAnimation">
         <div id="demoSmart">
         </div>
     </ejs-tooltip>
-        
-           
-    </div>
+  </div>
 
-   
+    <div id="action-description">
+        <p>This sample demonstrates the Smart Positioning functionalities of the Tooltip which will open by dragging the picture.</p>
+    </div>
+    <div id="description">
+        <p>This sample shows the dynamic adjustment of the tooltip position within the specified Viewport. Start dragging the ant
+        image, so that the tooltip opens up immediately and keeps moving along with the target image. When the image reaches
+        the corners of the sample container on dragging, the tooltip and its arrow position will be auto adjusted
+        to make it look fit within the sample container area.</p>
+        <p>In this sample, the tooltip is opened manually by using its <code>open</code> method on drag start of the target image.
+        On further dragging, the <code>refresh</code> method of the tooltip needs to be called to reposition it
+        continuously and on drag stop, the tooltip will be hidden by using it’s <code>close</code> method.</p>
+        <p>More information on dynamic positioning of the tooltip can be found in the
+        <a href="https://ej2.syncfusion.com/vue/documentation/tooltip/position/#dynamic-positioning" target="_blank"> documentation section</a>.
+        </p>
+    </div>
+</div>
 </template>
+
 <style>
 .tooltip-smart #targetContainer {
     border: 1px solid #dddddd;

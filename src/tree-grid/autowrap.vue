@@ -17,7 +17,7 @@
     </p>
 </div>
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :allowTextWrap='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :allowTextWrap='true' :height='350' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='90'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='110'></e-column>

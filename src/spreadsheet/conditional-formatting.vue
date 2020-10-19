@@ -16,7 +16,7 @@
                 </e-ranges>
                 <e-conditionalformats>
                     <e-conditionalformat type="GYRColorScale" range="C3:C18" ></e-conditionalformat>
-                    <e-conditionalformat type="LessThan" cFColor="RedFT" value="8/30/2019" range="F3:F18"></e-conditionalformat>
+                    <e-conditionalformat type="LessThan" cFColor="RedFT" value="8/30/2019" range="G3:G18"></e-conditionalformat>
                 </e-conditionalformats>
                     <e-columns>
                         <e-column :width=100></e-column>
@@ -24,6 +24,7 @@
                         <e-column :width=72></e-column>
                         <e-column :width=113></e-column>
                         <e-column :width=113></e-column>
+                        <e-column :width=77></e-column>
                         <e-column :width=97></e-column>
                         <e-column :width=73></e-column>
                     </e-columns>
@@ -42,6 +43,9 @@
     </p>
     <p>
         In this sample, we have applied conditional formatting color scales in Quantity column, data bars in Purchase price and selling price column, highlight cell rules in last updated column and rating icon sets applied in rating column by using the <code>conditionalFormat</code> method and <code>conditionalFormats</code> property in sheets model.
+    </p>
+    <p>
+        In the Profit column, we have applied conditional formatting custom format. Using the support you can set cell styles like color, background color, font style, font weight and underline etc.
     </p>
     <p>
         More information about the Spreadsheet component can be found in this
@@ -91,12 +95,15 @@ export default Vue.extend({
   methods: {
     created: function() {
         var spreadsheet = this.$refs.spreadsheet;
-            spreadsheet.merge('A1:G1');
-            spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A2:G2');
-            spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: "middle", fontSize: '13pt' }, 'A1:G1');
+            spreadsheet.merge('A1:H1');
+            spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A2:H2');
+            spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: "middle", fontSize: '13pt' }, 'A1:H1');
+            spreadsheet.numberFormat('$#,##0.00', 'F3:F18');
             spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'D3:D18' });
-            spreadsheet.conditionalFormat({ type: 'OrangeDataBar', range: 'E3:E18' });
-            spreadsheet.conditionalFormat({ type: 'ThreeStars', range: 'G3:G18' });
+            spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'E3:E18' });
+            spreadsheet.conditionalFormat({ type: 'ThreeStars', range: 'H3:H18' });
+            spreadsheet.conditionalFormat({ type: 'Top10Items', value:'1', format:{ style:{ color: '#ffffff', backgroundColor: '#009999', fontWeight: 'bold'}}, range: 'F3:F18' });
+            spreadsheet.conditionalFormat({ type: 'Bottom10Items', value:'1', format:{ style:{ color: '#ffffff', backgroundColor: '#c68d53', fontWeight: 'bold'}}, range: 'F3:F18' });
             }
         }
 });

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="scheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'></ejs-schedule>
@@ -23,64 +23,64 @@
         </div>
     </div>
 </template>
-<style scoped>
-    .schedule-context-menu .e-menu-item .new::before {
+<style>
+    .schedule-vue-sample .schedule-context-menu .e-menu-item .new::before {
         content: '\e7f9';
     }
 
-    .schedule-context-menu .e-menu-item .edit::before {
+    .schedule-vue-sample .schedule-context-menu .e-menu-item .edit::before {
         content: '\ea9a';
     }
 
-    .schedule-context-menu .e-menu-item .recurrence::before {
+    .schedule-vue-sample .schedule-context-menu .e-menu-item .recurrence::before {
         content: '\e308';
         font-weight: bold;
     }
 
-    .schedule-context-menu .e-menu-item .today::before {
+    .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before {
         content: '\e322';
     }
 
     /* custom code start*/
-    .highcontrast .schedule-context-menu .e-menu-item .today::before,
-    .fabric .schedule-context-menu .e-menu-item .today::before {
+    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before,
+    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before {
         content: '\e321';
     }
 
-    .bootstrap .schedule-context-menu .e-menu-item .today::before {
+    .bootstrap .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before {
         content: '\e312';
     }
 
-    .highcontrast .schedule-context-menu .e-menu-item .delete::before,
-    .fabric .schedule-context-menu .e-menu-item .delete::before {
+    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .delete::before,
+    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .delete::before {
         content: '\eb00';
     }
 
-    .highcontrast .schedule-context-menu .e-menu-item .new::before,
-    .fabric .schedule-context-menu .e-menu-item .new::before {
+    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .new::before,
+    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .new::before {
         content: '\e823';
     }
 
-    .highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
-    .fabric .schedule-context-menu .e-menu-item .recurrence::before {
+    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .recurrence::before,
+    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .recurrence::before {
         content: '\e309';
         font-weight: bold;
     }
     /* custom code end*/
 
-    .schedule-context-menu .e-menu-item .delete::before {
+    .schedule-vue-sample .schedule-context-menu .e-menu-item .delete::before {
         content: '\e94a';
     }
 
-    .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
+    .e-bigger .schedule-vue-sample .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 14px;
     }
 
-    .schedule-context-menu ul .e-menu-item .e-menu-icon {
+    .schedule-vue-sample .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 12px;
     }
 
-    .schedule-context-menu .e-menu-parent.e-ul .e-menu-item {
+    .schedule-vue-sample .schedule-context-menu .e-menu-parent.e-ul .e-menu-item {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
     }
 </style>

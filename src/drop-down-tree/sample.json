@@ -3,7 +3,6 @@
     "directory": "drop-down-tree",
     "category": "Dropdowns",
     "ftname": "drop-down-tree",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -89,7 +88,6 @@
             "url": "filtering",
             "name": "Filtering",
             "category": "Dropdown Tree",
-            "type": "new",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue drop-down tree component.",
             "sourceFiles": [
                 {

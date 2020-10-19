@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :editSettings='editSettings' :allowSorting='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'
+           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :height='350' :editSettings='editSettings' :allowSorting='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'
            :load='load' :created='create' :actionBegin='actionBegin' :expanded='expanded' :collapsed='collapsed'
                 :actionComplete='actionComplete' :rowSelecting='rowSelecting' 
                 :rowSelected='rowSelected' :rowDeselected='rowDeselected' :columnDragStart='columnDragStart' :columnDrag='columnDrag'
