@@ -1,0 +1,206 @@
+<template>
+<div>
+    <div class="control-section">
+        <div id='content' style="margin: 0px auto; max-width:350px; padding-top: 5px;">
+            <ejs-dropdowntree id='multi-template' :fields='fields' cssClass='ddt-template' :placeholder='watermark'
+             :headerTemplate='hTemplate' :itemTemplate='iTemplate' :footerTemplate='fTemplate' popupHeight="210px" width="100%"></ejs-dropdowntree>
+        </div>
+    </div>
+    <div id="action-description">
+        <p>This sample explains you about the template functionalities of the Dropdown Tree. Click the Dropdown Tree
+            element, and then select an item from the customized list.</p>
+    </div>
+    <div id="description">
+        <p>The Dropdown Tree has been provided with several options to customize each list items, header, and footer
+            elements.
+        </p>
+        <p>This sample uses the following list of templates in the Dropdown Tree</p>
+        <ul>
+            <li><code>ItemTemplate</code> - To customize the list item's content.</li>
+            <li><code>HeaderTemplate</code> - To customize the header element.</li>
+            <li><code>FooterTemplate</code> - To customize the footer element.</li>
+        </ul>
+    </div>
+</div>
+</template>
+/* custom code start */
+<style>
+    .ddt-template .head {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .e-rtl.ddt-template .e-badge.icons {
+        left: 0;
+        right: unset;
+    }
+
+    .e-rtl.ddt-template .eimage {
+        padding: 11px 0 11px 16px;
+        float: right;
+    }
+    
+    .ddt-template .footer {
+        vertical-align: middle;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .ddt-template .head,
+    .ddt-template .footer {
+        background-color: #F5F5F5;
+        color: #718292;
+        box-sizing: border-box;
+        font-weight: bold;
+    }
+
+    .highcontrast .ddt-template .head,
+    .highcontrast .ddt-template .footer,
+    .highcontrast .ddt-template .footer-content .e-badge {
+        color: #fff;
+        background-color: #000;
+    }
+
+    .e-bigger .e-ddt.ddt-template .e-treeview .e-fullrow,
+    .e-ddt.ddt-template .e-treeview .e-fullrow {
+        height: 72px;
+    }
+
+    .e-ddt.ddt-template .e-treeview .e-list-text {
+        line-height: normal;
+    }
+
+    .e-ddt.ddt-template .e-treeview .e-list-parent.e-ul {
+        width: 100%;
+    }
+
+    .ddt-template .eimage {
+        float: left;
+        padding: 11px 16px 11px 0;
+        height: 48px;
+        width: 48px;
+        box-sizing: content-box;
+    }
+
+    .ddt-template .ename {
+        font-size: 16px;
+        padding: 14px 0 0;
+    }
+
+    .ddt-template .ejob {
+        font-size: 14px;
+        color: #979A9C;
+        opacity: .87;
+        padding: 5px;
+    }
+
+    .ddt-template .e-badge.icons {
+        padding: 0;
+        right: 0;
+        position: absolute;
+        top: 25px;
+        background: transparent;
+    }
+
+    .ddt-template .footer-content .e-badge {
+        display: flex;
+    }
+
+    .ddt-template .display {
+        width: 100%;
+    }
+
+    .ddt-template .status {
+        margin-right: 10px;
+    }
+
+    .ddt-template .footer .e-badge.icons {
+        position: relative;
+    }
+
+    .ddt-template .e-badge.icons span,
+    .ddt-template .status {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 50%;
+    }
+
+    .ddt-template .busy {
+        background-color: #FF4B4B;
+    }
+
+    .ddt-template .online {
+        background-color: #98E16E;
+    }
+
+    .ddt-template .away {
+        background-color: #FFE65E;
+    }
+</style>
+/* custom code end */
+<script>
+import Vue from "vue";
+import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
+import * as data from './template-data.json';
+
+Vue.use(DropDownTreePlugin);
+
+var headerVue = Vue.component("headerTemplate", {
+  template: '<div class="head"> Employee List </div>',
+  data() {
+    return {
+      data: {}
+    };
+  }
+});
+
+var itemVue = Vue.component("itemTemplate", {
+  template: '<div><img class="eimage" :src="data.eimg" />' +
+            '<div><div class="ename"> {{data.name}} </div><div class="ejob"> {{data.job}} </div> <span class="e-badge icons"> <span :class="data.status"></span> </span> </div></div>',
+    data() {
+    return {
+      data: {}
+    };
+  }
+});
+var footerVue = Vue.component("footerTemplate", {
+  template: '<div class="footer"> <div class="footer-content"><span class="e-badge">'+
+            '<span class="display available"> <span class="status online"></span>Available</span>'+
+            '<span class="display meeting"><span class="status busy"></span> Busy</span>'+
+            '<span class="display unavailable"><span class="status away"></span>Away</span></span></div></div>',
+  data() {
+    return {
+      data: {}
+    };
+  }
+});
+
+export default Vue.extend ({
+    data: function() {
+        return {
+            fields: { dataSource: data.templateData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
+            watermark: 'Select  an employee',
+            hTemplate: function(e) {
+                return {
+                    template: headerVue
+                };
+            },
+            iTemplate: function(e) {
+                return {
+                    template: itemVue
+                };
+            },
+            fTemplate: function(e) {
+                return {
+                    template: footerVue
+                };
+            },
+        };
+    }
+});
+</script>

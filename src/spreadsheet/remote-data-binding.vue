@@ -1,14 +1,14 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-remote-data">
-        <ejs-spreadsheet ref="spreadsheet" :sheets="sheets" :openUrl ="openUrl" :saveUrl="saveUrl" :dataBound="dataBound">
+        <ejs-spreadsheet ref="spreadsheet" :openUrl ="openUrl" :saveUrl="saveUrl" :created="created">
             <e-sheets>
                 <e-sheet name="Shipment Details" :columns="columns">
-                    <e-rangesettings>
-                        <e-rangesetting :dataSource="dataSource" :query="query" :showFieldAsHeader="false" startCell="A2"></e-rangesetting>
-                    </e-rangesettings>
+                    <e-ranges>
+                        <e-range :dataSource="dataSource" :query="query" :showFieldAsHeader="false" startCell="A2"></e-range>
+                    </e-ranges>
                     <e-rows>
-                        <e-row :index="rowIndex">
+                        <e-row>
                             <e-cells>
                                 <e-cell value="Order ID"></e-cell>
                                 <e-cell value="Customer Name"></e-cell>
@@ -58,11 +58,11 @@
         </p>
         <p>
             In this demo, remote data is bound by assigning service data as an instance of <code>DataManager</code> to the
-            <code>dataSource</code> property under the rangeSettings of sheet.
+            <code>dataSource</code> property under the <code>ranges</code> of sheet.
         </p>
         <p>
             More information about remote data binding can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/data-binding/#remote-data">
                 documentation</a> section.
         </p>
     </div>
@@ -98,11 +98,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    dataBound: function() {
-        var spreadsheet = this.$refs.spreadsheet;
-        if (!spreadsheet.ej2Instances.isOpen && spreadsheet.ej2Instances.sheets[spreadsheet.ej2Instances.activeSheetTab - 1].name === 'Shipment Details') {
-            spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A1:F1');
-        }
+    created: function() {
+        this.$refs.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A1:F1');
     }
   }
 });

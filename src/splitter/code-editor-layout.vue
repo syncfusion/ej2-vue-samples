@@ -60,7 +60,7 @@
             height: 115px;
             margin-top: 10px;
         }
-        #Innersplitter {
+        .code-editor #Innersplitter {
             border: transparent;
         }
 </style>

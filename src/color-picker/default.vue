@@ -39,7 +39,7 @@
   </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     #colorpicker-control {
         margin: 30px auto;
         padding-top: 50px;

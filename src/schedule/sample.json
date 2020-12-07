@@ -132,6 +132,21 @@
             }
         },
         {
+            "url": "inline-editing",
+            "name": "Inline Editing",
+            "category": "Appointments",
+            "description": "The example showcases the inline mode of the Vue Scheduler that is used to create an appointment or edit an existing appointment's subject easily and quickly.",
+            "api": {
+                "Schedule": [
+                    "currentView",
+                    "eventSettings",
+                    "allowInline",
+                    "group",
+                    "resources"
+                ]
+            }
+        },
+        {
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling ",
             "category": "Scrolling",
@@ -456,6 +471,21 @@
                     "height",
                     "eventSettings",
                     "selectedDate"
+                ]
+            }
+        },
+        {
+            "url": "quick-info-template",
+            "name": "Quick Info Template",
+            "category": "Templates",
+            "description": "The example showcases the customized quick info popups for cells and events using the templates that help to override the built-in style in the Vue Scheduler.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "eventSettings",
+                    "selectedDate",
+                    "quickInfoTemplates"
                 ]
             }
         },

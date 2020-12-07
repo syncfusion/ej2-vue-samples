@@ -30,7 +30,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     #num-wrapper {
         width: 65%;
         margin: 30px auto;

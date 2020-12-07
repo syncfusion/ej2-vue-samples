@@ -87,7 +87,7 @@ import {
   MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
-import { southAmericaCountryCapitals } from "./map-data/marker-location";
+import { southAmericaCountryCapitals } from "../maps/map-data/marker-location";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 Vue.use(CheckBoxPlugin);
 Vue.use(MapsPlugin);

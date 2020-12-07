@@ -187,7 +187,7 @@ export default Vue.extend({
                 palettes: ['#634D6F', '#B34D6D', '#557C5C', '#5E55E2', '#7C744D'],
                 dataSource: dataSource,
                 dataLabel: {
-                    visible: true
+                    visible: false
                 },
                 type: 'Pie',
                 xName: 'x',

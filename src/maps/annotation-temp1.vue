@@ -15,7 +15,7 @@
       </div>
   </div>
 </template>
-<style>
+<style scoped> 
     #annotation {
         color: #DDDDDD;
 		font-size: 12px;

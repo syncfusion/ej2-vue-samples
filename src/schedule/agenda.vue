@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'>
@@ -14,9 +14,7 @@
                 <tbody>
                     <tr style="height: 50px">
                         <td style="width: 30%">
-                            <div>
-                                Allow Virtual Scrolling
-                            </div>
+                            <div>Allow Virtual Scrolling</div>
                         </td>
                         <td style="width: 70%;">
                             <div>
@@ -26,9 +24,7 @@
                     </tr>
                     <tr style="height: 50px">
                         <td style="width: 30%">
-                            <div>
-                                Hide Empty Days
-                            </div>
+                            <div>Hide Empty Days</div>
                         </td>
                         <td style="width: 70%;">
                             <div>
@@ -38,9 +34,7 @@
                     </tr>
                     <tr style="height: 50px">
                         <td style="width: 30%">
-                            <div>
-                                Days Count
-                            </div>
+                            <div>Days Count</div>
                         </td>
                         <td style="width: 70%;">
                             <div>

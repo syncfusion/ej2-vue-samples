@@ -35,7 +35,7 @@
                     <div class="property-text">Bread Crumb Connector</div>
                 </td>
                 <td style="width: 50%;">
-                    <input type="text" id="breadCrumbText" :change="changebreadCrumbText" value=" - " style="width:100%;" />
+                    <input type="text" id="breadCrumbText" v-on:change="changebreadCrumbText" value=" - " style="width:100%;" />
                 </td>
             </tr>
             <tr>
@@ -159,12 +159,13 @@ methods:{
     changebreadCrumb: function(args) {
         let treemap = this.$refs.treemap.ej2Instances;
         this.$refs.treemap.ej2Instances.enableBreadcrumb = this.$refs.breadCrumb.ej2Instances.checked;
-        let breadCrumbText = document.getElementById('breadCrumbText').value;
-        treemap.breadCrumb = breadCrumbText;        
         treemap.refresh();
     },
     changebreadCrumbText: function(args) {
         let treemap = this.$refs.treemap.ej2Instances;
+        let breadCrumbText = document.getElementById('breadCrumbText').value;
+        treemap.breadcrumbConnector = breadCrumbText; 
+        treemap.refresh();
     }        
 }
 })

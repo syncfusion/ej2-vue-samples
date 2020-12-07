@@ -1,13 +1,13 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-nodejs">
          <div class="sample-container">
             <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' >
             </ejs-filemanager>
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates how to utilize the <a target="_blank" href="https://github.com/SyncfusionExamples/ej2-filemanager-node-filesystem">NodeJS file system provider</a> with File Manager component. The <code>ej2-filemanager-node-filesystem</code> is an npm packages for file system provider which is available in npmjs, refer this <a target="_blank" href="https://www.npmjs.com/package/@syncfusion/ej2-filemanager-node-filesystem">link</a> to download package.</p>
+        <p>This sample demonstrates how to utilize the <a target="_blank" href="https://github.com/SyncfusionExamples/ej2-filemanager-node-filesystem">NodeJS file system provider</a> with File Manager component. The <code>ej2-filemanager-node-filesystem</code> is an NPM package for file system provider which is available in npmjs, refer this <a target="_blank" href="https://www.npmjs.com/package/@syncfusion/ej2-filemanager-node-filesystem">link</a> to download package.</p>
     </div>
     <div id="description">
         <p>The File Manager component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete and so on.</p>
@@ -17,7 +17,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-nodejs .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

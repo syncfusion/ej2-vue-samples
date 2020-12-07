@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid ref='treegrid' :treeColumnIndex='1' :dataSource="data" childMapping='subtasks' :allowPaging='true' :pageSettings='pageSettings' :toolbar='toolbar'>
+        <ejs-treegrid ref='treegrid' :treeColumnIndex='1' :dataSource="data" childMapping='subtasks' :height='350' :allowPaging='true' :pageSettings='pageSettings' :toolbar='toolbar'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200'></e-column>
@@ -15,15 +15,15 @@
     </div>
 
      <div id="action-description">
-    <p>This sample demonstrates the option to print the TreeGrid. Click the print button from the toolbar item to print TreeGrid.</p>
+    <p>This sample demonstrates the option to print the Tree Grid. Click the print button from the toolbar item to print TreeGrid.</p>
 </div>
 <div id="description">
-    <p>The TreeGrid can be printed using the <code>print</code> method. While printing the pager and 
-    scrollbar will be removed if they are enabled in TreeGrid.</p>
+    <p>The Tree Grid can be printed using the <code>print</code> method. While printing the pager and 
+    scrollbar will be removed if they are enabled in Tree Grid.</p>
     <p>By default, all pages will be printed. 
         We can print current page alone by setting the <code>printMode</code>property
         value as <code>currentpage</code>.</p>
-    <p>In this demo, click the print icon to print TreeGrid.</p>
+    <p>In this demo, click the print icon to print Tree Grid.</p>
     <p>More information on the print feature can be found in this documentation section.
     </p>
 </div>

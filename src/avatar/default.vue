@@ -1,7 +1,7 @@
 <template>
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section avatar-default">
 
-        <div class="sample_container avatar-default">
+        <div class="sample_container">
             <div class="avatar-block">
                 <div class="e-card e-avatar-showcase">
                     <div class="e-card-content">
@@ -83,38 +83,39 @@
     </div>
 </template>
 <style>
-        .control-section {
+    .avatar-default {
         overflow: auto;
     }
 
     /* Media Quries for various devices */
 
     @media only screen and (max-width: 965px) {
-        .sample_container.avatar-default {
+        .avatar-default .sample_container {
             max-width: 332px;
             margin: auto;
             margin-top: 0;
         }
-        .circleAvatar {
+        .avatar-default .circleAvatar {
             margin-top: 15px;
         }
-        .e-avatar-showcase.e-card {
+        .avatar-default .e-avatar-showcase.e-card {
             width: 300px;
         }
     }
 
     @media only screen and (min-width: 965px) {
-        .sample_container.avatar-default {
+        .avatar-default .sample_container {
             max-width: 825px;
             margin: auto;
             margin-top: 70px;
         }
-        .e-avatar-showcase.e-card {
+        .avatar-default .e-avatar-showcase.e-card {
             width: 400px;
         }
     }
 
-    .sample_container.avatar-default .avatar-block {
+    
+    .avatar-default .sample_container .avatar-block {
         display: inline-block;
         vertical-align: top;
     }
@@ -126,6 +127,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        margin: 2px;
     }
 
     /* Card Customization */
@@ -162,7 +164,7 @@
         overflow: visible;
     }
 
-    .bootstrap4 .e-avatar-showcase.e-card {
+    .bootstrap4 .avatar-default .e-avatar-showcase.e-card {
         box-shadow: none;
     }
 

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section dashboard-dynamic">
       <div>
            <div style="width:100%;height: 30px">
             <ejs-button style="float:right;width:75px;" id="toggleBtn" ref="toggleBtn" iconCss='edit' cssClass="e-outline e-flat e-primary" isToggle=true v-on:click.native='toggleClick'>Edit</ejs-button>
@@ -62,7 +62,7 @@ export default Vue.extend ({
           target:'.control-section',
           width:'43%',
           showCloseIcon: true,
-          contenttemplateVue:'<div id="dialogcontent"><div><div id="linetemplate"><p class="dialog-text">Linechart (1x1) </p></div><div id="pietemplate"><p class="dialog-text">Piechart (1x1) </p></div><div id="splinetemplate"><p class="dialog-text">Splinechart (2x1) </p></div></div></div><div id="headerTemplate"><span id="close" class="e-template-icon e-clear-icon"></span></div></div>',
+          contenttemplateVue:'<div id="dialogcontent"><div><div id="linetemplate"><p class="dialog-text">Linechart (1x1) </p></div><div id="pietemplate"><p class="dialog-text">Piechart (1x1) </p></div><div id="splinetemplate"><p class="dialog-text">Splinechart (2x1) </p></div></div></div></div>',
           spline: function () {
                 return { template : splineTemplate }
             },
@@ -145,19 +145,11 @@ export default Vue.extend ({
 
 <style>
 
-@import "../../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../../node_modules/@syncfusion/ej2-vue-layouts/styles/material.css";
-
-.template{
-    height: 100%;
-    width: 100%;
-}
-
-#dialogBtn {
+.dashboard-dynamic #dialogBtn {
     display: none;
 }
 
-.dialog-text {
+.dashboard-dynamic .dialog-text {
     height: 35px;
     border: 1px solid #80808029;
     vertical-align: middle;
@@ -169,12 +161,12 @@ export default Vue.extend ({
 }
 
 @media (max-width: 650px) {
-    #togglebtn{
+    .dashboard-dynamic #togglebtn{
         display: none;
     }
 }
 
-.add-widget-button {
+.dashboard-dynamic .add-widget-button {
     padding: 10px;
     text-align: center;
     margin-bottom: 10px;
@@ -182,11 +174,11 @@ export default Vue.extend ({
     font-size: 15px;
 }
 
-#edit_dashboard.e-dashboardlayout.e-control .e-panel:hover span {
+.dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel:hover span {
     display: block;
 }
 
-#edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+.dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     padding: 10px;
     border-bottom: 2px solid #e6e9ed !important;
     height: 35px;
@@ -194,24 +186,24 @@ export default Vue.extend ({
 }
 
 
-#edit_dashboard .e-panel-content {
+.dashboard-dynamic #edit_dashboard .e-panel-content {
     height: calc(100% - 35px) !important;
     overflow: hidden;
     width:100%;
 }
 
-#edit_dashboard.e-dashboardlayout.e-control .e-panel,
-#edit_dashboard.e-dashboardlayout.e-control .e-panel:hover,
-#edit_dashboard.e-dashboardlayout.e-control .e-panel:active {
+.dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel,
+.dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel:hover,
+.dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel:active {
     border: 1px solid #bbb;
 }
 
-.e-dialog .e-dlg-header-content {
+.dashboard-dynamic .e-dialog .e-dlg-header-content {
     border-bottom: none;
     padding: 18px 18px 18px 20px;
 }
 
-.edit::before {
+.dashboard-dynamic .edit::before {
         content: '\e501';
         font-family: 'e-sb-icons';
         /* color: #e3165b; */
@@ -219,22 +211,22 @@ export default Vue.extend ({
         vertical-align: middle;
     }
 
-    .save::before {
-        content: '\e500';
-        font-family: 'e-sb-icons';
-        /* color: #e3165b; */
-        margin-left: -7px;
-        vertical-align: middle;
-    }
+.dashboard-dynamic .save::before {
+    content: '\e500';
+    font-family: 'e-sb-icons';
+    /* color: #e3165b; */
+    margin-left: -7px;
+    vertical-align: middle;
+}
 
 
-    /* custom code start*/
-    @font-face {
-        font-family: 'e-sb-icons';
-        src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMjttR/MAAAEoAAAAVmNtYXDlEOVaAAABjAAAADhnbHlmAM1kuQAAAcwAAAD8aGVhZBRipc8AAADQAAAANmhoZWEIUQQEAAAArAAAACRobXR4DAAAAAAAAYAAAAAMbG9jYQA6AH4AAAHEAAAACG1heHABEQA4AAABCAAAACBuYW1lWD3y/QAAAsgAAAIlcG9zdNvk7cwAAATwAAAANQABAAAEAAAAAFwEAAAAAAAD9AABAAAAAAAAAAAAAAAAAAAAAwABAAAAAQAApr5cCV8PPPUACwQAAAAAANioMG8AAAAA2KgwbwAAAAAD9AP0AAAACAACAAAAAAAAAAEAAAADACwABAAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5QDlAQQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAEAAAAAAAAAgAAAAMAAAAUAAMAAQAAABQABAAkAAAABAAEAAEAAOUB//8AAOUA//8AAAABAAQAAAABAAIAAAAAADoAfgAEAAAAAAP0A/MAAwALABkAIwAAAREhEQEVMzUzFSE1IxEhETMVMxEjESERIxEjERUhESM1IzUhAx79xAEeR0j+m0gB9I9HR/02SEcD6EdI/KcBcf7iAR4CPI+P19f+4gEeSPzuAWb+mgNa/KZHA1lIRwAAAAMAAAAAA/QD9AADAAgAKwAACQEnCQEDJQEnNwcXPwc1Lw8PBgLH/ko2Abb9uT4BGQJC2m0/2z8HBgUFAwMCAQIEBQcICQoLDA0NDw8PEA0NDQwLCwsCkf5KNgG2/l7+5z4CQ9puP9s/CgsLCwwNDQ0QDw8PDQ0MCwoJCAcFBAIBAQEDAwUFBgAAABIA3gABAAAAAAAAAAEAAAABAAAAAAABAAcAAQABAAAAAAACAAcACAABAAAAAAADAAcADwABAAAAAAAEAAcAFgABAAAAAAAFAAsAHQABAAAAAAAGAAcAKAABAAAAAAAKACwALwABAAAAAAALABIAWwADAAEECQAAAAIAbQADAAEECQABAA4AbwADAAEECQACAA4AfQADAAEECQADAA4AiwADAAEECQAEAA4AmQADAAEECQAFABYApwADAAEECQAGAA4AvQADAAEECQAKAFgAywADAAEECQALACQBIyBlai1pY29uUmVndWxhcmVqLWljb25lai1pY29uVmVyc2lvbiAxLjBlai1pY29uRm9udCBnZW5lcmF0ZWQgdXNpbmcgU3luY2Z1c2lvbiBNZXRybyBTdHVkaW93d3cuc3luY2Z1c2lvbi5jb20AIABlAGoALQBpAGMAbwBuAFIAZQBnAHUAbABhAHIAZQBqAC0AaQBjAG8AbgBlAGoALQBpAGMAbwBuAFYAZQByAHMAaQBvAG4AIAAxAC4AMABlAGoALQBpAGMAbwBuAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAFMAeQBuAGMAZgB1AHMAaQBvAG4AIABNAGUAdAByAG8AIABTAHQAdQBkAGkAbwB3AHcAdwAuAHMAeQBuAGMAZgB1AHMAaQBvAG4ALgBjAG8AbQAAAAACAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBAgEDAQQABHNhdmUEZWRpdAAAAAAA) format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+/* custom code start*/
+@font-face {
+    font-family: 'e-sb-icons';
+    src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMjttR/MAAAEoAAAAVmNtYXDlEOVaAAABjAAAADhnbHlmAM1kuQAAAcwAAAD8aGVhZBRipc8AAADQAAAANmhoZWEIUQQEAAAArAAAACRobXR4DAAAAAAAAYAAAAAMbG9jYQA6AH4AAAHEAAAACG1heHABEQA4AAABCAAAACBuYW1lWD3y/QAAAsgAAAIlcG9zdNvk7cwAAATwAAAANQABAAAEAAAAAFwEAAAAAAAD9AABAAAAAAAAAAAAAAAAAAAAAwABAAAAAQAApr5cCV8PPPUACwQAAAAAANioMG8AAAAA2KgwbwAAAAAD9AP0AAAACAACAAAAAAAAAAEAAAADACwABAAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5QDlAQQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAEAAAAAAAAAgAAAAMAAAAUAAMAAQAAABQABAAkAAAABAAEAAEAAOUB//8AAOUA//8AAAABAAQAAAABAAIAAAAAADoAfgAEAAAAAAP0A/MAAwALABkAIwAAAREhEQEVMzUzFSE1IxEhETMVMxEjESERIxEjERUhESM1IzUhAx79xAEeR0j+m0gB9I9HR/02SEcD6EdI/KcBcf7iAR4CPI+P19f+4gEeSPzuAWb+mgNa/KZHA1lIRwAAAAMAAAAAA/QD9AADAAgAKwAACQEnCQEDJQEnNwcXPwc1Lw8PBgLH/ko2Abb9uT4BGQJC2m0/2z8HBgUFAwMCAQIEBQcICQoLDA0NDw8PEA0NDQwLCwsCkf5KNgG2/l7+5z4CQ9puP9s/CgsLCwwNDQ0QDw8PDQ0MCwoJCAcFBAIBAQEDAwUFBgAAABIA3gABAAAAAAAAAAEAAAABAAAAAAABAAcAAQABAAAAAAACAAcACAABAAAAAAADAAcADwABAAAAAAAEAAcAFgABAAAAAAAFAAsAHQABAAAAAAAGAAcAKAABAAAAAAAKACwALwABAAAAAAALABIAWwADAAEECQAAAAIAbQADAAEECQABAA4AbwADAAEECQACAA4AfQADAAEECQADAA4AiwADAAEECQAEAA4AmQADAAEECQAFABYApwADAAEECQAGAA4AvQADAAEECQAKAFgAywADAAEECQALACQBIyBlai1pY29uUmVndWxhcmVqLWljb25lai1pY29uVmVyc2lvbiAxLjBlai1pY29uRm9udCBnZW5lcmF0ZWQgdXNpbmcgU3luY2Z1c2lvbiBNZXRybyBTdHVkaW93d3cuc3luY2Z1c2lvbi5jb20AIABlAGoALQBpAGMAbwBuAFIAZQBnAHUAbABhAHIAZQBqAC0AaQBjAG8AbgBlAGoALQBpAGMAbwBuAFYAZQByAHMAaQBvAG4AIAAxAC4AMABlAGoALQBpAGMAbwBuAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAFMAeQBuAGMAZgB1AHMAaQBvAG4AIABNAGUAdAByAG8AIABTAHQAdQBkAGkAbwB3AHcAdwAuAHMAeQBuAGMAZgB1AHMAaQBvAG4ALgBjAG8AbQAAAAACAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBAgEDAQQABHNhdmUEZWRpdAAAAAAA) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 [class^="sf-icon-"],
 [class*=" sf-icon-"] {
@@ -250,16 +242,16 @@ export default Vue.extend ({
     -moz-osx-font-smoothing: grayscale;
 }
 
-#edit_dashboard{
+.dashboard-dynamic #edit_dashboard{
     display: block;
 }
 /* highcontrast style */
 
-body.highcontrast #edit_dashboard.e-dashboardlayout.e-control .e-panel {
+body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel {
     background: #000;
 }
 
-body.highcontrast #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
 

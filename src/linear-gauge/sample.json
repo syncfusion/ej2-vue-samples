@@ -81,6 +81,28 @@
             }
         },
         {
+            "url": "gradient-color",
+            "name": "Gradient Color",
+            "description": "This demo for Essential JS2 Linear Gauge control visualizes gradient color support for pointers and ranges.",
+            "category": "Linear Gauge",
+            "api": {
+                "LinearGauge": ["axes"]
+            }
+        },
+        {
+            "url": "style",
+            "name": "Styles",
+            "description": "This demo for Essential JS2 Linear Gauge control visualizes the available options for customization.",
+            "category": "Linear Gauge",
+            "api": {
+                "LinearGauge": [
+                    "orientation",
+                    "container",
+                    "axes"
+                ]
+            }
+        },
+        {
             "url": "tooltip",
             "name": "Tooltip",
             "description": "This demo for Essential JS2 Linear Gauge control visualizes the tooltip functionality for bar pointer.",
@@ -95,16 +117,14 @@
                     "axisLabelRender"
                 ]
             }
-        },
+        }, 
         {
-            "url": "style",
-            "name": "Styles",
+            "url": "export",
+            "name": "Print & Export",
             "description": "This demo for Essential JS2 Linear Gauge control visualizes the available options for customization.",
             "category": "Linear Gauge",
             "api": {
                 "LinearGauge": [
-                    "orientation",
-                    "container",
                     "axes"
                 ]
             }

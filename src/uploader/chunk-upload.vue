@@ -47,7 +47,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .chunk .control_wrapper {
     max-width: 450px;
     min-width: 245px;
@@ -77,8 +77,8 @@ export default Vue.extend({
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove',
+            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
+            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove',
             chunkSize: 500000
           },
 		  isAuto: false,

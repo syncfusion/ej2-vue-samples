@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' width="100%" height="650px" :selectedDate='selectedDate' :currentView='currentView'
@@ -44,7 +44,7 @@
     import Vue from "vue";
     import { extend, Internationalization } from '@syncfusion/ej2-base';
     import { SchedulePlugin, TimelineMonth, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-    import { getWeekNumber, CellTemplateArgs } from '@syncfusion/ej2-schedule';
+    import { getWeekNumber, CellTemplateArgs, getWeekLastDate } from '@syncfusion/ej2-schedule';
     import { headerRowData } from './datasource';
     Vue.use(SchedulePlugin);
 
@@ -72,7 +72,7 @@
         },
         methods: {
              getWeekDetails: function (value) {
-                return 'Week ' + getWeekNumber(value.date);
+                return 'Week ' + getWeekNumber(getWeekLastDate(value.date, 0));
             }
         }
     });

@@ -79,7 +79,7 @@ let theme = (
 export default Vue.extend({
   data: function() {
     return {
-      backgroundImage: "src/chart/images/wheat.png",
+      backgroundImage: "source/chart/images/wheat.png",
       theme: theme,
       seriesData: [
         { x: 2002, y: 1.61 },

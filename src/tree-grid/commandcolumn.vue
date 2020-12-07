@@ -2,7 +2,7 @@
 <div class="col-lg-12 control-section">
    <div id="action-description">
         <p>
-            This sample demonstrates CRUD operations in TreeGrid using command column. You can perform CRUD operations as follows,
+            This sample demonstrates CRUD operations in Tree Grid using command column. You can perform CRUD operations as follows,
         </p>
         <ul>
             <li><code>Edit</code> - To edit record, double click a row or click Edit button from command column after selected a row.</li>
@@ -12,7 +12,7 @@
     </div>
     <div id="description">
         <p>
-            The TreeGrid provides an option to render CRUD action buttons in a column by using the CommandColumn feature. The <code>columns->commands</code> property accepts array of CommandModel object. The predefined command button can be defined by using type property.
+            The Tree Grid provides an option to render CRUD action buttons in a column by using the CommandColumn feature. The <code>columns->commands</code> property accepts array of CommandModel object. The predefined command button can be defined by using type property.
         </p>
         <p>
             The built-in command button are,
@@ -25,7 +25,7 @@
         </ul>
         <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            TreeGrid features are segregated into individual feature-wise modules. To use CommandColumn feature, we need to inject
+            Tree Grid features are segregated into individual feature-wise modules. To use CommandColumn feature, we need to inject
             <code>
             CommandColumn
             </code> module into the <code>provide</code> section.
@@ -59,7 +59,7 @@ Vue.use(TreeGridPlugin);
 export default Vue.extend({
   data: () => {
     return {
-      data: sampleData,
+      data: sampleData.slice(0),
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Row' },
       taskIDrules: { required: true, number: true },
       taskNamerules: { required: true },
@@ -74,12 +74,7 @@ export default Vue.extend({
   },
    provide: {
       treegrid: [ Edit, Page, CommandColumn ]
-    },
-   methods:{
-      failure: function(args: any) {
-        debugger;
-      }
-  }
+    }
 
 });
 </script>

@@ -3,7 +3,6 @@
   "directory": "pivot-table",
   "category": "Grids",
   "ftName": "pivot-table",
-  "type": "update",
   "samples": [{
       "url": "default",
       "name": "Default Functionalities",
@@ -17,7 +16,7 @@
       "name": "Local Data",
       "category": "Data Binding",
       "hideOnDevice": false,
-      "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with local JSON data",
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with local JSON and CSV data",
       "api": {}
     },
     {
@@ -25,7 +24,7 @@
       "name": "Remote Data",
       "category": "Data Binding",
       "hideOnDevice": false,
-      "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with remote data or service data",
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with JSON and CSV remote data",
       "api": {}
     },
     {
@@ -112,7 +111,6 @@
       "url": "calculated-field",
       "name": "Calculated Field",
       "category": "Formula",
-	  "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows calculated field, and it allows users to add calculated items",
       "api": {}

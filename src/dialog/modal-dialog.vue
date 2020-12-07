@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 	/* custom code start */
     .control-section {
         height: 100%;

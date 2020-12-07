@@ -43,7 +43,7 @@
 </template>
 
 <!-- custom code start -->
-<style>
+<style scoped>
     .e-querybuilder {
         margin: 4% auto;
     }

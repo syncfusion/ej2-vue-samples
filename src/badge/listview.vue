@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="badge-list">
         <div class="col-lg-12 control-section">
-            <div class="sample_container badge-list">
+            <div class="sample_container">
                 <!-- Listview element -->
                 <ejs-listview id="lists" :dataSource="data" :headerTitle="title" :showHeader="header" :template="listTemplate" :fields="fieldData" :actionComplete="onComplete"></ejs-listview>
             </div>
@@ -23,21 +23,21 @@
 </template>
 
 <style>
-    .control-section {
+    .badge-list .control-section {
         overflow: auto;
     }
 
-    .sample_container.badge-list {
+    .badge-list .sample_container {
         max-width: 360px;
         margin: auto;
     }
 
-    #lists {
+    .badge-list #lists {
         margin: auto;
         border: 1px solid rgba(0, 0, 0, 0.12)
     }
 
-    #lists .e-list-item {
+    .badge-list #lists .e-list-item {
         cursor: pointer;
         height: 50px;
         line-height: 48px;
@@ -53,6 +53,22 @@
         margin-top: 11px;
         margin-right: 16px;
     }
+
+    .badge-list .e-rtl .list_svg {
+        margin-left: 16px;
+        margin-right: 0;
+    }
+
+    .badge-list .listWrapper .e-badge {
+        float: right;
+        margin-top: 16px;
+        font-size: 12px;
+    }
+
+    .badge-list .e-rtl .listWrapper .e-badge {
+        float: left;
+    }
+
 
     .badge-list .list_text {
         width: 60%;

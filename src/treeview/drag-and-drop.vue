@@ -37,7 +37,7 @@
 </template>
 /* custom code start */
 <style>
-    #overlay {
+    .custom-tree #overlay {
         position: absolute; 
         display: block; 
         width: 100%; 
@@ -49,17 +49,17 @@
         background-position: center; 
         background-size: 70%;
     }
-    #imageContent {
+    .custom-tree #imageContent {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
     }
-    #list {
+.custom-tree #list {
         min-height: 288px;
     }
-    .e-bigger #list, .e-bigger #tree1, .e-bigger #tree2 {
+    .e-bigger .custom-tree #list, .e-bigger .custom-tree #tree1, .e-bigger .custom-tree #tree2 {
 		height: 354px;
         overflow: auto;
 	}
@@ -72,61 +72,65 @@
         min-height: 400px; 
         overflow: auto;
     }
-    .tree1-data, .tree2-data, .list-data {
+    .custom-tree .tree1-data, .custom-tree .tree2-data, .custom-tree .list-data {
         padding: 15px;
         margin-bottom: 25px;
     }
     @media (max-width: 1200px) {
-        .tree1-data, .tree2-data, .list-data {
+        .custom-tree .tree1-data, .custom-tree .tree2-data, .custom-tree .list-data {
             width: 33.33333333%;
             float: left;
         }
     }
-	#tree1, #tree2, #list {
+	.custom-tree #tree1, .custom-tree #tree2, .custom-tree #list {
 			height: 300px;
 			overflow: auto;
 	}
-	.fabric.e-bigger #list.e-listview .e-list-item,
-    .highcontrast.e-bigger #list.e-listview .e-list-item {
+	.fabric.e-bigger .custom-tree #list.e-listview .e-list-item,
+    .highcontrast.e-bigger .custom-tree #list.e-listview .e-list-item {
         line-height: 43px;
     }
-    .material.e-bigger #list.e-listview .e-list-item {
+    .material.e-bigger .custom-tree #list.e-listview .e-list-item {
         line-height: 48px;
     }
-    .bootstrap.e-bigger #list.e-listview .e-list-item {
+    .bootstrap.e-bigger .custom-tree #list.e-listview .e-list-item {
         line-height: 47px;
     }
-    .bootstrap4.e-bigger #list, .bootstrap4.e-bigger #tree1, .bootstrap4.e-bigger #tree2 {
+    .bootstrap4.e-bigger .custom-tree #list, .bootstrap4.e-bigger .custom-tree #tree1, .bootstrap4.e-bigger .custom-tree #tree2 {
 		height: 384px;
         overflow: auto;
     }
-    .bootstrap4 #list, .bootstrap4 #tree1, .bootstrap4 #tree2 {
+    .bootstrap4 .custom-tree #list, .bootstrap4 .custom-tree #tree1, .bootstrap4 .custom-tree #tree2 {
 		height: 320px;
         overflow: auto;
     }
-    .bootstrap4.e-bigger .e-drag-item.e-treeview .e-list-text {
+    .bootstrap4.e-bigger .custom-tree .e-drag-item.e-treeview .e-list-text {
         margin-left: 12px;
     }
-    .tree-content {
+    .custom-tree .tree-content {
         margin: 0 auto;
         border: 1px solid #dddddd;
         border-radius: 3px;
         min-height: 288px;
     }
-    .custom-delete::before {
+    .custom-tree .custom-delete::before {
         content: "\e700";
 		cursor: pointer;
         color: rgba(0, 0, 0, 0.54);
         font-size: 15px;
     }
-    .custom-delete {
+    .custom-tree .custom-delete {
         float: right;
         font-family: 'cross-circle';
+        height: 36px;
     }
-    .highcontrast .e-active.e-list-item .custom-delete::before {
+    .custom-tree .e-rtl .custom-delete {
+        float: left;
+    }
+    .highcontrast .e-active .custom-tree .e-list-item .custom-delete::before {
 	    color: #000;
 	}
-	.highcontrast .custom-delete::before {
+	.highcontrast .custom-tree .custom-delete::before {
         color: #fff;
     }
     @font-face {
@@ -142,7 +146,7 @@ import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
 import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
 import { closest, getComponent } from "@syncfusion/ej2-base";
-import * as dataSource from './dataSource/drag-data.json';
+import * as dataSource from './drag-data.json';
 
 Vue.use(TreeViewPlugin);
 Vue.use(ListViewPlugin);

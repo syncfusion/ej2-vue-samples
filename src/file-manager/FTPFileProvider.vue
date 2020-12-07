@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-ftp">
          <div class="sample-container">
             <ejs-filemanager id="ftpfilemanager" :ajaxSettings='ajaxSettings' >
             </ejs-filemanager>
@@ -17,7 +17,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-ftp .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

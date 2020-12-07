@@ -62,7 +62,7 @@ export default Vue.extend({
             this.$refs.dialogObj.show();
         },
         changePosition: function(event) {
-            this.$refs.dialogObj.position = { X: event.value.split(" ")[0], Y: event.value.split(" ")[1] };
+            this.$refs.dialogObj.ej2Instances.position = { X: event.value.split(" ")[0], Y: event.value.split(" ")[1] };
             document.getElementById('posvalue').innerHTML = 'Position: {X: "' + event.value.split(" ")[0] + '", Y: "' + event.value.split(" ")[1] + '"}'
             var txt = event.event.target.parentElement.querySelector('.e-label').innerText.split(" ");
             document.getElementById('posvalue').innerHTML = 'Position: { X: "' + txt[0] + '", Y: "' + txt[1] + '" }';
@@ -77,7 +77,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
     html,
     body,    
     #container {

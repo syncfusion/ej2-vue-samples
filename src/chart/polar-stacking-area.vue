@@ -56,7 +56,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
   #control-container {
         padding: 0px !important;
     }
@@ -65,7 +65,7 @@
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
-import { ChartDataService } from "./chartdata.service";
+import { ChartDataService } from "./chart-data";
 import {
   ChartPlugin,
   PolarSeries,

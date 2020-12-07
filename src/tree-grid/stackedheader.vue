@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true'>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='1' :allowPaging='true'>
             <e-columns>
                 <e-column headerText='Order Details' :columns='orderColumns'></e-column>
                 <e-column headerText='Shipment Details' :columns='shipColumns'></e-column>
@@ -11,11 +11,11 @@
     </div>
 
      <div id="action-description">
-    <p>This sample demonstrates the TreeGrid component with the stacked header feature. In this sample, we have shown multiple levels of column header.
+    <p>This sample demonstrates the Tree Grid component with the stacked header feature. In this sample, we have shown multiple levels of column header.
     </p>
 </div>
 <div id="description">
-    <p>The TreeGrid columns can be stacked/grouped in order to show multiple levels of column header. 
+    <p>The Tree Grid columns can be stacked/grouped in order to show multiple levels of column header. 
         It can be done by setting the <code>columns->columns</code> property.
     </p>
     <p>

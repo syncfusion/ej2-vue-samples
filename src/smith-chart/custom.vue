@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="smithchart-custom-sample">
     <div class="col-lg-9 control-section">
               <ejs-smithchart ref="smithchart" id='container' :load='load' :horizontalAxis='horizontalAxis' :radialAxis='radialAxis' radius=1 :legendSettings='legendSettings' :title='title'>
                 <e-seriesCollection>
@@ -92,22 +92,8 @@
 </div>
 </template>
 <style>
-   .smithinput {
-        opacity: 1 !important;
-        position: relative !important;
-        height: 15px !important;
-        width: 15px !important;
-    }
-    .property-text {
-        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-        font-size: 13px !important;
-        font-weight: 400 !important;
-    }
-    #radius > * {
+    #smithchart-custom-sample #radius > * {
         padding: 0px !important;
-    }
-    label{
-        height: 32px !important;
     }
 </style>
 <script>

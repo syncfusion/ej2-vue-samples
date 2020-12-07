@@ -48,7 +48,7 @@ export default Vue.extend({
 
 
 
-<style>
+<style scoped>
 #wrapper {
   margin: 0 auto;
 }

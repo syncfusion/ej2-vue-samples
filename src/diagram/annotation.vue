@@ -44,15 +44,13 @@
           <div class="row" style="padding-top: 8px">
               <div class="col-xs-4 column-style">
                   <ejs-button ref="boldObj" id="bold" style="width:100%"
-                              :iconCss='boldiconCss'></ejs-button>
+                              >Bold</ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button ref= "italicObj" id="italic" style="width:100%"
-                              :iconCss='italiciconCss'></ejs-button>
+                  <ejs-button ref= "italicObj" id="italic" style="width:100%">Italic</ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button ref="underlineObj" id="underline" style="width:100%"
-                              :iconCss='underlineiconCss'></ejs-button>
+                  <ejs-button ref="underlineObj" id="underline" style="width:100%">UnderLine</ejs-button>
               </div>
           </div>
         <div class="row" style="padding-top: 8px">
@@ -126,7 +124,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -550,6 +548,7 @@ export default Vue.extend({
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramControl.ej2Instances;
+    diagramInstance.fitToPage();
     diagramInstance.select([diagramInstance.nodes[0]]);
     bold = this.$refs.boldObj.ej2Instances;
     italic = this.$refs.italicObj.ej2Instances;

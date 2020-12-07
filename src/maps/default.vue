@@ -32,7 +32,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .markerTemplate {
         font-size: 12px;
         color: white;
@@ -93,9 +93,6 @@ data:function(){
                     },
                     {
                         visible: true,
-                        tooltipSettings: {
-                            visible: true
-                        },
                         template: '<div id="marker1" class="markerTemplate">Asia' +
                             '</div>',
                         dataSource: [

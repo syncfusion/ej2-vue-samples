@@ -2,7 +2,6 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -43,7 +42,6 @@
             "url": "marker",
             "name": "Marker",
             "category": "Features",
-            "type": "update",
             "api": {},
             "sourceFiles": [
                 {"displayName": "marker.vue", "path": "./src/maps/marker.vue"},
@@ -203,7 +201,6 @@
             "url": "programmatic-zoom",
             "name": "Zoom to fit all markers",
             "category": "User Interaction",
-            "type": "new",
             "api": {},
             "sourceFiles": [
                 {"displayName": "programmatic-zoom.vue", "path": "./src/maps/programmatic-zoom.vue"},
@@ -330,7 +327,6 @@
         "url": "sales-map",
         "name": "Sales map",
         "category": "Use Cases",
-        "type": "new",
         "api": {},
         "sourceFiles": [
             {"displayName": "sales-map.vue", "path": "./src/maps/sales-map.vue"},

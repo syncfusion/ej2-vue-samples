@@ -12,8 +12,7 @@
             :gridLines= "gridLines"
             :height= "height"
             :treeColumnIndex= "1"
-            :resourceNameMapping= "resourceNameMapping"
-            :resourceIDMapping= "resourceIdMapping"
+            :resourceFields= "resourceFields"
             :resources= "resources"
             :highlightWeekends= "true"
             :timelineSettings= "timelineSettings"
@@ -38,8 +37,9 @@
         chart. You can perform CRUD operations as follows,
         <li><code>Add</code> - To add new task, click Add toolbar button</li>
         <li><code>Edit </code>- To edit a task, double click a row or double click a taskbar or click toolbar Edit
-            button after
-            selected a row</li>
+            button after selected a row</li>
+        <li><code>Indent</code> - To indent a task, click toolbar indent button after selecting a row</li>
+        <li><code>Outdent</code> - To outdent a task, click toolbar outdent button after selecting a row</li>
         <li><code>Delete</code> - To delete a task, click toolbar Delete button after selected a row</li>
         <li><code>Update,Cancel</code> - You can save or discard changes by click toolbar Update and Cancel button
             respectively</li>
@@ -97,11 +97,13 @@ export default Vue.extend({
                 allowTaskbarEditing: true,
                 showDeleteConfirmDialog: true
             },
-            toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll'],
+            toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll', 'Indent', 'Outdent'],
             gridLines: 'Both',
             height: '450px',
-            resourceNameMapping: 'resourceName',
-            resourceIdMapping: 'resourceId',
+            resourceFields: {
+                id: 'resourceId',
+                name: 'resourceName'
+            },
             resources: editingResources,
             timelineSettings: {
                 topTier: {

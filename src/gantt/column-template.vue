@@ -8,8 +8,7 @@
         :taskFields= "taskFields"
         :labelSettings= "labelSettings"
         :splitterSettings= "splitterSettings"
-        :resourceNameMapping= "resourceNameMapping"
-        :resourceIDMapping= "resourceIdMapping"
+        :resourceFields= "resourceFields"
         :resources= "resources"
         :rowHeight= '60'
         :projectStartDate= "projectStartDate"
@@ -61,8 +60,10 @@ export default Vue.extend({
                 dependency: 'Predecessor',
                 child: 'subtasks'
             },
-            resourceNameMapping: 'resourceName',
-            resourceIdMapping: 'resourceId',
+            resourceFields: {
+                id: 'resourceId',
+                name: 'resourceName'
+            },
             resources: editingResources,
             labelSettings: {
                 leftLabel: 'TaskName'

@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-             <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :layoutType='layoutType' :weightValuePath='weightValuePath' :rangeColorValuePath='rangeColorValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings'></ejs-treemap>
+             <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :allowPdfExport='allowPdfExport' :allowPrint='allowPrint' :allowImageExport='allowImageExport' :dataSource='dataSource' :layoutType='layoutType' :weightValuePath='weightValuePath' :rangeColorValuePath='rangeColorValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings'></ejs-treemap>
         </div>
 
         <div style="float: right; margin-right: 10px;">Source:
@@ -16,7 +16,14 @@
     </div>
     <div id="description">
         <p>
-            In this example, you can see how to export and print the rendered TreeMap. The TreeMap can be exported to JPEG, PNG, SVG, and PDF formats.
+            In this example, you can see how to export and print the rendered treemap. The TreeMap can
+            be exported to JPEG, PNG, SVG, and PDF formats. Print functionality is done by <code>print</code>
+            method when <code>allowPrint</code> is set as true. Export functionality is done by
+            <code>export</code> method when <code>allowImageExport</code> and
+            <code>allowPdfExport</code> is set as true.</p>
+             <br>
+             <p style="font-weight: 500"> <b>Injecting Module</b></p>
+            <p>To make use of the print and export support, we need to inject the <code>Print</code>, <code>ImageExport</code> and <code>PdfExport</code> modules using the <code>provide</code> section. </p>
         </p>
     </div>
 
@@ -63,7 +70,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     #button-control {
         width: 100%;
         text-align: center;
@@ -102,7 +109,7 @@
 </style>
 <script>
 import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapPlugin, TreeMapTooltip, Print, ImageExport, PdfExport } from "@syncfusion/ej2-vue-treemap";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 import { ProductSale } from '../treemap/treemap-data/product';
@@ -112,6 +119,9 @@ Vue.use(ButtonPlugin);
 export default Vue.extend({
 data:function(){
 return{
+      allowImageExport: true,
+      allowPdfExport: true,
+      allowPrint: true,
       titleSettings: {
             text: 'Top 10 best selling smartphone brands - 2017',
             textStyle: { size: '15px'}
@@ -147,7 +157,7 @@ return{
 }
 },
 provide:{
-    treemap:[TreeMapTooltip]
+        treemap:[TreeMapTooltip, Print, ImageExport, PdfExport]
 },
 methods:{
     /* custom code start */

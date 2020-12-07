@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :treeColumnIndex='1' :pageSettings='pageSettings' >
+          <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :height='350' :treeColumnIndex='1' :pageSettings='pageSettings' >
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
@@ -35,7 +35,7 @@
         </div>
     </div>
     <div id="action-description">
-    <p>This sample demonstrates the text alignment functionalities of the treegrid columns.</p>
+    <p>This sample demonstrates the text alignment functionalities of the Tree Grid columns.</p>
 </div>
 
 <div id="description">

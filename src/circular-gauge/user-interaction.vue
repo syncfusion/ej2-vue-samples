@@ -1,64 +1,127 @@
 <template>
-<div>
+  <div>
     <div class="col-md-8 control-section">
-        <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='user-container' :enablePointerDrag='enablePointerDrag' :dragMove='dragMove' :dragEnd='dragEnd'>
-<e-axes>
-<e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0  maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
-<e-pointers>
-<e-pointer :value='value' :type='type' :radius='pointerRadius' :color='color' :markerShape='markerShape' :markerHeight='markerHeight' :markerWidth='markerWidth'></e-pointer>
-<e-pointer :value='value2' :cap='cap2' :radius='pointerRadius2' :color='color2' :needleTail='needleTail2' :markerWidth='markerWidth'></e-pointer>
-</e-pointers>
-</e-axis>
-</e-axes>
-</ejs-circulargauge>
-            
-        </div>
+      <div class="content-wrapper">
+        <ejs-circulargauge
+          ref="circulargauge"
+          :load="load"
+          style="display:block"
+          align="center"
+          id="user-container"
+          :enablePointerDrag="enablePointerDrag"
+          :dragMove="dragMove"
+          :dragEnd="dragEnd"
+        >
+          <e-axes>
+            <e-axis
+              :radius="gaugeradius"
+              :startAngle="startAngle"
+              minimum="0"
+              maximum="120"
+              :endAngle="endAngle"
+              :majorTicks="majorTicks"
+              :lineStyle="lineStyle"
+              :minorTicks="minorTicks"
+              :labelStyle="labelStyle"
+              :annotations="annotations"
+              :ranges="ranges"
+            >
+              <e-pointers>
+                <e-pointer
+                  :value="value"
+                  :type="type"
+                  :radius="pointerRadius"
+                  :color="color"
+                  :markerShape="markerShape"
+                  :markerHeight="markerHeight"
+                  :markerWidth="markerWidth"
+                ></e-pointer>
+                <e-pointer
+                  :value="value2"
+                  :cap="cap2"
+                  :radius="pointerRadius2"
+                  :color="color2"
+                  :needleTail="needleTail2"
+                  :markerWidth="markerWidth"
+                ></e-pointer>
+              </e-pointers>
+            </e-axis>
+          </e-axes>
+        </ejs-circulargauge>
+      </div>
     </div>
 
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <tr style="height: 50px">
-                <td style="width: 30%">
-                    <div id='pointerValue'>Pointer Value <span> &nbsp;&nbsp;&nbsp;70</span> </div>
-                </td>
-                <td style="width: 40%;">
-                    <div>
-                        <input type="range" id="value" value="70" min="0" max="120" v-on:pointermove="pointerValue" v-on:touchmove="pointerValue" v-on:change="pointerValue" />
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 50px">
-                <td style="width: 20%">
-                    <div id='enablePointer'>Enable Drag</div>
-                </td>
-                <td style="width: 40%;">
-                    <div>
-                        <input type="checkbox" id="enable" checked="true" v-on:change="enableDrag" />
-                    </div>
-                </td>
-            </tr>
-        </table>
+      <table id="property" title="Properties" style="width: 100%">
+        <tr style="height: 50px">
+          <td style="width: 30%">
+            <div id="pointerValue">
+              Pointer Value
+              <span>&nbsp;&nbsp;&nbsp;70</span>
+            </div>
+          </td>
+          <td style="width: 40%;">
+            <div>
+              <input
+                type="range"
+                id="value"
+                value="70"
+                min="0"
+                max="120"
+                v-on:pointermove="pointerValue"
+                v-on:touchmove="pointerValue"
+                v-on:change="pointerValue"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr style="height: 50px">
+          <td style="width: 20%">
+            <div id="enablePointer">Allow Pointer Drag</div>
+          </td>
+          <td style="width: 40%;">
+            <div>
+              <input type="checkbox" id="enable" checked="true" v-on:change="enableDrag" />
+            </div>
+          </td>
+        </tr>
+        <tr style="height: 50px">
+          <td style="width: 20%">
+            <div id="enablePointer">Allow Range Drag</div>
+          </td>
+          <td style="width: 40%;">
+            <div>
+              <input type="checkbox" id="rangedrag" v-on:change="enableRangeDrag" />
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
-<div id="action-description">
-    <p>
-        This sample visualizes pointer drag in circular gauge. Position of pointer value can be changed by using <code>Pointer Value</code> and we can drag the pointer by enabling drag option.
-    </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can see how to move pointers in gauge using drag and drop. Use <code>enablePointerDrag</code>        property, to achieve this behavior.
-    </p>
-    <br>
-    <p>In this sample, you can drag the pointer using mouse or touch, the pointer value will be updated in an annotation placed
+    <div id="action-description">
+      <p>
+        This sample visualizes pointer drag in circular gauge. Position of pointer value can be changed by using
+        <code>Pointer Value</code> and we can drag the pointer by enabling drag option.
+      </p>
+    </div>
+    <div id="description">
+      <p>
+        In this example, you can see how to move pointers in gauge using drag and drop. Use
+        <code>enablePointerDrag</code> property, to achieve this behavior.
+      </p>
+      <br />
+      <p>
+        In this sample, you can drag the pointer using mouse or touch, the pointer value will be updated in an annotation placed
         in the gauge.
-    </p>
-    <p>
+      </p>
+      <p>
         More information on the gauge can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation">documentation section</a>.
-    </p>
-</div>
-</div>
+        <a
+          target="_blank"
+          href="http://ej2.syncfusion.com/documentation"
+        >documentation section</a>.
+      </p>
+    </div>
+  </div>
 </template>
 <script>
 import Vue from 'vue';
@@ -126,17 +189,22 @@ methods: {
     /* custom code end */
     // Code for Property Panel
     dragMove: function(args){
-            let content = '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique;"><span>';
-            // let cotainerObj=document.getElementById('user-container');
-            let pointerValue = Math.round(args.currentValue);
-            document.getElementById('pointerValue').innerHTML = 'Pointer Value <span> &nbsp;&nbsp;&nbsp;' + pointerValue;
-            (document.getElementById('value')).value = pointerValue.toString();
-            this.$refs.circulargauge.ej2Instances.setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
+            if(isNaN(args.rangeIndex)) {
+                let content = '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique;"><span>';
+                // let cotainerObj=document.getElementById('user-container');
+                let pointerValue = Math.round(args.currentValue);
+                document.getElementById('pointerValue').innerHTML = 'Pointer Value <span> &nbsp;&nbsp;&nbsp;' + pointerValue;
+                (document.getElementById('value')).value = pointerValue.toString();
+                this.$refs.circulargauge.ej2Instances.setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
+             }
+
         },
      dragEnd:function(args){
             // let cotainerObj=document.getElementById('user-container');
             let pointerValue = Math.round(args.currentValue);
+            if(isNaN(args.rangeIndex)) {
             setPointersValue(this.$refs.circulargauge.ej2Instances, pointerValue);
+            }
         },
     pointerValue:function(args){
             // let cotainerObj=document.getElementById('user-container');      
@@ -148,6 +216,10 @@ methods: {
         // let cotainerObj=document.getElementById('user-container');             
         let value = (document.getElementById('enable')).checked;
         this.$refs.circulargauge.ej2Instances.enablePointerDrag = value;        
+    },
+    enableRangeDrag:function(args){            
+        let value = (document.getElementById('rangedrag')).checked;
+        this.$refs.circulargauge.ej2Instances.enableRangeDrag = value;        
     }
 }
 })
@@ -156,8 +228,8 @@ methods: {
         let color = getRangeColor(pointerValue,circulargauge.axes[0].ranges, circulargauge.axes[0].pointers[0].color);
         circulargauge.axes[0].pointers[0].color = color;
         circulargauge.axes[0].pointers[1].color = color;
-        circulargauge.axes[0].pointers[0].animation.enable = true;
-        circulargauge.axes[0].pointers[1].animation.enable = true;
+        circulargauge.axes[0].pointers[0].animation.enable = false;
+        circulargauge.axes[0].pointers[1].animation.enable = false;
         circulargauge.axes[0].pointers[0].needleTail.color = color;
         circulargauge.axes[0].pointers[1].needleTail.color = color;
         circulargauge.axes[0].pointers[0].cap.border.color = color;

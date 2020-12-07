@@ -23,11 +23,11 @@
 </template>
 
 <style>
-	.control-section {
+	.control-section.ajaxsample {
         height: 100%;
         min-height: 350px;
     }
-    .ajaxsample .e-dialog .e-dlg-header >img.img1 {
+    .ajaxsample .e-dialog .e-dlg-header > img.img1 {
         height: 20px;
         width: 20px;
 		margin-right: 10px;
@@ -55,7 +55,7 @@
     .highcontrast .ajaxsample .e-dialog .e-dlg-content {
         padding: 28px 25px 19px;
     }
-	.e-bigger.e-dialog .e-footer-content .e-btn, .e-bigger .e-dialog .e-footer-content .e-btn{
+	.ajaxsample .e-bigger.e-dialog .e-footer-content .e-btn, .ajaxsample .e-bigger .e-dialog .e-footer-content .e-btn{
 	   margin-left: 0px;
     }
 	.ajaxsample .e-footer-content button.e-control.e-btn.e-flat {

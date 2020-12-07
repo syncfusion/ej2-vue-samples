@@ -71,7 +71,7 @@
     </div>
 </div>
 </template>
-<style type="text/css">
+<style type="text/css" scoped>
 #container{
 margin-top: -10px;
 

@@ -13,8 +13,6 @@
         :treeColumnIndex= "1"
         :columns= "columns"
         :splitterSettings= "splitterSettings"
-        :eventMarkers= "eventMarkers"
-        :indicators="indicators"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
         </ejs-gantt>
@@ -76,23 +74,23 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-    #Indicators .okIcon::before {
+<style scoped>
+    /deep/ #Indicators .okIcon::before {
     content: '\ea84';
     }
-    #Indicators .description::before {
+    /deep/ #Indicators .description::before {
     content: '\e30d';
     }   
-    .bootstrap4 #Indicators .okIcon::before {
+    /deep/ .bootstrap4 #Indicators .okIcon::before {
     content: '\e7d9';
     }
-    .bootstrap4 #Indicators .description::before {
+    /deep/ .bootstrap4 #Indicators .description::before {
     content: '\e7cb';
     }
-    .fabric #Indicators .description::before {
+    /deep/ .fabric #Indicators .description::before {
     content: '\e310';
     }
-    .highcontrast #Indicators .description::before {
+    /deep/ .highcontrast #Indicators .description::before {
     content: '\e310';
     }
 </style>

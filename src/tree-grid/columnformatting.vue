@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
+          <ejs-treegrid ref='treegrid' :dataSource='data' :height='350' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='orderID' headerText='Order ID' width='70' textAlign='Right'></e-column>
                 <e-column field='orderName' headerText='Order Name' width='150'></e-column>
@@ -34,11 +34,11 @@
         </div>
     </div>
     <div id="action-description">
-    <p>This sample demonstrates the way of displaying the content of TreeGrid columns based on the specified format. In this sample, format of columns can be changed dynamically through property panel.
+    <p>This sample demonstrates the way of displaying the content of Tree Grid columns based on the specified format. In this sample, format of columns can be changed dynamically through property panel.
     </p>
 </div>
 <div id="description">
-    <p>Format is the process of customizing the particular column data/values based on specific culture. The TreeGrid uses Internalization library to format number and date values. 
+    <p>Format is the process of customizing the particular column data/values based on specific culture. The Tree Grid uses Internalization library to format number and date values. 
             The format can be specified by using <code>
             format</code> property of columns.</p>
             <p>In this demo, select the column and format from the property panel to format the corresponding column values.</p>

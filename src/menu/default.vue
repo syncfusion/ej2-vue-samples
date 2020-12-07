@@ -45,35 +45,35 @@
         text-transform: none;
     }
 
-    .menu-control .e-menu-wrapper .e-file::before {
+    .menu-control .e-menu-wrapper .e-menu-file::before {
         content: '\e700';
     }
 
-    .menu-control .e-menu-wrapper .e-edit::before {
+    .menu-control .e-menu-wrapper .e-menu-edit::before {
         content: '\e701';
     }
 
-    .e-menu-wrapper .e-tool::before {
+    .e-menu-wrapper .e-menu-tool::before {
         content: '\e7cf';
     }
 
-    .e-menu-wrapper .e-cut::before {
+    .e-menu-wrapper .e-menu-cut::before {
         content: '\e704';
     }
 
-    .e-menu-wrapper .e-copy::before {
+    .e-menu-wrapper .e-menu-copy::before {
         content: '\e705';
     }
 
-    .e-menu-wrapper .e-paste::before {
+    .e-menu-wrapper .e-menu-paste::before {
         content: '\e706';
     }
 
-    .e-menu-wrapper .e-open::before {
+    .e-menu-wrapper .e-menu-open::before {
         content: '\e702';
     }
 
-    .e-menu-wrapper .e-save::before {
+    .e-menu-wrapper .e-menu-save::before {
         content: '\e703';
     }
 
@@ -97,21 +97,21 @@ export default Vue.extend({
       menuItems: [
         {
             text: 'File',
-            iconCss: 'e-menu-icons e-file',
+            iconCss: 'e-menu-icons e-menu-file',
             items: [
-                { text: 'Open', iconCss: 'e-menu-icons e-open' },
-                { text: 'Save', iconCss: 'e-menu-icons e-save' },
+                { text: 'Open', iconCss: 'e-menu-icons e-menu-open' },
+                { text: 'Save', iconCss: 'e-menu-icons e-menu-save' },
                 { separator: true },
                 { text: 'Exit' }
             ]
         },
         {
             text: 'Edit',
-            iconCss: 'e-menu-icons e-edit',
+            iconCss: 'e-menu-icons e-menu-edit',
             items: [
-                { text: 'Cut', iconCss: 'e-menu-icons e-cut' },
-                { text: 'Copy', iconCss: 'e-menu-icons e-copy' },
-                { text: 'Paste', iconCss: 'e-menu-icons e-paste' }
+                { text: 'Cut', iconCss: 'e-menu-icons e-menu-cut' },
+                { text: 'Copy', iconCss: 'e-menu-icons e-menu-copy' },
+                { text: 'Paste', iconCss: 'e-menu-icons e-menu-paste' }
             ]
         },
         {

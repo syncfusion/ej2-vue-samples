@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
 <div style="width:100%">
-    <ejs-diagram style='display:block' id="diagram" :width='width' :height='height' :nodes='nodes' :connectors= connectors :getNodeDefaults='getNodeDefaults'
+    <ejs-diagram style='display:block'  ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors= connectors :getNodeDefaults='getNodeDefaults'
                  :snapSettings='snapSettings' :constraints= 'constraints' :getConnectorDefaults= 'getConnectorDefaults'></ejs-diagram>
     </div>
 <div id="action-description">
@@ -18,7 +18,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;

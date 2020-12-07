@@ -3,7 +3,7 @@
     <div class="col-lg-8 control-section">
       <div id="diagramEventsControlSection" class="content-wrapper" style="width:100%;background: white">
         <div id="palette-space" class="sb-mobile-palette">
-          <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'></ejs-symbolpalette>
+          <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'></ejs-symbolpalette>
         </div>
         <div id="diagram-space" class="sb-mobile-diagram">
           <ejs-diagram ref="diagramControl" id="diagram" width="100%" height="700px" :contextMenuSettings="contextMenu" :snapSettings='snapSettings' :dragEnter="dragEnter" :dragLeave="dragLeave" :dragOver="dragOver" :click="click" :historyChange="historyChange" :doubleClick="doubleClick" :textEdit="textEdit" :scrollChange="scrollChange" :selectionChange="selectionChange" :sizeChange="sizeChange" :connectionChange="connectionChange" :sourcePointChange="sourcePointChange" :targetPointChange="targetPointChange" :propertyChange="propertyChange" :positionChange="positionChange" :rotateChange="rotateChange" :collectionChange="collectionChange" :mouseEnter="mouseEnter" :mouseLeave="mouseLeave" :mouseOver="mouseOver" :contextMenuOpen="contextMenuOpen" :contextMenuBeforeItemRender="contextMenuBeforeItemRender" :contextMenuClick="contextMenuClick">
@@ -48,7 +48,7 @@
   </div>
 </template>
 
-  <style>
+  <style scoped>
 #diagramEventsControlSection .sb-mobile-palette {
   width: 200px;
   height: 100%;

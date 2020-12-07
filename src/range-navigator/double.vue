@@ -39,7 +39,7 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 #control-containerDouble {
   padding: 0px !important;
 }

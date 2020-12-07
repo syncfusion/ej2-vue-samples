@@ -50,7 +50,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 /* Common sample level styles */
 #inline-control {
     width: 100%;

@@ -64,20 +64,13 @@
     <p>In case, if the tooltip needs to be opened on mobile devices, tap hold on the target labelled “Show Tooltip” instead of hovering
         and by default, it closes after 1.5 seconds on lift.</p>
     <p>More information on the Tooltip instantiation can be found in the
-        <a href="http://ej2.syncfusion.com/vue/documentation/tooltip/getting-started.html" target="_blank"> documentation section</a>.
+        <a href="https://ej2.syncfusion.com/vue/documentation/tooltip/getting-started/" target="_blank"> documentation section</a>.
     </p>
             </div>
     </div>
 
    
 </template>
-<style>
- #Tooltip {
-        position: absolute;
-        left: calc( 50% - 60px);
-        top: 45%;
-    }
-</style>
 <script>
 import Vue from "vue";
 import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";

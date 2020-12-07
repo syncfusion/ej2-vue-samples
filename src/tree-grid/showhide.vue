@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :treeColumnIndex='1' :pageSettings='pageSettings'>
+          <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :height='350' :treeColumnIndex='1' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
@@ -54,13 +54,13 @@
     </div>
 
 <div id="action-description">
-    <p>This sample demonstrates dynamic show/hide columns feature of TreeGrid.
+    <p>This sample demonstrates dynamic show/hide columns feature of Tree Grid.
        Select column name from the properties panel and click hide/show to toggle visibility.
     </p>
 </div>
 
 <div id="description">
-    <p>The TreeGrid column can be showed/hidden dynamically using <code>showColumns
+    <p>The Tre Grid column can be showed/hidden dynamically using <code>showColumns
         </code> and <code>hideColumns</code> method of the Grid.</p>
     <p>In this demo, the columns can be showed and hidden by selecting the column name in the dropdown
         and click the Show or Hide buttons to toggle visibility. And the column`s visibility is toggled based on the 
@@ -73,7 +73,7 @@
   </div>
 </template>
 <!-- custom code start -->
-  <style>
+  <style scoped>
     #columnddl {
         min-width: 120px;
     }

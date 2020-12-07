@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-         <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings' :queryCellInfo='queryCellInfo'>
+         <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings' :queryCellInfo='queryCellInfo'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200'></e-column>
@@ -56,7 +56,7 @@ export default Vue.extend({
            (<TreeGridComponent>this.$refs.treegrid);
            if ((args.cell as HTMLElement).innerHTML === 'High') {
              let x: HTMLElement = document.createElement('IMG');
-             x.setAttribute('src', 'src/tree-grid/images/high.png');
+             x.setAttribute('src', 'source/tree-grid/images/high.png');
              x.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;
@@ -66,7 +66,7 @@ export default Vue.extend({
              (args.cell as HTMLElement).appendChild(span);
            } else if ((args.cell as HTMLElement).innerHTML === 'Critical') {
              let y: HTMLElement = document.createElement('IMG');
-             y.setAttribute('src', 'src/tree-grid/images/critical.png');
+             y.setAttribute('src', 'source/tree-grid/images/critical.png');
              y.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;
@@ -76,7 +76,7 @@ export default Vue.extend({
              (args.cell as HTMLElement).appendChild(span);
            } else if ((args.cell as HTMLElement).innerHTML === 'Low') {
              let z: HTMLElement = document.createElement('IMG');
-             z.setAttribute('src', 'src/tree-grid/images/low.png');
+             z.setAttribute('src', 'source/tree-grid/images/low.png');
              z.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;
@@ -86,7 +86,7 @@ export default Vue.extend({
              (args.cell as HTMLElement).appendChild(span);
            } else if ((args.cell as HTMLElement).innerHTML === 'Normal') {
              let a: HTMLElement = document.createElement('IMG');
-             a.setAttribute('src', 'src/tree-grid/images/normal.png');
+             a.setAttribute('src', 'source/tree-grid/images/normal.png');
              a.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;

@@ -3,6 +3,7 @@
     "directory": "grid",
     "category": "Grids",
     "ftName": "datagrid",
+    "type": "update",
     "samples": [{
             "url": "grid-overview",
             "name": "Overview",
@@ -25,11 +26,20 @@
         },
         {
             "url": "grouping",
-            "name": "Grouping",
-            "category": "Data Grid",
+            "name": "Default Grouping",
+            "category": "Grouping",
             "description": "This demo for Essential JS 2 grid component demonstrates the grouping feature of the grid component. The grid component has options to group records based on columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowGrouping", "allowSorting", "allowPaging"] }
+        },
+        {
+            "url": "lazy-load-grouping",
+            "name": "Lazy Load Grouping",
+            "category": "Grouping",
+            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
+            "hideOnDevice": false,
+            "type": "new",
+            "api": { "Grid": ["dataSource","allowPaging","allowGrouping","groupSettings","height","columns"] }
         },
         {
             "url": "grid-lines",
@@ -105,6 +115,17 @@
             "sourceFiles":[
                 { "displayName": "virtual-scrolling.vue", "path":"src/grid/virtual-scrolling.vue" },
                 { "displayName":"virtual-scrolling.css","path":"styles/Grid/virtual-scrolling.css" }
+            ]
+        },
+        {
+            "url": "infinite-scrolling",
+            "name": "Infinite Scrolling",
+            "category": "Scrolling",
+            "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "enableInfiniteScrolling"] },
+            "sourceFiles":[
+                { "displayName": "infinite-scrolling.vue", "path":"src/grid/infinite-scrolling.vue" }
             ]
         },
         {

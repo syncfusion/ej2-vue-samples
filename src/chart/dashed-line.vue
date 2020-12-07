@@ -45,7 +45,7 @@
 
 
 </template>
-<style>
+<style scoped>
  #chartDashLine_Series_1,
     #chartDashLine_Series_0 {
         stroke-dasharray: 10px 10px;

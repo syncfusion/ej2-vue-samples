@@ -86,7 +86,7 @@ export default Vue.extend({
 </script>
 
 
-<style>
+<style scoped>
 .box-form {
   border: 1px solid #d7d7d7;
   max-width: 500px;

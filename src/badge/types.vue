@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="badge-types">
         <div class="col-lg-12 control-section">
-            <div class="sample_container badge-types">
+            <div class="sample_container">
                 <div class="badge-block">
                     <div class="e-card e-badge-showcase">
                         <div class="e-card-content">
@@ -151,26 +151,26 @@
 </template>
 
 <style>
-    .fabric .sample_container.badge-types .e-badge-showcase.e-card {
+    .fabric .badge-types .sample_container .e-badge-showcase.e-card {
         background: transparent;
     }
 
-    .e-bigger .sample_container.badge-types .e-btn {
+    .e-bigger .badge-types .sample_container .e-btn {
         padding: 0px 10px 2px 10px;
     }
 
     @media only screen and (max-width: 365px) {
-        .sample_container.badge-types {
+        .badge-types .sample_container {
             max-width: 146px;
         }
     }
 
-    .highcontrast .sample_container.badge-types .e-btn:focus {
+    .highcontrast .badge-types .sample_container .e-btn:focus {
         outline: 0px;
         color: white;
     }
 
-    .control-section {
+    .badge-types .control-section {
         overflow: auto;
         padding-top: 40px;
     }
@@ -182,7 +182,7 @@
     /* Media queries for Multiple devices */
 
     @media only screen and (max-width: 890px) {
-        .sample_container.badge-types {
+        .badge-types .sample_container {
             max-width: 311px;
             margin: auto;
             margin-top: 0px;
@@ -196,7 +196,7 @@
     }
 
     @media only screen and (min-width: 890px) {
-        .sample_container.badge-types {
+        .badge-types .sample_container {
             max-width: 745px;
             margin: auto;
             margin-top: 24px;
@@ -210,17 +210,17 @@
         text-transform: none;
     }
 
-    .sample_container.badge-types .badge-block {
+    .badge-types .sample_container .badge-block {
         margin: 2px 2px 2px 2px;
         vertical-align: top;
         display: inline-block;
     }
 
-    .highcontrast .sample_container.badge-types code {
+    .highcontrast .badge-types .sample_container code {
         border: 0;
     }
 
-    .sample_container.badge-types .badge-block-first {
+    .badge-types .sample_container .badge-block-first {
         position: relative;
     }
 

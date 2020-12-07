@@ -1,20 +1,18 @@
 {
     "name": "Rich Text Editor",
-    "type": "update",
     "directory": "rich-text-editor",
     "category": "Editors",
     "samples": [{
             "url": "tools",
             "name": "Overview",
-            "type": "update",
             "category": "Rich Text Editor",
-            "description": "This demo describes basic and advanced features of the vue rich text editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
+            "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Rich Text Editor",
-            "description": "This demo shows how to render vue rich text editor (WYSIWYG HTML editor) control with a minimum configuration setting."
+            "description": "This demo shows how to render vue Rich Text Editor (WYSIWYG HTML editor) control with a minimum configuration setting."
         },
         {
             "url": "image",
@@ -38,13 +36,13 @@
             "url": "iframe",
             "name": "IFrame",
             "category": "Rich Text Editor",
-            "description": "This demo shows how to render a classic vue rich text editor (iframe editor) that was designed by using the iframe element covering all tool functionalities."
+            "description": "This demo shows how to render a classic vue Rich Text Editor (iframe editor) that was designed by using the iframe element covering all tool functionalities."
         },
         {
             "url": "print",
             "name": "Print",
             "category": "Rich Text Editor",
-            "description": "This demo sample shows how to print the content of the vue rich text editor (HTML editor) with styles and formatting using the print module."
+            "description": "This demo sample shows how to print the content of the vue Rich Text Editor (HTML editor) with styles and formatting using the print module."
         },
         {
             "url": "ajax-load",
@@ -62,7 +60,7 @@
             "url": "api",
             "name": "API",
             "category": "Rich Text Editor",
-            "description": "This demo covers important APIs of the vue rich text editor such as content length, HTML encoding, read-only, retrieve the selected content, and more."
+            "description": "This demo covers important APIs of the vue Rich Text Editor such as content length, HTML encoding, read-only, retrieve the selected content, and more."
         },
         {
             "url": "events",
@@ -74,7 +72,7 @@
             "url": "blog-posting",
             "name": "Use Case",
             "category": "Rich Text Editor",
-            "description": "The Rich Text Editor is used in most real-time applications. The vue rich text editor example shows how to design a forum application in vue application."
+            "description": "The Rich Text Editor is used in most real-time applications. The vue Rich Text Editor example shows how to design a forum application in vue application."
         },
         {
             "url": "auto-save",

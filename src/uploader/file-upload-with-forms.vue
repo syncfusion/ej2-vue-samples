@@ -33,7 +33,7 @@
                             <div class="e-float-input upload-area">
                                 <input type="text" id="upload" name="upload" readonly="" data-required-message="* Select any file" required="" data-msg-containerid="uploadError"> 
                                 <ejs-uploader id='fileupload' name="UploadFiles" :autoUpload= "isAuto" :selected= "onFileSelect"
-                                 allowedExtensions= "image/*" :dropArea = "dropElement" :multiple= 'false' ></ejs-uploader>
+                                 allowedExtensions= "image/*" :dropArea = "dropElement" :multiple= 'false' cssClass='uploader-form-support' ></ejs-uploader>
                                 <button id="browse" class="e-control e-btn e-info">Browse...</button>
                                 <span class="e-float-line"></span>
                                 <label class="e-float-text e-label-top" for="upload">Choose a file</label>
@@ -71,7 +71,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 
       .form-support .control_wrapper {
             max-width: 400px;
@@ -135,9 +135,6 @@
             position: relative;
             top: 14%;
         }        
-        .form-support .e-upload {
-            display: none;
-        }
         .form-support input.choose-file{
             width: 60%;
         }
@@ -173,6 +170,11 @@
             display: inherit;
         }
 </style>
+<style>
+    .form-support .uploader-form-support.e-upload {
+            display: none;
+    }
+</style>
 <script>
 import Vue from "vue";
 import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
@@ -186,8 +188,8 @@ export default Vue.extend({
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
+            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.jpg, .png',

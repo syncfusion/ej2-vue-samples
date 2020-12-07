@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="arc-gauge">
 <div class="control-section">
     <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='range-container' :loaded='loaded' :title='title' :titleStyle='titleStyle'>
         <e-axes>
@@ -33,7 +33,7 @@
 </div>
 </template>
  <style>    
-        .sliderwrap {
+        #arc-gauge .sliderwrap {
             margin-top: 0px;
             width: 300px;            
             align-self: center;
@@ -42,14 +42,14 @@
             background-color: #4B4B4B ;
         }
         #range-container_Axis_0_Annotation_1 .e-control-wrapper.e-slider-container.e-horizontal .e-slider-track {
-            background: -webkit-linear-gradient(left, #ea501a 0, #ea501a 20%, #f79c02 40%, #e5ce20 60%, #a1cb43 80%, #82b944 100%);
             background: linear-gradient(left, #ea501a 0, #ea501a 20%, #f79c02 40%, #e5ce20 60%, #a1cb43 80%, #82b944 100%);
             background: -moz-linear-gradient(left, #ea501a 0, #ea501a 20%, #f79c02 40%, #e5ce20 60%, #a1cb43 80%, #82b944 100%); 
+            background: -webkit-linear-gradient(left, #ea501a 0, #ea501a 20%, #f79c02 40%, #e5ce20 60%, #a1cb43 80%, #82b944 100%);
         }
-        .e-limit-bar.e-limits {
+        #arc-gauge .e-limit-bar.e-limits {
             background-color: transparent !important;
         }
-        .e-control-wrapper.e-slider-container.e-horizontal .e-range {
+        #arc-gauge .e-control-wrapper.e-slider-container.e-horizontal .e-range {
             height: 0px !important;
         }
         #slider.e-control.e-slider .e-slider-track {

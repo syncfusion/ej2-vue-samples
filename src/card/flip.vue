@@ -92,7 +92,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 
     .fabric .card-control-section.flip_card_layout .e-card:hover,
     .highcontrast .card-control-section.flip_card_layout .e-card:hover {

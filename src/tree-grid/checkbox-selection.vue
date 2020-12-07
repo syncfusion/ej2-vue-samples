@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :selectionSettings='selectionSettings' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :selectionSettings='selectionSettings' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column type='checkbox' width='50'></e-column>
                 <e-column field='taskID' headerText='Task ID' width='70' isPrimaryKey='true' textAlign='Right'></e-column>
@@ -15,18 +15,18 @@
     </div>
 
 <div id="action-description">
-    <p>This sample demonstrates the selection functionality of the TreeGrid using checkbox selection, To select and unselect all rows use header checkbox.
+    <p>This sample demonstrates the selection functionality of the Tree Grid using checkbox selection, To select and unselect all rows use header checkbox.
        To select/unselect particular row, click the desired row.
    </p>
 </div>
 
 <div id="description">
     <p>
-        TreeGrid mutliple selection can be achieved with help of checkbox in each row. To render checkbox in each treegrid row, you need
+        Tree Grid mutliple selection can be achieved with help of checkbox in each row. To render checkbox in each Tree Grid row, you need
         to define column type as <code>checkbox</code> using
         <code>columns->type</code> property.</p>
     <p>Selection can be persisted on all the operations using
-        <code>selectionSettings-> persistSelection</code> property. For persisting selection on the TreeGrid, any one of the column should be defined as a
+        <code>selectionSettings-> persistSelection</code> property. For persisting selection on the Tree Grid, any one of the column should be defined as a
         primary key using <code> columns->isPrimaryKey</code> property.
     </p>
 

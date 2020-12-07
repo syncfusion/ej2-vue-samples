@@ -1,7 +1,7 @@
 <template>
 <div>
     <div>
-        <div class="col-lg-8 content-wrapper control-section">
+        <div class="col-lg-8 control-section">
             <div class="control-styles">
                 <h4>Selection Limit</h4>
                 <ejs-multiselect ref="multiselectInstance" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
@@ -46,7 +46,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .control-styles {
         margin: 0 auto; 
         width:300px; 

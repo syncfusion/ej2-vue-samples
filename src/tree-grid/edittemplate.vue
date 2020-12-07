@@ -14,7 +14,7 @@
     </div>
     <div id="action-description">
         <p>
-            This samples demonstrates the TreeGrid Cell Edit template feature. Using Cell Edit Template feature we have rendered the DatePicker component for “<b>Start Date</b>” column.
+            This samples demonstrates the Tree Grid Cell Edit template feature. Using Cell Edit Template feature we have rendered the DatePicker component for “<b>Start Date</b>” column.
         </p>
     </div>
     <div id="description">
@@ -28,7 +28,7 @@
             <li><code>destroy</code> - It is used to destroy the component.</li>
         </ul>
         <p>
-            In this demo, we have rendered the DatePicker component for "Start Date” column of TreeGrid using <code>edit</code> property.
+            In this demo, we have rendered the DatePicker component for "Start Date” column of Tree Grid using <code>edit</code> property.
         </p>
         <p>
         <br/> More information about Cell Edit template can be found in this documentation section.
@@ -54,7 +54,7 @@ let datePickerObj: DatePicker;
 export default  Vue.extend({
   data: () => {
     return {
-      data: sampleData,
+      data: sampleData.slice(0),
       editSettings: { allowDeleting: true, allowEditing: true, allowAdding: true, mode: 'Row' },
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},

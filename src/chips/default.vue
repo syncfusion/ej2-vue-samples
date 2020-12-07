@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section chip-default">
       <div id="chip-default-wrapper">
           <div class="chips-headers">Chips</div>
 
@@ -103,14 +103,14 @@ export default Vue.extend({
 </script>
 
 <style>
-#chip-default-wrapper .sample-padding {
+.chip-default #chip-default-wrapper .sample-padding {
   padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.chips-headers {
+.chip-default .chips-headers {
   font-size: 12px;
   text-align: center;
   padding-top: 10px;
@@ -118,23 +118,23 @@ export default Vue.extend({
 
 /* chips samples icons */
 
-#chip-choice .e-chip .e-chip-icon {
+.chip-default #chip-choice .e-chip .e-chip-icon {
   font-family: "e-chips-icons";
 }
 
-#chip-choice .text::before {
+.chip-default #chip-choice .text::before {
   content: "\e701";
 }
 
-#chip-choice .mail::before {
+.chip-default #chip-choice .mail::before {
   content: "\e700";
 }
 
-#chip-choice .alarm::before {
+.chip-default #chip-choice .alarm::before {
   content: "\e704";
 }
 
-#chip-choice .game::before {
+.chip-default #chip-choice .game::before {
   content: "\e703";
 }
 
@@ -146,27 +146,27 @@ export default Vue.extend({
   font-style: normal;
 }
 
-#chip-default-wrapper .andrew {
+.chip-default #chip-default-wrapper .andrew {
   background-image: url("./images/andrew.png");
 }
 
-#chip-default-wrapper .anne {
+.chip-default #chip-default-wrapper .anne {
   background-image: url("./images/anne.png");
 }
 
-#chip-default-wrapper .janet {
+.chip-default #chip-default-wrapper .janet {
   background-image: url("./images/janet.png");
 }
 
-#chip-default-wrapper .laura {
+.chip-default #chip-default-wrapper .laura {
   background-image: url("./images/laura.png");
 }
 
-#chip-default-wrapper .margaret {
+.chip-default #chip-default-wrapper .margaret {
   background-image: url("./images/margaret.png");
 }
 
-#chip-default-wrapper .michael {
+.chip-default #chip-default-wrapper .michael {
   background-image: url("./images/michael.png");
 }
 </style>

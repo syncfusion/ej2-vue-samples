@@ -101,18 +101,18 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-    #ToolbarTemplate .e-quickfilter::before {
+<style scoped>
+    /deep/ #ToolbarTemplate .e-quickfilter::before {
         content: "\e7ee"
     }
-    .fabric #ToolbarTemplate .e-quickfilter::before,
+    /deep/ .fabric #ToolbarTemplate .e-quickfilter::before,
     .highcontrast #ToolbarTemplate .e-quickfilter::before {
         content: '\e21c';
     }
-    .bootstrap #ToolbarTemplate .e-quickfilter::before {
+    /deep/ .bootstrap #ToolbarTemplate .e-quickfilter::before {
         content: '\e946';
     }
-    .bootstrap4 #ToolbarTemplate .e-quickfilter::before {
+    /deep/ .bootstrap4 #ToolbarTemplate .e-quickfilter::before {
         content: '\e714';
     }
 </style>

@@ -30,10 +30,21 @@
             </tbody>
         </table>
     </div>
+    <div id="action-description">
+    <p>This sample illustrates the GDP nominal of top 10 countries in the year 2015. The layout and rendering direction of the TreeMap can be changed by using the <code>Layout Type</code> and <code>Render Direction</code> in the properties panel.
+    </p>
+  </div>
+<div id="description">
+    <p>In this example, you can change the layout of the TreeMap as desaturation color mapping has been applied to denote the weightage of the items by varying the fill color. The label's text also has been formatted and placed in multiple lines.
+    </p>
+    <p>
+       The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item in touch-enabled devices.
+    </p>
+</div>
 </div>
 </template>
 // custom code start
-<style>
+<style scoped>
     .property-text {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
         font-size: 13px !important;

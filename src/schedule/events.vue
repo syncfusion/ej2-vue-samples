@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :currentView="currentView"
@@ -46,11 +46,11 @@
 </template>
 <!-- custom code start -->
 <style>
-    #EventLog b {
+    .schedule-vue-sample #EventLog b {
         color: #388e3c;
     }
 
-    hr {
+    .schedule-vue-sample hr {
         margin: 1px 10px 1px 0px;
         border-top: 1px solid #eee;
     }

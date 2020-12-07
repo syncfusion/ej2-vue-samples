@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section tree-template">
     <div class="tree-template-control-wrapper">
             <ejs-treeview id="template" :fields="fields" cssClass="custom" :nodeTemplate="treeTemplate"></ejs-treeview>
         </div>
@@ -17,21 +17,35 @@
 </template>
 /* custom code start */
 <style>
-    .tree-template-control-wrapper {
+    .tree-template .tree-template-control-wrapper {
 		max-width: 320px;
         margin: auto;
         border: 1px solid #dddddd;
         border-radius: 3px;
     }
-    .tree-template-control-wrapper .e-treeview .e-list-text {
+    .tree-template .tree-template-control-wrapper .e-treeview .e-list-text {
         width: 100%;
     }
-    .treeCount.e-badge {
+    .tree-template .treeCount.e-badge {
         padding: 0.4em;
         vertical-align: text-bottom;
     }
-    .material .treeCount.e-badge {
+    .material .tree-template .treeCount.e-badge {
         vertical-align: middle;
+    }
+    .tree-template .nodetext {
+        float: left;
+    }
+    .tree-template .e-rtl .nodetext {
+        float: right;
+    }
+    .tree-template .nodebadge {
+        float: right;
+        margin-right: 5px
+    }
+    .tree-template .e-rtl .nodebadge {
+        float: left;
+        margin-left: 5px
     }
 </style>
 /* custom code end */
@@ -39,7 +53,7 @@
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
 import treeTemplateVue from "./tree-template.vue";
-import * as dataSource from './dataSource/template-data.json';
+import * as dataSource from './template-data.json';
 
 Vue.use(TreeViewPlugin);
 

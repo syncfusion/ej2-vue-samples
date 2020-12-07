@@ -24,7 +24,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .numeric-content-wrapper {
         width: 35%;
         margin: 0 auto;

@@ -54,7 +54,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .card-control-section.basic_card_layout #weather_card.e-card {
         background-image: url('./images/weather.png');
     }

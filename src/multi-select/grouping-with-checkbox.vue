@@ -1,11 +1,11 @@
 <template>
 <div>
     <div id="multiselect-sample">
-        <div class="col-lg-12 content-wrapper control-section">
+        <div class="col-lg-12 control-section">
             <div class="control-styles">
                 <h4>Grouping with CheckBox</h4>
                 <ejs-multiselect id='multiselect-checkbox' :dataSource='vegetables' :placeholder='checkWaterMark' :fields='checkFields'
-                    :mode='multiMode' :popupHeight='popHeight' :showDropDownIcon='showDropDownIcon' :showSelectAll='showSelectAll'
+                    :mode='multiMode' :popupHeight='popupHeight' :showDropDownIcon='showDropDownIcon' :showSelectAll='showSelectAll'
                     :enableSelectionOrder='enableSelectionOrder' :filterBarPlaceholder='filterPlaceholder' :enableGroupCheckBox='enableGroupCheck'></ejs-multiselect>
             </div>
         </div>
@@ -23,7 +23,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .control-styles {
         margin: 0 auto; 
         width:300px; 
@@ -50,7 +50,8 @@ export default Vue.extend ({
             showDropDownIcon: true,
             enableSelectionOrder: false,
             vegetables:data['vegetableData'],
-            enableGroupCheck: true
+            enableGroupCheck: true,
+            popupHeight: '250px'
         };
     },
     provide: {

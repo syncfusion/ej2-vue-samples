@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section dashboard-default">
      <div style="padding:5px;text-align: right;">
          <ejs-button id="add" class="e-btn e-info"  v-on:click.native="addPanel"> Add Panel </ejs-button>
     </div>
@@ -128,43 +128,43 @@ export default Vue.extend ({
 </script>
 
 <style>
-@import "../../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../../node_modules/@syncfusion/ej2-vue-layouts/styles/material.css";
-
-    #defaultLayout.e-dashboardlayout.e-control .e-panel:hover span {
+    .dashboard-default #defaultLayout.e-dashboardlayout.e-control .e-panel:hover span {
         display: block;
     }
     
-    #defaultLayout .e-panel .e-panel-container .text-align{
+    .dashboard-default #defaultLayout .e-panel .e-panel-container .text-align{
         vertical-align: middle;
         font-weight: 600;
         font-size: 20px;
         text-align: center;
     }
     
-    .e-template-icon {
+    .dashboard-default .e-template-icon {
         padding: 10px;
         float: right;
         display: none;
     }
     
-    .e-clear-icon::before {
-        content: '\e932';
+    .dashboard-default .e-clear-icon::before {
+        content: '\e7a7';
         font-size: 12px;
         font-family: 'e-icons';
     }
+    .bootstrap4 .dashboard-default .e-clear-icon::before {
+        content: '\e745';
+    }
     
-    .text-align {
+    .dashboard-default .text-align {
         line-height: 160px;
     }
     
-    .e-clear-icon {
+    .dashboard-default .e-clear-icon {
         position: absolute;
         right: 0;
         cursor: pointer;
     }
 /* high contrast style */
-    body.highcontrast #defaultLayout.e-dashboardlayout.e-control .e-panel {
+    body.highcontrast .dashboard-default #defaultLayout.e-dashboardlayout.e-control .e-panel {
         background: #000;
     }
 </style>

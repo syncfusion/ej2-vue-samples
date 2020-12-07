@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .tile_layout.card-control-section .e-float-text {
     font-size:14px;
   }

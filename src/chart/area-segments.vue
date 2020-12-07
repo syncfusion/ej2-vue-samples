@@ -56,7 +56,7 @@
 </div>
 
 </template>
-<style>
+<style scoped>
 #winter stop {
         stop-color: #4ca1af;
     }

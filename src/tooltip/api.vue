@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="tooltip-api">
     <div class="col-lg-8 control-section">
         <ejs-tooltip ref='tooltip' target='#default' opensOn='Click' :content='tContent' :created='created'>
             <!-- Tooltip element -->
@@ -72,12 +72,12 @@
             customized further with the combination of tooltip properties from the property pane. For
             example,</p>
         <ul>
-            <li>Any change made to a textbox in the property pane will be reflected in the tooltip <a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html#content">content</a></li>
-            <li><a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html?lang=typescript#issticky">StickyMode</a>can
+            <li>Any change made to a textbox in the property pane will be reflected in the tooltip <a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#content">content</a></li>
+            <li><a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#issticky">StickyMode</a>can
                 be enabled by checking the sticky mode option in the property pane.</li>
-            <li><a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html?lang=typescript#height">Height</a>                and
-                <a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html?lang=typescript#width">width</a>                can be changed from the property pane.</li>
-            <li><a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html?lang=typescript#openson">OpenMode</a>                can be changed from the property pane.</li>
+            <li><a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#height">Height</a>                and
+                <a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#width">width</a>                can be changed from the property pane.</li>
+            <li><a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#openson">OpenMode</a>                can be changed from the property pane.</li>
         </ul>
     </div>
 </div>
@@ -157,7 +157,7 @@ export default Vue.extend({
 });
 </script>
 <style>
-.userselect {
+.tooltip-api .userselect {
   -webkit-user-select: none;
   /* Safari 3.1+ */
   -moz-user-select: none;
@@ -168,23 +168,23 @@ export default Vue.extend({
   /* Standard syntax */
 }
 
-#property {
+.tooltip-api #property {
   padding-top: 200px;
 }
 
-#default {
+.tooltip-api #default {
   position: absolute;
   left: calc(50% - 60px);
   top: 35%;
 }
 
-#value {
+.tooltip-api #value {
   height: 34px;
   width: 136px;
   padding-left: 10px;
 }
 
-.highcontrast #value {
+.highcontrast .tooltip-api #value {
   border: 1px solid;
   border-width: 1px;
   color: #fff;

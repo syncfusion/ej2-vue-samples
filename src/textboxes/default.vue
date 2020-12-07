@@ -236,7 +236,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
     .e-input-picture:before {
         content: '\e335';
         font-family: e-icons;

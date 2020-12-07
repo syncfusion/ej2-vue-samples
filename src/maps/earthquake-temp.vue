@@ -7,7 +7,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .pulse-css {
     width: 20px;
     height: 20px;

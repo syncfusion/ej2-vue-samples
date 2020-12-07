@@ -140,6 +140,19 @@
         ]
     },
     {
+        "url": "stacked-step-area",
+        "name": "Stacked Step Area",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacking step area series.",
+        "category": "Area Charts",
+        "type": "new",
+        "sourceFiles": [
+            {
+                "displayName": "stacked-step-area.vue",
+                "path": "./src/chart/stacked-step-area.vue"
+            }
+        ]
+    },
+    {
         "url": "stacked-area-100",
         "name": "100% Stacked Area",
         "description": "This demo for Essential JS2 Chart control shows how to render the 100 percent stacking area series.",
@@ -325,7 +338,6 @@
         "name": "Trendlines",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the trend lines in charts.",
         "category": "Other Types",
-        "type": "update",
         "sourceFiles": [
             {"displayName": "trend-lines.vue", "path": "./src/chart/trend-lines.vue"}
         ]
@@ -603,7 +615,7 @@
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-spline.vue", "path": "./src/chart/polar-spline.vue"},
-            {"displayName": "chartdata.service.ts", "path": "./src/chart/chartdata.service.ts"}
+            {"displayName": "chart-data.ts", "path": "./src/chart/chart-data.ts"}
         ]
     },
     {
@@ -656,7 +668,6 @@
         "name": "Range Column",
         "description": "This demo for Essential JS2 Chart control shows how to render range column in polar and radar charts.",
         "category": "Polar Radar",
-        "type": "update",
         "sourceFiles": [
             {"displayName": "polar-range-column.vue", "path": "./src/chart/polar-range-column.vue"}
         ]
@@ -846,7 +857,6 @@
         "name": "Tooltip Template",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the tooltip template.",
         "category": "Chart Customization",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "tooltip-template.vue", "path": "./src/chart/tooltip-template.vue"}
         ]
@@ -891,7 +901,7 @@
         "url": "selection",
         "name": "Selection",
         "description": "This demo for Essential JS2 Chart control demonstrates the selection behavior in chart.",
-        "category": "User Interaction",
+        "category": "User Interaction",        
         "sourceFiles": [
             {"displayName": "selection.vue", "path": "./src/chart/selection.vue"}
         ]

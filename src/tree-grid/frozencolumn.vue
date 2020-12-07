@@ -16,7 +16,7 @@
     </div>
 
     <div id="action-description">
-        <p>This sample demonstrates the frozen columns feature of the TreeGrid. Scroll the movable content horizontally to view the frozen columns with the content.
+        <p>This sample demonstrates the frozen columns feature of the Tree Grid. Scroll the movable content horizontally to view the frozen columns with the content.
         </p>
     </div>
 
@@ -31,7 +31,7 @@
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
-         TreeGrid component features are segregated into individual feature-wise modules. To use frozen columns feature, we need to inject
+         Tree Grid component features are segregated into individual feature-wise modules. To use frozen columns feature, we need to inject
          <code>Freeze</code> into the <code>provide</code> section.
     </p>
 </div>

@@ -6,7 +6,7 @@
 
 <div id="description">
     <p>
-        TreeGrid has an option to show column menu while click on multiple icon of each column. The column menu has an integrated option to interact the features like sorting, filtering, column chooser and and autoFit.  
+        Tree Grid has an option to show column menu while click on multiple icon of each column. The column menu has an integrated option to interact the features like sorting, filtering, column chooser and and autoFit.  
         This features can be enabled by defining the <code>showColumnMenu
         </code> as true. The default items are
         <br>
@@ -32,7 +32,7 @@
 
 </div>
     <div>
-        <ejs-treegrid :dataSource="data" :treeColumnIndex='1' :allowPaging='true' :showColumnMenu='true' childMapping='subtasks'
+        <ejs-treegrid :dataSource="data" :treeColumnIndex='1' :allowPaging='true' :height='350' :showColumnMenu='true' childMapping='subtasks'
          :allowFiltering='true' :filterSettings='filterSettings' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='120'></e-column>

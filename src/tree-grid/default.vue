@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the default rendering of the TreeGrid with minimum configuration.</p>
+        <p>This sample demonstrates the default rendering of the Tree Grid with minimum configuration.</p>
     </div>
     <div>
         <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :height='380'>
@@ -19,7 +19,7 @@
 
      <div id="description">
         <p>
-            The TreeGrid is used to represent the hierarchical data in a tabular format, combining the visual representation of Grid 
+            The Tree Grid is used to represent the hierarchical data in a tabular format, combining the visual representation of Grid 
             and TreeView controls. It represents the data from <code><a target="_blank" class="code"
         href="#">
         datasource</a></code> such as an array of JSON objects, OData web services, or 
@@ -27,10 +27,10 @@
         DataManager</code> binding data fields to columns or self-referential datasource.
         </p>
         <p>
-            In this demo, the TreeGrid is populated with its minimum default settings.
+            In this demo, the Tree Grid is populated with its minimum default settings.
         </p>
         <p>
-            More information on the In this demo, the TreeGrid is populated with its minimum default settings. instantiation can be found in this
+            More information on the In this demo, the Tree Grid is populated with its minimum default settings. instantiation can be found in this
             documentation section.
         </p>
     </div>

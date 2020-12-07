@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="badge-accordion">
         <div class="col-lg-12 control-section">
-            <div class="sample_container badge-accordion">
+            <div class="sample_container">
                 <ejs-accordion id="accordion" :created="onCreated">
                     <e-accordionitems>
                         <e-accordionitem expanded='true' header='Robert' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
@@ -27,11 +27,11 @@
 </template>
 
 <style>
-.control-section {
+    .badge-accordion .control-section {
         overflow: auto;
     }
 
-    .sample_container.badge-accordion {
+    .badge-accordion .sample_container {
         max-width: 350px;
         margin: auto;
         margin-top: 20px;
@@ -70,17 +70,13 @@
         vertical-align: middle;
     }
 
-    .sample_container.badge-accordion li.msg {
+    .badge-accordion .sample_container li.msg {
         line-height: 36px;
         list-style-type: none;
         text-indent: 16px;
     }
 
-    .accordion-control-section {
-        margin: 0 10% 0 10%;
-    }
-
-    .sample_container.badge-accordion #accordion .e-toggle-icon {
+    .badge-accordion .sample_container #accordion .e-toggle-icon {
         font-size: 18px;
         top: -1px;
         display: block;

@@ -45,7 +45,7 @@ export default {
   },
 computed: {
     image: function() {
-      return 'src/tree-grid/images/' + this.data.FullName + '.png';
+      return 'source/tree-grid/images/' + this.data.FullName + '.png';
     }
   }
 }

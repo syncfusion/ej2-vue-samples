@@ -63,7 +63,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
  .waitingpopup {
         position: absolute;
         z-index: 100;
@@ -79,7 +79,7 @@
     .image {
         position: absolute;
         background-repeat: no-repeat;
-        background-image: url('./images/Medium-36px-spin.gif');
+        background-image: url('./images/mediumspin.gif');
         background-position: center;
         width: 50px;
         height: 50px;

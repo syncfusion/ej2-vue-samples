@@ -1,6 +1,6 @@
 <template>
-    <div id="container">
-        <div class="control-section">
+  <div id="container">
+  <div class="control-section dashboard-seo">
     <div class="col-lg-12 col-sm-12 col-md-12" id="sidebar-section">
       <div id="head">
         <div class="dashboard-header">
@@ -159,36 +159,32 @@ export default  Vue.extend({
 </script>
 
 <style>
-
-@import "../../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../../node_modules/@syncfusion/ej2-vue-layouts/styles/material.css";
-
-.sidebar-content {
+.dashboard-seo .sidebar-content {
     padding: 10px;
     width: calc(100% - 60px);
   }
 
 
-  .dashboard-header {
+  .dashboard-seo .dashboard-header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     height: 55px;
     position: relative;
   }
 
-  #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+  .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     border-bottom: 2px solid #e6e9ed !important;
     padding: 10px;
     height: 35px;
     margin: 0 15px 0 15px;
   }
 
-  #analysisLayout.e-dashboardlayout  .e-panel-content {
+  .dashboard-seo #analysisLayout.e-dashboardlayout  .e-panel-content {
     height: calc(100% - 35px) !important;
     overflow: hidden;
     width: 100%;
   }
 
-  #sidebar-section {
+  .dashboard-seo #sidebar-section {
     padding: 0px !important;
     border: 1px solid rgba(0, 0, 0, 0.12);
   }
@@ -198,10 +194,10 @@ export default  Vue.extend({
   }
 
   @media (max-width: 650px) {
-    .e-bigger .searchContent {
+    .e-bigger .dashboard-seo .searchContent {
       display: none;
     }
-    .information{
+    .dashboard-seo .information{
         right:17% !important;
     }
   }
@@ -228,51 +224,51 @@ export default  Vue.extend({
     -moz-osx-font-smoothing: grayscale;
   }
 
-  #dashboardSidebar {
+  .dashboard-seo #dashboardSidebar {
     text-align: center;
   }
 
-  #dashboardSidebar .e-icons::before, #sidebar-section .e-icons::before {
+  .dashboard-seo #dashboardSidebar .e-icons::before, #sidebar-section .e-icons::before {
     font-size: 20px;
   }
 
-  li.sidebar-item.filterHover {
+  .dashboard-seo li.sidebar-item.filterHover {
     background: #eef4f7;
     border-left: 4px solid #057ece;
   }
   /* dockbar icon Style */
 
-  .home::before {
+  .dashboard-seo .home::before {
     content: "\e718";
     font-family: "e-sb-icons";
   }
 
-  .filter::before {
+  .dashboard-seo .filter::before {
     content: "\e72a";
     font-family: "e-sb-icons";
   }
 
-  .analyticsChart::before {
+  .dashboard-seo .analyticsChart::before {
     content: "\e722";
     font-family: "e-sb-icons";
   }
 
-  .analytics::before {
+  .dashboard-seo .analytics::before {
     content: "\e720";
     font-family: "e-sb-icons";
   }
 
-  .session::before {
+  .dashboard-seo .session::before {
     content: "\e735";
     font-family: "e-sb-icons";
   }
 
-  .profile::before {
+  .dashboard-seo .profile::before {
     content: "\e730";
     font-family: "e-sb-icons";
   }
 
-  .views::before {
+  .dashboard-seo .views::before {
     content: "\e733";
     font-family: "e-sb-icons";
   }
@@ -291,7 +287,7 @@ export default  Vue.extend({
     background-color: transparent !important;
   }
 
-  .settings::before {
+  .dashboard-seo .settings::before {
     content: "\e71d";
     font-family: "e-sb-icons";
   }
@@ -300,8 +296,7 @@ export default  Vue.extend({
     left: 12%;
   }
 
-  .expand::before,
-  .expand::before {
+  .dashboard-seo .expand::before {
     content: "\e72d";
     margin-left: 18px;
     font-family: "e-sb-icons";
@@ -309,7 +304,7 @@ export default  Vue.extend({
     top: 12%;
   }
 
-  .right-content {
+  .dashboard-seo .right-content {
     float: right;
     height: 55px;
     width: 100px;
@@ -319,33 +314,33 @@ export default  Vue.extend({
     display: none;
   }
 
-  .e-dock.e-close span.e-text {
+  .dashboard-seo .e-dock.e-close span.e-text {
     display: none;
   }
 
-  .e-dock.e-open span.e-text {
+  .dashboard-seo .e-dock.e-open span.e-text {
     display: inline-block;
   }
 
-  #dashboardSidebar li {
+  .dashboard-seo #dashboardSidebar li {
     list-style-type: none;
     cursor: pointer;
     padding: 5px;
   }
 
-  #dashboardSidebar ul {
+  .dashboard-seo #dashboardSidebar ul {
     padding: 0px;
   }
 
-  span.e-icons {
+  .dashboard-seo span.e-icons {
     line-height: 2;
   }
 
-  .e-open .e-icons {
+  .dashboard-seo .e-open .e-icons {
     margin-right: 16px;
   }
 
-  .analysis {
+  .dashboard-seo .analysis {
     font-size: 18px;
     padding: 12px;
     text-align: left;
@@ -357,47 +352,47 @@ export default  Vue.extend({
     text-indent: 8px;
   }
 
-  .searchContent .e-input-group.e-control-wrapper.e-ddl {
+  .dashboard-seo .searchContent .e-input-group.e-control-wrapper.e-ddl {
     height: 28px !important;
   }
 
 
-  .card-content.text {
+  .dashboard-seo .card-content.text {
     font-size: 15px;
     text-align: right;
     color: #66696b;
   }
 
-  .card {
+  .dashboard-seo .card {
     margin-right: 5%;
     margin-top: 10%;
   }
 
-  .card-content.number {
+  .dashboard-seo .card-content.number {
     font-size: 16px;
     text-align: right;
     padding-top: 10px;
   }
 
-  #header-avatar.e-avatar.image {
+  .dashboard-seo #header-avatar.e-avatar.image {
     background-image: url('./images/pic01.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
 
-  #sidebarTarget {
+  .dashboard-seo #sidebarTarget {
     background: linear-gradient(-141deg, #eef5f7 14%, #eef2fb 100%);
   }
 
-  .markerTemplate {
+  .dashboard-seo .markerTemplate {
     font-size: 12px;
     color: white;
     text-shadow: 0px 1px 1px black;
     font-weight: 500;
   }
 
-  .menu {
+  .dashboard-seo .menu {
     display: inline-block;
     position: absolute;
     width: 60px;
@@ -405,38 +400,42 @@ export default  Vue.extend({
     border-right: 1px solid rgba(0, 0, 0, 0.12);
   }
 
-  .searchContent {
+  .dashboard-seo .searchContent {
     display: inline-block;
     position: absolute;
     left: 60px;
   }
 
 
-  .e-dock {
+  .dashboard-seo .e-dock {
     padding-top: 8px;
   }
 
-  .right-content div {
+  .dashboard-seo .right-content div {
     display: inline-block;
   }
 
-  .information {
+  .dashboard-seo .information {
     top: 15%;
     font-size: 12px;
     position: absolute;
   }
 
-  .information span {
+  .dashboard-seo .information span {
     float: left;
   }
 
-  .text-content {   
+  .dashboard-seo .text-content {   
     font-size: 17px;    
     margin-left: 10px;
     margin-top: 10px;
   }
+  
+  #dashboardSidebar.e-sidebar .content-area{
+    margin: 0px;
+  }
 
-  .card .e-icons {
+  .dashboard-seo .card .e-icons {
     position: absolute;
     top: 20%;
     left: 12%;
@@ -450,43 +449,43 @@ export default  Vue.extend({
     border-radius: 60px;
   }
 
-  .card .home::before {
+  .dashboard-seo .card .home::before {
     font-size: 25px;
   }
 
-  .dashboardParent {
+  .dashboard-seo .dashboardParent {
     width: 100%;
   }
 
-  .chart-content, .map-content, .maps-content{
+  .dashboard-seo .chart-content, .dashboard-seo .map-content, .dashboard-seo .maps-content{
     height: 100%;
     width:100%;
   }
 
    /* styles for highcontrast theme */
 
-  body.highcontrast #sidebar-section{
+  body.highcontrast .dashboard-seo #sidebar-section{
     border: 1px solid #969696;
   }
 
-  body.highcontrast .dashboard-header{
+  body.highcontrast .dashboard-seo .dashboard-header{
     border-bottom: 1px solid #969696;
   }
 
-  body.highcontrast #dashboardSidebar .e-icons::before {
+  body.highcontrast .dashboard-seo #dashboardSidebar .e-icons::before {
     color: #fff;
   }
 
-  body.highcontrast #dashboardSidebar li.sidebar-item.filterHover,
-  body.highcontrast #dashboardSidebar {
+  body.highcontrast .dashboard-seo #dashboardSidebar li.sidebar-item.filterHover,
+  body.highcontrast .dashboard-seo #dashboardSidebar {
     background: #000;
   }
 
-body.highcontrast #analysisLayout.e-dashboardlayout.e-control .e-panel {
+body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel {
     background: #000;
 }
 
-body.highcontrast #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
+body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
 

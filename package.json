@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "17.4.39",
+  "version": "18.3.35",
   "description": "Examples of Vue UI Components",
   "scripts": {
     "serve" : "node --max_old_space_size=4096 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
@@ -27,6 +27,7 @@
     "@syncfusion/ej2-vue-heatmap": "*",
     "@syncfusion/ej2-vue-inplace-editor": "*",
     "@syncfusion/ej2-vue-inputs": "*",
+    "@syncfusion/ej2-vue-kanban": "*",
     "@syncfusion/ej2-vue-layouts": "*",
     "@syncfusion/ej2-vue-lineargauge": "*",
     "@syncfusion/ej2-vue-lists": "*",
@@ -43,8 +44,9 @@
     "@syncfusion/ej2-vue-spreadsheet": "*",
     "@syncfusion/ej2-vue-treegrid": "*",
     "@syncfusion/ej2-vue-treemap": "*",
+    "@syncfusion/ej2-vue-progressbar": "*",
     "@types/codemirror": "0.0.56",
-    "@types/marked": "^0.3.0",
+    "@types/node": "12.12.22",
     "codemirror": "^5.37.0",
     "elasticlunr": "0.9.5",
     "fuse.js": "^3.2.0",
@@ -57,17 +59,17 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-typescript": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
-    "file-loader": "^1.1.11",
-    "gulp": "^3.9.1",
-    "gulp-gzip": "^1.4.2",
-    "gulp-jsoncombine": "^1.0.4",
-    "serve": "^6.5.4",
-    "shelljs": "^0.8.1",
-    "typescript": "^3.6.2",
-    "vue-template-compiler": "^2.5.21",
-    "webpack": "^4.28.3"
-  }
+	  "@vue/cli-plugin-babel": "^3.7.0",
+	  "@vue/cli-plugin-typescript": "^3.7.0",
+	  "@vue/cli-service": "^3.7.0",
+	  "file-loader": "^1.1.11",
+	  "gulp": "^3.9.1",
+	  "gulp-gzip": "^1.4.2",
+	  "gulp-jsoncombine": "^1.0.4",
+	  "serve": "^6.5.4",
+	  "shelljs": "^0.8.1",
+	  "typescript": "3.6.2",
+	  "vue-template-compiler": "^2.5.21",
+	  "webpack": "^4.41.5"
+	}
 }

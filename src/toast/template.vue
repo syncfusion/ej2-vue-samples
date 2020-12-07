@@ -33,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="./src/toast/resource/map.jpg" width="100%" height="70%">
+                    <img src="./source/toast/resource/map.jpg" width="100%" height="70%">
                     <div class="snooze"> Snooze </div>
                     <div id='snoozedropDown'>
                      <select id="snoozeDD">
@@ -145,9 +145,9 @@
         }
     }
 
-    #snooze,
+    #template_toast #snooze,
     #template_toast .snooze,
-    #dismiss{
+    #template_toast #dismiss{
         color: #fff;
     }
 
@@ -162,12 +162,12 @@
         color: #fff;
     }
 
-    .material  #snooze,
-    .material  #dismiss,
-    .fabric  #snooze,
-    .fabric  #dismiss,
-    .highcontrast  #snooze,
-    .highcontrast  #dismiss {
+    .material #template_toast #snooze,
+    .material #template_toast #dismiss,
+    .fabric #template_toast #snooze,
+    .fabric #template_toast #dismiss,
+    .highcontrast #template_toast #snooze,
+    .highcontrast #template_toast #dismiss {
         background-color: transparent;
         border-color: transparent;
     }
@@ -262,7 +262,7 @@ export default Vue.extend({
                 return {
                     template: Vue.component('toasttemplate', {
                     template: `<div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
-                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img src="./src/toast/resource/map.jpg" width="100%" height="70%"><div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div><div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>`,
+                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img src="./source/toast/resource/map.jpg" width="100%" height="70%"><div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div><div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>`,
                     data: function () {return {emp: 'Emp ID'};}
                     })
                 }
@@ -280,11 +280,11 @@ export default Vue.extend({
     },
     mounted: function(){
       this.toastData = [
-        { from: ' Anjolie Stokes', subject: 'Networking Referral', image: { url: 'src/toast/resource/laura.png' }, },
-        { from: ' Ila Russo', subject: 'Business dinner invitation', image: { url: 'src/toast/resource/janat.png' }, },
-        { from: ' Camden Mcmillan', subject: 'Reference Request - Cameran Hester', image: { url: 'src/toast/resource/camden.png' }, },
-        { from: ' Chase Solomon', subject: 'New business relationship confirmation', image: { url: 'src/toast/resource/chase.png' }, },
-        { from: ' Inga Scott', subject: 'Application for Sales Associate', image: { url: 'src/toast/resource/michael.png' }, }];
+        { from: ' Anjolie Stokes', subject: 'Networking Referral', image: { url: './source/toast/resource/laura.png' }, },
+        { from: ' Ila Russo', subject: 'Business dinner invitation', image: { url: './source/toast/resource/janat.png' }, },
+        { from: ' Camden Mcmillan', subject: 'Reference Request - Cameran Hester', image: { url: './source/toast/resource/camden.png' }, },
+        { from: ' Chase Solomon', subject: 'New business relationship confirmation', image: { url: './source/toast/resource/chase.png' }, },
+        { from: ' Inga Scott', subject: 'Application for Sales Associate', image: { url: './source/toast/resource/michael.png' }, }];
        this.toastFlag = 0;
        this.snoozeFlag = false;
     this.toastObj = document.getElementById('toast_template').ej2_instances[0];

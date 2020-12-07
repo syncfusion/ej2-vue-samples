@@ -299,19 +299,8 @@ padding-left: 18px;"
   margin-top: 8px;
 }
 
-/* .center {
-  margin-left: 14px;
-  margin-right: 17px;
-  margin-top: 14px;
-  min-width: 280px;
-  width: auto;
-  border: 2px solid lightgray;
-  min-height: 40%;
-  padding-top: 35px;
-  padding-left: 25%;
-  padding-bottom: 3%;
-} */
-.center {
+
+.barcodecenter {
   margin-left: 14px;
   margin-right: 17px;
   margin-top: 14px;

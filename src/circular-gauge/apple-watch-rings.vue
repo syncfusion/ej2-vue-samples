@@ -101,7 +101,7 @@
 </div>
         </div>
 </template>
- <style>    
+ <style scoped>    
    .panel {
         width: 105% !important;
         height: 80px !important;

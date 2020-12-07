@@ -32,7 +32,7 @@ Vue.use(CalendarPlugin);
 export default Vue.extend({
   data: function() {
     return {
-      cssClass: "e-customStyle"
+      cssClass: "calendar-special-dates"
     };
   },
   methods: {
@@ -71,7 +71,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scoped>
 #date_label {
   display: block;
   width: 248px;
@@ -84,7 +84,9 @@ export default Vue.extend({
   margin: 0 auto;
 }
 
-.e-customStyle span.e-icons.highlight {
+</style>
+<style>
+.calendar-special-dates span.e-icons.highlight {
   margin-top: -13px;
   display: block;
   margin-left: 4px;
@@ -92,15 +94,15 @@ export default Vue.extend({
   font-size: 14px;
 }
 
-.e-customStyle td span.e-icons.highlight {
+.calendar-special-dates td span.e-icons.highlight {
   color: #0501fc;
 }
 
-.e-customStyle .e-other-month span.e-icons.highlight:before {
+.calendar-special-dates .e-other-month span.e-icons.highlight:before {
   content: "";
 }
 
-.e-customStyle span.e-icons.highlight:before {
+.calendar-special-dates span.e-icons.highlight:before {
   content:"\e190";
   vertical-align: middle;
   margin-right: 3px;
@@ -110,34 +112,34 @@ export default Vue.extend({
   font-weight: normal;
 }
 
-.bootstrap4 .e-customStyle span.e-icons.highlight:before {
+.bootstrap4 .calendar-special-dates span.e-icons.highlight:before {
   vertical-align: none;
 }
-.e-bigger .e-customStyle.e-calendar span.e-icons.highlight:before {
+.e-bigger .calendar-special-dates.e-calendar span.e-icons.highlight:before {
   top: -3px;
 }
 
-.bootstrap4 .e-customStyle span.e-icons.highlight {
+.bootstrap4 .calendar-special-dates span.e-icons.highlight {
   margin-bottom: 3px;
 }
 
-body.highcontrast .e-bigger .e-customStyle.e-calendar span.e-icons.highlight:before {
+body.highcontrast .e-bigger .calendar-special-dates.e-calendar span.e-icons.highlight:before {
   top: -2px;
 }
 
-.e-customStyle .e-selected span.e-icons.highlight:before {
+.calendar-special-dates .e-selected span.e-icons.highlight:before {
   color: #fff;
 }
 
-body.highcontrast .e-customStyle td.birthday span.e-icons.highlight:before {
+body.highcontrast .calendar-special-dates td.birthday span.e-icons.highlight:before {
   color: #ff6161;
 }
 
-body.highcontrast .e-customStyle td.farewell span.e-icons.highlight:before {
+body.highcontrast .calendar-special-dates td.farewell span.e-icons.highlight:before {
   color: #2bc700;
 }
 
-body.highcontrast .e-customStyle td.vacation span.e-icons.highlight:before {
+body.highcontrast .calendar-special-dates td.vacation span.e-icons.highlight:before {
   color: #ff7d1a;
 }
   @font-face {
@@ -146,4 +148,5 @@ body.highcontrast .e-customStyle td.vacation span.e-icons.highlight:before {
     font-weight: normal;
     font-style: normal;
 }
+
 </style>

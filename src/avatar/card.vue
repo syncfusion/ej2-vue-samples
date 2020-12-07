@@ -1,13 +1,13 @@
 <template>
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section avatar-card">
 
-        <div class="sample_container avatar-card">
+        <div class="sample_container">
             <!-- Card Component -->
             <div class="e-card e-custom-card">
                 <div class="e-card-header">
                     <!-- xLarge Circle Avatar-->
                     <div class="e-avatar e-avatar-circle e-avatar-xlarge">
-                        <img src="src/avatar/images/pic02.png" alt="profile_pic">
+                        <img src="./images/pic02.png" alt="profile_pic">
                     </div>
                     &nbsp;
                 </div>
@@ -37,7 +37,7 @@
     </div>
 </template>
 <style>
-    .sample_container.avatar-card {
+    .avatar-card .sample_container {
         max-width: 300px;
         margin: auto;
         min-height: 400px;
@@ -56,16 +56,16 @@
         padding: 1px;
     }
 
-    .e-custom-card.e-card:hover {
+    .avatar-card .e-custom-card.e-card:hover {
         border-width: 1px;
         padding: 1px;
     }
 
-    .e-custom-card :nth-child(2) .e-card-header-title.name {
+    .avatar-card .e-custom-card :nth-child(2) .e-card-header-title.name {
         margin-top: 20px;
     }
 
-    .sample_container p.avatar-content {
+    .avatar-card p.avatar-content {
         line-height: 20px;
         font-family: inherit;
     }
@@ -82,7 +82,7 @@
         box-shadow: 0 16px 28px -8px rgba(0, 0, 0, .36), 0 4px 15px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
     }
 
-    .e-card.e-custom-card :nth-child(3) {
+    .avatar-card .e-card.e-custom-card :nth-child(3) {
         padding: 12px 0px 20px 0px;
         height: 130px;
     }
@@ -124,7 +124,7 @@
         margin-bottom: 0;
     }
 
-    .sample_container.avatar-card .name {
+    .avatar-card .sample_container .name {
         margin-top: 10px;
     }
 

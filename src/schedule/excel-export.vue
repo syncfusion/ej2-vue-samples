@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="control-section">
             <div class="schedule-container">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -38,11 +38,11 @@
     </div>
 </template>
 <style>
-    .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
+    .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
         content: '\e242';
     }
     
-    .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
+    .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
         display: none;
     }
 </style>

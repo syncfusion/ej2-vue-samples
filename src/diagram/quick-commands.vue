@@ -3,7 +3,7 @@
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
         <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getCustomTool='getCustomTool'
-                     :getCustomCursor='getCustomCursor' :snapSettings='snapSettings'></ejs-diagram>
+                     :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
 <div class="col-lg-4 property-section">
@@ -60,7 +60,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .image-pattern-style {
   background-color: white;
   background-size: contain;

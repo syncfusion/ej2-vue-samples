@@ -39,7 +39,7 @@ export default Vue.extend({
 </script>
 
 
-<style>
+<style scoped>
 #date_label {
   display: block;
   width: 248px;

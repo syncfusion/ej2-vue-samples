@@ -93,7 +93,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .fabric .card-control-section.vertical_card_layout .e-card:hover,
     .highcontrast .card-control-section.vertical_card_layout .e-card:hover {
         border-width: 1px;

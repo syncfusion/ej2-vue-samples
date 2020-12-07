@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="control-section">
+    <div class="control-section rte-markdown-overview">
       <div class="sample-container">
         <div class="default-section">
           <div id="defaultRTE">
@@ -21,22 +21,22 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
 </template>
 
 <style>
-  .e-richtexteditor textarea.e-content {
+  .rte-markdown-overview .e-richtexteditor textarea.e-content {
     float: left;
   }
-  .e-richtexteditor .e-rte-content {
+  .rte-markdown-overview .e-richtexteditor .e-rte-content {
     overflow: hidden;
   }
-  .e-md-preview::before {
+  .rte-markdown-overview .e-md-preview::before {
     content: "\e345";
   }
-  .e-icon-btn.e-active .e-md-preview.e-icons::before {
+  .rte-markdown-overview .e-icon-btn.e-active .e-md-preview.e-icons::before {
     content: "\e350";
   }  
-  .bootstrap4 .e-icon-btn.e-active .e-md-preview::before {
+  .bootstrap4 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
     content: "\e790";
   }  
-  .bootstrap4 .e-icon-btn .e-md-preview::before {
+  .bootstrap4 .rte-markdown-overview .e-icon-btn .e-md-preview::before {
     content: "\e787";
   }
 </style>

@@ -3,7 +3,7 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:350px; padding-top: 40px;">
             <span id="contentText">React top expert of this week is
-            <ejs-dropdownlist id='employee' :dataSource='data' :fields='fields' :popupHeight='height' :width='width' cssClass='inlinecss' :value='value' :popupWidth='popupWidth' :placeholder='watermark'>
+            <ejs-dropdownlist id='employee' :dataSource='data' :fields='fields' :popupHeight='height' :width='width' cssClass='ddl-inlinecss' :value='value' :popupWidth='popupWidth' :placeholder='watermark'>
             </ejs-dropdownlist>
             </span>
         </div>
@@ -24,35 +24,35 @@
 </template>
 <style>
 
-    .inlinecss.e-ddl .e-input-group-icon.e-ddl-icon {
+    .ddl-inlinecss.e-ddl .e-input-group-icon.e-ddl-icon {
         display: none;
     }
 
-    .inlinecss.e-ddl .e-control.e-dropdownlist.e-input {
+    .ddl-inlinecss.e-ddl .e-control.e-dropdownlist.e-input {
         font-size: 17px;
         font-weight: 500;
         margin: -5px 0px 0px 0px;
         padding: 0px;
     }
 
-    .material .inlinecss.e-ddl .e-control.e-dropdownlist.e-input {
+    .material .ddl-inlinecss.e-ddl .e-control.e-dropdownlist.e-input {
         margin: 4px 0px 0px 0px;
     }
 
-    .bootstrap .inlinecss.e-ddl .e-control.e-dropdownlist.e-input {
+    .bootstrap .ddl-inlinecss.e-ddl .e-control.e-dropdownlist.e-input {
         margin-top: -1px;
     }
 
-    #contentText .e-input-group.e-control-wrapper.e-ddl::before,
-    #contentText .e-input-group.e-control-wrapper.e-ddl::after {
+    .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl::before,
+    .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl::after {
         content: none;
     }
 
-    #contentText .e-input-group.e-control-wrapper.e-ddl,
-    #contentText .e-input-group.e-control-wrapper.e-ddl:hover,
-    #contentText .e-input-group.e-ddl.e-input-focus,
-    #contentText .e-input-group.e-ddl.e-input-focus::before,
-    #contentText .e-input-group.e-ddl.e-input-focus::after {
+    .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after {
         border-width: 0px;
         border: none;
         border-bottom: 1px dashed black;

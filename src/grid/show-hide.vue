@@ -37,19 +37,19 @@
         href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#hidecolumns">hideColumns
         </a></code> method of the Grid.</p>
         <p>In this demo, the columns can be showed and hidden by clicking the column name in the toolbar. And the column`s visibility is toggled based on the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#headertext-string">columns->headerText
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#headertext">columns->headerText
         </a></code> value.</p>
         <br>
         <p>The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#visible-boolean">columns->visible
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#visible">columns->visible
         </a></code> property specifies the visibility of a column. To hide a column at the initial rendering, set the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#visible-boolean">columns->visible
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#visible">columns->visible
         </a></code> property to false.</p>
     </div>
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
 .e-gridlist .e-tbar-btn.e-btn,
 .e-gridlist .e-btn  {
     box-shadow: none;

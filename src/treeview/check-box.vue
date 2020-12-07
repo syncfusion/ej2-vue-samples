@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="col-lg-8 control-section">
+<div class="col-lg-8 control-section tree-check">
     <div class="tree-control-wrapper">
         <ejs-treeview id='treeview' ref="treeObj" :fields='fields' :showCheckBox='true'></ejs-treeview>
     </div>
@@ -34,7 +34,7 @@
 </template>
 /* custom code start */
 <style>
-.tree-control-wrapper {
+.tree-check .tree-control-wrapper {
         max-width: 500px;
         margin: auto;
         border: 1px solid #dddddd;
@@ -46,7 +46,7 @@
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as dataSource from './dataSource/checkbox-data.json';
+import * as dataSource from './checkbox-data.json';
 
 Vue.use(TreeViewPlugin);
 Vue.use(CheckBoxPlugin);

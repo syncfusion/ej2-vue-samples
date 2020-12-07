@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :currentView='currentView' :cssClass='cssClass' :eventSettings='eventSettings'
@@ -47,11 +47,11 @@
     </div>
 </template>
 <style>
-    .groupbychild.e-schedule:not(.e-device) .e-agenda-view .e-content-wrap table td:first-child {
+    .schedule-vue-sample .groupbychild.e-schedule:not(.e-device) .e-agenda-view .e-content-wrap table td:first-child {
         width: 90px;
     }
 
-    .groupbychild.e-schedule .e-agenda-view .e-resource-column {
+    .schedule-vue-sample .groupbychild.e-schedule .e-agenda-view .e-resource-column {
         width: 100px;
     }
 </style>

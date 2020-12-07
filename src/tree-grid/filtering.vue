@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-           <ejs-treegrid ref='treegrid' id='treegrid' :dataSource='data' childMapping='subtasks' :allowFiltering='true' :filterSettings='filterSettings' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
+           <ejs-treegrid ref='treegrid' id='treegrid' :dataSource='data' :height='350' childMapping='subtasks' :allowFiltering='true' :filterSettings='filterSettings' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='90'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200'></e-column>
@@ -28,7 +28,7 @@
 
     <div id="action-description">
     <p>
-        This sample demonstrates the default and template support of filterbar in TreeGrid.
+        This sample demonstrates the default and template support of filterbar in Tree Grid.
         In this sample, type the value in the filterbar and press enter to filter particular column or select a value from filterbar template of Duration column. The filtering is based on hierarchy mode.
     </p>
 </div>
@@ -45,9 +45,9 @@
         filterSettings->immediateModeDelay
         </code> property.</li>
     </ul>
-    <p>TreeGrid provides support for a set of filtering modes with <code>hierarchyMode</code> property. The below are the type of filter mode available in TreeGrid. </p>
+    <p>Tree Grid provides support for a set of filtering modes with <code>hierarchyMode</code> property. The below are the type of filter mode available in Tree Grid. </p>
     <ul>
-        <li><code>Parent</code> - This is the default filter hierarchy mode in TreeGrid. 
+        <li><code>Parent</code> - This is the default filter hierarchy mode in Tree Grid. 
         The filtered records are displayed with its parent records, if the filtered records not have any parent record then the filtered record only displayed.</li>
         <li><code>Child</code> - The filtered records are displayed with its child record, if the filtered records do not have any child record then only the filtered records are displayed.</li>
         <li><code>Both</code> - The filtered records are displayed with its both parent and child record.
@@ -56,7 +56,7 @@
     </ul>
     <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            TreeGrid features are segregated into individual feature-wise modules. To use Filtering feature, we need to inject
+            Tree Grid features are segregated into individual feature-wise modules. To use Filtering feature, we need to inject
             <code>
             Filter
             </code> module into the <code>provide</code> section.

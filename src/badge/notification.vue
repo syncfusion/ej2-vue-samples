@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="badge-notification">
         <div class="col-lg-12 control-section">
-            <div class="sample_container badge-notification">
+            <div class="sample_container">
                 <div class="layout">
                     <div class="margin">
                         <!-- Notification Badge -->
@@ -109,31 +109,31 @@
 </template>
 
 <style>
-    .control-section {
+    .badge-notification .control-section {
         overflow: auto;
     }
 
     /* Layout Design */
 
-    .sample_container.badge-notification {
+    .badge-notification .sample_container {
         max-width: 260px;
         margin: auto;
     }
 
-    .sample_container.badge-notification .badge-block {
+    .badge-notification .sample_container .badge-block {
         position: relative;
         display: inline-block;
         margin: 10px 13px 10px 10px;
     }
 
-    .sample_container.badge-notification .layout {
+    .badge-notification .sample_container .layout {
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
         padding: 25px 10px 10px 10px;
         background: white;
         border-radius: 25px;
     }
 
-    .highcontrast .sample_container.badge-notification .layout {
+    .highcontrast .badge-notification .sample_container .layout {
         box-shadow: 0 2px 15px 0 rgb(92, 91, 91);
         background: #000;
     }

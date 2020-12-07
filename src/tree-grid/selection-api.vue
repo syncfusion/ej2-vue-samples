@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings' :selectionSettings='selectionSettings' >
+          <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings' :selectionSettings='selectionSettings' >
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
@@ -62,7 +62,7 @@
     </div>
 
 <div id="action-description">
-    <p>This sample demonstrates the selection functionality of the TreeGrid, you can select multiple row by entering start and end index then click the select row button.
+    <p>This sample demonstrates the selection functionality of the Tree Grid, you can select multiple row by entering start and end index then click the select row button.
         To clear all selected rows, click clear selection button. </p>
 </div>
 
@@ -74,7 +74,7 @@
         allowSelection
         </code> as true.
     </p>
-    <p>TreeGrid supports two types of selection which can be set using 
+    <p>Tree Grid supports two types of selection which can be set using 
         <code>selectionSettings->type
         </code> property. They are,</p>
     <ul>
@@ -86,13 +86,13 @@
         </code> property. They are,
     </p>
     <ul>
-        <li><code>Row</code> - Enabled by default. Enables row selection in TreeGrid.</li>
-        <li><code>Cell</code> - Enables cell selection in TreeGrid.</li>
-        <li><code>Both</code> - Enables both row and cell selection in TreeGrid. 
+        <li><code>Row</code> - Enabled by default. Enables row selection in Tree Grid.</li>
+        <li><code>Cell</code> - Enables cell selection in Tree Grid.</li>
+        <li><code>Both</code> - Enables both row and cell selection in Tree Grid. 
         Clicking any cell will select both the row and cell simultaneously.
         </li>
     </ul>
-    <p>The treegrid supports two types of cell selection mode that can be set by using the  
+    <p>The Tree Grid supports two types of cell selection mode that can be set by using the  
             <code>
             selectionSettings->cellSelectionMode
             </code> property. They are,</p>
@@ -104,7 +104,7 @@
         </ul>
     <p>To perform the multi-selection, hold <strong>CTRL</strong> key and click the desired rows/cells. 
     To select range of rows/cells, hold <strong>SHIFT</strong> key and click the rows/cells.</p>
-    <p>While using the TreeGrid in a touch device environment, there is an option for multi-selection 
+    <p>While using the Tree Grid in a touch device environment, there is an option for multi-selection 
         through single tap on the row and it will show a popup with the multi-selection symbol. 
         Tap the icon to enable multi-selection in a single tap.
     </p>

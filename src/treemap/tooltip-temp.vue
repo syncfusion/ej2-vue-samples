@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     #airplaneicon {
         background-image: url("./image/airplane.svg");
         background-repeat: no-repeat;

@@ -60,14 +60,14 @@
 </div>
 <div id="action-description">
     <p>
-        This sample shows how to add your own commands to toolbar of the rich text editor. The <code>“Ω” </code> command
+        This sample shows how to add your own commands to toolbar of the Rich Text Editor. The <code>“Ω” </code> command
         is added to insert special characters in the editor. Click the “Ω” command to show the special characters list, and
         then choose the character to be inserted in the editor.
     </p>
 </div>
 
 <div id="description">
-    <p>The rich text editor allows you to configure your own commands to its toolbar using <code>toolbarSettings</code> property. 
+    <p>The Rich Text Editor allows you to configure your own commands to its toolbar using <code>toolbarSettings</code> property. 
         The command can be plain text, icon, or HTML template. 
         You can also define the order and group where the command should be included. 
         Bind the action to the command by getting its instance. </p>
@@ -77,7 +77,7 @@
 
 </div>
 </template>
-<style>
+<style scoped>
     #rteSpecial_char .char_block {
         display: inline-block;
     }
@@ -90,6 +90,10 @@
 
     .e-bigger #custom_tbar div {
         font-size: 18px;
+    }
+
+    #rteSection {
+        height: 350px;
     }
 
     #rteSpecial_char {
@@ -197,7 +201,7 @@ export default Vue.extend({
             customBtn: null,
             dialogCtn: null,
             saveSelection: new NodeSelection(),
-            target: document.getElementById('rteSection'),
+            target: document.getElementById('rteSampleContainer'),
             header: 'Special Characters',
             visible: false,
             modal: true,

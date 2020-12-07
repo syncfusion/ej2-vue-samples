@@ -3,7 +3,7 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
             <ejs-autocomplete id='employees' :dataSource='data' :fields='fields' :placeholder='watermark'
-             :headerTemplate='hTemplate' :itemTemplate='iTemplate' popupHeight="450px"></ejs-autocomplete>
+             :headerTemplate='hTemplate' :itemTemplate='iTemplate' popupHeight="450px" cssClass='autocomplete-template'></ejs-autocomplete>
         </div>
     </div>
     <div id="action-description">    
@@ -26,7 +26,7 @@
 </div>
 </template>
 <style>
-    .header {
+    .autocomplete-template .header {
         font-weight: 600;
         color: rgba(0, 0, 0, .54);
         height: 48px;
@@ -36,14 +36,14 @@
         font-family: "Segoe UI", "GeezaPro", "DejaVu Serif";
     }
 
-    .fabric .header {
+    .fabric .autocomplete-template .header {
         background-color: #fff;
         border-bottom: 1px solid #ccc;
         color: #0078d7;
         font-weight: 400;
     }
 
-    .bootstrap .header {
+    .bootstrap .autocomplete-template .header {
         background-color: #fff;
         border-bottom: 1px solid #ccc;
         color: #777;
@@ -55,101 +55,101 @@
         padding: 0 0 0 24px;
     }
 
-    .highcontrast .header {
+    .highcontrast .autocomplete-template .header {
         color: #fff;
         background-color: #000;
     }
 
-    .e-bigger.bootstrap .header {
+    .e-bigger.bootstrap .autocomplete-template .header {
         line-height: 44px;
         height: 44px;
         font-size: 13px;
     }
 
-    .bootstrap .info,
-    .e-bigger.bootstrap .info {
+    .bootstrap .autocomplete-template .info,
+    .e-bigger.bootstrap .autocomplete-template .info {
         margin-left: 25px;
     }
 
-    .bootstrap .job {
+    .bootstrap .autocomplete-template .job {
         opacity: .54;
         font-size: 14px;
         margin-top: -25px;
         margin-bottom: 20px;
     }
 
-    .e-bigger.bootstrap .job {
+    .e-bigger.bootstrap .autocomplete-template .job {
         font-size: 15px;
         margin-top: -32px;
         margin-bottom: 17px;
     }
 
-    .bootstrap .ename {
+    .bootstrap .autocomplete-template .ename {
         font-size: 15px;
         margin-top: 20px;
         opacity: .87;
         padding: 3px 0 20px;
     }
 
-    .e-bigger.bootstrap .ename {
+    .e-bigger.bootstrap .autocomplete-template .ename {
         font-size: 16px;
         padding-bottom: 15px;
     }
 
-    .bootstrap .empImage,
-    .e-bigger.bootstrap .empImage {
+    .bootstrap .autocomplete-template .empImage,
+    .e-bigger.bootstrap .autocomplete-template .empImage {
         margin: 0px 10px 0 20px;
     }
 
-    .info {
+    .autocomplete-template .info {
         margin-left: 17px;
     }
 
-    .ename {
+    .autocomplete-template .ename {
         display: block !important;
         opacity: .87;
         font-size: 16px;
         margin-top: 8px;
     }
 
-    .job {
+    .autocomplete-template .job {
         opacity: .54;
         font-size: 14px;
         margin-top: -15px;
         margin-bottom: 7px;
     }
 
-    .empImage {
+    .autocomplete-template .empImage {
         margin: 6px 16px;
         float: left;
         width: 50px;
         height: 50px;
     }
 
-    #employees_popup.e-popup .e-list-item * {
+    .autocomplete-template.e-popup .e-list-item * {
         display: block;
         text-indent: 0;
     }
 
-    .e-bigger:not(.bootstrap) #employees_popup .e-dropdownbase .e-list-item {
+    .e-bigger:not(.bootstrap) .autocomplete-template .e-dropdownbase .e-list-item {
         line-height: 42px;
         height: 80px;
     }
 
-    .e-bigger:not(.bootstrap) #employees_popup.e-popup .empImage {
+    .e-bigger:not(.bootstrap) .autocomplete-template.e-popup .empImage {
         margin: 10px 16px;
     }
-    .bootstrap4 #employees_popup.e-popup .empImage {
+    .bootstrap4 .autocomplete-template.e-popup .empImage {
         margin: 0px 16px;
     }
 
-    .bootstrap4 #employees_popup.e-popup .job {
+    .bootstrap4 .autocomplete-template.e-popup .job {
         margin-top: 0;
     }
-    .e-bigger.bootstrap4 #employees_popup.e-popup .job {
+    .e-bigger.bootstrap4 .autocomplete-template.e-popup .job {
         margin-top: -15px;
     }
-    .bootstrap4 .header {
+    .bootstrap4 .autocomplete-template .header {
         color: #6c757d;
     }
 </style>

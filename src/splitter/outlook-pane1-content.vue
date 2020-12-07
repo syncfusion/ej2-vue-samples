@@ -5,7 +5,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
     .tree-template-control-wrapper .e-treeview .e-list-text {
         width: 100%;
     }

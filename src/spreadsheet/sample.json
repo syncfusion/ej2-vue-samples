@@ -3,8 +3,8 @@
     "directory": "spreadsheet",
     "category": "Grids",
     "ftName": "spreadsheet",
-    "type": "preview",
     "hideOnDevice": true,
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -12,20 +12,13 @@
             "category": "Spreadsheet",
             "api": {
                 "Spreadsheet": [
-                    "height",
-                    "width",
-                    "sheets"
-                ],
-                "sheets": [
-                    "columns",
-                    "rows",
-                    "name"
-                ],
-                "rangeSettings": [
-                    "dataSource"
+                    "sheets",
+                    "openUrl",
+                    "saveUrl",
+                    "created"
                 ]
             },
-            "description": "This example demonstrates the default functionalities of the Syncfusion JS 2 Spreadsheet that includes editing, importing & exporting.",
+            "description": "This example demonstrates the default functionalities of the Syncfusion JavaScript Spreadsheet that includes editing, importing & exporting.",
             "sourceFiles": [
                 {
                     "displayName": "default.vue",
@@ -43,23 +36,10 @@
             "category": "Spreadsheet",
             "api": {
                 "Spreadsheet": [
-                    "height",
-                    "width",
-                    "sheets"
-                ],
-                "sheets": [
-                    "columns",
-                    "rows",
-                    "selectedRange",
-                    "name"
-                ],
-                "cells": [
-                    "value",
-                    "index"
-                ],
-                "rangeSettings": [
-                    "dataSource",
-                    "startCell"
+                    "sheets",
+                    "showRibbon",
+                    "definedNames",
+                    "created"
                 ]
             },
             "description": "This demo for Essential JS 2 Spreadsheet control shows the way of using basic formulas with minimum configuration.",
@@ -73,28 +53,42 @@
                     "path": "src/spreadsheet/formula-data.json"
                 }
             ]
+        },        
+        {
+            "url": "protect-sheet",
+            "name": "Protect Sheet",
+            "category": "Spreadsheet",
+            "api": {
+                "Spreadsheet": [
+                    "sheets",
+                    "created",
+                    "beforeCellRender"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control includes lock cell and protect sheet feature with its configurations.",
+            "sourceFiles": [
+                {
+                    "displayName": "protect-sheet.vue",
+                    "path": "src/spreadsheet/protect-sheet.vue"
+                },
+                {
+                    "displayName": "protect-sheet-data.json",
+                    "path": "src/spreadsheet/protect-sheet-data.json"
+                }
+            ]
         },
         {
             "url": "cell-data-binding",
             "name": "Cell Data Binding",
             "category": "Data Binding",
             "api": {
-                "sheets": [
-                    "rows",
-                    "columns",
-                    "selectedRange",
-                    "name"
-                ],
-                "rows": [
-                    "cells",
-                    "index"
-                ],
-                "cells": [
-                    "value",
-                    "style"
+                "Spreadsheet": [
+                    "showRibbon",
+                    "showFormulaBar",
+                    "sheets"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the cell data binding with minimum configuration."
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the cell data binding feature with minimum configuration."
         },
         {
             "url": "remote-data-binding",
@@ -102,17 +96,9 @@
             "category": "Data Binding",
             "api": {
                 "Spreadsheet": [
+                    "showRibbon",
+                    "showFormulaBar",
                     "sheets"
-                ],
-                "sheets": [
-                    "columns",
-                    "rows",
-                    "name"
-                ],
-                "rangeSettings": [
-                    "dataSource",
-                    "query",
-                    "startCell"
                 ]
             },
             "description": "This demo for Essential JS 2 Spreadsheet control shows the way of data binding with remote service using DataManager."
@@ -136,7 +122,7 @@
                     "style"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of cell formatting with minimum configuration.",
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the cell formatting feature and its configuration.",
             "sourceFiles": [
                 {
                     "displayName": "cell-formatting.vue",
@@ -166,7 +152,7 @@
                     "value",
                     "formatCode"
                 ],
-                "rangeSettings": [
+                "range": [
                     "dataSource",
                     "startCell"
                 ]
@@ -182,6 +168,65 @@
                     "path": "src/spreadsheet/number-format-data.json"
                 }
             ]
+        },
+        {
+            "url": "conditional-formatting",
+            "name": "Conditional Formatting",
+            "category": "Formatting",
+            "type": "update",
+            "api": {
+                "Spreadsheet": [
+                    "sheets",
+                    "created",
+                    "beforeCellRender"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows conditional formatting feature.",
+            "sourceFiles": [
+                {
+                    "displayName": "conditional-formatting.vue",
+                    "path": "src/spreadsheet/conditional-formatting.vue"
+                },
+                {
+                    "displayName": "conditional-formatting-data.json",
+                    "path": "src/spreadsheet/conditional-formatting-data.json"
+                }
+            ]
+        },
+        {
+            "url": "sorting-and-filtering",
+            "name": "Sorting and Filtering",
+            "category": "Data Analysis",
+            "api": {
+                "Spreadsheet": [
+                    "allowFiltering"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows sorting and filtering feature.",
+            "sourceFiles": [
+                {
+                    "displayName": "sorting-and-filtering.vue",
+                    "path": "src/spreadsheet/sorting-and-filtering.vue"
+                },
+                {
+                    "displayName": "sorting-and-filtering-data.json",
+                    "path": "src/spreadsheet/sorting-and-filtering-data.json"
+                }
+            ]
+        },
+        {
+            "url": "image",
+            "name": "Image",
+            "category": "Illustrations",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "showRibbon",
+                    "showFormulaBar",
+                    "sheets"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows image feature."
         }
     ]
 }

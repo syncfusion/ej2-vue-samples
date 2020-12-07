@@ -51,7 +51,8 @@ import Vue from "vue";
 import { DatePickerPlugin} from '@syncfusion/ej2-vue-calendars';
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DatePickerPlugin, RadioButtonPlugin);
+Vue.use(DatePickerPlugin);
+Vue.use(RadioButtonPlugin);
 export default Vue.extend({
     data: function() {
         return {
@@ -70,7 +71,7 @@ export default Vue.extend({
 
 
 
-<style>
+<style scoped>
 
 .control_wrapper.date-format {
     max-width: 246px;

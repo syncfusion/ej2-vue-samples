@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class='schedule-demo-heading'>
                 Flight timings between Barcelona and Los Angeles
@@ -56,13 +56,13 @@
     </div>
 </template>
 <style>
-    .schedule-group.e-schedule .template-wrap {
+    .schedule-vue-sample .schedule-group.e-schedule .template-wrap {
         display: flex;
         text-align: left;
     }
 
     /* custom code start*/
-    .schedule-demo-heading {
+    .schedule-vue-sample .schedule-demo-heading {
         font-size: 16px;
         padding-bottom: 15px;
         text-align: center;
@@ -70,72 +70,72 @@
     }
     /* custom code end*/
 
-    .schedule-group.e-schedule .e-agenda-view .template-wrap {
+    .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap {
         display: table;
         width: inherit;
         text-align: center;
         padding-top: 10px;
     }
 
-    .schedule-group.e-schedule:not(.e-device) .e-agenda-view .e-content-wrap table td:first-child {
+    .schedule-vue-sample .schedule-group.e-schedule:not(.e-device) .e-agenda-view .e-content-wrap table td:first-child {
         width: 110px;
     }
 
-    .schedule-group.e-schedule .template-wrap .airline-image {
+    .schedule-vue-sample .schedule-group.e-schedule .template-wrap .airline-image {
         width: 30px;
         margin-top: 15px;
         background-repeat: no-repeat;
     }
 
-    .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-image {
+    .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-image {
         height: 30px;
         margin-top: 0;
         margin-left: 35%;
     }
 
-    .schedule-group.e-schedule.e-device .template-wrap .airline-image {
+    .schedule-vue-sample .schedule-group.e-schedule.e-device .template-wrap .airline-image {
         margin-top: 5px;
     }
 
-    .schedule-group.e-schedule .e-vertical-view .e-resource-cells {
+    .schedule-vue-sample .schedule-group.e-schedule .e-vertical-view .e-resource-cells {
         height: 76px;
     }
 
-    .e-bigger .schedule-group.e-schedule.e-schedule .e-vertical-view .e-resource-cells {
+    .e-bigger .schedule-vue-sample .schedule-group.e-schedule.e-schedule .e-vertical-view .e-resource-cells {
         height: 80px;
     }
 
-    .schedule-group.e-schedule.e-device .template-wrap .airline-details .airline-name {
+    .schedule-vue-sample .schedule-group.e-schedule.e-device .template-wrap .airline-details .airline-name {
         font-size: inherit;
         font-weight: inherit;
     }
 
-    .schedule-group.e-schedule .template-wrap .airline-details {
+    .schedule-vue-sample .schedule-group.e-schedule .template-wrap .airline-details {
         padding-left: 15px;
     }
 
-    .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-details {
+    .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-details {
         padding: 0;
     }
 
-    .schedule-group.e-schedule .template-wrap .airline-details .airline-name {
+    .schedule-vue-sample .schedule-group.e-schedule .template-wrap .airline-details .airline-name {
         font-size: 16px;
         font-weight: 500;
     }
 
-    .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-model,
-    .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-seats {
+    .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-model,
+    .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap .airline-seats {
         display: none;
     }
 
-    .schedule-group.e-schedule.e-device .template-wrap .airline-model,
-    .schedule-group.e-schedule.e-device .template-wrap .airline-seats {
+    .schedule-vue-sample .schedule-group.e-schedule.e-device .template-wrap .airline-model,
+    .schedule-vue-sample .schedule-group.e-schedule.e-device .template-wrap .airline-seats {
         display: none;
     }
 
     /* custom code start*/
     @media (max-width: 550px) {
-        .schedule-demo-heading {
+        .schedule-vue-sample .schedule-demo-heading {
             font-size: 14px;
         }
     }
@@ -159,7 +159,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
+                return './source/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
             }
         },
         methods: {

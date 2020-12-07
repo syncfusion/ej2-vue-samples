@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = global.gulp = global.gulp || require('gulp');
-var config = { publishSamples: ["./**/*", "!./node_modules/**", "!./node_modules/", "!./samples-repo/**", "!./samples-repo/", "!./spec/**", "!./spec/", "!./test-report/**", "!./test-report/", "!Jenkinsfile", "!./production/**", "!./production/", "!./.gitignore", "!./!(system.config).{js,json}", "!./gulpfile.js", "!./tempFile", "!./**/*.{d.ts,md,markdown,txt,xml,scss,cmd,docx,tar,gz,zip,tgz,log}"] };
+var config = { publishSamples: ["./dist/**/*"] };
 var gzip = require('gulp-gzip');
 var shelljs = require('shelljs');
 var cdn = require('./cdn.js');

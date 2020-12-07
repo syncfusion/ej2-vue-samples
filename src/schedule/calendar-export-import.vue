@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate'
@@ -19,9 +19,7 @@
                 <tbody>
                     <tr style="height: 50px">
                         <td style="width: 50%">
-                            <div>
-                                Export as iCalendar
-                            </div>
+                            <div>Export as iCalendar</div>
                         </td>
                         <td style="width: 50%;">
                             <ejs-button id='ics-export' v-on:click.native="onClick">Export</ejs-button>
@@ -29,9 +27,7 @@
                     </tr>
                     <tr style="height: 50px">
                         <td style="width: 50%">
-                            <div>
-                                Import iCalendar file
-                            </div>
+                            <div>Import iCalendar file</div>
                         </td>
                         <td style="width: 50%;">
                             <ejs-uploader id='ics-import' :cssClass='cssClass' name="ics-import" :buttons="buttons"
@@ -72,16 +68,16 @@
 </template>
 <!-- custom code start -->
 <style>
-    .calendar-import.e-upload {
+    .schedule-vue-sample .calendar-import.e-upload {
         border: 0;
         padding-left: 0 !important;
     }
 
-    .calendar-import.e-upload .e-file-select-wrap {
+    .schedule-vue-sample .calendar-import.e-upload .e-file-select-wrap {
         padding: 0
     }
 
-    .calendar-import.e-upload .e-file-select-wrap .e-file-drop {
+    .schedule-vue-sample .calendar-import.e-upload .e-file-select-wrap .e-file-drop {
         display: none;
     }
 </style>

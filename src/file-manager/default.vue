@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="file-api">
 		<div class="col-lg-8 control-section">
 			<div class="sample-container">
 			   <ejs-filemanager id="file" ref="fileObject" :ajaxSettings='ajaxSettings' :view='view'
@@ -37,15 +37,15 @@
 </template>
 
 <style>
-    .property-panel-table div {
+    .file-api .property-panel-table div {
         padding-top: 0;
     }
 
-    #tool {
+    .file-api #tool {
         padding-top: 5px;
     }
 
-    #tool_toggle {
+    .file-api #tool_toggle {
         width: 100px;
     }
 
@@ -54,7 +54,7 @@
 
 <script>
 import Vue from "vue";
-import { FileManagerPlugin ,NavigationPane, Toolbar, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerPlugin ,NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(CheckBoxPlugin);
@@ -82,7 +82,7 @@ export default Vue.extend ({
         };
     },   
     provide: {
-            filemanager: [NavigationPane, Toolbar]
+            filemanager: [NavigationPane, Toolbar, DetailsView]
     },
     methods: {
         onChange: function(args) {
@@ -90,7 +90,7 @@ export default Vue.extend ({
 			if (args.event.currentTarget.id === "toolbar") {
 			    fileobj.toolbarSettings.visible = args.checked;
 		    }
-        }   
+        }
     }
 });
 </script>

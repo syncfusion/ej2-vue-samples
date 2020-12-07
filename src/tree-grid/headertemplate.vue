@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='0' :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='0' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskName' width='200' :headerTemplate='nametemplate'></e-column>
                 <e-column field='startDate' width='100' :headerTemplate='datetemplate' format='yMd'  textAlign='Right'></e-column>
@@ -13,12 +13,12 @@
     </div>
 
      <div id="action-description">
-    <p>This sample demonstrates the TreeGrid header template feature. In this sample, we have shown custom icons in the column headers.
+    <p>This sample demonstrates the Tree Grid header template feature. In this sample, we have shown custom icons in the column headers.
     </p>
 </div>
 <div id="description">
     <p>
-        The TreeGrid provides a way to define a custom element in header element. 
+        The Tree Grid provides a way to define a custom element in header element. 
         columns->headertemplate property accepts either string or HTML element`s ID value, which will be used as the template for the header cell.  
     </p>
     <p>
@@ -32,8 +32,8 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
-    .e-image {
+<style scoped>
+    /deep/ .e-image {
         margin-right: 8px;
     }
 </style>
@@ -62,7 +62,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/tree-grid/images/taskname.png";
+                        return "source/tree-grid/images/taskname.png";
                     }
                 }
           })}
@@ -79,7 +79,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/tree-grid/images/startdate.png";
+                        return "source/tree-grid/images/startdate.png";
                     }
                 }
           })}
@@ -96,7 +96,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/tree-grid/images/resources.png";
+                        return "source/tree-grid/images/resources.png";
                     }
                 }
           })}
@@ -113,7 +113,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/tree-grid/images/duration.png";
+                        return "source/tree-grid/images/duration.png";
                     }
                 }
           })}
@@ -130,7 +130,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "src/tree-grid/images/progress.png" ;
+                        return "source/tree-grid/images/progress.png" ;
                     }
                 }
           })}

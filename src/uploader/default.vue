@@ -3,7 +3,7 @@
     <div class="col-lg-8 control-section default-sample">
         <div class="control_wrapper">
             <ejs-uploader ref="uploadObj" id='defaultfileupload' name="UploadFiles" :asyncSettings= "path"
-            :dropArea = "dropElement" :removing= "onFileRemove" ></ejs-uploader>
+            :dropArea = "dropElement" :removing= "onFileRemove" :sequentialUpload='isSequential' :autoUpload='isAuto' ></ejs-uploader>
         </div>
     </div>
     <div class="col-lg-4 property-section">
@@ -35,7 +35,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .default-sample .control_wrapper {
     max-width: 450px;
     min-width: 245px;
@@ -59,18 +59,20 @@ export default Vue.extend({
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
+            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
           },
           dropElement: '.control-fluid',
           change: (args) => {
-            this.$refs.uploadObj.autoUpload = args.checked;
+            this.isAuto = args.checked;
             this.$refs.uploadObj.clearAll();
         },
         changed: (args) => {
-            this.$refs.uploadObj.sequentialUpload = args.checked;
+            this.isSequential = args.checked;
             this.$refs.uploadObj.clearAll();
-        }
+        },
+        isSequential: false,
+        isAuto: true
         }
     },
     methods:{

@@ -2,7 +2,7 @@
 <div class="control section">
   <div id="dropdownwrapper" class="col-lg-12 control-section">
     <div class="control-section">
-      <div class="col-lg-12  content-wrapper" style="height: 350px">
+      <div class="col-lg-12" style="height: 350px">
         <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
           <ejs-dropdownlist id='first' :dataSource='sportsData' :popupHeight='height' :placeholder='waterMark' v-model="value"></ejs-dropdownlist>
         </div>
@@ -51,7 +51,7 @@ export default Vue.extend({
 </script>
 
 
-<style>
+<style scoped>
 
 #dropdownwrapper #content #display .selected,.display-value{
   font-weight: 100;

@@ -89,7 +89,7 @@
 </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     .property-panel-content {
         padding: 0 10px 10px 0;
         overflow: auto;

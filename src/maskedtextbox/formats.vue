@@ -70,7 +70,7 @@
     </div>
 </div>
 </template>
-<style>
+<style scoped>
 
     .mask-format {
         width: 45%;

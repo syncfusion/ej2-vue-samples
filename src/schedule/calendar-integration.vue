@@ -1,12 +1,11 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'
                     :readonly="readonly" :dataBinding="dataBinding"></ejs-schedule>
             </div>
         </div>
-
         <div id="action-description">
             <p>This example illustrates how to load and integrate events data from the Google Calendar into our Scheduler.
             </p>

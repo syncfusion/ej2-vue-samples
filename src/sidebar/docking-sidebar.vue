@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section sidebar-dock">
     <div class="col-lg-12 col-sm-12 col-md-12 center">
         Click/Touch the button to view the sample
     </div>
@@ -13,23 +13,23 @@
                 <div class="dock">
                     <ul>
                         <li class="sidebar-item" id="toggle" v-on:click="toggleClick">
-                            <span class="e-icons expand"></span>
+                            <span class="sidebar-icons expand"></span>
                             <span class="e-text" title="menu">Menu</span>
                         </li>
                         <li class="sidebar-item">
-                            <span class="e-icons home"></span>
+                            <span class="sidebar-icons home"></span>
                             <span class="e-text" title="home">Home</span>
                         </li>
                         <li class="sidebar-item">
-                            <span class="e-icons profile"></span>
+                            <span class="sidebar-icons profile"></span>
                             <span class="e-text" title="profile">Profile</span>
                         </li>
                         <li class="sidebar-item">
-                            <span class="e-icons info"></span>
+                            <span class="sidebar-icons info"></span>
                             <span class="e-text" title="info">Info</span>
                         </li>
                         <li class="sidebar-item">
-                            <span class="e-icons settings"></span>
+                            <span class="sidebar-icons settings"></span>
                             <span class="e-text" title="settings">Settings</span>
                         </li>
                     </ul>
@@ -95,24 +95,24 @@ export default Vue.extend({
 <style>
   /* Content area styles */
 
- .title {
+ .sidebar-dock .title {
     text-align: center;
     font-size: 20px;
     padding: 15px;
 }
 
-.sub-title {
+.sidebar-dock .sub-title {
     text-align: center;
     font-size: 16px;
     padding: 10px;
 }
 
-#wrapper .column {
+.sidebar-dock #wrapper .column {
     display: inline-block;
     padding: 10px;
 }
 /* custom code start */
-.center {
+.sidebar-dock .center {
     text-align: center;
     display: none;
     font-size: 13px;
@@ -120,122 +120,122 @@ export default Vue.extend({
     margin-top: 20px;
 }
 
-.sb-content-tab .center {
+.sb-content-tab .sidebar-dock .center {
     display: block;
 }
 /* end of content area styles */
 /* Sidebar styles */
 
-.sb-content-tab #wrapper {
+.sb-content-tab .sidebar-dock #wrapper {
     display: none;
 }
 /* custom code end */
-#dockSidebar.e-sidebar.e-right.e-close {
+.sidebar-dock #dockSidebar.e-sidebar.e-right.e-close {
     visibility: visible;
     transform: translateX(0%);
 }
 
-#dockSidebar .e-icons::before {
+.sidebar-dock #dockSidebar .sidebar-icons::before {
     font-size: 25px;
 }
 /* dockbar icon Style */
-#dockSidebar .home::before {
+.sidebar-dock #dockSidebar .home::before {
     content: '\e102';
 }
 
-#dockSidebar .profile::before {
+.sidebar-dock #dockSidebar .profile::before {
     content: '\e10c';
 }
 
-#dockSidebar .info::before {
+.sidebar-dock #dockSidebar .info::before {
     content: '\e11b';
 }
 
-#dockSidebar .settings::before {
+.sidebar-dock #dockSidebar .settings::before {
     content: '\e10b';
 }
 
-.e-sidebar .expand::before,
-.e-sidebar.e-right.e-open .expand::before {
+.sidebar-dock .e-sidebar .expand::before,
+.sidebar-dock .e-sidebar.e-right.e-open .expand::before {
     content: '\e10f';
 }
 
-.e-sidebar.e-open .expand::before,
-.e-sidebar.e-right .expand::before {
+.sidebar-dock .e-sidebar.e-open .expand::before,
+.sidebar-dock .e-sidebar.e-right .expand::before {
     content: '\e10e';
 }
 /* end of dockbar icon Style */
 
-#dockSidebar.e-close .sidebar-item {
+.sidebar-dock #dockSidebar.e-close .sidebar-item {
     padding: 5px 20px;
 }
 
-#dockSidebar.e-dock.e-close span.e-text {
+.sidebar-dock #dockSidebar.e-dock.e-close span.e-text {
     display: none;
 }
 
-#dockSidebar.e-dock.e-open span.e-text {
+.sidebar-dock #dockSidebar.e-dock.e-open span.e-text {
     display: inline-block;
 }
 
-#dockSidebar li {
+.sidebar-dock #dockSidebar li {
     list-style-type: none;
     cursor: pointer;
 }
 
-#dockSidebar ul {
+.sidebar-dock #dockSidebar ul {
     padding: 0px;
 }
 
-#dockSidebar.e-sidebar ul li:hover span {
+.sidebar-dock #dockSidebar.e-sidebar ul li:hover span {
     color: white
 }
 
-#dockSidebar.e-sidebar.e-open .e-text {
+.sidebar-dock #dockSidebar.e-sidebar.e-open .e-text {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 23px;
     font-size: 15px;
 }
 
-#dockSidebar.e-sidebar.e-open .e-icons {
+.sidebar-dock #dockSidebar.e-sidebar.e-open .sidebar-icons {
     margin-right: 16px;
 }
 
-#dockSidebar.e-sidebar span.e-icons {
+.sidebar-dock #dockSidebar.e-sidebar span.sidebar-icons {
     color: #c0c2c5;
     line-height: 2
 }
 
-#dockSidebar.e-sidebar .e-open .e-icons {
+.sidebar-dock #dockSidebar.e-sidebar .e-open .sidebar-icons {
     margin-right: 16px;
 }
 
-#dockSidebar.e-sidebar .e-open .e-text {
+.sidebar-dock #dockSidebar.e-sidebar .e-open .e-text {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 23px;
     font-size: 15px;
 }
 
-.sidebar-item {
+.sidebar-dock .sidebar-item {
     text-align: center;
     border-bottom: 1px #e5e5e58a solid;
 }
 
-#dockSidebar.e-sidebar.e-open .sidebar-item {
+.sidebar-dock #dockSidebar.e-sidebar.e-open .sidebar-item {
     text-align: left;
     padding-left: 15px;
     color: #c0c2c5;
 }
 
-#dockSidebar.e-sidebar {
+.sidebar-dock #dockSidebar.e-sidebar {
     background: #2d323e;
     overflow: hidden;
 }
 
 @font-face {
-    font-family: 'e-icons';
+    font-family: 'sidebar-icons';
     src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMjciQ6oAAAEoAAAAVmNtYXBH1Ec8AAABsAAAAHJnbHlmKcXfOQAAAkAAAAg4aGVhZBLt+DYAAADQAAAANmhoZWEHogNsAAAArAAAACRobXR4LvgAAAAAAYAAAAAwbG9jYQukCgIAAAIkAAAAGm1heHABGQEOAAABCAAAACBuYW1lR4040wAACngAAAJtcG9zdEFgIbwAAAzoAAAArAABAAADUv9qAFoEAAAA//UD8wABAAAAAAAAAAAAAAAAAAAADAABAAAAAQAAlbrm7l8PPPUACwPoAAAAANfuWa8AAAAA1+5ZrwAAAAAD8wPzAAAACAACAAAAAAAAAAEAAAAMAQIAAwAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQPqAZAABQAAAnoCvAAAAIwCegK8AAAB4AAxAQIAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA4QLhkANS/2oAWgPzAJYAAAABAAAAAAAABAAAAAPoAAAD6AAAA+gAAAPoAAAD6AAAA+gAAAPoAAAD6AAAA+gAAAPoAAAD6AAAAAAAAgAAAAMAAAAUAAMAAQAAABQABABeAAAADgAIAAIABuEC4QnhD+ES4RvhkP//AADhAuEJ4QvhEuEa4ZD//wAAAAAAAAAAAAAAAAABAA4ADgAOABYAFgAYAAAAAQACAAYABAADAAgABwAKAAkABQALAAAAAAAAAB4AQABaAQYB5gJkAnoCjgKwA8oEHAAAAAIAAAAAA+oDlQAEAAoAAAEFESERCQEVCQE1AgcBZv0mAXQB5P4c/g4Cw/D+lwFpAcP+s24BTf6qbgAAAAEAAAAAA+oD6gALAAATCQEXCQEHCQEnCQF4AYgBiGP+eAGIY/54/nhjAYj+eAPr/ngBiGP+eP54YwGI/nhjAYgBiAAAAwAAAAAD6gOkAAMABwALAAA3IRUhESEVIREhFSEVA9b8KgPW/CoD1vwq6I0B64wB640AAAEAAAAAA+oD4QCaAAABMx8aHQEPDjEPAh8bIT8bNS8SPxsCAA0aGhgMDAsLCwoKCgkJCQgHBwYGBgUEBAMCAgECAwUFBggICQoLCwwMDg0GAgEBAgIDBAMIBiIdHh0cHBoZFhUSEAcFBgQDAwEB/CoBAQMDBAUGBw8SFRYYGhsbHB0cHwsJBQQEAwIBAQMEDg0NDAsLCQkJBwYGBAMCAQEBAgIDBAQFBQYGBwgICAkJCgoKCwsLDAwMGRoD4gMEBwQFBQYGBwgICAkKCgsLDAwNDQ4ODxAQEBEWFxYWFhYVFRQUExIRERAOFxMLCggIBgYFBgQMDAwNDg4QDxERERIJCQkKCQkJFRQJCQoJCQgJEhERERAPDw4NDQsMBwgFBgYICQkKDAwODw8RERMTExUUFhUWFxYWFxEQEBAPDg4NDQwMCwsKCgkICAgHBgYFBQQEBQQAAAAAAwAAAAAD8wPzAEEAZQDFAAABMx8FFREzHwYdAg8GIS8GPQI/BjM1KwEvBT0CPwUzNzMfBR0CDwUrAi8FPQI/BTMnDw8fFz8XLxcPBgI+BQQDAwMCAT8EBAMDAwIBAQIDAwMEBP7cBAQDAwMCAQECAwMDBAQ/PwQEAwMDAgEBAgMDAwQE0AUEAwMDAgEBAgMDAwQFfAUEAwMDAgEBAgMDAwQFvRsbGRcWFRMREA4LCQgFAwEBAwUHCgsOEBETFRYXGRocHR4eHyAgISIiISAgHx4eHRsbGRcWFRMREA4LCQgFAwEBAwUHCgsOEBETFRYXGRsbHR4eHyAgISIiISAgHx4eAqYBAgIDBAQE/rMBAQEDAwQEBGgEBAQDAgIBAQEBAgIDBAQEaAQEBAMDAQEB0AECAwMDBAVoBAQDAwMCAeUBAgIEAwQEaAUEAwMDAgEBAgMDAwQFaAQEAwQCAgElERMVFhcZGhwdHh4fICAhIiIhICAfHh4dGxsZFxYVExEQDgsJCAUDAQEDBQcKCw4QERMVFhcZGxsdHh4fICAhIiIhICAfHh4dHBoZFxYVExEQDgsKBwUDAQEDBQcKCw4AAAIAAAAAA9MD6QALAE8AAAEOAQcuASc+ATceAQEHBgcnJgYPAQYWHwEGFBcHDgEfAR4BPwEWHwEeATsBMjY/ATY3FxY2PwE2Ji8BNjQnNz4BLwEuAQ8BJi8BLgErASIGApsBY0tKYwICY0pLY/7WEy4nfAkRBWQEAwdqAwNqBwMEZAURCXwnLhMBDgnICg4BEy4mfQkRBGQFAwhpAwNpCAMFZAQSCH0mLhMBDgrICQ4B9UpjAgJjSkpjAgJjAZWEFB4yBAYIrggSBlIYMhhSBhIIrggFAzIfE4QJDAwJhBQeMgQGCK4IEgZSGDIYUgYSCK4IBQMyHxOECQwMAAEAAAAAAwED6gAFAAAJAicJAQEbAef+FhoBzf4zA+v+Ff4VHwHMAc0AAAAAAQAAAAADAQPqAAUAAAEXCQEHAQLlHf4zAc0a/hYD6x7+M/40HwHrAAEAAAAAA/MD8wALAAATCQEXCQE3CQEnCQENAY7+cmQBjwGPZP5yAY5k/nH+cQOP/nH+cWQBjv5yZAGPAY9k/nEBjwAAAwAAAAAD8wPzAEAAgQEBAAAlDw4rAS8dPQE/DgUVDw4BPw47AR8dBRUfHTsBPx09AS8dKwEPHQL1DQ0ODg4PDw8QEBAQERERERUUFBQTExITEREREBAPDw0ODAwLCwkJCAcGBgQEAgIBAgIEAwUFBgYHBwkICQoCygECAgQDBQUGBgcHCQgJCv3QDQ0ODg4PDw8QEBAQERERERUUFBQTExITEREREBAPDw0ODAwLCwkJCAcGBgQEAgL8fgIDBQUHCAkKCwwNDg8PERESExQUFRYWFhgXGBkZGRoaGRkZGBcYFhYWFRQUExIREQ8PDg0MCwoJCAcFBQMCAgMFBQcICQoLDA0ODw8RERITFBQVFhYWGBcYGRkZGhoZGRkYFxgWFhYVFBQTEhERDw8ODQwLCgkIBwUFAwLFCgkICQcHBgYFBQMEAgIBAgIEBAYGBwgJCQsLDAwODQ8PEBARERETEhMTFBQUFREREREQEBAQDw8PDg4ODQ31ERERERAQEBAPDw8ODg4NDQIwCgkICQcHBgYFBQMEAgIBAgIEBAYGBwgJCQsLDAwODQ8PEBARERETEhMTFBQUFRoZGRkYFxgWFhYVFBQTEhERDw8ODQwLCgkIBwUFAwICAwUFBwgJCgsMDQ4PDxEREhMUFBUWFhYYFxgZGRkaGhkZGRgXGBYWFhUUFBMSEREPDw4NDAsKCQgHBQUDAgIDBQUHCAkKCwwNDg8PERESExQUFRYWFhgXGBkZGQAAAQAAAAAD6gPqAEMAABMhHw8RDw8hLw8RPw6aAswNDgwMDAsKCggIBwUFAwIBAQIDBQUHCAgKCgsMDAwODf00DQ4MDAwLCgoICAcFBQMCAQECAwUFBwgICgoLDAwMDgPrAQIDBQUHCAgKCgsLDA0NDv00Dg0NDAsLCgoICAcFBQMCAQECAwUFBwgICgoLCwwNDQ4CzA4NDQwLCwoKCAgHBQUDAgAAABIA3gABAAAAAAAAAAEAAAABAAAAAAABAA0AAQABAAAAAAACAAcADgABAAAAAAADAA0AFQABAAAAAAAEAA0AIgABAAAAAAAFAAsALwABAAAAAAAGAA0AOgABAAAAAAAKACwARwABAAAAAAALABIAcwADAAEECQAAAAIAhQADAAEECQABABoAhwADAAEECQACAA4AoQADAAEECQADABoArwADAAEECQAEABoAyQADAAEECQAFABYA4wADAAEECQAGABoA+QADAAEECQAKAFgBEwADAAEECQALACQBayBlLWljb25zLW1ldHJvUmVndWxhcmUtaWNvbnMtbWV0cm9lLWljb25zLW1ldHJvVmVyc2lvbiAxLjBlLWljb25zLW1ldHJvRm9udCBnZW5lcmF0ZWQgdXNpbmcgU3luY2Z1c2lvbiBNZXRybyBTdHVkaW93d3cuc3luY2Z1c2lvbi5jb20AIABlAC0AaQBjAG8AbgBzAC0AbQBlAHQAcgBvAFIAZQBnAHUAbABhAHIAZQAtAGkAYwBvAG4AcwAtAG0AZQB0AHIAbwBlAC0AaQBjAG8AbgBzAC0AbQBlAHQAcgBvAFYAZQByAHMAaQBvAG4AIAAxAC4AMABlAC0AaQBjAG8AbgBzAC0AbQBlAHQAcgBvAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAFMAeQBuAGMAZgB1AHMAaQBvAG4AIABNAGUAdAByAG8AIABTAHQAdQBkAGkAbwB3AHcAdwAuAHMAeQBuAGMAZgB1AHMAaQBvAG4ALgBjAG8AbQAAAAACAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBAgEDAQQBBQEGAQcBCAEJAQoBCwEMAQ0AB2hvbWUtMDELQ2xvc2UtaWNvbnMHbWVudS0wMQR1c2VyB0JUX2luZm8PU2V0dGluZ19BbmRyb2lkDWNoZXZyb24tcmlnaHQMY2hldnJvbi1sZWZ0CE1UX0NsZWFyDE1UX0p1bmttYWlscwRzdG9wAAA=) format('truetype');
     font-weight: normal;
     font-style: normal;

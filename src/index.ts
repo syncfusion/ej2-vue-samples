@@ -1010,7 +1010,7 @@ let sampleBrowser: Vue = new Vue({
                 }
             }
             if (switcherPopup) {
-                switcherPopup.refresh();
+                switcherPopup.refreshPosition();
             }
         },
 

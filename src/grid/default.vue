@@ -34,7 +34,7 @@
         </p>
         <p>
             More information on the Grid instantiation can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#create-a-simple-grid">documentation section</a>.
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
         </p>
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -43,48 +43,48 @@
     </div>
 </template>
 <style>
-    .groupediting.e-schedule .e-month-view .e-appointment .e-appointment-details {
+    .schedule-vue-sample .groupediting.e-schedule .e-month-view .e-appointment .e-appointment-details {
         padding: 1px;
         padding-left: 3px;
     }
 
-    .groupediting.e-schedule .e-vertical-view .e-resource-cells {
+    .schedule-vue-sample .groupediting.e-schedule .e-vertical-view .e-resource-cells {
         height: 62px;
     }
 
-    .groupediting.e-schedule .template-wrap {
+    .schedule-vue-sample .groupediting.e-schedule .template-wrap {
         display: flex;
         text-align: left;
     }
 
-    .groupediting.e-schedule .template-wrap .resource-image {
+    .schedule-vue-sample .groupediting.e-schedule .template-wrap .resource-image {
         width: 45px;
         height: 45px;
         background-size: 45px;
         background-repeat: no-repeat;
     }
 
-    .groupediting.e-schedule .template-wrap .resource-details {
+    .schedule-vue-sample .groupediting.e-schedule .template-wrap .resource-details {
         padding-left: 10px;
     }
 
-    .groupediting.e-schedule .template-wrap .resource-details .resource-name {
+    .schedule-vue-sample .groupediting.e-schedule .template-wrap .resource-details .resource-name {
         font-size: 16px;
         font-weight: 500;
         padding-right: 10px;
     }
 
-    .groupediting.e-schedule.e-device .template-wrap .resource-details .resource-designation {
+    .schedule-vue-sample .groupediting.e-schedule.e-device .template-wrap .resource-details .resource-designation {
         display: none;
     }
 
-    .groupediting.e-schedule.e-device .template-wrap .resource-details .resource-name {
+    .schedule-vue-sample .groupediting.e-schedule.e-device .template-wrap .resource-details .resource-name {
         font-size: inherit;
         font-weight: inherit;
         padding-top: 5px;
     }
 
-    .groupediting.e-schedule.e-device .e-resource-tree-popup .e-fullrow {
+    .schedule-vue-sample .groupediting.e-schedule.e-device .e-resource-tree-popup .e-fullrow {
         height: 50px;
     }
 </style>
@@ -115,7 +115,7 @@
         },
         computed: {
             getImage: function() {
-                return './src/schedule/images/' + this.getEmployeeImage(this.data) + '.png';
+                return './source/schedule/images/' + this.getEmployeeImage(this.data) + '.png';
             }
         },
         methods: {

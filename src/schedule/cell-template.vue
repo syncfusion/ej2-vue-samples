@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :cssClass='cssClass' :currentView='currentView' :cellTemplate='cellTemplate'>
@@ -27,22 +27,22 @@
     </div>
 </template>
 <style>
-    .schedule-celltemplate.e-schedule .e-month-view .e-work-cells {
+    .schedule-vue-sample .schedule-celltemplate.e-schedule .e-month-view .e-work-cells {
         position: relative;
     }
 
-    .schedule-celltemplate.e-schedule .templatewrap {
+    .schedule-vue-sample .schedule-celltemplate.e-schedule .templatewrap {
         text-align: center;
         position: absolute;
         width: 100%;
     }
 
-    .schedule-celltemplate.e-schedule .templatewrap img {
+    .schedule-vue-sample .schedule-celltemplate.e-schedule .templatewrap img {
         width: 30px;
         height: 30px;
     }
 
-    .schedule-celltemplate.e-schedule .caption {
+    .schedule-vue-sample .schedule-celltemplate.e-schedule .caption {
         overflow: hidden;
         text-overflow: ellipsis;
         vertical-align: middle;

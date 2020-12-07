@@ -31,7 +31,7 @@
     </div>
 </template>
 <!-- custom code start -->
-<style>
+<style scoped>
     .control-section .dual-list-wrapper {
         width: 60%;
         margin: 0 auto 10px;

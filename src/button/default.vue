@@ -1,6 +1,6 @@
 <template>
   <div class="control-section">
-    <div class="button-section">
+    <div class="sb-button-section">
       <div id="button-control">
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
@@ -149,7 +149,7 @@
   }
 }
 
-.button-section {
+.sb-button-section {
   width: 80%;
   margin: auto;
 }

@@ -126,13 +126,13 @@ import {
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { SelectionType } from "@syncfusion/ej2-grids";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 
 export default Vue.extend({
   data: () => {
@@ -226,8 +226,8 @@ export default Vue.extend({
   }
 });
 </script>
-<style>
-.pivottable-property-section hr {
+<style scoped>
+/deep/ .pivottable-property-section hr {
   margin: 1px 10px 0px 0px;
   border-top: 1px solid #eee;
 }

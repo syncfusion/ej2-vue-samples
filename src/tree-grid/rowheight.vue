@@ -15,21 +15,21 @@
     </div>
 
     <div id="action-description">
-    <p>This sample demonstrates the row height feature of the TreeGrid. In this demo, the <b>rowHeight</b> for all the Grid rows can be
+    <p>This sample demonstrates the row height feature of the Tree Grid. In this demo, the <b>rowHeight</b> for all the Grid rows can be
     changed as <b>20px</b>, <b>40px</b> and <b>60px</b> on ToolBar button click.</p>
 </div>
 <div id="description">
     <p>
-        TreeGrid has an option to customize the row height by using <code>rowHeight
+        Tree Grid has an option to customize the row height by using <code>rowHeight
         </code> property.  
     </p>
     <p>
-        In this sample, we have enabled an option in Toolbar to customize the row height of TreeGrid to 20px, 40px and 60px.        
+        In this sample, we have enabled an option in Toolbar to customize the row height of Tree Grid to 20px, 40px and 60px.        
     </p>
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 
     @font-face {
 font-family: 'e-grid-rowheight';
@@ -39,17 +39,17 @@ font-weight: normal;
 font-style: normal;
 }
 
-    .e-small-icon::before {
+    /deep/ .e-small-icon::before {
         font-family: 'e-grid-rowheight';
         content: '\e707';
     }
 
-   .e-medium-icon::before {
+   /deep/ .e-medium-icon::before {
         font-family: 'e-grid-rowheight';
         content: '\e701';
     }
 
-    .e-big-icon::before {
+    /deep/ .e-big-icon::before {
         font-family: 'e-grid-rowheight';
         content: '\e702';
     }

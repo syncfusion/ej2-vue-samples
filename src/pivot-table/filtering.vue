@@ -121,6 +121,7 @@ import {
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { FilterModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -129,7 +130,6 @@ Vue.use(DropDownListPlugin);
 Vue.use(MultiSelectPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 let fieldCollections: { [key: string]: { [key: string]: Object }[] } = {};
 let filterCollections: { [key: string]: FilterModel } = {};
 let isInitial: boolean = true;
@@ -339,41 +339,48 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
 }
 
-.e-pivottable .e-static {
+/deep/ .e-pivottable .e-static {
   width: 80% !important;
 }
 
-.e-disabled {
+/deep/ .e-disabled {
   display: none !important;
 }
 
-.valuecls {
+/deep/ .valuecls {
   margin-top: 13px;
 }
 
-.material .valuecls {
+/deep/ .material .valuecls {
   margin-top: 8px;
 }
 
-.e-multiselect.e-input-group {
+/deep/ .e-multiselect.e-input-group {
   padding: 0px !important;
   width: 98% !important;
 }
 
-.material .e-multiselect.e-input-group {
+/deep/ .material .e-multiselect.e-input-group {
   width: 100% !important;
 }
 
-.pivottable-property-section table tr td:first-child {
+/deep/ .pivottable-property-section table tr td:first-child {
   width: 20%;
 }
 
-.pivottable-property-section {
+/deep/ .pivottable-property-section {
   overflow: auto;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

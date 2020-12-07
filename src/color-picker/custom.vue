@@ -50,7 +50,7 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 /* custom code start */
 /* Common sample level styles */
 #custom-control {

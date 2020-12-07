@@ -104,13 +104,14 @@ import {
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { rData } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
 Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-let data: IDataSet[] = require("./rData.json");
+let data: IDataSet[] = JSON.parse(JSON.stringify(rData));
 let qData: { [key: string]: Object }[] = [
   { value: "Sum", text: "Sum" },
   { value: "Avg", text: "Average" },
@@ -183,7 +184,7 @@ export default Vue.extend({
 
       showFieldList: true,
       width: "100%",
-      height: 300,
+      height: 290,
       gridSettings: { columnWidth: 140 },
       costData: cData,
       unitData: qData,
@@ -247,8 +248,15 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-#pivotview {
+<style scoped>
+/deep/ #pivotview {
   width: 100%;
+}
+
+/deep/ .sb-sample-content-area {
+  min-height: 255px !important;
+}
+/deep/ .control-section {
+  min-height: 255px !important;
 }
 </style>

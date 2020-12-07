@@ -248,6 +248,7 @@ import {
 } from "@syncfusion/ej2-vue-inputs";
 
 import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -257,7 +258,6 @@ Vue.use(NumericTextBoxPlugin);
 Vue.use(MaskedTextBoxPlugin);
 /* tslint:disable */
 declare var require: any;
-let Pivot_Data: IDataSet[] = require("./Pivot_Data.json");
 let operators: string[] = [
   "Equals",
   "NotEquals",
@@ -521,44 +521,44 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.e-pivotview {
+<style scoped>
+/deep/ .e-pivotview {
   width: 100%;
   height: 100%;
 }
 
-.pivottable-property-section table tr td:first-child {
+/deep/ .pivottable-property-section table tr td:first-child {
   width: 25%;
 }
 
-.pivottable-property-section .text1cls,
+/deep/ .pivottable-property-section .text1cls,
 .pivottable-property-section .text2cls {
   font-weight: bold;
   margin-top: 20px;
 }
 
-.pivottable-property-section {
+/deep/ .pivottable-property-section {
   overflow: auto;
 }
 
-#EventLog b {
+/deep/ #EventLog b {
   color: #388e3c;
 }
 
-.pivottable-property-section hr {
+/deep/ .pivottable-property-section hr {
   margin: 1px 10px 10px 0px;
   border-top: 1px solid #eee;
 }
 
-#EventLog hr {
+/deep/ #EventLog hr {
   margin-bottom: 1px;
 }
 
-.e-custom-class {
+/deep/ .e-custom-class {
   text-decoration: underline;
 }
 
-.e-custom-class:hover {
+/deep/ .e-custom-class:hover {
   color: red;
   text-decoration: none;
 }

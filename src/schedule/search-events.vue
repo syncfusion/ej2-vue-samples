@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="schedule-vue-sample">
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
             <div class="col-md-12">
@@ -81,20 +81,20 @@
 </template>
 <!-- custom code start -->
 <style>
-    .header-customization {
+    .schedule-vue-sample .header-customization {
         padding-bottom: 10px;
     }
 
-    .property-customization {
+    .schedule-vue-sample .property-customization {
         padding-right: 5px;
     }
 
-    .button-customization {
+    .schedule-vue-sample .button-customization {
         padding: 15px;
     }
 
     @media (max-width: 441px){
-        .button-customization {
+        .schedule-vue-sample .button-customization {
             padding: 30px;
         }
     }

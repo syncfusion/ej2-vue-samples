@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-overview">
          <div class="sample-container">
             <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :view='view' >
             </ejs-filemanager>
@@ -8,7 +8,7 @@
     </div>
     <div id="action-description">
         <p>
-            This sample demonstrates the full features of the File Manager that includes <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#navigationpanesettings" target="_blank"> toolbar</a>, <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#toolbarsettings" target="_blank"> navigation pane</a> and <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#detailsviewsettings" target="_blank"> details view.</a>
+            This sample demonstrates the full features of the File Manager that includes <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#toolbarsettings" target="_blank"> toolbar</a>, <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#navigationpanesettings" target="_blank"> navigation pane</a> and <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#detailsviewsettings" target="_blank"> details view.</a>
         </p>
     </div>
     <div id="description">
@@ -23,7 +23,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-overview .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

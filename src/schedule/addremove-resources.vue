@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" :cssClass="cssClass" width='100%' height='650px' :calendarCollections='calendarCollection' :group="group" :selectedDate="selectedDate"
@@ -68,48 +68,47 @@
 
 <style>
     /* custom code start*/
-    .property-panel-content .e-checkbox-wrapper.personal .e-label {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.personal .e-label {
         color: #808080;
     }
 
-    .property-panel-content .e-checkbox-wrapper.personal .e-frame {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.personal .e-frame {
         background-color: #c43081;
         border-color: transparent;
     }
 
-    .property-panel-content .e-checkbox-wrapper.company .e-frame {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.company .e-frame {
         background-color: #ff7f50;
         border-color: transparent;
     }
 
-    .property-panel-content .e-checkbox-wrapper.birthday .e-frame {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.birthday .e-frame {
         background-color: #AF27CD;
         border-color: transparent;
     }
 
-    .property-panel-content .e-checkbox-wrapper.holiday .e-frame {
+    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.holiday .e-frame {
         background-color: #808000;
         border-color: transparent;
     }
-   
 
-    .highcontrast .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
-    .bootstrap .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
+    .highcontrast .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
+    .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
     }
     /* custom code end*/
 
-    .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
+    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
         border-color: transparent;
     }
 
-    .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
-    .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-left-td {
+    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
+    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-left-td {
         width: 110px;
     }
 
-    .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-text,
-    .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-text {
+    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-text,
+    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-text {
         padding: 0;
     }
 </style>

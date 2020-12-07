@@ -4,7 +4,7 @@
 <div>
     <div class="col-lg-8 control-section">
         <div class="content-wrapper">
-            <ejs-richtexteditor ref="eventObj" :toolbarSettings="toolbarSettings" :created="create" :actionBegin="actionBegin" :actionComplete="actionComplete" :focus="focus" :blur="blur" :change="change" :toolbarClick="toolbarClick"><p>The rich text editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
+            <ejs-richtexteditor ref="eventObj" :toolbarSettings="toolbarSettings" :created="create" :actionBegin="actionBegin" :actionComplete="actionComplete" :focus="focus" :blur="blur" :change="change" :toolbarClick="toolbarClick"><p>The Rich Text Editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
                 Users can format their content using standard toolbar commands.</p>
                 <p><b>Key features:</b></p>
                 <ul><li><p>Provides IFRAME and DIV modes</p></li>
@@ -40,11 +40,11 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates the events that trigger on every action of the rich text editor. The event details are showcased in the event trace panel.</p>
+    <p>This sample demonstrates the events that trigger on every action of the Rich Text Editor. The event details are showcased in the event trace panel.</p>
 </div>
 
 <div id="description">
-    <p>The rich text editor triggers the events based on its actions. 
+    <p>The Rich Text Editor triggers the events based on its actions. 
         The events can be used as an extension point to perform custom operations.</p>
     <ul>
         <li><code>change</code> - Triggers when the editor gets blurred and changes are made to the content.</li>
@@ -75,7 +75,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
     /* custom code start */
         #EventLog b{
             color: #388e3c;
@@ -141,7 +141,7 @@ export default Vue.extend({
              document.getElementById('EventLog').innerHTML = '';
         },
         create: function() {
-        this.appendElement('RichTextEditor <b>create</b> event called<hr>');
+        this.appendElement('Rich Text Editor <b>create</b> event called<hr>');
         },
         actionBegin: function(e) {
         this.appendElement('<b>'+ e.requestType + '</b> action is called<hr>');
@@ -152,78 +152,78 @@ export default Vue.extend({
         this.actionCompleteHandler(e);
         },
         focus: function() {
-        this.appendElement('RichTextEditor <b>focus</b> event called<hr>');
+        this.appendElement('Rich Text Editor <b>focus</b> event called<hr>');
         },
         blur: function() {
-        this.appendElement('RichTextEditor <b>blur</b> event called<hr>');
+        this.appendElement('Rich Text Editor <b>blur</b> event called<hr>');
         },
         change: function() {
-        this.appendElement('RichTextEditor <b>change</b> event called<hr>');
+        this.appendElement('Rich Text Editor <b>change</b> event called<hr>');
         },
         toolbarClick: function() {
-        this.appendElement('RichTextEditor <b>toolbar click</b> event called<hr>');
+        this.appendElement('Rich Text Editor <b>toolbar click</b> event called<hr>');
         },
         beforeDialogOpen: function() {
-         this.appendElement('RichTextEditor <b>beforeDialogOpen</b> event called<hr>');
+         this.appendElement('Rich Text Editor <b>beforeDialogOpen</b> event called<hr>');
         },
         dialogOpen: function() {
-             this.appendElement('RichTextEditor <b>dialogOpen</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>dialogOpen</b> event called<hr>');
         },
 
         dialogClose: function() {
-             this.appendElement('RichTextEditor <b>dialogClose</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>dialogClose</b> event called<hr>');
         },
 
         beforeQuickToolbarOpen: function() {
-             this.appendElement('RichTextEditor <b>beforeQuickToolbarOpen</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>beforeQuickToolbarOpen</b> event called<hr>');
         },
 
         quickToolbarOpen: function() {
-         this.appendElement('RichTextEditor <b>quickToolbarOpen</b> event called<hr>');
+         this.appendElement('Rich Text Editor <b>quickToolbarOpen</b> event called<hr>');
         },
 
         quickToolbarClose: function() {
-             this.appendElement('RichTextEditor <b>quickToolbarClose</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>quickToolbarClose</b> event called<hr>');
         },
 
         imageSelected: function() {
-             this.appendElement('RichTextEditor <b>imageSelected</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>imageSelected</b> event called<hr>');
         },
 
         imageUploading: function() {
-             this.appendElement('RichTextEditor <b>imageUploading</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>imageUploading</b> event called<hr>');
         },
 
         imageUploadSuccess: function() {
-             this.appendElement('RichTextEditor <b>imageUploadSuccess</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>imageUploadSuccess</b> event called<hr>');
         },
 
         imageUploadFailed: function() {
-             this.appendElement('RichTextEditor <b>imageUploadFailed</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>imageUploadFailed</b> event called<hr>');
         },
 
         imageRemoving: function() {
-             this.appendElement('RichTextEditor <b>imageRemoving</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>imageRemoving</b> event called<hr>');
         },
 
         destroyed: function() {
-             this.appendElement('RichTextEditor <b>destroyed</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>destroyed</b> event called<hr>');
         },
 
         beforeSanitizeHtml: function() {
-             this.appendElement('RichTextEditor <b>beforeSanitizeHtml</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>beforeSanitizeHtml</b> event called<hr>');
         },
 
         resizing: function() {
-             this.appendElement('RichTextEditor <b>resizing</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>resizing</b> event called<hr>');
         },
 
         resizeStart: function() {
-             this.appendElement('RichTextEditor <b>resizeStart</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>resizeStart</b> event called<hr>');
         },
 
         resizeStop: function() {
-             this.appendElement('RichTextEditor <b>resizeStop</b> event called<hr>');
+             this.appendElement('Rich Text Editor <b>resizeStop</b> event called<hr>');
         },
 
         appendElement: function(html) {

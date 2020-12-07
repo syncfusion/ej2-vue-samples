@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-8 control-section" style="width: 64%">
       <div class="content-wrapper" style="width: 100%;height: 590px;">
-        <div class="center">
+        <div class="barcodecenter">
           <div class="centercontrol">
             <ejs-datamatrixgenerator
               id="barcode"
@@ -172,7 +172,6 @@ padding-left: 18px;"
                 ref="textPosition"
                 id="textPosition"
                 :dataSource="SizeSrc"
-                :fields="fieldValue"
                 :popupWidth="150"
                 :width="textPositionwidth"
                 value="Auto"
@@ -188,7 +187,6 @@ padding-left: 18px;"
                 ref="textPosition"
                 id="textPosition"
                 :dataSource="EncodingSrc"
-                :fields="fieldValue"
                 :popupWidth="150"
                 :width="textPositionwidth"
                 value="Auto"
@@ -255,19 +253,7 @@ This example shows how to display encoded text or numerical values as the label 
   margin-top: 8px;
 }
 
-/* .center {
-  margin-left: 14px;
-  margin-right: 17px;
-  margin-top: 14px;
-  min-width: 280px;
-  width: auto;
-  border: 2px solid lightgray;
-  min-height: 40%;
-  padding-top: 35px;
-  padding-left: 25%;
-  padding-bottom: 3%;
-} */
-.center {
+.barcodecenter {
   margin-left: 14px;
   margin-right: 17px;
   margin-top: 14px;

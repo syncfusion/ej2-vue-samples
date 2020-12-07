@@ -1,6 +1,6 @@
 <template>
   <div>
-     <div class="col-lg-12 control-section template">
+     <div class="col-lg-12 control-section dialog-template">
         <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="BtnClick">Open</ejs-button>
 
         <ejs-dialog :header='header' ref="dialogObj" :footerTemplate='footer' :content='contenttemplateVue' :height='height' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen"
@@ -91,88 +91,88 @@ export default Vue.extend({
 </script>
 
 <style>
-    .highcontrast .template .e-dialog .e-dlg-header-content {
+    .highcontrast .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #ffd939;
     }
-    .fabric .template .e-dialog .e-dlg-header-content {
+    .fabric .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #0078d7;
     }
-    .material .template .e-dialog .e-dlg-header-content{
+    .material .dialog-template .e-dialog .e-dlg-header-content{
         background-color: #3f51b5;
     }
-    .bootstrap .template .e-dialog .e-dlg-header-content {
+    .bootstrap .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #428bca;
     }
-    .bootstrap4 .template .e-dialog .e-dlg-header-content {
+    .bootstrap4 .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #007bff;
     }
-    .template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+    .dialog-template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
         top: 5px;
         left: -11px;
     }
-    .e-bigger .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+    .e-bigger .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
         top: 3px;
         left: -11px;
     }
-    .bootstrap4 .template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn,
-    .bootstrap4.e-bigger .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+    .bootstrap4 .dialog-template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn,
+    .bootstrap4.e-bigger .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
         top: 8px;
     }
 
-    .template .e-dialog .e-dlg-header {
+    .dialog-template .e-dialog .e-dlg-header {
         position: relative;
     }
-    .template .e-dialog .e-footer-content {
+    .dialog-template .e-dialog .e-footer-content {
         padding: 10px 13px 13px;
     }
-    .template .e-dialog .e-dlg-content {
+    .dialog-template .e-dialog .e-dlg-content {
         padding: 0;
     }
-    button#sendButton, .highcontrast button#sendButton {
+    .dialog-template button#sendButton, .dialog-template .highcontrast button#sendButton {
         position: relative;
     }
 
-    button#sendbtn, .highcontrast button#sendbtn {
+    .dialog-template button#sendbtn, .dialog-template .highcontrast button#sendbtn {
         top: -2px;
     }
 
-    .template input.e-input {
+    .dialog-template input.e-input {
         width: 62%;
         float: left;
     }
-    .template .e-dialog .e-dlg-header-content {
+    .dialog-template .e-dialog .e-dlg-header-content {
         padding: 6px;
     }
-    .template .e-open-icon::before {
+    .dialog-template .e-open-icon::before {
         content: '\e782';
     }
-    .template img.img2 {
+    .dialog-template img.img2 {
         height: 36px;
         width: 36px;
         border-radius: 50%;
         vertical-align: middle;
     }
-    #dlg-template {
+    .dialog-template #dlg-template {
         display: inline-block;
         padding: 0px 10px;
         vertical-align: middle;
         height: 40px;
         line-height: 40px;
     }
-    .template input.e-input {
+    .dialog-template input.e-input {
         width: 75%;
         float: left;
     }
-    .template .e-icon-settings.e-icons {
+    .dialog-template .e-icon-settings.e-icons {
         float: left;
         position: relative;
         left: 14%;
         top: -33px;
     }
-    .template .e-icon-settings.e-icons {
+    .dialog-template .e-icon-settings.e-icons {
         top: -37px;
     }
-    .template .dialogContent .dialogText {
+    .dialog-template .dialogContent .dialogText {
         font-size: 13px;
         padding: 5%;
         word-wrap: break-word;
@@ -181,25 +181,25 @@ export default Vue.extend({
         font-style: initial;
         display: block;
     }
-    .template .e-dlg-header .e-icon-settings, .e-icon-btn {
+    .dialog-template .e-dlg-header .e-icon-settings, .dialog-template .e-icon-btn {
         color: #fff;
     }
-    .material .template .e-dialog .e-footer-content, .fabric .template .e-dialog .e-footer-content {
+    .material .dialog-template .e-dialog .e-footer-content, .fabric .dialog-template .e-dialog .e-footer-content {
         border-top: 0.5px solid rgba(0, 0, 0, 0.42);
     }
-    .highcontrast .template .e-dialog .e-footer-content{
+    .highcontrast .dialog-template .e-dialog .e-footer-content{
         border-top: 0.5px solid #fff;
     }
-    .bootstrap4 .template .e-dialog .e-footer-content{
+    .bootstrap4 .dialog-template .e-dialog .e-footer-content{
         border-top: 1px solid #e9ecef;
     }
-    .highcontrast .template .dialogContent .dialogText{
+    .highcontrast .dialog-template .dialogContent .dialogText{
         background-color: #bfbfbf;
     }
-    .template .dialogContent .dialogText, .template .dialogContent .dialogText  {
+    .dialog-template .dialogContent .dialogText, .dialog-template .dialogContent .dialogText  {
         background-color: #f5f5f5;
     }
-    .template .dialogContent {
+    .dialog-template .dialogContent {
         display: block;
         font-size: 15px;
         word-wrap: break-word;
@@ -210,30 +210,30 @@ export default Vue.extend({
         position: relative;
         top: 25px;
     }
-    .control-wrapper .e-control.e-dialog {
+    .control-wrapper .dialog-template .e-control.e-dialog {
         width: 30%;
     }
-    .fabric .template .e-dialog .e-btn.e-dlg-closeicon-btn:hover span {
+    .fabric .dialog-template .e-dialog .e-btn.e-dlg-closeicon-btn:hover span {
         color: #8ECBFF;
     }
-    .template .e-dialog .e-dlg-header-content .e-icon-dlg-close {
+    .dialog-template .e-dialog .e-dlg-header-content .e-icon-dlg-close {
         color: #fff;
     }
-    .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
-    .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
+    .material .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .material .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
         background-color: rgba(255,255,255, 0.10);
     }
-    .bootstrap4 .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
-    .bootstrap4 .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
+    .bootstrap4 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap4 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
         background-color : transparent;
     }
 
-    .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:active .e-icon-dlg-close,
-    .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus .e-icon-dlg-close,
-    .material .template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover .e-icon-dlg-close {
+    .material .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:active .e-icon-dlg-close,
+    .material .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus .e-icon-dlg-close,
+    .material .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover .e-icon-dlg-close {
         color: #fff;
     }
-    .template .e-dialog .e-dlg-header-content .e-dlg-header .e-avatar.template-image {
+    .dialog-template .e-dialog .e-dlg-header-content .e-dlg-header .e-avatar.template-image {
         background-image: url('./images/dialog-img1.png');
         vertical-align: middle;
         display: inline-block;

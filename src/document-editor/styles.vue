@@ -10,7 +10,7 @@
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
 </div>
-<ejs-documenteditorcontainer id='container' ref="doceditcontainer" :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>            
+<ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
     <div id="action-description">
@@ -81,7 +81,7 @@
 import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import * as data from "./data-styles.json";
+import { styles } from "./data";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
@@ -169,9 +169,8 @@ export default Vue.extend({
     },
     mounted() {
         this.$nextTick(function () {
-          this.$refs.doceditcontainer.ej2Instances.locale='en-US';
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-          obj.open(JSON.stringify(data));
+          obj.open(JSON.stringify(styles));
           obj.documentName='Styles';
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {

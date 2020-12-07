@@ -66,7 +66,7 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
 </svg>
 </div>
 </template>
-<style>
+<style scoped>
 #control-containerLog {
   padding: 0px !important;
 }

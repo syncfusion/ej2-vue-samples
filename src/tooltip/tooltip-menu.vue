@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section tooltip-menu">
         <ejs-tooltip ref="tooltip" target="#toolbar-menu button" :beforeOpen="onBeforeRender" :created='created'
             :showTipPointer="show" :width="170" cssClass="e-tooltip-menu-settings" opensOn="Click" id="tooltip-menu">
             <div class="toolbarContainer">
@@ -22,10 +22,10 @@
     <div id="description">
         <p>
             Tooltip has been integrated with Listview component to display the Tooltip menu. With the help of
-            <a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html?lang=typescript#beforerender">
+            <a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#beforerender">
             beforeRender</a> event, dataSource for ListView changed and its instance assigned
             to
-            <a href="https://ej2.syncfusion.com/documentation/tooltip/api-tooltip.html?lang=typescript#content">
+            <a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#content">
             content</a> of Tooltip to appear like menu. On clicking the Toolbar items, the
             corresponding Tooltip menu will be opened.
         </p>
@@ -189,7 +189,7 @@ export default Vue.extend({
   font-style: normal;
 }
 
-.e-bigger .toolbarContainer #toolbar-menu .e-tbar-btn .tb-icons {
+.e-bigger .tooltip-menu .toolbarContainer #toolbar-menu .e-tbar-btn .tb-icons {
   font-size: 18px;
 }
 
@@ -197,7 +197,7 @@ export default Vue.extend({
   padding: 3px;
 }
 
-.toolbarContainer #toolbar-menu .e-tbar-btn .tb-icons {
+.tooltip-menu .toolbarContainer #toolbar-menu .e-tbar-btn .tb-icons {
   font-family: "tb-tooltip-icons";
   font-size: 16px;
   font-style: normal;
@@ -206,16 +206,16 @@ export default Vue.extend({
   text-transform: none;
 }
 
-.toolbarContainer #toolbar-menu .e-copy-icon:before {
+.tooltip-menu .toolbarContainer #toolbar-menu .e-copy-icon:before {
   content: "\e721";
 }
 
-.toolbarContainer #toolbar-menu {
+.tooltip-menu .toolbarContainer #toolbar-menu {
   margin: 0 auto;
   background: transparent;
 }
 
-#tooltipMenu-list .e-list-item:last-child {
+.e-tooltip-menu-settings #tooltipMenu-list .e-list-item:last-child {
   border-bottom: 0;
 }
 
@@ -247,7 +247,7 @@ export default Vue.extend({
   border-bottom: 8px solid #dddddd;
 }
 
-.highcontrast #tooltipMenu-list .e-list-item.e-hover {
+.highcontrast .e-tooltip-menu-settings #tooltipMenu-list .e-list-item.e-hover {
   border-color: transparent;
 }
 
@@ -270,7 +270,7 @@ export default Vue.extend({
 }
 
 @media screen and (max-width: 420px) {
-  .e-bigger .toolbarContainer {
+  .e-bigger .tooltip-menu .toolbarContainer {
     width: 75%;
   }
 }
@@ -282,7 +282,7 @@ export default Vue.extend({
   font-style: normal;
 }
 
-#tooltipMenu-list .e-list-icon {
+.e-tooltip-menu-settings #tooltipMenu-list .e-list-icon {
   float: right;
   height: inherit;
   margin-left: 14px;
@@ -291,43 +291,43 @@ export default Vue.extend({
   font-family: "e-tooltip-menu-icons";
 }
 
-#tooltipMenu-list .wifi:before {
+.e-tooltip-menu-settings #tooltipMenu-list .wifi:before {
   content: "\e700";
 }
 
-#tooltipMenu-list .bluetooth:before {
+.e-tooltip-menu-settings #tooltipMenu-list .bluetooth:before {
   content: "\e702";
 }
 
-#tooltipMenu-list .sim:before {
+.e-tooltip-menu-settings #tooltipMenu-list .sim:before {
   content: "\e705";
 }
 
-#tooltipMenu-list .display:before {
+.e-tooltip-menu-settings #tooltipMenu-list .display:before {
   content: "\e704";
 }
 
-#tooltipMenu-list .sound:before {
+.e-tooltip-menu-settings #tooltipMenu-list .sound:before {
   content: "\e703";
 }
 
-#tooltipMenu-list .battery:before {
+.e-tooltip-menu-settings #tooltipMenu-list .battery:before {
   content: "\e711";
 }
 
-#tooltipMenu-list .user:before {
+.e-tooltip-menu-settings #tooltipMenu-list .user:before {
   content: "\e707";
 }
 
-#tooltipMenu-list .location:before {
+.e-tooltip-menu-settings #tooltipMenu-list .location:before {
   content: "\e708";
 }
 
-#tooltipMenu-list .security:before {
+.e-tooltip-menu-settings #tooltipMenu-list .security:before {
   content: "\e709";
 }
 
-#tooltipMenu-list .language:before {
+.e-tooltip-menu-settings #tooltipMenu-list .language:before {
   content: "\e710";
 }
 

@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height"> <p>The rich text editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
+        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height"> <p>The Rich Text Editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
             Users can format their content using standard toolbar commands.</p>
             <p><b>Key features:</b></p>
             <ul><li><p>Provides IFRAME and DIV modes</p></li>
@@ -21,19 +21,19 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates the default rendering of the rich text editor in <code>iframe mode</code>.</p>
+    <p>This sample demonstrates the default rendering of the Rich Text Editor in <code>iframe mode</code>.</p>
 </div>
 
 
 <div id="description">
-   <p>The rich text editor is WYSIWYG ("what you see is what you get") editor that is used to create and edit content, and return valid HTML markup. The editor provides a standard toolbar to format content using its commands. The toolbar contains commands to align the text, insert link, insert image, 
+   <p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor that is used to create and edit content, and return valid HTML markup. The editor provides a standard toolbar to format content using its commands. The toolbar contains commands to align the text, insert link, insert image, 
        insert list, undo/redo the operation, HTML view, and more.</P>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 .sb-header {
     z-index: 100;
 }

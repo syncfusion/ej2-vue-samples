@@ -66,6 +66,12 @@
             "category": "Editing Features",
             "description": "The Document Editor supports table of contents with options for including hyperlink, page number, right-aligned tabs, and styles."
         },
+		{
+            "url": "form-fields",
+            "name": "Form Fields",
+            "category": "Editing Features",
+            "description": "The Document Editor component in JavaScript platform allows users to design and fill legacy form fields (text, check box, and drop down) in a Word document." 
+        },
         {
             "url": "print",
             "name": "Print",
@@ -91,6 +97,12 @@
             "description": "The Document Editor supports auto save functionality to let the users for saving the documents automatically at customized time interval."
         },
         {
+            "url": "toolbar-customization",
+            "name": "Toolbar Customization",
+            "category": "Customization",            
+            "description": "The Document Editor component supports to show or hide existing items in the toolbar." 
+        },
+        {
             "url": "chart",
             "name": "Chart Preservation",
             "category": "Charts",
@@ -103,12 +115,29 @@
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
         },
         {
+            "url": "web-layout",
+            "name": "Web Layout",
+            "category": "View",            
+            "description": "The Document Editor component supports the continuous layout type to display the document in a single page." 
+        },       
+        {
             "url": "comments",
             "name": "Comments",
             "category": "Review",
-            "type": "new",
             "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
-        }
-
+        },
+		 {
+            "url": "track-changes",
+            "name": "Track Changes",
+            "category": "Review",
+            "description": "The Document Editor component in JavaScript platform allows users to view, make changes and accept or reject them in a Word document." 
+        },
+        {
+            "url": "mail-merge",
+            "name": "Mail Merge",
+            "category": "Mail Merge",
+            "type": "new",
+            "description": "The Document Editor component provides support to mail merge document with the help of Syncfusion DocIO."
+        }	
     ]
 }

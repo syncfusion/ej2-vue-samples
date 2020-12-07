@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="htmlTemplate" class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section htmlTemplate">
         <!-- Tooltip element -->
         <ejs-tooltip ref="tooltip" target="#content" :beforeRender="onBeforeRender" :created='created' :showTipPointer="show"
             cssClass="e-tooltip-template-css" opensOn="Click" :content="template1">
@@ -32,7 +32,7 @@ export default Vue.extend({
       template1: `
         <div id="democontent" class="democontent">
           <h3 style="margin-top:10px">Eastern Bluebird</h3>
-          <img id="bird" src="./src/tooltip/images/bird.png" />
+          <img id="bird" src="./source/tooltip/images/bird.png" />
           <p>The
             <a href="https://en.wikipedia.org/wiki/Eastern_bluebird" target="_blank"> Eastern Bluebird</a>
             is easily found in open fields and sparse woodland areas, including along woodland edges. These are cavity-nesting birds
@@ -83,11 +83,11 @@ export default Vue.extend({
 });
 </script>
 <style>
-#htmlTemplate {
+.htmlTemplate {
   height: 385px;
 }
 
-#htmlTemplate #customization {
+.htmlTemplate #customization {
   display: table;
   margin: 0 auto;
 }
@@ -96,7 +96,7 @@ export default Vue.extend({
   filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.25));
 }
 
-#democontent {
+.e-tooltip-template-css #democontent {
   font-size: 14px;
   line-height: 20px;
   border: 0.5px solid;
@@ -104,24 +104,24 @@ export default Vue.extend({
   padding-right: 5px;
 }
 
-#democontent #bird {
+.e-tooltip-template-css #democontent #bird {
   float: right;
   margin-left: 8px;
   height: 125px;
   width: 125px;
 }
 
-.material #democontent,
-.bootstrap #democontent {
+.material .e-tooltip-template-css #democontent,
+.bootstrap .e-tooltip-template-css #democontent {
   border-color: #d2d2d2;
 }
 
-.fabric #democontent,
-.highcontrast #democontent {
+.fabric .e-tooltip-template-css #democontent,
+.highcontrast .e-tooltip-template-css #democontent {
   border-color: #cccccc;
 }
 
-#democontent a {
+.e-tooltip-template-css #democontent a.{
   color: #62e0f7;
 }
 

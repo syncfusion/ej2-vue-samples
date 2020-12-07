@@ -3,7 +3,7 @@
 <div class="col-lg-8 control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor id="rte" ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings"><p>The rich text editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid HTML markup or markdown of the content</p>
+        <ejs-richtexteditor id="rte" ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings"><p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid HTML markup or markdown of the content</p>
             <p><b>Toolbar</b></p>
             <ol>
                 <li> <p>Toolbar contains commands to align the text, insert link, insert image, insert list, undo/redo operations, HTML view, etc </p></li>
@@ -52,12 +52,12 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates the different behavior of toolbar support in the rich text editor. Change the toolbar type as multiRow or expand from the property panel to see its appearance . Check or uncheck the floating toolbar in property panel to look on its behavior.</p>
+    <p>This sample demonstrates the different behavior of toolbar support in the Rich Text Editor. Change the toolbar type as multiRow or expand from the property panel to see its appearance . Check or uncheck the floating toolbar in property panel to look on its behavior.</p>
 </div>
 
 <div id="description">
     <p><code>Floating</code>: set boolean value to toolbarSettings.enableFloating property to enable or disable the floating toolbar.</p>
-    <p> The rich text editor allows you to configure different types of toolbar using <code>toolbarSettings.type</code> property. The types of
+    <p> The Rich Text Editor allows you to configure different types of toolbar using <code>toolbarSettings.type</code> property. The types of
         toolbar are: </p>
     <ul>
         <li><code>Expand</code>: The toolbar hides the overflowing items in the next row. Click the expand arrow to view overflowing toolbar items</li>
@@ -68,7 +68,7 @@
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 /* custom code start */
 .sb-header {
   z-index: 100;

@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section">
-        <ejs-treemap id='container' align="center" :load='load' :drillStart='drillStart' :tooltipRendering='tooltipRendering' :palette='palette' :titleSettings='titleSettings' :enableRtl='enableRtl' :renderDirection='renderDirection' :enableDrillDown='enableDrillDown' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
+        <ejs-treemap id='container' align="center" :load='load' :palette='palette' :titleSettings='titleSettings' :enableRtl='enableRtl' :renderDirection='renderDirection' :enableDrillDown='enableDrillDown' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org/wiki/List_of_continents_by_population" target="_blank">en.wikipedia.org</a>

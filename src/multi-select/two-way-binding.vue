@@ -2,9 +2,9 @@
 <div class="control section">
   <div id="multiselectwrapper" class="col-lg-12 control-section">
     <div class="control-section">
-      <div class="col-lg-12  content-wrapper" style="height: 350px">
+      <div class="col-lg-12" style="height: 350px">
         <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
-          <ejs-multiselect id='first' :dataSource='sportsData' :mode='boxMode' :placeholder='waterMark' :value='val' v-model="game"></ejs-multiselect>
+          <ejs-multiselect id='first' :dataSource='sportsData' :mode='boxMode' :placeholder='waterMark' v-model="game"></ejs-multiselect>
         </div>
         <div id='content' style="margin: 0 auto; width:250px; padding-top: 100px; padding-left:20px">
           <p id= 'display'><span class = 'selected'>Selected Value: </span><span class = 'display-value'>{{game}}</span></p>
@@ -51,7 +51,7 @@ export default Vue.extend({
 </script>
 
 
-<style>
+<style scoped>
 
 #multiselectwrapper #content #display .selected,.display-value{
   font-weight: 100;

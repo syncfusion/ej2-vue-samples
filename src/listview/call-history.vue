@@ -33,16 +33,14 @@
           <div class="outerButton"> </div>
       </div>
       <div id="action-description">
-          <p>This sample demonstrates the call history application using listview. Click on the checklist
-              to filter the data in contacts list.
+          <p>This sample demonstrates the call history application using ListView. Click the checklist to filter the data in contacts list.
           </p>
       </div>
       <div id="description">
-          <p>This sample filters out the data from listview based on the data selected from the checklist.
-              Here, listview utilizes the
-              <code>template</code>
-              <code>showIcon</code> properties to repesent the call history application. The Tab component
-              is used in this sample for navigation purposes.
+          <p>This sample filters out the data from ListView based on the data selected from the checklist. Here, ListView utilizes the
+             <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view#template'>template</a></code> and 
+             <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view#showicon'>showIcon</a></code> properties 
+             to repesent the call history application. The Tab component is used in this sample for navigation purposes. 
           </p>
       </div>
   </div>
@@ -50,7 +48,7 @@
 <style>
 /* Layout customization */
 
-.layoutWrapper {
+.call-history .layoutWrapper {
   line-height: initial;
   border: 1px solid black;
   width: 285px;
@@ -62,7 +60,7 @@
 
 }
 
-.layoutWrapper .speaker {
+.call-history .layoutWrapper .speaker {
   border: 1px solid black;
   border-radius: 5px;
   width: 33.33333333%;
@@ -71,7 +69,7 @@
   position: relative;
 }
 
-.layoutWrapper .outerButton {
+.call-history .layoutWrapper .outerButton {
   width: 30px;
   height: 30px;
   border: 1px solid black;
@@ -81,7 +79,7 @@
   left: calc(50% - 15px);
 }
 
-.layoutWrapper .camera {
+.call-history .layoutWrapper .camera {
   position: absolute;
   left: calc(-15% - 10px);
   top: -100%;
@@ -91,20 +89,17 @@
   border: 1px solid black;
 }
 
-.layoutWrapper .layout {
+.call-history .layoutWrapper .layout {
   border: 1px solid black;
   margin: 20px 13px 0px 13px;
 }
 
-.layout #list-container .e-list-item {
+.call-history .layout #list-container .e-list-item {
   cursor: pointer;
 }
 
-.layoutWrapper.e-device-layout {
-  visibility: visible;
-}
-
-.e-visbile-layer {
+.call-history .layoutWrapper.e-device-layout,
+.call-history .e-visbile-layer {
   visibility: visible;
 }
 
@@ -124,48 +119,17 @@
   font-style: normal;
 }
 
-.layout
-  #list-container
-  #all.e-listview.e-list-template
-  .e-list-wrapper.e-list-multi-line,
-.layout
-  #list-container
-  #received.e-listview.e-list-template
-  .e-list-wrapper.e-list-multi-line,
-.layout
-  #list-container
-  #missed.e-listview.e-list-template
-  .e-list-wrapper.e-list-multi-line {
-  padding: 5px;
-}
-
-.layout
-  #list-container
-  #all.e-listview.e-list-template
-  .e-list-wrapper.e-list-avatar,
-.layout
-  #list-container
-  #received.e-listview.e-list-template
-  .e-list-wrapper.e-list-avatar,
-.layout
-  #list-container
-  #missed.e-listview.e-list-template
-  .e-list-wrapper.e-list-avatar {
-  padding-left: 50px;
-  padding-right: 5px;
-}
-
-.layout
+.call-history .layout
   #list-container
   #all.e-listview.e-list-template
   .e-list-wrapper.e-list-multi-line.e-list-avatar
   .e-avatar,
-.layout
+.call-history .layout
   #list-container
   #received.e-listview.e-list-template
   .e-list-wrapper.e-list-multi-line.e-list-avatar
   .e-avatar,
-.layout
+.call-history .layout
   #list-container
   #missed.e-listview.e-list-template
   .e-list-wrapper.e-list-multi-line.e-list-avatar
@@ -174,43 +138,55 @@
   left: 5px;
 }
 
-.layout #list-container #all,
-.layout #list-container #received,
-.layout #list-container #missed {
+.layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+  padding: 5px 60px 5px 5px;
+}
+
+.layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+  padding: 5px 5px 5px 50px;
+}
+
+.call-history .layout #list-container #all,
+.call-history .layout #list-container #received,
+.call-history .layout #list-container #missed {
   max-height: 360px;
 }
 
-.layout #list-container {
+.call-history .layout #list-container {
   height: 405px;
 }
 
-.layout #list-container .received {
+.call-history .layout #list-container .received {
   font-family: Call-icons;
 }
 
-.layout #list-container .received:before {
+.call-history .layout #list-container .received:before {
   content: "\e700";
   font-size: 8px;
   margin-right: 6px;
 }
 
-.layout #list-container .missed {
+.call-history .layout #list-container .missed {
   font-family: Call-icons;
 }
 
-.layout #list-container .missed:before {
+.call-history .layout #list-container .missed:before {
   content: "\e702";
   font-size: 8px;
   margin-right: 6px;
 }
 
-.layout #list-container .e-icon {
+.call-history .layout #list-container .e-icon {
   font-family: 'e-customized-icons';
   background: transparent;
   color: black;
 }
 
-.bootstrap4 .layout #list-container .e-listview .e-active .e-icon {
+.bootstrap4 .call-history .layout #list-container .e-listview .e-active .e-icon {
         color: #fff;
 }
 
@@ -221,17 +197,21 @@
   font-style: normal;
 }
 
-.layout #list-container .e-icon:before {
+.call-history .layout #list-container .e-icon:before {
   content: "\e902";
 }
 
 /* ListView theme customization */
 
-.highcontrast .layoutWrapper .layout,
-.highcontrast .layoutWrapper .camera,
-.highcontrast .layoutWrapper .outerButton,
-.highcontrast .layoutWrapper .speaker,
-.highcontrast .layoutWrapper {
+.highcontrast .layout #list-container .e-icon {
+  color: white;
+}
+
+.highcontrast .call-history .layoutWrapper .layout,
+.highcontrast .call-history .layoutWrapper .camera,
+.highcontrast .call-history .layoutWrapper .outerButton,
+.highcontrast .call-history .layoutWrapper .speaker,
+.highcontrast .call-history .layoutWrapper {
   border-color: white;
 }
 </style>

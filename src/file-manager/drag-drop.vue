@@ -1,13 +1,13 @@
 <template>
 <div>
-    <div class="control-section">
+    <div class="control-section file-drag">
          <div class="sample-container">
             <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :allowDragAndDrop='allowDragAndDrop' >
             </ejs-filemanager>
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates the drag-and-drop feature of the File Manager. To drag and drop the file, select and drag a desired file or folder and drop it into the target folder. The File Manager component allows users to drag any file and drop it on any other folder in the same or different folder using the <code><a href="https://ej2.syncfusion.com/documentation/api/file-manager/#allowdraganddrop" target="_blank">allowDragAndDrop</a></code> property.</p>
+        <p>This sample demonstrates the drag-and-drop feature of the File Manager. To drag and drop the file, select and drag a desired file or folder and drop it into the target folder. The File Manager component allows users to drag any file and drop it on any other folder in the same or different folder using the <code><a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#allowdraganddrop" target="_blank">allowDragAndDrop</a></code> property.</p>
     </div>
     <div id="description">
         <p>
@@ -21,7 +21,7 @@
 </div>
 </template>
 <style>
-.sample-container {
+.file-drag .sample-container {
     margin: 10px 10px 10px 10px;
 }
 </style>

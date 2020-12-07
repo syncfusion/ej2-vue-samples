@@ -16,8 +16,8 @@
     </div>
   </div>
 </template>
-<style>
- .control-section {
+<style> 
+ .avatar-listview {
         overflow: auto;
     }
 
@@ -117,12 +117,12 @@
         background-image: url('./images/pic04.png');
     }
 
- .bootstrap4 #letterAvatarList .e-list-item {
+ .bootstrap4 .avatar-listview #letterAvatarList .e-list-item {
         line-height: 30px;
         padding: 8px 16px 8px 16px;
     }
 
-    .bootstrap4 #letterAvatarList .e-list-item .e-avatar {
+    .bootstrap4 .avatar-listview #letterAvatarList .e-list-item .e-avatar {
         top: calc(100% - 48px);
     }
 

@@ -14,25 +14,25 @@
 
  <div id="action-description">
     <p>
-        This sample demonstrates two-way binding support of the RichTextEditor component.
+        This sample demonstrates two-way binding support of the Rich Text Editor component.
    </p>
  </div>
 
  <div id="description">
     <p>
-        In this sample, two-way binding support is achieved using the v-model directive in Vue. When you change the content in the RichTextEditor,the changed value gets updated automatically and displayed on the other RichTextEditor control.
+        In this sample, two-way binding support is achieved using the v-model directive in Vue. When you change the content in the Rich Text Editor,the changed value gets updated automatically and displayed on the other Rich Text Editor control.
     </p>
     <p>
       The v-model directive updates the template every time whenever the model gets updated and vice versa. 
     </p> 
-    <p>More information on the RichTextEditor instantiation can be found in the
+    <p>More information on the Rich Text Editor instantiation can be found in the
         <a href="https://ej2.syncfusion.com/vue/documentation/rich-text-editor/getting-started.html" target="_blank"> documentation section</a>.</p>
  </div>
 
 </div>
 
 </template>
-<style>
+<style scoped>
 .forum .e-richtexteditor {
   margin-top : 40px;
 }
@@ -71,7 +71,7 @@ export default Vue.extend({
   name: "ModelBinding",
   data: function() {
     return {
-      value: "<p>Type or edit the content in the RichTextEditor to see the action.</p>",
+      value: "<p>Type or edit the content in the Rich Text Editor to see the action.</p>",
       isCreated: 0,
       isDestroyed: 0
     };

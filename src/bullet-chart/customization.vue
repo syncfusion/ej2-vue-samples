@@ -28,7 +28,7 @@
     <div class="col-md-4 property-section">
       <div class="property-panel-header">Properties</div>
       <table title="Properties" style="width: 100%; height: 100%;">
-        <tr>
+        <tr >
           <td style="width: 60%">
             <div class="prop-text">Start Color:</div>
           </td>
@@ -38,7 +38,7 @@
             </div>
           </td>
         </tr>
-        <tr>
+        <tr >
           <td style="width: 60%">
             <div class="prop-text">Middle Color:</div>
           </td>
@@ -48,7 +48,7 @@
             </div>
           </td>
         </tr>
-        <tr>
+        <tr >
           <td style="width: 60%">
             <div class="prop-text">End Color:</div>
           </td>
@@ -58,7 +58,7 @@
             </div>
           </td>
         </tr>
-        <tr>
+        <tr >
           <td style="width: 60%">
             <div class="prop-text">Use Range Color:</div>
           </td>
@@ -68,7 +68,7 @@
             </div>
           </td>
         </tr>
-        <tr>
+        <tr >
           <td style="width: 60%">
             <div class="prop-text">Opposed position:</div>
           </td>
@@ -90,7 +90,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 #control-container {
   padding: 0px !important;
 }
@@ -99,7 +99,7 @@
   font-size: small;
 }
 
-tr {
+.tr {
   height: 50px !important;
 }
 </style>

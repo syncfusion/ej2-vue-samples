@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :currentView='currentView' :selectedDate='selectedDate' :eventSettings='eventSettings'
@@ -42,24 +42,24 @@
     </div>
 </template>
 <style>
-    .e-schedule .e-agenda-view .e-appointment .subject {
+    .schedule-vue-sample .e-schedule .e-agenda-view .e-appointment .subject {
         font-size: 14px;
     }
 
-    .e-schedule .e-agenda-view .e-appointment .group {
+    .schedule-vue-sample .e-schedule .e-agenda-view .e-appointment .group {
         font-size: 12px;
         font-weight: 500;
     }
 
-    .e-schedule .e-agenda-view .e-appointment .location {
+    .schedule-vue-sample .e-schedule .e-agenda-view .e-appointment .location {
         font-size: 12px;
     }
 
-    .e-schedule .e-date-header-wrap .e-resource-cells {
+    .schedule-vue-sample .e-schedule .e-date-header-wrap .e-resource-cells {
         font-weight: 500;
     }
 
-    .e-schedule .e-month-view .e-appointment .e-appointment-details {
+    .schedule-vue-sample .e-schedule .e-month-view .e-appointment .e-appointment-details {
         padding: 1px;
         padding-left: 3px;
     }

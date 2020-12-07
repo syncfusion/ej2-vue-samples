@@ -28,10 +28,10 @@
         </p>
         <p>
             In this demo, Dialog template is enabled for editing by defining <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#mode-string">
+            href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#mode">
             editSettings.mode
             </a></code> as <code>Dialog</code> and <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#mode-string">
+                href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#template">
                 editSettings.template
                 </a></code> accepts vue component which holds the template for dialog. You can start editing by double clicking a row or clicking on toolbar's <code>Edit</code>
             button, then the currently selected row will be shown on a dialog with custom elements and you can change the row values and save edited data to the datasource.
