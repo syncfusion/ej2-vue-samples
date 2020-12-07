@@ -80,7 +80,7 @@ if (fs.existsSync('./controlWiseSamples.json')) {
     sampleList = JSON.parse(fs.readFileSync('./controlWiseSample.json'));
 }
 
-gulp.task('sample-json', function() {
+gulp.task('sample-json', gulp.series(function() {
     if (sampleList && sampleList.length) {
         var controls = getControls();
         var samplejson = glob.sync('./src/**/sample.json', { silent: true });
@@ -94,9 +94,9 @@ gulp.task('sample-json', function() {
         }
         fs.writeFileSync('./samplelist.json', JSON.stringify(obj));
     }
-})
+}))
 
-gulp.task('combine-samplelist', function() {
+gulp.task('combine-samplelist', gulp.series(function() {
     var apiReference = {};
     if (sampleList && sampleList.length) {
         var controls = getControls();
@@ -142,9 +142,9 @@ gulp.task('combine-samplelist', function() {
             return new Buffer('export let samplesList : any =' + JSON.stringify(result) + ';\n\n' + 'export let apiList:any=' + JSON.stringify(apiReference) + '\n\n export let skipCommonChunk: string[] = ' + JSON.stringify(commonChunkSkip) + ';');
         }))
         .pipe(gulp.dest('./src/common/'));
-});
+}));
 
-gulp.task('generate-routes', function() {
+gulp.task('generate-routes', gulp.series(function(done) {
     var jsonFiles = glob.sync('./src/**/sample.json');
     var imports = '',
         routs = ["{path: '/', redirect: '/material/grid/grid-overview'}"];
@@ -161,18 +161,20 @@ gulp.task('generate-routes', function() {
         });
     });
     fs.writeFileSync("./src/router.config.ts", imports + 'export default [' + routs + '];');
-});
+    done();
+}));
 
 /* copy styles from nodemodules */
-gulp.task('copy', function (done) {
+gulp.task('copy', gulp.series(function (done) {
      var files=glob.sync('./node_modules/@syncfusion/ej2/*.css')
      files.forEach(file=>
      {  
         shelljs.cp(file,'./public/styles');    
      })
-});
+     done();
+}));
 
-gulp.task('copy-source', function () {
+gulp.task('copy-source', gulp.series(function (done) {
     var localeJson = glob.sync(__dirname + '/src/**/*', {
       silent: true,
       ignore: ['/src/common/**/', '/src/common']
@@ -185,36 +187,38 @@ gulp.task('copy-source', function () {
         }
       }
     }
-  }); 
+    done();
+  })); 
 
-gulp.task('src-ship', function (done) {
+gulp.task('src-ship', gulp.series(function (done) {
     var indexFile = fs.readFileSync('./dist/index.html','utf8');
     indexFile = indexFile.replace(/\"\/app.js\"/g, `"./app.js"`);
     fs.writeFileSync('./dist/index.html', indexFile, 'utf8');
     shelljs.cp('-rf', ['./public', './**.config.js', './**.json', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
     done();
-});
+}));
 
-gulp.task('build', function(done) {
+gulp.task('build', gulp.series(function(done) {
     shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source && npm run build && gulp src-ship', done)
-});
+}));
 
-gulp.task('serve',['build'], function(done) {
+gulp.task('serve',gulp.series('build', function(done) {
     const serve = require('serve')
     const server = serve(__dirname + '/dist', {
         port: 3000,
         ignore: ['node_modules']
     })
-});
+    done();
+}));
 
-gulp.task('ci-report', function(done)
+gulp.task('ci-report', gulp.series(function(done)
 {
     done();
-});
+}));
 
 // Install log task.
-gulp.task('ls-log', function () {
+gulp.task('ls-log', gulp.series(function () {
     shelljs.mkdir('-p', './cireports/logs');
     shelljs.exec('npm ls >./cireports/logs/install.log');
-});
+}));
 
