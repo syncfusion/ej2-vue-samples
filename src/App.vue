@@ -976,11 +976,7 @@ export default Vue.extend({
             let next: Tooltip = new Tooltip({
                 content: 'Next Sample'
             });
-<<<<<<< HEAD
-            select('#right-pane').addEventListener('scroll', function () {
-=======
             select('#right-pane').addEventListener('scroll', function (event: any) {
->>>>>>> upstream/master
                 next.close();
                 previous.close();
             });
