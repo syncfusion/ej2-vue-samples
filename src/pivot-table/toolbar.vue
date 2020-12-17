@@ -355,4 +355,7 @@ export default Vue.extend({
 /deep/ .control-section {
   min-height: 255px !important;
 }
+/deep/ #pivotviewcontainerwrapper {
+  height: auto !important;
+}
 </style>

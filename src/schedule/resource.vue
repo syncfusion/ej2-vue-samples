@@ -2,7 +2,7 @@
 <div class="schedule-vue-sample">
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
-            <ejs-schedule id="schedule" ref="ScheduleObj" :cssClass="cssClass" width='100%' height='650px'
+            <ejs-schedule id="schedule" ref="ScheduleObj" width='100%' height='650px'
                 :ownerCollections="ownerCollection" :selectedDate="selectedDate" :eventSettings="eventSettings">
                 <e-resources>
                     <e-resource field="OwnerId" title="Owners" :dataSource='resourceDataSource' allowMultiple="true"

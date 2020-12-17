@@ -17,7 +17,7 @@
         :titleStyle="titleStyle"
         labelFormat="${value}K"
         :enableRtl="enableRtl"
-        :orientation="Horizontal"
+        orientation="Horizontal"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="150"></e-bullet-range>

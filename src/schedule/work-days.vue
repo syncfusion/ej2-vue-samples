@@ -111,15 +111,11 @@
         },
         methods: {
             changeDayofWeek: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.firstDayOfWeek = parseInt(args.value, 10);
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.firstDayOfWeek = parseInt(args.value, 10);
             },
 
             changeWorkDays: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.workDays = args.value.toString().split(',').map(Number);
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.workDays = args.value.toString().split(',').map(Number);
             },
 
             onEventRendered: function (args) {

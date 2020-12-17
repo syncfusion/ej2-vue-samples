@@ -69,6 +69,7 @@
     .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .content-area {
         padding-left: 6px;
         font-size: 12px;
+        margin: 0px;
     }
 
     .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance {

@@ -3,6 +3,7 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
+	"type": "update",
     "samples": [
         {
             "url": "overview",
@@ -47,6 +48,21 @@
                     "columns",
                     "cardSettings",
                     "swimlaneSettings"
+                ]
+            }
+        },
+        {
+            "url": "workflow",
+            "name": "Workflow",
+            "category": "Kanban",
+            "type": "new",
+            "description": "The example demonstrates a workflow feature that controls the flow of cards while drag-and-drop the cards between the columns.",
+            "api": {
+                "Kanban": [
+                    "dataSource",
+                    "keyField",
+                    "columns",
+                    "cardSettings"
                 ]
             }
         },

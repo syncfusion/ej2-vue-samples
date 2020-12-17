@@ -2,7 +2,7 @@
   <div class="control-section">
     <div style="width:100%;height:445px">
       <div id="palette-space" style="width:240px;height:445px; float:left">
-        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'></ejs-symbolpalette>
+        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth' :getNodeDefaults='palettegetNodeDefaults'></ejs-symbolpalette>
       </div>
 
       <div id="diagram-space" style="width:calc(100% - 242px);height:445px; float:left;border-color: rgba(0, 0, 0, 0.12);border-width: 1px 1px 0px 0px;
@@ -1059,6 +1059,9 @@ export default Vue.extend({
       ],
       palettewidth: "400",
       paletteheight: "550px",
+      palettegetNodeDefaults: (symbol) => {
+        symbol.style = {strokeColor: "#757575"}
+      },
       symbolHeight: 60,
       symbolWidth: 60,
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
@@ -1085,37 +1088,38 @@ function getConnectors(){
       type: "Orthogonal",
       sourcePoint: { x: 0, y: 0 },
       targetPoint: { x: 40, y: 40 },
-      targetDecorator: { shape: "Arrow" },
-      style: { strokeWidth: 2 }
+      targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
+      style: { strokeWidth: 2, strokeColor: "#757575" }
     },
     {
       id: "Link2",
       type: "Orthogonal",
       sourcePoint: { x: 0, y: 0 },
       targetPoint: { x: 40, y: 40 },
-      targetDecorator: { shape: "Arrow" },
-      style: { strokeWidth: 2, strokeDashArray: "4 4" }
+      targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
+      style: { strokeWidth: 2, strokeDashArray: "4 4", strokeColor: "#757575" }
     },
     {
       id: "Link3",
       type: "Straight",
       sourcePoint: { x: 0, y: 0 },
       targetPoint: { x: 40, y: 40 },
-      targetDecorator: { shape: "Arrow" },
-      style: { strokeWidth: 2 }
+      targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
+      style: { strokeWidth: 2, strokeColor: "#757575" }
     },
     {
       id: "link4",
       sourcePoint: { x: 0, y: 0 },
       targetPoint: { x: 40, y: 40 },
       type: "Orthogonal",
+      targetDecorator: { style: {strokeColor: "#757575", fill: "#757575"} },
       shape: {
         type: "Bpmn",
         flow: "Association",
         association: "Directional"
       },
       style: {
-        strokeDashArray: "2,2"
+        strokeDashArray: "2,2", strokeColor: "#757575", fill: "#757575"
       }
     }
     //  {

@@ -50,11 +50,12 @@
             <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
               <ejs-button
                 ref="toggleBtn"
-                iconCss="e-btn-sb-icons e-play-icon"
+                :iconCss="iconCssValue"
                 cssClass="e-flat"
                 :isPrimary="true"
                 :isToggle="true"
                 v-on:click.native="btnClick"
+                :content ="contentValue"
               >Play</ejs-button>
             </div>
           </div>
@@ -167,14 +168,38 @@ import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 Vue.use(ButtonPlugin);
 
 export default Vue.extend({
+  data: function () {
+    return {
+      content: "Play",
+      iconCss: "e-btn-sb-icons e-play-icon"
+    }
+  },
+  computed: {
+    contentValue: {
+      get: function () {
+        return this.content;
+      },
+      set: function (content) {
+        this.content = content
+      }
+    },
+    iconCssValue: {
+      get: function () {
+        return this.iconCss;
+      },
+      set: function (iconCss) {
+        this.iconCss = iconCss
+      }
+    }
+  },
   methods: {
     btnClick: function(event) {
       if (this.$refs.toggleBtn.$el.classList.contains("e-active")) {
-        this.$refs.toggleBtn.content = "Play";
-        this.$refs.toggleBtn.iconCss = "e-btn-sb-icons e-play-icon";
+       this.contentValue = "Play";
+       this.iconCssValue = "e-btn-sb-icons e-play-icon";
       } else {
-        this.$refs.toggleBtn.content = "Pause";
-        this.$refs.toggleBtn.iconCss = "e-btn-sb-icons e-pause-icon";
+        this.contentValue = "Pause";
+        this.iconCssValue = "e-btn-sb-icons e-pause-icon";
       }
     }
   }

@@ -38,6 +38,10 @@
         padding: 10px 25px;
     }
 
+    .schedule-vue-sample .e-schedule .e-more-event-popup .template-wrap .subject {
+        padding: 0px 25px;
+    }
+
     .schedule-vue-sample .e-schedule .template-wrap {
         width: 100%;
     }

@@ -2,7 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartSpline' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
+            :chartArea='chartArea' :width='width' :tooltip='tooltip'>
             <e-annotations>
                 <e-annotation :content='cloudTemplate' x='Sun' y=2 coordinateUnits='Point' verticalAlignment='Top'>
                 </e-annotation>

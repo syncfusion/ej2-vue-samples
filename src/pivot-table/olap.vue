@@ -378,4 +378,7 @@ export default Vue.extend({
     overflow: auto;
   }
 }
+/deep/ #pivotviewcontainerwrapper {
+  height: auto !important;
+}
 </style>

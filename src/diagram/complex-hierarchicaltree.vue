@@ -80,6 +80,11 @@
                                       :change='verticalchange'/>
               </div>
           </div>
+          <div class="row" style="padding-top: 10px">
+        <div class="row" style="padding-top: 8px">
+          <ejs-checkbox id="checked" :checked=true :label='label' :change='change'></ejs-checkbox>
+        </div>
+    </div>
       </div>
   </div>
 
@@ -155,8 +160,8 @@ import {
   Node,
   Connector,
   DataBinding,
-  DiagramTools,
-  ComplexHierarchicalTree,
+  DiagramTools,ConnectionPointOrigin,
+  ComplexHierarchicalTree,LineDistribution,
   LayoutOrientation
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
@@ -183,6 +188,7 @@ export default Vue.extend({
       //Configrues hierarchical tree layout
       layout: {
         type: "ComplexHierarchicalTree",
+        connectionPointOrigin: ConnectionPointOrigin.DifferentPoint,
         horizontalSpacing: 40,
         verticalSpacing: 40,
         orientation: "TopToBottom",
@@ -203,6 +209,14 @@ export default Vue.extend({
         connector.targetDecorator.width = 7;
         connector.style.strokeColor = "#6d6d6d";
       },
+      change: (args) => {
+        if (args.checked) {
+                 diagramInstance.layout.connectionPointOrigin = ConnectionPointOrigin.DifferentPoint;
+            } else {
+                diagramInstance.layout.connectionPointOrigin = ConnectionPointOrigin.SamePoint;
+            }
+      },
+      label: "Prevent Connector Overlapping",
       //Configures data source
       dataSourceSettings: {
         id: "Name",
@@ -252,7 +266,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    diagram: [DataBinding, ComplexHierarchicalTree]
+    diagram: [DataBinding, ComplexHierarchicalTree, LineDistribution]
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;

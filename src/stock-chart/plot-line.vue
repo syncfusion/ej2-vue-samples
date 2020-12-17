@@ -6,7 +6,6 @@
         id="stockchartcontainerplot"
         :primaryXAxis="primaryXAxis"
         :primaryYAxis="primaryYAxis"
-        :chartArea="chartArea"
         :title="title"
         :border="border"
         :theme="theme"

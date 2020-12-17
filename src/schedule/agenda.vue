@@ -101,22 +101,16 @@
         },
         methods: {
             change: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
                 let allowVS = (args.value === 'True') ? true : false;
-                scheduleObj.views = [{ option: 'Agenda', allowVirtualScrolling: allowVS }];
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.views = [{ option: 'Agenda', allowVirtualScrolling: allowVS }];
             },
 
             onChange: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.hideEmptyAgendaDays = (args.value === 'True') ? true : false;
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.hideEmptyAgendaDays = (args.value === 'True') ? true : false;
             },
 
             onCountChange: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.agendaDaysCount = args.value !== null ? args.value : 7;
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.agendaDaysCount = args.value !== null ? args.value : 7;
             }
         }
     });

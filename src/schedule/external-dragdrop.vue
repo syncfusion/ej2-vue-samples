@@ -1,7 +1,7 @@
 <template>
     <div class="schedule-vue-sample">
         <div class="control-section">
-            <div class="content-wrapper">
+            <div class="drag-sample-wrapper">
             <div class="schedule-container">
                 <div class="title-container">
                     <h1 class="title-text">Doctor's Appointments</h1>
@@ -47,7 +47,7 @@
 </template>
 <style>
 /* custom code start*/
-.schedule-vue-sample .content-wrapper {
+.schedule-vue-sample .drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
 }

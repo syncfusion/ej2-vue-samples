@@ -112,21 +112,18 @@
         },
         methods: {
             onMultiSelectChange: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
                 let value = (args.value).slice(0).map(Number).sort();
-                scheduleObj.workDays = value.length === 0 ? [0] : value;
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.workDays = value.length === 0 ? [0] : value;
             },
 
             btnClick: function (event) {
-                let scheduleObj = this.$refs.ScheduleObj;
                 var toggleBtn = event.target.ej2_instances[0];
                 if (toggleBtn.element.classList.contains("e-active")) {
                     toggleBtn.content = "Hide";
-                    scheduleObj.showWeekend = true;
+                    this.$refs.ScheduleObj.ej2Instances.showWeekend = true;
                 } else {
                     toggleBtn.content = "Show";
-                    scheduleObj.showWeekend = false;
+                    this.$refs.ScheduleObj.ej2Instances.showWeekend = false;
                 }
             },
 

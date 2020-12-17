@@ -3,7 +3,7 @@
   <div class="col-lg-8 control-section">
     <div id="colorpicker-control">
       <h4>Choose a color</h4>
-      <ejs-colorpicker id="color-picker" ref="colorPicker" value="#0db1e7" :change="change"></ejs-colorpicker>
+      <ejs-colorpicker :showButtons="showButtonsValue" :disabled="disabledValue" :modeSwitcher="modeSwitcherValue" id="color-picker" ref="colorPicker" :mode="modeValue" :value="hexValue" :change="change"></ejs-colorpicker>
     </div>
     </div>
     <div class="col-lg-4 property-section">
@@ -119,36 +119,83 @@ Vue.use(DropDownListPlugin);
 Vue.use(CheckBoxPlugin);
 
 export default Vue.extend({
-   data: function () {
-    return {
-      items: [
-        { mode: 'Picker' },
-        { mode: 'Palette' }
-      ],
-      fields: { text: 'mode', value: 'mode' },
-    };
-  },
-  methods: {
-    onChange: function(args) {
-      const val = args.target.value;
-      // Sets to color picker default color value if user enters the invalid hex code
-      this.$refs.colorPicker.value = val && val.length > 2 ? (val[0] !== '#' ? `#${val}` : val) : '#008000';
+    data: function () {
+        return {
+            hex: '#0db1e7',
+            mode: 'picker',
+            disabled: false,
+            showButtons: true,
+            modeSwitcher: true,
+            items: [
+                { mode: 'Picker' },
+                { mode: 'Palette' }
+            ],
+            fields: { text: 'mode', value: 'mode' }
+        };
     },
-    change: function(args) {
-      this.$refs.inputValue.value = args.currentValue.hex;
+    computed: {
+        hexValue: {
+            get: function () {
+                return this.hex;
+            },
+            set: function (hex) {
+                this.hex = hex
+            }
+        },
+        modeValue: {
+            get: function () {
+                return this.mode;
+            },
+            set: function (mode) {
+                this.mode = mode
+            }
+        },
+        disabledValue: {
+            get: function () {
+                return this.disabled;
+            },
+            set: function (disabled) {
+                this.disabled = disabled
+            }
+        },
+        modeSwitcherValue: {
+            get: function () {
+                return this.modeSwitcher;
+            },
+            set: function (modeSwitcher) {
+                this.modeSwitcher = modeSwitcher
+            }
+        },
+        showButtonsValue: {
+            get: function () {
+                return this.showButtons;
+            },
+            set: function (showButtons) {
+                this.showButtons = showButtons
+            }
+        }
     },
-    modeChange: function(args) {
-        this.$refs.colorPicker.mode = args.value;
-    },
-    button_onChange: function(args) {
-        this.$refs.colorPicker.showButtons = args.checked;
-    },
-    mode_onChange: function(args) {
-       this.$refs.colorPicker.modeSwitcher = args.checked;
-    },
-    disabled_onChange: function(args) {
-        this.$refs.colorPicker.disabled = args.checked;
+    methods: {
+        onChange: function(args) {
+            const val = args.target.value;
+            // Sets to color picker default color value if user enters the invalid hex code
+            this.hexValue = val && val.length > 2 ? (val[0] !== '#' ? `#${val}` : val) : '#008000';
+        },
+        change: function(args) {
+            this.hexValue = args.currentValue.hex;
+        },
+        modeChange: function(args) {
+            this.modeValue = args.value;
+        },
+        button_onChange: function(args) {
+            this.showButtonsValue = args.checked;
+        },
+        mode_onChange: function(args) {
+            this.modeSwitcherValue = args.checked;
+        },
+        disabled_onChange: function(args) {
+            this.disabledValue = args.checked;
+        }
     }
-  }
 });
 </script>

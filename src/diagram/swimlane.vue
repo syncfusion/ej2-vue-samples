@@ -438,7 +438,7 @@ let palettes = [
      {
             id: 'flow', expanded: true, title: 'Flow Shapes', symbols: [
                 {
-                    id: 'Terminator', addInfo: { tooltip: 'Terminator' }, width: 50, height: 60, shape: { type: 'Flow', shape: 'Terminator' }, style: { strokeWidth: 1 }, ports: [
+                    id: 'Terminator', addInfo: { tooltip: 'Terminator' }, width: 50, height: 60, shape: { type: 'Flow', shape: 'Terminator' }, style: { strokeWidth: 1, strokeColor: "#757575" }, ports: [
                         { offset: { x: 0, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
@@ -446,7 +446,7 @@ let palettes = [
                     ]
                 },
                 {
-                    id: 'Process',  addInfo: { tooltip: 'Process' }, width: 50, height: 60, shape: { type: 'Flow', shape: 'Process' }, style: { strokeWidth: 1 }, ports: [
+                    id: 'Process',  addInfo: { tooltip: 'Process' }, width: 50, height: 60, shape: { type: 'Flow', shape: 'Process' }, style: { strokeWidth: 1, strokeColor: "#757575" }, ports: [
                         { offset: { x: 0, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
@@ -454,7 +454,7 @@ let palettes = [
                     ]
                 },
                 {
-                    id: 'Decision', addInfo: { tooltip: 'Decision' }, width: 50, height: 50, shape: { type: 'Flow', shape: 'Decision' }, style: { strokeWidth: 1 }, ports: [
+                    id: 'Decision', addInfo: { tooltip: 'Decision' }, width: 50, height: 50, shape: { type: 'Flow', shape: 'Decision' }, style: { strokeWidth: 1, strokeColor: "#757575" }, ports: [
                         { offset: { x: 0, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
@@ -462,7 +462,7 @@ let palettes = [
                     ]
                 },
                 {
-                    id: 'Document', addInfo: { tooltip: 'Document' }, width: 50, height: 50, shape: { type: 'Flow', shape: 'Document' }, style: { strokeWidth: 1 }, ports: [
+                    id: 'Document', addInfo: { tooltip: 'Document' }, width: 50, height: 50, shape: { type: 'Flow', shape: 'Document' }, style: { strokeWidth: 1, strokeColor: "#757575" }, ports: [
                         { offset: { x: 0, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
@@ -475,7 +475,7 @@ let palettes = [
                         { offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 0.5, y: 1 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw }
-                    ], style: { strokeWidth: 1 }
+                    ], style: { strokeWidth: 1, strokeColor: "#757575" }
                 },
                 {
                     id: 'Data', addInfo: { tooltip: 'Data' }, width: 50, height: 50, shape: { type: 'Flow', shape: 'Data' }, ports: [
@@ -483,7 +483,7 @@ let palettes = [
                         { offset: { x: 0.5, y: 0 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 1, y: 0.5 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw },
                         { offset: { x: 0.5, y: 1 }, visibility: PortVisibility.Connect | PortVisibility.Hover, constraints: PortConstraints.Draw }
-                    ], style: { strokeWidth: 1 }
+                    ], style: { strokeWidth: 1, strokeColor: "#757575" }
                 },
             ]
         },
@@ -497,8 +497,8 @@ let palettes = [
           type: 'SwimLane', lanes: [
             {
               id: 'lane1',
-              style: { strokeColor: 'black' }, height: 60, width: 150,
-              header: { width: 50, height: 50, style: { strokeColor: 'black', fontSize: 11 } },
+              style: { strokeColor: "#757575" }, height: 60, width: 150,
+              header: { width: 50, height: 50, style: { strokeColor: "#757575", fontSize: 11 } },
             }
           ],
           orientation: 'Horizontal', isLane: true
@@ -514,8 +514,8 @@ let palettes = [
           lanes: [
             {
               id: 'lane1',
-              style: { strokeColor: 'black' }, height: 150, width: 60,
-              header: { width: 50, height: 50, style: { strokeColor: 'black', fontSize: 11 } },
+              style: { strokeColor: "#757575" }, height: 150, width: 60,
+              header: { width: 50, height: 50, style: { strokeColor: "#757575", fontSize: 11 } },
             }
           ],
           orientation: 'Vertical', isLane: true
@@ -529,22 +529,24 @@ let palettes = [
         id: 'verticalPhase', addInfo: { tooltip: 'Vertical phase' },
         shape: {
           type: 'SwimLane',
-          phases: [{ style: { strokeWidth: 1, strokeDashArray: '3,3', strokeColor: '#A9A9A9' }, }],
+          phases: [{ style: { strokeWidth: 1, strokeDashArray: '3,3', strokeColor: "#757575" }, }],
           annotations: [{ text: '' }],
           orientation: 'Vertical', isPhase: true
         },
         height: 60,
-        width: 140
+        width: 140,
+        style: { strokeColor: "#757575" }
       }, {
         id: 'horizontalPhase', addInfo: { tooltip: 'Horizontal phase' },
         shape: {
           type: 'SwimLane',
-          phases: [{ style: { strokeWidth: 1, strokeDashArray: '3,3', strokeColor: '#A9A9A9' }, }],
+          phases: [{ style: { strokeWidth: 1, strokeDashArray: '3,3', strokeColor: "#757575" }, }],
           annotations: [{ text: '' }],
           orientation: 'Horizontal', isPhase: true
         },
         height: 60,
-        width: 140
+        width: 140,
+        style: { strokeColor: "#757575" }
       }
     ]
   },
@@ -552,19 +554,19 @@ let palettes = [
     id: 'connectors', expanded: true, symbols: [
       {
         id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 },
-        targetDecorator: { shape: 'Arrow' }, style: { strokeWidth: 1 }
+        targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }, style: { strokeWidth: 1, strokeColor: "#757575" }
       },
       {
         id: 'Link2', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 },
-        targetDecorator: { shape: 'Arrow' }, style: { strokeWidth: 1, strokeDashArray: '4 4' }
+        targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }, style: { strokeWidth: 1, strokeDashArray: '4 4', strokeColor: "#757575" }
       },
        {
          id: 'Link21', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-         targetDecorator: { shape: 'Arrow' }, style: { strokeWidth: 1 }
+         targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }, style: { strokeWidth: 1, strokeColor: "#757575" }
        },
        {
          id: 'Link22', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-         targetDecorator: { shape: 'Arrow' }, style: { strokeWidth: 1, strokeDashArray: '4 4' }
+         targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }, style: { strokeWidth: 1, strokeDashArray: '4 4', strokeColor: "#757575" }
        }
       ], title: 'Connectors'
   }

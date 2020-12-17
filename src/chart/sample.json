@@ -2,7 +2,6 @@
     "name": "Chart",
     "directory": "chart",
     "category": "Data Visualization",
-    "type": "update",
     "ftName": "chart",
     "samples": [
         {
@@ -144,7 +143,6 @@
         "name": "Stacked Step Area",
         "description": "This demo for Essential JS2 Chart control shows how to render the stacking step area series.",
         "category": "Area Charts",
-        "type": "new",
         "sourceFiles": [
             {
                 "displayName": "stacked-step-area.vue",

@@ -7,7 +7,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" height='365' :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" locale='en-US' height='365' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -41,6 +41,7 @@
         pageSettings->pageCount
         </a></code>set to 4.
         </p>
+        <p>Changed default pager details information using the <code>totalItemsInfo</code> locale property.</p>
         <br>
         <p style="font-weight: 500">Injecting Module:</p>
         <p>
@@ -57,8 +58,20 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { L10n, setCulture } from '@syncfusion/ej2-base';
 import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
+
+setCulture('de-DE');
+
+L10n.load({
+    'en-US': {
+        'pager': {
+            'currentPageInfo': '',
+            'totalItemsInfo': '{1} to {2} of {0}',
+        }
+    }
+});
 
 Vue.use(GridPlugin);
 

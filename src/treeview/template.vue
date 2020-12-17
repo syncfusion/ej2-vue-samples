@@ -47,6 +47,9 @@
         float: left;
         margin-left: 5px
     }
+    .tree-template .e-treeview.e-interaction.e-fullrow-wrap .e-text-content {
+        pointer-events: none;
+    }
 </style>
 /* custom code end */
 <script>

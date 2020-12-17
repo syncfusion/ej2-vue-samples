@@ -118,7 +118,8 @@
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
                 selectedDate: new Date(2019, 0, 10),
-                formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' }
+                formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' },
+                data: []
             }
         },
         provide: {
@@ -132,29 +133,36 @@
                 let endDate;
                 let formElements = [].slice.call(document.querySelectorAll('.event-search .search-field'));
                 formElements.forEach((node) => {
-                    if (node.value && node.value !== '') {
-                        let fieldOperator = 'contains';
-                        let predicateCondition = 'or';
-                        let fieldValue = node.value;
-                        let matchCase = true;
-                        if (node.classList.contains('e-datepicker')) {
-                            fieldOperator = node.classList.contains('e-start-time') ? 'greaterthanorequal' : 'lessthanorequal';
+                    let fieldOperator;
+                    let predicateCondition;
+                    let fieldValue;
+                    let fieldInstance;
+                    if (node.value && node.value !== '' && !node.classList.contains('e-datepicker')) {
+                        fieldOperator = 'contains';
+                        predicateCondition = 'or';
+                        fieldValue = node.value;
+                        searchObj.push({
+                            field: node.name, operator: fieldOperator, value: fieldValue, predicate: predicateCondition,
+                            matchcase: true
+                            });
+                    }
+                    if (node.classList.contains('e-datepicker') && ((node)).ej2_instances[0].value) {
+                        fieldInstance = ((node)).ej2_instances[0];
+                        fieldValue = fieldInstance.value;
+                        if (node.classList.contains('e-start-time')) {
+                            fieldOperator = 'greaterthanorequal';
                             predicateCondition = 'and';
-                            let fieldInstance = ((node)).ej2_instances[0];
-                            fieldValue = fieldInstance.value;
-                            if (node.classList.contains('e-start-time')) {
-                                startDate = new Date(+fieldValue);
-                            }
-                            if (node.classList.contains('e-end-time')) {
+                            startDate = new Date(+fieldValue);
+                            } else {
+                                fieldOperator = 'lessthanorequal';
+                                predicateCondition = 'and';
                                 let date = new Date(+fieldInstance.value);
                                 fieldValue = new Date(date.setDate(date.getDate() + 1));
                                 endDate = fieldValue;
-                            }
-                            matchCase = false;
                         }
                         searchObj.push({
                             field: node.name, operator: fieldOperator, value: fieldValue, predicate: predicateCondition,
-                            matchcase: matchCase
+                            matchcase: false
                         });
                     }
                 });

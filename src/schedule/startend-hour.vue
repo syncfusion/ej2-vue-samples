@@ -98,12 +98,10 @@
         },
         methods: {
             onSubmit: function () {
-                let scheduleObj = this.$refs.ScheduleObj;
                 let start = document.getElementById('startTime');
                 let end = document.getElementById('endTime');
-                scheduleObj.startHour = start.value;
-                scheduleObj.endHour = end.value;
-                scheduleObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.startHour = start.value;
+                this.$refs.ScheduleObj.ej2Instances.endHour = end.value;
             },
             oneventRendered: function (args) {
                 let categoryColor = args.data.CategoryColor;

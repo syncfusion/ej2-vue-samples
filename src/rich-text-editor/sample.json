@@ -2,6 +2,7 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "Editors",
+    "type": "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -85,6 +86,13 @@
             "name": "Two Way Binding",
             "category": "Rich Text Editor",
             "description": "This demo explains how to achieve two-way binding using the v-model directive that updates the template  in real time in Vue Rich Text Editor."
+        },
+        {
+            "url": "file-browser",
+            "name": "File Browser",
+            "type": "new",
+            "category": "Rich Text Editor",
+            "description": "This demo shows how to insert the image into the Rich Text Editor content using FileManager."
         },
         {
             "url": "types",

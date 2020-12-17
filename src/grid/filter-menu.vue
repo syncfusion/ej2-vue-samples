@@ -3,7 +3,7 @@
     <div id="action-description">
         <p>
             This sample demonstrates the way of filtering Grid columns using menu, checkbox and excel filter UI. In this sample, click the filtering
-            icon from column header to show filter UI for a particular column. You can change the filter type from the toolbar.
+            icon from column header to show filter UI for a particular column. You can change the filter type from the toolbar and while Excel filter type is selected, you can sort the column using the sorting option available in the excel filter dialog.
         </p>
     </div>
     <div>
@@ -11,7 +11,7 @@
             <ejs-dropdownlist id='ddlelement' :dataSource='ddldata' value='Menu' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
         </div>
 
-        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowFiltering='true' :pageSettings='pageSettings' :filterSettings='filterSettings'>
+        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowFiltering='true' :allowSorting='true' :pageSettings='pageSettings' :filterSettings='filterSettings'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { GridPlugin, Filter, Page, FilterType, GridComponent } from "@syncfusion/ej2-vue-grids";
+import { GridPlugin, Filter, Page, FilterType, Sort, GridComponent } from "@syncfusion/ej2-vue-grids";
 import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { orderDataSource  } from "./data-source";
 
@@ -77,7 +77,7 @@ export default Vue.extend({
     }
   },
   provide: {
-      grid: [Filter, Page]
+      grid: [Filter, Page, Sort]
   }
 });
 </script>

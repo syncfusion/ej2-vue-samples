@@ -5,13 +5,10 @@
     </div>
     <div>
         <div class='e-mastertext'>Selection Type & Selection Mode</div>
-        <div class='select-wrap'>
-            <ejs-toolbar class='e-gridlist' :items='items' :clicked="onChange">
-                
+            <ejs-toolbar ref="toolbar" class='e-gridlist' :items='items' :clicked="onChange">                
             </ejs-toolbar>
-        </div>
         <br/>
-        <ejs-grid :dataSource="data" allowPaging='true' :enableHover="false" :allowSelection="true" :selectionSettings="selectOptions">
+        <ejs-grid ref="grid" :dataSource="data" allowPaging='true' :enableHover="false" :allowSelection="true" :selectionSettings="selectOptions" :rowSelecting="selectingEvent" :cellSelecting="selectingEvent">
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -24,7 +21,7 @@
 
      <div id="description">
         <p>
-            Selection provides an interactive support to highlight the row or cell that you select. Selection can be done through simple
+            Selection provides an interactive support to highlight the row or cell or column that you select. Selection can be done through simple
             Mouse down or Keyboard interaction. To enable selection, set <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowselectio">
         allowSelection
@@ -36,8 +33,8 @@
         </a></code> property.
             They are,</p>
         <ul>
-            <li><code>Single</code> - Enabled by default. Allows the user to select single row/cell at a time.</li>
-            <li><code>Multiple</code> - Allows the user to select more than one row/cell at a time.</li>
+            <li><code>Single</code> - Enabled by default. Allows the user to select single row/cell/column at a time.</li>
+            <li><code>Multiple</code> - Allows the user to select more than one row/cell/column at a time.</li>
         </ul>
         <p>Also, supports three modes of selection which can be set using <code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/api/grid/selectionSettings/#mode">
@@ -52,8 +49,12 @@
                 simultaneously
             </li>
         </ul>
-        <p>To perform the multi-selection, hold <strong>CTRL</strong> key and click the desired rows/cells. To select range of rows/cells,
-            hold <strong>SHIFT</strong> key and click the rows/cells.</p>
+        <p>To perform the column selection, enable the <code><a target="_blank" class="code"
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/selectionSettings/#allowcolumnselection">
+        selectionSettings->allowColumnSelection
+        </a></code> property.</p>
+        <p>To perform the multi-selection, hold <strong>CTRL</strong> key and click the desired rows/cells/columns. To select range of rows/cells/columns,
+            hold <strong>SHIFT</strong> key and click the rows/cells/columns.</p>
         <p>While using the Grid in a touch device environment, there is an option for multi-selection through a single tap on the
             row and it will show a popup with the multi-selection symbol. Tap the icon to enable multi-selection in a single
             tap.
@@ -88,16 +89,18 @@ import Vue from "vue";
 import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
 import { ToolbarPlugin, ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { orderDetails } from "./data-source";
+import { CheckBox } from "@syncfusion/ej2-buttons";
 
 Vue.use(GridPlugin);
 Vue.use(ToolbarPlugin);
 
 export default Vue.extend({
-  data: () => {
+  data: function() {
     return {
       data: orderDetails,
-      selectOptions: { type: 'Multiple', mode: 'Row' },
-      items: [{text: 'Multiple', cssClass: 'e-gtype', id: 'type'}, {text: 'Row', cssClass: 'e-gmode', id: 'mode'}]
+      selectOptions: { type: 'Multiple', mode: 'Row', allowColumnSelection: false },
+      items: [{text: 'Multiple', cssClass: 'e-gtype', id: 'type'}, {text: 'Row', disabled: false, cssClass: 'e-gmode', id: 'mode'},
+      {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: false })}]
     };
   },
   methods: {
@@ -105,14 +108,27 @@ export default Vue.extend({
         let option = this.selectOptions;
         let mode: string = option.mode;
         let type: string = option.type;
+        let column: boolean = option.allowColumnSelection;
         if (e.item.id === 'mode') {
             mode = e.item.text === 'Row' ? 'Cell' : 'Row';
-            this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, cssClass: 'e-gmode', id: 'mode'}];
-        } else {
+            this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, disabled: column,cssClass: 'e-gmode', id: 'mode'},
+            {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: column })}];
+        } else if (e.item.id === 'type') {
             type = e.item.text === 'Multiple' ? 'Single' : 'Multiple';
-            this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode , cssClass: 'e-gmode', id: 'mode'}];
+            this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode , disabled: column,cssClass: 'e-gmode', id: 'mode'},
+            {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: column})}];
+        } else {
+           ((<any>this).$refs.grid.ej2Instances as any).clearSelection();
+           column = !column;
+           this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, disabled: column, cssClass: 'e-gmode', id: 'mode'},
+           {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: column })}];
         }
-        this.selectOptions = {mode: mode, type: type};
+        this.selectOptions = {mode: mode, type: type, allowColumnSelection: column};
+    },
+    selectingEvent(e: any): void {
+      if(((<any>this).$refs.grid.ej2Instances as any).selectionSettings.allowColumnSelection){
+         e.cancel = true;
+        }
     }
   },
   provide: {

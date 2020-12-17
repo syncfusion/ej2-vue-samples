@@ -101,7 +101,7 @@
                 currentView: 'Week',
                 cssClass:'calendar-import',
                 multiple: false,
-                allowedExtensions: '.ics',
+                extensions: '.ics',
                 buttons: {
                     browse: 'Choose file',
                 },

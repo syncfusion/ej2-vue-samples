@@ -19,8 +19,6 @@
             yName="y"
             :neckWidth="neckWidth"
             :neckHeight="neckHeight"
-            :gapRatio="gapRatio"
-            :emptyPointSettings="emptyPointSettings"
             height="80%"
             width="60%"
             :explode="explode"

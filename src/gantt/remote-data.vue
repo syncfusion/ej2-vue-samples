@@ -87,6 +87,7 @@ export default Vue.extend({
                 child: 'SubTasks'
             },
             columns: [
+			    { field: 'TaskId', visible: false },
                 { field: 'TaskName', headerText: 'Task Name', width: '250', clipMode: 'EllipsisWithTooltip' },
                 { field: 'StartDate' },
                 { field: 'Duration' },

@@ -38,7 +38,6 @@
             "category": "Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
             "hideOnDevice": false,
-            "type": "new",
             "api": { "Grid": ["dataSource","allowPaging","allowGrouping","groupSettings","height","columns"] }
         },
         {
@@ -87,6 +86,7 @@
             "category": "Data Grid",
             "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
             "hideOnDevice": false,
+            "type": "update",
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
@@ -229,14 +229,6 @@
             "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
         },
         {
-            "url": "frozen",
-            "name": "Frozen Rows and Columns",
-            "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component shows how the rows and columns can be frozen or pinned.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
-        },
-        {
             "url": "column-menu",
             "name": "Column Menu",
             "category": "Columns",
@@ -312,6 +304,23 @@
             "api": { "Grid": ["dataSource","allowTextWrap","columns","queryCellInfo","gridLines","width","height"] }
         },
         {
+            "url": "frozen",
+            "name": "Default Frozen",
+            "category": "Frozen",
+            "description": "This demo for Essential JS 2 grid component shows how the rows and columns can be frozen or pinned.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
+        },
+        {
+            "url": "frozen-api",
+            "name": "Frozen API",
+            "category": "Frozen",
+            "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
+            "hideOnDevice": false,
+            "type": "new",
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
             "url": "filtering",
             "name": "Default Filtering",
             "category": "Filtering",
@@ -329,7 +338,8 @@
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] },
+            "type": "update",
+            "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },
             "sourceFiles":[
                 { "displayName": "filter-menu.vue", "path":"src/grid/filter-menu.vue" },
                 { "displayName":"filter-menu.css","path":"styles/Grid/filter-menu.css" }
@@ -355,6 +365,7 @@
             "url": "selection-api",
             "name": "Selection API",
             "category": "Selection",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how to perform selection programmatically.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }

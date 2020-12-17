@@ -142,15 +142,15 @@ let connectorSymbols = [
     type: "Orthogonal",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 40, y: 40 },
-    targetDecorator: { shape: "Arrow" },
-    style: { strokeWidth: 2 }
+    targetDecorator: { shape: "Arrow", style: { fill: "#757575", strokeColor: "#757575" } },
+    style: { strokeWidth: 2, strokeColor: "#757575" }
   },
   {
     id: "link3",
     type: "Orthogonal",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 40, y: 40 },
-    style: { strokeWidth: 2 },
+    style: { strokeWidth: 2, strokeColor: "#757575" },
     targetDecorator: { shape: "None" }
   },
   {
@@ -158,15 +158,15 @@ let connectorSymbols = [
     type: "Straight",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 40, y: 40 },
-    targetDecorator: { shape: "Arrow" },
-    style: { strokeWidth: 2 }
+    targetDecorator: { shape: "Arrow", style: { fill: "#757575", strokeColor: "#757575" } },
+    style: { strokeWidth: 2, strokeColor: "#757575" }
   },
   {
     id: "link23",
     type: "Straight",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 40, y: 40 },
-    style: { strokeWidth: 2 },
+    style: { strokeWidth: 2, strokeColor: "#757575" },
     targetDecorator: { shape: "None" }
   },
   {
@@ -174,7 +174,7 @@ let connectorSymbols = [
     type: "Bezier",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 40, y: 40 },
-    style: { strokeWidth: 2 },
+    style: { strokeWidth: 2, strokeColor: "#757575" },
     targetDecorator: { shape: "None" }
   }
 ];
@@ -232,7 +232,7 @@ export default Vue.extend({
           symbol.width = 50;
           symbol.height = 40;
         }
-        symbol.style = { strokeWidth: 2 };
+        symbol.style = { strokeWidth: 2, strokeColor: "#757575" };
       },
       getSymbolInfo: (symbol) => {
         return { fit: true };

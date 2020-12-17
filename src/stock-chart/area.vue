@@ -8,7 +8,6 @@
         :primaryYAxis="primaryYAxis"
         :chartArea="chartArea"
         :crosshair="crosshair"
-        :width="width"
         :title="title"
         :seriesType="seriesType"
         :indicatorType="indicator"

@@ -2,6 +2,7 @@
     "name": "PDF Viewer",
     "directory": "pdfviewer",
     "category": "Viewer",
+    "type": "new",
     "samples": [
         {
             "url": "default",
@@ -22,6 +23,12 @@
             "url": "form-filling",
             "name": "Form Filling",
             "category": "PDF Viewer"
+        },
+        {
+            "url": "hand-written",
+            "name": "Handwritten Signature",
+            "category": "PDF Viewer",
+            "type": "new"
         }
     ]
 

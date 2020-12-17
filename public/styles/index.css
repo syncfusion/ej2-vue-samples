@@ -2133,12 +2133,12 @@ body.highcontrast,
     float: left;
   }
   
-  .ad-cnt-icon {
+.ad-cnt-icon {
     padding: 3px;
     position: relative;
     top: 5px;
     color: #F8E71C;
-    }
+}
   
   .ad-cnt-text {
     padding-left: 6px;
