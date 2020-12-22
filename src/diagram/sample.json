@@ -2,6 +2,7 @@
   "name": "Diagram",
   "directory": "diagram",
   "category": "Data Visualization",
+  "type": "update",
   "ftName": "diagram",
   "samples": [
     {
@@ -48,7 +49,8 @@
     },
     {
       "url": "html-node",
-      "name": "Complex Shapes",
+      "name": "HTML Shapes",
+      "type": "update",
       "description": "This demo for Essential JS2 Diagram component demonstrates how to host a HTML element inside a node. In this example, a Gauge control is hosted inside a HTML Node.",
       "category": "Getting Started"
     },
@@ -145,6 +147,7 @@
     {
       "url": "complex-hierarchicaltree",
       "name": "Complex Hierarchical Tree",
+      "type": "update",
       "description": "This demo for Essential JS2 Diagram component demonstrates a complex hierarchical template that is built from an external data source using complex hierarchical tree algorithm.",
       "category": "Automatic Layouts"
     },
@@ -231,6 +234,14 @@
       "name": "Fishbone Diagram",
       "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
       "category": "Static Diagram"
-    }
+    },
+    {
+      "url": "virtualization",
+      "name": "Virtualization",
+      "type": "new", 
+      "description": "This sample demonstrates the default UI virtualization functionality. Scroll the diagram for UI virtualization experience.",
+      "category": "Getting Started"
+  }
+
   ]
 }

@@ -3,7 +3,7 @@
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' width='100%' :cssClass='cssClass' height='650px' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :eventRendered="onEventRendered" :currentView="currentView" :actionComplete="onActionComplete" :showTimeIndicator="showTimeIndicator">
+                    :eventRendered="onEventRendered" :currentView="currentView" :showTimeIndicator="showTimeIndicator">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>

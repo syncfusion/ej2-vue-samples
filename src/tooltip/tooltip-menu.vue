@@ -37,7 +37,7 @@ import Vue from "vue";
 import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
 import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
 import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-
+import { closest } from "@syncfusion/ej2-base";
 Vue.use(ToolbarPlugin);
 Vue.use(TooltipPlugin);
 Vue.use(ListViewPlugin);
@@ -136,10 +136,11 @@ export default Vue.extend({
       }
     },
     onClick: function(args) {
-      if (
-        args &&
-        !args.target.parentNode.parentNode.classList.contains("e-toolbar-item")
-      ) {
+      let targetEle;
+      if (args) {
+          targetEle = closest(args.target, '.e-toolbar-item');
+      }
+      if (!targetEle) {
         if (
           this.$refs.tooltip &&
           document.getElementsByClassName("e-tooltip-wrap").length > 0

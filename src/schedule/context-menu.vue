@@ -24,63 +24,83 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .schedule-context-menu .e-menu-item .new::before {
+    .schedule-context-menu .e-menu-item .new::before {
         content: '\e7f9';
     }
 
-    .schedule-vue-sample .schedule-context-menu .e-menu-item .edit::before {
+    .schedule-context-menu .e-menu-item .edit::before {
         content: '\ea9a';
     }
 
-    .schedule-vue-sample .schedule-context-menu .e-menu-item .recurrence::before {
+    .schedule-context-menu .e-menu-item .recurrence::before {
         content: '\e308';
         font-weight: bold;
     }
 
-    .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before {
+    .schedule-context-menu .e-menu-item .today::before {
         content: '\e322';
     }
 
     /* custom code start*/
-    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before,
-    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before {
+    .highcontrast .schedule-context-menu .e-menu-item .today::before,
+    .fabric .schedule-context-menu .e-menu-item .today::before {
         content: '\e321';
     }
 
-    .bootstrap .schedule-vue-sample .schedule-context-menu .e-menu-item .today::before {
+    .bootstrap .schedule-context-menu .e-menu-item .today::before {
         content: '\e312';
     }
 
-    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .delete::before,
-    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .delete::before {
+    .highcontrast .schedule-context-menu .e-menu-item .delete::before,
+    .fabric .schedule-context-menu .e-menu-item .delete::before {
         content: '\eb00';
     }
 
-    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .new::before,
-    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .new::before {
+    .highcontrast .schedule-context-menu .e-menu-item .new::before,
+    .fabric .schedule-context-menu .e-menu-item .new::before {
         content: '\e823';
     }
 
-    .highcontrast .schedule-vue-sample .schedule-context-menu .e-menu-item .recurrence::before,
-    .fabric .schedule-vue-sample .schedule-context-menu .e-menu-item .recurrence::before {
+    .bootstrap4 .schedule-context-menu .e-menu-item .today::before {
+        content: '\e7be';
+    }
+
+    .bootstrap4 .schedule-context-menu .e-menu-item .edit::before {
+        content: '\e78f';
+    }
+
+    .bootstrap4 .schedule-context-menu .e-menu-item .delete::before {
+        content: '\e773';
+    }
+
+    .bootstrap4 .schedule-context-menu .e-menu-item .new::before {
+        content: '\e759';
+    }
+
+    .bootstrap4 .schedule-context-menu .e-menu-item .recurrence::before {
+        content: '\e7c8';
+    }
+
+    .highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
+    .fabric .schedule-context-menu .e-menu-item .recurrence::before {
         content: '\e309';
         font-weight: bold;
     }
     /* custom code end*/
 
-    .schedule-vue-sample .schedule-context-menu .e-menu-item .delete::before {
+    .schedule-context-menu .e-menu-item .delete::before {
         content: '\e94a';
     }
 
-    .e-bigger .schedule-vue-sample .schedule-context-menu ul .e-menu-item .e-menu-icon {
+    .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 14px;
     }
 
-    .schedule-vue-sample .schedule-context-menu ul .e-menu-item .e-menu-icon {
+    .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 12px;
     }
 
-    .schedule-vue-sample .schedule-context-menu .e-menu-parent.e-ul .e-menu-item {
+    .schedule-context-menu .e-menu-parent.e-ul .e-menu-item {
         font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
     }
 </style>

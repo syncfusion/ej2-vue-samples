@@ -185,7 +185,7 @@ export default Vue.extend({
   methods: {
       onCreated: function() {
           this.$refs.toolbar.$el.ej2_instances[0].refreshOverflow();
-          removeClass([this.$refs.toolbar.$el.querySelector('.e-shopping-cart')], 'e-icons');
+          removeClass([this.$refs.toolbar.$el.querySelector('.e-menu-shopping-cart')], 'e-icons');
         }
   }
 });

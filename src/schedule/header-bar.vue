@@ -227,8 +227,7 @@
             },
             // function to handle the CheckBox change event
             onChange: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.showHeaderBar = args.checked;
+                this.$refs.ScheduleObj.ej2Instances.showHeaderBar = args.checked;
             }
         }
     });

@@ -650,8 +650,8 @@ let symbols = [
 ];
 let sourcePoint = { x: 0, y: 0 };
 let targetPoint = { x: 40, y: 40 };
-let targetDecorator = { shape: "Arrow" };
-let style = { strokeWidth: 2 };
+let targetDecorator = { shape: "Arrow", style: { fill: "#757575", strokeColor: "#757575" } };
+let style = { strokeWidth: 2, strokeColor: "#757575" };
 
 // initializes the connector symbols to the UML Shapes in the symbol palette.
 let connectorSymbols = [
@@ -818,7 +818,7 @@ export default Vue.extend({
         symbol.offsetX = 160;
         symbol.offsetY = 135;
         if (symbol.style) {
-          symbol.style.strokeColor = "#5C90DF";
+          symbol.style.strokeColor = "#757575";
           symbol.style.fill = "white";
         }
       } else {

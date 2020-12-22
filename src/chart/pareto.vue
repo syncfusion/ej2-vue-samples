@@ -2,7 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :tooltip='tooltip' :axes='axes'>
+            :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Pareto' xName='x' yName='y' name='Defect' width=2 :marker='marker' > </e-series>
             </e-series-collection>

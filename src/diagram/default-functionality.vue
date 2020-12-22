@@ -431,15 +431,15 @@ let connectorSymbols = [
     type: "Orthogonal",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: "Arrow" },
-    style: { strokeWidth: 2 }
+    targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
+    style: { strokeWidth: 2, strokeColor: "#757575" }
   },
   {
     id: "link3",
     type: "Orthogonal",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 2 },
+    style: { strokeWidth: 2, strokeColor: "#757575" },
     targetDecorator: { shape: "None" }
   },
   {
@@ -447,15 +447,15 @@ let connectorSymbols = [
     type: "Straight",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: "Arrow" },
-    style: { strokeWidth: 2 }
+    targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
+    style: { strokeWidth: 2, strokeColor: "#757575" }
   },
   {
     id: "link23",
     type: "Straight",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 2 },
+    style: { strokeWidth: 2, strokeColor: "#757575" },
     targetDecorator: { shape: "None" }
   },
   {
@@ -463,7 +463,7 @@ let connectorSymbols = [
     type: "Bezier",
     sourcePoint: { x: 0, y: 0 },
     targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 2 },
+    style: { strokeWidth: 2, strokeColor: "#757575" },
     targetDecorator: { shape: "None" }
   }
 ];
@@ -511,7 +511,7 @@ export default Vue.extend({
       //Sets the Node style for DragEnter element.
       dragEnter: (args) => {
         let obj = args.element;
-        if (obj instanceof Node && obj.width && obj.height) {
+        if (obj && obj.width && obj.height) {
           let oWidth = obj.width;
           let oHeight = obj.height;
           let ratio = 100 / obj.width;
@@ -544,6 +544,7 @@ export default Vue.extend({
       symbolHeight: 60,
       symbolWidth: 60,
       palettegetNodeDefaults: (symbol) => {
+        symbol.style = {strokeColor: "#757575"}
         if (symbol.id === "Terminator" || symbol.id === "Process") {
           symbol.width = 80;
           symbol.height = 40;

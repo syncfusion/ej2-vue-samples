@@ -1,6 +1,7 @@
 {
     "name": "Dialog",
     "directory": "dialog",
+    "type": "update",
     "category": "Layout",
     "ftName": "modal-dialog",
     "samples": [{
@@ -48,6 +49,7 @@
         {
             "url": "resizable",
             "name": "Resizable",
+            "type": "update",
             "category": "Dialog",
             "description":"This example shows how to create resizable modal in the Vue dialog to change the size of a dialog efficiently and view its content more comfortably.",
             "hideOnDevice": true

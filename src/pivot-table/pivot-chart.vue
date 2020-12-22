@@ -183,3 +183,8 @@ export default Vue.extend({
   }
 });
 </script>
+<style scoped>
+/deep/ #pivotview_chartcontainerwrapper {
+  height: auto !important;
+}
+</style>

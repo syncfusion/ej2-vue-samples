@@ -1,5 +1,5 @@
 <template>
-<div class="kanban-vue-sample">
+<div>
     <div class="col-md-9 control-section">
       <div class="content-wrapper">
         <ejs-kanban ref=KanbanObj id="kanban" keyField="Status" :dataSource="kanbanData"
@@ -68,7 +68,7 @@
 </div>
 </template>
 <style>
-  .kanban-vue-sample .e-kanban .e-card-footer-css {
+  .e-kanban .e-card-footer-css {
 	      align-self: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -78,20 +78,20 @@
         margin-right: 8px;
     }
 
-    .kanban-vue-sample .e-kanban .e-rank {
+    .e-kanban .e-rank {
         font-size: 12px;
     }
 
-    .kanban-vue-sample .e-kanban .e-Low {
+    .e-kanban .e-Low {
         background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/trivial.svg);
     }
-    .kanban-vue-sample .e-kanban .e-High {
+    .e-kanban .e-High {
         background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/major.svg);
     }
-    .kanban-vue-sample .e-kanban .e-Critical {
+    .e-kanban .e-Critical {
         background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/critical.svg);
     }
-    .kanban-vue-sample .e-kanban .e-Normal {
+    .e-kanban .e-Normal {
         background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/minor.svg);
     }
 </style>

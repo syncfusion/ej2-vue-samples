@@ -1,5 +1,5 @@
 <template>
-  <div class="kanban-vue-sample">
+<div>
     <div class="col-md-12 control-section">
       <div class="content-wrapper">
         <ejs-kanban id="kanban" keyField="Status" :dataSource="data"

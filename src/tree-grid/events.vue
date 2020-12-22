@@ -65,7 +65,7 @@
 <!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
-import { TreeGridPlugin, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridPlugin, Page, Sort, Edit, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { sampleData } from "./data-source";
 
@@ -87,7 +87,7 @@ export default Vue.extend({
     };
   },
   provide: {
-      treegrid: [ Page ]
+      treegrid: [ Page, Sort, Edit ]
     },
    methods:{
     appendElement(html: string): void {

@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section">
         <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-         :width='width' :tooltip='tooltip'>
+         :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y1' name='Mobile Subscriptions' width=2 drawType='Column' :border='border' :marker='marker' > </e-series>
                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y1' name='Population in Millions' width=2 drawType='Column' :border='border' :marker='marker' > </e-series>

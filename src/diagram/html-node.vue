@@ -1,57 +1,70 @@
 <template>
 <div class="control-section">
-  <div class="control-section">
-    <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :nodeTemplate='nodeTemplate'  :height='height' :nodes='nodes' :snapSettings='snapSettings'></ejs-diagram>
+  <div id="custom-diagram" class="control-section">
+    <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :backgroundColor='backgroundColor' :nodeTemplate='nodeTemplate' :height='height' :nodes='nodes'></ejs-diagram>
   </div>
   <div id="action-description">
     <p>
-      This sample demonstrates how to host a HTML element inside a node. In this example, a Gauge control is hosted inside a Html Node.
+       This sample shows how to host an element of HTML within a node. The expense tracker application can be created using chart and grid components.
     </p>
   </div>
   <div id="description">
     <p>
-      This example shows how to host a control inside a node. The <code>shape</code> property of the node can be used to host HTML content inside a node. The
-      <code>content</code> property of the shape allows you to define the content to be hosted.
+     This example illustrates how an HTML control is hosted inside a node. By setting <code>HTML</code> to the type property of the shape, the template node can be enabled. You can define the content to be hosted by using <code>NodeTemplate</code>.
     </p>
     <br>
   </div>
 </div>
 </template>
-
 <style scoped>
+/* custom code start*/
+#custom-diagram .e-diagram-resize-handle.e-disabled {
+  fill: #ced4da;
+  opacity: 1;
+  stroke: #fff;
+  visibility: hidden;
+}
+#custom-diagram .e-grid .e-gridheader {
+border: none;
+}
+/* custom code end*/
 </style>
-
 <script>
 import Vue from "vue";
 import {
   Diagram,
   DiagramPlugin,
-  NodeModel,
+  NodeModel,NodeConstraints,
   HtmlModel
 } from "@syncfusion/ej2-vue-diagrams";
-import {
-  CircularGauge,
-  ILoadedEventArgs,
-  GaugeTheme,
-  CircularGaugePlugin
-} from "@syncfusion/ej2-vue-circulargauge";
 import NodeTemplate from "./complex-template.vue";
-
 Vue.use(DiagramPlugin);
-Vue.use(CircularGaugePlugin);
 
 let diagramInstance;
-
-let node1 =   {
-            id: "node1Template",
-           width: 300,
-           height: 300,
-            offsetX: 600,
-            offsetY: 200,
-            shape: {
-                type: 'HTML'
-            }
-    }
+let shape = { type: 'HTML' };
+  let constraints = NodeConstraints.Default & ~NodeConstraints.Resize & ~NodeConstraints.Rotate;
+let nodes = [
+{
+            id: "node1Template",offsetX: 950, offsetY: 50, width: 250, height: 30, shape: shape, constraints: constraints
+ },
+{
+           id: "node2Template",offsetX: 845, offsetY: 770, width: 512, height: 408, shape: shape, constraints: constraints
+ },
+{
+           id: "node3Template",offsetX: 305, offsetY: 770, width: 512, height: 408, shape: shape, constraints: constraints
+ },
+{
+           id: "node4Template", offsetX: 575, offsetY: 320, width: 1050, height: 450, shape: shape, constraints: constraints
+ },
+ {
+    id: 'node5', offsetX: 150, offsetY: 50, width: 250, height: 30, style: { fill: 'transparent', strokeColor: 'transparent' },
+    constraints: NodeConstraints.Default & ~NodeConstraints.Select,
+    annotations: [{
+      content: "EXPENSE TRACKER",
+      style: { fontSize: 16, color: "#797979", bold: true }
+    }]
+  }
+]
 
 export default Vue.extend({
   data: function() {
@@ -60,16 +73,11 @@ export default Vue.extend({
         return { template: NodeTemplate };
       },
       width: "100%",
-      height: "450px",
-      nodes: [node1],
-      snapSettings: { constraints: 0 }
+      height: "1000px",
+      nodes: nodes,
+      backgroundColor:'#f5f5f5'
     };
-  },
-  mounted: function() {
-    diagramInstance = this.$refs.diagramObj.ej2Instances;
-    diagramInstance.fitToPage();
   }
 });
-
 
 </script>

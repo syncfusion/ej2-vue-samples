@@ -41,6 +41,10 @@
     .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
         content: '\e242';
     }
+
+    .bootstrap4 .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
+        content: '\e74e';
+    }
     
     .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
         display: none;

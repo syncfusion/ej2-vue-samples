@@ -283,6 +283,7 @@ export default Vue.extend({
             { name: 'Seattle', fare: 250 },
             { name: 'Florida', fare: 150 }
         ],
+        date: '',
         autoCompleteFields: { text: 'name', value: 'name' },
         dateMin: new Date(new Date().getTime()),
         dateMax: new Date(new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000)),
@@ -354,7 +355,6 @@ export default Vue.extend({
                        var name = this.$refs.nameObj1;
                        var age = this.$refs.ageObj1;
                        var gender = this.$refs.genderObj1;
-                       debugger;
                        if (name.value === '' || age.value === '' || gender.value === '') {
                             err3.innerText = '* Please enter passenger details';
                        } else {

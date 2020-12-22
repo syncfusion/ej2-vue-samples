@@ -1,9 +1,10 @@
 <template>
   <div class="control-section">
     <div class="col-lg-9 control-section">
-        <ejs-chart ref="chart" style="display:block;" :loaded="onChartLoad" :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :theme='theme' >
+        <ejs-chart ref="chart" style="display:block;" :loaded="onChartLoad" :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :theme='theme'
+        :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' :marker='marker' :xName='xName' :yName='yName' :animation='animation' type='Line'> </e-series>
+                <e-series :marker='marker' :xName='xName' :yName='yName' :animation='animation' type='Line'> </e-series>
             </e-series-collection>
         </ejs-chart>
      </div>
@@ -75,7 +76,8 @@ export default Vue.extend({
         yName: 'y',
         marker: {
             visible: false
-        }
+        },
+        legendSettings: { visible: false }
     };
   },
   provide: {
@@ -94,6 +96,9 @@ export default Vue.extend({
         }
         this.dt1 = new Date().getTime();
         this.$refs.chart.ej2Instances.series[0].dataSource = series1;
+        this.$refs.chart.ej2Instances.series[0].xName = 'x';
+        this.$refs.chart.ej2Instances.series[0].yName = 'y';
+        this.$refs.chart.ej2Instances.legendSettings.visible = false;
         this.$refs.chart.ej2Instances.refresh();
     },
     onChartLoad: function(args) {

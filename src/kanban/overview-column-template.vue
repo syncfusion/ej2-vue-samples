@@ -1,7 +1,7 @@
 <template let-data>
   <div class="header-template-wrap">
     <div :class="getClassName(data)"></div>
-    <div class="header-text">{{ data.headerText }}</div>
+    <div class="header-text">{{data.headerText}}</div>
   </div>
 </template>
 
@@ -11,13 +11,13 @@ import Vue from "vue";
 export default {
   data() {
     return {
-      data: {},
+      data: {}
     };
   },
   methods: {
-    getClassName: function (data) {
+    getClassName: function(data) {
       return "header-icon e-icons " + data.keyField;
-    },
-  },
+    }
+  }
 };
 </script>

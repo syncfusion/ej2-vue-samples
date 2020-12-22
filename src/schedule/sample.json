@@ -3,7 +3,23 @@
     "directory": "schedule",
     "category": "Calendars",
     "ftName": "scheduler",
+    "type": "update",
     "samples": [{
+            "url": "overview",
+            "name": "Overview",
+            "category": "Scheduler",
+            "description": "This demo shows for Javascript Scheduler features such as Multiple views, Templates, Resources, Grouping, Timezone, Timescale, etc...",
+            "type": "new",
+            "hideOnDevice": true,
+            "api": {
+                "Schedule": [
+                    "height",
+                    "eventSettings",
+                    "selectedDate"
+                ]
+            }
+        },
+        {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Scheduler",

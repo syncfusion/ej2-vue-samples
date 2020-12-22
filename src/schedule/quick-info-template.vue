@@ -1,7 +1,7 @@
 <template>
   <div class="schedule-vue-sample">
     <div class="control-section">
-      <ejs-schedule id="schedule" height="650px" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
+      <ejs-schedule id="schedule" height="650px" cssClass="quick-info-template" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
         <e-resources>
           <e-resource field="RoomId" title="Room Type" name="MeetingRoom" textField="Name" idField="Id" colorField="Color" :dataSource="roomData"></e-resource>
         </e-resources>
@@ -25,37 +25,38 @@
 </template>
 
 <style>
-.schedule-vue-sample .quick-info-header {
+.schedule-vue-sample .quick-info-template .quick-info-header {
   background-color: white;
   padding: 8px 18px;
 }
 
-.schedule-vue-sample .quick-info-header-content {
+.schedule-vue-sample .quick-info-template .quick-info-header-content {
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
   padding: 5px 10px 5px;
 }
 
-.schedule-vue-sample .quick-info-title {
+.schedule-vue-sample .quick-info-template .quick-info-title {
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.48px;
   height: 22px;
 }
 
-.schedule-vue-sample .duration-text {
+.schedule-vue-sample .quick-info-template .duration-text {
   font-size: 11px;
   letter-spacing: 0.33px;
   height: 14px;
 }
 
-.schedule-vue-sample .content-area {
+.schedule-vue-sample .quick-info-template .content-area {
+  margin: 0;
   padding: 10px;
   width: auto;
 }
 
-.schedule-vue-sample .event-content {
+.schedule-vue-sample .quick-info-template .event-content {
   height: 90px;
   display: flex;
   flex-direction: column;
@@ -63,9 +64,9 @@
   padding: 0 15px;
 }
 
-.schedule-vue-sample .meeting-type-wrap,
-.schedule-vue-sample .meeting-subject-wrap,
-.schedule-vue-sample .notes-wrap {
+.schedule-vue-sample .quick-info-template .meeting-type-wrap,
+.schedule-vue-sample .quick-info-template .meeting-subject-wrap,
+.schedule-vue-sample .quick-info-template .notes-wrap {
   font-size: 11px;
   color: #666;
   letter-spacing: 0.33px;
@@ -73,13 +74,13 @@
   padding: 5px;
 }
 
-.schedule-vue-sample .event-content div label {
+.schedule-vue-sample .quick-info-template .event-content div label {
   display: inline-block;
   min-width: 45px;
   color: #666;
 }
 
-.schedule-vue-sample .event-content div span {
+.schedule-vue-sample .quick-info-template .event-content div span {
   font-size: 11px;
   color: #151515;
   letter-spacing: 0.33px;
@@ -87,25 +88,25 @@
   padding-left: 8px;
 }
 
-.schedule-vue-sample .cell-footer.e-btn {
+.schedule-vue-sample .quick-info-template .cell-footer.e-btn {
   background-color: #ffffff;
   border-color: #878787;
   color: #878787;
 }
 
-.schedule-vue-sample .cell-footer {
+.schedule-vue-sample .quick-info-template .cell-footer {
   padding-top: 10px;
 }
 
-.schedule-vue-sample .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
+.schedule-vue-sample .quick-info-template .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
   padding: 0 14px;
 }
 
-.schedule-vue-sample .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
+.schedule-vue-sample .quick-info-template .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
   display: block;
 }
 
-.schedule-vue-sample .e-quick-popup-wrapper .e-popup-footer button:first-child {
+.schedule-vue-sample .quick-info-template .e-quick-popup-wrapper .e-popup-footer button:first-child {
   margin-right: 5px;
 }
 </style>

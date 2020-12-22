@@ -298,7 +298,7 @@
                             <div class="col-sm-12 cnt-area">
                                 <div class="content-area">
                                     <div class="ad-cnt-pt">
-                                        <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                        <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection"></div>
                                         <div class="ad-cnt-text">65+ high-performance and responsive UI components</div>
                                     </div>
                                     <div class="ad-cnt-pt">

@@ -3,6 +3,7 @@
    "directory": "gantt",
    "category": "Calendars",
    "ftName": "gantt",
+   "type": "update",
    "samples": [
       {
          "url": "default",
@@ -216,6 +217,54 @@
              ]
          },
          "description": "This demo demonstrates how to drag and drop the gantt rows by using drag icon in left side of gantt column of Syncfusion Essential JS2 Gantt."
+      },
+      {
+         "url": "split-tasks",
+         "name": "Split Tasks",
+         "category": "Gantt",
+		 "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "treeColumnIndex",
+               "height",
+               "projectStartDate",
+               "projectEndDate",
+               "resourceFields",
+               "resources",
+               "resourceInfo",
+               "editSettings",
+               "toolbar",
+               "splitterSettings",
+               "allowSelection",
+               "highlightWeekends",
+               "workUnit",
+               "enableContextMenu"
+            ]
+         },
+         "description": "This demo explains how to interrupt the already scheduled tasks using the Syncfusion TypeScript Gantt control."
+      },
+      {
+         "url": "virtual-scroll",
+         "name": "Virtual Scrolling",
+         "category": "Gantt",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "highlightWeekends",
+               "splitterSettings",
+               "labelSettings",
+               "enableVirtualization",
+               "allowSelection"
+            ]
+         },
+         "description": "This example illustrates binding large data and smooth scrolling with large data using the Virtual Scroll feature in the Syncfusion Gantt chart."
       },
       {
          "url": "local-data",

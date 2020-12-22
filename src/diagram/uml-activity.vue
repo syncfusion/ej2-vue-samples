@@ -448,18 +448,18 @@ function setPaletteNodeDefaults(symbol) {
         symbol.width = 50; symbol.height = 50;
     }
     if (symbol.id === 'InitialNode' || symbol.id === 'FinalNode' || symbol.id === 'JoinNode' || symbol.id === 'ForkNode') {
-        style.fill = '#444';
+        style.fill = '#757575';
     }
-    style.strokeColor = '#444';
+    style.strokeColor = '#757575';
     return symbol;
 }
 
 function getConnectorStyle(dashArrayed) {
   let style = {};
   if (dashArrayed) {
-    style = { strokeWidth: 2, strokeColor: "#444", strokeDashArray: "4 4" };
+    style = { strokeWidth: 2, strokeColor: "#757575", strokeDashArray: "4 4" };
   } else {
-    style = { strokeWidth: 2, strokeColor: "#444" };
+    style = { strokeWidth: 2, strokeColor: "#757575" };
   }
   return style;
 }
@@ -470,7 +470,7 @@ function getConnectors(){
   let targetPoint = { x: 40, y: 40 };
   let targetDecorator = {
     shape: "Arrow",
-    style: { fill: "#444", strokeColor: "#444" }
+    style: { fill: "#757575", strokeColor: "#757575" }
   };
   let connectorSymbols = [
     {

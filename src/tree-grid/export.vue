@@ -35,6 +35,7 @@ import Vue from "vue";
 import { TreeGridPlugin, TreeGridComponent, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { sampleData } from "./data-source";
+import { DialogUtility } from '@syncfusion/ej2-popups';
 
 Vue.use(TreeGridPlugin);
 
@@ -48,15 +49,24 @@ export default Vue.extend({
   },
   methods:{
     toolbarClick: function (args: ClickEventArgs) {
-        switch (args.item.text) {
-            case 'PDF Export':
-                (<any>this.$refs.treegrid).pdfExport();
+        let instance :any = (<any>this.$refs.treegrid).ej2Instances;
+        switch (args.item.id) {
+            case instance.grid.element.id + '_pdfexport':
+            if (instance.enableRtl === true && (instance.locale === 'ar')) {
+                let innercontent: any = 'You need custom fonts to export Arabic characters, refer this'
+                     + '<a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/pdf-export/#add-custom-font-for-pdf-exporting">'
+                     + 'documentation section</a>';
+                    DialogUtility.alert({content: innercontent});
+              }
+              else {
+                instance.pdfExport();
+              }
                 break;
-            case 'Excel Export':
-                (<any>this.$refs.treegrid).excelExport();
+            case instance.grid.element.id + '_excelexport':
+                instance.excelExport();
                 break;
-            case 'CSV Export':
-                (<any>this.$refs.treegrid).csvExport();
+            case instance.grid.element.id + '_csvexport':
+                instance.csvExport();
                 break;
         }
     }

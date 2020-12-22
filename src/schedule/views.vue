@@ -85,9 +85,7 @@
                 args.element.style.backgroundColor = categoryColor;
             },
             changevalue: function (args) {
-                let cotainerObj = this.$refs.ScheduleObj;
-                cotainerObj.currentView = args.value;
-                cotainerObj.dataBind();
+                this.$refs.ScheduleObj.ej2Instances.currentView = args.value;
             }
         }
     });

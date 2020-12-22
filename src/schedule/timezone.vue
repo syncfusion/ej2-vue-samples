@@ -106,8 +106,7 @@
                 }
             },
             onTimezoneDropDownChange: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.timezone = args.value;
+                this.$refs.ScheduleObj.ej2Instances.timezone = args.value;
             }
         },
     });

@@ -1,5 +1,5 @@
 <template>
-  <div class="kanban-vue-sample">
+  <div>
     <div class="col-md-12 control-section">
       <div class="content-wrapper">
         <ejs-kanban id="kanban" cssClass="kanban-header-template" keyField="Status" :dataSource="kanbanData"
@@ -29,49 +29,49 @@
 </div>
 </template>
 <style>
-.kanban-vue-sample .kanban-header-template.e-kanban .header-template-wrap {
+.kanban-header-template.e-kanban .header-template-wrap {
     display: inline-flex;
     font-size: 15px;
     font-weight: 400;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .header-template-wrap .header-icon {
+.kanban-header-template.e-kanban .header-template-wrap .header-icon {
     font-family: 'Kanban priority icons';
     margin-top: 3px;
     width: 10%;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .header-template-wrap .header-text {
+.kanban-header-template.e-kanban .header-template-wrap .header-text {
     margin-left: 15px;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban.e-rtl .header-template-wrap .header-text {
+.kanban-header-template.e-kanban.e-rtl .header-template-wrap .header-text {
     margin-right: 15px;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .card-header {
+.kanban-header-template.e-kanban .card-header {
     padding-left: 12px;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .Open::before {
+.kanban-header-template.e-kanban .Open::before {
     content: '\e700';
     color: #0251cc;
     font-size: 16px;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .InProgress::before {
+.kanban-header-template.e-kanban .InProgress::before {
     content: '\e703';
     color: #ea9713;
     font-size: 16px;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .Review::before {
+.kanban-header-template.e-kanban .Review::before {
     content: '\e701';
     color: #8e4399;
     font-size: 16px;
 }
 
-.kanban-vue-sample .kanban-header-template.e-kanban .Close::before {
+.kanban-header-template.e-kanban .Close::before {
     content: '\e702';
     color: #63ba3c;
     font-size: 16px;

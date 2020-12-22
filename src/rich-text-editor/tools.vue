@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteObj" :value="value" :toolbarSettings="toolbarSettings" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :showCharCount="showCharCount" :maxLength="maxLength"></ejs-richtexteditor>
+        <ejs-richtexteditor ref="rteObj" :value="value" :toolbarSettings="toolbarSettings" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :showCharCount="showCharCount" :maxLength="maxLength" :fileManagerSettings="fileManagerSettings"></ejs-richtexteditor>
         </div>
     </div>
 </div>
@@ -77,15 +77,27 @@
 <script>
 import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
 
 Vue.use(RichTextEditorPlugin);
+
+let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
 export default Vue.extend({
     data: function() {
         return {
             showCharCount: true,
             myCodeMirror: '',
+            fileManagerSettings: {
+                enable: true,
+                path: '/Pictures/Food',
+                ajaxSettings: {
+                    url: hostUrl + 'api/FileManager/FileOperations',
+                    getImageUrl: hostUrl + 'api/FileManager/GetImage',
+                    uploadUrl: hostUrl + 'api/FileManager/Upload',
+                    downloadUrl: hostUrl + 'api/FileManager/Download'
+                }
+            },
             value: `<p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid <a href='https://ej2.syncfusion.com/home/' target='_blank'>HTML markup</a> or <a href='https://ej2.syncfusion.com/home/' target='_blank'>markdown</a> of the content</p>
         <p><b>Toolbar</b></p>
         <ol>
@@ -128,7 +140,7 @@ export default Vue.extend({
                 'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
                 'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
                 'Outdent', 'Indent', '|',
-                'CreateTable', 'CreateLink', 'Image', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+                'CreateTable', 'CreateLink', 'Image', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
             },
         };
     },
@@ -216,7 +228,7 @@ export default Vue.extend({
         }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table]
+        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager]
     }
 });
 </script>

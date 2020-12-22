@@ -1,9 +1,9 @@
 <template>
-  <div class="kanban-vue-sample">
+  <div>
     <div class="col-md-9 control-section">
       <div class="content-wrapper">
         <div class="kanban-section">
-          <ejs-kanban ref="kanbanInstance" id="kanban" keyField="Status" :dataSource="kanbanData" :cardDoubleClick="onCardDoubleClick" :cardSettings="cardSettings" :dialogSettings="dialogSettings">
+          <ejs-kanban ref="kanbanInstance" id="kanban" keyField="Status" :dataSource="kanbanData" :cardSettings="cardSettings" :dialogSettings="dialogSettings">
             <e-columns>
               <e-column headerText="To Do" keyField="Open"></e-column>
               <e-column headerText="In Progress" keyField="InProgress"></e-column>

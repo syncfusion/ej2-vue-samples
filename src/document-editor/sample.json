@@ -63,7 +63,7 @@
         {
             "url": "table-of-contents",
             "name": "Table of Contents",
-            "category": "Editing Features",
+            "category": "References",
             "description": "The Document Editor supports table of contents with options for including hyperlink, page number, right-aligned tabs, and styles."
         },
 		{
@@ -136,8 +136,14 @@
             "url": "mail-merge",
             "name": "Mail Merge",
             "category": "Mail Merge",
-            "type": "new",
             "description": "The Document Editor component provides support to mail merge document with the help of Syncfusion DocIO."
-        }	
+        },
+        {
+            "url": "notes",
+            "name": "Footnotes and Endnotes",
+            "category": "References",
+            "type": "new",
+            "description": "The DocumentEditor provides support to insert footnotes and endnotes to provide more information about something in the document."
+        }
     ]
 }

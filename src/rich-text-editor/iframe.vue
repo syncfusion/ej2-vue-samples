@@ -3,7 +3,8 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height"> <p>The Rich Text Editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
+        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height" :fileManagerSettings="fileManagerSettings">
+            <p>The Rich Text Editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
             Users can format their content using standard toolbar commands.</p>
             <p><b>Key features:</b></p>
             <ul><li><p>Provides IFRAME and DIV modes</p></li>
@@ -47,9 +48,11 @@
 <script>
 import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
 
 Vue.use(RichTextEditorPlugin);
+
+let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
 export default Vue.extend({
     data: function() {
@@ -60,9 +63,19 @@ export default Vue.extend({
                 'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
                 'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
                 'Outdent', 'Indent', '|',
-                'CreateTable', 'CreateLink', 'Image', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+                'CreateTable', 'CreateLink', 'Image', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
     },
     height: 500,
+    fileManagerSettings: {
+        enable: true,
+        path: '/Pictures/Food',
+        ajaxSettings: {
+            url: hostUrl + 'api/FileManager/FileOperations',
+            getImageUrl: hostUrl + 'api/FileManager/GetImage',
+            uploadUrl: hostUrl + 'api/FileManager/Upload',
+            downloadUrl: hostUrl + 'api/FileManager/Download'
+        }
+    },
     iframeSettings: {
         enable: true
     }
@@ -100,12 +113,12 @@ export default Vue.extend({
             transformElement.style.transform = 'translateX(0px)';
         }
     },
-    actionCompleteHandler: function(e) {
+    actionCompleteHandler: function() {
         setTimeout(() => { this.$refs.rteInstance.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 400);
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager]
     }
 });
 </script>

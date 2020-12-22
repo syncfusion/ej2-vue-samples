@@ -173,7 +173,6 @@
             "url": "conditional-formatting",
             "name": "Conditional Formatting",
             "category": "Formatting",
-            "type": "update",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -215,10 +214,24 @@
             ]
         },
         {
+            "url": "chart",
+            "name": "Chart",
+            "category": "Data Visualization",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "sheets",
+                    "openUrl",
+                    "saveUrl",
+                    "created"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows the chart feature."
+        },
+        {
             "url": "image",
             "name": "Image",
             "category": "Illustrations",
-            "type": "new",
             "api": {
                 "Spreadsheet": [
                     "showRibbon",
