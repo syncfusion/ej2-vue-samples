@@ -3,6 +3,7 @@
   "directory": "pivot-table",
   "category": "Grids",
   "ftName": "pivot-table",
+  "type": "update",
   "samples": [{
       "url": "default",
       "name": "Default Functionalities",
@@ -120,6 +121,7 @@
       "name": "Aggregation",
       "category": "Formula",
       "hideOnDevice": false,
+	  "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control shows different types of aggregation for value fields",
       "api": {}
     },
