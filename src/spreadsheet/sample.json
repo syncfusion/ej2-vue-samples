@@ -240,6 +240,27 @@
                 ]
             },
             "description": "This demo for Essential JS 2 Spreadsheet control shows image feature."
+        },
+        {
+            "url": "cell-template",
+            "name": "Cell Template",
+            "category": "Templates",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "showRibbon",
+                    "allowResizing",
+                    "showFormulaBar",
+                    "allowOpen",
+                    "allowSave",
+                    "scrollSettings",
+                    "created",
+                    "allowEditing",
+                    "selectionSettings",
+                    "sheets"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows cell template feature."
         }
     ]
 }

@@ -52,7 +52,7 @@
       </table>
     </div>
     <div id="action-description">
-      <p>This sample demonstrates the aggregate types like sum, average, min, max, count, distinct count, and more in the pivot table for quick business analysis. End users can also change the aggregation type of each field bound to the value axis in the field list at runtime.</p>
+      <p>This sample demonstrates the aggregate types like sum, average, median, min, max, count, distinct count, and more in the pivot table for quick business analysis. End users can also change the aggregation type of each field bound to the value axis in the field list at runtime.</p>
     </div>
     <div id="description">
       <p>
@@ -62,6 +62,7 @@
       <p>
         <code>Sum</code>,
         <code>Average</code>,
+        <code>Median</code>,
         <code>Min</code>,
         <code>Max</code>,
         <code>Count</code>,
@@ -115,6 +116,7 @@ let data: IDataSet[] = JSON.parse(JSON.stringify(rData));
 let qData: { [key: string]: Object }[] = [
   { value: "Sum", text: "Sum" },
   { value: "Avg", text: "Average" },
+  { value: "Median", text: "Median" },
   { value: "Max", text: "Max" },
   { value: "Min", text: "Min" },
   { value: "Count", text: "Count" },
@@ -137,6 +139,7 @@ let qData: { [key: string]: Object }[] = [
 let cData: { [key: string]: Object }[] = [
   { value: "Sum", text: "Sum" },
   { value: "Avg", text: "Average" },
+  { value: "Median", text: "Median" },
   { value: "Max", text: "Max" },
   { value: "Min", text: "Min" },
   { value: "Product", text: "Product" },
