@@ -118,11 +118,11 @@ export default Vue.extend({
                 }
                     (<any>this.$refs.treegrid).copy(withHeader);
                 } else {
-                  (<any>this.$refs.alertDialog).show();
+                  (<any>this.$refs.alertDialog).ej2Instances.show();
                 }
             },
   alertDlgBtnClick: function() {
-        ((<any>this).$refs.alertDialog as any).hide();
+        ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
     },
       onChange: function(e: ChangeEventArgs): void {
                 let mode:any = e.value.toString();

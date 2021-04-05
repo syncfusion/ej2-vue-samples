@@ -53,11 +53,11 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap {
+    .e-schedule-event-tooltip.tooltip-wrap {
         display: flex;
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .image {
+    .e-schedule-event-tooltip.tooltip-wrap .image {
         background-image: url('./images/public-event.png');
         background-position: center center;
         background-repeat: no-repeat;
@@ -66,49 +66,49 @@
         height: 50px;
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .content-area {
+    .e-schedule-event-tooltip.tooltip-wrap .content-area {
         padding-left: 6px;
         font-size: 12px;
         margin: 0px;
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance {
+    .e-schedule-event-tooltip.tooltip-wrap .maintenance {
         background-image: url('./images/maintenance.png');
     }
 
-    .fabric .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance,
-    .highcontrast .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .maintenance {
+    .fabric .e-schedule-event-tooltip.tooltip-wrap .maintenance,
+    .highcontrast .e-schedule-event-tooltip.tooltip-wrap .maintenance {
         background-image: url('./images/maintenance1.png');
     }
 
-    .schedule-vue-sample .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .public-event {
+    .e-schedule-event-tooltip.tooltip-wrap .public-event {
         background-image: url('./images/public-event.png');
     }
 
-    .fabric .schedule-vue-sample .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .public-event,
-    .highcontrast .schedule-vue-sample .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .public-event {
+    .fabric .e-schedule-event-tooltip.tooltip-wrap .public-event,
+    .highcontrast .e-schedule-event-tooltip.tooltip-wrap .public-event {
         background-image: url('./images/public-event1.png');
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .family-event {
+    .e-schedule-event-tooltip.tooltip-wrap .family-event {
         background-image: url('./images/family-event.png');
     }
 
-    .fabric .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .family-event,
-    .highcontrast .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .family-event {
+    .fabric .e-schedule-event-tooltip.tooltip-wrap .family-event,
+    .highcontrast .e-schedule-event-tooltip.tooltip-wrap .family-event {
         background-image: url('./images/family-event1.png');
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .commercial-event {
+    .e-schedule-event-tooltip.tooltip-wrap .commercial-event {
         background-image: url('./images/commercial-event.png');
     }
 
-    .fabric .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .commercial-event,
-    .highcontrast .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .commercial-event {
+    .fabric.e-schedule-event-tooltip.tooltip-wrap .commercial-event,
+    .highcontrast .e-schedule-event-tooltip.tooltip-wrap .commercial-event {
         background-image: url('./images/commercial-event1.png');
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .tooltip-wrap .name {
+    .e-schedule-event-tooltip.tooltip-wrap .name {
         font-weight: 500;
         font-size: 14px;
     }
@@ -123,7 +123,7 @@
     Vue.use(CheckBoxPlugin);
 
     var tooltipVue = Vue.component("tooltipTemplate", {
-        template: '<div class="tooltip-wrap"><div :class="getClass"></div><div class="content-area">' +
+        template: '<div class="tooltip-wrap e-schedule-event-tooltip"><div :class="getClass"></div><div class="content-area">' +
         '<div class="name">{{data.Subject}}</div><div v-if="data.City!== null && data.City!==undefined" class="city">{{data.City}}</div>' +
         '<div class="time">From&nbsp;:&nbsp;{{(data.StartTime).toLocaleString()}} </div>' +
         '<div class="time">To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{(data.EndTime).toLocaleString()}} </div></div></div>',
@@ -138,13 +138,12 @@
             }
         }
     });
-
+    var tooltipTemplate = function () {
+        return { template: tooltipVue }
+    };
 
     export default Vue.extend({
-        data: function () {
-            let tooltipTemplate = function () {
-                return { template: tooltipVue }
-            };
+        data: function () {  
             return {
                 eventSettings: { dataSource: extend([], eventsData, null, true), enableTooltip: true, tooltipTemplate: tooltipTemplate },
                 selectedDate: new Date(2018, 1, 15),
@@ -168,7 +167,7 @@
             onTemplateChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
                 if (args.checked) {
-                    scheduleObj.ej2Instances.eventSettings.tooltipTemplate = this.template;
+                    scheduleObj.ej2Instances.eventSettings.tooltipTemplate = tooltipTemplate;
                 } else {
                     scheduleObj.ej2Instances.eventSettings.tooltipTemplate = null;
                 }

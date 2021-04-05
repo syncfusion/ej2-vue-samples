@@ -10,12 +10,14 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "DocumentEditor",
+            "type": "update",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
         {
             "url": "character-formatting",
             "name": "Character Formatting",
             "category": "Editing Features",
+            "type": "update",
             "description": "The Document Editor supports character formatting such as bold, italic, underline, subscript, superscript, font color, and more."
         },
         {
@@ -112,6 +114,7 @@
             "url": "document-protection",
             "name": "Document Protection",
             "category": "Security",
+            "type": "update",
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
         },
         {
@@ -142,7 +145,6 @@
             "url": "notes",
             "name": "Footnotes and Endnotes",
             "category": "References",
-            "type": "new",
             "description": "The DocumentEditor provides support to insert footnotes and endnotes to provide more information about something in the document."
         }
     ]

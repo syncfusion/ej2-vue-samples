@@ -63,7 +63,7 @@
                 </td>
                 <td>
                     <div>
-                    <ejs-dropdownlist id='pointerColor' ref="pointer" :dataSource='pointerColordata' index=0  :width=120 :change='changePointercolor'></ejs-dropdownlist>                      
+                    <ejs-dropdownlist id='pointerColor' ref="pointer" :enabled='pointerEnabled' :dataSource='pointerColordata' index=0  :width=120 :change='changePointercolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -104,6 +104,7 @@ let isUsage = false;
 export default Vue.extend({
 data:function(){
 return{
+            pointerEnabled: true,
             centerY: '70%',
             annotations: [{
                 content: '<div style="color:#666666;font-size:35px;">1800</div>',
@@ -211,7 +212,7 @@ methods:{
             + usage.ej2Instances.axes[0].pointers[0].value + '</span>';
         barColor.value = usage.ej2Instances.axes[0].pointers[0].color; rangeColor.value = usage.ej2Instances.axes[0].ranges[0].color;
         // let pointerColor = document.getElementById('pointerColor');
-        this.$refs.pointer.enabled = false;
+        this.pointerEnabled = false;
         let pointElement = document.getElementById('pointColor');
         pointElement.className = 'e-disabled';
         let currentElement = document.getElementById('usage');
@@ -237,7 +238,7 @@ methods:{
         let pointElement = document.getElementById('pointColor');
         pointElement.className = 'e-enabled'; 
         // let pointerColor = document.getElementById('pointerColor');
-        this.$refs.pointer.enabled = true;
+        this.pointerEnabled = true;
         element.min = '1000'; element.max = '2000';
         element.value = random.ej2Instances.axes[0].pointers[0].value.toString();
         document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' +

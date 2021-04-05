@@ -39,7 +39,7 @@ let instance = new Internationalization();
         },
         computed: {
             image: function() {
-                return 'source/gantt/images/' + this.data.ganttProperties.resourceNames + '.png';
+                return 'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + this.data.ganttProperties.resourceNames + '.png';
             }
         }
     };

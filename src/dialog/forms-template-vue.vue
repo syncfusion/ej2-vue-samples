@@ -113,42 +113,42 @@ import { FormValidator  } from '@syncfusion/ej2-vue-inputs';
 import { DatePickerPlugin } from '@syncfusion/ej2-vue-calendars';
 Vue.use(DatePickerPlugin);
 export default Vue.extend({
-     data () {
-    return {
-      waterMark : 'Date of Birth'
-    }
-  },
-   mounted() {
+    data () {
+      return {
+        formObj: null,
+        waterMark : 'Date of Birth'
+      }
+    },
+    mounted() {
       var options = {
-      rules: {
-        'User': {
-                        required: true
-                    },
-                    'DOB': {
-                        required: true
-                    },
-                    'City': {
-                        required: true
-                    },
-                    'State': {
-                        required: true
-                    }
-      },
-     
-    };
+        rules: {
+          'User': {
+            required: true
+          },
+          'DOB': {
+            required: true
+          },
+          'City': {
+            required: true
+          },
+          'State': {
+            required: true
+          }
+        },
+      };
       let localObj = this;
-     // defines FormValidator to validate the TimePicker
-        var formObject = new FormValidator("#formId", options);
-        document.getElementById('submit-btn').onclick = function() {
-            localObj.onFormSubmit();
-        };
-  },
+      // defines FormValidator to validate the TimePicker
+      this.formObj = new FormValidator("#formId", options);
+      document.getElementById('submit-btn').onclick = function() {
+        localObj.onFormSubmit();
+      };
+   },
    methods:{
         onFormSubmit: function() {
             let formStatus = this.formObj.validate();
             if (formStatus) {
+                alert('Customer details added!');
                 this.formObj.element.reset();
-                this.$refs.dialogObj.show();
             }
         }
     }

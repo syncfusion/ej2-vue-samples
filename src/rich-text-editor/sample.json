@@ -6,6 +6,7 @@
     "samples": [{
             "url": "tools",
             "name": "Overview",
+            "type": "update",
             "category": "Rich Text Editor",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
@@ -90,7 +91,6 @@
         {
             "url": "file-browser",
             "name": "File Browser",
-            "type": "new",
             "category": "Rich Text Editor",
             "description": "This demo shows how to insert the image into the Rich Text Editor content using FileManager."
         },

@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteObj" :value="value" :toolbarSettings="toolbarSettings" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :showCharCount="showCharCount" :maxLength="maxLength" :fileManagerSettings="fileManagerSettings"></ejs-richtexteditor>
+        <ejs-richtexteditor ref="rteObj" :value="value" :toolbarSettings="toolbarSettings" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :showCharCount="showCharCount" :maxLength="maxLength" :fileManagerSettings="fileManagerSettings" :quickToolbarSettings='quickToolbarSettings'></ejs-richtexteditor>
         </div>
     </div>
 </div>
@@ -98,14 +98,17 @@ export default Vue.extend({
                     downloadUrl: hostUrl + 'api/FileManager/Download'
                 }
             },
-            value: `<p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid <a href='https://ej2.syncfusion.com/home/' target='_blank'>HTML markup</a> or <a href='https://ej2.syncfusion.com/home/' target='_blank'>markdown</a> of the content</p>
+            quickToolbarSettings: {
+                table: ['TableHeader', 'TableRows', 'TableColumns', 'TableCell', '-', 'BackgroundColor', 'TableRemove', 'TableCellVerticalAlign', 'Styles']
+            },
+            value: `<p>The Rich Text Editor is a WYSIWYG ("what you see is what you get") editor useful to create and edit content and return the valid <a href='https://ej2.syncfusion.com/home/' target='_blank'>HTML markup</a> or <a href='https://ej2.syncfusion.com/home/' target='_blank'>markdown</a> of the content</p>
         <p><b>Toolbar</b></p>
         <ol>
         <li> 
-        <p>Toolbar contains commands to align the text, insert link, insert image, insert list, undo/redo operations, HTML view, etc </p>
+        <p>The Toolbar contains commands to align the text, insert a link, insert an image, insert list, undo/redo operations, HTML view, etc </p>
         </li>
         <li> 
-        <p>Toolbar is fully customizable </p>
+        <p>The Toolbar is fully customizable </p>
         </li>
         </ol>
         <p><b>Links</b></p>
@@ -129,7 +132,7 @@ export default Vue.extend({
         <p>You can upload an image </p>
         </li>
         <li> 
-        <p>Provides an option to customize quick toolbar for an image </p> 
+        <p>Provides an option to customize the quick toolbar for an image </p>
         </li>
         </ol>
          <img alt="Logo" src="./source/rich-text-editor/images/RTEImage-Feather.png" style="width: 300px;">`,

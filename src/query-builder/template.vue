@@ -3,7 +3,7 @@
         <div class="col-lg-8 control-section">
             <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :ruleChange="updateRule">
                 <e-columns>
-                    <e-column field='Category' label='Category' type='string' :template='categoryTemplate' />
+                    <e-column field='Category' label='Category' type='string' />
                     <e-column field='PaymentMode' label='Payment Mode' type='string' :operators="paymentOperators" :template='paymentTemplate' />
                     <e-column field='TransactionType' label='Transaction Type' type='boolean' :operators="transOperators" :template='transactionTemplate' />
                     <e-column field='Description' label='Description' type='string' />

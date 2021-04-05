@@ -56,8 +56,9 @@
         },        
         {
             "url": "protect-sheet",
-            "name": "Protect Sheet",
+            "name": "Protection",
             "category": "Spreadsheet",
+            "type": "update",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -74,6 +75,29 @@
                 {
                     "displayName": "protect-sheet-data.json",
                     "path": "src/spreadsheet/protect-sheet-data.json"
+                }
+            ]
+        },
+        {
+            "url": "freeze-panes",
+            "name": "Freeze Panes",
+            "category": "Spreadsheet",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "sheets",
+                    "created"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows freeze rows and columns feature.",
+            "sourceFiles": [
+                {
+                    "displayName": "freeze-panes.vue",
+                    "path": "src/spreadsheet/freeze-panes.vue"
+                },
+                {
+                    "displayName": "freeze-panes-data.json",
+                    "path": "src/spreadsheet/freeze-panes-data.json"
                 }
             ]
         },
@@ -217,7 +241,6 @@
             "url": "chart",
             "name": "Chart",
             "category": "Data Visualization",
-            "type": "new",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -245,7 +268,6 @@
             "url": "cell-template",
             "name": "Cell Template",
             "category": "Templates",
-            "type": "new",
             "api": {
                 "Spreadsheet": [
                     "showRibbon",

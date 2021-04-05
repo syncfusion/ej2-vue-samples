@@ -179,8 +179,8 @@ methods: {
     changeTicks:function(args){
             // let cotainerObj=document.getElementById('labels-container');
             // let tickPosition=document.getElementById('tickposition');
-            let tick; let isMajorTicks = args.value === 'major';
-            if (isMajorTicks) {
+            let tick;
+            if (args.value === "major") {
                 tick = this.$refs.circulargauge.ej2Instances.axes[0].majorTicks;
             } else {
                 tick = this.$refs.circulargauge.ej2Instances.axes[0].minorTicks;
@@ -194,9 +194,9 @@ methods: {
     changeTickposition:function(args){
             // let cotainerObj=document.getElementById('labels-container');
             // let tickPosition=document.getElementById('tickposition');
-            let tick; let isMajorTicks = args.value === 'major';
+            let tick;
             let value = this.$refs.tickPos.ej2Instances.value;
-            if (isMajorTicks) {
+            if (this.$refs.tick.ej2Instances.value === "major") {
                 this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.position = value;
             } else {
                 this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.position = value;
@@ -211,9 +211,8 @@ methods: {
     },
     tickOffset:function(args){
             // let cotainerObj=document.getElementById('labels-container');
-            let isMajorTicks = args.value === 'major';
             let value = parseInt(this.$refs.tickOff.value, 10);
-            if (isMajorTicks) {
+            if (this.$refs.tick.ej2Instances.value === "major") {
                 this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.offset = value;
             } else {
                 this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.offset = value;
@@ -223,9 +222,8 @@ methods: {
     },
     tickHeight:function(args){
             // let cotainerObj=document.getElementById('labels-container');
-            let isMajorTicks = args.value === 'major';
             let value = parseInt(this.$refs.tickHeight.value, 10);
-            if (isMajorTicks) {
+            if (this.$refs.tick.ej2Instances.value === "major") {
                 this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.height = value;
             } else {
                 this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.height = value;

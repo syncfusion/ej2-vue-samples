@@ -3,11 +3,11 @@
 <div class="col-lg-8 control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor id="rte" ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings"><p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid HTML markup or markdown of the content</p>
+        <ejs-richtexteditor id="rte" ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings"><p>The Rich Text Editor is a WYSIWYG ("what you see is what you get") editor useful to create and edit content and return the valid HTML markup or markdown of the content</p>
             <p><b>Toolbar</b></p>
             <ol>
-                <li> <p>Toolbar contains commands to align the text, insert link, insert image, insert list, undo/redo operations, HTML view, etc </p></li>
-                <li> <p>Toolbar is fully customizable </p></li>
+                <li> <p>The Toolbar contains commands to align the text, insert a link, insert an image, insert list, undo/redo operations, HTML view, etc </p></li>
+                <li> <p>The Toolbar is fully customizable </p></li>
             </ol>                    
             <p><b>Links</b></p>
             <ol>
@@ -23,7 +23,7 @@
             <ol>
                 <li><p>Allows you to insert images from an online source as well as the local computer </p> </li>
                 <li><p>You can upload an image </p></li>
-                <li> <p>Provides an option to customize quick toolbar for an image </p> </li>
+                <li> <p>Provides an option to customize the quick toolbar for an image </p> </li>
             </ol>
             <img alt="Logo" src="./images/RTEImage-Feather.png"></ejs-richtexteditor>
         </div>

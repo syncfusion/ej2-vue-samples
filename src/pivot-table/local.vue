@@ -33,6 +33,7 @@
           :gridSettings="gridSettings"
           :width="width"
           :height="height"
+          :load="onLoad"
         ></ejs-pivotview>
       </div>
     </div>
@@ -54,7 +55,8 @@ import Vue from "vue";
 import {
   PivotViewPlugin,
   IDataSet,
-  IDataOptions
+  IDataOptions,
+  LoadEventArgs
 } from "@syncfusion/ej2-vue-pivotview";
 import {
   DropDownListPlugin,
@@ -161,6 +163,12 @@ export default Vue.extend({
       } else if (args.value === "CSV") {
         (this.csvReport as IDataOptions).dataSource = this.getCSVData();
         pivotObj.dataSourceSettings = this.csvReport;
+      }
+    },
+    onload: function(args: LoadEventArgs) {
+      let dataSourceSettings: IDataOptions | undefined = args.dataSourceSettings;
+      if (dataSourceSettings && dataSourceSettings.type === 'CSV') {
+        dataSourceSettings.dataSource = this.getCSVData();
       }
     }
   }

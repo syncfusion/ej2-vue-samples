@@ -2,7 +2,6 @@
     "name": "PDF Viewer",
     "directory": "pdfviewer",
     "category": "Viewer",
-    "type": "new",
     "samples": [
         {
             "url": "default",
@@ -27,8 +26,7 @@
         {
             "url": "hand-written",
             "name": "Handwritten Signature",
-            "category": "PDF Viewer",
-            "type": "new"
+            "category": "PDF Viewer"
         }
     ]
 

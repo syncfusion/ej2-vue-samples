@@ -221,4 +221,3 @@ gulp.task('ls-log', gulp.series(function () {
     shelljs.mkdir('-p', './cireports/logs');
     shelljs.exec('npm ls >./cireports/logs/install.log');
 }));
-

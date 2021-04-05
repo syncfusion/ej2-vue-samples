@@ -147,16 +147,6 @@
     Vue.use(CheckBoxPlugin);
 
     var instance = new Internationalization();
-    var headerTemplateVue = Vue.component("header-template", {
-        template: '<div class="profile-container"><div class="profile-image"></div><div class="content-wrap">' +
-        '<div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status"> ' +
-        '<div class="status-icon"></div>Online</div></div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        }
-    });
 
     export default Vue.extend({
         data: function () {
@@ -167,9 +157,6 @@
                 currentView: 'Month',
                 showHeaderBar: true,
                 selectedDate: new Date(2018, 1, 15),
-                headerTemplate: function () {
-                    return { template: headerTemplateVue }
-                },
             }
         },
         provide: {
@@ -211,7 +198,11 @@
                 scheduleElement.parentElement.appendChild(userContentEle);
 
                 let userIconEle = scheduleElement.querySelector('.e-schedule-user-icon');
-                let getDOMString = compile(this.headerTemplate);
+                let template = 
+                        '<div class="profile-container"><div class="profile-image"></div><div class="content-wrap">' +
+                        '<div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status"> ' +
+                        '<div class="status-icon"></div>Online</div></div></div>';
+                let getDOMString = compile(template);
                 let output = getDOMString({});
                 this.profilePopup = new Popup(userContentEle, {
                     content: output[0],

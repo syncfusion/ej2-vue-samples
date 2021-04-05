@@ -133,7 +133,7 @@ export default Vue.extend({
         this.refresh = true;
     },
     alertDlgBtnClick: function() {
-        ((<any>this).$refs.alertDialog as any).hide();
+        ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
     }
   },
   provide: {

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-sorting-and-filtering">
-        <ejs-spreadsheet ref="spreadsheet" :created="created">
+        <ejs-spreadsheet ref="spreadsheet" :created="created" :openUrl="openUrl" :saveUrl="saveUrl">
             <e-sheets>
                 <e-sheet :name="Employeedetails">
                 <e-ranges>
@@ -76,7 +76,9 @@ export default Vue.extend({
    data: () => {
     return {
         Employeedetails:"Employee deatils",
-        dataSource: dataSource.sortingAndFiltering
+        dataSource: dataSource.sortingAndFiltering,
+        openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
+        saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
     }
   },
   methods: {

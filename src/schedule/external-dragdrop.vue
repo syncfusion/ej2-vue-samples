@@ -26,7 +26,7 @@
                 <div class="title-container">
                     <h1 class="title-text">Waiting List</h1>
                 </div>
-                <ejs-treeview id='Tree' cssClass="treeview-external-drag" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onItemDrag" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop"></ejs-treeview>
+                <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onItemDrag" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop"></ejs-treeview>
             </div>
             <div id="action-description">
                 <p>

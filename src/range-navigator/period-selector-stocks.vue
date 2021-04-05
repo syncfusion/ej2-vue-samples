@@ -56,7 +56,7 @@
 </div>
 </div>
 </template>
-<style scoped>
+<style>
 #control-containerStock {
   padding: 0px !important;
 }

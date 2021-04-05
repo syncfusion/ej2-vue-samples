@@ -55,12 +55,12 @@
      </div>
      <div id="action-description">
       <p>
-        This sample illustrates a segmented progress of the progressbar
+        This sample illustrates a segmented progress of a task
       </p>
     </div>
     <div id="description">
       <p>
-        This demo for Essential JS2 Progress Bar control shows the segmented progress of the progress bar using <code>enableProgressSegments</code> property.
+         This demo for Essential JS2 Progress Bar control shows the segmented progress of a task using <code>segmentCount</code> and <code>gapWidth</code> property.
       </p>
     </div>
   </div>

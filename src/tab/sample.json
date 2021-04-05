@@ -3,6 +3,7 @@
     "directory": "tab",
     "category": "Navigation",
     "ftName" :"tabs",
+    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
@@ -30,6 +31,14 @@
         "category": "Tabs",
         "description": "This sample demonstrates how to design a wizard-like application with the sequential action using the Tab component in Vue platform.",
         "api":{"Tab": ["disabled"]}
+    },
+    {
+        "url": "drag-and-drop",
+        "name": "Drag and Drop",
+        "category": "Tabs",
+        "type": "new",
+        "description": "This example demonstrates how to reorder the loaded tabs and how to add a new tab from the external source.",
+        "api":{"Tab":["allowDragAndDrop", "dragArea", "created", "onDragStart", "dragged"] }
     }
     ]
 }

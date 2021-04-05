@@ -3,7 +3,7 @@
 <div class="col-lg-8 control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteInstance" :toolbarSettings="toolbarSettings" :fontFamily="fontFamily" :format="format" :inlineMode="inlineMode"><p>The sample is configured with inline mode of editor. Initially, the editor is rendered without a <a href="https://ej2.syncfusion.com/home/" target='_blank'>toolbar</a>. The toolbar becomes visible only when the content is selected.</p></ejs-richtexteditor>
+        <ejs-richtexteditor ref="rteInstance" :toolbarSettings="toolbarSettings" :fontFamily="fontFamily" :format="format" :inlineMode="inlineMode"><p>The sample is configured with the inline mode of the editor. Initially, the editor is rendered without a <a href="https://ej2.syncfusion.com/home/" target='_blank'>toolbar</a>. The toolbar becomes visible only when the content is selected.</p></ejs-richtexteditor>
         </div>
     </div>
 </div>

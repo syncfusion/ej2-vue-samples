@@ -108,8 +108,7 @@
         },
         methods: {           
             onChange: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                scheduleObj.rowAutoHeight = args.checked;               
+                this.$refs.ScheduleObj.ej2Instances.rowAutoHeight = args.checked;               
             }
         }
     });

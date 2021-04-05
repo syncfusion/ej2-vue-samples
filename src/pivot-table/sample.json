@@ -106,6 +106,7 @@
       "category": "User Interaction",
       "hideOnDevice": false,
       "api": {},
+      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },
     {
@@ -121,7 +122,7 @@
       "name": "Aggregation",
       "category": "Formula",
       "hideOnDevice": false,
-	  "type": "update",
+      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control shows different types of aggregation for value fields",
       "api": {}
     },

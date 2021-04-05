@@ -34,6 +34,10 @@
                     <ejs-checkbox id='actionButtons' label='Action Buttons' :change="OnactionBtnChange"></ejs-checkbox>
                 </div>
                 <div class="input-form">
+                       <ejs-dropdownlist ref='directionRef' id='direction' :dataSource='directionData' :fields='directionFields'
+                        placeholder='ProgressDirection' :change='onDirectionChange' :value='directionValue' floatLabelType='Auto'></ejs-dropdownlist>
+                </div>
+                <div class="input-form">
                     <div class="e-float-input e-input-group">
                         <input class="e-input" id="timeOut" name="Digits" value="5000" digits="true" data-digits-message="Please enter digits only." required="">
                         <span class="e-float-line"></span>
@@ -149,7 +153,12 @@ export default Vue.extend({
                 { Id: 'ease', Text: 'Ease' },
                 { Id: 'linear', Text: 'Linear' }
             ],
+            directionData: [
+                { Id: 'Rtl', Text: 'Right to Left' },
+                { Id: 'Ltr', Text: 'Left to Right' }
+            ],
             easeFields: { text: 'Text', value: 'Id' },
+            directionFields: { text: 'Text', value: 'Id' },
             animationData: [
                 { Id: 'SlideBottomIn', Text: 'Slide Bottom In' },
                 { Id: 'FadeIn', Text: 'Fade In' },
@@ -197,6 +206,7 @@ export default Vue.extend({
                 { Id: 'ZoomOut', Text: 'Zoom Out' }
             ],
             easeValue: 'ease',
+            directionValue: 'Rtl',
             animationValue: 'SlideBottomIn',
             animationHideValue: 'SlideBottomOut',
             showAnimation: { show : { effect: 'SlideBottomIn' }, hide : { effect: 'SlideBottomOut'} },
@@ -280,6 +290,9 @@ export default Vue.extend({
        },
        showChange: function(args){
             this.apiObj.animation.show.effect = args.value;
+       },
+       onDirectionChange: function(args){
+            this.apiObj.progressDirection = args.value.toString();
        },
        hideChange: function(args){
             this.apiObj.animation.hide.effect = args.value;

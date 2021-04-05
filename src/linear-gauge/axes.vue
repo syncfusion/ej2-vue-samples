@@ -106,7 +106,6 @@
                     <div>
     <ejs-dropdownlist id='pointerPlace' :dataSource='pointerplacedata'  index=0 :placeholder='pointerplaceholder' :width='pointerplacewidth' :change='changePointerplace'></ejs-dropdownlist>                      
                     </div>
-                    <input type="range" name="range-max" id="rangeMax" min="0" max="115" value="115" style="width:90%" autocomplete="off">
                 </td>
             </tr>
         </table>

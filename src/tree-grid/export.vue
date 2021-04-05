@@ -1,6 +1,6 @@
 <template>
-<div class="col-lg-12 control-section">
-    <div>
+<div class="control-section">
+    <div class="col-md-9 control-section">
         <ejs-treegrid ref='treegrid' :treeColumnIndex='1' :dataSource="data" childMapping='subtasks' :height='350' :allowPaging='true' :pageSettings='pageSettings' :toolbar='toolbar' :toolbarClick='toolbarClick'
                 :allowExcelExport='true' :allowPdfExport='true'>
             <e-columns>
@@ -15,14 +15,28 @@
         </ejs-treegrid>
     </div>
 
+     <div>
+        <div class="col-md-3 property-section">
+        <table id="property" title="Export Customization" style="width: 100%">
+        <tr>
+            <td style="width: 70%;">
+              <div style="padding-left: 0px;">
+                <ejs-checkbox ref='checkbox' :checked="true" labelPosition='Before' label='Persist collapsed state' :change="collapsestate"></ejs-checkbox>
+              </div>
+            </td>
+        </tr>
+    </table>
+        </div>
+    </div>
+
     <div id="action-description">
-    <p>This sample demonstrates the client-side exporting of the Tree Grid, which allows you to export its data to the Excel, Pdf and CSV formats. Use the toolbar buttons to export Tree Grid data to desired format. </p>
+    <p>This sample demonstrates the client-side exporting of the Tree Grid, which allows you to export its data to the Excel, Pdf and CSV formats. Use the toolbar buttons to export Tree Grid data to desired format.</p>
+    <p>By using the Persist collapsed state checkbox we can persist the Expand/Collpase state of Tree Grid in exported document</p>
 </div>
 <div id="description">
 
     <p>Tree Grid supports client-side exporting which allows you to export its data to the Excel, Pdf and CSV formats.</p>
     <p>In this demo, for the toolbar items of exporting, we have defined actions in <code>toolbarClick</code> event to export the Tree Grid data using the <code>excelExport</code>, <code>pdfExport</code> and <code>csvExport</code> methods.</p>
-    
     <p style="font-weight: 500">Injecting Module:</p>
     <p>Tree Grid features are segregated into individual feature-wise modules. To use exporting feature, we need to inject <code>ExcelExport</code> and <code>PdfExport</code> module into the <code>provide</code> section.</p>
     <p>More information on the Exporting can be found in the  documentation section.
@@ -32,12 +46,16 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { TreeGridPlugin, TreeGridComponent, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridPlugin, TreeGridExcelExportProperties, TreeGridPdfExportProperties, TreeGridComponent, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { sampleData } from "./data-source";
 import { DialogUtility } from '@syncfusion/ej2-popups';
+import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
 
 Vue.use(TreeGridPlugin);
+Vue.use(CheckBoxPlugin);
+
+let persistCollapseState: boolean = true;
 
 export default Vue.extend({
   data: () => {
@@ -59,16 +77,30 @@ export default Vue.extend({
                     DialogUtility.alert({content: innercontent});
               }
               else {
-                instance.pdfExport();
+                let pdfProperties: TreeGridPdfExportProperties = {
+                  isCollapsedStatePersist: persistCollapseState
+                };
+                instance.pdfExport(pdfProperties);
               }
                 break;
             case instance.grid.element.id + '_excelexport':
-                instance.excelExport();
+                let excelProperties: TreeGridExcelExportProperties = {
+                  isCollapsedStatePersist: persistCollapseState
+                };
+                instance.excelExport(excelProperties);
                 break;
             case instance.grid.element.id + '_csvexport':
                 instance.csvExport();
                 break;
         }
+    },
+    collapsestate: function () {
+      let instance :any = (<any>this.$refs.checkbox).ej2Instances;
+      if (instance.checked) {
+        persistCollapseState = true;
+      } else{
+        persistCollapseState = false;
+      }
     }
   },
   provide: {

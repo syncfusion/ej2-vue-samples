@@ -6,7 +6,7 @@
             :axisLabelRender='axisLabelRender'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Waterfall' xName='x' yName='y' width=2
-                :columnWidth='columnWidth' :connector='connector' :intermediateSumIndexes:='intermediate' :sumIndexes='sum' :marker='marker'
+                :columnWidth='columnWidth' :connector='connector' :intermediateSumIndexes='intermediate' :sumIndexes='sum' :marker='marker'
                  negativeFillColor='#e56590'> </e-series>
             </e-series-collection>
         </ejs-chart>

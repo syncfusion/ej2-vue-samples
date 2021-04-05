@@ -22,7 +22,7 @@ setAnnotationMode
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 	#pdfviewer {
 		height: 640px;
 	}

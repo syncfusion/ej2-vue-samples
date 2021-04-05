@@ -6,6 +6,23 @@
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :bubbleSettings='bubbleSettings' :shapeSettings='shapeSettings'></e-layer>
     </e-layers>
 </ejs-maps>
+
+<div id="template" style="display:none">
+    <div class="toolback">
+        <div class="listing2">
+            <center>
+                ${name}
+            </center>
+        </div>
+        <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
+        <div>
+            <span class="listing1">Rank : </span><span class="listing2">${rank}</span>
+        </div> 
+        <div>
+            <span class="listing1">Population : </span><span class="listing2">${population}</span>
+        </div>
+    </div>
+   </div>
    
     <div style="float: right; margin-right: 10px;">Source:
        <a href="https://en.wikipedia.org/wiki/List_of_countries_by_number_of_Internet_users" target="_blank">en.wikipedia.org</a>
@@ -33,11 +50,33 @@
     </div>
 </div>
 </template>
+<style scoped>
+    .toolback {
+        border-radius: 4px;
+        border: 1px #abb9c6;
+        background: rgba(53, 63, 76, 0.90);
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 165px;
+    }
+    .listing1 {
+        font-size:13px;
+        color:#cccccc
+    }
+    .listing2 {
+        font-size:13px;
+        color:#ffffff;
+        font-weight: 500;
+    }
+</style>
+
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Bubble, MapsTooltip, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { internetUsers } from '../maps/map-data/population-data';
-import Template from './bubble-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
 data:function(){
@@ -73,7 +112,7 @@ data:function(){
                         tooltipSettings: {
                             visible: true,
                             valuePath: 'population',
-                            template: function () { return {template: Template}; }
+                            template: '#template'
                         },
                     }
         ]

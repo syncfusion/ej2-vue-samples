@@ -170,14 +170,8 @@ color: rgba(0, 0, 0, 0.54);
 font-weight: 600;
 font-size: 14px;
 }
-.sf-icon-FinishMerge:before { content: "\e700";font-family: 'Font Mail merge icon' !important;
-color: rgba(0, 0, 0, 0.54);
-font-weight: 600;
-font-size: 14px; }
-.sf-icon-InsertMergeField:before { content: "\e701";font-family: 'Font Mail merge icon' !important;
-color: rgba(0, 0, 0, 0.54);
-font-weight: 600;
-font-size: 14px; }
+.sf-icon-FinishMerge:before { content: "\e700"; }
+.sf-icon-InsertMergeField:before { content: "\e701"; }
 
 /** Document editor sample level font icons*/
 
@@ -299,19 +293,6 @@ export default Vue.extend({
      toolbarItems : [
             'New', 'Open', 'Separator', 'Undo',
             'Redo',
-             'Separator',
-            {
-                prefixIcon: 'sf-icon-InsertMergeField',
-                tooltipText: 'Insert Field',
-                text: this.onWrapText('Insert Field'),
-                id: 'InsertField'
-            },
-            {
-                prefixIcon: 'sf-icon-FinishMerge',
-                tooltipText: 'Merge Document',
-                text: this.onWrapText('Merge Document'),
-                id: 'MergeDocument'
-            },
             'Separator',
             'Image',
             'Table',
@@ -334,7 +315,20 @@ export default Vue.extend({
             'RestrictEditing',
             'Separator',
             'FormFields',
-            'UpdateFields'
+            'UpdateFields',
+            'Separator',
+            {
+                prefixIcon: 'sf-icon-InsertMergeField',
+                tooltipText: 'Insert Field',
+                text: this.onWrapText('Insert Field'),
+                id: 'InsertField'
+            },
+            {
+                prefixIcon: 'sf-icon-FinishMerge',
+                tooltipText: 'Merge Document',
+                text: this.onWrapText('Merge Document'),
+                id: 'MergeDocument'
+            },
         ],
         header: 'Merge Field',
         content:

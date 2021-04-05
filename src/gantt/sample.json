@@ -3,7 +3,6 @@
    "directory": "gantt",
    "category": "Calendars",
    "ftName": "gantt",
-   "type": "update",
    "samples": [
       {
          "url": "default",
@@ -222,7 +221,6 @@
          "url": "split-tasks",
          "name": "Split Tasks",
          "category": "Gantt",
-		 "type": "new",
          "api": {
             "Gantt": [
                "dataSource",
@@ -249,7 +247,6 @@
          "url": "virtual-scroll",
          "name": "Virtual Scrolling",
          "category": "Gantt",
-         "type": "new",
          "api": {
             "Gantt": [
                "dataSource",

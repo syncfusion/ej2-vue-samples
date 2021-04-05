@@ -16,7 +16,7 @@
               :direction="direction"
             >
               <e-pointers>
-                <e-pointer></e-pointer>
+                <e-pointer :pointerWidth='pointerWidth' :cap='cap'></e-pointer>
               </e-pointers>
             </e-axis>
           </e-axes>
@@ -125,6 +125,8 @@ export default Vue.extend({
       gaugeRadius: "80%",
       startAngle: 0,
       endAngle: 0,
+      pointerWidth: 0,
+      cap: { radius: 0},
       direction: "AntiClockWise",
       majorTicks: {
         position: "Outside",

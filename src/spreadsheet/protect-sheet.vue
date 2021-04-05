@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-protect-sheet">
-        <ejs-spreadsheet  ref="spreadsheet" :allowOpen="false" :allowSave="false" :created="created" :beforeCellRender="beforeCellRender">
+        <ejs-spreadsheet  ref="spreadsheet" password="spreadsheet" :openUrl="openUrl" :saveUrl="saveUrl" :allowOpen="false" :allowSave="false" :created="created" :beforeCellRender="beforeCellRender">
             <e-sheets>
                 <e-sheet isProtected="true" name="EMI Calculator">
                     <e-rows>
@@ -81,15 +81,15 @@
     </div>
      <div id="action-description">
        <p>
-        This sample demonstrates protect sheet and lock cell feature with EMI calculation scenario as example.
+        This sample demonstrates protect sheet and protect workbook with EMI calculation scenario as an example. To unprotect the sheet, click the unprotect sheet button in the Data tab. Meanwhile, to unprotect the workbook, click the unprotect workbook button in the data tab and provide the password as <code>spreadsheet</code> in the dialog box.
     </p>
      </div>
     <div id="description">
         <p>
-        In this demo, `EMI Schedule` sheet is locked using <code>isProtected</code> property.
+        Protect sheet helps you to prevent the users from modifying the data in the spreadsheet. Protect workbook helps you to protect the workbook with a password. In this demo, the `EMI Schedule` sheet is locked using <code>isProtected</code> property inside the `Sheet` property and protect the workbook with a password using <code>password</code> property.
     </p>
     <p>
-        More information about protect sheet and lock cell feature can be found in this
+        More information about protection feature can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/protect-sheet/">
             documentation</a> section.
     </p>
@@ -128,7 +128,9 @@ export default Vue.extend({
    data: () => {
     return {
         dataSource: dataSource.protectSheet,
-        currencyFormat: getFormatFromType('Currency')
+        currencyFormat: getFormatFromType('Currency'),
+        openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
+        saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
     }
   },
   methods: {

@@ -244,4 +244,9 @@ export default Vue.extend({
         font-size: 14px;
         text-align: center;
     }
+    
+    .details-view .e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+      padding-left: 4.8em;
+      padding-right: 1.0666em;
+    }
 </style>

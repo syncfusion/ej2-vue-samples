@@ -5,7 +5,7 @@
         <div class="sample-container">
             <div class="default-section">
                 <ejs-richtexteditor ref="rteInstance" :pasteCleanupSettings="pasteCleanupSettings">
-                    <p>Rich Text Editor is a WYSIWYG editing control which will reduce the effort for users while trying to express their formatting word content as HTML or Markdown format.</p>
+                    <p>Rich Text Editor is a WYSIWYG editing control that will reduce the effort for users while trying to express their formatting word content as HTML or Markdown format.</p>
                     <p><b>Paste cleanup properties:</b></p>
                     <ul>
                         <li>

@@ -93,7 +93,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "source/gantt/images/taskname.png";
+                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/taskname.png";
                     }
                 }
           })}
@@ -110,7 +110,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "source/gantt/images/startdate.png";
+                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/startdate.png";
                     }
                 }
           })}
@@ -127,7 +127,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "source/gantt/images/resources.png";
+                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/resources.png";
                     }
                 }
           })}
@@ -144,7 +144,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "source/gantt/images/duration.png";
+                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/duration.png";
                     }
                 }
           })}
@@ -161,7 +161,7 @@ export default Vue.extend({
                 },
                 computed: {
                     image: function() {
-                        return "source/gantt/images/progress.png" ;
+                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/progress.png" ;
                     }
                 }
           })}

@@ -86,7 +86,6 @@
             "category": "Data Grid",
             "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
             "hideOnDevice": false,
-            "type": "update",
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
@@ -96,6 +95,24 @@
             "description": "This demo for Essential JS 2 grid component shows the grid multisorting feature. Using this feature, grid rows can be sorted by two or more columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowSorting"] }
+        },
+        {
+            "url": "adaptive",
+            "name": "Adaptive",
+            "type": "new",
+            "category": "Data Grid",
+            "description": "This sample demonstrates the rendering order of the grid row elements and adaptive dialogs.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource","allowSorting","allowFiltering","editSettings","toolbar","allowPaging","rowRenderingMode","enableAdaptiveUI"] }
+        },
+        {
+            "url": "enable-rtl",
+            "name": "RTL",
+            "type": "new",
+            "category": "Data Grid",
+            "description": "This demo for Essential JS 2 grid component shows the Right to left(RTl) alignment.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSorting", "allowFiltering", "allowGrouping", "enableRtl", "allowPaging"] }
         },
         {
             "url": "scrolling",
@@ -317,7 +334,6 @@
             "category": "Frozen",
             "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
             "hideOnDevice": false,
-            "type": "new",
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
@@ -338,7 +354,6 @@
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
-            "type": "update",
             "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },
             "sourceFiles":[
                 { "displayName": "filter-menu.vue", "path":"src/grid/filter-menu.vue" },
@@ -365,7 +380,6 @@
             "url": "selection-api",
             "name": "Selection API",
             "category": "Selection",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how to perform selection programmatically.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
@@ -446,6 +460,7 @@
             "url": "export",
             "name": "Default Exporting",
             "category": "Exporting",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the client-side exporting of grid content to Excel, PDF, and CSV formats.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport"] }

@@ -43,7 +43,7 @@
 
 <script>
 import Vue from "vue";
-import { SchedulePlugin, Year, TimelineYear } from "@syncfusion/ej2-vue-schedule";
+import { SchedulePlugin, Year, TimelineYear, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
 Vue.use(SchedulePlugin);
 
@@ -65,7 +65,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    schedule: [Year, TimelineYear]
+    schedule: [Year, TimelineYear, Resize, DragAndDrop]
   },
   methods: {
     onEventRendered: function(args) {

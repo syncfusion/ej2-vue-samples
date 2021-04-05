@@ -3,6 +3,7 @@
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
+    "type": "update",
     "samples": [
       {  
         "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
@@ -148,7 +149,7 @@
         "url":"paging-api", "name": "Paging API", "category":"Paging","api":{"Grid":["dataSource","allowPaging","columns","treeColumnIndex","childMapping"] },
         "description": "This demo explains how to customize a pager using the APIs that are relevant to paging of Syncfusion Essential JS2 Tree Grid control."       
         },
-        {  
+        {
           "url": "default-scrolling", "name": "Default Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height"] },
           "description": "This demo demonstrates how to use Essential JS 2 Tree Grid to show a large data view without performance degradation by rendering only the required rows."
        },
@@ -156,6 +157,10 @@
         "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
         "description": "This demo for Essential JS 2 Tree Grid control shows the usage of the horizontal and vertical scrollbars to view Tree Grid content that exceeds the Tree Grid area."
       },
+      {
+         "url": "infinite-scrolling", "name": "Infinite Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableInfiniteScrolling","height","dataBound"] },
+         "description": "This demo for Essential JS 2 Tree Grid control demonstrates the Tree Grid component with the infinite scrolling feature.", "type": "new"
+       },
      {
         "url":"selection", "name": "Default Selection", "category":"Selection","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","allowSelection","selectionSettings","treeColumnIndex"] },
         "description": "This demo explains the customization of selection mode and toggle selection of Syncfusion Essential JS2 Tree Grid control."
@@ -195,7 +200,7 @@
        "api":{"TreeGrid":["dataSource","allowPaging","columns", "hasChildMapping", "contextMenuItems", "parentIdMapping"] }
     },
      {
-        "url":"export", "name": "Default Exporting", "category":"Exporting", "api":{"TreeGrid":["dataSource","columns","toolbar","allowExcelExport","allowPdfExport","treeColumnIndex", "toolbarClick","childMapping","height"] },
+        "url":"export", "name": "Default Exporting", "type": "update", "category":"Exporting", "api":{"TreeGrid":["dataSource","columns","toolbar","allowExcelExport","allowPdfExport","treeColumnIndex", "toolbarClick","childMapping","height"] },
         "description": "This demo explains how to export the Tree Grid content to Excel, PDF, and CSV documents using the Syncfusion Essential JS2 Tree Grid control."        
      },
      {

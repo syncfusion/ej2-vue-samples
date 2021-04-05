@@ -1,0 +1,298 @@
+.body {
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
+}
+
+.sb-bread-crumb-text {
+	font-size: 22px;
+    padding-top: 24px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.content-wrapper{
+    padding-left: 20px;
+}
+
+.e-view {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.e-image {
+    height: 13px;
+    width: 14px;
+    vertical-align: middle;
+}
+
+.sb-left {
+    float: left;
+}
+
+.sb-right {
+    float: right;
+}
+
+.sb-block {
+    display: block;
+}
+
+.sb-table {
+    display: table;
+}
+
+.sb-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/*sample header*/
+
+
+.sb-header {
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+    z-index: 1001;
+    opacity: 100;
+}
+
+
+.sb-header-left, .sb-header-right {
+    height: 100%;
+}
+
+#sb-header-text {
+    padding-left: 22px;
+    opacity: 0.87;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;
+    text-align: left;
+}
+
+.header-logo {
+    float: left;
+    padding-left: 8px;
+    padding-right: 22px;
+}
+
+.footer-logo {
+    background: url(https://ej2.syncfusion.com/home/images/footer-logo.svg) no-repeat right;
+    height: 40px;
+    width: 140px;
+}
+
+.sb-header-splitter {
+    float: left;
+    border-left: 1px solid rgb(196, 196, 196);
+    height: 32px;
+    margin-top: 8px;
+    padding-left: 22 px;
+}
+
+.sb-header-settings {
+    display: none;
+}
+
+.product-style a{
+   padding-right: 15px;
+   font-family:Roboto;
+   font-weight: 500;
+   font-size: 13px;
+   color: #363636;
+   text-align: center;
+   text-decoration: none;
+}
+.product-style a:hover {
+    color:#3C78EF;
+}
+
+.sb-download-btn a {
+    text-decoration: none;
+}
+
+.sb-download-text {
+    color: #FFFFFF;
+}
+
+.sb-download-wrapper {
+    padding-right: 27px;
+}
+
+.sb-download-btn:hover .sb-download-btn:focus .sb-download-btn.active {
+    border-radius: 2px;
+    font-family: "Roboto";
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.sb-download-btn:hover {
+    background: #006CE6;
+}
+
+.sb-download-btn:focus {
+    background: #0051CB;
+}
+
+.sb-download-btn.active {
+    background: #0036B1;
+}
+
+.sb-download-btn {
+    background-color: #3C78EF;
+    opacity: 100;
+    border-radius: 2px;
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
+    font-weight: 500;
+    line-height: 18px;
+    height: 32px;
+    border-color: transparent;
+}
+
+.sb-bread-crumb h1{
+    padding-left: 20px;
+    padding-top: 24px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.category-allcontrols a, .category-text a, .crumb-sample {
+    display: table;
+    opacity: 0.87;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 15px;
+    color: #3C78EF;
+    text-align: left;
+    text-decoration: none;
+}
+
+.sb-bread-crumb .sb-bread-crumb-text>div {
+    font-size: 15px;
+    font-weight: 500;
+    padding-right: 8px;
+    cursor: default;
+    display: table-cell;
+}
+
+.sb-bread-crumb-text>div.seperator {
+    font-weight: 700;
+    font-size: 15px;
+    vertical-align: bottom;
+} 
+
+.content {
+overflow: auto;
+height: calc(100% - 50px);
+top: 50px;
+}
+
+
+.sample-content {
+    top: 48px;
+    background: #FFFFFF;
+}
+
+.div {
+  display: block;
+}
+
+.crumb-sample {
+    color: #000000;
+    line-height: 18px;
+}
+
+.control-section {
+    padding-left: 4px;
+}
+
+#description {
+    padding-bottom: 16px;
+    padding-left: 20px;
+    opacity: 0.75;
+    font-family: Roboto;
+    font-size: 13px;
+    color: #000000;
+    text-align: left;
+    padding-top: 14px;
+}
+
+#action-description {
+    padding-left: 20px;
+    padding-bottom: 15px;
+    font-family: Roboto;
+    font-size: 13px;
+    color: #000000;
+    text-align: left;
+}
+
+#description-section {
+    padding-left: 20px;
+    padding-top: 30px;
+    opacity: 0.87;
+    font-family:Roboto;
+    font-weight: 700;
+    font-size: 15px;
+    color: #000000;
+    text-align: left;
+}
+
+.layout {
+    display:inline-block;
+    cursor: pointer;
+}
+
+#actionDes {
+    opacity: 0.75;
+}
+
+.sb-footer {
+    height: 100px;
+    width: calc(100% + 36px);
+    position: relative;
+    border-top: 1px solid #D5D5D5;
+    margin-top: 24px;
+}
+
+.sb-footer-left {
+    position: absolute;
+}
+
+.sb-footer-links a {
+    color: #1783FF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sb-footer-links {
+    display: table;
+}
+
+.sb-footer-link {
+    display: table-cell;
+    padding: 20px 30px 12px 0px;
+}
+
+.sb-footer-copyright {
+    padding-bottom: 24px;
+}
+
+.sb-footer-logo {
+    padding: 36px 36px 27px 0px;
+    right: 0px;
+    position: absolute;
+}
+
+.sb-footer-logo-icon {
+    background: url(../../styles/images/sb-icons/Syncfusion-logo.svg) no-repeat right;
+    height: 40px;
+    width: 140px;
+}

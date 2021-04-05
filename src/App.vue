@@ -59,7 +59,7 @@
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
-                            <span class='sb-header-text-left'>Essential JS 2 for</span>
+                            <span class='sb-header-text-left'>Essential JS 2 for </span>
                             <span class='sb-header-text-right'>Vue</span>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                                     <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
                         </a>
-                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank">
+                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" style=" display: none; ">
                         <button class='sb-npm-btn'>
                             <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span class="doc-npm-link">Install NPM</span>
                         </button>

@@ -5,10 +5,10 @@
             <ejs-combobox ref='countryObj' id='country' :popupHeight='height' :fields='countryFields' :dataSource='countryData' :allowCustom='allowCustom' :change='onChange' :placeholder='countryWaterMark'></ejs-combobox>
         </div>
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-            <ejs-combobox ref='stateObj' id='state' :query='stateQuery' :popupHeight='height' :enabled='stateEnabled' :fields='stateFields' :dataSource='stateData' :allowCustom='allowCustom' :change='onChange1' :placeholder='stateWaterMark'></ejs-combobox>
+            <ejs-combobox ref='stateObj' id='state' :query='stateQuery' :popupHeight='height' :enabled='stateEnabled' :fields='stateFields' :dataSource='stateData' :allowCustom='allowCustom' :change='onChange1' :placeholder='stateWaterMark' :value="stateValue"></ejs-combobox>
         </div>
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-            <ejs-combobox ref='cityObj' id='city' :query='cityQuery' :popupHeight='height' :enabled='cityEnabled' :fields='cityFields' :dataSource='cityData' :allowCustom='allowCustom' :placeholder='cityWaterMark'></ejs-combobox>
+            <ejs-combobox ref='cityObj' id='city' :query='cityQuery' :popupHeight='height' :enabled='cityEnabled' :fields='cityFields' :dataSource='cityData' :allowCustom='allowCustom' :placeholder='cityWaterMark' :value="cityValue"></ejs-combobox>
         </div>
     </div>
     <div id="action-description">
@@ -48,9 +48,9 @@ export default Vue.extend ({
         stateWaterMark: 'Select a state',
         cityWaterMark: 'Select a city',
         allowCustom: false,
-        countryValue: '',
-        stateValue: '',
-        cityValue: '',
+        countryValue: null,
+        stateValue: null,
+        cityValue: null,
         stateEnabled: false,
         cityEnabled: false,
         tempQuery: '',
@@ -59,50 +59,27 @@ export default Vue.extend ({
         };
     },
     methods: {
-        onChange: function() {
-            if (this.$refs.countryObj.$el.value === null) {
-                // disable the state ComboBox
-                this.stateEnabled = false;
-                // disable the city ComboBox
-                this.cityEnabled = false;
-                // clear the existing selection
-                this.stateValue = null;
-                // clear the existing selection
-                this.cityValue = null;
-            } else {
-                this.stateEnabled = true;
-                // query the data source based on country ComboBox selected value
-                this.tempQuery = new Query().where('CountryId', 'equal', this.$refs.countryObj.$data.ej2Instances.value);
-                this.stateQuery = this.tempQuery;
-                // clear the existing selection
-                this.stateValue = null;
-                // clear the existing selection
-                this.cityValue = null;
-                // disable the city ComboBox
-                this.cityEnabled = false;
-            }
-            // bind the property change to state ComboBox
-            this.$refs.stateObj.dataBind();
-            // bind the property change to city ComboBox
-            this.$refs.cityObj.dataBind();
+        onChange: function(args) {
+            // disable the state ComboBox
+            this.stateEnabled = args.value !== null;
+            // query the data source based on country ComboBox selected value
+            this.tempQuery = new Query().where('CountryId', 'equal', this.$refs.countryObj.$data.ej2Instances.value);
+            this.stateQuery = this.tempQuery;
+            // clear the existing selection
+            this.$refs.stateObj.$data.ej2Instances.value = null;
+            // clear the existing selection
+            this.$refs.cityObj.$data.ej2Instances.value = null;
+            // disable the city ComboBox
+            this.cityEnabled = false;
         },
-        onChange1: function() {
-            if (this.$refs.stateObj.$el.value === null) {
-                // disable the city ComboBox
-                this.cityEnabled = false;
-                // clear the existing selection
-                this.cityValue = null;
-            } else {
-                // enable the city ComboBox
-                this.cityEnabled = true;
-                // query the data source based on state ComboBox selected value
-                this.tempQuery = new Query().where('StateId', 'equal', this.$refs.stateObj.$data.ej2Instances.value);
-                this.cityQuery = this.tempQuery;
-                // clear the existing selection
-                this.cityValue = null;
-            }
-            // bind the property change to city ComboBox
-            this.$refs.cityObj.dataBind();
+        onChange1: function(args) {
+            // disable the city ComboBox
+            this.cityEnabled = args.value !== null;
+            // query the data source based on state ComboBox selected value
+            this.tempQuery = new Query().where('StateId', 'equal', this.$refs.stateObj.$data.ej2Instances.value);
+            this.cityQuery = this.tempQuery;
+            // clear the existing selection
+            this.$refs.cityObj.$data.ej2Instances.value = null;
         },
     }
 });

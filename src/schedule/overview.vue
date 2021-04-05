@@ -54,11 +54,11 @@
                             </e-item>
                             <e-item tooltipText="Timeline Views" :template="timelineTemplate"></e-item>
                             <e-item type='Separator'></e-item>
-                            <e-item tooltipText="Week Number" :template="weekNumberTemplate"></e-item>
                             <e-item tooltipText="Resource Grouping" :template="groupTemplate"></e-item>
                             <e-item tooltipText="Gridlines" :template="gridlineTemplate"></e-item>
                             <e-item tooltipText="Row Auto Height" :template="autoHeightTemplate"></e-item>
                             <e-item tooltipText="Tooltip" :template="tooltipTemplate"></e-item>
+                            <e-item tooltipText="Allow Multi Drag" :template="multiDragTemplate"></e-item>
                         </e-items>
                     </ejs-toolbar>
                 </div>
@@ -192,6 +192,26 @@
                             <div class="col-right">
                                 <ejs-dropdownlist id='slotInterval' width='170px' :dataSource='timeSlotCount'
                                     :change='onTimescaleIntervalChange' :value='timeSlotCountValue'
+                                    popupHeight='150px'></ejs-dropdownlist>
+                            </div>
+                        </div>
+                        <div class="col-row">
+                            <div class="col-left">
+                                <label style="line-height: 34px; margin: 0;">Time Format</label>
+                            </div>
+                            <div class="col-right">
+                                <ejs-dropdownlist id='timeFormat' width='170px' :dataSource='timeFormatdata'
+                                    :change='onchangeTimeFormat' :value='timeFormatValue' :fields='fields'
+                                    popupHeight='150px'></ejs-dropdownlist>
+                            </div>
+                        </div>
+                        <div class="col-row">
+                            <div class="col-left">
+                                <label style="line-height: 34px; margin: 0;">Week Numbers</label>
+                            </div>
+                            <div class="col-right">
+                                <ejs-dropdownlist id='weekNumber' width='170px' :dataSource='weekNumberData'
+                                    :change='onchangeWeekNumber' :fields='fields' :value='weekNumberValue'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
                         </div>
@@ -1093,6 +1113,18 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 timeSlotCount: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                 timeSlotDurationValue: 60,
                 timeSlotCountValue: 2,
+                timeFormatdata: [
+                  { text: '12 hours', value: "hh:mm a" },
+                  { text: '24 hours', value: "HH:mm" }
+                ],
+                timeFormatValue: "hh:mm a", 
+                weekNumberData: [
+                    { text: 'Off', value: 'Off' },
+                    { text: 'First Day of Year', value: 'FirstDay' },
+                    { text: 'First Full Week', value: 'FirstFullWeek' },
+                    { text: 'First Four-Day Week', value: 'FirstFourDayWeek' }
+                ],
+                weekNumberValue: "Off",
                 checkboxMode: 'CheckBox',
                 workDays: [1, 2, 3, 4, 5],
                 weekDays: [
@@ -1197,6 +1229,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                     }
                 ],
                 selectedTarget: null,
+                targetElement: null,
                 quickInfoTemplates: {
                   header: function(e) {
                     return { template: headerTemplateVue };
@@ -1208,15 +1241,15 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                     return { template: footerTemplateVue };
                   }
                 },              
-                weekNumberTemplate: function () {
+                multiDragTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="week_number" :checked="false" :change="onWeekNumberChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Week Number</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="multi_Drag" :checked="false" :change="onAllowMultiDrag"></ejs-switch></div><div class="text-child" style="font-size:14px;">Allow Multi Drag</div></div>',
                             data: function () { return { data: {} }; },
                             methods : {
-                                onWeekNumberChange: function(args) {
+                                onAllowMultiDrag: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    scheduleObj.showWeekNumber = args.checked;
+                                    scheduleObj.allowMultiDrag = args.checked;
                                 }
                             }
                         })
@@ -1514,6 +1547,19 @@ var footerTemplateVue = Vue.component("footerTemplate", {
       let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
       scheduleObj.timeScale.slotCount = args.value;
     },
+    onchangeTimeFormat: function(args) {
+      let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+      scheduleObj.timeFormat = args.value;
+    },
+    onchangeWeekNumber: function(args) {
+      let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+      if(args.value == "Off"){
+          scheduleObj.showWeekNumber = false;
+      } else {
+          scheduleObj.showWeekNumber = true;
+          scheduleObj.weekRule = args.value;
+      }
+    },
     onWorkWeekDayChange: function(args) {
       let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
       scheduleObj.workDays = args.value;
@@ -1537,13 +1583,13 @@ var footerTemplateVue = Vue.component("footerTemplate", {
             remove(newEventElement);
             removeClass([document.querySelector('.e-selected-cell')], 'e-selected-cell');
         }
-        let targetElement = args.event.target;
-        if (closest(targetElement, '.e-contextmenu')) {
+        this.targetElement = args.event.target;
+        if (closest(this.targetElement, '.e-contextmenu')) {
             return;
         }
         let menuObj = this.$refs.menuObj;
         let scheduleObj = this.$refs.scheduleObj;
-        this.selectedTarget = closest(targetElement, '.e-appointment,.e-work-cells,' +
+        this.selectedTarget = closest(this.targetElement, '.e-appointment,.e-work-cells,' +
         '.e-vertical-view .e-date-header-wrap .e-all-day-cells,.e-vertical-view .e-date-header-wrap .e-header-cells');
         if (isNullOrUndefined(this.selectedTarget)) {
             args.cancel = true;
@@ -1577,7 +1623,8 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                     case 'Add':
                     case 'AddRecurrence':
                         let selectedCells = scheduleObj.getSelectedElements();
-                        let activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
+                        let activeCellsData = scheduleObj.getCellDetails(this.targetElement) ||
+                        scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
                         if (selectedMenuItem === 'Add') {
                             scheduleObj.openEditor(activeCellsData, 'Add');
                         } else {
