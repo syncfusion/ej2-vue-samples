@@ -34,17 +34,17 @@ Under no circumstances can you use this product without (1) either a Community L
 The Syncfusion license that contains the terms and conditions can be found at
 [https://www.syncfusion.com/content/downloads/syncfusion_license.pdf](https://www.syncfusion.com/content/downloads/syncfusion_license.pdf)
 
-## Using the samples
+# Using the samples
 
-### Installing
+## Installing
 
-To install all dependent packages, use the below command
+Before installation check `@syncfusion:registry=http://nexus.syncfusion.com/repository/ej2-production/` is available in npmrc file. Then use the below command to install all dependent packages.
 
 ```bash
 npm install
 ```
 
-### Building
+## Building
 
 To compile the source files, use the below command
 
@@ -52,11 +52,108 @@ To compile the source files, use the below command
 npm run build
 ```
 
-### Serving deployed build
+It calls the following tasks synchronously,
+
+1. Build
+2. Site-map generate
+3. Source-ship
+
+### **Build**
+
+Use the below command to run this task and it calls the following tasks synchronously.
+
+1. Generate routes
+2. Style ship
+3. Copy source
+4. build
+
+### Generate routes
+
+Use the below command to generate `router.config.ts` file and it contains routing path for all samples.
+
+```
+gulp generate-routes
+```
+
+### Style ship
+
+It copies css files for themes from node_modules. Use the below command to run it individual.
+
+```
+gulp styles-ship
+```
+
+### Copy source
+
+It select all files in `src/` except `src/common` and stored it in `public/src` folder. The below command is used to run this task.
+
+```
+gulp copy-source
+```
+
+### build
+
+Use the below command to generate scripts, styles, locale and sample lists.
+
+```
+gulp build
+```
+It runs the following tasks syncronously,
+
+1. Scripts
+2. Styles
+
+#### **Scripts**
+
+ It compiles the Typescript files and use the below command to run this task.
+
+```
+gulp scripts
+```
+
+#### **Styles**
+
+`gulp styles` command is used to compile default themes. It calls the following two tasks synchronously.
+
+1. Default theme
+2. Compile styles
+
+#### Default theme
+
+Use the below command to generate default theme files.
+
+```
+gulp default-theme
+```
+
+#### Compile Styles
+It compiles the scss file to css file. To run this task use the below command,
+
+```
+gulp compile-styles
+```
+
+### Site map generation
+
+The below command combines sample of all components and store it in sitemap-demos.xml file to index our components, samples, documents in search engine.
+
+```
+gulp sitemap-generate
+```
+
+### Source-ship
+
+It copies all files in the repository and paste it in `dist/` folder. To run this task use the below command,
+
+```
+gulp source-ship
+```
+
+## Serving deployed build
 
 https://cli.vuejs.org/guide/deployment.html
 
-## Components Catalog
+# Components Catalog
 
 <table>
     <tr>
