@@ -7,9 +7,6 @@
 </template>
 
 <script lang='ts'>
-    import { Internationalization } from '@syncfusion/ej2-base';
-
-    let instance: Internationalization = new Internationalization();
 
     export default {
         data() {

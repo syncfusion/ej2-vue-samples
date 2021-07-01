@@ -23,6 +23,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
      <p>
         This sample demonstrates data binding to the <code>Spreadsheet</code> component with remote service using
@@ -66,6 +67,7 @@
                 documentation</a> section.
         </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

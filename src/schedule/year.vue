@@ -1,11 +1,11 @@
 <template>
   <div class="schedule-vue-sample">
-    <div class="col-md-12 control-section">
+    <div class="col-md-10 control-section">
       <div class="content-wrapper">
-        <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :eventSettings="eventSettings" :currentView="currentView" :eventRendered="onEventRendered">
+        <ejs-schedule id="Schedule" ref="ScheduleObj" cssClass="year-view" height="650px" :firstMonthOfYear="firstMonthValue" :monthsCount='monthsCount' :eventSettings="eventSettings" :eventRendered="onEventRendered">
           <e-views>
-            <e-view option="Year"></e-view>
-            <e-view option="TimelineYear" displayName="Horizontal TimelineYear" isSelected="true"></e-view>
+            <e-view option="Year" isSelected="true"></e-view>
+            <e-view option="TimelineYear" displayName="Horizontal TimelineYear"></e-view>
             <e-view option="TimelineYear" displayName="Vertical TimelineYear" orientation="Vertical" :group="groupSettings"></e-view>
           </e-views>
           <e-resources>
@@ -14,8 +14,27 @@
         </ejs-schedule>
       </div>
     </div>
+    <div class="col-lg-2 property-section">
+      <table id="property" title="Properties">
+        <tbody>
+          <tr>
+            <td>
+              <ejs-dropdownlist id="firstMonthElement" placeholder="First month of year" floatLabelType="Always" :dataSource='months' :value='firstMonthValue' :fields="fields" :change="firstMonthOfYear"></ejs-dropdownlist>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <ejs-numerictextbox id="numberOfMonthsElement" placeholder="Number of months" floatLabelType="Always" :min="min" :max="max" :value="monthsCount" format="###.##" :change="numberOfMonths"></ejs-numerictextbox>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div id="action-description">
-      <p>This demo shows the experience of showing the annual year events in a single view with different orientations.</p>
+      <p>
+        This example showcases the year and timeline year views of the Scheduler with the firstMonthOfYear and monthCount properties customizations.
+        Once the property value has been changed in the properties, it will be reflected in the Scheduler.
+      </p>
     </div>
 
     <div id="description">
@@ -26,7 +45,8 @@
         In the
         <code>TimelineYear</code>,
         <code>Horizontal</code> and
-        <code>Vertical</code> orientations are available to view the events with a different layout.
+        <code>Vertical</code> orientations are available to view the events with a different layout. Also this demo explains the customization of the different
+        starting month of the year using <code>firstMonthOfYear</code> property and the number of months using the <code>monthsCount</code> property.
       </p>
       <p>
         <strong>Module Injection</strong>
@@ -41,11 +61,26 @@
   </div>
 </template>
 
+<style>
+  .year-view.e-schedule .e-timeline-year-view .e-resource-column-table,
+  .year-view.e-schedule .e-timeline-year-view .e-resource-left-td {
+    width: 120px;
+  }
+
+  .col-lg-2.property-section .property-panel-table td {
+    padding-bottom: 1rem;
+  }
+</style>
+
 <script>
 import Vue from "vue";
 import { SchedulePlugin, Year, TimelineYear, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 
 Vue.use(SchedulePlugin);
+Vue.use(DropDownListPlugin);
+Vue.use(NumericTextBoxPlugin);
 
 export default Vue.extend({
   data: function() {
@@ -53,15 +88,33 @@ export default Vue.extend({
       eventSettings: {
         dataSource: this.generateEvents()
       },
-      currentView: "TimelineYear",
       categoriesData: [
         { text: "Nancy", id: 1, color: "#df5286" },
         { text: "Steven", id: 2, color: "#7fa900" },
         { text: "Robert", id: 3, color: "#ea7a57" },
         { text: "Smith", id: 4, color: "#5978ee" },
-        { text: "Micheal", id: 5, color: "#df5286" }
+        { text: "Michael", id: 5, color: "#df5286" }
       ],
-      groupSettings: { resources: ["Categories"] }
+      groupSettings: { resources: ["Categories"] },
+      months: [
+        { text: 'January', value: 0 },
+        { text: 'February', value: 1 },
+        { text: 'March', value: 2 },
+        { text: 'April', value: 3 },
+        { text: 'May', value: 4 },
+        { text: 'June', value: 5 },
+        { text: 'July', value: 6 },
+        { text: 'August', value: 7 },
+        { text: 'September', value: 8 },
+        { text: 'October', value: 9 },
+        { text: 'November', value: 10 },
+        { text: 'December', value: 11 }
+      ],
+      fields: { text: 'text', value: 'value' },
+      firstMonthValue: 0,
+      monthsCount: 12,
+      min: 1,
+      max: 24,
     };
   },
   provide: {
@@ -74,6 +127,12 @@ export default Vue.extend({
         return;
       }
       args.element.style.backgroundColor = eventColor;
+    },
+    firstMonthOfYear: function(args) {
+      this.$refs.ScheduleObj.ej2Instances.firstMonthOfYear = args.value;
+    },
+    numberOfMonths: function(args) {
+      this.$refs.ScheduleObj.ej2Instances.monthsCount = args.value;
     },
     generateEvents(count = 250, date = new Date()) {
       const names = [

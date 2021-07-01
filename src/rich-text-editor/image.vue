@@ -84,6 +84,14 @@
     .bootstrap4 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
         content: "\e778";
     }
+    
+    .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
+        content: "\e7bd";
+    }
+    
+    .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
+        content: "\e7b9";
+    }
 
 </style>
 <script>

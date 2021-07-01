@@ -92,7 +92,7 @@
     import Vue from "vue";
     import { scheduleData } from './datasource';
     import { Internationalization, extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, View, TimeScaleModel, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
     Vue.use(SchedulePlugin);
     Vue.use(DropDownListPlugin);

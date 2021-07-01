@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section" id="pivot-grid-section">
         <div class="content-wrapper">
-            <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :gridSettings="gridSettings" :width="width" :height="height" :load="load" :dataBound="dataBound" :showGroupingBar="showGroupingBar" :showFieldList="showFieldList">        
+            <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :gridSettings="gridSettings" :width="width" :height="height" :load="load" :dataBound="dataBound" :showGroupingBar="showGroupingBar" :groupingBarSettings="groupingBarSettings">        
             </ejs-pivotview>
             </div>
     </div>
@@ -56,6 +56,12 @@
             allows the user to remove the field from the report.
         </p>
         <p>
+            The fields panel, which is located above the grouping bar, displays the fields that are available in the data
+            source but are not bound in the report. The fields can be dragged and dropped into the appropriate axis. In
+            addition, any field removed from any axes will be automatically added to the fields panel. The fields panel can
+            be displayed by setting the <code>showFieldsPanel</code> property in the <code>groupingBarSettings</code> to **true**.
+        </p>
+        <p>
             <strong>Injecting Module:</strong>
         </p>
         <p>
@@ -73,7 +79,6 @@ import Vue from "vue";
 import {
   PivotViewPlugin,
   GroupingBar,
-  FieldList,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
@@ -112,7 +117,7 @@ export default Vue.extend({
       height: 450,
       gridSettings: { columnWidth: 140 },
       showGroupingBar: true,
-      showFieldList: true
+      groupingBarSettings: { showFieldsPanel: true }
     };
   },
   methods: {
@@ -152,7 +157,7 @@ export default Vue.extend({
     }
   },
   provide: {
-    pivotview: [GroupingBar, FieldList]
+    pivotview: [GroupingBar]
   }
 });
 </script>

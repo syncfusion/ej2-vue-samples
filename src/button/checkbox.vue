@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="checkbox-control">
         <div class="row">
-            <ejs-checkbox v-bind:label="'CheckBox: ' + value" v-model="value"></ejs-checkbox>
+            <ejs-checkbox label='CheckBox: true' :checked="true" :change="onChange"></ejs-checkbox>
         </div>
         <div class="row">
             <ejs-checkbox label='Checked  Disabled' :disabled="true" :checked="true"></ejs-checkbox>
@@ -77,9 +77,10 @@ import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 Vue.use(CheckBoxPlugin);
 
 export default Vue.extend({
-  data() {
-    return {
-      value: true
+  methods: {
+    onChange: function(args) {
+      var checkboxObj = args.event.target.ej2_instances[0];
+      checkboxObj.label = "CheckBox: " + args.checked;
     }
   }
 });

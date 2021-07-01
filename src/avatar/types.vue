@@ -226,6 +226,10 @@
         background-color: blueviolet;
     }
 
+    .tailwind .avatar-types .e-avatar.custom {
+        color: white;
+    }
+
         .bootstrap4 .avatar-types .e-avatar.custom {
         background-color: #cfd5ff;
     }

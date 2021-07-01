@@ -62,7 +62,6 @@
 
 <script>
     import Vue from "vue";
-    import { extend } from '@syncfusion/ej2-base';
     import { resourceData, timelineResourceData } from './datasource';
     import { SchedulePlugin, Agenda, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
@@ -88,7 +87,7 @@
                     { text: 'Steven', id: 2, groupId: 1, color: '#7fa900' },
                     { text: 'Robert', id: 3, groupId: 2, color: '#ea7a57' },
                     { text: 'Smith', id: 4, groupId: 2, color: '#5978ee' },
-                    { text: 'Micheal', id: 5, groupId: 3, color: '#df5286' },
+                    { text: 'Michael', id: 5, groupId: 3, color: '#df5286' },
                     { text: 'Root', id: 6, groupId: 3, color: '#00bdae' }
                 ],
             }

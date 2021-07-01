@@ -113,7 +113,7 @@
 
 <script>
 import Vue from "vue";
-import { extend, Internationalization } from "@syncfusion/ej2-base";
+import { extend, Internationalization, isNullOrUndefined } from "@syncfusion/ej2-base";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
@@ -222,13 +222,17 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
         const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
         const eventTypeObj = quickPopup.querySelector("#eventType").ej2_instances[0];
-        const cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
+        let cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
+        if (isNullOrUndefined(cellDetails)) {
+          cellDetails = scheduleObj.getCellDetails(scheduleObj.activeCellsData.element);
+        }
         let addObj = {};
         addObj.Id = scheduleObj.getEventMaxID();
-        addObj.Subject = titleObj.value;
+        addObj.Subject = isNullOrUndefined(titleObj.value) ? 'Add title' : titleObj.value;
         addObj.StartTime = new Date(+cellDetails.startTime);
         addObj.EndTime = new Date(+cellDetails.endTime);
-        addObj.Description = notesObj.value;
+        addObj.IsAllDay = cellDetails.isAllDay;
+        addObj.Description = isNullOrUndefined(notesObj.value) ? 'Add notes' : notesObj.value;
         addObj.RoomId = eventTypeObj.value;
         return addObj;
       };

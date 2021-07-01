@@ -264,7 +264,12 @@
     .highcontrast .e-input-calendar:before {
         content:'\e93a';
     }
-
+    .tailwind .e-input-calendar:before {
+        content:'\e7b2';
+    }
+    .tailwind .e-input-picture:before {
+        content: '\e7da';
+    }
     .content-wrapper.textbox-default {
         width: 90%;
         margin: 0 auto;
@@ -303,7 +308,8 @@
     .fabric .row.material2,
     .bootstrap .row.material2,
     .bootstrap4 .row.material2,
-    .highcontrast .row.material2 {
+    .highcontrast .row.material2,
+    .tailwind .row.material2 {
         display: none;
     }
     #description td {

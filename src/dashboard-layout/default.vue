@@ -153,7 +153,12 @@ export default Vue.extend ({
     .bootstrap4 .dashboard-default .e-clear-icon::before {
         content: '\e745';
     }
-    
+
+    .tailwind .dashboard-default .e-clear-icon::before {
+        content: '\e771';
+        font-size: 16px;
+    }
+
     .dashboard-default .text-align {
         line-height: 160px;
     }

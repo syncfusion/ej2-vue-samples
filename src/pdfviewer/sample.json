@@ -2,6 +2,7 @@
     "name": "PDF Viewer",
     "directory": "pdfviewer",
     "category": "Viewer",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -24,9 +25,22 @@
             "category": "PDF Viewer"
         },
         {
+            "url": "form-designer",
+            "name": "Form Designer",
+            "category": "PDF Viewer",
+            "type": "new"
+        },
+        {
+            "url": "annotations",
+            "name": "Annotations",
+            "category": "PDF Viewer",
+            "type": "new"
+        },
+        {
             "url": "hand-written",
             "name": "Handwritten Signature",
-            "category": "PDF Viewer"
+            "category": "PDF Viewer",
+            "type": "update"
         }
     ]
 

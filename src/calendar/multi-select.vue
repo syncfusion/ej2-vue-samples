@@ -60,8 +60,11 @@ export default Vue.extend({
     onValueChange: function (args) {
       if (args.isInteracted) {
         let element = document.getElementById("multiSelect");
-        element.prepend(args.value);
-        element.prepend(document.createElement("br"));
+        element.innerHTML = "";
+        for (let j = 0; j < args.values.length; j++) {
+            element.prepend(document.createTextNode(args.values[j]));
+            element.prepend(document.createElement("br"));
+        }
       }
     }
   }

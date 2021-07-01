@@ -28,13 +28,25 @@
         content: '\e7f9';
     }
 
+    .tailwind .schedule-context-menu .e-menu-item .new::before {
+        content: '\e78a';
+    }
+
     .schedule-context-menu .e-menu-item .edit::before {
         content: '\ea9a';
+    }
+
+    .tailwind .schedule-context-menu .e-menu-item .edit::before {
+        content: '\e7d2';
     }
 
     .schedule-context-menu .e-menu-item .recurrence::before {
         content: '\e308';
         font-weight: bold;
+    }
+
+    .tailwind .schedule-context-menu .e-menu-item .recurrence::before {
+        content: '\e71d';
     }
 
     .schedule-context-menu .e-menu-item .today::before {
@@ -65,12 +77,20 @@
         content: '\e7be';
     }
 
+    .tailwind .schedule-context-menu .e-menu-item .today::before {
+        content: '\e742';
+    }
+
     .bootstrap4 .schedule-context-menu .e-menu-item .edit::before {
         content: '\e78f';
     }
 
     .bootstrap4 .schedule-context-menu .e-menu-item .delete::before {
         content: '\e773';
+    }
+
+    .tailwind .schedule-context-menu .e-menu-item .delete::before {
+        content: '\e78d';
     }
 
     .bootstrap4 .schedule-context-menu .e-menu-item .new::before {
@@ -107,7 +127,7 @@
 <script>
     import Vue from "vue";
     import { scheduleData } from './datasource';
-    import { extend, closest, isNullOrUndefined, Browser, remove, removeClass } from '@syncfusion/ej2-base';
+    import { extend, closest, isNullOrUndefined, remove, removeClass } from '@syncfusion/ej2-base';
     import { DataManager, Query } from '@syncfusion/ej2-data';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
     import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';

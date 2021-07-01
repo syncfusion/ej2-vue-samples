@@ -1,38 +1,57 @@
 <template>
 <div class="control-section">
-   <div id="panel">
-                <titleBar :documentName="documentTitle"></titleBar>
-                <input type="file" id="fileUpload" ref="uploadDocument" style="position:fixed; left:-100em" @change="fileChange" >   
-                <div id="documenteditor_container_panel" :style="styleObject" >        
-                    <ejs-documenteditor ref="documenteditor" :enablePrint='true' :height='styleObject' v-bind:documentChange="documentChangedEvent" v-bind:viewChange="viewChanged" 
-                    v-bind:zoomFactorChange="zoomFactorChangeEvent"
-                    id="container" pageOutline="#E0E0E0" style="width: 100%;height: 100%;"></ejs-documenteditor>                   
-                </div>
-                <div class="overlay" id="popup-overlay"></div>
-                <div id='waiting-popup'>
-                    <svg class="circular" height="40" width="40">
-                        <circle class="circle-path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
-                    </svg>
-                </div>    
-                <statusBar :pageCount="editorPageCount" :currentPage="currentPageNumber" :zoomContent="zoomFactor"></statusBar>
+    <div  class="col-lg-8 control-section">
+        <div id="panel">
+            <titleBar :documentName="documentTitle"></titleBar>
+            <input type="file" id="fileUpload" ref="uploadDocument" style="position:fixed; left:-100em" @change="fileChange" />   
+            <div id="documenteditor_container_panel" >        
+                <ejs-documenteditor ref="documenteditor" :enablePrint='true' :height='editorHeight' v-bind:documentChange="documentChangedEvent" v-bind:viewChange="viewChanged" 
+                v-bind:zoomFactorChange="zoomFactorChangeEvent"
+                id="container" pageOutline="#E0E0E0" style="width: 100%;height: 100%;"></ejs-documenteditor>                   
             </div>
+            <div class="overlay" id="popup-overlay"></div>
+            <div id='waiting-popup'>
+                <svg class="circular" height="40" width="40">
+                    <circle class="circle-path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
+                </svg>
+            </div>    
+            <statusBar :pageCount="editorPageCount" :currentPage="currentPageNumber" :zoomContent="zoomFactor"></statusBar>
+        </div>
+    </div>
+    <div class="col-lg-4 property-section">
+        <div style="padding-top: 20px">
+            <b>Document Editor settings</b>
+        </div>
+        <table style="margin-top: 10px; margin-bottom: 30px;">
+            <tr>
+                <td style="width: 50%;">
+                   <span style="padding-right: 20px">Device pixel ratio:</span>
+                </td>
+                <td style="width: 50%;">
+                     <ejs-tooltip target='#printNumeric' content='Specifies the device pixel ratio for the image generated while printing the document.'>
+                        <ejs-numerictextbox :width="numbericTextWidth" :value="2" format="n" :min="1" :max="10" :step="0.5" :decimals="1" v-bind:change="onPixelRatioChange">
+                        </ejs-numerictextbox>
+                     </ejs-tooltip>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div id="action-description">
-    <p>This sample demonstrates how to view and print Word documents online using document editor.</p>
-</div>
-<div id="description">
-    <p>In this example, document editor is defined as lightweight by injecting only the modules that are necessary for opening and printing Word documents.</p>
-    <p style="display: block"> Document editor provides the following document viewing features:
-    </p>
-    <ul>
-        <li>Open Word documents with document elements like text, images, hyperlinks, tables, bookmarks, page numbers, tables
-            of contents, headers, and footers.</li>
-        <li>Scroll or navigate to specific pages.</li>
-        <li>Print Word documents.</li>        
-    </ul>
-    <p style="display: block"> More information about the document editor features can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
-    </p>
-</div>
+         <p>This sample demonstrates how to view and print Word documents online using document editor.</p>
+    </div>
+    <div id="description">
+        <p>In this example, document editor is defined as lightweight by injecting only the modules that are necessary for opening and printing Word documents.</p>
+        <p style="display: block"> Document editor provides the following document viewing features:</p>
+        <ul>
+            <li>Open Word documents with document elements like text, images, hyperlinks, tables, bookmarks, page numbers, tables
+                of contents, headers, and footers.</li>
+            <li>Scroll or navigate to specific pages.</li>
+            <li>Print Word documents in required quality by using your own device pixel ratio.</li>        
+        </ul>
+        <p style="display: block"> More information about the document editor features can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/print/">documentation section.</a>
+        </p>
+    </div>
 </div>
 </template>
 <script>
@@ -40,9 +59,14 @@ import Vue from "vue";
 import { DocumentEditorPlugin, DocumentEditorComponent, Print } from '@syncfusion/ej2-vue-documenteditor';
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
+import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+Vue.use(TooltipPlugin);
+Vue.use(NumericTextBoxPlugin);
 Vue.use(DropDownButtonPlugin);
 Vue.use(DocumentEditorPlugin);
 Vue.use(ButtonPlugin);
+
 
 let titleBarComp = {
     props: ['documentName'],
@@ -224,7 +248,9 @@ export default Vue.extend({
             editorPageCount: 1,
             currentPageNumber: 1,
             styleObject: style,
-            zoomFactor: "100%"
+            zoomFactor: "100%",
+            editorHeight: "590px",
+            numbericTextWidth: "120px"
         }
     },
     provide:{
@@ -257,6 +283,9 @@ export default Vue.extend({
             this.editorPageCount = this.$refs.documenteditor.ej2Instances.pageCount;
             this.documentTitle = this.$refs.documenteditor.ej2Instances.documentName === '' ? 'Untitled Document' : this.$refs.documenteditor.ej2Instances.documentName;
             setTimeout(() => { this.$refs.documenteditor.ej2Instances.scrollToPage(1); }, 10);
+        },
+        onPixelRatioChange: function(args) {
+            this.$refs.documenteditor.ej2Instances.documentEditorSettings.printDevicePixelRatio = args.value;
         },
         updateContainerSize: function () {
             let containerPanel = document.getElementById('documenteditor_container_panel')
@@ -304,6 +333,7 @@ export default Vue.extend({
         },
         loadDefaultDocument: function () {
             this.$refs.documenteditor.ej2Instances.pageOutline = '#E0E0E0';
+            this.$refs.documenteditor.ej2Instances.documentEditorSettings.printDevicePixelRatio = 2;
             let waitingPopUp = document.getElementById('waiting-popup');
             let overlay = document.getElementById('popup-overlay');
             waitingPopUp.style.display = 'block';

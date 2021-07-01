@@ -3,6 +3,7 @@
     <div id="spreadsheet-cell-format">
       <ejs-spreadsheet ref="spreadsheet" :sheets="sheets" :showRibbon="false" :showFormulaBar="false" :created="createdHandler" :beforeCellRender="beforeCellRender"></ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates the <code>Spreadsheet</code> cell formatting feature by applying different styles to a
@@ -28,6 +29,7 @@
               documentation</a> section.
         </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

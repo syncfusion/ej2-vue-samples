@@ -93,7 +93,7 @@
     import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { resourceConferenceData } from './datasource';
-    import { SchedulePlugin, Day, WorkWeek, Month, TimelineViews, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
     var groupVue = Vue.component("demo", {

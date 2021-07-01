@@ -46,6 +46,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates the analysis of a company's stock value for a certain period with formula and named range feature.
@@ -64,6 +65,7 @@
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

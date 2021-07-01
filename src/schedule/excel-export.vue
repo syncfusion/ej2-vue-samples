@@ -49,11 +49,15 @@
     .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
         display: none;
     }
+
+    .tailwind .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
+        content: '\e780';
+    }
 </style>
 <script>
     import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Week, View, Resize, DragAndDrop, ExcelExport
+    import { SchedulePlugin, Week, Resize, DragAndDrop, ExcelExport
     } from "@syncfusion/ej2-vue-schedule";
     import { scheduleData } from './datasource';
     Vue.use(SchedulePlugin);

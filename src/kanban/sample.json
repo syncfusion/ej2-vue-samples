@@ -3,6 +3,7 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
+    "type": "update",
     "samples": [
         {
             "url": "overview",
@@ -19,7 +20,13 @@
                     "enableTooltip",
                     "dialogSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"overview.vue", "path":"src/kanban/overview.vue" },
+                { "displayName":"overview-column-template.vue", "path":"src/kanban/overview-column-template.vue" },
+                { "displayName":"overview-card-template.vue", "path":"src/kanban/overview-card-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "default",
@@ -33,12 +40,17 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"default.vue", "path":"src/kanban/default.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "swimlane",
             "name": "Swimlane",
             "category": "Kanban",
+            "type": "update",
             "description": "The example explains how to configure swimlane and its related settings (sorting order, drag-and-drop, and more) in JavaScript Kanban board.",
             "api": {
                 "Kanban": [
@@ -48,7 +60,11 @@
                     "cardSettings",
                     "swimlaneSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"swimlane.ts", "path":"src/kanban/swimlane.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "workflow",
@@ -62,7 +78,12 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"workflow.ts", "path":"src/kanban/workflow.vue" },
+                { "displayName":"transition-template.vue", "path":"src/kanban/transition-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "stacked-header",
@@ -77,7 +98,11 @@
                     "cardSettings",
                     "stackedHeaders"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"stacked-header.ts", "path":"src/kanban/stacked-header.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "dialog-editing",
@@ -93,7 +118,11 @@
                     "dialogSettings",
                     "dialogOpen"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"dialog-editing.vue", "path":"src/kanban/dialog-editing.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "search-filter",
@@ -109,7 +138,11 @@
                     "swimlaneSettings",
                     "query"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"search-filter.vue", "path":"src/kanban/search-filter.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "sorting",
@@ -124,7 +157,12 @@
                     "cardSettings",
                     "sortSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"sorting.vue", "path":"src/kanban/sorting.vue" },
+                { "displayName":"sorting-card-template.vue", "path":"src/kanban/sorting-card-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "local-data",
@@ -138,7 +176,11 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"local-data.vue", "path":"src/kanban/local-data.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "remote-data",
@@ -168,7 +210,12 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"header-template.vue", "path":"src/kanban/header-template.vue" },
+                { "displayName":"header-column-template.vue", "path":"src/kanban/header-column-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "swimlane-template",
@@ -183,7 +230,12 @@
                     "cardSettings",
                     "swimlaneSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"swimlane-template.vue", "path":"src/kanban/swimlane-template.vue" },
+                { "displayName":"swimlane-row-template.vue", "path":"src/kanban/swimlane-row-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "card-template",
@@ -198,7 +250,12 @@
                     "cardSettings",
                     "dialogSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"card-template.vue", "path":"src/kanban/card-template.vue" },
+                { "displayName":"card.vue", "path":"src/kanban/card.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "tooltip-template",
@@ -214,7 +271,11 @@
                     "enableTooltip",
                     "tooltipTemplate"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"tooltip-template.vue", "path":"src/kanban/tooltip-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "toggle-columns",
@@ -228,7 +289,11 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"toggle-columns.vue", "path":"src/kanban/toggle-columns.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "show-hide",
@@ -242,7 +307,11 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"show-hide.vue", "path":"src/kanban/show-hide.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "wip-validation",
@@ -257,7 +326,11 @@
                     "cardSettings",
                     "swimlaneSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"wip-validation.vue", "path":"src/kanban/wip-validation.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "api",
@@ -271,7 +344,11 @@
                     "columns",
                     "cardSettings"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"api.vue", "path":"src/kanban/api.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         },
         {
             "url": "events",
@@ -300,7 +377,11 @@
                     "drag",
                     "dragStop"
                 ]
-            }
+            },
+            "sourceFiles":[
+                { "displayName":"events.eve", "path":"src/kanban/events.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
         }
     ]
 }

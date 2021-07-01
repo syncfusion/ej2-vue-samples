@@ -65,7 +65,7 @@ export default Vue.extend ({
     methods: {
         onChange1: function(args) {
             // disable the state DropDownList
-            this.stateEnabled = true;
+            this.stateEnabled = args.value !== null;
             // frame the query based on selected value in country DropDownList.
             var tempQuery = new Query().where('CountryId', 'equal', args.value);
             // set the framed query based on selected value in country DropDownList.

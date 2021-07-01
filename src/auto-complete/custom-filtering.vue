@@ -57,9 +57,12 @@ export default Vue.extend ({
             // pass the filter data source to updateData method.
             e.updateData(data, null);
             var popupElement = document.getElementById('books_popup');
-            var lists = popupElement.querySelectorAll('.e-list-item');
-            // For highlight the typed characters, pass the result data and list items to highlightSearch method.
-            this.highlightSearch(lists, result);
+            if (popupElement)
+            {
+                var lists = popupElement.querySelectorAll('.e-list-item');
+                // For highlight the typed characters, pass the result data and list items to highlightSearch method.
+                this.highlightSearch(lists, result);
+            }
         },
         highlightSearch: function(listItems, result) {
             if (result.length > 0) {

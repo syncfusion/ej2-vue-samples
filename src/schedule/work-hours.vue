@@ -85,7 +85,7 @@
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { TimePickerPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-calendars';
+    import { TimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
     import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
     Vue.use(ButtonPlugin);

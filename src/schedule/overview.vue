@@ -255,6 +255,10 @@
             content: "\e7c7";
         }
 
+        .tailwind .e-schedule-clock::before {
+            content: "\e730";
+        }
+
         .material .e-schedule-timezone::before,
         .bootstrap .e-schedule-timezone::before {
             content: "\e30e";
@@ -267,6 +271,9 @@
 
         .bootstrap4 .e-schedule-timezone::before {
             content: "\e7c9";
+        }
+        .tailwind .e-schedule-timezone::before {
+            content: "\e736";
         }
 
         .material .e-schedule-print::before {
@@ -283,8 +290,16 @@
             content: "\e743";
         }
 
+        .tailwind .e-schedule-print::before {
+            content: "\e76c";
+        }
+
         .bootstrap4 .e-schedule-import::before {
             content: "\e77a";
+        }
+
+        .tailwind .e-schedule-import::before {
+            content: "\e76d";
         }
 
         .material .e-schedule-ical-export::before,
@@ -304,6 +319,10 @@
             content: "\e712";
         }
 
+        .tailwind .e-schedule-ical-export::before {
+            content: "\e7bf";
+        }
+
         .material .e-schedule-excel-export::before {
             content: "\e700";
         }
@@ -321,6 +340,10 @@
             content: "\e74e";
         }
 
+        .tailwind .e-schedule-excel-export::before {
+            content: "\e780";
+        }
+
         .material .e-schedule-add-event::before,
         .fabric .e-schedule-add-event::before,
         .bootstrap .e-schedule-add-event::before,
@@ -330,6 +353,10 @@
 
         .bootstrap4 .e-schedule-add-event::before {
             content: "\e759";
+        }
+
+        .tailwind .e-schedule-add-event::before {
+            content: "\e78a";
         }
 
         .material .e-schedule-add-recurrence-event::before,
@@ -344,6 +371,10 @@
 
         .bootstrap4 .e-schedule-add-recurrence-event::before {
             content: "\e7c8";
+        }
+
+        .tailwind .e-schedule-add-recurrence-event::before {
+            content: "\e71d";
         }
 
         .material .e-schedule-day-view::before {
@@ -363,6 +394,10 @@
             content: "\e7b8";
         }
 
+        .tailwind .e-schedule-day-view::before {
+            content: "\e767";
+        }
+
         .material .e-schedule-week-view::before {
             content: "\e315";
         }
@@ -380,6 +415,10 @@
             content: "\e7c0";
         }
 
+        .tailwind .e-schedule-week-view::before {
+            content: "\e795";
+        }
+
         .material .e-schedule-workweek-view::before {
             content: "\e314";
         }
@@ -395,6 +434,10 @@
 
         .bootstrap4 .e-schedule-workweek-view::before {
             content: "\e7c0";
+        }
+
+        .tailwind .e-schedule-workweek-view::before {
+            content: "\e795";
         }
 
         .material .e-schedule-month-view::before,
@@ -419,6 +462,11 @@
             content: "\e7c4";
         }
 
+        .tailwind .e-schedule-month-view::before,
+        .tailwind .e-schedule-year-view::before {
+            content: "\e719";
+        }
+
         .material .e-schedule-agenda-view::before {
             content: "\e31d";
         }
@@ -436,8 +484,17 @@
             content: "\e7bd";
         }
 
+        .tailwind .e-schedule-agenda-view::before {
+            content: "\e718";
+        }
+
         .e-schedule-toolbar-settings::before {
             content: "\e679";
+            font-size: 14px;
+        }
+
+        .tailwind .e-schedule-toolbar-settings::before {
+            content: "\e846";
             font-size: 14px;
         }
 
@@ -790,8 +847,16 @@
             content: '\e7f9';
         }
 
+        .tailwind .schedule-context-menu .e-menu-item .new::before {
+            content: '\e78a';
+        }
+
         .schedule-context-menu .e-menu-item .edit::before {
             content: '\ea9a';
+        }
+
+        .tailwind .schedule-context-menu .e-menu-item .edit::before {
+            content: '\e7d2';
         }
 
         .schedule-context-menu .e-menu-item .recurrence::before {
@@ -799,12 +864,25 @@
             font-weight: bold;
         }
 
+        .tailwind .schedule-context-menu .e-menu-item .recurrence::before {
+            content: '\e71d';
+            font-weight: bold;
+        }
+
         .schedule-context-menu .e-menu-item .today::before {
             content: '\e322';
         }
 
+        .tailwind .schedule-context-menu .e-menu-item .today::before {
+            content: '\e742';
+        }
+
         .schedule-context-menu .e-menu-item .delete::before {
             content: '\e94a';
+        }
+
+        .tailwind .schedule-context-menu .e-menu-item .delete::before {
+            content: '\e78d';
         }
 
         .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
@@ -892,21 +970,27 @@
             width: 20px;
             height: 20px;
         }
+
+        .tailwind .schedule-overview.e-schedule .e-left-indent .e-header-cells {
+            height: 66px;
+        }
+
+        .tailwind .overview-toolbar .e-toolbar {
+            border: 1px solid rgb(229, 231, 235);
+        }
 </style>
 <!-- custom code end -->
 
 <script>
     import Vue from "vue";
     import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, View, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
     import { DataManager, Predicate, Query } from '@syncfusion/ej2-data';
-    import { Switch, Button } from '@syncfusion/ej2-buttons';
     import { ButtonPlugin, ButtonComponent, SwitchPlugin, SwitchComponent, CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
     import { UploaderPlugin, TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
     import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-    import { ToolbarPlugin, ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
+    import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
     import { TimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-    import { eventData } from './datasource';
     import { MultiSelectPlugin, DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
     import { MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
     import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';
@@ -923,8 +1007,10 @@
     Vue.use(ContextMenuPlugin);
     Vue.use(SwitchPlugin);
     Vue.use(MultiSelectPlugin);
+    Vue.use(DropDownListPlugin);
     Vue.use(CheckBoxPlugin);
     Vue.component(SwitchComponent);
+    Vue.component(ButtonComponent);
 
     var dateHeaderTemplate = Vue.component("date-header-template", {
         template: '<div><div class="date-text">{{getDateHeaderText(data.date)}}</div><div v-html=getWeather(data.date)></div></div>',
@@ -982,7 +1068,11 @@
           const resources = scheduleObj.getResourceCollections()[0];
           const resourceData = (resources.dataSource).filter((resource) =>
           resource.CalendarId === data.CalendarId)[0];
-          return { 'background': resourceData.CalendarColor, 'color': '#FFFFFF' };
+          let calendarColor = '#3f51b5';
+          if (resourceData) {
+            calendarColor = (resourceData.CalendarColor).toString();
+          }
+          return { 'background': calendarColor, 'color': '#FFFFFF' };
         }
     },
     getHeaderTitle: function(data) {
@@ -1025,7 +1115,11 @@ var contentTemplateVue = Vue.component("contentTemplate", {
       const resources = scheduleObj.getResourceCollections()[0];
       const resourceData = (resources.dataSource).filter((resource) =>
       resource.CalendarId === data.CalendarId)[0];
-      return resourceData.CalendarText;
+      let calendarText = '';
+        if (resourceData) {
+            calendarText = resourceData.CalendarText.toString();
+        }
+      return calendarText;
     }
   }
 });
@@ -1051,13 +1145,17 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
         const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
         const eventTypeObj = quickPopup.querySelector("#eventType").ej2_instances[0];
-        const cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
+        let cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
+        if (isNullOrUndefined(cellDetails)) {
+            cellDetails = scheduleObj.getCellDetails(scheduleObj.activeCellsData.element);
+        }
         let addObj = {};
         addObj.Id = scheduleObj.getEventMaxID();
-        addObj.Subject = titleObj.value;
+        addObj.Subject = isNullOrUndefined(titleObj.value) ? 'Add title' : titleObj.value;
         addObj.StartTime = new Date(+cellDetails.startTime);
         addObj.EndTime = new Date(+cellDetails.endTime);
-        addObj.Description = notesObj.value;
+        addObj.IsAllDay = cellDetails.isAllDay;
+        addObj.Description = isNullOrUndefined(notesObj.value) ? 'Add notes' : notesObj.value;
         addObj.CalendarId = eventTypeObj.value;
         return addObj;
       };
@@ -1229,7 +1327,6 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                     }
                 ],
                 selectedTarget: null,
-                targetElement: null,
                 quickInfoTemplates: {
                   header: function(e) {
                     return { template: headerTemplateVue };
@@ -1583,13 +1680,13 @@ var footerTemplateVue = Vue.component("footerTemplate", {
             remove(newEventElement);
             removeClass([document.querySelector('.e-selected-cell')], 'e-selected-cell');
         }
-        this.targetElement = args.event.target;
-        if (closest(this.targetElement, '.e-contextmenu')) {
+        let targetElement = args.event.target;
+        if (closest(targetElement, '.e-contextmenu')) {
             return;
         }
         let menuObj = this.$refs.menuObj;
         let scheduleObj = this.$refs.scheduleObj;
-        this.selectedTarget = closest(this.targetElement, '.e-appointment,.e-work-cells,' +
+        this.selectedTarget = closest(targetElement, '.e-appointment,.e-work-cells,' +
         '.e-vertical-view .e-date-header-wrap .e-all-day-cells,.e-vertical-view .e-date-header-wrap .e-header-cells');
         if (isNullOrUndefined(this.selectedTarget)) {
             args.cancel = true;
@@ -1623,8 +1720,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                     case 'Add':
                     case 'AddRecurrence':
                         let selectedCells = scheduleObj.getSelectedElements();
-                        let activeCellsData = scheduleObj.getCellDetails(this.targetElement) ||
-                        scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
+                        let activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
                         if (selectedMenuItem === 'Add') {
                             scheduleObj.openEditor(activeCellsData, 'Add');
                         } else {

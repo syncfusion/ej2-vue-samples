@@ -64,7 +64,7 @@
     import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, TimelineViews, View, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {

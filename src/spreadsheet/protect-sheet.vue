@@ -79,6 +79,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
      <div id="action-description">
        <p>
         This sample demonstrates protect sheet and protect workbook with EMI calculation scenario as an example. To unprotect the sheet, click the unprotect sheet button in the Data tab. Meanwhile, to unprotect the workbook, click the unprotect workbook button in the data tab and provide the password as <code>spreadsheet</code> in the dialog box.
@@ -94,6 +95,7 @@
             documentation</a> section.
     </p>
      </div>
+     <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

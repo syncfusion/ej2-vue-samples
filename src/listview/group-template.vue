@@ -205,6 +205,15 @@
   color: #1073b1;
 }
 
+.tailwind #groupedList.e-listview .icon {
+    color: #4f46e5;
+}
+
+.tailwind #groupedList.e-list-template .e-active .e-list-item-header,
+.tailwind #groupedList.e-list-template .e-active .e-list-content {
+    color: #4f46e5;
+}
+
 .highcontrast #groupedList.e-list-template .e-active .e-list-item-header,
 .highcontrast #groupedList.e-list-template .e-active .e-list-content {
   color: #000;

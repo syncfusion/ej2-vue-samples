@@ -19,7 +19,7 @@
                 <div>Sort By</div>
             </td>
             <td>
-                <ejs-dropdownlist ref='sortBy' id='sortBy' :dataSource='sortByData' :fields='field' :change='changeSortBy' index=0></ejs-dropdownlist>
+                <ejs-dropdownlist ref='sortBy' id='sortBy' :dataSource='sortByData' :fields='field' :change='changeSortBy' index=1></ejs-dropdownlist>
             </td>
         </tr>
         <tr>
@@ -145,21 +145,21 @@ export default Vue.extend({
         this.setFieldValue(data);
       }
       if (args.value === 'Custom') {
-        this.fieldObj.setProperties({ dataSource: ['Priority', 'RankId', 'Summary'] });
+        this.fieldObj.dataSource = ['Priority', 'RankId', 'Summary'];
         this.fieldObj.value = 'Priority';
-        this.fieldObj.setProperties({ enabled: true });
+        this.fieldObj.enabled = true;
       }
     },
     setFieldValue: function (data) {
-        this.fieldObj.setProperties({ dataSource: [data] });
+        this.fieldObj.dataSource = [data];
         this.fieldObj.value = data;
-        this.fieldObj.setProperties({ enabled: false });
+        this.fieldObj.enabled = false;
     },
     sortClick: function () {
         this.setKanbanProperties();
     },
     clearClick: function () {
-        this.sortObj.value = 'DataSourceOrder';
+        this.sortObj.value = 'Index';
         this.directionObj.value = 'Ascending';
         this.setFieldValue('None');
         this.setKanbanProperties();

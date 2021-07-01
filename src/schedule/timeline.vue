@@ -63,7 +63,7 @@
     import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { scheduleData, timelineData } from './datasource';
-    import { SchedulePlugin, TimelineMonth, TimelineViews, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, TimelineMonth, TimelineViews, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {

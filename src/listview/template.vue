@@ -236,7 +236,6 @@ export default Vue.extend({
         let share = document.getElementsByClassName('share');
         let comments = document.getElementsByClassName('comments');
         let bookmark = document.getElementsByClassName('bookmark');
-        let description = document.getElementsByClassName('e-list-content');
         let timeStamp = document.getElementsByClassName('timeStamp');
 
         for (let i = 0; i < comments.length; i++) {
@@ -256,12 +255,6 @@ export default Vue.extend({
         for (let i = 0; i < share.length; i++) {
             share[i].setAttribute('title', 'We can customize this element to perform our own action');
             share[i].addEventListener('click', (event) => {
-                event.stopPropagation();
-            });
-        }
-
-        for (let i = 0; i < description.length; i++) {
-            description[i].addEventListener('click', (event) => {
                 event.stopPropagation();
             });
         }

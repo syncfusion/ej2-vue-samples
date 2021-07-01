@@ -46,7 +46,7 @@ Vue.use(CircularGaugePlugin);
 export default Vue.extend({
 data:function(){
     return{
-    title: 'Short Put Distance',
+    title: 'Shot Put Distance',
     titleStyle: {
             size: '18px'
         },

@@ -55,6 +55,10 @@ _:-ms-fullscreen,
     background-color: #0078d6;
 }
 
+.tailwind .e-grid-empimg {
+    background-color: #4f46e5;
+}
+
 #Emptext {
     top: -12px;
     left: 41px;

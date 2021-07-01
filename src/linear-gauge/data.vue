@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
         <div class="row" style="height:300px;">
-             <ejs-lineargauge align='center' id='container1' :load='load1' :orientation='orientation1' :container='container1' :annotations='annotations1'>
+             <ejs-lineargauge align='center' id='container1' :load='load1' :orientation='orientation1' :container='container1' :annotations='annotations1' style='height:300px;'>
                  <e-axes>
                      <e-axis :line='line1' :labelStyle='labelStyle1' :ranges='ranges1'>
                         <e-pointers>
@@ -11,8 +11,8 @@
                  </e-axes>
              </ejs-lineargauge>
         </div>
-    <div class="row" style="height:250px;">
- <ejs-lineargauge align='center' id='container2' :orientation='orientation2' :load='load2' :container='container2' :annotations='annotations2'>
+    <div class="row" style="height:300px;">
+ <ejs-lineargauge align='center' id='container2' :orientation='orientation2' :load='load2' :container='container2' :annotations='annotations2' style='height:300px;'>
                  <e-axes>
                      <e-axis :line='line2' :labelStyle='labelStyle2' :ranges='ranges2'>
                         <e-pointers>
@@ -22,8 +22,8 @@
                  </e-axes>
 </ejs-lineargauge>
     </div>
-  <div class="row" style="height:250px;">
-<ejs-lineargauge  align='center' id='container3' :orientation='orientation3' :load='load3' :container='container3' :annotations='annotations3'>
+  <div class="row" style="height:300px;">
+<ejs-lineargauge  align='center' id='container3' :orientation='orientation3' :load='load3' :container='container3' :annotations='annotations3' style='height:300px;'>
                  <e-axes>
                      <e-axis :line='line3' :maximum='maximum3' :labelStyle='labelStyle3' :ranges='ranges3'>
                         <e-pointers>

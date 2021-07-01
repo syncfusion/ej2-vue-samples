@@ -9,7 +9,7 @@
                             <e-axes>
                                 <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :annotations='gauge1annotations' :ranges='gauge1ranges'>
                                     <e-pointers>
-                                        <e-pointer :value='value1' :radius='pointerRadius1' :color='color1' :pointerWidth='pointerWidth1' :cap='cap1' :needleTail='needleTail1' :animation='animation1'></e-pointer>
+                                        <e-pointer :value='value1' :radius='pointerRadius1' :pointerWidth='pointerWidth1' :cap='cap1' :needleTail='needleTail1' :animation='animation1'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -20,7 +20,7 @@
                             <e-axes>
                                 <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :annotations='gauge2annotations' :ranges='gauge2ranges'>
                                     <e-pointers>
-                                        <e-pointer :value='value2' :radius='pointerRadius2' :color='color2' :pointerWidth='pointerWidth2' :cap='cap2' :needleTail='needleTail2' :animation='animation2'></e-pointer>
+                                        <e-pointer :value='value2' :radius='pointerRadius2' :pointerWidth='pointerWidth2' :cap='cap2' :needleTail='needleTail2' :animation='animation2'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -31,7 +31,7 @@
                             <e-axes>
                                 <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations' :ranges='gauge3ranges'>
                                     <e-pointers>
-                                        <e-pointer :value='value3' :radius='pointerRadius3' :color='color3' :pointerWidth='pointerWidth3' :cap='cap3' :needleTail='needleTail3' :animation='animation3'></e-pointer>
+                                        <e-pointer :value='value3' :radius='pointerRadius3' :pointerWidth='pointerWidth3' :cap='cap3' :needleTail='needleTail3' :animation='animation3'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -149,18 +149,15 @@ export default Vue.extend({
             animation1: {
                 enable: false
             },
-            color1: '#777777',
             pointerWidth1: 5,
             cap1: {
                 radius: 6,
                 border: {
                     width: 0
-                },
-                color: '#777777'
+                }
             },
             needleTail1: {
-                length: '25%',
-                color: '#777777'
+                length: '25%'
             },
             gauge2annotations: [{
                 content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
@@ -207,18 +204,15 @@ export default Vue.extend({
             animation2: {
                 enable: false
             },
-            color2: '#777777',
             pointerWidth2: 5,
             cap2: {
                 radius: 6,
                 border: {
                     width: 0
-                },
-                color: '#777777'
+                }
             },
             needleTail2: {
-                length: '25%',
-                color: '#777777'
+                length: '25%'
             },
             gauge3annotations: [{
                 content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
@@ -265,18 +259,15 @@ export default Vue.extend({
             animation3: {
                 enable: false
             },
-            color3: '#777777',
             pointerWidth3: 5,
             cap3: {
                 radius: 6,
                 border: {
                     width: 0
-                },
-                color: '#777777'
+                }
             },
             needleTail3: {
-                length: '25%',
-                color: '#777777'
+                length: '25%'
             },
             data: new DataManager(orderData).executeLocal(new Query().take(15))
         }

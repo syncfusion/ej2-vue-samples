@@ -83,33 +83,33 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .airline-flex-row {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .airline-flex-row {
         display: flex;
         padding: 0 5px;
         line-height: 20px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .airline-flex-col {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .airline-flex-col {
         flex: 0 0 50%;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .text-right {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .text-right {
         text-align: right;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .margin-right {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .margin-right {
         margin-left: -21px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .text-size {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .text-size {
         font-size: 14px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .border-right {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .border-right {
         border-right: 1px solid #fff;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .airline-fare {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .airline-fare {
         padding-left: 8px;
     }
 
@@ -148,35 +148,35 @@
         display: none;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip {
         width: 217px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .airline {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .airline {
         width: 40%;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-header {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-header {
         display: flex;
         padding: 8px 0px 8px 0px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-details {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-details {
         display: flex;
         padding: 8px 5px 8px 5px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-timings,
-    .schedule-vue-sample .e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-timings-title {
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-timings,
+    .schedule-resources.e-tooltip-wrap.e-schedule-event-tooltip .event-tooltip .airline-timings-title {
         display: flex;
         padding: 5px;
     }
 
-    .schedule-vue-sample .schedule-resources.e-schedule-event-tooltip .event-tooltip .airline-header {
+    .schedule-resources.e-schedule-event-tooltip .event-tooltip .airline-header {
         border-bottom: 1px solid #e0e0e0;
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .event-tooltip .airline-logo,
+    .schedule-resources.e-schedule-event-tooltip .event-tooltip .airline-logo,
     .schedule-vue-sample .schedule-resources.e-schedule .template-wrap .airline-logo {
         background-size: cover;
         background-repeat: no-repeat;
@@ -185,17 +185,17 @@
         height: 25px;
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .event-tooltip .airline-logo.airways-1,
+    .schedule-resources.e-schedule-event-tooltip .event-tooltip .airline-logo.airways-1,
     .schedule-vue-sample .schedule-resources.e-schedule .template-wrap .airline-logo.airways-1 {
         background-image: url('./images/airways-1.svg');
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .event-tooltip .airline-logo.airways-2,
+    .schedule-resources.e-schedule-event-tooltip .event-tooltip .airline-logo.airways-2,
     .schedule-vue-sample .schedule-resources.e-schedule .template-wrap .airline-logo.airways-2 {
         background-image: url('./images/airways-2.svg');
     }
 
-    .schedule-vue-sample .e-schedule-event-tooltip .event-tooltip .airline-logo.airways-3,
+    .schedule-resources.e-schedule-event-tooltip .event-tooltip .airline-logo.airways-3,
     .schedule-vue-sample .e-schedule .template-wrap .airline-logo.airways-3 {
         background-image: url('./images/airways-3.svg');
     }
@@ -243,7 +243,7 @@
         height: 45px;
     }
 
-    .e-bigger .schedule-vue-sample .e-schedule .e-month-view .e-appointment {
+    .e-bigger .schedule-vue-sample .schedule-resources.e-schedule .e-month-view .e-appointment {
         height: 40px;
     }
 
@@ -260,32 +260,32 @@
         border-width: 0;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-popup.e-schedule-event-tooltip {
+    .schedule-resources.e-tooltip-wrap.e-popup.e-schedule-event-tooltip {
         opacity: 1;
     }
 
-    .highcontrast .schedule-vue-sample .e-tooltip-wrap.e-popup.e-schedule-event-tooltip {
+    .highcontrast .schedule-resources.e-tooltip-wrap.e-popup.e-schedule-event-tooltip {
         border-color: #e0e0e0;
         background-color: #fff;
     }
 
-    .highcontrast .schedule-vue-sample .e-tooltip-wrap.e-popup.e-schedule-event-tooltip .e-tip-content {
+    .highcontrast .schedule-resources.e-tooltip-wrap.e-popup.e-schedule-event-tooltip .e-tip-content {
         color: #000;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-popup.e-schedule-event-tooltip .event-tooltip .airline-name {
+    .schedule-resources.e-tooltip-wrap.e-popup.e-schedule-event-tooltip .event-tooltip .airline-name {
         font-weight: 500;
         font-size: 16px;
         padding-left: 10px;
         padding-top: 3px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-popup.e-schedule-event-tooltip .event-tooltip .airline-title {
+    .schedule-resources.e-tooltip-wrap.e-popup.e-schedule-event-tooltip .event-tooltip .airline-title {
         font-weight: 500;
         font-size: 14px;
     }
 
-    .schedule-vue-sample .e-tooltip-wrap.e-popup.e-schedule-event-tooltip .event-tooltip .airline-logo {
+    .schedule-resources.e-tooltip-wrap.e-popup.e-schedule-event-tooltip .event-tooltip .airline-logo {
         margin-left: 5px;
         background-size: 25px;
         height: 25px;
@@ -325,10 +325,10 @@
 </style>
 <script>
     import Vue from "vue";
-    import { EventSettings, ToolbarActionArgs, EventFieldsMapping, Month } from '@syncfusion/ej2-vue-schedule';
+    import { Month } from '@syncfusion/ej2-vue-schedule';
     import { extend, Internationalization, createElement, closest, remove, addClass, removeClass } from '@syncfusion/ej2-base';
-    import { DropDownListPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
-    import { SchedulePlugin, ActionEventArgs, PopupOpenEventArgs } from '@syncfusion/ej2-vue-schedule';
+    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+    import { SchedulePlugin } from '@syncfusion/ej2-vue-schedule';
     import tooltipTemplate from "./resource-tooltipTemplate.vue";
     Vue.use(DropDownListPlugin);
     Vue.use(SchedulePlugin);
@@ -430,7 +430,6 @@
                     return ((d1 - d2) || ((d4 - d2) - (d3 - d1)));
                 });
                 var selectedDate = new Date(2018, 3, 1);
-                var currentDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
                 var renderDate = scheduleObj.activeView.getRenderDates();
                 var finalData = [];
                 for (var i = 0; i < renderDate.length; i++) {

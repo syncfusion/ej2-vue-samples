@@ -52,7 +52,6 @@
 </style>
 <script>
     import Vue from "vue";
-    import { extend } from '@syncfusion/ej2-base';
     import { generateResourceData, generateStaticEvents } from './datasource';
     import { SchedulePlugin, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
 

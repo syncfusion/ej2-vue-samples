@@ -81,6 +81,14 @@
         top: -1px;
         display: block;
     }
+
+    .tailwind .badge-accordion .sample_container #accordion .e-toggle-icon {
+        top: 7px;
+    }
+
+    .e-bigger.tailwind .badge-accordion .sample_container #accordion .e-toggle-icon {
+        top: 11px;
+    }
 </style>
 
 <script>

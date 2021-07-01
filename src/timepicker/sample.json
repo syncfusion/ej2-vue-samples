@@ -2,6 +2,7 @@
     "name": "TimePicker",
     "directory": "timepicker",
     "category": "Calendars",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -40,6 +41,15 @@
             "category": "TimePicker",
             "hideOnDevice": true,
             "api":{"TimePicker": [ "value" ]}
-        }
+        },
+        {
+            "url": "input-mask",
+            "name": "Mask Support",
+            "category": "TimePicker",
+            "hideOnDevice": true,
+            "type": "new",
+            "api":{"TimePicker": [ "enableMask", "format" ]},
+            "description": "This sample demonstrates the default functionalities of Vue TimePicker with mask support"
+        }        
     ]
 }

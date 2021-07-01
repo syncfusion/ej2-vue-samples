@@ -87,12 +87,12 @@ Vue.use(TabPlugin);
 export default Vue.extend({
   data: function(){
         return {
-          data: [{ id: 'scrollable', mode: 'Scrollable' },
-                  { id: 'popup', mode: 'Popup' }],
+          data: [{ id: 'Scrollable', mode: 'Scrollable' },
+                  { id: 'Popup', mode: 'Popup' }],
           dataPlace: [{ id: 'top', position: 'Top' }, { id: 'bottom', position: 'Bottom' },{ id: 'left', position: 'Left' }, { id: 'right', position: 'Right' }],
           fields: { text: 'mode', value: 'id' },
           placeFields: { text: 'position', value: 'id' },
-          value: 'scrollable',
+          value: 'Scrollable',
           placeValue: 'top',
           headerText0: { text: 'HTML' },
           headerText1: { text: 'C Sharp(C#)' },
@@ -155,11 +155,7 @@ export default Vue.extend({
        },
        onChange: function(args) {
            this.tabObj = this.$refs.tabObj.ej2Instances;
-           if (args.value === 'scrollable') {
-               this.tabObj.overflowMode = 'Scrollable';
-            } else {
-              this.tabObj.overflowMode = 'Popup';
-           }
+           this.tabObj.overflowMode = args.value;
            this.tabObj.dataBind();
        }
     }

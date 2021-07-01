@@ -108,7 +108,7 @@
     import Vue from "vue";
     import { Browser, Internationalization, extend } from '@syncfusion/ej2-base';
     import { webinarData } from './datasource';
-    import { SchedulePlugin, Week, Day, View, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, Week, Day, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
 
     Vue.use(SchedulePlugin);
 

@@ -31,7 +31,7 @@
     <div id="description">
         <p>Existing toolbar items can be hidden, shown, enabled, and disabled. Also, new items can be added to the toolbar.</p>
         <p style="display: block"> More information about the document editor features can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/how-to/customize-tool-bar/">documentation section.</a>
         </p>
     </div>
 </div>

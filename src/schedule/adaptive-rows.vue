@@ -61,7 +61,7 @@
 </style>
 <script>
     import Vue from "vue";
-    import { extend, isNullOrUndefined } from '@syncfusion/ej2-base';
+    import { extend } from '@syncfusion/ej2-base';
     import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
     import { roomData } from './datasource';
     import { SchedulePlugin, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";

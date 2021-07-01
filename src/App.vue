@@ -97,7 +97,7 @@
                                     <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
                         </a>
-                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" style=" display: none; ">
+                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank">
                         <button class='sb-npm-btn'>
                             <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span class="doc-npm-link">Install NPM</span>
                         </button>
@@ -152,6 +152,10 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap v4</span>
                         </li>
+                        <li class="e-list" id="tailwind">
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">Tailwind CSS</span>
+                        </li>
                         <li class="e-list" id="highcontrast">
                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                            <span class="switch-text">High Contrast</span>
@@ -175,6 +179,7 @@
                                     <option value="fabric">Fabric</option>
                                     <option value="bootstrap">Bootstrap</option>
                                     <option value="bootstrap4">Bootstrap v4</option>
+                                    <option value="tailwind">Tailwind CSS</option>
                                     <option value="highcontrast">High Contrast</option>
                                 </select>
                             </div>
@@ -637,8 +642,8 @@ export default Vue.extend({
         },
 
         updateBreadCrumb: function () {
-            (this.$el.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = this.$router.currentRoute.meta.eCompName;
-            this.breadCrumbUpdate(this.$router.currentRoute.meta.eCompName, this.$router.currentRoute.meta.eCategoryName, this.$router.currentRoute.meta.eSampleName);
+            (this.$el!.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = this.$router!.currentRoute!.meta!.eCompName!;
+            this.breadCrumbUpdate(this.$router!.currentRoute.meta!.eCompName!, this.$router!.currentRoute!.meta!.eCategoryName!, this.$router!.currentRoute!.meta!.eSampleName!);
         },
 
         renderLeftPaneComponents: function () {

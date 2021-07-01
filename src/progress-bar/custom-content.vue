@@ -114,7 +114,7 @@ import {
 Vue.use(ProgressBarPlugin);
     let clearTimeout1;
     let clearTimeout2;
-    let annotationColors = { material: '#e91e63', fabric: '#0078D6', bootstrap: '#317ab9', bootstrap4: '#007bff', highcontrast: '#FFD939' };
+    let annotationColors = { material: '#e91e63', fabric: '#0078D6', bootstrap: '#317ab9', bootstrap4: '#007bff', highcontrast: '#FFD939', tailwind: '#4F46E5' };
 
 export default Vue.extend({
   data: function() {

@@ -3,7 +3,7 @@
     <div class="col-md-8 control-section">
       <div class="content-wrapper">
         <ejs-kanban id="kanban" ref="KanbanObj" keyField="Status" :dataSource="kanbanData"
-           :cardSettings="cardSettings" :swimlaneSettings="swimlaneSettings">
+           :cardSettings="cardSettings" :swimlaneSettings="swimlaneSettings" height="500px">
           <e-columns>
             <e-column headerText="To Do" keyField="Open"></e-column>
             <e-column headerText="In Progress" keyField="InProgress"></e-column>
@@ -48,6 +48,14 @@
                 <ejs-checkbox  :checked="true" :change="changeCount"></ejs-checkbox>
             </td>
         </tr>
+        <tr>
+            <td>
+                <div>Enable Frozen Rows</div>
+            </td>
+            <td>
+                <ejs-checkbox :change="changeFrozen"></ejs-checkbox>
+            </td>
+        </tr>
     </table>
 </div>
     
@@ -55,7 +63,7 @@
     <p>
         This example demonstrates the swimlane functionalities of Kanban component. Provided options in the property panel
         to sort
-        the cards, enable drag-and-drop across swimlanes, show or hide the empty row and the items count. Also, you can
+        the cards, enable drag-and-drop across swimlanes, show or hide the empty row, items count and swimlane frozen rows. Also, you can
         expand/collapse the swimlane row in the Kanban board.
     </p>
 </div>
@@ -71,6 +79,7 @@
         <li>Show or hide the empty swimlane row using the <code>swimlaneSettings.showEmptyRow</code> property.</li>
         <li>Show or hide the items count in the swimlane header using the <code>swimlaneSettings.showItemCount</code>
             property.</li>
+        <li>Enable or disable the frozen swimlane rows using the <code>swimlaneSettings.enableFrozenRows</code> property.</li>
     </ul>
 </div>
 
@@ -121,7 +130,10 @@ export default Vue.extend({
         },
         changeSortOrder(args) {
         this.kanbanObj.swimlaneSettings.sortDirection = this.$refs.Dropdown.ej2Instances.text;
-    }    
+    },
+    changeFrozen: function (args) {
+        this.kanbanObj.swimlaneSettings.enableFrozenRows = args.checked;
+    }
     }
 });
 </script>

@@ -24,7 +24,7 @@
         <li>Borders and shading.</li>
     </ul>
     <p style="display: block"> More information about the document editor features can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/table-format/">documentation section.</a>
     </p>
 </div>
   </div>

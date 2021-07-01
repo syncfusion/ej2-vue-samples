@@ -99,12 +99,16 @@
         width: 20px;
         height: 20px;
     }
+
+    .schedule-date-header-template.e-schedule .e-left-indent .e-header-cells {
+        height: 66px;
+    }
 </style>
 <script>
     import Vue from "vue";
     import { extend, Internationalization } from '@syncfusion/ej2-base';
     import { scheduleData } from './datasource';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
     Vue.use(SchedulePlugin);
 

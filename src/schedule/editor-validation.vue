@@ -44,7 +44,7 @@
     import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {

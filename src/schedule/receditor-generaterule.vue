@@ -61,7 +61,7 @@
 <!-- custom code end -->
 <script>
     import Vue from "vue";
-    import { RecurrenceEditorPlugin, RecurrenceEditorChangeEventArgs } from "@syncfusion/ej2-vue-schedule";
+    import { RecurrenceEditorPlugin } from "@syncfusion/ej2-vue-schedule";
     Vue.use(RecurrenceEditorPlugin);
     export default Vue.extend({
         data: function () {

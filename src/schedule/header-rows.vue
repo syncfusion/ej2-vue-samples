@@ -44,7 +44,7 @@
     import Vue from "vue";
     import { extend, Internationalization } from '@syncfusion/ej2-base';
     import { SchedulePlugin, TimelineMonth, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-    import { getWeekNumber, CellTemplateArgs, getWeekLastDate } from '@syncfusion/ej2-schedule';
+    import { getWeekNumber, getWeekLastDate } from '@syncfusion/ej2-schedule';
     import { headerRowData } from './datasource';
     Vue.use(SchedulePlugin);
 

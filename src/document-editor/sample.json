@@ -17,7 +17,6 @@
             "url": "character-formatting",
             "name": "Character Formatting",
             "category": "Editing Features",
-            "type": "update",
             "description": "The Document Editor supports character formatting such as bold, italic, underline, subscript, superscript, font color, and more."
         },
         {
@@ -78,6 +77,7 @@
             "url": "print",
             "name": "Print",
             "category": "Print",
+            "type": "update",
             "description": "The Document Editor component is used to view and print Word documents in web applications by injecting only the modules that are necessary."
         },
         {
@@ -114,7 +114,6 @@
             "url": "document-protection",
             "name": "Document Protection",
             "category": "Security",
-            "type": "update",
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
         },
         {

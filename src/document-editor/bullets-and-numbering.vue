@@ -13,6 +13,16 @@
 <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
+<div id="action-description">
+    <p>This example demonstrates bullets and numbering support in document editor. Both single list and multi-level lists are
+        supported.</p>
+</div>
+<div id="description">
+    <p>In this example, you can use, add, or modify the list formatting in document editor.</p>
+    <p style="display: block"> More information about the document editor features can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/list-format/">documentation section.</a>
+    </p>
+</div>
 </div>
 </div>
 </template>

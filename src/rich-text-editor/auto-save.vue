@@ -105,7 +105,15 @@
     .bootstrap4 .e-icons.e-icon-tick::before {
         content: "\e718";
     }
-    
+
+    .tailwind #statusEle .e-icons.e-icon-refresh::before {
+        content: "\e711";
+    }
+
+    .tailwind #statusEle .e-icons.e-icon-tick::before {
+        content: "\e75d";
+    }
+
     .status-text {
         font-size: 14px;
         display: inline-block;

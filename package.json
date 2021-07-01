@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "19.1.63",
+  "version": "19.2.44",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -47,7 +47,7 @@
     "marked": "^0.3.19",
     "tributejs": "^4.1.1",
     "vue": "^2.5.2",
-    "vue-class-component": "4.3.1",
+    "vue-class-component": "^8.0.0-rc.1",
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1"
   },

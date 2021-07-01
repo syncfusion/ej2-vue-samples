@@ -54,6 +54,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates number formatting feature with a restaurant invoice.
@@ -70,6 +71,7 @@
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

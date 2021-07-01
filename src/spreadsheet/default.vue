@@ -22,6 +22,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates the <code>Spreadsheet</code> component and its features such as editing, formulas,
@@ -46,6 +47,7 @@
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

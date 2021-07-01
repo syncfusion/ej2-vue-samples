@@ -118,6 +118,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
      <div id="action-description">
         <p>
             This sample illustrates a monthly budget for a home using planned versus actual costs with cell data binding
@@ -140,6 +141,7 @@
             documentation</a> section.
         </p>
      </div>
+     <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

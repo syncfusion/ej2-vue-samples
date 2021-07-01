@@ -128,7 +128,7 @@
           <td>
             <a
               target="_blank"
-              href="http://ej2.syncfusion.com/vue/documentation/slider/api-limitData.html#minstart"
+              href="https://ej2.syncfusion.com/vue/documentation/api/slider/limitData/#minstart"
             >minStart</a>
           </td>
           <td>- &nbsp;&nbsp;Used to set minimum limit value for first handle.</td>
@@ -137,7 +137,7 @@
           <td>
             <a
               target="_blank"
-              href="http://ej2.syncfusion.com/vue/documentation/slider/api-limitData.html#minend"
+              href="https://ej2.syncfusion.com/vue/documentation/api/slider/limitData/#minend"
             >minEnd</a>
           </td>
           <td>- &nbsp;&nbsp;Used to set maximum limit value for first handle.</td>
@@ -146,7 +146,7 @@
           <td>
             <a
               target="_blank"
-              href="http://ej2.syncfusion.com/vue/documentation/slider/api-limitData.html#maxstart"
+              href="https://ej2.syncfusion.com/vue/documentation/api/slider/limitData/#maxstart"
             >maxStart</a>
           </td>
           <td>- &nbsp;&nbsp;Used to set minimum limit value for second handle.</td>
@@ -155,7 +155,7 @@
           <td>
             <a
               target="_blank"
-              href="http://ej2.syncfusion.com/vue/documentation/slider/api-limitData.html#maxend"
+              href="https://ej2.syncfusion.com/vue/documentation/api/slider/limitData/#maxend"
             >maxEnd</a>
           </td>
           <td>- &nbsp;&nbsp;Used to set maximum limit value for first handle.</td>
@@ -164,7 +164,7 @@
           <td>
             <a
               target="_blank"
-              href="http://ej2.syncfusion.com/vue/documentation/slider/api-limitData.html#starthandlefixed"
+              href="https://ej2.syncfusion.com/vue/documentation/api/slider/limitData/#starthandlefixed"
             >startHandleFixed</a>
           </td>
           <td>- &nbsp;&nbsp;Used to lock the first handle in the current position.</td>
@@ -173,7 +173,7 @@
           <td>
             <a
               target="_blank"
-              href="http://ej2.syncfusion.com/vue/documentation/slider/api-limitData.html#endhandlefixed"
+              href="https://ej2.syncfusion.com/vue/documentation/api/slider/limitData/#endhandlefixed"
             >endHandleFixed</a>
           </td>
           <td>- &nbsp;&nbsp;Used to lock the second handle in the current position.</td>
@@ -192,7 +192,7 @@
         For more information, refer to the
         <a
           target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/limits.html"
+          href="https://ej2.syncfusion.com/vue/documentation/range-slider/limits/"
         >limits</a> section from the documentation.
       </p>
     </div>

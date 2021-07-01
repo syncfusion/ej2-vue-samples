@@ -115,9 +115,8 @@
 <script>
     import Vue from "vue";
     import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-    import { extend } from '@syncfusion/ej2-base';
     import { holidayData, birthdayData, companyData, personalData } from './datasource';
-    import { SchedulePlugin, Month, View, TimelineViews, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
     Vue.use(SchedulePlugin);
     Vue.use(CheckBoxPlugin);
 

@@ -224,6 +224,10 @@ export default  Vue.extend({
     -moz-osx-font-smoothing: grayscale;
   }
 
+  #dashboardSidebar .content-area {
+    margin: 0px;
+  }
+
   .dashboard-seo #dashboardSidebar {
     text-align: center;
   }
@@ -242,7 +246,7 @@ export default  Vue.extend({
     content: "\e718";
     font-family: "e-sb-icons";
   }
-
+  
   .dashboard-seo .filter::before {
     content: "\e72a";
     font-family: "e-sb-icons";

@@ -33,6 +33,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
        This sample demonstrates the Spreadsheet freeze pane feature by applying frozen rows and columns with the Gross Salary scenario as an example. In this sample, you can see the frozen rows/columns that are visible while scrolling the sheet content vertically/horizontally.
@@ -46,10 +47,11 @@
 
       <p>
         More information about the Spreadsheet component can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/freeze-pane">
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

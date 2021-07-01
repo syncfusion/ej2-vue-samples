@@ -63,6 +63,12 @@
         border: 0;
     }
 
+    .tailwind .avatar-listview #letterAvatarList .e-list-item {
+        line-height: 50px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     /* Badge Positioning */
 
     .avatar-listview #letterAvatarList .e-badge {

@@ -108,12 +108,11 @@
 </style>
 <script>
     import Vue from "vue";
-    import { extend, addClass, Internationalization } from '@syncfusion/ej2-base';
+    import { extend, addClass } from '@syncfusion/ej2-base';
     import { doctorData } from './datasource';
-    import { SchedulePlugin, View, WorkWeek, Month } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, WorkWeek, Month } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
-    var instance = new Internationalization();
     var resourceTemplate = Vue.component("resource-template", {
         template: '<div class="template-wrap"><div class="resource-image"><img :src="getImage" :alt="getImage" width="45px" height="45px"/></div>' +
         '<div class="resource-details"><div class="resource-name">{{getDoctorName(data)}}</div><div class="resource-designation">{{getDoctorLevel(data)}}</div></div></div>',

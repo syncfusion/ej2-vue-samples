@@ -22,6 +22,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
 <div id="action-description">
     <p>
         This sample visualizes the data using chart feature by comparing the GDP of different countries with various years.
@@ -37,10 +38,11 @@
     </p>
     <p>
         More information about the Spreadsheet component can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/illustrations/#chart">
             documentation</a> section.
     </p>
 </div>
+<!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

@@ -99,7 +99,6 @@
         {
             "url": "adaptive",
             "name": "Adaptive",
-            "type": "new",
             "category": "Data Grid",
             "description": "This sample demonstrates the rendering order of the grid row elements and adaptive dialogs.",
             "hideOnDevice": false,
@@ -108,7 +107,6 @@
         {
             "url": "enable-rtl",
             "name": "RTL",
-            "type": "new",
             "category": "Data Grid",
             "description": "This demo for Essential JS 2 grid component shows the Right to left(RTl) alignment.",
             "hideOnDevice": false,
@@ -126,6 +124,7 @@
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling",
             "category": "Scrolling",
+            "type": "update",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },
@@ -460,7 +459,6 @@
             "url": "export",
             "name": "Default Exporting",
             "category": "Exporting",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the client-side exporting of grid content to Excel, PDF, and CSV formats.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport"] }

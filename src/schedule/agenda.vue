@@ -76,7 +76,7 @@
 <script>
     import Vue from "vue";
     import { generateObject } from './datasource';
-    import { SchedulePlugin, Agenda, View } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, Agenda } from '@syncfusion/ej2-vue-schedule';
     import { NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
     import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 

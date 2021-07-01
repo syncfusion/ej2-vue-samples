@@ -62,6 +62,10 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+		<linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
     </defs>
 </svg>
 </div>
@@ -89,6 +93,10 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
     #highcontrast-gradient-chart stop {
         stop-color: #79ECE4;
     }
+	
+	#tailwind-gradient-chart stop {
+        stop-color: #4f46e5;
+    }
 
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
@@ -110,10 +118,10 @@ Vue.use(ChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
-let borderColor = ["#00bdae", "#4472c4", "#a16ee5", "#79ECE4"];
+let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast", "Tailwind"];
+let borderColor = ["#00bdae", "#4472c4", "#a16ee5", "#79ECE4", "#4F46E5"];
 let regionColor = [ "rgba(0, 189, 174, 0.3)", "rgba(68, 114, 196, 0.3)", "rgba(161, 110, 229, 0.3)",
-  "rgba(121, 236, 228, 0.3)"];
+  "rgba(121, 236, 228, 0.3)", "rgba(79, 70, 229, 0.3)"];
 
 export default Vue.extend({
   data: function() {

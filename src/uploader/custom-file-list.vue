@@ -179,6 +179,12 @@
     .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e94a';
     }
+    .tailwind .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e78d';
+    }
+    .tailwind .uploader-template-view .close-icon-container.delete-icon {
+        top: 10px;
+    }
 
     .uploader-template-view .close-icon-container:hover {
         background-color: rgba(0, 0, 0, 0.12);

@@ -50,7 +50,7 @@
     import Vue from "vue";
     import { fifaEventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, MonthAgenda, EventRenderedArgs, View } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, MonthAgenda } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
     export default Vue.extend({
         data: function () {

@@ -146,8 +146,37 @@
 
 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
-.layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+.layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
   padding: 5px 5px 5px 50px;
+}
+
+.tailwind .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+    padding: 5px 50px 5px 5px;
+}
+
+.tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+  margin: 0;
+  top: 10px;
+}
+
+.e-bigger.tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+  top: 8px;
+}
+
+.tailwind #list-container #tabContainer .e-tab .e-content .e-item {
+  padding: 0px;
 }
 
 .call-history .layout #list-container #all,

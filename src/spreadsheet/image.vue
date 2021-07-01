@@ -81,6 +81,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
      <div id="action-description">
         <p>
            This sample explains about the image feature by using weekly diet planner as an example. You can change the height and width of the picture by resizing and move it to another position by drag and drop.
@@ -96,10 +97,11 @@
         </p>
         <p>
            More information about the Spreadsheet component can be found in this
-           <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+           <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/illustrations/#image">
             documentation</a> section.
         </p>
      </div>
+     <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

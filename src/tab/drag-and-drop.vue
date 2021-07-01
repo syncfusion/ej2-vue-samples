@@ -183,7 +183,7 @@ export default Vue.extend({
       DropDownList: function () {
         return {
           template: Vue.component("DropDownListComponent", {
-            template: `<ejs-dropdownlist popupHeight="200px" popupWidth="250px" :dataSource='sportsData' placeholder='Select a game'></ejs-dropdownlist>`,
+            template: `<ejs-dropdownlist width="200px" popupHeight="200px" popupWidth="250px" :dataSource='sportsData' placeholder='Select a game'></ejs-dropdownlist>`,
             data() {
               return {
                 sportsData: ["Badminton", "Cricket", "Football", "Golf", "Tennis"],
@@ -195,7 +195,7 @@ export default Vue.extend({
       DatePicker: function () {
         return {
           template: Vue.component("DatePickerComponent", {
-            template: `<ejs-datepicker width="250px" placeholder="Enter date"></ejs-datepicker>`,
+            template: `<ejs-datepicker width="200px" placeholder="Enter date"></ejs-datepicker>`,
             data() {
               return {};
             },
@@ -226,7 +226,7 @@ export default Vue.extend({
   },
   methods: {
     onTabCreate: function (args) {
-      let tabElement = document.getElementById("#draggableTab");
+      let tabElement = document.getElementById("draggableTab");
       if (!isNullOrUndefined(tabElement)) {
         tabElement.querySelector(".e-tab-header").classList.add("e-droppable");
         tabElement.querySelector(".e-content").classList.add("tab-content");
@@ -254,8 +254,8 @@ export default Vue.extend({
       let dropElement = args.target.closest("#draggableTab .e-toolbar-item");
       if (dropElement != null) {
         let tabElement = document.querySelector("#draggableTab");
-        let itemPosition = (args.event.clientX < dropElement.getBoundingClientRect().left +
-          dropElement.offsetWidth / 2) ? 0 : 1;
+        let itemPosition = (((args.event.type.indexOf('touch') > -1) ? args.event.changedTouches[0].clientX
+          : args.event.clientX) < dropElement.getBoundingClientRect().left + dropElement.offsetWidth / 2) ? 0 : 1;
         let dropItemIndex = [].slice.call(tabElement.querySelectorAll(".e-toolbar-item")).indexOf(dropElement) + itemPosition;
         let tabContent;
         switch (args.draggedNodeData.text) {
@@ -288,13 +288,8 @@ export default Vue.extend({
         var treeObj = this.$refs.treeObj.ej2Instances;
         tabObj.addTab(newTabItem, dropItemIndex);
         treeObj.removeNodes([args.draggedNode]);
-        args.cancel = true;
-      } else {
-        let dropNode = args.target.closest("#ListView .e-list-item ");
-        if (!isNullOrUndefined(dropNode) && args.dropIndicator === "e-drop-in") {
-          args.cancel = true;
-        }
       }
+      args.cancel = true;
     },
     onNodeDrag: function (args) {
       if (!isNullOrUndefined(args.target.closest(".tab-content"))) {

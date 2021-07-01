@@ -44,6 +44,12 @@
         border: 0;
     }
 
+    .tailwind .badge-list .sample_container #lists .e-list-item {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+
     /* SVG Icons and Customization */
 
     .badge-list .list_svg {

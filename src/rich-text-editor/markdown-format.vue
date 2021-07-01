@@ -58,6 +58,14 @@
   .bootstrap4 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
     content: "\e787";
   }
+
+  .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before {
+    content: '\e7d0';
+  }
+
+  .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
+    content: '\e748';
+  }
 </style>
 
 <script>

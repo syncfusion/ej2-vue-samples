@@ -50,9 +50,8 @@
 </template>
 <script>
     import Vue from "vue";
-    import { leaveData } from './datasource';
     import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
     var dataManger = new DataManager({

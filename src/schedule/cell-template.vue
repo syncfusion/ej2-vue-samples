@@ -50,7 +50,7 @@
 </style>
 <script>
     import Vue from "vue";
-    import { SchedulePlugin, Month, View, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
     import celltemplate from "./slot-template.vue";
     Vue.use(SchedulePlugin);
 

@@ -139,14 +139,11 @@
     import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { Popup } from '@syncfusion/ej2-vue-popups';
-    import { ItemModel } from '@syncfusion/ej2-vue-navigations';
-    import { CheckBoxPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
-    import { createElement, compile, extend, Internationalization } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Month, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+    import { createElement, compile, extend } from '@syncfusion/ej2-base';
+    import { SchedulePlugin, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
     Vue.use(CheckBoxPlugin);
-
-    var instance = new Internationalization();
 
     export default Vue.extend({
         data: function () {

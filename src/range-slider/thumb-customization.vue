@@ -145,6 +145,11 @@
         border-radius: 15px;
         background-color: #f9920b;
     }
+    .tailwind .e-control-wrapper.e-slider-container.e-horizontal #image_slider .e-handle {
+        margin-left: -12px;
+        top: calc(50% - 10px);
+        box-shadow: none;
+    }
 </style>
 <script>
 import Vue from "vue";

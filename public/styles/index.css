@@ -2557,3 +2557,15 @@ body.highcontrast,
     width: 20%;
     right: 3px;
   }
+
+  .tailwind .e-samplestatus.new.tree, .tailwind .e-samplestatus.update.tree, .tailwind .e-samplestatus.preview.tree {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 8px;
+}
+ 
+.tailwind .e-samplestatus.new, .tailwind .e-samplestatus.update, .tailwind .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 2px;
+}

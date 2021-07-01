@@ -133,6 +133,10 @@
         display: none;
     }
 
+    .tailwind .schedule-vue-sample .schedule-group.e-schedule .e-left-indent .e-header-cells {
+        height: 67px;
+    }
+
     /* custom code start*/
     @media (max-width: 550px) {
         .schedule-vue-sample .schedule-demo-heading {
@@ -143,9 +147,7 @@
 </style>
 <script>
     import Vue from "vue";
-    import { extend } from '@syncfusion/ej2-base';
-    import { resourceConferenceData } from './datasource';
-    import { SchedulePlugin, Week, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
     var resourceTemplateVue = Vue.component("resource-template", {

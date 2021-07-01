@@ -2,6 +2,7 @@
     "name": "DatePicker",
     "directory": "datepicker",
     "category": "Calendars",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -56,6 +57,15 @@
             "category": "DatePicker",
             "hideOnDevice": true,
             "api":{"DatePicker": [ "value" ]}
-        }
+        },
+        {
+            "url": "input-mask",
+            "name": "Mask Support",
+            "category": "DatePicker",
+            "hideOnDevice": true,
+            "type": "new",
+            "api":{"DatePicker": [ "enableMask", "format" ]},
+            "description": "This sample demonstrates the default functionalities of Vue DatePicker with mask support"
+        }        
     ]
 }

@@ -3,6 +3,7 @@
    "directory": "gantt",
    "category": "Calendars",
    "ftName": "gantt",
+   "type": "update",
    "samples": [
       {
          "url": "default",
@@ -546,6 +547,26 @@
             ]
          },
          "description": "This example demonstrates the unscheduled tasks in Gantt with custom toolbar item and dynamic add support."
+      },
+      {
+         "url": "timezone",
+         "name": "Timezone",
+         "type": "new",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "timelineSettings",
+               "timezone",
+               "durationUnit",
+               "dateFormat",
+               "dayWorkingTime",
+               "includeWeekend",
+               "height"
+            ]
+         },
+         "description": "This demo explains how the Gantt Chart schedules projects in different timezones."
       },
       {
          "url": "timeline",

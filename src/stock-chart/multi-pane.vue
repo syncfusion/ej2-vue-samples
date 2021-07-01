@@ -30,7 +30,7 @@
         </e-stockchart-rows>
         <e-stockchart-series-collection>
           <e-stockchart-series :dataSource="seriesData" type="Candle" volume='volume' xName='x' low='low' high='high' open='open' close='close' yAxisName="yAxis1"></e-stockchart-series>
-          <e-stockchart-series :dataSource="seriesData" type="Column" xName="x" yName="volume"></e-stockchart-series>
+          <e-stockchart-series :dataSource="seriesData" type="Column" xName="x" yName="volume" :enableTooltip="false"></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>
     </div>

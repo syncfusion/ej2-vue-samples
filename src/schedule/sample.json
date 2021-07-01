@@ -8,7 +8,6 @@
             "url": "overview",
             "name": "Overview",
             "category": "Scheduler",
-            "type":"update",
             "description": "This demo shows for Javascript Scheduler features such as Multiple views, Templates, Resources, Grouping, Timezone, Timescale, etc...",
             "hideOnDevice": true,
             "api": {
@@ -151,7 +150,6 @@
             "url": "multi-drag",
             "name": "Multiple Drag",
             "category": "Appointments",
-            "type": "new",
             "description": "This demo explains you about the ability to select multiple appointments and drag them simultaneously.",
             "api": {
                 "Schedule": [
@@ -254,6 +252,7 @@
             "url": "year",
             "name": "Year View",
             "category": "Views",
+            "type":"update",
             "description": "This example presents a year view of the Vue Scheduler that displays appointments or events for an entire year with a horizontal or vertical layout.",
             "api": {
                 "Schedule": [
@@ -439,6 +438,21 @@
                 "Schedule": [
                     "startHour",
                     "endHour",
+                    "group",
+                    "resources",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "adaptive-grouping",
+            "name": "Adaptive Grouping",
+            "category": "Resource Grouping",
+            "type": "new",
+            "description": "This demo shows how to change the mode of the Schedule to Adaptive mode in the Vue Scheduler control.",
+            "api": {
+                "Schedule": [
+                    "enableAdaptiveUI",
                     "group",
                     "resources",
                     "eventSettings"
@@ -750,6 +764,7 @@
             "url": "print",
             "name": "Print",
             "category": "Exporting",
+            "type":"update",
             "description": "This sample demonstrates how to print all the appointments (events) in the Vue Scheduler on the client side using the Print Library.",
             "api": {
                 "Schedule": [

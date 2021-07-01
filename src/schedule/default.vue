@@ -110,7 +110,7 @@
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DatePickerPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-calendars';
+    import { DatePickerPlugin } from '@syncfusion/ej2-vue-calendars';
     Vue.use(SchedulePlugin);
     Vue.use(DatePickerPlugin);
     export default Vue.extend({

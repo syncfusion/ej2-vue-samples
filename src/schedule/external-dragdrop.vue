@@ -243,7 +243,7 @@
     import Vue from "vue";
     import { addClass, extend, closest } from '@syncfusion/ej2-base';
     import { hospitalData, waitingList } from './datasource';
-    import { SchedulePlugin, TimelineViews, TimelineMonth, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
     import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
     Vue.use(TreeViewPlugin);    

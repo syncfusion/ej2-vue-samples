@@ -10,31 +10,34 @@
         :indicatorType="indicatorType"
         :trendlineType="trendlineType"
         :crosshair="crosshair"
+        :legendSettings="legend"
         :border="border"
         :title="title"
         :theme="theme"
+        :load='load'
       >
         <e-stockchart-series-collection>
-          <e-stockchart-series :dataSource="seriesData" type="Line" xName="x" yName="close"></e-stockchart-series>
-          <e-stockchart-series :dataSource="seriesData1" type="Line" xName="x" yName="close"></e-stockchart-series>
+          <e-stockchart-series :dataSource="seriesData" type="Spline" xName="x" yName="close" name="GOOG"></e-stockchart-series>
+          <e-stockchart-series :dataSource="seriesData1" type="Spline" xName="x" yName="close" name="GOOGL"></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>
     </div>
 
     <div id="action-description">
-      <p>This sample visualizes stock chart with multiple series.</p>
+      <p>This sample visualizes stock chart with multiple series and legend.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>LineSeries</code> is used to represent selected data value.
+        In this example, you can see how to render and configure the Stock Chart.
+        The <code>SplineSeries</code> is used to display data based on the selection made in the Range Selector. 
+        Since there are multiple series, the interactive legend has been enabled, which provides a quick overview of each series.
       </p>
       <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500">Injecting Module:</p>
       <p>
-        The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
-        the
-        <code>DateTime</code> and <code>LineSeries</code> module using <code> provide: { stockchart: [ DateTime, LineSeries] },</code> method.
+        The Stock Chart component features are segregated into individual feature-wise modules. To use date-time axis, inject 
+        <code>DateTime</code> and <code>LineSeries</code> module using <code> provide: { stockchart: [ DateTime, LineSeries] },</code> method. 
+        To use Legend in Stock Chart, inject <code>StockLegend</code> module using <code> provide: { stockchart: [ StockLegend] },</code> method.
       </p>
 
     </div>
@@ -67,7 +70,8 @@ import {
   AccumulationDistributionIndicator,
   MacdIndicator,
   StochasticIndicator,
-  Export
+  Export,
+  StockLegend
 } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(StockChartPlugin);
@@ -101,13 +105,16 @@ export default Vue.extend({
        crosshair: {
           enable: true
         },
+      legend: {
+        visible: true
+      },
       title: 'Multiple Series',
       chartArea: {
         border: {
           width: 0
         }
       },
-      border: { width: 0}
+      border: { width: 1}
     };
   },
   provide: {
@@ -131,7 +138,8 @@ export default Vue.extend({
       AccumulationDistributionIndicator,
       MacdIndicator,
       StochasticIndicator,
-      Export
+      Export,
+      StockLegend
     ]
   },
   methods: {}

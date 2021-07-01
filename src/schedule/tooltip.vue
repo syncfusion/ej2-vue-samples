@@ -117,8 +117,8 @@
     import Vue from "vue";
     import { eventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { CheckBoxPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
     Vue.use(SchedulePlugin);
     Vue.use(CheckBoxPlugin);
 

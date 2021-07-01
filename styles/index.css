@@ -2530,6 +2530,7 @@ body.highcontrast,
     color: #3c78ef;
     margin: 0px 0 0 11px;
     cursor: pointer;
+    display:none;
   }
   
   .doc-npm-link {
@@ -2557,6 +2558,17 @@ body.highcontrast,
     width: 20%;
     right: 3px;
   }
-.e-menu-wrapper.e-file-menu .e-open::before {
+  .e-menu-wrapper.e-file-menu .e-open::before {
     content: '\e65f'!important;
+}
+.tailwind .e-samplestatus.new.tree, .tailwind .e-samplestatus.update.tree, .tailwind .e-samplestatus.preview.tree {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 8px;
+}
+ 
+.tailwind .e-samplestatus.new, .tailwind .e-samplestatus.update, .tailwind .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 2px;
 }

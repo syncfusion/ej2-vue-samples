@@ -48,7 +48,7 @@
     import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     import { TimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
     Vue.use(SchedulePlugin);
     Vue.use(TimePickerPlugin);

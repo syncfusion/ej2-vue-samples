@@ -3,7 +3,6 @@
     "directory": "tab",
     "category": "Navigation",
     "ftName" :"tabs",
-    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
@@ -36,7 +35,6 @@
         "url": "drag-and-drop",
         "name": "Drag and Drop",
         "category": "Tabs",
-        "type": "new",
         "description": "This example demonstrates how to reorder the loaded tabs and how to add a new tab from the external source.",
         "api":{"Tab":["allowDragAndDrop", "dragArea", "created", "onDragStart", "dragged"] }
     }

@@ -73,7 +73,7 @@
     import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { blockData } from './datasource';
-    import { SchedulePlugin, Day, TimelineViews, TimelineMonth, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
     var resourceHeaderVue = Vue.component("resource-headerTemplate", {

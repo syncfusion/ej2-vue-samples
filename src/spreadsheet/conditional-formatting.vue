@@ -32,6 +32,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
 <div id="action-description">
     <p>
         This sample demonstrates about the conditional formatting features like highlight cell rules, data bars, color scales, and icon sets by using the inventory list details.
@@ -49,10 +50,11 @@
     </p>
     <p>
         More information about the Spreadsheet component can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/documentation/spreadsheet/formatting/#conditional-formatting">
             documentation</a> section.
     </p>
 </div>
+<!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

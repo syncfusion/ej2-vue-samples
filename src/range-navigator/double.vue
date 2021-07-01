@@ -67,7 +67,6 @@ chartAnnotation.push({
   y: "15%"
 });
 let backgroundColor = 'white';
-//let backgroundColor = theme === 'Highcontrast-Light' ? 'black' : 'white';
 getAnnotation(aus, getSeriesColor(theme)[0]);
 getAnnotation(sl, getSeriesColor(theme)[1]);
 function getAnnotation(args, color) {

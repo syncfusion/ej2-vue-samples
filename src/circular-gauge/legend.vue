@@ -6,7 +6,7 @@
 <e-axes>
     <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle'  :ranges='ranges' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=120 >
       <e-pointers>
-          <e-pointer :value='value' :radius='radius' :color='color' :pointerWidth='pointerWidth' :animation='animation'></e-pointer>
+          <e-pointer :value='value' :radius='radius' :pointerWidth='pointerWidth' :animation='animation'></e-pointer>
       </e-pointers>
     </e-axis>
 </e-axes>
@@ -125,7 +125,6 @@ data:function(){
             minimum: 0,
             maximum: 120,
             pointerWidth: 8,
-            color: '#757575',
             radius: '60%',
             value: 70,
             animation: { enable: true },

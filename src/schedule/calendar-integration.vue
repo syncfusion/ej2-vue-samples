@@ -23,7 +23,7 @@
 <script>
     import Vue from "vue";
     import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
     var calendarId = '5105trob9dasha31vuqek6qgp0@group.calendar.google.com';

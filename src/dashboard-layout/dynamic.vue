@@ -254,5 +254,4 @@ body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control
 body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
-
 </style>

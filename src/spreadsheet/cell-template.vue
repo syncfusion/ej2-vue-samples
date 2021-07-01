@@ -23,7 +23,7 @@
                     </e-row>
                     <e-row height=55>
                         <e-cells>
-                            <e-cell index=1 value="Name:"></e-cell>
+                            <e-cell index=1 value="Name"></e-cell>
                         </e-cells>
                     </e-row>
                     <e-row height=45>
@@ -70,6 +70,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates cell template feature with interview registration form scenario using input components.
@@ -82,10 +83,11 @@
       </p>
       <p>
         More information about cell template feature can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/template">
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->

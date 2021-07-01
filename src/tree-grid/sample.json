@@ -3,7 +3,6 @@
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
-    "type": "update",
     "samples": [
       {  
         "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
@@ -159,7 +158,7 @@
       },
       {
          "url": "infinite-scrolling", "name": "Infinite Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableInfiniteScrolling","height","dataBound"] },
-         "description": "This demo for Essential JS 2 Tree Grid control demonstrates the Tree Grid component with the infinite scrolling feature.", "type": "new"
+         "description": "This demo for Essential JS 2 Tree Grid control demonstrates the Tree Grid component with the infinite scrolling feature."
        },
      {
         "url":"selection", "name": "Default Selection", "category":"Selection","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","allowSelection","selectionSettings","treeColumnIndex"] },
@@ -200,7 +199,7 @@
        "api":{"TreeGrid":["dataSource","allowPaging","columns", "hasChildMapping", "contextMenuItems", "parentIdMapping"] }
     },
      {
-        "url":"export", "name": "Default Exporting", "type": "update", "category":"Exporting", "api":{"TreeGrid":["dataSource","columns","toolbar","allowExcelExport","allowPdfExport","treeColumnIndex", "toolbarClick","childMapping","height"] },
+        "url":"export", "name": "Default Exporting", "category":"Exporting", "api":{"TreeGrid":["dataSource","columns","toolbar","allowExcelExport","allowPdfExport","treeColumnIndex", "toolbarClick","childMapping","height"] },
         "description": "This demo explains how to export the Tree Grid content to Excel, PDF, and CSV documents using the Syncfusion Essential JS2 Tree Grid control."        
      },
      {

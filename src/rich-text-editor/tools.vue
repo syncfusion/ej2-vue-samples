@@ -14,7 +14,7 @@
 <div id="description">
     <p>The editor’s toolbar contains commands to format the content. The toolbar consists of:</p>
     <ul>
-        <li><code>Lists</code> - Ordered and unordered list types.</li>
+        <li><code>Lists</code> - NumberFormat list and BulletFormat list types.</li>
         <li><code>Links</code> - A hyperlink can be inserted into the editor for quick access to related information.</li>
         <li><code>Image</code> - Inserts and manages images.</li>
         <li><code>Table</code> - Inserts and manages Tables.</li>
@@ -141,7 +141,7 @@ export default Vue.extend({
                 items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
                 'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
-                'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
+                'Formats', 'Alignments', 'NumberFormatList', 'BulletFormatList',
                 'Outdent', 'Indent', '|',
                 'CreateTable', 'CreateLink', 'Image', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
             },

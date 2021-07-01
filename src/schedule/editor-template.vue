@@ -45,11 +45,8 @@
 </style>
 <script>
     import Vue from "vue";
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { SchedulePlugin, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     import { extend } from '@syncfusion/ej2-base';
-    import { DropDownList } from '@syncfusion/ej2-dropdowns';
-    import { DateTimePicker } from '@syncfusion/ej2-calendars';
-    import { PopupOpenEventArgs, EventRenderedArgs } from '@syncfusion/ej2-vue-schedule';
     import { doctorsEventData } from './datasource';
     import editortemplate from "./custom-editor.vue";
     Vue.use(SchedulePlugin);
