@@ -30,7 +30,7 @@
         <p>
             More information on the Tree Grid instantiation can be found in this
             <a target="_blank" 
-                href="https://ej2.syncfusion.com/documentation/treegrid/getting-started/">
+                href="https://ej2.syncfusion.com/vue/documentation/treegrid/getting-started/">
                documentation section</a>.
         </p>
     </div>
@@ -49,9 +49,19 @@
         height: 19px;
         border-radius: 15px;
         text-align: center;
-        background-color: #cff0dc;
+        background-color: #C3F1D0;
         color: #00752F;
         width: 47px;
+    }
+    
+    /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
+    .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{
+        padding-top: 1px;
+    }
+
+    /deep/ .tailwind .e-grid .statustemp, .tailwind-dark .e-grid .statustemp,
+    .bootstrap5 .e-grid .statustemp, .bootstrap5-dark .e-grid .statustemp {
+        padding-top: 2px;
     }
 
     /deep/ .statustemp.e-lowgdp {
@@ -61,7 +71,7 @@
     }
 
     /deep/ td.e-rowcell .statustxt {
-        color: #00cc00;
+        color: #398120;
         position: relative;
     }
 
@@ -76,7 +86,7 @@
     }
 
     /deep/ .rating .star.checked {
-        color: #ffa600;
+        color: #EE9E54;
     }
 
     /deep/ .rating .star:before {
@@ -104,17 +114,24 @@
         color: white;
     }
     /deep/ .highcontrast .e-grid #myProgress {
-        background-color: black;
+        background-color: whitesmoke;
     }
     /deep/ #myProgress {
         position: relative;
         height: 18px;
         width: 10em;
         text-align: left;
-        background-color: white;
+        background-color: whitesmoke;
     }
     /deep/ #myBar.progressdisable {
         background-color: #df2222;
+    }
+    /deep/ .tailwind .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label,
+    .tailwind-dark .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label {
+        display: inline;
+    }
+    /deep/ #coordinates .e-image {
+        filter: brightness(180%);
     }
 </style>
 <script lang="ts">
@@ -168,7 +185,7 @@ export default Vue.extend({
     locationTemplate: function () {
         return {
             template: Vue.component('locationTemplate', {
-                template: '<div><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
+                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }
@@ -263,9 +280,10 @@ export default Vue.extend({
         }
 
         if ((args.column as Column).field === 'timezone') {
+            let imageElement = (args.cell as Element).querySelector('.e-img') as HTMLImageElement;
+            imageElement.style.filter = "brightness(150%)";
             let timeZone: string = getObject('timezone', args.data);
             if (timeZone.indexOf('-')!== -1) {
-                let imageElement = (args.cell as Element).querySelector('.e-img') as HTMLImageElement;
                 imageElement.className = 'negativeTimeZone';
             }
         }

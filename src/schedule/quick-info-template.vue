@@ -1,7 +1,7 @@
 <template>
   <div class="schedule-vue-sample">
     <div class="control-section">
-      <ejs-schedule id="schedule" height="650px" cssClass="quick-info-template" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
+      <ejs-schedule id="schedule" height="650px" cssClass="quick-info-template" :popupOpen="onPopupOpen" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
         <e-resources>
           <e-resource field="RoomId" title="Room Type" name="MeetingRoom" textField="Name" idField="Id" colorField="Color" :dataSource="roomData"></e-resource>
         </e-resources>
@@ -98,22 +98,62 @@
   padding-top: 10px;
 }
 
-.schedule-vue-sample .quick-info-template .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
+.quick-info-template.e-template .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
   padding: 0 14px;
 }
 
-.schedule-vue-sample .quick-info-template .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
+.quick-info-template.e-template .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
   display: block;
 }
 
-.schedule-vue-sample .quick-info-template .e-quick-popup-wrapper .e-popup-footer button:first-child {
+.quick-info-template.e-template .e-quick-popup-wrapper .e-popup-footer button:first-child {
   margin-right: 5px;
+}
+
+.material-dark .quick-info-template .quick-info-header {
+  background-color: #424242;
+}
+
+.highcontrast .quick-info-template .quick-info-header,
+.tailwind-dark .quick-info-template .quick-info-header,
+.bootstrap-dark .quick-info-template .quick-info-header,
+.bootstrap5-dark .quick-info-template .quick-info-header,
+.fabric-dark .quick-info-template .quick-info-header {
+  background-color: #000000;
+}
+
+.tailwind-dark .quick-info-template .quick-info-header-content,
+.bootstrap-dark .quick-info-template .quick-info-header-content,
+.fabric-dark .quick-info-template .quick-info-header-content,
+.material-dark .quick-info-template .quick-info-header-content,
+.highcontrast .quick-info-template .quick-info-header-content {
+  color: #fff !important;
+}
+
+.tailwind-dark .quick-info-template .event-content div label,
+.tailwind-dark .quick-info-template .event-content div span,
+.bootstrap-dark .quick-info-template .event-content div label,
+.bootstrap-dark .quick-info-template .event-content div span,
+.bootstrap5-dark .quick-info-template .event-content div label,
+.bootstrap5-dark .quick-info-template .event-content div span,
+.fabric-dark .quick-info-template .event-content div label,
+.fabric-dark .quick-info-template .event-content div span,
+.material-dark .quick-info-template .event-content div label,
+.material-dark .quick-info-template .event-content div span,
+.highcontrast .quick-info-template .event-content div label,
+.highcontrast .quick-info-template .event-content div span {
+  color: #fff;
+}
+
+.material .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
+  display: block !important;
+  padding: 0px 18px 8px 22px !important;
 }
 </style>
 
 <script>
 import Vue from "vue";
-import { extend, Internationalization, isNullOrUndefined } from "@syncfusion/ej2-base";
+import { extend, Internationalization, isNullOrUndefined, closest } from "@syncfusion/ej2-base";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
@@ -217,7 +257,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
   methods: {
     buttonClickActions: function(e) {
       const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-      const quickPopup = scheduleObj.element.querySelector(".e-quick-popup-wrapper");
+      const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
       const getSlotData = function() {
         const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
         const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
@@ -266,7 +306,7 @@ export default Vue.extend({
       eventSettings: {
         dataSource: extend([], quickInfoTemplateData, null, true)
       },
-      selectedDate: new Date(2020, 0, 9),
+      selectedDate: new Date(2021, 0, 9),
       roomData: extend([], resourceData, undefined, true),
       quickInfoTemplates: {
         header: function(e) {
@@ -283,6 +323,13 @@ export default Vue.extend({
   },
   provide: {
     schedule: [Day, Week, WorkWeek, Month, Agenda]
+  },
+  methods: {
+    onPopupOpen: function(args) {
+      if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
+        args.element.classList.add('e-template');
+      }
+    },
   }
 });
 </script>

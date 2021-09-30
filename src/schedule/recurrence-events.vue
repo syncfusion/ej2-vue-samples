@@ -99,7 +99,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], recurrenceData, null, true) },
-                selectedDate: new Date(2018, 1, 20),
+                selectedDate: new Date(2021, 1, 20),
                 currentView: 'Week'
             }
         },

@@ -54,7 +54,7 @@
                         description: { title: 'Comments', name: 'Description' }
                     }
                 },
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 6),
                 group: { byDate: true, resources: ['Owners'] },
                 allowMultiple : true,
                 resourceDataSource : [

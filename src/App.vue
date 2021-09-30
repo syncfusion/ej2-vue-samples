@@ -136,31 +136,56 @@
                 </div>
                 <div id='theme-switcher-popup' class='sb-theme-popup'>
                     <ul id="themelist" class="options" role="list">
+                        <li class="e-list" id="bootstrap5" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap v5</span>
+                        </li>
+                        <li class="e-list" id="bootstrap5-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap v5 Dark</span>
+                        </li>
+                        <li class="e-list" id="tailwind">
+                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                           <span class="switch-text">Tailwind CSS</span>
+                        </li>
+                        <li class="e-list" id="tailwind-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Tailwind CSS Dark</span>
+                        </li>
                         <li class='active' id="material" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material</span>
+                        </li>
+                        <li class="e-list" id="material-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material Dark</span>
                         </li>
                         <li id="fabric" role="listitem">
                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                            <span class="switch-text">Fabric</span>
                         </li>
-                        <li class="e-list" id="bootstrap" role="listitem">
-                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                           <span class="switch-text">Bootstrap</span>
+                        <li class="e-list" id="fabric-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fabric Dark</span>
                         </li>
                         <li class="e-list" id="bootstrap4" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap v4</span>
                         </li>
-                        <li class="e-list" id="tailwind">
+                        <li class="e-list" id="bootstrap" role="listitem">
                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                           <span class="switch-text">Tailwind CSS</span>
+                           <span class="switch-text">Bootstrap</span>
+                        </li>
+                        <li class="e-list" id="bootstrap-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap Dark</span>
                         </li>
                         <li class="e-list" id="highcontrast">
                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                            <span class="switch-text">High Contrast</span>
                         </li>
                     </ul>
+                     <div class="sb-theme-studio"><a target="_blank" href="https://ej2.syncfusion.com/themestudio/?theme=material">Go to Theme Studio</a></div>
                 </div>
                 <div id='settings-popup' class='sb-setting-popup'>
                     <div class='sb-setting-header'>
@@ -175,13 +200,19 @@
                             </div>
                             <div class='setting-content  setting-theme-change'>
                                 <select id='sb-setting-theme' class='sb-setting-theme-select'>
-                                    <option value="material">Material</option>
-                                    <option value="fabric">Fabric</option>
-                                    <option value="bootstrap">Bootstrap</option>
-                                    <option value="bootstrap4">Bootstrap v4</option>
+                                    <option value="bootstrap5">Bootstrap v5</option>
+                                    <option value="bootstrap5-dark">Bootstrap v5 Dark</option>
                                     <option value="tailwind">Tailwind CSS</option>
+                                    <option value="tailwind-dark">Tailwind CSS Dark</option>
+                                    <option value="material">Material</option>
+                                    <option value="material-dark">Material Dark</option>
+                                    <option value="fabric">Fabric</option>
+                                    <option value="fabric-dark">Fabric Dark</option>
+                                    <option value="bootstrap4">Bootstrap v4</option>
+                                    <option value="bootstrap">Bootstrap</option>
+                                    <option value="bootstrap-dark">Bootstrap Dark</option>
                                     <option value="highcontrast">High Contrast</option>
-                                </select>
+                                    </select>
                             </div>
                         </div>
                         <div class='sb-setting-item sb-responsive-section'>
@@ -425,8 +456,8 @@ const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
-let selectedTheme: string = location.hash.split('/')[1] || 'material';
-const themeCollection: string[] = ['material', 'fabric', 'bootstrap', 'bootstrap4', 'highcontrast'];
+let selectedTheme: string = location.hash.split('/')[1] || 'bootstrap5';
+const themeCollection: string[] = ['bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -741,7 +772,7 @@ export default Vue.extend({
                 this.controlListRefresh(arg.node || arg.item);
                 if (path !== curHashCollection) {
                     this.sampleOverlay();
-                    let theme: string = location.hash.split('/')[1] || 'material';
+                    let theme: string = location.hash.split('/')[1] || 'bootstrap5';
                     if (arg.item && ((isMobile) ||
                         ((isTablet || (Browser.isDevice && isPc)) && this.isLeftPaneOpen()))) {
                         this.toggleLeftPane();
@@ -816,6 +847,8 @@ export default Vue.extend({
                         this.showHideControlTree();
                     }
                     list.selectItem(selectSample);
+                    selectSample.scrollIntoView({block:"nearest"});
+
                 }
             } else {
                 this.showHideControlTree();
@@ -1498,7 +1531,7 @@ export default Vue.extend({
                 let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
                     dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
                 for (let sample of samples) {
-                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material';
+                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'bootstrap5';
                     let control: string = node.directory;
                     let sampleUrl: string = sample.url;
                     let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
@@ -1613,7 +1646,7 @@ export default Vue.extend({
                                     content: `${hideLocation} component not supported in mobile device`
                                 });
                             }, 200);
-                        window.location.hash = "#/material/grid/grid-overview.html"
+                        window.location.hash = "#/bootstrap5/grid/grid-overview.html"
                     }
                 }
                 let curIndex: number = samplesAr.indexOf(location.hash);

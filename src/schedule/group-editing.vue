@@ -74,6 +74,10 @@
         padding-right: 10px;
     }
 
+    .schedule-vue-sample .groupediting.e-schedule .template-wrap .resource-details .resource-designation {
+        font-size: 12px;
+    }
+
     .schedule-vue-sample .groupediting.e-schedule.e-device .template-wrap .resource-details .resource-designation {
         display: none;
     }
@@ -147,7 +151,7 @@
                         endTime: { title: 'To', name: 'EndTime' }
                     }
                 },
-                selectedDate: new Date(2018, 5, 5),
+                selectedDate: new Date(2021, 5, 5),
                 currentView: 'WorkWeek',
                 cssClass: 'groupediting',
                 group: {

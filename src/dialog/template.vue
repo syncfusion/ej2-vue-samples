@@ -97,7 +97,12 @@ export default Vue.extend({
     .fabric .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #0078d7;
     }
-    .material .dialog-template .e-dialog .e-dlg-header-content{
+
+	.tailwind .dialog-template .e-dialog .e-dlg-header-content,
+    .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content,
+    .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content,
+    .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content,
+    .material .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #3f51b5;
     }
     .bootstrap .dialog-template .e-dialog .e-dlg-header-content {
@@ -198,6 +203,13 @@ export default Vue.extend({
     }
     .dialog-template .dialogContent .dialogText, .dialog-template .dialogContent .dialogText  {
         background-color: #f5f5f5;
+    }
+    .material-dark .dialog-template .dialogContent .dialogText,
+    .fabric-dark .dialog-template .dialogContent .dialogText,
+    .bootstrap-dark .dialog-template .dialogContent .dialogText,
+    .bootstrap5-dark .dialog-template .dialogContent .dialogText,
+    .tailwind-dark .dialog-template .dialogContent .dialogText {
+        color: #424242;
     }
     .dialog-template .dialogContent {
         display: block;

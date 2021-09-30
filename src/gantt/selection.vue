@@ -20,31 +20,37 @@
         <div class="col-md-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
         <tr>
-            <td style="width: 30%">
-                <div>Selection Mode</div>
+            <td style="width: 100%">
+                <div style="fontSize: 15px">Selection Mode</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
-                <div>
+        </tr>
+        <tr>
+            <td style="width: 100%;padding-right: 10px">
+                <div style="width: 150px">
                      <ejs-dropdownlist ref='selectionmode' id='selectionmode' width='110px' :dataSource='selectionModeData' value='Row' :fields='selectionModeFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
-                <div>Selection Type</div>
+            <td style="width: 100%">
+                <div style="fontSize: 15px">Selection Type</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
-                <div>
+        </tr>
+        <tr>
+            <td style="width: 100%;padding-right: 10px">
+                <div style="width: 150px">
                     <ejs-dropdownlist ref='selectiontype' width='110px' id='selectiontype' :dataSource='selectionTypeData' value='Single' :fields='selectionTypeFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
-                <div>Toggle Selection</div>
+            <td style="width: 100%">
+                <div style="fontSize: 15px">Toggle Selection</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
-                <div>
+        </tr>
+        <tr>
+            <td style="width: 100%;padding-right: 10px">
+                <div style="width: 150px">
                     <ejs-dropdownlist ref='toggle' width='110px' id='toggle' :dataSource='selectionToggleData' :value='toggleValue' :fields='selectionToggleFields'></ejs-dropdownlist>
                 </div>
             </td>

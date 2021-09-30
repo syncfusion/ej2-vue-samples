@@ -55,8 +55,15 @@
     .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-resource-left-td {
         width: 120px;
     }
+
     .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-resource-text {
         padding-left: 20px;
+    }
+
+    .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-block-appointment {
+        align-items: center;
+        display: flex;
+        justify-content: center;
     }
 </style>
 <script>
@@ -83,7 +90,7 @@
                         endTime: { name: 'EndTime', title: 'To' }
                     }
                 },
-                selectedDate: new Date(2018, 7, 1),
+                selectedDate: new Date(2021, 7, 2),
                 currentView: 'TimelineWeek',
                 group: {
                     enableCompactView: false,

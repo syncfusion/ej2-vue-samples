@@ -2,8 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'
-                    :eventRendered="oneventRendered">
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :currentView='scheduleView' v-model="scheduleView" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -17,14 +16,10 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Current View
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-dropdownlist id='scheduleview' :dataSource='datas' :value='scheduleView' :change='changevalue'></ejs-dropdownlist>
+                                <ejs-dropdownlist id='scheduleview' :dataSource='datas' :value='scheduleView' v-model="scheduleView"
+                                    floatLabelType="Always" placeholder="Current View"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -67,7 +62,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], zooEventsData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 datas: ['Day', 'Week', 'WorkWeek', 'Month'],
                 scheduleView: 'Week'
             }
@@ -83,9 +78,6 @@
                     return;
                 }
                 args.element.style.backgroundColor = categoryColor;
-            },
-            changevalue: function (args) {
-                this.$refs.ScheduleObj.ej2Instances.currentView = args.value;
             }
         }
     });

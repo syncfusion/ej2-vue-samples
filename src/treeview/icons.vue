@@ -7,7 +7,7 @@
 </div>
 
 <div id="action-description">
-    <p>This sample demonstrates the node can be configured by icons/images in TreeView. Click on icon or double click on node to expand/collapse it, and show the icons/images that configured with nodes.</p>
+    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the node can be configured by icons/images in TreeView. Click on icon or double click on node to expand/collapse it, and show the icons/images that configured with nodes.</p>
 </div>
 
 <div id="description">
@@ -36,6 +36,7 @@
     }
 
 .tree-icon .e-treeview .e-list-icon.folder { background-position: -10px -552px }
+.e-bigger .tree-icon .e-treeview .e-list-icon.folder { background-position: -10px -550px; }
 .tree-icon .e-treeview .e-list-icon.docx { background-position: -10px -20px }
 .tree-icon .e-treeview .e-list-icon.ppt { background-position: -10px -48px }
 .tree-icon .e-treeview .e-list-icon.pdf { background-position: -10px -104px }

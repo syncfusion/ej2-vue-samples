@@ -17,7 +17,7 @@
             <tr>
                 <td>
                     <div>
-                        <ejs-button id='togglebtn' @click.native='print' iconCss="e-icons e-play-icon" cssClass="e-flat" isPrimary="true">Print</ejs-button>
+                        <ejs-button id='togglebtn' @click.native='print' cssClass="e-flat" :iconCss='iconCss' isPrimary="true">Print</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -42,11 +42,37 @@
 </div>
 
 </template>
-<style scoped>
-.e-play-icon::before {
-        content: '\e34b';
+
+<style>
+    .e-print-icon::before {
+        content: "\e34b";
+    }
+
+   .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
+        content: "\e7df";
+    }
+
+    .e-view.bootstrap .e-print-icon::before {
+        content: "\ebd2";
+    }
+
+    .e-view.bootstrap4 .e-print-icon::before {
+        content: "\e743";
+    }
+
+    .e-view.tailwind .e-print-icon::before, .e-view.tailwind-dark .e-print-icon::before {
+        content: "\e76c";
+    }
+
+    .e-view.highcontrast .e-print-icon::before {
+        content: "\ebf9";
+    }
+
+    .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
+        content: "\e75d";
     }
 </style>
+
 <script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
@@ -99,6 +125,7 @@ export default Vue.extend({
       tooltip: {
         enable: true  
       },
+      iconCss: 'e-icons e-print-icon',
       legendSettings: { visible: false },
 
       title: "Sales Comparision"

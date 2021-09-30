@@ -65,6 +65,7 @@
         color: rgba(0, 0, 0, 0.70);
     }
 
+
     .e-error,
     .e-float-text {
         font-weight: 500;
@@ -82,6 +83,29 @@
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);
         border-radius: 5px;
         background: #f9f9f9;
+    }
+
+    .material-dark #formId,
+    .bootstrap5-dark #formId {
+        background: #212529;
+    }
+
+    .bootstrap-dark #formId {
+        background: #1a1a1a;
+    }
+    .fabric-dark #formId {
+        background: #201f1f;
+    }
+    .tailwind-dark #formId {
+        background: #1f2937;
+    }
+
+    .material-dark .form-title,
+    .bootstrap-dark .form-title,
+    .fabric-dark .form-title,
+    .tailwind-dark .form-title,
+    .bootstrap5-dark .form-title {
+        color: rgb(249 249 249);
     }
 
     .highcontrast form,

@@ -48,7 +48,7 @@
 </div>
 </template>
 <style>
-#tab_orientation .e-tab .e-content .e-item {
+#tab_orientation .e-content .e-item {
     font-size: 12px;
     padding: 10px;
     text-align: justify;
@@ -77,15 +77,12 @@
         }
     }
 
-.e-bigger .e-tab .e-list-item {
-    border-bottom: 1px solid gainsboro;
-}
-.template-container {
+#tab_orientation .e-content .e-item .template-container {
     height: 63px;
     padding: 7px 16px 0 16px;
     border-bottom: 1px solid gainsboro;
 }
-.template-container:hover {
+#tab_orientation .e-content .e-item .template-container:hover {
     background: #eee;
 }
 .left {
@@ -136,25 +133,12 @@
         width: 70%;
     }
 }
-.e-tab .e-tab-header .e-close-icon:before{
-    content: '\e7fc';
-    position: relative;
-}
-.bootstrap4 .e-tab .e-tab-header .e-close-icon:before{
-    content: '\e745';
-    position: relative;
-}
-#tab_orientation .e-listview:not(.e-list-template) .e-list-item {
-    height: 63px;
-}
+
     @media screen and (max-width: 376px) {
-        #tab_orientation .e-listview:not(.e-list-template) .e-list-item {
-            padding: 0;
-        }
         .e-tab-section {
             padding: 0 5px;
         }
-        .e-tab .e-content.sb-sample-content-area .e-item.e-active {
+        #tab_orientation .e-content.sb-sample-content-area .e-item.e-active {
             padding-left: 0;
             padding-right: 0;
         }

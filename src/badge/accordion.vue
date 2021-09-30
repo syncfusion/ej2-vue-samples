@@ -82,11 +82,17 @@
         display: block;
     }
 
-    .tailwind .badge-accordion .sample_container #accordion .e-toggle-icon {
+    .tailwind .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .tailwind-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .bootstrap5 .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .bootstrap5-dark .badge-accordion .sample_container #accordion .e-toggle-icon {
         top: 7px;
     }
 
-    .e-bigger.tailwind .badge-accordion .sample_container #accordion .e-toggle-icon {
+    .e-bigger.tailwind .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.tailwind-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.bootstrap5 .badge-accordion .sample_container #accordion .e-toggle-icon ,
+    .e-bigger.bootstrap5-dark .badge-accordion .sample_container #accordion .e-toggle-icon  {
         top: 11px;
     }
 </style>

@@ -56,10 +56,15 @@
             allows the user to remove the field from the report.
         </p>
         <p>
+          During runtime, the <b>Values</b> button in the grouping bar can be moved to a different position (i.e., different index) 
+          among other fields in the column or row axis. To enable values button, 
+          set the <code>showValuesButton</code> property to <b>true</b>.
+        </p>
+        <p>
             The fields panel, which is located above the grouping bar, displays the fields that are available in the data
             source but are not bound in the report. The fields can be dragged and dropped into the appropriate axis. In
             addition, any field removed from any axes will be automatically added to the fields panel. The fields panel can
-            be displayed by setting the <code>showFieldsPanel</code> property in the <code>groupingBarSettings</code> to **true**.
+            be displayed by setting the <code>showFieldsPanel</code> property in the <code>groupingBarSettings</code> to <b>true</b>.
         </p>
         <p>
             <strong>Injecting Module:</strong>
@@ -107,16 +112,16 @@ export default Vue.extend({
         dataSource: Pivot_Data,
         expandAll: false,
         values: [
-          { name: "In_Stock", caption: "In Stock" },
           { name: "Sold", caption: "Units Sold" },
           { name: "Amount", caption: "Sold Amount" }
         ],
-        filters: [{ name: "Product_Categories", caption: "Product Categories" }]
+        filters: []
       },
       width: "100%",
       height: 450,
       gridSettings: { columnWidth: 140 },
       showGroupingBar: true,
+      showValuesButton: true,
       groupingBarSettings: { showFieldsPanel: true }
     };
   },

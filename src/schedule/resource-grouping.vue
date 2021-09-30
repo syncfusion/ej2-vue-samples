@@ -110,6 +110,11 @@
         font-weight: inherit;
     }
 
+    .tailwind .schedule-vue-sample .schedule-group.e-schedule .e-vertical-view .e-resource-cells,
+    .tailwind-dark .schedule-vue-sample .schedule-group.e-schedule .e-vertical-view .e-resource-cells {
+        height: 83px;
+    }
+
     .schedule-vue-sample .schedule-group.e-schedule .template-wrap .airline-details {
         padding-left: 15px;
     }
@@ -198,7 +203,7 @@
                         endTime: { title: 'Arrival Time', name: 'EndTime' }
                     }
                 },
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 6),
                 allowMultiple: true,
                 resourceDataSource: [
                     { AirlineName: 'Airways 1', AirlineId: 1, AirlineColor: '#EA7A57' },
@@ -223,7 +228,7 @@
                 var id = 1;
                 for (var i = 0; i < dataCollections.length; i++) {
                     var data = dataCollections[i];
-                    var startDate = new Date(2018, 3, 1);
+                    var startDate = new Date(2021, 3, 1);
                     startDate.setMilliseconds(1000 * 60 * 60 * 0.5 * (data - 1));
                     var lastDate = new Date((startDate.getTime()) + (1000 * 60 * 60 * 24 * 30));
                     for (var date = startDate; date.getTime() < lastDate.getTime(); date = new Date(date.getTime() + (1000 * 60 * 60 * 5))) {

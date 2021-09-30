@@ -1,16 +1,17 @@
 <template>
 <div class="col-lg-12 control-section">
+  <div class="col-lg-7">
     <div id="control_wrapper" class="col-lg-6 col-sm-8 col-md-8 multiselectWrapper">
         <div id="container" style="overflow:auto">
               <ejs-calendar :values="date" :isMultiSelection="multiSelection" :created="onCreated" :change="onValueChange"></ejs-calendar>
-        </div>         
+        </div>   
+      </div>      
     </div>
-    <div class="valuesWrapper col-lg-6 col-sm-8 col-md-8">
-      <h5>Selected values</h5>
-      <div class="contentValue">
-        <div id="multiSelect">
-        </div>
-    </div>
+    <div class="col-lg-5">
+      <label>Selected values</label>
+      <div class="content-value">
+        <div id="multiselect"></div>
+      </div>
     </div>
     <div id="action-description">
                     <p>
@@ -50,7 +51,7 @@ export default Vue.extend({
   },
   methods: {
     onCreated: function () {
-      let element = document.getElementById("multiSelect");
+      let element = document.getElementById("multiselect");
       element.innerHTML = "";
       for (let index = 0; index < this.date.length; index++) {
         element.prepend(document.createTextNode(this.date[index]));
@@ -78,12 +79,13 @@ export default Vue.extend({
   float: none;
 }
 
-.contentValue {
+.content-value {
    padding: 10px;
     overflow: auto;
-    max-height: 100px;
-    margin-bottom: 10px;
+    max-height: 150px;
     border: 1px solid rgba(0, 0, 0, 0.12);
+    margin-top: 15px;
+    font-size: 12px;
 }
 
 .e-bigger #wrapper,
@@ -91,15 +93,12 @@ export default Vue.extend({
         max-width: 300px;
 }
 
-.valuesWrapper {
-    margin: 0 auto;
-    float: none;
-    padding: 0;
-    max-width: 370px;
-
-}
-
-body.highcontrast .contentValue {
-  border: 1px solid #969696;
+.highcontrast .content-value,
+.material-dark .content-value,
+.fabric-dark .content-value,
+.bootstrap-dark .content-value,
+.bootstrap5-dark .content-value,
+.tailwind-dark .content-value {
+  border: 1px solid rgb(150, 150, 150);
 }
 </style>

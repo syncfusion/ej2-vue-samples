@@ -216,6 +216,15 @@ export default Vue.extend({
     .dashboard-predefined #predefined-dashboard .e-panel-content {
         padding: 15px;
     }
+
+    body.material-dark #predefined-dashboard .e-panel .panel-content,
+    body.fabric-dark #predefined-dashboard .e-panel .panel-content,
+    body.bootstrap-dark #predefined-dashboard .e-panel .panel-content,
+    body.tailwind-dark #predefined-dashboard .e-panel .panel-content,
+    body.highcontrast #predefined-dashboard .e-panel .panel-content,
+    body.bootstrap5-dark #predefined-dashboard .e-panel .panel-content {
+        color: #ffffff;
+    }
     
     .dashboard-predefined #reset {
         display: block;

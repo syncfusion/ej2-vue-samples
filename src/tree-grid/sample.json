@@ -3,6 +3,7 @@
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
+    "type": "update",
     "samples": [
       {  
         "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
@@ -177,9 +178,13 @@
         "description": "This demo explains how the hierarchy selection between the records using column checkboxes in Essential TypeScript Tree Grid control."
      },
      {
-      "url":"frozencolumn", "name": "Frozen Column", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping","columns","treeColumnIndex","frozenColumns"] },
+      "url":"frozencolumn", "name": "Frozen Column", "category":"Frozen", "api":{"TreeGrid":["dataSource","childMapping","columns","treeColumnIndex","frozenColumns"] },
       "description": "This demo for Essential JS 2 Tree Grid control shows frozen columns feature of Tree Grid. Scroll the movable content to view the frozen columns."
      },
+     {
+      "url":"frozen-api", "name": "Freeze Direction", "type": "new", "category":"Frozen","api":{"TreeGrid":["dataSource","childMapping","columns","treeColumnIndex","frozenColumns"] },
+      "description": "This demo for Essential JS 2 Tree Grid control shows frozen columns feature of Tree Grid with Freeze direction Left/Right."
+     }, 
      {
         "url":"aggregate", "name": "Default Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","columns","aggregates"] },
         "description": "This demo explains how to display the summary values such as average, minimum, etc., for the columns in Syncfusion Essential JS2 Tree Grid control."

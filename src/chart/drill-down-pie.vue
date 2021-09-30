@@ -125,7 +125,7 @@ export default Vue.extend({
         this.isExplode = false;
         if (document.getElementById('container_Series_' + index.series + '_Point_' + index.point) && !this.innerChart) {
             accChart[0].annotations = [{
-                content: accChart[0].theme === 'Highcontrast' ? darkThemeContent : lightThemeContent, region: 'Chart', x: '50%', y: '50%'
+                region: 'Series', x: '50%', y: '50%'
             }];
             this.innerRadius = '30%';
             switch (index.point) {
@@ -208,8 +208,13 @@ export default Vue.extend({
     load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        if (selectedTheme === 'highcontrast'){
+        if (selectedTheme === 'highcontrast' || args.accumulation.theme.indexOf('Dark') > -1){
              args.accumulation.series[0].dataLabel.font.color="white";
+        }
+        if (args.accumulation.annotations[0] && this.innerChart) {
+            args.accumulation.annotations[0].content = (args.accumulation.theme === 'Highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
+                '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :
+                '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" /></div>';
         }
     }
   },

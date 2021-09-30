@@ -20,7 +20,8 @@
         </div>
     </div>
     <div id="action-description">
-        <p>This example demonstrates how to configure custom drop area of the Uploader. You can drop the files into specified custom drop area location to upload. </p>
+        <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to configure custom drop area of the Uploader. You can drop the files into specified custom drop area location to upload. </p>
     </div>
 
     <div id="description">
@@ -66,8 +67,14 @@
     .custom-drop-area .uploader-custom-drop-browse a {
         color: blue;
     }
-    .highcontrast .custom-drop-area .uploader-custom-drop-browse a {
-        color:#ffd939;
+
+    .highcontrast .custom-drop-area .uploader-custom-drop-browse a,
+    .material-dark .custom-drop-area .uploader-custom-drop-browse a,
+    .fabric-dark .custom-drop-area .uploader-custom-drop-browse a,
+    .bootstrap-dark .custom-drop-area .uploader-custom-drop-browse a,
+    .bootstrap5-dark .custom-drop-area .uploader-custom-drop-browse a,
+    .tailwind-dark .custom-drop-area .uploader-custom-drop-browse a {
+        color: #fff;
     }
     .custom-drop-area .uploader-custom-drop-target {
         min-height: 50px;
@@ -97,8 +104,29 @@
         margin: 22px;
         border: 1px dashed grey;
     }
-    .highcontrast  .custom-drop-area .droparea-wrap {
-        background-color: #000;
+
+    .highcontrast .custom-drop-area .droparea-wrap {
+        background-color: #393939;
+    }
+
+    .material-dark .custom-drop-area .droparea-wrap {
+        background-color: #616161;
+    }
+
+    .fabric-dark .custom-drop-area .droparea-wrap {
+        background-color: #414040;
+    }
+
+    .bootstrap-dark .custom-drop-area .droparea-wrap {
+        background-color: #393939;
+    }
+
+    .bootstrap5-dark .custom-drop-area .droparea-wrap {
+        background-color: #6c757d;
+    }
+
+    .tailwind-dark .custom-drop-area .droparea-wrap {
+        background-color: #6c757d;
     }
 
     .bootstrap4 .custom-drop-area .droparea-wrap {
@@ -123,7 +151,7 @@
         color: #d9534f;
     }
     .custom-drop-area .upload-success {
-        color: #107c10;
+        color: #5cb85c;
     }
     .custom-drop-area span.upload-status {
         left: 45px;

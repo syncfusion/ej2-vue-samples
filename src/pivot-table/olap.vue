@@ -147,6 +147,10 @@ enableRipple(false);
 Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: () => {
     return {
@@ -201,11 +205,10 @@ export default Vue.extend({
       showGroupingBar: true,
       chartSettings: {
          title: "Sales Analysis",
+         theme: theme,
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
-          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)) as ChartTheme;
         }
       },
       toolbar: [

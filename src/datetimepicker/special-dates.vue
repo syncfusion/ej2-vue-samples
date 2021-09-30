@@ -91,6 +91,21 @@ export default Vue.extend({
   color: #0501fc;
 }
 
+.highcontrast .datetimepicker-special-dates td.e-icons.highlight,
+.highcontrast .datetimepicker-special-dates td.e-icons.highlight:before,
+.material-dark .datetimepicker-special-dates td.e-icons.highlight,
+.material-dark .datetimepicker-special-dates td.e-icons.highlight:before,
+.fabric-dark .datetimepicker-special-dates td.e-icons.highlight,
+.fabric-dark .datetimepicker-special-dates td.e-icons.highlight:before,
+.bootstrap-dark .datetimepicker-special-dates td.e-icons.highlight,
+.bootstrap-dark .datetimepicker-special-dates td.e-icons.highlight:before,
+.bootstrap5-dark .datetimepicker-special-dates td.e-icons.highlight,
+.bootstrap5-dark .datetimepicker-special-dates td.e-icons.highlight:before,
+.tailwind-dark .datetimepicker-special-dates td.e-icons.highlight,
+.tailwind-dark .datetimepicker-special-dates td.e-icons.highlight:before {
+    color: #ff7500;
+}
+
 .datetimepicker-special-dates .e-other-month span.e-icons.highlight:before {
   content: "";
 }

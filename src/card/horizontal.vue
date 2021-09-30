@@ -44,11 +44,11 @@
                                     Philips trimmers are designed to last longer than 4 ordinary trimmers and DuraPower Technology which optimizes power.
                                 </div>
                             </div>
-                            <img src="./images/Trimmer.png">
+                            <img src="./images/Trimmer.png" alt="Trimmer">
                         </div>
                         <!-- Horizontal Card Layout for Canon Product -->
                         <div tabindex="0" class="e-card e-card-horizontal" id="horizontal_product">
-                            <img src="./images/Camera.png" style="height:214px">
+                            <img src="./images/Camera.png" style="height:214px" alt="Camera">
                             <div class="e-card-stacked">
                                 <div class="e-card-header">
                                     <div class="e-card-header-caption">

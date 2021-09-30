@@ -59,6 +59,13 @@ export default Vue.extend({
     "-apple-system", "BlinkMacSystemFont";
     font-size: 14px;
 }
+.tailwind #multiselectwrapper #content #display .selected,.display-value{
+  font-weight: 400;
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif",
+    "-apple-system", "BlinkMacSystemFont";
+    font-size: 14px;
+}
+
 #multiselectwrapper #content #display .selected{
   font-weight: 500;
 }

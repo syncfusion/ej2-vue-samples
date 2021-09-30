@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="control-section">
-            <ejs-pdfviewer id="pdfviewer" ref="pdfviewer" :serviceUrl="serviceUrl" :documentPath="documentPath" :documentLoad="documentLoad"></ejs-pdfviewer>
+            <ejs-pdfviewer id="pdfviewer" ref="pdfviewer" :serviceUrl="serviceUrl" :documentPath="documentPath" :documentLoad="documentLoad" :enableFormFieldsValidation="true" :showNotificationDialog="false" :validateFormFields="validateFormFields"></ejs-pdfviewer>
         </div>
 
        <div id="action-description">
@@ -41,14 +41,14 @@ export default Vue.extend({
     },
     methods: {
           documentLoad: function (args) {
-              if(args.documentName === 'FormDesigner.pdf')
-              {
+            if(args.documentName === 'FormDesigner.pdf')
+            {
                 viewer = this.$refs.pdfviewer.ej2Instances;
                 viewer.formDesignerModule.addFormField("Textbox", { name: "First Name", bounds: { X: 146, Y: 229, Width: 150, Height: 24 } });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "Middle Name", bounds: { X: 338, Y: 229, Width: 150, Height: 24 } });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "Last Name", bounds: { X: 530, Y: 229, Width: 150, Height: 24 } });
-                viewer.formDesignerModule.addFormField("RadioButton", { bounds: { X: 148, Y: 289, Width: 18, Height: 18 }, name: "Radio", isSelected: false });
-                viewer.formDesignerModule.addFormField("RadioButton", { bounds: { X: 292, Y: 289, Width: 18, Height: 18 }, name: "Radio", isSelected: false });
+                viewer.formDesignerModule.addFormField("RadioButton", { bounds: { X: 148, Y: 289, Width: 18, Height: 18 }, name: "Gender", isSelected: false });
+                viewer.formDesignerModule.addFormField("RadioButton", { bounds: { X: 292, Y: 289, Width: 18, Height: 18 }, name: "Gender", isSelected: false });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "DOB Month", bounds: { X: 146, Y: 320, Width: 35, Height: 24 } });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "DOB Date", bounds: { X: 193, Y: 320, Width: 35, Height: 24 } });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "DOB Year", bounds: { X: 242, Y: 320, Width: 35, Height: 24 } });
@@ -65,8 +65,50 @@ export default Vue.extend({
                 viewer.formDesignerModule.addFormField("Textbox", { name: "DOS Month", bounds: { X: 386, Y: 923, Width: 35, Height: 24 } });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "DOS Date", bounds: { X: 434, Y: 923, Width: 35, Height: 24 } });
                 viewer.formDesignerModule.addFormField("Textbox", { name: "DOS Year", bounds: { X: 482, Y: 923, Width: 35, Height: 24 } });
-              }
             }
+        },
+        validateFormFields: function (args) {
+            var errorMessage = "Required Field(s): ";
+            var forms = viewer.formFieldCollections;
+            var flag = false;
+            var radioGroupName = "";
+            for (var i = 0; i < forms.length; i++) {
+                var text = "";
+                if (forms[i].isRequired == true)
+                {
+                    if (forms[i].type.toString() == "Checkbox" && forms[i].isChecked == false) {
+                        text = forms[i].name;
+                    }
+                    else if (forms[i].type == "RadioButton" && flag == false) {
+                        radioGroupName = forms[i].name;
+                        if(forms[i].isSelected == true)
+                            flag = true;
+                    }
+                    else if (forms[i].type.toString() != "Checkbox" && forms[i].type != "RadioButton" &&  forms[i].value == ""){
+                        text = forms[i].name;
+                    }
+                    if(text != "")
+                    {                    
+                        if (errorMessage == "Required Field(s): ") {
+                            errorMessage += text;
+                        }
+                        else {
+                            errorMessage += ", " + text;
+                        }
+                    }
+                }
+            }
+            if(!flag && radioGroupName != "")
+            {
+                if(errorMessage == "Required Field(s): ")
+                    errorMessage += radioGroupName;
+                else
+                    errorMessage += ", " + radioGroupName;
+            }
+            if (errorMessage != "Required Field(s): ") {
+                viewer.showNotificationPopup(errorMessage);
+            }
+        }
     }
 });
 </script>

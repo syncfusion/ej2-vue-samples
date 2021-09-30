@@ -15,36 +15,36 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -20px">
               <tr style="height: 50px">
                 <td style="width: 40%">
-                    <div>Map Type:
+                    <div style="width:60%">Map Type
                     </div>
                 </td>
                 <td style="width: 60%;">
-                    <div style="margin-left: -10px">
-             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width=90></ejs-dropdownlist>                                 
+                    <div style="margin-left: -40px;">
+             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width=110></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
                 <td style="width: 40%">
-                    <div>Export Type:
+                    <div style="width:60%">Export Type
                     </div>
                 </td>
                 <td style="width: 60%;">
-                    <div style="margin-left: -10px">
-             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width=90></ejs-dropdownlist>                                 
+                    <div style="margin-left: -40px;">
+             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width=110></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
                 <td style="width: 40%">
-                    <div>File Name:</div>
+                    <div style="width:60%">File Name</div>
                 </td>
                 <td style="width: 40%;">
                     <div class="e-float-input" style='margin-top: 0px;'>
-                        <input type="text" value="Maps" id="fileName" style="margin-left: -10px">
+                        <input type="text" value="Maps" id="fileName" style="margin-left: -40px; width:110px;">
                     </div>
                 </td>
             </tr>
@@ -93,6 +93,26 @@
 
     #map-export-sample .e-play-icon::before {
         content: "\e728";
+    }
+
+    .e-view.fabric  #map-export-sample .e-play-icon::before, .e-view.fabric-dark #map-export-sample .e-play-icon::before {
+        content: "\e710";
+    }
+
+    .e-view.bootstrap4 #map-export-sample .e-play-icon::before {
+        content: "\e780";
+    }
+
+    .e-view.tailwind-dark #map-export-sample .e-play-icon::before, .e-view.tailwind #map-export-sample .e-play-icon::before {
+        content: "\e7bf";
+    }
+
+    .e-view.highcontrast #map-export-sample  .e-play-icon::before {
+        content: "\e710";
+    }
+
+    .e-view.bootstrap5 #map-export-sample .e-play-icon::before, .e-view.bootstrap5-dark #map-export-sample .e-play-icon::before {
+        content: "\e72e";
     }
 </style>
 <script>
@@ -154,7 +174,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     changeLayerType: function(args){
             // let cotainerObj=document.getElementById('labels-container');

@@ -53,21 +53,21 @@
 <style>
     .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.willsmith,
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.willsmith {
-        background-color: #faebd7;
+        background-color: rgb(250 235 215 / 50%);
     }
 
     .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.alice,
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.alice {
-        background-color: #deecfc;
+        background-color: rgb(222 236 252 / 50%);
     }
 
     .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.robson,
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.robson {
-        background-color: #deeeac;
+        background-color: rgb(222 238 172 / 50%);
     }
 
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-resource-cells {
-        height: 62px;
+        height: 66px;
     }
 
     .schedule-vue-sample .customschedule.e-schedule .template-wrap {
@@ -155,7 +155,7 @@
                         endTime: { title: 'To', name: 'EndTime' }
                     }
                 },
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 6),
                 currentView: 'WorkWeek',
                 cssClass: 'customschedule',
                 group: {

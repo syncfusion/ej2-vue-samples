@@ -70,7 +70,7 @@
                         endTime: { name: 'EndTime', validation: { required: true } }
                     }                
 },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
             }
         },
         provide: {

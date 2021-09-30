@@ -118,8 +118,12 @@
         width: 100%;
     }
 
-    .highcontrast .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
-    .highcontrast .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells) {
+    .bootstrap5-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .tailwind-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .bootstrap-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .fabric-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .material-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .highcontrast .schedule-vue-sample .e-schedule .e-appointment .template-wrap {
         color: #fff;
     }
 
@@ -136,10 +140,20 @@
         font-size: 12px;
     }
 
+    .bootstrap5-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .tailwind-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .bootstrap-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .fabric-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .material-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .highcontrast .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells) {
         color: #33DB33;
     }
 
+    .bootstrap5-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .tailwind-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .bootstrap-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .fabric-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .material-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .highcontrast .schedule-vue-sample .e-schedule .e-work-cells.best-price {
         background-color: #393939;
     }
@@ -375,7 +389,7 @@
             return {
                 eventSettings: { template: eventTemplate, enableTooltip: true, tooltipTemplate: tooltip },
                 cssClass: "schedule-resources",
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 1),
                 allowMultiple: true,
                 initialLoad: true,
                 readonly: true,
@@ -429,7 +443,7 @@
                     var d4 = (object2.EndTime).getTime();
                     return ((d1 - d2) || ((d4 - d2) - (d3 - d1)));
                 });
-                var selectedDate = new Date(2018, 3, 1);
+                var selectedDate = new Date(2021, 3, 1);
                 var renderDate = scheduleObj.activeView.getRenderDates();
                 var finalData = [];
                 for (var i = 0; i < renderDate.length; i++) {
@@ -453,22 +467,22 @@
                 var dataCollections = [
                     {
                         Id: 100,
-                        StartTime: new Date(2018, 3, 1, 8, 30),
-                        EndTime: new Date(2018, 3, 1, 10, 0),
+                        StartTime: new Date(2021, 3, 1, 8, 30),
+                        EndTime: new Date(2021, 3, 1, 10, 0),
                         AirlineId: 1
                     }, {
                         Id: 102,
-                        StartTime: new Date(2018, 3, 1, 11, 0),
-                        EndTime: new Date(2018, 3, 1, 12, 0),
+                        StartTime: new Date(2021, 3, 1, 11, 0),
+                        EndTime: new Date(2021, 3, 1, 12, 0),
                         AirlineId: 2
                     }, {
                         Id: 103,
-                        StartTime: new Date(2018, 3, 1, 14, 0),
-                        EndTime: new Date(2018, 3, 1, 15, 0),
+                        StartTime: new Date(2021, 3, 1, 14, 0),
+                        EndTime: new Date(2021, 3, 1, 15, 0),
                         AirlineId: 3
                     }
                 ];
-                var start = new Date(2018, 3, 1);
+                var start = new Date(2021, 3, 1);
                 var dateCollections = Array.apply(null, { length: 30 })
                     .map(function (value, index) { return new Date(start.getTime() + (1000 * 60 * 60 * 24 * index)); });
                 var id = 1;

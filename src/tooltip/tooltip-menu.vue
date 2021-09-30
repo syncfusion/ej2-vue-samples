@@ -4,7 +4,7 @@
         <ejs-tooltip ref="tooltip" target="#toolbar-menu button" :beforeOpen="onBeforeRender" :created='created'
             :showTipPointer="show" :width="170" cssClass="e-tooltip-menu-settings" opensOn="Click" id="tooltip-menu">
             <div class="toolbarContainer">
-                <ejs-toolbar id='toolbar-menu' width=387>
+                <ejs-toolbar id='toolbar-menu'>
                     <e-items>
                         <e-item prefixIcon='e-copy-icon tb-icons' overflow='Hide' text='Wireless & networks' tooltipText='Wireless & networks'></e-item>
                         <e-item prefixIcon='e-copy-icon tb-icons' text='Device' overflow='Hide' tooltipText='Device'></e-item>
@@ -214,6 +214,11 @@ export default Vue.extend({
 .tooltip-menu .toolbarContainer #toolbar-menu {
   margin: 0 auto;
   background: transparent;
+  display: inline-block;
+}
+
+.toolbarContainer {
+  text-align: center;
 }
 
 .e-tooltip-menu-settings #tooltipMenu-list .e-list-item:last-child {
@@ -237,6 +242,10 @@ export default Vue.extend({
 
 .material .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .bootstrap .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.bootstrap5 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .highcontrast .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
   border: 1px solid #dddddd;
 }
@@ -246,6 +255,22 @@ export default Vue.extend({
   .e-tooltip-menu-settings.e-tooltip-wrap
   .e-arrow-tip-outer.e-tip-top {
   border-bottom: 8px solid #dddddd;
+}
+
+.material-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 6px solid rgb(238, 238, 238);
+}
+    
+.fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 6px solid rgb(244, 244, 244);
+}
+    
+.bootstrap-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 6px solid rgb(80, 80, 80);
+}
+    
+.tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip.e-tip-top {
+    top: -9px !important;
 }
 
 .highcontrast .e-tooltip-menu-settings #tooltipMenu-list .e-list-item.e-hover {
@@ -332,16 +357,21 @@ export default Vue.extend({
   content: "\e710";
 }
 
-.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
+.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
   border-color: rgba(0, 0, 0, .15);
 }
 
-.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview {
+.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.bootstrap5 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview {
   border: 0;
 }
 
-.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top {
+.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top {
   border-bottom: 6px solid rgba(0, 0, 0, .15);
 }
-
 </style>

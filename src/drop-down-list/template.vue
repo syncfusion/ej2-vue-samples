@@ -148,6 +148,16 @@
     .e-bigger.bootstrap4 .ddl-template.e-popup .job {
         margin-top: -15px;
     }
+    .tailwind .ddl-template.e-popup .job {
+        margin-top: -7px;
+        margin-bottom: 5px;
+    }
+    
+    .e-bigger.tailwind .ddl-template.e-popup .job {
+        margin-top: -15px;
+        margin-bottom: 5px;
+    }
+
     .bootstrap4 .ddl-template .header {
         color: #6c757d;
     }

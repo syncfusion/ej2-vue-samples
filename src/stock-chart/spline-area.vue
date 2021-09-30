@@ -20,7 +20,7 @@
             type="SplineArea"
             xName="x"
             yName="high"
-            fill="#BDEDE9"
+            opacity="0.5"
           ></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>

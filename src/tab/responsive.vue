@@ -54,6 +54,10 @@
         display: inherit;
     }
 
+    #tab_adaptive .e-content .e-item {
+        padding: 10px !important;
+    }
+
 /* custom code start */
 
 @media screen and (max-width: 481px) {

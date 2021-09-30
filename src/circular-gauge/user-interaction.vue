@@ -71,6 +71,7 @@
                 v-on:pointermove="pointerValue"
                 v-on:touchmove="pointerValue"
                 v-on:change="pointerValue"
+                style="width: 110px; margin-left: 10px"
               />
             </div>
           </td>
@@ -80,7 +81,7 @@
             <div id="enablePointer">Allow Pointer Drag</div>
           </td>
           <td style="width: 40%;">
-            <div>
+            <div style="margin-left: 57px">
               <input type="checkbox" id="enable" checked="true" v-on:change="enableDrag" />
             </div>
           </td>
@@ -90,7 +91,7 @@
             <div id="enablePointer">Allow Range Drag</div>
           </td>
           <td style="width: 40%;">
-            <div>
+            <div style="margin-left: 57px">
               <input type="checkbox" id="rangedrag" v-on:change="enableRangeDrag" />
             </div>
           </td>
@@ -184,7 +185,8 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

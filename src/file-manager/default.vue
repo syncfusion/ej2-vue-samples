@@ -11,12 +11,14 @@
 			<div id="property" title="Properties">
 				<table id="property" title="Properties">
 					<tbody>
-						<div class="form-group row">
-							<label id="tool"  class="col-sm-6">Toolbar</label>
-							<div class="col-sm-6">
-							<ejs-checkbox id="toolbar" :checked="true" :change="onChange"></ejs-checkbox>                        
-							</div>
-						</div>
+				    	<tr>
+						   <td style="width: 50%;">
+						   		<div id="checkboxElement">Toolbar</div>
+						   </td>
+						   <td style="width: 50%; padding-right: 10px;">
+						   		<ejs-checkbox id="toolbar" :checked="true" :change="onChange"></ejs-checkbox> 
+						   </td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -48,6 +50,9 @@
     .file-api #tool_toggle {
         width: 100px;
     }
+	#checkboxElement{
+		font-size:14px;
+	}
 
 
 </style>

@@ -26,7 +26,7 @@
     </div>
 
     <div id="action-description">
-       <p>This sample demonstrates the drag and drop functionality of TreeView. A drag and drop image is present at the top of the sample which hides on clicking the sample. To drag and drop node, select and drag the desired node and drop it on the target node or external container.</p>
+       <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the drag and drop functionality of TreeView. A drag and drop image is present at the top of the sample which hides on clicking the sample. To drag and drop node, select and drag the desired node and drop it on the target node or external container.</p>
     </div>
 
     <div id="description">
@@ -56,8 +56,13 @@
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
     }
-.custom-tree #list {
+    .bootstrap5 .custom-delete,
+    .bootstrap5-dark .custom-delete {
+        margin-top: 3px;
+    }
+    .custom-tree #list {
         min-height: 288px;
+        border: 0;
     }
     .e-bigger .custom-tree #list, .e-bigger .custom-tree #tree1, .e-bigger .custom-tree #tree2 {
 		height: 354px;
@@ -118,6 +123,13 @@
 		cursor: pointer;
         color: rgba(0, 0, 0, 0.54);
         font-size: 15px;
+    }
+    .material-dark .custom-tree .custom-delete::before,
+    .fabric-dark .custom-tree .custom-delete::before,
+    .bootstrap-dark .custom-tree .custom-delete::before, 
+    .tailwind-dark .custom-tree .custom-delete::before,
+    .bootstrap5-dark .custom-tree .custom-delete::before {
+        color: rgba(255, 255, 255, 0.54);
     }
     .custom-tree .custom-delete {
         float: right;

@@ -67,8 +67,7 @@ export default Vue.extend({
           {field: 'TaskName', width: 80 },
           {field: 'StartDate', width: 120},
           {field: 'EndDate', width: 120 },
-          {field: 'Duration', width: 90 },
-          {field: 'TaskType', visible: false}
+          {field: 'Duration', width: 90 }
         ],
         splitterSettings: {
           columnIndex: 4
@@ -102,4 +101,13 @@ export default Vue.extend({
     /deep/ .bootstrap4 #unscheduledGantt .e-add-icon:before {
         content: "\e783"
     }
+	/deep/ .tailwind #unscheduledGantt .e-add-icon:before,
+	/deep/ .tailwind-dark #unscheduledGantt .e-add-icon:before  {
+        content: "\e7dd"
+    }
+    /deep/ .bootstrap5 #unscheduledGantt .e-add-icon:before,
+	/deep/ .bootstrap5-dark #unscheduledGantt .e-add-icon:before  {
+        content: "\e836"
+    }
+
 </style>

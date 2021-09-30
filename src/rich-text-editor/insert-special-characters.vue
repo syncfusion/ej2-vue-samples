@@ -105,12 +105,24 @@
         border-color: #e3165b;
     }
 
-    .fabric #rteSpecial_char .char_block.e-active {
+    .material-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #56a4fd;
+        border-color: #56a4fd;
+    }
+
+    .fabric #rteSpecial_char .char_block.e-active,
+    .fabric-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #0078d6;
         border-color: #0078d6;
     }
 
-    .bootstrap #rteSpecial_char .char_block.e-active {
+    .bootstrap4 #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #007bff;
+        border-color: #007bff;
+    }
+
+    .bootstrap #rteSpecial_char .char_block.e-active,
+    .bootstrap-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #317ab9;
         border-color: #317ab9;
     }
@@ -123,6 +135,17 @@
     .tailwind #rteSpecial_char .char_block.e-active {
         outline: 1px solid #3730a3;
         border-color: #3730a3;
+    }
+
+    .tailwind-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #22d3ee;
+        border-color: #22d3ee;
+    }
+
+    .bootstrap5 #rteSpecial_char .char_block.e-active,
+    .bootstrap5-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #0D6EFD;
+        border-color: #0D6EFD;
     }
 
     .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,

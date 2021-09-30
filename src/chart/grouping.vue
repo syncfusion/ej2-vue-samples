@@ -123,7 +123,7 @@ export default Vue.extend({
           let accumulationChart = document.getElementById('containerPie').ej2_instances[0];
           let currentValue = e.value  === 'Point' ? 9 : 8;
           document.getElementById('clubtext').innerHTML = currentValue;
-          document.getElementById('clubvalue').innerHTML = currentValue;
+          document.getElementById('clubvalue').value = currentValue;
           accumulationChart.series[0].groupMode = e.value;
           accumulationChart.series[0].groupTo = currentValue.toString();
           accumulationChart.series[0].animation.enable = false;

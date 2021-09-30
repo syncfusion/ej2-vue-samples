@@ -434,7 +434,8 @@ export default Vue.extend({
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         }
         /* custom code end */
     }

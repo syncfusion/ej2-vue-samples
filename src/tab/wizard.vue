@@ -85,7 +85,7 @@
                                         <input ref="nameObj2" id='pass_name2' class="e-input" type="text" placeholder="Passenger Name">
                                     </td>
                                     <td>
-                                        <ejs-numerictextbox ref="ageObj2" :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
+                                        <ejs-numerictextbox ref="ageObj2" id='pass_age2' :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
                                     </td>
                                     <td>
                                         <ejs-dropdownlist ref="genderObj2" id='pass_gender2' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
@@ -99,7 +99,7 @@
                                         <input ref="nameObj3" id='pass_name3' class="e-input" type="text" placeholder="Passenger Name">
                                     </td>
                                     <td>
-                                        <ejs-numerictextbox ref="ageObj3" :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
+                                        <ejs-numerictextbox ref="ageObj3" id='pass_age3' :showSpinButton=false min=1 max=100 value=18 format=n0></ejs-numerictextbox>
                                     </td>
                                     <td>
                                         <ejs-dropdownlist ref="genderObj3" id='pass_gender3' :dataSource='gender' text="Male" :fields='fields'></ejs-dropdownlist>
@@ -136,7 +136,7 @@
                         <button id="makePayment" class='e-btn' v-on:click='btnClicked'>Pay</button>
                     </div>
                 </div>
-                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height=390 :showCloseButton=false :selecting="tabSelecting">
+                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height=440 :showCloseButton=false :selecting="tabSelecting">
                     <e-tabitems>
                         <e-tabitem :header='headerText0' content="#booking"></e-tabitem>
                         <e-tabitem :header='headerText1' content="#selectTrain" disabled=true></e-tabitem>
@@ -144,7 +144,7 @@
                         <e-tabitem :header='headerText3' content="#confirm" disabled=true></e-tabitem>
                     </e-tabitems>
                 </ejs-tab>
-                <ejs-dialog ref="dialogObj" id='alertDialog' header='Success' width=250 isModal=true showCloseIcon=true content='Your payment successfully processed' target='#dialog_target' :created='dlgCreated' visible=false></ejs-dialog>
+                <ejs-dialog ref="dialogObj" id='alertDialog' header='Success' width=250 isModal=true :buttons='dlgButtons' showCloseIcon=true content='Your payment successfully processed' target='#dialog_target' :visible=false></ejs-dialog>
             </div>
             <div id="action-description">
                 <p>This sample demonstrates simple train reservation wizard that enable/disable Tab items based on sequential validation of each Tab content.</p>
@@ -255,6 +255,10 @@
         min-width: 500px;
         width: 100%;
     }
+
+    #bookTickets, #confirmTickets, #makePayment {
+        margin-left: 4px;
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -283,7 +287,7 @@ export default Vue.extend({
             { name: 'Seattle', fare: 250 },
             { name: 'Florida', fare: 150 }
         ],
-        date: '',
+        date: new Date(),
         autoCompleteFields: { text: 'name', value: 'name' },
         dateMin: new Date(new Date().getTime()),
         dateMax: new Date(new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000)),
@@ -307,7 +311,11 @@ export default Vue.extend({
        headerText0: { 'text': 'New Booking' },
        headerText1: { 'text': 'Train List' },
        headerText2: { 'text': 'Add Passenger' },
-       headerText3: { 'text': 'Make Payment' }
+       headerText3: { 'text': 'Make Payment' },
+       dlgButtons: [{
+            buttonModel: { content: "Ok", isPrimary: true },
+            click: this.dlgClick
+        }]
     }
   },
    methods: {
@@ -392,24 +400,25 @@ export default Vue.extend({
                  if (args.isSwiped)
                       args.cancel = true;
            },
-           dlgCreated: function(args){
-                 var tabObj = this.$refs.tabObj.ej2Instances;
-                 var alertDlg = this.$refs.dialogObj.ej2Instances;
-                 alertDlg.hide();
-                 alertDlg.content = "Your payment successfully processed";
-                 alertDlg.buttons = [{
-                 buttonModel: { content: "Ok", isPrimary: true },
-                   click: function () {
-                         alertDlg.hide();
-                         tabObj.enableTab(0, true);
-                         tabObj.enableTab(1, false);
-                         tabObj.enableTab(2, false);
-                         tabObj.enableTab(3, false);
-                         tabObj.select(0);
-                   }
-            }];
-            alertDlg.dataBind();
-            alertDlg.hide();
+           dlgClick: function(args){
+                var tabObj = this.$refs.tabObj.ej2Instances;
+                var alertDlg = this.$refs.dialogObj.ej2Instances;
+                alertDlg.hide();
+                for (var i = 1; i <= 3; i++) {
+                    var name = document.getElementById('pass_name' + i);
+                    var berthSelected = document.getElementById('pass_berth' + i);
+                    var age = document.getElementById('pass_age' + i);
+                    var gender = document.getElementById('pass_gender' + i);
+                    name.value = '';
+                    age.value = 18;
+                    gender.value = 'Male';
+                    berthSelected.value = '';
+                }
+                tabObj.enableTab(0, true);
+                tabObj.enableTab(1, false);
+                tabObj.enableTab(2, false);
+                tabObj.enableTab(3, false);
+                tabObj.select(0);
             },
             filterTrains: function(args){
                 let result= [];

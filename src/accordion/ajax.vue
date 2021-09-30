@@ -1,6 +1,6 @@
 <template>
   
-<div class="control-section">
+<div class="control-section ajax-accordion">
     <div class="control_wrapper accordion-control-section">
         <div class="product_title"> iPhone X Product Specification </div>
          <ejs-accordion ref="Accordion_Nested" :expanding="expanding" :created="created" expandMode='Single'>
@@ -51,10 +51,9 @@
     </div>
     <div id="Video_Rec_features" style="display:none">
         <table>
-            <tbody><tr>
-                <th class="e-bold" rowspan="9">Video Recording</th>
-            </tr>
+            <tbody>
             <tr>
+                <th class="e-bold" rowspan="6">Video Recording</th>
                 <td class="e-bold">4K video recording</td>
             </tr>
             <tr>
@@ -112,29 +111,29 @@
     </div>
 </div>
 </template>
-<style scoped>
+<style>
 
     @-moz-document url-prefix() {
-      .e-accordion .e-content table {
+      .ajax-accordion .e-accordion .e-content table {
         border-collapse: initial;
     }
     }
 
-    .e-accordion table {
+    .ajax-accordion .e-accordion table {
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
     }
 
-    .e-accordion table th,
-    .e-accordion table td {
+    .ajax-accordion .e-accordion table th,
+    .ajax-accordion .e-accordion table td {
         font-weight: normal;
         padding: 5px;
         text-align: left;
         border: 1px solid #ddd
     }
 
-    .product_title {
+    .ajax-accordion .product_title {
         text-align: center;
         margin: 20px 0;
         padding: 10px 0;
@@ -143,22 +142,22 @@
         font-size: 16px;
     }
 
-    .accordion-control-section {
+    .ajax-accordion .accordion-control-section {
         margin: 0 10% 0 10%;
         padding-bottom: 25px;
     }
 
 /* custom code start */
-    #source_link {
+    .ajax-accordion #source_link {
         float: right;
         margin-right: 10px;
     }
     @media screen and (max-width: 768px) {
-        .accordion-control-section {
+        .ajax-accordion .accordion-control-section {
             margin: 0;
             margin-bottom: 20px;
         }
-        #source_link {
+        .ajax-accordion #source_link {
           margin-top: -25px;
           margin-right: 0px; 
         }

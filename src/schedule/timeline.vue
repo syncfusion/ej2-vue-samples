@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="550px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'>   
+                <ejs-schedule id='Schedule' height="550px" :selectedDate='selectedDate' :currentView='currentView' :workDays='workDays' :eventSettings='eventSettings'>   
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
                         <e-view option="TimelineWeek"></e-view>
@@ -17,14 +17,10 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Current Date
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'></ejs-datepicker>
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'
+                                    floatLabelType="Always" placeholder="Current Date" ></ejs-datepicker>
                             </div>
                         </td>
                     </tr>
@@ -71,8 +67,9 @@
                 eventSettings: {
                     dataSource: extend([], scheduleData.concat(timelineData), null, true),
                 },
-                selectedDate: new Date(2019, 0, 10),
-                currentView: 'TimelineWeek'
+                selectedDate: new Date(2021, 0, 10),
+                currentView: 'TimelineWeek',
+                workDays: [0, 1, 2, 3, 4, 5]
             }
         },
         provide: {

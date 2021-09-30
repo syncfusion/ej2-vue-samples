@@ -2,7 +2,7 @@
 <div>
     <div class="control-section dashboard-dynamic">
       <div>
-           <div style="width:100%;height: 30px">
+           <div style="width:100%;height: 30px;margin-bottom:5px">
             <ejs-button style="float:right;width:75px;" id="toggleBtn" ref="toggleBtn" iconCss='edit' cssClass="e-outline e-flat e-primary" isToggle=true v-on:click.native='toggleClick'>Edit</ejs-button>
         </div>
         <div style="padding:5px;text-align: end;">
@@ -179,15 +179,15 @@ export default Vue.extend ({
 }
 
 .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
-    padding: 10px;
     border-bottom: 2px solid #e6e9ed !important;
     height: 35px;
-    margin: 0 15px 0 15px;
+    padding: 0 15px 0 15px;
+    line-height: 35px;
 }
 
 
 .dashboard-dynamic #edit_dashboard .e-panel-content {
-    height: calc(100% - 35px) !important;
+    height: calc(100% - 37px) !important;
     overflow: hidden;
     width:100%;
 }
@@ -254,4 +254,19 @@ body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control
 body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
+
+.fabric #togglebtn,
+.fabric-dark #togglebtn,
+.highcontrast #togglebtn {
+    padding:0 13px;
+}
+
+.bootstrap5-dark .dialog-text,
+.highcontrast .dialog-text,
+.tailwind-dark .dialog-text,
+.fabric-dark .dialog-text,
+.bootstrap-dark .dialog-text {
+    border: 1px solid #FFFFFF;
+}
+
 </style>

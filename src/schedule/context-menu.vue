@@ -24,93 +24,6 @@
     </div>
 </template>
 <style>
-    .schedule-context-menu .e-menu-item .new::before {
-        content: '\e7f9';
-    }
-
-    .tailwind .schedule-context-menu .e-menu-item .new::before {
-        content: '\e78a';
-    }
-
-    .schedule-context-menu .e-menu-item .edit::before {
-        content: '\ea9a';
-    }
-
-    .tailwind .schedule-context-menu .e-menu-item .edit::before {
-        content: '\e7d2';
-    }
-
-    .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e308';
-        font-weight: bold;
-    }
-
-    .tailwind .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e71d';
-    }
-
-    .schedule-context-menu .e-menu-item .today::before {
-        content: '\e322';
-    }
-
-    /* custom code start*/
-    .highcontrast .schedule-context-menu .e-menu-item .today::before,
-    .fabric .schedule-context-menu .e-menu-item .today::before {
-        content: '\e321';
-    }
-
-    .bootstrap .schedule-context-menu .e-menu-item .today::before {
-        content: '\e312';
-    }
-
-    .highcontrast .schedule-context-menu .e-menu-item .delete::before,
-    .fabric .schedule-context-menu .e-menu-item .delete::before {
-        content: '\eb00';
-    }
-
-    .highcontrast .schedule-context-menu .e-menu-item .new::before,
-    .fabric .schedule-context-menu .e-menu-item .new::before {
-        content: '\e823';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .today::before {
-        content: '\e7be';
-    }
-
-    .tailwind .schedule-context-menu .e-menu-item .today::before {
-        content: '\e742';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .edit::before {
-        content: '\e78f';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .delete::before {
-        content: '\e773';
-    }
-
-    .tailwind .schedule-context-menu .e-menu-item .delete::before {
-        content: '\e78d';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .new::before {
-        content: '\e759';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e7c8';
-    }
-
-    .highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
-    .fabric .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e309';
-        font-weight: bold;
-    }
-    /* custom code end*/
-
-    .schedule-context-menu .e-menu-item .delete::before {
-        content: '\e94a';
-    }
 
     .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 14px;
@@ -137,28 +50,28 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 menuItems: [
                     {
                         text: 'New Event',
-                        iconCss: 'e-icons new',
+                        iconCss: 'e-icons e-plus',
                         id: 'Add'
                     }, {
                         text: 'New Recurring Event',
-                        iconCss: 'e-icons recurrence',
+                        iconCss: 'e-icons e-repeat',
                         id: 'AddRecurrence'
                     }, {
                         text: 'Today',
-                        iconCss: 'e-icons today',
+                        iconCss: 'e-icons e-timeline-today',
                         id: 'Today'
                     }, {
                         text: 'Edit Event',
-                        iconCss: 'e-icons edit',
+                        iconCss: 'e-icons e-edit',
                         id: 'Save'
                     }, {
                         text: 'Edit Event',
                         id: 'EditRecurrenceEvent',
-                        iconCss: 'e-icons edit',
+                        iconCss: 'e-icons e-edit',
                         items: [{
                             text: 'Edit Occurrence',
                             id: 'EditOccurrence'
@@ -168,12 +81,12 @@
                         }]
                     }, {
                         text: 'Delete Event',
-                        iconCss: 'e-icons delete',
+                        iconCss: 'e-icons e-trash',
                         id: 'Delete'
                     }, {
                         text: 'Delete Event',
                         id: 'DeleteRecurrenceEvent',
-                        iconCss: 'e-icons delete',
+                        iconCss: 'e-icons e-trash',
                         items: [{
                             text: 'Delete Occurrence',
                             id: 'DeleteOccurrence'

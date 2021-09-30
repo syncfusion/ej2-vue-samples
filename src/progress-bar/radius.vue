@@ -12,7 +12,6 @@
             height="160px"
             radius="100%"
             innerRadius="190%"
-            progressColor="white"
             :progressThickness="progressthickness1"
             :trackThickness="trackthickness1"
             cornerRadius="Round"
@@ -110,10 +109,6 @@
 #control-container {
   padding: 0px !important;
 }
-
-#full-container_Circulartrack {
-  opacity: 1 !important;
-}
 .reload-btn {
   text-align: center;
   margin-top: 6%;
@@ -171,6 +166,7 @@ export default Vue.extend({
     load1: function (args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
+      args.progressBar.progressColor = '#FFFFFF';
       args.progressBar.theme = (
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
       )
@@ -179,6 +175,7 @@ export default Vue.extend({
       switch (selectedTheme) {
         case "material":
           args.progressBar.trackColor = "#e91e63";
+          args.progressBar.progressColor = '#E3165B';
           break;
         case "fabric":
           args.progressBar.trackColor = "#0078D6";
@@ -186,12 +183,28 @@ export default Vue.extend({
         case "bootstrap":
           args.progressBar.trackColor = "#317ab9";
           break;
+        case 'tailwind':
+          args.progressBar.progressColor = '#4F46E5';
+          args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#4F46E5"><span></span></div>';
+          break;
         case "highcontrast":
           args.progressBar.trackColor = "#FFD939";
           args.progressBar.progressColor = "#000000";
           args.progressBar.annotations[0].content =
             '<div id="point1" style="font-size:20px;font-weight:bold;color:#000000;fill:#ffffff"><span>60%</span></div>';
           break;
+        case 'bootstrap-dark':
+        case 'fabric-dark':
+        case 'material-dark':
+            args.progressBar.progressColor = '#9A9A9A';
+            break;
+        case 'tailwind-dark':
+            args.progressBar.progressColor = '#22D3EE';
+            break;
+        case 'bootstrap5':
+        case 'bootstrap5-dark':
+            args.progressBar.progressColor = '#0D6EFD';
+            break;
         default:
           args.progressBar.trackColor = "#007bff";
           break;

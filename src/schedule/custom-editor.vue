@@ -1,5 +1,5 @@
 <template>
-    <table class="custom-event-editor" width="100%" cellpadding="5">
+    <table class="schedule-custom-event-editor" width="100%" cellpadding="5">
         <tbody>
             <tr>
                 <td class="e-textlabel">Summary</td>

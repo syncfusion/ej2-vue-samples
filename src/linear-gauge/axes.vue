@@ -24,7 +24,7 @@
                 </td>
                 <td>
                     <div data-role="rangeslider">
-                        <input type="range" name="range-max" @touchmove='axisMin' @change='axisMin'  id="min" value="0" min="0" max="115" style="width:100%;" autocomplete="off">
+                        <input type="range" name="range-max" @touchmove='axisMin' @change='axisMin'  id="min" value="0" min="0" max="115" style="width:120px;" autocomplete="off">
                     </div>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
                 <td>
                     <div data-role="rangeslider">
                        
-                        <input type="range" @change='axisMax' name="range-max" id="max" min="0" max="115" value="115" style="width:100%" autocomplete="off">
+                        <input type="range" @change='axisMax' name="range-max" id="max" min="0" max="115" value="115" style="width:120px" autocomplete="off">
                     </div>
                 </td>
             </tr>
@@ -48,7 +48,7 @@
                     <div>Axis Inversed</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 52px">
                         <input type="checkbox" id='axisInversed' v-on:change="axisInverse"/>
                     </div>
                 </td>
@@ -59,7 +59,7 @@
                     <div>Axis Opposed</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 52px">
                         <input type="checkbox" id='opposed' v-on:change="axisOpposed"/>
                     </div>
                 </td>
@@ -70,7 +70,7 @@
                     <div>Show Last Label</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 52px">
                         <input type="checkbox" id='lastlabel' v-on:change="lastLabel"/>
                     </div>
                 </td>
@@ -82,7 +82,7 @@
                 </td>
                 <td>
                     <div class="e-float-input" style='margin-top: 0px;'>
-                        <input type="text" value="{value}" v-on:change="changeFormat" id='format' class="form-control" style="width:100%" />
+                        <input type="text" value="{value}" v-on:change="changeFormat" id='format' class="form-control" style="width:120px" />
                     </div>
                 </td>
             </tr>
@@ -199,8 +199,8 @@ methods: {
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
-      args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+      args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
   changePointertype: function(args){

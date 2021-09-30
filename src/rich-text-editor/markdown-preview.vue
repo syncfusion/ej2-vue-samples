@@ -70,6 +70,12 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
     content: '\e748';
   }
+  .bootstrap5 .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before {
+    content: '\e80e';
+  }
+  .bootstrap5 .rte-markdown-preview .e-icon-btn .e-md-preview::before {
+      content: '\e7de';
+  }
   /* custom code start */
   .sb-header {
     z-index: 100;

@@ -102,16 +102,9 @@ export default Vue.extend({
                     width: 2
                 },
        seriesRender: function (args) {
-            let theme = args.series.chart.theme;
-            let color;
-            if (theme === 'Material') {
-                color = '#008E83';
-            } else if (theme === 'Bootstrap') {
-                color = '#7953AC';
-            } else {
-                color = '#335693';
-            }
-            args.series.border.color = color;
+            let areathemes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast'];
+            let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4'];
+            args.series.border.color = borderColor[areathemes.indexOf(args.series.chart.theme.toLowerCase())];
         },
       title: "Temperature Variation"
     };

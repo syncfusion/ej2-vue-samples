@@ -43,13 +43,13 @@
                                     <tbody><tr>
                                         <td>
                                             <span class="e-icon e-like questionSide">
-                                                <img class="e-icon" src="./images/like.svg">
+                                                <img class="e-icon" src="./images/like.svg" alt="like">
                                                 <span>Like</span>
                                             </span>
                                         </td>
                                         <td>
                                             <span class="e-icon e-dislike">
-                                                <img class="e-icon" src="./images/dislike.svg">
+                                                <img class="e-icon" src="./images/dislike.svg" alt="dislike">
                                                 <span>Dislike</span>
                                             </span>
                                         </td>

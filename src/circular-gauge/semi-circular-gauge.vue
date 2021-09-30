@@ -23,7 +23,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="angleStart" v-on:touchmove="angleStart" v-on:change="angleStart" id="startangle" value="270" min="0" max="360" style="width:90%" />
+                        <input type="range" v-on:pointermove="angleStart" v-on:touchmove="angleStart" v-on:change="angleStart" id="startangle" value="270" min="0" max="360" style="width: 100px;" />
                     </div>
                 </td>
             </tr>&nbsp;
@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="angleEnd" v-on:touchmove="angleEnd" v-on:change="angleEnd" id="end" value="270" min="0" max="360" style="width:90%" />
+                        <input type="range" v-on:pointermove="angleEnd" v-on:touchmove="angleEnd" v-on:change="angleEnd" id="end" value="270" min="0" max="360" style="width: 100px;" />
                     </div>
                 </td>
             </tr>&nbsp;
@@ -43,16 +43,16 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="gaugeRadius" v-on:touchmove="gaugeRadius" v-on:change="gaugeRadius" id="radius" value="80" min="0" max="100" style="width:90%" />
+                        <input type="range" v-on:pointermove="gaugeRadius" v-on:touchmove="gaugeRadius" v-on:change="gaugeRadius" id="radius" value="80" min="0" max="100" style="width: 100px;" />
                     </div>
                 </td>
             </tr>&nbsp;
                  <tr >
                 <td style="width: 40%">
-                    <div class="property-text"> Radius based on angle</div>
+                    <div> Radius based on angle</div>
                 </td>
                 <td style="width: 40%;">
-                    <div style="padding-top: 0px">
+                    <div style="padding-top: 0px; margin-left: 27px">
                         <ejs-checkbox ref="angle" id="angle" :change="onChange"></ejs-checkbox>
                     </div>
                 </td>
@@ -63,7 +63,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="centerX" v-on:pointermove="gaugeCenterX" v-on:touchmove="gaugeCenterX" v-on:change="gaugeCenterX" value="50" min="0" max="100" style="width:90%" />
+                        <input type="range" id="centerX" v-on:pointermove="gaugeCenterX" v-on:touchmove="gaugeCenterX" v-on:change="gaugeCenterX" value="50" min="0" max="100" style="width: 100px;" />
                     </div>
                 </td>
             </tr>&nbsp;
@@ -73,16 +73,16 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="gaugeCenterY" v-on:touchmove="gaugeCenterY" v-on:change="gaugeCenterY" id="centerY" value="50" min="0" max="100" style="width:90%" />
+                        <input type="range" v-on:pointermove="gaugeCenterY" v-on:touchmove="gaugeCenterY" v-on:change="gaugeCenterY" id="centerY" value="50" min="0" max="100" style="width: 100px;" />
                     </div>
                 </td>
             </tr>&nbsp;
             <tr >
                 <td style="width: 40%">
-                    <div class="property-text"> Hide intersecting labels</div>
+                    <div> Hide intersecting labels</div>
                 </td>
                 <td style="width: 40%;">
-                    <div style="padding-top: 0px">
+                    <div style="padding-top: 0px; margin-left: 27px">
                         <ejs-checkbox checked="true" ref="Hide" id="label" :change="hideLabel"></ejs-checkbox>
                     </div>
                 </td>
@@ -155,7 +155,8 @@ methods: {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.gauge.theme = 
-           selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+           (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         document.getElementById('startangle').value = args.gauge.axes[0].startAngle;
         document.getElementById('end').value = args.gauge.axes[0].endAngle;
     },

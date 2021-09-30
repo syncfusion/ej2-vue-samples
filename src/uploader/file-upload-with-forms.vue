@@ -59,7 +59,8 @@
     </div> 
 
     <div id="action-description">
-        <p>This example demonstrates the Uploader component supported with HTML form upload. Fill the mandatory details in a form and click the submit button.</p>
+        <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates the Uploader component supported with HTML form upload. Fill the mandatory details in a form and click the submit button.</p>
     </div>
 
     <div id="description">    
@@ -90,8 +91,15 @@
                 background: #f9f9f9;
         }
 
-        .highcontrast .form-support #control_wrapper {
-            background: #000000;
+        .highcontrast .form-support #control_wrapper,
+        .material-dark .form-support #control_wrapper,
+        .fabric-dark .form-support #control_wrapper,
+        .bootstrap-dark .form-support #control_wrapper,
+        .bootstrap5-dark .form-support #control_wrapper {
+            background: #393939;
+        }
+        .tailwind-dark .form-support #control_wrapper { 
+            background: #6c757d;
         }
         .form-support .upload-area, .e-bigger .form-support .upload-area {
             width: 73%;

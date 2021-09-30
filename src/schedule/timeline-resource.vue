@@ -54,24 +54,124 @@
         width: 75px;
     }
 
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
+        width: 240px;
+    }
+
     .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         display: flex;
         font-weight: 500;
         padding: 0;
+        height: 36px;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
-        border-right: 1px solid rgba(0, 0, 0, 0.12);
-        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        border-color: #0000001f;
+        border-style: solid;
+        border-width: 1px 1px 0 0;
         flex: 0 0 33.3%;
         font-weight: 500;
         height: 36px;
-        line-height: 34px;
+        line-height: 36px;
         padding-left: 5px;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
         border-right: 0;
+    }
+
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-block-appointment {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .bootstrap5 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+        height: 37px;
+    }
+
+    .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        height: 37px;
+        line-height: 37px;
+    }
+
+    .material-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .material-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #616161;
+    }
+
+    .fabric-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .fabric-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #414040;
+    }
+
+    .bootstrap-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .bootstrap-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #505050;
+    }
+
+    .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #444c54;
+    }
+
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div {
+        border-color: #4b5563;
+    }
+
+    .highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div {
+        border-color: #969696;
+    }
+
+    .bootstrap4.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .bootstrap5.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+        height: 39px;
+    }
+
+    .bootstrap4.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        height: 39px;
+        line-height: 39px;
+    }
+
+    .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+        height: 39px;
+    }
+
+    .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        height: 39px;
+        line-height: 39px;
+    }
+
+    .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        background-color: #f3f4f6;
+        border-color: #e5e7eb;
+    }
+
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        background-color: #374151;
+        border-color: #4b5563;
+    }
+
+    .tailwind.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .tailwind-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+        height: 40px;
+    }
+
+    .tailwind.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+        height: 36px;
+    }
+
+    .highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #969696;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .template-wrap {
@@ -81,7 +181,7 @@
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div {
-        border-right: 1px solid rgba(0, 0, 0, 0.12);
+        border-right: 1px solid #0000001f;
         flex: 0 0 33.3%;
         font-weight: 500;
         line-height: 57px;
@@ -94,9 +194,9 @@
         border-right: 0;
     }
 
-    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-cells,
-    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-month-view .e-resource-cells {
-        padding-left: 0;
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-cells.e-child-node,
+    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-month-view .e-resource-cells.e-child-node {
+        padding: 0 !important;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-date-header-wrap table col,
@@ -113,10 +213,10 @@
             width: 100px;
         }
         .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
-        .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div {
+        .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div {
             flex: 0 0 100%;
         }
-        .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div:first-child {
+        .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div:first-child {
             border-right: 0;
         }
         .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:first-child {
@@ -162,7 +262,7 @@
                         endTime: { title: 'To', name: 'EndTime' }
                     }
                 },
-                selectedDate: new Date(2018, 7, 1),
+                selectedDate: new Date(2021, 7, 2),
                 currentView: 'TimelineWeek',
                 workHours: { start: '08:00', end: '18:00' },
                 timeScale: { interval: 60, slotCount: 1 },
@@ -194,7 +294,7 @@
         },
         methods: {
             isReadOnly: function(endDate) {
-                return (endDate < new Date(2018, 6, 31, 0, 0));
+                return (endDate < new Date(2021, 6, 31, 0, 0));
             },
             onPopupOpen: function (args) {
                 let data = args.data;
@@ -213,8 +313,8 @@
                 }
             },
             onRenderCell: function (args) {
-                if (args.element.classList.contains('e-work-cells')) {                    
-                    if (args.date < new Date(2018, 6, 31, 0, 0)) {
+                if (args.element.classList.contains('e-work-cells')) {
+                    if (args.date < new Date(2021, 6, 31, 0, 0)) {
                         args.element.setAttribute('aria-readonly', 'true');
                         args.element.classList.add('e-read-only-cells');
                     }

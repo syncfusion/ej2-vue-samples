@@ -21,47 +21,47 @@
                         <div> Show legend </div>
                     </td>
                     <td>
-                        <div style="padding-top: 0px">
+                        <div style="padding-top: 0px; margin-left: 30px">
                         <ejs-checkbox  id="enable" ref="enable"  :change='changeEnableLegend' checked=true></ejs-checkbox>
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div> Show range when the legend item is toggled </div>
+                        <div style="margin-top: -10px"> Show range when the legend item is toggled </div>
                     </td>
                     <td>
-                        <div style="padding-top: 0px">
+                        <div style="padding-top: 0px; margin-left: 30px; margin-top: -10px">
                         <ejs-checkbox  id="enabletoggle" ref="enabletoggle" :change='changeEnableToggle' checked=true></ejs-checkbox>
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div> Position </div>
+                        <div style="margin-top: -20px"> Position </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="margin-top: -20px">
                         <ejs-dropdownlist id='position' ref="legendPos" :dataSource='positiondata' index=0  :width='positionwidth' :change='changePosition'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div> Alignment </div>
+                        <div style="margin-top: -20px"> Alignment </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="margin-top: -20px">
                         <ejs-dropdownlist id='alignment' ref="legendAlignment" :dataSource='alignmentdata' index=0  :width='alignmentwidth' :change='changeAlignment'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
                <tr>
                     <td>
-                        <div> Shape </div>
+                        <div style="margin-top: -20px"> Shape </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="margin-top: -20px">
                         <ejs-dropdownlist id='shape' ref="legendShape" :dataSource='shapedata' :fields='shapefields' index=0  :width='shapewidth' :change='changeShape'></ejs-dropdownlist>                      
                         </div>
                     </td>
@@ -112,8 +112,7 @@ data:function(){
             endAngle: 150,
             lineStyle: { width: 2 },
             labelStyle: {
-                position: 'Inside', useRangeColor: false,
-                font: { size: '12px', color: '#424242', fontFamily: 'Roboto', fontStyle: 'Regular' }
+                position: 'Inside', useRangeColor: false
             },
             majorTicks: {
                 height: 16, color: '#9E9E9E', interval: 20
@@ -138,7 +137,7 @@ data:function(){
                 { start: 74, end: 102, color:'#ff6600', radius: '110%', legendText: 'Storm' },
                 { start: 102, end: 120, color:'#ff0000', radius: '110%', legendText: 'Hurricane force' },
                 ],
-            positiondata:['Auto', 'Top', 'Bottom', 'Left', 'Right'],
+            positiondata:['Bottom', 'Auto', 'Top', 'Left', 'Right'],
             positionwidth:120,
             alignmentdata:['Far', 'Center', 'Near'],
             alignmentwidth:120,
@@ -162,7 +161,8 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

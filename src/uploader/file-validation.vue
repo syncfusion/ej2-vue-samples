@@ -8,7 +8,8 @@
         </div>
     </div>
     <div id="action-description">
-      <p>This example demonstrates how to validate the files before uploading it to server. Only document files (DOC, DOCX, XLS, XLSX), and the files should contain minimum 10 KB and maximum 28 MB sizes to upload it into server.This sample limits maximum files count as 5 to upload.</p>
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to validate the files before uploading it to server. Only document files (DOC, DOCX, XLS, XLSX), and the files should contain minimum 10 KB and maximum 28 MB sizes to upload it into server.This sample limits maximum files count as 5 to upload.</p>
     </div>
 
     <div id="description">

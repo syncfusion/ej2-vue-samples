@@ -164,7 +164,13 @@
 
 .tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
-.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
   margin: 0;
   top: 10px;
 }
@@ -215,7 +221,9 @@
   color: black;
 }
 
-.bootstrap4 .call-history .layout #list-container .e-listview .e-active .e-icon {
+.bootstrap4 .call-history .layout #list-container .e-listview .e-active .e-icon,
+.bootstrap5 .layout #list-container .e-listview .e-active .e-icon,
+.bootstrap5-dark .layout #list-container .e-listview .e-active .e-icon {
         color: #fff;
 }
 
@@ -243,6 +251,31 @@
 .highcontrast .call-history .layoutWrapper {
   border-color: white;
 }
+
+body.material-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-content,
+body.bootstrap-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-content {
+  color: rgba(255,255,255,0.7);
+}
+
+body.material-dark .layout #list-container .e-icon,
+body.highcontrast .layout #list-container .e-icon,
+body.tailwind-dark .layout #list-container .e-icon,
+body.bootstrap-dark .layout #list-container .e-icon,
+body.fabric-dark .layout #list-container .e-icon,
+body.bootstrap5-dark .layout #list-container .e-icon {
+    color: #ffffff;
+}
+
+body.tailwind-dark .e-list-item .e-avatar.e-icon {
+    top:10px !important;
+    margin: auto !important;
+}
+
+body.tailwind-dark .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap,
+body.tailwind .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap {
+    padding: 0px 5px;
+}
+
 </style>
 <script>
 import Vue from "vue";

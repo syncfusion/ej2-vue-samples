@@ -36,6 +36,10 @@
         margin-top: 4px;
         float: left;
     }
+    .tailwind .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .tailwind-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap5 .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap5-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1 {
         margin-top: 0px;
     }
@@ -48,6 +52,10 @@
     .ajaxsample .e-dlg-header-content {
        min-height: 65px; 
     }
+    .tailwind .ajaxsample .e-dlg-header-content,
+    .tailwind-dark .ajaxsample .e-dlg-header-content,
+    .bootstrap5 .ajaxsample .e-dlg-header-content,
+    .bootstrap5-dark .ajaxsample .e-dlg-header-content,
     .bootstrap4 .ajaxsample .e-dlg-header-content {
        min-height: 50px; 
     }

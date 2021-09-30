@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad'>
+<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad' :annotations='annotations'>
 <e-axes>
 <e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
 <e-pointers>
@@ -46,7 +46,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { LinearGaugePlugin, GaugeTooltip } from "@syncfusion/ej2-vue-lineargauge";
+import { LinearGaugePlugin, GaugeTooltip, Annotations } from "@syncfusion/ej2-vue-lineargauge";
 Vue.use(LinearGaugePlugin);
 export default Vue.extend({
  data:function(){
@@ -73,6 +73,22 @@ export default Vue.extend({
         minorTicks: {
             interval: 0.2
         },
+        annotations: [ {
+                content: '<div id="first"><h1 style="font-size:15px;">Inches</h1></div>',
+                axisIndex: 0,
+                axisValue: 5.4,
+                x: 35,
+                y: -58,
+                zIndex: '1'
+            },
+            {
+                content: '<div id="second"><h1 style="font-size:15px;">Centimeters</h1></div>',
+                axisIndex: 1,
+                axisValue: 16.5,
+                x: 50,
+                y: 52,
+                zIndex: '1'
+            }],
         type: 'Bar',
         value: 5.4,
         offset: 15,
@@ -96,7 +112,7 @@ export default Vue.extend({
     }
  },
  provide: {
-    lineargauge: [GaugeTooltip]
+    lineargauge: [GaugeTooltip, Annotations]
 },
 methods: {
     renderTooltip: function(args){
@@ -111,7 +127,8 @@ methods: {
         /* custom code start */
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : 'Material';
-    args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1));
+    args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     /* custom code end */
     }
 }

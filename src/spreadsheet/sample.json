@@ -103,7 +103,7 @@
             "url": "data-validation",
             "name": "Data Validation",
             "category": "Spreadsheet",
-            "type": "new",
+            "type": "update",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -135,7 +135,6 @@
             "url": "hyperlink",
             "name": "Hyperlink",
             "category": "Spreadsheet",
-            "type": "new",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -224,6 +223,7 @@
             "url": "number-formatting",
             "name": "Number Formatting",
             "category": "Formatting",
+            "type": "update",
             "api": {
                 "sheets": [
                     "columns",

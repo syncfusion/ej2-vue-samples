@@ -149,7 +149,7 @@
     export default Vue.extend({
         data: function () {
             return {
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 cssClass: 'schedule-event-template',
                 readonly: true,
                 weekTemplate: function (e) {

@@ -1,6 +1,6 @@
 <template>
   <div class="schedule-vue-sample">
-    <div class="col-md-10 control-section">
+    <div class="col-md-9 control-section">
       <div class="content-wrapper">
         <ejs-schedule id="Schedule" ref="ScheduleObj" cssClass="year-view" height="650px" :firstMonthOfYear="firstMonthValue" :monthsCount='monthsCount' :eventSettings="eventSettings" :eventRendered="onEventRendered">
           <e-views>
@@ -14,8 +14,8 @@
         </ejs-schedule>
       </div>
     </div>
-    <div class="col-lg-2 property-section">
-      <table id="property" title="Properties">
+    <div class="col-lg-3 property-section">
+      <table id="property" title="Properties" class="year-property-panel">
         <tbody>
           <tr>
             <td>
@@ -67,7 +67,7 @@
     width: 120px;
   }
 
-  .col-lg-2.property-section .property-panel-table td {
+  .year-property-panel td {
     padding-bottom: 1rem;
   }
 </style>
@@ -137,7 +137,7 @@ export default Vue.extend({
     generateEvents(count = 250, date = new Date()) {
       const names = [
         "Bering Sea Gold", "Technology", "Maintenance", "Meeting", "Travelling", "Annual Conference",
-        "Birthday Celebration", "Farewell Celebration", "Wedding Aniversary", "Alaska: The Last Frontier",
+        "Birthday Celebration", "Farewell Celebration", "Wedding Anniversary", "Alaska: The Last Frontier",
         "Deadest Catch", "Sports Day", "MoonShiners", "Close Encounters", "HighWay Thru Hell", "Daily Planet",
         "Cash Cab", "Basketball Practice", "Rugby Match", "Guitar Class", "Music Lessons", "Doctor checkup",
         "Brazil - Mexico", "Opening ceremony", "Final presentation"

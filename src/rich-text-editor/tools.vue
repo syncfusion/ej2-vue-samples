@@ -58,17 +58,55 @@
         display: none;
     }
 
-    .highcontrast .cm-s-default .cm-tag {color: #00ff00;}
-    .highcontrast .cm-s-default .cm-string {color: #ffd939;}
-    .highcontrast .cm-s-default .cm-attribute {color: #f00;}
+    .fabric-dark .cm-s-default .cm-tag,
+    .bootstrap5-dark .cm-s-default .cm-tag,
+    .material-dark .cm-s-default .cm-tag,
+    .tailwind-dark .cm-s-default .cm-tag,
+    .highcontrast .cm-s-default .cm-tag {
+        color: #00ff00;
+    }
+
+    .fabric-dark .cm-s-default .cm-string,
+    .bootstrap5-dark .cm-s-default .cm-string,
+    .material-dark .cm-s-default .cm-string,
+    .tailwind-dark .cm-s-default .cm-string {
+        color: blue;
+    }
+
+    .highcontrast .cm-s-default .cm-string {
+        color: #ffd939;
+    }
+
+    .fabric-dark .cm-s-default .cm-attribute,
+    .bootstrap5-dark .cm-s-default .cm-attribute,
+    .material-dark .cm-s-default .cm-attribute,
+    .tailwind-dark .cm-s-default .cm-attribute,
+    .highcontrast .cm-s-default .cm-attribute {
+        color: #f00;
+    }
+    
+    .fabric-dark .CodeMirror,
+    .bootstrap5-dark .CodeMirror,
+    .material-dark .CodeMirror,
+    .tailwind-dark .CodeMirror {
+        background:  #303030;
+        color: white;
+    }
+
     .highcontrast .CodeMirror {
         background: black;
         color: white;
     }
+
     .e-richtexteditor .e-rte-content .e-content pre {
         padding: 10px;
         background: #F4F5F7;
     }
+
+    .fabric-dark .e-richtexteditor .e-rte-content .e-content pre,
+    .bootstrap5-dark .e-richtexteditor .e-rte-content .e-content pre,
+    .material-dark .e-richtexteditor .e-rte-content .e-content pre,
+    .tailwind-dark .e-richtexteditor .e-rte-content .e-content pre,
     .highcontrast .e-richtexteditor .e-rte-content .e-content pre {
         padding: 10px;
         background: #303030;
@@ -226,7 +264,7 @@ export default Vue.extend({
             }
             else {
                 var proxy = this;
-                setTimeout(function () { proxy.$refs.rteObj.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 400);
+                setTimeout(function () { proxy.$refs.rteObj.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 1000);
             }
         }
     },

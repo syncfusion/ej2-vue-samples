@@ -80,6 +80,17 @@
         margin-top: -32px;
         margin-bottom: 17px;
     }
+    
+    .tailwind .combobox-template .job {
+        margin-top: -7px;
+        margin-bottom: 5px;
+    }
+
+    .e-bigger.tailwind .combobox-template .job {
+        margin-top: -15px;
+        margin-bottom: 5px;
+    }
+
 
     .bootstrap .combobox-template .ename {
         font-size: 15px;

@@ -3,7 +3,6 @@
     "directory": "chart",
     "category": "Data Visualization",
     "ftName": "chart",
-    "type": "update",
     "samples": [
         {
         "url": "line",
@@ -135,7 +134,6 @@
         "name": "Spline Range Area",
         "description": "This demo for Essential JS2 Chart control shows how to render the spline range area series.",
         "category": "Area Charts",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "spline-range-area.vue", "path": "./src/chart/spline-range-area.vue"}
         ]

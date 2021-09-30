@@ -1,33 +1,29 @@
 <template>
     <div class="schedule-vue-sample">
-        <div class="col-md-9 control-section">
+        <div class="col-md-12 control-section">
             <div class="content-wrapper">
+                <table class="property-table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 5%;">
+                                <div class="timezone"> Timezone</div>
+                            </td>
+                            <td style="width: 70%;">
+                                <div>
+                                    <ejs-dropdownlist width="250px" id='scheduletimezone' :value='dropDownValue' :dataSource='timezoneData' popupWidth='250' :change='onTimezoneDropDownChange'
+                                        :fields='fields'></ejs-dropdownlist>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <ejs-schedule height="650px" id="Schedule" ref="ScheduleObj" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
                     :workHours="workHours" :timezone="dropDownValue"></ejs-schedule>
             </div>
         </div>
-        <div class="col-lg-3 property-section">
-            <table id="property" title="Properties" style="width: 100%">
-                <tbody>
-                    <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>
-                                Timezone
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-dropdownlist id='scheduletimezone' :value='dropDownValue' :dataSource='timezoneData' popupWidth='250' :change='onTimezoneDropDownChange'
-                                    :fields='fields'></ejs-dropdownlist>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
         <div id="action-description">
             <p>
-                This demo visualizes the 2018 FIFA football match Scheduler which is depicted as events here. The timings of each event are
+                This demo visualizes the 2021 FIFA football match Scheduler which is depicted as events here. The timings of each event are
                 associated with the timezone of the match location where it will be held. When the Scheduler time zone changes,
                 the events in it displays according to the selected timezone's offset time difference.
             </p>
@@ -48,6 +44,15 @@
         </div>
     </div>
 </template>
+<style>
+   .property-table {
+        width: 100%;
+        margin-bottom: 18px;
+    }
+    .timezone {
+        font-size: 14px;
+    }
+</style>
 <script>
     import Vue from "vue";
     import { fifaEventsData } from './datasource';
@@ -76,7 +81,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: data },
-                selectedDate: new Date(2018, 5, 20),
+                selectedDate: new Date(2021, 5, 20),
                 workHours: { start: '11:00' },
                 timezoneData: [
                     { timezone: 'America/New_York', text: '(UTC-05:00) Eastern Time' },

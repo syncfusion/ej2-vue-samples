@@ -98,10 +98,6 @@
     }
     /* custom code end*/
 
-    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
-        border-color: transparent;
-    }
-
     .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
     .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-left-td {
         width: 110px;
@@ -130,7 +126,7 @@
         data: function () {
             return {
                 cssClass: 'schedule-add-remove-resources',
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 1),
                 group: { resources: ['Calendars'] },
                 resourceDataSource: [calendarCollections[0]],
                 calendarCollection: calendarCollections,

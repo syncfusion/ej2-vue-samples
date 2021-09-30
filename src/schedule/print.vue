@@ -1,13 +1,13 @@
 <template>
     <div class="schedule-vue-sample">
-        <div class="col-md-10 control-section">
+        <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'>
                 </ejs-schedule>
             </div>
         </div>
-        <div class="col-lg-2 property-section">
-            <table id="property" title="Properties">
+        <div class="col-lg-3 property-section">
+            <table id="property" title="Properties" class="print-property-panel">
                 <tbody>
                     <tr>
                         <td style="height: 50px">
@@ -16,22 +16,22 @@
                     </tr>
                     <tr class="e-height-row e-hide-row">
                         <td>
-                            <ejs-dropdownlist id="heightElement" ref="heightObj" width="auto" placeholder="Height" floatLabelType="Always" :dataSource='printHeightAndWidthData' value='auto'></ejs-dropdownlist>
+                            <ejs-dropdownlist id="heightElement" ref="heightObj" placeholder="Height" floatLabelType="Always" :dataSource='printHeightAndWidthData' value='auto'></ejs-dropdownlist>
                         </td>
                     </tr>
                     <tr class="e-width-row e-hide-row">
                         <td>
-                            <ejs-dropdownlist id="widthElement" ref="widthObj" width="auto" placeholder="Width" floatLabelType="Always" :dataSource='printHeightAndWidthData' value='auto'></ejs-dropdownlist>
+                            <ejs-dropdownlist id="widthElement" ref="widthObj" placeholder="Width" floatLabelType="Always" :dataSource='printHeightAndWidthData' value='auto'></ejs-dropdownlist>
                         </td>
                     </tr>
                     <tr class="e-selected-date-row e-hide-row">
                         <td>
-                            <ejs-datepicker id="selectedDateElement" ref="selectedDateObj" width="auto" placeholder="Selected date" floatLabelType="Always" :value="selectedDate"></ejs-datepicker>
+                            <ejs-datepicker id="selectedDateElement" ref="selectedDateObj" placeholder="Selected date" floatLabelType="Always" :value="selectedDate"></ejs-datepicker>
                         </td>
                     </tr>
                     <tr>
                         <td style="padding: 15px; text-align: center">
-                            <ejs-button id="print-btn" iconCss="e-icons e-icon-schedule-print" cssClass="e-print-btn" v-on:click.native="onPrintIconClick">Print</ejs-button>
+                            <ejs-button id="print-btn" iconCss="e-icons e-print" cssClass="e-print-btn" v-on:click.native="onPrintIconClick">Print</ejs-button>
                         </td>
                     </tr>
                 </tbody>
@@ -64,29 +64,19 @@
 </template>
 <style>
     /* custom code start*/
-    @font-face {
-        font-family: 'Schedule_print';
-        src:
-            url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
 
-    .col-lg-2.property-section .property-panel-table td {
+    .print-property-panel td {
         padding-bottom: 1rem;
     }
 
-    /* custom code end*/
-    .e-print-btn .e-icons {
-        font-family: 'Schedule_print', 'e-icons';
+    .print-property-panel .e-checkbox-wrapper {
+        padding-left: 0;
     }
 
-    .e-print-btn .e-icon-schedule-print::before {
-        content: '\e204';
-    }
+    /* custom code end*/
 
     .schedule-vue-sample .print.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today,
-    .e-hide-row {
+    .print-property-panel .e-hide-row {
         display: none;
     }
 </style>
@@ -111,7 +101,7 @@
             return {
                 cssClass: 'print',
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 printHeightAndWidthData: ['auto', '100%', '500px'],
             }
         },

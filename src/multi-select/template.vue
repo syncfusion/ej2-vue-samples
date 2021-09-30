@@ -82,6 +82,17 @@
         margin-top: -32px;
         margin-bottom: 17px;
     }
+    
+    .tailwind .multiselect-template .job {
+        margin-top: -7px;
+        margin-bottom: 5px;
+    }
+    
+    .e-bigger.tailwind .multiselect-template .job {
+        margin-top: -15px;
+        margin-bottom: 5px;
+    }
+
 
     .bootstrap .multiselect-template .ename {
         font-size: 15px;

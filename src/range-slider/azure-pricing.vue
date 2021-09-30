@@ -336,7 +336,6 @@ body {
 .slider-azure #pricing-slider .sub-heading {
   margin-top: -8px;
   font-size: 13px;
-  font-family: Roboto-Regular;
   color: #808080;
 }
 
@@ -375,7 +374,6 @@ body {
 .slider-azure #memory,
 .slider-azure #storage,
 .slider-azure #processor {
-  font-family: Roboto-Medium;
   font-size: 14px;
   height: 24px;
   width: 70px;
@@ -396,14 +394,12 @@ body {
 
 .slider-azure #pricevalue {
   color: #000000;
-  font-family: Roboto-Bold;
   font-size: 28px;
   font-weight: bold;
 }
 
 .slider-azure #suffix {
   color: #000000;
-  font-family: Roboto-Regular;
   font-size: 16px;
   font-weight: 500;
 }
@@ -467,7 +463,6 @@ body {
 
 .slider-azure #dollar {
   color: #000000;
-  font-family: Roboto-Regular;
   font-size: 14px;
   font-weight: 500;
   position: relative;
@@ -503,7 +498,22 @@ body {
 
 .highcontrast .slider-azure .pricing-slider,
 .highcontrast .slider-azure #pricing-slider .label-text,
-.highcontrast .slider-azure #pricing-slider .sub-heading {
+.highcontrast .slider-azure #pricing-slider .sub-heading,
+.material-dark .slider-azure .pricing-slider,
+.material-dark .slider-azure #pricing-slider .label-text,
+.material-dark .slider-azure #pricing-slider .sub-heading,
+.fabric-dark .slider-azure .pricing-slider,
+.fabric-dark .slider-azure #pricing-slider .label-text,
+.fabric-dark .slider-azure #pricing-slider .sub-heading,
+.tailwind-dark .slider-azure .pricing-slider,
+.tailwind-dark .slider-azure #pricing-slider .label-text,
+.tailwind-dark .slider-azure #pricing-slider .sub-heading,
+.bootstrap5-dark .slider-azure .pricing-slider,
+.bootstrap5-dark .slider-azure #pricing-slider .label-text,
+.bootstrap5-dark .slider-azure #pricing-slider .sub-heading,
+.bootstrap-dark .slider-azure .pricing-slider,
+.bootstrap-dark .slider-azure #pricing-slider .label-text,
+.bootstrap-dark .slider-azure #pricing-slider .sub-heading {
   color: white;
 }
 
@@ -517,47 +527,142 @@ body {
 .highcontrast .slider-azure #dialog-header,
 .highcontrast .slider-azure #StorageDialog,
 .highcontrast .slider-azure #CloudDialog,
-.highcontrast .slider-azure #processorDialog {
+.highcontrast .slider-azure #processorDialog,
+.material-dark .slider-azure #dollar,
+.material-dark .slider-azure #pricevalue,
+.material-dark .slider-azure #dialog-header,
+.material-dark .slider-azure #StorageDialog,
+.material-dark .slider-azure #CloudDialog,
+.material-dark .slider-azure #processorDialog,
+.fabric-dark .slider-azure #dollar,
+.fabric-dark .slider-azure #pricevalue,
+.fabric-dark .slider-azure #dialog-header,
+.fabric-dark .slider-azure #StorageDialog,
+.fabric-dark .slider-azure #CloudDialog,
+.fabric-dark .slider-azure #processorDialog,
+.bootstrap-dark .slider-azure #dollar,
+.bootstrap-dark .slider-azure #pricevalue,
+.bootstrap-dark .slider-azure #dialog-header,
+.bootstrap-dark .slider-azure #StorageDialog,
+.bootstrap-dark .slider-azure #CloudDialog,
+.bootstrap-dark .slider-azure #processorDialog,
+.bootstrap5-dark .slider-azure #dollar,
+.bootstrap5-dark .slider-azure #pricevalue,
+.bootstrap5-dark .slider-azure #dialog-header,
+.bootstrap5-dark .slider-azure #StorageDialog,
+.bootstrap5-dark .slider-azure #CloudDialog,
+.bootstrap5-dark .slider-azure #processorDialog,
+.tailwind-dark .slider-azure #dollar,
+.tailwind-dark .slider-azure #pricevalue,
+.tailwind-dark .slider-azure #dialog-header,
+.tailwind-dark .slider-azure #StorageDialog,
+.tailwind-dark .slider-azure #CloudDialog,
+.tailwind-dark .slider-azure #processorDialog {
   color: white;
 }
 
-.highcontrast .slider-azure #pricing-slider .row {
+.highcontrast .slider-azure #pricing-slider .row,
+.tailwind-dark .slider-azure #pricing-slider .row,
+.bootstrap-dark .slider-azure #pricing-slider .row,
+.bootstrap5-dark .slider-azure #pricing-slider .row,
+.fabric-dark .slider-azure #pricing-slider .row,
+.material-dark .slider-azure #pricing-slider .row {
   border: 1px solid #969696;
 }
 
-.highcontrast .slider-azure #cloud-right-pane {
+.highcontrast .slider-azure #cloud-right-pane,
+.tailwind-dark .slider-azure #cloud-right-pane,
+.bootstrap-dark .slider-azure #cloud-right-pane,
+.bootstrap5-dark .slider-azure #cloud-right-pane,
+.fabric-dark .slider-azure #cloud-right-pane,
+.material-dark .slider-azure #cloud-right-pane {
   border-left: 1px solid #969696;
 }
 
 .highcontrast .slider-azure #cloud-slider-text,
-.highcontrast .slider-azure #pricing-slider #cloud-right-pane .btn-size {
+.highcontrast .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.material-dark .slider-azure #cloud-slider-text,
+.material-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.fabric-dark .slider-azure #cloud-slider-text,
+.fabric-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.bootstrap-dark .slider-azure #cloud-slider-text,
+.bootstrap-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.bootstrap5-dark .slider-azure #cloud-slider-text,
+.bootstrap5-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.tailwind-dark .slider-azure #cloud-slider-text,
+.tailwind-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size {
   border-bottom: 1px solid #969696;
 }
 
-.highcontrast .slider-azure #processor {
+.highcontrast .slider-azure #processor,
+.material-dark .slider-azure #processor,
+.bootstrap-dark .slider-azure #processor,
+.bootstrap5-dark .slider-azure #processor,
+.fabric-dark .slider-azure #processor,
+.tailwind-dark .slider-azure #processor {
   background-color: #ae80ff;
 }
 
-.highcontrast .slider-azure #memory {
+.highcontrast .slider-azure #memory,
+.material-dark .slider-azure #memory,
+.fabric-dark .slider-azure #memory,
+.tailwind-dark .slider-azure #memory,
+.bootstrap5-dark .slider-azure #memory,
+.bootstrap-dark .slider-azure #memory {
   background-color: #7ed321;
 }
 
-.highcontrast .slider-azure #storage {
+.highcontrast .slider-azure #storage,
+.material-dark .slider-azure #storage,
+.fabric-dark .slider-azure #storage,
+.tailwind-dark .slider-azure #storage,
+.bootstrap5-dark .slider-azure #storage,
+.bootstrap-dark .slider-azure #storage {
   background-color: #61a4ef;
 }
 
-.highcontrast .slider-azure #cloud-left-pane {
+.highcontrast .slider-azure #cloud-left-pane,
+.material-dark .slider-azure #cloud-left-pane,
+.fabric-dark .slider-azure #cloud-left-pane,
+.tailwind-dark .slider-azure #cloud-left-pane,
+.bootstrap5-dark .slider-azure #cloud-left-pane,
+.bootstrap-dark .slider-azure #cloud-left-pane {
   background-color: #1a1a1a;
 }
 
-.highcontrast .slider-azure #cloud-right-pane {
+.highcontrast .slider-azure #cloud-right-pane,
+.material-dark .slider-azure #cloud-right-pane,
+.fabric-dark .slider-azure #cloud-right-pane,
+.tailwind-dark .slider-azure #cloud-right-pane,
+.bootstrap5-dark .slider-azure #cloud-right-pane,
+.bootstrap-dark .slider-azure #cloud-right-pane {
   background-color: #000;
 }
 
 .highcontrast .slider-azure #processorPriceName,
 .highcontrast .slider-azure #memoryPriceName,
 .highcontrast .slider-azure #storagePriceName,
-.highcontrast .slider-azure #cloudPriceName {
+.highcontrast .slider-azure #cloudPriceName,
+.tailwind-dark .slider-azure #processorPriceName,
+.tailwind-dark .slider-azure #memoryPriceName,
+.tailwind-dark .slider-azure #storagePriceName,
+.tailwind-dark .slider-azure #cloudPriceName,
+.bootstrap-dark .slider-azure #processorPriceName,
+.bootstrap-dark .slider-azure #memoryPriceName,
+.bootstrap-dark .slider-azure #storagePriceName,
+.bootstrap-dark .slider-azure #cloudPriceName,
+.bootstrap5-dark .slider-azure #processorPriceName,
+.bootstrap5-dark .slider-azure #memoryPriceName,
+.bootstrap5-dark .slider-azure #storagePriceName,
+.bootstrap5-dark .slider-azure #cloudPriceName,
+.fabric-dark .slider-azure #processorPriceName,
+.fabric-dark .slider-azure #memoryPriceName,
+.fabric-dark .slider-azure #storagePriceName,
+.fabric-dark .slider-azure #cloudPriceName,
+.material-dark .slider-azure #processorPriceName,
+.material-dark .slider-azure #memoryPriceName,
+.material-dark .slider-azure #storagePriceName,
+.material-dark .slider-azure #cloudPriceName {
   color: white;
   opacity: 1;
 }
@@ -565,7 +670,6 @@ body {
 .slider-azure #dialog-header {
   color: #000000;
   opacity: 0.87;
-  font-family: Roboto-Medium;
   font-weight: 600;
   font-size: 20px;
 }
@@ -581,7 +685,6 @@ body {
 .slider-azure #memoryPrice,
 .slider-azure #storagePrice {
   opacity: 0.9;
-  font-family: Roboto-Bold;
   font-weight: 600;
   font-size: 16px;
   float: right;
@@ -597,13 +700,11 @@ body {
 .slider-azure #cloudPriceName {
   opacity: 0.9;
   color: #000000;
-  font-family: Roboto-Regular;
   font-size: 16px;
 }
 
 .slider-azure #cloudPrice {
   opacity: 0.9;
-  font-family: Roboto-Bold;
   font-weight: 600;
   font-size: 26px;
   float: right;

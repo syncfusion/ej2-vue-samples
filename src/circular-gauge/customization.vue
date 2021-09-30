@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="curVal" id="currentValue" min="1000" max="2000" value="1800" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" />
+                        <input type="range" ref="curVal" id="currentValue" min="1000" max="2000" value="1800" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" style="width: 120px; margin-left: 5px" />
                     </div>
                 </td>
             </tr>
@@ -42,7 +42,7 @@
                     <div id='rangebarColor'>RangeBar Color</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 5px">
                     <ejs-dropdownlist id='barColor' ref="rangeBar" :dataSource='barColordata' index=0  :width=120 :change='changeBarcolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
@@ -52,7 +52,7 @@
                     <div id='range'>Range Color</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 5px">
                     <ejs-dropdownlist id='rangeColor' ref="range" :dataSource='rangeColordata' index=0  :width=120 :change='changeRangecolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
@@ -62,7 +62,7 @@
                     <div id='pointColor'>Pointer Color</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 5px">
                     <ejs-dropdownlist id='pointerColor' ref="pointer" :enabled='pointerEnabled' :dataSource='pointerColordata' index=0  :width=120 :change='changePointercolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
@@ -194,7 +194,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
+                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :currentView='currentView' :workDays='workDays' :eventSettings='eventSettings'
                     :group='group'>
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
@@ -71,8 +71,9 @@
                 eventSettings: {
                     dataSource: this.generateData()
                 },
-                selectedDate: new Date(2018, 3, 4),
+                selectedDate: new Date(2021, 3, 4),
                 currentView: 'TimelineWeek',
+                workDays: [0, 1, 2, 3, 4, 5],
                 allowMultiple : true,
                 group: {
                     resources: ['Projects', 'Employees']

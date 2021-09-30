@@ -98,6 +98,21 @@ export default Vue.extend({
   color: #0501fc;
 }
 
+.highcontrast .calendar-special-dates td.e-icons.highlight,
+.highcontrast .calendar-special-dates td.e-icons.highlight:before,
+.material-dark .calendar-special-dates td.e-icons.highlight,
+.material-dark .calendar-special-dates td.e-icons.highlight:before,
+.fabric-dark .calendar-special-dates td.e-icons.highlight,
+.fabric-dark .calendar-special-dates td.e-icons.highlight:before,
+.bootstrap-dark .calendar-special-dates td.e-icons.highlight,
+.bootstrap-dark .calendar-special-dates td.e-icons.highlight:before,
+.bootstrap5-dark .calendar-special-dates td.e-icons.highlight,
+.bootstrap5-dark .calendar-special-dates td.e-icons.highlight:before,
+.tailwind-dark .calendar-special-dates td.e-icons.highlight,
+.tailwind-dark .calendar-special-dates td.e-icons.highlight:before {
+    color: #ff7500;
+}
+
 .calendar-special-dates .e-other-month span.e-icons.highlight:before {
   content: "";
 }

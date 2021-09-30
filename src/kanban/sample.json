@@ -3,7 +3,6 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
-    "type": "update",
     "samples": [
         {
             "url": "overview",
@@ -42,7 +41,7 @@
                 ]
             },
             "sourceFiles":[
-                { "displayName":"default.vue", "path":"src/kanban/default.vue" },
+                { "displayName":"default.vue", "path":"default.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
@@ -50,7 +49,6 @@
             "url": "swimlane",
             "name": "Swimlane",
             "category": "Kanban",
-            "type": "update",
             "description": "The example explains how to configure swimlane and its related settings (sorting order, drag-and-drop, and more) in JavaScript Kanban board.",
             "api": {
                 "Kanban": [

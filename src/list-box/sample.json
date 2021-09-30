@@ -5,9 +5,10 @@
     "ftName": "list-box",
     "samples": [
         { "url": "default", "name": "Default Functionalities", "description": "This example demonstrates the default functionalities of Syncfusion TypeScript ListBox component with minimum configuration.", "category": "List Box", "api": { "ListBox": ["dataSource"] } },
-        { "url": "dual-list-box", "name": "Dual ListBox", "description": "This example demonstrates how to move items between the two list boxes using dual list box functionality.", "category": "List Box", "api": { "ListBox": ["dataSource", "fields", "scope", "toolbarSettings", "height"] }},
+        { "url": "dual-list-box", "name": "Dual ListBox", "description": "This example demonstrates how to move items between the two list boxes using dual list box functionality.", "category": "List Box", "api": { "ListBox": ["dataSource", "fields", "scope", "toolbarSettings", "height", "noRecordsTemplate"] }},
         { "url": "drag-and-drop", "name": "Drag And Drop", "description": "This example demonstrates how to drag and drop within the Syncfusion TypeScript ListBox and between two list boxes.", "category": "List Box", "api": { "ListBox": ["dataSource", "scope", "allowDragAndDrop", "fields", "height"] } },
         { "url": "checkbox", "name": "Checkbox", "description": "This example demonstrates how to select multiple items from the Syncfusion TypeScript ListBox using checkbox functionality.", "category": "List Box", "api": { "ListBox": ["dataSource", "selectionSettings"] } },
+        { "url": "template", "name": "Template", "description": "This example how the ListBox items can be customized according to the requirement using itemTemplate property", "category":"List Box", "api":{"ListBox": ["dataSource", "itemTemmplate"] } },
         { "url": "api", "name": "API", "description": "This example how to customize the Syncfusion Typescript ListBox component using the available set of APIs.", "category": "List Box", "api": { "ListBox": ["dataSource", "fields", "selectionSettings", "sortOrder"] } }
     ]
 }

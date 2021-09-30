@@ -38,20 +38,8 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
-        content: '\e242';
-    }
-
-    .bootstrap4 .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
-        content: '\e74e';
-    }
-    
     .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
         display: none;
-    }
-
-    .tailwind .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
-        content: '\e780';
     }
 </style>
 <script>
@@ -67,7 +55,7 @@
             return {
                 cssClass: 'excel-export',
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'Week'
             }
         },
@@ -78,7 +66,7 @@
             onActionBegin: function (args) {
                 if (args.requestType === 'toolbarItemRendering') {
                     let exportItem = {
-                        align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icon-schedule-excel-export',
+                        align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-export-excel',
                         text: 'Excel Export', cssClass: 'e-excel-export', click: this.onExportClick.bind(this)
                     };
                     args.items.push(exportItem);

@@ -34,7 +34,7 @@
                 <td>
                     <div>
                         <div class="e-float-input" style='margin-top: 0px;'>
-                            <input type="text" ref="rangeColor" value="#F03E3E" id='color' v-on:change="changeRangecolor" style="width:100%;margin-left:-10px;">
+                            <input type="text" ref="rangeColor" value="#F03E3E" id='color' v-on:change="changeRangecolor" style="width:130px; margin-left:-10px;">
                         </div>
 
                     </div>
@@ -58,7 +58,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="100" style="width:90%;" />
+                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="100" style="width:130px;" />
                     </div>
                 </td>
             </tr><br/>
@@ -70,7 +70,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="32" min="0" max="100" style="width:90%;" />
+                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="32" min="0" max="100" style="width:130px;" />
                     </div>
                 </td>
             </tr>
@@ -83,7 +83,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="15" min="0" max="30" style="width:90%;" />
+                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="15" min="0" max="30" style="width:130px;" />
                     </div>
                 </td>
             </tr>
@@ -96,7 +96,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="15" min="0" max="30" style="width:90%;" />
+                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="15" min="0" max="30" style="width:130px;" />
                     </div>
                 </td>
             </tr>
@@ -208,7 +208,7 @@ export default Vue.extend({
                 text: 'level',
                 value: 'Id'
             },
-            rangewidth: 120,
+            rangewidth: 130,
             rangecolordata: [{
                     Id: 'font',
                     type: 'Default Color'
@@ -222,7 +222,7 @@ export default Vue.extend({
                 text: 'type',
                 value: 'Id'
             },
-            rangecolorwidth: 120
+            rangecolorwidth: 130
         }
     },
     provide: {
@@ -234,7 +234,8 @@ export default Vue.extend({
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         },
         /* custom code end */
         changeRange: function (args) {

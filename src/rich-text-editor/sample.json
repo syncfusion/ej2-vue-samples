@@ -6,7 +6,6 @@
     "samples": [{
             "url": "tools",
             "name": "Overview",
-            "type": "update",
             "category": "Rich Text Editor",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
@@ -63,6 +62,13 @@
             "name": "API",
             "category": "Rich Text Editor",
             "description": "This demo covers important APIs of the vue Rich Text Editor such as content length, HTML encoding, read-only, retrieve the selected content, and more."
+        },
+        {
+            "url": "enter-key-configuration",
+            "name": "Enter Key Configuration",
+            "category": "Rich Text Editor",
+            "type": "new",
+            "description": "This demo explains the API usage to customize the enter and shift + enter key actions in the Rich Text Editor content."
         },
         {
             "url": "events",

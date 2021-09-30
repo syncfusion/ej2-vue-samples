@@ -113,26 +113,61 @@
     .schedule-vue-sample .e-profile-wrapper .destination {
         font-size: 12px;
     }
-	
-	.schedule-vue-sample .e-profile-wrapper .status-icon {
-        height:6px;
-        width:6px;
-        background:green;
-        border-radius:100%;
-        float:left;
-        margin-right:4px;
-        margin-top:4px;
+
+    .schedule-vue-sample .e-profile-wrapper .status-icon {
+        height: 6px;
+        width: 6px;
+        background: green;
+        border-radius: 100%;
+        float: left;
+        margin-right: 4px;
+        margin-top: 4px;
     }
 
     .schedule-vue-sample .e-profile-wrapper .status {
         font-size: 11px;
+        line-height: normal;
     }
 
     .highcontrast .schedule-vue-sample .e-profile-wrapper {
         border: 1px solid #969696
     }
+
     .highcontrast .schedule-vue-sample .e-profile-wrapper .profile-container {
         background-color: #000;
+    }
+
+    .tailwind-dark .e-profile-wrapper {
+        background-color: #374151;
+        border: 0.5px solid #4b5563;
+    }
+
+    .bootstrap5-dark .e-profile-wrapper {
+        background-color: rgb(40, 45, 49);
+        border: 0.5px solid #4b5563;
+    }
+
+    .tailwind .e-profile-wrapper .destination,
+    .tailwind-dark .e-profile-wrapper .destination {
+        font-size: 11px;
+    }
+
+    .bootstrap-dark .e-profile-wrapper {
+        background-color: #1a1a1a;
+    }
+
+    .fabric-dark .e-profile-wrapper {
+        background-color: #333232;
+    }
+
+    .material-dark .property-panel-header {
+        color: #fff;
+    }
+
+    .material-dark .e-profile-wrapper {
+        color: #fff;
+        border: 0.5px solid #616161;
+        background-color: #212121;
     }
 </style>
 <script>
@@ -153,7 +188,7 @@
                 },
                 currentView: 'Month',
                 showHeaderBar: true,
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
             }
         },
         provide: {
@@ -215,6 +250,9 @@
             },
             // function to handle the CheckBox change event
             onChange: function (args) {
+                if (!args.checked) {
+                    this.profilePopup.hide();
+                }
                 this.$refs.ScheduleObj.ej2Instances.showHeaderBar = args.checked;
             }
         }

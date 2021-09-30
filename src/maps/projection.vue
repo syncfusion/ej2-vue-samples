@@ -16,10 +16,12 @@
     <table id="property" title="Properties" style="width: 100%">
         <tbody><tr style="height: 50px">
             <td style="width: 60%">
-                <div>Projection Type</div>
+                <div style="margin-left: -30px;">Projection Type</div>
             </td>
             <td style="width: 40%;">
-             <ejs-dropdownlist ref="projection" id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>                                 
+            <div style="margin-left: 10px;">
+             <ejs-dropdownlist ref="projection" id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>
+             </div>                                 
             </td>
         </tr>
     </tbody></table>
@@ -98,7 +100,7 @@ data:function(){
         colorValuePath: 'Membership'
                 },
         projectiondata:['Mercator','Equirectangular','Miller','Eckert3','Eckert5','Eckert6','Winkel3','AitOff'],
-        projectionwidth:120,
+        projectionwidth:105,
         placeholder:'Select projection type'
     }
 },
@@ -111,7 +113,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     changeProjectiontype:function(args){

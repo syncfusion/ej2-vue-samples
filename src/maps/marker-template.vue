@@ -6,10 +6,7 @@
         <e-layer :shapeData='shapeData' :shapeDataPath='shapeDataPath' :tooltipSettings='tooltipSettings' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
     </e-layers>
 </ejs-maps>
-      
-    <div style="float: right; margin-right: 10px;">Source:
-        <a href="http://www.bom.gov.au/calendar/annual/climate.shtml" target="_blank">www.bom.gov.au</a>
-     </div>
+
 </div>
 <div id="action-description">
         <p>
@@ -140,7 +137,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     } 
 }
 /* custom code end */

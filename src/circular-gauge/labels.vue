@@ -29,60 +29,62 @@
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div> Tick Position </div>
+                        <div style="margin-top: -20px"> Tick Position </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="margin-top: -20px">
     <ejs-dropdownlist id='tickposition' ref="tickPos" :dataSource='tickpositiondata' index=0  :width='tickpositionwidth' :change='changeTickposition'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div> Label Position </div>
+                        <div style="margin-top: -20px"> Label Position </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="margin-top: -20px">
     <ejs-dropdownlist id='labelposition' ref="labelPos" :dataSource='labelpositiondata' index=0  :width='labelpositionwidth' :change='changeLabelposition'></ejs-dropdownlist>                      
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div id='offset'>Tick Offset <span>&nbsp;&nbsp;&nbsp;0</span> </div>
+                        <div id='offset' style="margin-top: -20px">Tick Offset <span>&nbsp;&nbsp;&nbsp;0</span> </div>
                     </td>
                     <td>
-                        <div>
-                            <input type="range" ref="tickOff" id="tickOffset" v-on:pointermove="tickOffset" v-on:touchmove="tickOffset" v-on:change="tickOffset" value="0" min="0" max="50" style="width:90%" />
+                        <div style="margin-top: -20px">
+                            <input type="range" ref="tickOff" id="tickOffset" v-on:pointermove="tickOffset" v-on:touchmove="tickOffset" v-on:change="tickOffset" value="0" min="0" max="50" style="width:120px" />
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div id='height'>Tick Height <span>&nbsp;&nbsp;&nbsp;10</span> </div>
+                        <div id='height' style="margin-top: -10px">Tick Height <span>&nbsp;&nbsp;&nbsp;10</span> </div>
                     </td>
                     <td>
-                        <div>
-                            <input type="range" ref="tickHeight" id="tickHeight" v-on:pointermove="tickHeight" v-on:touchmove="tickHeight" v-on:change="tickHeight" value="10" min="1" max="50" style="width:90%" />
+                        <div style="margin-top: -10px">
+                            <input type="range" ref="tickHeight" id="tickHeight" v-on:pointermove="tickHeight" v-on:touchmove="tickHeight" v-on:change="tickHeight" value="10" min="1" max="50" style="width:120px" />
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div id='labelOffsetValue'>Label Offset <span>&nbsp;&nbsp;&nbsp;0</span> </div>
+                        <div id='labelOffsetValue' style="margin-top: -10px">Label Offset <span>&nbsp;&nbsp;&nbsp;0</span> </div>
                     </td>
                     <td>
-                        <div>
-                            <input type="range" ref="labelOff" id="labelOffset" v-on:pointermove="labelOffset" v-on:touchmove="labelOffset" v-on:change="labelOffset" value="0" min="0" max="50" style="width:90%" />
+                        <div style="margin-top: -10px">
+                            <input type="range" ref="labelOff" id="labelOffset" v-on:pointermove="labelOffset" v-on:touchmove="labelOffset" v-on:change="labelOffset" value="0" min="0" max="50" style="width:120px" />
                         </div>
                     </td>
                 </tr>&nbsp;
                 <tr>
                     <td>
-                        <div id='height'> Show Last Label </div>
+                        <div id='height' style="margin-top: -10px"> Show Last Label </div>
                     </td>
                 <td style="width: 50%">
+                <div style="margin-top: -10px; margin-left: 36px">
                     <ejs-checkbox  id="enable" ref="enable" name="enable" :change='changeEnablePointer'></ejs-checkbox>
+                </div>    
                 </td>
             </tr>
             </tbody>
@@ -172,7 +174,8 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

@@ -92,10 +92,41 @@
     .card-control-section.reveal_card_layout .e-card #card_reveal .e-card-header .e-card-header-caption {
         text-align: left
     }
+    
+    .material-dark .card-control-section.reveal_card_layout .e-card .e-card-header {
+        padding: 10px;
+    }
 
     .card-control-section.reveal_card_layout .e-card #card_revealed .e-card-content table td .e-card-actions .e-card-btn {
         background-color: inherit;
         border: none;
+    }
+    
+    .tailwind-dark .card-control-section.reveal_card_layout .e-card #card_revealed .e-card-content table td .e-card-actions .e-card-btn {
+        background-color: unset;
+        border: 1px solid #22d3ee;
+    }
+    
+    .tailwind .card-control-section.reveal_card_layout .e-card .e-collapse:before,
+    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before{
+        content: "\e771";
+        font-size: 12px;
+    }
+
+    .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-collapse:before,
+    .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before{
+        content: "\e7e7";
+        font-size: 12px;
+    }
+    
+    .tailwind .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before{
+        content: "\e76f";
+    }
+    
+    .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
+    	content: "\e71c";
     }
 
     .card-control-section.reveal_card_layout .row.card-layout .e-card #card_reveal.e-reveal-show {

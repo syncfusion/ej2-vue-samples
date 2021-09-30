@@ -18,23 +18,18 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Working Days</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div class="multi-prop">
                                 <div>
                                     <ejs-multiselect id='multiselect-checkbox' :dataSource='workDaysData' :fields='workDaysFields' :value='workDaysValue' :mode='mode'
-                                        popupWidth="180px" showDropDownIcon='true' :change="onMultiSelectChange"></ejs-multiselect>
+                                        showDropDownIcon='true' :change="onMultiSelectChange" showClearButton='false' placeholder="Working days" floatLabelType="Always"></ejs-multiselect>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Non-Working Days</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
+                            <div style="font-weight:500">Non-Working days</div>
                             <div>
                                 <ejs-button class="e-active" isToggle="true" v-on:click.native="btnClick">Show</ejs-button>
                             </div>
@@ -89,7 +84,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
                 mode: 'CheckBox',
                 workDaysData: [

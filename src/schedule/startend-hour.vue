@@ -17,27 +17,17 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Start Hour
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker id="startTime" :value="startdate" format='HH:mm'>
+                                <ejs-timepicker id="startTime" :value="startdate" format='HH:mm' floatLabelType="Always" placeholder="Start Hour">
                                 </ejs-timepicker>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                End Hour
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker id="endTime" :value="enddate" format='HH:mm'></ejs-timepicker>
+                                <ejs-timepicker id="endTime" :value="enddate" format='HH:mm' floatLabelType="Always" placeholder="End Hour"></ejs-timepicker>
                             </div>
                         </td>
                     </tr>
@@ -84,7 +74,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
                 workHours: { highlight: false },
                 startdate: new Date(2000, 0, 1, 8),

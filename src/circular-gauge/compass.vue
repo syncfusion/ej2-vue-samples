@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
                 <e-axes>
-                    <e-axis :radius='radius' :startAngle='startAngle' minimum=0 maximum=8 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
+                    <e-axis :radius='radius' :startAngle='startAngle' minimum=0 maximum=8 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                         <e-pointers>
                             <e-pointer :value='value1' :radius='pointerRadius1' :color='color1' :pointerWidth='pointerWidth1' :cap='cap1' :animation='animation1'></e-pointer>
                             <e-pointer :value='value2' :radius='pointerRadius2' :color='color2' :pointerWidth='pointerWidth2' :cap='cap2' :animation='animation2'></e-pointer>
@@ -88,10 +88,6 @@ export default Vue.extend({
             },
             startAngle: 0,
             endAngle: 360,
-            ranges: [{
-                start: 7,
-                end: 7
-            }],
             value1: 7,
             pointerRadius1: '50%',
             color1: '#f03e3e',
@@ -126,7 +122,8 @@ export default Vue.extend({
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         },
         /* custom code end */
 // Code for Property Panel

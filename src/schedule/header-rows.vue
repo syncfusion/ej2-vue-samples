@@ -83,7 +83,7 @@
                 eventSettings: {
                     dataSource: extend([], headerRowData, null, true)
                 },
-                selectedDate: new Date(2018, 0, 1),
+                selectedDate: new Date(2021, 0, 1),
                 currentView: 'Month',
                 interval: 12,
                 monthHeaderTemplate: function (e) {

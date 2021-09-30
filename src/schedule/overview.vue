@@ -11,23 +11,21 @@
                     </div>
                     <div class="center-panel">
                         <ejs-button id="timezoneBtn" cssClass="title-bar-btn" disabled='true'
-                            iconCss="e-icons e-schedule-timezone">UTC</ejs-button>
+                            iconCss="e-icons e-time-zone">UTC</ejs-button>
                         <ejs-button id="timeBtn" cssClass="title-bar-btn" disabled='true'
-                            iconCss="e-icons e-schedule-clock" :content="liveTimeUpdate"></ejs-button>
+                            iconCss="e-icons e-clock" :content="liveTimeUpdate"></ejs-button>
                     </div>
                     <div class="right-panel">
-                        <div class="control-panel">
+                        <div class="control-panel calendar-export">
                             <ejs-button id="printBtn" cssClass="title-bar-btn"
-                                iconCss="e-icons e-schedule-print" v-on:click.native="onPrint">Print</ejs-button>
+                                iconCss="e-icons e-print" v-on:click.native="onPrint">Print</ejs-button>
                         </div>
-                        <div class="control-panel" style="display: inline-flex;padding-left:15px;">
-                            <div class="e-icons e-schedule-import e-btn-icon e-icon-left" style="line-height: 40px;">
-                            </div>
+                        <div class="control-panel">
                             <ejs-uploader id='icalendar' cssClass='calendar-import' :multiple='multiple'
                                 :buttons='buttons' :showFileList='showFileList' allowedExtensions='.ics'
                                 :selected='onSelected'></ejs-uploader>
                         </div>
-                        <div class="control-panel">
+                        <div class="control-panel calendar-export">
                             <ejs-dropdownbutton id="exporting" :items='exportItems' :select="onExportItemSelect">Export</ejs-dropdownbutton>
                         </div>
                     </div>
@@ -38,19 +36,19 @@
                     <ejs-toolbar id="toolbar_options" height="70px" overflowMode="Scrollable" scrollStep="100"
                         :created="onToolbarCreated" :clicked="onToolbarItemClicked">
                         <e-items>
-                            <e-item prefixIcon='e-icons e-schedule-add-event' tooltipText='New Event' text='New Event'>
+                            <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event'>
                             </e-item>
-                            <e-item prefixIcon='e-icons e-schedule-add-recurrence-event'
+                            <e-item prefixIcon='e-icons e-repeat'
                                 tooltipText='New Recurring Event' text='New Recurring Event'></e-item>
                             <e-item type='Separator'></e-item>
-                            <e-item prefixIcon='e-icons e-schedule-day-view' tooltipText='Day' text='Day'></e-item>
-                            <e-item prefixIcon='e-icons e-schedule-week-view' tooltipText='Week' text='Week'></e-item>
-                            <e-item prefixIcon='e-icons e-schedule-workweek-view' tooltipText='WorkWeek'
+                            <e-item prefixIcon='e-icons e-day' tooltipText='Day' text='Day'></e-item>
+                            <e-item prefixIcon='e-icons e-week' tooltipText='Week' text='Week'></e-item>
+                            <e-item prefixIcon='e-icons e-week' tooltipText='WorkWeek'
                                 text='WorkWeek'></e-item>
-                            <e-item prefixIcon='e-icons e-schedule-month-view' tooltipText='Month' text='Month'>
+                            <e-item prefixIcon='e-icons e-month' tooltipText='Month' text='Month'>
                             </e-item>
-                            <e-item prefixIcon='e-icons e-schedule-year-view' tooltipText='Year' text='Year'></e-item>
-                            <e-item prefixIcon='e-icons e-schedule-agenda-view' tooltipText='Agenda' text='Agenda'>
+                            <e-item prefixIcon='e-icons e-month' tooltipText='Year' text='Year'></e-item>
+                            <e-item prefixIcon='e-icons e-agenda-date-range' tooltipText='Agenda' text='Agenda'>
                             </e-item>
                             <e-item tooltipText="Timeline Views" :template="timelineTemplate"></e-item>
                             <e-item type='Separator'></e-item>
@@ -63,7 +61,7 @@
                     </ejs-toolbar>
                 </div>
                 <div style="height:70px;width:90px;">
-                    <ejs-button id="settingsBtn" iconCss="e-icons e-schedule-toolbar-settings"
+                    <ejs-button id="settingsBtn" iconCss="e-icons e-settings"
                         cssClass="overview-toolbar-settings" iconPosition="Top"
                         v-on:click.native="onSettingsClick">Settings</ejs-button>
                 </div>
@@ -71,7 +69,7 @@
             <div class="overview-content">
                 <div class="left-panel">
                     <div class="overview-scheduler">
-                        <ejs-schedule id='scheduler' ref="scheduleObj"  height="100%" cssClass='schedule-overview' :currentView='currentView' timezone='UTC' :quickInfoTemplates="quickInfoTemplates" :dateHeaderTemplate="dateHeaderTemplate" :group='group' :eventSettings='eventSettings'>
+                        <ejs-schedule id='scheduler' ref="scheduleObj"  height="100%" cssClass='schedule-overview' :popupOpen='onPopupOpen' :currentView='currentView' timezone='UTC' :quickInfoTemplates="quickInfoTemplates" :dateHeaderTemplate="dateHeaderTemplate" :group='group' :eventSettings='eventSettings'>
                             <e-views>
                                 <e-view option="Day"></e-view>
                                 <e-view option="Week"></e-view>
@@ -101,7 +99,7 @@
                                 <label style="line-height: 34px; margin: 0;">First Day of Week</label>
                             </div>
                             <div class="col-right">
-                                <ejs-dropdownlist id='weekFirstDay' width='170px' :dataSource='weekDays'
+                                <ejs-dropdownlist id='weekFirstDay' :dataSource='weekDays'
                                     :change='onWeekDayChange' :value='firstDayOfWeek' :fields='fields'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
@@ -111,7 +109,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work week</label>
                             </div>
                             <div class="col-right">
-                                <ejs-multiselect id='workWeekDays' cssClass="schedule-workweek" width='170px' :dataSource='weekDays' enableSelectionOrder="false" showClearButton="false"
+                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' enableSelectionOrder="false" showClearButton="false"
                                     showDropDownIcon="true" :mode='checkboxMode' :fields='fields' popupHeight='150px' :value='workDays'
                                     :change='onWorkWeekDayChange'></ejs-multiselect>
                             </div>
@@ -121,7 +119,7 @@
                                 <label style="line-height: 34px; margin: 0;">Resources</label>
                             </div>
                             <div class="col-right">
-                                <ejs-multiselect id='resources' cssClass="schedule-workweek" width='170px' index="0" :dataSource='resourceDataSource' 
+                                <ejs-multiselect id='resources' ref="resourcesObj" cssClass="schedule-workweek" index="0" :dataSource='resourceDataSource' 
                                     :mode='checkboxMode' :fields='calendarFields' popupHeight='150px' enableSelectionOrder="false" showClearButton="false" showDropDownIcon="true" 
                                     :value='calendarsValue' :change='onResourceChange'></ejs-multiselect>
                             </div>
@@ -131,7 +129,7 @@
                                 <label style="line-height: 34px; margin: 0;">Timezone</label>
                             </div>
                             <div class="col-right">
-                                <ejs-dropdownlist id='timezone' width='170px' :dataSource='timezoneData'
+                                <ejs-dropdownlist id='timezone' :dataSource='timezoneData'
                                     :change='onTimezoneChange' value='Etc/GMT' :fields='fields'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
@@ -141,7 +139,7 @@
                                 <label style="line-height: 34px; margin: 0;">Day Start Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='dayStartHour' width='170px' showClearButton='false'
+                                <ejs-timepicker id='dayStartHour' showClearButton='false'
                                     :value='dayStartHourValue' :change='onDayStartHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -151,7 +149,7 @@
                                 <label style="line-height: 34px; margin: 0;">Day End Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='dayEndHour' width='170px' showClearButton='false'
+                                <ejs-timepicker id='dayEndHour' showClearButton='false'
                                     :value='dayEndHourValue' :change='onDayEndHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -161,7 +159,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work Start Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='workHourStart' width='170px' showClearButton='false'
+                                <ejs-timepicker id='workHourStart' showClearButton='false'
                                     :value='workStartHourValue' :change='onWorkStartHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -171,7 +169,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work End Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='workHourEnd' width='170px' showClearButton='false'
+                                <ejs-timepicker id='workHourEnd' showClearButton='false'
                                     :value='workEndHourValue' :change='onWorkEndHourChange'></ejs-timepicker>
                             </div>
                         </div>
@@ -180,7 +178,7 @@
                                 <label style="line-height: 34px; margin: 0;">Slot Duration</label>
                             </div>
                             <div class="col-right">
-                                <ejs-dropdownlist id='slotDuration' width='170px' :dataSource='timeSlotDuration'
+                                <ejs-dropdownlist id='slotDuration' :dataSource='timeSlotDuration'
                                     :change='onTimescaleDurationChange' :value='timeSlotDurationValue'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
@@ -190,7 +188,7 @@
                                 <label style="line-height: 34px; margin: 0;">Slot Interval</label>
                             </div>
                             <div class="col-right">
-                                <ejs-dropdownlist id='slotInterval' width='170px' :dataSource='timeSlotCount'
+                                <ejs-dropdownlist id='slotInterval' :dataSource='timeSlotCount'
                                     :change='onTimescaleIntervalChange' :value='timeSlotCountValue'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
@@ -200,7 +198,7 @@
                                 <label style="line-height: 34px; margin: 0;">Time Format</label>
                             </div>
                             <div class="col-right">
-                                <ejs-dropdownlist id='timeFormat' width='170px' :dataSource='timeFormatdata'
+                                <ejs-dropdownlist id='timeFormat' :dataSource='timeFormatdata'
                                     :change='onchangeTimeFormat' :value='timeFormatValue' :fields='fields'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
@@ -210,7 +208,7 @@
                                 <label style="line-height: 34px; margin: 0;">Week Numbers</label>
                             </div>
                             <div class="col-right">
-                                <ejs-dropdownlist id='weekNumber' width='170px' :dataSource='weekNumberData'
+                                <ejs-dropdownlist id='weekNumber' :dataSource='weekNumberData'
                                     :change='onchangeWeekNumber' :fields='fields' :value='weekNumberValue'
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
@@ -222,7 +220,7 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates the overview of Vue Scheduler with its overall features. Use the toolbar buttons
+    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-scheduler" target="_blank">Vue Scheduler example</a> demonstrates the overview of Vue Scheduler with its overall features. Use the toolbar buttons
         to play with Scheduler functionalities.</p>
 </div>
 <div id="description">
@@ -236,754 +234,768 @@
 </div>
 </template>
 
-<!-- custom code start -->
 <style>
-        .material .e-schedule-clock::before {
-            content: "\e20c";
-        }
-
-        .fabric .e-schedule-clock::before,
-        .highcontrast .e-schedule-clock::before {
-            content: "\e97f";
-        }
-
-        .bootstrap .e-schedule-clock::before {
-            content: "\e93e";
-        }
-
-        .bootstrap4 .e-schedule-clock::before {
-            content: "\e7c7";
-        }
-
-        .tailwind .e-schedule-clock::before {
-            content: "\e730";
-        }
-
-        .material .e-schedule-timezone::before,
-        .bootstrap .e-schedule-timezone::before {
-            content: "\e30e";
-        }
-
-        .fabric .e-schedule-timezone::before,
-        .highcontrast .e-schedule-timezone::before {
-            content: "\e311";
-        }
-
-        .bootstrap4 .e-schedule-timezone::before {
-            content: "\e7c9";
-        }
-        .tailwind .e-schedule-timezone::before {
-            content: "\e736";
-        }
-
-        .material .e-schedule-print::before {
-            content: "\e813";
-        }
-
-        .fabric .e-schedule-print::before,
-        .bootstrap .e-schedule-print::before,
-        .highcontrast .e-schedule-print::before {
-            content: "\e7df";
-        }
-
-        .bootstrap4 .e-schedule-print::before {
-            content: "\e743";
-        }
-
-        .tailwind .e-schedule-print::before {
-            content: "\e76c";
-        }
-
-        .bootstrap4 .e-schedule-import::before {
-            content: "\e77a";
-        }
-
-        .tailwind .e-schedule-import::before {
-            content: "\e76d";
-        }
-
-        .material .e-schedule-ical-export::before,
-        .fabric .e-schedule-ical-export::before {
-            content: "\e711";
-        }
-
-        .bootstrap .e-schedule-ical-export::before {
-            content: "\e702";
-        }
-
-        .bootstrap4 .e-schedule-ical-export::before {
-            content: "\e780";
-        }
-
-        .highcontrast .e-schedule-ical-export::before {
-            content: "\e712";
-        }
-
-        .tailwind .e-schedule-ical-export::before {
-            content: "\e7bf";
-        }
-
-        .material .e-schedule-excel-export::before {
-            content: "\e700";
-        }
-
-        .fabric .e-schedule-excel-export::before,
-        .highcontrast .e-schedule-excel-export::before {
-            content: "\242";
-        }
-
-        .bootstrap .e-schedule-excel-export::before {
-            content: "\e70b";
-        }
-
-        .bootstrap4 .e-schedule-excel-export::before {
-            content: "\e74e";
-        }
-
-        .tailwind .e-schedule-excel-export::before {
-            content: "\e780";
-        }
-
-        .material .e-schedule-add-event::before,
-        .fabric .e-schedule-add-event::before,
-        .bootstrap .e-schedule-add-event::before,
-        .highcontrast .e-schedule-add-event::before {
-            content: "\e823";
-        }
-
-        .bootstrap4 .e-schedule-add-event::before {
-            content: "\e759";
-        }
-
-        .tailwind .e-schedule-add-event::before {
-            content: "\e78a";
-        }
-
-        .material .e-schedule-add-recurrence-event::before,
-        .bootstrap .e-schedule-add-recurrence-event::before {
-            content: "\e308";
-        }
-
-        .fabric .e-schedule-add-recurrence-event::before,
-        .highcontrast .e-schedule-add-recurrence-event::before {
-            content: "\e309";
-        }
-
-        .bootstrap4 .e-schedule-add-recurrence-event::before {
-            content: "\e7c8";
-        }
-
-        .tailwind .e-schedule-add-recurrence-event::before {
-            content: "\e71d";
-        }
-
-        .material .e-schedule-day-view::before {
-            content: "\e31b";
-        }
-
-        .fabric .e-schedule-day-view::before,
-        .highcontrast .e-schedule-day-view::before {
-            content: "\e317";
-        }
-
-        .bootstrap .e-schedule-day-view::before {
-            content: "\e318";
-        }
-
-        .bootstrap4 .e-schedule-day-view::before {
-            content: "\e7b8";
-        }
-
-        .tailwind .e-schedule-day-view::before {
-            content: "\e767";
-        }
-
-        .material .e-schedule-week-view::before {
-            content: "\e315";
-        }
-
-        .fabric .e-schedule-week-view::before,
-        .highcontrast .e-schedule-week-view::before {
-            content: "\e31f";
-        }
-
-        .bootstrap .e-schedule-week-view::before {
-            content: "\e320";
-        }
-
-        .bootstrap4 .e-schedule-week-view::before {
-            content: "\e7c0";
-        }
-
-        .tailwind .e-schedule-week-view::before {
-            content: "\e795";
-        }
-
-        .material .e-schedule-workweek-view::before {
-            content: "\e314";
-        }
-
-        .fabric .e-schedule-workweek-view::before,
-        .highcontrast .e-schedule-workweek-view::before {
-            content: "\e323";
-        }
-
-        .bootstrap .e-schedule-workweek-view::before {
-            content: "\e319";
-        }
-
-        .bootstrap4 .e-schedule-workweek-view::before {
-            content: "\e7c0";
-        }
-
-        .tailwind .e-schedule-workweek-view::before {
-            content: "\e795";
-        }
-
-        .material .e-schedule-month-view::before,
-        .material .e-schedule-year-view::before {
-            content: "\e93c";
-        }
-
-        .fabric .e-schedule-month-view::before,
-        .fabric .e-schedule-year-view::before,
-        .highcontrast .e-schedule-month-view::before,
-        .highcontrast .e-schedule-year-view::before {
-            content: "\ea90";
-        }
-
-        .bootstrap .e-schedule-month-view::before,
-        .bootstrap .e-schedule-year-view::before {
-            content: "\ea8f";
-        }
-
-        .bootstrap4 .e-schedule-month-view::before,
-        .bootstrap4 .e-schedule-year-view::before {
-            content: "\e7c4";
-        }
-
-        .tailwind .e-schedule-month-view::before,
-        .tailwind .e-schedule-year-view::before {
-            content: "\e719";
-        }
-
-        .material .e-schedule-agenda-view::before {
-            content: "\e31d";
-        }
-
-        .fabric .e-schedule-agenda-view::before,
-        .highcontrast .e-schedule-agenda-view::before {
-            content: "\e316";
-        }
-
-        .bootstrap .e-schedule-agenda-view::before {
-            content: "\e31a";
-        }
-
-        .bootstrap4 .e-schedule-agenda-view::before {
-            content: "\e7bd";
-        }
-
-        .tailwind .e-schedule-agenda-view::before {
-            content: "\e718";
-        }
-
-        .e-schedule-toolbar-settings::before {
-            content: "\e679";
-            font-size: 14px;
-        }
-
-        .tailwind .e-schedule-toolbar-settings::before {
-            content: "\e846";
-            font-size: 14px;
-        }
-
-        .material .schedule-overview .overview-toolbar .e-toolbar {
-            border-style: solid;
-        }
-
-        .material .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import .e-upload-browse-btn {
-            text-transform: capitalize;
-        }
-
-        .highcontrast .schedule-overview .overview-header .overview-titlebar {
-            background-color: #ffd939;
-        }
-
-        .highcontrast .schedule-overview .overview-header,
-        .highcontrast .schedule-overview .overview-content {
-            border: 1px solid #969696;
-        }
-
-        .highcontrast .schedule-overview .overview-content {
-            border-top: 0;
-        }
-
-        .highcontrast .schedule-overview .overview-toolbar .e-toolbar,
-        .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-items .e-toolbar-item.e-separator,
-        .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-hscroll .e-scroll-nav.e-scroll-left-nav,
-        .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-hscroll .e-scroll-nav.e-scroll-right-nav {
-            border-color: #969696;
-        }
-
-        .material .schedule-overview .overview-toolbar .overview-toolbar-settings,
-        .material .schedule-overview .overview-content .right-panel .control-panel {
-            background-color: #fafafa;
-            text-transform: capitalize;
-        }
-
-        .fabric .schedule-overview .overview-toolbar .overview-toolbar-settings,
-        .fabric .schedule-overview .overview-content .right-panel .control-panel {
-            background-color: #ffffff;
-        }
-
-        .bootstrap .schedule-overview .overview-toolbar .overview-toolbar-settings,
-        .bootstrap .schedule-overview .overview-content .right-panel .control-panel {
-            background-color: #f8f8f8;
-        }
-
-        .highcontrast .schedule-overview .overview-toolbar .overview-toolbar-settings,
-        .highcontrast .schedule-overview .overview-content .right-panel .control-panel {
-            background-color: #000000;
-            border-color: #969696;
-            color: #ffffff;
-        }
-
-        .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn {
-            line-height: 15px;
-        }
-
-        .schedule-overview .overview-header {
-            border: 1px solid #007bff;
-        }
-
-            .schedule-overview .overview-header .overview-titlebar {
-                background-color: #007bff;
-                color: #ffffff;
-                height: 40px;
-                line-height: 40px;
-                width: 100%;
-                font-size: 12px;
-                padding: 0 10px;
-                font-family: inherit;
-                display: flex;
-                justify-content: space-between;
-            }
-
-                .schedule-overview .overview-header .overview-titlebar .right-panel {
-                    display: flex;
-                    justify-content: space-between;
-                }
-
-                .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import {
-                    line-height: 40px;
-                }
-
-                    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button,
-                    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button:focus,
-                    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button:hover {
-                        background-color: transparent;
-                        border-color: transparent;
-                        box-shadow: none;
-                        color: #ffffff;
-                        font-size: 12px;
-                        text-transform: capitalize;
-                    }
-
-                .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
-                .schedule-overview .overview-header .overview-titlebar .title-bar-btn:hover,
-                .schedule-overview .overview-header .overview-titlebar .title-bar-btn:focus,
-                .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn,
-                .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn.e-btn {
-                    background: transparent;
-                    box-shadow: none;
-                    font-family: inherit;
-                    border-color: transparent;
-                    border-radius: 2px;
-                    color: inherit;
-                    font-size: 12px;
-                    text-transform: capitalize;
-                    height: 40px;
-                    font-weight: 400;
-                }
-
-        .schedule-overview .overview-toolbar {
-            display: flex;
-            height: 70px;
-        }
-
-            .schedule-overview .overview-toolbar .e-toolbar {
-                border-radius: 0;
-            }
-
-                .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-tbtn-txt {
-                    display: inline-grid;
-                }
-
-                .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template {
-                    margin: 0 5px;
-                }
-
-            .schedule-overview .overview-toolbar .overview-toolbar-settings {
-                border-radius: 0;
-                background-color: #f8f9fa;
-                border-color: rgba(0, 0, 0, 0.15);
-                border-left-width: 0;
-                border-top-width: 0;
-                box-shadow: none;
-                color: #495057;
-                height: 72px;
-                line-height: 1.6;
-                outline: none;
-                width: 100%;
-            }
-
-        .schedule-overview .overview-content {
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            border-top: 0;
-            display: flex;
-        }
-
-            .schedule-overview .overview-content .left-panel {
-                height: 600px;
-                width: 100%;
-            }
-
-            .schedule-overview .overview-content .right-panel {
-                display: block;
-                height: 600px;
-                transform: translateX(0%);
-                transition: transform .5s ease, width 500ms;
-                width: 500px;
-            }
-
-                .schedule-overview .overview-content .right-panel.hide {
-                    display: none;
-                    transform: translateX(100%);
-                    transition: transform .5s ease, width 500ms;
-                    width: 0;
-                }
-
-                .schedule-overview .overview-content .right-panel .control-panel {
-                    background: rgba(248, 249, 250, 1);
-                    border-left: 1px solid rgba(0, 0, 0, 0.15);
-                    font-size: 14px;
-                    height: 100%;
-                    overflow: auto;
-                    padding: 15px;
-                    width: 100%;
-                }
-
-                    .schedule-overview .overview-content .right-panel .control-panel .col-row {
-                        display: flex;
-                        flex-wrap: wrap;
-                    }
-
-                    .schedule-overview .overview-content .right-panel .control-panel label {
-                        font-weight: 500;
-                    }
-
-                    .schedule-overview .overview-content .right-panel .control-panel .col-left {
-                        flex: 0 0 41.666667%;
-                        max-width: 41.666667%;
-                        margin-bottom: 1rem;
-                    }
-
-                    .schedule-overview .overview-content .right-panel .control-panel .col-right {
-                        flex: 0 0 58.333333%;
-                        max-width: 58.333333%;
-                        margin-bottom: 1rem;
-                    }
-
-        .schedule-overview .overview-scheduler {
-            height: 100%;
-            padding: 10px;
-            width: 100%;
-        }
-
-        .schedule-overview .e-schedule .e-vertical-view .e-header-cells {
-            text-align: center !important;
-        }
-
-        .schedule-overview .e-schedule .date-text {
-            font-size: 14px;
-        }
-
-        .schedule-overview .e-schedule.e-device .date-text {
-            font-size: 12px;
-        }
-
-        .schedule-overview .e-schedule .weather-image {
-            width: 20px;
-            height: 20px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .schedule-overview .e-schedule .weather-text {
-            font-size: 11px;
-        }
-
-        .schedule-overview .e-schedule-toolbar .e-views,
-        .schedule-overview .e-schedule-toolbar .e-schedule-seperator,
-        .schedule-workweek.e-multi-select-list-wrapper.e-checkbox .e-filter-parent,
-        .schedule-resource.e-multi-select-list-wrapper.e-checkbox .e-filter-parent {
-            display: none;
-        }
-
-        .schedule-overview .e-timeline-view .e-resource-left-td,
-        .schedule-overview .e-timeline-month-view .e-resource-left-td {
-            width: 120px;
-        }
-
-        .schedule-resource.e-multi-select-list-wrapper.e-checkbox .e-list-parent li:first-child {
-            background-image: none;
-            opacity: .5;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .schedule-overview .quick-info-header {
-            background-color: white;
-            padding: 8px 18px;
-        }
-
-        .schedule-overview .quick-info-header-content {
-            justify-content: flex-end;
-            display: flex;
-            flex-direction: column;
-            padding: 5px 10px 5px;
-        }
-
-        .schedule-overview .quick-info-title {
-            font-weight: 500;
-            font-size: 16px;
-            letter-spacing: 0.48px;
-            height: 22px;
-        }
-
-        .schedule-overview .duration-text {
-            font-size: 11px;
-            letter-spacing: 0.33px;
-            height: 14px;
-        }
-
-        .schedule-overview .content-area {
-            margin: 0;
-            padding: 10px;
-            width: auto;
-        }
-
-        .schedule-overview .event-content {
-            height: 90px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 15px;
-        }
-
-        .schedule-overview .meeting-type-wrap,
-        .schedule-overview .meeting-subject-wrap,
-        .schedule-overview .notes-wrap {
-            font-size: 11px;
-            color: #666;
-            letter-spacing: 0.33px;
-            height: 24px;
-            padding: 5px;
-        }
-
-        .schedule-overview .event-content div label {
-            display: inline-block;
-            min-width: 45px;
-            color: #666;
-        }
-
-        .schedule-overview .event-content div span {
-            font-size: 11px;
-            color: #151515;
-            letter-spacing: 0.33px;
-            line-height: 14px;
-            padding-left: 8px;
-        }
-
-        .schedule-overview .cell-footer.e-btn {
-            background-color: #ffffff;
-            border-color: #878787;
-            color: #878787;
-        }
-
-        .schedule-overview .cell-footer {
-            padding-top: 10px;
-        }
-
-        .schedule-overview .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
-            padding: 0 14px;
-        }
-
-        .schedule-overview .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
-            display: block;
-        }
-
-        .schedule-overview .e-quick-popup-wrapper .e-popup-footer button:first-child {
-            margin-right: 5px;
-        }
-
-        .schedule-overview .calendar-import.e-upload {
-            border: 0;
-            padding-left: 0 !important;
-        }
-
-            .schedule-overview .calendar-import.e-upload .e-file-select-wrap {
-                padding: 0
-            }
-
-                .schedule-overview .calendar-import.e-upload .e-file-select-wrap .e-file-drop,
-                .calendar-import .e-upload-files {
-                    display: none;
-                }
-
-        .schedule-context-menu .e-menu-item .new::before {
-            content: '\e7f9';
-        }
-
-        .tailwind .schedule-context-menu .e-menu-item .new::before {
-            content: '\e78a';
-        }
-
-        .schedule-context-menu .e-menu-item .edit::before {
-            content: '\ea9a';
-        }
-
-        .tailwind .schedule-context-menu .e-menu-item .edit::before {
-            content: '\e7d2';
-        }
-
-        .schedule-context-menu .e-menu-item .recurrence::before {
-            content: '\e308';
-            font-weight: bold;
-        }
-
-        .tailwind .schedule-context-menu .e-menu-item .recurrence::before {
-            content: '\e71d';
-            font-weight: bold;
-        }
-
-        .schedule-context-menu .e-menu-item .today::before {
-            content: '\e322';
-        }
-
-        .tailwind .schedule-context-menu .e-menu-item .today::before {
-            content: '\e742';
-        }
-
-        .schedule-context-menu .e-menu-item .delete::before {
-            content: '\e94a';
-        }
-
-        .tailwind .schedule-context-menu .e-menu-item .delete::before {
-            content: '\e78d';
-        }
-
-        .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
-            font-size: 14px;
-        }
-
-        .schedule-context-menu ul .e-menu-item .e-menu-icon {
-            font-size: 12px;
-        }
-
-        .highcontrast .schedule-context-menu .e-menu-item .today::before,
-        .fabric .schedule-context-menu .e-menu-item .today::before {
-            content: '\e321';
-        }
-
-        .bootstrap .schedule-context-menu .e-menu-item .today::before {
-            content: '\e312';
-        }
-
-        .highcontrast .schedule-context-menu .e-menu-item .delete::before,
-        .fabric .schedule-context-menu .e-menu-item .delete::before {
-            content: '\eb00';
-        }
-
-        .highcontrast .schedule-context-menu .e-menu-item .new::before,
-        .fabric .schedule-context-menu .e-menu-item .new::before {
-            content: '\e823';
-        }
-
-        .bootstrap4 .schedule-context-menu .e-menu-item .today::before {
-            content: '\e7be';
-        }
-
-        .bootstrap4 .schedule-context-menu .e-menu-item .edit::before {
-            content: '\e78f';
-        }
-
-        .bootstrap4 .schedule-context-menu .e-menu-item .delete::before {
-            content: '\e773';
-        }
-
-        .bootstrap4 .schedule-context-menu .e-menu-item .new::before {
-            content: '\e759';
-        }
-
-        .bootstrap4 .schedule-context-menu .e-menu-item .recurrence::before {
-            content: '\e7c8';
-        }
-
-        .highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
-        .fabric .schedule-context-menu .e-menu-item .recurrence::before {
-            content: '\e309';
-            font-weight: bold;
-        }
-
-        .schedule-overview.e-schedule .e-vertical-view .e-header-cells,
-        .schedule-overview.e-schedule .e-timeline-month-view .e-header-cells {
-            padding: 0;
-            text-align: center !important;
-        }
-
-        .schedule-overview.e-schedule .date-text {
-            font-size: 14px;
-        }
-
-        .schedule-overview.e-schedule.e-device .date-text {
-            font-size: 12px;
-        }
-
-        .schedule-overview.e-schedule .weather-image {
-            width: 20px;
-            height: 20px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .schedule-overview.e-schedule .weather-text {
-            font-size: 11px;
-        }
-
-        .schedule-overview.e-schedule .e-month-view .weather-image {
-            float: right;
-            margin: -20px 2px 0 0;
-            width: 20px;
-            height: 20px;
-        }
-
-        .tailwind .schedule-overview.e-schedule .e-left-indent .e-header-cells {
-            height: 66px;
-        }
-
-        .tailwind .overview-toolbar .e-toolbar {
-            border: 1px solid rgb(229, 231, 235);
-        }
+
+    .tailwind .e-settings::before,
+    .tailwind-dark .e-settings::before {
+        content: "\e846";
+        font-size: 14px;
+    }
+
+    .tailwind.e-bigger .e-settings,
+    .tailwind-dark.e-bigger .e-settings {
+        font-size: 16px !important;
+    }
+
+    .material .schedule-overview .overview-toolbar .e-toolbar {
+        border-style: solid;
+    }
+
+    .material .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import .e-upload-browse-btn,
+    .material-dark .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import .e-upload-browse-btn {
+        text-transform: capitalize;
+        box-shadow: none;
+    }
+
+    .highcontrast .schedule-overview .overview-header .overview-titlebar {
+        background-color: #ffd939;
+        color: black;
+    }
+
+    .highcontrast .schedule-overview .overview-header,
+    .highcontrast .schedule-overview .overview-content {
+        border: 1px solid #969696;
+    }
+
+    .tailwind-dark .schedule-overview .overview-header,
+    .tailwind-dark .schedule-overview .overview-content {
+        border: 1px solid #4b5563;
+        border-top: 0;
+    }
+
+    .highcontrast .schedule-overview .overview-content {
+        border-top: 0;
+    }
+
+    .fabric-dark .schedule-overview .overview-content {
+        border: 1px solid #414040;
+    }
+
+    .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-color: #414040;
+    }
+
+    .tailwind .schedule-overview .overview-toolbar .e-toolbar {
+        border: 1px solid #e5e7eb;
+    }
+
+    .tailwind-dark .schedule-overview .overview-toolbar .e-toolbar {
+        border: 1px solid #4b5563;
+    }
+
+    .tailwind .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .tailwind .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f3f4f6;
+        border-color: #e5e7eb;
+        box-shadow: none;
+    }
+
+    .tailwind-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #374151;
+        border-color: #4b5563;
+        box-shadow: none;
+        color: #fff;
+    }
+
+    .highcontrast .schedule-overview .overview-toolbar .e-toolbar,
+    .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-items .e-toolbar-item.e-separator,
+    .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-hscroll .e-scroll-nav.e-scroll-left-nav,
+    .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-hscroll .e-scroll-nav.e-scroll-right-nav {
+        border-color: #969696;
+    }
+
+    .material .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .material .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #fafafa;
+        text-transform: capitalize;
+        box-shadow: none;
+    }
+
+    .material-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .material-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #2a2a2a;
+        color: #ffff;
+    }
+
+    .fabric .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .fabric .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #ffffff;
+    }
+
+    .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .fabric-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #333232;
+        color: #fff;
+    }
+
+    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .bootstrap5 .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f8f9fa;
+        color: #212529;
+        font-weight: 400;
+    }
+
+    .bootstrap .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .bootstrap .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f8f8f8;
+    }
+
+    .bootstrap5-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #343a40;
+        color: #fff;
+        font-weight: 400;
+    }
+
+    .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .bootstrap-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #2a2a2a;
+        color: #fff;
+    }
+
+
+    .highcontrast .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .highcontrast .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #000000;
+        border-color: #969696;
+        color: #ffffff;
+    }
+
+    .highcontrast .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
+    .highcontrast .schedule-overview .overview-header .overview-titlebar .calendar-import .e-file-select-wrap .e-css.e-btn,
+    .highcontrast .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn.e-btn {
+        color: black;
+    }
+
+    .schedule-overview .overview-header {
+        border: 1px solid #007bff;
+    }
+
+    .schedule-overview .overview-header .overview-titlebar {
+        background-color: #007bff;
+        color: #ffffff;
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        font-size: 12px;
+        padding: 0 10px;
+        font-family: inherit;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .schedule-overview .overview-header .overview-titlebar .right-panel {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import {
+        line-height: 40px;
+    }
+
+    .bootstrap5 .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
+    .bootstrap5 .schedule-overview .overview-header .overview-titlebar .calendar-export,
+    .bootstrap5-dark .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
+    .bootstrap5-dark .schedule-overview .overview-header .overview-titlebar .calendar-export,
+    .fabric .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
+    .fabric .schedule-overview .overview-header .overview-titlebar .calendar-export,
+    .fabric-dark .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
+    .fabric-dark .schedule-overview .overview-header .overview-titlebar .calendar-export,
+    .highcontrast .schedule-overview .overview-header .overview-titlebar .calendar-export,
+    .highcontrast .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import {
+        line-height: 1.5em;
+    }
+
+    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button,
+    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button:focus,
+    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button:hover {
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        color: inherit;
+        font-size: 12px;
+        height: 40px;
+        text-transform: capitalize;
+    }
+
+    .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
+    .schedule-overview .overview-header .overview-titlebar .title-bar-btn:hover,
+    .schedule-overview .overview-header .overview-titlebar .title-bar-btn:focus,
+    .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn,
+    .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn.e-btn {
+        background: transparent;
+        box-shadow: none;
+        font-family: inherit;
+        border-color: transparent;
+        border-radius: 2px;
+        color: inherit;
+        font-size: 12px;
+        text-transform: capitalize;
+        height: 40px;
+        font-weight: 400;
+    }
+
+    .schedule-overview .overview-header .overview-titlebar .e-btn:not([disabled]):focus {
+        background-color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    .schedule-overview .overview-toolbar {
+        display: flex;
+        height: 70px;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar {
+        border-radius: 0;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-tbtn-txt {
+        display: inline-grid;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template {
+        margin: 0 5px;
+    }
+
+    .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-radius: 0;
+        background-color: #f8f9fa;
+        border-color: rgba(0, 0, 0, 0.15);
+        border-left-width: 0;
+        border-top-width: 0;
+        box-shadow: none;
+        color: #495057;
+        height: 72px;
+        line-height: 1.6;
+        outline: none;
+        text-transform: capitalize;
+        width: 100%;
+    }
+
+    .material .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: #0000001f;
+    }
+
+    .fabric .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: #f4f4f4;
+    }
+
+    .bootstrap .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: rgb(230, 230, 230);
+    }
+
+    .bootstrap4 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus,
+    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus, {
+        background-color: #5c636a;
+        color: #fff;
+    }
+
+    .tailwind .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: #e5e7eb;
+    }
+
+    .highcontrast .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: rgb(104, 87, 8);
+    }
+
+    .material-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: #ffffff1a;
+    }
+
+    .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: rgb(65, 64, 64);
+    }
+
+    .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: rgb(49, 49, 49);
+    }
+
+    .tailwind-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: #4b5563;
+    }
+
+    .bootstrap5-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
+        background-color: #5c636a;
+    }
+
+    .bootstrap5 .schedule-overview .overview-toolbar .e-toolbar {
+        border: 1px solid #dee2e6;
+    }
+
+    .bootstrap5-dark .schedule-overview .overview-toolbar .e-toolbar {
+        border: 1px solid #444c54;
+    }
+
+    .schedule-overview .overview-content {
+        border: 1px solid #00000026;
+        border-top: 0;
+        display: flex;
+    }
+
+    .schedule-overview .overview-content .left-panel {
+        height: 600px;
+        width: 100%;
+    }
+
+    .schedule-overview .overview-content .right-panel {
+        display: block;
+        height: 600px;
+        transform: translateX(0%);
+        transition: transform .5s ease, width 500ms;
+        width: 500px;
+    }
+
+    .schedule-overview .overview-content .right-panel.hide {
+        display: none;
+        transform: translateX(100%);
+        transition: transform .5s ease, width 500ms;
+        width: 0;
+    }
+
+    .schedule-overview .overview-content .right-panel .control-panel {
+        background: #f8f9fa;
+        border-left: 1px solid #00000026;
+        font-size: 14px;
+        height: 100%;
+        overflow: auto;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background: #374151;
+    }
+
+    .schedule-overview .overview-content .right-panel .control-panel .col-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .schedule-overview .overview-content .right-panel .control-panel label {
+        font-weight: 500;
+    }
+
+    .schedule-overview .overview-content .right-panel .control-panel .col-left {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+        margin-bottom: 1rem;
+    }
+
+    .schedule-overview .overview-content .right-panel .control-panel .col-right {
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+        margin-bottom: 1rem;
+    }
+
+    .schedule-overview .overview-scheduler {
+        height: 100%;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .schedule-overview .e-schedule .e-vertical-view .e-header-cells {
+        text-align: center !important;
+    }
+
+    .schedule-overview .e-schedule .date-text {
+        font-size: 14px;
+    }
+
+    .schedule-overview .e-schedule.e-device .date-text {
+        font-size: 12px;
+    }
+
+    .schedule-overview .e-schedule .weather-image {
+        width: 20px;
+        height: 20px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .schedule-overview .e-schedule .weather-text {
+        font-size: 11px;
+    }
+
+    .schedule-overview .e-schedule-toolbar .e-views,
+    .schedule-overview .e-schedule-toolbar .e-schedule-seperator,
+    .schedule-workweek.e-multi-select-list-wrapper.e-checkbox .e-filter-parent,
+    .schedule-resource.e-multi-select-list-wrapper.e-checkbox .e-filter-parent {
+        display: none;
+    }
+
+    .schedule-overview .e-timeline-view .e-resource-left-td,
+    .schedule-overview .e-timeline-month-view .e-resource-left-td {
+        width: 120px;
+    }
+
+    .schedule-resource.e-multi-select-list-wrapper.e-checkbox .e-list-parent:first-child li:first-child {
+        background-image: none;
+        opacity: .5;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .schedule-overview .quick-info-header {
+        background-color: white;
+        padding: 8px 18px;
+    }
+
+    .tailwind-dark .schedule-overview .quick-info-header {
+        background-color: #374151;
+    }
+
+    .bootstrap5-dark .schedule-overview .quick-info-header {
+        background-color: transparent;
+    }
+
+    .bootstrap-dark .schedule-overview .quick-info-header {
+        background-color: #1a1a1a;
+    }
+
+    .fabric-dark .schedule-overview .quick-info-header {
+        background-color: #201f1f;
+    }
+
+    .material-dark .schedule-overview .quick-info-header {
+        background-color: #424242;
+    }
+
+    .highcontrast .schedule-overview .quick-info-header {
+        background-color: #000000;
+    }
+
+    .schedule-overview .quick-info-header-content {
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px 5px;
+    }
+
+    .tailwind-dark .schedule-overview .quick-info-header-content,
+    .bootstrap-dark .schedule-overview .quick-info-header-content,
+    .bootstrap5-dark .schedule-overview .quick-info-header-content,
+    .fabric-dark .schedule-overview .quick-info-header-content,
+    .material-dark .schedule-overview .quick-info-header-content,
+    .highcontrast .schedule-overview .quick-info-header-content {
+        color: #fff !important;
+    }
+
+    .schedule-overview .quick-info-title {
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.48px;
+        height: 22px;
+    }
+
+    .schedule-overview .duration-text {
+        font-size: 11px;
+        letter-spacing: 0.33px;
+        height: 14px;
+    }
+
+    .schedule-overview .content-area {
+        padding: 10px;
+        width: auto;
+        margin: unset;
+    }
+
+    .schedule-overview .event-content {
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .schedule-overview .meeting-type-wrap,
+    .schedule-overview .meeting-subject-wrap,
+    .schedule-overview .notes-wrap {
+        font-size: 11px;
+        color: #666;
+        letter-spacing: 0.33px;
+        height: 24px;
+        padding: 5px;
+    }
+
+    .schedule-overview .event-content div label {
+        display: inline-block;
+        min-width: 45px;
+        color: #666;
+    }
+
+    .schedule-overview .event-content div span {
+        font-size: 11px;
+        color: #151515;
+        letter-spacing: 0.33px;
+        line-height: 14px;
+        padding-left: 8px;
+    }
+
+    .tailwind-dark .schedule-overview .event-content div label,
+    .bootstrap-dark .schedule-overview .event-content div label,
+    .bootstrap5-dark .schedule-overview .event-content div label,
+    .fabric-dark .schedule-overview .event-content div label,
+    .material-dark .schedule-overview .event-content div label,
+    .highcontrast .schedule-overview .event-content div label,
+    .tailwind-dark .schedule-overview .event-content div span,
+    .bootstrap-dark .schedule-overview .event-content div span,
+    .bootstrap5-dark .schedule-overview .event-content div span,
+    .fabric-dark .schedule-overview .event-content div span,
+    .material-dark .schedule-overview .event-content div span,
+    .highcontrast .schedule-overview .event-content div span {
+        color: #fff;
+    }
+
+    .schedule-overview .cell-footer.e-btn {
+        background-color: #ffffff;
+        border-color: #878787;
+        color: #878787;
+    }
+
+    .schedule-overview .cell-footer {
+        padding-top: 10px;
+    }
+
+    .e-quick-popup-wrapper.e-template .e-cell-popup .e-popup-content {
+        padding: 0 14px;
+    }
+
+    .e-quick-popup-wrapper.e-template .e-event-popup .e-popup-footer {
+        display: block;
+    }
+
+    .e-quick-popup-wrapper.e-template .e-popup-footer button:first-child {
+        margin-right: 5px;
+    }
+
+    .schedule-overview .calendar-import.e-upload {
+        border: 0;
+        padding-left: 0 !important;
+    }
+
+    .schedule-overview .calendar-import.e-upload .e-file-select-wrap {
+        padding: 0
+    }
+
+    .schedule-overview .calendar-import.e-upload .e-file-select-wrap .e-file-drop,
+    .calendar-import .e-upload-files {
+        display: none;
+    }
+
+    .schedule-overview .quick-info-header {
+        background-color: white;
+        padding: 8px 18px;
+    }
+
+    .schedule-overview .quick-info-header-content {
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px 5px;
+    }
+
+    .schedule-overview .quick-info-title {
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.48px;
+        height: 22px;
+    }
+
+    .duration-text {
+        font-size: 11px;
+        letter-spacing: 0.33px;
+        height: 14px;
+    }
+
+    .schedule-overview .content-area {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .schedule-overview .event-content {
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .schedule-overview .meeting-type-wrap,
+    .schedule-overview .meeting-subject-wrap,
+    .schedule-overview .notes-wrap {
+        font-size: 11px;
+        color: #666;
+        letter-spacing: 0.33px;
+        height: 24px;
+        padding: 5px;
+    }
+
+    .schedule-overview .event-content div label {
+        display: inline-block;
+        min-width: 45px;
+        color: #666;
+    }
+
+    .schedule-overview .event-content div span {
+        font-size: 11px;
+        color: #151515;
+        letter-spacing: 0.33px;
+        line-height: 14px;
+        padding-left: 8px;
+    }
+
+    .schedule-overview .cell-footer.e-btn {
+        background-color: #ffffff;
+        border-color: #878787;
+        color: #878787;
+    }
+
+    .schedule-overview .cell-footer {
+        padding-top: 10px;
+    }
+
+    .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
+        font-size: 14px;
+    }
+
+    .schedule-context-menu ul .e-menu-item .e-menu-icon {
+        font-size: 12px;
+    }   
+
+    .schedule-overview.e-schedule .e-vertical-view .e-header-cells,
+    .schedule-overview.e-schedule .e-timeline-month-view .e-header-cells {
+        padding: 0;
+        text-align: center !important;
+    }
+
+    .schedule-overview.e-schedule .date-text {
+        font-size: 14px;
+    }
+
+    .schedule-overview.e-schedule.e-device .date-text {
+        font-size: 12px;
+    }
+
+    .schedule-overview.e-schedule .weather-image {
+        width: 20px;
+        height: 20px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .schedule-overview.e-schedule .weather-text {
+        font-size: 11px;
+    }
+
+    .schedule-overview.e-schedule .e-month-view .weather-image {
+        float: right;
+        margin: -20px 2px 0 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn {
+        height: 50px !important;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item:not(.e-separator) {
+        padding: 3.5px;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn {
+        padding: 1.5px;
+    }
+
+    .e-bigger .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item:not(.e-separator) {
+        padding: 5px;
+    }
+
+    .e-bigger .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn {
+        padding: 6px;
+    }
+
+    .bootstrap:not(.e-bigger) .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn:hover,
+    .bootstrap-dark:not(.e-bigger) .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn:hover,
+    .bootstrap4:not(.e-bigger) .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn:hover {
+        border-width: 1.5px;
+        padding: unset !important;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-btn.e-tbar-btn .e-icons.e-btn-icon,
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-btn.e-tbar-btn .e-tbar-btn-text {
+        line-height: 23px !important;
+        min-height: 23px !important;
+        padding: 0px !important;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template .icon-child {
+        height: 23px !important;
+    }
+
+    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template .text-child {
+        line-height: 23px !important;
+    }
+
+    .tailwind .schedule-overview.e-schedule .e-left-indent .e-header-cells,
+    .tailwind-dark .schedule-overview.e-schedule .e-left-indent .e-header-cells {
+        height: 66px;
+    }
+
+    .tailwind .schedule-overview .e-more-popup-wrapper .e-more-event-close .e-btn-icon,
+    .tailwind-dark .schedule-overview .e-more-popup-wrapper .e-more-event-close .e-btn-icon {
+        margin-top: 0px;
+    }
+
+    .bootstrap-dark .schedule-overview .overview-content {
+        border: 1px solid #505050;
+    }
+
+    .bootstrap5-dark .schedule-overview .overview-content {
+        border: 1px solid #444c54;
+    }
+
+    .material-dark .schedule-overview .overview-content {
+        border: 1px solid #616161;
+    }
+
+    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-color: #dee2e6;
+    }
+
+    .bootstrap5-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-color: #444c54;
+    }
+
+    .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-color: #505050;
+    }
+
+    .material-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-color: #616161;
+    }
+
+    .bootstrap-dark .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
+    .material-dark .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
+    .material .schedule-overview .overview-header .overview-titlebar .title-bar-btn {
+        box-shadow: none;
+    }
 </style>
-<!-- custom code end -->
 
 <script>
     import Vue from "vue";
-    import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization } from '@syncfusion/ej2-base';
+    import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization, compile } from '@syncfusion/ej2-base';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
     import { DataManager, Predicate, Query } from '@syncfusion/ej2-data';
     import { ButtonPlugin, ButtonComponent, SwitchPlugin, SwitchComponent, CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
@@ -1140,7 +1152,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
   methods: {
     buttonClickActions: function(e) {
       const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-      const quickPopup = scheduleObj.element.querySelector(".e-quick-popup-wrapper");
+      const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
       const getSlotData = function() {
         const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
         const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
@@ -1236,10 +1248,10 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 ],
                 calendarsValue: [1],
                 isTimelineView: false,
-                buttons: { browse: 'Import' },
+                buttons: { browse: this.importTemplateFn({ text: 'Import' })[0] },
                 exportItems: [
-                  { text: 'iCalendar', iconCss: 'e-icons e-schedule-ical-export' },
-                  { text: 'Excel', iconCss: 'e-icons e-schedule-excel-export' }
+                  { text: 'iCalendar', iconCss: 'e-icons e-export' },
+                  { text: 'Excel', iconCss: 'e-icons e-export-excel' }
                 ],
                 weekDays: [
                   { text: 'Sunday', value: 0 },
@@ -1284,24 +1296,24 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                  menuItems: [
                     {
                         text: 'New Event',
-                        iconCss: 'e-icons new',
+                        iconCss: 'e-icons e-plus',
                         id: 'Add'
                     }, {
                         text: 'New Recurring Event',
-                        iconCss: 'e-icons recurrence',
+                        iconCss: 'e-icons e-repeat',
                         id: 'AddRecurrence'
                     }, {
                         text: 'Today',
-                        iconCss: 'e-icons today',
+                        iconCss: 'e-icons e-timeline-today',
                         id: 'Today'
                     }, {
                         text: 'Edit Event',
-                        iconCss: 'e-icons edit',
+                        iconCss: 'e-icons e-edit',
                         id: 'Save'
                     }, {
                         text: 'Edit Event',
                         id: 'EditRecurrenceEvent',
-                        iconCss: 'e-icons edit',
+                        iconCss: 'e-icons e-edit',
                         items: [{
                             text: 'Edit Occurrence',
                             id: 'EditOccurrence'
@@ -1311,12 +1323,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                         }]
                     }, {
                         text: 'Delete Event',
-                        iconCss: 'e-icons delete',
+                        iconCss: 'e-icons e-trash',
                         id: 'Delete'
                     }, {
                         text: 'Delete Event',
                         id: 'DeleteRecurrenceEvent',
-                        iconCss: 'e-icons delete',
+                        iconCss: 'e-icons e-trash',
                         items: [{
                             text: 'Delete Occurrence',
                             id: 'DeleteOccurrence'
@@ -1341,9 +1353,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 multiDragTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="multi_Drag" :checked="false" :change="onAllowMultiDrag"></ejs-switch></div><div class="text-child" style="font-size:14px;">Allow Multi Drag</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="multi_Drag" :checked="false" :created="onCreated" :change="onAllowMultiDrag"></ejs-switch></div><div class="text-child" style="font-size:14px;">Allow Multi Drag</div></div>',
                             data: function () { return { data: {} }; },
                             methods : {
+                                onCreated: function() {
+                                    document.getElementById('multi_Drag').setAttribute('tabindex', '-1');
+                                },
                                 onAllowMultiDrag: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.allowMultiDrag = args.checked;
@@ -1355,9 +1370,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 timelineTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="timeline_views" :checked="false" :change="onTimelineViewChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Timeline Views</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="timeline_views" :checked="false" :created="onCreated" :change="onTimelineViewChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Timeline Views</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
+                                onCreated: function() {
+                                    document.getElementById('timeline_views').setAttribute('tabindex', '-1');
+                                },
                                 onTimelineViewChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     this.isTimelineView = args.checked;
@@ -1395,9 +1413,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 groupTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="grouping" :checked="true" :change="onGroupingChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Grouping</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Grouping</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
+                                onCreated: function() {
+                                    document.getElementById('grouping').setAttribute('tabindex', '-1');
+                                },
                                 onGroupingChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.group.resources = args.checked ? ['Calendars'] : [];
@@ -1409,9 +1430,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 gridlineTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="gridlines" :checked="true" :change="onGridlinesChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Gridlines</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="gridlines" :checked="true" :created="onCreated" :change="onGridlinesChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Gridlines</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
+                                onCreated: function() {
+                                    document.getElementById('gridlines').setAttribute('tabindex', '-1');
+                                },
                                 onGridlinesChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.timeScale.enable = args.checked;
@@ -1423,9 +1447,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 autoHeightTemplate: function () {
                     return {
                         template: Vue.component('ButtonComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="row_auto_height" :checked="false" :change="onRowAutoHeightChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Row Auto Height</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="row_auto_height" :checked="false" :created="onCreated" :change="onRowAutoHeightChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Row Auto Height</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
+                                onCreated: function() {
+                                    document.getElementById('row_auto_height').setAttribute('tabindex', '-1');
+                                },
                                  onRowAutoHeightChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.rowAutoHeight = args.checked;
@@ -1437,9 +1464,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 tooltipTemplate: function () {
                     return {
                         template: Vue.component('ButtonComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="tooltip" :checked="false" :change="onTooltipChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Tooltip</div></div>',
+                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="tooltip" :checked="false" :created="onCreated" :change="onTooltipChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Tooltip</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
+                                onCreated: function() {
+                                    document.getElementById('tooltip').setAttribute('tabindex', '-1');
+                                },
                                 onTooltipChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.eventSettings.enableTooltip = args.checked;
@@ -1457,6 +1487,15 @@ var footerTemplateVue = Vue.component("footerTemplate", {
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop,TimelineMonth, TimelineViews, Year, TimelineYear, Print, ExcelExport,ICalendarImport, ICalendarExport]
         },
         methods: {
+        onPopupOpen: function(args) {
+            if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
+                args.element.classList.add('e-template');
+            }
+        },
+        importTemplateFn: function(data) {
+            const template = '<div class="e-template-btn"><span class="e-btn-icon e-icons e-upload-1 e-icon-left"></span>${text}</div>';
+            return compile(template.trim())(data);
+        },
         onSelected: function(args) {
             let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
             scheduleObj.importICalendar((args.event.target).files[0]);
@@ -1492,6 +1531,8 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         const settingsPanel = document.querySelector('.overview-content .right-panel');
         if (settingsPanel.classList.contains('hide')) {
             removeClass([settingsPanel], 'hide');
+            this.$refs.workWeekDaysObj.ej2Instances.refresh();
+            this.$refs.resourcesObj.ej2Instances.refresh();
         } else {
             addClass([settingsPanel], 'hide');
         }
@@ -1501,7 +1542,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
             const eventData = [];
             const eventSubjects = [
             'Bering Sea Gold', 'Technology', 'Maintenance', 'Meeting', 'Travelling', 'Annual Conference', 'Birthday Celebration',
-            'Farewell Celebration', 'Wedding Aniversary', 'Alaska: The Last Frontier', 'Deadest Catch', 'Sports Day', 'MoonShiners',
+            'Farewell Celebration', 'Wedding Anniversary', 'Alaska: The Last Frontier', 'Deadest Catch', 'Sports Day', 'MoonShiners',
             'Close Encounters', 'HighWay Thru Hell', 'Daily Planet', 'Cash Cab', 'Basketball Practice', 'Rugby Match', 'Guitar Class',
             'Music Lessons', 'Doctor checkup', 'Brazil - Mexico', 'Opening ceremony', 'Final presentation'
         ];
@@ -1618,7 +1659,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         scheduleObj.timezone = args.value;
         this.updateLiveTime(scheduleObj.timezone);
         document.querySelector('.schedule-overview #timezoneBtn').innerHTML =
-            '<span class="e-btn-icon e-icons e-schedule-timezone e-icon-left"></span>' + args.itemData.text;
+            '<span class="e-btn-icon e-icons e-time-zone e-icon-left"></span>' + args.itemData.text;
     },
     onDayStartHourChange: function(args) {
         let scheduleObj = document.getElementById('scheduler').ej2_instances[0];

@@ -46,7 +46,7 @@
                 eventSettings: {
                     dataSource: extend([], eventsData, null, true)
                 },
-                selectedDate: new Date(2018, 1, 15)
+                selectedDate: new Date(2021, 1, 15)
             }
         },
         provide: {

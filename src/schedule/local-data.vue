@@ -32,7 +32,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], zooEventsData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
             }
         },
         provide: {

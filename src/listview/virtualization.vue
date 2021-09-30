@@ -26,7 +26,7 @@
                         <div class="userselect">Time taken</div>
                     </td>
                     <td style="width: 50%;padding-right: 10px">
-                        <div style="padding-left: 10px;padding-top: 0">
+                        <div style="padding-left: 10px;">
                             <span id="time">0 ms</span>
                         </div>
                     </td>
@@ -106,7 +106,7 @@
 
 /* ListView theme customization */
 
-.highcontrast #ui-list.e-listview .e-list-item,
+.highcontrast #ui-list.e-listview .e-list-item:not(.e-hover),
 .highcontrast #ui-list.e-listview .e-list-header {
     background: rgb(0, 0, 0);
 }

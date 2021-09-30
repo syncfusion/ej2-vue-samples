@@ -17,14 +17,9 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Scroll To
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker :value="date" format='HH:mm' :change="onChange">
+                                <ejs-timepicker :value="date" format='HH:mm' :change="onChange" floatLabelType="Always" placeholder="Scroll To">
                                 </ejs-timepicker>
                             </div>
                         </td>
@@ -56,7 +51,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'Week',
                 date: new Date(2000, 0, 1, 9)
             }

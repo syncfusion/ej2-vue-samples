@@ -12,27 +12,33 @@
     <table id="property" title="Properties" style="width: 100%">
         <tbody>
             <tr style="height: 50px">
-                <td style="width: 80%">
-                    <div>Show Labels</div>
+                <td style="width: 30%">
+                    <div style="margin-left: -45px; margin-top: 30px">Show Labels</div>
                 </td>
                 <td>
-                    <input type="checkbox" checked id="select" style="margin-top: 15px" v-on:change="showLabel">
+                <div>
+                    <input type="checkbox" checked id="select" style="margin-top: 35px; margin-left: 50px" v-on:change="showLabel">
+                </div>
                 </td>
             </tr>            
         <tr style="height: 50px">
             <td style="width: 60%">
-                <div>Smart label mode</div>
+                <div style="margin-left: -45px;">Smart label mode</div>
             </td>
             <td style="width: 40%">
-             <ejs-dropdownlist ref="labelMode" id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>                                 
+             <div style="margin-left: 10px">
+             <ejs-dropdownlist ref="labelMode" id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>
+             </div>                                 
             </td>
         </tr>
         <tr style="height: 50px">
             <td style="width: 60%">
-                <div>Intersect action</div>
+                <div style="margin-left: -45px;">Intersect action</div>
             </td>
             <td style="width: 40%;">
-             <ejs-dropdownlist ref="intersect" id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>                                 
+            <div style="margin-left: 10px">
+             <ejs-dropdownlist ref="intersect" id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>
+             </div>                                 
             </td>
         </tr>
     </tbody></table>
@@ -91,10 +97,10 @@ export default Vue.extend({
         },
         smartlabeldata:['Trim','None','Hide'],
         smartlabelplaceholder:'Select smartlabel mode',
-        smartlabelwidth: 120,
+        smartlabelwidth: 90,
         intersectactiondata:['None','Trim','Hide'],
         intersectactionplaceholder:'Select intersect action',
-        intersectactionwidth: 120
+        intersectactionwidth: 90
       }
   },
   provide: {
@@ -106,7 +112,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
  /* custom code end */
 // Code for Property Panel 

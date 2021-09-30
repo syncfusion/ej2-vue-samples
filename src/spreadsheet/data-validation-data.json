@@ -71,10 +71,10 @@
             "DATE": "4/13/2021",
             "WEEKDAY": "Tue",
             "TIME IN": "10:00 AM",
-            "TIME OUT": "5:00 PM",
-            "HOURS WORKED": "7",
+            "TIME OUT": "7:00 PM",
+            "HOURS WORKED": "9",
             "BASIC SALARY (30/hour)": "=G10*30",
-            "GROSS PAY with OVERTIME(15/hour)": "=Sum(H10 + (0*15))"
+            "Gross Pay With Overtime(15/hour)": "=Sum(H10 + ((G10-8)*15))"
         },
         {
             "EMPLOYEE ID": "1004",

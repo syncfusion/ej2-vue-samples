@@ -56,6 +56,17 @@
     .bootstrap4 .ddl-icons-css .e-list-icon {
         color: #495057;
     }
+    .material-dark .ddl-icons-css .e-list-icon,
+    .bootstrap5-dark .ddl-icons-css .e-list-icon,
+    .tailwind-dark .ddl-icons-css .e-list-icon {
+        color: #fff;
+    }
+    .bootstrap-dark .ddl-icons-css .e-list-icon {
+        color: #f0f0f0;
+    }
+    .fabric-dark .ddl-icons-css .e-list-icon {
+        color: #dadada;
+    }
     .highcontrast .ddl-icons-css .e-list-icon {
         color: rgba(255, 255, 255, 0.57);
     }

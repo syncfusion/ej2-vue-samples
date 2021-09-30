@@ -51,7 +51,9 @@ gulp.task('publish-samples', function(done) {
         .pipe(gzip({ append: false }))
         .pipe(gulp.dest(demoPath))
         .on('end', function() {
-            cdn.publish(demoPath, false, prefixName, done);
+             cdn.publish(demoPath, false, prefixName, function(){
+                    shelljs.exec('gulp npmci-time-update')
+             });
         })
         .on('error', function(e) {
             done(e);

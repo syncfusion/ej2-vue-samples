@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="LG-export-sample">
     <div class="col-lg-9 control-section">
       <div class="control-section">
         <div align="center">
@@ -37,10 +37,10 @@
       </div>
     </div>
     <div class="col-lg-3 property-section">
-      <table id="property" title="Properties" style="width: 100%">
+      <table id="property" title="Properties" style="width: 100%; margin-left: -30px">
         <tr style="height: 50px">
           <td style="width: 40%">
-            <div>Export Type:</div>
+            <div>Export Type</div>
           </td>
           <td style="width: 60%;">
             <div style="margin-left: -10px">
@@ -50,17 +50,17 @@
         </tr>
         <tr style="height: 50px">
           <td style="width: 40%">
-            <div>File Name:</div>
+            <div>File Name</div>
           </td>
           <td style="width: 40%;">
             <div class="e-float-input" style="margin-top: 0px;">
-              <input type="text" value="Gauge" id="fileName" style="margin-left: -10px" />
+              <input type="text" value="Gauge" id="fileName" style="margin-left: -10px; width:90px;" />
             </div>
           </td>
         </tr>
         <tr id="button-control" style="height: 50px" align="center">
           <td>
-            <div>
+            <div style="width: 100px">
               <ejs-button
                 id="export"
                 :cssClass="cssClass"
@@ -73,7 +73,7 @@
             </div>
           </td>
           <td>
-            <div>
+            <div style="width: 100px">
               <ejs-button
                 id="print"
                 :cssClass="cssClass"
@@ -114,22 +114,74 @@
     </div>
   </div>
 </template>
-<style scoped>
-#button-control {
+<style>
+#LG-export-sample #button-control {
   width: 100%;
   text-align: center;
 }
 
-#control-container {
+#LG-export-sample #control-container {
   padding: 0px !important;
 }
 
-.e-play-icon::before {
+#LG-export-sample .e-play-icon::before {
   content: "\e728";
 }
 
-.e-play-icon1::before {
+#LG-export-sample .e-play-icon1::before {
   content: "\e34b";
+}
+
+#LG-export-sample #export {
+    width: 90px;
+}
+
+#LG-export-sample #print {
+    width: 90px;
+}
+
+.e-view.fabric #LG-export-sample .e-play-icon1::before, .e-view.fabric-dark #LG-export-sample .e-play-icon1::before {
+    content: "\e7df";
+}
+
+.e-view.fabric #LG-export-sample .e-play-icon::before, .e-view.fabric-dark #LG-export-sample .e-play-icon::before {
+    content: "\e710";
+}
+
+.e-view.bootstrap #LG-export-sample .e-play-icon1::before {
+    content: "\ebd2";
+}
+
+.e-view.bootstrap4 #LG-export-sample .e-play-icon::before {
+    content: "\e780";
+}
+
+.e-view.bootstrap4 #LG-export-sample .e-play-icon1::before {
+    content: "\e743";
+}
+
+.e-view.tailwind #LG-export-sample .e-play-icon1::before, .e-view.tailwind-dark #LG-export-sample .e-play-icon1::before {
+    content: "\e76c";
+}
+
+.e-view.tailwind #LG-export-sample .e-play-icon::before, .e-view.tailwind-dark #LG-export-sample .e-play-icon::before {
+    content: "\e7bf";
+}
+
+.e-view.highcontrast #LG-export-sample .e-play-icon1::before {
+    content: "\ebf9";
+}
+
+.e-view.highcontrast #LG-export-sample .e-play-icon::before {
+    content: "\e710";
+}
+
+.e-view.bootstrap5 #LG-export-sample .e-play-icon::before, .e-view.bootstrap5-dark #LG-export-sample .e-play-icon::before {
+    content: "\e72e";
+}
+
+.e-view.bootstrap5 #LG-export-sample .e-play-icon1::before, .e-view.bootstrap5-dark #LG-export-sample .e-play-icon1::before {
+    content: "\e75d";
 }
 </style>
 <script>
@@ -236,7 +288,8 @@ export default Vue.extend({
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     clickExport: function(args) {

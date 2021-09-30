@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :timeScale="timeScale" :eventSettings='eventSettings'>
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :workDays='workDays' :timeScale="timeScale" :eventSettings='eventSettings'>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -16,49 +16,34 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 50%">
-                            <div> Interval </div>
-                            <span>(in Minutes)</span>
-                        </td>
-                        <td style="width: 50%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-dropdownlist id="interval" :dataSource='intervalData' :value='intervalValue' :change='changeInterval' popupHeight="200px"></ejs-dropdownlist>
+                                <ejs-dropdownlist id="interval" :dataSource='intervalData' :value='intervalValue' :change='changeInterval' popupHeight="200px"
+                                placeholder="Interval (in minutes)" floatLabelType="Always"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 50%">
+                        <td style="width: 100%;">
                             <div>
-                                Slot Count
-                            </div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <ejs-dropdownlist id="slotCount" :dataSource='slotCountData' :value='slotCountValue' :change='changeSlotCount' popupHeight="200px"></ejs-dropdownlist>
+                                <ejs-dropdownlist id="slotCount" :dataSource='slotCountData' :value='slotCountValue' :change='changeSlotCount' popupHeight="200px"
+                                placeholder="Slot Count" floatLabelType="Always"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 50%">
+                        <td style="width: 100%;">
                             <div>
-                                Grid lines
-                            </div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <ejs-dropdownlist id="timescale" :dataSource='timescaleData' :value='timescaleValue' :change='changeTimescale'></ejs-dropdownlist>
+                                <ejs-dropdownlist id="timescale" :dataSource='timescaleData' :value='timescaleValue' :change='changeTimescale'
+                                placeholder="Gridlines" floatLabelType="Always"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 50%">
+                        <td style="width: 100%;">
                             <div>
-                                Apply Template
-                            </div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <ejs-dropdownlist id="template" :dataSource='templateData' :value='templateValue' :change='changeTemplate'></ejs-dropdownlist>
+                                <ejs-dropdownlist id="template" :dataSource='templateData' :value='templateValue' :change='changeTemplate'
+                                placeholder="Apply Template" floatLabelType="Always"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -131,9 +116,10 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'TimelineWeek',
                 timeScale: { enable: true, interval: 60, slotCount: 6 },
+                workDays: [0, 1, 2, 3, 4, 5],
                 intervalValue: '60',
                 intervalData: ['30', '60', '90', '120', '150', '180', '240', '300', '720'],
                 slotCountValue: '6',

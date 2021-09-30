@@ -1,5 +1,6 @@
 <template>
   <div class="control-section tooltip-ajax">
+    <h4 class="list-header">National Sports</h4>
       <ejs-tooltip ref="tooltip" style="display:block;" class="e-prevent-select" :content="content" target="#countrylist [title]" position='RightCenter' cssClass= 'e-ajax-content'
         :beforeRender="onBeforeRender">
 
@@ -7,7 +8,7 @@
         <ejs-listview id='countrylist' :dataSource="listViewData" :fields='fields'></ejs-listview>
     </ejs-tooltip>
             <div id="action-description">
-                <p>This sample demonstrates the AJAX functionalities of the Tooltip which will open by Hover or Touch-hold action on list-item.</p>
+                <p>This sample demonstrates the AJAX functionalities of the Tooltip which will open by <b>hover</b> or <b>touch-hold</b> action on list-item.</p>
             </div>    
             <div id="description">
                  <p>This sample illustrates the way to load the content of a tooltip dynamically using AJAX request. Here, when the user
@@ -92,7 +93,6 @@
 
     .tooltip-ajax .list-header {
         text-align: center;
-        color: rgba(0, 0, 0, 0.54);
     }
 
     @media (max-width: 481px) {

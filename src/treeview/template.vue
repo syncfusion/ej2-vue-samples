@@ -6,7 +6,7 @@
         </div>
         </div>
     <div id="action-description">
-        <p>This sample demonstrates the template functionalities of the TreeView. Select the root node by clicking on it, or expand the root node and select the customized child node.</p>
+        <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the template functionalities of the TreeView. Select the root node by clicking on it, or expand the root node and select the customized child node.</p>
     </div>
     <div id="description">
         <p>The <code>TreeView</code> component has an option to customize the node structure through the <code>nodeTemplate</code> property, so that the tree node can be formed with any custom structure.</p>
@@ -32,6 +32,23 @@
     }
     .material .tree-template .treeCount.e-badge {
         vertical-align: middle;
+    }
+    .bootstrap4 .treeviewdiv .treeCount.e-badge,
+    .bootstrap5 .treeviewdiv .treeCount.e-badge,
+    .bootstrap5-dark .treeviewdiv .treeCount.e-badge,
+    .bootstrap .treeviewdiv .treeCount.e-badge,
+    .bootstrap-dark .treeviewdiv .treeCount.e-badge,
+    .highcontrast .treeviewdiv .treeCount.e-badge {
+        background-color: #008800;
+    }
+    .highcontrast .treeviewdiv .treeCount.e-badge {
+        color: white;
+    }
+    .bootstrap5.e-bigger .tree-template .treeCount.e-badge,
+    .tailwind.e-bigger .tree-template .treeCount.e-badge,
+    .tailwind-dark.e-bigger .tree-template .treeCount.e-badge,
+    .bootstrap5-dark.e-bigger .tree-template .treeCount.e-badge {
+        line-height: 11px;
     }
     .tree-template .nodetext {
         float: left;

@@ -38,7 +38,7 @@
         <tbody>
             <tr style="height: 50px">
                 <td style="width: 10%">
-                    <div class="property-text">Color Mapping Type</div>
+                    <div class="property-text" style="margin-left: -40px;">Color Mapping Type</div>
                 </td>
                 <td style="width: 30%;">
                 <ejs-dropdownlist id='colorMapping' style="width:110;" :dataSource='labelsdata' :fields='localFields' index=0 :width='labelswidth' :change='changeColor'></ejs-dropdownlist>
@@ -46,28 +46,28 @@
             </tr>
             <tr id="hideOne">
                     <td style="width: 40%">
-                        <div class="property-text"> Change Opacity</div>
+                        <div class="property-text" style="margin-left: -40px;"> Change Opacity</div>
                     </td>
                     <td style="width: 40%;">
-                        <div>
+                        <div style="margin-left: 30px">
                         <ejs-checkbox ref="opacity" id="opacity" :change="changeOpcity"></ejs-checkbox>
                         </div>
                     </td>
             </tr>
             <tr id="hideTwo">
                 <td style="width: 50%">
-                    <div class="property-text" style="margin-top:12%">Min Opacity</div>
+                    <div class="property-text" style="margin-top:12%; margin-left: -40px;">Min Opacity</div>
                 </td>
                 <td style="width: 50%;">
-                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:100%;margin-top: 20%" />
+                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:120px;margin-top: 20%" />
                 </td>
             </tr>
             <tr id="hideThree">
                 <td style="width: 50%">
-                    <div class="property-text" style="margin-top:12%">Max Opacity</div>
+                    <div class="property-text" style="margin-top:12%; margin-left: -40px;">Max Opacity</div>
                 </td>
                 <td style="width: 50%;">
-                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:100%;margin-top: 20%" />
+                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:120px;margin-top: 20%" />
                 </td>
             </tr>            
         </tbody>
@@ -209,7 +209,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         let dropDownElement = document.getElementById('colorMapping');
         let opacityCheck = document.getElementById('opacity');
         if(dropDownElement.value === 'Desaturation'){

@@ -11,7 +11,7 @@
                 <br/>
             </div>
             <ejs-grid ref='overviewgrid' id='overviewgrid' :dataSource="getTradeData" :selectionSettings='selectionSettings' :allowFiltering='true' :filterSettings='filterOptions' :allowSelection='true' :allowSorting='true'
-                :enableVirtualization='true' height='600' rowHeight=38 :enableHover='false' :load='load'>
+                :enableVirtualization='true' height='600' rowHeight=38 :enableHover='false' :enableHeaderFocus='true' :load='load'>
                 <e-columns>
                     <e-column type='checkbox' :allowFiltering='false' :allowSorting='false' width='60'></e-column>
                     <e-column field='EmployeeID' :visible='false' headerText='Employee ID' :isPrimaryKey='true' width='130'></e-column>

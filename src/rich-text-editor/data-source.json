@@ -8,5 +8,15 @@
     "saveFormat": [
         { "Id": "Blob", "format": "blob" },
         { "Id": "Base64", "format": "base" }
+    ],
+    "enterData": [
+        { "text": "Create a new <p>", "value": "P" },
+        { "text": "Create a new <div>", "value": "DIV" },
+        { "text": "Create a new <br>", "value": "BR" }
+    ],
+    "shiftEnterData": [
+        { "text": "Create a new <br>", "value": "BR" },
+        { "text": "Create a new <div>", "value": "DIV" },
+        { "text": "Create a new <p>", "value": "P" }
     ]
 }

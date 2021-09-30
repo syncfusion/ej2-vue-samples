@@ -74,7 +74,7 @@
 </div>
 <div id="action-description">
     <p>
-        The following sample demonstrates the default functionalities of the DashboardLayout component. Click the <code>Add Panel</code> button to add panels dynamically to the dashboard layout.
+        This <a href="https://www.syncfusion.com/vue-ui-components/vue-dashboard-layout">Vue Dashboard Layout </a> example demonstrates the default functionalities of the DashboardLayout component. Click the Add Panel button to add panels dynamically to the dashboard layout.
     </p>
 </div>
 
@@ -154,8 +154,13 @@ export default Vue.extend ({
         content: '\e745';
     }
 
-    .tailwind .dashboard-default .e-clear-icon::before {
+    .tailwind .dashboard-default .e-clear-icon::before, .tailwind-dark .dashboard-default .e-clear-icon::before {
         content: '\e771';
+        font-size: 16px;
+    }
+
+    .bootstrap5 .dashboard-default .e-clear-icon::before, .bootstrap5-dark .dashboard-default .e-clear-icon::before {
+        content: '\e7e7';
         font-size: 16px;
     }
 
@@ -171,5 +176,9 @@ export default Vue.extend ({
 /* high contrast style */
     body.highcontrast .dashboard-default #defaultLayout.e-dashboardlayout.e-control .e-panel {
         background: #000;
+    }
+
+    body.tailwind-dark .e-dashboardlayout.e-control .e-panel {
+        border: 1px solid #d7d7d7;
     }
 </style>

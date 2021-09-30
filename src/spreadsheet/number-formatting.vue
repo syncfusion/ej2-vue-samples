@@ -66,6 +66,9 @@
           and a range of cells by using the <code>numberFormat</code> method.
       </p>
       <p>
+        In the Amount column, we have used Custom number formatting to highlight the values less than 350 and greater than 350 with red and blue colors respectively.
+      </p>
+      <p>
         More information about number formatting can be found in this
           <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/formatting/#number-formatting">
             documentation</a> section.
@@ -119,6 +122,7 @@ export default Vue.extend({
         spreadsheet.cellFormat({ backgroundColor: '#B3E5FC' }, 'A15:E17');
         spreadsheet.numberFormat('$#,##0.00', 'D4:E14');
         spreadsheet.numberFormat('$#,##0.00', 'E15:E17');
+        spreadsheet.numberFormat('[Red][<=350]$#,##0.00;[Blue][>350]$#,##0.00', 'E4:E14');
     }
   }
 });

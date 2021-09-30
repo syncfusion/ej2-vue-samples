@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteObj" :created="onCreate"  placeholder="Type @ to get the employee list with their email IDs."></ejs-richtexteditor>
+        <ejs-richtexteditor ref="rteObj" :created="onCreate" :actionBegin="actionBeginEvent" placeholder="Type @ to get the employee list with their email IDs."></ejs-richtexteditor>
         </div>
     </div>
 </div>
@@ -86,6 +86,11 @@ export default Vue.extend({
             ]
           })  
           tribute.attach(this.$refs.rteObj.ej2Instances.inputElement);
+    },
+    actionBeginEvent: function(args) {
+        if (args.requestType === 'EnterAction') {
+            args.cancel = true;
+        }
     }
     },
     provide:{

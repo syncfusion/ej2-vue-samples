@@ -13,6 +13,7 @@
         :chartArea="chartArea"
         :width="width"
         :textRender="textRender"
+        :load="load"
         :subTitleStyle="subTitleStyle"
       >
         <e-series-collection>
@@ -80,6 +81,20 @@ import Template5 from "./datalabel-temp5.vue";
 import Template6 from "./datalabel-temp6.vue";
 import Template7 from "./datalabel-temp7.vue";
 import Template8 from "./datalabel-temp8.vue";
+import Template9 from "./datalabel-temp9.vue";
+import Template10 from "./datalabel-temp10.vue";
+import Template11 from "./datalabel-temp11.vue";
+import Template12 from "./datalabel-temp12.vue";
+import Template13 from "./datalabel-temp13.vue";
+import Template14 from "./datalabel-temp14.vue";
+import Template15 from "./datalabel-temp15.vue";
+import Template16 from "./datalabel-temp16.vue";
+import Template17 from "./datalabel-temp17.vue";
+import Template18 from "./datalabel-temp18.vue";
+import Template19 from "./datalabel-temp19.vue";
+import Template20 from "./datalabel-temp20.vue";
+import Template21 from "./datalabel-temp21.vue";
+import Template22 from "./datalabel-temp22.vue";
 
 Vue.use(ChartPlugin);
 
@@ -112,6 +127,48 @@ let highcontrastMan = function() {
 };
 let highcontrastWomen = function() {
   return { template: Template8 };
+};
+let materialdarkMan = function() {
+  return { template: Template9 };
+};
+let materialdarkWomen = function() {
+  return { template: Template10 };
+};
+let fabricdarkMan = function() {
+  return { template: Template11 };
+};
+let fabricdarkWomen = function() {
+  return { template: Template12 };
+};
+let bootstrapdarkMan = function() {
+  return { template: Template13 };
+};
+let bootstrapdarkWomen = function() {
+  return { template: Template14 };
+};
+let bootstrap5Man = function() {
+  return { template: Template15 };
+};
+let bootstrap5Women = function() {
+  return { template: Template16 };
+};
+let bootstrap5darkMan = function() {
+  return { template: Template17 };
+};
+let bootstrap5darkWomen = function() {
+  return { template: Template18 };
+};
+let tailwindMan = function() {
+  return { template: Template19 };
+};
+let tailwindWomen = function() {
+  return { template: Template20 };
+};
+let tailwinddarkMan = function() {
+  return { template: Template21 };
+};
+let tailwinddarkWomen = function() {
+  return { template: Template22 };
 };
 
 export default Vue.extend({
@@ -213,16 +270,37 @@ export default Vue.extend({
     chart: [LineSeries, Legend, Category, DataLabel]
   },
   methods: {
+    load: function(args) {
+            var selectedTheme = location.hash.split('/')[1];
+            selectedTheme = selectedTheme ? selectedTheme : 'Material';
+            theme = args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            args.chart.theme = theme;
+    },
     textRender: function(args) {
-      if (theme === "Material") {
-        args.template =
-          args.series.name === "Male" ? materialMan : materialWomen;
-      } else if (theme === "Fabric") {
-        args.template = args.series.name === "Male" ? fabricMan : fabricWomen;
-      } else {
-        args.template =
-          args.series.name === "Male" ? bootstrapMan : bootstrapWomen;
-      }
+      if (theme === 'Material') {
+            args.template = args.series.name === 'Male' ? materialMan : materialWomen;
+        } else if (theme === 'Fabric') {
+            args.template = args.series.name === 'Male' ? fabricMan : fabricWomen;
+        }  else if (theme === 'HighContrast') {
+            args.template = args.series.name === 'Male' ? highcontrastMan : highcontrastWomen;
+        }  else if (theme === 'Tailwind') {
+            args.template = args.series.name === 'Male' ? tailwindMan : tailwindWomen;
+        } else if (theme === 'Bootstrap') {
+            args.template = args.series.name === 'Male' ? bootstrapMan : bootstrapWomen;
+        } else if (theme === 'Bootstrap5') {
+            args.template = args.series.name === 'Male' ? bootstrap5Man : bootstrap5Women;
+        } else if (theme === 'TailwindDark') {
+            args.template = args.series.name === 'Male' ? tailwinddarkMan : tailwinddarkWomen;
+        } else if (theme === 'MaterialDark') {
+            args.template = args.series.name === 'Male' ? materialdarkMan : materialdarkWomen;
+        } else if (theme === 'FabricDark') {
+            args.template = args.series.name === 'Male' ? fabricdarkMan : fabricdarkWomen;
+        } else if (theme === 'Bootstrap5Dark') {
+            args.template = args.series.name === 'Male' ? bootstrap5darkMan : bootstrap5darkWomen;
+        } else {
+            args.template = args.series.name === 'Male' ? bootstrapdarkMan : bootstrapdarkWomen;
+        }
     }
   }
 });

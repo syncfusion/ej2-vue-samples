@@ -173,15 +173,27 @@ export default  Vue.extend({
 
   .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     border-bottom: 2px solid #e6e9ed !important;
-    padding: 10px;
     height: 35px;
-    margin: 0 15px 0 15px;
+    padding: 0 15px 0 15px;
+    line-height: 35px;
   }
 
   .dashboard-seo #analysisLayout.e-dashboardlayout  .e-panel-content {
     height: calc(100% - 35px) !important;
     overflow: hidden;
     width: 100%;
+  }
+
+  .bootstrap5-dark .card-content.text,
+  .tailwind-dark .card-content.text,
+  .material-dark .card-content.text,
+  .bootstrap-dark .card-content.text,
+  .highcontrast .card-content.text {
+    color: #ffffff;
+  }
+
+  .fabric-dark .card-content.text{
+    color: #dadada
   }
 
   .dashboard-seo #sidebar-section {
@@ -488,5 +500,18 @@ body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-
 body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
+
+.bootstrap-dark li.sidebar-item.filterHover,
+.material-dark li.sidebar-item.filterHover,
+.fabric-dark li.sidebar-item.filterHover,
+.tailwind-dark li.sidebar-item.filterHover,
+.bootstrap5-dark li.sidebar-item.filterHover {
+    background: inherit;
+ }
+
+ .tailwind #dashboardSidebar,
+  .bootstrap5 #dashboardSidebar {
+    background: #fff;
+  }
 
 </style>

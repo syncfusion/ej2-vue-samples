@@ -90,7 +90,7 @@
      export default Vue.extend({
         data: function () {
             return {
-                selectedDate: new Date(2018, 5, 5),
+                selectedDate: new Date(2021, 5, 6),
                 resourceDataSource: ownerCollections,
                 ownerCollection: ownerCollections,
                 allowMultiple: true,

@@ -13,32 +13,26 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Allow Virtual Scrolling</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-dropdownlist id="allow-virtual-scroll" :dataSource='datas' :value='value' popupHeight='200px' :change='change'></ejs-dropdownlist>
+                                <ejs-dropdownlist id="allow-virtual-scroll" :dataSource='datas' :value='value' popupHeight='200px' :change='change'
+                                floatLabelType="Always" placeholder="Allow Virtual Scrolling"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Hide Empty Days</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-dropdownlist id="hide-empty-days" :dataSource='datas' :value='values' :change='onChange' popupHeight="200px"></ejs-dropdownlist>
+                                <ejs-dropdownlist id="hide-empty-days" :dataSource='datas' :value='values' :change='onChange' popupHeight="200px"
+                                floatLabelType="Always" placeholder="Hide Empty Days"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Days Count</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-numerictextbox :min='1' :max='15' :value='7' format='n0' :change='onCountChange'>
+                                <ejs-numerictextbox :min='1' :max='15' :value='7' format='n0' :change='onCountChange'
+                                floatLabelType="Always" placeholder="Days Count">
                                 </ejs-numerictextbox>
                             </div>
                         </td>
@@ -87,7 +81,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: generateObject() },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 datas: ['Agenda'],
                 scheduleView: 'Agenda',
                 virtualscroll: false,

@@ -73,19 +73,6 @@
     padding: 0;
 }
 
-.schedule-vue-sample .treeview-external-drag #waitid {
-    float: left;
-    width: 13%;
-    text-align: center;
-    line-height: 30px;
-    font-size: 13px;
-    font-family: "Segoe UI";
-    color: #f9920b;
-    overflow: hidden;
-    margin: 9px 0;
-    padding: 0 2px 0 0;
-}
-
 .schedule-vue-sample .treeview-external-drag #waitdetails {
     width: 95%;
     float: left;
@@ -107,7 +94,6 @@
     font-weight: bold;
     font-family: "Segoe UI";
     font-size: 12px;
-    color: #545554;
     padding: 5px 0 0 10px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -117,7 +103,6 @@
     height: 50%;
     font-family: "Segoe UI";
     font-size: 10px;
-    color: #545554;
     opacity: 0.6;
     padding-left: 10px;
     padding-top: 5px;
@@ -129,7 +114,6 @@
 .schedule-vue-sample .treeview-external-drag.e-rtl .e-list-text,
 .e-bigger .schedule-vue-sample .treeview-external-drag .e-list-text,
 .e-bigger .schedule-vue-sample .treeview-external-drag.e-rtl .e-list-text {
-    background: white;
     border: 0.5px solid #E1E7EC;
     height: 50px;
     line-height: 15px;
@@ -187,6 +171,10 @@
     padding-left: 30px
 }
 
+.e-schedule.schedule-drag-drop .e-resource-cells.e-parent-node .template-wrap {
+    padding: 3px 0px;
+}
+
 .schedule-vue-sample .e-schedule.e-rtl.schedule-drag-drop .e-resource-cells.e-parent-node .specialist-category {
     padding-right: 30px
 }
@@ -194,6 +182,13 @@
 .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category,
 .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name {
     padding: 5px
+}
+
+.tailwind .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category,
+.tailwind .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name,
+.tailwind-dark .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category,
+.tailwind-dark .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name {
+  padding: unset !important;
 }
 
 .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-parent-node .specialist-name {
@@ -309,7 +304,7 @@
                         description: { title: 'Reason', name: 'Description' }
                     },
                 },
-                selectedDate: new Date(2018, 7, 1),
+                selectedDate: new Date(2021, 7, 2),
                 currentView: 'TimelineDay',
                 cssClass: 'schedule-drag-drop',
                 group: {

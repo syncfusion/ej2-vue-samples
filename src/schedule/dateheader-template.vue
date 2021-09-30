@@ -100,7 +100,8 @@
         height: 20px;
     }
 
-    .schedule-date-header-template.e-schedule .e-left-indent .e-header-cells {
+    .tailwind .schedule-date-header-template.e-schedule .e-left-indent .e-header-cells,
+    .tailwind-dark .schedule-date-header-template.e-schedule .e-left-indent .e-header-cells {
         height: 66px;
     }
 </style>
@@ -152,7 +153,7 @@
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
                 cssClass: 'schedule-date-header-template',
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 dateHeaderTemplate: function () {
                     return { template: dateHeaderTemplate }
                 },

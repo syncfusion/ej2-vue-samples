@@ -121,10 +121,18 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
+            "url": "sticky-header",
+            "name": "Sticky Header",
+            "category": "Scrolling",
+			"type": "new",
+            "description": "This demo for Essential JS 2 grid component shows the usage of sticky header feature which helps to see the header in a fixed possition while scrolling.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["enableStickyHeader", "columns", "dataSource"] }
+        },
+        {
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling",
             "category": "Scrolling",
-            "type": "update",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },
@@ -137,6 +145,7 @@
             "url": "infinite-scrolling",
             "name": "Infinite Scrolling",
             "category": "Scrolling",
+            "type": "update",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableInfiniteScrolling"] },

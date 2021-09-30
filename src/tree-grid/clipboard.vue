@@ -123,7 +123,7 @@ export default Vue.extend({
             },
   alertDlgBtnClick: function() {
         ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
-    },
+  },
       onChange: function(e: ChangeEventArgs): void {
                 let mode:any = e.value.toString();
                 (<TreeGridComponent>this.$refs.treegrid).ej2Instances.copyHierarchyMode = mode;

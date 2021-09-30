@@ -2,19 +2,17 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'></ejs-schedule>
+                <ejs-schedule height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' v-model='selectedDate'></ejs-schedule>
             </div>
         </div>
         <div class="col-lg-3 property-section">
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Current Date</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'></ejs-datepicker>
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' v-model='selectedDate'
+                                placeholder="Current Date" floatLabelType="Always"></ejs-datepicker>
                             </div>
                         </td>
                     </tr>
@@ -117,16 +115,13 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10)
+                selectedDate: new Date(2021, 0, 10)
             }
         },
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
         },
         methods: {
-            onDateChange: function (args) {
-                this.selectedDate = args.value;
-            }
         }
     });
 

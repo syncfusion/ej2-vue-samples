@@ -5,7 +5,7 @@
     <e-axes>
         <e-axis :maximum='maximum' :labelStyle='labelStyle' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :ranges='ranges'>
             <e-pointers>
-                <e-pointer :value='value' :height='height' :width='width' :color='color' :placement='placement' :markerType='markerType' :offset='offset'></e-pointer>
+                <e-pointer :value='value' :height='height' :width='width' :placement='placement' :markerType='markerType' :offset='offset'></e-pointer>
             </e-pointers>
         </e-axis>
     </e-axes>
@@ -78,7 +78,6 @@ data:function(){
         value: 35,
         height: 15,
         width: 15,
-        color: '#757575',
         placement: 'Near',
         markerType: 'Triangle',
         offset: -50,
@@ -117,13 +116,14 @@ methods: {
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
-      args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+      args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     gaugeLoad: function(args){
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : "Material";
-    args.gauge.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+    args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     /* custom code end */
     let count = 0;
     if (this.count === undefined) {

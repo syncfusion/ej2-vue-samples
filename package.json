@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "19.2.44",
+  "version": "19.3.43",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -40,6 +40,7 @@
     "@syncfusion/ej2-vue-progressbar": "*",
     "@types/codemirror": "0.0.56",
     "@types/node": "12.12.22",
+    "@microsoft/signalr": "5.0.9",
     "codemirror": "^5.37.0",
     "elasticlunr": "0.9.5",
     "fuse.js": "^3.2.0",

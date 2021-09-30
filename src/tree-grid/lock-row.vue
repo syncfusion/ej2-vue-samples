@@ -13,7 +13,6 @@
       <div>
         <div class="col-md-3 property-section">
             <table id="property" title="Properties" style="width: 100%">
-                <br/><br/>
                 <tr style="height: 50px">
                     <td style="width: 70%">
                         <div>Disable Rows</div>
@@ -56,25 +55,25 @@
 </div>
 </div>
 </template>
-<style scoped>
+<style>
     .material .disableRow .e-rowcell{
-        color: rgba(0, 0, 0, .38);
+        color: rgba(0, 0, 0, .38) !important;
     }
 </style>
 <!-- custom code start -->
 <style>
-    .fabric .disableRow .e-rowcell{
-        color: #c8c8c8;
-    }
-    .bootstrap .disableRow .e-rowcell{
-        color: rgba(0, 0, 0, .35);
-    }
-    .bootstrap4 .disableRow .e-rowcell{
-        color: rgba(0, 0, 0, .35)
-    }
-    .highcontrast .disableRow .e-rowcell{
-        color: #757575;
-    }
+.material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
+.bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .highcontrast .disableRow .e-rowcell, 
+.tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell {
+    color: #757575 !important;
+}
+.fabric .disableRow .e-rowcell {
+    color: #c8c8c8 !important;
+}
+.bootstrap .disableRow .e-rowcell, .bootstrap4 .disableRow .e-rowcell, 
+.bootstrap5 .disableRow .e-rowcell {
+    color: rgba(0, 0, 0, .35) !important;
+}   
 </style>
 <!-- custom code end -->
 <script lang="ts">

@@ -199,4 +199,8 @@ body.highcontrast .dashboard-api #api_dashboard.e-dashboardlayout.e-control .e-p
     width: 16px;
 }
 
+ .property-section.dashboard .e-input-group.e-control-wrapper {
+        width:122px;
+    }
+
 </style>

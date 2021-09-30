@@ -3,7 +3,6 @@
     "directory": "stock-chart",
     "category": "Data Visualization",
     "ftName": "stock-chart",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -49,7 +48,6 @@
             "name": "Multiple Series",
             "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
             "category": "Stock Chart",
-            "type": "update",
             "api": {
                 "RangeNavigator": [
                     "valueType",

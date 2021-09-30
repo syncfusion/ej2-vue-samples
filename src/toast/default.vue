@@ -23,7 +23,7 @@
                 </div>
      </div>
 </template>
-    <style>
+<style>
     #toast_default .e-meeting::before {
         content: "\e705";
         font-size: 17px;
@@ -32,7 +32,17 @@
         content: "\e763";
         font-size: 20px;
     }
-    </style>
+    .tailwind #toast_default .e-meeting::before,
+    .tailwind-dark #toast_default .e-meeting::before {
+        content: "\e7a1";
+        font-size: 18px;
+    }
+    .bootstrap5 #toast_default .e-meeting::before,
+    .bootstrap5-dark #toast_default .e-meeting::before {
+        content: "\e7e9";
+        font-size: 18px;
+    }
+</style>
 
 <script>
 import Vue from "vue";

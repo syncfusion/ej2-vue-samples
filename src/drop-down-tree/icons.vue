@@ -38,6 +38,7 @@
     }
 
     .dropdowntree-icons .e-treeview .e-list-icon.folder { background-position: -10px -552px }
+    .e-bigger .dropdowntree-icons .e-treeview .e-list-icon.folder { background-position: -10px -550px; }
     .dropdowntree-icons .e-treeview .e-list-icon.docx { background-position: -10px -20px }
     .dropdowntree-icons .e-treeview .e-list-icon.ppt { background-position: -10px -48px }
     .dropdowntree-icons .e-treeview .e-list-icon.pdf { background-position: -10px -104px }

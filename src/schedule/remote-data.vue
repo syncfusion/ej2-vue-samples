@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView="currentView"
+                <ejs-schedule id='Schedule' height="650px" :eventSettings='eventSettings' :currentView="currentView"
                     :readonly="readonly"></ejs-schedule>
             </div>
         </div>
@@ -63,7 +63,6 @@
     export default Vue.extend({
         data: function () {
             return {
-                selectedDate: new Date(2020, 10, 22),
                 readonly: true,
                 eventSettings: { dataSource: dataManger },
                 currentView: 'Week'

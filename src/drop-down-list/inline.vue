@@ -58,6 +58,47 @@
         border-bottom: 1px dashed black;
         box-shadow: none;
     }
+    .highcontrast .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .highcontrast .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .highcontrast .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .highcontrast .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .highcontrast .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after {
+        border-bottom: 1px dashed #f0f0f0;
+    }
+    .material-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .material-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .material-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .material-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .material-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .material-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after,
+    .fabric-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .fabric-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .fabric-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .fabric-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .fabric-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .fabric-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after,
+    .bootstrap-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .bootstrap-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .bootstrap-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .bootstrap-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .bootstrap-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .bootstrap-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after,
+    .bootstrap5-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .bootstrap5-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .bootstrap5-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .bootstrap5-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .bootstrap5-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .bootstrap5-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after {
+        border-bottom: 1px dashed #f0f0f0;
+    }
+    .tailwind-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .tailwind-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after {
+        border-bottom: 1px dashed #f0f0f0;
+    }
+    
 </style>
 <script>
 import Vue from "vue";
@@ -72,7 +113,7 @@ export default Vue.extend ({
         return {
             fields: { text: 'Name'},
             height: '220px',
-            width: '63px',
+            width: '65px',
             popupWidth: '140px',
             value: 'Michael',
             watermark: 'Select an employee',

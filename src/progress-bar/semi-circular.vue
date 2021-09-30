@@ -201,7 +201,7 @@ import {
         }
         return ('<div id="point1" style="font-size:24px;font-weight:bold;color: ' + color + ' "><span>' + content + '</span></div>');
     }
-    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939'];
+    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD'];
 
 Vue.use(ProgressBarPlugin);
 
@@ -270,9 +270,20 @@ export default Vue.extend({
             case 'tailwind':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[4], args.progressBar.element.id);
                 break;
+            case 'bootstrap-dark':
+            case 'fabric-dark':
+            case 'material-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[6], args.progressBar.element.id);
+                break;
+            case 'bootstrap5':
+            case 'bootstrap5-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[8], args.progressBar.element.id);
+                break;
+            case 'tailwind-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[7], args.progressBar.element.id);
+                break;
             default:
-                args.progressBar.annotations[0].content =
-                    this.annotationElementContent(this.annotationColors[5], args.progressBar.element.id);
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[5], args.progressBar.element.id);
                 break;
           }
       }

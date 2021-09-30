@@ -71,6 +71,17 @@
     .bootstrap4 .autocomplete-icon-css .e-list-icon {
         color: #495057;
     }
+    .material-dark .autocomplete-icon-css .e-list-icon,
+    .bootstrap5-dark .autocomplete-icon-css .e-list-icon,
+    .tailwind-dark .autocomplete-icon-css .e-list-icon {
+        color: #fff;
+    }
+    .bootstrap-dark .autocomplete-icon-css .e-list-icon {
+        color: #f0f0f0;
+    }
+    .fabric-dark .autocomplete-icon-css .e-list-icon {
+        color: #dadada;
+    }
     .autocomplete-icon-css .twitter:before {
         content: "\a701";
     }

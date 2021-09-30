@@ -6,7 +6,7 @@
 <e-axes>
 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0  maximum=160 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
 <e-pointers>
-<e-pointer :value='value' :radius='pointerRadius' :color='color' :markerHeight='markerHeight' :markerWidth='markerWidth' :type='type' :markerShape='markerShape'></e-pointer>
+<e-pointer :value='value' :radius='pointerRadius'  :markerHeight='markerHeight' :markerWidth='markerWidth' :type='type' :markerShape='markerShape'></e-pointer>
 </e-pointers>
 </e-axis>
 <e-axis :radius='gaugeradius2' :startAngle='startAngle2' minimum=0  maximum=240 :endAngle='endAngle2' :majorTicks='majorTicks2' :lineStyle='lineStyle2' :minorTicks='minorTicks2' :labelStyle='labelStyle2'>
@@ -47,7 +47,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="start" id="startAngle" value="220" min="0" max="360" v-on:pointermove="startAnglechange" v-on:touchmove="startAnglechange" v-on:change="startAnglechange"  />
+                        <input type="range" ref="start" id="startAngle" value="220" min="0" max="360" v-on:pointermove="startAnglechange" v-on:touchmove="startAnglechange" v-on:change="startAnglechange" style="width: 120px" />
                     </div>
                 </td>
             </tr>&nbsp;
@@ -57,7 +57,7 @@
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="end" id="endAngle" value="140" min="0" max="360" v-on:pointermove="endAnglechange" v-on:touchmove="endAnglechange" v-on:change="endAnglechange"  />
+                        <input type="range" ref="end" id="endAngle" value="140" min="0" max="360" v-on:pointermove="endAnglechange" v-on:touchmove="endAnglechange" v-on:change="endAnglechange" style="width: 120px"  />
                     </div>
                 </td>
             </tr>
@@ -94,20 +94,20 @@ data:function(){
     return{
         title: 'Gauge with Multiple Axes',
         titleStyle: { color: 'gray', size: '16px' },
-        lineStyle: { width: 1.5, color: ' #9E9E9E' },
+        lineStyle: { width: 1.5 },
         gaugeradius: '95%',
         labelStyle: {
                 position: 'Inside', autoAngle: true,
                 hiddenLabel: 'None',
         }, majorTicks: {
                 position: 'Inside',
-                width: 2, height: 10, color: '#757575'
+                width: 2, height: 10
         }, minorTicks: {
                 position: 'Inside', width: 2,
-                height: 5, color: '#757575'
+                height: 5
         },
         startAngle: 220, endAngle: 140,
-        value: 80, pointerRadius: '100%', color: '#333333',
+        value: 80, pointerRadius: '100%',
         markerHeight: 15, markerWidth: 15, type: 'Marker',
         markerShape: 'Triangle',
         lineStyle2: { width: 1.5, color: '#E84011' }, gaugeradius2: '95%',
@@ -140,7 +140,8 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

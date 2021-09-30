@@ -70,7 +70,7 @@
     export default Vue.extend({
         data: function () {
             return {
-                selectedDate: new Date(2018, 4, 1),
+                selectedDate: new Date(2021, 4, 1),
                 cssClass: 'virtual-scroll',
                 virtualScroll: true,
                 monthTemplate: function (e) {
@@ -83,7 +83,7 @@
                     resources: ['Resources']
                 },
                 resourceData: generateResourceData(1, 300, 'Resource'),
-                eventSettings: { dataSource: generateStaticEvents(new Date(2018, 4, 1), 300, 12) }
+                eventSettings: { dataSource: generateStaticEvents(new Date(2021, 4, 1), 300, 12) }
             }
         },
         provide: {

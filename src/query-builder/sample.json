@@ -3,6 +3,7 @@
     "directory": "query-builder",
     "category": "Forms",
     "ftName": "query-builder",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -12,11 +13,35 @@
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "created"]  }
         },
         {
-            "url": "template",
-            "name": "Template",
+            "url": "complex-databinding",
+            "name": "Complex Databinding",
             "category": "Query Builder",
+            "type": "new",
+            "description": "This sample demonstrates the complex databinding functionalities of the Query Builder component. Click the plus button to add group or rules.",
+            "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
+        },
+        {
+            "url": "template",
+            "name": "Value Template",
+            "category": "Template",
             "api": { "QueryBuilder": ["width","columns", "rule", "ruleChange"] },
             "description": "This sample demonstrates the integration of DropdownList, Slider controls as Templates in the Query Builder component."
+        },
+        {
+            "url": "rule-template",
+            "name": "Rule Template",
+            "category": "Template",
+            "type":"new",
+            "api": { "QueryBuilder": ["width","columns", "rule"] },
+            "description": "This sample demonstrates the integration of DropdownList, Rule Templates in the Query Builder component."
+        },
+        {
+            "url": "header-template",
+            "name": "Header Template",
+            "category": "Template",
+            "type":"new",
+            "api": { "QueryBuilder": ["width","columns", "rule", "headerTemplate"] },
+            "description": "This sample demonstrates the integration of DropdownList, Header Templates in the Query Builder component."
         },
         {
             "url": "grid",

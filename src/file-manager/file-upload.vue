@@ -52,7 +52,21 @@
     .file-upload #uploadFileManager .e-file-drop, .file-upload #uploadFileManager .e-css.e-btn {
         display: none;
     }
+    
+    .tailwind #openBtn,
+    .tailwind-dark #openBtn {
+		top: 28px;
+	}
+	
+	.bootstrap5 #openBtn,
+    .bootstrap5-dark #openBtn {
+        top: 26px;
+    }
 
+    .bootstrap #openBtn,
+    .bootstrap-dark #openBtn {
+        top: 30px;
+    }
 </style>
 
 <script>

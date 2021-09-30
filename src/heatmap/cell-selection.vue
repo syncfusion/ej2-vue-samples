@@ -99,13 +99,13 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
     },
     chartLoad: function(args)
     {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        args.chart.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        args.chart.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
     },
     cellSelected: function(args)
     {

@@ -3,7 +3,6 @@
    "directory": "gantt",
    "category": "Calendars",
    "ftName": "gantt",
-   "type": "update",
    "samples": [
       {
          "url": "default",
@@ -198,7 +197,7 @@
       },
       {
          "url": "drag-and-drop",
-         "name": "Row Drag And Drop",
+         "name": "Row Drag and Drop",
          "category": "Gantt",
          "api": {
             "Gantt": [
@@ -551,7 +550,6 @@
       {
          "url": "timezone",
          "name": "Timezone",
-         "type": "new",
          "category": "Scheduling Concepts",
          "api": {
             "Gantt": [

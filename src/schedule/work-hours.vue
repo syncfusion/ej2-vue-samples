@@ -19,27 +19,17 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Work Start
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker id="startTime" :value="startdate" format='HH:mm'>
+                                <ejs-timepicker id="startTime" :value="startdate" format='HH:mm' floatLabelType="Always" placeholder="Work Start">
                                 </ejs-timepicker>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Work End
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker id="endTime" :value="enddate" format='HH:mm'></ejs-timepicker>
+                                <ejs-timepicker id="endTime" :value="enddate" format='HH:mm' floatLabelType="Always" placeholder="Work End"></ejs-timepicker>
                             </div>
                         </td>
                     </tr>
@@ -95,7 +85,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
                 workHours: { highlight: true, start: '08:00', end: '20:00' },
                 startdate: new Date(2000, 0, 1, 8),

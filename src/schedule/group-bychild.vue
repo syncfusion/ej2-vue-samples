@@ -72,7 +72,7 @@
                         description: { title: 'Comments', name: 'Description' }
                     }
                 },
-                selectedDate: new Date(2018, 5, 5),
+                selectedDate: new Date(2021, 5, 5),
                 currentView: 'WorkWeek',
                 allowMultiple : true,
                 cssClass: 'groupbychild',

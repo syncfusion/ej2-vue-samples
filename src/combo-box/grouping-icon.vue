@@ -59,6 +59,17 @@
     .bootstrap4 .combobox-icons-css .e-list-icon {
         color: #495057;
     }
+    .material-dark .combobox-icons-css .e-list-icon,
+    .bootstrap5-dark .combobox-icons-css .e-list-icon,
+    .tailwind-dark .combobox-icons-css .e-list-icon {
+        color: #fff;
+    }
+    .bootstrap-dark .combobox-icons-css .e-list-icon {
+        color: #f0f0f0;
+    }
+    .fabric-dark .combobox-icons-css .e-list-icon {
+        color: #dadada;
+    }
     .combobox-icons-css .twitter:before {
         content: "\a701";
     }

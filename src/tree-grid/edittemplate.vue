@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
 import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { DatePicker } from '@syncfusion/ej2-calendars';
 import { sampleData } from "./data-source";
@@ -63,7 +63,7 @@ export default  Vue.extend({
       enddaterules : { date: true},
       durationrules : { number: true , min: 0},
       progressrules : { number: true , min: 0},
-      toolbar: ['Add', 'Edit', 'Delete','Cancel'],
+      toolbar: ['Add', 'Edit', 'Update', 'Delete','Cancel'],
       params: {
             create: function() {
                 elem = document.createElement('input');
@@ -87,7 +87,7 @@ export default  Vue.extend({
   };
   },
    provide : {
-      treegrid: [Edit, Page]
+      treegrid: [Edit, Page, Toolbar]
     },
      methods:{
       

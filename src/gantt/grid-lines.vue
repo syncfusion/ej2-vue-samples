@@ -20,9 +20,11 @@
         <div class="col-md-3 property-section">
             <table id="property" title="Properties">
                 <tr>
-                    <td style="width: 50%">
+                    <td style="width: 50%; fontSize: 15px">
                         Grid Lines
                     </td>
+                </tr>
+                <tr>
                     <td style="width: 50%;padding: 10px 10px 10px 0px">
                         <ejs-dropdownlist id='gridlines' width='100px' :dataSource='linesData' value='Both' :fields='linesFields' :change="lineChange"></ejs-dropdownlist>
                     </td>

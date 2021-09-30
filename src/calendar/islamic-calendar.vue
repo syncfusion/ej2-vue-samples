@@ -159,6 +159,23 @@ body.highcontrast .e-bigger .calendar-islamic-custom.e-calendar span.e-icons.hig
       left: -2px;
     }
 
+    .highcontrast .calendar-islamic-custom .sf-icon-cup:before,
+    .material-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .fabric-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .bootstrap-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .bootstrap5-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .tailwind-dark .calendar-islamic-custom .sf-icon-cup:before {
+        color: #ff7500;
+    }
+
+    .highcontrast .calendar-islamic-custom .sf-icon-start:before,
+    .material-dark .calendar-islamic-custom .sf-icon-start:before,
+    .fabric-dark .calendar-islamic-custom .sf-icon-start:before,
+    .bootstrap-dark .calendar-islamic-custom .sf-icon-start:before,
+    .bootstrap5-dark .calendar-islamic-custom .sf-icon-start:before,
+    .tailwind-dark .calendar-islamic-custom .sf-icon-start:before {
+        color: #ff7500;
+    }
     .calendar-islamic-custom [class^="sf-icon-"],
     .calendar-islamic-custom [class*=" sf-icon-"] {
       font-family: 'e-islamic-calendar-sb-icons' !important;

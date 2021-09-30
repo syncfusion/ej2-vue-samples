@@ -110,6 +110,15 @@
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },
     {
+      "url": "keyboard-navigation",
+      "name": "Keyboard Navigation",
+      "category": "Keyboard Navigation",
+      "hideOnDevice": false,
+      "api": {},
+      "type": "new",
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
+    },
+    {
       "url": "calculated-field",
       "name": "Calculated Field",
       "category": "Formula",

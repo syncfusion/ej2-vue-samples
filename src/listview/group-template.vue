@@ -39,19 +39,25 @@
   border-color: rgba(0, 0, 0, 0.12);
 }
 
+body.bootstrap5-dark #groupedList.e-listview,
+body.bootstrap-dark #groupedList.e-listview,
+body.tailwind-dark #groupedList.e-listview,
+body.fabric-dark #groupedList.e-listview,
+body.highcontrast #groupedList.e-listview {
+    border: 1px solid #444c54;
+}
+
 /* ListView header alignment */
 
 #groupedList.e-listview.e-rtl .e-text .e-headertext:after {
   font-family: 'e-listview-group-icons';
   position: absolute;
-  content: "\e712";
   right: 315px;
 }
 
 #groupedList.e-listview .e-text .e-headertext:after {
   font-family: 'e-listview-group-icons';
   position: absolute;
-  content: "\e712";
   right: 16px;
 }
 

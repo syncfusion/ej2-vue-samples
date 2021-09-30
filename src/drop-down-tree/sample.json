@@ -2,6 +2,7 @@
     "name": "Dropdown Tree",
     "directory": "drop-down-tree",
     "category": "Dropdowns",
+    "type": "update",
     "ftname": "drop-down-tree",
     "samples": [
         {
@@ -81,6 +82,23 @@
                 {
                     "displayName": "template-data.json",
                     "path": "src/drop-down-tree/template-data.json"
+                }
+            ]
+        },
+        {
+            "url": "custom-template",
+            "name": "Custom Template",
+            "category": "Dropdown Tree",
+            "type": "new",
+            "description": "This example demonstrates how to customize the display text of the selected items in the Vue drop-down tree component using the customTemplate.",
+            "sourceFiles": [
+                {
+                    "displayName": "custom-template.vue",
+                    "path": "src/drop-down-tree/custom-template.vue"
+                },
+                {
+                    "displayName": "custom-template-data.json",
+                    "path": "src/drop-down-tree/customTemplate-data.json"
                 }
             ]
         },

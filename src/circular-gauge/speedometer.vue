@@ -20,30 +20,30 @@
             <tbody>
                <tr>
                         <td style="width: 40%">
-                                    <div class="property-text"> Show text labels</div>
+                                    <div class="property-text" style="margin-left: 10px"> Show text labels</div>
                                 </td>
                                 <td style="width: 40%;">
-                                    <div>
+                                    <div style="margin-left: 20px">
                                     <ejs-checkbox ref="text" id="showText" :change="onChangeText"></ejs-checkbox>
                                     </div>
                                 </td>
                         </tr>&nbsp;
                         <tr>
                             <td style="width: 40%">
-                                <div class="property-text"> Combine ranges</div>
+                                <div class="property-text" style="margin-left: 10px"> Combine ranges</div>
                             </td>
                             <td style="width: 40%;">
-                                <div>
+                                <div style="margin-left: 20px">
                                 <ejs-checkbox id="combineRange" ref="range" :change="onChangeCombineRange"></ejs-checkbox>
                                 </div>
                             </td>
                         </tr>&nbsp;
                         <tr>
                             <td style="width: 40%">
-                                <div class="property-text"> Gap between ranges</div>
+                                <div class="property-text" style="margin-left: 10px"> Gap between ranges</div>
                             </td>
                             <td style="width: 40%;">
-                                <div>
+                                <div style="margin-left: 20px">
                                 <ejs-checkbox id="range" ref="gap" :change="onChangeRange"></ejs-checkbox>
                                 </div>
                             </td>
@@ -189,7 +189,8 @@ methods: {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.gauge.theme = 
-           selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+           (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

@@ -116,10 +116,10 @@ export default Vue.extend({
             width2: 0,
             orientationdata: ['Vertical', 'Horizontal'],
             orientationplaceholder: 'Select Range Bar Color',
-            orientationwidth: 120,
+            orientationwidth: 140,
             containerdata: ['Thermometer', 'Normal', 'RoundedRectangle'],
             containerplaceholder: 'Select Range Bar Color',
-            containerwidth: 120,
+            containerwidth: 140,
         }
     },
     methods: {
@@ -127,8 +127,8 @@ export default Vue.extend({
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
-            args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+            args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         },
         /* custom code end */
         changeContainer: function (args) {

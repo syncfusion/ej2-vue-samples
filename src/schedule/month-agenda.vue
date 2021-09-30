@@ -56,7 +56,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], fifaEventsData, null, true) },
-                selectedDate: new Date(2018, 5, 20),
+                selectedDate: new Date(2021, 5, 20),
             }
         },
         provide: {

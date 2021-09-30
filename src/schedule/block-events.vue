@@ -107,7 +107,7 @@
                 eventSettings: {
                     dataSource: extend([], blockData, null, true)
                 },
-                selectedDate: new Date(2018, 7, 1),
+                selectedDate: new Date(2021, 7, 2),
                 currentView: 'TimelineDay',
                 cssClass: 'block-events',
                 group: {

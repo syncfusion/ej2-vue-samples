@@ -55,6 +55,7 @@
 <style>
     .e-schedule-event-tooltip.tooltip-wrap {
         display: flex;
+        align-items: center;
     }
 
     .e-schedule-event-tooltip.tooltip-wrap .image {
@@ -64,6 +65,20 @@
         background-size: cover;
         width: 50px;
         height: 50px;
+    }
+
+    .tailwind-dark .e-schedule-event-tooltip.tooltip-wrap .image,
+    .bootstrap5-dark .e-schedule-event-tooltip.tooltip-wrap .image {
+        background-color: #1F294A;
+    }
+
+    .bootstrap-dark .e-schedule-event-tooltip.tooltip-wrap .image {
+        background-color: #1a1a1a;
+    }
+
+    .fabric-dark .e-schedule-event-tooltip.tooltip-wrap .image,
+    .material-dark .e-schedule-event-tooltip.tooltip-wrap .image {
+        background-color: #000;
     }
 
     .e-schedule-event-tooltip.tooltip-wrap .content-area {
@@ -146,7 +161,7 @@
         data: function () {  
             return {
                 eventSettings: { dataSource: extend([], eventsData, null, true), enableTooltip: true, tooltipTemplate: tooltipTemplate },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week'
             }
         },

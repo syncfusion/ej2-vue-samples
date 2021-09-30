@@ -15,58 +15,58 @@
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div>Zooming</div>
+                        <div style="width: 120%;">Zooming</div>
                     </td>
                     <td>
-                        <input type="checkbox" checked id="zoom" style="margin-top: 15px"  v-on:change='changeZoom' />
+                        <input type="checkbox" checked id="zoom" style="margin-top: 20px; margin-left: 40px"  v-on:change='changeZoom' />
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div>Panning</div>
+                        <div style="width: 120%;">Panning</div>
                     </td>
                     <td>
-                        <input type="checkbox" checked id="panning" style="margin-top: 15px"  v-on:change='changePan' />
+                        <input type="checkbox" checked id="panning" style="margin-top: 25px; margin-left: 40px"  v-on:change='changePan' />
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div>Mouse wheel zoom</div>
+                        <div style="width: 120%;">Mouse wheel zoom</div>
                     </td>
                     <td>
-                        <input type="checkbox" checked id="mousewheel" style="margin-top: 15px" v-on:change='changeMousewheel'/>
+                        <input type="checkbox" checked id="mousewheel" style="margin-top: 15px; margin-left: 40px" v-on:change='changeMousewheel'/>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                         <td style="width: 50%">
-                            <div>Pinch zoom</div>
+                            <div style="width: 120%;">Pinch zoom</div>
                         </td>
                         <td>
-                            <input type="checkbox" checked id="pinch" style="margin-top: 15px"  v-on:change='changePinch' />
+                            <input type="checkbox" checked id="pinch" style="margin-top: 15px; margin-left: 40px"  v-on:change='changePinch' />
                         </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div>Single click zoom</div>
+                        <div style="width: 120%;">Single click zoom</div>
                     </td>
                     <td>
-                        <input type="checkbox" id="singletap" style="margin-top: 15px"  v-on:change='changeSingletap' />
+                        <input type="checkbox" id="singletap" style="margin-top: 15px; margin-left: 40px"  v-on:change='changeSingletap' />
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div>Double click zoom</div>
+                        <div style="width: 120%;">Double click zoom</div>
                     </td>
                     <td>
-                        <input type="checkbox" id="doubletap" style="margin-top: 15px"  v-on:change='changeDoubletap' />
+                        <input type="checkbox" id="doubletap" style="margin-top: 15px; margin-left: 40px"  v-on:change='changeDoubletap' />
                     </td>
                 </tr>
                  <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div>Animation duration <br><span id="dur">500 ms</span></div>
+                        <div style="width: 120%;">Animation duration <br><span id="dur">500 ms</span></div>
                     </td>
                     <td>
-                        <ejs-slider id='range' :value='value' min=0 max=1000 :step='step' :change='sliderChange'></ejs-slider>
+                        <ejs-slider id='range' :value='value' min=0 max=1000 :step='step' :change='sliderChange' style="width: 70px"></ejs-slider>
                     </td>
                 </tr>
         </tbody></table>
@@ -204,7 +204,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

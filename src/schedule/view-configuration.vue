@@ -73,7 +73,7 @@
 
     var instance = new Internationalization();
     var monthVue = Vue.component("month-eventTemplate", {
-        template: '<div class="subject">{{data.Subject}}</div>',
+        template: '<div class="e-subject">{{data.Subject}}</div>',
         data() {
             return {
                 data: {}
@@ -100,7 +100,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], fifaEventsData, null, true) },
-                selectedDate: new Date(2018, 5, 20),
+                selectedDate: new Date(2021, 5, 20),
                 showWeekend: false,
                 currentView: 'Month',
                 timeScale: { interval: 60, slotCount: 4 },

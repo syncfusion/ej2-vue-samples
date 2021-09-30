@@ -227,6 +227,366 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 /***/ }),
 
+/***/ "./Samples/chart/data-label-template/datalabel-temp10.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp10.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp10_vue_vue_type_template_id_2cd83054___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp10.vue?vue&type=template&id=2cd83054& */ \"./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=template&id=2cd83054&\");\n/* harmony import */ var _datalabel_temp10_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp10.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp10_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp10_vue_vue_type_template_id_2cd83054___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp10_vue_vue_type_template_id_2cd83054___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp10.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp10.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp10_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp10.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp10_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp10.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=template&id=2cd83054&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=template&id=2cd83054& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp10_vue_vue_type_template_id_2cd83054___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp10.vue?vue&type=template&id=2cd83054& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=template&id=2cd83054&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp10_vue_vue_type_template_id_2cd83054___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp10_vue_vue_type_template_id_2cd83054___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp10.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp11.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp11.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp11_vue_vue_type_template_id_2ce647d5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp11.vue?vue&type=template&id=2ce647d5& */ \"./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=template&id=2ce647d5&\");\n/* harmony import */ var _datalabel_temp11_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp11.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp11_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp11_vue_vue_type_template_id_2ce647d5___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp11_vue_vue_type_template_id_2ce647d5___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp11.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp11.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp11_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp11.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp11_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp11.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=template&id=2ce647d5&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=template&id=2ce647d5& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp11_vue_vue_type_template_id_2ce647d5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp11.vue?vue&type=template&id=2ce647d5& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=template&id=2ce647d5&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp11_vue_vue_type_template_id_2ce647d5___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp11_vue_vue_type_template_id_2ce647d5___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp11.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp12.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp12.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp12_vue_vue_type_template_id_2cf45f56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp12.vue?vue&type=template&id=2cf45f56& */ \"./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=template&id=2cf45f56&\");\n/* harmony import */ var _datalabel_temp12_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp12.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp12_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp12_vue_vue_type_template_id_2cf45f56___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp12_vue_vue_type_template_id_2cf45f56___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp12.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp12.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp12_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp12.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp12_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp12.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=template&id=2cf45f56&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=template&id=2cf45f56& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp12_vue_vue_type_template_id_2cf45f56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp12.vue?vue&type=template&id=2cf45f56& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=template&id=2cf45f56&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp12_vue_vue_type_template_id_2cf45f56___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp12_vue_vue_type_template_id_2cf45f56___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp12.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp13.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp13.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp13_vue_vue_type_template_id_2d0276d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp13.vue?vue&type=template&id=2d0276d7& */ \"./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=template&id=2d0276d7&\");\n/* harmony import */ var _datalabel_temp13_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp13.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp13_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp13_vue_vue_type_template_id_2d0276d7___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp13_vue_vue_type_template_id_2d0276d7___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp13.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp13.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp13_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp13.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp13_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp13.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=template&id=2d0276d7&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=template&id=2d0276d7& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp13_vue_vue_type_template_id_2d0276d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp13.vue?vue&type=template&id=2d0276d7& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=template&id=2d0276d7&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp13_vue_vue_type_template_id_2d0276d7___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp13_vue_vue_type_template_id_2d0276d7___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp13.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp14.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp14.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp14_vue_vue_type_template_id_2d108e58___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp14.vue?vue&type=template&id=2d108e58& */ \"./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=template&id=2d108e58&\");\n/* harmony import */ var _datalabel_temp14_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp14.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp14_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp14_vue_vue_type_template_id_2d108e58___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp14_vue_vue_type_template_id_2d108e58___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp14.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp14.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp14_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp14.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp14_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp14.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=template&id=2d108e58&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=template&id=2d108e58& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp14_vue_vue_type_template_id_2d108e58___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp14.vue?vue&type=template&id=2d108e58& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=template&id=2d108e58&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp14_vue_vue_type_template_id_2d108e58___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp14_vue_vue_type_template_id_2d108e58___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp14.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp15.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp15.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp15_vue_vue_type_template_id_2d1ea5d9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp15.vue?vue&type=template&id=2d1ea5d9& */ \"./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=template&id=2d1ea5d9&\");\n/* harmony import */ var _datalabel_temp15_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp15.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp15_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp15_vue_vue_type_template_id_2d1ea5d9___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp15_vue_vue_type_template_id_2d1ea5d9___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp15.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp15.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp15_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp15.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp15_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp15.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=template&id=2d1ea5d9&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=template&id=2d1ea5d9& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp15_vue_vue_type_template_id_2d1ea5d9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp15.vue?vue&type=template&id=2d1ea5d9& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=template&id=2d1ea5d9&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp15_vue_vue_type_template_id_2d1ea5d9___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp15_vue_vue_type_template_id_2d1ea5d9___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp15.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp16.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp16.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp16_vue_vue_type_template_id_2d2cbd5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp16.vue?vue&type=template&id=2d2cbd5a& */ \"./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=template&id=2d2cbd5a&\");\n/* harmony import */ var _datalabel_temp16_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp16.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp16_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp16_vue_vue_type_template_id_2d2cbd5a___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp16_vue_vue_type_template_id_2d2cbd5a___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp16.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp16.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp16_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp16.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp16_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp16.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=template&id=2d2cbd5a&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=template&id=2d2cbd5a& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp16_vue_vue_type_template_id_2d2cbd5a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp16.vue?vue&type=template&id=2d2cbd5a& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=template&id=2d2cbd5a&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp16_vue_vue_type_template_id_2d2cbd5a___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp16_vue_vue_type_template_id_2d2cbd5a___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp16.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp17.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp17.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp17_vue_vue_type_template_id_2d3ad4db___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp17.vue?vue&type=template&id=2d3ad4db& */ \"./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=template&id=2d3ad4db&\");\n/* harmony import */ var _datalabel_temp17_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp17.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp17_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp17_vue_vue_type_template_id_2d3ad4db___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp17_vue_vue_type_template_id_2d3ad4db___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp17.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp17.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp17_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp17.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp17_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp17.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=template&id=2d3ad4db&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=template&id=2d3ad4db& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp17_vue_vue_type_template_id_2d3ad4db___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp17.vue?vue&type=template&id=2d3ad4db& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=template&id=2d3ad4db&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp17_vue_vue_type_template_id_2d3ad4db___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp17_vue_vue_type_template_id_2d3ad4db___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp17.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp18.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp18.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp18_vue_vue_type_template_id_2d48ec5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp18.vue?vue&type=template&id=2d48ec5c& */ \"./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=template&id=2d48ec5c&\");\n/* harmony import */ var _datalabel_temp18_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp18.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp18_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp18_vue_vue_type_template_id_2d48ec5c___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp18_vue_vue_type_template_id_2d48ec5c___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp18.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp18.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp18_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp18.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp18_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp18.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=template&id=2d48ec5c&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=template&id=2d48ec5c& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp18_vue_vue_type_template_id_2d48ec5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp18.vue?vue&type=template&id=2d48ec5c& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=template&id=2d48ec5c&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp18_vue_vue_type_template_id_2d48ec5c___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp18_vue_vue_type_template_id_2d48ec5c___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp18.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp19.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp19.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp19_vue_vue_type_template_id_2d5703dd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp19.vue?vue&type=template&id=2d5703dd& */ \"./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=template&id=2d5703dd&\");\n/* harmony import */ var _datalabel_temp19_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp19.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp19_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp19_vue_vue_type_template_id_2d5703dd___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp19_vue_vue_type_template_id_2d5703dd___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp19.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp19.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp19_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp19.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp19_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp19.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=template&id=2d5703dd&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=template&id=2d5703dd& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp19_vue_vue_type_template_id_2d5703dd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp19.vue?vue&type=template&id=2d5703dd& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=template&id=2d5703dd&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp19_vue_vue_type_template_id_2d5703dd___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp19_vue_vue_type_template_id_2d5703dd___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp19.vue?");
+
+/***/ }),
+
 /***/ "./Samples/chart/data-label-template/datalabel-temp2.vue":
 /*!***************************************************************!*\
   !*** ./Samples/chart/data-label-template/datalabel-temp2.vue ***!
@@ -260,6 +620,114 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp2_vue_vue_type_template_id_2288d30d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp2.vue?vue&type=template&id=2288d30d& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp2.vue?vue&type=template&id=2288d30d&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp2_vue_vue_type_template_id_2288d30d___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp2_vue_vue_type_template_id_2288d30d___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp2.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp20.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp20.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp20_vue_vue_type_template_id_2e8d08f3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp20.vue?vue&type=template&id=2e8d08f3& */ \"./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=template&id=2e8d08f3&\");\n/* harmony import */ var _datalabel_temp20_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp20.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp20_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp20_vue_vue_type_template_id_2e8d08f3___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp20_vue_vue_type_template_id_2e8d08f3___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp20.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp20.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp20_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp20.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp20_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp20.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=template&id=2e8d08f3&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=template&id=2e8d08f3& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp20_vue_vue_type_template_id_2e8d08f3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp20.vue?vue&type=template&id=2e8d08f3& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=template&id=2e8d08f3&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp20_vue_vue_type_template_id_2e8d08f3___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp20_vue_vue_type_template_id_2e8d08f3___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp20.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp21.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp21.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp21_vue_vue_type_template_id_2e9b2074___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp21.vue?vue&type=template&id=2e9b2074& */ \"./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=template&id=2e9b2074&\");\n/* harmony import */ var _datalabel_temp21_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp21.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp21_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp21_vue_vue_type_template_id_2e9b2074___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp21_vue_vue_type_template_id_2e9b2074___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp21.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp21.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp21_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp21.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp21_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp21.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=template&id=2e9b2074&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=template&id=2e9b2074& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp21_vue_vue_type_template_id_2e9b2074___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp21.vue?vue&type=template&id=2e9b2074& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=template&id=2e9b2074&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp21_vue_vue_type_template_id_2e9b2074___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp21_vue_vue_type_template_id_2e9b2074___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp21.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp22.vue":
+/*!****************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp22.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp22_vue_vue_type_template_id_2ea937f5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp22.vue?vue&type=template&id=2ea937f5& */ \"./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=template&id=2ea937f5&\");\n/* harmony import */ var _datalabel_temp22_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp22.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp22_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp22_vue_vue_type_template_id_2ea937f5___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp22_vue_vue_type_template_id_2ea937f5___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp22.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp22.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp22_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp22.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp22_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp22.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=template&id=2ea937f5&":
+/*!***********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=template&id=2ea937f5& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp22_vue_vue_type_template_id_2ea937f5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp22.vue?vue&type=template&id=2ea937f5& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=template&id=2ea937f5&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp22_vue_vue_type_template_id_2ea937f5___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp22_vue_vue_type_template_id_2ea937f5___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp22.vue?");
 
 /***/ }),
 
@@ -479,6 +947,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 /***/ }),
 
+/***/ "./Samples/chart/data-label-template/datalabel-temp9.vue":
+/*!***************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp9.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _datalabel_temp9_vue_vue_type_template_id_22eb7794___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datalabel-temp9.vue?vue&type=template&id=22eb7794& */ \"./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=template&id=22eb7794&\");\n/* harmony import */ var _datalabel_temp9_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./datalabel-temp9.vue?vue&type=script&lang=js& */ \"./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _datalabel_temp9_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _datalabel_temp9_vue_vue_type_template_id_22eb7794___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _datalabel_temp9_vue_vue_type_template_id_22eb7794___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/data-label-template/datalabel-temp9.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp9.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp9_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp9.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp9_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp9.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=template&id=22eb7794&":
+/*!**********************************************************************************************!*\
+  !*** ./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=template&id=22eb7794& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp9_vue_vue_type_template_id_22eb7794___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./datalabel-temp9.vue?vue&type=template&id=22eb7794& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=template&id=22eb7794&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp9_vue_vue_type_template_id_22eb7794___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_datalabel_temp9_vue_vue_type_template_id_22eb7794___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp9.vue?");
+
+/***/ }),
+
 /***/ "./Samples/chart/data-label-template/main.js":
 /*!***************************************************!*\
   !*** ./Samples/chart/data-label-template/main.js ***!
@@ -499,7 +1003,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-base */ \"./node_modules/@syncfusion/ej2-base/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-charts */ \"./node_modules/@syncfusion/ej2-vue-charts/index.js\");\n/* harmony import */ var _datalabel_temp1_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./datalabel-temp1.vue */ \"./Samples/chart/data-label-template/datalabel-temp1.vue\");\n/* harmony import */ var _datalabel_temp2_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./datalabel-temp2.vue */ \"./Samples/chart/data-label-template/datalabel-temp2.vue\");\n/* harmony import */ var _datalabel_temp3_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datalabel-temp3.vue */ \"./Samples/chart/data-label-template/datalabel-temp3.vue\");\n/* harmony import */ var _datalabel_temp4_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./datalabel-temp4.vue */ \"./Samples/chart/data-label-template/datalabel-temp4.vue\");\n/* harmony import */ var _datalabel_temp5_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./datalabel-temp5.vue */ \"./Samples/chart/data-label-template/datalabel-temp5.vue\");\n/* harmony import */ var _datalabel_temp6_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./datalabel-temp6.vue */ \"./Samples/chart/data-label-template/datalabel-temp6.vue\");\n/* harmony import */ var _datalabel_temp7_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./datalabel-temp7.vue */ \"./Samples/chart/data-label-template/datalabel-temp7.vue\");\n/* harmony import */ var _datalabel_temp8_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./datalabel-temp8.vue */ \"./Samples/chart/data-label-template/datalabel-temp8.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n\n\n\n\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"ChartPlugin\"]);\n\nlet selectedTheme = location.hash.split(\"/\")[1];\nselectedTheme = selectedTheme ? selectedTheme : \"Material\";\nlet theme = (\n  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)\n).replace(/-dark/i, \"Dark\");\n\nlet materialMan = function() {\n  return { template: _datalabel_temp1_vue__WEBPACK_IMPORTED_MODULE_3__[\"default\"] };\n};\nlet materialWomen = function() {\n  return { template: _datalabel_temp2_vue__WEBPACK_IMPORTED_MODULE_4__[\"default\"] };\n};\nlet fabricMan = function() {\n  return { template: _datalabel_temp3_vue__WEBPACK_IMPORTED_MODULE_5__[\"default\"] };\n};\nlet fabricWomen = function() {\n  return { template: _datalabel_temp4_vue__WEBPACK_IMPORTED_MODULE_6__[\"default\"] };\n};\nlet bootstrapMan = function() {\n  return { template: _datalabel_temp5_vue__WEBPACK_IMPORTED_MODULE_7__[\"default\"] };\n};\nlet bootstrapWomen = function() {\n  return { template: _datalabel_temp6_vue__WEBPACK_IMPORTED_MODULE_8__[\"default\"] };\n};\nlet highcontrastMan = function() {\n  return { template: _datalabel_temp7_vue__WEBPACK_IMPORTED_MODULE_9__[\"default\"] };\n};\nlet highcontrastWomen = function() {\n  return { template: _datalabel_temp8_vue__WEBPACK_IMPORTED_MODULE_10__[\"default\"] };\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].extend({\n  data: function() {\n    return {\n      theme: theme,\n      seriesData: [\n        { x: 2010, y: 1014 },\n        { x: 2011, y: 1040 },\n        { x: 2012, y: 1065 },\n        { x: 2013, y: 1110 },\n        { x: 2014, y: 1130 },\n        { x: 2015, y: 1153 },\n        { x: 2016, y: 1175 }\n      ],\n\n      seriesData1: [\n        { x: 2010, y: 990 },\n        { x: 2011, y: 1010 },\n        { x: 2012, y: 1030 },\n        { x: 2013, y: 1070 },\n        { x: 2014, y: 1105 },\n        { x: 2015, y: 1138 },\n        { x: 2016, y: 1155 }\n      ],\n\n      //Initializing Primary X Axis\n      primaryXAxis: {\n        minimum: 2010,\n        maximum: 2016,\n        interval: _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__[\"Browser\"].isDevice ? 2 : 1,\n        edgeLabelPlacement: \"Shift\",\n        labelStyle: {\n          fontFamily: \"Roboto\",\n          fontStyle: \"medium\",\n          size: \"14px\"\n        },\n        majorGridLines: { width: 0 },\n        lineStyle: { color: \"#eaeaea\", width: 1 }\n      },\n\n      //Initializing Primary Y Axis\n      primaryYAxis: {\n        labelFormat: \"{value}M\",\n        labelStyle: {\n          fontFamily: \"Roboto\",\n          fontStyle: \"medium\",\n          size: \"14px\"\n        },\n        minimum: 900,\n        maximum: 1300,\n        majorGridLines: {\n          color: \"#eaeaea\",\n          width: 1\n        },\n        lineStyle: {\n          color: \"#eaeaea\",\n          width: 1\n        }\n      },\n\n      width: \"80%\",\n      subTitleStyle: {\n        textAlignment: \"Far\"\n      },\n      titleStyle: {\n        fontFamily: \"Roboto\",\n        fontStyle: \"medium\",\n        size: \"14px\"\n      },\n      chartArea: { border: { width: 0 } },\n      title: \"Population of India Statistics\",\n      subTitle: \"(2010 - 2016)\",\n\n      marker1: {\n        visible: true,\n        shape: \"Rectangle\",\n        dataLabel: {\n          visible: true,\n          position: \"Bottom\",\n          margin: { right: 15 },\n          template: materialWomen\n        }\n      },\n\n      marker: {\n        visible: true,\n        shape: \"Circle\",\n        dataLabel: {\n          visible: true,\n          position: \"Top\",\n          margin: { right: 30 },\n          template: materialMan\n        }\n      }\n    };\n  },\n  provide: {\n    chart: [_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"LineSeries\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"Legend\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"Category\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"DataLabel\"]]\n  },\n  methods: {\n    textRender: function(args) {\n      if (theme === \"Material\") {\n        args.template =\n          args.series.name === \"Male\" ? materialMan : materialWomen;\n      } else if (theme === \"Fabric\") {\n        args.template = args.series.name === \"Male\" ? fabricMan : fabricWomen;\n      } else {\n        args.template =\n          args.series.name === \"Male\" ? bootstrapMan : bootstrapWomen;\n      }\n    }\n  }\n}));\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-base */ \"./node_modules/@syncfusion/ej2-base/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-charts */ \"./node_modules/@syncfusion/ej2-vue-charts/index.js\");\n/* harmony import */ var _datalabel_temp1_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./datalabel-temp1.vue */ \"./Samples/chart/data-label-template/datalabel-temp1.vue\");\n/* harmony import */ var _datalabel_temp2_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./datalabel-temp2.vue */ \"./Samples/chart/data-label-template/datalabel-temp2.vue\");\n/* harmony import */ var _datalabel_temp3_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datalabel-temp3.vue */ \"./Samples/chart/data-label-template/datalabel-temp3.vue\");\n/* harmony import */ var _datalabel_temp4_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./datalabel-temp4.vue */ \"./Samples/chart/data-label-template/datalabel-temp4.vue\");\n/* harmony import */ var _datalabel_temp5_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./datalabel-temp5.vue */ \"./Samples/chart/data-label-template/datalabel-temp5.vue\");\n/* harmony import */ var _datalabel_temp6_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./datalabel-temp6.vue */ \"./Samples/chart/data-label-template/datalabel-temp6.vue\");\n/* harmony import */ var _datalabel_temp7_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./datalabel-temp7.vue */ \"./Samples/chart/data-label-template/datalabel-temp7.vue\");\n/* harmony import */ var _datalabel_temp8_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./datalabel-temp8.vue */ \"./Samples/chart/data-label-template/datalabel-temp8.vue\");\n/* harmony import */ var _datalabel_temp9_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./datalabel-temp9.vue */ \"./Samples/chart/data-label-template/datalabel-temp9.vue\");\n/* harmony import */ var _datalabel_temp10_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./datalabel-temp10.vue */ \"./Samples/chart/data-label-template/datalabel-temp10.vue\");\n/* harmony import */ var _datalabel_temp11_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./datalabel-temp11.vue */ \"./Samples/chart/data-label-template/datalabel-temp11.vue\");\n/* harmony import */ var _datalabel_temp12_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./datalabel-temp12.vue */ \"./Samples/chart/data-label-template/datalabel-temp12.vue\");\n/* harmony import */ var _datalabel_temp13_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./datalabel-temp13.vue */ \"./Samples/chart/data-label-template/datalabel-temp13.vue\");\n/* harmony import */ var _datalabel_temp14_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./datalabel-temp14.vue */ \"./Samples/chart/data-label-template/datalabel-temp14.vue\");\n/* harmony import */ var _datalabel_temp15_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./datalabel-temp15.vue */ \"./Samples/chart/data-label-template/datalabel-temp15.vue\");\n/* harmony import */ var _datalabel_temp16_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./datalabel-temp16.vue */ \"./Samples/chart/data-label-template/datalabel-temp16.vue\");\n/* harmony import */ var _datalabel_temp17_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./datalabel-temp17.vue */ \"./Samples/chart/data-label-template/datalabel-temp17.vue\");\n/* harmony import */ var _datalabel_temp18_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./datalabel-temp18.vue */ \"./Samples/chart/data-label-template/datalabel-temp18.vue\");\n/* harmony import */ var _datalabel_temp19_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./datalabel-temp19.vue */ \"./Samples/chart/data-label-template/datalabel-temp19.vue\");\n/* harmony import */ var _datalabel_temp20_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./datalabel-temp20.vue */ \"./Samples/chart/data-label-template/datalabel-temp20.vue\");\n/* harmony import */ var _datalabel_temp21_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./datalabel-temp21.vue */ \"./Samples/chart/data-label-template/datalabel-temp21.vue\");\n/* harmony import */ var _datalabel_temp22_vue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./datalabel-temp22.vue */ \"./Samples/chart/data-label-template/datalabel-temp22.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"ChartPlugin\"]);\n\nlet selectedTheme = location.hash.split(\"/\")[1];\nselectedTheme = selectedTheme ? selectedTheme : \"Material\";\nlet theme = (\n  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)\n).replace(/-dark/i, \"Dark\");\n\nlet materialMan = function() {\n  return { template: _datalabel_temp1_vue__WEBPACK_IMPORTED_MODULE_3__[\"default\"] };\n};\nlet materialWomen = function() {\n  return { template: _datalabel_temp2_vue__WEBPACK_IMPORTED_MODULE_4__[\"default\"] };\n};\nlet fabricMan = function() {\n  return { template: _datalabel_temp3_vue__WEBPACK_IMPORTED_MODULE_5__[\"default\"] };\n};\nlet fabricWomen = function() {\n  return { template: _datalabel_temp4_vue__WEBPACK_IMPORTED_MODULE_6__[\"default\"] };\n};\nlet bootstrapMan = function() {\n  return { template: _datalabel_temp5_vue__WEBPACK_IMPORTED_MODULE_7__[\"default\"] };\n};\nlet bootstrapWomen = function() {\n  return { template: _datalabel_temp6_vue__WEBPACK_IMPORTED_MODULE_8__[\"default\"] };\n};\nlet highcontrastMan = function() {\n  return { template: _datalabel_temp7_vue__WEBPACK_IMPORTED_MODULE_9__[\"default\"] };\n};\nlet highcontrastWomen = function() {\n  return { template: _datalabel_temp8_vue__WEBPACK_IMPORTED_MODULE_10__[\"default\"] };\n};\nlet materialdarkMan = function() {\n  return { template: _datalabel_temp9_vue__WEBPACK_IMPORTED_MODULE_11__[\"default\"] };\n};\nlet materialdarkWomen = function() {\n  return { template: _datalabel_temp10_vue__WEBPACK_IMPORTED_MODULE_12__[\"default\"] };\n};\nlet fabricdarkMan = function() {\n  return { template: _datalabel_temp11_vue__WEBPACK_IMPORTED_MODULE_13__[\"default\"] };\n};\nlet fabricdarkWomen = function() {\n  return { template: _datalabel_temp12_vue__WEBPACK_IMPORTED_MODULE_14__[\"default\"] };\n};\nlet bootstrapdarkMan = function() {\n  return { template: _datalabel_temp13_vue__WEBPACK_IMPORTED_MODULE_15__[\"default\"] };\n};\nlet bootstrapdarkWomen = function() {\n  return { template: _datalabel_temp14_vue__WEBPACK_IMPORTED_MODULE_16__[\"default\"] };\n};\nlet bootstrap5Man = function() {\n  return { template: _datalabel_temp15_vue__WEBPACK_IMPORTED_MODULE_17__[\"default\"] };\n};\nlet bootstrap5Women = function() {\n  return { template: _datalabel_temp16_vue__WEBPACK_IMPORTED_MODULE_18__[\"default\"] };\n};\nlet bootstrap5darkMan = function() {\n  return { template: _datalabel_temp17_vue__WEBPACK_IMPORTED_MODULE_19__[\"default\"] };\n};\nlet bootstrap5darkWomen = function() {\n  return { template: _datalabel_temp18_vue__WEBPACK_IMPORTED_MODULE_20__[\"default\"] };\n};\nlet tailwindMan = function() {\n  return { template: _datalabel_temp19_vue__WEBPACK_IMPORTED_MODULE_21__[\"default\"] };\n};\nlet tailwindWomen = function() {\n  return { template: _datalabel_temp20_vue__WEBPACK_IMPORTED_MODULE_22__[\"default\"] };\n};\nlet tailwinddarkMan = function() {\n  return { template: _datalabel_temp21_vue__WEBPACK_IMPORTED_MODULE_23__[\"default\"] };\n};\nlet tailwinddarkWomen = function() {\n  return { template: _datalabel_temp22_vue__WEBPACK_IMPORTED_MODULE_24__[\"default\"] };\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].extend({\n  data: function() {\n    return {\n      theme: theme,\n      seriesData: [\n        { x: 2010, y: 1014 },\n        { x: 2011, y: 1040 },\n        { x: 2012, y: 1065 },\n        { x: 2013, y: 1110 },\n        { x: 2014, y: 1130 },\n        { x: 2015, y: 1153 },\n        { x: 2016, y: 1175 }\n      ],\n\n      seriesData1: [\n        { x: 2010, y: 990 },\n        { x: 2011, y: 1010 },\n        { x: 2012, y: 1030 },\n        { x: 2013, y: 1070 },\n        { x: 2014, y: 1105 },\n        { x: 2015, y: 1138 },\n        { x: 2016, y: 1155 }\n      ],\n\n      //Initializing Primary X Axis\n      primaryXAxis: {\n        minimum: 2010,\n        maximum: 2016,\n        interval: _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__[\"Browser\"].isDevice ? 2 : 1,\n        edgeLabelPlacement: \"Shift\",\n        labelStyle: {\n          fontFamily: \"Roboto\",\n          fontStyle: \"medium\",\n          size: \"14px\"\n        },\n        majorGridLines: { width: 0 },\n        lineStyle: { color: \"#eaeaea\", width: 1 }\n      },\n\n      //Initializing Primary Y Axis\n      primaryYAxis: {\n        labelFormat: \"{value}M\",\n        labelStyle: {\n          fontFamily: \"Roboto\",\n          fontStyle: \"medium\",\n          size: \"14px\"\n        },\n        minimum: 900,\n        maximum: 1300,\n        majorGridLines: {\n          color: \"#eaeaea\",\n          width: 1\n        },\n        lineStyle: {\n          color: \"#eaeaea\",\n          width: 1\n        }\n      },\n\n      width: \"80%\",\n      subTitleStyle: {\n        textAlignment: \"Far\"\n      },\n      titleStyle: {\n        fontFamily: \"Roboto\",\n        fontStyle: \"medium\",\n        size: \"14px\"\n      },\n      chartArea: { border: { width: 0 } },\n      title: \"Population of India Statistics\",\n      subTitle: \"(2010 - 2016)\",\n\n      marker1: {\n        visible: true,\n        shape: \"Rectangle\",\n        dataLabel: {\n          visible: true,\n          position: \"Bottom\",\n          margin: { right: 15 },\n          template: materialWomen\n        }\n      },\n\n      marker: {\n        visible: true,\n        shape: \"Circle\",\n        dataLabel: {\n          visible: true,\n          position: \"Top\",\n          margin: { right: 30 },\n          template: materialMan\n        }\n      }\n    };\n  },\n  provide: {\n    chart: [_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"LineSeries\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"Legend\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"Category\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"DataLabel\"]]\n  },\n  methods: {\n    load: function(args) {\n            var selectedTheme = location.hash.split('/')[1];\n            selectedTheme = selectedTheme ? selectedTheme : 'Material';\n            theme = args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +\n                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');\n            args.chart.theme = theme;\n    },\n    textRender: function(args) {\n      if (theme === 'Material') {\n            args.template = args.series.name === 'Male' ? materialMan : materialWomen;\n        } else if (theme === 'Fabric') {\n            args.template = args.series.name === 'Male' ? fabricMan : fabricWomen;\n        }  else if (theme === 'HighContrast') {\n            args.template = args.series.name === 'Male' ? highcontrastMan : highcontrastWomen;\n        }  else if (theme === 'Tailwind') {\n            args.template = args.series.name === 'Male' ? tailwindMan : tailwindWomen;\n        } else if (theme === 'Bootstrap') {\n            args.template = args.series.name === 'Male' ? bootstrapMan : bootstrapWomen;\n        } else if (theme === 'Bootstrap5') {\n            args.template = args.series.name === 'Male' ? bootstrap5Man : bootstrap5Women;\n        } else if (theme === 'TailwindDark') {\n            args.template = args.series.name === 'Male' ? tailwinddarkMan : tailwinddarkWomen;\n        } else if (theme === 'MaterialDark') {\n            args.template = args.series.name === 'Male' ? materialdarkMan : materialdarkWomen;\n        } else if (theme === 'FabricDark') {\n            args.template = args.series.name === 'Male' ? fabricdarkMan : fabricdarkWomen;\n        } else if (theme === 'Bootstrap5Dark') {\n            args.template = args.series.name === 'Male' ? bootstrap5darkMan : bootstrap5darkWomen;\n        } else {\n            args.template = args.series.name === 'Male' ? bootstrapdarkMan : bootstrapdarkWomen;\n        }\n    }\n  }\n}));\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -515,6 +1019,126 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n/
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp10.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp11.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp12.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp13.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp14.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp15.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp16.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp17.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp18.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp19.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp2.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp2.vue?vue&type=script&lang=js& ***!
@@ -524,6 +1148,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n/
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp2.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp20.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp21.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp22.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -599,6 +1259,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n/
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data() {\n    return {\n      data: {}\n    };\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp9.vue?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/App.vue?vue&type=template&id=2f66379a&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/App.vue?vue&type=template&id=2f66379a&scoped=true& ***!
@@ -607,7 +1279,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"control-section\" }, [\n    _c(\n      \"div\",\n      { attrs: { align: \"center\" } },\n      [\n        _c(\n          \"ejs-chart\",\n          {\n            staticStyle: { display: \"block\" },\n            attrs: {\n              theme: _vm.theme,\n              align: \"center\",\n              id: \"chartcontainer\",\n              title: _vm.title,\n              primaryXAxis: _vm.primaryXAxis,\n              primaryYAxis: _vm.primaryYAxis,\n              subTitle: _vm.subTitle,\n              chartArea: _vm.chartArea,\n              width: _vm.width,\n              textRender: _vm.textRender,\n              subTitleStyle: _vm.subTitleStyle\n            }\n          },\n          [\n            _c(\n              \"e-series-collection\",\n              [\n                _c(\"e-series\", {\n                  attrs: {\n                    dataSource: _vm.seriesData,\n                    xName: \"x\",\n                    yName: \"y\",\n                    name: \"Male\",\n                    width: \"2\",\n                    marker: _vm.marker\n                  }\n                }),\n                _vm._v(\" \"),\n                _c(\"e-series\", {\n                  attrs: {\n                    dataSource: _vm.seriesData1,\n                    xName: \"x\",\n                    yName: \"y\",\n                    name: \"Female\",\n                    width: \"2\",\n                    marker: _vm.marker1\n                  }\n                })\n              ],\n              1\n            )\n          ],\n          1\n        )\n      ],\n      1\n    ),\n    _vm._v(\" \"),\n    _vm._m(0),\n    _vm._v(\" \"),\n    _vm._m(1)\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"action-description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"This sample illustrates datalabel template support in the chart. In this sample, images are placed as datalabel by means of templates.\"\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"\\n      Label content can be formatted by using the template option in dataLabel. Inside the template, you can add the placeholder\\n      text ${point.y}M to display corresponding data points value.\\n    \"\n        )\n      ]),\n      _vm._v(\" \"),\n      _c(\"br\"),\n      _vm._v(\" \"),\n      _c(\"p\", { staticStyle: { \"font-weight\": \"500\" } }, [\n        _vm._v(\"Injecting Module\")\n      ]),\n      _vm._v(\" \"),\n      _c(\"p\", [\n        _vm._v(\"\\n      To use dataLabel, we need to inject\\n      \"),\n        _c(\"code\", [_vm._v(\"dataLabel\")]),\n        _vm._v(\" module using\\n      \"),\n        _c(\"code\", [_vm._v(\"provide: { chart: [ DataLabel] },\")]),\n        _vm._v(\" method.\\n    \")\n      ]),\n      _vm._v(\" \"),\n      _c(\"p\", [\n        _vm._v(\n          \"\\n      More information on the Crosshair can be found in this  \\n      \"\n        ),\n        _c(\n          \"a\",\n          {\n            attrs: {\n              target: \"_blank\",\n              href:\n                \"http://ej2.syncfusion.com/documentation/chart/api-dataLabelSettingsModel.html\"\n            }\n          },\n          [_vm._v(\"documentation section\")]\n        ),\n        _vm._v(\".\\n    \")\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"control-section\" }, [\n    _c(\n      \"div\",\n      { attrs: { align: \"center\" } },\n      [\n        _c(\n          \"ejs-chart\",\n          {\n            staticStyle: { display: \"block\" },\n            attrs: {\n              theme: _vm.theme,\n              align: \"center\",\n              id: \"chartcontainer\",\n              title: _vm.title,\n              primaryXAxis: _vm.primaryXAxis,\n              primaryYAxis: _vm.primaryYAxis,\n              subTitle: _vm.subTitle,\n              chartArea: _vm.chartArea,\n              width: _vm.width,\n              textRender: _vm.textRender,\n              load: _vm.load,\n              subTitleStyle: _vm.subTitleStyle\n            }\n          },\n          [\n            _c(\n              \"e-series-collection\",\n              [\n                _c(\"e-series\", {\n                  attrs: {\n                    dataSource: _vm.seriesData,\n                    xName: \"x\",\n                    yName: \"y\",\n                    name: \"Male\",\n                    width: \"2\",\n                    marker: _vm.marker\n                  }\n                }),\n                _vm._v(\" \"),\n                _c(\"e-series\", {\n                  attrs: {\n                    dataSource: _vm.seriesData1,\n                    xName: \"x\",\n                    yName: \"y\",\n                    name: \"Female\",\n                    width: \"2\",\n                    marker: _vm.marker1\n                  }\n                })\n              ],\n              1\n            )\n          ],\n          1\n        )\n      ],\n      1\n    ),\n    _vm._v(\" \"),\n    _vm._m(0),\n    _vm._v(\" \"),\n    _vm._m(1)\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"action-description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"This sample illustrates datalabel template support in the chart. In this sample, images are placed as datalabel by means of templates.\"\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"\\n      Label content can be formatted by using the template option in dataLabel. Inside the template, you can add the placeholder\\n      text ${point.y}M to display corresponding data points value.\\n    \"\n        )\n      ]),\n      _vm._v(\" \"),\n      _c(\"br\"),\n      _vm._v(\" \"),\n      _c(\"p\", { staticStyle: { \"font-weight\": \"500\" } }, [\n        _vm._v(\"Injecting Module\")\n      ]),\n      _vm._v(\" \"),\n      _c(\"p\", [\n        _vm._v(\"\\n      To use dataLabel, we need to inject\\n      \"),\n        _c(\"code\", [_vm._v(\"dataLabel\")]),\n        _vm._v(\" module using\\n      \"),\n        _c(\"code\", [_vm._v(\"provide: { chart: [ DataLabel] },\")]),\n        _vm._v(\" method.\\n    \")\n      ]),\n      _vm._v(\" \"),\n      _c(\"p\", [\n        _vm._v(\n          \"\\n      More information on the Crosshair can be found in this  \\n      \"\n        ),\n        _c(\n          \"a\",\n          {\n            attrs: {\n              target: \"_blank\",\n              href:\n                \"http://ej2.syncfusion.com/documentation/chart/api-dataLabelSettingsModel.html\"\n            }\n          },\n          [_vm._v(\"documentation section\")]\n        ),\n        _vm._v(\".\\n    \")\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -623,6 +1295,126 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=template&id=2cd83054&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp10.vue?vue&type=template&id=2cd83054& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#56AEFF\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\"'\\n  \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp10.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=template&id=2ce647d5&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp11.vue?vue&type=template&id=2ce647d5& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#4472c4\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp11.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=template&id=2cf45f56&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp12.vue?vue&type=template&id=2cf45f56& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#ed7d31\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp12.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=template&id=2d0276d7&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp13.vue?vue&type=template&id=2d0276d7& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#a16ee5\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp13.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=template&id=2d108e58&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp14.vue?vue&type=template&id=2d108e58& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#f7ce69\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp14.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=template&id=2d1ea5d9&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp15.vue?vue&type=template&id=2d1ea5d9& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#262E0B\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp15.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=template&id=2d2cbd5a&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp16.vue?vue&type=template&id=2d2cbd5a& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#668E1F\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp16.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=template&id=2d3ad4db&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp17.vue?vue&type=template&id=2d3ad4db& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#5ECB9B\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp17.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=template&id=2d48ec5c&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp18.vue?vue&type=template&id=2d48ec5c& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#A860F1\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\"'\\n  \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp18.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=template&id=2d5703dd&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp19.vue?vue&type=template&id=2d5703dd& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#5A61F6\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp19.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp2.vue?vue&type=template&id=2288d30d&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp2.vue?vue&type=template&id=2288d30d& ***!
@@ -631,7 +1423,43 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#404041\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\"'\\n  \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp2.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#404041\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\"'\\n  \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp2.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=template&id=2e8d08f3&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp20.vue?vue&type=template&id=2e8d08f3& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#65A30D\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp20.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=template&id=2e9b2074&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp21.vue?vue&type=template&id=2e9b2074& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#8B5CF6\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp21.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=template&id=2ea937f5&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp22.vue?vue&type=template&id=2ea937f5& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#22D3EE\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp22.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -655,7 +1483,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#ed7d31\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp4.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#ed7d31\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp4.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -679,7 +1507,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#f7ce69\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp6.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#f7ce69\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp6.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -703,7 +1531,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#E98272\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp8.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#E98272\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/female.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp8.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=template&id=22eb7794&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/data-label-template/datalabel-temp9.vue?vue&type=template&id=22eb7794& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticStyle: { \"background-color\": \"#9ECB08\", \"border-radius\": \"3px\" } },\n    [\n      _c(\"img\", {\n        staticStyle: { width: \"24px\", height: \"24px\", padding: \"2px\" },\n        attrs: { src: \"source/chart/images/male.png\" }\n      }),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          staticStyle: {\n            color: \"white\",\n            \"font-family\": \"Roboto\",\n            \"font-style\": \"medium\",\n            \"fontp-size\": \"14px\",\n            float: \"right\",\n            padding: \"2px\",\n            \"line-height\": \"20px\",\n            \"text-align\": \"center\",\n            \"padding-right\": \"6px\"\n          }\n        },\n        [_c(\"span\", [_vm._v(_vm._s(_vm.data.point.y) + \"M \")])]\n      )\n    ]\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/data-label-template/datalabel-temp9.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ })
 

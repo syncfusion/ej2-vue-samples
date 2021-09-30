@@ -62,6 +62,30 @@
     #maps-print-sample .e-play-icon::before {
         content: "\e34b";
     }
+
+   .e-view.fabric #maps-print-sample .e-play-icon::before, .e-view.fabric-dark #maps-print-sample .e-play-icon::before {
+        content: "\e7df";
+    }
+
+    .e-view.bootstrap #maps-print-sample .e-play-icon::before {
+        content: "\ebd2";
+    }
+
+    .e-view.bootstrap4 #maps-print-sample .e-play-icon::before {
+        content: "\e743";
+    }
+
+    .e-view.tailwind #maps-print-sample .e-play-icon::before, .e-view.tailwind-dark #maps-print-sample .e-play-icon::before {
+        content: "\e76c";
+    }
+
+    .e-view.highcontrast #maps-print-sample .e-play-icon::before {
+        content: "\ebf9";
+    }
+
+    .e-view.bootstrap5 #maps-print-sample .e-play-icon::before, .e-view.bootstrap5-dark #maps-print-sample .e-play-icon::before {
+        content: "\e75d";
+    }
 </style>
 <script>
 import Vue from 'vue';
@@ -140,7 +164,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     tooltipRender:function(args){

@@ -22,7 +22,7 @@
                     <div> Select Range </div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 10px">
              <ejs-dropdownlist ref="selectRange" id='rangeSelect' :dataSource='rangeselectdata' :fields='rangeselectfields' value='0' index=0  :width='rangeselectwidth' :change='changeRangeselect'></ejs-dropdownlist>                      
                     </div>
                 </td>
@@ -32,8 +32,8 @@
                     <div id='rangeStart'>Range Start <span> &nbsp;&nbsp;&nbsp;0</span> </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="120" style="width:100%" />
+                    <div style="margin-left: 10px">
+                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="120" style="width:120px" />
                     </div>
                 </td>
             </tr>
@@ -43,8 +43,8 @@
                     <div id='rangeEnd'>Range End <span> &nbsp;&nbsp;&nbsp;40</span> </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="40" min="0" max="120" style="width:100%" />
+                    <div style="margin-left: 10px">
+                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="40" min="0" max="120" style="width:120px" />
                     </div>
                 </td>
             </tr>
@@ -53,7 +53,7 @@
                     <div id=''>Range Color</div>
                 </td>
                 <td>
-                    <div>
+                    <div style="margin-left: 10px">
              <ejs-dropdownlist ref="rangeColor" id='rangeColor' :dataSource='rangecolordata'  index=0  :width='rangecolorwidth' :change='changeRangeColor'></ejs-dropdownlist>                      
                     </div>
                 </td>
@@ -63,7 +63,7 @@
                     <div id='enablePointer'>Range Font Color</div>
                 </td>
                 <td style="width: 40%;">
-                    <div>
+                    <div style="margin-left: 65px">
                         <input type="checkbox" ref="fontColor" id="enable" v-on:change="changeRangefont"/>
                     </div>
                 </td>
@@ -73,8 +73,8 @@
                     <div id='rangeStartWidth'>Start Width <span> &nbsp;&nbsp;&nbsp;10</span> </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="10" min="0" max="30" style="width:100%" />
+                    <div style="margin-left: 10px">
+                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="10" min="0" max="30" style="width:120px" />
                     </div>
                 </td>
             </tr>
@@ -83,8 +83,8 @@
                     <div id='rangeEndWidth'>End Width <span> &nbsp;&nbsp;&nbsp;10</span> </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="10" min="0" max="30" style="width:100%" />
+                    <div style="margin-left: 10px">
+                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="10" min="0" max="30" style="width:120px" />
                     </div>
                 </td>
             </tr>
@@ -93,8 +93,8 @@
                     <div id='roundedRadius'>Corner Radius <span> &nbsp;&nbsp;&nbsp;0</span> </div>
                 </td>
                 <td>
-                    <div>
-                        <input type="range" ref="cornerRadius" id="radius" v-on:pointermove="roundedRadius" v-on:touchmove="roundedRadius" v-on:change="roundedRadius" value="0" min="0" max="30" step="5" style="width:100%" />
+                    <div style="margin-left: 10px">
+                        <input type="range" ref="cornerRadius" id="radius" v-on:pointermove="roundedRadius" v-on:touchmove="roundedRadius" v-on:change="roundedRadius" value="0" min="0" max="30" step="5" style="width:120px" />
                     </div>
                 </td>
             </tr>
@@ -140,10 +140,10 @@ data:function(){
                 font: { size: '12px', fontFamily: 'Roboto', fontStyle: 'Regular' }
             }, majorTicks: { height: 10, offset: 5 }, minorTicks: { height: 0 },
             annotations: [{
-                content: '<div><span style="font-size:14px; color:#9E9E9E; font-family:Regular">Speedometer</span></div>',
+                content: '<div><span style="font-size:14px; font-family:Regular">Speedometer</span></div>',
                 radius: '30%', angle: 0, zIndex: '1'
             }, {
-                content: '<div><span style="font-size:20px; color:#424242; font-family:Regular">65 MPH</span></div>',
+                content: '<div><span style="font-size:20px; font-family:Regular">65 MPH</span></div>',
                 radius: '40%', angle: 180, zIndex: '1'
             }],
             startAngle: 210,
@@ -176,7 +176,8 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

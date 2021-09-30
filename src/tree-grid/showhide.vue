@@ -77,6 +77,10 @@
     #columnddl {
         min-width: 120px;
     }
+    #hide:disabled:hover,
+    #show:disabled:hover {
+        color: #000000;
+    }    
 </style>
 <!-- custom code end -->
 <script lang="ts">

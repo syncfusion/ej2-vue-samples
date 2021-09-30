@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the Grid component with the infinite scrolling feature.</p>
+        <p>This sample demonstrates the Grid component with the infinite scrolling feature. You can use the scrollbar or navigation keys or the mouse wheel to perform the infinite scroll action.</p>
     </div>
     <div>
         <div class='div-button'>

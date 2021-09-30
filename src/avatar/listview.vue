@@ -26,9 +26,18 @@
     .avatar-listview #letterAvatarList {
         max-width: 360px;
         margin: auto;
-        border: 1px solid #dddddd;
         border-radius: 3px;
     }
+
+body.material #letterAvatarList,
+body.material-dark #letterAvatarList,
+body.fabric #letterAvatarList,
+body.fabric-dark #letterAvatarList,
+body.bootstrap #letterAvatarList,
+body.bootstrap-dark #letterAvatarList,
+body.highcontrast #letterAvatarList{
+    border: 1px solid #dddddd;
+}
 
     .avatar-listview #letterAvatarList .listWrapper {
         width: inherit;
@@ -128,8 +137,33 @@
         padding: 8px 16px 8px 16px;
     }
 
-    .bootstrap4 .avatar-listview #letterAvatarList .e-list-item .e-avatar {
+    .bootstrap5 #letterAvatarList .e-list-item .e-avatar,
+    .bootstrap5-dark #letterAvatarList .e-list-item .e-avatar,
+    .tailwind-dark #letterAvatarList .e-list-item .e-avatar {
         top: calc(100% - 48px);
+    }
+
+    .bootstrap5 .avatar-listview #letterAvatarList .e-list-item,
+    .bootstrap5-dark .avatar-listview #letterAvatarList .e-list-item {
+        line-height: 30px;
+    }
+
+    body.tailwind-dark #letterAvatarList .e-list-item{
+        line-height: 35px;
+    }
+
+    body.material #letterAvatarList .e-list-item,
+    body.material-dark #letterAvatarList .e-list-item {
+        line-height: 50px;
+    }
+
+    body.bootstrap4 #letterAvatarList .e-list-item .e-avatar{
+        top: calc(100% - 45px);
+    }
+
+    body.bootstrap #letterAvatarList .e-list-item,
+    body.bootstrap-dark #letterAvatarList .e-list-item {
+        line-height: 45px;
     }
 
 </style>

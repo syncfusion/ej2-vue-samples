@@ -2,7 +2,6 @@
     "name": "DateTimePicker",
     "directory": "datetimepicker",
     "category": "Calendars",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -55,7 +54,6 @@
             "name": "Mask Support",
             "category": "DateTimePicker",
             "hideOnDevice": true,
-            "type": "new",
             "api":{"DateTimePicker": [ "enableMask", "format"]},
             "description": "This sample demonstrates the default functionalities of Vue DateTimePicker with mask support"
         }        

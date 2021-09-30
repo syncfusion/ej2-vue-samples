@@ -117,7 +117,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' },
                 data: []
             }

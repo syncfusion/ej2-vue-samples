@@ -65,6 +65,27 @@
         margin-right: 0;
     }
 
+    .bootstrap5 .list_svg,
+    .bootstrap4 .list_svg,
+    .bootstrap5-dark .list_svg,
+    .tailwind-dark .list_svg {
+        margin-top: 5px !important;
+    }
+
+    .bootstrap5 #lists .e-list-item,
+    .bootstrap4 #lists .e-list-item,
+    .bootstrap5-dark #lists .e-list-item,
+    .tailwind-dark #lists .e-list-item {
+        line-height: 36px !important;
+    }
+
+    .bootstrap5 .listWrapper .e-badge,
+    .bootstrap4 .listWrapper .e-badge,
+    .bootstrap5-dark .listWrapper .e-badge,
+    .tailwind-dark .listWrapper .e-badge {
+        margin-top: 8px !important;
+    }
+
     .badge-list .listWrapper .e-badge {
         float: right;
         margin-top: 16px;

@@ -39,7 +39,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], fifaEventsData, null, true) },
-                selectedDate: new Date(2018, 5, 21),
+                selectedDate: new Date(2021, 5, 16),
                 showWeekend: false,
                 dayInterval: 3,
                 weekInterval: 2,

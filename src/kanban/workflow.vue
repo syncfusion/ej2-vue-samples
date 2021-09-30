@@ -81,6 +81,7 @@ export default Vue.extend({
       kanbanData: extend([], kanbanPizzaData, null, true),
       cardSettings: {
         headerField: "Id",
+        contentField: "Description",
         template: function() {
           return { template: cardTemplate };
         }

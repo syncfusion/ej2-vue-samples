@@ -1,7 +1,7 @@
 ﻿<template>
     <div>
         <div class="control-section">
-            <ejs-pdfviewer id="pdfviewer" :serviceUrl="serviceUrl" :documentPath="documentPath":enableRtl ="true" locale='ar-AE' ></ejs-pdfviewer>
+            <ejs-pdfviewer id="pdfviewer" :serviceUrl="serviceUrl" :documentPath="documentPath" :enableRtl="true" locale='ar-AE' :annotationSettings="annotationSettings"></ejs-pdfviewer>
         </div>
 
        <div id="action-description">
@@ -31,7 +31,7 @@
 </style>
 <script>
 import Vue from "vue";
-import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields } from "@syncfusion/ej2-vue-pdfviewer";
+import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner } from "@syncfusion/ej2-vue-pdfviewer";
 import { L10n, setCulture  } from '@syncfusion/ej2-base';
 
 Vue.use(PdfViewerPlugin);
@@ -40,11 +40,12 @@ export default Vue.extend({
     data: function() {
         return {
 			serviceUrl:"https://ej2services.syncfusion.com/production/web-services/api/pdfviewer",
-			documentPath:"RTLText.pdf"			
+			documentPath:"RTLText.pdf",
+            annotationSettings: {author: 'مقبول'}		
         }
     },
 	provide: {
-      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields]
+      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner]
     }	
 });
 //PDF Viewer Arabic Sample Locale
@@ -84,11 +85,8 @@ L10n.load({
             'Match case': 'حالة مباراة',
             'Apply': 'تطبيق',
             'GoToPage': 'انتقل إلى صفحة',
-             // tslint:disable-next-line:max-line-length
             'No matches': 'انتهى العارض من البحث في المستند. لم يتم العثور على مزيد من التطابقات',
             'No Text Found': 'لم يتم العثور على نص',
-            // tslint:disable-next-line:max-line-length
-            'Server error': 'خدمة الانترنت لا يستمع. يعتمد قوات الدفاع الشعبي المشاهد على خدمة الويب لجميع ميزاته. يرجى بدء خدمة الويب للمتابعة.',
             'Undo' : 'فك',
             'Redo' : 'فعل ثانية',
             'Annotation': 'إضافة أو تعديل التعليقات التوضيحية',
@@ -99,9 +97,11 @@ L10n.load({
             'Opacity': 'غموض',
             'Color edit': 'غير اللون',
             'Opacity edit': 'تغيير التعتيم',
-            'Highlight context': 'تسليط الضوء',
-            'Underline context': 'أكد',
-            'Strikethrough context': 'يتوسطه',
+            'highlight': 'تسليط الضوء',
+            'underline': 'أكد',
+            'strikethrough': 'يتوسطه',
+            // tslint:disable-next-line:max-line-length
+            'Server error': 'خدمة الانترنت لا يستمع. يعتمد قوات الدفاع الشعبي المشاهد على خدمة الويب لجميع ميزاته. يرجى بدء خدمة الويب للمتابعة.',
             'Open text': 'افتح',
             'First text': 'الصفحة الأولى',
             'Previous text': 'الصفحة السابقة',
@@ -112,7 +112,7 @@ L10n.load({
             'Selection text': 'اختيار',
             'Pan text': 'مقلاة',
             'Print text': 'طباعة',
-            'Search text': 'بحث',
+            'Seach text': 'بحث',
             'Annotation Edit text': 'تحرير التعليق التوضيحي',
             'Line Thickness': 'سمك الخط',
             'Line Properties': 'خط الخصائص',
@@ -193,20 +193,91 @@ L10n.load({
             'Import Failed': 'نوع ملف سلمان أو اسم الملف غير صالح ؛ يرجى تحديد ملف سلمانصالح',
             'File not found': 'لم يتم العثور على ملف سلمان المستورد في الموقع المطلوب',
             'Export Failed': 'شل إجراء تصدير التعليقات التوضيحية ؛ يرجى التأكد من إضافة التعليقات التوضيحية بشكل صحيح',
-            'Draw Ink': 'ارسم الحبر',
-            'Export XFDF': 'تصدير التعليق التوضيحي إلى ملف XFDF',
-            'Import XFDF': 'استيراد التعليقات التوضيحية من ملف XFDF',
-            'of': 'من ',
             'Dynamic': 'متحرك',
             'Standard Business': 'الأعمال القياسية',
             'Sign Here': 'وقع هنا',
             'Custom Stamp': 'ختم مخصص',
-            'Enter Signature as Name': 'أدخل أسمك',
-            'Draw-hand Signature': 'رسم',
-            'Type Signature': 'اكتب',
+            'InitialFieldDialogHeaderText': 'إضافة الأولية',
+            'HandwrittenInitialDialogHeaderText': 'إضافة الأولية',
+            'SignatureFieldDialogHeaderText': 'أضف التوقيع',
+            'HandwrittenSignatureDialogHeaderText': 'أضف التوقيع',
+            'Draw-hand Signature': 'يرسم',
+            'Type Signature': 'نوع',
             'Upload Signature': 'تحميل',
             'Browse Signature Image': 'تصفح',
-            'Save Signature': 'احفظ التوقيع'
+            'Save Signature': 'احفظ التوقيع',
+            'Save Initial': 'حفظ الأولي',
+            'Highlight context': 'تسليط الضوء',
+            'Underline context': 'تسطير',
+            'Strikethrough context': 'يتوسطه خط',
+            // 'FormDesigner Edit text': 'إضافة وتحرير حقل النموذج',
+            'FormDesigner': 'إضافة وتحرير حقل النموذج',
+            'SubmitForm': 'تقديم النموذج',
+            'Search text': 'بحث',
+            'Draw Ink': 'ارسم الحبر',
+            'Revised': 'مراجعة',
+            'Reviewed': 'تمت المراجعة',
+            'Received': 'تم الاستلام',
+            'Confidential': 'مؤتمن',
+            'Approved': 'وافق',
+            'Not Approved': 'غير مقبول',
+            'Witness': 'الشاهد',
+            'Initial Here': 'المبدئي هنا',
+            'Draft': 'مشروع',
+            'Final': 'أخير',
+            'For Public Release': 'للنشر العام',
+            'Not For Public Release': 'ليس للنشر العام',
+            'For Comment': 'للتعليق',
+            'Void': 'فارغ',
+            'Preliminary Results': 'نتائج اولية',
+            'Information Only': 'المعلومات فقط',
+            'Enter Signature as Name': 'أدخل أسمك',
+            'Textbox': 'مربع الكتابة',
+            'Password': 'كلمه السر',
+            'Check Box': 'خانة اختيار',
+            'Radio Button': 'زر الراديو',
+            'Dropdown': 'اسقاط',
+            'List Box': 'مربع القائمة',
+            'Signature': 'إمضاء',
+            'Delete FormField': 'حذف حقل النموذج',
+            'FormDesigner Edit text': 'إضافة وتحرير حقل النموذج',
+            'in': 'في',
+            'm': 'م',
+            'ft_in': 'قدم',
+            'ft': 'قدم',
+            'p': 'ص',
+            'cm': 'سم',
+            'mm': 'مم',
+            'pt': 'نقطة',
+            'cu': 'مكعب',
+            'sq': 'قدم مربع',
+            'General': 'جنرال لواء',
+            'Appearance': 'مظهر خارجي',
+            'Options': 'والخيارات',
+            'Textbox Properties': 'خصائص مربع النص',
+            'Name': 'اسم',
+            'Tooltip': 'تلميح',
+            'Value': 'القيمة',
+            'Form Field Visibility': 'رؤية حقل النموذج',
+            'Read Only': 'يقرأ فقط',
+            'Required': 'مطلوب',
+            'Checked': 'التحقق',
+            'Show Printing': 'عرض الطباعة',
+            'Formatting': 'صيغة',
+            'Fill': 'يملأ',
+            'Border': 'الحدود',
+            'Border Color': 'لون الحدود',
+            'Thickness': 'السماكة',
+            'Max Length': 'الحد الاقصى للطول',
+            'List Item': 'اسم العنصر',
+            'Export Value': 'قيمة البند',
+            'Dropdown Item List': 'قائمة العناصر المنسدلة',
+            'List Box Item List': 'قائمة عناصر مربع القائمة',
+            'Delete Item': 'حذف',
+            'Up': 'فوق',
+            'Down': 'تحت',
+            'Multiline': 'متعدد الأسطر',
+            'Initial': 'أولي'
         }
     }
 });

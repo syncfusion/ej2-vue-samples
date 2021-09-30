@@ -60,7 +60,7 @@
                     <tr id="button-control" style="height: 50px">
                             <td align='center'>
                                 <div>
-                                     <ejs-button id="togglebtn" iconCss='e-icons e-print-icon' cssClass= 'e-flat' isPrimary=true v-on:click.native='mode'>Print</ejs-button>
+                                     <ejs-button id="togglebtn" cssClass= 'e-flat' isPrimary=true :iconCss='iconCss' v-on:click.native='mode'>Print</ejs-button>
                                 </div>
                             </td>
                         </tr>
@@ -79,27 +79,51 @@
 </div>
 </div>
 </template>
-<style scoped>
-.control-section {
-  min-height: 450px;
-}
+<style>
+    .control-section {
+      min-height: 450px;
+    }
 
-#button-control {
-  width: 100%;
-  text-align: center;
-}
+    #button-control {
+      width: 100%;
+      text-align: center;
+    }
 
-#control-containerExport {
-  padding: 0px !important;
-}
+    #control-containerExport {
+      padding: 0px !important;
+    }
+  
+    .e-print-icon::before {
+        content: "\e34b";
+    }
 
- .e-export-icon::before {
-   content: '\e720';
- }
+   .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
+        content: "\e7df";
+    }
 
-.e-print-icon::before {
-  content: '\e34b';
-}
+    .e-view.bootstrap .e-print-icon::before {
+        content: "\ebd2";
+    }
+
+    .e-view.bootstrap4 .e-print-icon::before {
+        content: "\e743";
+    }
+
+    .e-view.tailwind .e-print-icon::before, .e-view.tailwind-dark .e-print-icon::before {
+        content: "\e76c";
+    }
+
+    .e-view.highcontrast .e-print-icon::before {
+        content: "\ebf9";
+    }
+
+    .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
+        content: "\e75d";
+    }
+
+    .e-view.material .e-export-icon::before, .e-view.material-dark .e-export-icon::before, .e-view.bootstrap .e-export-icon::before, .e-view.bootstrap-dark .e-export-icon::before {
+        content: '\e728';
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -117,11 +141,12 @@ Vue.use(ButtonPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
-let borderColor = ["#FF4081", "#007897", "#428BCA", "#FFD939"];
-let regionColor = [ "rgba(255, 64, 129, 0.3)", " rgba(0, 120, 151, 0.3)",
-  "rgba(66, 139, 202, 0.3)", "rgba(255, 217, 57, 0.3)" ];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let themes = ['Material', 'Fabric', 'Bootstrap', 'HighContrast', 'Bootstrap5', 'Tailwind', 'MaterialDark', 'FabricDark', 'BootstrapDark', 'TailwindDark', 'Bootstrap5Dark', 'Bootstrap4'];
+let borderColor = ['#FF4081', '#007897', '#428BCA', '#FFD939', '#4F46E5', '#4F46E5', '#FF4081', '#007897', '#428BCA', '#22D3EE', '#ADB5BD', '#FFD939'];
+let regionColor = ['rgba(255, 64, 129, 0.3)', ' rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(79, 70, 229, 0.3)',
+    'rgba(79, 70, 229, 0.3)', 'rgba(255, 64, 129, 0.3)', 'rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(34, 211, 238, 0.3)',
+    'rgba(173,181,189,0.3)', 'rgba(255, 217, 57, 0.3)'];
 
 export default Vue.extend({
   data: function() {
@@ -148,7 +173,8 @@ export default Vue.extend({
       width: "100%",
       navigatorBorder: { width: 0 },
       dropDownData: ["JPEG", "PNG", "SVG", "PDF"],
-      themes: theme
+      themes: theme,
+      iconCss: 'e-icons e-print-icon',
     };
   },
   provide: {

@@ -98,20 +98,32 @@
         }
     }
     
-   .bootstrap4 .e-icons.e-icon-refresh::before {
+    .bootstrap4 .e-icons.e-icon-refresh::before {
         content: "\e710";
     }
-
+    
     .bootstrap4 .e-icons.e-icon-tick::before {
         content: "\e718";
     }
 
-    .tailwind #statusEle .e-icons.e-icon-refresh::before {
+    .tailwind .e-icons.e-icon-refresh::before,
+    .tailwind-dark .e-icons.e-icon-refresh::before {
         content: "\e711";
     }
 
-    .tailwind #statusEle .e-icons.e-icon-tick::before {
+    .tailwind .e-icons.e-icon-tick::before,
+    .tailwind-dark .e-icons.e-icon-tick::before {
         content: "\e75d";
+    }
+
+    .bootstrap5 .e-icons.e-icon-refresh::before,
+    .bootstrap5-dark .e-icons.e-icon-refresh::before {
+        content: "\e706";
+    }
+
+    .bootstrap5 .e-icons.e-icon-tick::before,
+    .bootstrap5-dark .e-icons.e-icon-tick::before {
+        content: "\e774";
     }
 
     .status-text {

@@ -11,6 +11,7 @@
         :crosshair="crosshair"
         :enablePeriodSelector="enablePeriodSelector"
         :theme="theme"
+        :load="load"
       >
         <e-stockchart-series-collection>
           <e-stockchart-series
@@ -18,7 +19,6 @@
             type="Area"
             xName="x"
             yName="open"
-            fill="#BDEDE9"
           ></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>
@@ -40,8 +40,107 @@
         <code>DateTime</code> and <code>AreaSeries</code> module using <code> provide: { stockchart: [ DateTime, AreaSeries] },</code> method.
       </p>
     </div>
-  </div>
+    <svg style="height: 0">
+    <defs>
+        <linearGradient id="material-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap4-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="highcontrast-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0"></stop>
+                <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+    </defs>
+  </svg>
+</div>
 </template>
+<style>
+#control-container {
+        padding: 0px !important;
+    }
+    #material-gradient-chart stop {
+        stop-color: #00bdae;
+    }
+    #fabric-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+    #bootstrap-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+    #material-dark-gradient-chart stop {
+        stop-color: #00bdae;
+    }
+    #fabric-dark-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+    #bootstrap-dark-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+    #tailwind-dark-gradient-chart stop {
+        stop-color: #8B5CF6;
+    }
+    #bootstrap4-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+    #highcontrast-gradient-chart stop {
+        stop-color: #79ECE4;
+    }
+    #tailwind-gradient-chart stop {
+        stop-color: #4f46e5;
+    }
+    #bootstrap5-gradient-chart stop {
+        stop-color: #262E0B;
+    }
+    #bootstrap5-dark-gradient-chart stop {
+        stop-color: #5ECB9B;
+    }
+    .chart-gradient stop[offset="0"] {
+        stop-opacity: 0.9;
+    }
+    .chart-gradient stop[offset="1"] {
+        stop-opacity: 0.3;
+    }
+</style>
 <script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
@@ -113,6 +212,14 @@ export default Vue.extend({
       Export
     ]
   },
-  methods: {}
+  methods: {
+    load: function(args) {
+        var selectedTheme = location.hash.split('/')[1];
+        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        args.stockChart.theme = (selectedTheme.charAt(0).toUpperCase() +
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i,  'Contrast');
+        args.stockChart.series[0].fill = 'url(#' + selectedTheme.toLowerCase() + '-gradient-chart)';
+    },
+  }
 });
 </script>

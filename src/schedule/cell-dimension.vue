@@ -70,9 +70,9 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 cssClass: 'schedule-cell-dimension',
                 showTimeIndicator: false
             }

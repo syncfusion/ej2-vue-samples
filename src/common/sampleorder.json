@@ -47,6 +47,7 @@
   ],
   "Navigation": [
     "Accordion",
+    "Breadcrumb",
     "Context Menu",
     "File Manager",
     "Menu Bar",

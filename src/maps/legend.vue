@@ -40,7 +40,7 @@
                         <div class="property-text" style="padding: 0px;">Show legend for remaining data source items</div>
                     </td>
                     <td style="width: 20%">
-                        <div style="padding-top:0px;">
+                        <div style="padding-top:0px; margin-left: 30px">
                             <ejs-checkbox id="opacity" :change="changeOpcity"></ejs-checkbox>
                         </div>
                     </td>
@@ -50,7 +50,7 @@
                         <div class="property-text" style="padding: 0px;">Show population density while the legend item is toggled</div>
                     </td>
                     <td style="width: 20%">
-                        <div style="padding-top:0px;">
+                        <div style="padding-top:0px; margin-left: 30px">
                             <ejs-checkbox id="toggleLegend" :change="changetoggle"></ejs-checkbox>
                         </div>
                     </td>
@@ -151,7 +151,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel

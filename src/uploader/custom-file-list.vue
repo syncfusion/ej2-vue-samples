@@ -21,7 +21,8 @@
         </div>
     </div>
       <div id="action-description">
-      <p>This example demonstrates how to customize the file list with template. Browse or select the files to view the file list template.</p>
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to customize the file list with template. Browse or select the files to view the file list template.</p>
     </div>
 
     <div id="description">
@@ -73,6 +74,21 @@
     }
     .highcontrast .uploader-custom-file-drop-target span a {
         color: #ffd939;
+    }
+    .material-dark .uploader-custom-file-drop-target span a {
+        color:#56a4fd;
+    }
+    .fabric-dark .uploader-custom-file-drop-target span a {
+        color:#0074cc;
+    }
+    .bootstrap-dark .uploader-custom-file-drop-target span a {
+        color:#0070f0;
+    }
+    .bootstrap5-dark .uploader-custom-file-drop-target span a {
+        color:#0d6efd;
+    }
+    .tailwind-dark .uploader-custom-file-drop-target span a {
+        color:#22d3ee;
     }
 
 </style>
@@ -175,12 +191,38 @@
         top: 7px;
         content: '\e932';
     }
-
+    .tailwind .uploader-template-view .close-icon-container.e-icons::before,
+    .tailwind-dark .uploader-template-view .close-icon-container.e-icons::before {
+        content: '\e771';
+    }
+    .fabric .uploader-template-view .close-icon-container.e-icons::before,
+    .fabric-dark .uploader-template-view .close-icon-container.e-icons::before,
+    .bootstrap .uploader-template-view .close-icon-container.e-icons::before,
+    .bootstrap-dark .uploader-template-view .close-icon-container.e-icons::before,
+    .highcontrast .uploader-template-view .close-icon-container.e-icons::before {
+        content: '\e7fc';
+    }
+    .bootstrap5 .uploader-template-view .close-icon-container.e-icons::before,
+    .bootstrap5-dark .uploader-template-view .close-icon-container.e-icons::before {
+        content: '\e7e7';
+    }
     .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e94a';
     }
-    .tailwind .uploader-template-view .close-icon-container.delete-icon::before {
+    .tailwind .uploader-template-view .close-icon-container.delete-icon::before
+    .tailwind-dark .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e78d';
+    }
+    .bootstrap5 .uploader-template-view .close-icon-container.delete-icon::before,
+    .bootstrap5-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e820';
+    }
+    .fabric .uploader-template-view .close-icon-container.delete-icon::before,
+    .fabric-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e965';
+    }
+    .highcontrast .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e84e';
     }
     .tailwind .uploader-template-view .close-icon-container.delete-icon {
         top: 10px;

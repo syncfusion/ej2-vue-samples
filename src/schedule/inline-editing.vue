@@ -2,7 +2,7 @@
   <div class="schedule-vue-sample">
     <div class="col-md-12 control-section">
       <div class="content-wrapper">
-        <ejs-schedule id="Schedule" height="650px" :selectedDate="selectedDate" :allowInline="allowInline" :currentView="currentView" :eventSettings="eventSettings" :group="group">
+        <ejs-schedule id="Schedule" height="650px" :selectedDate="selectedDate" cssClass='inline-edit' :allowInline="allowInline" :workDays="workDays" :currentView="currentView" :eventSettings="eventSettings" :group="group">
           <e-views>
             <e-view option="TimelineWeek"></e-view>
             <e-view option="TimelineMonth"></e-view>
@@ -31,7 +31,12 @@
     </div>
   </div>
 </template>
-
+<style>
+  .inline-edit.e-schedule .e-timeline-view .e-resource-left-td,
+  .inline-edit.e-schedule .e-timeline-month-view .e-resource-left-td {
+    width: 150px;
+  }
+</style>
 <script>
 import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
@@ -45,7 +50,8 @@ export default Vue.extend({
         dataSource: extend([], resourceData.concat(timelineResourceData), null, true)
       },
       allowInline: true,
-      selectedDate: new Date(2018, 3, 4),
+      workDays: [0, 1, 2, 3, 4, 5],
+      selectedDate: new Date(2021, 3, 4),
       currentView: "TimelineWeek",
       allowMultiple: true,
       group: {

@@ -5,7 +5,7 @@
         <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart-zooming'
             :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
             <e-series-collection>
-                <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' fill='url(#gradient-chart)' :border='border'>
+                <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' :fill='fill' :border='border'>
                 </e-series>
             </e-series-collection>
         </ejs-chart>
@@ -50,7 +50,51 @@
 </div>
 <svg style="height: 0">
 	<defs>
-        <linearGradient id="gradient-chart" style="opacity: 0.75" class="chart-material" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="material-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap4-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="highcontrast-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0"></stop>
+                <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
@@ -60,20 +104,67 @@
   </div>
   </template>
   <style scoped>
-  #gradient-chart stop {
-		stop-color: #BDEDE9;
-	}
-	#gradient-chart stop[offset="0"] {
-		stop-opacity: 0.75;
-	}
-	#gradient-chart stop[offset="1"] {
-		stop-opacity: 0;
-	}
+    #material-gradient-chart stop {
+        stop-color: #00bdae;
+    }
+
+    #fabric-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+
+    #bootstrap-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+
+    #bootstrap4-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+
+    #highcontrast-gradient-chart stop {
+        stop-color: #79ECE4;
+    }
+
+    #tailwind-gradient-chart stop {
+        stop-color: #5A61F6;
+    }
+
+    #bootstrap5-gradient-chart stop {
+        stop-color: #262E0B;
+    }
+
+    #material-dark-gradient-chart stop {
+        stop-color: #9ECB08;
+    }
+
+    #fabric-dark-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+
+    #bootstrap-dark-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+
+    #tailwind-dark-gradient-chart stop {
+        stop-color: #8B5CF6;
+    }
+
+    #bootstrap5-dark-gradient-chart stop {
+        stop-color: #5ECB9B;
+    }
+
+    .chart-gradient stop[offset="0"] {
+        stop-opacity: 0.75;
+    }
+
+    .chart-gradient stop[offset="1"] {
+        stop-opacity: 0;
+    }
 	#control-container {
 		padding: 0px !important;
 	}
 
   </style>
+
   <script>
   import Vue from "vue";
   import { Browser } from '@syncfusion/ej2-base';
@@ -82,7 +173,10 @@
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark")
+  .replace(/contrast/i, "Contrast");
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4'];
 
 function GetZoomingData() {
         let series = [];
@@ -136,9 +230,10 @@ function GetZoomingData() {
     },
 
      width: Browser.isDevice ? '100%' : '80%',
-     border: { width: 0.5, color: '#00bdae' },
+     border: { width: 0.5, color: borderColor[themes.indexOf(theme.toLowerCase())] },
      title: 'Sales History of Product X',
-     series: seriesData
+     series: seriesData,
+     fill: "url(#" + selectedTheme + "-gradient-chart)",
 
       };
     },

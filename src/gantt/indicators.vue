@@ -87,10 +87,26 @@ export default Vue.extend({
     /deep/ .bootstrap4 #Indicators .description::before {
     content: '\e7cb';
     }
+    /deep/ .bootstrap5 #Indicators .okIcon::before,
+    /deep/ .bootstrap5-dark #Indicators .okIcon::before {
+    content: '\e72b';
+    }
+    /deep/ .bootstrap5 #Indicators .description::before,
+    /deep/ .bootstrap-dark #Indicators .description::before {
+    content: '\e72b';
+    }
     /deep/ .fabric #Indicators .description::before {
     content: '\e310';
     }
     /deep/ .highcontrast #Indicators .description::before {
     content: '\e310';
+    }
+	/deep/ .tailwind #Indicators .okIcon::before,
+	/deep/ .tailwind-dark #Indicators .okIcon::before	{
+    content: '\e7b0';
+    }
+    /deep/ .tailwind #Indicators .description::before,
+	/deep/ .tailwind-dark #Indicators .description::before	{
+    content: '\e7b6';
     }
 </style>

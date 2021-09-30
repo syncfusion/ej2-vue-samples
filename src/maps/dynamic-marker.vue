@@ -18,14 +18,16 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
+    <table id="property" title="Properties" style="width: 100%; margin-left: -10px">
         <tbody>
             <tr style="height: 50px">
                 <td style="width: 60%">
                     <div class="property-text" style="padding: 0px;">Marker</div>
                 </td>
                 <td style="width: 40%;">
+                <div style="margin-left: 20px">
                     <ejs-checkbox ref="marker" id="marker" :checked="markerCheck" v-model="markerCheck" :change='markerChange'></ejs-checkbox>
+                </div>
                 </td>
             </tr>
             <tr style="height: 35px">
@@ -33,15 +35,19 @@
                     <div class="property-text" style="padding: 0px;">Line</div>
                 </td>
                 <td style="width: 50%">
+                <div style="margin-left: 20px">
                     <ejs-checkbox ref="line" id="line" :change='lineChange' :disabled='markerDisabled' v-model="lineCheck"></ejs-checkbox>
+                </div>
                 </td>
             </tr>
             <tr style="height: 35px">
                 <td style="width: 70%">
-                    <div class="property-text" style="padding: 0px; ">Connecting line</div>
+                    <div class="property-text" style="padding: 0px; width:60px">Connecting line</div>
                 </td>
                 <td style="width: 50%">
+                <div style="margin-left: 20px">
                     <ejs-checkbox ref="connect" id="connect" :disabled='ConnectDisabled' v-model="connectCheck" :change='connectChange'></ejs-checkbox>
+                </div>    
                 </td>
             </tr>
             <tr style="height: 35px">
@@ -49,7 +55,7 @@
                     <div class="property-text" style="padding: 0px"> Marker type</div
                 </td>
                 <td style="width: 10%; margin-left:20px">
-                    <ejs-dropdownlist ref="type" id='type' :enabled='dropDisabled' style="width:110;" :dataSource='labelsdata' :fields='localFields' index="0" :width='labelswidth'></ejs-dropdownlist>
+                    <ejs-dropdownlist ref="type" id='type' :enabled='dropDisabled' style="width:100;" :dataSource='labelsdata' :fields='localFields' index="0" :width='labelswidth'></ejs-dropdownlist>
                 </td>
             </tr>
             <tr style="height: 35px">
@@ -57,7 +63,7 @@
                     <div class="property-text" style="padding: 0px;">Width</div>
                 </td>
                 <td style="width: 10%">
-                   <div style="width:120px;margin-left:-10px">
+                   <div style="width:105px;margin-left:-10px">
                         <ejs-textbox ref="text" id="width" :enabled='widthDisabled' value="1"  style="width:60px" v-model="textValue" :change='widthChange'></ejs-textbox>
                     </div>
                 </td>
@@ -124,7 +130,7 @@ data:function(){
         zoomSettings: {
             enable: true
         },
-        labelswidth: 120,
+        labelswidth: 95,
         localFields: { text: 'text', value: 'value' },
         labelsdata:[
             {value: 'Image', text: 'Image'},
@@ -154,7 +160,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
 
     markerChange: function(args){

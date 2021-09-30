@@ -36,7 +36,7 @@
             <tr align='center'>
                 <td>
                     <div>
-                         <ejs-button  id='togglebtn' @click.native='exportIcon' iconCss="e-icons e-play-icon" cssClass="e-flat" isPrimary="true">Export</ejs-button>
+                         <ejs-button  id='togglebtn' @click.native='exportIcon' :iconCss='iconCss' cssClass="e-flat" isPrimary="true">Export</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -61,9 +61,32 @@
 </div>
 
 </template>
-<style scoped>
-.e-play-icon::before {
-        content: '\e720';
+<style>
+    .e-export-icon::before {
+        content: '\e728';
+    }
+    .e-view.fabric .e-export-icon::before, .e-view.fabric-dark .e-export-icon::before {
+        content: '\e710';
+    }
+
+    .e-view.bootstrap4 .e-export-icon::before {
+        content: '\e780';
+    }
+
+    .e-view.tailwind-dark .e-export-icon::before, .e-view.tailwind .e-export-icon::before {
+        content: '\e7bf';
+    }
+
+    .e-view.highcontrast .e-export-icon::before {
+        content: '\e710';
+    }
+
+    .e-view.bootstrap5 .e-export-icon::before, .e-view.bootstrap5-dark .e-export-icon::before {
+        content: '\e72e';
+    }
+
+    .e-view.material .e-export-icon::before, .e-view.material-dark .e-export-icon::before, .e-view.bootstrap .e-export-icon::before, .e-view.bootstrap-dark .e-export-icon::before {
+        content: '\e728';
     }
 </style>
 <script>
@@ -78,7 +101,8 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark")
+  .replace(/contrast/i, "Contrast");
 
 export default Vue.extend({
   data: function() {
@@ -125,7 +149,8 @@ export default Vue.extend({
 
       exportwidth:120,
 
-      title: "Top 10 Countries Using Solar Power"
+      title: "Top 10 Countries Using Solar Power",
+      iconCss: 'e-icons e-export-icon',
     };
   },
   provide: {

@@ -18,27 +18,18 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>
-                                Work days
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
                                 <ejs-dropdownlist id="scheduleworkdays" :dataSource='workDaysData' :value='workDaysValue' :fields='workDaysFields' :change='changeWorkDays'
-                                    popupWidth='180px'></ejs-dropdownlist>
+                                    popupWidth='180px' floatLabelType="Always" placeholder="Work Days"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                First day of week
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-dropdownlist id="scheduledayofweek" :dataSource='dayOfWeekList' :value='dayOfWeekValue' :fields='dayOfWeekField' :change='changeDayofWeek'></ejs-dropdownlist>
+                                <ejs-dropdownlist id="scheduledayofweek" :dataSource='dayOfWeekList' :value='dayOfWeekValue' :fields='dayOfWeekField' :change='changeDayofWeek'
+                                    floatLabelType="Always" placeholder="First Day of Week"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -81,7 +72,7 @@
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 workHours: { start: '08:00' },
                 currentView: 'WorkWeek',
                 workDays: [1, 3, 5],

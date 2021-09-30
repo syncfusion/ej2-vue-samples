@@ -57,7 +57,7 @@
     export default Vue.extend({
         data: function () {
             return {
-                selectedDate: new Date(2017, 11, 15),
+                selectedDate: new Date(2021, 11, 15),
                 currentView: 'Month',
                 cssClass: 'schedule-celltemplate',
                 cellTemplate: function () {

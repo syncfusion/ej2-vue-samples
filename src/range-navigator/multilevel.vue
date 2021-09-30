@@ -41,6 +41,7 @@ Vue.use(RangeNavigatorPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -58,7 +59,7 @@ export default Vue.extend({
       value: [new Date('2001-01-01'), new Date('2002-01-01')],
       dataSource: points,
       width: Browser.isDevice ? "100%" : "80%",
-      theme: selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+      theme: theme
     };
   },
   provide: {

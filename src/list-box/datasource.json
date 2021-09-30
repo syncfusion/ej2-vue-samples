@@ -68,6 +68,13 @@
         { "text": "McLaren P1", "id": "list-09" },
         { "text": "Ferrari LaFerrari", "id": "list-10" }
     ],
+    "template": [
+            { "text": "JavaScript", "pic": "styles/images/pic/javascript.svg", "description": "It is a lightweight interpreted or JIT-compiled programming language."},
+            { "text": "TypeScript", "pic": "styles/images/pic/typescript.svg", "description": "It is a typed superset of Javascript that compiles to plain JavaScript."},
+            { "text": "Angular", "pic": "styles/images/pic/angular.svg", "description": "It is a TypeScript-based open-source web application framework."},
+            { "text": "React", "pic": "styles/images/pic/react.svg", "description": "A JavaScript library for building user interfaces. It can also render on the server using Node."},
+            { "text": "Vue", "pic": "styles/images/pic/vue.svg", "description": "A progressive framework for building user interfaces. it is incrementally adoptable."}
+    ],
     "sort": [{ "type": "None" }, { "type": "Ascending" }, { "type": "Descending" }],
     "selectionMode": [{ "type": "Single" }, { "type": "Multiple" }]
 }

@@ -26,6 +26,16 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
+body.material #listview_template,
+body.material-dark #listview_template,
+body.fabric #listview_template,
+body.fabric-dark #listview_template,
+body.bootstrap #listview_template,
+body.bootstrap-dark #listview_template,
+body.highcontrast #listview_template {
+    border: 1px solid #dddddd;
+}
+
 /* ListView header alignment */
 
 #listview_template.e-listview .e-list-header #list-logo {
@@ -67,11 +77,6 @@
     transform: translateY(-50%);
 }
 
-#listview_template.e-listview .e-list-item.e-hover {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.87);
-}
-
 #listview_template.e-listview #list-logo {
     float: right;
 }
@@ -89,12 +94,7 @@
 }
 
 #listview_template.e-listview .e-list-item.e-has-child.e-hover {
-    background-color: #eee;
     transition: 0.8s;
-}
-
-#listview_template.e-listview .e-list-item.e-active {
-    background-color: white;
 }
 
 #listview_template.e-listview .e-list-item.e-level-1.e-has-child {
@@ -151,7 +151,6 @@
 }
 
 .highcontrast #listview_template.e-listview .e-list-item.e-active {
-    background-color: #333333;
     color: #fff;
 }
 
@@ -168,12 +167,6 @@
 .bootstrap #listview_template.e-listview .e-has-child:hover .e-list-item-header {
     color: #0644b4;
     transition: 0.5s;
-}
-
-.highcontrast #listview_template.e-listview .e-list-item.e-hover {
-    background-color: #333333;
-    color: #fff;
-    border-color: #333333;
 }
 
 .highcontrast #listview_template.e-listview .e-list-item.e-has-child.e-hover {
@@ -193,6 +186,15 @@
     color: #333333;
 }
 
+body.material-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-item-header {
+    color: #ffffff;
+}
+
+body.material-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-content,
+body.bootstrap-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-content {
+    color: rgba(255,255,255,0.7);
+}
+
 /* Media query */
 
 @media screen and (max-width: 450px) {
@@ -206,6 +208,32 @@
     .bootstrap4 #listview_template.e-listview .comments::before {
         color: #495057;
     }
+
+.bootstrap-dark #listview_template.e-listview .e-list-item.e-active {
+    background-color: #414141;
+}
+
+body.bootstrap5 #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.bootstrap5 #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.bootstrap5 #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.material-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.material-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.material-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.fabric-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.fabric-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.fabric-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.bootstrap-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.bootstrap-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.bootstrap-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.tailwind-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.tailwind-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.tailwind-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .comments::before
+{
+    color: #ffffff;
+}
 
 </style>
 <script>

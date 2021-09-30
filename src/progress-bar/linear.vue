@@ -137,8 +137,6 @@
             font-size: 14px;
             color: #3D3E3C;
             letter-spacing: 0;
-            margin-top: -2%;
-            top: 20px;
             margin-left: 13.5%;
         }
 
@@ -236,7 +234,8 @@ export default Vue.extend({
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
         selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if(selectedTheme === 'highcontrast') {
+        if(args.progressBar.theme === 'HighContrast' || args.progressBar.theme === 'Bootstrap5Dark' || args.progressBar.theme === 'BootstrapDark' || args.progressBar.theme === 'FabricDark'
+                || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark') {
             for (let i = 0; i < div.length; i++) {
                 div[i].setAttribute('style', 'color:white');
             }

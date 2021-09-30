@@ -51,7 +51,8 @@ _:-ms-fullscreen,
     background-color: #0078d6;
 }
 
-.bootstrap4 .e-grid-empimg {
+.bootstrap4 .e-grid-empimg,
+.bootstrap5 .e-grid-empimg {
     background-color: #0078d6;
 }
 
@@ -133,6 +134,26 @@ position: relative;
     color: #00cc00;
     position: relative;
     top: 9px;
+}
+
+.bootstrap5 td.e-rowcell .statustxt.e-inactivecolor,
+.bootstrap5 td.e-rowcell .statustxt.e-activecolor {
+  top: 8px;
+}
+
+.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-activecolor,
+.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-inactivecolor {
+  position: relative;
+  top: 1.5px;
+}
+
+.e-bigger.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-activecolor,
+.e-bigger.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-inactivecolor {
+  top: -0.5px;
+}
+
+.bootstrap5 .e-checkboxfiltertext #Trusttext {
+  margin-left: -4px;
 }
 
  #overviewgrid td.e-rowcell .statustxt.e-inactivecolor {

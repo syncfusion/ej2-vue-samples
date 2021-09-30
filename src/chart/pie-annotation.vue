@@ -143,7 +143,7 @@ export default Vue.extend({
             this.pie.destroy();
             let selectedTheme = location.hash.split('/')[1];
             selectedTheme = selectedTheme ? selectedTheme : 'Material';
-            let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1));
+            let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark"));
             this.pie = new AccumulationChart({
                 background: 'transparent',
                 series: [{
@@ -170,11 +170,11 @@ export default Vue.extend({
             load: function (args) {
                 let selectedTheme = location.hash.split('/')[1];
                 selectedTheme = selectedTheme ? selectedTheme : 'Material';
-                args.accumulation.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                args.accumulation.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
             },
             legendSettings: { visible: false },
             resized: function (args) {
-                location.reload();
+                this.pie.refresh();
             }
         });
         this.pie.appendTo('#chart_annotation');
@@ -183,7 +183,7 @@ export default Vue.extend({
    load: function (args) {       
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
     }
   },
     updated: function() {

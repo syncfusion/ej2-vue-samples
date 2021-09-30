@@ -140,6 +140,11 @@
         min-height: 300px;
         justify-content: flex-end;
     }
+    
+    .tailwind-dark .card-control-section.flip_card_layout #card_flip.e-card,
+    .tailwind-dark .card-control-section.flip_card_layout #card_flip_profile.e-card {
+        height: 314px;
+    }
 
     .card-control-section.flip_card_layout #card_flip.e-card,
     .card-control-section.flip_card_layout #card_profile.e-card {

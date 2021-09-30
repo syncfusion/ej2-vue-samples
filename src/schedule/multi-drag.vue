@@ -70,7 +70,7 @@ export default Vue.extend({
       eventSettings: {
         dataSource: this.generateData(),
       },
-      selectedDate: new Date(2018, 3, 4),
+      selectedDate: new Date(2021, 3, 4),
       currentView: "Month",
       allowMultiDrag: true,
       showQuickInfo: false,

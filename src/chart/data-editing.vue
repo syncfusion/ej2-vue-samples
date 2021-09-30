@@ -4,8 +4,8 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='dataEditing' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Column' :dragSettings='dragSettings' xName='x' yName='y' name='Product A' width=2 :marker='marker' fill='#00BDAE'> </e-series>
-                <e-series :dataSource='seriesData1' type='Line' :dragSettings='dragSettings' xName='x' yName='y' name='Product B' width=2 :marker='marker' fill='#357CD2'> </e-series>
+                <e-series :dataSource='seriesData' type='Column' :dragSettings='dragSettings' xName='x' yName='y' name='Product A' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='seriesData1' type='Line' :dragSettings='dragSettings' xName='x' yName='y' name='Product B' width=2 :marker='marker'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>

@@ -39,7 +39,6 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .bootstrap4 .rte-markdown-overview .e-icon-btn .e-md-preview::before {
     content: "\e787";
   }
-
   .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before {
     content: '\e7d0';
   }
@@ -47,8 +46,12 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
     content: '\e748';
   }
+  .bootstrap5 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
+  }
+  .bootstrap5 .rte-markdown-overview .e-icon-btn .e-md-preview::before {
+      content: '\e7de';
+  }
 </style>
-
 <script>
   import Vue from "vue";
   import { RichTextEditorPlugin, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";

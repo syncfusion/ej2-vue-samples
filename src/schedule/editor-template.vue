@@ -33,12 +33,12 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .custom-event-editor .e-textlabel {
+    .schedule-custom-event-editor .e-textlabel {
         padding-right: 15px;
         text-align: right;
     }
 
-    .schedule-vue-sample .custom-event-editor td {
+    .schedule-custom-event-editor td {
         padding: 7px;
         padding-right: 16px;
     }
@@ -54,7 +54,7 @@
     export default Vue.extend({
         data: function () {
             return {
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
                 eventSettings: { dataSource: extend([], doctorsEventData, null, true) },
                 showQuickInfo: false,
