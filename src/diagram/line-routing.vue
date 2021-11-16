@@ -60,7 +60,7 @@ import {
   NodeModel,
   LineRouting,
   DiagramConstraints,
-  PortVisibility
+  PortVisibility,ConnectorBridging
 } from "@syncfusion/ej2-vue-diagrams";
 import { Node, SnapConstraints } from "@syncfusion/ej2-vue-diagrams";
 import {
@@ -195,7 +195,7 @@ export default Vue.extend({
       snapSettings: { constraints: SnapConstraints.None },
       nodes: nodes,
       connectors: connectors,
-      constraints: DiagramConstraints.Default | DiagramConstraints.LineRouting,
+      constraints: DiagramConstraints.Default | DiagramConstraints.LineRouting | DiagramConstraints.Bridging,
       //Defines the default node and connector properties
       getNodeDefaults: (obj, diagram) => {
         obj.height = 50;
@@ -216,7 +216,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    diagram: [LineRouting]
+    diagram: [LineRouting,ConnectorBridging]
   },
    mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;

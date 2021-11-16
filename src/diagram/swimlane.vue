@@ -1,6 +1,6 @@
 <template>
   <div class="control-section">
-    <link href="https://ej2.syncfusion.com/javascript/demos/srcsrc/diagram/styles/diagram-common.css" rel="stylesheet">
+    <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css" rel="stylesheet">
     <div id="swimlaneDiagram" style="width: 100%;">
       <div class="sb-mobile-palette-bar">
         <div id="palette-icon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>

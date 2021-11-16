@@ -23,7 +23,8 @@
                 <ejs-numerictextbox ref="springfactorbj" id="springfactor" 
                                     :format='springfactorformat'
                                     :value='springfactorvalue'
-                                    :step='springfactorstep'/>
+                                    :step='springfactorstep'
+                                    :max='springfactormax'/>
             </td>
         </tr>
         <tr>
@@ -134,6 +135,7 @@ export default Vue.extend({
       springfactorformat: "###.##",
       springfactorvalue: 0.8,
       springfactorstep: 0.1,
+      springfactormax: 3.5,
 
       maxiterationformat: "###.##",
       maxiterationvalue: 500,
