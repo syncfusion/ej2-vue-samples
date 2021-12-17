@@ -1,6 +1,6 @@
 <template>
   <div id="CG-export-sample">
-    <div class="col-lg-9 control-section">
+    <div class="col-lg-8 control-section">
       <div class="control-section">
         <ejs-circulargauge ref="gauge" :load="load" style="display:block" align="center" id="gauge" :allowPdfExport='allowPdfExport' :allowPrint='allowPrint' :allowImageExport='allowImageExport'>
           <e-axes>
@@ -16,38 +16,43 @@
               :direction="direction"
             >
               <e-pointers>
-                <e-pointer :pointerWidth='pointerWidth' :cap='cap'></e-pointer>
+                <e-pointer radius='0%' :pointerWidth='pointerWidth' :cap='cap'></e-pointer>
               </e-pointers>
             </e-axis>
           </e-axes>
         </ejs-circulargauge>
       </div>
     </div>
-    <div class="col-lg-3 property-section">
-      <table id="property" title="Properties" style="width: 100%; margin-left:-30px">
+    <div class="col-lg-4 property-section">
+      <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+       <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
+         <tbody>
         <tr style="height: 50px">
-          <td style="width: 40%">
+          <td>
             <div>Export Type</div>
           </td>
-          <td style="width: 60%;">
-            <div style="margin-left: -10px">
-              <ejs-dropdownlist ref="mode" id="mode" :dataSource="modedata" index="0" :width="90"></ejs-dropdownlist>
+          <td>
+            <div>
+              <ejs-dropdownlist ref="mode" id="mode" :dataSource="modedata" index="0" :width='width'></ejs-dropdownlist>
             </div>
           </td>
         </tr>
         <tr style="height: 50px">
-          <td style="width: 40%">
+          <td>
             <div>File Name</div>
           </td>
-          <td style="width: 40%;">
+          <td>
             <div class="e-float-input" style="margin-top: 0px;">
-              <input type="text" value="Gauge" id="fileName" style="margin-left: -10px; width:90px" />
+              <input type="text" value="Gauge" id="fileName" style=" width:100%" />
             </div>
           </td>
         </tr>
-        <tr id="button-control" style="height: 50px" align="center">
+        <tr id="button-control" style="height: 70px" align="center">
           <td>
-            <div style="width: 100px">
+            <div style="text-align: center">
               <ejs-button
                 id="export"
                 :cssClass="cssClass"
@@ -60,7 +65,7 @@
             </div>
           </td>
           <td>
-            <div style="width: 100px">
+            <div style="text-align: center">
               <ejs-button
                 id="print"
                 :cssClass="cssClass"
@@ -73,6 +78,7 @@
             </div>
           </td>
         </tr>
+        </tbody>
       </table>
     </div>
     <div id="action-description">
@@ -198,7 +204,7 @@ export default Vue.extend({
       labelStyle: {
         font: {
           color: "#424242",
-          fontFamily: "Roboto",
+          fontFamily: "Segoe UI",
           size: "12px",
           fontWeight: "Regular"
         },
@@ -240,7 +246,8 @@ export default Vue.extend({
       modedata: ["JPEG", "PNG", "SVG", "PDF"],
       cssClass: "e-flat",
       iconCss: "e-icons e-play-icon",
-      iconCss1: "e-icons e-play-icon1"
+      iconCss1: "e-icons e-play-icon1",
+      width: '100%'
     };
   },
   provide:{

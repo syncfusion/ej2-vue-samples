@@ -36,6 +36,7 @@
 
 </div>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";

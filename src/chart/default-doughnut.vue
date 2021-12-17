@@ -5,7 +5,7 @@
         id="container"
         ref="pie"
         style="display:block;"
-        :theme="theme"
+        :load='load'
         :legendSettings="legendSettings"
         :tooltip="tooltip"
         :title="title"
@@ -118,16 +118,10 @@ let datasource5 = [
   { x: "State Revenue", y: 20 },
   { x: "Federal Revenue", y: 60 }
 ];
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
-      theme: theme,
       data: [
         { x: "Net-tution and Fees", y: 21, text: "21%" },
         { x: "Self-supporting Operations", y: 21, text: "21%" },
@@ -224,6 +218,12 @@ export default Vue.extend({
           count = 0;
         }
       }, 3000);
+    },
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
   provide: {

@@ -91,7 +91,8 @@ data:function(){
         titleSettings: {
             text: 'Top 30 countries with highest Internet users',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeDataPath: 'name',

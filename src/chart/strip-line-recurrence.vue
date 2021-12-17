@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart ref="chart" :load='load' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
          :width='width' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData1' type='Column' xName='x' yName='y' name='All sources' > </e-series>
@@ -90,14 +90,9 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-       theme: theme,
       seriesData1: [
                 { x: new Date(1970, 1, 1), y: 16500 }, { x: new Date(1975, 1, 1), y: 16000 }, { x: new Date(1980, 1, 1), y: 15400 },
                 { x: new Date(1985, 1, 1), y: 15800 }, { x: new Date(1990, 1, 1), y: 14000 }, { x: new Date(1995, 1, 1), y: 10500 },
@@ -162,7 +157,13 @@ export default Vue.extend({
       let primaryYAxis = extend({}, this.primaryYAxis);
       primaryYAxis.stripLines[0].visible = y.checked;
       this.primaryYAxis = primaryYAxis;
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
-    }
+  }
 });
 </script>

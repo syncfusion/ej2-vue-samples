@@ -54,7 +54,7 @@
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
     Vue.use(SchedulePlugin);
 
-    var dataManger = new DataManager({
+    var dataManager = new DataManager({
         url: 'https://ej2services.syncfusion.com/production/web-services/api/Schedule',
         adaptor: new WebApiAdaptor,
         crossDomain: true
@@ -64,8 +64,8 @@
         data: function () {
             return {
                 readonly: true,
-                eventSettings: { dataSource: dataManger },
-                currentView: 'Week'
+                eventSettings: { dataSource: dataManager },
+                currentView: 'Month'
             }
         },
         provide: {

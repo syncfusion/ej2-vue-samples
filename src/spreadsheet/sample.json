@@ -3,7 +3,6 @@
     "directory": "spreadsheet",
     "category": "Grids",
     "ftName": "spreadsheet",
-    "type": "update",
     "hideOnDevice": true,
     "samples": [
         {
@@ -103,7 +102,6 @@
             "url": "data-validation",
             "name": "Data Validation",
             "category": "Spreadsheet",
-            "type": "update",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -223,7 +221,6 @@
             "url": "number-formatting",
             "name": "Number Formatting",
             "category": "Formatting",
-            "type": "update",
             "api": {
                 "sheets": [
                     "columns",

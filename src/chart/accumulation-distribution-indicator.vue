@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :crosshair='crosshair' :indicators='indicators' :legendSettings='legendSettings' :zoomSettings='zoomSettings'
             :rows='rows' :axes='axes' :axisLabelRender='axisLabelRender'>
             <e-series-collection>
@@ -44,15 +44,10 @@ import { chartData } from './financial-data';
 
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
         cData : chartData,
-        theme: theme,
       //Initializing Primary X Axis
        primaryXAxis: {
             valueType: 'DateTime',
@@ -133,6 +128,12 @@ export default Vue.extend({
                 args.text = String(value) + 'bn';
             }
 
+    },
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
    

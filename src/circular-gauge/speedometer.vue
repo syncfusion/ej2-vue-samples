@@ -16,38 +16,42 @@
     </div>
 
     <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin:10px">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
             <tbody>
-               <tr>
-                        <td style="width: 40%">
-                                    <div class="property-text" style="margin-left: 10px"> Show text labels</div>
+               <tr style="height: 50px">
+                        <td>
+                                    <div class="property-text"> Show text labels</div>
                                 </td>
-                                <td style="width: 40%;">
-                                    <div style="margin-left: 20px">
+                                <td>
+                                    <div style="margin-top: -5px; margin-left: 40px">
                                     <ejs-checkbox ref="text" id="showText" :change="onChangeText"></ejs-checkbox>
                                     </div>
                                 </td>
-                        </tr>&nbsp;
-                        <tr>
-                            <td style="width: 40%">
-                                <div class="property-text" style="margin-left: 10px"> Combine ranges</div>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td>
+                                <div class="property-text"> Combine ranges</div>
                             </td>
-                            <td style="width: 40%;">
-                                <div style="margin-left: 20px">
+                            <td>
+                                <div style="margin-top: -5px; margin-left: 40px">
                                 <ejs-checkbox id="combineRange" ref="range" :change="onChangeCombineRange"></ejs-checkbox>
                                 </div>
                             </td>
-                        </tr>&nbsp;
-                        <tr>
-                            <td style="width: 40%">
-                                <div class="property-text" style="margin-left: 10px"> Gap between ranges</div>
+                        </tr>
+                        <tr style="height: 50px">
+                            <td>
+                                <div class="property-text"> Gap between ranges</div>
                             </td>
-                            <td style="width: 40%;">
-                                <div style="margin-left: 20px">
+                            <td>
+                                <div style="margin-top: -5px; margin-left: 40px">
                                 <ejs-checkbox id="range" ref="gap" :change="onChangeRange"></ejs-checkbox>
                                 </div>
                             </td>
-                    </tr>&nbsp;
+                    </tr>
             </tbody>
             <br/>
         </table>
@@ -91,7 +95,7 @@ Vue.use(CircularGaugePlugin);
 Vue.use(CheckBoxPlugin);
 
 let templateString = '<div id="templateWrap"><div class="des">'+
-                '<div id="pointerannotation" style="width:90px;text-align:center;font-size:20px;font-family:Roboto">${pointers[0].value} km/h</div></div></div>';
+                '<div id="pointerannotation" style="width:90px;text-align:center;font-size:20px;font-family:Segoe UI;">${pointers[0].value} km/h</div></div></div>';
 export default Vue.extend({
 data:function(){
     return{
@@ -104,9 +108,9 @@ data:function(){
             majorTicks: { width: 0, },
             minorTicks: { width: 0 },
             pointerWidth: 7,
-            titleStyle: { size: '18px' },
+            titleStyle: { size: '18px', fontFamily: 'Segoe UI' },
             labelStyle: { useRangeColor: false, position: 'Outside', autoAngle: true,
-            font: { size: '13px', fontFamily: 'Roboto' } },
+            font: { size: '13px', fontFamily: 'Segoe UI' } },
             startAngle: 270, 
             endAngle: 90,
             color: '#757575',

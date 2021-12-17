@@ -4,7 +4,8 @@
     <div class="content-wrapper breadcrumb-control-wrapper">
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <h5>Bind to Location</h5>
+                <h5 style="display: inline-block">Bind to Location</h5>
+                <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick"> Reset State</ejs-button>
             </div>
         </div>
         <div class="row material2">
@@ -14,23 +15,24 @@
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <h5>URL Binding</h5>
+                <h5>URL Binding and Navigation</h5>
             </div>
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <ejs-breadcrumb :enableNavigation="false" url="https://ej2.syncfusion.com/demos/breadcrumb/bind-to-location"></ejs-breadcrumb>
+                <ejs-breadcrumb :beforeItemRender="beforeItemRenderHandler" url="https://ej2.syncfusion.com/vue/demos/#/bootstrap5/breadcrumb/bind-to-location.html"></ejs-breadcrumb>
             </div>
         </div>
     </div>
 </div>    
       
 <div id="action-description">
-    <p> This sample demonstrates the Navigation functionality of the <b>Breadcrumb</b> component.</p>
+    <p> This sample demonstrates the navigation functionality of the <b>Breadcrumb</b> component.</p>
 </div>
 <div id="description">
-    <p>The <code>Breadcrumb</code> component can be rendered by using the href(url) of the current page or by using <code>url</code> property when the user is not specified the breadcrumb items using <code>e-breadcrumb-item</code> tag.</p>
-    <p>More information about <code>Breadcrumb</code> component navigations feature can be found in this <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/breadcrumb/getting-started/">documentation section</a>.</p>
+    <p>The <code>Breadcrumb</code> component can be rendered by using the href(URL) of the current page or by using <code>url</code> property when the user is not specified the breadcrumb items using <code>items</code> property.
+    In this demonstration, URL navigation is enabled <b>URL Binding and Navigation</b> and <code>beforeItemRender</code> event is used to customize rendering Breadcrumb item.</p>
+    <p>More information about Breadcrumb component navigations feature can be found in this <a target='_blank' href="https://ej2.syncfusion.com/documentation/breadcrumb/data-binding/#items-based-on-current-url">documentation section</a>.</p>
 </div>
 </div>
 </template>
@@ -44,6 +46,11 @@
 
 .breadcrumb-control-wrapper div.row {
     padding: 15px 0px;
+}
+
+.reset-btn {
+    float: right;
+    margin: 5px 2px 5px 0;
 }
 
 @media only screen and (max-width: 480px) {
@@ -83,14 +90,39 @@
 <script>
 import Vue from "vue";
 import { BreadcrumbPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { Breadcrumb, BreadcrumbBeforeItemRenderEventArgs } from '@syncfusion/ej2-navigations';
+import { getComponent } from '@syncfusion/ej2-base';
 
 Vue.use(BreadcrumbPlugin);
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   data: function() {
     return {
-      
+        themeName : 'https://ej2.syncfusion.com/vue/demos/#/bootstrap5/breadcrumb/bind-to-location.html'.split('/')[6],
     };
+  },
+  methods: {
+    btnClick: function() {
+      var breadcrumb, breadcrumbInst, breadcrumbs = document.querySelector('.content-wrapper').getElementsByClassName("e-breadcrumb");
+      for (var i = 0; i < breadcrumbs.length; i++) {
+            breadcrumb = breadcrumbs[i];
+            breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
+            breadcrumbInst.activeItem = breadcrumbInst.items[breadcrumbInst.items.length - 1].text;
+        }
+    },
+    beforeItemRenderHandler: function(args) {
+      if (args.item.text == 'demos') {
+        args.item.url = args.item.url + '/#/' + this.themeName;
+      }
+      else if (args.item.text == 'breadcrumb') {
+        args.item.url = 'https://ej2.syncfusion.com/vue/demos/#/bootstrap5/breadcrumb/default.html';
+      }
+      else if (args.item.text == '#' || args.item.text == this.themeName || args.item.text == 'vue') {
+        args.cancel = true;
+    }
+  }
   }
 });
 </script>

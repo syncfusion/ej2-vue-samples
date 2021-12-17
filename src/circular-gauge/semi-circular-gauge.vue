@@ -15,80 +15,99 @@
     </div>
 
     <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin:10px">
-            <tbody>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+          <colgroup>
+             <col span="1" style="width: 30%;">
+             <col span="1" style="width: 40%;">
+             <col span="1" style="width: 30%;">
+          </colgroup>
+          <tbody>
             <tr style="height: 50px">
                 <td>
-                    <div id='rangeStart'>Start Angle <span> &nbsp;&nbsp;&nbsp;270°</span> </div>
+                    <div>Start Angle </div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="angleStart" v-on:touchmove="angleStart" v-on:change="angleStart" id="startangle" value="270" min="0" max="360" style="width: 100px;" />
+                        <input type="range" v-on:pointermove="angleStart" v-on:touchmove="angleStart" v-on:change="angleStart" id="startangle" value="270" min="0" max="360" style="width: 65%;" />
                     </div>
                 </td>
-            </tr>&nbsp;
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='rangeStart' style="margin-left: -40px;">270°</span>
+                </td>
+            </tr>
                  <tr style="height: 50px">
                 <td>
-                    <div id='rangeEnd'>End Angle<span> &nbsp;&nbsp;&nbsp;90°</span> </div>
+                    <div>End Angle</div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="angleEnd" v-on:touchmove="angleEnd" v-on:change="angleEnd" id="end" value="270" min="0" max="360" style="width: 100px;" />
+                        <input type="range" v-on:pointermove="angleEnd" v-on:touchmove="angleEnd" v-on:change="angleEnd" id="end" value="270" min="0" max="360" style="width: 65%;"  />
                     </div>
                 </td>
-            </tr>&nbsp;
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='rangeEnd' style="margin-left: -40px;">90°</span>
+                </td>
+            </tr>
                  <tr style="height: 50px">
                 <td>
-                    <div id='radius1'>Radius <span> &nbsp;&nbsp;&nbsp;80%</span> </div>
+                    <div>Radius</div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="gaugeRadius" v-on:touchmove="gaugeRadius" v-on:change="gaugeRadius" id="radius" value="80" min="0" max="100" style="width: 100px;" />
+                        <input type="range" v-on:pointermove="gaugeRadius" v-on:touchmove="gaugeRadius" v-on:change="gaugeRadius" id="radius" value="80" min="0" max="100" style="width: 65%;"  />
                     </div>
                 </td>
-            </tr>&nbsp;
-                 <tr >
-                <td style="width: 40%">
-                    <div> Radius based on angle</div>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='radius1' style="margin-left: -40px;">80%</span>
                 </td>
-                <td style="width: 40%;">
-                    <div style="padding-top: 0px; margin-left: 27px">
+            </tr>
+                 <tr style="height: 50px">
+                <td>
+                    <div style="width: 90%"> Radius based on angle</div>
+                </td>
+                <td>
+                    <div style="padding-top: 0px; margin-left: -10px;">
                         <ejs-checkbox ref="angle" id="angle" :change="onChange"></ejs-checkbox>
                     </div>
                 </td>
-        </tr>&nbsp;
+        </tr>
                    <tr style="height: 50px">
                 <td>
-                    <div id='center1'>Center X <span> &nbsp;&nbsp;&nbsp;50%</span> </div>
+                    <div>Center X</div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" id="centerX" v-on:pointermove="gaugeCenterX" v-on:touchmove="gaugeCenterX" v-on:change="gaugeCenterX" value="50" min="0" max="100" style="width: 100px;" />
+                        <input type="range" id="centerX" v-on:pointermove="gaugeCenterX" v-on:touchmove="gaugeCenterX" v-on:change="gaugeCenterX" value="50" min="0" max="100" style="width: 65%;"  />
                     </div>
                 </td>
-            </tr>&nbsp;
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='center1' style="margin-left: -40px;">50%</span>
+                </td>
+            </tr>
                 <tr style="height: 50px">
                 <td>
-                    <div id='center2'>Center Y <span> &nbsp;&nbsp;&nbsp;50%</span> </div>
+                    <div>Center Y</div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" v-on:pointermove="gaugeCenterY" v-on:touchmove="gaugeCenterY" v-on:change="gaugeCenterY" id="centerY" value="50" min="0" max="100" style="width: 100px;" />
+                        <input type="range" v-on:pointermove="gaugeCenterY" v-on:touchmove="gaugeCenterY" v-on:change="gaugeCenterY" id="centerY" value="50" min="0" max="100" style="width: 65%;"  />
                     </div>
                 </td>
-            </tr>&nbsp;
-            <tr >
-                <td style="width: 40%">
-                    <div> Hide intersecting labels</div>
+                 <td style="padding-top: 10px; text-align: center;">
+                    <span id='center2' style="margin-left: -40px;">50%</span>
                 </td>
-                <td style="width: 40%;">
-                    <div style="padding-top: 0px; margin-left: 27px">
+            </tr>
+           <tr style="height: 50px">
+                <td>
+                    <div style="width: 90%"> Hide intersecting labels</div>
+                </td>
+                <td>
+                    <div style="padding-top: 0px; margin-left: -10px;">
                         <ejs-checkbox checked="true" ref="Hide" id="label" :change="hideLabel"></ejs-checkbox>
                     </div>
                 </td>
             </tr>
             </tbody>
-            <br/>
         </table>
     </div>
 <div id="action-description">
@@ -99,7 +118,7 @@
 <div id="description">
     <p>
         In this example, you can see how to render the circular gauge with modified start and end angles to form semi or quarter circular gauges. By enabling the radius based on angle option, circular gauge radius will be calculated based on the start and end angles.
-		You can also hide the intersect labels using 'hideIntersectingLabel' property.
+		You can also hide the intersect labels using <code>hideIntersectingLabel</code> property.
     </p>
     <p>
         More information on the ranges can be found in this 
@@ -127,7 +146,7 @@ data:function(){
             lineStyle: { width: 0, color: '#0450C2' },
             labelStyle: {
                  position: 'Outside', autoAngle: true,
-                font: { fontWeight: 'normal' }
+                font: { fontWeight: 'normal', fontFamily: 'Segoe UI' }
             },
             majorTicks: {
                 position: 'Inside', width: 2, height: 12, interval: 4
@@ -164,19 +183,19 @@ methods: {
     // Code for Property Panel
     angleStart:function(args){
       let min = parseInt(document.getElementById('startangle').value, 10);
-      document.getElementById('rangeStart').innerHTML = 'Start Angle <span> &nbsp;&nbsp;&nbsp;' + min + '°';
+      document.getElementById('rangeStart').innerHTML = min + '°';
       this.$refs.circulargauge.ej2Instances.axes[0].startAngle = min;
       this.$refs.circulargauge.ej2Instances.refresh();
     },
     angleEnd:function(args){
       let max = parseInt(document.getElementById('end').value, 10);
-      document.getElementById('rangeEnd').innerHTML = 'End Angle <span> &nbsp;&nbsp;&nbsp;' + max + '°';
+      document.getElementById('rangeEnd').innerHTML = max + '°';
       this.$refs.circulargauge.ej2Instances.axes[0].endAngle = max;
       this.$refs.circulargauge.ej2Instances.refresh();
     },
     gaugeRadius:function(args){
       let max = parseInt(document.getElementById('radius').value, 10);
-      document.getElementById('radius1').innerHTML = 'Radius <span> &nbsp;&nbsp;&nbsp;' + max + '%';
+      document.getElementById('radius1').innerHTML = max + '%';
       this.$refs.circulargauge.ej2Instances.axes[0].radius = '' + max + '%';
       this.$refs.circulargauge.ej2Instances.refresh();
     },
@@ -184,7 +203,7 @@ methods: {
       let checkbox = this.$refs.angle.ej2Instances;
       if(!checkbox.checked) {
          let max = parseInt(document.getElementById('centerX').value, 10);
-         document.getElementById('center1').innerHTML = 'Center X <span> &nbsp;&nbsp;&nbsp;' + max + '%';
+         document.getElementById('center1').innerHTML = max + '%';
          this.$refs.circulargauge.ej2Instances.centerX = '' + max + '%';
          this.$refs.circulargauge.ej2Instances.refresh();
       }      
@@ -193,7 +212,7 @@ methods: {
       let checkbox = this.$refs.angle.ej2Instances;
       if(!checkbox.checked) {
             let max = parseInt(document.getElementById('centerY').value, 10);
-            document.getElementById('center2').innerHTML = 'Center Y <span> &nbsp;&nbsp;&nbsp;' + max + '%';
+            document.getElementById('center2').innerHTML = max + '%';
             this.$refs.circulargauge.ej2Instances.centerY = '' + max + '%';
             this.$refs.circulargauge.ej2Instances.refresh();
       }      

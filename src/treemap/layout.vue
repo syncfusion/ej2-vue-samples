@@ -9,21 +9,25 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+         <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
             <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 60%">
-                         <div class="property-text" style="padding-top: 0px !important">Layout Type</div>
+                    <td>
+                         <div style="padding-top: 0px !important;width: 99%;">Layout Type</div>
                     </td>
-                    <td style="width: 40%;">
+                    <td>
                     <ejs-dropdownlist ref="layoutMode" id='layoutMode' :dataSource='layoutModedata' :fields='labelsfields' value='Squarified' index=0  :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change='changeLayoutMode'></ejs-dropdownlist>        
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 60%">
-                         <div class="property-text" style="padding-top: 0px !important">Render Direction</div>
+                    <td>
+                         <div style="padding-top: 0px !important">Render Direction</div>
                     </td>
-                    <td style="width: 40%;">
+                    <td>
                     <ejs-dropdownlist ref="directionMode" id='directionMode' :dataSource='directionModedata' :fields='directionfields' value='TopLeftBottomRight' index=0  :placeholder='directionModeplaceholder' :width='directionModewidth' :change='changedirectionMode'></ejs-dropdownlist>        
                     </td>
                 </tr>
@@ -43,15 +47,6 @@
 </div>
 </div>
 </template>
-// custom code start
-<style scoped>
-    .property-text {
-        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-        font-size: 13px !important;
-        font-weight: 400 !important;
-    }
-</style>
-// custom code end
 <script>
 import Vue from 'vue';
 import { TreeMapPlugin,TreeMapTooltip, RenderingMode } from "@syncfusion/ej2-vue-treemap";
@@ -65,14 +60,17 @@ return{
         // To config title for treemap 
         titleSettings: {
             text: 'Top 10 countries by GDP Nominal - 2015',
-            textStyle: {size: '15px'}
+            textStyle: {size: '15px', fontFamily: 'Segoe UI'}
         },
         dataSource: econmics,
         weightValuePath: 'GDP',
          // To config tooltip for treemap 
         tooltipSettings: {
             visible: true,
-            format: '${State}<br>Rank : ${Rank}'
+            format: '${State}<br>Rank : ${Rank}',
+             textStyle: {
+                fontFamily: 'Segoe UI'
+            }
 
         },
         rangeColorValuePath: 'GDP',
@@ -81,7 +79,8 @@ return{
             labelPath: 'State',
             labelFormat: '${State}<br>$${GDP} Trillion<br>(${percentage} %)',
             labelStyle: {
-                color: '#000000'
+                color: '#000000',
+                fontFamily: 'Segoe UI'
             },
             border: {
                 color: '#000000',
@@ -104,7 +103,7 @@ return{
         { Id:'SliceAndDiceAuto', level:'Auto'}],
         labelsfields:{ text: 'level', value: 'Id' },
         layoutModeplaceholder: 'Select layoutMode type',
-        layoutModewidth: 120,
+        layoutModewidth: '100%',
         directionModedata:[
         { Id:'TopLeftBottomRight', level:'TopLeftBottomRight'},
         { Id:'TopRightBottomLeft', level:'TopRightBottomLeft'},
@@ -112,7 +111,7 @@ return{
         { Id:'BottomRightTopLeft', level:'BottomRightTopLeft'}],
         directionfields:{ text: 'level', value: 'Id' },
         directionModeplaceholder: 'Select layoutMode type',
-        directionModewidth: 115
+        directionModewidth: '100%'
 }
 },
 provide:{

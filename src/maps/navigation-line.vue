@@ -62,6 +62,7 @@ export default Vue.extend({
             textStyle: {
                 size: '18px',
                 animationDuration: 0,
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -94,7 +95,7 @@ export default Vue.extend({
                     },
                     {
                         visible: true,
-                        template: '<div id="marker1" style="font-size: 12px;color:white">ALTAMIRA' +
+                        template: '<div id="marker1" style="font-size: 12px;color:white; font-family:Segoe UI; ">ALTAMIRA' +
                             '</div>',
                         dataSource: [
                             { latitude: 22.403410892712124, longitude: -97.8717041015625, }
@@ -107,7 +108,7 @@ export default Vue.extend({
                     },
                     {
                         visible: true,
-                        template: '<div id="marker2" style="font-size: 12px;color:white">HOUSTON' +
+                        template: '<div id="marker2" style="font-size: 12px;color:white; font-family:Segoe UI;">HOUSTON' +
                             '</div>',
                         dataSource: [
                             { latitude: 29.756032197482973, longitude: -95.36270141601562 }
@@ -120,7 +121,7 @@ export default Vue.extend({
                     },
                     {
                         visible: true,
-                        template: '<div id="marker3" style="font-size: 12px;color:white">PANAMA CITY' +
+                        template: '<div id="marker3" style="font-size: 12px;color:white; font-family:Segoe UI;">PANAMA CITY' +
                             '</div>',
                         dataSource: [
                             { latitude: 30.180747605060766, longitude: -85.81283569335938 }
@@ -133,7 +134,7 @@ export default Vue.extend({
                     },
                     {
                         visible: true,
-                        template: '<div id="marker4" style="font-size: 12px;color:white">TAMPA' +
+                        template: '<div id="marker4" style="font-size: 12px;color:white; font-family:Segoe UI;">TAMPA' +
                             '</div>',
                         dataSource: [
                             { latitude: 27.9337540167772, longitude: -82.49908447265625 }
@@ -146,7 +147,7 @@ export default Vue.extend({
                     },
                     {
                         visible: true,
-                        template: '<div id="marker5" style="font-size: 12px;color:white">PROGRESO' +
+                        template: '<div id="marker5" style="font-size: 12px;color:white; font-family:Segoe UI;">PROGRESO' +
                             '</div>',
                         dataSource: [
                             { latitude: 21.282336521195344, longitude: -89.6649169921875 }

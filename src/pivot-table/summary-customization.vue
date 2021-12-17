@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-lg-8 control-section">
+    <div class="col-lg-9 control-section">
       <div class="content-wrapper">
         <ejs-pivotview
           id="pivotview"
@@ -15,65 +15,94 @@
       </div>
     </div>
 
-    <div class="col-lg-4 property-section pivot-table-property-section">
+    <div class="col-lg-3 property-section pivot-table-property-section">
       <table id="property" title="Properties" style="width: 100%;height:100%;">
         <tbody>
-          <tr style="height: 50px">
-            <td>
-              <div style="font-weight: 600; font-size: 13px">Hide grand totals</div>
-            </td>
-          </tr>
-          <tr style="height: 50px">
-            <td>
-              <div>
-                <ejs-radiobutton label="Row" name="total" value="Row" :change="onChange"></ejs-radiobutton>
-              </div>
-            </td>
-          </tr>
-          <tr style="height: 50px">
-            <td>
-              <div>
-                <ejs-radiobutton label="Column" name="total" value="Column" :change="onChange"></ejs-radiobutton>
-              </div>
-            </td>
-          </tr>
-          <tr style="height: 50px">
-            <td>
-              <div>
-                <ejs-radiobutton
-                  label="Both"
-                  name="total"
-                  value="Both"
-                  :change="onChange"
-                  :checked="true"
-                ></ejs-radiobutton>
-              </div>
-            </td>
-          </tr>
-          <tr style="height: 50px">
-            <td>
-              <div style="font-weight: 600; font-size: 13px">Hide sub-totals</div>
-            </td>
-          </tr>
-          <tr style="height: 50px">
-            <td>
-              <div>
-                <ejs-multiselect
-                  id="values"
-                  :dataSource="field"
-                  :showDropDownIcon="showDropDownIcon"
-                  :showClearButton="showClearButton"
-                  :enableSelectionOrder="enableSelectionOrder"
-                  :fields="fields"
-                  :mode="mode"
-                  :select="onSelect"
-                  :removed="onRemove"
-                  :open="onOpen"
-                  :placeholder="placeholder"
-                ></ejs-multiselect>
-              </div>
-            </td>
-          </tr>
+            <tr>
+                <td>
+              		<div style="font-weight: 600; font-size: 13px; white-space: nowrap">Grand totals position</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                		<ejs-radiobutton label="Top" name="position" value="Top" :change="onChange1"></ejs-radiobutton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                		<ejs-radiobutton label="Bottom" name="position" value="Bottom" :change="onChange1" :checked="true"></ejs-radiobutton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <div style="font-weight: 600; font-size: 13px; white-space: nowrap">Hide grand totals</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                		<ejs-radiobutton label="Row" name="total" value="Row" :change="onChange"></ejs-radiobutton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                		<ejs-radiobutton label="Column" name="total" value="Column" :change="onChange"></ejs-radiobutton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+		                <ejs-radiobutton
+		                  label="Both"
+		                  name="total"
+		                  value="Both"
+		                  :change="onChange"
+		                ></ejs-radiobutton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                		<ejs-radiobutton label="None" name="total" value="None" :change="onChange" :checked="true"></ejs-radiobutton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <div style="font-weight: 600; font-size: 13px; white-space: nowrap">Hide sub-totals</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div>
+		                <ejs-multiselect
+		                  id="values"
+		                  :dataSource="field"
+		                  :showDropDownIcon="showDropDownIcon"
+		                  :showClearButton="showClearButton"
+		                  :enableSelectionOrder="enableSelectionOrder"
+		                  :fields="fields"
+		                  :mode="mode"
+		                  :select="onSelect"
+		                  :removed="onRemove"
+		                  :open="onOpen"
+		                  :placeholder="placeholder"
+		                ></ejs-multiselect>
+                    </div>
+                </td>
+            </tr>
         </tbody>
       </table>
     </div>
@@ -83,10 +112,13 @@
     </div>
     <div id="description">
       <p>
-        In this sample, you can hide grand totals in row, column, or both using radio buttons available under the <b>Hide grand totals</b> category. To hide grand totals in both row and column, set the property <code>dataSourceSettings->showGrandTotals</code> as false. To hide the row and column grand totals separately, set the property <code>dataSourceSettings->showRowGrandTotals</code> and <code>dataSourceSettings->showColumnGrandTotals</code>as false.
+        In this sample, you can hide grand totals in row, column, or both using radio buttons available under the <b>Hide grand totals</b> category. To hide grand totals in both row and column, set the property <code>dataSourceSettings->showGrandTotals</code> as <b>false</b>. To hide the row and column grand totals separately, set the property <code>dataSourceSettings->showRowGrandTotals</code> and <code>dataSourceSettings->showColumnGrandTotals</code>as <b>false</b>.
       </p>
       <p>
-        Also, in this sample, you can hide subtotals for specific fields too. It can be achieved by selecting appropriate fields from the drop-down available under the <b>Hide sub-totals</b> category. To hide subtotals for a specific field, set the <code>showSubTotals</code> property as false inside the field definition.
+        You can also, display the grand totals either at the top or bottom of the row and column axes using radio buttons available under the <b>Grand totals position</b> category. To display the grand totals at top, set the property <code>dataSourceSettings->grandTotalsPosition</code> as <b>Top</b>. And, to display the grand totals at botton, set the property <code>dataSourceSettings->grandTotalsPosition</code> as <b>Bottom</b>.
+      </p>
+      <p>
+        Also, in this sample, you can hide subtotals for specific fields too. It can be achieved by selecting appropriate fields from the drop-down available under the <b>Hide sub-totals</b> category. To hide subtotals for a specific field, set the <code>showSubTotals</code> property as <b>false</b> inside the field definition.
       </p>
     </div>
   </div>
@@ -134,7 +166,7 @@ export default Vue.extend({
           { name: "Year" },
           { name: "Order_Source", caption: "Order Source" }
         ],
-        drilledMembers: [{ name: "Country", items: ["France"] }],
+        drilledMembers: [{ name: "Country", items: ["France", "Germany"] }],
         filterSettings: [
           {
             name: "Products",
@@ -154,10 +186,11 @@ export default Vue.extend({
         filters: [
           { name: "Product_Categories", caption: "Product Categories" }
         ],
-        showGrandTotals: false
+        showGrandTotals: true,
+        grandTotalsPosition: 'Bottom'
       },
       width: "100%",
-      height: 400,
+      height: 500,
       gridSettings: { columnWidth: 140 }
     };
   },
@@ -227,17 +260,36 @@ export default Vue.extend({
     },
     onChange: function(args: ChangeArgs) {
       let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      pivotObj.setProperties({ dataSourceSettings: { showGrandTotals: true } }, true);
-      pivotObj.setProperties({ dataSourceSettings: { showRowGrandTotals: true } }, true);
-      pivotObj.setProperties({
-        dataSourceSettings: { showColumnGrandTotals: true }
-      }, true);
-      if (args.value === "Column") {
-        pivotObj.dataSourceSettings.showColumnGrandTotals = false;
-      } else if (args.value === "Row") {
-        pivotObj.dataSourceSettings.showRowGrandTotals = false;
-      } else if (args.value === "Both") {
-        pivotObj.dataSourceSettings.showGrandTotals = false;
+      if (args.value === "None") {
+        pivotObj.setProperties({ dataSourceSettings: { showGrandTotals: false } }, true);
+        pivotObj.setProperties({ dataSourceSettings: { showRowGrandTotals: true } }, true);
+        pivotObj.setProperties({ dataSourceSettings: { showColumnGrandTotals: true } }, true);
+        pivotObj.dataSourceSettings.showGrandTotals = true;
+      }
+      else {
+        pivotObj.setProperties({ dataSourceSettings: { showGrandTotals: true } }, true);
+        pivotObj.setProperties({ dataSourceSettings: { showRowGrandTotals: true } }, true);
+        pivotObj.setProperties({
+          dataSourceSettings: { showColumnGrandTotals: true }
+        }, true);
+        if (args.value === "Column") {
+          pivotObj.dataSourceSettings.showColumnGrandTotals = false;
+        } else if (args.value === "Row") {
+          pivotObj.dataSourceSettings.showRowGrandTotals = false;
+        } else if (args.value === "Both") {
+          pivotObj.dataSourceSettings.showGrandTotals = false;
+        }
+      }
+    },
+    onChange1: function(args: ChangeArgs) {
+      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      if (args.value === 'Top') {
+        pivotObj.setProperties({ dataSourceSettings: { grandTotalsPosition: 'Bottom' } }, true);
+        pivotObj.dataSourceSettings.grandTotalsPosition = 'Top';
+      }
+      else if(args.value === 'Bottom') {
+        pivotObj.setProperties({ dataSourceSettings: { grandTotalsPosition: 'Top' } }, true);
+        pivotObj.dataSourceSettings.grandTotalsPosition = 'Bottom';
       }
     },
     onOpen: function(args: PopupEventArgs) {
@@ -267,6 +319,18 @@ export default Vue.extend({
 
 /deep/ .pivot-table-property-section .e-multiselect {
     padding: 0;
+}
+
+/deep/ .pivot-table-property-section .property-panel-header {
+    padding-bottom: 10px;
+}
+
+/deep/ .pivot-table-property-section  .property-panel-table td {
+    width: auto;
+}
+
+/deep/ .pivot-table-property-section  .property-panel-table div {
+    padding-left: unset;
 }
 
 /deep/ .sb-sample-content-area {

@@ -88,31 +88,31 @@
                 document.getElementById('EventLog').innerHTML = '';
             },
             onCreate: function () {
-                this.appendElement('Schedule <b>Load</b> event called<hr>');
+                this.appendElement('Schedule <b>Load</b> event is triggered<hr>');
             },
             onActionBegin: function () {
-                this.appendElement('Schedule <b>Action Begin</b> event called<hr>');
+                this.appendElement('Schedule <b>Action Begin</b> event is triggered<hr>');
             },
             onActionComplete: function () {
-                this.appendElement('Schedule <b>Action Complete</b> event called<hr>');
+                this.appendElement('Schedule <b>Action Complete</b> event is triggered<hr>');
             },
             onActionFailure: function () {
-                this.appendElement('Schedule <b>Action Failure</b> event called<hr>');
+                this.appendElement('Schedule <b>Action Failure</b> event is triggered<hr>');
             },
             onCellDoubleClick: function () {
-                this.appendElement('SChedule <b>Cell Double Click</b> event called<hr>');
+                this.appendElement('SChedule <b>Cell Double Click</b> event is triggered<hr>');
             },
             onCellClick: function () {
-                this.appendElement('Schedule <b>Cell Click</b> event called<hr>');
+                this.appendElement('Schedule <b>Cell Click</b> event is triggered<hr>');
             },
             onNavigating: function () {
-                this.appendElement('Schedule <b>Navigating</b> event called<hr>');
+                this.appendElement('Schedule <b>Navigating</b> event is triggered<hr>');
             },
             onEventClick: function () {
-                this.appendElement('Schedule <b>Event Click</b> event called<hr>');
+                this.appendElement('Schedule <b>Event Click</b> event is triggered<hr>');
             },
             onPopupOpen: function () {
-                this.appendElement('Schedule <b>Popup Open</b> event called<hr>');
+                this.appendElement('Schedule <b>Popup Open</b> event is triggered<hr>');
             },
 
             oneventRendered: function (args) {

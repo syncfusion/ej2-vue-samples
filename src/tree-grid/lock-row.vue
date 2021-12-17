@@ -63,7 +63,7 @@
 <!-- custom code start -->
 <style>
 .material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
-.bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .highcontrast .disableRow .e-rowcell, 
+.bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .e-rowcell, .highcontrast .disableRow .e-rowcell, 
 .tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell {
     color: #757575 !important;
 }

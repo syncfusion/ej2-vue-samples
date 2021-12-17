@@ -15,9 +15,14 @@
     </div>
 
     <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin:10px">
-            <tbody>
-                <tr>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+         <colgroup>
+             <col span="1" style="width: 50%;">
+             <col span="1" style="width: 30%;">
+             <col span="1" style="width: 20%;">
+          </colgroup>
+          <tbody>
+                 <tr style="height: 50px">
                     <td>
                         <div> Ticks </div>
                     </td>
@@ -26,69 +31,77 @@
     <ejs-dropdownlist ref="tick" id='Ticks' :dataSource='ticksdata' :fields='ticksfields' value='major' index=0  :width='tickstwidth' :change='changeTicks'></ejs-dropdownlist>                      
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                </tr>
+                 <tr style="height: 50px">
                     <td>
-                        <div style="margin-top: -20px"> Tick Position </div>
+                        <div> Tick Position </div>
                     </td>
                     <td>
-                        <div style="margin-top: -20px">
+                        <div>
     <ejs-dropdownlist id='tickposition' ref="tickPos" :dataSource='tickpositiondata' index=0  :width='tickpositionwidth' :change='changeTickposition'></ejs-dropdownlist>                      
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                </tr>
+                 <tr style="height: 50px">
                     <td>
-                        <div style="margin-top: -20px"> Label Position </div>
+                        <div> Label Position </div>
                     </td>
                     <td>
-                        <div style="margin-top: -20px">
+                        <div>
     <ejs-dropdownlist id='labelposition' ref="labelPos" :dataSource='labelpositiondata' index=0  :width='labelpositionwidth' :change='changeLabelposition'></ejs-dropdownlist>                      
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                </tr>
+                <tr style="height: 50px">
                     <td>
-                        <div id='offset' style="margin-top: -20px">Tick Offset <span>&nbsp;&nbsp;&nbsp;0</span> </div>
+                        <div>Tick Offset</div>
                     </td>
                     <td>
-                        <div style="margin-top: -20px">
-                            <input type="range" ref="tickOff" id="tickOffset" v-on:pointermove="tickOffset" v-on:touchmove="tickOffset" v-on:change="tickOffset" value="0" min="0" max="50" style="width:120px" />
+                        <div>
+                            <input type="range" ref="tickOff" id="tickOffset" v-on:pointermove="tickOffset" v-on:touchmove="tickOffset" v-on:change="tickOffset" value="0" min="0" max="50" style="width:70%" />
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                    <td style="padding-top: 10px; text-align: center;">
+                        <span id='offset' style="margin-left: -30px;">0</span>
+                    </td>
+                </tr>
+                 <tr style="height: 50px">
                     <td>
-                        <div id='height' style="margin-top: -10px">Tick Height <span>&nbsp;&nbsp;&nbsp;10</span> </div>
+                        <div>Tick Height</div>
                     </td>
                     <td>
-                        <div style="margin-top: -10px">
-                            <input type="range" ref="tickHeight" id="tickHeight" v-on:pointermove="tickHeight" v-on:touchmove="tickHeight" v-on:change="tickHeight" value="10" min="1" max="50" style="width:120px" />
+                        <div>
+                            <input type="range" ref="tickHeight" id="tickHeight" v-on:pointermove="tickHeight" v-on:touchmove="tickHeight" v-on:change="tickHeight" value="10" min="1" max="50" style="width:70%" />
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                    <td style="padding-top: 10px; text-align: center;">
+                        <span id='height' style="margin-left: -30px;">10</span>
+                    </td>
+                </tr>
+                 <tr style="height: 50px">
                     <td>
-                        <div id='labelOffsetValue' style="margin-top: -10px">Label Offset <span>&nbsp;&nbsp;&nbsp;0</span> </div>
+                        <div>Label Offset</div>
                     </td>
                     <td>
-                        <div style="margin-top: -10px">
-                            <input type="range" ref="labelOff" id="labelOffset" v-on:pointermove="labelOffset" v-on:touchmove="labelOffset" v-on:change="labelOffset" value="0" min="0" max="50" style="width:120px" />
+                        <div>
+                            <input type="range" ref="labelOff" id="labelOffset" v-on:pointermove="labelOffset" v-on:touchmove="labelOffset" v-on:change="labelOffset" value="0" min="0" max="50" style="width:70%" />
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
-                    <td>
-                        <div id='height' style="margin-top: -10px"> Show Last Label </div>
+                    <td style="padding-top: 10px; text-align: center;">
+                        <span id='labelOffsetValue' style="margin-left: -30px;">0</span>
                     </td>
-                <td style="width: 50%">
-                <div style="margin-top: -10px; margin-left: 36px">
+                </tr>
+                 <tr style="height: 50px">
+                    <td>
+                        <div id='height'> Show Last Label </div>
+                    </td>
+                <td>
+                <div style="margin-top: -10px; margin-left: -10px;">
                     <ejs-checkbox  id="enable" ref="enable" name="enable" :change='changeEnablePointer'></ejs-checkbox>
                 </div>    
                 </td>
             </tr>
             </tbody>
-            <br/>
         </table>
     </div>
 <div id="action-description">
@@ -136,7 +149,7 @@ data:function(){
             lineStyle: { width: 2, color: '#9E9E9E' },
             labelStyle: {
                 position: 'Outside', autoAngle: true,
-                font: { size: '10px' }
+                font: { size: '10px', fontFamily: 'Segoe UI' }
             },
             majorTicks: {
                 position: 'Inside', color: '#757575', width: 2, height: 10, interval: 20
@@ -158,11 +171,11 @@ data:function(){
             { Id:'major', level:'Major Ticks'},
             { Id:'minor', level:'Minor Ticks'}],
             ticksfields:{ text: 'level', value: 'Id' },
-            tickstwidth:120,
+            tickstwidth: '100%',
             tickpositiondata:['Inside','Cross','Outside'],
-            tickpositionwidth:120,
+            tickpositionwidth:'100%',
             labelpositiondata:['Outside','Cross','Inside'],
-            labelpositionwidth:120
+            labelpositionwidth:'100%'
     }
 },
 provide: {
@@ -191,8 +204,8 @@ methods: {
             this.$refs.tickPos.ej2Instances.value = tick.position;
             this.$refs.tickOff.value = tick.offset.toString();
             this.$refs.tickHeight.value = tick.height.toString();
-            document.getElementById('offset').innerHTML = 'Tick Offset <span>&nbsp;&nbsp;&nbsp;' + tick.offset;
-            document.getElementById('height').innerHTML = 'Tick Height <span>&nbsp;&nbsp;&nbsp;' + tick.height;  
+            document.getElementById('offset').innerHTML = tick.offset.toString();
+            document.getElementById('height').innerHTML = tick.height.toString();  
     },
     changeTickposition:function(args){
             // let cotainerObj=document.getElementById('labels-container');
@@ -220,7 +233,7 @@ methods: {
             } else {
                 this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.offset = value;
             }
-            document.getElementById('offset').innerHTML = 'Tick Offset <span>&nbsp;&nbsp;&nbsp;' + value;
+            document.getElementById('offset').innerHTML = value.toString();
             this.$refs.circulargauge.ej2Instances.refresh();
     },
     tickHeight:function(args){
@@ -231,14 +244,14 @@ methods: {
             } else {
                 this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.height = value;
             }
-            document.getElementById('height').innerHTML = 'Tick Height <span>&nbsp;&nbsp;&nbsp;' + value;
+            document.getElementById('height').innerHTML = value.toString();
             this.$refs.circulargauge.ej2Instances.refresh();
     },
     labelOffset:function(args){
             // let cotainerObj=document.getElementById('labels-container');
             let value = parseInt(this.$refs.labelOff.value, 10);
             this.$refs.circulargauge.ej2Instances.axes[0].labelStyle.offset = value;
-            document.getElementById('labelOffsetValue').innerHTML = 'Label Offset <span>&nbsp;&nbsp;&nbsp;' + value;
+            document.getElementById('labelOffsetValue').innerHTML = value.toString();
             this.$refs.circulargauge.ej2Instances.refresh();
     },
     changeEnablePointer:function(e){

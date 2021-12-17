@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :crosshair='crosshair' :tooltip='tooltip' >
             <e-series-collection>
                 <e-series :dataSource='data1' :animation='animation' type='Hilo' xName='x' name='Apple Inc' low='low' high='high' > </e-series>
@@ -48,9 +48,6 @@ import { chartData } from './financial-data';
 
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let date1 = new Date(2017, 1, 1);
 let returnValue = chartData.filter(filterValue);
 function filterValue(value) {
@@ -63,7 +60,6 @@ function filterValue(value) {
 export default Vue.extend({
   data: function() {
     return {
-       theme: theme,
        data1: returnValue,
       //Initializing Primary X Axis
        primaryXAxis: {
@@ -115,6 +111,12 @@ export default Vue.extend({
     chart: [HiloSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair]
   },
   methods: {
+      load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   },
  
 });

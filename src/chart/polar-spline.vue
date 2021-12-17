@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
+        <ejs-chart ref="chart" style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
          :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y' name='Cardioid (unidirectional)' width=2 drawType='Spline' dashArray='5 5 2' :isClosed='isClosed'> </e-series>
@@ -88,14 +88,9 @@ import {
 
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme:theme,
       seriesData: ChartDataService.prototype.GetPolarSplineData().series1,
       seriesData1: ChartDataService.prototype.GetPolarSplineData().series2,
       seriesData2: ChartDataService.prototype.GetPolarSplineData().series3,
@@ -134,8 +129,13 @@ export default Vue.extend({
   },
   methods: {
     polarType: function(args) {
-       this.seriesType = SelectSeriesType.value;     
-          
+       this.seriesType = SelectSeriesType.value;
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

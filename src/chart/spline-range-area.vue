@@ -3,7 +3,7 @@
     <div align="center">
       <ejs-chart
         style="display: block"
-        :theme="theme"
+        :load='load'
         align="center"
         id="chartcontainer"
         :title="title"
@@ -91,16 +91,9 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function () {
     return {
-      theme: theme,
       data: [
         { x: "Jan", high: 14, low: 4 },
         { x: "Feb", high: 17, low: 7 },
@@ -167,6 +160,13 @@ export default Vue.extend({
   provide: {
     chart: [SplineRangeAreaSeries, Category, Legend, Tooltip],
   },
-  methods: {},
+  methods: {
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
+  },
 });
 </script>

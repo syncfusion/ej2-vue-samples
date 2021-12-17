@@ -38,11 +38,14 @@ data:function(){
     return{
         tooltipSettings: {
             visible: true,
-            format: ' ${Gender} : ${Population}'
+            format: ' ${Gender} : ${Population}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         titleSettings: {
             text: 'Population of the continents based on gender and age group - 2011',
-            textStyle: { size: '15px' }
+            textStyle: { size: '15px', fontFamily: 'Segoe UI' }
         },
         useGroupingSeparator: true,
         dataSource: Continent_Data,
@@ -51,6 +54,9 @@ data:function(){
             labelPath: 'Gender',
             fill: '#A1317D',
             showLabels: false,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             border: { color: 'black', width: 0.5 },
             labelFormat: '${Gender} : ${Population}',
             templatePosition: 'Center',

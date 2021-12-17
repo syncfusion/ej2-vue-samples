@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-lg-9 control-section">
-        <ejs-chart ref="chart" :theme='theme' style='display:block;' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :title='title' :tooltip='tooltip'>
+        <ejs-chart ref="chart" :load='load' style='display:block;' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :title='title' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='data' :isClosed='isClosed' :type='seriesType' drawType='Line' xName='x' yName='y' name='Warmest' width=2 :marker='marker'>
                 </e-series>
@@ -98,14 +98,9 @@ import { Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, ChartP
 Vue.use(ChartPlugin);
 Vue.use(DropDownListPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-    theme: theme,
     isClosed: true,
       polardata : [ 'Polar', 'Radar' ],
       data: [
@@ -201,6 +196,12 @@ export default Vue.extend({
     },
     polarType: function(args) {
         this.seriesType = SelectSeriesType.value;
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
     updated: function() {

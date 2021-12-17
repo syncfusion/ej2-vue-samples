@@ -3,12 +3,12 @@
 <div class="control-section">
 <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad' :annotations='annotations'>
 <e-axes>
-<e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
+<e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
 <e-pointers>
 <e-pointer :type='type' :value='value' :offset='offset' :color='color'></e-pointer>
 </e-pointers>
 </e-axis>
-<e-axis :opposedPosition='opposedPosition' :minimum='minimum2' :maximum='maximum2' :line='line2' :majorTicks='majorTicks2' :minorTicks='minorTicks2'>
+<e-axis :opposedPosition='opposedPosition' :minimum='minimum2' :maximum='maximum2' :line='line2' :majorTicks='majorTicks2' :minorTicks='minorTicks2' :labelStyle='labelStyle'>
 <e-pointers>
 <e-pointer :type='type2' :value='value2' :offset='offset2' :color='color2'></e-pointer>
 </e-pointers>
@@ -73,8 +73,13 @@ export default Vue.extend({
         minorTicks: {
             interval: 0.2
         },
+        labelStyle: {
+            font: {
+                fontFamily: 'Segoe UI'
+            }
+        },
         annotations: [ {
-                content: '<div id="first"><h1 style="font-size:15px;">Inches</h1></div>',
+                content: '<div id="first"><h1 style="font-size:15px; font-family: Segoe UI;">Inches</h1></div>',
                 axisIndex: 0,
                 axisValue: 5.4,
                 x: 35,
@@ -82,7 +87,7 @@ export default Vue.extend({
                 zIndex: '1'
             },
             {
-                content: '<div id="second"><h1 style="font-size:15px;">Centimeters</h1></div>',
+                content: '<div id="second"><h1 style="font-size:15px; font-family: Segoe UI;">Centimeters</h1></div>',
                 axisIndex: 1,
                 axisValue: 16.5,
                 x: 50,

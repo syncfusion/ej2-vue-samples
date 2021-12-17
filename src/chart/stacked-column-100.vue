@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' align='center' :load='load' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='StackingColumn100' xName='x' yName='y' name='UK' > </e-series>
@@ -50,14 +50,9 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, StackingColumnSeries, Legend, Category, Tooltip} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
       seriesData: [
                { x: '2006', y: 900, y1: 190, y2: 250, y3: 150 },
                { x: '2007', y: 544, y1: 226, y2: 145, y3: 120 },
@@ -110,7 +105,12 @@ export default Vue.extend({
   },
 
   methods: {
-  
+      load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   },
  
 });

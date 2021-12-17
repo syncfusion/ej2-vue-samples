@@ -1,7 +1,7 @@
 
 <template>
 <div id="maps-zoom-sample">
-<div class="col-lg-9 control-section">
+<div class="col-lg-8 control-section">
 <ejs-maps ref="maps" id='mapszooming' :zoomSettings='zoomSettings' :load='load'>
     <e-layers>
         <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :animationDuration='animationDuration' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings'></e-layer>
@@ -10,66 +10,88 @@
     <div id="height_slider"></div>        
     </div>
 
-    <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <tbody>
+    <div class="col-lg-4 property-section">
+        <table id="property" title="Properties" style="width: 100%;">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+       </colgroup>
+       <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 50%">
-                        <div style="width: 120%;">Zooming</div>
+                    <td>
+                        <div  class="text">Zooming</div>
                     </td>
                     <td>
-                        <input type="checkbox" checked id="zoom" style="margin-top: 20px; margin-left: 40px"  v-on:change='changeZoom' />
+                    <div  class="text" style="margin-top: 3px;  margin-left: 10px;">
+                        <input type="checkbox" checked id="zoom"  v-on:change='changeZoom' />
+                   </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 50%">
-                        <div style="width: 120%;">Panning</div>
+                    <td>
+                        <div  class="text">Panning</div>
                     </td>
                     <td>
-                        <input type="checkbox" checked id="panning" style="margin-top: 25px; margin-left: 40px"  v-on:change='changePan' />
+                   <div  class="text" style="margin-top: 3px;  margin-left: 10px;">
+                        <input type="checkbox" checked id="panning"  v-on:change='changePan' />
+                   </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 50%">
-                        <div style="width: 120%;">Mouse wheel zoom</div>
+                    <td>
+                        <div style="width: 93%;"  class="text">Mouse wheel zoom</div>
                     </td>
                     <td>
-                        <input type="checkbox" checked id="mousewheel" style="margin-top: 15px; margin-left: 40px" v-on:change='changeMousewheel'/>
+                    <div  class="text" style="margin-top: 3px;  margin-left: 10px;">
+                        <input type="checkbox" checked id="mousewheel" v-on:change='changeMousewheel'/>
+                    </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                        <td style="width: 50%">
-                            <div style="width: 120%;">Pinch zoom</div>
+                        <td>
+                            <div  class="text">Pinch zoom</div>
                         </td>
                         <td>
-                            <input type="checkbox" checked id="pinch" style="margin-top: 15px; margin-left: 40px"  v-on:change='changePinch' />
+                        <div  class="text" style="margin-top: 3px;  margin-left: 10px;">
+                            <input type="checkbox" checked id="pinch"  v-on:change='changePinch' />
+                         </div>
                         </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 50%">
-                        <div style="width: 120%;">Single click zoom</div>
+                    <td>
+                        <div  class="text" style="width: 89%;">Single click zoom</div>
                     </td>
                     <td>
-                        <input type="checkbox" id="singletap" style="margin-top: 15px; margin-left: 40px"  v-on:change='changeSingletap' />
+                     <div  class="text" style="margin-top: 3px;  margin-left: 10px;" >
+                        <input type="checkbox" id="singletap" v-on:change='changeSingletap' />
+                      </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 50%">
-                        <div style="width: 120%;">Double click zoom</div>
+                    <td>
+                        <div  class="text" style="width: 93%;">Double click zoom</div>
                     </td>
                     <td>
-                        <input type="checkbox" id="doubletap" style="margin-top: 15px; margin-left: 40px"  v-on:change='changeDoubletap' />
+                    <div  class="text" style="margin-top: 3px;  margin-left: 10px;">
+                        <input type="checkbox" id="doubletap" v-on:change='changeDoubletap' />
+                     </div>
                     </td>
                 </tr>
                  <tr style="height: 50px">
-                    <td style="width: 50%">
-                        <div style="width: 120%;">Animation duration <br><span id="dur">500 ms</span></div>
+                    <td>
+                        <div  id="animation" style="width: 94%; padding-left: 0px;">Animation duration</div>
                     </td>
                     <td>
-                        <ejs-slider id='range' :value='value' min=0 max=1000 :step='step' :change='sliderChange' style="width: 70px"></ejs-slider>
+                    <div style="padding-top: 5px; margin-left: -10px;">
+                        <ejs-slider id='range' :value='value' min=0 max=1000 :step='step' :change='sliderChange' class="slider" style="width: 50%;"></ejs-slider>
+                        </div>
+                    </td>
+                    <td align="center" class="duration" style="width: 10%; text-align: center; padding-top: 10px;">
+                        <span id="dur" style="margin-left: -55px;">500ms</span>
                     </td>
                 </tr>
-        </tbody></table>
+                </tbody>
+        </table>
     </div>
     <div id="action-description">
             <p>
@@ -91,7 +113,7 @@
 </div>
 </template>
 
- <style>
+ <style scoped>
      #maps-zoom-sample .slider-content-wrapper {
         width: 40%;
         margin: 0 auto;
@@ -167,6 +189,14 @@
     #maps-zoom-sample #range > * {
         padding: 0px !important;
     }
+    div.text {
+        padding-left: 0px; padding-top: 0px;
+    }
+</style>
+<style>
+.slider .e-slider-track{
+    padding-top: 0px;
+}
 </style>
 <script>
 import Vue from 'vue';
@@ -252,7 +282,7 @@ methods:{
     sliderChange:function(args){
         this.$refs.maps.ej2Instances.layers[0].animationDuration = args.value;
         this.$refs.maps.ej2Instances.refresh();
-        document.getElementById('dur').innerHTML = args.value.toString() + ' ms';
+        document.getElementById('dur').innerHTML = args.value.toString() + 'ms';
     }
 }
 })

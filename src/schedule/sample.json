@@ -72,7 +72,6 @@
             "url": "realtime-binding",
             "name": "Real-Time Binding",
             "category": "Data Binding",
-            "type": "new",
             "description": "This demo showcases the way of binding signalR services to Scheduler component. Here, the SignalR is used to bind the data with Scheduler.",
             "api": {
                 "Schedule": [
@@ -270,6 +269,19 @@
                 "Schedule": [
                     "views",
                     "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "custom-month-view",
+            "name": "Custom Month View",
+            "category": "Views",
+            "type": "new",
+            "description": "This example showcases how to customize the starting week of the month and also customize the number of weeks to be rendered in month view with Vue Scheduler.",
+            "api": {
+                "Schedule": [
+                    "eventSettings",
+                    "views"
                 ]
             }
         },
@@ -748,7 +760,6 @@
             "url": "reminder",
             "name": "Reminder",
             "category": "Customization",
-            "type": "new",
             "description": "This demo showcases an event reminder notification that will be displayed after 5 seconds of sample getting loaded.",
             "api": {
                 "Schedule": [
@@ -761,6 +772,7 @@
             "url": "excel-export",
             "name": "Excel Exporting",
             "category": "Exporting",
+            "type": "update",
             "description": "This example demonstrates how to export Vue Scheduler events (appointments) to the Microsoft Excel file format on the client side.",
             "api": {
                 "Schedule": [

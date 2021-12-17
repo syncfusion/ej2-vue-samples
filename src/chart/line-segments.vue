@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :load='load'>
             <e-annotations>
                 <e-annotation :content='annotationTemplate' region='Series' x='90%' y='12%'>
@@ -44,10 +44,6 @@ import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, ChartAnnotation, MultiColoredLineSeries, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
-
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
  let dataValues = [];
     [
@@ -100,7 +96,6 @@ export default Vue.extend({
                     }
                 },
       seriesData: dataValues,
-      theme: theme,
       //Initializing Primary X Axis
       primaryXAxis: {
             valueType: 'DateTime',
@@ -149,6 +144,10 @@ export default Vue.extend({
   },
   methods: {
     load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
       if (args.chart.theme === 'highcontrast') {
                args.chart.series[0].segments[0].color = '#FF4741';
                args.chart.series[0].segments[1].color = '#00B400';

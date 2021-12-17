@@ -40,18 +40,24 @@ data:function(){
 return{
         titleSettings: {
             text: 'US Gold medal categories in Summer Olympics - 2016',
-            textStyle: {size: '15px'}
+            textStyle: {size: '15px', fontFamily: 'Segoe UI'}
         },
         dataSource: Metals,
         weightValuePath: 'Gold',
          // To config tooltip for treemap 
         tooltipSettings: {
             visible: true,
-            format: '${Sport} : ${Gold}'
+            format: '${Sport} : ${Gold}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         // To config leaf items for treemap
         leafItemSettings: {
             showLabels: !Browser.isDevice,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
            // showLabels: true,
             labelPath: 'Sport',
             fill: '#993399',

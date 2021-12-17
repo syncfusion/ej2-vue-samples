@@ -49,7 +49,7 @@ import {
   ButtonPlugin,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
-import { extend, enableRipple } from '@syncfusion/ej2-base';
+import { extend, enableRipple, Browser } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
@@ -86,7 +86,11 @@ export default Vue.extend({
   methods: {
     btnClick: function(args: checkEventArgs) {
       let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      pivotObj.calculatedFieldModule.createCalculatedFieldDialog();
+      if (Browser.isDevice) {
+        (pivotObj.pivotFieldListModule.dialogRenderer as any).onShowFieldList();
+      } else {
+        pivotObj.calculatedFieldModule.createCalculatedFieldDialog();
+      }
     }
   },
   provide: {

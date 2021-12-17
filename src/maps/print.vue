@@ -100,7 +100,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'State-wise US population - 2010',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             },
         },
         legendSettings: {
@@ -110,7 +111,10 @@ export default Vue.extend({
             height: '10',
             width: '350',
             labelDisplayMode: 'Trim',
-            alignment: 'Center'
+            alignment: 'Center',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         shapeData: new MapAjax('./src/maps/map-data/usa.json'),
         shapeDataPath: 'name',
@@ -149,7 +153,10 @@ export default Vue.extend({
         tooltipSettings: {
                     visible: true,
                     valuePath: 'population',
-                    format: 'State: ${name} <br> Population: ${population}'
+                    format: 'State: ${name} <br> Population: ${population}',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
                 },
              iconCss: 'e-icons e-play-icon',
              cssClass: 'e-flat', isPrimary: true, content:'Print', style: 'text-transform:none !important'

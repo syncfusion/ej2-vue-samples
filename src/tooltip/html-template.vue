@@ -35,7 +35,7 @@ export default Vue.extend({
           <img id="bird" src="./source/tooltip/images/bird.png" />
           <p>The
             <a href="https://en.wikipedia.org/wiki/Eastern_bluebird" target="_blank"> Eastern Bluebird</a>
-            is easily found in open fields and sparse woodland areas, including along woodland edges. These are cavity-nesting birds
+            is easily found in open fields and sparse woodland areas, including along woodland edges. These are <i>cavity-nesting birds</i>
             and a pair of eastern bluebirds will raise 2-3 broods annually, with 2-8 light blue or whitish eggs per brood.</p>
           <hr style="margin:10px 0" />
           <p>Eastern bluebirds can be very vocal in flocks. Their calls include a rapid, mid-tone chatter and several long dropping pitch

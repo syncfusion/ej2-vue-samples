@@ -199,7 +199,7 @@ gulp.task('src-ship', gulp.series(function (done) {
 }));
 
 gulp.task('build', gulp.series(function(done) {
-    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source, done)
+    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source', done)
 }));
 
 gulp.task('serve',gulp.series('build', function(done) {

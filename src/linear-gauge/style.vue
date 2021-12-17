@@ -12,7 +12,7 @@
 </ejs-lineargauge>
     </div>
     <div class="row">
-<ejs-lineargauge :load='load' id='container2' :orientation='orientation2' :container='container2' style="height:100px;">
+<ejs-lineargauge :load='load' id='container2' :orientation='orientation2' :container='container2' style="height:160px;">
                  <e-axes>
                      <e-axis :line='line2' :labelStyle='labelStyle2' :ranges='ranges2' :majorTicks='majorTicks2'>
                           <e-pointers>
@@ -23,7 +23,7 @@
 </ejs-lineargauge>
     </div>
     <div class="row">
-<ejs-lineargauge :load='load' id='container3' :orientation='orientation3' style="height:130px;">
+<ejs-lineargauge :load='load' id='container3' :orientation='orientation3' style="height:150px;">
                  <e-axes>
                      <e-axis :line='line3' :majorTicks='majorTicks3' :minorTicks='minorTicks3'>
                           <e-pointers>
@@ -106,7 +106,10 @@ export default Vue.extend({
                 interval: 10,
             },
         labelStyle2: {
-                offset: 50
+                offset: 50,
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
             },
         value2: 10,
         placement2: 'Near',
@@ -160,7 +163,10 @@ export default Vue.extend({
                 height: 0
             },
         labelStyle4: {
-                offset: 55
+                offset: 55,
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
             },
         value5: 60,
         height5: 15,

@@ -44,6 +44,10 @@ span.e-input-group.e-control-wrapper.e-ddl {
     display: table;
 }
 
+.e-samplestatus.preview {
+    background-color: #0275d8;
+}
+
 .sb-table-cell {
     display: table-cell;
     vertical-align: middle;
@@ -712,7 +716,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 
 .sb-content {
     top: 48px;
-    background: #F8F8F8;
+    background: #fff;
 }
 
 .copycode::before {
@@ -815,7 +819,10 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .e-samplestatus.update, .e-samplestatus.Update {
-    background-color: #fbaa33;
+   background-color: #fff;
+    /* height: 23px !important; */
+    border: 1px solid #29bc4f !important;
+    color: #29bc4f !important;
 }
 
 .e-samplestatus.preview, .e-samplestatus.Preview {
@@ -1048,7 +1055,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 
 #left-sidebar {
     border: none;
-    background-color: #f8f8f8;
+    background-color: #fff;
 }
 
 /*right -pane*/
@@ -1677,7 +1684,7 @@ propertye pane
     }
     .sb-left-pane {
         z-index: 10010;
-        background: #f8f8f8;
+        background: #fff;
     }
     .highcontrast .sb-left-pane,
     .high-contrast textarea#ruleContent {
@@ -2665,13 +2672,43 @@ body.highcontrast,
 .tailwind .e-samplestatus.new, .tailwind .e-samplestatus.update, .tailwind .e-samplestatus.preview {
     margin: 1px 0;
     height: 22px;
-    margin-top: 2px;
+    margin-top: 0px;
+}
+
+.bootstrap5-dark .e-samplestatus.new, .bootstrap5-dark .e-samplestatus.update, .bootstrap5-dark .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 0px;
 }
 
 .material-dark .e-samplestatus.new, .material-dark .e-samplestatus.update, .material-dark .e-samplestatus.preview {
     margin: 1px 0;
     height: 22px;
-    margin-top: 2px;
+    margin-top: 7.5px;
+}
+
+.fabric .e-samplestatus.new, .fabric .e-samplestatus.update, .fabric .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 7.5px;
+}
+
+.fabric-dark .e-samplestatus.new, .fabric-dark .e-samplestatus.update, .fabric-dark .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 7.5px;
+}
+
+.bootstrap .e-samplestatus.new, .bootstrap .e-samplestatus.update, .bootstrap .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 9px;
+}
+
+.bootstrap-dark .e-samplestatus.new, .bootstrap-dark .e-samplestatus.update, .bootstrap-dark .e-samplestatus.preview {
+    margin: 1px 0;
+    height: 22px;
+    margin-top: 9px;
 }
 
 /* material dark */
@@ -2694,7 +2731,7 @@ body.material-dark,
 .material-dark .sample-navigation,
 .material-dark .sb-icon-Popout,
 .material-dark .sb-switch-popup a {
-    color: #f8f8f8;
+    color: #fff;
 }
 .material-dark .sb-header,
 .material-dark .sb-search-result .e-list-item{
@@ -2865,7 +2902,7 @@ body.fabric-dark,
 .fabric-dark .sample-navigation,
 .fabric-dark .sb-icon-Popout,
 .fabric-dark .sb-switch-popup a {
-    color: #f8f8f8;
+    color: #fff;
 }
 .fabric-dark .sb-header,
 .fabric-dark .sb-search-result .e-list-item{
@@ -3032,7 +3069,7 @@ body.bootstrap-dark,
 .bootstrap-dark .sample-navigation,
 .bootstrap-dark .sb-icon-Popout,
 .bootstrap-dark .sb-switch-popup a {
-    color: #f8f8f8;
+    color: #fff;
 }
 .bootstrap-dark .sb-header,
 .bootstrap-dark .sb-search-result .e-list-item {
@@ -3193,7 +3230,7 @@ body.bootstrap5-dark,
 .bootstrap5-dark .sample-navigation,
 .bootstrap5-dark .sb-icon-Popout,
 .bootstrap5-dark .sb-switch-popup a {
-    color: #f8f8f8;
+    color: #fff;
 }
 .bootstrap5-dark .sb-header,
 .bootstrap5-dark .sb-search-result .e-list-item,
@@ -3347,7 +3384,7 @@ body.tailwind-dark,
 .tailwind-dark .sample-navigation,
 .tailwind-dark .sb-icon-Popout,
 .tailwind-dark .sb-switch-popup a {
-    color: #f8f8f8;
+    color: #fff;
 }
 .tailwind-dark .sb-header,
 .tailwind-dark .sb-search-result .e-list-item {
@@ -3501,7 +3538,7 @@ color:white;
  .tailwind-dark .e-samplestatus.new,.tailwind-dark .e-samplestatus.update,.tailwind-dark .e-samplestatus.preview{
     margin: 2px 0;
     height: 22px;
-    margin-top: 2px;
+    margin-top: 0px;
 }
 .e-samplestatus.new, .e-samplestatus.update, .e-samplestatus.preview {
     margin: 8px 0;
@@ -3584,7 +3621,6 @@ color:white;
     color: rgb(31, 41, 55);
 }
 .material-dark .e-samplestatus.new,.material-dark .e-samplestatus.update,.material-dark .e-samplestatus.preview,
-.bootstrap5-dark .e-samplestatus.new,.bootstrap5-dark .e-samplestatus.update,.bootstrap5-dark .e-samplestatus.preview,
 .bootstrap-dark .e-samplestatus.new,.bootstrap-dark .e-samplestatus.update,.bootstrap-dark .e-samplestatus.preview,
 .fabric-dark .e-samplestatus.new, .fabric-dark .e-samplestatus.update,.fabric-dark  .e-samplestatus.preview{
     margin: 2px 0;

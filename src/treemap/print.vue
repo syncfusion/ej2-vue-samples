@@ -28,39 +28,37 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 40%">
-                      <div class="property-text">Export Type
+                    <td>
+                      <div>Export Type
                         </div>
                     </td>
-                    <td style="width: 60%;">
-                        <div style="margin-left: -10px">
+                    <td>
+                        <div>
                         <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>        
                         </div>
                     </td>
                 </tr>
-                <tr style="height: 50px">
-                    <td style="width: 40%">
-                        <div class="property-text">File Name</div>
+                <tr>
+                    <td>
+                        <div>File Name</div>
                     </td>
-                    <td style="width: 40%;">
+                    <td>
                         <div class="e-float-input" style='margin-top: 0px;'>
-                            <input type="text" value="Treemap" id="fileName" style="margin-left: -10px">
+                            <input type="text" value="Treemap" id="fileName" style="width: 100%">
                         </div>
                     </td>
                 </tr>
-                <tr id="button-control" style="height: 50px" align='center'>
-                    <td>
-                        <div style="margin-left: 40%;">
+                <tr id="button-control" style="height: 70px" align='center'>
+                    <td align="center">
+                        <div>
                             <ejs-button id='togglebtn1' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
                         </div>
                     </td>
-                </tr>
-                <tr id="button-control" style="height: 50px">
                     <td align="center">
-                        <div style="margin-left: 40%;">
+                        <div>
                             <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>
                         </div>
                     </td>
@@ -95,11 +93,6 @@
     .e-play-icon::before {
         content: '\e728';
     }
-    .property-text {
-        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-        font-size: 13px !important;
-        font-weight: 400 !important;
-    }
     #togglebtn {
         width: 80px;
     }
@@ -124,7 +117,7 @@ return{
       allowPrint: true,
       titleSettings: {
             text: 'Top 10 best selling smartphone brands - 2017',
-            textStyle: { size: '15px'}
+            textStyle: { size: '15px', fontFamily: 'Segoe UI'}
         },
         dataSource: ProductSale,
         layoutType: 'SliceAndDiceVertical',
@@ -132,13 +125,19 @@ return{
         rangeColorValuePath: 'Percentage',
         tooltipSettings: {
             visible: true,
-            format: '${Product} (+${Percentage}) %'
+            format: '${Product} (+${Percentage}) %',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         leafItemSettings: {
             labelPath: 'Product',
             fill: '#6699cc',
             border: { color: 'black', width: 0.5 },
             labelPosition: 'Center',
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             interSectAction: 'Hide',
             labelFormat: '${Product} (+${Percentage}) %',
             colorMapping: [
@@ -152,7 +151,7 @@ return{
             ]
         },
         cssClass: 'e-info', isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
-        modewidth: 90,
+        modewidth: '100%',
         modedata:['JPEG','PNG','SVG','PDF']
 }
 },

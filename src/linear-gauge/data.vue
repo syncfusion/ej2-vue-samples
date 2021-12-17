@@ -75,7 +75,10 @@ export default Vue.extend({
                 offset: 30
             },
             labelStyle1: {
-                offset: 50
+                offset: 50,
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
             },
              value1: 10,
              placement1: 'Near',
@@ -95,7 +98,7 @@ export default Vue.extend({
             annotations1: [
             {
                 content: '<div id="title" style="width:300px;"> <img style="float:left" src'
-                + '="src/linear-gauge/images/exercise-tracking.svg"/><p style="font-size:18px;color:#4285F4;float:left;margin-left:12px;'
+                + '="src/linear-gauge/images/exercise-tracking.svg"/><p style="font-size:18px;font-family:Segoe UI;color:#4285F4;float:left;margin-left:12px;'
                 + 'margin-top:4px">Exercise Tracking </p></div>',
                 axisIndex: 0, zIndex: '1',
                 axisValue: 0,
@@ -104,14 +107,14 @@ export default Vue.extend({
             },
             {
                 content: '<div id="running" style="width:100px;"><img style="height:25px;width:25px;float:left" src="src/linear-gauge' +
-                '/images/running.svg" /></span><p style="float:left;margin-left:10px;">Running</p></div>',
+                '/images/running.svg" /></span><p style="float:left;margin-left:10px; font-family:Segoe UI;">Running</p></div>',
                 axisIndex: 0, zIndex: '1',
                 axisValue: 0,
                 x: 50,
                 y: -130
             },
             {
-                content: '<div id="pointerText" style="width:60px;"><p style="font-size:15px;">10 MPH</p></div>',
+                content: '<div id="pointerText" style="width:60px;"><p style="font-size:15px; font-family:Segoe UI;">10 MPH</p></div>',
                 axisIndex: 0, zIndex: '1',
                 axisValue: 10,
                 y: -65
@@ -129,7 +132,10 @@ export default Vue.extend({
                 offset: 30
             },
             labelStyle2: {
-                offset: 50
+                offset: 50,
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
             },
             value2: 28,
             height2: 10,
@@ -148,14 +154,14 @@ export default Vue.extend({
             ],
             annotations2: [{
             content: '<div id="cycle" style="width:100px;"><img style="height:25px;width:25px;float:left" src="src/linear-gauge'
-            + '/images/cycling.svg" /></span><p style="float:left;margin-left:10px;">Cycling</p></div>',
+            + '/images/cycling.svg" /></span><p style="float:left;margin-left:10px; font-family:Segoe UI;">Cycling</p></div>',
             axisIndex: 0, zIndex: '1',
             axisValue: 0,
             x: 50,
             y: -110
         },
         {
-            content: '<div id="pointerText" style="width:60px;"><p style="font-size:15px;">28 MPH</p></div>',
+            content: '<div id="pointerText" style="width:60px;"><p style="font-size:15px; font-family:Segoe UI;">28 MPH</p></div>',
             axisIndex: 0,
             axisValue: 28,
             y: -70
@@ -174,7 +180,10 @@ export default Vue.extend({
             },
          labelStyle3: {
                 format: '{value}k',
-                offset: 50
+                offset: 50,
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
             },
         value3: 2,
         height3: 10,
@@ -193,14 +202,14 @@ export default Vue.extend({
             ],
         annotations3: [{
             content: '<div id="walk" style="width:100px;"><img style="height:25px;width:25px;float:left" src="src/' +
-            'linear-gauge/images/walking.svg" /></span><p style="float:left;margin-left:10px;">Walking</p></div>',
+            'linear-gauge/images/walking.svg" /></span><p style="float:left;margin-left:10px; font-family:Segoe UI;">Walking</p></div>',
             axisIndex: 0,
             axisValue: 0, zIndex: '1',
             x: 50,
             y: -120
         },
         {
-            content: '<div id="pointerText" style="width:100px;"><p style="font-size:15px;">2000 Steps</p></div>',
+            content: '<div id="pointerText" style="width:100px;"><p style="font-size:15px; font-family:Segoe UI;">2000 Steps</p></div>',
             axisIndex: 0,
             axisValue: 2.2, zIndex: '1',
             y: -65

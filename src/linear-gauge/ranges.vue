@@ -15,9 +15,14 @@
     </div>
 
 <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
-            <tbody>
-            <tr>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 20%;">
+       </colgroup>
+       <tbody>
+            <tr style="height: 50px">
                 <td>
                     <div> Select Range</div>
                 </td>
@@ -26,21 +31,21 @@
                         <ejs-dropdownlist ref="selectRange" id='rangeIndex' :dataSource='rangedata' :fields='rangefields' value='0' index=0 :width='rangewidth' :change='changeRange'></ejs-dropdownlist>
                     </div>
                 </td>
-            </tr><br/>
-            <tr>
+            </tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Range Color</div>
                 </td>
                 <td>
                     <div>
-                        <div class="e-float-input" style='margin-top: 0px;'>
-                            <input type="text" ref="rangeColor" value="#F03E3E" id='color' v-on:change="changeRangecolor" style="width:130px; margin-left:-10px;">
+                        <div class="e-float-input" style="margin-top: -10px; padding-left: 0px; width: 105%;">
+                        <ejs-textbox ref="rangeColor" id="color"  value="#F03E3E"  v-model="textValue" :change='changeRangecolor'></ejs-textbox>
                         </div>
 
                     </div>
                 </td>
-            </tr><br/>
-            <tr>
+            </tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Range Font Color</div>
                 </td>
@@ -49,55 +54,62 @@
                         <ejs-dropdownlist ref="rangeFontColor" id='useRangeColor' :dataSource='rangecolordata' value='font' :fields='rangecolorfields' index=0 :width='rangecolorwidth' :change='changeFontcolor'></ejs-dropdownlist>
                     </div>
                 </td>
-            </tr><br/>
-            <tr>
+            </tr>
+            <tr style="height: 50px">
                 <td>
-                    <div id='startRangeValue'>Range Start
-                        <span>&nbsp;&nbsp;&nbsp;0</span>
+                    <div>Range Start
+                        
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="100" style="width:130px;" />
+                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="100" style="width: 70%;" />
                     </div>
                 </td>
-            </tr><br/>
-            <tr>
-                <td>
-                    <div id='endRangeValue'>Range End
-                        <span>&nbsp;&nbsp;&nbsp;32</span>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="32" min="0" max="100" style="width:130px;" />
-                    </div>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='startRangeValue' style="margin-left: -30px">0</span>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
-                    <div id='startWidthValue'> Range Start Width
-                        <span>&nbsp;&nbsp;&nbsp;15</span>
+                    <div>Range End
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="15" min="0" max="30" style="width:130px;" />
+                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="32" min="0" max="100" style="width: 70%;" />
                     </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='endRangeValue' style="margin-left: -30px">32</span>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
-                    <div id='endWidthValue'>Range End Width
-                        <span>&nbsp;&nbsp;&nbsp;15</span>
+                    <div style="width: 94%"> Range Start Width
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="15" min="0" max="30" style="width:130px;" />
+                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="15" min="0" max="30" style="width: 70%;" />
                     </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='startWidthValue' style="margin-left: -30px">15</span>
+                </td>
+            </tr>
+            <tr style="height: 50px">
+                <td>
+                    <div style="width: 88%">Range End Width
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="15" min="0" max="30" style="width: 70%;" />
+                    </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span id='endWidthValue' style="margin-left: -30px">15</span>
                 </td>
             </tr>
             </tbody>
@@ -146,7 +158,10 @@ export default Vue.extend({
             orientation: 'Horizontal',
             labelStyle: {
                 format: '{value}%',
-                offset: 30
+                offset: 30,
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
             },
             line: {
                 width: 0
@@ -185,7 +200,7 @@ export default Vue.extend({
                 }
             ],
             annotations: [{
-                content: '<div id="pointer" style="width:20px"><h1 style="font-size:18px;">35</h1></div>',
+                content: '<div id="pointer" style="width:20px"><h1 style="font-size:18px; font-family: Segoe UI;">35</h1></div>',
                 axisIndex: 0,
                 zIndex: '1',
                 axisValue: 35,
@@ -208,7 +223,7 @@ export default Vue.extend({
                 text: 'level',
                 value: 'Id'
             },
-            rangewidth: 130,
+            rangewidth: '105%',
             rangecolordata: [{
                     Id: 'font',
                     type: 'Default Color'
@@ -222,7 +237,8 @@ export default Vue.extend({
                 text: 'type',
                 value: 'Id'
             },
-            rangecolorwidth: 130
+            rangecolorwidth: '105%',
+            textValue: '#F03E3E',
         }
     },
     provide: {
@@ -253,10 +269,10 @@ export default Vue.extend({
             startWidth.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].startWidth.toString();
             endWidth.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].endWidth.toString();
             rangeColor.value = this.$refs.lineargauge.ej2Instances.axes[0].ranges[args.value].color.toString();
-            document.getElementById('startWidthValue').innerHTML = 'Range Start Width<span>&nbsp;&nbsp;&nbsp;' + startWidth.value;
-            document.getElementById('endWidthValue').innerHTML = 'Range End Width<span>&nbsp;&nbsp;&nbsp;' + endWidth.value;
-            document.getElementById('startRangeValue').innerHTML = 'Range Start <span>&nbsp;&nbsp;&nbsp;' + start.value;
-            document.getElementById('endRangeValue').innerHTML = 'Range End <span>&nbsp;&nbsp;&nbsp;' + end.value;
+            document.getElementById('startWidthValue').innerHTML = startWidth.value.toString();
+            document.getElementById('endWidthValue').innerHTML = endWidth.value.toString();;
+            document.getElementById('startRangeValue').innerHTML = start.value.toString();
+            document.getElementById('endRangeValue').innerHTML = end.value.toString();
             this.$refs.lineargauge.ej2Instances.refresh();
         },
         changeFontcolor: function (args) {
@@ -264,8 +280,8 @@ export default Vue.extend({
             this.$refs.lineargauge.ej2Instances.refresh();
         },
         changeRangecolor: function (args) {
-            let ele = document.getElementById('color');
-            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].color = ele.value;
+            this.textValue = args.value;
+            this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].color = this.textValue ;
             this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeStart: function (args) {
@@ -273,7 +289,7 @@ export default Vue.extend({
             let end = document.getElementById('end');
             this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].start = parseInt(start.value, 10);
             this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].end = parseInt(end.value, 10);
-            document.getElementById('startRangeValue').innerHTML = 'Range Start <span>&nbsp;&nbsp;&nbsp;' + start.value;
+            document.getElementById('startRangeValue').innerHTML = start.value.toString();
             this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeEnd: function (args) {
@@ -281,19 +297,19 @@ export default Vue.extend({
             let end = document.getElementById('end');
             this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].start = parseInt(start.value, 10);
             this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].end = parseInt(end.value, 10);
-            document.getElementById('endRangeValue').innerHTML = 'Range End <span>&nbsp;&nbsp;&nbsp;' + end.value;
+            document.getElementById('endRangeValue').innerHTML = end.value.toString();;
             this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeStartwidth: function (args) {
             let ele = document.getElementById('startWidth');
             this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].startWidth = parseInt(ele.value, 10);
-            document.getElementById('startWidthValue').innerHTML = 'Range Start Width<span>&nbsp;&nbsp;&nbsp;' + ele.value;
+            document.getElementById('startWidthValue').innerHTML = ele.value.toString();;
             this.$refs.lineargauge.ej2Instances.refresh();
         },
         rangeEndwidth: function (args) {
             let ele = document.getElementById('endWidth');
             this.$refs.lineargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].endWidth = parseInt(ele.value, 10);
-            document.getElementById('endWidthValue').innerHTML = 'Range End Width<span>&nbsp;&nbsp;&nbsp;' + ele.value;
+            document.getElementById('endWidthValue').innerHTML = ele.value.toString();;
             this.$refs.lineargauge.ej2Instances.refresh();
         }
     }

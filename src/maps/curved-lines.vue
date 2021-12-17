@@ -55,7 +55,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'Flights from India to China',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         animationDuration: 1000,
@@ -112,7 +113,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500">New Delhi' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI; ">New Delhi' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -129,7 +130,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Mumbai' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Mumbai' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -146,7 +147,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Chennai' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Chennai' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -163,7 +164,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Kolkata' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Kolkata' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -180,7 +181,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Kunming' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Kunming' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -197,7 +198,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Beijing' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Beijing' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -214,7 +215,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Shanghai' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Shanghai' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -231,7 +232,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Hong Kong' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Hong Kong' +
                             '</div>',
                         animationDuration: 0,
                         offset: {
@@ -248,7 +249,7 @@ export default Vue.extend({
                             }
                         ],
                         visible: true,
-                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500";>Guangzhou' +
+                        template: '<div id="marker1" style="font-size:12px;color:black;font-weight: 500"; font-family: Segoe UI;>Guangzhou' +
                             '</div>',
                         animationDuration: 0,
                         offset: {

@@ -15,37 +15,48 @@
     </div>
   
 <div class="col-lg-4 property-section">
- <table id="property" title="Properties" style="width: 100%">
-     <tbody>
+ <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+    <colgroup>
+        <col span="1" style="width: 40%;">
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 30%;">
+    </colgroup>
+    <tbody>
             <tr style="height: 50px">
                 <td>
                     <div> Select Range </div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
+                    <div>
              <ejs-dropdownlist ref="selectRange" id='rangeSelect' :dataSource='rangeselectdata' :fields='rangeselectfields' value='0' index=0  :width='rangeselectwidth' :change='changeRangeselect'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div id='rangeStart'>Range Start <span> &nbsp;&nbsp;&nbsp;0</span> </div>
+                    <div>Range Start  </div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
-                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="120" style="width:120px" />
+                    <div>
+                        <input type="range" ref="rangeStart" id="start" v-on:pointermove="rangeStart" v-on:touchmove="rangeStart" v-on:change="rangeStart" value="0" min="0" max="120" style="width: 70%" />
                     </div>
+                </td>
+                 <td style="padding-top: 10px; text-align: center;">
+               <span id='rangeStart' style="margin-left: -30px;">0</span>
                 </td>
             </tr>
 
             <tr style="height: 50px">
                 <td>
-                    <div id='rangeEnd'>Range End <span> &nbsp;&nbsp;&nbsp;40</span> </div>
+                    <div>Range End </div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
-                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="40" min="0" max="120" style="width:120px" />
+                    <div>
+                        <input type="range" ref="rangeEnd" id="end" v-on:pointermove="rangeEnd" v-on:touchmove="rangeEnd" v-on:change="rangeEnd" value="40" min="0" max="120" style="width: 70%" />
                     </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                  <span id='rangeEnd' style="margin-left: -30px;">40</span>
                 </td>
             </tr>
             <tr style="height: 50px">
@@ -53,49 +64,58 @@
                     <div id=''>Range Color</div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
+                    <div>
              <ejs-dropdownlist ref="rangeColor" id='rangeColor' :dataSource='rangecolordata'  index=0  :width='rangecolorwidth' :change='changeRangeColor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
-                <td style="width: 20%">
+                <td>
                     <div id='enablePointer'>Range Font Color</div>
                 </td>
-                <td style="width: 40%;">
-                    <div style="margin-left: 65px">
-                        <input type="checkbox" ref="fontColor" id="enable" v-on:change="changeRangefont"/>
+                <td>
+                    <div style="margin-top: -10px; margin-left: -10px;">
+                        <ejs-checkbox ref="fontColor" id="enable" :change="changeRangefont"></ejs-checkbox>
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div id='rangeStartWidth'>Start Width <span> &nbsp;&nbsp;&nbsp;10</span> </div>
+                    <div>Start Width </div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
-                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="10" min="0" max="30" style="width:120px" />
+                    <div>
+                        <input type="range" ref="startWidth" id="startWidth" v-on:pointermove="rangeStartwidth" v-on:touchmove="rangeStartwidth" v-on:change="rangeStartwidth" value="10" min="0" max="30" style="width: 70%" />
                     </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                     <span id='rangeStartWidth' style="margin-left: -30px;">10</span>
                 </td>
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div id='rangeEndWidth'>End Width <span> &nbsp;&nbsp;&nbsp;10</span> </div>
+                    <div>End Width </div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
-                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="10" min="0" max="30" style="width:120px" />
+                    <div>
+                        <input type="range" ref="endWidth" id="endWidth" v-on:pointermove="rangeEndwidth" v-on:touchmove="rangeEndwidth" v-on:change="rangeEndwidth" value="10" min="0" max="30" style="width: 70%" />
                     </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                <span id='rangeEndWidth' style="margin-left: -30px;">10</span>
                 </td>
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div id='roundedRadius'>Corner Radius <span> &nbsp;&nbsp;&nbsp;0</span> </div>
+                    <div>Corner Radius </div>
                 </td>
                 <td>
-                    <div style="margin-left: 10px">
-                        <input type="range" ref="cornerRadius" id="radius" v-on:pointermove="roundedRadius" v-on:touchmove="roundedRadius" v-on:change="roundedRadius" value="0" min="0" max="30" step="5" style="width:120px" />
+                    <div>
+                        <input type="range" ref="cornerRadius" id="radius" v-on:pointermove="roundedRadius" v-on:touchmove="roundedRadius" v-on:change="roundedRadius" value="0" min="0" max="30" step="5" style="width: 70%" />
                     </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                 <span id='roundedRadius' style="margin-left: -30px;">0</span>
                 </td>
             </tr>
             </tbody>
@@ -129,21 +149,22 @@
 import Vue from 'vue';
 import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 Vue.use(CircularGaugePlugin);
-Vue.use(DropDownListPlugin);
+Vue.use(DropDownListPlugin, CheckBoxPlugin);
 export default Vue.extend({
 data:function(){
     return{
             lineStyle: { width: 10, color: 'transparent' },
             labelStyle: {
                 position: 'Inside', useRangeColor: false,
-                font: { size: '12px', fontFamily: 'Roboto', fontStyle: 'Regular' }
+                font: { size: '12px', fontFamily: 'Segoe UI', fontStyle: 'Regular' }
             }, majorTicks: { height: 10, offset: 5 }, minorTicks: { height: 0 },
             annotations: [{
-                content: '<div><span style="font-size:14px; font-family:Regular">Speedometer</span></div>',
+                content: '<div><span style="font-size:14px; font-family:Segoe UI">Speedometer</span></div>',
                 radius: '30%', angle: 0, zIndex: '1'
             }, {
-                content: '<div><span style="font-size:20px; font-family:Regular">65 MPH</span></div>',
+                content: '<div><span style="font-size:20px; font-family:Segoe UI">65 MPH</span></div>',
                 radius: '40%', angle: 180, zIndex: '1'
             }],
             startAngle: 210,
@@ -163,8 +184,8 @@ data:function(){
             { Id:'2', level:'High'}],
             rangeselectfields:{ text: 'level', value: 'Id' },
             rangecolordata:['#30B32D','#FFDD00','#F03E3E'],
-            rangeselectwidth:120,
-            rangecolorwidth:120
+            rangeselectwidth:'100%',
+            rangecolorwidth:'100%'
     }
 },
 provide: {
@@ -186,20 +207,15 @@ methods: {
             let container = this.$refs.circulargauge.ej2Instances;
             this.$refs.rangeColor.ej2Instances.value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].color;
             (document.getElementById('endWidth')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].endWidth.toString();
-            document.getElementById('rangeEndWidth').innerHTML = 'End Width <span> &nbsp;&nbsp;&nbsp;' +
-                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].endWidth;
+            document.getElementById('rangeEndWidth').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].endWidth;
             (document.getElementById('startWidth')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].startWidth.toString();
-            document.getElementById('rangeStartWidth').innerHTML = 'Start Width <span> &nbsp;&nbsp;&nbsp;' +
-                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].startWidth;
+            document.getElementById('rangeStartWidth').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].startWidth;
             (document.getElementById('end')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].end.toString();
-            document.getElementById('rangeEnd').innerHTML = 'Range End <span> &nbsp;&nbsp;&nbsp;' +
-                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].end;
+            document.getElementById('rangeEnd').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].end;
             (document.getElementById('start')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start.toString();
-            document.getElementById('rangeStart').innerHTML = 'Range Start <span> &nbsp;&nbsp;&nbsp;' +
-                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start;
+            document.getElementById('rangeStart').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start;
             (document.getElementById('radius')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius.toString();
-            document.getElementById('roundedRadius').innerHTML = 'Corner Radius <span> &nbsp;&nbsp;&nbsp;' +
-                this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius;
+            document.getElementById('roundedRadius').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius;
     },
     changeRangeColor: function(args){
         this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].color = this.$refs.rangeColor.ej2Instances.value.toString();
@@ -208,28 +224,28 @@ methods: {
     },
     rangeStart:function(args){
         let min = this.$refs.rangeStart.value;
-        document.getElementById('rangeStart').innerHTML = 'Range Start <span> &nbsp;&nbsp;&nbsp;' + min;
+        document.getElementById('rangeStart').innerHTML = min.toString();
         this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].start = min;
         this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
         this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeEnd:function(args){
         let max = this.$refs.rangeEnd.value;
-        document.getElementById('rangeEnd').innerHTML = 'Range End <span> &nbsp;&nbsp;&nbsp;' + max;
+        document.getElementById('rangeEnd').innerHTML = max.toString();
         this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].end = max;
         this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
         this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeStartwidth:function(args){
         let startWidth = this.$refs.startWidth.value;
-        document.getElementById('rangeStartWidth').innerHTML = 'Start Width <span> &nbsp;&nbsp;&nbsp;' + startWidth;
+        document.getElementById('rangeStartWidth').innerHTML = startWidth.toString();
         this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].startWidth = startWidth;
         this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false; 
         this.$refs.circulargauge.ej2Instances.refresh();
     },
     rangeEndwidth:function(args){
         let endWidth = this.$refs.endWidth.value;
-        document.getElementById('rangeEndWidth').innerHTML = 'End Width <span> &nbsp;&nbsp;&nbsp;' + endWidth;
+        document.getElementById('rangeEndWidth').innerHTML = endWidth.toString();
         this.$refs.circulargauge.ej2Instances.axes[0].ranges[this.$refs.selectRange.ej2Instances.value].endWidth = endWidth;
         this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
         this.$refs.circulargauge.ej2Instances.refresh();
@@ -238,13 +254,13 @@ methods: {
         let cotainerObj=document.getElementById('range-container');
         let listObj=document.getElementById('rangeSelect');     
         let radius = parseInt((document.getElementById('radius')).value, 10);
-        document.getElementById('roundedRadius').innerHTML = 'Corner Radius <span> &nbsp;&nbsp;&nbsp;' + radius;
+        document.getElementById('roundedRadius').innerHTML = radius.toString();
         cotainerObj.ej2_instances[0].axes[0].ranges[+listObj.ej2_instances[0].value].roundedCornerRadius = radius;
         cotainerObj.ej2_instances[0].axes[0].pointers[0].animation.enable = false;
         cotainerObj.ej2_instances[0].refresh();
     },
     changeRangefont:function(args){
-        let useRangeColor = this.$refs.fontColor.checked;
+        let useRangeColor = args.checked;
         this.$refs.circulargauge.ej2Instances.axes[0].labelStyle.useRangeColor = useRangeColor;
         this.$refs.circulargauge.ej2Instances.axes[0].majorTicks.useRangeColor = useRangeColor;
         this.$refs.circulargauge.ej2Instances.axes[0].minorTicks.useRangeColor = useRangeColor;

@@ -93,7 +93,8 @@ data:function(){
         titleSettings: {
             text: 'Top 50 largest cities in the World',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),

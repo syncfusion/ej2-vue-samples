@@ -4,7 +4,8 @@
     <div class="content-wrapper breadcrumb-control-wrapper">
       <div class="row material2">
         <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-            <h5>Breadcrumb with Events</h5>
+            <h5 style="display: inline-block">Breadcrumb with Events</h5>
+            <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick"> Reset State</ejs-button>
         </div>
     </div>
     <div class="row material2">
@@ -49,9 +50,9 @@
     <ul>
         <li>created - Triggers when the Breadcrumb is created.</li>
         <li>itemClick - Triggers when a Breadcrumb item is clicked.</li>
-        <li>beforeItemRender - Triggers while rendering each Breadcrumb item.</li>
+        <li>beforeItemRender - Triggers while rendering each Breadcrumb item and separator.</li>
     </ul>
-    <p>More information about <code>Breadcrumb</code> component can be found in this <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/breadcrumb/getting-started/">documentation section</a>.</p>
+    <p>More information about Breadcrumb component can be found in this <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/breadcrumb/getting-started/">documentation section</a>.</p>
 </div>
 </div>
 </template>
@@ -62,6 +63,11 @@
   width: 90% !important;
   margin: 0 auto;
   min-width: 85px;
+}
+
+.reset-btn {
+  float: right;
+  margin: 5px 2px 5px 0;
 }
 
 .breadcrumb-control-wrapper div.row {
@@ -136,8 +142,11 @@ border-top: 1px solid #eee;
 <script>
 import Vue from "vue";
 import { BreadcrumbPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from '@syncfusion/ej2-base';
 
 Vue.use(BreadcrumbPlugin);
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   data: function() {
@@ -160,10 +169,18 @@ export default Vue.extend({
       },
       logEvent: function(eventName) {
             var span = document.createElement('span');
-            span.innerHTML = 'Breadcrumb <b>' + eventName  + '</b> event called<hr>';
+            span.innerHTML = 'Breadcrumb <b>' + eventName  + '</b> event is triggered<hr>';
             var log = document.getElementById('EventLog');
             log.insertBefore(span, log.firstChild);
-      }
+      },
+      btnClick: function() {
+      var breadcrumb, breadcrumbInst, breadcrumbs = document.querySelector('.content-wrapper').getElementsByClassName("e-breadcrumb");
+      for (var i = 0; i < breadcrumbs.length; i++) {
+            breadcrumb = breadcrumbs[i];
+            breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
+            breadcrumbInst.activeItem = breadcrumbInst.items[breadcrumbInst.items.length - 1].text;
+        }
+    }
 
   }
 });

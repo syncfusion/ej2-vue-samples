@@ -136,7 +136,7 @@
                         <button id="makePayment" class='e-btn' v-on:click='btnClicked'>Pay</button>
                     </div>
                 </div>
-                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height=440 :showCloseButton=false :selecting="tabSelecting">
+                <ejs-tab ref="tabObj" id="tab_wizard" heightAdjustMode="None" height="auto" :showCloseButton=false :selecting="tabSelecting">
                     <e-tabitems>
                         <e-tabitem :header='headerText0' content="#booking"></e-tabitem>
                         <e-tabitem :header='headerText1' content="#selectTrain" disabled=true></e-tabitem>
@@ -144,7 +144,7 @@
                         <e-tabitem :header='headerText3' content="#confirm" disabled=true></e-tabitem>
                     </e-tabitems>
                 </ejs-tab>
-                <ejs-dialog ref="dialogObj" id='alertDialog' header='Success' width=250 isModal=true :buttons='dlgButtons' showCloseIcon=true content='Your payment successfully processed' target='#dialog_target' :visible=false></ejs-dialog>
+                <ejs-dialog ref="dialogObj" id='alertDialog' header='Success' width=250 isModal=true :buttons='dlgButtons' showCloseIcon=true content='Your payment was successfully processed' target='#dialog_target' :visible=false></ejs-dialog>
             </div>
             <div id="action-description">
                 <p>This sample demonstrates simple train reservation wizard that enable/disable Tab items based on sequential validation of each Tab content.</p>

@@ -44,7 +44,8 @@ export default Vue.extend({
             title: 'Tooltip Customization',
             titleStyle: {
                 size: '15px',
-                color: 'grey'
+                color: 'grey',
+                fontFamily: 'Segoe UI'
             },
             gaugeradius: '90%',
             startAngle: 240,
@@ -65,7 +66,7 @@ export default Vue.extend({
                 font: {
                     color: '#424242',
                     size: '13px',
-                    fontFamily: 'Roboto'
+                    fontFamily: 'Segoe UI'
                 }
             },
             value: 70,

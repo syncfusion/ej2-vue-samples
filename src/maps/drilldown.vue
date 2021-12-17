@@ -62,7 +62,8 @@
         font-size: 12px;
         color: white;
         text-shadow: 0px 1px 1px black;
-        font-weight: 500
+        font-weight: 500;
+        font-family: 'Segoe UI';
     }
 </style>
 <script>
@@ -87,7 +88,10 @@ data:function(){
         },
         tooltipSettings: {
                     visible: true,
-                    valuePath: 'continent'
+                    valuePath: 'continent',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                   }
         },
         markerSettings: [
                     {

@@ -3,7 +3,7 @@
     <div class="control-section">
        <div align='center'>
         <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart-zooming'
-            :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
+            :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis' :load='load'>
             <e-series-collection>
                 <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' :fill='fill' :border='border'>
                 </e-series>
@@ -241,7 +241,13 @@ function GetZoomingData() {
       chart: [AreaSeries, DateTime, Legend, Zoom, ScrollBar]
     },
     methods: {
-     
+     load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+        args.chart.series[0].border = { width: 0.5, color: borderColor[themes.indexOf(args.chart.theme.toLowerCase())] }
+    }
     }   
   });
   </script>

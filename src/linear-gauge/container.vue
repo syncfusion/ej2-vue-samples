@@ -3,9 +3,9 @@
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
             <div align='center'>
-                <ejs-lineargauge :load='load' ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container'>
+                <ejs-lineargauge :load='load' ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container' :titleStyle='titleStyle'>
                     <e-axes>
-                        <e-axis minimum=0 maximum=180 :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks'>
+                        <e-axis minimum=0 maximum=180 :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                             <e-pointers>
                                 <e-pointer value=90 :height='height' :roundedCornerRadius='roundedCornerRadius' :width='width' :type='type' :color='color'></e-pointer>
                             </e-pointers>
@@ -22,9 +22,13 @@
     </div>
 
 <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 70%;">
+         </colgroup>
             <tbody>
-                <tr>
+                <tr style="height: 50px">
                     <td>
                         <div>Orientation</div>
                     </td>
@@ -34,8 +38,7 @@
                         </div>
                     </td>
                 </tr>
-                <br/>
-                <tr>
+                <tr style="height: 50px">
                     <td>
                         <div>Container Type</div>
                     </td>
@@ -86,6 +89,9 @@ export default Vue.extend({
     data: function () {
         return {
             title: 'Temperature Measure',
+            titleStyle: {
+                fontFamily: 'Segoe UI'
+            },
             container: {
                 width: 13,
                 roundedCornerRadius: 5,
@@ -94,6 +100,11 @@ export default Vue.extend({
             line: {
                 width: 0
             },
+            labelStyle:{
+                font: {
+                    fontFamily: 'Segoe UI'
+                }
+           },
             majorTicks: {
                 interval: 20,
                 color: '#9e9e9e'
@@ -116,10 +127,10 @@ export default Vue.extend({
             width2: 0,
             orientationdata: ['Vertical', 'Horizontal'],
             orientationplaceholder: 'Select Range Bar Color',
-            orientationwidth: 140,
+            orientationwidth: '100%',
             containerdata: ['Thermometer', 'Normal', 'RoundedRectangle'],
             containerplaceholder: 'Select Range Bar Color',
-            containerwidth: 140,
+            containerwidth: '100%',
         }
     },
     methods: {

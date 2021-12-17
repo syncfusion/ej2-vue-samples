@@ -38,6 +38,15 @@
 
 </div>
 </template>
+
+<!-- custom code start -->
+<style>
+    .bootstrap5 .e-treegrid tr.e-row, .bootstrap5-dark .e-treegrid tr.e-row, .tailwind .e-treegrid tr.e-row, .tailwind-dark .e-treegrid tr.e-row {
+        height:39px;
+    }
+</style>
+<!-- custom code end -->
+
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Freeze, Resize, Sort, Selection } from "@syncfusion/ej2-vue-treegrid";

@@ -2,7 +2,7 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='legend-container' :legendSettings='legendSettings' :title='title'>
+<ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='legend-container' :legendSettings='legendSettings' :title='title' :titleStyle='titleStyle'>
 <e-axes>
     <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle'  :ranges='ranges' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=120 >
       <e-pointers>
@@ -14,60 +14,63 @@
         </div>
     </div>
     <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
-            <tbody>
-                   <tr>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+         <colgroup>
+            <col span="1" style="width: 60%;">
+            <col span="1" style="width: 40%;">
+         </colgroup>
+         <tbody>
+                   <tr style="height: 50px">
                     <td>
                         <div> Show legend </div>
                     </td>
                     <td>
-                        <div style="padding-top: 0px; margin-left: 30px">
+                        <div style="padding-top: 0px; margin-left: -10px;">
                         <ejs-checkbox  id="enable" ref="enable"  :change='changeEnableLegend' checked=true></ejs-checkbox>
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                </tr>
+                <tr style="height: 50px">
                     <td>
-                        <div style="margin-top: -10px"> Show range when the legend item is toggled </div>
+                        <div style="width: 90%"> Show range when the legend item is toggled </div>
                     </td>
                     <td>
-                        <div style="padding-top: 0px; margin-left: 30px; margin-top: -10px">
+                        <div style="padding-top: 0px; margin-left: -10px;">
                         <ejs-checkbox  id="enabletoggle" ref="enabletoggle" :change='changeEnableToggle' checked=true></ejs-checkbox>
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                </tr>
+                <tr style="height: 50px">
                     <td>
-                        <div style="margin-top: -20px"> Position </div>
+                        <div> Position </div>
                     </td>
                     <td>
-                        <div style="margin-top: -20px">
+                        <div>
                         <ejs-dropdownlist id='position' ref="legendPos" :dataSource='positiondata' index=0  :width='positionwidth' :change='changePosition'></ejs-dropdownlist>                      
                         </div>
                     </td>
-                </tr>&nbsp;
-                <tr>
+                </tr>
+                <tr style="height: 50px">
                     <td>
-                        <div style="margin-top: -20px"> Alignment </div>
+                        <div> Alignment </div>
                     </td>
                     <td>
-                        <div style="margin-top: -20px">
+                        <div>
                         <ejs-dropdownlist id='alignment' ref="legendAlignment" :dataSource='alignmentdata' index=0  :width='alignmentwidth' :change='changeAlignment'></ejs-dropdownlist>                      
                         </div>
                     </td>
-                </tr>&nbsp;
-               <tr>
+                </tr>
+               <tr style="height: 50px">
                     <td>
-                        <div style="margin-top: -20px"> Shape </div>
+                        <div> Shape </div>
                     </td>
                     <td>
-                        <div style="margin-top: -20px">
+                        <div>
                         <ejs-dropdownlist id='shape' ref="legendShape" :dataSource='shapedata' :fields='shapefields' index=0  :width='shapewidth' :change='changeShape'></ejs-dropdownlist>                      
                         </div>
                     </td>
-                </tr>&nbsp;
-            </tbody>
-            <br/>
+                </tr>
+                </tbody>
         </table>
     </div>
 <div id="action-description">
@@ -104,15 +107,22 @@ export default Vue.extend({
 data:function(){
     return{
             title: 'Measure of wind speed in Km/h',
+            titleStyle: {
+                fontFamily: 'Segoe UI'
+            },
             legendSettings: { 
                 visible: true,
-                position: 'Bottom'
+                position: 'Bottom',
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                }
             },
             startAngle: 210,
             endAngle: 150,
             lineStyle: { width: 2 },
             labelStyle: {
-                position: 'Inside', useRangeColor: false
+                position: 'Inside', useRangeColor: false,
+                font: { fontFamily: 'Segoe UI' }
             },
             majorTicks: {
                 height: 16, color: '#9E9E9E', interval: 20
@@ -138,9 +148,9 @@ data:function(){
                 { start: 102, end: 120, color:'#ff0000', radius: '110%', legendText: 'Hurricane force' },
                 ],
             positiondata:['Bottom', 'Auto', 'Top', 'Left', 'Right'],
-            positionwidth:120,
+            positionwidth: '100%',
             alignmentdata:['Far', 'Center', 'Near'],
-            alignmentwidth:120,
+            alignmentwidth:'100%',
             shapedata:[
             { Id:'Circle', level:'Circle'},
             { Id:'Rectangle', level:'Rectangle'},
@@ -149,7 +159,7 @@ data:function(){
             { Id:'InvertedTriangle', level:'Inverted triangle'}
             ],
             shapefields:{ text: 'level', value: 'Id' },
-            shapewidth:120
+            shapewidth:'100%'
     }
 },
 provide: {

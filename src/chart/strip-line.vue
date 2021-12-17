@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart ref="chart" :load='load' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
          :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Weather' :marker='marker' :fill='fill' > </e-series>
@@ -145,9 +145,6 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let fontSize = Browser.isDevice ? "14px" : "18px";
 let xAxisStripLine = [
   {
@@ -244,7 +241,6 @@ let xAxisStripLine = [
 export default Vue.extend({
   data: function() {
     return {
-      theme: theme,
       seriesData: [
         { x: "Sun", y: 25 },
         { x: "Mon", y: 27 },
@@ -371,6 +367,12 @@ export default Vue.extend({
       this.fill = fill;
       this.primaryYAxis = primaryYAxis;
       this.primaryXAxis = primaryXAxis;
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   }
 });

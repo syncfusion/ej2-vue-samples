@@ -32,7 +32,7 @@ return{
         palette: ['#5B244D', '#6F3953', ' #87525A', '#A26F63', '#BA896B', '#D5A574', '#F1C37D'],
         titleSettings: {
             text: 'List of countries by unemployment rate',
-            textStyle: { size: '15px'}
+            textStyle: { size: '15px',  fontFamily: 'Segoe UI'}
         },
         enableDrillDown: true,
         useGroupingSeparator: true,
@@ -42,11 +42,17 @@ return{
         weightValuePath: 'Size',
         tooltipSettings: {
             visible: true,
-            format: '${Size} : ${Name}'
+            format: '${Size} : ${Name}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
          leafItemSettings: {
             labelPath: 'Name',
-            showLabels: true            
+            showLabels: true,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },            
         },
         levels: [
             { groupPath: 'Continent',  border: { color: 'black', width: 0.5 }, headerAlignment:'Far' },

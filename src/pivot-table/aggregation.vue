@@ -164,7 +164,7 @@ export default Vue.extend({
     return {
       dataSourceSettings: {
         enableSorting: true,
-        formatSettings: [{ name: "ProCost", format: "C" }],
+        formatSettings: [{ name: 'PowUnits', format: 'N' }, { name: "ProCost", format: "C" }],
         drilledMembers: [
           { name: "EnerType", items: ["Biomass", "Free Energy"] }
         ],
@@ -236,6 +236,11 @@ export default Vue.extend({
         vCnt++
       ) {
         if (pivotObj.dataSourceSettings.values[vCnt].name === fieldName) {
+          if (pivotObj.dataSourceSettings.values[vCnt].name === 'PowUnits' && summaryType === 'Avg') {
+            pivotObj.setProperties({ dataSourceSettings: { formatSettings: [{ name: 'PowUnits', format: 'N2' }, { name: 'ProCost', format: 'C' }] } }, true);
+          } else {
+            pivotObj.setProperties({ dataSourceSettings: { formatSettings: [{ name: 'PowUnits', format: 'N' }, { name: 'ProCost', format: 'C' }] } }, true);
+          }
           pivotObj.dataSourceSettings.values[vCnt].type = summaryType;
           isAvail = true;
         }

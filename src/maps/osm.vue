@@ -73,7 +73,8 @@ data:function(){
         titleSettings: {
             text: 'Headquarters of the United Nations',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         centerPosition: {
@@ -97,7 +98,10 @@ data:function(){
                     }],
                     tooltipSettings: {
                         visible: true,
-                        valuePath: 'name'
+                        valuePath: 'name',
+                        textStyle: {
+                            fontFamily: 'Segoe UI'
+                        }
                     }
                 }
         ]

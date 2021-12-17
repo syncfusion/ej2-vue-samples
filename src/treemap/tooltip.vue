@@ -87,7 +87,8 @@ return{
         titleSettings: {
             text: 'Country wise International Airport count in South America',
             textStyle: {
-                size: '15px'
+                size: '15px',
+                fontFamily: 'Segoe UI'
             }
         },
         dataSource: Airport_Count,
@@ -96,14 +97,18 @@ return{
         legendSettings: {
             visible: true,
             position: 'Top',
-            shape: 'Rectangle'
+            shape: 'Rectangle',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
       leafItemSettings: {
             showLabels: true,
             labelPath: 'State',
             labelPosition: 'Center',
             labelStyle: {
-                size: '13px'
+                size: '13px',
+                fontFamily: 'Segoe UI'
             },
             fill: '#6699cc',
             border: { width: 1, color: 'white' },

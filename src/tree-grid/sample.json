@@ -14,6 +14,10 @@
         "description": "This example shows how the Syncfusion Essential JS2 Tree Grid looks with its default configuration."
      },
      {  
+      "url": "adaptive", "name": "Adaptive", "type": "new", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns","enableAdaptiveUI","allowSorting","allowFiltering","editSettings","toolbar","allowPaging"] },
+      "description": "This example demonstrates the adaptive rendering behavior of Tree Grid features."
+   },
+     {  
       "url": "clipboard", "name": "Clipboard", "category": "Tree Grid","api":{"TreeGrid":["dataSource", "treeColumnIndex", "allowPaging", "allowSelection", "childMapping", "columns", "copyHierarchyMode"] },
       "description": "This example shows how the Syncfusion Essential JS2 Tree Grid looks with its default configuration."
      },
@@ -182,7 +186,7 @@
       "description": "This demo for Essential JS 2 Tree Grid control shows frozen columns feature of Tree Grid. Scroll the movable content to view the frozen columns."
      },
      {
-      "url":"frozen-api", "name": "Freeze Direction", "type": "new", "category":"Frozen","api":{"TreeGrid":["dataSource","childMapping","columns","treeColumnIndex","frozenColumns"] },
+      "url":"frozen-api", "name": "Freeze Direction", "category":"Frozen","api":{"TreeGrid":["dataSource","childMapping","columns","treeColumnIndex","frozenColumns"] },
       "description": "This demo for Essential JS 2 Tree Grid control shows frozen columns feature of Tree Grid with Freeze direction Left/Right."
      }, 
      {

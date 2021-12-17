@@ -9,34 +9,38 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
+    <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+    <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
         <tbody>
             <tr style="height: 50px">
-                <td style="width: 30%">
-                    <div style="margin-left: -45px; margin-top: 30px">Show Labels</div>
+                <td>
+                    <div>Show Labels</div>
                 </td>
                 <td>
-                <div>
-                    <input type="checkbox" checked id="select" style="margin-top: 35px; margin-left: 50px" v-on:change="showLabel">
+                <div style="margin-top: 1px;">
+                    <input type="checkbox" checked id="select"  v-on:change="showLabel">
                 </div>
                 </td>
             </tr>            
         <tr style="height: 50px">
-            <td style="width: 60%">
-                <div style="margin-left: -45px;">Smart label mode</div>
+            <td>
+                <div>Smart label mode</div>
             </td>
             <td style="width: 40%">
-             <div style="margin-left: 10px">
+             <div>
              <ejs-dropdownlist ref="labelMode" id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>
              </div>                                 
             </td>
         </tr>
         <tr style="height: 50px">
-            <td style="width: 60%">
-                <div style="margin-left: -45px;">Intersect action</div>
+            <td>
+                <div>Intersect action</div>
             </td>
-            <td style="width: 40%;">
-            <div style="margin-left: 10px">
+            <td>
+            <div>
              <ejs-dropdownlist ref="intersect" id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>
              </div>                                 
             </td>
@@ -85,7 +89,10 @@ export default Vue.extend({
         dataLabelSettings: {
                     visible: true,
                     labelPath: 'name',
-                    smartLabelMode: 'Trim'
+                    smartLabelMode: 'Trim',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
                 },
         shapeData: new MapAjax('./src/maps/map-data/usa.json'),
         shapeSettings: {
@@ -97,10 +104,10 @@ export default Vue.extend({
         },
         smartlabeldata:['Trim','None','Hide'],
         smartlabelplaceholder:'Select smartlabel mode',
-        smartlabelwidth: 90,
+        smartlabelwidth: '100%',
         intersectactiondata:['None','Trim','Hide'],
         intersectactionplaceholder:'Select intersect action',
-        intersectactionwidth: 90
+        intersectactionwidth: '100%'
       }
   },
   provide: {

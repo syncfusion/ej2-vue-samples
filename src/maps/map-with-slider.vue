@@ -76,7 +76,8 @@ data:function(){
         titleSettings: {
             text: 'Average annual population growth in North American countries',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -84,7 +85,10 @@ data:function(){
         },
         tooltipSettings: {
                     visible: true,
-                    format: '${name} : ${population}%'
+                    format: '${name} : ${population}%',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
         },
         annotations: [
             {

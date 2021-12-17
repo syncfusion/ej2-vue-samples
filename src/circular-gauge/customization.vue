@@ -16,34 +16,43 @@
     </div>
 
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+          <colgroup>
+             <col span="1" style="width: 50%;">
+             <col span="1" style="width: 30%;">
+             <col span="1" style="width: 20%;">
+          </colgroup>
+          <tbody>
             <tr style="height: 50px">
-                <td>
-                    <img id='random' src="src/circular-gauge/images/gauge-one.png" alt="Customized gauge 1" style="margin-left:25px;margin-top:10px;" v-on:click="randomClick"/>
-                    <div id="random_line" style="display:block;left: 0px;background: #ff4081;padding-top: 0px;height: 2px !important;width: 85px;margin: 2px 2px 2px 17px;"></div>
+                <td align="center">
+                    <img id='random' src="src/circular-gauge/images/gauge-one.png" alt="Customized gauge 1" style="margin-top:10px;" v-on:click="randomClick"/>
+                    <div id="random_line" style="display:block;left: 0px;background: #ff4081;padding-top: 0px;height: 2px !important;width: 85px;margin: 2px 2px 2px 5px;"></div>
                 </td>
-                <td>
-                    <img id='usage' src="src/circular-gauge/images/gauge-two.png" alt="Customized gauge 2" style="margin-left:25px;margin-top:10px;" v-on:click="usageClick" />
-                    <div id="usage_line" style="display:none;left: 0px;background: #ff4081;padding-top: 0px;height: 2px !important;width: 85px;margin: 2px 2px 2px 17px;"></div>
+                <td align="center">
+                    <img id='usage' src="src/circular-gauge/images/gauge-two.png" alt="Customized gauge 2" style="margin-top:10px;" v-on:click="usageClick" />
+                    <div id="usage_line" style="display:none;left: 0px;background: #ff4081;padding-top: 0px;height: 2px !important;width: 85px;margin: 2px 2px 2px 5px;"></div>
                 </td>
             </tr>
-            <tr style="height: 50px">
-                <td>
-                    <div id='currentPointerValue'>Current Value <span> &nbsp;&nbsp;&nbsp;1800</span> </div>
+            <tr style="height: 70px;">
+                <td style="padding-top: 20px">
+                    <div>Current Value</div>
                 </td>
-                <td>
+                <td style="padding-top: 20px">
                     <div>
-                        <input type="range" ref="curVal" id="currentValue" min="1000" max="2000" value="1800" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" style="width: 120px; margin-left: 5px" />
+                        <input type="range" ref="curVal" id="currentValue" min="1000" max="2000" value="1800" v-on:pointermove="changeCurrentval" v-on:touchmove="changeCurrentval" v-on:change="changeCurrentval" style="width: 65%;" />
                     </div>
                 </td>
+              <td style="padding-top: 30px; text-align: center;"> 
+                 <span id='currentPointerValue' style="margin-left: -35px;">1800</span>
+             </td>
             </tr>
             <tr style="height: 50px">
                 <td>
                     <div id='rangebarColor'>RangeBar Color</div>
                 </td>
                 <td>
-                    <div style="margin-left: 5px">
-                    <ejs-dropdownlist id='barColor' ref="rangeBar" :dataSource='barColordata' index=0  :width=120 :change='changeBarcolor'></ejs-dropdownlist>                      
+                    <div>
+                    <ejs-dropdownlist id='barColor' ref="rangeBar" :dataSource='barColordata' index=0  :width='width' :change='changeBarcolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -52,8 +61,8 @@
                     <div id='range'>Range Color</div>
                 </td>
                 <td>
-                    <div style="margin-left: 5px">
-                    <ejs-dropdownlist id='rangeColor' ref="range" :dataSource='rangeColordata' index=0  :width=120 :change='changeRangecolor'></ejs-dropdownlist>                      
+                    <div>
+                    <ejs-dropdownlist id='rangeColor' ref="range" :dataSource='rangeColordata' index=0  :width='width' :change='changeRangecolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
@@ -62,11 +71,12 @@
                     <div id='pointColor'>Pointer Color</div>
                 </td>
                 <td>
-                    <div style="margin-left: 5px">
-                    <ejs-dropdownlist id='pointerColor' ref="pointer" :enabled='pointerEnabled' :dataSource='pointerColordata' index=0  :width=120 :change='changePointercolor'></ejs-dropdownlist>                      
+                    <div>
+                    <ejs-dropdownlist id='pointerColor' ref="pointer" :enabled='pointerEnabled' :dataSource='pointerColordata' index=0  :width='width' :change='changePointercolor'></ejs-dropdownlist>                      
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
 <div id="action-description">
@@ -107,7 +117,7 @@ return{
             pointerEnabled: true,
             centerY: '70%',
             annotations: [{
-                content: '<div style="color:#666666;font-size:35px;">1800</div>',
+                content: '<div style="color:#666666;font-size:35px; font-family: Segoe UI;">1800</div>',
                 angle: 0,
                 zIndex: '1',
                 radius: '110%'
@@ -136,13 +146,13 @@ return{
                 cap: { radius: 10, color: '#424242', border: { width: 0 } }
             }],
             annotations2: [{
-                content: '<div style="color:#666666;font-size:35px;">50.5GB</div>',
+                content: '<div style="color:#666666;font-size:35px; font-family: Segoe UI; margin-top: -20px">50.5GB</div>',
                 angle: 180, radius: '0%', zIndex: '1',
             }, {
-                content: '<div style="color:#757575;font-size:15px;">Used</div>',
+                content: '<div style="color:#757575;font-size:15px; margin-top: -20px">Used</div>',
                 angle: 180, radius: '25%', zIndex: '1',
                 textStyle: {
-                    fontFamily: 'Roboto',
+                    fontFamily: 'Segoe UI',
                     color: '#9E9E9E',
                     fontStyle: 'Bold',
                     fontWeight: 'Regular',
@@ -167,7 +177,8 @@ return{
             }],
             barColordata:['#FFDD00','#00bdae','#FF2680'],
             rangeColordata:['#E0E0E0','#7bb4eb','#ea7a57'],
-            pointerColordata:['#424242','#6f6fe2','#9e480e']
+            pointerColordata:['#424242','#6f6fe2','#9e480e'],
+            width: '100%'
 }
 },
 provide:{
@@ -209,8 +220,7 @@ methods:{
         let element = document.getElementById('currentValue');
         element.min = '0.5'; element.max = '100';
         element.value = usage.ej2Instances.axes[0].pointers[0].value.toString();
-        document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;'
-            + usage.ej2Instances.axes[0].pointers[0].value + '</span>';
+        document.getElementById('currentPointerValue').innerHTML = usage.ej2Instances.axes[0].pointers[0].value.toString();
         barColor.value = usage.ej2Instances.axes[0].pointers[0].color; rangeColor.value = usage.ej2Instances.axes[0].ranges[0].color;
         // let pointerColor = document.getElementById('pointerColor');
         this.pointerEnabled = false;
@@ -242,8 +252,7 @@ methods:{
         this.pointerEnabled = true;
         element.min = '1000'; element.max = '2000';
         element.value = random.ej2Instances.axes[0].pointers[0].value.toString();
-        document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' +
-            random.ej2Instances.axes[0].pointers[0].value + '</span>';
+        document.getElementById('currentPointerValue').innerHTML = random.ej2Instances.axes[0].pointers[0].value.toString();
         barColor.value = random.ej2Instances.axes[0].pointers[0].color;
         rangeColor.value = random.ej2Instances.axes[0].ranges[0].color;
         pointerColor.value = random.ej2Instances.axes[0].pointers[1].color;
@@ -259,7 +268,7 @@ methods:{
                 this.$refs.customizationgauge1.ej2Instances.setPointerValue(0, 1, value);
             }
             this.$refs.customizationgauge1.ej2Instances.setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px;">' + value + (isUsage ? 'GB' : '') + '</div>');
-            document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' + value + '</span>';
+            document.getElementById('currentPointerValue').innerHTML = value.toString();
          }         
          else{
             //  let gauge = document.getElementById('customizationgauge2');
@@ -271,8 +280,8 @@ methods:{
                 this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 0, value);
                 this.$refs.customizationgauge2.ej2Instances.setPointerValue(0, 1, value);
             }
-            this.$refs.customizationgauge2.ej2Instances.setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px;">' + value + (isUsage ? 'GB' : '') + '</div>');
-            document.getElementById('currentPointerValue').innerHTML = 'Current Value <span> &nbsp;&nbsp;&nbsp;' + value + '</span>';
+            this.$refs.customizationgauge2.ej2Instances.setAnnotationValue(0, 0, '<div style="color:#666666;font-size:35px; margin-top: -20px">' + value + (isUsage ? 'GB' : '') + '</div>');
+            document.getElementById('currentPointerValue').innerHTML = value.toString();
          }
          
     },

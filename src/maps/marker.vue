@@ -52,28 +52,28 @@
     </div>
 
     <div class="col-lg-3 property-section">
-      <table id="property" title="Properties" style="width: 100%">
+      <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <tbody>
           <tr style="height: 50px">
-            <td style="width: 70%">
-              <div class="property-text" style="padding: 0px;">
+            <td>
+              <div class="property-text">
                 Bind markers shape from data source
               </div>
             </td>
-            <td style="width: 20%">
-              <div style="padding-top:0px;">
+            <td>
+              <div style="margin-left: 30px; padding-top: 0px; margin-top: -7px;">
                 <ejs-checkbox id="shape" :change="changeshape"></ejs-checkbox>
               </div>
             </td>
           </tr>
-          <tr style="height: 50px">
-            <td style="width: 70%">
-              <div class="property-text" style="padding: 0px;">
+          <tr style="height: 100px">
+            <td>
+              <div class="property-text">
                 Bind markers color from data source
               </div>
             </td>
-            <td style="width: 20%">
-              <div style="padding-top:0px;">
+            <td>
+              <div style="margin-left: 30px; padding-top: 0px; margin-top: -7px;">
                 <ejs-checkbox id="color" :change="changecolor"></ejs-checkbox>
               </div>
             </td>
@@ -154,7 +154,8 @@ export default Vue.extend({
       titleSettings: {
         text: "Top 25 populated cities in the world",
         textStyle: {
-          size: "16px"
+          size: "16px",
+          fontFamily: 'Segoe UI'
         }
       },
       shapeData: new MapAjax("./src/maps/map-data/world-map.json"),

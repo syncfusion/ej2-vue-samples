@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-         <ejs-chart ref='chart' id='chartcontainer' :theme='theme' style='display:block; width: 92%' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :chartArea='chartArea' :title='title' :legendSettings='legendSettings'>
+         <ejs-chart ref='chart' id='chartcontainer' :load='load' style='display:block; width: 92%' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :chartArea='chartArea' :title='title' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Spline' xName='x' yName='y' name='Rupees' :marker='marker1'>
                     <e-trendlines>
@@ -122,11 +122,6 @@ import { ChartPlugin, ScatterSeries, Category, Tooltip, Trendlines, SplineSeries
 Vue.use(ChartPlugin);
 Vue.use(NumericTextBoxPlugin);
 
-   
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");   
-
 let series1 = [];
 let yValue = [7.66, 8.03, 8.41, 8.97, 8.77, 8.20, 8.16, 7.89, 8.68, 9.48, 10.11, 11.36, 12.34, 12.60, 12.95,
     13.91, 16.21, 17.50, 22.72, 28.14, 31.26, 31.39, 32.43, 35.52, 36.36,
@@ -143,7 +138,6 @@ let powerData = [
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
         seriesData: series1,
         forwardForecast: 0,
         backwardForecast: 0,
@@ -273,6 +267,12 @@ export default Vue.extend({
     },
     onPeriod: function(e) {
          this.period = e.value ;
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
 

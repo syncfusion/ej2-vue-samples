@@ -13,18 +13,24 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
-        <tbody><tr style="height: 50px">
-            <td style="width: 60%">
-                <div style="margin-left: -30px;">Projection Type</div>
+    <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+             <col span="1" style="width: 40%;">
+             <col span="1" style="width: 60%;">
+          </colgroup>
+          <tbody>
+        <tr style="height: 50px">
+            <td>
+                <div style="width: 80%">Projection Type</div>
             </td>
-            <td style="width: 40%;">
-            <div style="margin-left: 10px;">
+            <td>
+            <div style="margin-left: -10px">
              <ejs-dropdownlist ref="projection" id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>
              </div>                                 
             </td>
         </tr>
-    </tbody></table>
+        </tbody>
+    </table>
 </div>
 <div id="action-description">
         <p>
@@ -64,15 +70,22 @@ data:function(){
         titleSettings: {
             text: 'Members of the UN Security Council',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             },
             subtitleSettings: {
                 text: '- In 2017',
-                alignment: 'Far'
+                alignment: 'Far',
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                },
             }
         },
         legendSettings: {
-            visible: true
+            visible: true,
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         zoomSettings: {
             enable: false
@@ -84,7 +97,10 @@ data:function(){
         tooltipSettings: {
                 visible: true,
                 valuePath: 'Country',
-                },
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                }
+        },
         shapeSettings: {
                     fill: '#E5E5E5',
         colorMapping: [
@@ -100,7 +116,7 @@ data:function(){
         colorValuePath: 'Membership'
                 },
         projectiondata:['Mercator','Equirectangular','Miller','Eckert3','Eckert5','Eckert6','Winkel3','AitOff'],
-        projectionwidth:105,
+        projectionwidth: '105%',
         placeholder:'Select projection type'
     }
 },

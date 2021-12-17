@@ -1,8 +1,8 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip'>
+        <ejs-chart style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :load='load'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Bar' xName='x' yName='y' name='Imports' :marker='marker'> </e-series>
                 <e-series :dataSource='seriesData1' type='Bar' xName='x' yName='y' name='Exports' :marker='marker'> </e-series>
@@ -51,14 +51,9 @@ import { ChartPlugin, BarSeries, Category, Tooltip, Legend, DataLabel} from "@sy
 
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
       seriesData: [
                  { x: 'Egg', y: 2.2 }, { x: 'Fish', y: 2.4 },
                  { x: 'Misc', y: 3 }, { x: 'Tea', y: 3.1 }
@@ -122,8 +117,9 @@ export default Vue.extend({
   methods: {
     load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

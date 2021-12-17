@@ -1,7 +1,7 @@
 <template>
     <div class="template-querybuilder-section">
         <div class="col-lg-12 control-section">
-            <ejs-querybuilder ref="querybuilder" id="querybuilder" :rule="importRules" width="100%" >
+            <ejs-querybuilder ref="querybuilder" id="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" >
                 <e-columns>
                     <e-column field='EmployeeID' label='Employee ID' type='number' />
                     <e-column field='FirstName' label='First Name' type='string' />
@@ -32,7 +32,7 @@
     
     .e-query-builder .e-rule-template .e-radio-wrapper:nth-child(1) {
        margin-right: 5px !important;
-    } 
+    }
 
     .e-query-builder .e-rule-template .e-radio-wrapper:nth-child(2) {
        margin-right: 0px !important;
@@ -42,11 +42,9 @@
         .e-query-builder .e-rule-template .e-radio-wrapper:nth-child(1) {
             padding-bottom: 10px !important;
         }
-
         .e-query-builder .e-rule-template .e-rule-value.e-custom-value {
             width: auto !important;
         }
-
         .e-query-builder .e-rule-template .e-rule-value-delete .e-custom-delete {
             padding-right: 0px !important;
         }
@@ -61,6 +59,7 @@ import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DropDownList, MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
 import { createElement, getComponent, isNullOrUndefined } from "@syncfusion/ej2-base";
+import * as dataSource from './data-source.json';
 
 Vue.use(QueryBuilderPlugin);
 Vue.use(RadioButtonPlugin);
@@ -68,6 +67,7 @@ Vue.use(RadioButtonPlugin);
 export default Vue.extend({
     data: function() {
         return {
+		dataSource: dataSource.employeeData,
             importRules: {
                 condition: "and",
                 rules: [

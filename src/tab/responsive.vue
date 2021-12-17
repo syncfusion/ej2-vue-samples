@@ -99,16 +99,16 @@ export default Vue.extend({
           value: 'Scrollable',
           placeValue: 'top',
           headerText0: { text: 'HTML' },
-          headerText1: { text: 'C Sharp(C#)' },
+          headerText1: { text: 'C-Sharp(C#)' },
           headerText2: { text: 'Java' },
-          headerText3: { text: 'VB.Net' },
+          headerText3: { text: 'VB.NET' },
           headerText4: { text: 'Xamarin' },
           headerText5: { text: 'ASP.NET' },
           headerText6: { text: 'ASP.NET MVC' },
           headerText7: { text: 'JavaScript' },
           content0: 'HyperText Markup Language, commonly referred to as HTML, is the standard markup language used to ' +
         'create web pages. Along with CSS, and JavaScript, HTML is a cornerstone technology, used by most websites to create visually ' +
-        'engaging web pages, user interfaces for web applications, and user interfaces for many mobile applications.[1] Web ' +
+        'engaging web pages, user interfaces for web applications, and user interfaces for many mobile applications. Web ' +
         'browsers can read HTML files and render them into visible or audible web pages. HTML describes the structure of a ' +
         'website semantically along with cues for presentation, making it a markup language, rather than a programming language.',
 
@@ -124,11 +124,11 @@ export default Vue.extend({
         content3: 'The command-line compiler, VBC.EXE, is installed as part of the freeware .NET Framework SDK. Mono also ' +
         'includes a command-line VB.NET compiler. The most recent version is VB 2012, which was released on August 15, 2012.',
  
-        content4: 'Xamarin is a San Francisco, California based software company created in May 2011[3] by the engineers ' +
-        'that created Mono,[4] Mono for Android and MonoTouch that are cross-platform implementations of the Common Language ' +
+        content4: 'Xamarin is a San Francisco, California based software company created in May 2011 by the engineers ' +
+        'that created Mono, Mono for Android and MonoTouch that are cross-platform implementations of the Common Language ' +
         'Infrastructure (CLI) and Common Language Specifications (often called Microsoft .NET). With a C#-shared codebase, ' +
         'developers can use Xamarin tools to write native Android, iOS, and Windows apps with native user interfaces and share ' +
-        'code across multiple platforms.[5] Xamarin has over 1 million developers in more than 120 countries around the World ' +
+        'code across multiple platforms. Xamarin has over 1 million developers in more than 120 countries around the World ' +
         'as of May 2015.',
 
         content5: 'ASP.NET is an open-source server-side web application framework designed for web development to produce ' +
@@ -145,7 +145,7 @@ export default Vue.extend({
 
          content7: 'JavaScript (JS) is an interpreted computer programming language. It was originally implemented as ' +
         'part of web browsers so that client-side scripts could interact with the user, control the browser, communicate ' +
-        'asynchronously, and alter the document content that was displayed.[5] More recently, however, it has become common in ' +
+        'asynchronously, and alter the document content that was displayed. More recently, however, it has become common in ' +
         'both game development and the creation of desktop applications.',
         
         }

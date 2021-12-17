@@ -11,60 +11,63 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <tbody>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+          <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 60%">
-                         <div class="property-text"><b>Highlight</b></div>
+                    <td>
+                         <div><b>Highlight</b></div>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 60%">
-                       <div class="property-text"> Enable</div>
+                <tr style="height: 50px;">
+                    <td>
+                       <div> Enable</div>
                     </td>
-                    <td style="width: 40%;">
-                        <div>
+                    <td>
+                        <div style="margin-top: -10px; margin-left: -10px;">
                             <ejs-checkbox ref="highlightEnable" id="highlightEnable"  checked="true" :change="changeHighlight"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 60%">
-                        <div class="property-text">Mode</div>
+                <tr  style="height: 50px;">
+                    <td>
+                        <div>Mode</div>
                     </td>
-                    <td style="width: 40%;">
-                        <div>
+                    <td>
+                        <div style="margin-top: -4px;">
                         <ejs-dropdownlist ref="highlightMode" id='highlightMode' :dataSource='highlightModedata' index=0 :placeholder='highlightModeplaceholder' :width='highlightModewidth' :change='changeHighlightmode'></ejs-dropdownlist>        
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 80%">
-                         <div class="property-text"><b>Selection</b></div>
+                    <td>
+                         <div><b>Selection</b></div>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 60%">
-                       <div class="property-text">Enable</div>
+                <tr style="height: 50px;">
+                    <td>
+                       <div>Enable</div>
                     </td>
-                    <td style="width: 40%;">
-                        <div>
+                    <td>
+                        <div style="margin-left: -10px; margin-top: -10px;">
                             <ejs-checkbox ref="selectionEnable" checked="true" id="SelectionEnable" :change="changeSelection"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td style="width: 60%">
-                        <div class="property-text"> Mode</div>
+                <tr style="height: 50px;">
+                    <td>
+                        <div> Mode</div>
                     </td>
-                    <td style="width: 40%;">
+                    <td>
                         <div>
                         <ejs-dropdownlist ref="selectionMode" id='selectionMode' :dataSource='selectionModedata' index=0 :placeholder='selectionModeplaceholder' :width='selectionModewidth' :change='changeSelectionmode'></ejs-dropdownlist>       
                         </div>
                     </td>
                 </tr>
-
-            </tbody>
+                  </tbody>
         </table>
     </div>
     <div id="action-description">
@@ -85,11 +88,6 @@
 </div>
 </template>
  <style scoped>
-        .property-text {
-            font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-            font-size: 13px !important;
-            font-weight: 400 !important;
-        }
          .check{
         opacity: 1 !important;
         position: relative !important;
@@ -113,7 +111,8 @@ export default Vue.extend({
 data:function(){
 return{
         titleSettings: {
-            text: 'Import and Export details of US'
+            text: 'Import and Export details of US',
+            textStyle: { fontFamily: 'Segoe UI' }
         },
         selectionSettings: {
             enable: true,
@@ -131,7 +130,10 @@ return{
             labelPath: 'type',
             fill: '#8ebfe2',
             labelPosition: 'Center',
-            gap: 10
+            gap: 10,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         dataSource: importData,
         weightValuePath: 'sales',
@@ -141,9 +143,9 @@ return{
         ],
         highlightModedata:['Item','Child','Parent','All'],
         highlightModeplaceholder: 'Select highlight type',
-        highlightModewidth: 120,
+        highlightModewidth: '100%',
         selectionModeplaceholder: 'Selection selection type',
-        selectionModewidth: 120,
+        selectionModewidth: '100%',
         selectionModedata:['Item','Child','Parent','All']
 }
 },

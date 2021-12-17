@@ -4,36 +4,37 @@
     <div class="content-wrapper breadcrumb-control-wrapper">
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <h5>File Manager like Breadcrumb</h5>
+                <h5 style="display: inline-block">File Manager like Breadcrumb</h5>
+                 <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick">Reset State</ejs-button>
             </div>
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <ejs-breadcrumb ref="breadcrumb" id="breadcrumb" cssClass="e-addressbar-breadcrumb" :itemTemplate="itemTemplate">
-            <e-breadcrumb-items>
-                <e-breadcrumb-item iconCss="e-bicons e-picture"></e-breadcrumb-item>
-                <e-breadcrumb-item text="This PC"></e-breadcrumb-item>
-                <e-breadcrumb-item text="Local Disk (C:)"></e-breadcrumb-item>
-                <e-breadcrumb-item text="Users"></e-breadcrumb-item>
-                <e-breadcrumb-item text="Admin"></e-breadcrumb-item>
-                <e-breadcrumb-item text="Pictures"></e-breadcrumb-item>
-            </e-breadcrumb-items>
-        </ejs-breadcrumb>
+                <ejs-breadcrumb ref="breadcrumb" id="breadcrumb" cssClass="e-addressbar-breadcrumb" :itemTemplate="itemTemplate" :separatorTemplate="separatorTemplate">
+                    <e-breadcrumb-items>
+                        <e-breadcrumb-item iconCss="e-bicons e-picture"></e-breadcrumb-item>
+                        <e-breadcrumb-item text="This PC"></e-breadcrumb-item>
+                        <e-breadcrumb-item text="Local Disk (C:)"></e-breadcrumb-item>
+                        <e-breadcrumb-item text="Users"></e-breadcrumb-item>
+                        <e-breadcrumb-item text="Admin"></e-breadcrumb-item>
+                        <e-breadcrumb-item text="Pictures"></e-breadcrumb-item>
+                        </e-breadcrumb-items>
+                </ejs-breadcrumb>
             </div>
         </div>
     </div>
 </div>
 
 <div id="action-description">
-    <p> This sample demonstrates the Address Bar functionalities using the <b>Breadcrumb</b> component. Click the
+    <p> This sample demonstrates the address bar functionalities using the <b>Breadcrumb</b> component. Click the
         right arrow icon to view and navigate to the next level items.</p>
 </div>
 <div id="description">
    <p>In the <code>Breadcrumb</code> component, <code>itemTemplate</code> property is used to render <code>Menu</code>
-        as <code>Breadcrumb</code> items.</p>
-    <p>In this demo, we have rendered Address of <b>Pictures</b> folder in <code>Breadcrumb</code>. And click the
+        as Breadcrumb items.</p>
+    <p>In this demo, we have rendered address of pictures folder in Breadcrumb. And click the
         right arrow icon to view and navigate to the next level items.</p>
-    <p>More information about <code>Breadcrumb</code> component can be found in this <a target='_blank'
+    <p>More information about Breadcrumb component can be found in this <a target='_blank'
             href="https://ej2.syncfusion.com/vue/documentation/breadcrumb/getting-started/">documentation section</a>.</p>
 </div>
 </div>
@@ -115,6 +116,7 @@
 .bootstrap5 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon,
 .bootstrap5-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon {
   padding-right: 23px !important;
+  margin-top: -2px;
 }
 
 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret {
@@ -146,10 +148,6 @@
 
 .e-addressbar-breadcrumb ol {
   background-color: transparent !important;
-}
-
-.e-addressbar-breadcrumb .e-breadcrumb-separator {
-  display: none;
 }
 
 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-menu-icon {
@@ -222,13 +220,21 @@
 .e-addressbar-breadcrumb .e-recyclebin::before {
   content: '\e71f';
 }
+
+.reset-btn {
+  float: right;
+  margin: 5px 2px 5px 0;
+}
 </style>
 
 <script>
 import Vue from "vue";
 import { BreadcrumbPlugin, MenuPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from "@syncfusion/ej2-base";
 
 Vue.use(BreadcrumbPlugin);
+Vue.use(ButtonPlugin);
 Vue.use(MenuPlugin);
 
 export default Vue.extend({
@@ -244,106 +250,106 @@ export default Vue.extend({
                     template : Vue.component('itemTemplate', {
                         template:
                             `<div style="display: flex;">
-                            <ejs-menu :items="[{ text: data.text, iconCss: data.iconCss }]" :select="selectHandler"></ejs-menu>
-                            <ejs-menu v-if="getItems(data.text)[0].items" :showItemOnClick="true" :items="getItems(data.text)" :select="subMenuSelectHandler" :beforeOpen="beforeOpen" :onClose="onClose"></ejs-menu>
+                            <ejs-menu v-if="data.text !== 'LastItem'" :items="[{ text: data.text, iconCss: data.iconCss }]" :select="selectHandler"></ejs-menu>
+                            </div>
+                            `,
+                            inject: ["breacrumb"],
+                            methods: {
+                                selectHandler: function(args) {
+                                    var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.$parent.$parent.breadcrumbItems;
+                                    for (var i = 0; i < breadcrumbItems.length; i++) {
+                                        if (breadcrumbItems[i].text === args.item.text) {
+                                            breadcrumbItems = breadcrumbItems.slice(0, i + 1);
+                                            breadcrumbItems[0].iconCss = 'e-bicons e-' + this.$parent.$parent.getItems(args.item.text, true)[0].items.type;
+                                            this.$parent.$parent.$refs.breadcrumb.items = breadcrumbItems;
+                                            break;
+                                        }
+                                    }
+                                    this.$parent.$parent.$refs.breadcrumb.items.push({ text: 'LastItem' });
+                                    this.$parent.$parent.$refs.breadcrumb.activeItem = 'LastItem';
+                                }
+                            }
+                    })
+                }
+            },
+            separatorTemplate:() => {
+                return {
+                    template : Vue.component('separatorTemplate', {
+                        template:
+                            `<div style="display: flex;">
+                            <ejs-menu v-if="getItems(data.previousItem.text)[0].items" :showItemOnClick="true" :items="getItems(data.previousItem.text)" :select="subMenuSelectHandler" :beforeOpen="beforeOpen" :onClose="onClose"></ejs-menu>
                             </div>
                             `,
                             inject: ["breacrumb"],
                             methods: {
                                 getItems: function(text, needParent) {
-                                    var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.breadcrumbItems;
-                                    var mItems = [].slice.call(this.items);
-                                    var isBreaked;
-                                    if (!text) {
-                                        mItems = this.getSubMenuItems(mItems);
-                                    }
-                                    else {
-                                        for (let i = 1; i < breadcrumbItems.length; i++) {
-                                            for (let j = 0; j < mItems.length; j++) {
-                                                if (mItems[j].text === breadcrumbItems[i].text) {
-                                                    if (mItems[j].text === text) {
-                                                        if (needParent) {
-                                                            mItems = mItems[j];
-                                                        } else {
-                                                            mItems = this.getSubMenuItems(mItems[j].items);
-                                                        }
-                                                        isBreaked = true;
-                                                    } else {
-                                                        mItems = mItems[j].items;
-                                                        j = 0;
-                                                    }
-                                                break;
-                                                }
-                                            }
-                                            if (isBreaked) {
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    return [{ items: mItems }];
-                                },
-                                getSubMenuItems: function(mItems) {
-                                    let subItems;
-                                    if (mItems) {
-                                        subItems = [];
-                                        for (let i = 0; i < mItems.length; i++) {
-                                            subItems.push({ text: mItems[i].text, type: (mItems[i]).type });
-                                        }
-                                    }
-                                    return subItems;
-                                },
-                                selectHandler: function(args) {
-                                    var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.breadcrumbItems;
-                                    for (var i = 0; i < breadcrumbItems.length; i++) {
-                                        if (breadcrumbItems[i].text === args.item.text) {
-                                            breadcrumbItems = breadcrumbItems.slice(0, i + 1);
-                                            breadcrumbItems[0].iconCss = 'e-bicons e-' + this.getItems(args.item.text, true)[0].items.type;
-                                            this.$parent.$parent.$refs.breadcrumb.items = breadcrumbItems;
-                                            break;
-                                        }
-                                    }
+                                    return this.$parent.$parent.getItems(text, needParent);
                                 },
                                 subMenuSelectHandler: function(args) {
                                     if (!args.element.parentElement.classList.contains('e-menu') && (args.item).parentObj.items[0] && (args.item).parentObj.items[0].items) {
-                                        var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.breadcrumbItems;
-                                    var subItems = (args.item).parentObj.items;
-                                    var idx;
-                                    for (let i = 0; i < subItems.length; i++) {
-                                        for (let j = 0; j < breadcrumbItems.length; j++) {
-                                            if (subItems[i].text === breadcrumbItems[j].text) {
-                                                idx = j;
-                                                break;
+                                        var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.$parent.$parent.breadcrumbItems;
+                                        var subItems = (args.item).parentObj.items;
+                                        var idx;
+                                        for (let i = 0; i < subItems.length; i++) {
+                                            for (let j = 0; j < breadcrumbItems.length; j++) {
+                                                if (subItems[i].text === breadcrumbItems[j].text) {
+                                                    idx = j;
+                                                    break;
+                                                }
                                             }
                                         }
-                                    }
-                                    if (idx) {
-                                        breadcrumbItems = breadcrumbItems.slice(0, idx);
-                                    }
-                                    breadcrumbItems[0].iconCss = 'e-bicons e-' + (args.item).type;
-                                    breadcrumbItems.push({ text: args.item.text });
-                                    this.$parent.$parent.$refs.breadcrumb.items = breadcrumbItems;
-                                    }
+                                        if (idx) {
+                                            breadcrumbItems = breadcrumbItems.slice(0, idx);
+                                        }
+                                        breadcrumbItems[0].iconCss = 'e-bicons e-' + (args.item).type;
+                                        if (breadcrumbItems[breadcrumbItems.length - 1].text === 'LastItem') {
+                                            breadcrumbItems.pop();
+                                        }
+                                        breadcrumbItems.push({ text: args.item.text });
+                                        breadcrumbItems.push({ text: 'LastItem' });
+                                        this.$parent.$parent.$refs.breadcrumb.items = breadcrumbItems;
+                                        }
                                 },
-                                beforeOpen: function(args) {
+                                beforeOpen: function() {
                                     this.$el.classList.add('e-open');
                                 },
-                                onClose: function (args) {
+                                onClose: function () {
                                     this.$el.classList.remove('e-open');
                                 }
-
-                            },
-                            data() {
-                                return {
-                                    items: [
-                                            {
-                                            text: 'OneDrive', type: 'onedrive',
-                                            items: [
-                                                { text: 'Documents', type: 'folder' },
-                                                { text: 'Email attachments', type: 'folder' },
-                                                { text: 'Music', type: 'folder' },
-                                                { text: 'Pictures', type: 'folder' }
-                                            ]
-                                            },
+                            }
+                    })
+                }
+            },
+            breadcrumbItems: [
+            {
+                iconCss: 'e-bicons e-picture'
+            },
+            {
+                text: 'This PC'
+            },
+            {
+                text: 'Local Disk (C:)'
+            },
+            {
+                text: 'Users'
+            },
+            {
+                text: 'Admin'
+            },
+            {
+                text: 'Pictures'
+            }
+            ],
+            items: [
+                {
+                    text: 'OneDrive', type: 'onedrive',
+                        items: [
+                                    { text: 'Documents', type: 'folder' },
+                                    { text: 'Email attachments', type: 'folder' },
+                                    { text: 'Music', type: 'folder' },
+                                    { text: 'Pictures', type: 'folder' }
+                                ]
+                                },
                                             {
                                             text: 'This PC', type: 'desktop',
                                             items: [
@@ -412,8 +418,59 @@ export default Vue.extend({
         { text: 'Libraries', type: 'folder' },
         { text: 'Network', type: 'network' },
         { text: 'Recycle Bin', type: 'recyclebin' }
-    ],
-    breadcrumbItems: [
+        ]
+        }
+    },
+    methods: {
+        getItems: function(text, needParent) {
+            var breadcrumbItems = this.$refs.breadcrumb.items || this.breadcrumbItems;
+            var mItems = [].slice.call(this.items);
+            var isBreaked;
+            if (!text) {
+                mItems = this.getSubMenuItems(mItems);
+            }
+            else {
+                for (let i = 1; i < breadcrumbItems.length; i++) {
+                    for (let j = 0; j < mItems.length; j++) {
+                        if (mItems[j].text === breadcrumbItems[i].text) {
+                            if (mItems[j].text === text) {
+                                if (needParent) {
+                                    mItems = mItems[j];
+                                } else {
+                                    mItems = this.getSubMenuItems(mItems[j].items);
+                                }
+                                isBreaked = true;
+                            } else {
+                                mItems = mItems[j].items;
+                                j = 0;
+                                if(mItems == null) {
+                                    isBreaked = true;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    if (isBreaked) {
+                        break;
+                    }
+                }
+            }
+            return [{ items: mItems }];
+        },
+        getSubMenuItems: function(mItems) {
+            let subItems;
+            if (mItems) {
+                subItems = [];
+                for (let i = 0; i < mItems.length; i++) {
+                    subItems.push({ text: mItems[i].text, type: (mItems[i]).type });
+                }
+            }
+            return subItems;
+        },
+    btnClick: function() {
+        var breadcrumb = document.getElementById('breadcrumb');
+        var breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
+        breadcrumbInst.items = [
         {
             iconCss: 'e-bicons e-picture'
         },
@@ -433,13 +490,7 @@ export default Vue.extend({
             text: 'Pictures'
         }
     ]
-                                }
-                            },
-                    })
-                }
-            },
-            
-        }
     }
+}
 });
 </script>

@@ -2,7 +2,7 @@
   <div class="e-tab-section">
     <div class="col-lg-8 control-section">
         <div class="e-sample-resize-container">
-        <ejs-tab ref="tabObj" id="tab_orientation" :showCloseButton=true heightAdjustMode='Auto'>
+        <ejs-tab ref="tabObj" id="tab_orientation" height='320px' :showCloseButton=true heightAdjustMode='Auto'>
             <e-tabitems>
                 <e-tabitem :header='headerText0' :content='RomeTemplate'></e-tabitem>
                 <e-tabitem :header='headerText1' :content='ParisTemplate'></e-tabitem>
@@ -256,6 +256,7 @@ export default Vue.extend({
                 this.tabObj.element.classList.add('e-background');
                 this.tabObj.element.classList.add('e-accent');
             }
+            this.tabObj.refreshActiveBorder();
        }
     }
 });

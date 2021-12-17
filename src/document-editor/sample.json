@@ -21,8 +21,8 @@
         {
             "url": "paragraph-formatting",
             "name": "Paragraph Formatting",
-            "type": "update",
             "category": "Editing Features",
+            "type": "update",
             "description": "The Document Editor supports paragraph formatting such as indentation, paragraph spacing, line spacing, and text alignment."
         },
         {
@@ -46,7 +46,6 @@
         {
             "url": "table-formatting",
             "name": "Table Formatting",
-            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports table formatting such as cell margins, cell spacing, horizontal merge, vertical merge, border styles, background color, and more."
         },

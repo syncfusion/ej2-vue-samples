@@ -5,6 +5,7 @@
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                 <h5>Custom Breadcrumb</h5>
+                <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick"> Reset State</ejs-button>
             </div>
         </div>
         <div class="row material2">
@@ -347,8 +348,13 @@
 
 .e-searchfor-text {
     display: flex;
+    align-items: center;
     font-size: 14px;
     font-weight: normal;
+}
+
+.e-searchfor-text .e-breadcrumb-text {
+    padding-left: 0 !important;
 }
 
 .e-bigger .e-searchfor-text {
@@ -563,9 +569,12 @@
 <script>
 import Vue from "vue";
 import { BreadcrumbPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { ChipListPlugin  } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from '@syncfusion/ej2-base';
 
 Vue.use(BreadcrumbPlugin);
+Vue.use(ButtonPlugin);
 Vue.use(ChipListPlugin);
 
 export default Vue.extend({
@@ -615,6 +624,14 @@ methods: {
     beforeItemRenderHandler: function(args) {
         if(args.item.text !== 'Program Files') {
                 args.element.classList.add('e-disabled');
+        }
+    },
+    btnClick: function() {
+      var breadcrumb, breadcrumbInst, breadcrumbs = document.querySelector('.content-wrapper').getElementsByClassName("e-breadcrumb");
+      for (var i = 0; i < breadcrumbs.length; i++) {
+            breadcrumb = breadcrumbs[i];
+            breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
+            breadcrumbInst.activeItem = breadcrumbInst.items[breadcrumbInst.items.length - 1].text;
         }
     }
 }

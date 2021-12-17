@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' v-model='selectedDate'></ejs-schedule>
+                <ejs-schedule height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'></ejs-schedule>
             </div>
         </div>
         <div class="col-lg-3 property-section">
@@ -11,7 +11,7 @@
                     <tr style="height: 50px">
                         <td style="width: 100%;">
                             <div>
-                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' v-model='selectedDate'
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'
                                 placeholder="Current Date" floatLabelType="Always"></ejs-datepicker>
                             </div>
                         </td>
@@ -122,6 +122,9 @@
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
         },
         methods: {
+            onDateChange: function (args) {
+                this.selectedDate = args.value;
+            }
         }
     });
 

@@ -37,7 +37,8 @@
         font-size: 12px;
         color: white;
         text-shadow: 0px 1px 1px black;
-        font-weight: 500
+        font-weight: 500;
+        font-family: Segoe UI;
     }
 </style>
 <script>
@@ -50,14 +51,18 @@ data:function(){
         titleSettings: {
             text: 'YouTube office locations',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
             enable: false
         },
         legendSettings: {
-            visible: true
+            visible: true,
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         shapeData:new MapAjax('./src/maps/map-data/world-map.json'),
         shapePropertyPath: 'continent',
@@ -87,7 +92,10 @@ data:function(){
                         width: 20,
                         tooltipSettings: {
                             visible: true,
-                            valuePath: 'name'
+                            valuePath: 'name',
+                            textStyle: {
+                                fontFamily: 'Segoe UI'
+                            }
                         },
                         animationDuration: 0
                     },

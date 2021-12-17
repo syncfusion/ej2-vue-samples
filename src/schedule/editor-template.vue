@@ -33,12 +33,12 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .custom-event-editor .e-textlabel {
+    .schedule-custom-event-editor .e-textlabel {
         padding-right: 15px;
         text-align: right;
     }
 
-    .schedule-vue-sample .custom-event-editor td {
+    .schedule-custom-event-editor td {
         padding: 7px;
         padding-right: 16px;
     }

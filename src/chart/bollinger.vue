@@ -3,7 +3,7 @@
     <div align='center'>
         <ejs-chart style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :crosshair='crosshair' :indicators='indicators' :legendSettings='legendSettings'
-            :theme='theme' :zoomSettings='zoomSettings'>
+            :load='load' :zoomSettings='zoomSettings'>
             <e-series-collection>
                 <e-series :dataSource='cData' width=2 xName='x' yName='y' low='low' high='high' close='close' open='open' volume='volume' name='Apple Inc' bearFillColor='#2ecd71' bullFillColor='#e74c3d' type='Candle' :animation='animation'> </e-series>
             </e-series-collection>
@@ -47,14 +47,9 @@ import { chartData } from './financial-data';
 
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
       cData : chartData,
       //Initializing Primary X Axis
         primaryXAxis: {
@@ -112,6 +107,12 @@ export default Vue.extend({
     chart: [CandleSeries, Category, LineSeries, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, RangeAreaSeries, BollingerBands]
   },
   methods: {
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   },
    
 });

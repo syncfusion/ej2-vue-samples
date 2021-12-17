@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' :theme='theme' id='waterfallContainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' align='center' :load='load' id='waterfallContainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legendSettings' :animation='animation' :connector='connector' :textRender='textRender'
             :axisLabelRender='axisLabelRender'>
             <e-series-collection>
@@ -65,14 +65,9 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, WaterfallSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, Legend, DataLabel, ChartTheme} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
         seriesData: [
             { x: 'Income', y: 4711 }, { x: 'Sales', y: -1015 },
             { x: 'Development', y: -688 },
@@ -132,6 +127,12 @@ export default Vue.extend({
         if (args.axis.name === 'primaryYAxis') {
                 args.text = '$' + Number(args.text) / 1000 + 'B';
             }
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

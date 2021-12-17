@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-accumulationchart ref='pie' :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
+        <ejs-accumulationchart ref='pie' :load='load' style='display:block' align='center' id='chartcontainer' :title='title'
              :legendSettings='legendSettings' :tooltip='tooltip' :enableAnimation='false'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :innerRadius='innerRadius' :startAngle='startAngle' 
@@ -89,14 +89,9 @@ import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
 import { AccumulationChartPlugin, AccumulationTooltip, PieSeries, AccumulationDataLabel, AccumulationLegend } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
          enableAnimation : false,
       seriesData: [
                  { x: 'Australia', y: 53, text: 'AUS: 14%' },
@@ -157,8 +152,12 @@ export default Vue.extend({
          let min = document.getElementById('rangeMin').value;
             this.startAngle = min;
             document.getElementById('startangle').innerHTML = min;
-      
-
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   }
    

@@ -65,7 +65,6 @@
       "name": "Grouping Bar",
       "category": "User Interaction",
       "hideOnDevice": false,
-      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the grouping bar feature of the pivot table",
       "api": {}
     },
@@ -90,6 +89,7 @@
       "name": "Show/Hide Totals",
       "category": "User Interaction",
       "hideOnDevice": false,
+      "type": "update",
       "api": {},
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the summary customization feature of the pivot table"
     },
@@ -115,7 +115,6 @@
       "category": "Keyboard Navigation",
       "hideOnDevice": false,
       "api": {},
-      "type": "new",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },
     {

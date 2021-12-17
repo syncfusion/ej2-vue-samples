@@ -151,7 +151,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'USA Election Results - 2016',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         legendSettings: {
@@ -161,7 +162,8 @@ export default Vue.extend({
             width: '80%',
             textStyle: {
                 fontWeight: '400',
-                size: '14px'
+                size: '14px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -173,7 +175,10 @@ export default Vue.extend({
         dataSource: new MapAjax('./src/maps/map-data/selection-datasource.json'),
         tooltipSettings: {
                     visible: true,
-                    valuePath: 'State'
+                    valuePath: 'State',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
         },
         highlightSettings: {
                     enable: true,

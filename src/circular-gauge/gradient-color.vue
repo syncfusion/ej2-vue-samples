@@ -19,24 +19,28 @@
 </div>
 </div>
  <div class="col-lg-4 property-section">
-         <table id="property" title="Properties" style="width: 100%">
+         <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+          <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+         </colgroup>
                     <tbody>
                         <tr style="height: 50px">
                             <td>
-                                <div style="margin-top:30px;margin-left:-15px;width: 120px;"> Gradient Type </div>
+                                <div> Gradient Type </div>
                             </td>
                             <td>
-                                <div style="margin-top:20px;margin-left:-15px;">
+                                <div style="margin-left: -20px">
                                     <ejs-dropdownlist ref= "gradientType" id='gradientType' :dataSource='selectGradientType' :width='width' index=0 :change='changeGradientselect'></ejs-dropdownlist> 
                                 </div>
                             </td>
                         </tr>
                         <tr style="height: 50px">
                             <td>
-                                <div style="margin-top:30px;margin-left:-15px;">Elements</div>
+                                <div>Elements</div>
                             </td>
                             <td>
-                                <div style="margin-top:30px;margin-left:-15px;">
+                                <div style="margin-left: -20px">
                                     <ejs-dropdownlist  ref= "element" id='element' :dataSource='selectElement'  :width='width' index=0 :change='changeElement'></ejs-dropdownlist> 
                                 </div>
                             </td>
@@ -95,7 +99,7 @@ export default Vue.extend({
                      { color: '#9E40DC', offset: '90%', opacity: 0.9 },
                      { color: '#E63B86', offset: '160%', opacity: 0.9 }]
              },
-            labelStyle: { font: { fontFamily: 'Roboto',
+            labelStyle: { font: { fontFamily: 'Segoe UI',
             size: '12px',
             fontWeight: 'Regular' }, offset: 10 },
             value: 65,
@@ -124,7 +128,7 @@ export default Vue.extend({
             },
             selectGradientType: ["Linear Gradient", "Radial Gradient"],
             selectElement: ["Range", "Pointer"],
-            width: 145,         
+            width: '100%',         
     }
    },
    provide: {

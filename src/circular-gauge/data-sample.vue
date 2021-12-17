@@ -105,12 +105,12 @@ export default Vue.extend({
         }];
         return {
             gauge1annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
+                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>${pointers[0].value}%</div></div></div>",
                 angle: 180,
                 zIndex: '1',
                 radius: '30%'
             }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Roboto">Germany</div>',
+                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">Germany</div>',
                 angle: 180,
                 zIndex: '1',
                 radius: '65%'
@@ -160,12 +160,12 @@ export default Vue.extend({
                 length: '25%'
             },
             gauge2annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
+                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>${pointers[0].value}%</div></div></div>",
                 angle: 180,
                 zIndex: '1',
                 radius: '30%'
             }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Roboto">USA</div>',
+                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">USA</div>',
                 angle: 180,
                 zIndex: '1',
                 radius: '65%'
@@ -215,12 +215,12 @@ export default Vue.extend({
                 length: '25%'
             },
             gauge3annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
+                content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>${pointers[0].value}%</div></div></div>",
                 angle: 180,
                 zIndex: '1',
                 radius: '30%'
             }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Roboto">UK</div>',
+                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">UK</div>',
                 angle: 180,
                 zIndex: '1',
                 radius: '65%'

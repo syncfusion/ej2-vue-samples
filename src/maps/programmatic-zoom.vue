@@ -103,7 +103,8 @@ export default Vue.extend({
       titleSettings: {
         text: "Capitals of South American countries",
         textStyle: {
-          size: "16px"
+          size: "16px",
+          fontFamily: 'Segoe UI'
         }
       },
       shapeData: new MapAjax("./src/maps/map-data/world-map.json"),
@@ -127,7 +128,10 @@ export default Vue.extend({
           tooltipSettings: {
             format: "<b>Capital</b> : ${name}<br><b>Country</b> : ${Country}",
             visible: true,
-            valuePath: "name"
+            valuePath: "name",
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
           }
         }
       ]

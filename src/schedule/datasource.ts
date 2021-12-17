@@ -438,7 +438,7 @@ export let eventsData: Object[] = [
         Id: 14,
         Subject: 'Beach Clean-up',
         StartTime: new Date(2021, 1, 14, 12, 0),
-        EndTime: new Date(2021, 1, 14, 2, 0),
+        EndTime: new Date(2021, 1, 14, 14, 0),
         EventType: 'public-event',
         City: 'Mumbai',
         CategoryColor: '#357cd2'
@@ -1018,7 +1018,7 @@ export let resourceData: Object[] = [
         TaskId: 1
     }, {
         Id: 14,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 3, 7, 9),
         EndTime: new Date(2021, 3, 7, 11),
         IsAllDay: false,
@@ -1074,7 +1074,7 @@ export let resourceData: Object[] = [
         TaskId: 2
     }, {
         Id: 21,
-        Subject: 'workflow Analysis',
+        Subject: 'Workflow Analysis',
         StartTime: new Date(2021, 3, 11, 9, 30),
         EndTime: new Date(2021, 3, 11, 11, 30),
         IsAllDay: false,
@@ -1178,7 +1178,7 @@ export let resourceData: Object[] = [
         TaskId: 1
     }, {
         Id: 34,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 3, 17, 9),
         EndTime: new Date(2021, 3, 17, 11),
         IsAllDay: false,
@@ -1234,7 +1234,7 @@ export let resourceData: Object[] = [
         TaskId: 2
     }, {
         Id: 41,
-        Subject: 'workflow Analysis',
+        Subject: 'Workflow Analysis',
         StartTime: new Date(2021, 3, 21, 9, 30),
         EndTime: new Date(2021, 3, 21, 11, 30),
         IsAllDay: false,
@@ -1338,7 +1338,7 @@ export let resourceData: Object[] = [
         TaskId: 1
     }, {
         Id: 54,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 3, 27, 9),
         EndTime: new Date(2021, 3, 27, 11),
         IsAllDay: false,
@@ -1430,7 +1430,7 @@ export let timelineResourceData: Object[] = [
         TaskId: 4
     }, {
         Id: 65,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 3, 4, 15),
         EndTime: new Date(2021, 3, 4, 18),
         IsAllDay: false,
@@ -1482,7 +1482,7 @@ export let resourceTeamData: Object[] = [
         CategoryId: 1
     }, {
         Id: 2,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 5, 2, 10, 30),
         EndTime: new Date(2021, 5, 2, 13, 0),
         RecurrenceRule: 'FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE,FR',
@@ -1575,14 +1575,14 @@ export let resourceTeamData: Object[] = [
         CategoryId: 1
     }, {
         Id: 15,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 5, 8, 15, 30),
         EndTime: new Date(2021, 5, 8, 17, 45),
         ProjectId: 1,
         CategoryId: 2
     }, {
         Id: 16,
-        Subject: 'Test report Validation',
+        Subject: 'Test report validation',
         StartTime: new Date(2021, 5, 8, 15, 0),
         EndTime: new Date(2021, 5, 8, 17, 0),
         ProjectId: 2,
@@ -3935,7 +3935,7 @@ export function generateResourceData(startId: number, endId: number, text: strin
     return data;
 }
 
-export function generateObject(start: number = new Date(2020, 6, 1).getTime(), end: number = new Date(2022, 11, 31).getTime()): Object[] {
+export function generateObject(start: number = new Date(2020, 6, 1).getTime(), end: number = new Date(2022, 11, 31).getTime(), isWeekDaysOnly: boolean = false): Object[] {
     let data: Object[] = [];
     let names: string[] = [
         'Story Time for Kids', 'Camping with Turtles', 'Wildlife Warriors', 'Parrot Talk', 'Birds of Prey', 'Croco World',
@@ -3944,14 +3944,20 @@ export function generateObject(start: number = new Date(2020, 6, 1).getTime(), e
         'Meet a small Mammal', 'Amazon Fish Feeding', 'Elephant Ride',
     ];
     let dayCount: number = 1000 * 60 * 60;
-    for (let a: number = start, id: number = 1; a < end; a += (dayCount * 24) * 2) {
-        let count: number = Math.floor((Math.random() * 9) + 1);
+    const appCount: number = isWeekDaysOnly ? 1 : 9;
+    for (let a: number = start, id: number = 1; a < end; a += (dayCount * 24)) {
+        let count: number = Math.floor((Math.random() * appCount) + 1);
         for (let b: number = 0; b < count; b++) {
             let hour: number = Math.floor(Math.random() * 100) % 24;
             let minutes: number = Math.round((Math.floor(Math.random() * 100) % 60) / 5) * 5;
             let nCount: number = Math.floor(Math.random() * names.length);
             let startDate: Date = new Date(new Date(a).setHours(hour, minutes));
             let endDate: Date = new Date(startDate.getTime() + (dayCount * 2.5));
+
+            if (isWeekDaysOnly && [0, 6].indexOf(startDate.getDay()) > -1 || [0, 6].indexOf(endDate.getDay()) > -1) {
+                continue;
+            }
+
             data.push({
                 Id: id,
                 Subject: names[nCount],

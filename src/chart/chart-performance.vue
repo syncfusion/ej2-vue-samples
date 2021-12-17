@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-lg-9 control-section">
-        <ejs-chart ref="chart" style="display:block;" :loaded="onChartLoad" :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :theme='theme'
+        <ejs-chart ref="chart" style="display:block;" :loaded="onChartLoad" :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :load='load'
         :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :marker='marker' :xName='xName' :yName='yName' :animation='animation' type='Line'> </e-series>
@@ -57,14 +57,9 @@ import { ChartPlugin, LineSeries, Legend } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 Vue.use(ButtonPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-        theme: theme,
         dt1: 0,
         seriesData: [],
         enableCanvas: true,
@@ -108,6 +103,12 @@ export default Vue.extend({
         }
         this.dt1 = 0;
     },
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
  },
    
 });

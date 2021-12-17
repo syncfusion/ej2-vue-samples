@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend'>
             <e-annotations>
                 <e-annotation :content='annotationTemplate' x='90%' y='12%' region='Series'>
@@ -105,10 +105,6 @@ Vue.use(ChartPlugin);
             dataValues.push({ XValue: new Date(2016, index, 1), YValue: value });
         });
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
@@ -126,7 +122,6 @@ export default Vue.extend({
                         })
                     }
                 },
-        theme: theme,
          seriesData: dataValues,
 
      
@@ -182,6 +177,12 @@ export default Vue.extend({
     chart: [DateTime, Tooltip, ChartAnnotation, MultiColoredAreaSeries]
   },
   methods: {
+      load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
    },
 
  

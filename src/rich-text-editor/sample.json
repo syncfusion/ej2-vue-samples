@@ -2,7 +2,6 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "Editors",
-    "type": "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -67,7 +66,6 @@
             "url": "enter-key-configuration",
             "name": "Enter Key Configuration",
             "category": "Rich Text Editor",
-            "type": "new",
             "description": "This demo explains the API usage to customize the enter and shift + enter key actions in the Rich Text Editor content."
         },
         {

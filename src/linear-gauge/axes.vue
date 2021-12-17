@@ -15,79 +15,83 @@
     </div>
 
  <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
-            <tr>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+          <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 30%;">
+       </colgroup>
+       <tbody>
+            <tr style="height: 50px">
                 <td>
-                    <div id='minValue'>Axis Minimum
-                        <span>&nbsp;&nbsp;&nbsp;0</span>
+                    <div>Axis Minimum  
                     </div>
                 </td>
                 <td>
                     <div data-role="rangeslider">
-                        <input type="range" name="range-max" @touchmove='axisMin' @change='axisMin'  id="min" value="0" min="0" max="115" style="width:120px;" autocomplete="off">
+                        <input type="range" name="range-max" @touchmove='axisMin' @change='axisMin'  id="min" value="0" min="0" max="115" style="width:70%;" autocomplete="off">
                     </div>
                 </td>
+                <td style="padding-top: 10px; text-align: center;">
+                     <span id='minValue' style="margin-left: -30px;">0</span>
+                </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
-                    <div id='maxValue'>Axis Maximum
-                        <span>&nbsp;&nbsp;&nbsp;115</span>
+                    <div>Axis Maximum
                     </div>
                 </td>
                 <td>
                     <div data-role="rangeslider">
                        
-                        <input type="range" @change='axisMax' name="range-max" id="max" min="0" max="115" value="115" style="width:120px" autocomplete="off">
+                        <input type="range" @change='axisMax' name="range-max" id="max" min="0" max="115" value="115" style="width:70%;" autocomplete="off">
                     </div>
                 </td>
+                <td style="padding-top: 10px; text-align: center;">
+                     <span id='maxValue' style="margin-left: -30px;">115</span>
+                </td>
             </tr>
-            <br/>
-            <tr>
+            <tr  style="height: 50px">
                 <td>
                     <div>Axis Inversed</div>
                 </td>
                 <td>
-                    <div style="margin-left: 52px">
+                    <div style="margin-left: 0px;">
                         <input type="checkbox" id='axisInversed' v-on:change="axisInverse"/>
                     </div>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Axis Opposed</div>
                 </td>
                 <td>
-                    <div style="margin-left: 52px">
+                    <div style="margin-left: 0px;">
                         <input type="checkbox" id='opposed' v-on:change="axisOpposed"/>
                     </div>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Show Last Label</div>
                 </td>
                 <td>
-                    <div style="margin-left: 52px">
+                    <div style="margin-left: 0px;">
                         <input type="checkbox" id='lastlabel' v-on:change="lastLabel"/>
                     </div>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Label Format</div>
                 </td>
                 <td>
                     <div class="e-float-input" style='margin-top: 0px;'>
-                        <input type="text" value="{value}" v-on:change="changeFormat" id='format' class="form-control" style="width:120px" />
+                        <input type="text" value="{value}" v-on:change="changeFormat" id='format' class="form-control" style="width:100%" />
                     </div>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Pointer Type</div>
                 </td>
@@ -97,8 +101,7 @@
                     </div>
                 </td>
             </tr>
-            <br/>
-            <tr>
+            <tr style="height: 50px">
                 <td>
                     <div>Marker Placement</div>
                 </td>
@@ -108,6 +111,7 @@
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
 <div id="action-description">
@@ -172,10 +176,13 @@ data:function(){
      interval: 2
     },
     labelStyle: {
-     offset: 48
+     offset: 48,
+     font: {
+        fontFamily: 'Segoe UI'
+    }
     },
      annotations: [{
-            content: '<div id="pointer" style="width:70px"><h1 style="font-size:14px;">' +
+            content: '<div id="pointer" style="width:70px"><h1 style="font-size:14px; font-family:Segoe UI;">' +
             '${axes[0].pointers[0].currentValue} MPH</h1></div>',
             axisIndex: 0,
             axisValue: 20,
@@ -184,11 +191,11 @@ data:function(){
             zIndex: '1'
         }],
     pointertypedata:['Marker','Bar'],
-    pointertypewidth:120,
+    pointertypewidth: '100%',
     pointertypeplaceholder:'Select Range Bar Color',
     pointerplacedata:['Far','Near','Center'],
     pointerplaceholder:'Select Range Bar Color',
-    pointerplacewidth:120
+    pointerplacewidth: '100%'
     }
 },
 provide: {
@@ -218,7 +225,7 @@ axisMin: function(args){
     let max = document.getElementById('max');
     this.$refs.lineargauge.ej2Instances.axes[0].minimum = parseInt(min.value, 10);
     this.$refs.lineargauge.ej2Instances.axes[0].maximum = parseInt(max.value, 10);
-    document.getElementById('minValue').innerHTML = 'Axis Minimum <span>&nbsp;&nbsp;&nbsp;' + min.value;
+    document.getElementById('minValue').innerHTML = min.value.toString();
     this.$refs.lineargauge.ej2Instances.refresh();
     this.$refs.lineargauge.ej2Instances.annotations[0].axisValue = (this.$refs.lineargauge.ej2Instances.axes[0].pointers[0]).currentValue;
     this.$refs.lineargauge.ej2Instances.refresh();
@@ -228,7 +235,7 @@ axisMax:function(args){
     let max = document.getElementById('max');
     this.$refs.lineargauge.ej2Instances.axes[0].maximum = parseInt(max.value, 10);
     this.$refs.lineargauge.ej2Instances.axes[0].minimum = parseInt(min.value, 10);
-    document.getElementById('maxValue').innerHTML = 'Axis Maximum <span>&nbsp;&nbsp;&nbsp;' + max.value;
+    document.getElementById('maxValue').innerHTML = max.value.toString();
     this.$refs.lineargauge.ej2Instances.refresh();
     this.$refs.lineargauge.ej2Instances.annotations[0].axisValue = (this.$refs.lineargauge.ej2Instances.axes[0].pointers[0]).currentValue;
     this.$refs.lineargauge.ej2Instances.refresh();

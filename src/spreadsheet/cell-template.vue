@@ -16,47 +16,47 @@
               <e-range :template="addButton" address="C11"></e-range>
             </e-ranges>
             <e-rows>
-              <e-row height=55>
+              <e-row :height="55">
                         <e-cells>
                             <e-cell index=1 value="Interview Registration Form"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=55>
+                    <e-row :height="55">
                         <e-cells>
                             <e-cell index=1 value="Name"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Date of Birth:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Gender:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Year of Experience:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Areas of Interest:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Mobile Number:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Email:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=82>
+                    <e-row :height='82'>
                         <e-cells>
                             <e-cell index=1 value="Address:"></e-cell>
                         </e-cells>

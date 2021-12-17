@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-    <div  class="col-lg-8 control-section">
+    <div  class="col-lg-8">
         <div id="panel">
             <titleBar :documentName="documentTitle"></titleBar>
             <input type="file" id="fileUpload" ref="uploadDocument" style="position:fixed; left:-100em" @change="fileChange" />   

@@ -8,9 +8,9 @@
                     <e-axes>
                         <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=25 value=65 radius='90%' color='#E2011A' :type='type' :pointerWidth=40></e-pointer>
-                                 <e-pointer :roundedCornerRadius=25 value=43 radius='68%' color='#3FE000' :type='type' :pointerWidth=40></e-pointer>
-                                 <e-pointer :roundedCornerRadius=25 value=58 radius='46%' color='#00C9E6' :type='type' :pointerWidth=40></e-pointer>
+                                 <e-pointer :roundedCornerRadius=25 value=65 radius='90%' color='#fa114f' :type='type' :pointerWidth=40></e-pointer>
+                                 <e-pointer :roundedCornerRadius=25 value=43 radius='68%' color='#99ff01' :type='type' :pointerWidth=40></e-pointer>
+                                 <e-pointer :roundedCornerRadius=25 value=58 radius='46%' color='#00d8fe' :type='type' :pointerWidth=40></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
@@ -20,60 +20,60 @@
                     <div>
                      <div class="panel">
                       <div style="float:left;">
-                        <ejs-circulargauge ref="circulargauge1" style='display:block:height:250px' align='center' id='gauge2' :load='load1' width ='65px' height ='65px' >
+                        <ejs-circulargauge ref="circulargauge1" style='display:block:height:250px; margin-top: 5px' align='center' id='gauge2' :load='load1' width ='65px' height ='65px' >
                     <e-axes>
                         <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations_1' :ranges='ranges_1'>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=5 value=65 radius='100%' color='#E2011A' :type='type' :pointerWidth= 8></e-pointer>
+                                 <e-pointer :roundedCornerRadius=5 value=65 radius='100%' color='#fa114f' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
                 </ejs-circulargauge>
                 </div>                
-                <div class="subgauge" style="margin-top: 3%"> 
+                <div class="subgauge" style="margin-top: 10px"> 
                 <span class="firstcontent" style="font-size: 18px;">MOVE</span>
-                <span class="firstcontent" style="font-size: 18px;color: #f4104d">65%</span><br/>
-                <span class="secondcontent" style="color: #f4104d; font-size: 19px">338/520 CAL</span>                
+                <span class="firstcontent" style="font-size: 18px;color: #fa114f;"> 65%</span><br/>
+                <span class="secondcontent" style="color: #fa114f; font-size: 19px">338/520 CAL</span>                
                 </div>
                 </div>
                 </br>
 
                 <div class="panel">
                       <div style="float:left;">
-                         <ejs-circulargauge ref="circulargauge2" style='display:block' align='center' id='gauge3' :load='load2' width ='65px' height ='65px' >
+                         <ejs-circulargauge ref="circulargauge2" style='display:block; margin-top: 5px;' align='center' id='gauge3' :load='load2' width ='65px' height ='65px' >
                     <e-axes>
                         <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations_2' :ranges='ranges_2'>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=5 value=43 radius='100%' color='#3FE000' :type='type' :pointerWidth= 8></e-pointer>
+                                 <e-pointer :roundedCornerRadius=5 value=43 radius='100%' color='#99ff01' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
                 </ejs-circulargauge>
                 </div>                
-                <div class="subgauge" style="margin-top: 3%"> 
+                <div class="subgauge" style="margin-top: 10px"> 
                  <span class="firstcontent" style="font-size: 18px;">EXERCISE</span>
-                        <span class="firstcontent" style="font-size: 18px;color: #a6ff00">43%</span><br/>
-                        <span class="secondcontent" style="color: #a6ff00; font-size: 19px">13/30 MIN</span>               
+                        <span class="firstcontent" style="font-size: 18px;color: #99ff01"> 43%</span><br/>
+                        <span class="secondcontent" style="color: #99ff01; font-size: 19px">13/30 MIN</span>               
                 </div>
                 </div>
                 <br/>
 
                  <div class="panel">
                       <div style="float:left;">
-                         <ejs-circulargauge ref="circulargauge3" style='display:block' align='center' id='gauge4' :load='load3' width ='65px' height ='65px' >
+                         <ejs-circulargauge ref="circulargauge3" style='display:block; margin-top: 5px;' align='center' id='gauge4' :load='load3' width ='65px' height ='65px' >
                     <e-axes>
                         <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations_3' :ranges='ranges_3'>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=5 value=58 radius='100%' color='#00C9E6' :type='type' :pointerWidth= 8></e-pointer>
+                                 <e-pointer :roundedCornerRadius=5 value=58 radius='100%' color='#00d8fe' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
                 </ejs-circulargauge>
                 </div>                
-                <div class="subgauge" style="margin-top: 3%"> 
+                <div class="subgauge" style="margin-top: 10px"> 
                  <span class="firstcontent" style="font-size: 18px;">STAND</span>
-                        <span class="firstcontent" style="font-size: 18px;color: #29a5a2">58%</span><br/>
-                        <span class="secondcontent" style="color: #29a5a2; font-size: 19px">7/12 HR</span>             
+                        <span class="firstcontent" style="font-size: 18px;color: #00d8fe"> 58%</span><br/>
+                        <span class="secondcontent" style="color: #00d8fe; font-size: 19px">7/12 HR</span>             
                 </div>
                 </div>
 
@@ -179,6 +179,46 @@
         }
     }
 </style>
+<style>
+ .e-view.tailwind div.annotation4, .e-view.tailwind-dark div.annotation4 {
+     margin-top: -3px; margin-left: 2px
+ }
+ .e-view.fabric div.annotation4, .e-view.fabric-dark div.annotation4 {
+    margin-top: -4px;
+    margin-left: 2px 
+ }
+  .e-view.tailwind div.annotation5, .e-view.tailwind-dark div.annotation5, .e-view.fabric div.annotation5, .e-view.fabric-dark div.annotation5  {
+     margin-top: -4px; margin-left: 1px;
+ }
+ .e-view.tailwind div.annotation6, .e-view.tailwind-dark div.annotation6, .e-view.fabric div.annotation6, .e-view.fabric-dark div.annotation6 {
+     margin-top: -6px;
+ }
+ .e-view.bootstrap5 div.annotation4, .e-view.bootstrap5-dark div.annotation4 {
+     margin-left: 2px
+ }
+ .e-view.bootstrap5 div.annotation5, .e-view.bootstrap5-dark div.annotation5 {
+     margin-left: 1px
+ }
+ .e-view.bootstrap5 div.annotation6, .e-view.bootstrap5-dark div.annotation6 {
+     margin-top: -1px; margin-left: 1px;
+ }
+
+ .e-view.material div.annotation4, .e-view.material-dark div.annotation4, .e-view.bootstrap div.annotation4, .e-view.bootstrap-dark div.annotation4,
+  .e-view.bootstrap4 div.annotation4{
+      margin-left: 2px; margin-top: 2px;
+ }
+
+ .e-view.highcontrast div.annotation4  {
+     margin-left: 2px; margin-top: 1px;
+ }
+ 
+ .e-view.material div.annotation5, .e-view.material-dark div.annotation5, .e-view.bootstrap div.annotation5, .e-view.bootstrap-dark div.annotation5,
+  .e-view.bootstrap4 div.annotation5, .e-view.highcontrast div.annotation5 {
+      margin-top: 2px;
+      margin-left: 1px;
+ }
+
+</style>
 <script>
 import Vue from 'vue';
 import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
@@ -186,16 +226,16 @@ import { SliderPlugin,SliderChangeEventArgs, Slider } from "@syncfusion/ej2-vue-
 Vue.use(SliderPlugin);
 Vue.use(CircularGaugePlugin);
 
-let annotationTemplate_1 = '<div id="annotation1"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image1.svg" /></div>';
-let annotationTemplate_2 = '<div id="annotation2"><img style="width:20px;height:20px;" src="src/circular-gauge/images/image2.svg" /></div>';
-let annotationTemplate_3 = '<div id="annotation3"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image3.svg" /></div>';
-let annotationTemplate_4 = '<div id="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image1.svg" /></div>';
-let annotationTemplate_5 = '<div id="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image2.svg" /></div>';
-let annotationTemplate_6 = '<div id="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image3.svg" /></div>';
+let annotationTemplate_1 = '<div class="annotation1"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image1.svg" /></div>';
+let annotationTemplate_2 = '<div class="annotation2"><img style="width:20px;height:20px;" src="src/circular-gauge/images/image2.svg" /></div>';
+let annotationTemplate_3 = '<div class="annotation3"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image3.svg" /></div>';
+let annotationTemplate_4 = '<div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image1.svg" /></div>';
+let annotationTemplate_5 = '<div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image2.svg" /></div>';
+let annotationTemplate_6 = '<div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image3.svg" /></div>';
 
-let annotationTemplate_7 = '<div id="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image4.svg" /></div>';
-let annotationTemplate_8 = '<div id="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image5.svg" /></div>';
-let annotationTemplate_9 = '<div id="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image6.svg" /></div>';
+let annotationTemplate_7 = '<div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image4.svg" /></div>';
+let annotationTemplate_8 = '<div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image5.svg" /></div>';
+let annotationTemplate_9 = '<div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image6.svg" /></div>';
 
 export default Vue.extend({
    data:function(){
@@ -231,21 +271,21 @@ export default Vue.extend({
                 start: 0, end: 100,
                 radius: '100%',
                 startWidth: 8, endWidth: 8,
-                color: '#E30219', opacity: 0.2
+                color: '#fa114f', opacity: 0.2
             }],
             ranges_2: [
                    {
                 start: 0, end: 100,
                 radius: '100%',
                 startWidth: 8, endWidth: 8,
-                color: '#3EDE00', opacity: 0.2
+                color: '#99ff01', opacity: 0.2
             }],
             ranges_3: [
                    {
                 start: 0, end: 100,
                 radius: '100%',
                 startWidth: 8, endWidth: 8,
-                color: '#18F8F6', opacity: 0.2
+                color: '#00d8fe', opacity: 0.2
             }],
             annotations: [{
                   angle: 8, radius: '80%', zIndex: '1',
@@ -264,19 +304,19 @@ export default Vue.extend({
                 start: 0, end: 100,
                 radius: '90%',
                 startWidth: 40, endWidth: 40,
-                color: '#E30219', opacity: 0.2
+                color: '#fa114f', opacity: 0.2
             },
             {
                 start: 0, end: 100,
                 radius: '68%',
                 startWidth: 40, endWidth: 40,
-                color: '#3EDE00', opacity: 0.2
+                color: '#99ff01', opacity: 0.2
             },
             {
                 start: 0, end: 100,
                 radius: '46%',
                 startWidth: 40, endWidth: 40,
-                color: '#18F8F6', opacity: 0.2
+                color: '#00d8fe', opacity: 0.2
             }
             ],
             type: 'RangeBar'

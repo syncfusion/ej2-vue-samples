@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :editSettings='editSettings' height='900'>
+           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :selectionSettings='selectionSettings' :editSettings='editSettings' height='900'>
             <e-columns>
                  <e-column field='taskID' headerText='Task ID' width='90' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                  <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
@@ -236,6 +236,7 @@ export default Vue.extend({
   data: () => {
     return {
       data: sampleData,
+      selectionSettings: { type: 'Multiple' },
       editSettings: { allowDeleting: true, allowEditing: true, allowAdding: true, mode: 'Row' },
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},

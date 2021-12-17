@@ -16,7 +16,12 @@
     </div>
 
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+         <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
+             <tbody>
             <tr style="height: 50px">
                 <td>
                     <div id=''>Pointer Color</div>
@@ -37,6 +42,7 @@
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
     <div id="action-description">
@@ -73,7 +79,7 @@ export default Vue.extend({
             labelStyle: {
                 font: {
                     size: '12px',
-                    fontFamily: 'Roboto'
+                    fontFamily: 'Segoe UI'
                 },
                 autoAngle: true,
                 hiddenLabel: 'Last'
@@ -109,10 +115,10 @@ export default Vue.extend({
                 enable: false
             },
             poiterColordata: ['#f03e3e', '#4472c4', '#ed7d31'],
-            poiterColorwidth: 120,
+            poiterColorwidth: '100%',
             poiterColorplaceholder: 'Select Range Bar Color',
             labelColordata: ['#f03e3e', '#4472c4', '#ed7d31'],
-            labelColorwidth: 120,
+            labelColorwidth: '100%',
             labelColorplaceholder: 'Select Range Bar Color'
         }
     },

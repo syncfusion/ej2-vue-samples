@@ -81,7 +81,8 @@ data:function(){
         titleSettings: {
             text: 'Finalist in Cricket World Cup',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -93,7 +94,10 @@ data:function(){
             position: 'Left',
             orientation: 'Vertical',
             height: '70%',
-            width: '10'
+            width: '10',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapePropertyPath: 'name',

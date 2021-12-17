@@ -67,7 +67,8 @@
     "Numeric Textbox",
     "Color Picker",
     "File Upload",
-    "Range Slider"
+    "Range Slider",
+    "Signature"
   ],
   "Layout": [
     "Avatar",

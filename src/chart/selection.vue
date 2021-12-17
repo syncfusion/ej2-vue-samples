@@ -4,7 +4,7 @@
       <ejs-chart
         ref="chart"
         style="display:block"
-        :theme="theme"
+        :load='load'
         align="center"
         id="chartcontainer"
         :title="title"
@@ -16,6 +16,7 @@
         :highlightMode="highlightMode"
         :selectionPattern="selectionPattern"
         :highlightPattern="highlightPattern"
+        :highlightColor="highlightColor"
       >
         <e-series-collection>
           <e-series
@@ -25,6 +26,7 @@
             yName="y"
             name="Age 0-14"
             width="2"
+            :animation='animation'
           ></e-series>
           <e-series
             :dataSource="seriesData1"
@@ -33,6 +35,7 @@
             yName="y"
             name="Age 15-64"
             width="2"
+            :animation='animation'
           ></e-series>
           <e-series
             :dataSource="seriesData2"
@@ -41,6 +44,7 @@
             yName="y"
             name="Age 65 & Above"
             width="2"
+            :animation='animation'
           ></e-series>
         </e-series-collection>
       </ejs-chart>
@@ -50,6 +54,14 @@
         <table id="property" title="Properties" style="width: 100%">
           <br>
           <br>
+          <tr id style="height: 50px">
+            <td style="width: 80%">
+              <div>Enable Multi-selection:</div>
+            </td>
+            <td style="width: 50%; padding-left: 10px; padding-right:10px">
+              <input type="checkbox" id="multiselect" @change="check">
+            </td>
+          </tr>
           <tr style="height: 50px">
             <td>
               <div>Selection Mode</div>
@@ -63,14 +75,6 @@
                 index="0"
                 :width="indexwidth"
               ></ejs-dropdownlist>
-            </td>
-          </tr>
-          <tr id style="height: 50px">
-            <td style="width: 80%">
-              <div>Enable Multi-selection:</div>
-            </td>
-            <td style="width: 50%; padding-left: 10px; padding-right:10px">
-              <input type="checkbox" id="multiselect" @change="check">
             </td>
           </tr>
           <tr style="height: 50px">
@@ -101,6 +105,14 @@
             </td>
           </tr>
           <tr style="height: 50px">
+                <td style="width: 60%">
+                    <div>Highlight Color:</div>
+                </td>
+                <td style="width: 40%;">
+                    <ejs-colorpicker id="highlighColor" value="null" :mode="mode" :change="colorChange"></ejs-colorpicker>
+                </td>
+          </tr>
+          <tr style="height: 50px">
             <td style="width: 60%">
               <div>Highlight Patterns:</div>
             </td>
@@ -119,18 +131,15 @@
     </div>
     <div id="action-description">
       <p>
-        This sample illustrates the selection feature in chart. To select a specific point, click the point. The selection mode can be changed by changing Selection Mode in panel.
-        <code>Multiple Selection</code> also can be enabled by
-        <code>Enable Multiple Selection.</code>
+        This sample demonstrates the selection behavior and its mode along with the highlight and highlight patterns in the chart.
       </p>
     </div>
 
     <div id="description">
       <p>
-        This sample demonstrates the selection behavior in a chart. Any point or a series can be selected in a chart by clicking
-        or touching the point. We can also select the point while loading chart through
-        <code>selectedDataIndexes</code> properties. Click to select a point or series, click and drag to enable rectangular selection. Rectangular selection
-        will return the collection point that are selected under the region.
+        In this sample, any point or series can be selected in the chart by clicking on or touching the point. You can also change the selection mode by changing the <code>Selection Mode</code> option in the properties panel. 
+        You can enable multiple selections with the <code>Enable Multi Selection</code> option. You can also select a point while loading a chart using the <code>SelectedDataIndexes</code> option. 
+        While hovering the point, the point is highlighted using the <code>Enable Highlight</code> option, as well as you can set different highlight patterns and colors using the <code>Highlight Patterns</code> and <code>Highlight Color</code> option.
       </p>
       <p>Tap to select a point or series, double tap and drag to enable rectangular selection in touch enabled devices.</p>
       <p>
@@ -160,8 +169,7 @@
           <code>Lasso</code> - Select free form of selection area points.
         </li>
       </ul>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use selection feature, we need to inject
         <code>Selection</code> module using
@@ -179,6 +187,7 @@
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
+import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
 import {
   ChartPlugin,
   Selection,
@@ -189,17 +198,12 @@ import {
   Highlight
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
-
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+Vue.use(ColorPickerPlugin);
 
 export default Vue.extend({
   data: function() {
     return {
-      theme: theme,
+      mode: "Palette",
       seriesData: [
         { x: "CHN", y: 17 },
         { x: "USA", y: 19 },
@@ -238,10 +242,14 @@ export default Vue.extend({
       },
       legendSettings: { visible: true, toggleVisibility: false },
 
+      animation: {
+        enable: false
+      },
       selectionMode: "Point",
       highlightMode: "None",
       selectionPattern: "None",
       highlightPattern: "None",
+      highlightColor: '',
       indexdata: ["Point", "Series", "Cluster"],
       patternTypes1: [
         "None",
@@ -260,7 +268,7 @@ export default Vue.extend({
         "Grid"
       ],
       indexwidth: 120,
-      tooltip: { enable: true, shared: true },
+      tooltip: { enable: false },
 
       title: "Age Distribution by Country"
     };
@@ -287,7 +295,11 @@ export default Vue.extend({
       this.$refs.chart.ej2Instances.selectionPattern = patternMode.value;
       this.$refs.chart.ej2Instances.dataBind();
     },
-   highlightPatternChange: function(e) {
+    colorChange: function(args) {
+      this.$refs.chart.ej2Instances.highlightColor = args.currentValue.hex;
+      this.$refs.chart.ej2Instances.dataBind();
+    },
+    highlightPatternChange: function(e) {
       var checkBox = document.getElementById("highlightCheckbox");
      if (checkBox.checked) {
         this.$refs.chart.ej2Instances.highlightMode = selmode.value;
@@ -298,6 +310,12 @@ export default Vue.extend({
       }
       this.$refs.chart.ej2Instances.dataBind();
     },
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   }
 });
 </script>

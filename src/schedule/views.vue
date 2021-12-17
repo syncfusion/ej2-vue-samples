@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :currentView='scheduleView' v-model="scheduleView" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered">
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :currentView='scheduleView' :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -18,7 +18,7 @@
                     <tr style="height: 50px">
                         <td style="width: 100%;">
                             <div>
-                                <ejs-dropdownlist id='scheduleview' :dataSource='datas' :value='scheduleView' v-model="scheduleView"
+                                <ejs-dropdownlist id='scheduleview' :dataSource='datas' :value='scheduleView' :change='changevalue'
                                     floatLabelType="Always" placeholder="Current View"></ejs-dropdownlist>
                             </div>
                         </td>
@@ -71,7 +71,9 @@
             schedule: [Day, Week, WorkWeek, Month, Resize, DragAndDrop]
         },
         methods: {
-
+            changevalue: function (args) {
+                this.$refs.ScheduleObj.ej2Instances.currentView = args.value;
+            },
             oneventRendered: function (args) {
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {

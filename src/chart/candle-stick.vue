@@ -3,7 +3,7 @@
       <h4 align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">AAPL Historical</h4>
     <div align='center'>
         <ejs-chart ref='chart' :chartArea='chartArea' id='chartCandle' :width='width' align='center' style="display:block;" :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :crosshair='crosshair'
-        :axes='axes' :rows='rows' :legendSettings='legendSettings' :axisLabelRender='axisLabelRender' :theme='theme' :tooltipRender='tooltipRender' :pointRender='pointRender'>
+        :axes='axes' :rows='rows' :legendSettings='legendSettings' :axisLabelRender='axisLabelRender' :load='load' :tooltipRender='tooltipRender' :pointRender='pointRender'>
             <e-series-collection>
                 <e-series :dataSource='data1' type='Column' xName='x' yName='volume' :marker='marker' name='Volume'> </e-series>
                 <e-series :dataSource='data1' type='Candle' xName='x' yAxisName='secondary' :marker='marker' high='high' low='low'
@@ -50,14 +50,9 @@ Vue.use(RangeNavigatorPlugin);
 let date1 = new Date(2017, 1, 1);
 
 let pointColors = [];
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-    theme: theme,
     data1: chartData,
     //Initializing Primary X Axis
     primaryXAxis: {
@@ -133,6 +128,12 @@ export default Vue.extend({
     },
     getLabelText: function (value) {
         return (((value) / 1000000000)).toFixed(1) + 'bn';
+    },
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   }
 });

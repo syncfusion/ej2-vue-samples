@@ -50,7 +50,7 @@
     </div>
 </template>
 <style scoped>
-    @import "./style.css";
+    @import "../../styles/Grid/style.css";
 </style>
 
 <script>

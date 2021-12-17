@@ -4,7 +4,8 @@
         <div class="content-wrapper breadcrumb-control-wrapper">
             <div class="row material2">
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                    <h5>Simple Breadcrumb</h5>
+                    <h5 style="display: inline-block">Simple Breadcrumb</h5>
+                    <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick"> Reset State</ejs-button>
                 </div>
             </div>
             <div class="row material2">
@@ -26,8 +27,9 @@
             </div>
             <div class="row material2">
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12  e-bc-overflow">
-                    <ejs-breadcrumb maxItems='3' :enableNavigation='false' :separatorTemplate="separatorTemplate">
+                    <ejs-breadcrumb :maxItems='3' :enableNavigation='false' :separatorTemplate="separatorTemplate">
                          <e-breadcrumb-items>
+                            <e-breadcrumb-item text= 'Home' url= './'></e-breadcrumb-item>
                             <e-breadcrumb-item text= 'Breadcrumb' url= './breadcrumb'></e-breadcrumb-item>
                             <e-breadcrumb-item text= 'Default' url= './breadcrumb/default'></e-breadcrumb-item>
                             <e-breadcrumb-item text= 'Icons' url= './breadcrumb/icons'></e-breadcrumb-item>
@@ -56,23 +58,18 @@
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates the basic rendering, overflow feature and navigable active item of the <b>Breadcrumb</b> component with icon support.</p>
+	    <p>This sample demonstrates the basic rendering, overflow feature and navigable active item of the <b>Breadcrumb</b> component with icon support. Click the <b>Reset State</b> button to refresh Breadcrumb component states.</p>
     </div>
     <div id="description">
         <p>The <code>Breadcrumb</code> component is used as a navigational aid to identify the current page location within the navigational hierarchy structure of websites. It has list of items that can be populated using the <code>e-breadcrumb-item</code> tag.</p>
     <p><b>Simple Breadcrumb</b></p>
-    <p>In this sample, the <code>Breadcrumb</code> is populated with Text, Icon, and Url.</p>
+    <p>In this sample, the Breadcrumb is populated with text, icon, and URL.</p>
     <p><b>Breadcrumb with Overflow</b></p>
-    <p>In the <code>Breadcrumb</code> component, <code>maxItems</code> and <code>overflowMode</code> properties were used to limit the number of breadcrumb items to be displayed.</p>
-    <p>The following overflow mode's were available in the <code>Breadcrumb</code> component.</p>
-    <ul>
-        <li><code>Default</code> - Specified maxItems count will be visible and the remaining items will be hidden. While clicking on the previous item, the hidden item will become visible.</li>
-        <li><code>Collapsed</code> - Only the first and last items will be visible, and the remaining items will be hidden in the collapsed icon. When the collapsed icon is clicked, all items become visible.</li>
-    </ul>   
-    <p>In this sample, the maxItems is set as 3 with overflowMode as Default. To prevent breadcrumb item navigation we have set <code>false</code> in <code>enableNavigation</code> property of <code>Breadcrumb</code> component.</p>
+    <p>In the Breadcrumb component, <code>maxItems</code> and <code>overflowMode</code> properties were used to limit the number of breadcrumb items to be displayed.</p>      
+    <p>In this sample, the <code>maxItems</code> is set as <code>3</code> with <code>overflowMode</code> as <code>Menu</code>. To prevent breadcrumb item navigation we have set <code>false</code> in <code>enableNavigation</code> property of Breadcrumb component.</p>
     <p><b>Active Last Breadcrumb</b></p>
     <p>In this sample, navigation for the last item is enabled by using <code>enableActiveItemNavigation</code> property.</p>
-    <p>More information about <code>Breadcrumb</code> component can be found in this <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/breadcrumb/getting-started/">documentation section</a>.</p>
+    <p>More information about Breadcrumb component can be found in this <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/breadcrumb/getting-started/">documentation section</a>.</p>
     </div>
 </div>
 </template>
@@ -80,14 +77,27 @@
 <script>
 import Vue from "vue";
 import { BreadcrumbPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from '@syncfusion/ej2-base';
 
 Vue.use(BreadcrumbPlugin);
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   data: function() {
     return {
         separatorTemplate: '<span class="e-bicons e-arrow"></span>',
     };
+  },
+  methods: {
+    btnClick: function() {
+      var breadcrumb, breadcrumbInst, breadcrumbs = document.querySelector('.content-wrapper').getElementsByClassName("e-breadcrumb");
+      for (var i = 0; i < breadcrumbs.length; i++) {
+            breadcrumb = breadcrumbs[i];
+            breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
+            breadcrumbInst.activeItem = breadcrumbInst.items[breadcrumbInst.items.length - 1].text;
+        }
+    }
   }
 });
 </script>
@@ -101,6 +111,11 @@ export default Vue.extend({
 
 .breadcrumb-control-wrapper div.row {
     padding: 15px 0px;
+}
+
+.reset-btn {
+    float: right;
+    margin: 5px 2px 5px 0;
 }
 
 @media only screen and (max-width: 480px) {
@@ -149,11 +164,6 @@ export default Vue.extend({
         font-size: 14px;
     }
 
-    .e-breadcrumb .e-breadcrumb-separator + .e-breadcrumb-separator {
-        padding-left: 0;
-        margin-left: -8px;
-    }
-   
     .e-bc-overflow .e-bicons.e-arrow {
         margin-top: -2px;
     }

@@ -10,7 +10,7 @@
         :tooltip="tooltip"
         :chartArea="chartArea"
         :width="width"
-        :theme="theme"
+        :load='load'
       >
         <e-series-collection>
           <e-series
@@ -70,17 +70,10 @@ Vue.use(ChartPlugin);
 let tooltipTemp = function() {
   return { template: TooltipTemplate };
 };
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
       backgroundImage: "source/chart/images/wheat.png",
-      theme: theme,
       seriesData: [
         { x: 2002, y: 1.61 },
         { x: 2003, y: 2.34 },
@@ -135,6 +128,13 @@ export default Vue.extend({
   provide: {
     chart: [LineSeries, Category, Legend, Tooltip]
   },
-  methods: {}
+  methods: {
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
+  }
 });
 </script>

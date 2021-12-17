@@ -19,7 +19,7 @@
 </div>
 <div id="action-description">
     <p>
-        This sample visualizes the short-put distance covered by the athletes by using the image pointer in gauge.
+        This sample visualizes the shot-put distance covered by the athletes by using the image pointer in gauge.
     </p>
 </div>
 <div id="description">
@@ -30,7 +30,7 @@
     </p>
     <br>
     <p>
-        In this sample, a pointer with image is used to show the short-put distance thrown by the player.
+        In this sample, a pointer with image is used to show the shot-put distance thrown by the player.
     </p>
     <p>
         More information on the pointers can be found in this
@@ -48,21 +48,40 @@ data:function(){
     return{
     title: 'Shot Put Distance',
     titleStyle: {
-            size: '18px'
+            size: '18px',
+            fontFamily: 'Segoe UI'
         },
     centerY: '57%',
     annotations: [{
-            content: '12 M', radius: '108%', angle: 98, zIndex: '1'
+            content: '12 M', radius: '108%', angle: 98, zIndex: '1', 
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         }, {
-            content: '11 M', radius: '80%', angle: 81, zIndex: '1'
+            content: '11 M', radius: '80%', angle: 81, zIndex: '1',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         }, {
-            content: '10 M', radius: '50%', angle: 69, zIndex: '1'
+            content: '10 M', radius: '50%', angle: 69, zIndex: '1',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         }, {
-            content: 'Doe', radius: '108%', angle: 190, zIndex: '1'
+            content: 'Doe', radius: '108%', angle: 190, zIndex: '1',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         }, {
-            content: 'Almaida', radius: '80%', angle: 185, zIndex: '1'
+            content: 'Almaida', radius: '80%', angle: 185, zIndex: '1',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         }, {
-            content: 'John', radius: '50%', angle: 180, zIndex: '1'
+            content: 'John', radius: '50%', angle: 180, zIndex: '1',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         }],
         lineStyle: {
             width: 0, color: '#1d1d1d'

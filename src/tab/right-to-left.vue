@@ -42,7 +42,7 @@ export default Vue.extend({
             headerText1: { text: "Facebook" },
             headerText2: { text: "WhatsApp" },
             content0: 'Twitter is an online social networking service that enables users to send and read short 140-character ' +
-        'messages called "tweets". Registered users can read and post tweets, but those who are unregistered can only read them. ' +
+        'messages called tweets. Registered users can read and post tweets, but those who are unregistered can only read them. ' +
         'Users access Twitter through the website interface, SMS or mobile device app Twitter Inc. is based in San Francisco and ' +
         'has more than 25 offices around the world. Twitter was created in March 2006 by Jack Dorsey, Evan Williams, Biz Stone, ' +
         'and Noah Glass and launched in July 2006. The service rapidly gained worldwide popularity, with more than 100 million ' +
@@ -57,7 +57,7 @@ export default Vue.extend({
         content2: 'WhatsApp Messenger is a proprietary cross-platform instant messaging client for smartphones that ' +
         'operates under a subscription business model. It uses the Internet to send text messages, images, video, user location ' +
         'and audio media messages to other users using standard cellular mobile numbers. As of February 2016, WhatsApp had a user ' +
-        'base of up to one billion,[10] making it the most globally popular messaging application. WhatsApp Inc., based in ' +
+        'base of up to one billion, making it the most globally popular messaging application. WhatsApp Inc., based in ' +
         'Mountain View, California, was acquired by Facebook Inc. on February 19, 2014, for approximately US$19.3 billion.'
         }
    }

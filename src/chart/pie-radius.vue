@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="control-section">
-        <ejs-accumulationchart id="container" ref="pie" style='display:block;' :theme='theme' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableSmartLabels='enableSmartLabels' >
+        <ejs-accumulationchart id="container" ref="pie" style='display:block;' :load='load' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableSmartLabels='enableSmartLabels' :tooltipRender='tooltipRender'>
             <e-accumulation-series-collection>
                 <e-accumulation-series  :dataSource='data' xName='x' yName='y' :radius='radius' innerRadius="20%" :dataLabel="dataLabel"> </e-accumulation-series>
             </e-accumulation-series-collection>
@@ -10,14 +10,19 @@
     </div>
     <div id="action-description">
     <p>
-        This sample compares countries by population density and total area by using the various radius in pie series.
+        This sample compares countries by population density and total area by using various radius in pie series.
     </p>
 </div>
 <div id="description">
-    <p>In this example, you can see how to render doughnut chart with different radius. You can use <code>radius</code> mapping property to achieve this feature. <code>dataLabel</code> is used to represent individual data and its value.
-     <p><code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
+    <p> 
+        In this example, you can see how to render doughnut chart with different radius. You can use <code>radius</code> mapping property to achieve this feature. <code>dataLabel</code> is used to represent individual data and its value. 
+        In addition, the sample shows how to shift the order of the legend for the doughnut chart by using the <code>reverse</code> property.
+    </p>
+    <p> 
+        <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+    </p>
 
-<p style="font-weight: 500">Injecting Module</p>
+<p><b>Injecting Module</b></p>
 <p>
 AccumulationChart component features are segregated into individual feature-wise modules. To use legend, we need to Inject <code>AccumulationLegend</code> module using <code>provide: { accumulationchart: [ AccumulationLegend ] }</code> method. 
 </p>
@@ -36,14 +41,10 @@ import Vue from "vue";
 import { AccumulationChartPlugin, AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(AccumulationChartPlugin);
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
-        theme: theme,
         data: [
         { x: 'Argentina', y: 505370, r: '50%' },
         { x: 'Belgium', y: 551500, r: '70%' },
@@ -54,7 +55,7 @@ export default Vue.extend({
         { x: 'Somalia', y: 357022, r: '90%' }
      ],
      radius: 'r',
-     legendSettings: { visible: true },
+     legendSettings: { visible: true, reverse: true },
      dataLabel: { visible: true, position: 'Outside', name: 'x'},
      tooltip: {
         enable: true, header: '<b>${point.x}</b>', format: 'Composition: <b>${point.y}</b>'
@@ -67,7 +68,15 @@ export default Vue.extend({
     accumulationchart: [AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]
   },
    methods: {
-
+       tooltipRender: function(args){
+        args.text = args.text.replace(args.data.pointY.toString(), args.data.pointY.toLocaleString());
+    },
+       load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
    },
 });
 </script>

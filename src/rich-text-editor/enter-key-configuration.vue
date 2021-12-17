@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="control-section">
+<div class="control-section enter-key-sample">
     <div class="sample-container">
         <div class="default-section">
             <table class="api">
@@ -72,7 +72,7 @@
         height: 200px;
         width: 100%;
     }
-    .CodeMirror {
+    .enter-key-sample .CodeMirror {
         height: 190px;
     }
     .codeViewContent {

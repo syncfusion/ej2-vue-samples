@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section">
         <ejs-chart style='display:block;' ref="chart" :legendSettings='legend' id='chartcontainer' :primaryXAxis='primaryXAxis' :tooltip='tooltip'
-            :primaryYAxis='primaryYAxis' :title='title' :theme='theme'>
+            :primaryYAxis='primaryYAxis' :title='title' :load='load'>
             <e-series-collection>
                 <e-series :dataSource='data2' name='Linear Interpolation' type='Line' fill='blue' xName='x' yName='y' width=2 enableTooltip=false>
                 </e-series>
@@ -89,14 +89,9 @@ import { ChartPlugin, LineSeries, ScatterSeries, SplineSeries, Tooltip, Legend }
 
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-    theme: theme,
     data1: [{ x: -6, y: 2 }, { x: -3, y: -4 }, { x: 1.5, y: 3.5 }, { x: 6, y: 4.5 }],
     data2: [
         { x: -6, y: 2 }, { x: -5, y: 0 }, { x: -4.511, y: -0.977 }, { x: -3, y: -4 }, { x: -1.348, y: -1.247 },
@@ -189,6 +184,12 @@ export default Vue.extend({
             primaryYAxis.crossesAt = this.crossValue.value;
             this.primaryYAxis = primaryYAxis;
         }
+    },
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
     mounted: function () {

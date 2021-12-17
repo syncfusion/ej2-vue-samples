@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-    <div  class="col-lg-9 control-section">
+    <div  class="col-lg-9">
         <div class="default-section">
             <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">

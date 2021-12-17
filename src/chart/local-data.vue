@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :crosshair='crosshair'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Product X' width=2 :marker='marker'> </e-series>
@@ -38,10 +38,6 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, LineSeries, Legend, Tooltip, DateTime, Crosshair } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 let series1 = [];
 let series2 = [];
 let point1;
@@ -70,7 +66,6 @@ export default Vue.extend({
     return {
       seriesData: series1,
       seriesData1: series2,
-      theme: theme,
       //Initializing Primary X Axis
      primaryXAxis: {
             title: 'Years',
@@ -118,6 +113,12 @@ export default Vue.extend({
     chart: [LineSeries, DateTime, Legend, Tooltip, Crosshair]
   },
   methods: {
+    load: function(args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   },
    
 });

@@ -1,7 +1,7 @@
 <template>
   <div >
       <div  class="col-lg-8 control-section" >
-     <ejs-tooltip ref="tooltip" :position="tipposition" content='Lets go green & Save Earth !!!' style="display:block;position:absolute;left:calc( 50% - 60px);top:45%;">
+     <ejs-tooltip ref="tooltip" :position="tipposition" content="Let's go green to save the planet!!" style="display:block;position:absolute;left:calc( 50% - 60px);top:45%;">
 
             <!-- Button element -->
             <ejs-button>Show Tooltip</ejs-button>

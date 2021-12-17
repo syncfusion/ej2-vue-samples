@@ -15,46 +15,52 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -20px">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+         </colgroup>
+         <tbody>
               <tr style="height: 50px">
-                <td style="width: 40%">
-                    <div style="width:60%">Map Type
+                <td>
+                    <div>Map Type
                     </div>
                 </td>
-                <td style="width: 60%;">
-                    <div style="margin-left: -40px;">
-             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width=110></ejs-dropdownlist>                                 
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 50px">
-                <td style="width: 40%">
-                    <div style="width:60%">Export Type
-                    </div>
-                </td>
-                <td style="width: 60%;">
-                    <div style="margin-left: -40px;">
-             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width=110></ejs-dropdownlist>                                 
+                <td>
+                    <div style="padding-left: 0px;">
+             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width='exportWidth'></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
-                <td style="width: 40%">
-                    <div style="width:60%">File Name</div>
+                <td>
+                    <div>Export Type
+                    </div>
                 </td>
-                <td style="width: 40%;">
-                    <div class="e-float-input" style='margin-top: 0px;'>
-                        <input type="text" value="Maps" id="fileName" style="margin-left: -40px; width:110px;">
+                <td>
+                    <div style="padding-left: 0px;">
+             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width='exportWidth'></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
-            <tr id="button-control" style="height: 50px">
+            <tr style="height: 50px">
+                <td>
+                    <div>File Name</div>
+                </td>
+                <td>
+                    <div class="e-float-input" style="margin-top: 0px; padding-left: 0px;">
+                        <input type="text" value="Maps" id="fileName" style="width:100%;">
+                    </div>
+                </td>
+            </tr>
+            <tr id="button-control" style="height: 70px">
                 <td align='center'>
-                    <div>
+                    <div style="margin-left: 50%;">
                 <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
 <div id="action-description">
@@ -131,7 +137,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'Location of the Wonders in the World',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
@@ -155,14 +162,18 @@ export default Vue.extend({
         width: 15,
         tooltipSettings: {
                             visible: true,
-                            valuePath: 'name'
+                            valuePath: 'name',
+                            textStyle: {
+                                fontFamily: 'Segoe UI'
+                            }
                         },
                     }
                 ],
         modedata:['JPEG','PNG','SVG','PDF'],
         layerdata:['Geometry', 'OSM'],
         iconCss: 'e-icons e-play-icon',
-        cssClass: 'e-flat', isPrimary: true, content:'Export', style: 'text-transform:none !important; margin-left:50%'
+        cssClass: 'e-flat', isPrimary: true, content:'Export', style: 'text-transform:none !important;',
+        exportWidth: '100%'
       }
   },
 provide: {

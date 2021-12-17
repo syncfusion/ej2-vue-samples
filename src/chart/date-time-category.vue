@@ -52,10 +52,6 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, ColumnSeries, DateTimeCategory, Tooltip, StripLine, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
 import {Template} from "./date-category-temp1.vue";
 Vue.use(ChartPlugin);
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 
 let templateContent = function() {
     return { template: Template}
@@ -63,7 +59,6 @@ let templateContent = function() {
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
       seriesData: [
                 { x: new Date(2017, 11, 20), y: 21 }, { x: new Date(2017, 11, 21), y: 24 },
                 { x: new Date(2017, 11, 22), y: 24 }, { x: new Date(2017, 11, 26), y: 70 },
@@ -125,6 +120,8 @@ export default Vue.extend({
         args.chart.annotations[0].content = templateContent;
         args.chart.annotations[1].content = templateContent;
        }
+       args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

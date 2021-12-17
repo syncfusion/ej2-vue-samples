@@ -19,7 +19,7 @@
     #annotation {
         color: #DDDDDD;
 		font-size: 12px;
-		font-family: Roboto;
+		font-family: Segoe UI;
         background: #3E464C;
         margin: 20px;
         padding: 10px;

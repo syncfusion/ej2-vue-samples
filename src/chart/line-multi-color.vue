@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='MultiColoredLine' xName='XValue' yName='YValue' name='Rainfall' width=1.5 pointColorMapping='color' > </e-series>
@@ -43,10 +43,6 @@ import { rainFallData } from './financial-data';
 import { ChartPlugin, MultiColoredLineSeries, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-    
    let dataValues = [];
     let colors = ['red', 'green', '#ff0097', 'crimson', 'blue', 'darkorange', 'deepskyblue',
         'mediumvioletred', 'violet', 'peru', 'gray', 'deeppink', 'navy'];
@@ -60,7 +56,6 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
 export default Vue.extend({
   data: function() {
     return {
-        theme: theme,
       seriesData: dataValues,
 
       colors: [
@@ -109,6 +104,12 @@ export default Vue.extend({
     chart: [DateTime, Tooltip, MultiColoredLineSeries]
   },
   methods: {
+      load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
    },
    
 });

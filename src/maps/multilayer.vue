@@ -59,7 +59,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'Samsung Semiconductor office locations in USA',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeData1: new MapAjax('./src/maps/map-data/usa.json'),
@@ -73,7 +74,10 @@ export default Vue.extend({
         dataLabelSettings1: {
                     visible: true,
                     labelPath: 'iso_3166_2',
-                    smartLabelMode: 'Hide'
+                    smartLabelMode: 'Hide',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
         },
         shapeData2: new MapAjax('./src/maps/map-data/texas.json'),
         type2: 'SubLayer',
@@ -100,7 +104,10 @@ export default Vue.extend({
                         tooltipSettings: {
                             visible: true,
                             valuePath: 'name',
-                            format: '<b>${name}</b><br>Manufacturing Center,<br>Research and Development Center'
+                            format: '<b>${name}</b><br>Manufacturing Center,<br>Research and Development Center',
+                            textStyle: {
+                                fontFamily: 'Segoe UI'
+                            }
                         }
                     },
                     {
@@ -111,7 +118,7 @@ export default Vue.extend({
                                 longitude: -98.96484375
                             }
                         ],
-                        template: '<div style="color:black;">TX</div>'
+                        template: '<div style="color:black; font-family: Segoe UI;">TX</div>'
                     }
         ],
         shapeData3: new MapAjax('./src/maps/map-data/california.json'),
@@ -138,7 +145,10 @@ export default Vue.extend({
                         tooltipSettings: {
                             visible: true,
                             valuePath: 'name',
-                            format: '<b>${name}</b><br>Regional Office,<br>Research and Development Center'
+                            format: '<b>${name}</b><br>Regional Office,<br>Research and Development Center',
+                            textStyle: {
+                                fontFamily: 'Segoe UI'
+                            }
                         },
                         template: function () { return {template: Template}; }
                     },
@@ -150,7 +160,7 @@ export default Vue.extend({
                                 longitude: -119.35546875000001
                             }
                         ],
-                        template: '<div style="color:black;">CA</div>'
+                        template: '<div style="color:black; font-family: Segoe UI;">CA</div>'
                     }
         ]
       }

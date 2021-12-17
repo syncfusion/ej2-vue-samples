@@ -33,6 +33,7 @@
         display:block;
         margin: auto;
         font-size: 14px;
+        font-family: 'Segoe UI';
     }
 </style>
 <script>
@@ -48,7 +49,8 @@ data:function(){
         titleSettings: {
             text: ' Australia cities weather detail',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeData: new MapAjax('./src/maps/map-data/australia.json'),

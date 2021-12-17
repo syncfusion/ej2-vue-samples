@@ -64,16 +64,6 @@
     .e-query-builder .query-template-control .e-cond-btn:hover {
         background-color: #545c63 !important;
     }
-    @media only screen and (max-width: 700px) {
-        .e-query-builder .e-header {
-            float: none !important;
-        }
-        .e-query-builder .e-qb-hdr-content {
-            padding-left: 0px !important;
-            padding-right: 10px !important;
-            padding-top: 10px !important;
-        }
-    }
    
 </style>
 
@@ -125,9 +115,7 @@ export default Vue.extend({
                                 <div class = "e-qb-hdr-content">
                                     <ejs-button :id="addruleID" cssClass="e-primary" class = "e-cond-btn" v-on:click.native='rulebtnClick'>Add Condition</ejs-button>
                                 </div>
-                                <div class = "e-qb-hdr-content" v-if="data.ruleID !== 'querybuilder_group0'">
-                                    <ejs-button :id="dltbtnID" class = "e-del-btn" v-on:click.native='btnClick' cssClass="e-danger">Remove</ejs-button>
-                                </div>
+                                <ejs-button v-if="data.ruleID !== 'querybuilder_group0'" :id="dltbtnID" class = "e-del-btn" v-on:click.native='btnClick' cssClass="e-danger">Delete Group</ejs-button>
                             </div>
                             </div>
                         </div>`,

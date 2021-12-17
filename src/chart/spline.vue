@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartSpline' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartSpline' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip'>
             <e-annotations>
                 <e-annotation :content='cloudTemplate' x='Sun' y=2 coordinateUnits='Point' verticalAlignment='Top'>
@@ -78,10 +78,6 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, SplineSeries, ChartAnnotation, Category,  Legend, Tooltip } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
@@ -101,7 +97,6 @@ export default Vue.extend({
                         })
                     }
                 },
-      theme: theme,
       seriesData: [
                     { x: 'Sun', y: 15 },
                     { x: 'Mon', y: 22 },
@@ -167,6 +162,12 @@ export default Vue.extend({
     chart: [SplineSeries, Legend, Category, Tooltip, ChartAnnotation]
   },
   methods: {
+      load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   },
  
 });

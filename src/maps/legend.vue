@@ -17,40 +17,44 @@
 </div>
 
 <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+         <colgroup>
+            <col span="1" style="width: 60%;">
+            <col span="1" style="width: 40%;">
+         </colgroup>
             <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 10%">
-                        <div class="property-text" style="padding: 0px;">Legend mode </div>
+                    <td>
+                        <div class="property-text" style="width: 90%">Legend mode </div>
                     </td>
-                    <td style="width: 30%;">
+                    <td>
                     <ejs-dropdownlist id='legendMode' style="width:100;" :dataSource='legendModeData' index=0 :width='labelswidth' :change='changeLegendMode'></ejs-dropdownlist>
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 10%">
-                        <div class="property-text" style="padding: 0px;">Legend position </div>
+                    <td>
+                        <div class="property-text" style="width: 90%">Legend position </div>
                     </td>
-                    <td style="width: 30%">
+                    <td>
                     <ejs-dropdownlist id='legendPosition' style="width:100%;" :dataSource='positionData' index=0 :width='labelswidth' :change='changeLegendPosition'></ejs-dropdownlist>
                     </td>
                 </tr>
-                <tr style="height: 50px">
-                    <td style="width: 70%">
-                        <div class="property-text" style="padding: 0px;">Show legend for remaining data source items</div>
+                <tr style="height: 70px">
+                    <td>
+                        <div class="property-text" style="width: 90%;">Show legend for remaining data source items</div>
                     </td>
-                    <td style="width: 20%">
-                        <div style="padding-top:0px; margin-left: 30px">
+                    <td>
+                        <div style="padding-top: 0px;  margin-left: -20px; margin-top: -6px;">
                             <ejs-checkbox id="opacity" :change="changeOpcity"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
-                <tr style="height: 50px">
-                    <td style="width: 70%">
-                        <div class="property-text" style="padding: 0px;">Show population density while the legend item is toggled</div>
+                <tr style="height: 70px">
+                    <td>
+                        <div class="property-text" style="width: 90%;">Show population density while the legend item is toggled</div>
                     </td>
-                    <td style="width: 20%">
-                        <div style="padding-top:0px; margin-left: 30px">
+                    <td>
+                        <div style="padding-top: 0px;  margin-left: -20px; margin-top: -6px;">
                             <ejs-checkbox id="toggleLegend" :change="changetoggle"></ejs-checkbox>
                         </div>
                     </td>
@@ -80,6 +84,11 @@
     </div>
 </div>
 </template>
+<style>
+div.property-text {
+    padding-top: 0px;
+}
+</style>
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
@@ -97,16 +106,20 @@ export default Vue.extend({
         titleSettings: {
             text: 'Population density (per square kilometer) - 2015',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         legendSettings: {
             visible: true,
-            position: 'Top'
+            position: 'Top',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         legendModeData: ["Default", "Interactive"],
         positionData: ["Top", "Bottom", "Left", "Right"],
-        labelswidth: 120,
+        labelswidth: '100%',
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
@@ -114,7 +127,10 @@ export default Vue.extend({
         tooltipSettings: {
                     visible: true,
                     valuePath: 'name',
-                    format: '${name} : ${density}'
+                    format: '${name} : ${density}',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
                 },
                 shapeSettings: {
                     colorValuePath: 'density',

@@ -20,8 +20,14 @@
     </div>
 
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <tr>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+             <col span="1" style="width: 40%;">
+             <col span="1" style="width: 30%;">
+             <col span="1" style="width: 30%;">
+          </colgroup>
+          <tbody>
+            <tr style="height: 50px">
                 <td>
                     <div> Axis </div>
                 </td>
@@ -30,8 +36,8 @@
              <ejs-dropdownlist id='axisIndex' ref="axis" :dataSource='axisindexdata' :fields='axisindexfields' value='0' index=0  :width='axisindexwidth' :change='changeAxisindex'></ejs-dropdownlist>                                        
                     </div>
                 </td>
-            </tr>&nbsp;
-            <tr>
+            </tr>
+            <tr style="height: 50px">
                 <td>
                     <div> Direction </div>
                 </td>
@@ -40,27 +46,34 @@
              <ejs-dropdownlist id='axisDirection' ref="direction" :dataSource='axisdirectiondata' index=0  :width='axisdirectionwidth' :change='changeAxisdirection'></ejs-dropdownlist>                                                          
                     </div>
                 </td>
-            </tr>&nbsp;
-            <tr>
+            </tr>
+            <tr style="height: 50px">
                 <td>
-                    <div id='start'>Start Angle <span> &nbsp;&nbsp;&nbsp;220</span> </div>
+                    <div>Start Angle</div>
                 </td>
                 <td>
                     <div>
-                        <input type="range" ref="start" id="startAngle" value="220" min="0" max="360" v-on:pointermove="startAnglechange" v-on:touchmove="startAnglechange" v-on:change="startAnglechange" style="width: 120px" />
+                        <input type="range" ref="start" id="startAngle" value="220" min="0" max="360" v-on:change="startAnglechange" style="width: 70%;" />
                     </div>
                 </td>
-            </tr>&nbsp;
-            <tr>
-                <td>
-                    <div id='end'>End Angle <span> &nbsp;&nbsp;&nbsp;140</span> </div>
-                </td>
-                <td>
-                    <div>
-                        <input type="range" ref="end" id="endAngle" value="140" min="0" max="360" v-on:pointermove="endAnglechange" v-on:touchmove="endAnglechange" v-on:change="endAnglechange" style="width: 120px"  />
-                    </div>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span  id='start' style="margin-left: -30px;">220</span> 
                 </td>
             </tr>
+            <tr style="height: 50px">
+                <td>
+                    <div>End Angle</div>
+                </td>
+                <td>
+                    <div>
+                        <input type="range" ref="end" id="endAngle" value="140" min="0" max="360" v-on:change="endAnglechange" style="width: 70%;"  />
+                    </div>
+                </td>
+                <td style="padding-top: 10px; text-align: center;">
+                    <span  id='end' style="margin-left: -30px;">140</span> 
+                </td>
+            </tr>
+            </tbody>
         </table>
     </div>
 <div id="action-description">
@@ -93,12 +106,13 @@ export default Vue.extend({
 data:function(){
     return{
         title: 'Gauge with Multiple Axes',
-        titleStyle: { color: 'gray', size: '16px' },
+        titleStyle: { color: 'gray', size: '16px', fontFamily: 'Segoe UI' },
         lineStyle: { width: 1.5 },
         gaugeradius: '95%',
         labelStyle: {
                 position: 'Inside', autoAngle: true,
-                hiddenLabel: 'None',
+                hiddenLabel: 'None', 
+                font: { fontFamily: 'Segoe UI' }
         }, majorTicks: {
                 position: 'Inside',
                 width: 2, height: 10
@@ -113,7 +127,7 @@ data:function(){
         lineStyle2: { width: 1.5, color: '#E84011' }, gaugeradius2: '95%',
         labelStyle2: {
                 position: 'Outside', autoAngle: true,
-                hiddenLabel: 'None', font: { color: '#E84011' }
+                hiddenLabel: 'None', font: { color: '#E84011', fontFamily: 'Segoe UI'  }
         }, majorTicks2: {
                 position: 'Outside', width: 2, height: 10,
                 color: '#E84011'
@@ -129,9 +143,9 @@ data:function(){
             { Id:'0', level:'Axis 1'},
             { Id:'1', level:'Axis 2'}],
         axisindexfields:{ text: 'level', value: 'Id' },
-        axisindexwidth:120,
+        axisindexwidth:'100%',
         axisdirectiondata:['ClockWise','AntiClockWise'],
-        axisdirectionwidth:120
+        axisdirectionwidth:'100%'
     }
 },
 methods: {
@@ -154,8 +168,8 @@ methods: {
             this.$refs.direction.ej2Instances.value = this.$refs.circulargauge.ej2Instances.axes[axisIndex].direction;
             let startAngle = this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle;
             let endAngle = this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle;
-            document.getElementById('start').innerHTML = 'Start Angle <span> &nbsp;&nbsp;&nbsp;' + startAngle;
-            document.getElementById('end').innerHTML = 'End Angle <span> &nbsp;&nbsp;&nbsp;' + endAngle;
+            document.getElementById('start').innerHTML = startAngle.toString();;
+            document.getElementById('end').innerHTML = endAngle.toString();;
             (document.getElementById('startAngle')).value = startAngle.toString();
             (document.getElementById('endAngle')).value = endAngle.toString();        
     },
@@ -175,7 +189,7 @@ methods: {
             this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
             this.$refs.circulargauge.ej2Instances.axes[1].pointers[0].animation.enable = false;
             this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle = value;
-            document.getElementById('start').innerHTML = 'Start Angle <span> &nbsp;&nbsp;&nbsp;' + value;
+            document.getElementById('start').innerHTML = value.toString();;
             this.$refs.circulargauge.ej2Instances.axes[axisIndex].labelStyle.hiddenLabel =
                 isCompleteAngle(this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle, this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle) ?
                     'First' : 'None';
@@ -188,7 +202,7 @@ methods: {
             this.$refs.circulargauge.ej2Instances.axes[0].pointers[0].animation.enable = false;
             this.$refs.circulargauge.ej2Instances.axes[1].pointers[0].animation.enable = false;
             this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle = value;
-            document.getElementById('end').innerHTML = 'End Angle <span> &nbsp;&nbsp;&nbsp;' + value;
+            document.getElementById('end').innerHTML =value.toString();;
             this.$refs.circulargauge.ej2Instances.axes[axisIndex].labelStyle.hiddenLabel =
                 isCompleteAngle(this.$refs.circulargauge.ej2Instances.axes[axisIndex].startAngle, this.$refs.circulargauge.ej2Instances.axes[axisIndex].endAngle) ?
                     'First' : 'None';

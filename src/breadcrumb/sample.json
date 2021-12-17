@@ -3,7 +3,7 @@
     "directory": "breadcrumb",
     "category": "Navigation",
     "ftName": "breadcrumb",
-	"type": "preview",
+	"type": "update",
     "samples": [
         {
             "url": "default",
@@ -16,6 +16,7 @@
             "url": "bind-to-location",
             "name": "Bind to Location",
             "category": "Breadcrumb",
+            "type": "update",
             "api":{ "Breadcrumb":["url"] },
             "description": "This example demonstrates the binding of current url location to the items and items based on static url of Syncfusion Vue Breadcrumb component."
         },
@@ -25,6 +26,14 @@
             "category": "Breadcrumb",
             "description": "This example demonstrates how to customize item and separator by using templates, disable, add icon for item, with the Syncfusion Vue Breadcrumb component.",
             "api":{ "Breadcrumb":["items", "cssClass", "itemTemplate", "separatorTemplate"], "BreadcrumbItem": ["text", "iconCss"] }
+        },
+        {
+            "url": "overflow-modes",
+            "name": "Overflow Modes",
+            "category": "Breadcrumb",
+            "api":{ "Breadcrumb":["items", "width", "overflowMode"], "BreadcrumbItem": ["text", "url"] },
+            "type": "new",
+            "description": "This example demonstrates different types of overflow mode such as Menu, Wrap, Collapsed, Scroll, and None in the Syncfusion JavaScript Breadcrumb component."
         },
         {
             "url": "events",

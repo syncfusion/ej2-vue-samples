@@ -57,10 +57,13 @@ export default Vue.extend({
             interval: 2
         },
         labelStyle:{
-            offset: 48
+            offset: 48,
+            font: {
+                fontFamily: 'Segoe UI'
+            }
         },
         annotations:[{
-        content: '<div id="pointer" style="width:70px"><h1 style="font-size:14px;">10 MPH</h1></div>',
+        content: '<div id="pointer" style="width:70px"><h1 style="font-size:14px; font-family: Segoe UI;">10 MPH</h1></div>',
         axisIndex: 0,
         axisValue: 10,
         x: 10,

@@ -1,6 +1,6 @@
 <template>
   <div id="LG-export-sample">
-    <div class="col-lg-9 control-section">
+    <div class="col-lg-8 control-section">
       <div class="control-section">
         <div align="center">
           <ejs-lineargauge
@@ -36,31 +36,36 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3 property-section">
-      <table id="property" title="Properties" style="width: 100%; margin-left: -30px">
+    <div class="col-lg-4 property-section">
+      <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+      <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
+         <tbody>
         <tr style="height: 50px">
-          <td style="width: 40%">
+          <td>
             <div>Export Type</div>
           </td>
-          <td style="width: 60%;">
-            <div style="margin-left: -10px">
-              <ejs-dropdownlist ref="mode" id="mode" :dataSource="modedata" index="0" :width="90"></ejs-dropdownlist>
+          <td>
+            <div>
+              <ejs-dropdownlist ref="mode" id="mode" :dataSource="modedata" index="0" :width="exportWidth"></ejs-dropdownlist>
             </div>
           </td>
         </tr>
         <tr style="height: 50px">
-          <td style="width: 40%">
+          <td>
             <div>File Name</div>
           </td>
-          <td style="width: 40%;">
+          <td>
             <div class="e-float-input" style="margin-top: 0px;">
-              <input type="text" value="Gauge" id="fileName" style="margin-left: -10px; width:90px;" />
+              <input type="text" value="Gauge" id="fileName" style="width: 100%;" />
             </div>
           </td>
         </tr>
-        <tr id="button-control" style="height: 50px" align="center">
-          <td>
-            <div style="width: 100px">
+        <tr id="button-control" style="height: 70px" align="center">
+          <td style="text-align: center">
+            <div>
               <ejs-button
                 id="export"
                 :cssClass="cssClass"
@@ -72,8 +77,8 @@
               ></ejs-button>
             </div>
           </td>
-          <td>
-            <div style="width: 100px">
+          <td style="text-align: center">
+            <div>
               <ejs-button
                 id="print"
                 :cssClass="cssClass"
@@ -86,6 +91,7 @@
             </div>
           </td>
         </tr>
+        </tbody>
       </table>
     </div>
     <div id="action-description">
@@ -221,7 +227,8 @@ export default Vue.extend({
       labelStyle: {
         position: "Outside",
         font: {
-          color: "red"
+          color: "red",
+          fontFamily: 'Segoe UI'
         },
         offset: 4
       },
@@ -275,7 +282,8 @@ export default Vue.extend({
       modedata: ["JPEG", "PNG", "SVG", "PDF"],
       cssClass: "e-flat",
       iconCss: "e-icons e-play-icon",
-      iconCss1: "e-icons e-play-icon1"
+      iconCss1: "e-icons e-play-icon1",
+      exportWidth: '100%'
     };
   },
   provide: {

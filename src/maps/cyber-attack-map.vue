@@ -145,7 +145,7 @@ data:function(){
     return{
         titleSettings: {
             text: 'Cyber Attack Map of United States',
-        textStyle: { size: '16px' }
+        textStyle: { size: '16px', fontFamily: 'Segoe UI' }
         },
         zoomSettings: {
             enable: false

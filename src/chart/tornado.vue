@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :tooltipRender='tooltipRender' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='StackingBar' xName='x' yName='y' name='Female' width=2 :marker='marker'> </e-series>
@@ -46,14 +46,9 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, StackingBarSeries, Category, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
       seriesData: [
                 { x: '4.5', y: 31 }, { x: '4.8', y: 37 },
                 { x: '5.1', y: 49 }, { x: '5.4', y: 57 },
@@ -127,8 +122,13 @@ export default Vue.extend({
    
      tooltipRender: function(args){
         args.text = args.text.indexOf('-') > 0 ? args.text.replace('-', '') : args.text;
-    }  
-
+    },
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+    }
   },
  
 });

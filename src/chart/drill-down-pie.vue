@@ -9,7 +9,7 @@
             <p id="text" style="display:inline-block;"></p>
         </div>
         <button type="button" id="back" style="visibility: hidden;" @click="onClick">Back</button>
-        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load'>
+        <ejs-accumulationchart ref="pie" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :chartMouseMove="onChartMouseMove" :load='load'>
              <e-annotations>
                 <e-annotation :content="initialContent">
                 </e-annotation>
@@ -56,10 +56,6 @@ import {Template2} from "./drill-down-temp2.vue";
 
 Vue.use(AccumulationChartPlugin);
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
 let tempContent1 = function() {
   return { template: Template1 };
 }; 
@@ -71,7 +67,6 @@ let tempContent2 = function() {
 export default Vue.extend({
   data: function() {
     return {
-    theme: theme,
     innerRadius: '0%',
     innerChart: false,
     enableSmartLabels: false,
@@ -116,6 +111,11 @@ export default Vue.extend({
   methods: {
     onTextRender: function (args) {
         args.text = args.point.x + ' ' + args.point.y + ' %';
+    },
+    onChartMouseMove: function (args) {
+        if (args.target.indexOf("container_Series_0_Point_") > -1 && !this.innerChart) {
+            document.getElementById(args.target).style.cursor = 'pointer';
+        }
     },
     onChartMouseClick: function (args) {
         let  accChart = document.getElementById("container").ej2_instances;
@@ -216,6 +216,8 @@ export default Vue.extend({
                 '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :
                 '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" /></div>';
         }
+        args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
     updated: function() {
