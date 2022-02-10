@@ -38,7 +38,7 @@ The Syncfusion license that contains the terms and conditions can be found at
 
 ## Installing
 
-Before installation check `@syncfusion:registry=http://nexus.syncfusion.com/repository/ej2-production/` is available in npmrc file. Then use the below command to install all dependent packages.
+Use the following command to install all dependent packages from the public npm registry.
 
 ```bash
 npm install
