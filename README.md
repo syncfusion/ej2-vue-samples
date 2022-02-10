@@ -38,7 +38,7 @@ The Syncfusion license that contains the terms and conditions can be found at
 
 ## Installing
 
-Use the below command to install all dependent packages from the public npm registry.
+Use the following command to install all dependent packages from the public npm registry.
 
 ```bash
 npm install

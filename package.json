@@ -68,7 +68,7 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "serve": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "serve": "npm run gulp build && node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
     "serve: watch": "vue-cli-service serve",
     "build": "npm run gulp build && node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build",
     "build-watch": "vue-cli-service build",
