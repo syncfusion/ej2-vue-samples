@@ -27,7 +27,10 @@
             :chartMouseLeave='chartMouseLeave' :chartMouseMove='chartMouseMove' :margin='margin' :chartArea='chartArea'
             :zoomSettings='zoomSettings' :crosshair='crosshair' :width='width' :theme='theme'  :legendSettings='legendSettings'>
             <e-annotations>
-                <e-annotation :content='annotationTemplate' coordinateUnits='Pixel' region='Chart' x='15%' y= '20%'>
+                <e-annotation :content="'annotationTemplate'" coordinateUnits='Pixel' region='Chart' x='15%' y= '20%'>
+                  <template v-slot:annotationTemplate="{}">
+                    <div id="annotation"></div>
+                  </template>
                 </e-annotation>
             </e-annotations>
              <e-indicators>
@@ -139,14 +142,6 @@ function getContent(value) {
 export default Vue.extend({
   data: function() {
     return {
-       annotationTemplate: function () {
-                    return {
-                        template: Vue.component('annotationTemplate', {
-                            template: `<div id="annotation"></div>`,
-                            data: function () { return { data: {} }; }
-                        })
-                    }
-                },
       primaryXAxis: {
         valueType: "DateTime", majorGridLines: { width: 0 }, crosshairTooltip: { enable: true },
         stripLines: [{ visible: true }]

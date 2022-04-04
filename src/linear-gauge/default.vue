@@ -1,7 +1,14 @@
 <template>
    <div class="control-section">
          <div align='center'>
-             <ejs-lineargauge :load='load' style='display:block' align='center' id='defaultContainer' :orientation='orientation' :annotations='annotations'>
+             <ejs-lineargauge :load='load' style='display:block' align='center' id='defaultContainer' :orientation='orientation'>
+                <e-annotations>
+                    <e-annotation :axisIndex='axisIndex' :axisValue='axisValue' :x='positionX' zIndex='1' :y='positionY' :content="'indicatorTemplate'">
+                        <template v-slot:indicatorTemplate="{}">
+                            <div id="pointer" style="width:70px"><h1 style="font-size:14px; font-family: Segoe UI;">10 MPH</h1></div>
+                        </template>
+                    </e-annotation>
+                </e-annotations>
                 <e-axes>
                     <e-axis :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle' >
                         <e-pointers>
@@ -62,14 +69,10 @@ export default Vue.extend({
                 fontFamily: 'Segoe UI'
             }
         },
-        annotations:[{
-        content: '<div id="pointer" style="width:70px"><h1 style="font-size:14px; font-family: Segoe UI;">10 MPH</h1></div>',
         axisIndex: 0,
         axisValue: 10,
-        x: 10,
-        zIndex: '1',
-        y: -70
-        }]
+        positionX: 10,
+        positionY: -70
     }
 },
  provide: {

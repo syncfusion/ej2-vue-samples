@@ -45,6 +45,11 @@ body.highcontrast #letterAvatarList{
         position: relative;
     }
 
+     .fluent #letterAvatarList .e-list-item,
+	.fluent-dark #letterAvatarList .e-list-item{
+		line-height: 30px;
+	}
+
     .avatar-listview #letterAvatarList .e-list-header {
         height: 54px;
     }
@@ -139,7 +144,9 @@ body.highcontrast #letterAvatarList{
 
     .bootstrap5 #letterAvatarList .e-list-item .e-avatar,
     .bootstrap5-dark #letterAvatarList .e-list-item .e-avatar,
-    .tailwind-dark #letterAvatarList .e-list-item .e-avatar {
+    .tailwind-dark #letterAvatarList .e-list-item .e-avatar,
+	.fluent #letterAvatarList .listWrapper .e-avatar,
+	.fluent-dark #letterAvatarList .listWrapper .e-avatar{
         top: calc(100% - 48px);
     }
 

@@ -2,6 +2,7 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "Editors",
+    "type": "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -97,6 +98,13 @@
             "name": "File Browser",
             "category": "Rich Text Editor",
             "description": "This demo shows how to insert the image into the Rich Text Editor content using FileManager."
+        },
+        {
+            "url": "online-html-editor",
+            "name": "Online Html Editor",
+            "category": "Rich Text Editor",
+            "type": "new",
+            "description": "The online HTML editor is a demo that provides LIVE experience for both content and HTML editing with Rich Text Editor features in a real-world scenario."
         },
         {
             "url": "types",

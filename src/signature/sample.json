@@ -3,7 +3,6 @@
     "directory": "signature",
     "category": "Inputs",
     "ftName": "signature",
-    "type": "preview",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",

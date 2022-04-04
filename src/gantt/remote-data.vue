@@ -7,7 +7,7 @@
             :height= "height"
             :taskFields= "taskFields"
             :columns= "columns"
-            :treeColumnIndex= "0"
+            :treeColumnIndex= "1"
             :allowSelection= "true"
             :gridLines= "gridLines"
             :highlightWeekends= "true"
@@ -119,8 +119,8 @@ export default Vue.extend({
             labelSettings: {
                 leftLabel: 'TaskName',
             },
-            projectStartDate: new Date('02/24/2019'),
-            projectEndDate: new Date('06/10/2019')
+            projectStartDate: new Date('02/24/2021'),
+            projectEndDate: new Date('06/10/2021')
         };
   },
   provide: {

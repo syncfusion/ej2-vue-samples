@@ -248,7 +248,20 @@
 .highcontrast .call-history .layoutWrapper .camera,
 .highcontrast .call-history .layoutWrapper .outerButton,
 .highcontrast .call-history .layoutWrapper .speaker,
-.highcontrast .call-history .layoutWrapper {
+.highcontrast .call-history .layoutWrapper,
+.bootstrap5-dark .call-history .layoutWrapper .layout, .bootstrap5-dark .call-history .layoutWrapper .camera, .bootstrap5-dark .call-history .layoutWrapper .outerButton,
+.bootstrap5-dark .call-history .layoutWrapper .speaker,
+.bootstrap5-dark .call-history .layoutWrapper,
+.material-dark .call-history .layoutWrapper .layout, .material-dark .call-history .layoutWrapper .camera, .material-dark .call-history .layoutWrapper .outerButton, .material-dark .call-history .layoutWrapper .speaker,
+.material-dark .call-history .layoutWrapper,
+.fabric-dark .call-history .layoutWrapper .layout, .fabric-dark .call-history .layoutWrapper .camera, .fabric-dark .call-history .layoutWrapper .outerButton,
+.fabric-dark .call-history .layoutWrapper .speaker,
+.fabric-dark .call-history .layoutWrapper,
+.tailwind-dark .call-history .layoutWrapper .layout, .tailwind-dark .call-history .layoutWrapper .camera, .tailwind-dark .call-history .layoutWrapper .outerButton, .tailwind-dark .call-history .layoutWrapper .speaker,
+.tailwind-dark .call-history .layoutWrapper,
+.bootstrap-dark .call-history .layoutWrapper .layout, .bootstrap-dark .call-history .layoutWrapper .camera, .bootstrap-dark .call-history .layoutWrapper .outerButton, .bootstrap-dark .call-history .layoutWrapper .speaker,
+.bootstrap-dark .call-history .layoutWrapper,
+ {
   border-color: white;
 }
 

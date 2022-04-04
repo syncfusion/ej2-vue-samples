@@ -50,9 +50,14 @@ import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip, Legend} from "
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
                { x: 'USA', y: 46 }, { x: 'GBR', y: 27 }, { x: 'CHN', y: 26 }
               ],
@@ -105,8 +110,8 @@ export default Vue.extend({
             args.chart.series[1].marker.dataLabel.font.color = '#000000';
             args.chart.series[2].marker.dataLabel.font.color = '#000000';
             }
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+
+
     }
   },
  

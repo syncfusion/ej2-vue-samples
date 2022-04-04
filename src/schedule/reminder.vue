@@ -7,14 +7,6 @@
                 <ejs-toast ref="toast" cssClass='e-schedule-reminder e-toast-info' timeOut=0 :position='customPosition'
                     target='.e-schedule' newestOnTop=true showCloseButton=true :animation='customAnimation'>
                 </ejs-toast>
-                <script id="reminder-template" type="text/x-template">
-		            <div class="e-toast-template">
-                        <div class="e-toast-message">
-                            <div class="e-toast-title">${Subject}</div>
-                            <div class="e-toast-content">${StartTime.toLocaleTimeString()} - ${EndTime.toLocaleTimeString()}</div>
-                        </div>
-                    </div>
-                </script>
             </div>
         </div>
 
@@ -78,9 +70,13 @@
                     const currentTime = dateFormat(new Date(new Date().toUTCString().slice(0, -3)));
                     const difference = startTime.getTime() - currentTime.getTime();
                     if (startTime.getTime() >= currentTime.getTime() && difference > -1 && difference <= 5000) {
-                        const template = document.getElementById('reminder-template');
-                        const tempData = compile(template.innerHTML.trim())(event);
-                        toastObj.show({ template: tempData[0].outerHTML });
+                        const template =`<div class="e-toast-template">
+                                            <div class="e-toast-message">
+                                                <div class="e-toast-title">${event.Subject}</div>
+                                                <div class="e-toast-content">${event.StartTime.toLocaleTimeString()} - ${event.EndTime.toLocaleTimeString()}</div>
+                                            </div>
+                                        </div>`;
+                        toastObj.show({ template: template });
                     }
                 });
             },

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-accumulationchart ref="pie" :load='load' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
              :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :mode='emptydata' xName='x' yName='y' :dataLabel='dataLabel' name='Profit' type='Pie' :emptyPointSettings='emptyPointSettings'> </e-accumulation-series>
@@ -61,9 +61,14 @@ import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
 import { AccumulationChartPlugin, AccumulationTooltip, PieSeries, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
             { x: 'Rice', y: 80 }, { x: 'Wheat', y: null }, { x: 'Oil', y: 70 },
             { x: 'Corn', y: 60 }, { x: 'Gram', y: null },
@@ -133,13 +138,7 @@ export default Vue.extend({
             emptyPointSettings.mode = empty;
             this.emptyPointSettings = emptyPointSettings; 
             
-      },
-     load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+      }
   },
 
 });

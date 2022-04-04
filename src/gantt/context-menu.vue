@@ -171,7 +171,7 @@ export default Vue.extend({
         }
       },
       columns: [
-        { field: "TaskID", width: 50 },
+        { field: "TaskID", width: 80 },
         {
           field: "TaskName",
           headerText: "Job Name",

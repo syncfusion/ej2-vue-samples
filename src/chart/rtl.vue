@@ -3,6 +3,7 @@
     <div align="center">
       <ejs-chart
         style="display: block"
+        :theme="theme"
         align="center"
         id="chartcontainer"
         :title="title"
@@ -84,28 +85,35 @@ import {
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (
+  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function () {
     return {
+      theme: theme,
       seriesData: [
         { x: 2016, y: 1000 },
-        { x: 2017, y: 970 },
-        { x: 2018, y: 1060 },
+        { x: 2017, y: 1170 },
+        { x: 2018, y: 660 },
         { x: 2019, y: 1030 },
       ],
 
       seriesData1: [
         { x: 2016, y: 400 },
-        { x: 2017, y: 360 },
-        { x: 2018, y: 920 },
+        { x: 2017, y: 460 },
+        { x: 2018, y: 1120 },
         { x: 2019, y: 540 },
       ],
 
       seriesData2: [
-        { x: 2016, y: 600 },
-        { x: 2017, y: 610 },
-        { x: 2018, y: 140 },
-        { x: 2019, y: 490 },
+        { x: 2016, y: 200 },
+        { x: 2017, y: 250 },
+        { x: 2018, y: 300 },
+        { x: 2019, y: 350 },
       ],
 
       //Initializing Primary X Axis
@@ -147,12 +155,10 @@ export default Vue.extend({
     chart: [ColumnSeries, Tooltip, Legend],
   },
   methods: {
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+    load: function (args) {
+      let selectedTheme = location.hash.split("/")[1];
+      selectedTheme = selectedTheme ? selectedTheme : "Material";
+    },
   },
 });
 </script>

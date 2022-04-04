@@ -10,8 +10,8 @@
         :height = "height"       
         :highlightWeekends= 'true'         
         :taskFields= "taskFields"
-        :labelSettings= "labelSettings"
         :treeColumnIndex= "1"
+        :labelSettings= "labelSettings"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate"
         >

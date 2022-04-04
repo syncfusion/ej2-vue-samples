@@ -201,7 +201,6 @@
         "name": "Grouped Column",
         "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the grouping in column series.",
         "category": "Bar Charts",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "grouped-column.vue", "path": "./src/chart/grouped-column.vue"}
         ]
@@ -529,7 +528,6 @@
     {
         "url": "pie-radius",
         "name": "Pie with Various Radius",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie chart with various radius",
         "category": "Accumulation Charts",
         "sourceFiles": [
@@ -565,12 +563,13 @@
         ]
     },
     {
-        "url": "default-doughnut",
+        "url": "pie-legend",
         "name": "Pie with Legend",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
-            {"displayName": "default-doughnut.vue", "path": "./src/chart/default-doughnut.vue"}
+            {"displayName": "pie-legend.vue", "path": "./src/chart/pie-legend.vue"}
         ]
     },
     {
@@ -858,7 +857,6 @@
         "name": "RTL",
         "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the RTL feature in chart.",
         "category": "Chart Customization",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "rtl.vue", "path": "./src/chart/rtl.vue"}
         ]
@@ -938,7 +936,6 @@
     {
         "url": "selection",
         "name": "Selection",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the selection behavior in chart.",
         "category": "User Interaction",        
         "sourceFiles": [

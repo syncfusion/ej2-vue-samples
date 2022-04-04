@@ -34,6 +34,7 @@
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
+      "type": "update",
       "api": {}
     },
     {
@@ -89,7 +90,6 @@
       "name": "Show/Hide Totals",
       "category": "User Interaction",
       "hideOnDevice": false,
-      "type": "update",
       "api": {},
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the summary customization feature of the pivot table"
     },
@@ -106,6 +106,7 @@
       "name": "Toolbar",
       "category": "User Interaction",
       "hideOnDevice": false,
+      "type": "update",
       "api": {},
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },

@@ -76,6 +76,13 @@
         padding: 0 10px 10px 0;
         overflow: auto;
     }
+
+    .tailwind .property-panel-content,
+    .tailwind-dark .property-panel-content,
+    .fabric .property-panel-content,
+    .fabric-dark .property-panel-content {
+        overflow: hidden;
+    }
     
     .property-panel-table .e-multiselect {
         padding: 0;

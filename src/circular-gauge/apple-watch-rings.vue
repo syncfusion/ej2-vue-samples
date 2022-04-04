@@ -5,8 +5,22 @@
                 <div class="row">
                     <div class="col-lg-9 col-md-9" id="column1" style="margin-left: -5%">
                         <ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='gauge1' :load='load' width ='400px' height ='400px' >
+                            <template v-slot:mainOneTemplate="{}">
+                                <div class="annotation1"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image1.svg" /></div>
+                            </template>
+                            <template v-slot:mainTwoTemplate="{}">
+                                <div class="annotation2"><img style="width:20px;height:20px;" src="src/circular-gauge/images/image2.svg" /></div>
+                            </template>
+                            <template v-slot:mainThreeTemplate="{}">
+                                <div class="annotation3"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image3.svg" /></div>
+                            </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
+                            <e-annotations>
+                                <e-annotation angle='8' radius='80%' zIndex='1' :content="'mainOneTemplate'"></e-annotation>
+                                <e-annotation angle='11' radius='58%' zIndex='1' :content="'mainTwoTemplate'"></e-annotation>
+                                <e-annotation angle='16' radius='36%' zIndex='1' :content="'mainThreeTemplate'"></e-annotation>
+                            </e-annotations>
                             <e-pointers>
                                  <e-pointer :roundedCornerRadius=25 value=65 radius='90%' color='#fa114f' :type='type' :pointerWidth=40></e-pointer>
                                  <e-pointer :roundedCornerRadius=25 value=43 radius='68%' color='#99ff01' :type='type' :pointerWidth=40></e-pointer>
@@ -21,8 +35,14 @@
                      <div class="panel">
                       <div style="float:left;">
                         <ejs-circulargauge ref="circulargauge1" style='display:block:height:250px; margin-top: 5px' align='center' id='gauge2' :load='load1' width ='65px' height ='65px' >
+                        <template v-slot:oneTemplate="{}">
+                            <div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image1.svg" /></div>
+                        </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations_1' :ranges='ranges_1'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges_1'>
+                            <e-annotations>
+                                <e-annotation angle='0' radius='0%' zIndex='1' :content="'oneTemplate'"></e-annotation>
+                            </e-annotations>
                             <e-pointers>
                                  <e-pointer :roundedCornerRadius=5 value=65 radius='100%' color='#fa114f' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
@@ -41,8 +61,14 @@
                 <div class="panel">
                       <div style="float:left;">
                          <ejs-circulargauge ref="circulargauge2" style='display:block; margin-top: 5px;' align='center' id='gauge3' :load='load2' width ='65px' height ='65px' >
+                         <template v-slot:twoTemplate="{}">
+                             <div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image2.svg" /></div>
+                         </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations_2' :ranges='ranges_2'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges_2'>
+                            <e-annotations>
+                                <e-annotation angle='0' radius='0%' zIndex='1' :content="'twoTemplate'"></e-annotation>
+                            </e-annotations>
                             <e-pointers>
                                  <e-pointer :roundedCornerRadius=5 value=43 radius='100%' color='#99ff01' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
@@ -61,8 +87,14 @@
                  <div class="panel">
                       <div style="float:left;">
                          <ejs-circulargauge ref="circulargauge3" style='display:block; margin-top: 5px;' align='center' id='gauge4' :load='load3' width ='65px' height ='65px' >
+                        <template v-slot:threeTemplate={}>
+                            <div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image3.svg" /></div>
+                        </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations_3' :ranges='ranges_3'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges_3'>
+                            <e-annotations>
+                                <e-annotation angle='0' radius='0%' zIndex='1' :content="'threeTemplate'"></e-annotation>
+                            </e-annotations>
                             <e-pointers>
                                  <e-pointer :roundedCornerRadius=5 value=58 radius='100%' color='#00d8fe' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
@@ -226,13 +258,6 @@ import { SliderPlugin,SliderChangeEventArgs, Slider } from "@syncfusion/ej2-vue-
 Vue.use(SliderPlugin);
 Vue.use(CircularGaugePlugin);
 
-let annotationTemplate_1 = '<div class="annotation1"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image1.svg" /></div>';
-let annotationTemplate_2 = '<div class="annotation2"><img style="width:20px;height:20px;" src="src/circular-gauge/images/image2.svg" /></div>';
-let annotationTemplate_3 = '<div class="annotation3"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image3.svg" /></div>';
-let annotationTemplate_4 = '<div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image1.svg" /></div>';
-let annotationTemplate_5 = '<div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image2.svg" /></div>';
-let annotationTemplate_6 = '<div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image3.svg" /></div>';
-
 let annotationTemplate_7 = '<div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image4.svg" /></div>';
 let annotationTemplate_8 = '<div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image5.svg" /></div>';
 let annotationTemplate_9 = '<div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image6.svg" /></div>';
@@ -254,18 +279,6 @@ export default Vue.extend({
                 font: { size: '0px', color: 'white', fontFamily: 'Roboto', fontStyle: 'Regular' }
             },
             color:  '#e5ce20',
-            annotations_1: [{
-                angle: 0, radius: '0%', zIndex: '1',
-                content: annotationTemplate_4
-            }],
-            annotations_2: [{
-                angle: 0, radius: '0%', zIndex: '1',
-                content: annotationTemplate_5
-            }],
-            annotations_3: [{
-                angle: 0, radius: '0%', zIndex: '1',
-                content: annotationTemplate_6
-            }],
             ranges_1: [
                     {
                 start: 0, end: 100,
@@ -287,17 +300,6 @@ export default Vue.extend({
                 startWidth: 8, endWidth: 8,
                 color: '#00d8fe', opacity: 0.2
             }],
-            annotations: [{
-                  angle: 8, radius: '80%', zIndex: '1',
-                content: annotationTemplate_1
-            },{
-                  angle: 11, radius: '58%', zIndex: '1',
-                content: annotationTemplate_2
-            },{
-                 angle: 16, radius: '36%', zIndex: '1',
-                content: annotationTemplate_3
-            }
-            ],
             titleStyle: { size: '18px', },
             ranges: [
                     {

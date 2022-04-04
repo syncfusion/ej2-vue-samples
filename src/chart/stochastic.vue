@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :indicators='indicators' :crosshair='crosshair' :tooltip='tooltip' :zoomSettings='zoomSettings' :axes='axes' :rows='rows'>
             <e-series-collection>
                 <e-series :dataSource='cData' type='Candle' xName='x' yName='y' name='Apple Inc' width=2 low='low' high='high' close='close' open='open' volume='volume' bearFillColor='#2ecd71' bullFillColor='#e74c3d' :animation='animation'> </e-series>
@@ -45,10 +45,15 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, Category, CandleSeries, Tooltip, DateTime, Zoom, Crosshair, LineSeries, Logarithmic, StripLine, StochasticIndicator } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 import { chartData } from './financial-data';
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
      cData : chartData,
       //Initializing Primary X Axis
      primaryXAxis: {
@@ -120,12 +125,7 @@ export default Vue.extend({
     chart: [CandleSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, LineSeries, StochasticIndicator, StripLine]
   },
   methods: {
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+    
   },
  
 });

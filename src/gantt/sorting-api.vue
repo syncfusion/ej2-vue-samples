@@ -47,8 +47,8 @@
         <tr>
             <td style="width: 100%">
                 <div>
-                    <ejs-button ref='sort' style="margin-right: 10px" v-on:click.native="sort">Sort</ejs-button>
-                    <ejs-button ref='clear' v-on:click.native="clear">Clear</ejs-button>
+                    <ejs-button ref='sort' style="margin-right: 5px; width: 80px;" v-on:click.native="sort">Sort</ejs-button>
+                    <ejs-button ref='clear' style="width: 80px" v-on:click.native="clear">Clear</ejs-button>
                 </div>
             </td>
         </tr>

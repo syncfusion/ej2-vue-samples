@@ -80,6 +80,10 @@ let fabricColors= ['#4472c4', '#ed7d31', '#ffc000', '#70ad47', '#5b9bd5',
         '#c1c1c1', '#6f6fe2', '#e269ae', '#9e480e', '#997300', '#4472c4', '#70ad47', '#ffc000', '#ed7d31'];
 let bootstrapColors =  ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e', '#ff6ea6',
         '#7953ac', '#b99b4f', '#407c92', '#5ea716', '#b91c52'];
+let fluentColors = ['#614570', '#4C6FB1', '#CC6952', '#3F579A', '#4EA09B', '#6E7A89', '#D4515C', '#E6AF5D', '#639751',
+        '#9D4D69'];
+let fluentDarkColors = ['#8AB113', '#2A72D5', '#43B786', '#584EC6', '#E85F9C', '#6E7A89', '#EA6266', '#EBA844', '#26BC7A', 
+        '#BC4870'];        
 export default Vue.extend({
   data: function() {
     return {
@@ -175,6 +179,10 @@ export default Vue.extend({
             args.fill = fabricColors[args.point.index % 10];
         } else if (selectedTheme === 'material') {
             args.fill = materialColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent') {
+            args.fill = fluentColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent-dark') {
+            args.fill = fluentDarkColors[args.point.index % 10];
         } else {
             args.fill = bootstrapColors[args.point.index % 10];
         }

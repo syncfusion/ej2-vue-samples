@@ -4,6 +4,17 @@
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'
                     :eventRendered="onEventRendered">
+                    <template v-slot:tooltipTemplate="{ data }">
+                        <div class="tooltip-wrap e-schedule-event-tooltip">
+                            <div :class="getClass(data)"></div>
+                            <div class="content-area">
+                                <div class="name">{{data.Subject}}</div>
+                                <div v-if="data.City!== null && data.City!==undefined" class="city">{{data.City}}</div>
+                                <div class="time">From&nbsp;:&nbsp;{{(data.StartTime).toLocaleString()}} </div>
+                                <div class="time">To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{(data.EndTime).toLocaleString()}} </div>
+                            </div>
+                        </div>
+                    </template>
                 </ejs-schedule>
             </div>
         </div>
@@ -92,6 +103,7 @@
     }
 
     .fabric .e-schedule-event-tooltip.tooltip-wrap .maintenance,
+    .fluent .e-schedule-event-tooltip.tooltip-wrap .maintenance,
     .highcontrast .e-schedule-event-tooltip.tooltip-wrap .maintenance {
         background-image: url('./images/maintenance1.png');
     }
@@ -101,6 +113,7 @@
     }
 
     .fabric .e-schedule-event-tooltip.tooltip-wrap .public-event,
+    .fluent .e-schedule-event-tooltip.tooltip-wrap .public-event,
     .highcontrast .e-schedule-event-tooltip.tooltip-wrap .public-event {
         background-image: url('./images/public-event1.png');
     }
@@ -110,6 +123,7 @@
     }
 
     .fabric .e-schedule-event-tooltip.tooltip-wrap .family-event,
+    .fluent .e-schedule-event-tooltip.tooltip-wrap .family-event,
     .highcontrast .e-schedule-event-tooltip.tooltip-wrap .family-event {
         background-image: url('./images/family-event1.png');
     }
@@ -118,7 +132,8 @@
         background-image: url('./images/commercial-event.png');
     }
 
-    .fabric.e-schedule-event-tooltip.tooltip-wrap .commercial-event,
+    .fabric .e-schedule-event-tooltip.tooltip-wrap .commercial-event,
+    .fluent .e-schedule-event-tooltip.tooltip-wrap .commercial-event,
     .highcontrast .e-schedule-event-tooltip.tooltip-wrap .commercial-event {
         background-image: url('./images/commercial-event1.png');
     }
@@ -137,30 +152,10 @@
     Vue.use(SchedulePlugin);
     Vue.use(CheckBoxPlugin);
 
-    var tooltipVue = Vue.component("tooltipTemplate", {
-        template: '<div class="tooltip-wrap e-schedule-event-tooltip"><div :class="getClass"></div><div class="content-area">' +
-        '<div class="name">{{data.Subject}}</div><div v-if="data.City!== null && data.City!==undefined" class="city">{{data.City}}</div>' +
-        '<div class="time">From&nbsp;:&nbsp;{{(data.StartTime).toLocaleString()}} </div>' +
-        '<div class="time">To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{(data.EndTime).toLocaleString()}} </div></div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        },
-        computed: {
-            getClass: function() {
-                return 'image ' + this.data.EventType;
-            }
-        }
-    });
-    var tooltipTemplate = function () {
-        return { template: tooltipVue }
-    };
-
     export default Vue.extend({
         data: function () {  
             return {
-                eventSettings: { dataSource: extend([], eventsData, null, true), enableTooltip: true, tooltipTemplate: tooltipTemplate },
+                eventSettings: { dataSource: extend([], eventsData, null, true), enableTooltip: true, tooltipTemplate: 'tooltipTemplate' },
                 selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week'
             }
@@ -182,7 +177,7 @@
             onTemplateChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
                 if (args.checked) {
-                    scheduleObj.ej2Instances.eventSettings.tooltipTemplate = tooltipTemplate;
+                    scheduleObj.ej2Instances.eventSettings.tooltipTemplate = 'tooltipTemplate';
                 } else {
                     scheduleObj.ej2Instances.eventSettings.tooltipTemplate = null;
                 }
@@ -200,6 +195,10 @@
                 } else {
                     args.element.style.backgroundColor = categoryColor;
                 }
+            },
+
+            getClass: function(data) {
+                return 'image ' + data.EventType;
             }
         }
     });

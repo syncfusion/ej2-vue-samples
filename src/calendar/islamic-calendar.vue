@@ -85,6 +85,16 @@ export default Vue.extend({
   margin: 0 auto;
 }
 
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
+body.highcontrast #date_label {
+    color: white;
+} 
+
     /* custom generated icons styles */
 
     @font-face {
@@ -164,7 +174,8 @@ body.highcontrast .e-bigger .calendar-islamic-custom.e-calendar span.e-icons.hig
     .fabric-dark .calendar-islamic-custom .sf-icon-cup:before,
     .bootstrap-dark .calendar-islamic-custom .sf-icon-cup:before,
     .bootstrap5-dark .calendar-islamic-custom .sf-icon-cup:before,
-    .tailwind-dark .calendar-islamic-custom .sf-icon-cup:before {
+    .tailwind-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .fluent-dark .calendar-islamic-custom .sf-icon-cup:before {
         color: #ff7500;
     }
 
@@ -173,7 +184,8 @@ body.highcontrast .e-bigger .calendar-islamic-custom.e-calendar span.e-icons.hig
     .fabric-dark .calendar-islamic-custom .sf-icon-start:before,
     .bootstrap-dark .calendar-islamic-custom .sf-icon-start:before,
     .bootstrap5-dark .calendar-islamic-custom .sf-icon-start:before,
-    .tailwind-dark .calendar-islamic-custom .sf-icon-start:before {
+    .tailwind-dark .calendar-islamic-custom .sf-icon-start:before,
+    .fluent-dark .calendar-islamic-custom .sf-icon-start:before {
         color: #ff7500;
     }
     .calendar-islamic-custom [class^="sf-icon-"],

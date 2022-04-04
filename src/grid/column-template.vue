@@ -8,13 +8,18 @@
     <div>
         <ejs-grid :dataSource="data" height=350>
             <e-columns>
-                <e-column headerText='Employee Image' width='150' textAlign='Center' :template='cTemplate'></e-column>
+                <e-column headerText='Employee Image' width='150' textAlign='Center' :template="'cTemplate'"></e-column>
                 <e-column field='EmployeeID' headerText='Employee ID' width='125' textAlign='Right'></e-column>
                 <e-column field='FirstName' headerText='Name' width='120'></e-column>
                 <e-column field='Title' headerText='Title' width='170'></e-column>
                 <e-column field='HireDate' headerText='Hire Date' width='135' textAlign='Right' format='yMd'></e-column>
                 <e-column field='ReportsTo' headerText='Reports To' width='120' textAlign='Right'></e-column>
             </e-columns>
+            <template v-slot:cTemplate="{data}">
+                <div class="image">
+                      <img :src="'source/grid/images/' + data.EmployeeID + '.png'" :alt="data.EmployeeID"/>
+                </div>
+            </template>
         </ejs-grid>
     </div>
 
@@ -33,11 +38,19 @@
 </div>
 </template>
 
+<style scoped>
+.image img {
+        height: 55px;
+        width: 55px;
+        border-radius: 50px;
+        box-shadow: inset 0 0 1px #e0e0e0, inset 0 0 14px rgba(0,0,0,0.2);
+    }
+</style>
+
 <script>
 import Vue from "vue";
 import { GridPlugin } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
-import columntempVue from "./column-temp.vue";
 
 Vue.use(GridPlugin);
 
@@ -45,9 +58,6 @@ export default Vue.extend({
   data: () => {
     return {
       data: employeeData,
-      cTemplate: function () {
-          return { template : columntempVue}
-      }
     };
   }
 });

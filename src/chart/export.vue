@@ -62,9 +62,11 @@
 
 </template>
 <style>
+   
     .e-export-icon::before {
         content: '\e728';
     }
+   
     .e-view.fabric .e-export-icon::before, .e-view.fabric-dark .e-export-icon::before {
         content: '\e710';
     }
@@ -94,7 +96,7 @@ import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { Button } from '@syncfusion/ej2-vue-buttons';
 import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
-import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
+import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartPlugin, ColumnSeries, Category, Legend, Export } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
@@ -179,6 +181,10 @@ export default Vue.extend({
           args.fill = materialColors[args.point.index % 10];
         } else if (selectedTheme === "highcontrast") {
           args.fill = highContrastColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent') {
+          args.fill = fluentColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent-dark') {
+          args.fill = fluentDarkColors[args.point.index % 10];
         } else {
           args.fill = bootstrapColors[args.point.index % 10];
         }

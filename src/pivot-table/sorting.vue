@@ -43,7 +43,7 @@
               <td></td>
                 <td>
                     <div style="float: right">
-                        <ejs-button id="apply" ref="apply" v-on:click.native="btnClick" :cssClass="cssClass" isPrimary='true'>Apply</ejs-button>
+                        <ejs-button id="apply" ref="apply" v-on:click.native="btnClick" isPrimary='true'>Apply</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -122,7 +122,6 @@ export default Vue.extend({
       ],
       orderData: ["Ascending", "Descending"],
       fields: { text: "Field", value: "Order" },
-      cssClass: "e-flat"
     };
   },
   methods: {

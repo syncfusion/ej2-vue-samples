@@ -58,18 +58,20 @@
   .bootstrap4 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
     content: "\e787";
   }
-
-  .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before {
-    content: '\e7d0';
-  }
-
-  .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
-    content: '\e748';
-  }
-  .bootstrap5 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
+  .fluent .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .fluent-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .bootstrap5 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
     content: '\e80e';
   }
-  .bootstrap5 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
+  .tailwind .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .tailwind-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .bootstrap5 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .fluent .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .fluent-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
       content: '\e7de';
   }
 </style>

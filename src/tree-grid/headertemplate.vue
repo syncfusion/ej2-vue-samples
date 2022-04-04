@@ -3,12 +3,37 @@
     <div>
         <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='0' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
-                <e-column field='taskName' width='200' :headerTemplate='nametemplate'></e-column>
-                <e-column field='startDate' width='100' :headerTemplate='datetemplate' format='yMd'  textAlign='Right'></e-column>
-                <e-column field='resourceId' width='100' :headerTemplate='resourcetemplate' textAlign='Right'></e-column>
-                <e-column field='duration' width='100' :headerTemplate='durationtemplate'  textAlign='Right' ></e-column>
-                <e-column field='progress' width='100' :headerTemplate='progresstemplate'  textAlign='Right'></e-column>
+                <e-column field='taskName' width='200' :headerTemplate="'nametemplate'"></e-column>
+                <e-column field='startDate' width='100' :headerTemplate="'datetemplate'" format='yMd'  textAlign='Right'></e-column>
+                <e-column field='resourceId' width='100' :headerTemplate="'resourcetemplate'" textAlign='Right'></e-column>
+                <e-column field='duration' width='100' :headerTemplate="'durationtemplate'"  textAlign='Right' ></e-column>
+                <e-column field='progress' width='100' :headerTemplate="'progresstemplate'"  textAlign='Right'></e-column>
             </e-columns>
+            <template v-slot:nametemplate="{data}">
+                <div class="image">
+                    <img :src="image1()" width=20 height=20 style="padding-bottom: 2px" class="taskname"/> Task Name
+                </div>
+            </template>
+            <template v-slot:datetemplate="{data}">
+                <div class="image">
+                    <img :src="image2()" width=20 height=20 style="padding-bottom: 2px" class="startdate"/> Start Date
+                </div>
+            </template>
+            <template v-slot:resourcetemplate="{data}">
+                <div class="image">
+                    <img :src="image3()" width=20 height=20 style="padding-bottom: 2px" class="resources"/> Resources
+                </div>
+            </template>
+            <template v-slot:durationtemplate="{data}">
+                <div class="image">
+                    <img :src="image4()" width=20 height=20 style="padding-bottom: 2px" class="duration"/> Duration
+                </div>
+            </template>
+            <template v-slot:progresstemplate="{data}">
+                <div class="image">
+                    <img :src="image5()" width=20 height=20 style="padding-bottom: 2px" class="Progress"/> Progress
+                </div>
+            </template>
         </ejs-treegrid>
     </div>
 
@@ -50,108 +75,37 @@ export default Vue.extend({
     return {
       data: headerData,
       pageSettings: { pageSize: 10 },
-      nametemplate: function () {
-          return { template : Vue.component('columnTemplate',{
-             template: `<div class="image">
-                    <img :src="image" width=20 height=20 style="padding-bottom: 2px" class="taskname"/> Task Name
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        var classNames = document.body.classList;
-                        var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
-                        return (normalTheme ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");
-                    }
-                }
-          })}
-      },
-     datetemplate: function () {
-          return { template : Vue.component('columnTemplate',{
-             template: `<div class="image">
-                    <img :src="image" width=20 height=20 style="padding-bottom: 2px" class="startdate"/> Start Date
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        var classNames = document.body.classList;
-                        var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
-                        return (normalTheme ? "source/tree-grid/images/startdate.png": "source/tree-grid/images/darkStartname.png");
-                    }
-                }
-          })}
-      },
-      resourcetemplate: function () {
-          return { template : Vue.component('columnTemplate',{
-             template: `<div class="image">
-                    <img :src="image" width=20 height=20 style="padding-bottom: 2px" class="resources"/> Resources
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        var classNames = document.body.classList;
-                        var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
-                        return (normalTheme ? "source/tree-grid/images/resources.png": "source/tree-grid/images/darkResources.png");
-                    }
-                }
-          })}
-      },
-      durationtemplate: function () {
-          return { template : Vue.component('columnTemplate',{
-             template: `<div class="image">
-                    <img :src="image" width=20 height=20 style="padding-bottom: 2px" class="duration"/> Duration
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        var classNames = document.body.classList;
-                        var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
-                        return (normalTheme ? "source/tree-grid/images/duration.png": "source/tree-grid/images/darkduration.png");
-                    }
-                }
-          })}
-      },
-      progresstemplate: function () {
-          return { template : Vue.component('columnTemplate',{
-             template: `<div class="image">
-                    <img :src="image" width=20 height=20 style="padding-bottom: 2px" class="Progress"/> Progress
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        var classNames = document.body.classList;
-                        var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
-                        return (normalTheme ? "source/tree-grid/images/progress.png" :"source/tree-grid/images/darkprogress.png");
-                    }
-                }
-          })}
-      }
     };
   },
    provide : {
       treegrid: [Page],
     },
-   methods:{
-      
+    methods : {
+        image1() {
+            var classNames = document.body.classList;
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            return (normalTheme ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");
+        },
+        image2() {
+            var classNames = document.body.classList;
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            return (normalTheme ? "source/tree-grid/images/startdate.png": "source/tree-grid/images/darkStartname.png");
+        },
+        image3() {
+            var classNames = document.body.classList;
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            return (normalTheme ? "source/tree-grid/images/resources.png": "source/tree-grid/images/darkResources.png");
+        },
+        image4() {
+            var classNames = document.body.classList;
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            return (normalTheme ? "source/tree-grid/images/duration.png": "source/tree-grid/images/darkduration.png");
+        },
+        image5() {
+            var classNames = document.body.classList;
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            return (normalTheme ? "source/tree-grid/images/progress.png" :"source/tree-grid/images/darkprogress.png");
+        }
   }
 
 });

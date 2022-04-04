@@ -277,6 +277,8 @@ export default Vue.extend({
                 break;
             case 'bootstrap5':
             case 'bootstrap5-dark':
+            case 'fluent':
+            case 'fluent-dark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[8], args.progressBar.element.id);
                 break;
             case 'tailwind-dark':

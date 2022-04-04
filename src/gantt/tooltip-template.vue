@@ -21,6 +21,53 @@
         :resources= "resources"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
+        <template v-slot:taskbarTooltipTemplate="{data}">
+<div>
+    <table>
+        <template v-if="data.ganttProperties.resourceNames">
+        <tr>
+            <td rowspan="3" style="padding:3px"><img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'" height="40px" /></td>
+            <td style="padding:3px">Task done By:</td>
+            <td style="padding:3px">{{data.ganttProperties.resourceNames}}</td>
+        </tr>
+        </template>
+        <template>
+        <tr>
+            <td style="padding:3px">Starts On:</td>
+            <td style="padding:3px">{{format(data.StartDate)}}</td>
+        </tr>
+        <tr>
+            <td style="padding:3px">Ends On:</td>
+            <td style="padding:3px">{{format(data.EndDate)}}</td>
+        </tr>
+        </template>
+    </table>
+    </div>
+</template>
+<template v-slot:baselineTooltipTemplate="{data}">
+<div id="tooltip">
+<table>
+    <tbody>
+        <tr>
+            <td>Planned Start Date: </td>
+            <td>{{format(data.BaselineStartDate)}}</td>
+        </tr>
+        <tr>
+            <td>Planned End Date: </td>
+            <td>{{format(data.BaselineEndDate)}}</td>
+        </tr>
+        <tr>
+            <td>Current Start Date: </td>
+            <td>{{format(data.StartDate)}}</td>
+        </tr>
+        <tr>
+            <td>Current End Date: </td>
+            <td>{{format(data.EndDate)}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</template>
         </ejs-gantt>
     </div>
 <div id="description">
@@ -68,7 +115,7 @@ export default Vue.extend({
                resourceInfo: 'resources'
             },
             columns: [
-                { field: 'TaskID', width: 70 },
+                { field: 'TaskID', width: 80 },
                 { field: 'TaskName', width: 250 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
@@ -93,12 +140,8 @@ export default Vue.extend({
             },
             tooltipSettings: {
                 showTooltip: true,
-                taskbar: function () {
-                return { template : TaskbarTemplate}
-              },
-                baseline: function () {
-                return { template : BaselineTemplate}
-              } 
+                taskbar: "taskbarTooltipTemplate",
+                baseline: "baselineTooltipTemplate"
             },
             projectStartDate: new Date('03/24/2019'),
             projectEndDate: new Date('05/04/2019'),
@@ -106,6 +149,11 @@ export default Vue.extend({
   },
   provide: {
       gantt: [DayMarkers, Selection]
+  },
+  methods: {
+      format: function(value) {
+                return this.$refs.gantt.getFormatedDate(value, 'd/M/y');
+            }
   }
 });
 </script>

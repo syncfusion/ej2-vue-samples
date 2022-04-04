@@ -3,7 +3,7 @@
     <div class="col-md-8 control-section">
       <ejs-chart
         ref="chart"
-        :load='load'
+        :theme="theme"
         style="display:block"
         align="center"
         id="chartcontainer"
@@ -107,9 +107,16 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (
+  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       seriesData: [
         { x: "Jan", low: 2, high: 7 },
         { x: "Feb", low: 3, high: 7 },
@@ -167,12 +174,6 @@ export default Vue.extend({
   methods: {
     polarType: function(args) {
       this.seriesType = SelectSeriesType.value;
-    },
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   }
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
          :width='width' :legendSettings='legendSettings' :axes='axes' :crosshair='crosshair'>
             <e-series-collection>
                 <e-series :dataSource='cData' type='Line' xName='xDate' yName='High' name='Product X' :marker='marker' width=2> </e-series>
@@ -48,9 +48,14 @@ import { axesData } from './financial-data';
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
      cData : axesData,
       //Initializing Primary X Axis
       primaryXAxis: {
@@ -104,12 +109,6 @@ export default Vue.extend({
     chart: [LineSeries, DateTime, Crosshair, HiloOpenCloseSeries]
   },
   methods: {
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   },
  
 });

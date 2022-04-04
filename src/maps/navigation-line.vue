@@ -2,8 +2,32 @@
  <div>
 <div class="control-section">
 <ejs-maps id='navigationLine' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :mapsArea='mapsArea' :centerPosition='centerPosition'>
+    <template v-slot:altamiraTemplate="{}">
+        <div id="marker1" style="font-size: 12px;color:white; font-family:Segoe UI; ">ALTAMIRA</div>
+    </template>
+    <template v-slot:houstonTemplate="{}">
+        <div id="marker2" style="font-size: 12px;color:white; font-family:Segoe UI;">HOUSTON</div>
+    </template>
+    <template v-slot:panamaTemplate="{}">
+        <div id="marker3" style="font-size: 12px;color:white; font-family:Segoe UI;">PANAMA CITY</div>
+    </template>
+    <template v-slot:tampaTemplate="{}">
+        <div id="marker4" style="font-size: 12px;color:white; font-family:Segoe UI;">TAMPA</div>
+    </template>
+    <template v-slot:progresoTemplate="{}">
+        <div id="marker5" style="font-size: 12px;color:white; font-family:Segoe UI;">PROGRESO</div>
+    </template>
     <e-layers>
-        <e-layer :shapeData='shapeData' :navigationLineSettings='navigationLineSettings' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
+        <e-layer :shapeData='shapeData' :navigationLineSettings='navigationLineSettings' :shapeSettings='shapeSettings'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' shape='Circle' fill='white' :width='markerSize' :height='markerSize' animationDuration='0' :dataSource='markerDataSource'></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='altamiraDataSource' :template="'altamiraTemplate'" :offset='altamiraOffset'></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='houstonDataSource' :template="'houstonTemplate'" :offset='houstonOffset'></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='panamaDataSource' :template="'panamaTemplate'" :offset='panamaOffset'></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='tampaDataSource' :template="'tampaTemplate'" :offset='tampaOffset'></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='progresoDataSource' :template="'progresoTemplate'" :offset='progresoOffset'></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 
@@ -83,82 +107,18 @@ export default Vue.extend({
                     fill: '#789071',
                 },
         navigationLineSettings: penisular_location,
-        markerSettings: [
-                    {
-                        visible: true,
-                        shape: 'Circle',
-                        fill: 'white',
-                        width: 10,
-                        height: 10,
-                        animationDuration: 0,
-                        dataSource: penisular_marker
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="marker1" style="font-size: 12px;color:white; font-family:Segoe UI; ">ALTAMIRA' +
-                            '</div>',
-                        dataSource: [
-                            { latitude: 22.403410892712124, longitude: -97.8717041015625, }
-                        ],
-                        animationDuration: 0,
-                        offset: {
-                            x: -35,
-                            y: 0
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="marker2" style="font-size: 12px;color:white; font-family:Segoe UI;">HOUSTON' +
-                            '</div>',
-                        dataSource: [
-                            { latitude: 29.756032197482973, longitude: -95.36270141601562 }
-                        ],
-                        animationDuration: 0,
-                        offset: {
-                            x: 0,
-                            y: -15
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="marker3" style="font-size: 12px;color:white; font-family:Segoe UI;">PANAMA CITY' +
-                            '</div>',
-                        dataSource: [
-                            { latitude: 30.180747605060766, longitude: -85.81283569335938 }
-                        ],
-                        animationDuration: 0,
-                        offset: {
-                            x: 0,
-                            y: -15
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="marker4" style="font-size: 12px;color:white; font-family:Segoe UI;">TAMPA' +
-                            '</div>',
-                        dataSource: [
-                            { latitude: 27.9337540167772, longitude: -82.49908447265625 }
-                        ],
-                        animationDuration: 0,
-                        offset: {
-                            x: 0,
-                            y: -15
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="marker5" style="font-size: 12px;color:white; font-family:Segoe UI;">PROGRESO' +
-                            '</div>',
-                        dataSource: [
-                            { latitude: 21.282336521195344, longitude: -89.6649169921875 }
-                        ],
-                        animationDuration: 0,
-                        offset: {
-                            x: 0,
-                            y: 15
-                        }
-                    }
-                ]
+        markerDataSource: penisular_marker,
+        markerSize: 10,
+        altamiraDataSource: [{ latitude: 22.403410892712124, longitude: -97.8717041015625 }],
+        altamiraOffset: { x: -35, y: 0 },
+        houstonDataSource: [{ latitude: 29.756032197482973, longitude: -95.36270141601562 }],
+        houstonOffset: { x: 0, y: -15 },
+        panamaDataSource: [{ latitude: 30.180747605060766, longitude: -85.81283569335938 }],
+        panamaOffset: { x: 0, y: -15 },
+        tampaDataSource: [{ latitude: 27.9337540167772, longitude: -82.49908447265625 }],
+        tampaOffset: { x: 0, y: -15 },
+        progresoDataSource: [{ latitude: 21.282336521195344, longitude: -89.6649169921875 }],
+        progresoOffset: { x: 0, y: 15 }
       }
   },
 provide: {

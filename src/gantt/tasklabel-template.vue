@@ -4,22 +4,25 @@
     <p>This sample explains the way of rendering label template for left, right, and task labels by mapping template elements to the leftLabel, rightLabel and taskLabel properties in labelSettings.</p>
 </div>
     <div>
-        <ejs-gantt ref='gantt' id="labelData" 
-        :dataSource= "data"
-        :rowHeight= "46"       
-        :height = "height"       
-        :highlightWeekends= 'true'  
-        :allowSelection = 'true'       
-        :taskFields= "taskFields"
-        :labelSettings= "labelSettings"
-        :treeColumnIndex= "1"
-        :columns= "columns"
-        :splitterSettings= "splitterSettings"
-        :resourceFields= "resourceFields"
-        :resources= "resources"
-        :projectStartDate= "projectStartDate"
-        :projectEndDate= "projectEndDate">
-        </ejs-gantt>
+      <ejs-gantt ref='gantt' id="labelData" :dataSource="data" :rowHeight="46" :height="height"
+        :highlightWeekends='true' :allowSelection='true' :taskFields="taskFields" :labelSettings="labelSettings"
+        :treeColumnIndex="1" :columns="columns" :splitterSettings="splitterSettings" :resourceFields="resourceFields"
+        :resources="resources" :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
+        <template v-slot:leftLabelTemplate="{data}">
+          <div>
+            <template>{{data.TaskName}} [ {{ data.Progress }} % ]</template>
+          </div>
+        </template>
+        <template v-slot:rightLabelTemplate="{data}">
+          <div v-if="data.ganttProperties.resourceInfo">
+            <span v-for="resource in data.ganttProperties.resourceInfo">
+              <img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + resource.resourceName + '.png'"
+                height="40px" />
+              <span style="marginLeft:5px;marginRight:5px">{{ resource.resourceName }}</span>
+            </span>
+          </div>
+        </template>
+      </ejs-gantt>
     </div>
 <div id="description">
     <p>
@@ -37,8 +40,6 @@
 import Vue from "vue";
 import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { labelData, editingResources } from './data-source';
-import LeftLabelTemplate from "./tasklabel-left-temp.vue";
-import RightLabelTemplate from "./tasklabel-right-temp.vue";
 Vue.use(GanttPlugin);
 export default Vue.extend({
   data: function() {
@@ -72,12 +73,8 @@ export default Vue.extend({
             },
             resources: editingResources,
             labelSettings: {
-                leftLabel: function () {
-                    return { template : LeftLabelTemplate}
-                },
-                rightLabel: function () {
-                    return { template : RightLabelTemplate}
-                },
+                leftLabel: "leftLabelTemplate",
+                rightLabel: "rightLabelTemplate",
                 taskLabel: '${Progress}%'
             },
             splitterSettings: {

@@ -3,7 +3,17 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
             <ejs-dropdownlist id='multi-template' :dataSource='data' :fields='fields' cssClass='ddl-template' :placeholder='watermark'
-             :headerTemplate='hTemplate' :itemTemplate='iTemplate' popupHeight="450px"></ejs-dropdownlist>
+             :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" popupHeight="450px">
+              <template v-slot:hTemplate="{data}">
+                <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
+              </template>
+              <template v-slot:iTemplate="{data}">
+                <div><img class="empImage" :src="data.Eimg" alt="employee"/><div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>
+              </template>                                        
+              <template v-slot:vTemplate="{data}">
+                <div style="width:100%;height:100%;"><img class="value" :src="data.Eimg" height="26px" width="26px" alt="employee"/><div class="name"> {{data.Name}} </div></div>
+              </template>                                        
+             </ejs-dropdownlist>
         </div>
     </div>
     <div id="action-description">    
@@ -95,8 +105,7 @@
         padding-bottom: 15px;
     }
 
-    .bootstrap .ddl-template .empImage,
-    .e-bigger.bootstrap .ddl-template .empImage {
+    .bootstrap:not(.e-bigger) .ddl-template .empImage {
         margin: 0px 10px 0 20px;
     }
 
@@ -142,7 +151,8 @@
         margin: 0px 16px;
     }
 
-    .bootstrap4 .ddl-template.e-popup .job {
+    .bootstrap4 .ddl-template.e-popup .job,
+    .bootstrap5:not(.e-bigger) .ddl-template.e-popup .job {
         margin-top: 0;
     }
     .e-bigger.bootstrap4 .ddl-template.e-popup .job {
@@ -161,6 +171,64 @@
     .bootstrap4 .ddl-template .header {
         color: #6c757d;
     }
+    .value {
+        border-radius: 50%;
+        float: left;
+        margin-top: 2px;
+        margin-left: 2px;
+    }
+
+    .e-bigger:not(.bootstrap) .value {
+        margin-top: 6px;
+    }
+    .name {
+        padding: 8px 42px;
+        opacity: .87;
+        line-height: 1.063em;
+    }
+    .e-bigger:not(.bootstrap) .name {
+        padding: 11px 42px;
+    }
+    .bootstrap.e-bigger .value {
+      margin-top: 5px;
+    }
+    .bootstrap.e-bigger .name {
+      padding-top : 11px;
+    }
+    
+    .fluent-dark .ddl-template .header {
+        background: #252423;
+        color: #2899F5;
+    }
+
+    .bootstrap5-dark .ddl-template .header {
+        background: #343A40;
+        color: #7B848D;
+    }
+
+    .fluent .ddl-template .header{
+         color: #2899F5;
+    }
+
+    .tailwind-dark .ddl-template .header {
+        background: #374151;
+        color: rgb(255, 255, 255);
+    }
+
+    .material-dark .ddl-template .header {
+        background: rgb(66, 66, 66);
+        color: rgb(255, 255, 255);
+    }
+
+    .fabric-dark .ddl-template .header {
+        background: rgb(40, 39, 39);
+        color: rgb(255, 255, 255);
+    }
+
+    .bootstrap-dark .ddl-template .header {
+        background: rgb(49, 49, 49);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -169,40 +237,11 @@ import * as data from './dataSource.json';
 
 Vue.use(DropDownListPlugin);
 
-var headerVue = Vue.component("headerTemplate", {
-  template: '<div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var itemVue = Vue.component("itemTemplate", {
-  template: '<div><img class="empImage" :src="data.Eimg" alt="employee"/>' +
-            '<div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
 export default Vue.extend ({
     data: function() {
         return {
-            fields: { value: 'Name' },
+            fields: { value: 'Name', text: 'Name' },
             watermark: 'Select Employees',
-            hTemplate: function(e) {
-                return {
-                    template: headerVue
-                };
-            },
-            iTemplate: function(e) {
-                return {
-                    template: itemVue
-                };
-            },
             data: data['empList']
         };
     }

@@ -2,8 +2,35 @@
 <div>
     <div class="control-section">
         <ejs-maps id='mapContainer' :loaded='loaded' :load='load' :resize='resize' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
+            <template v-slot:pieOneTemplate="{}">
+                <div id="pieChart1" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieTwoTemplate="{}">
+                <div id="pieChart2" style="height:70px;width:70px;">
+            </template>
+            <template v-slot:pieThreeTemplate="{}">
+                <div id="pieChart3" style="top:10px;left:10px;height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieFourTemplate="{}">
+                <div id="pieChart4" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieFiveTemplate="{}">
+                <div id="pieChart5" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieSixTemplate="{}">
+                <div id="pieChart6" style="height:70px;width:70px;"></div>
+            </template>
             <e-layers>
-                <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
+                <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings'>
+                    <e-markerSettings>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieOneDataSource' :template="'pieOneTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieTwoDataSource' :template="'pieTwoTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieThreeDataSource' :template="'pieThreeTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieFourDataSource' :template="'pieFourTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieFiveDataSource' :template="'pieFiveTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieSixDataSource' :template="'pieSixTemplate'"></e-markerSetting>
+                    </e-markerSettings>
+                </e-layer>
             </e-layers>
         </ejs-maps>
 
@@ -91,56 +118,12 @@ export default Vue.extend({
                     }
                 ]
             },
-             markerSettings: [
-                    {
-                        visible: true,
-                        template: '<div id="pieChart1" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': 61.938950426660604, 'longitude': 97.03125 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart2" style="height:70px;width:70px;">',
-                        dataSource: [
-                            { 'latitude': 57.70414723434193, 'longitude': -114.08203125 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart3" style="top:10px;left:10px;height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': 39.90973623453719, 'longitude': -103.0078125 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart4" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': 35.746512259918504, 'longitude': 102.216796875 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart5" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': -8.667918002363107, 'longitude': -52.55859375 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart6" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': -23.725011735951796, 'longitude': 132.978515625 }
-                        ],
-                        animationDuration: 0
-                    }
-                ]
+            pieOneDataSource: [{ 'latitude': 61.938950426660604, 'longitude': 97.03125 }],
+            pieTwoDataSource: [{ 'latitude': 57.70414723434193, 'longitude': -114.08203125 }],
+            pieThreeDataSource: [{ 'latitude': 39.90973623453719, 'longitude': -103.0078125 }],
+            pieFourDataSource: [{ 'latitude': 35.746512259918504, 'longitude': 102.216796875 }],
+            pieFiveDataSource: [{ 'latitude': -8.667918002363107, 'longitude': -52.55859375 }],
+            pieSixDataSource: [{ 'latitude': -23.725011735951796, 'longitude': 132.978515625 }]
         }
     },
     provide: {

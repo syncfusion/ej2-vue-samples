@@ -90,7 +90,7 @@
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
-import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
+import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
 import { ChartPlugin, ColumnSeries, Category, Legend, Tooltip, DataLabel } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
@@ -122,6 +122,10 @@ let pointRender = function (args)  {
         args.fill = materialColors[args.point.index % 10];
     } else if (selectedTheme === 'highcontrast') {
         args.fill = highContrastColors[args.point.index % 10];
+    } else if (selectedTheme === 'fluent') {
+        args.fill = fluentColors[args.point.index % 10];
+    } else if (selectedTheme === 'fluent-dark') {
+        args.fill = fluentDarkColors[args.point.index % 10];
     } else {
         args.fill = bootstrapColors[args.point.index % 10];
     }

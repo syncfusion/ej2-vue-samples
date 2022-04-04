@@ -1,7 +1,23 @@
 <template>
     <div class="template-querybuilder-section">
         <div class="col-lg-12 control-section">
-            <ejs-querybuilder ref="querybuilder" id="querybuilder" :rule="importRules" width="100%" :headerTemplate="headerTemplate" >
+            <ejs-querybuilder ref="querybuilder" id="querybuilder" :rule="importRules" width="100%" :headerTemplate="'headerTemplate'" >
+                <template v-slot:headerTemplate="{data}">
+                    <div class="query-template-control" >
+                        <div class="e-groupheader">
+                            <ejs-dropdownlist :id="data.ruleID +'_cndtn'" cssClass="e-custom-group-btn" :dataSource="items" :fields="fields"  v-model="data.condition"  :change="conditionChange"></ejs-dropdownlist>
+                            <div class = "e-header">
+                                <div class = "e-qb-hdr-content">
+                                    <ejs-button :id="data.ruleID + '_addgrp'" cssClass="e-primary" class = "e-grp-btn" v-on:click.native='grpbtnClick'>Add Group</ejs-button>
+                                </div>
+                                <div class = "e-qb-hdr-content">
+                                    <ejs-button :id="data.ruleID + '_addrule'" cssClass="e-primary" class = "e-cond-btn" v-on:click.native='rulebtnClick'>Add Condition</ejs-button>
+                                </div>
+                                <ejs-button v-if="data.ruleID !== 'querybuilder_group0'" :id="data.ruleID + '_dltbtn'" class = "e-del-btn" v-on:click.native='btnClick' cssClass="e-danger">Delete Group</ejs-button>
+                            </div>
+                            </div>
+                        </div>
+                </template>
                 <e-columns>
                     <e-column field='EmployeeID' label='Employee ID' type='number' />
                     <e-column field='FirstName' label='First Name' type='string' />
@@ -44,6 +60,10 @@
         padding-left: 10px;
         height: 32px;
     }
+     .e-bigger .e-query-builder .e-custom-group-btn {
+        padding-left: 10px; 
+        height: 36px;
+    }
     .e-query-builder .query-template-control .e-header {
         display: inline-block;
         float: right;
@@ -76,11 +96,9 @@ import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { getComponent, compile,closest } from '@syncfusion/ej2-base';
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
-
 Vue.use(QueryBuilderPlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(ButtonPlugin);
-
 export default Vue.extend({
     data: function() {
         return {
@@ -101,67 +119,31 @@ export default Vue.extend({
                     'value': "USA"
                 }]
             },
-            headerTemplate: () => {
-                return {
-                    template : Vue.component('headerTemplate', {
-                        template:
-                        `<div class="query-template-control" >
-                        <div class="e-groupheader">
-                            <ejs-dropdownlist :id="ddlID" cssClass="e-custom-group-btn" :dataSource="items" :fields="fields"  v-model="data.condition"  :change="conditionChange"></ejs-dropdownlist>
-                            <div class = "e-header">
-                                <div class = "e-qb-hdr-content">
-                                    <ejs-button :id="addgrpID" cssClass="e-primary" class = "e-grp-btn" v-on:click.native='grpbtnClick'>Add Group</ejs-button>
-                                </div>
-                                <div class = "e-qb-hdr-content">
-                                    <ejs-button :id="addruleID" cssClass="e-primary" class = "e-cond-btn" v-on:click.native='rulebtnClick'>Add Condition</ejs-button>
-                                </div>
-                                <ejs-button v-if="data.ruleID !== 'querybuilder_group0'" :id="dltbtnID" class = "e-del-btn" v-on:click.native='btnClick' cssClass="e-danger">Delete Group</ejs-button>
-                            </div>
-                            </div>
-                        </div>`,
-                        data(args) {
-                        return {
-                            qryBldrObj: getComponent(document.getElementById('querybuilder'), 'query-builder'),
-                            items : [{'key': 'AND', 'value': 'and'},{'key': 'OR', 'value': 'or'}],
-                            fields: { text: 'key', value: 'value' },
-                            }
-                        },
-                        computed: {
-                            ddlID: function(){
-                                return `${this.data.ruleID}_cndtn`;
-                            },
-                            addgrpID: function(){
-                                return `${this.data.ruleID}_addgrp`;
-                            },
-                            addruleID: function(){
-                                return `${this.data.ruleID}_addrule`;
-                            },
-                            dltbtnID: function(){
-                                return `${this.data.ruleID}_dltbtn`;
-                            }
-                        },
-                        methods: {
-                            conditionChange: function(args){
-                                this.qryBldrObj.notifyChange(args.value, args.element, 'condition');
-                            },
-                            grpbtnClick: function(args){
-                                var addbtn = args.target.id;
-                                var btn = addbtn.split('_');
-                                this.qryBldrObj.addGroups([{condition: 'or', 'rules': [{}]}], btn[1]);
-                            },
-                            rulebtnClick: function(args){
-                                var addbtn = args.target.id;
-                                var btn = addbtn.split('_');
-                                this.qryBldrObj.addRules([{}], btn[1]);
-                            },
-                            btnClick: function(args){
-                                this.qryBldrObj.deleteGroup(closest(args.target.offsetParent, '.e-group-container'));
-                            }
-                        }
-                    })
-                }
-            }
+            items: [{'key': 'AND', 'value': 'and'},{'key': 'OR', 'value': 'or'}],
+            fields: { text: 'key', value: 'value' }
         };
+    },
+    methods: {
+            conditionChange: function(args){
+                var qryBldrObj = getComponent(document.getElementById('querybuilder'), 'query-builder');
+                qryBldrObj.notifyChange(args.value, args.element, 'condition');
+            },
+            grpbtnClick: function(args){
+                var qryBldrObj = getComponent(document.getElementById('querybuilder'), 'query-builder');
+                var addbtn = args.target.id;
+                var btn = addbtn.split('_');
+                qryBldrObj.addGroups([{condition: 'or', 'rules': [{}]}], btn[1]);
+            },
+            rulebtnClick: function(args){
+                var qryBldrObj = getComponent(document.getElementById('querybuilder'), 'query-builder');
+                var addbtn = args.target.id;
+                var btn = addbtn.split('_');
+                qryBldrObj.addRules([{}], btn[1]);
+            },
+            btnClick: function(args){
+                var qryBldrObj = getComponent(document.getElementById('querybuilder'), 'query-builder');
+                qryBldrObj.deleteGroup(closest(args.target.offsetParent, '.e-group-container'));
+            }
     }
 });
 </script>

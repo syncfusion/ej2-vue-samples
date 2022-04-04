@@ -2,8 +2,48 @@
 <div>
 <div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition' :mapsArea='mapsArea'>
+    <template v-slot:newDelhiTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">New Delhi</div>
+    </template>
+    <template v-slot:mumbaiTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Mumbai</div>        
+    </template>
+    <template v-slot:chennaiTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Chennai</div>
+    </template>
+    <template v-slot:kolkataTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Kolkata</div>
+    </template>
+    <template v-slot:kunmingTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Kunming</div>
+    </template>
+    <template v-slot:beijingTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Beijing</div>
+    </template>
+    <template v-slot:shanghaiTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Shanghai</div>
+    </template>
+    <template v-slot:hongKongTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Hong Kong</div>
+    </template>
+    <template v-slot:guangzhouTextTemplate="{}">
+        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Guangzhou</div>
+    </template>
     <e-layers>
-        <e-layer :shapeData='shapeData' :animationDuration='animationDuration' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :navigationLineSettings='navigationLineSettings' :markerSettings='markerSettings'></e-layer>
+        <e-layer :shapeData='shapeData' :animationDuration='animationDuration' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :navigationLineSettings='navigationLineSettings'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='markerShapeDataSource' shape='Circle' fill='white' :width='markerShapeWidth' :border='markerShapeBorder' :tooltipSettings='markerShapeTooltipSettings'></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='newDelhiTextDataSource' :offset='newDelhiTextOffset' :template="'newDelhiTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='mumbaiTextDataSource' :offset='mumbaiTextOffset' :template="'mumbaiTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='chennaiTextDataSource' :offset='chennaiTextOffset' :template="'chennaiTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='kolkataTextDataSource' :offset='kolkataTextOffset' :template="'kolkataTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='kunmingTextDataSource' :offset='kunmingTextOffset' :template="'kunmingTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='beijingTextDataSource' :offset='beijingTextOffset' :template="'beijingTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='shanghaiTextDataSource' :offset='shanghaiTextOffset' :template="'shanghaiTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='hongKongTextDataSource' :offset='hongKongTextOffset' :template="'hongKongTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='guangzhouTextDataSource' :offset='guangzhouTextOffset' :template="'guangzhouTextTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 
@@ -90,6 +130,28 @@ export default Vue.extend({
                     ]
                 },
         navigationLineSettings: data,
+        markerShapeWidth: 4,
+        markerShapeDataSource: markerLocation,
+        markerShapeBorder: { width: 1, color: 'black' },
+        markerShapeTooltipSettings: { visible: true, valuePath: 'title' },
+        newDelhiTextDataSource: [{ 'name': 'New Delhi', 'latitude': 28.6139391, 'longitude': 77.2090212 }],
+        newDelhiTextOffset: { x: -50, y: 10 },
+        mumbaiTextDataSource: [{ 'name': 'Mumbai', 'latitude': 19.0759837, 'longitude': 72.8776559 }],
+        mumbaiTextOffset: { x: 0, y: 12 },
+        chennaiTextDataSource: [{ 'name': 'Chennai', 'latitude': 13.0826802, 'longitude': 80.2707184 }],
+        chennaiTextOffset: { x: 0, y: 12 },
+        kolkataTextDataSource: [{ 'name': 'Kolkata', 'latitude': 22.572646, 'longitude': 88.363895 }],
+        kolkataTextOffset: { x: 0, y: 12 },
+        kunmingTextDataSource: [{ 'name': 'Kunming', 'latitude': 24.880095, 'longitude': 102.832891 }],
+        kunmingTextOffset: { x: 0, y: 12 },
+        beijingTextDataSource: [{ 'name': 'Beijing', 'latitude': 39.9041999, 'longitude': 116.4073963 }],
+        beijingTextOffset: { x: 0, y: 12 },
+        shanghaiTextDataSource: [{ 'name': 'Shanghai', 'latitude': 31.2303904, 'longitude': 121.4737021 }],
+        shanghaiTextOffset: { x: 0, y: 12 },
+        hongKongTextDataSource: [{ 'name': 'Hong Kong', 'latitude': 22.396428, 'longitude': 114.109497 }],
+        hongKongTextOffset: { x: 20, y: 20 },
+        guangzhouTextDataSource: [{ 'name': 'Guangzhou', 'latitude': 23.12911, 'longitude': 113.264385 }],
+        guangzhouTextOffset: { x: 35, y: -10 },
         markerSettings: [
                     {
                         dataSource: markerLocation,
@@ -261,7 +323,7 @@ export default Vue.extend({
       }
   },
 provide: {
-    maps: [Marker, MapsTooltip, NavigationLine,Zoom ]
+    maps: [Marker, MapsTooltip, NavigationLine, Zoom ]
 },
 /* custom code start */
 methods:{

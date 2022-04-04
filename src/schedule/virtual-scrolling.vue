@@ -5,7 +5,7 @@
                 <ejs-schedule id="Schedule" ref="ScheduleObj" :cssClass="cssClass" width='100%' height='610px' :selectedDate="selectedDate" :eventSettings='eventSettings'
                     :group='group'>
                     <e-views>
-                        <e-view option="TimelineMonth" :eventTemplate="monthTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
+                        <e-view option="TimelineMonth" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
                     </e-views>
                     <e-resources>
                         <e-resource field='ResourceId' title='Reosurce' name='Resources' allowMultiple=true :dataSource='resourceData' textField='Text'
@@ -73,7 +73,7 @@
                 selectedDate: new Date(2021, 4, 1),
                 cssClass: 'virtual-scroll',
                 virtualScroll: true,
-                monthTemplate: function (e) {
+                eventTemplate: function (e) {
                     return {
                         template: monthTempVue
                     };

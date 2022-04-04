@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Area' xName='x' yName='y' name='France' width=2 opacity=0.8> </e-series>
@@ -45,9 +45,14 @@ import { ChartPlugin, AreaSeries, Legend, Category} from "@syncfusion/ej2-vue-ch
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       seriesData: [
                { x: '2002', y: 2 }, { x: '2003', y: 1.7 }, { x: '2004', y: 1.8 }, { x: '2005', y: 2.1 },
                { x: '2006', y: 2.3 }, { x: '2007', y: 1.7 }, { x: '2008', y: 1.5 }, { x: '2009', y: 1.8 },
@@ -89,12 +94,6 @@ export default Vue.extend({
     chart: [AreaSeries, Legend, Category]
   },
   methods: {
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   }
  
 });

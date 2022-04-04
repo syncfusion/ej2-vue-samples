@@ -63,17 +63,20 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .bootstrap4 .rte-markdown-preview .e-icon-btn .e-md-preview::before {
     content: '\e787';
   }
-  .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before {
-    content: '\e7d0';
-  }
-
-  .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
-    content: '\e748';
-  }
-  .bootstrap5 .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before {
+  .fluent .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before,
+  .fluent-dark .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind-dark .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before,
+  .bootstrap5 .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before,
+  .bootstrap5-dark .rte-markdown-preview .e-icon-btn.e-active .e-md-preview::before {
     content: '\e80e';
   }
-  .bootstrap5 .rte-markdown-preview .e-icon-btn .e-md-preview::before {
+  .tailwind .rte-markdown-preview .e-icon-btn .e-md-preview::before,
+  .tailwind-dark .rte-markdown-preview .e-icon-btn .e-md-preview::before,
+  .bootstrap5 .rte-markdown-preview .e-icon-btn .e-md-preview::before,
+  .bootstrap5-dark .rte-markdown-preview .e-icon-btn .e-md-preview::before,
+  .fluent .rte-markdown-preview .e-icon-btn .e-md-preview::before,
+  .fluent-dark .rte-markdown-preview .e-icon-btn .e-md-preview::before {
       content: '\e7de';
   }
   /* custom code start */

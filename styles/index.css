@@ -2672,43 +2672,13 @@ body.highcontrast,
 .tailwind .e-samplestatus.new, .tailwind .e-samplestatus.update, .tailwind .e-samplestatus.preview {
     margin: 1px 0;
     height: 22px;
-    margin-top: 0px;
-}
-
-.bootstrap5-dark .e-samplestatus.new, .bootstrap5-dark .e-samplestatus.update, .bootstrap5-dark .e-samplestatus.preview {
-    margin: 1px 0;
-    height: 22px;
-    margin-top: 0px;
+    margin-top: 2px;
 }
 
 .material-dark .e-samplestatus.new, .material-dark .e-samplestatus.update, .material-dark .e-samplestatus.preview {
     margin: 1px 0;
     height: 22px;
-    margin-top: 7.5px;
-}
-
-.fabric .e-samplestatus.new, .fabric .e-samplestatus.update, .fabric .e-samplestatus.preview {
-    margin: 1px 0;
-    height: 22px;
-    margin-top: 7.5px;
-}
-
-.fabric-dark .e-samplestatus.new, .fabric-dark .e-samplestatus.update, .fabric-dark .e-samplestatus.preview {
-    margin: 1px 0;
-    height: 22px;
-    margin-top: 7.5px;
-}
-
-.bootstrap .e-samplestatus.new, .bootstrap .e-samplestatus.update, .bootstrap .e-samplestatus.preview {
-    margin: 1px 0;
-    height: 22px;
-    margin-top: 9px;
-}
-
-.bootstrap-dark .e-samplestatus.new, .bootstrap-dark .e-samplestatus.update, .bootstrap-dark .e-samplestatus.preview {
-    margin: 1px 0;
-    height: 22px;
-    margin-top: 9px;
+    margin-top: 2px;
 }
 
 /* material dark */
@@ -3538,7 +3508,7 @@ color:white;
  .tailwind-dark .e-samplestatus.new,.tailwind-dark .e-samplestatus.update,.tailwind-dark .e-samplestatus.preview{
     margin: 2px 0;
     height: 22px;
-    margin-top: 0px;
+    margin-top: 2px;
 }
 .e-samplestatus.new, .e-samplestatus.update, .e-samplestatus.preview {
     margin: 8px 0;
@@ -3621,6 +3591,7 @@ color:white;
     color: rgb(31, 41, 55);
 }
 .material-dark .e-samplestatus.new,.material-dark .e-samplestatus.update,.material-dark .e-samplestatus.preview,
+.bootstrap5-dark .e-samplestatus.new,.bootstrap5-dark .e-samplestatus.update,.bootstrap5-dark .e-samplestatus.preview,
 .bootstrap-dark .e-samplestatus.new,.bootstrap-dark .e-samplestatus.update,.bootstrap-dark .e-samplestatus.preview,
 .fabric-dark .e-samplestatus.new, .fabric-dark .e-samplestatus.update,.fabric-dark  .e-samplestatus.preview{
     margin: 2px 0;

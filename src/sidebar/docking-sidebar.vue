@@ -1,244 +1,433 @@
 <template>
-<div class="control-section sidebar-dock">
-    <div class="col-lg-12 col-sm-12 col-md-12 center">
-        Click/Touch the button to view the sample
+<div class="control-section" id="wrapper">
+    <!-- main content declaration -->
+    <div class="sidebar-dock-wrapper">
+    <div>
+        <ejs-toolbar cssClass="dockToolbar" id="dockToolbar" v-on:clicked="toolbarCliked">
+            <e-items>
+                <e-item prefixIcon="e-tbar-menu-icon tb-icons" tooltipText="Menu"></e-item>
+                <e-item :template="folderTemplate"></e-item>
+            </e-items>
+        </ejs-toolbar> 
     </div>
-    <div class="col-lg-12 col-sm-12 col-md-12 center">
-        <a class="e-btn" id="newTab" v-on:click="newTabClick" target="_blank">Open in new tab</a>
-    </div>
-    <div class="col-lg-12 col-sm-12 col-md-12">
-        <div id="wrapper">
-            <!-- sidebar element declaration-->
-            <ejs-sidebar  id="dockSidebar" :enableDock='enableDock' :width='width' :dockSize='dockSize' ref="dockSidebar" :position = "position">
-                <div class="dock">
-                    <ul>
-                        <li class="sidebar-item" id="toggle" v-on:click="toggleClick">
-                            <span class="sidebar-icons expand"></span>
-                            <span class="e-text" title="menu">Menu</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <span class="sidebar-icons home"></span>
-                            <span class="e-text" title="home">Home</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <span class="sidebar-icons profile"></span>
-                            <span class="e-text" title="profile">Profile</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <span class="sidebar-icons info"></span>
-                            <span class="e-text" title="info">Info</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <span class="sidebar-icons settings"></span>
-                            <span class="e-text" title="settings">Settings</span>
-                        </li>
-                    </ul>
-                </div>
-            </ejs-sidebar>
-            <div id="main-content container-fluid col-md-12 ">
-                <div class="title">Main content</div>
-                <div class="sub-title">Click the radio button to switch the sidebar position
-                    <div className="center-align">
-                        <div class="column">
-                            <!-- RadioButton element declaration-->
-                            <ejs-radiobutton id="left" label='Left' name='state' checked='true' :change="positionChange"></ejs-radiobutton>
-                        </div>
-                        <div class="column">
-                            <!-- RadioButton element declaration-->
-                            <ejs-radiobutton id="right" label='Right' name='state' :change="positionChange"></ejs-radiobutton>
-                        </div>
-                    </div>
-                </div>
+    <div id="main-content container-fluid col-md-12" class="dockmaincontent">
+        <div>
+            <div id="dockContent" class="dockcontent">
+                The Vue DataGrid is a feature-rich component useful for displaying data in a tabular format. 
+                Its wide range of functionalities includes data binding, editing, Excel-like 
+                filtering, custom sorting, aggregating rows, selection, and support for Excel, CSV, and 
+                PDF formats. It loads millions of records in just a second. It has flexible editing and 
+                intuitive record selection modes. Also, it has seamless data exporting options like PDF, 
+                CSV, and Excel.
             </div>
         </div>
-   </div>
+    </div>
+    <!-- sidebar component -->
+    <ejs-sidebar id="dockSidebar" ref="dockBar" class="dockSidebar" width="220px" dockSize="60px" target=".dockmaincontent" :enableDock='enableDock' type="Auto">
+        <ejs-listview id="dockList" :dataSource='ListData' cssClass="e-template-list" :showIcon='showIcon' :fields='listFields' v-on:select="onSelect">            
+        </ejs-listview>
+    </ejs-sidebar>
+    </div>
    <div id="action-description">
-        Click/Touch the button to view the Sidebar sample in new tab.
+        The <code>Sidebar</code> dock sample demonstrates the dock functionalities of the <code>Sidebar</code>. Click on the hamburger menu icon to expand/collapse the sidebar with dock state.
     </div>
     <div id="description">
-        This sample demonstrates the dock state. Here the list item has icon with text representation. On dock state only the icon listed out to interact.
+        <p>
+            Dock state of the Sidebar reserves some space on the page that always remains in a visible state when the Sidebar is collapsed. It is used to show the short term of a content like icons alone instead of lengthy text.
+        </p>
+        <p>
+            In this demo, the list item has an icon with text representation. On dock state, only the icon listed out to interact. It can be achieved by using the <code>EnableDock</code> property.
+        </p>
     </div>
 </div>
 </template>
 
 <script>
 import Vue from "vue";
-import { SidebarPlugin } from '@syncfusion/ej2-vue-navigations';
-import { ButtonPlugin,RadioButtonPlugin} from '@syncfusion/ej2-vue-buttons';
-import { enableRipple } from '@syncfusion/ej2-base';
-Vue.use(SidebarPlugin, ButtonPlugin, RadioButtonPlugin);
+import { SidebarPlugin, ToolbarPlugin } from '@syncfusion/ej2-vue-navigations';
+import { ListViewPlugin } from '@syncfusion/ej2-vue-lists';
+Vue.use(SidebarPlugin, ToolbarPlugin, ListViewPlugin);
 
+var folderTemplate = Vue.component("demo", {
+    template: '<div class="e-folder"><div class="e-folder-name">Vue Documentation</div></div>',
+    data() {
+        return {
+            data: {}
+        };
+    }
+});
+var listData = [
+        { id: "1", text: "Grid", iconcss: "sb-icons icon-grid e-sb-icon control-icon", 
+            description: "The Vue DataGrid is a feature-rich component useful for" +
+            "displaying data in a tabular format. Its wide range of functionalities" + 
+            "includes data binding, editing, Excel-like filtering, custom sorting," +
+            "aggregating rows, selection, and support for Excel, CSV, and PDF formats." +
+            "It loads millions of records in just a second. It has flexible editing and intuitive record selection modes." + 
+            "Also, it has seamless data exporting options like PDF, CSV, and Excel." },
+        { id: "2", text: "Chart", iconcss: "sb-icons icon-chart e-sb-icon control-icon", 
+            description: "The Vue Charts is a well-crafted charting component to visualize data." + 
+            "It contains a rich UI gallery of 30+ charts and graphs, ranging from line to financial" + 
+            " that cater to all charting scenarios. Its high performance helps to render large amounts of data quickly." + 
+            "It also comes with features such as zooming, panning, tooltip, crosshair, trackball, highlight, and selection" },
+        { id: "3", text: "Datepicker", iconcss: "sb-icons icon-datepicker e-sb-icon control-icon", 
+            description: "The Vue DatePicker is a lightweight and mobile-friendly component that allows" +
+            "end-users to enter or select a date value. It has month, year, and decade view options to quickly" +
+            "navigate to the desired date. It supports minimum dates, maximum dates, and disabled dates to restrict the date selection." +
+            "It has built-in features such as validation, custom date formats, range restriction, and disable dates to enhance the progressive usage." },
+        { id: "4", text: "Dialog", iconcss: "sb-icons icon-dialog e-sb-icon control-icon",
+            description: "The Vue Dialog is a useful user interface (UI) component for informing users" +
+            "about critical information, errors, warnings, and questions, as well as confirming decisions and collecting" +
+            "input from users. The component has a rich set of built-in features such as action buttons, positioning, animations," + 
+            "dragging, resizing, templating, and more with mobile dialog support. The Vue dialog provides two different types:" +
+            "modal dialogs and non-modal dialogs (modeless) based on interactions." },
+        { id: "5", text: "Dropdown List", iconcss: "sb-icons icon-dropdownlist e-sb-icon control-icon", 
+            description: "The Vue Dropdown List is a quick replacement of the HTML select tags." +
+            "It has a rich appearance and allows users to select a single value that is non-editable" +
+            " from a list of predefined values. It has several out-of-the-box features, such as data binding," +
+            " filtering, grouping, UI customization, accessibility, and preselected values." }
+    ];
 export default Vue.extend({
     data: function() {
         return {
-            enableDock:  true,
-            dockSize : '72px',
-            width : '220px',
-            position :'Left'
+            folderTemplate: function (e) {
+                return {
+                    template: folderTemplate
+                };
+            },
+            enableDock: true, 
+            ListData: listData,
+            showIcon: true,
+            listFields: { id: "id", text: "text", iconCss: "iconcss" }
         }
     },
     methods: {
-        newTabClick: function() {
-          var URL = location.href.replace(location.search, '');
-          document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/docking-sidebar/index.html');
+        onSelect: function(args) {
+           document.getElementById("dockContent").innerHTML = args.data.description;
         },
-        toggleClick: function() {
-           this.$refs.dockSidebar.toggle();
-        },
-        positionChange:function(args) {
-          this.position = args.event.target.id == "left" ? "Left" : "Right";
+        toolbarCliked: function(args) {
+            if(args.item.tooltipText == "Menu") {
+                this.$refs.dockBar.toggle();
+            }
         }
     }
 });
 </script>
 
 <style>
-  /* Content area styles */
+ /* Specifies sample level styles for Sidebar */
+    .dockmaincontent {
+        height: 355px;
+    }
 
- .sidebar-dock .title {
-    text-align: center;
-    font-size: 20px;
-    padding: 15px;
-}
+    #wrapper .dockcontent {
+        font-size: 14px;
+        padding: 15px;
+    }
 
-.sidebar-dock .sub-title {
-    text-align: center;
-    font-size: 16px;
-    padding: 10px;
-}
+    #wrapper.control-section {
+        padding: 15px 0px;
+    }
+    
+    #wrapper .dockSidebar {
+        z-index: 20 !important;
+    }
 
-.sidebar-dock #wrapper .column {
-    display: inline-block;
-    padding: 10px;
-}
-/* custom code start */
-.sidebar-dock .center {
-    text-align: center;
-    display: none;
-    font-size: 13px;
-    font-weight: 400;
-    margin-top: 20px;
-}
+    /* Specifies sample level styles for ListView icon alignment */
 
-.sb-content-tab .sidebar-dock .center {
-    display: block;
-}
-/* end of content area styles */
-/* Sidebar styles */
+    .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin: 0;
+    }
 
-.sb-content-tab .sidebar-dock #wrapper {
-    display: none;
-}
-/* custom code end */
-.sidebar-dock #dockSidebar.e-sidebar.e-right.e-close {
-    visibility: visible;
-    transform: translateX(0%);
-}
+    .material .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .material-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -8px;
+    }
 
-.sidebar-dock #dockSidebar .sidebar-icons::before {
-    font-size: 25px;
-}
-/* dockbar icon Style */
-.sidebar-dock #dockSidebar .home::before {
-    content: '\e102';
-}
+    .tailwind .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .tailwind-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin: -4px 8px 0 4px;
+    }
 
-.sidebar-dock #dockSidebar .profile::before {
-    content: '\e10c';
-}
+    .bootstrap4 .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -8px;
+    }
 
-.sidebar-dock #dockSidebar .info::before {
-    content: '\e11b';
-}
+    .bootstrap5 .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap5-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-bottom: -12px;
+    }
 
-.sidebar-dock #dockSidebar .settings::before {
-    content: '\e10b';
-}
+    .fabric .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .fabric-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -4px;
+    }
 
-.sidebar-dock .e-sidebar .expand::before,
-.sidebar-dock .e-sidebar.e-right.e-open .expand::before {
-    content: '\e10f';
-}
+    /* Specifies sample level styles for ListView icon alignment for bigger mode */
 
-.sidebar-dock .e-sidebar.e-open .expand::before,
-.sidebar-dock .e-sidebar.e-right .expand::before {
-    content: '\e10e';
-}
-/* end of dockbar icon Style */
 
-.sidebar-dock #dockSidebar.e-close .sidebar-item {
-    padding: 5px 20px;
-}
+    .bootstrap4.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .highcontrast.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -10px;
+    }
 
-.sidebar-dock #dockSidebar.e-dock.e-close span.e-text {
-    display: none;
-}
+    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -15px;
+    }
 
-.sidebar-dock #dockSidebar.e-dock.e-open span.e-text {
-    display: inline-block;
-}
+    .material.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .material-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -18px;
+    }
 
-.sidebar-dock #dockSidebar li {
-    list-style-type: none;
-    cursor: pointer;
-}
+    .fabric.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .fabric-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-top: -18px;
+    }
 
-.sidebar-dock #dockSidebar ul {
-    padding: 0px;
-}
+    .e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons::before {
+        font-size: 26px;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar ul li:hover span {
-    color: white
-}
+    .bootstrap5.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap5-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-bottom: -10px;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar.e-open .e-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 23px;
-    font-size: 15px;
-}
+    .tailwind.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .tailwind-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
+        margin-bottom: -3px;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar.e-open .sidebar-icons {
-    margin-right: 16px;
-}
+    /* Specifies sample level styles for ListView and Toolbar border */
+    .dockSidebar .e-listview {
+        border: 0px;
+        border-radius: 0;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar span.sidebar-icons {
-    color: #c0c2c5;
-    line-height: 2
-}
+    .dockToolbar.e-toolbar {
+        border-left: 0px;
+        border-right: 0px;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar .e-open .sidebar-icons {
-    margin-right: 16px;
-}
+    /* Specifies sample level styles for ListView text alignment */
+    .fabric .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .bootstrap .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .fabric-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .bootstrap-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .bootstrap5 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .bootstrap4 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .bootstrap5-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .highcontrast .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
+        padding-left: 14px;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar .e-open .e-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 23px;
-    font-size: 15px;
-}
+    .bootstrap4 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .material .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+    .material-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
+        padding-left: 16px;
+    }
 
-.sidebar-dock .sidebar-item {
-    text-align: center;
-    border-bottom: 1px #e5e5e58a solid;
-}
+    .e-bigger .dockSidebar .e-listview .e-list-icon+.e-list-text {
+        padding-left: 10px;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar.e-open .sidebar-item {
-    text-align: left;
-    padding-left: 15px;
-    color: #c0c2c5;
-}
+    /* Specifies the border bottom color for the toolbar in light theme*/
+    .material .dockToolbar.e-toolbar,
+    .fabric .dockToolbar.e-toolbar,
+    .tailwind .dockToolbar.e-toolbar,
+    .highcontrast .dockToolbar.e-toolbar,
+    .bootstrap5 .dockToolbar.e-toolbar {
+        border-bottom: 1px solid #eaeaeae0;
+    }
 
-.sidebar-dock #dockSidebar.e-sidebar {
-    background: #2d323e;
-    overflow: hidden;
-}
+    /* Specifies the border bottom color for the toolbar in dark theme*/
+    .material-dark .dockToolbar.e-toolbar,
+    .fabric-dark .dockToolbar.e-toolbar,
+    .tailwind-dark .dockToolbar.e-toolbar,
+    .bootstrap5-dark .dockToolbar.e-toolbar {
+        border-bottom: 1px solid #eaeaea63;
+    }
 
-@font-face {
-    font-family: 'sidebar-icons';
-    src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-/* end of sidebar styles */
+    /* Specifies the border right color for the sidebar in light theme*/
+    .material .dockSidebar,
+    .fabric .dockSidebar,
+    .tailwind .dockSidebar,
+    .highcontrast .dockSidebar,
+    .bootstrap5 .dockSidebar {
+        border-right: 1px solid #eaeaeae0;
+    }
+
+    /* Specifies the border right color for the sidebar in dark theme*/
+    .material-dark .dockSidebar,
+    .fabric-dark .dockSidebar,
+    .tailwind-dark .dockSidebar,
+    .bootstrap5-dark .dockSidebar {
+        border-right: 1px solid #eaeaea63;
+    }
+
+    /* Specifies the background color of listview in dark theme*/
+    .material-dark .dockSidebar .e-list-item,
+    .bootstrap-dark .dockSidebar .e-list-item {
+        background-color: transparent;
+    }
+
+    /* Specifies the sample level font icons for the ListView icons*/
+    @font-face {
+        font-family: 'sb-icons';
+        src: url('../images/sidebar/fonts/controls.ttf?gcjn6a') format('truetype'), url('../images/sidebar/fonts/controls.woff?gcjn6a') format('woff'), url('../images/sidebar/fonts/controls.svg?gcjn6a#sbicons') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .dockSidebar .e-sb-icon {
+        font-family: 'sb-icons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .dockSidebar .icon-chart::before {
+        content: '\e906';
+    }
+
+    .dockSidebar .icon-grid::before {
+        content: '\e916';
+    }
+
+    .dockSidebar .icon-datepicker::before {
+        content: '\e90f';
+    }
+
+    .dockSidebar .icon-dropdownlist::before {
+        content: '\e913';
+    }
+
+    .dockSidebar .icon-dialog::before {
+        content: '\e911';
+    }
+
+    .dockSidebar .e-sb-icon::before {
+        font-size: 24px;
+    }
+
+    /* Specifies the sample level font icons for the Toolbar icons*/
+    @font-face {
+        font-family: 'Material_toolbar';
+        src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .e-bigger .e-tbar-btn .tb-icons,
+    .e-toolbar .e-icons {
+        font-size: 20px;
+    }
+
+    .e-tbar-btn .tb-icons {
+        font-family: 'Material_toolbar';
+        speak: none;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+    }
+
+    .e-tbar-menu-icon:before {
+        content: "\e718";
+    }
+
+    .e-folder {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .e-bigger .e-folder {
+        font-size: 18px;
+    }
+
+    .bootstrap5 .e-folder-name,
+    .bootstrap5-dark .e-folder-name {
+        margin-top: -2px;
+    }
+
+    .bootstrap4 .e-folder-name,
+    .bootstrap .e-folder-name,
+    .bootstrap-dark .e-folder-name {
+        margin-top: 3px;
+    }
+
+    .material .e-folder-name,
+    .material-dark .e-folder-name {
+        margin-top: 1px;
+    }
+
+    /* Specifies the sample level styles for Toolbar alignment*/
+    .material:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .material-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap4:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .highcontrast:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 10px;
+    }
+
+    .tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 12px;
+        padding: 2px;
+    }
+
+    .tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child>.e-toolbar-item:last-child,
+    .tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child>.e-toolbar-item:last-child {
+        padding: 0;
+    }
+
+    .fabric:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .fabric-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 8px;
+    }
+
+    /* Specifies the sample level styles for Toolbar alignment for bigger mode*/
+    .bootstrap5.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items .e-toolbar-item:first-child,
+    .highcontrast.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 4px;
+    }
+
+    .material.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .material-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 6px;
+    }
+
+    .bootstrap4.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .tailwind.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .tailwind-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 8px;
+    }
+
+    .material .sidebar-dock-wrapper,
+    .fabric .sidebar-dock-wrapper,
+    .tailwind .sidebar-dock-wrapper,
+    .fluent .sidebar-dock-wrapper,
+    .bootstrap5 .sidebar-dock-wrapper {
+        border: 1px solid #d7d7d7;
+    }
+
+    .material-dark .sidebar-dock-wrapper,
+    .fabric-dark .sidebar-dock-wrapper,
+    .tailwind-dark .sidebar-dock-wrapper,
+    .highcontrast .sidebar-dock-wrapper,
+    .fluent-dark .sidebar-dock-wrapper,
+    .bootstrap5-dark .sidebar-dock-wrapper {
+        border: 1px solid #ffffff;
+    }
 </style>

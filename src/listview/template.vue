@@ -1,6 +1,21 @@
 <template>
     <div class="col-lg-12 control-section">
-        <ejs-listview id='listview_template' ref="list" :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template='listTemplate'></ejs-listview>
+        <ejs-listview id='listview_template' ref="list" :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template="'listTemplate'">
+            <template v-slot:listTemplate="{data}">
+                <div id="postContainer" v-bind:class="{'clearfix desc e-list-wrapper e-list-multi-line e-list-avatar':
+                    (data.category !== undefined), 'clearfix e-list-wrapper e-list-multi-line e-list-avatar': (data.category === undefined)}">
+                    <img v-if="data.imgSrc" class="e-avatar" :src="data.imgSrc" />
+                    <span class="e-list-item-header">{{data.title}} </span>
+                    <span class="e-list-content e-text-overflow" >{{data.description}} </span>
+                    <div v-if="data.timeStamp" id="list-logo">
+                        <span class="bookmark"></span>
+                        <span class="comments"></span>
+                        <span class="share"></span>
+                    </div>
+                    <div v-if="data.timeStamp" class="timeStamp">{{data.timeStamp}}</div>
+                </div>
+            </template>
+        </ejs-listview>
 
         <div id="action-description">
             <p>This sample demonstrates the template functionalities of the ListView. Click any news header or thumbnail to open
@@ -241,7 +256,6 @@ import Vue from "vue";
 import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from '@syncfusion/ej2-base';
 import { dataSource } from './newsData';
-import listtemplateVue from "./list-template.vue";
 
 enableRipple(false);
 Vue.use(ListViewPlugin);
@@ -249,11 +263,6 @@ export default Vue.extend({
     data: function() {
         return {
             cssClass: 'e-list-template',
-            listTemplate: function() {
-                return {
-                    template: listtemplateVue
-                }
-            },
             data: dataSource,
             header: true,
             title: 'Syncfusion Blog'

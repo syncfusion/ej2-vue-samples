@@ -4,9 +4,15 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :tooltip='tooltip' :load='load'>
             <e-annotations>
-                <e-annotation :x='annotationX1' y=90 coordinateUnits='Point' content='<div style="color:#FF0000;font-family: bold; font-weight: 600">Christmas Offer<br> Dec 2017</div>'>
+                <e-annotation :x='annotationX1' y=90 coordinateUnits='Point' :content="'contentTemplate'">
+                    <template v-slot:contentTemplate="{}">
+                        <div style="color:#FF0000;font-family: bold; font-weight: 600">Christmas Offer<br> Dec 2017</div>
+                    </template>
                 </e-annotation>
-                <e-annotation :x='annotationX2' y=90 coordinateUnits='Point' content='<div style="color:#FF0000;font-family: bold; font-weight: 800">New Year Offer<br> Jan 2018</div>'>
+                <e-annotation :x='annotationX2' y=90 coordinateUnits='Point' :content="'contentTemplate1'">
+                    <template v-slot:contentTemplate1="{}">
+                        <div style="color:#FF0000;font-family: bold; font-weight: 800">New Year Offer<br> Jan 2018</div>
+                    </template>
                 </e-annotation>
             </e-annotations>
             <e-series-collection>
@@ -50,15 +56,16 @@
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, ColumnSeries, DateTimeCategory, Tooltip, StripLine, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
-import {Template} from "./date-category-temp1.vue";
 Vue.use(ChartPlugin);
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
-let templateContent = function() {
-    return { template: Template}
-};
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
                 { x: new Date(2017, 11, 20), y: 21 }, { x: new Date(2017, 11, 21), y: 24 },
                 { x: new Date(2017, 11, 22), y: 24 }, { x: new Date(2017, 11, 26), y: 70 },
@@ -116,12 +123,6 @@ export default Vue.extend({
     load: function(args) {
        let selectedTheme = location.hash.split('/')[1];
        selectedTheme = selectedTheme ? selectedTheme : 'Material';
-       if (selectedTheme === 'highcontrast') {
-        args.chart.annotations[0].content = templateContent;
-        args.chart.annotations[1].content = templateContent;
-       }
-       args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

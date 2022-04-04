@@ -3,9 +3,9 @@
      <div id="target" class="col-lg-12 control-section">
          <ejs-button id="dialogBtn" v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
     
-        <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' width='452px' ref='dialogObj'
+        <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' ref='dialogObj'
             target='#target' :open='dialogOpen' :close='dialogClose' closeOnEscape='false'>
-            <table style='width: 405px' id ='poschange'>
+            <table id ='poschange'>
                 <tr>
                     <td><ejs-radiobutton id='radio1' label='Left Top' value='left top' name='xy' :change='changePosition' ></ejs-radiobutton></td>
                     <td><ejs-radiobutton id='radio2' label='Center Top' value='center top' name='xy' :change='changePosition'></ejs-radiobutton></td>
@@ -95,6 +95,24 @@ export default Vue.extend({
     #defaultDialog td {
         border: 1px solid #D8D8D8;
         border-collapse: collapse;
+    }
+    
+    #target .e-dialog {
+      width: 452px;
+    }
+
+    .fluent.e-bigger #target .e-dialog,
+    .fluent-dark.e-bigger #target .e-dialog {
+      width: 502px;
+    }
+
+    #poschange {
+      width: 405px;
+    }
+
+    .fluent.e-bigger #poschange,
+    .fluent-dark.e-bigger #poschange {
+      width: 455px;
     }
 
     #defaultDialog.e-dialog .e-footer-content {

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :textRender="onTextRender" :pointRender="onPointRender" :load='load'>
+        <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :textRender="onTextRender" :pointRender="onPointRender" :theme='theme'>
             <e-accumulation-series-collection>
                 <e-accumulation-series name='RIO' :animation='animation' :explode='true' :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" innerRadius="0%" radius="70%"
                  groupMode='Point' :dataLabel="dataLabel" :groupTo='clubvalue'>
@@ -67,10 +67,15 @@ import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 Vue.use(AccumulationChartPlugin);
 Vue.use(DropDownListPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
         groupModeData: ["Point", "Value"],
+        theme: theme,
         animation: {
             enable: false
         },
@@ -139,12 +144,6 @@ export default Vue.extend({
             args.fill = '#D3D3D3';
         }
     },
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   },
     updated: function() {
       this.$nextTick(function() {

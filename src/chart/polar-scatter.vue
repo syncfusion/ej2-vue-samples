@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" :load='load' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
           :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y' name='2015' drawType='Scatter' :marker='marker'> </e-series>
@@ -78,9 +78,14 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
         { text: 'Myanmar', x: 'MMR', y: 7.3, y1: 6.3, y2: 7.5 },
         { text: 'India', x: 'IND', y: 7.9, y1: 6.8, y2: 7.2 },
@@ -146,12 +151,6 @@ export default Vue.extend({
   methods: {
    polarType: function(args) {
        this.seriesType = SelectSeriesType.value;  
-    },
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

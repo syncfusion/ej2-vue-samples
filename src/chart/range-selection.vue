@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-8 control-section">
-          <ejs-chart ref="chart" style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+          <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
               :chartArea='chartArea' :legendSettings='legendSettings' :selectionMode='seriesMode'>
               <e-series-collection>
                   <e-series :dataSource='seriesData'  type='Scatter' xName='x' yName='y' name='Product A' :marker='marker'> </e-series>
@@ -81,9 +81,14 @@
   import { ChartPlugin, Selection, ScatterSeries, ColumnSeries, Legend, Category} from "@syncfusion/ej2-vue-charts";
   Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
   export default Vue.extend({
     data: function() {
       return {
+           theme: theme,
         seriesData: [
                     { x: 1971, y: 50 }, { x: 1972, y: 20 }, { x: 1973, y: 63 }, { x: 1974, y: 81 }, { x: 1975, y: 64 },
                     { x: 1976, y: 36 }, { x: 1977, y: 22 }, { x: 1978, y: 78 }, { x: 1979, y: 60 }, { x: 1980, y: 41 },
@@ -168,13 +173,7 @@
         this.$refs.chart.ej2Instances.series[0].animation.enable = false;
         this.$refs.chart.ej2Instances.series[1].animation.enable = false;
         this.$refs.chart.ej2Instances.refresh();
-      },
-      load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+      }
     },
    
   });

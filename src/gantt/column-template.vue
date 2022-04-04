@@ -1,28 +1,29 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-gantt ref='gantt' id="ColumnTemplate" 
-        :dataSource= "data"        
-        :height = "height"
-        :highlightWeekends= 'true'         
-        :taskFields= "taskFields"
-        :labelSettings= "labelSettings"
-        :splitterSettings= "splitterSettings"
-        :resourceFields= "resourceFields"
-        :resources= "resources"
-        :rowHeight= '60'
-        :projectStartDate= "projectStartDate"
-        :projectEndDate= "projectEndDate">
+      <ejs-gantt ref='gantt' id="ColumnTemplate" :dataSource="data" :height="height" :highlightWeekends='true'
+        :taskFields="taskFields" :labelSettings="labelSettings" :splitterSettings="splitterSettings" :columns= "columns"
+        :resourceFields="resourceFields" :resources="resources" :rowHeight='60' :projectStartDate="projectStartDate"
+        :projectEndDate="projectEndDate">
         <e-columns>
-            <e-column field='TaskID' headerText='Task ID' textAlign= 'Left'></e-column>
-            <e-column field='TaskName' headerText= 'Task Name' width='250'></e-column>
-            <e-column field='resources' :template='columnTemplate' width='250'></e-column>
-            <e-column field='StartDate' headerText= 'Start Date' width='150'></e-column>
-            <e-column field='Duration'  headerText= 'Duration' width= '150'></e-column>
-            <e-column field='Progress' headerText= 'Progress' width= '150'></e-column>
+          <e-column field='TaskID' headerText='Task ID' textAlign='Left'></e-column>
+          <e-column field='TaskName' headerText='Task Name' width='250'></e-column>
+          <e-column field='resources' :template="'columnTemplate'" width='250'>
+          </e-column>
+          <e-column field='StartDate' headerText='Start Date' width='150'></e-column>
+          <e-column field='Duration' headerText='Duration' width='150'></e-column>
+          <e-column field='Progress' headerText='Progress' width='150'></e-column>
         </e-columns>
-    </ejs-gantt>
-       
+        <template v-slot:columnTemplate="{data}">
+          <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
+            <img
+              :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
+              height="40px" />
+            <div style="display:inline-block;width:100%;position:relative;left:30px">
+              {{data.ganttProperties.resourceNames}}</div>
+          </div>
+        </template>
+      </ejs-gantt>
     </div>
 
 <div id="action-description">
@@ -60,6 +61,16 @@ export default Vue.extend({
                 dependency: 'Predecessor',
                 child: 'subtasks'
             },
+            columns: [
+              { field: 'TaskID', width: 140 },
+              { field: 'TaskName', width: 250 },
+              { field: 'resources' },
+              { field: 'StartDate' },
+              { field: 'EndDate' },
+              { field: 'Duration' },
+              { field: 'Predecessor' },
+              { field: 'Progress' },
+            ],
             resourceFields: {
                 id: 'resourceId',
                 name: 'resourceName'
@@ -73,9 +84,6 @@ export default Vue.extend({
             },
             projectStartDate: new Date('03/24/2019'),
             projectEndDate: new Date('07/06/2019'),
-            columnTemplate: function () {
-                return { template : columntempVue}
-            }
         };
   },
    provide : {

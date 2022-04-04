@@ -2,8 +2,15 @@
 <div>
 <div class="control-section">
 <ejs-maps id='maps' :load='load' :annotations='annotations' :zoomSettings='zoomSettings'>
+    <template v-slot:markerTemplate="{}">
+        <h3 style="color:white; font-family: Segoe UI;">Africa</h3>
+    </template>
     <e-layers>
-        <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
+        <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :shapeSettings='shapeSettings'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='markerDataSource' :template="'markerTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 
@@ -61,18 +68,9 @@ export default Vue.extend({
         shapePropertyPath: 'name',
         shapeData: new MapAjax('./src/maps/map-data/africa-continent.json'),
         shapeSettings: {
-                    fill: 'url(#grad1)'
-                },
-        markerSettings: [
-                    {
-                        visible: true,
-                        template: '<h3 style="color:white; font-family: Segoe UI;">{{:name}}</h3>',
-                        animationDuration: 1,
-                        dataSource: [{
-                            name: 'Africa', latitude: 13.97274101999902, longitude: 20.390625
-                }]
-            }
-        ]
+            fill: 'url(#grad1)'
+        },
+        markerDataSource: [{ name: 'Africa', latitude: 13.97274101999902, longitude: 20.390625 }]
       }
   },
 provide: {

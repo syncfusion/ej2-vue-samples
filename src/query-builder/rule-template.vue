@@ -1,13 +1,35 @@
 <template>
     <div class="template-querybuilder-section">
         <div class="col-lg-12 control-section">
-            <ejs-querybuilder ref="querybuilder" id="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" >
+           <ejs-querybuilder ref="querybuilder" id="querybuilder" :rule="importRules" width="100%" >
                 <e-columns>
                     <e-column field='EmployeeID' label='Employee ID' type='number' />
                     <e-column field='FirstName' label='First Name' type='string' />
                     <e-column field='LastName' label='Last Name' type='string' />
                     <e-column field='HireDate' label='Hire Date' type='date' format='dd/MM/yyyy' />
-                    <e-column field='Country' label='Country' type='string' :ruleTemplate='ruleTemplate'/>
+                    <e-column field='Country' label='Country' type='string' :ruleTemplate="'ruleTemplate'">
+                    <template v-slot:ruleTemplate="{data}">
+                        <div class="e-rule e-rule-template">
+                            <div class="e-rule-filter">
+                                <ejs-dropdownlist :change='fieldChange' :value="data.rule.field" :dataSource="data.columns" :fields="data.fields">
+                                </ejs-dropdownlist>
+                            </div>
+                            <div class="e-rule-operator e-operator">
+                                <ejs-radiobutton label="Is Equal" value="equal" name="operator" :change="operatorChange" checked=true ></ejs-radiobutton>
+                                <ejs-radiobutton label="Is Not Equal" value="notequal" name="operator" :change="operatorChange"></ejs-radiobutton>
+                            </div>
+                            <div  class ="e-rule-value e-value e-custom-value">
+                                <ejs-dropdownlist :change='valueChange' :value="data.rule.value" :dataSource="items" :fields="fields">
+                                </ejs-dropdownlist>
+                            </div>
+                            <div class="e-rule-value-delete">
+                                <button class="e-removerule e-custom-delete e-rule-delete e-css e-btn e-small e-round">
+                                    <span class="e-btn-icon e-icons e-delete-icon"/>
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                    </e-column>
                 </e-columns>
             </ejs-querybuilder>
         </div>
@@ -32,12 +54,10 @@
     
     .e-query-builder .e-rule-template .e-radio-wrapper:nth-child(1) {
        margin-right: 5px !important;
-    }
-
+    } 
     .e-query-builder .e-rule-template .e-radio-wrapper:nth-child(2) {
        margin-right: 0px !important;
     }
-
     @media only screen and (max-width: 700px) {
         .e-query-builder .e-rule-template .e-radio-wrapper:nth-child(1) {
             padding-bottom: 10px !important;
@@ -57,17 +77,15 @@
 import Vue from "vue";
 import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
 import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { DropDownList, MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
 import { createElement, getComponent, isNullOrUndefined } from "@syncfusion/ej2-base";
-import * as dataSource from './data-source.json';
-
+Vue.use(DropDownListPlugin);
 Vue.use(QueryBuilderPlugin);
 Vue.use(RadioButtonPlugin);
-
 export default Vue.extend({
     data: function() {
         return {
-		dataSource: dataSource.employeeData,
             importRules: {
                 condition: "and",
                 rules: [
@@ -86,56 +104,22 @@ export default Vue.extend({
                     value: "USA",
                 },
                 ],
-            },
-            ruleTemplate: () => {
-                return {
-                    template: Vue.component("ruleTemplate", {
-                        template: `<div class="e-rule e-rule-template">
-                            <div class="e-rule-filter">
-                                <ejs-dropdownlist :change='fieldChange' :value="data.rule.field" :dataSource="data.columns" :fields="data.fields">
-                                </ejs-dropdownlist>
-                            </div>
-                            <div class="e-rule-operator e-operator">
-                                <ejs-radiobutton label="Is Equal" value="equal" name="operator" :change="operatorChange" checked=true ></ejs-radiobutton>
-                                <ejs-radiobutton label="Is Not Equal" value="notequal" name="operator" :change="operatorChange"></ejs-radiobutton>
-                            </div>
-                            <div  class ="e-rule-value e-value e-custom-value">
-                                <ejs-dropdownlist :change='valueChange' :value="data.rule.value" :dataSource="items" :fields="fields">
-                                </ejs-dropdownlist>
-                            </div>
-                            <div class="e-rule-value-delete">
-                                <button class="e-removerule e-custom-delete e-rule-delete e-css e-btn e-small e-round">
-                                    <span class="e-btn-icon e-icons e-delete-icon"/>
-                                </button>
-                            </div>
-                        </div>`,
-                        data(args) {
-                            return {
-                                qryBldrObj: getComponent(document.getElementById("querybuilder"),"query-builder"),
-                                items: [
-									{ field: "USA", label: "USA" },
-                                    { field: "England", label: "England" },
-                                    { field: "India", label: "India" },
-                                    { field: "Spain", label: "Spain" }
-								],
-								fields: { text: "field", value: "label" }
-                            }
-                        },
-                        methods: {
-                            fieldChange: function (args) {
-                                this.qryBldrObj.notifyChange(args.value, args.element, "field");
-                            },
-                            operatorChange: function (args) {
-                                this.qryBldrObj.getRule(args.event.target).operator = args.value;
-                            },
-                            valueChange: function (args) {
-                                this.qryBldrObj.notifyChange(args.value, args.element, "value");
-                            }
-                        }
-                    })
-                }
             }
         };
-    }
+    },
+    methods: {
+            fieldChange: function (args) {
+                var qryBldrObj = getComponent(document.getElementById("querybuilder"),"query-builder");
+                qryBldrObj.notifyChange(args.value, args.element, "field");
+            },
+            operatorChange: function (args) {
+                var qryBldrObj = getComponent(document.getElementById("querybuilder"),"query-builder");
+                qryBldrObj.getRule(args.event.target).operator = args.value;
+            },
+            valueChange: function (args) {
+                var qryBldrObj = getComponent(document.getElementById("querybuilder"),"query-builder");
+                qryBldrObj.notifyChange(args.value, args.element, "value");
+            }
+        }
 });
 </script>

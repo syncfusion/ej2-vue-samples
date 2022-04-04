@@ -20,9 +20,9 @@
 </div>
 <div id="description">
     <div>
-        <p>In this example, comments features in the document editor can be found.</p>
+        <p>This example demonstrates the comments only type of document protection which allows users to add or edit comments alone in the document. To unprotect the document, use password '123'.</p>
         <ul>
-            <li>Add a comment.</li>
+            <li>Add or edit a comment.</li>
             <li>Reply to a comment.</li>
             <li>Resolving the comment discussion.</li>
         </ul>

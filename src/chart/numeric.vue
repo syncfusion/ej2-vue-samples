@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :axisLabelRender='axisLabelRender' :load='load' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Column' xName='x' yName='y' name='England' width=2 :marker='marker' fill='#1e90ff'> </e-series>
@@ -42,9 +42,14 @@ import { EmitType } from '@syncfusion/ej2-base';
 import { ChartPlugin, ColumnSeries, Legend, Tooltip, DataLabel } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
                     { x: 16, y: 2 }, { x: 17, y: 14 },
                     { x: 18, y: 7 }, { x: 19, y: 7 },
@@ -114,8 +119,6 @@ export default Vue.extend({
                args.chart.series[0].fill = '#57BCFF';
                args.chart.series[1].fill = '#E58184';
             }
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
  

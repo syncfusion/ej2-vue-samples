@@ -148,6 +148,12 @@
         border-color: #0D6EFD;
     }
 
+    .fluent #rteSpecial_char .char_block.e-active,
+    .fluent-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #0078DE;
+        border-color: #0078DE;
+    }
+
     .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
     .highcontrast.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
         padding-right: 10px;

@@ -3,8 +3,15 @@
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition'>
+    <template v-slot:markerTemplate="{}">
+        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"/></div>
+    </template>
     <e-layers>
-        <e-layer :layerType='layerType' :animationDuration='animationDuration' :markerSettings='markerSettings'></e-layer>
+        <e-layer :layerType='layerType' :animationDuration='animationDuration'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' :dataSource='markerDataSource' :tooltipSettings='markerTooltipSettings' :template="'markerTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 </div>
@@ -65,7 +72,6 @@
 <script>
 import Vue from 'vue';
 import { MapsPlugin,Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
-import Template from './osm-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
 data:function(){
@@ -87,24 +93,18 @@ data:function(){
             enable: false
         },
         animationDuration: 0,
-        markerSettings: [
-                {
-                    visible: true,
-                    template: function () { return {template: Template}; },
-                    dataSource: [{
-                        name: 'Manhattan, New York, USA',
-                        latitude: 40.7488758,
-                        longitude: -73.9730091
-                    }],
-                    tooltipSettings: {
-                        visible: true,
-                        valuePath: 'name',
-                        textStyle: {
-                            fontFamily: 'Segoe UI'
-                        }
-                    }
-                }
-        ]
+        markerDataSource: [{
+            name: 'Manhattan, New York, USA',
+            latitude: 40.7488758,
+            longitude: -73.9730091
+        }],
+        markerTooltipSettings: {
+            visible: true,
+            valuePath: 'name',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
+        }
     }
 },
 provide: {

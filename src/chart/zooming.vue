@@ -3,7 +3,7 @@
     <div class="control-section">
        <div align='center'>
         <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart-zooming'
-            :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis' :load='load'>
+            :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
             <e-series-collection>
                 <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' :fill='fill' :border='border'>
                 </e-series>
@@ -98,6 +98,14 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+        <linearGradient id="fluent-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
 </svg>
 
@@ -152,6 +160,14 @@
         stop-color: #5ECB9B;
     }
 
+    #fluent-gradient-chart stop {
+        stop-color: #614570;
+    }
+
+    #fluent-dark-gradient-chart stop {
+        stop-color: #8AB113;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.75;
     }
@@ -175,8 +191,8 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark")
   .replace(/contrast/i, "Contrast");
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4'];
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113'];
 
 function GetZoomingData() {
         let series = [];
@@ -241,13 +257,7 @@ function GetZoomingData() {
       chart: [AreaSeries, DateTime, Legend, Zoom, ScrollBar]
     },
     methods: {
-     load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        args.chart.series[0].border = { width: 0.5, color: borderColor[themes.indexOf(args.chart.theme.toLowerCase())] }
-    }
+     
     }   
   });
   </script>

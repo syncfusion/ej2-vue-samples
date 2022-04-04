@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="control-section">
-        <ejs-accumulationchart id="container" ref="pie" style='display:block;' :load='load' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableSmartLabels='enableSmartLabels' :tooltipRender='tooltipRender'>
+        <ejs-accumulationchart id="container" ref="pie" style='display:block;' :theme='theme' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableSmartLabels='enableSmartLabels' >
             <e-accumulation-series-collection>
                 <e-accumulation-series  :dataSource='data' xName='x' yName='y' :radius='radius' innerRadius="20%" :dataLabel="dataLabel"> </e-accumulation-series>
             </e-accumulation-series-collection>
@@ -41,10 +41,14 @@ import Vue from "vue";
 import { AccumulationChartPlugin, AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(AccumulationChartPlugin);
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
+        theme: theme,
         data: [
         { x: 'Argentina', y: 505370, r: '50%' },
         { x: 'Belgium', y: 551500, r: '70%' },
@@ -68,15 +72,7 @@ export default Vue.extend({
     accumulationchart: [AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]
   },
    methods: {
-       tooltipRender: function(args){
-        args.text = args.text.replace(args.data.pointY.toString(), args.data.pointY.toLocaleString());
-    },
-       load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+
    },
 });
 </script>

@@ -281,8 +281,21 @@
         border: 1px solid #414040;
     }
 
+    .fluent-dark .schedule-overview .overview-content {
+        border: 1px solid #c1c1c1;
+    }
+
+    .fluent-dark .schedule-overview .overview-toolbar .e-toolbar {
+        border: 1px solid #c1c1c1;
+        border-top-color: transparent;
+    }
+
     .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
         border-color: #414040;
+    }
+
+    .fluent-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
+        border-color: #c1c1c1;
     }
 
     .tailwind .schedule-overview .overview-toolbar .e-toolbar {
@@ -346,6 +359,11 @@
         font-weight: 400;
     }
 
+    .fluent .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .fluent .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f3f2f1;
+    }
+
     .bootstrap .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .bootstrap .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #f8f8f8;
@@ -356,6 +374,13 @@
         background-color: #343a40;
         color: #fff;
         font-weight: 400;
+    }
+
+    .fluent-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .fluent-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #252423;
+        border-color: #c1c1c1;
+        color: #fff;
     }
 
     .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
@@ -667,6 +692,10 @@
         background-color: #201f1f;
     }
 
+    .fluent-dark .schedule-overview .quick-info-header {
+        background-color: #252423;
+    }
+
     .material-dark .schedule-overview .quick-info-header {
         background-color: #424242;
     }
@@ -726,6 +755,7 @@
         letter-spacing: 0.33px;
         height: 24px;
         padding: 5px;
+        display: flex;
     }
 
     .schedule-overview .event-content div label {
@@ -740,17 +770,22 @@
         letter-spacing: 0.33px;
         line-height: 14px;
         padding-left: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .tailwind-dark .schedule-overview .event-content div label,
     .bootstrap-dark .schedule-overview .event-content div label,
     .bootstrap5-dark .schedule-overview .event-content div label,
+    .fluent-dark .schedule-overview .event-content div label,
     .fabric-dark .schedule-overview .event-content div label,
     .material-dark .schedule-overview .event-content div label,
     .highcontrast .schedule-overview .event-content div label,
     .tailwind-dark .schedule-overview .event-content div span,
     .bootstrap-dark .schedule-overview .event-content div span,
     .bootstrap5-dark .schedule-overview .event-content div span,
+    .fluent-dark .schedule-overview .event-content div span,
     .fabric-dark .schedule-overview .event-content div span,
     .material-dark .schedule-overview .event-content div span,
     .highcontrast .schedule-overview .event-content div span {
@@ -767,15 +802,15 @@
         padding-top: 10px;
     }
 
-    .e-quick-popup-wrapper.e-template .e-cell-popup .e-popup-content {
+    .schedule-overview .e-quick-popup-wrapper.e-template .e-cell-popup .e-popup-content {
         padding: 0 14px;
     }
 
-    .e-quick-popup-wrapper.e-template .e-event-popup .e-popup-footer {
+    .schedule-overview .e-quick-popup-wrapper.e-template .e-event-popup .e-popup-footer {
         display: block;
     }
 
-    .e-quick-popup-wrapper.e-template .e-popup-footer button:first-child {
+    .schedule-overview .e-quick-popup-wrapper.e-template .e-popup-footer button:first-child {
         margin-right: 5px;
     }
 
@@ -798,71 +833,9 @@
         padding: 8px 18px;
     }
 
-    .schedule-overview .quick-info-header-content {
-        justify-content: flex-end;
-        display: flex;
-        flex-direction: column;
-        padding: 5px 10px 5px;
-    }
-
-    .schedule-overview .quick-info-title {
-        font-weight: 500;
-        font-size: 16px;
-        letter-spacing: 0.48px;
-        height: 22px;
-    }
-
-    .duration-text {
-        font-size: 11px;
-        letter-spacing: 0.33px;
-        height: 14px;
-    }
-
     .schedule-overview .content-area {
         padding: 10px;
         width: 100%;
-    }
-
-    .schedule-overview .event-content {
-        height: 90px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 15px;
-    }
-
-    .schedule-overview .meeting-type-wrap,
-    .schedule-overview .meeting-subject-wrap,
-    .schedule-overview .notes-wrap {
-        font-size: 11px;
-        color: #666;
-        letter-spacing: 0.33px;
-        height: 24px;
-        padding: 5px;
-    }
-
-    .schedule-overview .event-content div label {
-        display: inline-block;
-        min-width: 45px;
-        color: #666;
-    }
-
-    .schedule-overview .event-content div span {
-        font-size: 11px;
-        color: #151515;
-        letter-spacing: 0.33px;
-        line-height: 14px;
-        padding-left: 8px;
-    }
-
-    .schedule-overview .cell-footer.e-btn {
-        background-color: #ffffff;
-        border-color: #878787;
-        color: #878787;
-    }
-
-    .schedule-overview .cell-footer {
-        padding-top: 10px;
     }
 
     .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
@@ -1488,8 +1461,13 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         },
         methods: {
         onPopupOpen: function(args) {
-            if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
-                args.element.classList.add('e-template');
+            if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo')) {
+                if (!args.element.classList.contains('e-template')) {
+                    args.element.classList.add('e-template');
+                }
+                if (!args.target.classList.contains('e-appointment')) {
+                    args.element.querySelector('#eventType').ej2_instances[0].index = args.data.CalendarId - 1;
+                }
             }
         },
         importTemplateFn: function(data) {

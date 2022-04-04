@@ -13,7 +13,14 @@
                              <ejs-toast id='toast_custom' :position='cusPosition' newestOnTop=true showCloseButton=true timeOut=0 :animation='cusAnimation' :created='created'></ejs-toast>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
-                            <ejs-toast id='toast_template' :template='toasttemplate' timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'></ejs-toast>
+                            <ejs-toast id='toast_template' :template="'toasttemplate'" timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'>
+                            <template v-slot:toasttemplate>
+                            <div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
+                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img :src="'source/toast/resource/map.jpg'" :width="'100%'" :height="'70%'" :alt="'map'"/>
+                                <div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div>
+                                <div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>
+                            </template>
+                            </ejs-toast>
                             <div id="toast_template_target"></div>
                         </div>
                     </div>
@@ -268,15 +275,6 @@ export default Vue.extend({
                 { Id: '5min', Text: '5 minutes' },
                 { Id: '10min', Text: '10 minutes' },
             ],
-            toasttemplate: function() {
-                return {
-                    template: Vue.component('toasttemplate', {
-                    template: `<div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
-                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img src="./source/toast/resource/map.jpg" width="100%" height="70%"><div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div><div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>`,
-                    data: function () {return {emp: 'Emp ID'};}
-                    })
-                }
-            },
             localWaterMark: 'Select a snooze time',
             height: '200px',
             cusPosition: { X: 'Right' },
@@ -343,7 +341,7 @@ export default Vue.extend({
              this.listObj.appendTo(args.element.querySelector('#snoozeDD')); 
        },
        cardTemplateFn: function(args) {
-            return compile(document.getElementById('toastEmail_template').innerHTML.trim())(args);
+            return compile(document.getElementById('toastEmail_template').innerHTML.trim())(args, this);
        },
        listChange: function(args){
             this.snoozeFlag = true;

@@ -68,11 +68,8 @@
             <div>
               <ejs-button
                 id="export"
-                :cssClass="cssClass"
-                :iconCss="iconCss"
                 :isPrimary="isPrimary"
                 :content="content"
-                isToggle="true"
                 v-on:click.native="clickExport"
               ></ejs-button>
             </div>
@@ -81,11 +78,8 @@
             <div>
               <ejs-button
                 id="print"
-                :cssClass="cssClass"
-                :iconCss="iconCss1"
                 :isPrimary="isPrimary"
                 :content="content1"
-                isToggle="true"
                 v-on:click.native="clickPrint"
               ></ejs-button>
             </div>
@@ -144,6 +138,14 @@
 
 #LG-export-sample #print {
     width: 90px;
+}
+
+.e-view.fluent #LG-export-sample .e-play-icon::before, .e-view.fluent-dark #LG-export-sample .e-play-icon::before {
+    content: "\e72e";
+}
+
+.e-view.fluent #LG-export-sample .e-play-icon1::before, .e-view.fluent-dark #LG-export-sample .e-play-icon1::before {
+    content: "\e75d";
 }
 
 .e-view.fabric #LG-export-sample .e-play-icon1::before, .e-view.fabric-dark #LG-export-sample .e-play-icon1::before {
@@ -280,9 +282,6 @@ export default Vue.extend({
       content1: "Print",
       content: "Export",
       modedata: ["JPEG", "PNG", "SVG", "PDF"],
-      cssClass: "e-flat",
-      iconCss: "e-icons e-play-icon",
-      iconCss1: "e-icons e-play-icon1",
       exportWidth: '100%'
     };
   },

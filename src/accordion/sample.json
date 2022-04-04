@@ -23,6 +23,13 @@
         "category": "Accordion",
         "description":"The sample demonstrates how to represent pane headers with an icon in Accordion component which populates from items collection in Vue platform.",
         "api":{"Accordion": ["iconCss"]}  
+    },
+    {
+        "url": "keyboard-interaction",
+        "name": "Keyboard Interaction",
+        "category": "Accordion",
+        "description":"The sample showcases the keyboard shortcuts applicable on Accordion component in Vue platform.",
+        "api":{"Accordion": ["header", "content", "expanded", "items"]}
     }
     ]
 }

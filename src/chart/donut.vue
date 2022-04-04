@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-accumulationchart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-accumulationchart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' radius='70%' xName='x' yName='y' startAngle=0 :dataLabel='dataLabel'
@@ -39,10 +39,14 @@ import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartPlugin, PieSeries, AccumulationLegend, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
+         theme:theme,
       seriesData: [
             { x: 'Labour', y: 18, text: '18%' }, { x: 'Legal', y: 8, text: '8%' },
             { x: 'Production', y: 15, text: '15%' }, { x: 'License', y: 11, text: '11%' },
@@ -103,12 +107,7 @@ export default Vue.extend({
     accumulationchart: [AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel]
   },
   methods: {
-     load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+     
   },
  
 });

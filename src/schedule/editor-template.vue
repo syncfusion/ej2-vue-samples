@@ -3,13 +3,50 @@
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :actionBegin="onActionBegin"
-                    :popupOpen="onPopupOpen" :eventRendered="onEventRendered" :showQuickInfo="showQuickInfo" :editorTemplate='editorTemplate'>
+                    :popupOpen="onPopupOpen" :eventRendered="onEventRendered" :showQuickInfo="showQuickInfo" :editorTemplate="'editorTemplate'">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
                         <e-view option="WorkWeek"></e-view>
                         <e-view option="Month"></e-view>
                     </e-views>
+                    <template v-slot:editorTemplate>
+                        <table class="schedule-custom-event-editor" width="100%" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td class="e-textlabel">Summary</td>
+                                    <td colspan="4">
+                                        <input id="Subject" class="e-field e-input" type="text" value="" name="Subject" style="width: 100%" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="e-textlabel">Status</td>
+                                    <td colspan="4">
+                                        <ejs-dropdownlist id='EventType' name="EventType" class="e-field" placeholder= 'Choose status' :dataSource='eventData' >
+                                        </ejs-dropdownlist>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="e-textlabel">From</td>
+                                    <td colspan="4">
+                                        <ejs-datetimepicker id="StartTime" class="e-field" name="StartTime"></ejs-datetimepicker>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="e-textlabel">To</td>
+                                    <td colspan="4">
+                                        <ejs-datetimepicker id="EndTime" class="e-field" name="EndTime" ></ejs-datetimepicker>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="e-textlabel">Reason</td>
+                                    <td colspan="4">
+                                        <textarea id="Description" class="e-field e-input" name="Description" rows="3" cols="50" style="width: 100%; height: 60px !important; resize: vertical"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </template>
                 </ejs-schedule>
             </div>
         </div>
@@ -46,10 +83,15 @@
 <script>
     import Vue from "vue";
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DateTimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
+    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+
     import { extend } from '@syncfusion/ej2-base';
     import { doctorsEventData } from './datasource';
-    import editortemplate from "./custom-editor.vue";
+
     Vue.use(SchedulePlugin);
+    Vue.use(DropDownListPlugin);
+    Vue.use(DateTimePickerPlugin);
 
     export default Vue.extend({
         data: function () {
@@ -58,9 +100,7 @@
                 currentView: 'Week',
                 eventSettings: { dataSource: extend([], doctorsEventData, null, true) },
                 showQuickInfo: false,
-                editorTemplate: function () {
-                    return { template: editortemplate }
-                },
+                eventData:  ['New', 'Requested', 'Confirmed'],
             }
         },
         provide: {
@@ -69,8 +109,8 @@
         methods: {
             onPopupOpen: function (args) {
                 if (args.type === 'Editor') {
-                     let statusElement = args.element.querySelector('#EventType');
-                     statusElement.setAttribute('name', 'EventType');
+                    let statusElement = args.element.querySelector('#EventType');
+                    statusElement.setAttribute('name', 'EventType');
                 }
             },
             onEventRendered: function (args) {

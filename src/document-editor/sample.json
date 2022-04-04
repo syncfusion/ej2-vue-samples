@@ -41,6 +41,7 @@
             "url": "links-and-bookmarks",
             "name": "Hyperlinks and Bookmarks",
             "category": "Editing Features",
+            "type": "update",
             "description": "The Document Editor supports hyperlinks and bookmarks. The link can be a file, mail, webpage, or bookmark."
         },
         {
@@ -125,6 +126,7 @@
             "url": "comments",
             "name": "Comments",
             "category": "Review",
+            "type": "update",
             "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
         },
 		 {

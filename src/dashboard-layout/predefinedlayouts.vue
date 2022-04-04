@@ -180,6 +180,13 @@ export default Vue.extend({
         text-align: left;
         border-bottom: 0.5px solid #e3e3e3;
     } 
+    .bootstrap5.e-bigger .dashboard-predefined #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-header,
+	.bootstrap5-dark.e-bigger .dashboard-predefined #predefined-dashboard.e-dashboardlayout.e-control .e-panel .e-panel-header	{
+        font-size: 18px;
+        font-weight: 600; 
+        height: 68px;
+        padding: 20px 0 20px 20px;
+	}
     
     .dashboard-predefined #predefined-dashboard .panel-content {
         vertical-align: middle;
@@ -222,7 +229,8 @@ export default Vue.extend({
     body.bootstrap-dark #predefined-dashboard .e-panel .panel-content,
     body.tailwind-dark #predefined-dashboard .e-panel .panel-content,
     body.highcontrast #predefined-dashboard .e-panel .panel-content,
-    body.bootstrap5-dark #predefined-dashboard .e-panel .panel-content {
+    body.bootstrap5-dark #predefined-dashboard .e-panel .panel-content,
+    body.fluent-dark #predefined-dashboard .e-panel .panel-content {
         color: #ffffff;
     }
     

@@ -60,7 +60,7 @@ export default Vue.extend({
     },
     onValueChange: function (args) {
       if (args.isInteracted) {
-        let element = document.getElementById("multiSelect");
+        let element = document.getElementById("multiselect");
         element.innerHTML = "";
         for (let j = 0; j < args.values.length; j++) {
             element.prepend(document.createTextNode(args.values[j]));
@@ -88,6 +88,15 @@ export default Vue.extend({
     font-size: 12px;
 }
 
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
+body.highcontrast #date_label {
+    color: white;
+} 
 .e-bigger #wrapper,
 .e-bigger#wrapper {
         max-width: 300px;
@@ -98,7 +107,8 @@ export default Vue.extend({
 .fabric-dark .content-value,
 .bootstrap-dark .content-value,
 .bootstrap5-dark .content-value,
-.tailwind-dark .content-value {
+.tailwind-dark .content-value,
+.fluent-dark .content-value {
   border: 1px solid rgb(150, 150, 150);
 }
 </style>

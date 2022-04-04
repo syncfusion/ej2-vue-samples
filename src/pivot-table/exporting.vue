@@ -25,7 +25,7 @@
                   <td></td>
                     <td>
                         <div style="float:right">
-                            <ejs-button id="export-btn" v-on:click.native="btnClick" cssClass= 'e-flat' isPrimary='true'>Export</ejs-button>
+                            <ejs-button id="export-btn" v-on:click.native="btnClick" isPrimary='true'>Export</ejs-button>
                         </div>
                     </td>
                 </tr>

@@ -13,7 +13,15 @@
                 </div>
                 <div id="UploaderDropTarget" class="uploader-custom-drop-target">
                         <span id="drop" class="droparea uploader-custom-drop-browse"><a href="" id="browse"><u>Browse</u></a> </span>
-                        <ejs-uploader id='templateupload' name="UploadFiles" :template='uploaderTemplate' :allowedExtensions= 'extensions' :asyncSettings= "path" ref="uploadObj" :dropArea= "dropElement" :success= "onSuccess" :failure= "onFailure" :selected= "onSelect" :progress = "onProgress" :removing= "onFileRemove" cssClass='uploader-custom-drop'>
+                        <ejs-uploader id='templateupload' name="UploadFiles" :template="'uploaderTemplate'" :allowedExtensions= 'extensions' :asyncSettings= "path" ref="uploadObj" :dropArea= "dropElement" :success= "onSuccess" :failure= "onFailure" :selected= "onSelect" :progress = "onProgress" :removing= "onFileRemove" cssClass='uploader-custom-drop'>
+                            <template v-slot:uploaderTemplate="{data}">
+                                <div class='container'>
+                                <span class='wrapper'><span :class="['sf-icon-' + data.type]"></span>
+                                <span class='name file-name'>{{data.name}} ({{data.size}} bytes)</span>
+                                <span class='upload-status'>{{data.status}}</span>
+                                </span><span class='e-icons e-file-remove-btn' title='Remove'></span>
+                                </div>
+                            </template>
                         </ejs-uploader>
                 </div>
             </div>
@@ -73,9 +81,16 @@
     .fabric-dark .custom-drop-area .uploader-custom-drop-browse a,
     .bootstrap-dark .custom-drop-area .uploader-custom-drop-browse a,
     .bootstrap5-dark .custom-drop-area .uploader-custom-drop-browse a,
-    .tailwind-dark .custom-drop-area .uploader-custom-drop-browse a {
+    .tailwind-dark .custom-drop-area .uploader-custom-drop-browse a,
+    .fluent-dark .custom-drop-area .uploader-custom-drop-browse a {
         color: #fff;
     }
+
+    .fluent-dark .e-upload .e-upload-files .e-upload-file-list,
+    .fluent .e-upload .e-upload-files .e-upload-file-list {
+        border-bottom: 1px solid rgb(68, 76, 84);
+    }
+    
     .custom-drop-area .uploader-custom-drop-target {
         min-height: 50px;
         padding-top: 15px;
@@ -128,6 +143,11 @@
     .tailwind-dark .custom-drop-area .droparea-wrap {
         background-color: #6c757d;
     }
+
+     .fluent-dark .custom-drop-area .droparea-wrap {
+        background-color: #212529;
+    }
+
 
     .bootstrap4 .custom-drop-area .droparea-wrap {
         background-color: #e9ecef;
@@ -277,7 +297,6 @@
 import Vue from "vue";
 import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
 import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
-import uploaderTemplateVue from "./uploader-template.vue";
 
 Vue.use(UploaderPlugin);
 
@@ -289,9 +308,6 @@ export default Vue.extend({
             removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
           },
           dropElement: '.droparea-wrap',
-          uploaderTemplate: function () {
-                return { template : uploaderTemplateVue}
-            },
           extensions: '.pdf, .png, .txt',
         }
     },

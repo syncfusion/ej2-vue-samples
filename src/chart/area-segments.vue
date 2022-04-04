@@ -1,10 +1,19 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend'>
             <e-annotations>
-                <e-annotation :content='annotationTemplate' x='90%' y='12%' region='Series'>
+                <e-annotation :content="'annotationTemplate'" x='90%' y='12%' region='Series'>
+                    <template v-slot:annotationTemplate="{}">
+                        <div style='width:80px; padding: 5px;'> <table style='width: 100%'>
+                                        <tr><td><div style='width: 10px; height: 10px;background:linear-gradient(#4ca1af, #c4e0e5);border-radius: 15px;'></div>
+                                        </td><td style='padding-left: 5px;'>Winter</td></tr>
+                                        <tr><td><div style='width: 10px; height: 10px; background:linear-gradient(#ffa751, #ffe259);border-radius: 15px;'></div>
+                                        </td><td style='padding-left: 5px;'>Summer</td></tr><tr><td>
+                                        <div style='width: 10px; height: 10px; background:linear-gradient(#1d976c, #93f9b9);border-radius: 15px;'></div>
+                                        </td><td style='padding-left: 5px;'>Spring</td></tr></table></div>
+                    </template>
                 </e-annotation>
             </e-annotations>
             <e-series-collection>
@@ -105,23 +114,14 @@ Vue.use(ChartPlugin);
             dataValues.push({ XValue: new Date(2016, index, 1), YValue: value });
         });
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
-        annotationTemplate: function () {
-                    return {
-                        template: Vue.component('annotationTemplate', {
-                            template: `<div style='width:80px; padding: 5px;'> <table style='width: 100%'>
-                                        <tr><td><div style='width: 10px; height: 10px;background:linear-gradient(#4ca1af, #c4e0e5);border-radius: 15px;'></div>
-                                        </td><td style='padding-left: 5px;'>Winter</td></tr>
-                                        <tr><td><div style='width: 10px; height: 10px; background:linear-gradient(#ffa751, #ffe259);border-radius: 15px;'></div>
-                                        </td><td style='padding-left: 5px;'>Summer</td></tr><tr><td>
-                                        <div style='width: 10px; height: 10px; background:linear-gradient(#1d976c, #93f9b9);border-radius: 15px;'></div>
-                                        </td><td style='padding-left: 5px;'>Spring</td></tr></table></div>`,
-                            data: function () { return { data: {} }; }
-                        })
-                    }
-                },
+        theme: theme,
          seriesData: dataValues,
 
      
@@ -163,13 +163,6 @@ export default Vue.extend({
     tooltip: {
         enable: true
     },
-    content: "<div style='width:80px; padding: 5px;'> <table style='width: 100%'>" +
-        "<tr><td><div style='width: 10px; height: 10px;background:linear-gradient(#4ca1af, #c4e0e5);border-radius: 15px;'></div>" +
-        "</td><td style='padding-left: 5px;'>Winter</td></tr>" +
-        "<tr><td><div style='width: 10px; height: 10px; background:linear-gradient(#ffa751, #ffe259);border-radius: 15px;'></div>" +
-        "</td><td style='padding-left: 5px;'>Summer</td></tr><tr><td>" +
-        "<div style='width: 10px; height: 10px; background:linear-gradient(#1d976c, #93f9b9);border-radius: 15px;'></div>" +
-        "</td><td style='padding-left: 5px;'>Spring</td></tr></table></div>",
     title: 'Organic Revenue in US - 2016'
     };
   },
@@ -177,12 +170,6 @@ export default Vue.extend({
     chart: [DateTime, Tooltip, ChartAnnotation, MultiColoredAreaSeries]
   },
   methods: {
-      load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
    },
 
  

@@ -34,7 +34,16 @@
 
     .badge-list #lists {
         margin: auto;
-        border: 1px solid rgba(0, 0, 0, 0.12)
+    }
+
+    body.material .badge-list #lists,
+    body.material-dark .badge-list #lists,
+    body.fabric .badge-list #lists,
+    body.fabric-dark .badge-list #lists,
+    body.bootstrap .badge-list #lists,
+    body.bootstrap-dark .badge-list #lists,
+    body.highcontrast .badge-list #lists {
+        border: 1px solid #dddddd;
     }
 
     .badge-list #lists .e-list-item {
@@ -82,7 +91,9 @@
     .bootstrap5 .listWrapper .e-badge,
     .bootstrap4 .listWrapper .e-badge,
     .bootstrap5-dark .listWrapper .e-badge,
-    .tailwind-dark .listWrapper .e-badge {
+    .tailwind-dark .listWrapper .e-badge,
+    .fluent .listWrapper .e-badge,
+    .fluent-dark .listWrapper .e-badge {
         margin-top: 8px !important;
     }
 

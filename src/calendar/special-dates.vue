@@ -84,6 +84,16 @@ export default Vue.extend({
   margin: 0 auto;
 }
 
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
+body.highcontrast #date_label {
+    color: white;
+} 
+
 </style>
 <style>
 .calendar-special-dates span.e-icons.highlight {
@@ -109,7 +119,9 @@ export default Vue.extend({
 .bootstrap5-dark .calendar-special-dates td.e-icons.highlight,
 .bootstrap5-dark .calendar-special-dates td.e-icons.highlight:before,
 .tailwind-dark .calendar-special-dates td.e-icons.highlight,
-.tailwind-dark .calendar-special-dates td.e-icons.highlight:before {
+.tailwind-dark .calendar-special-dates td.e-icons.highlight:before,
+.fluent-dark .calendar-special-dates td.e-icons.highlight,
+.fluent-dark .calendar-special-dates td.e-icons.highlight:before {
     color: #ff7500;
 }
 

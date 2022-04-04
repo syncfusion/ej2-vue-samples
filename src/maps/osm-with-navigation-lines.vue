@@ -3,8 +3,35 @@
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :annotations='annotations' :centerPosition='centerPosition'>
+    <template v-slot:mexicoSvgTemplate="{}">
+        <div><img src="src/maps/images/group.svg" style="height:15px;width:15px;"></img></div>
+    </template>
+    <template v-slot:mexicoBalloonTemplate="{}">
+        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"></img></div>
+    </template>
+    <template v-slot:mexicoTextTemplate="{}">
+        <div style= "font-weight:500; font-size: 13px; text-align: left; font-family:Segoe UI; ">Mexico</div>
+    </template>
+    <template v-slot:laSvgTemplate="{}">
+        <div><img src="src/maps/images/oval.svg" style="height:15px;width:15px;"></img></div>
+    </template>
+    <template v-slot:laBalloonTemplate="{}">
+        <div><div style="text-align: right; font-weight:500; font-size: 13px; font-family:Segoe UI;">Los Angeles</br>International Airport</div></div>
+    </template>
+    <template v-slot:laTextTemplate="{}">
+        <div><img src="src/maps/images/map-tooltip.svg" style="height:50px;width:100px;"></img></div>
+    </template>
     <e-layers>
-        <e-layer layerType='OSM' :navigationLineSettings='navigationLineSettings' :markerSettings='markerSettings'></e-layer>
+        <e-layer layerType='OSM' :navigationLineSettings='navigationLineSettings'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' :dataSource='mexicoSvgDataSource' :template="'mexicoSvgTemplate'" :tooltipSettings='mexicoSvgTooltipSettings'></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='mexicoBalloonDataSource' :template="'mexicoBalloonTemplate'" :tooltipSettings='mexicoBalloonTooltipSettings'></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='mexicoTextDataSource' :template="'mexicoTextTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='laSvgDataSource' :template="'laSvgTemplate'" :tooltipSettings='laSvgTooltipSettings'></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='laBalloonDataSource' :template="'laBalloonTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='laTextDataSource' :template="'laTextTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 </div>
@@ -64,84 +91,28 @@ data:function(){
             y: '-20',
             horizontalAlignment: 'Far'
         }],
-         markerSettings: [
-                    {
-                        visible: true,
-                        template: '<div><img src="src/maps/images/group.svg" style="height:15px;width:15px;"></img></div>',
-                        dataSource: [{
-                                name: 'Mexico City',
-                                latitude: 23.6445,
-                                longitude: -102.832
-                            }],
-                        tooltipSettings: {
-                            visible: true,
-                            valuePath: 'name',
-                            textStyle: {
-                                fontFamily: 'Segoe UI'
-                            }
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"></img></div>',
-                        dataSource: [{
-                                name: 'Mexico City',
-                                latitude: 24.2005,
-                                longitude: -102.832
-                            }],
-                        tooltipSettings: {
-                            visible: true,
-                            valuePath: 'name'
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div style= "font-weight:500; font-size: 13px; text-align: left; font-family:Segoe UI; ">Mexico</div>',
-                        dataSource: [{
-                                name: 'Mexico City',
-                                latitude: 24.0005,
-                                longitude: -101.200
-                            }],
-                    },
-                    {
-                        visible: true,
-                        template: '<div><img src="src/maps/images/oval.svg" style="height:15px;width:15px;"></img></div>',
-                        dataSource: [{
-                                name: 'Los Angeles',
-                                latitude: 34.0522,
-                                longitude: -118.2437
-                            }],
-                        tooltipSettings: {
-                            visible: true,
-                            valuePath: 'name'
-                        }
-                    },
-                    {
-                        visible: true,
-                        template: '<div><div style="text-align: right; font-weight:500; font-size: 13px; font-family:Segoe UI;">Los Angeles</br>' +
-                        'International Airport</div></div>',
-                        dataSource: [{
-                                name: 'Los Angeles City',
-                                latitude: 34.7000,
-                                longitude: -121.5000
-                            }],
-                    },
-                    {
-                        visible: true,
-                        template: '<div><img src="src/maps/images/map-tooltip.svg" style="height:50px;width:100px;"></img></div>',
-                        dataSource: [{
-                                latitude: 28.5,
-                                longitude: -110.400
-                            }],
-                    }
-        ],
+        mexicoSvgDataSource: [{ name: 'Mexico City', latitude: 23.6445, longitude: -102.832 }],
+        mexicoSvgTooltipSettings: {
+            visible: true,
+            valuePath: 'name',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
+        },
+        mexicoBalloonDataSource: [{ name: 'Mexico City', latitude: 24.2005, longitude: -102.832 }],
+        mexicoBalloonTooltipSettings: { visible: true, valuePath: 'name' },
+        mexicoTextDataSource: [{ name: 'Mexico City', latitude: 24.0005, longitude: -101.200 }],
+        laSvgDataSource: [{ name: 'Los Angeles', latitude: 34.0522, longitude: -118.2437 }],
+        laSvgTooltipSettings: { visible: true, valuePath: 'name' },
+        laBalloonDataSource: [{ name: 'Los Angeles City', latitude: 34.7000, longitude: -121.5000 }],
+        laTextDataSource: [{ latitude: 28.5, longitude: -110.400 }],
         navigationLineSettings: [{
-                        width: 8,
-                        visible: true,
-                        angle: -0.05,
-                        color: '#00ace6',
-                        latitude: [23.6445, 34.0522],
-                        longitude: [-102.832, -118.2437]
+            width: 8,
+            visible: true,
+            angle: -0.05,
+            color: '#00ace6',
+            latitude: [23.6445, 34.0522],
+            longitude: [-102.832, -118.2437]
         }]
     }
 },

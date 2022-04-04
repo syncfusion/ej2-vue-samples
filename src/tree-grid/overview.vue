@@ -46,7 +46,6 @@
 
     /deep/ .statustemp {
         position: relative;
-        height: 19px;
         border-radius: 15px;
         text-align: center;
         background-color: #C3F1D0;
@@ -57,11 +56,6 @@
     /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
     .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{
         padding-top: 1px;
-    }
-
-    /deep/ .tailwind .e-grid .statustemp, .tailwind-dark .e-grid .statustemp,
-    .bootstrap5 .e-grid .statustemp, .bootstrap5-dark .e-grid .statustemp {
-        padding-top: 2px;
     }
 
     /deep/ .statustemp.e-lowgdp {

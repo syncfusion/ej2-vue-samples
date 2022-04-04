@@ -89,6 +89,14 @@
 			<stop offset="0"></stop>
 			<stop offset="1"></stop>
 		</linearGradient>
+        <linearGradient id="fluent-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
 </svg>
 </div>
@@ -147,6 +155,14 @@
         stop-color: #5ECB9B;
     }
 
+    #fluent-gradient-chart stop {
+        stop-color: #614570;
+    }
+
+    #fluent-dark-gradient-chart stop {
+        stop-color: #8AB113;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
     }
@@ -184,8 +200,8 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4'];
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113'];
 let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
     'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
     'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)'];

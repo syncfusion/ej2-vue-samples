@@ -1,7 +1,13 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="template-listbox-control">
-            <ejs-listbox :dataSource="data" :itemTemplate='iTemplate'></ejs-listbox>
+            <ejs-listbox :dataSource="data" :itemTemplate="'iTemplate'">
+                <template v-slot:iTemplate="{data}">
+                    <div class="list-wrapper">
+                        <span class=" e-avatar e-avatar-xlarge e-avatar-circle"><img :src="data.pic" alt="pic"/></span><span class="text"> {{data.text}} </span><span class="description"> {{data.description}} </span>
+                    </div>
+                </template>
+            </ejs-listbox>
         </div>
        <div id="action-description">
             <p>This sample demonstrates the Item template functionalities of a ListBox.</p>
@@ -78,24 +84,9 @@ import * as data from './datasource.json';
 
 Vue.use(ListBoxPlugin);
 
-var itemVue = Vue.component("itemTemplate", {
-    template: '<div class="list-wrapper"><span class=" e-avatar e-avatar-xlarge e-avatar-circle"><img :src="data.pic" alt="pic"/></span>'  +
-              '<span class="text"> {{data.text}} </span><span class="description"> {{data.description}} </span></div>',
-    data() {
-        return {
-          data: {}
-        };
-    }
-});
-
 export default Vue.extend({
     data: function() {
         return {
-            iTemplate: function(e) {
-                return {
-                    template: itemVue
-                };
-            },
             data: data.template,
         };
     }

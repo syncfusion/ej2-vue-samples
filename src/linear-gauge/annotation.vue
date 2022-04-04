@@ -2,6 +2,43 @@
 <div>
 <div class="control-section">
 <ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='annotationContainer' :load='gaugeLoad' :rangePalettes='rangePalettes' :orientation='orientation'>
+    <e-annotations>
+        <e-annotation horizontalAlignment='Center' :x='titlePositionX' zIndex='1' :y='titlePositionY' :content="'titleTemplate'">
+            <template v-slot:titleTemplate="{}">
+                <div id="title" style="width:200px;"><p style="font-size:18px; font-family:inherit;">CPU Utilization</p></div>
+            </template>
+        </e-annotation>
+        <e-annotation :axisIndex='axisIndex' :axisValue='lowAxisValue' zIndex='1' :y='imagePositionY' :content="'lowImageTemplate'">
+            <template v-slot:lowImageTemplate="{}">
+                <div id="low"><img style="height:25px;width:25px;" src="src/linear-gauge/images/low.png"/></div>
+            </template>
+        </e-annotation>
+        <e-annotation :axisIndex='axisIndex' :axisValue='midAxisValue' zIndex='1' :y='imagePositionY' :content="'midImageTemplate'">
+            <template v-slot:midImageTemplate="{}">
+                <div id="moderate"><img style="height:25px;width:25px;" src="src/linear-gauge/images/moderate.png"/></div>
+            </template>
+        </e-annotation>
+        <e-annotation :axisIndex='axisIndex' :axisValue='highAxisValue' zIndex='1' :y='imagePositionY' :content="'highImageTemplate'">
+            <template v-slot:highImageTemplate="{}">
+                <div id="high"><img style="height:25px;width:25px;" src="src/linear-gauge/images/high.png"/></div>
+            </template>
+        </e-annotation>
+        <e-annotation :axisIndex='axisIndex' :axisValue='lowAxisValue' zIndex='1' :y='textPositionY' :content="'lowTextTemplate'">
+            <template v-slot:lowTextTemplate="{}">
+                <div id="lowText"><p style="font-size:15px;color:#248622; font-family: Segoe UI;">Low</p></div>
+            </template>
+        </e-annotation>
+        <e-annotation :axisIndex='axisIndex' :axisValue='midAxisValue' zIndex='1' :y='textPositionY' :content="'midTextTemplate'">
+            <template v-slot:midTextTemplate="{}">
+                <div id="moderateText"><p style="font-size:15px;color:#ba9e2a; font-family: Segoe UI;">Moderate</p></div>
+            </template>
+        </e-annotation>
+        <e-annotation :axisIndex='axisIndex' :axisValue='highAxisValue' zIndex='1' :y='textPositionY' :content="'highTextTemplate'">
+            <template v-slot:highTextTemplate="{}">
+                <div id="highText"><p style="font-size:15px;color:#b42f2f;font-family: Segoe UI;">High</p></div>
+            </template>
+        </e-annotation>
+    </e-annotations>
     <e-axes>
         <e-axis :maximum='maximum' :labelStyle='labelStyle' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :ranges='ranges'>
             <e-pointers>
@@ -64,6 +101,14 @@ Vue.use(LinearGaugePlugin);
 export default Vue.extend({
 data:function(){
     return{
+        titlePositionX: 35,
+        titlePositionY: 50,
+        axisIndex: 0,
+        lowAxisValue: 15,
+        midAxisValue: 45,
+        highAxisValue: 75,
+        imagePositionY: -25,
+        textPositionY: 20,
         rangePalettes: ['#30b32d', '#ffdd00', '#f03e3e'],
         orientation: 'Horizontal',
         maximum: 90,
@@ -113,70 +158,12 @@ provide: {
 },
 methods: {
     /* custom code start */
-    load: function(args) {
-      let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Material";
-      args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    },
     gaugeLoad: function(args){
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : "Material";
     args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     /* custom code end */
-    let count = 0;
-    if (this.count === undefined) {
-    this.$refs.lineargauge.ej2Instances.annotations = [
-            {
-                content: '<div id="title" style="width:200px;"><p style="font-size:18px; font-family:Segoe UI;">CPU Utilization</p></div>',
-                horizontalAlignment: 'Center',
-                x: 35, zIndex: '1',
-                y: 50
-            },
-            {
-                content: '<div id="low"><img style="height:25px;width:25px;" src="src/linear-gauge/images/low.png"/></div>',
-                axisIndex: 0,
-                axisValue: 15,
-                y: -25,
-                zIndex: '1'
-            },
-            {
-                content: '<div id="moderate"><img style="height:25px;width:25px;" src="src/linear-gauge/images/moderate.png"/></div>',
-                axisIndex: 0,
-                axisValue: 45,
-                y: -25,
-                zIndex: '1'
-            },
-            {
-                content: '<div id="high"><img style="height:25px;width:25px;" src="src/linear-gauge/images/high.png"/></div>',
-                axisIndex: 0,
-                axisValue: 75,
-                y: -25,
-                zIndex: '1'
-            },
-            {
-                content: '<div id="lowText"><p style="font-size:15px;color:#248622; font-family: Segoe UI;">Low</p></div>',
-                axisIndex: 0, zIndex: '1',
-                axisValue: 15,
-                y: 20
-            },
-            {
-                content: '<div id="moderateText"><p style="font-size:15px;color:#ba9e2a; font-family: Segoe UI;">Moderate</p></div>',
-                axisIndex: 0, zIndex: '1',
-                axisValue: 45,
-                y: 20
-            },
-            {
-                content: '<div id="highText"><p style="font-size:15px;color:#b42f2f;font-family: Segoe UI;">High</p></div>',
-                axisIndex: 0, zIndex: '1',
-                axisValue: 75,
-                y: 20
-            }
-        ];
-        this.count = 0;
-        this.$refs.lineargauge.ej2Instances.refresh();
-    }
     }
 }
 })

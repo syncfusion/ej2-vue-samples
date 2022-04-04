@@ -150,7 +150,7 @@
             // custom code end
             onChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
-                let value = parseInt((args.event.target).getAttribute('value'), 10);
+                let value = parseInt(args.event.currentTarget.querySelector('input').getAttribute('value'), 10);
                 let resourceData = calendarCollections.filter(function (calendar) { return calendar.CalendarId === value; });
                 if (args.checked) {
                     scheduleObj.addResource(resourceData[0], 'Calendars', value - 1);

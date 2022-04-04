@@ -13,28 +13,28 @@
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='filter' label="Show Filter Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='filter' label="Show Filter Icon" checked="true" :change="checkbox_onFilter"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='sort' label="Show Sort Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='sort' label="Show Sort Icon" checked="true" :change="checkbox_onSort"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='summary' label="Show Value Type Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='summary' label="Show Value Type Icon" checked="true" :change="checkbox_onValueType"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='remove' label="Show Remove Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='remove' label="Show Remove Icon" checked="true" :change="checkbox_onRemove"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -147,18 +147,21 @@ export default Vue.extend({
           "auto";
       }
     },
-    checkbox_onChange: function(args: checkEventArgs) {
-      let target = (<any>args.event).target;
+    checkbox_onFilter: function(args: checkEventArgs) {
       let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      if (target.id === "filter") {
-        pivotObj.groupingBarSettings.showFilterIcon = args.checked;
-      } else if (target.id === "sort") {
-        pivotObj.groupingBarSettings.showSortIcon = args.checked;
-      } else if (target.id === "remove") {
-        pivotObj.groupingBarSettings.showRemoveIcon = args.checked;
-      } else {
-        pivotObj.groupingBarSettings.showValueTypeIcon = args.checked;
-      }
+      pivotObj.groupingBarSettings.showFilterIcon = args.checked;
+    },
+    checkbox_onSort: function(args: checkEventArgs) {
+      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showSortIcon = args.checked;
+    },
+    checkbox_onRemove: function(args: checkEventArgs) {
+      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showRemoveIcon = args.checked;
+    },
+    checkbox_onValueType: function(args: checkEventArgs) {
+      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showValueTypeIcon = args.checked;
     }
   },
   provide: {

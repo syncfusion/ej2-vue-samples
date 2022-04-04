@@ -90,6 +90,14 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+        <linearGradient id="fluent-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
   </svg>
 </div>
@@ -133,6 +141,12 @@
     }
     #bootstrap5-dark-gradient-chart stop {
         stop-color: #5ECB9B;
+    }
+    #fluent-gradient-chart stop {
+        stop-color: #614570;
+    }
+    #fluent-dark-gradient-chart stop {
+        stop-color: #8AB113;
     }
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;

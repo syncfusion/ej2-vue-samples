@@ -6,8 +6,18 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge1'>
+                            <template v-slot:firstImageTemplate="{}">
+                                <div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>{{value1}}</div></div></div>
+                            </template>
+                            <template v-slot:firstTextTemplate="{}">
+                                <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">Germany</div>
+                            </template>
                             <e-axes>
-                                <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :annotations='gauge1annotations' :ranges='gauge1ranges'>
+                                <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :ranges='gauge1ranges'>
+                                    <e-annotations>
+                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'firstImageTemplate'"></e-annotation>
+                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'firstTextTemplate'"></e-annotation>
+                                    </e-annotations>
                                     <e-pointers>
                                         <e-pointer :value='value1' :radius='pointerRadius1' :pointerWidth='pointerWidth1' :cap='cap1' :needleTail='needleTail1' :animation='animation1'></e-pointer>
                                     </e-pointers>
@@ -17,8 +27,18 @@
                     </div>
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge2'>
+                            <template v-slot:twoImageTemplate="{}">
+                                <div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>{{value2}}</div></div></div>
+                            </template>
+                            <template v-slot:twoTextTemplate="{}">
+                                <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">USA</div>
+                            </template>
                             <e-axes>
-                                <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :annotations='gauge2annotations' :ranges='gauge2ranges'>
+                                <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :ranges='gauge2ranges'>
+                                    <e-annotations>
+                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'twoImageTemplate'"></e-annotation>
+                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'twoTextTemplate'"></e-annotation>
+                                    </e-annotations>
                                     <e-pointers>
                                         <e-pointer :value='value2' :radius='pointerRadius2' :pointerWidth='pointerWidth2' :cap='cap2' :needleTail='needleTail2' :animation='animation2'></e-pointer>
                                     </e-pointers>
@@ -28,8 +48,18 @@
                     </div>
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge3'>
+                            <template v-slot:threeImageTemplate="{}">
+                                <div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>{{value3}}</div></div></div>
+                            </template>
+                            <template v-slot:threeTextTemplate="{}">
+                                <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">UK</div>
+                            </template>
                             <e-axes>
-                                <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations' :ranges='gauge3ranges'>
+                                <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :ranges='gauge3ranges'>
+                                    <e-annotations>
+                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'threeImageTemplate'"></e-annotation>
+                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'threeTextTemplate'"></e-annotation>
+                                    </e-annotations>
                                     <e-pointers>
                                         <e-pointer :value='value3' :radius='pointerRadius3' :pointerWidth='pointerWidth3' :cap='cap3' :needleTail='needleTail3' :animation='animation3'></e-pointer>
                                     </e-pointers>
@@ -104,17 +134,6 @@ export default Vue.extend({
             'vsTarget': -gridData3
         }];
         return {
-            gauge1annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>${pointers[0].value}%</div></div></div>",
-                angle: 180,
-                zIndex: '1',
-                radius: '30%'
-            }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">Germany</div>',
-                angle: 180,
-                zIndex: '1',
-                radius: '65%'
-            }],
             gauge1startAngle: 230,
             gauge1endAngle: 130,
             gauge1majorTicks: {
@@ -159,17 +178,6 @@ export default Vue.extend({
             needleTail1: {
                 length: '25%'
             },
-            gauge2annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>${pointers[0].value}%</div></div></div>",
-                angle: 180,
-                zIndex: '1',
-                radius: '30%'
-            }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">USA</div>',
-                angle: 180,
-                zIndex: '1',
-                radius: '65%'
-            }],
             gauge2startAngle: 230,
             gauge2endAngle: 130,
             gauge2majorTicks: {
@@ -214,17 +222,6 @@ export default Vue.extend({
             needleTail2: {
                 length: '25%'
             },
-            gauge3annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>${pointers[0].value}%</div></div></div>",
-                angle: 180,
-                zIndex: '1',
-                radius: '30%'
-            }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">UK</div>',
-                angle: 180,
-                zIndex: '1',
-                radius: '65%'
-            }],
             gauge3startAngle: 230,
             gauge3endAngle: 130,
             gauge3majorTicks: {

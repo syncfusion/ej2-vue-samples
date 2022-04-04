@@ -203,8 +203,15 @@ export default Vue.extend({
             break;
         case 'bootstrap5':
         case 'bootstrap5-dark':
+        case 'fluent-dark':
             args.progressBar.progressColor = '#0D6EFD';
             break;
+        case 'fluent':
+            if (args.progressBar.element.id === "full-background") {
+              args.progressBar.progressColor = '#0D6EFD';
+            } else {
+              args.progressBar.trackColor = '#0D6EFD';
+            }
         default:
           args.progressBar.trackColor = "#007bff";
           break;

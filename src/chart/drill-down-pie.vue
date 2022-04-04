@@ -9,11 +9,21 @@
             <p id="text" style="display:inline-block;"></p>
         </div>
         <button type="button" id="back" style="visibility: hidden;" @click="onClick">Back</button>
-        <ejs-accumulationchart ref="pie" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :chartMouseMove="onChartMouseMove" :load='load'>
+        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load'>
              <e-annotations>
-                <e-annotation :content="initialContent">
+                <e-annotation :content="Template1">
                 </e-annotation>
             </e-annotations>
+            <template v-slot:Template1="{}">
+                <div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;">
+                    <img src="src/chart/images/back.png" id="back" />
+                </div>
+            </template>
+            <template v-slot:Template2="{}">
+                <div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;">
+                    <img src="src/chart/images/white.png" id="back"/>
+                </div>
+            </template>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :dataLabel="dataLabel" :explode="isExplode" explodeOffset='10%' :explodeIndex='explodeIndex'>
                 </e-accumulation-series>
@@ -51,22 +61,17 @@
 import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
 import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel, AccumulationAnnotation, AccumulationChartPlugin } from "@syncfusion/ej2-vue-charts";
-import {Template1} from "./drill-down-temp1.vue";
-import {Template2} from "./drill-down-temp2.vue";
 
 Vue.use(AccumulationChartPlugin);
 
-let tempContent1 = function() {
-  return { template: Template1 };
-}; 
-
-let tempContent2 = function() {
-  return { template: Template2 };
-};
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
+    theme: theme,
     innerRadius: '0%',
     innerChart: false,
     enableSmartLabels: false,
@@ -112,16 +117,11 @@ export default Vue.extend({
     onTextRender: function (args) {
         args.text = args.point.x + ' ' + args.point.y + ' %';
     },
-    onChartMouseMove: function (args) {
-        if (args.target.indexOf("container_Series_0_Point_") > -1 && !this.innerChart) {
-            document.getElementById(args.target).style.cursor = 'pointer';
-        }
-    },
     onChartMouseClick: function (args) {
         let  accChart = document.getElementById("container").ej2_instances;
         let index = indexFinder(args.target);
-        let lightThemeContent = tempContent1;
-        let darkThemeContent = tempContent2;
+        let lightThemeContent = "Template1";
+        let darkThemeContent = "Template2";
         this.isExplode = false;
         if (document.getElementById('container_Series_' + index.series + '_Point_' + index.point) && !this.innerChart) {
             accChart[0].annotations = [{
@@ -216,8 +216,6 @@ export default Vue.extend({
                 '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :
                 '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" /></div>';
         }
-        args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
     updated: function() {

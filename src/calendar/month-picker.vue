@@ -59,7 +59,14 @@ export default Vue.extend({
   max-width: 300px;
   margin: 0 auto;
 }
+
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
-  color: white;
-}
+    color: white;
+} 
 </style>

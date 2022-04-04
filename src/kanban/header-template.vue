@@ -5,10 +5,38 @@
         <ejs-kanban id="kanban" cssClass="kanban-header-template" keyField="Status" :dataSource="kanbanData"
         :cardSettings="cardSettings">
           <e-columns>
-            <e-column headerText="To Do" keyField="Open"  :template="columnsTemplate"></e-column>
-            <e-column headerText="In Progress" keyField="InProgress" :template="columnsTemplate"></e-column>
-            <e-column headerText="In Review" keyField="Review" :template="columnsTemplate"></e-column>
-            <e-column headerText="Done" keyField="Close" :template="columnsTemplate"></e-column>
+            <e-column headerText="To Do" keyField="Open"  :template="'columnsTemplate'">
+            <template v-slot:columnsTemplate="{data}">
+            <div class="header-template-wrap">
+                <div :class="getClassName(data)"></div>
+                <div class="header-text">{{data.headerText}}</div>
+              </div>
+            </template>
+            </e-column>
+            <e-column headerText="In Progress" keyField="InProgress" :template="'columnsTemplate'">
+            <template v-slot:columnsTemplate="{data}">
+            <div class="header-template-wrap">
+                <div :class="getClassName(data)"></div>
+                <div class="header-text">{{data.headerText}}</div>
+              </div>
+          </template>
+          </e-column>
+            <e-column headerText="In Review" keyField="Review" :template="'columnsTemplate'">
+            <template v-slot:columnsTemplate="{data}">
+            <div class="header-template-wrap">
+                <div :class="getClassName(data)"></div>
+                <div class="header-text">{{data.headerText}}</div>
+              </div>
+          </template>
+          </e-column>
+            <e-column headerText="Done" keyField="Close" :template="'columnsTemplate'">
+            <template v-slot:columnsTemplate="{data}">
+            <div class="header-template-wrap">
+                <div :class="getClassName(data)"></div>
+                <div class="header-text">{{data.headerText}}</div>
+              </div>
+          </template>
+          </e-column>
           </e-columns>
         </ejs-kanban>
       </div>
@@ -104,7 +132,6 @@ import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
 import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
 import { kanbanData } from "./datasource";
-import columnTemplate from "./header-column-template.vue";
 
 Vue.use(KanbanPlugin);
 
@@ -115,9 +142,6 @@ export default Vue.extend({
       cardSettings: {
         contentField: "Summary",
         headerField: "Id",
-      },
-      columnsTemplate: function() {
-        return { template: columnTemplate };
       }
     };
   },

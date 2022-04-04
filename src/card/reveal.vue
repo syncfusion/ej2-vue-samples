@@ -107,23 +107,22 @@
         border: 1px solid #22d3ee;
     }
     
+    
+    .fluent .card-control-section.reveal_card_layout .e-card .e-collapse:before,
+    .fluent-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .tailwind .card-control-section.reveal_card_layout .e-card .e-collapse:before,
-    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before{
-        content: "\e771";
-        font-size: 12px;
-    }
-
+    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before{
         content: "\e7e7";
         font-size: 12px;
     }
     
-    .tailwind .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before{
-        content: "\e76f";
-    }
     
+    .fluent .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .fluent-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .tailwind .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
     	content: "\e71c";

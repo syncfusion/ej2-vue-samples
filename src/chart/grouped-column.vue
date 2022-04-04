@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
          :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width' :tooltip='tooltip' :load='load'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Column' xName='x' yName='y' name='USA Total' width=2 :marker='marker' groupName= 'USA' columnWidth= 0.7 columnSpacing= 0.1> </e-series>
@@ -50,9 +50,14 @@ import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip, Legend} from "
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
                { x: '2012', y: 104 }, { x: '2016', y: 121 }, { x: '2020', y: 113 }
               ],
@@ -97,6 +102,7 @@ export default Vue.extend({
            }
            
       },
+      
       tooltip: { 
             enable: true
          },
@@ -116,8 +122,8 @@ export default Vue.extend({
             args.chart.series[1].marker.dataLabel.font.color = '#000000';
             args.chart.series[2].marker.dataLabel.font.color = '#000000';
             }
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+
+
     }
   },
  

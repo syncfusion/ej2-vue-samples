@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref='chart' :load='load' style='display:block' :animation="animation" align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart ref='chart' :theme="theme" style='display:block' :animation="animation" align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :tooltip='tooltip' :pointRender='pointRender' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Scatter'  xName='x' yName='y' name='Sales' :marker='marker' width=2 :errorBar='errorBar'> </e-series>
@@ -118,13 +118,18 @@ import { extend } from '@syncfusion/ej2-base';
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { NumericTextBox } from '@syncfusion/ej2-vue-inputs';
 import { EmitType } from '@syncfusion/ej2-base';
-import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
+import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
 import { ChartPlugin, ScatterSeries, Category, Tooltip, ErrorBar, ErrorBarMode, ErrorBarType, ErrorBarDirection } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
+
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
   data: function() {
     return {
+        theme: theme,
         seriesData: [
                 { x: 'IND', y: 24 }, { x: 'AUS', y: 20 }, { x: 'USA', y: 35 },
                 { x: 'DEU', y: 27 }, { x: 'ITA', y: 30 },
@@ -192,6 +197,10 @@ export default Vue.extend({
             args.fill = materialColors[args.point.index % 10];
         } else if (selectedTheme === 'highcontrast') {
             args.fill = highContrastColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent') {
+            args.fill = fluentColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent-dark') {
+            args.fill = fluentDarkColors[args.point.index % 10];
         } else {
             args.fill = bootstrapColors[args.point.index % 10];
         }
@@ -213,13 +222,7 @@ export default Vue.extend({
         this.$refs.chart.ej2Instances.series[0].animation.enable = false;
         this.$refs.chart.ej2Instances.series[0].errorBar.horizontalError = parseInt(horizontal, 10);
         this.$refs.chart.ej2Instances.refresh();  
-     },
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+     }
   }
   
 });

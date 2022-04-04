@@ -5,15 +5,70 @@
         <e-sheets>
           <e-sheet name="Registration Form" :rowCount="40" :colCount="30" :showGridLines="false">
             <e-ranges>
-              <e-range :template="nameTextbox" address="C2"></e-range>
-              <e-range :template="dobTextbox" address="C3"></e-range>
-              <e-range :template="genderRadiobutton" address="C4"></e-range>
-              <e-range :template="dropdownlist" address="C5"></e-range>
-              <e-range :template="multiselect" address="C6"></e-range>
-              <e-range :template="mobileTextbox" address="C7"></e-range>
-              <e-range :template="emailTextbox" address="C8"></e-range>
-              <e-range :template="addressTextbox" address="C9"></e-range>
-              <e-range :template="addButton" address="C11"></e-range>
+              <e-range :template="'nameTextbox'" address="C2">
+                <template v-slot:nameTextbox>
+                  <div>
+                    <ejs-textbox placeholder="Name"></ejs-textbox>
+                  </div>
+              </template>
+              </e-range>
+              <e-range :template="'dobTextbox'" address="C3">
+                <template v-slot:dobTextbox>
+                  <div>
+                    <ejs-textbox placeholder="DOB"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'genderRadiobutton'" address="C4">
+                <template v-slot:genderRadiobutton>
+                  <div>
+                    <ejs-radiobutton name="gender" value="male" label="Male"></ejs-radiobutton>
+                    <ejs-radiobutton name="gender" value="female" label="Female" cssClass="margin"></ejs-radiobutton>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'dropdownlist'" address="C5">
+                <template v-slot:dropdownlist>
+                  <div>
+                    <ejs-dropdownlist placeholder="Experience" :dataSource="experience"></ejs-dropdownlist>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'multiselect'" address="C6">
+                <template v-slot:multiselect>
+                  <div>
+                    <ejs-multiselect :showClearButton="false" placeholder="Areas of Interest" :dataSource="languages"></ejs-multiselect>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'mobileTextbox'" address="C7">
+                <template v-slot:mobileTextbox>
+                  <div>
+                    <ejs-textbox placeholder="Mobile Number"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'emailTextbox'" address="C8">
+                <template v-slot:emailTextbox>
+                  <div>
+                    <ejs-textbox placeholder="Email"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'addressTextbox'" address="C9">
+                <template v-slot:addressTextbox>
+                  <div>
+                    <ejs-textbox rows="2" :multiline="true"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'addButton'" address="C11">
+                <template v-slot:addButton>
+                  <div>
+                    <ejs-button cssClass="e-flat" v-bind:style="{float: 'right'}" content="Add"></ejs-button>
+                  </div>
+                </template>
+              </e-range>
             </e-ranges>
             <e-rows>
               <e-row :height="55">
@@ -129,53 +184,31 @@
     .ej2-new .control-section .control-section {
         height: 100vh;
     }
+
+    .margin {
+      margin-left: 10px !important;
+    }
 </style>
 <!-- custom code end -->
 <script>
 import Vue from "vue";
 import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import nameTextboxTemplate from "./name-textbox.vue";
-import dobTextboxTemplate from "./dob-textbox.vue";
-import genderRadioTemplate from "./gender-radiobutton.vue";
-import dropdownlistTemplate from "./dropdownlist.vue";
-import multiselectTemplate from "./multiselect.vue";
-import mobileTextboxTemplate  from "./mobile-textbox.vue";
-import emailTextboxTemplate  from "./email-textbox.vue";
-import addressTextboxTemplate  from "./address-textbox.vue";
-import addButtonTemplate  from "./add-button.vue";
+import { ButtonPlugin, RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { DropDownListPlugin, MultiSelectPlugin } from '@syncfusion/ej2-vue-dropdowns';
+Vue.use(DropDownListPlugin);
+Vue.use(TextBoxPlugin);
+Vue.use(ButtonPlugin);
+Vue.use(RadioButtonPlugin);
 Vue.use(SpreadsheetPlugin);
+Vue.use(MultiSelectPlugin);
 export default Vue.extend({
    data: () => {
     return {
       scrollSettings: { isFinite: true },
       selectionSettings: { mode: 'None' },
-      nameTextbox: function() {
-        return { template: nameTextboxTemplate }
-      },
-      dobTextbox: function() {
-        return { template: dobTextboxTemplate }
-      },
-      genderRadiobutton: function() {
-        return { template: genderRadioTemplate }
-      },
-      dropdownlist: function() {
-        return { template: dropdownlistTemplate }
-      },
-      multiselect: function() {
-        return { template: multiselectTemplate }
-      },
-      mobileTextbox: function() {
-        return { template: mobileTextboxTemplate }
-      },
-      emailTextbox: function() {
-        return { template: emailTextboxTemplate }
-      },
-      addressTextbox: function() {
-        return { template: addressTextboxTemplate }
-      },
-      addButton: function() {
-        return { template: addButtonTemplate }
-      }
+      experience: ['0 - 1 year', '1 - 3 years', '3 - 5 years', '5 - 10 years'],
+      languages: ['JAVA', 'C#', 'SQL']
     }
   },
   methods: {

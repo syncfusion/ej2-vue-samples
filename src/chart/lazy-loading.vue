@@ -1,7 +1,7 @@
 <template>
   <div class="control-section" >
      <div class="col-md-8 control-section">
-      <ejs-chart ref='chart' :load='load' :chartArea='chartArea' id='chartid' :scrollEnd='scrollEnd'
+      <ejs-chart ref='chart' :theme='theme' :chartArea='chartArea' id='chartid' :scrollEnd='scrollEnd'
           :primaryXAxis='primaryXAxis' :tooltip='tooltip' :legendSettings='legend' :title='title' :primaryYAxis='primaryYAxis'>
           <e-series-collection>
               <e-series :dataSource='series' xName= 'x' yName= 'y' type='Line' :animation='animation'>
@@ -111,6 +111,9 @@ import {
 Vue.use(ChartPlugin);
 Vue.use(DatePickerPlugin);
 Vue.use(NumericTextBoxPlugin);
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let intl = new Internationalization();
 //let spinnerEle = document.getElementById("spinner");
 
@@ -166,6 +169,7 @@ let seriesData = GetDateTimeData(new Date(2009, 0, 1), new Date(2009, 8, 1));
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       modedata: ["Range", "Points Length"],
       mindate: new Date(2009, 0, 1),
       maxdate: new Date(2014, 0, 1),
@@ -278,12 +282,6 @@ export default Vue.extend({
       this.$refs.chart.ej2Instances.primaryXAxis.scrollbarSettings.pointsLength =
         args.value;
       this.$refs.chart.ej2Instances.refresh();
-    },
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   }
 });

@@ -19,7 +19,7 @@
             <tbody><tr id="button-control" style="height: 50px">
                 <td align="center">
                     <div>
-                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickToggle'></ejs-button>
+                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click.native='clickToggle'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -61,6 +61,10 @@
     
     #maps-print-sample .e-play-icon::before {
         content: "\e34b";
+    }
+
+    .e-view.fluent #maps-print-sample .e-play-icon::before, .e-view.fluent-dark #maps-print-sample .e-play-icon::before {
+        content: "\e75d";
     }
 
    .e-view.fabric #maps-print-sample .e-play-icon::before, .e-view.fabric-dark #maps-print-sample .e-play-icon::before {
@@ -158,8 +162,7 @@ export default Vue.extend({
                         fontFamily: 'Segoe UI'
                     }
                 },
-             iconCss: 'e-icons e-play-icon',
-             cssClass: 'e-flat', isPrimary: true, content:'Print', style: 'text-transform:none !important'
+             isPrimary: true, content:'Print', style: 'text-transform:none !important'
           }
   },
 provide: {

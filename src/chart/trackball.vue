@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :crosshair='crosshair' :tooltip='tooltip' >
             <e-series-collection>
                 <e-series :dataSource='jData' type='Line' xName='x' yName='y' name='John' :marker='marker' width=2> </e-series>
@@ -49,9 +49,14 @@ import { ChartPlugin, Tooltip, DateTime, Crosshair, LineSeries, Legend } from "@
 Vue.use(ChartPlugin);
 import { john, andrew, thomas } from './trackball-data';
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+       theme: theme,
       jData : john,
       aData : andrew,
       tData : thomas,
@@ -92,12 +97,7 @@ export default Vue.extend({
     chart: [Tooltip, DateTime, Crosshair, LineSeries, Legend]
   },
   methods: {
-      load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+   
   },
  
 });

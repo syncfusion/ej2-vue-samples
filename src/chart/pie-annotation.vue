@@ -6,8 +6,11 @@
             :legendSettings='legend' :selectedDataIndexes='selectedDataIndexes' :chartMouseUp='chartMouseUp'
             :loaded='loaded' :theme='theme'>
             <e-annotations>
-                <e-annotation :content='annotationtemp' x='20%' y='25%' coordinateUnits='Pixel'
+                <e-annotation :content="'contentTemplate'" x='20%' y='25%' coordinateUnits='Pixel'
                     region='Series'>
+                    <template v-slot:contentTemplate="{}">
+                        <div id="chart_annotation" style="width: 200px; height: 200px"></div>
+                    </template>
                 </e-annotation>
             </e-annotations>
             <e-series-collection>
@@ -52,7 +55,6 @@
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChart, ChartPlugin, StackingColumnSeries, Category, Legend, Selection, ChartAnnotation, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
-import annotationTem from './annotation-template.vue';
 
 Vue.use(ChartPlugin);
 
@@ -63,9 +65,6 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
 export default Vue.extend({
   data: function() {
     return {
-         annotationtemp: function () {
-                return { template:  annotationTem}
-            },
     theme: theme,
     render: false,
     legend: {

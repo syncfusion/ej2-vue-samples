@@ -11,8 +11,14 @@
           :width="width"
           :height="height"
           :dataBound="dataBound"
-          :cellTemplate="cellTemplate"
-        ></ejs-pivotview>
+          :cellTemplate="'myTemplate'"
+        >
+          <template v-slot:myTemplate="{ data }">
+            <span v-if="getCellContent(data) !== ''">
+              <span class="template-wrap" v-html="getCellContent(data)"></span>
+            </span>
+          </template>
+        </ejs-pivotview>
       </div>
     </div>
 
@@ -45,7 +51,6 @@ import {
   IAxisSet,
   IFieldOptions
 } from "@syncfusion/ej2-vue-pivotview";
-import celltemplate from "./slot-template.vue";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { rData } from "./data-source";
 enableRipple(false);
@@ -81,14 +86,14 @@ export default Vue.extend({
       },
       width: "100%",
       gridSettings: { columnWidth: 140 },
-      cellTemplate: function() {
-        return { template: celltemplate };
-      },
       height: 300
     };
   },
   methods: {
-    onLoad: function(args: any) {
+    getCellContent: function (e: any) {
+      return '<span class="tempwrap sb-icon-neutral pv-icons"></span>';
+    },
+    onLoad: function (args: any) {
       if (data[0].Year === undefined) {
         let date: Date;
         for (let ln: number = 0, lt: number = data.length; ln < lt; ln++) {

@@ -23,6 +23,13 @@
         "category": "Toolbar",
         "description": "This sample demonstrates how to align commands in left, right and center position in Toolbar component in Vue platform.",
         "api":{"Toolbar": ["align"]}   
+    },
+    {
+        "url": "keyboard-interaction",
+        "name": "Keyboard Interaction",
+        "category": "Toolbar",
+        "description": "This sample showcases the keyboard shortcuts applicable on Toolbar in Vue platform.",
+        "api":{"Toolbar": ["showAlwaysInPopup", "showTextOn", "overflow", "overflowMode"]}   
     }
     ]
 }

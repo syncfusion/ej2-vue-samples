@@ -146,6 +146,13 @@
         color: rgb(255, 255, 255);
     }
 
+    .fluent-dark #min,
+    .fluent-dark #max,
+    .fluent-dark #step {
+        background-color: rgb(27, 26, 25);
+        color: rgb(255, 255, 255);
+    }
+
 </style>
 <script>
 import Vue from "vue";

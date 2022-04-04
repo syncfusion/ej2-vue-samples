@@ -3,9 +3,15 @@
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
 <ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='gauge-container' :title='title' centerY='75%' :titleStyle='titleStyle' :load='load'>
+<template v-slot:indicatorTemplate="{}">
+    <div id="templateWrap"><div class="des"><div id="pointerannotation" style="width:90px;text-align:center;font-size:20px;font-family:Segoe UI;">{{value}} km/h</div></div></div>
+</template>
 <e-axes>
     <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' 
-    :radius='radius' minimum=0 maximum=120 :annotations='annotations' :ranges='ranges'>
+    :radius='radius' minimum=0 maximum=120 :ranges='ranges'>
+      <e-annotations>
+          <e-annotation angle='0' zIndex='1' radius='30%' :content="'indicatorTemplate'"></e-annotation>
+      </e-annotations>
       <e-pointers>
           <e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :animation='animation' :cap='cap' :needleTail="needleTail"></e-pointer>
       </e-pointers>  
@@ -94,8 +100,6 @@ import { isNullOrUndefined } from "@syncfusion/ej2-base";
 Vue.use(CircularGaugePlugin);
 Vue.use(CheckBoxPlugin);
 
-let templateString = '<div id="templateWrap"><div class="des">'+
-                '<div id="pointerannotation" style="width:90px;text-align:center;font-size:20px;font-family:Segoe UI;">${pointers[0].value} km/h</div></div></div>';
 export default Vue.extend({
 data:function(){
     return{
@@ -125,14 +129,6 @@ data:function(){
                     color: '#757575',
                     length: '15%'
             },
-
-            annotations: [
-                {
-                    content: templateString,
-                    angle: 0, zIndex: '1',
-                    radius: '30%'
-                }
-            ],
             ranges: [
                 {
                     start: 0,

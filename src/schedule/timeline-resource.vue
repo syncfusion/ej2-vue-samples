@@ -106,6 +106,11 @@
         border-color: #414040;
     }
 
+    .fluent-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .fluent-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #292827;
+    }
+
     .bootstrap-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
     .bootstrap-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         border-color: #505050;

@@ -13,14 +13,38 @@
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
         <e-columns>
-            <e-column field='TaskName' width='250' :headerTemplate='nametemplate'></e-column>
-            <e-column field='StartDate' width='150' :headerTemplate='datetemplate'></e-column>
-            <e-column field='resources' :headerTemplate='resourcetemplate'></e-column>
-            <e-column field='Duration' :headerTemplate='durationtemplate'></e-column>
-            <e-column field='Progress' :headerTemplate='progresstemplate'></e-column>
+            <e-column field='TaskName' width='250' :headerTemplate="'nametemplate'"></e-column>
+            <e-column field='StartDate' width='150' :headerTemplate="'datetemplate'"></e-column>
+            <e-column field='resources' :headerTemplate="'resourcetemplate'"></e-column>
+            <e-column field='Duration' :headerTemplate="'durationtemplate'"></e-column>
+            <e-column field='Progress' :headerTemplate="'progresstemplate'"></e-column>
         </e-columns>
-    </ejs-gantt>
-       
+            <template v-slot:nametemplate="{data}">
+            <div>
+                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/taskname.png" width="20px" height="20px" class="e-image"/> Task Name
+                </div>
+                </template>
+            <template v-slot:datetemplate="{data}">
+            <div>
+                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/startdate.png" width="20px" height="20px" class="e-image"/> Start Date
+                </div>
+                </template>
+            <template v-slot:resourcetemplate="{data}">
+            <div>
+                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/resources.png" width="20px" height="20px" class="e-image"/> Resources
+                </div>
+                </template>
+            <template v-slot:durationtemplate="{data}">
+            <div>
+                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/duration.png" width="20px" height="20px" class="e-image"/> Duration
+                </div>
+                </template>
+            <template v-slot:progresstemplate="{data}">
+            <div>
+                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/progress.png" width="20px" height="20px" class="e-image"/> Progress
+                </div>
+                </template>
+    </ejs-gantt>       
     </div>
 
      <div id="action-description">
@@ -81,91 +105,6 @@ export default Vue.extend({
             },
             projectStartDate: new Date('03/24/2019'),
             projectEndDate: new Date('07/06/2019'),
-      nametemplate: function () {
-          return { template : Vue.component('nametemplate',{
-             template: `<div>
-                    <img :src="image" width="20px" height="20px" class="e-image"/> Task Name
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/taskname.png";
-                    }
-                }
-          })}
-      },
-     datetemplate: function () {
-          return { template : Vue.component('datetemplate',{
-             template: `<div>
-                    <img :src="image" width="20px" height="20px" class="e-image"/> Start Date
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/startdate.png";
-                    }
-                }
-          })}
-      },
-      resourcetemplate: function () {
-          return { template : Vue.component('resourcetemplate',{
-             template: `<div>
-                    <img :src="image" width="20px" height="20px" class="e-image"/> Resources
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/resources.png";
-                    }
-                }
-          })}
-      },
-      durationtemplate: function () {
-          return { template : Vue.component('durationtemplate',{
-             template: `<div>
-                    <img :src="image" width="20px" height="20px" class="e-image"/> Duration
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/duration.png";
-                    }
-                }
-          })}
-      },
-      progresstemplate: function () {
-          return { template : Vue.component('progresstemplate',{
-             template: `<div>
-                    <img :src="image" width="20px" height="20px" class="e-image"/> Progress
-                </div>`,
-                data: function() {
-                    return {
-                        data: {}
-                    }
-                },
-                computed: {
-                    image: function() {
-                        return "https://ej2.syncfusion.com/vue/demos/source/gantt/images/progress.png" ;
-                    }
-                }
-          })}
-      }
     };
   },
    provide : {

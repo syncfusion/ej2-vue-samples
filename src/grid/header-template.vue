@@ -7,12 +7,18 @@
     <div>
         <ejs-grid :dataSource="data" >
             <e-columns>
-                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' :headerTemplate='employeetemplate'></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' :headerTemplate="'employeetemplate'"></e-column>
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
                 <e-column field='Title' headerText='Title' width='170'></e-column>
-                <e-column field='HireDate' headerText='Hire Date' width='130' format="yMd" textAlign='Right' :headerTemplate='datetemplate'></e-column>
+                <e-column field='HireDate' headerText='Hire Date' width='130' format="yMd" textAlign='Right' :headerTemplate="'datetemplate'"></e-column>
                 <e-column field='ReportsTo' headerText='Reports To' width='120'></e-column>
             </e-columns>
+            <template v-slot:employeetemplate="{data}">
+              <div><span class="e-icon-userlogin e-icons employee"></span>Emp ID</div>
+            </template>
+            <template v-slot:datetemplate="{data}">
+              <div><span class="e-icon-calender e-icons headericon"></span>Order Date</div>
+            </template>
         </ejs-grid>
     </div>
 
@@ -45,22 +51,6 @@ export default Vue.extend({
   data: () => {
     return {
       data: employeeData,
-      employeetemplate: function() {
-        return {
-            template: Vue.component('employeetemplate', {
-            template: `<div><span class="e-icon-userlogin e-icons employee"></span> {{emp}}</div>`,
-            data: function () {return {emp: 'Emp ID'};}
-            })
-        }
-      },
-      datetemplate: function() {
-        return {
-            template : Vue.component('datetemplate', {
-            template: `<div><span class="e-icon-calender e-icons headericon"></span> {{ord}}</div>`, 
-            data: function () {return {ord: 'Order Date'};}
-            })
-        }
-      }
     };
   }
 });

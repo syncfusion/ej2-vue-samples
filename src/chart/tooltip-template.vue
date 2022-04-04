@@ -10,8 +10,27 @@
         :tooltip="tooltip"
         :chartArea="chartArea"
         :width="width"
-        :load='load'
+        :theme="theme"
       >
+        <template v-slot:myTemplate="{data}">
+          <div id="wrap">
+            <table style="width:100%;  border: 1px solid black;" class="table-borderless">
+              <tr>
+                <th rowspan="2" style="background-color: #C1272D">
+                  <img src="src/chart/images/grain.png" />
+                </th>
+                <td
+                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 14px; color: #E7C554; font-weight: bold; padding-left: 5px"
+                >{{data.y}}</td>
+              </tr>
+              <tr>
+                <td
+                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 18px; color: #FFFFFF; font-weight: bold; padding-left: 5px"
+                >{{data.x}}</td>
+              </tr>
+            </table>
+          </div>
+        </template>
         <e-series-collection>
           <e-series
             :dataSource="seriesData"
@@ -56,7 +75,6 @@
 </template>
 <script>
 import Vue from "vue";
-import TooltipTemplate from "./tooltip-temp.vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
   ChartPlugin,
@@ -67,13 +85,17 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
-let tooltipTemp = function() {
-  return { template: TooltipTemplate };
-};
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (
+  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
       backgroundImage: "source/chart/images/wheat.png",
+      theme: theme,
       seriesData: [
         { x: 2002, y: 1.61 },
         { x: 2003, y: 2.34 },
@@ -120,7 +142,7 @@ export default Vue.extend({
       },
       tooltip: {
         enable: true,
-        template: tooltipTemp
+        template: "myTemplate"
       },
       title: "USA Wheat Production"
     };
@@ -128,13 +150,6 @@ export default Vue.extend({
   provide: {
     chart: [LineSeries, Category, Legend, Tooltip]
   },
-  methods: {
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
-  }
+  methods: {}
 });
 </script>

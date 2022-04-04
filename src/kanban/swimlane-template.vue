@@ -10,6 +10,12 @@
             <e-column headerText="Testing" keyField="Testing"></e-column>
             <e-column headerText="Done" keyField="Close"></e-column>
           </e-columns>
+          <template v-slot:swimLaneTemplate="{data}">
+          <div class='swimlane-template e-swimlane-template-table' >
+              <div class="e-swimlane-row-text"><img :src="image(data)" :alt="data.keyField" />
+              <span>{{data.textField}}</span></div>
+          </div>
+          </template>
         </ejs-kanban>
       </div>
     </div>
@@ -53,7 +59,6 @@ import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
 import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
 import { kanbanData } from "./datasource";
-import rowTemplate from "./swimlane-row-template.vue";
 
 Vue.use(KanbanPlugin);
 
@@ -64,14 +69,12 @@ export default Vue.extend({
       allowToggle: true,
       swimlaneSettings: {
         keyField: "Assignee",
-        template: function() {
-        return { template: rowTemplate };
-      }
+        template: "swimLaneTemplate"
       },
       cardSettings: {
         contentField: "Summary",
         headerField: "Id",
-      }
+      }      
     };
   },
   provide: {

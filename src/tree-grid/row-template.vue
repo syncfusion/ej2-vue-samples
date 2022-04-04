@@ -6,13 +6,41 @@
     </p>
     </div>
     <div>
-        <ejs-treegrid :dataSource="data" childMapping='Children' height=335 :rowHeight = '83' width='auto' :treeColumnIndex='0' :rowTemplate='rowTemplate'>
+        <ejs-treegrid :dataSource="data" childMapping='Children' height=335 :rowHeight = '83' width='auto' :treeColumnIndex='0' :rowTemplate="'rowTemplate'">
             <e-columns>
                 <e-column field='EmpID' headerText='Employee ID' width='180'></e-column>
                 <e-column field='Name' headerText='Employee Name'></e-column>
-                <e-column field='Address' headerText = 'Employee Details' width='360'></e-column>
+                <e-column field='Address' headerText = 'Employee Details' width='350'></e-column>
                 <e-column field='DOB' headerText = 'DOB'></e-column>
             </e-columns>
+            <template v-slot:rowTemplate="{data}">
+                <tr>
+                    <td class="border" style='padding-left:18px;'>
+                        <div>{{data.EmpID}}</div>
+                    </td>
+                    <td class="border" style='padding: 10px 0px 0px 20px;'>
+                        <div style="font-size:14px;">
+                            {{data.Name}}
+                            <p style="font-size:9px;">{{data.Designation}}</p>
+                        </div>
+                    </td>
+                    <td class="border">
+                        <div>
+                            <div style="position:relative;display:inline-block;">
+                                <img :src="'source/tree-grid/images/' + data.FullName + '.png'" :alt="data.FullName" />
+                        </div>
+                        <div style="display:inline-block;">
+                            <div style="padding:5px;">{{data.Address}}</div>
+                            <div style="padding:5px;">{{data.Country}}</div>
+                            <div style="padding:5px;font-size:12px;">{{data.Contact}}</div>
+                            </div>
+                        </div>
+                        </td>
+                    <td class="border" style='padding-left: 20px;'>
+                        <div>{{format(data.DOB)}}</div>
+                    </td>
+                </tr>
+          </template>
         </ejs-treegrid>
     </div>
     <div id="description">
@@ -54,18 +82,22 @@
 import Vue from "vue";
 import { TreeGridPlugin } from "@syncfusion/ej2-vue-treegrid";
 import { textdata } from "./data-source";
-import rowtemplate from "./row-temp.vue";
+import { Internationalization } from '@syncfusion/ej2-base';
 
 Vue.use(TreeGridPlugin);
+
+let instance = new Internationalization();
 
 export default Vue.extend({
   data: () => {
     return {
       data: textdata,
-      rowTemplate: function () {
-        return { template: rowtemplate}
-      }
     };
-  }
+  },
+  methods : {
+      format(value: any) {
+        return instance.formatDate(value, { skeleton: 'yMd', type: 'date' });
+    }
+  },
 });
 </script>

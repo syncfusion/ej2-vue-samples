@@ -341,8 +341,8 @@
                     if (classElement) {
                         classElement.classList.remove('e-device-hover');
                     }
-                    if (event.target.classList.contains('e-work-cells')) {
-                        addClass([event.target], 'e-device-hover');
+                    if (event.event.target.classList.contains('e-work-cells')) {
+                        addClass([event.event.target], 'e-device-hover');
                     }
                 }
                 if (document.body.style.cursor === 'not-allowed') {

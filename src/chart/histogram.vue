@@ -42,6 +42,10 @@ import { ChartPlugin, ChartTheme, HistogramSeries, DataLabel, Tooltip } from "@s
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 let chartData = [];
 let points = [5.250, 7.750, 0, 8.275, 9.750, 7.750, 8.275, 6.250, 5.750,
         5.250, 23.000, 26.500, 27.750, 25.025, 26.500, 26.500, 28.025, 29.250, 26.750, 27.250,
@@ -77,6 +81,7 @@ export default Vue.extend({
           marker: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
            width: Browser.isDevice ? '100%' : '60%',
         title: 'Examination Result', tooltip: { enable: true },
+       theme: theme,
        dataSource: chartData,
        tooltip: {enable: true},
        binInterval: 20,
@@ -91,13 +96,9 @@ export default Vue.extend({
   },
   methods: {
     load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-       if (selectedTheme === 'highcontrast') {
+       if (args.chart.theme === 'Highcontrast') {
                 args.chart.series[0].marker.dataLabel.font.color = '#000000';
             }
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
    

@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-8 control-section">
-          <ejs-chart ref="chart" style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+          <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
               :chartArea='chartArea' :tooltip='tooltip'>
               <e-series-collection>
                   <e-series :dataSource='seriesData' :type='seriesType'  xName='x' yName='car' name='Car' width=2> </e-series>
@@ -70,9 +70,14 @@
   import { ChartPlugin, StackingColumnSeries, Legend, Category, Tooltip, sort } from "@syncfusion/ej2-vue-charts";
   Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
   export default Vue.extend({
     data: function() {
       return {
+           theme: theme,
         seriesData: [
           { x: 'Asia', car: 120, trucks: 90, bike: 180, cycle: 90 },
         { x: 'Canada', car: 100, trucks: 80, bike: 90, cycle: 80 },
@@ -148,12 +153,6 @@
         this.$refs.chart.ej2Instances.series[1].dataSource = sortData;
         this.$refs.chart.ej2Instances.series[2].dataSource = sortData;
         this.$refs.chart.ej2Instances.series[3].dataSource = sortData;
-    },
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
     },
    

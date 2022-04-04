@@ -95,18 +95,16 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-    /deep/ #unscheduledGantt .e-add-icon:before {
+    #unscheduledGantt /deep/  .e-add-icon:before {
         content: "\e506"
     }
-    /deep/ .bootstrap4 #unscheduledGantt .e-add-icon:before {
+    .bootstrap4 #unscheduledGantt /deep/  .e-add-icon:before {
         content: "\e783"
     }
-	/deep/ .tailwind #unscheduledGantt .e-add-icon:before,
-	/deep/ .tailwind-dark #unscheduledGantt .e-add-icon:before  {
-        content: "\e7dd"
-    }
-    /deep/ .bootstrap5 #unscheduledGantt .e-add-icon:before,
-	/deep/ .bootstrap5-dark #unscheduledGantt .e-add-icon:before  {
+    .bootstrap5 #unscheduledGantt /deep/  .e-add-icon:before,
+	  .bootstrap5-dark #unscheduledGantt /deep/  .e-add-icon:before,
+    .tailwind #Unscheduled .e-add-icon:before,.tailwind-dark #Unscheduled .e-add-icon:before,
+    .fluent #Unscheduled .e-add-icon:before, .fluent-dark #Unscheduled .e-add-icon:before  {
         content: "\e836"
     }
 

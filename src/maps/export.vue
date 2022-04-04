@@ -56,7 +56,7 @@
             <tr id="button-control" style="height: 70px">
                 <td align='center'>
                     <div style="margin-left: 50%;">
-                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
+                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click.native='clickExport'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -99,6 +99,10 @@
 
     #map-export-sample .e-play-icon::before {
         content: "\e728";
+    }
+
+    .e-view.fluent  #map-export-sample .e-play-icon::before, .e-view.fluent-dark #map-export-sample .e-play-icon::before {
+        content: "\e72e";
     }
 
     .e-view.fabric  #map-export-sample .e-play-icon::before, .e-view.fabric-dark #map-export-sample .e-play-icon::before {
@@ -171,8 +175,7 @@ export default Vue.extend({
                 ],
         modedata:['JPEG','PNG','SVG','PDF'],
         layerdata:['Geometry', 'OSM'],
-        iconCss: 'e-icons e-play-icon',
-        cssClass: 'e-flat', isPrimary: true, content:'Export', style: 'text-transform:none !important;',
+        isPrimary: true, content:'Export', style: 'text-transform:none !important;',
         exportWidth: '100%'
       }
   },

@@ -2,7 +2,20 @@
 <div>
     <div class="col-lg-12 control-section tree-template">
     <div class="tree-template-control-wrapper">
-            <ejs-treeview id="template" :fields="fields" cssClass="custom" :nodeTemplate="treeTemplate"></ejs-treeview>
+        <ejs-treeview id="template" :fields="fields" cssClass="custom" :nodeTemplate="'myTemplate'">
+            <template v-slot:myTemplate="{data}">
+                <div>
+                    <div class="treeviewdiv">
+                        <div class="nodetext">
+                            <span class="treeName">{{data.name}}</span>
+                        </div>
+                        <div v-if="data.count" class="nodebadge">
+                            <span class="treeCount e-badge e-badge-primary">{{data.count}}</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </ejs-treeview>
         </div>
         </div>
     <div id="action-description">
@@ -72,7 +85,6 @@
 <script>
 import Vue from "vue";
 import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import treeTemplateVue from "./tree-template.vue";
 import * as dataSource from './template-data.json';
 
 Vue.use(TreeViewPlugin);
@@ -81,12 +93,7 @@ Vue.use(TreeViewPlugin);
 export default Vue.extend ({
     data: function() {
         return {
-            fields: { dataSource: dataSource.templateData, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' },
-            treeTemplate: function(e) {
-                return {
-                    template: treeTemplateVue
-                };
-            },
+            fields: { dataSource: dataSource.templateData, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' }
         };
     }
 });

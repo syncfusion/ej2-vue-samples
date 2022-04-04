@@ -34,14 +34,14 @@
                 <tr id="button-control1">
                     <td>
                         <div style="height: 45px">
-                            <ejs-button id='togglebtn1' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
+                            <ejs-button id='togglebtn1' :style='style' :cssClass="e-flat" iconCss='e-icons e-export-icon' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
                         </div>
                     </td>
                 </tr>
                 <tr id="button-control2">
                     <td>
                         <div style="height: 45px">
-                            <ejs-button id='togglebtn2' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>                       
+                            <ejs-button id='togglebtn2' :style='style' :cssClass="e-flat" iconCss='e-icons e-print-icon' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>                       
                         </div>
                     </td>
                 </tr>
@@ -75,6 +75,12 @@
     }
     #togglebtn2 {
         width: 80px;
+    }
+    .e-export-icon::before {
+        content: '\\e728';
+    }
+    .e-view.fluent .e-print-icon::before, .e-view.fluent-dark .e-print-icon::before {
+        content: '\\e75d';
     }
 </style>
 <script>

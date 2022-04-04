@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-accumulationchart  ref='pie' :load='load' style='display:block' align='center' id='chartcontainer' :title='title'
+        <ejs-accumulationchart  ref='pie' :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
              :legendSettings='legendSettings' :tooltip='tooltip' enableSmartLables='true' :enableAnimation='enableAnimation' :center='center'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :startAngle='startAngle' :endAngle='endAngle' :explodeOffset='explodeOffset' :explodeIndex='explodeIndex' :radius='radius'  xName='x' yName='y' :dataLabel='dataLabel' name='Browser' innerRadius='0%'  explode='true'> </e-accumulation-series>
@@ -145,9 +145,14 @@ import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
 import { AccumulationChartPlugin, AccumulationTooltip, PieSeries, AccumulationDataLabel, AccumulationLegend } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
                 { 'x': 'Chrome', y: 37, text: '37%' }, { 'x': 'UC Browser', y: 17, text: '17%' },
                     { 'x': 'iPhone', y: 19, text: '19%' },
@@ -235,12 +240,6 @@ export default Vue.extend({
             this.$refs.pie.ej2Instances.refreshChart();
 
     },
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   }
 
 });

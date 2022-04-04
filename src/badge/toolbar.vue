@@ -32,6 +32,19 @@
         margin-top: 117px;
     }
 
+    body.bootstrap5 .badge-toolbar .e-toolbar,
+    body.material .badge-toolbar .e-toolbar,
+    body.tailwind .badge-toolbar .e-toolbar{
+        border: 1px solid #dee2e6;
+    }
+
+    .tailwind-dark .sample_container.badge-toolbar,
+    .bootstrap5-dark .sample_container.badge-toolbar,
+    .bootstrap-dark .sample_container.badge-toolbar,
+    .fabric-dark .sample_container.badge-toolbar {
+        border: 1px solid #dddddd;
+    }
+
     @media only screen and (max-width: 550px) {
         .badge-toolbar .sample_container #toolbar .header {
             display: none;

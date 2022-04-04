@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' >
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Scatter' xName='x' yName='y' name='Male' width=2 :marker='marker' opacity=0.6> </e-series>
@@ -52,9 +52,14 @@ import { scatterData } from './scatter-data';
 import { ChartPlugin, ScatterSeries, Tooltip, Legend} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
      seriesData: scatterData.getMaleData,
     seriesData1:  scatterData.getFemaleData,
            //Initializing Primary X Axis
@@ -63,7 +68,7 @@ export default Vue.extend({
             minimum: 100,
             maximum: 220,
             edgeLabelPlacement: 'Shift',
-            title: 'Height in Inches'
+            title: 'Height (cm)'
         },
         chartArea: {
             border: {
@@ -83,7 +88,7 @@ export default Vue.extend({
                 lineStyle: {
                     width: 0
                 },
-                title: 'Weight in Pounds',
+                title: 'Weight (kg)',
                 rangePadding: 'None'
             },
 
@@ -106,7 +111,7 @@ export default Vue.extend({
      
       tooltip: { 
             enable: true,
-             format: 'Weight: <b>${point.x} lbs</b> <br/> Height: <b>${point.y}"</b>'
+             format: 'Weight: <b>${point.x} kg</b> <br/> Height: <b>${point.y}cm</b>'
          },
       
       title: "Height vs Weight"
@@ -116,12 +121,7 @@ export default Vue.extend({
     chart: [ScatterSeries, Legend, Tooltip]
   },
   methods: {
-   load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
+   
  },
  
 });

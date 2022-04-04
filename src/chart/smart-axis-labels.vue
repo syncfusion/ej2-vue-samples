@@ -118,7 +118,9 @@ import {
   fabricColors,
   materialColors,
   bootstrapColors,
-  highContrastColors
+  highContrastColors,
+  fluentColors,
+  fluentDarkColors
 } from "./theme-color";
 
 Vue.use(ChartPlugin);
@@ -190,6 +192,10 @@ export default Vue.extend({
           args.fill = materialColors[args.point.index % 10];
         } else if (selectedTheme === "highcontrast") {
           args.fill = highContrastColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent') {
+          args.fill = fluentColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent-dark') {
+          args.fill = fluentDarkColors[args.point.index % 10];
         } else {
           args.fill = bootstrapColors[args.point.index % 10];
         }

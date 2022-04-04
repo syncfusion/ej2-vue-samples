@@ -505,7 +505,8 @@ body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-
 .material-dark li.sidebar-item.filterHover,
 .fabric-dark li.sidebar-item.filterHover,
 .tailwind-dark li.sidebar-item.filterHover,
-.bootstrap5-dark li.sidebar-item.filterHover {
+.bootstrap5-dark li.sidebar-item.filterHover, 
+.fluent-dark li.sidebar-item.filterHover {
     background: inherit;
  }
 

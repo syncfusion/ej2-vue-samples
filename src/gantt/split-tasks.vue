@@ -57,7 +57,7 @@ export default Vue.extend({
                 segments: 'Segments'
             },
             columns: [
-               { field: 'TaskID', headerText: 'ID', width: 60 },
+               { field: 'TaskID', headerText: 'ID', width: 80 },
                 { field: 'TaskName', headerText: 'Name', width: 250 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },

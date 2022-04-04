@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-accumulationchart ref="chart" style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-accumulationchart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :legendSettings='legendSettings' :tooltip='tooltip' :load='load'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' type='Pyramid' xName='x' yName='y' :dataLabel='dataLabel'  name='Food' width='45%' height='80%' neckWidth='15%' gapRatio=0.03 explode='true' :emptyPointSettings='emptyPointSettings' > </e-accumulation-series>
@@ -36,9 +36,14 @@ import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartPlugin, AccumulationTooltip, PyramidSeries, AccumulationLegend, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
             { x: 'Sweet Treats', y: 120, text: '120 cal' },
             { x: 'Milk, Youghnut, Cheese', y: 435, text: '435 cal' },
@@ -99,10 +104,6 @@ export default Vue.extend({
             args.text = args.text;
       },
     load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
          if (args.accumulation.availableSize.width < args.accumulation.availableSize.height) {
                 args.accumulation.series[0].width = '80%';
                 args.accumulation.series[0].height = '60%';

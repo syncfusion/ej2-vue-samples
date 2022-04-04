@@ -156,6 +156,10 @@
         background-color: #1a1a1a;
     }
 
+    .fluent-dark .e-profile-wrapper {
+        background-color: #201f1e;
+    }
+
     .fabric-dark .e-profile-wrapper {
         background-color: #333232;
     }
@@ -224,20 +228,14 @@
                         }
                     };
                 }
-                let userContentEle = createElement('div', {
-                    className: 'e-profile-wrapper'
-                });
+                let userContentEle = createElement('div', { className: 'e-profile-wrapper'});
+                let templateContent = createElement('div', { className: 'profile-container', innerHTML: `<div class="profile-image"></div><div class="content-wrap">
+                        <div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status">
+                        <div class="status-icon"></div>Online</div></div>` });
                 scheduleElement.parentElement.appendChild(userContentEle);
-
                 let userIconEle = scheduleElement.querySelector('.e-schedule-user-icon');
-                let template = 
-                        '<div class="profile-container"><div class="profile-image"></div><div class="content-wrap">' +
-                        '<div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status"> ' +
-                        '<div class="status-icon"></div>Online</div></div></div>';
-                let getDOMString = compile(template);
-                let output = getDOMString({});
                 this.profilePopup = new Popup(userContentEle, {
-                    content: output[0],
+                    content: templateContent,
                     relateTo: userIconEle,
                     position: { X: 'left', Y: 'bottom' },
                     collision: { X: 'flip', Y: 'flip' },

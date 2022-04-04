@@ -136,6 +136,14 @@
                 </div>
                 <div id='theme-switcher-popup' class='sb-theme-popup'>
                     <ul id="themelist" class="options" role="list">
+                        <li class="e-list" id="fluent" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fluent</span>
+                        </li>
+                        <li class="e-list" id="fluent-dark" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fluent Dark</span>
+                        </li>
                         <li class="e-list" id="bootstrap5" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap v5</span>
@@ -200,6 +208,8 @@
                             </div>
                             <div class='setting-content  setting-theme-change'>
                                 <select id='sb-setting-theme' class='sb-setting-theme-select'>
+                                    <option value="fluent">Fluent</option>
+                                    <option value="fluent-dark">Fluent Dark</option>
                                     <option value="bootstrap5">Bootstrap v5</option>
                                     <option value="bootstrap5-dark">Bootstrap v5 Dark</option>
                                     <option value="tailwind">Tailwind CSS</option>
@@ -420,7 +430,7 @@ import VueRouter from "vue-router";
 
 /* syncfusion imports */
 import { Browser, extend, Animation, Ajax, closest, createElement, detach, enableRipple, setCurrencyCode } from '@syncfusion/ej2-base';
-import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr } from '@syncfusion/ej2-base';
+import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr, registerLicense } from '@syncfusion/ej2-base';
 import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
@@ -451,13 +461,14 @@ import routes from './router.config';
 loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
 L10n.load(Locale);
 setCulture('en');
+registerLicense('{SyncfusionJSLicensekey}');
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'bootstrap5';
-const themeCollection: string[] = ['bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
+const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',

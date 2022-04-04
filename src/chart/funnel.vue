@@ -3,7 +3,7 @@
     <div class="col-md-9 control-section">
       <ejs-accumulationchart
         ref="funnel"
-        :load='load'
+        :theme="theme"
         id="container"
         style="display:block;  width: 92%"
         :tooltip="tooltip"
@@ -122,9 +122,16 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (
+  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       data: [
         { x: "China", y: 1409517397, text: "China" },
         { x: "India", y: 1339180127, text: "India" },
@@ -191,12 +198,6 @@ export default Vue.extend({
         this.width = "60%";
         this.height = "80%";
       }
-    },
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.accumulation.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   },
   updated: function() {

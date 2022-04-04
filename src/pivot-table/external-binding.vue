@@ -115,7 +115,7 @@ export default Vue.extend({
       legendSettings: {
         position: 'Top'
       },      
-      showTooltip: false,
+      showTooltip: true,
       xAxis: {
         title: { text: "Country ~ Products" },
         labels: [],

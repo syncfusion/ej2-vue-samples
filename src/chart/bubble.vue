@@ -44,7 +44,7 @@ import Vue from "vue";
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, BubbleSeries, Tooltip} from "@syncfusion/ej2-vue-charts";
-import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
+import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
 
 Vue.use(ChartPlugin);
 
@@ -106,6 +106,10 @@ export default Vue.extend({
         args.fill = materialColors[args.point.index % 10];
     } else if (selectedTheme === 'highcontrast') {
         args.fill = highContrastColors[args.point.index % 10];
+    } else if (selectedTheme === 'fluent') {
+        args.fill = fluentColors[args.point.index % 10];
+    } else if (selectedTheme === 'fluent-dark') {
+        args.fill = fluentDarkColors[args.point.index % 10];
     } else {
         args.fill = bootstrapColors[args.point.index % 10];
     }

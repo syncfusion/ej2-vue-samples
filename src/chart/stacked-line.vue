@@ -3,7 +3,7 @@
     <div align="center">
       <ejs-chart
         style="display:block"
-        :load='load'
+        :theme="theme"
         align="center"
         id="chartcontainer"
         :title="title"
@@ -108,9 +108,16 @@ import {
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (
+  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       seriesData: [
         { x: "Food", y: 90, y1: 40, y2: 70, y3: 120 },
         { x: "Transport", y: 80, y1: 90, y2: 110, y3: 70 },
@@ -167,13 +174,6 @@ export default Vue.extend({
   provide: {
     chart: [StackingLineSeries, Legend, Tooltip, Category]
   },
-  methods: {
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
-  }
+  methods: {}
 });
 </script>

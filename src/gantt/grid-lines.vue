@@ -25,8 +25,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 50%;padding: 10px 10px 10px 0px">
-                        <ejs-dropdownlist id='gridlines' width='100px' :dataSource='linesData' value='Both' :fields='linesFields' :change="lineChange"></ejs-dropdownlist>
+                    <td style="width: 100%;padding: 10px 10px 10px 0px">
+                        <ejs-dropdownlist id='gridlines' width='150px' :dataSource='linesData' value='Both' :fields='linesFields' :change="lineChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

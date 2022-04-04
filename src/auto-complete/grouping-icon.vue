@@ -73,7 +73,8 @@
     }
     .material-dark .autocomplete-icon-css .e-list-icon,
     .bootstrap5-dark .autocomplete-icon-css .e-list-icon,
-    .tailwind-dark .autocomplete-icon-css .e-list-icon {
+    .tailwind-dark .autocomplete-icon-css .e-list-icon,
+    .fluent-dark .autocomplete-icon-css .e-list-icon {
         color: #fff;
     }
     .bootstrap-dark .autocomplete-icon-css .e-list-icon {

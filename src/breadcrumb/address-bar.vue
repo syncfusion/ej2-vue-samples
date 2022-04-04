@@ -98,6 +98,16 @@
 .e-bigger.highcontrast .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon {
   padding-right: 22px !important;
 }
+.fluent .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.fluent-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret
+{
+    right: 2px;
+}
+.e-bigger .fluent .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .fluent-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret
+{
+    right: 1px;
+}
 </style>
 <!-- custom code end -->
 <style>

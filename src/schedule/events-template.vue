@@ -5,8 +5,24 @@
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='550px' :selectedDate="selectedDate" :eventSettings='eventSettings' :readonly="readonly"
                     :cssClass='cssClass' :workHours="workHours">
                     <e-views>
-                        <e-view option="Week" :eventTemplate="weekTemplate"></e-view>
-                        <e-view option="TimelineWeek" :eventTemplate="monthTemplate"></e-view>
+                        <e-view option="Week" :eventTemplate="'weekTemplate'">
+                            <template v-slot:weekTemplate="{ data }">
+                                <div class="template-wrapper" :style="{background: data.SecondaryColor}">
+                                    <div class="subject" :style="{background: data.PrimaryColor}">{{data.Subject}}</div>
+                                    <div class="time" :style="{background: data.PrimaryColor}">Time: {{getTimeString(data)}}</div>
+                                    <div class="image"><img :src="getImage(data)" /></div>
+                                    <div class="description">{{data.Description}}</div>
+                                    <div class="footer" :style="{background: data.PrimaryColor}"></div>
+                                </div>
+                            </template>
+                        </e-view>
+                        <e-view option="TimelineWeek" :eventTemplate="'monthTemplate'">
+                            <template v-slot:monthTemplate="{ data }">
+                                <div class="template-wrapper" :style="{background: data.PrimaryColor}">
+                                    <div class="subject" :style="{background: data.SecondaryColor, borderColor: data.PrimaryColor}">{{data.Subject}}</div>
+                                </div>
+                            </template>
+                        </e-view>
                     </e-views>
                 </ejs-schedule>
             </div>
@@ -113,38 +129,6 @@
     Vue.use(SchedulePlugin);
 
     var instance = new Internationalization();
-    var weekTempVue = Vue.component("weekTemp", {
-        template: '<div class="template-wrapper" :style="{background: data.SecondaryColor}">'+
-        '<div class="subject" :style="{background: data.PrimaryColor}">{{data.Subject}}</div>'+
-        '<div class="time" :style="{background: data.PrimaryColor}">Time: {{getTimeString(data.StartTime)}} - {{getTimeString(data.EndTime)}}</div>'+
-        '<div class="image"><img :src="getImage" /></div>'+
-        '<div class="description">{{data.Description}}</div><div class="footer" :style="{background: data.PrimaryColor}"></div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        },
-        computed: {
-            getImage: function() {
-                return 'source/schedule/images/' + this.data.ImageName + '.svg';
-            }
-        },
-        methods: {
-            getTimeString: function (value) {
-                return instance.formatDate(value, { skeleton: 'hm' });
-            }
-        }
-    });
-
-    var monthTempVue = Vue.component("monthTemp", {
-        template: '<div class="template-wrapper" :style="{background: data.PrimaryColor}">'+
-        '<div class="subject" :style="{background: data.SecondaryColor, borderColor: data.PrimaryColor}">{{data.Subject}}</div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        }
-    });
 
     export default Vue.extend({
         data: function () {
@@ -152,20 +136,18 @@
                 selectedDate: new Date(2021, 1, 15),
                 cssClass: 'schedule-event-template',
                 readonly: true,
-                weekTemplate: function (e) {
-                    return {
-                        template: weekTempVue
-                    };
-                },
-                monthTemplate: function (e) {
-                    return {
-                        template: monthTempVue
-                    };
-                },
                 workHours: {
                     start: '08:00'
                 },
                 eventSettings: { dataSource: extend([], webinarData, null, true) }
+            }
+        },
+        methods: {
+            getImage: function (data) {
+                return 'source/schedule/images/' + data.ImageName + '.svg';
+            },
+            getTimeString: function (data) {
+                return instance.formatDate(data.StartTime, { skeleton: 'hm' }) + " - " + instance.formatDate(data.EndTime, { skeleton: 'hm' });
             }
         },
         mounted: function () {

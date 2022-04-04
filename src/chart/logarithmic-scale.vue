@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
              :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Product X' :marker='marker'> </e-series>
@@ -45,9 +45,14 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, LineSeries, Tooltip, DateTime, Logarithmic, Legend } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+        theme: theme,
       seriesData: [
                     { x: new Date(1995, 0, 1), y: 80 },
                     { x: new Date(1996, 0, 1), y: 200 },
@@ -103,12 +108,6 @@ export default Vue.extend({
     chart: [LineSeries, DateTime, Logarithmic, Tooltip, Legend]
   },
   methods: {
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
    },
  
 });

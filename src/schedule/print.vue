@@ -79,6 +79,10 @@
     .print-property-panel .e-hide-row {
         display: none;
     }
+
+    .e-schedule .e-schedule-toolbar .e-toolbar-items .e-toolbar-item.e-separator {
+        display: none;
+    }
 </style>
 <script>
     import Vue from "vue";

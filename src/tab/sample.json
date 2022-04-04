@@ -37,6 +37,13 @@
         "category": "Tabs",
         "description": "This example demonstrates how to reorder the loaded tabs and how to add a new tab from the external source.",
         "api":{"Tab":["allowDragAndDrop", "dragArea", "created", "onDragStart", "dragged"] }
+    },
+    {
+        "url": "keyboard-interaction",
+        "name": "Keyboard Interaction",
+        "category": "Tabs",
+        "description": "This sample showcases the keyboard shortcuts applicable on Tab component in Vue platform.",
+        "api":{"Tab": ["overflowMode"]}
     }
     ]
 }

@@ -164,6 +164,8 @@ export default Vue.extend({
                     break;
                 case 'bootstrap5':
                 case 'bootstrap5-dark':
+                case 'fluent':
+                case 'fluent-dark':
                     args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#0D6EFD"><span></span></div>';
                     break;
                 case 'tailwind-dark':

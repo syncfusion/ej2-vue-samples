@@ -209,6 +209,12 @@
     .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e94a';
     }
+
+    .fluent .uploader-template-view .close-icon-container.delete-icon::before,
+    .fluent-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e7e7';
+    }
+
     .tailwind .uploader-template-view .close-icon-container.delete-icon::before
     .tailwind-dark .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e78d';

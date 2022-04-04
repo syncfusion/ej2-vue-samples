@@ -71,13 +71,17 @@
     .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
         content: "\e75d";
     }
+
+    .e-view.fluent .e-print-icon::before, .e-view.fluent-dark .e-print-icon::before {
+        content: "\e75d";
+    }
 </style>
 
 <script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { Button } from '@syncfusion/ej2-vue-buttons';
-import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
+import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import {
   ChartPlugin,
@@ -147,6 +151,10 @@ export default Vue.extend({
           args.fill = materialColors[args.point.index % 10];
         } else if (selectedTheme === "highcontrast") {
           args.fill = highContrastColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent') {
+          args.fill = fluentColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent-dark') {
+          args.fill = fluentDarkColors[args.point.index % 10];
         } else {
           args.fill = bootstrapColors[args.point.index % 10];
         }

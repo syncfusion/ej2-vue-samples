@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='dataEditing' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='dataEditing' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :chartArea='chartArea' :width='width'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Column' :dragSettings='dragSettings' xName='x' yName='y' name='Product A' width=2 :marker='marker'> </e-series>
@@ -40,9 +40,14 @@ import { ChartPlugin, ColumnSeries, LineSeries, Legend, DataEditing, Tooltip, Ca
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       seriesData: [
         { x: '2005', y: 21 }, { x: '2006', y: 60 },
         { x: '2007', y: 45 }, { x: '2008', y: 50 },
@@ -97,12 +102,6 @@ export default Vue.extend({
     chart: [LineSeries, ColumnSeries, Legend, DataEditing, Tooltip, Category]
   },
   methods: {
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   }
    
 });

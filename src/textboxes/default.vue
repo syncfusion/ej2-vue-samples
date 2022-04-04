@@ -305,7 +305,9 @@
     .bootstrap5-dark .row.material,
     .tailwind-dark .row.material,
     .fabric-dark .row.material,
-    .bootstrap-dark .row.material {
+    .bootstrap-dark .row.material,
+    .fluent .row.material,
+    .fluent-dark .row.material {
         display: none;
     }
     #description td {
@@ -335,6 +337,17 @@
     .bootstrap5-dark .e-upload-picture::before {
         content: '\e712';
         font-family: e-icons;
+    }
+
+    .fluent .e-upload-picture::before,
+    .fluent-dark .e-upload-picture::before {
+        content: '\e712';
+        font-family: e-icons;
+    }
+
+    .fluent .e-float-input.e-control-wrapper.e-filled,
+    .fluent-dark .e-float-input.e-control-wrapper.e-filled {
+        margin-top: 0px;
     }
 </style>
 

@@ -3,7 +3,14 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
             <ejs-autocomplete id='employees' :dataSource='data' :fields='fields' :placeholder='watermark'
-             :headerTemplate='hTemplate' :itemTemplate='iTemplate' popupHeight="450px" cssClass='autocomplete-template'></ejs-autocomplete>
+             :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" popupHeight="450px" cssClass='autocomplete-template'>
+              <template v-slot:hTemplate="{data}">
+                <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
+              </template>
+              <template v-slot:iTemplate="{data}">
+                <div><img class="empImage" :src="data.Eimg" alt="employee"/><div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>
+              </template>              
+             </ejs-autocomplete>
         </div>
     </div>
     <div id="action-description">    
@@ -163,6 +170,39 @@
     .bootstrap4 .autocomplete-template .header {
         color: #6c757d;
     }
+     .fluent-dark .header {
+        background: #252423;
+        color: #2899F5;
+    }
+
+    .bootstrap5-dark .autocomplete-template .header {
+        background: #343A40;
+        color: #7B848D;
+    }
+
+    .fluent .autocomplete-template .header{
+         color: #2899F5;
+    }
+
+    .tailwind-dark .autocomplete-template .header {
+        background: #374151;
+        color: rgb(255, 255, 255);
+    }
+
+    .material-dark .autocomplete-template .header {
+        background: rgb(66, 66, 66);
+        color: rgb(255, 255, 255);
+    }
+
+    .fabric-dark .autocomplete-template .header {
+        background: rgb(40, 39, 39);
+        color: rgb(255, 255, 255);
+    }
+
+    .bootstrap-dark .autocomplete-template .header {
+        background: rgb(49, 49, 49);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -171,40 +211,11 @@ import * as data from './dataSource.json';
 
 Vue.use(AutoCompletePlugin);
 
-var headerVue = Vue.component("headerTemplate", {
-  template: '<div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var itemVue = Vue.component("itemTemplate", {
-  template: '<div><img class="empImage" :src="data.Eimg" alt="employee"/>' +
-            '<div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
 export default Vue.extend ({
     data: function() {
         return {
             fields: { value: 'Name' },
             watermark: 'e.g. Andrew Fuller',
-            hTemplate: function(e) {
-                return {
-                    template: headerVue
-                };
-            },
-            iTemplate: function(e) {
-                return {
-                    template: itemVue
-                };
-            },
             data:data['empList']
         };
     }

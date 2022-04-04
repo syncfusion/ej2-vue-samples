@@ -4,7 +4,7 @@
       <ejs-chart
         ref="chart"
         style="display:block"
-        :load='load'
+        :theme="theme"
         align="center"
         id="chartcontainer"
         :title="title"
@@ -54,14 +54,6 @@
         <table id="property" title="Properties" style="width: 100%">
           <br>
           <br>
-          <tr id style="height: 50px">
-            <td style="width: 80%">
-              <div>Enable Multi-selection:</div>
-            </td>
-            <td style="width: 50%; padding-left: 10px; padding-right:10px">
-              <input type="checkbox" id="multiselect" @change="check">
-            </td>
-          </tr>
           <tr style="height: 50px">
             <td>
               <div>Selection Mode</div>
@@ -75,6 +67,14 @@
                 index="0"
                 :width="indexwidth"
               ></ejs-dropdownlist>
+            </td>
+          </tr>
+          <tr id style="height: 50px">
+            <td style="width: 80%">
+              <div>Enable Multi-selection:</div>
+            </td>
+            <td style="width: 50%; padding-left: 10px; padding-right:10px">
+              <input type="checkbox" id="multiselect" @change="check">
             </td>
           </tr>
           <tr style="height: 50px">
@@ -91,6 +91,14 @@
               ></ejs-dropdownlist>
             </td>
           </tr>
+          <tr style="height: 50px">
+                <td style="width: 60%">
+                    <div>Highlight Color:</div>
+                </td>
+                <td style="width: 40%;">
+                    <ejs-colorpicker id="highlighColor" value="null" :mode="mode" :change="colorChange"></ejs-colorpicker>
+                </td>
+          </tr>
           <tr id style="height: 50px">
             <td style="width: 80%">
               <div>Enable Highlight:</div>
@@ -103,14 +111,6 @@
                 @change="highlightPatternChange"
                >
             </td>
-          </tr>
-          <tr style="height: 50px">
-                <td style="width: 60%">
-                    <div>Highlight Color:</div>
-                </td>
-                <td style="width: 40%;">
-                    <ejs-colorpicker id="highlighColor" value="null" :mode="mode" :change="colorChange"></ejs-colorpicker>
-                </td>
           </tr>
           <tr style="height: 50px">
             <td style="width: 60%">
@@ -200,9 +200,16 @@ import {
 Vue.use(ChartPlugin);
 Vue.use(ColorPickerPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (
+  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+      theme: theme,
       mode: "Palette",
       seriesData: [
         { x: "CHN", y: 17 },
@@ -310,12 +317,6 @@ export default Vue.extend({
       }
       this.$refs.chart.ej2Instances.dataBind();
     },
-    load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   }
 });
 </script>

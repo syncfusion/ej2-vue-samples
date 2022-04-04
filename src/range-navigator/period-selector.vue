@@ -38,7 +38,10 @@
             :theme='theme' :legendSettings='legendSettings' :axisLabelRender='axisLabelRender' :load='chartLoad'
             :tooltipRender='tooltipRender' :chartMouseMove='chartMouseMove' :axisRangeCalculated='axisRangeCalculated'>
             <e-annotations>
-                <e-annotation :content='annotationTemplate' coordinateUnits='Pixel' region='Chart' x='15%' y= '20%'>
+                <e-annotation :content="'annotationTemplate'" coordinateUnits='Pixel' region='Chart' x='15%' y= '20%'>
+                  <template v-slot:annotationTemplate="{}">
+                    <div id="annotation"></div>
+                  </template>
                 </e-annotation>
             </e-annotations>
             <e-series-collection>
@@ -125,14 +128,6 @@ for (let i = 2110; i < periodData.length; i++) {
 export default Vue.extend({
   data: function() {
     return {
-       annotationTemplate: function () {
-                    return {
-                        template: Vue.component('annotationTemplate', {
-                            template: `<div id="annotation"></div>`,
-                            data: function () { return { data: {} }; }
-                        })
-                    }
-                },
       dataSource: dataBind,
       primaryXAxis: {
         valueType: "DateTime", majorGridLines: { width: 0 }, edgeLabelPlacement: "Shift"

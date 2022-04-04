@@ -5,11 +5,24 @@
       :dataSource="data"
       :fields="fields"
       :cssClass="cssClass"
-      :groupTemplate="grouptemplate"
+      :groupTemplate="'grouptemplate'"
       :showHeader="header"
       :headerTitle="title"
-      :template="datatemplate"
-    ></ejs-listview>
+      :template="'datatemplate'"
+    >
+      <template v-slot:grouptemplate="{data}">
+        <div class="e-list-wrapper">
+          <span class="e-list-item-content">{{data.items[0].category}}</span>
+        </div>
+      </template>
+      <template v-slot:datatemplate="{data}">
+        <div class="settings e-list-wrapper e-list-multi-line e-list-avatar">
+          <span :class="['icon e-avatar ' + data.class]"></span>
+          <span class="e-list-item-header">{{data.Name}}</span>
+          <span class="e-list-content">{{data.content}}</span>
+        </div>
+      </template>
+    </ejs-listview>
     <div id="action-description">
       <p>
         This sample demonstrates the group template functionalities of ListView. Click any list item from the settings option to select and highlight an option.
@@ -231,8 +244,6 @@ import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from "@syncfusion/ej2-base";
 import { dataSource } from "./newsData";
 import { groupTemplateData } from "./listData";
-import grouptempVue from "./group-vue-template.vue";
-import datatempVue from "./data-vue-template.vue";
 enableRipple(false);
 Vue.use(ListViewPlugin);
 export default Vue.extend({
@@ -245,17 +256,7 @@ export default Vue.extend({
         groupBy: "order"
       },
       header: true,
-      title: "Settings",
-      grouptemplate: function() {
-        return {
-          template: grouptempVue
-        };
-      },
-      datatemplate: function() {
-        return {
-          template: datatempVue
-        };
-      }
+      title: "Settings"
     };
   }
 });

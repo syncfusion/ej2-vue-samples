@@ -3,7 +3,6 @@
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
-    "type": "update",
     "samples": [
       {  
         "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
@@ -14,7 +13,7 @@
         "description": "This example shows how the Syncfusion Essential JS2 Tree Grid looks with its default configuration."
      },
      {  
-      "url": "adaptive", "name": "Adaptive", "type": "new", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns","enableAdaptiveUI","allowSorting","allowFiltering","editSettings","toolbar","allowPaging"] },
+      "url": "adaptive", "name": "Adaptive", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns","enableAdaptiveUI","allowSorting","allowFiltering","editSettings","toolbar","allowPaging"] },
       "description": "This example demonstrates the adaptive rendering behavior of Tree Grid features."
    },
      {  
@@ -44,10 +43,7 @@
         "url":"columntemplate", "name": "Column Template", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","width","height","columns","rowHeight"] },
         "description": "This demo explains how to define template columns in Syncfusion Essential JS2 Tree Grid control.",
         "sourceFiles":[
-         { "displayName": "columntemplate.vue", "path":"src/tree-grid/columntemplate.vue" },
-         { "displayName": "template1.vue", "path":"src/tree-grid/template1.vue" },
-         { "displayName": "template2.vue", "path":"src/tree-grid/template2.vue" },
-         { "displayName": "template3.vue", "path":"src/tree-grid/template3.vue" }
+         { "displayName": "columntemplate.vue", "path":"src/tree-grid/columntemplate.vue" }
         ]
      },
      {

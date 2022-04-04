@@ -54,12 +54,12 @@
                 <tr id="button-control" style="height: 70px" align='center'>
                     <td align="center">
                         <div>
-                            <ejs-button id='togglebtn1' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
+                            <ejs-button id='togglebtn1' :style='style' :isPrimary='isPrimary' :content='content1' v-on:click.native='clickExport'></ejs-button>
                         </div>
                     </td>
                     <td align="center">
                         <div>
-                            <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>
+                            <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content2' v-on:click.native='clickPrint'></ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -150,7 +150,7 @@ return{
                 }
             ]
         },
-        cssClass: 'e-info', isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
+        isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
         modewidth: '100%',
         modedata:['JPEG','PNG','SVG','PDF']
 }

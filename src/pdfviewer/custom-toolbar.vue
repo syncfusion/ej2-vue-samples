@@ -5,8 +5,16 @@
         <e-item prefixIcon='e-pv-open-document-icon' tooltipText='Open' :click="openClicked"></e-item>
         <e-item prefixIcon='e-pv-previous-page-navigation-icon' id="previousPage" tooltipText='Previous Page' align='Center' :click="previousClicked"></e-item>
         <e-item prefixIcon='e-pv-next-page-navigation-icon' id="nextPage" tooltipText='Next Page' align='Center' :click="nextClicked"></e-item>
-        <e-item :template='pageNoTemplate' tooltipText='Page Number' align='Center'></e-item>
-        <e-item :template='pageTextTemplate' tooltipText='Page Number' align='Center'></e-item>
+        <e-item :template="'pageNoTemplate'" tooltipText='Page Number' align='Center'>
+          <template v-slot:pageNoTemplate>
+            <div class=""><input type="text" class="e-input-group e-pv-current-page-number" id="currentPage" /></div>
+          </template>
+        </e-item>
+        <e-item :template="'pageTextTemplate'" tooltipText='Page Number' align='Center'>
+          <template v-slot:pageTextTemplate>
+            <div class=""><span class="e-pv-total-page-number" id="totalPage">of 0</span></div>
+          </template>
+        </e-item>
         <e-item prefixIcon='e-pv-print-document-icon' tooltipText='Print' align='Right' :click="printClicked"></e-item>
         <e-item prefixIcon='e-pv-download-document-icon' tooltipText='Download' align='Right' :click="downloadClicked"></e-item>
       </e-items>
@@ -267,8 +275,6 @@
                 documentPath: "Hive_Succinctly.pdf",
                 enableToolbar: false,
 				enableNavigationToolbar: false,
-                pageNoTemplate: '<div class=""><input type="text" class="e-input-group e-pv-current-page-number" id="currentPage" /></div>',
-                pageTextTemplate: '<div class=""><span class="e-pv-total-page-number" id="totalPage">of 0</span></div>'
             }
         },
         provide: {

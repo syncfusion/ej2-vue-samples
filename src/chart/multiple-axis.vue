@@ -1,12 +1,18 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :axes='axes' :tooltip='tooltip' :legendSettings='legendSettings'>
             <e-annotations>
-                <e-annotation :content='cloudTemplate' x='Sun' y=35 coordinateUnits='Point' verticalAlignment='Top'>
+                <e-annotation :content="'cloudTemplate'" x='Sun' y=35 coordinateUnits='Point' verticalAlignment='Top'>
+                    <template v-slot:cloudTemplate="{}">
+                        <div id="chart_cloud"><img src="source/chart/images/cloud.png"  style="width: 41px; height: 41px"/></div>
+                    </template>
                 </e-annotation>
-                <e-annotation :content='sunTemplate' x='Sat' y=34 coordinateUnits='Point' yAxisName='yAxis'>
+                <e-annotation :content="'sunTemplate'" x='Sat' y=34 coordinateUnits='Point' yAxisName='yAxis'>
+                    <template v-slot:sunTemplate="{}">
+                        <div id="chart_sun"><img src="source/chart/images/sunny.png"  style="width: 41px; height: 41px"/></div>
+                    </template>
                 </e-annotation>
             </e-annotations>
             <e-series-collection>
@@ -45,25 +51,14 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, LineSeries, ChartAnnotation, ColumnSeries, Category, Tooltip } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
-         cloudTemplate: function () {
-                    return {
-                        template: Vue.component('cloudTemplate', {
-                            template: `<div id="chart_cloud"><img src="source/chart/images/cloud.png"  style="width: 41px; height: 41px"/></div>`,
-                            data: function () { return { data: {} }; }
-                        })
-                    }
-                },
-        sunTemplate: function () {
-                    return {
-                        template: Vue.component('sunTemplate', {
-                            template: `<div id="chart_sun"><img src="source/chart/images/sunny.png"  style="width: 41px; height: 41px"/></div>`,
-                            data: function () { return { data: {} }; }
-                        })
-                    }
-                },
+      theme: theme,
       seriesData: [
                 { x: 'Sun', y: 35 }, { x: 'Mon', y: 40 },
                 { x: 'Tue', y: 80 }, { x: 'Wed', y: 70 }, { x: 'Thu', y: 65 }, { x: 'Fri', y: 55 },
@@ -120,12 +115,6 @@ export default Vue.extend({
     chart: [LineSeries, ColumnSeries, Category, Tooltip, ChartAnnotation]
   },
   methods: {
-      load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
   },
  
 });

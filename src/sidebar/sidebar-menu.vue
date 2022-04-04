@@ -1,3 +1,64 @@
+<template>
+<div id="wrapper" class="control-section">
+    <div id="sidebarmenu">
+        <!-- header-section  declaration -->
+        <div>
+            <ejs-toolbar cssClass="menuToolbar" v-on:clicked="toolbarCliked">
+                <e-items>
+                    <e-item prefixIcon="icon-menu" tooltipText="Menu"></e-item>
+                    <e-item :template="folderTemplate"></e-item>
+                </e-items>
+            </ejs-toolbar>
+        </div>
+        <!-- main content declaration -->
+        <div class="main-menu-content" id="maintext">
+            <div class="menu-content">
+                <div class="sidebar-heading"> Responsive Sidebar with Menu</div>
+                <p class="paragraph-content">
+                    The Vue Sidebar is an expandable and collapsible component that typically acts as a side
+                    container to place primary or secondary content alongside the main content. It provides flexible
+                    options that can be shown and hidden based on user interactions. Any type of HTML content or
+                    component can be placed in the Vue Sidebar for quick access and easy navigation, like quick
+                    references, menus, lists, and tree views.
+                </p>
+                <div class="sidebar-heading"> HTML side content position</div>
+                <p class="paragraph-content">
+                    The Vue Sidebar component positions its content to the left or right side of the main content
+                    area. This option allows the placement of two sidebars on a page, one on the left and one on the
+                    right, to show primary and secondary content simultaneously.
+                </p>
+                <div class="sidebar-heading"> Responsive sidebar</div>
+                <p class="paragraph-content">
+                    Auto closing the Vue Sidebar component’s content, makes the main content area more readable.
+                </p>
+            </div>
+        </div>
+        <!-- end of main content declaration sidebar element declaration -->
+        <ejs-sidebar id="menuSidebar" class="sidebar-menu" ref="sidebarMenuInstance" :enableDock='true' dockSize="50px" width="220px" target=".main-menu-content" :isOpen="true" type="Auto">
+            <div class="main-menu">
+                <div>
+                    <ejs-menu id="dockMenu" :items="menuItems" orientation='Vertical' cssClass='dock-menu'></ejs-menu>
+                </div>
+            </div>
+        </ejs-sidebar>
+    </div>
+    <div id="action-description">
+        <p>
+            The <code>Sidebar</code> Menu sample demonstrates customizing the Sidebar with Menu. Click on the hamburger
+            menu icon to expand/collapse the sidebar. Hover the Menu item to see the corresponding child menu items.
+        </p>
+    </div>
+    <div id="description">
+        <p>
+            The <code>Sidebar</code> can allow to render custom components like TreeView, ListView, Menu, etc.
+        </p>
+        <p>
+            In this sample, the Menu component is placed inside the Sidebar. Hover the Menu item to see the
+            corresponding child menu items.
+        </p>
+    </div>
+</div>
+</template>
 <script>
 import Vue from "vue";
 import { SidebarPlugin } from '@syncfusion/ej2-vue-navigations';
@@ -5,460 +66,485 @@ import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
 import { enableRipple } from '@syncfusion/ej2-base';
 Vue.use(SidebarPlugin, MenuPlugin);
 
+var folderTemplate = Vue.component("demo", {
+    template: '<div class="e-folder"><div class="e-folder-name">Navigation Pane</div></div>',
+    data() {
+        return {
+            data: {}
+        };
+    }
+});
 
+var menuItems= [
+    {
+        text: 'Overview',
+        iconCss: 'icon-user icon',
+        items: [
+            { text: 'All Data' },
+            { text: 'Category2' },
+            { text: 'Category3' }
+        ]
+    },
+    {
+        text: 'Notification',
+        iconCss: 'icon-bell-alt icon',
+        items: [
+            { text: 'Change Profile' },
+            { text: 'Add Name' },
+            { text: 'Add Details' }
+        ]
+    },
+    {
+        text: 'Info',
+        iconCss: 'icon-tag icon',
+        items: [
+            { text: 'Message' },
+            { text: 'Facebook' },
+            { text: 'Twitter' }
+        ]
+    },
+    {
+        text: 'Comments',
+        iconCss: 'icon-comment-inv-alt2 icon',
+        items: [
+            { text: 'Category1' },
+            { text: 'Category2' },
+            { text: 'Category3' }
+        ]
+    },
+    {
+        text: 'Bookmarks',
+        iconCss: 'icon-bookmark icon',
+        items: [
+            { text: 'All Comments' },
+            { text: 'Add Comments' },
+            { text: 'Delete Comments' }
+        ]
+    },
+    {
+        text: 'Images',
+        iconCss: 'icon-picture icon',
+        items: [
+            { text: 'Add Name' },
+            { text: 'Add Mobile Number' }
+        ]
+    },
+    {
+        text: 'Users ',
+        iconCss: 'icon-user icon',
+        items: [
+            { text: 'Mobile User' },
+            { text: 'Laptop User' },
+            { text: 'Desktop User' }
+        ]
+    },
+    {
+        text: 'Settings',
+        iconCss: 'icon-eye icon',
+        items: [
+            { text: 'Change Profile' },
+            { text: 'Add Name' },
+            { text: 'Add Details' }
+        ]
+    }
+];
 export default Vue.extend({
-      data: function() {
-    return {
-        width:"220px",
-         mediaQuery:'(min-width: 600px)',
-        target: '.main-content',
-        dockSize: '52px',
-        enableDock: true,
-      menuItems: [
-        {
-            text: 'Overview',
-            iconCss: 'icon-globe icon',
-            items: [
-                { text: 'All Data' },
-                { text: 'Category2' },
-                { text: 'Category3' }
-            ]
-        },
-        {
-            text: 'Notification',
-            iconCss: 'icon-bell-alt icon',
-            items: [
-                { text: 'Message' },
-                { text: 'Facebook' },
-                { text: 'Twitter' }
-            ]
-        },
-        {
-            text: 'Comments',
-            iconCss: 'icon-comment-inv-alt2 icon',
-            items: [
-                { text: 'Category1' },
-                { text: 'Category2' },
-                { text: 'Category3' }
-            ]
-        },
-        {
-            text: 'Bookmarks',
-            iconCss: 'icon-bookmark icon',
-            items: [
-                { text: 'All Comments' },
-                { text: 'Add Comments' },
-                { text: 'Delete Comments' }
-            ]
-        },
-        {
-            text: 'Images',
-            iconCss: 'icon-picture icon',
-            items: [
-                { text: 'Add Name' },
-                { text: 'Add Mobil Number' },
-                { text: 'Add Imaage' },
-            ]
-        },
-        {
-            text: 'Users ',
-            iconCss: 'icon-user icon',
-            items: [
-                { text: 'Mobile1' },
-                { text: 'Mobile2' },
-                { text: 'Telephone' }
-            ]
-        },
-        {
-            text: 'Settings',
-            iconCss: 'icon-eye icon',
-            items: [
-                { text: 'Change Profile' },
-                { text: 'Add Name' },
-                { text: 'Add Details' }
-            ]
-        },
-        {
-            text: 'Info',
-            iconCss: 'icon-tag icon',
-            items: [
-                { text: 'Facebook' },
-                { text: 'Mobile' },
-            ]
-        },
-    ],
-    accountMenuItem : [
-        {
-            text: 'Account',
-            items: [
-                { text: 'Profile' },
-                { text: 'Sign out' },
-            ]
-        },
-    ]
-    };
-  },
-    methods: {
-        newTabClick: function() {
-           var URL = location.href.replace(location.search, '');
-           document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/sidebar-menu/index.html');
-        },
-        
-        toggleClick: function() {
-           this.$refs.sidebarInstance.toggle();
+    data: function() {
+        return {
+            folderTemplate: function (e) {
+                return {
+                    template: folderTemplate
+                };
+            },
+            menuItems: menuItems
+        };
+    },
+    methods: {        
+        toolbarCliked: function(args) {
+            if(args.item.tooltipText == "Menu") {
+                this.$refs.sidebarMenuInstance.toggle();
+            }
         }
     }
 });
 </script>
-<template>
-<div class="control-section sidebar-menu">
-    <!-- sample level element  -->
-    <div class="col-lg-12 col-sm-12 col-md-12 center">
-        Click/Touch the button to view the sample
-    </div>
-    <div class="col-lg-12 col-sm-12 col-md-12 center">
-        <a class="e-btn" id="newTab" v-on:click="newTabClick" target="_blank">Open in new Tab</a>
-    </div>
-    <!-- sample level element  -->
-    <div id="wrapper">
-        <div class="col-lg-12 col-sm-12 col-md-12">
-            <div class="col-lg-12 col-sm-12 col-md-12">
-  <div class="header-section dock-menu" id="header">
-            <ul class="header-list">
-                <li id="hamburger" class="icon-menu icon list"  v-on:click="toggleClick"></li>
-                <input type="text" placeholder="Search..." class="search-icon list">
-                <li class="right-header list">
-                    <div class="horizontal-menu">
-                    <ejs-menu id="horizontal-menubar" :items='accountMenuItem'></ejs-menu>
-                    </div>
-                </li>
-                <li class="right-header list support">Support</li>
-                <li class="right-header list tour">Tour</li>
-            </ul>
-        </div>
-                <!-- sidebar element declaration-->
-                <ejs-sidebar id="sidebar-menu" :width='width' :mediaQuery='mediaQuery' :target='target' :dockSize='dockSize' :enableDock='enableDock' ref="sidebarInstance">
-                    <div class="main-menu">
-                <p class="main-menu-header">MAIN</p>
-                <div>
-                     <ejs-menu id="main-menubar" :items='menuItems' orientation = "Vertical"></ejs-menu>
-                </div>
-            </div>
-            <div class="action">
-                <p class="main-menu-header">ACTION</p>
-                <button class="e-btn action-btn" id="action-button">+ Button</button>
-            </div>
-                </ejs-sidebar>
-                <!-- end of sidebar element -->
-                <!-- main content declaration -->
-               <div class="main-content" id="maintext">
-            <div class="content">
-                <div> Responsive Sidebar with Menu</div>
-            </div>
-        </div>
-                <!--end of main content declaration -->
-            </div>
-        </div>
-    </div>
-    <div id="action-description">
-        <p>
-            Click/Touch the button to view the Sidebar sample in new tab.
-        </p>
-    </div>
-    <div id="description">
-        <p>
-       This sample demonstrates how to use the Menu component inside the Sidebar for navigation purposes. Initially, the Sidebar renders in the dock state with icons, and expands when the hamburger icon at the top-left corner of the header section is clicked.
-        </p>
-    </div>
-</div>
-</template>
 <style>
-  /* header-section styles */
- .sidebar-menu #header.header-section,
- .sidebar-menu #header .search-icon {
-     height: 50px;
- }
-
- .sidebar-menu #header #hamburger.icon-menu {
-     font-size: 24px;
-     float: left;
-     line-height: 50px;
- }
-
- .sidebar-menu #header .right-header {
-     height: 35px;
-     padding: 7px;
-     float: right;
- }
-
- .sidebar-menu #header .list {
-     list-style: none;
-     cursor: pointer;
-     font-size: 16px;
-     line-height: 35px;
- }
-
- .sidebar-menu #header .header-list {
-     padding-left: 15px;
-     margin: 0;
- }
- 
- @media(max-width:500px) {
-	 .sidebar-menu #header .right-header.list.support,
-     .sidebar-menu #header .right-header.list.tour {
-     display: none;
-	 }
- }
-	
- /* text input styles */
- .sidebar-menu #header .search-icon {
-     float: left;
-     padding-left: 15px;
-     border: 0px solid #33383e !important;
-     background-color: #33383e;
-     cursor: text;
-     width: 5em;
- }
-
- .sidebar-menu #header .search-icon:focus {
-     outline: none;
-     cursor: default;
- }
-
- /* end of text input styles */
- /* end of header-section styles */
-
- /* content area styles */
- .sidebar-menu #maintext.main-content {
-     height: 100vh;
-     z-index: 1000;
- }
-
- .sidebar-menu #maintext .content {
-     margin-top: 230px;
-     text-align: center;
-     font-size: 32px;
-     color: #1784c7;
- }
-
- /* end of content area styles */
-
- /* menu styles */
- /* horizontal-menu styles */
- .sidebar-menu #header .header-list .horizontal-menu .e-menu-item {
-     height: 35px;
-     vertical-align: middle;
-     font-size: 16px;
-     line-height: 35px;
- }
-
- .sidebar-menu #header .e-menu-item .e-caret {
-     line-height: 35px;
- }
-
- /* end of horizontal-menu styles */
- /* vertical-menu styles */
-
- .sidebar-menu #sidebar-menu .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon {
-     width: 220px;
- }
-
- .sidebar-menu #sidebar-menu .e-menu-wrapper ul .e-menu-item:hover,
-.sidebar-menu .e-menu-item.e-focused:hover {
-     background-color: #3e454c !important;
-    
+    /* Specifies the sample level styles for the sidebar*/
+    #wrapper .icon-menu {
+        font-size: 24px;
     }
 
- /* end of vertical-menu styles */
- /* end of menu styles */
+    #wrapper.control-section {
+        padding: 15px 0px;
+    }
 
- /* Sidebar styles */
- /* docksidebar styles */
- .sidebar-menu .dock-menu .e-menu-wrapper ul .e-menu-item .e-caret,
- .sidebar-menu #header .search-icon,
- .sidebar-menu #sidebar-menu .action-btn,
- .sidebar-menu #header .e-menu-item .e-caret,
- .sidebar-menu .dock-menu .e-menu-wrapper ul .e-menu-item, .sidebar-menu .e-menu-item.e-focused{
-     color: #fff !important;
+    @media(max-width:500px) {
+        #wrapper #maintext.main-menu-content {
+            height: 800px;
+        }
+    }
 
- }
+    #wrapper .sidebar-menu {
+        z-index: 20 !important;
+    }
 
-.sidebar-menu .dock-menu.e-close .e-menu-wrapper ul .e-menu-item {
-     width: 50px;
- }
+    #wrapper .dock-menu.e-menu-wrapper {
+        border: 0px;
+    }
 
- .sidebar-menu .dock-menu.e-close ul .e-menu-item.e-menu-caret-icon {
-     padding-right: 12px;
- }
+    #maintext.main-menu-content {
+        height: 500px;
+    }
 
- .sidebar-menu #sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item .e-caret,
- .sidebar-menu #sidebar-menu.e-dock.e-close .main-menu-header,
- .sidebar-menu #sidebar-menu.e-dock.e-close .action-btn {
-     display: none;
- }
+    #wrapper .sidebar-menu .e-menu-wrapper {
+        border: 0px;
+        height: 500px;
+    }
 
- .sidebar-menu #sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon,
- .sidebar-menu #sidebar-menu.e-dock.e-close .e-menu-wrapper ul.e-vertical {
-     min-width: 0px;
-     width: 50px !important;
- }
+    #maintext .menu-content {
+        padding: 15px;
+    }
 
- .sidebar-menu #sidebar-menu.e-dock.e-close .e-menu-wrapper ul.e-menu {
-     font-size: 0;
- }
+    #maintext .paragraph-content {
+        padding: 15px 0;
+        font-weight: normal;
+        font-size: 14px;
+        text-align: initial;
+    }
 
- .sidebar-menu #sidebar-menu.e-dock.e-close .e-menu-item .e-menu-icon {
-     font-size: 20px;
-     padding: 0;
- }
+    .e-bigger #maintext .paragraph-content {
+        font-size: 16px;
+    }
 
- .sidebar-menu #sidebar-menu, .sidebar-menu #sidebar-menu ul, .sidebar-menu #header ul, .sidebar-menu .dock-menu .e-menu-wrapper, .sidebar-menu .dock-menu.e-menu-wrapper, .sidebar-menu .dock-menu.e-menu-wrapper ul>*, .sidebar-menu .dock-menu .e-menu-wrapper ul>*, .sidebar-menu .e-menu-wrapper .e-ul{
-     background-color: #33383e !important;
-     color: #fff !important;
-     overflow: hidden;
- }
+    #maintext .sidebar-heading {
+        font-size: 16px;
+        font-weight: 500;
+    }
 
- /* end of docksidebar styles */
- /*end of  Sidebar styles */
+    .e-bigger #maintext .sidebar-heading {
+        font-size: 18px;
+    }
 
- /*main-menu-header  styles */
- .sidebar-menu #sidebar-menu .main-menu-header {
-     padding: 4px 0px 0px 18px;
-     color: #656a70;
- }
+    /* vertical-menu styles */
+    .sidebar-menu .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon {
+        width: 220px;
+    }
 
- /*end of main-menu-header  styles */
+    .e-close .e-menu-wrapper ul .e-menu-item {
+        width: 50px;
+    }
 
- /*button styles */
- .sidebar-menu #sidebar-menu .action-btn {
-     margin-left: 16px;
-     width: 165px;
-     height: 30px;
-     font-size: 13px;
-     border-radius: 5px;
- }
+    .e-close ul .e-menu-item.e-menu-caret-icon {
+        padding-right: 12px;
+    }
 
- .sidebar-menu #sidebar-menu .action-btn {
-     background-color: #1784c7;
- }
-/* custom code start */
- /* end of button styles */
- .sb-content-tab .sidebar-menu #wrapper {
-     display: none;
- }
+    .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item .e-caret {
+        display: none;
+    }
 
- .sidebar-menu .center {
-     text-align: center;
-     display: none;
-     font-size: 13px;
-     font-weight: 400;
-     margin-top: 20px;
- }
+    .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon,
+    .sidebar-menu.e-dock.e-close .e-menu-wrapper ul.e-vertical {
+        min-width: 0;
+        width: 50px !important;
+    }
 
- .sb-content-tab .sidebar-menu .center {
-     display: block;
- }
- /* custom code end */
-.sidebar-menu #sidebar-menu{
-    margin-left: -1px;
-}
-/* custom code start */
- /*body styles */
- body.ej2-new-sidebar {
-     margin: 0;
-     overflow-y: hidden;
-     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     -webkit-tap-highlight-color: transparent;
- }
-/* custom code end */
- /*end of body styles */
+    .sidebar-menu.e-dock.e-close .e-menu-wrapper ul.e-menu {
+        font-size: 0;
+    }
 
- /* newTab support styles */
+    .sidebar-menu.e-dock.e-close .e-menu-item .e-menu-icon {
+        font-size: 20px;
+        padding: 0;
+    }
 
- .ej2-new-sidebar .sb-header,
- .ej2-new-sidebar .sb-bread-crumb,
- .ej2-new-sidebar #action-description,
- .ej2-new-sidebar #description-section,
- .ej2-new-sidebar #description {
-     display: none
- }
+    .sidebar-menu,
+    .e-menu-wrapper,
+    .e-menu-wrapper ul {
+        overflow: hidden;
+    }
 
- .ej2-new-sidebar .container-fluid,
- .ej2-new-sidebar .container-fluid .control-section,
- #sidebar-section {
-     padding: 0;
- }
+    /*Specifies the sample level font family for sidebar menu */
+    @font-face {
+        font-family: 'fontello';
+        src: url('data:application/octet-stream;base64,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') format('truetype');
+    }
 
- .ej2-new-sidebar .sample-browser>.content.e-view {
-     top: 0;
-     padding: 0;
-     text-align: initial
- }
+    .sidebar-menu .icon {
+        font-family: 'fontello';
+    }
 
- /* end of newTab support styles */
+    .sidebar-menu .icon-up-hand:before {
+        content: '\e801';
+    }
 
- /*icon styles */
- @font-face {
-     font-family: 'fontello';
-     src:url('data:application/octet-stream;base64,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') format('truetype');
- }
+    .sidebar-menu .icon-bell-alt:before {
+        content: '\e802';
+    }
 
- .sidebar-menu #sidebar-menu .icon-up-hand:before {
-     content: '\e801';
- }
+    .sidebar-menu .icon-user:before {
+        content: '\e803';
+    }
 
- .sidebar-menu #sidebar-menu .icon-bell-alt:before {
-     content: '\e802';
- }
+    .sidebar-menu .icon-picture:before {
+        content: '\e804';
+    }
 
- .sidebar-menu #sidebar-menu .icon-user:before {
-     content: '\e803';
- }
+    .sidebar-menu .icon-comment-alt:before {
+        content: '\e805';
+    }
 
- .sidebar-menu #sidebar-menu .icon-picture:before {
-     content: '\e804';
- }
+    .sidebar-menu .icon-tag:before {
+        content: '\e806';
+    }
 
- .sidebar-menu #sidebar-menu .icon-comment-alt:before {
-     content: '\e805';
- }
+    .sidebar-menu .icon-comment-inv-alt2:before {
+        content: '\e807';
+    }
 
- .sidebar-menu #sidebar-menu .icon-tag:before {
-     content: '\e806';
- }
+    .sidebar-menu .icon-eye:before {
+        content: '\e808';
+    }
 
- .sidebar-menu #sidebar-menu .icon-comment-inv-alt2:before {
-     content: '\e807';
- }
+    .sidebar-menu .icon-globe:before {
+        content: '\e809';
+    }
 
- .sidebar-menu #sidebar-menu .icon-eye:before {
-     content: '\e808';
- }
+    .sidebar-menu .icon-bookmark-empty:before {
+        content: '\e810';
+    }
 
- .sidebar-menu #sidebar-menu .icon-globe:before {
-     content: '\e809';
- }
+    .sidebar-menu .icon-bookmark:before {
+        content: '\e811';
+    }
 
- .sidebar-menu #sidebar-menu .icon-bookmark-empty:before {
-     content: '\e810';
- }
+    #wrapper .icon-menu:before {
+        content: '\e914';
+        font-family: 'sbicons'
+    }
 
- .sidebar-menu #sidebar-menu .icon-bookmark:before {
-     content: '\e811';
- }
+    /*Specifies the sample level styles for sidebar for dock & closed state */
+    .bootstrap5 #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .bootstrap5-dark #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .tailwind #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .tailwind-dark #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 9px;
+    }
 
- .sidebar-menu #header .icon-menu:before {
-     content: '\e812';
- }
+    .bootstrap5.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .bootstrap5-dark.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .tailwind.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .tailwind-dark.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 15px;
+    }
 
- .sidebar-menu #sidebar-menu .icon,
- .sidebar-menu #header #hamburger.icon-menu {
-     font-family: 'fontello';
- }
+    .material #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 12px;
+    }
 
- .sidebar-menu #sidebar-menu .e-menu-icon::before {
-     color: #656a70;
- }
+    .material.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 16px;
+    }
 
- /*icon styles */
+    .bootstrap #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .bootstrap-dark #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 13px;
+    }
+
+    .bootstrap4 #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 9px;
+    }
+
+    .bootstrap4.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 13px;
+    }
+
+    .fabric #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .fabric-dark #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 7px;
+    }
+
+    .fabric.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item,
+    .fabric-dark.e-bigger #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 5px;
+    }
+
+    .highcontrast #wrapper .sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item {
+        padding: 0 4px;
+    }
+
+    /*Specifies the sample level styles for sidebar for dock & opened state */
+    .bootstrap5 #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .bootstrap5-dark #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .tailwind #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .tailwind-dark #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 15px 0 7px;
+    }
+
+    .material #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 8px 0 2px;
+    }
+
+    .bootstrap4 #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 16px 0 5px;
+    }
+
+    .bootstrap4.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 16px 0 2px;
+    }
+
+    .highcontrast #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 16px 0 10px;
+    }
+
+    .bootstrap #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .bootstrap-dark #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 14px 0 4px;
+    }
+
+    .fabric #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .fabric-dark #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 16px 0 9px;
+    }
+
+    .bootstrap5.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .bootstrap5-dark.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .tailwind.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .tailwind-dark.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 20px 0 -2px;
+    }
+
+    .material.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 20px 0 -2px;
+    }
+
+    .bootstrap.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .bootstrap-dark.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 24px 0 3px;
+    }
+
+    .fabric.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon,
+    .fabric-dark.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 22px 0 9px;
+    }
+
+    .highcontrast.e-bigger #wrapper .sidebar-menu .e-menu-wrapper ul .e-menu-item .e-menu-icon {
+        margin: 0 20px 0 8px;
+    }
+
+    /* Specifies the border bottom styles for toolbar in light theme*/
+    .material #wrapper .e-toolbar,
+    .tailwind #wrapper .e-toolbar,
+    .bootstrap5 #wrapper .e-toolbar {
+        border-bottom: 1px solid #eaeaeae0;
+    }
+
+    /* Specifies the border bottom styles for toolbar in dark theme*/
+    .bootstrap5-dark #wrapper .e-toolbar,
+    .tailwind-dark #wrapper .e-toolbar,
+    .material-dark #wrapper .e-toolbar {
+        border-bottom: 1px solid #eaeaea63;
+    }
+
+    /* Specifies the border right color for the sidebar in light theme*/
+    .material .sidebar-menu,
+    .fabric .sidebar-menu,
+    .tailwind .sidebar-menu,
+    .highcontrast .sidebar-menu,
+    .bootstrap5 .sidebar-menu {
+        border-right: 1px solid #eaeaeae0;
+    }
+
+    /* Specifies the border right color for the sidebar in dark theme*/
+    .material-dark .sidebar-menu,
+    .fabric-dark .sidebar-menu,
+    .tailwind-dark .sidebar-menu,
+    .bootstrap5-dark .sidebar-menu {
+        border-right: 1px solid #eaeaea63;
+    }
+
+    /* Specifies the sample level styles for toolbar*/
+    .material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 10px;
+    }
+
+    .bootstrap4 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 4px;
+    }
+
+    .bootstrap5.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .highcontrast.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: -2px;
+    }
+
+    .material.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .material-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 5px;
+    }
+
+    .bootstrap4.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 3px;
+    }
+
+    .bootstrap #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 6px;
+    }
+
+    .bootstrap.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .fabric.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .fabric-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 0px;
+    }
+
+    .tailwind.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .tailwind-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: -2px;
+    }
+
+    .e-bigger .e-folder {
+        font-size: 18px;
+    }
+
+    .e-folder {
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px
+    }
+
+    .bootstrap5 .e-folder-name,
+    .bootstrap5-dark .e-folder-name {
+        margin-top: -2px;
+    }
+
+    .tailwind .e-folder-name,
+    .tailwind-dark .e-folder-name,
+    .bootstrap4 .e-folder-name,
+    .bootstrap .e-folder-name,
+    .bootstrap-dark .e-folder-name {
+        margin-top: 3px;
+    }
+
+    .material .e-folder-name,
+    .material-dark .e-folder-name {
+        margin-top: 1px;
+    }
+
+    .material #sidebarmenu,
+    .fabric #sidebarmenu,
+    .tailwind #sidebarmenu,
+    .fluent #sidebarmenu,
+    .bootstrap5 #sidebarmenu {
+        border: 1px solid #d7d7d7;
+    }
+
+    .material-dark #sidebarmenu,
+    .fabric-dark #sidebarmenu,
+    .tailwind-dark #sidebarmenu,
+    .highcontrast #sidebarmenu,
+    .fluent-dark #sidebarmenu,
+    .bootstrap5-dark #sidebarmenu {
+        border: 1px solid #ffffff;
+    }
 </style>

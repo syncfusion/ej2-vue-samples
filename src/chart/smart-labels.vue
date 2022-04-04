@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-accumulationchart style='display:block' :load='load' align='center' id='chartcontainer' :title='title' 
+        <ejs-accumulationchart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' 
          :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' xName='x' yName='y' startAngle=60 :dataLabel='dataLabel' innerRadius='0%' name='RIO' > </e-accumulation-series>
@@ -31,9 +31,14 @@ import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartPlugin, AccumulationTooltip, PieSeries, AccumulationLegend, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 Vue.use(AccumulationChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
 export default Vue.extend({
   data: function() {
     return {
+         theme: theme,
       seriesData: [
                     { 'x': 'USA', y: 46, text: 'United States of America: 46' },
                     { 'x': 'China', y: 26, text: 'China: 26' },
@@ -75,13 +80,7 @@ export default Vue.extend({
     accumulationchart: [AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]
   },
   methods: {
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-    }
-  },
+   },
  
 });
 </script>

@@ -41,7 +41,7 @@
 import Vue from "vue";
 import { PivotViewPlugin, IDataSet, VirtualScroll } from "@syncfusion/ej2-vue-pivotview";
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { extend, enableRipple, Browser } from "@syncfusion/ej2-base";
 enableRipple(false);
 
 Vue.use(PivotViewPlugin);
@@ -144,6 +144,9 @@ export default Vue.extend({
 		button.disabled = true;
 		(<any>document.getElementById('popup')).style.display = 'none';
 	  }
+    if (Browser.isDevice && pivotObj && pivotObj.enableRtl && document.querySelector('.control-section')) {
+        (<any>document.querySelector('.control-section')).classList.add('e-rtl');
+    }
     },
     btnClick: function() {
       var pivotObj = (<any>this.$refs.pivotview).ej2Instances;

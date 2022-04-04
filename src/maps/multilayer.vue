@@ -1,10 +1,40 @@
 <template>
 <div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
+    <template v-slot:texasMarkerTemplate="{}">
+        <div id="markercircle">
+            <svg width="30" height="30">
+                <circle class="svgcircle" cx=15 cy=15 r=6 stroke='rgba(77, 77, 77, 0.8)' fill='rgba(0, 77, 153, 0.8)'/>
+            </svg>
+        </div>
+    </template>
+    <template v-slot:texasTextTemplate="{}">
+        <div style="color:black; font-family: Segoe UI;">TX</div>
+    </template>
+    <template v-slot:californiaMarkerTemplate="{}">
+        <div id="markercircle">
+            <svg width="30" height="30">
+                <circle class="svgcircle" cx=15 cy=15 r=6 stroke='rgba(77, 77, 77, 0.8)' fill='rgba(0, 77, 153, 0.8)'/>
+            </svg>
+        </div>
+    </template>
+    <template v-slot:californiaTextTemplate="{}">
+        <div style="color:black; font-family: Segoe UI;">CA</div>
+    </template>
     <e-layers>
         <e-layer :shapeData='shapeData1' :dataLabelSettings='dataLabelSettings1' :shapeSettings='shapeSettings1'></e-layer>
-        <e-layer :shapeData='shapeData2' :type='type2' :markerSettings='markerSettings2' :shapeSettings='shapeSettings2'></e-layer>
-        <e-layer :shapeData='shapeData3' :type='type3' :markerSettings='markerSettings3' :shapeSettings='shapeSettings3'></e-layer>      
+        <e-layer :shapeData='shapeData2' :type='type2' :shapeSettings='shapeSettings2'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' width='20' height='20' :dataSource='texasMarkerDataSource' :tooltipSettings='texasMarkerTooltipSettings' :template="'texasMarkerTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='texasTextDataSource' :template="'texasTextTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
+        <e-layer :shapeData='shapeData3' :type='type3' :shapeSettings='shapeSettings3'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' width='20' height='20' :dataSource='californiaMarkerDataSource' :tooltipSettings='californiaMarkerTooltipSettings' :template="'californiaMarkerTemplate'"></e-markerSetting>
+                <e-markerSetting visible='true' :dataSource='californiaTextDataSource' :template="'californiaTextTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
   
@@ -42,12 +72,15 @@
             stroke-opacity: 0.2;
             stroke-width: 8px;
         }
+    }	
+	.svgcircle{
+        -webkit-animation: opac 1.5s ease-out infinite;
+        animation: opac 1.5s ease-out infinite;
     }
 </style>
 <script>
 import Vue from 'vue';
 import { MapsPlugin, Marker, MapsTooltip, DataLabel, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
-import Template from './multilayer-temp.vue';
 Vue.use(MapsPlugin);
 export default Vue.extend({
   data:function(){
@@ -63,7 +96,7 @@ export default Vue.extend({
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData1: new MapAjax('./src/maps/map-data/usa.json'),
+        shapeData1: new MapAjax('https://cdn.syncfusion.com/maps/map-data/usa.json'),
         shapeSettings1: {
                     fill: '#E5E5E5',
                     border: {
@@ -79,7 +112,7 @@ export default Vue.extend({
                         fontFamily: 'Segoe UI'
                     }
         },
-        shapeData2: new MapAjax('./src/maps/map-data/texas.json'),
+        shapeData2: new MapAjax('https://cdn.syncfusion.com/maps/map-data/texas.json'),
         type2: 'SubLayer',
         shapeSettings2: {
                     fill: 'rgba(141, 206, 255, 0.6)',
@@ -88,40 +121,17 @@ export default Vue.extend({
                         width: 0.25
                     }
                 },
-        markerSettings2: [
-                    {
-                        visible: true,
-                        width: 20,
-                        height: 20,
-                        template: function () { return {template: Template}; },
-                        dataSource: [
-                            {
-                                latitude: 30.267153,
-                                longitude: -97.7430608,
-                                name: 'Austin'
-                            }
-                        ],
-                        tooltipSettings: {
-                            visible: true,
-                            valuePath: 'name',
-                            format: '<b>${name}</b><br>Manufacturing Center,<br>Research and Development Center',
-                            textStyle: {
-                                fontFamily: 'Segoe UI'
-                            }
-                        }
-                    },
-                    {
-                        visible: true,
-                        dataSource: [
-                            {
-                                latitude: 31.80289258670676,
-                                longitude: -98.96484375
-                            }
-                        ],
-                        template: '<div style="color:black; font-family: Segoe UI;">TX</div>'
-                    }
-        ],
-        shapeData3: new MapAjax('./src/maps/map-data/california.json'),
+        texasMarkerDataSource: [{ latitude: 30.267153, longitude: -97.7430608, name: 'Austin' }],
+        texasMarkerTooltipSettings: {
+            visible: true,
+            valuePath: 'name',
+            format: '<b>${name}</b><br>Manufacturing Center,<br>Research and Development Center',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
+        },
+        texasTextDataSource: [{ latitude: 31.80289258670676, longitude: -98.96484375 }],
+        shapeData3: new MapAjax('https://cdn.syncfusion.com/maps/map-data/california.json'),
         type3: 'SubLayer',
         shapeSettings3: {
                     fill: 'rgba(141, 206, 255, 0.6)',
@@ -130,39 +140,16 @@ export default Vue.extend({
                         width: 0.25
                     }
         },
-        markerSettings3: [
-                    {
-                        visible: true,
-                        width: 20,
-                        height: 20,
-                        dataSource: [
-                            {
-                                latitude: 37.3382082,
-                                longitude: -121.8863286,
-                                name: 'San Jose'
-                            }
-                        ],
-                        tooltipSettings: {
-                            visible: true,
-                            valuePath: 'name',
-                            format: '<b>${name}</b><br>Regional Office,<br>Research and Development Center',
-                            textStyle: {
-                                fontFamily: 'Segoe UI'
-                            }
-                        },
-                        template: function () { return {template: Template}; }
-                    },
-                    {
-                        visible: true,
-                        dataSource: [
-                            {
-                                latitude: 37.09023980307208,
-                                longitude: -119.35546875000001
-                            }
-                        ],
-                        template: '<div style="color:black; font-family: Segoe UI;">CA</div>'
-                    }
-        ]
+        californiaMarkerDataSource: [{ latitude: 37.3382082, longitude: -121.8863286, name: 'San Jose' }],
+        californiaMarkerTooltipSettings: {
+            visible: true,
+            valuePath: 'name',
+            format: '<b>${name}</b><br>Regional Office,<br>Research and Development Center',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
+        },
+        californiaTextDataSource: [{ latitude: 37.09023980307208, longitude: -119.35546875000001 }]
       }
   },
 provide: {

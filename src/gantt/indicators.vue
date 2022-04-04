@@ -75,38 +75,38 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-    /deep/ #Indicators .okIcon::before {
+    #Indicators /deep/ .okIcon::before {
     content: '\ea84';
     }
-    /deep/ #Indicators .description::before {
+    #Indicators /deep/ .description::before {
     content: '\e30d';
     }   
-    /deep/ .bootstrap4 #Indicators .okIcon::before {
+    .bootstrap4 #Indicators /deep/ .okIcon::before {
     content: '\e7d9';
     }
-    /deep/ .bootstrap4 #Indicators .description::before {
+    .bootstrap4 #Indicators /deep/ .description::before {
     content: '\e7cb';
     }
-    /deep/ .bootstrap5 #Indicators .okIcon::before,
-    /deep/ .bootstrap5-dark #Indicators .okIcon::before {
+    .bootstrap5 #Indicators /deep/ .okIcon::before,
+    .bootstrap5-dark #Indicators /deep/ .okIcon::before {
     content: '\e72b';
     }
-    /deep/ .bootstrap5 #Indicators .description::before,
-    /deep/ .bootstrap-dark #Indicators .description::before {
+    .bootstrap5 #Indicators /deep/ .description::before,
+    .bootstrap-dark #Indicators /deep/ .description::before {
     content: '\e72b';
     }
-    /deep/ .fabric #Indicators .description::before {
+    .tailwind #Indicators .okIcon::before, .tailwind-dark #Indicators .okIcon::before,
+    .fluent #Indicators .okIcon::before, .fluent-dark #Indicators .okIcon::before {
+    content: '\e72b';
+    }
+    .tailwind #Indicators .description::before, .tailwind-dark #Indicators .description::before,
+    .fluent #Indicators .description::before, .fluent-dark #Indicators .description::before {
+    content: '\e7c0';
+    }
+    .fabric #Indicators /deep/ .description::before {
     content: '\e310';
     }
-    /deep/ .highcontrast #Indicators .description::before {
+    .highcontrast #Indicators /deep/ .description::before {
     content: '\e310';
-    }
-	/deep/ .tailwind #Indicators .okIcon::before,
-	/deep/ .tailwind-dark #Indicators .okIcon::before	{
-    content: '\e7b0';
-    }
-    /deep/ .tailwind #Indicators .description::before,
-	/deep/ .tailwind-dark #Indicators .description::before	{
-    content: '\e7b6';
     }
 </style>

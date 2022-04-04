@@ -2,7 +2,7 @@
   <div class="control-section">
         <h4 align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">AAPL Historical</h4>
     <div align='center'>
-        <ejs-chart style='display:block' :load='load' align='center' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :crosshair='crosshair' :tooltip='tooltip'
             :axisLabelRender='axisLabelRender'>
             <e-series-collection>
@@ -50,11 +50,15 @@ import { chartData } from './stock-chart-data';
 
 Vue.use(ChartPlugin);
 
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 let date1 = new Date(2017, 1, 1);
 
 export default Vue.extend({
   data: function() {
     return {
+        theme: theme,
         data1: chartData,
       //Initializing Primary X Axis
       primaryXAxis: {
@@ -100,12 +104,6 @@ export default Vue.extend({
          if (args.axis.title === 'Price') {
                 args.text = '$' + args.text;
             }
-    },
-    load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
    }
    

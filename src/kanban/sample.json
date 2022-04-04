@@ -3,6 +3,7 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
+    "type":"update",
     "samples": [
         {
             "url": "overview",
@@ -238,6 +239,7 @@
         {
             "url": "card-template",
             "name": "Card Template",
+            "type":"update",
             "category": "Templates",
             "description": "The example demonstrates how to customize the JavaScript Kanban cards using templates, which is used to design beautiful cards with text, images, and more.",
             "api": {

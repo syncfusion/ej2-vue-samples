@@ -2,8 +2,18 @@
 <div id="arc-gauge">
 <div class="control-section">
     <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='range-container' :loaded='loaded' :title='title' :titleStyle='titleStyle'>
+        <template v-slot:indicatorTemplate="{}">
+            <div id="pointervalue" style="font-size:35px;width:120px;text-align:center">{{sliderValue}}/100</div>
+        </template>
+        <template v-slot:sliderTemplate="{}">
+            <div id="slider" style="height:70px;width:250px;"></div>
+        </template>
         <e-axes>
-            <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :annotations='annotations' :ranges='ranges'>
+            <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
+                <e-annotations>
+                    <e-annotation :content="'indicatorTemplate'" angle='0' zIndex='1' radius='0%'></e-annotation>
+                    <e-annotation :content="'sliderTemplate'" angle='0' zIndex='1' radius='-100%'></e-annotation>
+                </e-annotations>
                 <e-pointers>
                     <e-pointer :roundedCornerRadius=20 :value='value' :radius='pointerRadius' :color='color' :type='type' :animation='animation' :border='border' :pointerWidth=30></e-pointer>
                 </e-pointers>
@@ -73,7 +83,7 @@ Vue.use(SliderPlugin);
 Vue.use(CircularGaugePlugin);
 
 let sliderValue = 60;
-let annotationTemplate = '<div id="pointervalue" style="font-size:35px;width:120px;text-align:center">' + sliderValue.toString() + '/100</div>';
+let annotationTemplate = '';
 
 export default Vue.extend({
    data:function(){
@@ -96,20 +106,7 @@ export default Vue.extend({
             value: 60,
             pointerRadius: '90%',
             color:  '#e5ce20',
-            sliderValue: 10,
-            annotations: [{
-                            content: annotationTemplate,
-                            angle: 0,
-                            zIndex: '1',
-                            radius: '0%'
-                        },
-                        {
-                            content: '<div id="slider" style="height:70px;width:250px;"></div>',
-                            angle: 0,
-                            zIndex: '1',
-                            radius: '-100%'
-                        },
-            ],
+            sliderValue: 60,
             titleStyle: { size: '18px', },
             ranges: [
                     {

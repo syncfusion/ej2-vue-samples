@@ -2,9 +2,26 @@
   <div>
      <div class="col-lg-12 control-section dialog-template">
         <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="BtnClick">Open</ejs-button>
-
-        <ejs-dialog :header='header' ref="dialogObj" :footerTemplate='footer' :content='contenttemplateVue' :height='height' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen"
+        <ejs-dialog :header="'headerTemplate'" ref="dialogObj" :footerTemplate="'footerTemplate'" :content="'contentTemplate'" :height='height' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen"
             :close="dialogClose">
+            <template v-slot:headerTemplate>
+            <span id="container">
+                <div class="e-avatar template-image e-avatar-xsmall e-avatar-circle"></div>
+                <div id="dlg-template" title="Nancy" class="e-icon-settings"> Nancy </div>
+            </span>
+            </template>
+            <template v-slot:footerTemplate>
+            <div id="container">
+                <input id="inVal" class="e-input" type="text" placeholder="Enter your message here!"/>
+                <button id="sendButton" class="e-control e-btn e-primary sendButton" data-ripple="true">Send</button>
+            </div>
+            </template>
+            <template v-slot:contentTemplate>
+            <div id="container">
+                <div class="dialogContent">
+                <span class="dialogText">Greetings Nancy! When will you share me the source files of the project?</span></div>
+            </div>
+            </template>
         </ejs-dialog>
     </div>
     <div id="action-description">
@@ -25,25 +42,13 @@ import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 import { detach, isNullOrUndefined } from '@syncfusion/ej2-base';
 Vue.use(DialogPlugin);
-import headerTemplateVue from "./header-template.vue";
-import footerTemplateVue from "./footer-template.vue";
-import contentTemplateVue from "./content-template.vue";
 
 export default Vue.extend({
     data: function() {
         return {
             proxy: this,
-            footer: function () {
-                return { template : footerTemplateVue }
-            },
-            header: function () {
-                return { template : headerTemplateVue }
-            },
             showCloseIcon: true,
             height: '75%',
-            contenttemplateVue: function () {
-                return { template : contentTemplateVue }
-            },
             target: '.control-section',
             animationSettings:  { effect: 'None' },
             width:  '435px',
@@ -115,6 +120,10 @@ export default Vue.extend({
         top: 5px;
         left: -11px;
     }
+    .fluent .dialog-template .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+        top: 3px;
+        left: 0px;
+    }
     .e-bigger .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
         top: 3px;
         left: -11px;
@@ -134,6 +143,7 @@ export default Vue.extend({
         padding: 0;
     }
     .dialog-template button#sendButton, .dialog-template .highcontrast button#sendButton {
+        top: -2px;
         position: relative;
     }
 
@@ -198,6 +208,12 @@ export default Vue.extend({
     .bootstrap4 .dialog-template .e-dialog .e-footer-content{
         border-top: 1px solid #e9ecef;
     }
+    .bootstrap5 .dialog-template .e-dialog .e-footer-content {
+        border-top: 1px solid #dee2e6;
+    }
+    .bootstrap5-dark .dialog-template .e-dialog .e-footer-content {
+        border-top: 1px solid #444c54;
+    }
     .highcontrast .dialog-template .dialogContent .dialogText{
         background-color: #bfbfbf;
     }
@@ -208,7 +224,8 @@ export default Vue.extend({
     .fabric-dark .dialog-template .dialogContent .dialogText,
     .bootstrap-dark .dialog-template .dialogContent .dialogText,
     .bootstrap5-dark .dialog-template .dialogContent .dialogText,
-    .tailwind-dark .dialog-template .dialogContent .dialogText {
+    .tailwind-dark .dialog-template .dialogContent .dialogText,
+    .fluent-dark .dialog-template .dialogContent .dialogText {
         color: #424242;
     }
     .dialog-template .dialogContent {
@@ -237,6 +254,17 @@ export default Vue.extend({
     }
     .bootstrap4 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
     .bootstrap4 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
+        background-color : transparent;
+    }
+
+    .tailwind .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .tailwind .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
         background-color : transparent;
     }
 

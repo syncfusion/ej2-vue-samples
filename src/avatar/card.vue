@@ -85,7 +85,9 @@
     .tailwind .e-custom-card .e-avatar,
     .tailwind-dark .e-custom-card .e-avatar,
     .bootstrap5 .e-custom-card .e-avatar,
-    .bootstrap5-dark .e-custom-card .e-avatar {
+    .bootstrap5-dark .e-custom-card .e-avatar ,
+    .fluent .e-custom-card .e-avatar,
+    .fluent-dark .e-custom-card .e-avatar {
         height: 3em;
         width: 3em;
     }

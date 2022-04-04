@@ -10,7 +10,14 @@
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <ejs-breadcrumb cssClass="e-breadcrumb-chips" :itemTemplate="chipTemplate">
+                <ejs-breadcrumb cssClass="e-breadcrumb-chips" :itemTemplate="'chipTemplate'">
+                    <template v-slot:chipTemplate="{data}">
+                        <ejs-chiplist id="chip-default">
+                            <e-chips>
+                                <e-chip :text="data.text"></e-chip>
+                            </e-chips>
+                        </ejs-chiplist>
+                    </template>
                     <e-breadcrumb-items>
                         <e-breadcrumb-item text="Cart"></e-breadcrumb-item>
                         <e-breadcrumb-item text="Billing"></e-breadcrumb-item>
@@ -27,14 +34,21 @@
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <ejs-breadcrumb :enableNavigation='false' cssClass="e-specific-item-template" :itemTemplate="specificItemTemplate">
-                        <e-breadcrumb-items>
-                            <e-breadcrumb-item text= 'Home' url= 'https://ej2.syncfusion.com/vue/demos/'></e-breadcrumb-item>
-                            <e-breadcrumb-item text= 'Components' url= 'https://ej2.syncfusion.com/vue/demos/datagrid/overview'></e-breadcrumb-item>
-                            <e-breadcrumb-item text= 'Navigations' url= 'https://ej2.syncfusion.com/vue/demos/menu/default'></e-breadcrumb-item>
-                            <e-breadcrumb-item text= 'Breadcrumb' url= 'https://ej2.syncfusion.com/vue/demos/breadcrumb/default'></e-breadcrumb-item>
-                        </e-breadcrumb-items>
-                    </ejs-breadcrumb>
+                <ejs-breadcrumb :enableNavigation='false' cssClass="e-specific-item-template" :itemTemplate="'specificItemTemplate'">
+                    <template v-slot:specificItemTemplate="{data}">
+                        <div>
+                            <span v-if="data.text == 'Breadcrumb'" class="e-searchfor-text"><span style="margin-right: 5px">Search for:</span>
+                            <a class="e-breadcrumb-text" :href="data.url" onclick="return false">{{data.text}}</a></span>
+                            <a v-else class="e-breadcrumb-text" :href="data.url" onclick="return false">{{data.text}}</a>
+                        </div>
+                    </template>
+                    <e-breadcrumb-items>
+                        <e-breadcrumb-item text= 'Home' url= 'https://ej2.syncfusion.com/vue/demos/'></e-breadcrumb-item>
+                        <e-breadcrumb-item text= 'Components' url= 'https://ej2.syncfusion.com/vue/demos/datagrid/overview'></e-breadcrumb-item>
+                        <e-breadcrumb-item text= 'Navigations' url= 'https://ej2.syncfusion.com/vue/demos/menu/default'></e-breadcrumb-item>
+                        <e-breadcrumb-item text= 'Breadcrumb' url= 'https://ej2.syncfusion.com/vue/demos/breadcrumb/default'></e-breadcrumb-item>
+                    </e-breadcrumb-items>
+                </ejs-breadcrumb>
             </div>
         </div>
         <div class="row material2">
@@ -44,7 +58,10 @@
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 e-bc-separator">
-                <ejs-breadcrumb :separatorTemplate= "separatorTemplate">
+                <ejs-breadcrumb :separatorTemplate= "'separatorTemplate'">
+                    <template v-slot:separatorTemplate="{data}">
+                        <span class="e-icons e-arrow"></span>
+                    </template>
                     <e-breadcrumb-items>
                         <e-breadcrumb-item text="Cart"></e-breadcrumb-item>
                         <e-breadcrumb-item text="Billing"></e-breadcrumb-item>
@@ -61,7 +78,18 @@
         </div>
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <ejs-breadcrumb cssClass="e-custom-breadcrumb" :separatorTemplate= 'separatorTemplate2' :itemTemplate= "customTemplate">
+                <ejs-breadcrumb cssClass="e-custom-breadcrumb" :separatorTemplate= "'separatorTemplate2'" :itemTemplate= "'customTemplate'">
+                    <template v-slot:separatorTemplate2>
+                        <div class="e-custom-separator"></div>
+                    </template>
+                    <template v-slot:customTemplate="{data}">
+                        <div class="e-custom-item">
+                            <div class="e-custom-icon">
+                                <span class="e-bicons e-frame e-check"></span>
+                                <span class="e-label">{{data.text}}</span>
+                            </div>
+                        </div>
+                    </template>
                     <e-breadcrumb-items>
                         <e-breadcrumb-item text="Cart"></e-breadcrumb-item>
                         <e-breadcrumb-item text="Billing"></e-breadcrumb-item>
@@ -407,13 +435,14 @@
 .bootstrap4 .e-bc-separator .e-arrow:before {
     content: "\e7ce";
 }
+
 .bootstrap5 .e-bc-separator .e-arrow:before,
-.bootstrap5-dark .e-bc-separator .e-arrow:before {
-    content: "\e7f9";
-}
+.bootstrap5-dark .e-bc-separator .e-arrow:before,
+.fluent .e-bc-separator .e-arrow:before,
+.fluent-dark .e-bc-separator .e-arrow:before,
 .tailwind .e-bc-separator .e-arrow:before,
 .tailwind-dark .e-bc-separator .e-arrow:before {
-    content: "\e7a8";
+    content: "\e7f9";
 }
 
 .e-breadcrumb-item .e-folder:before {
@@ -579,61 +608,22 @@ Vue.use(ChipListPlugin);
 
 export default Vue.extend({
   data: function() {
-    return {
-    separatorTemplate: '<span class="e-icons e-arrow"></span>',
-    separatorTemplate2: '<div class="e-custom-separator"></div>',
-    chipTemplate:() => {
-                return {
-                    template : Vue.component('itemTemplate', {
-                        template:
-                            `<ejs-chiplist id="chip-default">
-                             <e-chips>
-                                <e-chip :text="data.text"></e-chip>
-                             </e-chips>
-                            </ejs-chiplist>`
-                    })
-                }
-            },
-            specificItemTemplate: () => {
-                return {
-                    template: Vue.component('specificItemTemplate', {
-                        template: `<div>
-        <span v-if="data.text == 'Breadcrumb'" class="e-searchfor-text"><span style="margin-right: 5px">Search for:</span>
-            <a class="e-breadcrumb-text" :href="data.url" onclick="return false">{{data.text}}</a></span>
-        <a v-else class="e-breadcrumb-text" :href="data.url" onclick="return false">{{data.text}}</a>
-    </div>`
-                    })
-                }
-            },
-customTemplate: () => {
-                return {
-                    template: Vue.component('customTemplate', {
-                        template: `<div class="e-custom-item">
-        <div class="e-custom-icon">
-            <span class="e-bicons e-frame e-check"></span>
-            <span class="e-label">{{data.text}}</span>
-        </div>
-    </div>`
-                    })
-                }
-            }
-
-  }
-},
-methods: {
+    return {}
+  },
+  methods: {
     beforeItemRenderHandler: function(args) {
         if(args.item.text !== 'Program Files') {
-                args.element.classList.add('e-disabled');
+               args.element.classList.add('e-disabled');
         }
     },
     btnClick: function() {
-      var breadcrumb, breadcrumbInst, breadcrumbs = document.querySelector('.content-wrapper').getElementsByClassName("e-breadcrumb");
-      for (var i = 0; i < breadcrumbs.length; i++) {
+        var breadcrumb, breadcrumbInst, breadcrumbs = document.querySelector('.content-wrapper').getElementsByClassName("e-breadcrumb");
+        for (var i = 0; i < breadcrumbs.length; i++) {
             breadcrumb = breadcrumbs[i];
             breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
             breadcrumbInst.activeItem = breadcrumbInst.items[breadcrumbInst.items.length - 1].text;
         }
     }
-}
+  }
 });
 </script>

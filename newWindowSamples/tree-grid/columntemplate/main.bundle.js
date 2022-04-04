@@ -215,114 +215,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
 
 /***/ }),
 
-/***/ "./Samples/tree-grid/columntemplate/template1.vue":
-/*!********************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template1.vue ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _template1_vue_vue_type_template_id_57e05626___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./template1.vue?vue&type=template&id=57e05626& */ \"./Samples/tree-grid/columntemplate/template1.vue?vue&type=template&id=57e05626&\");\n/* harmony import */ var _template1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template1.vue?vue&type=script&lang=js& */ \"./Samples/tree-grid/columntemplate/template1.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _template1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _template1_vue_vue_type_template_id_57e05626___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _template1_vue_vue_type_template_id_57e05626___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/tree-grid/columntemplate/template1.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template1.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template1.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template1.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_template1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./template1.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template1.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_template1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template1.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template1.vue?vue&type=template&id=57e05626&":
-/*!***************************************************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template1.vue?vue&type=template&id=57e05626& ***!
-  \***************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template1_vue_vue_type_template_id_57e05626___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./template1.vue?vue&type=template&id=57e05626& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template1.vue?vue&type=template&id=57e05626&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template1_vue_vue_type_template_id_57e05626___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template1_vue_vue_type_template_id_57e05626___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template1.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template2.vue":
-/*!********************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template2.vue ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _template2_vue_vue_type_template_id_57ee6da7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./template2.vue?vue&type=template&id=57ee6da7& */ \"./Samples/tree-grid/columntemplate/template2.vue?vue&type=template&id=57ee6da7&\");\n/* harmony import */ var _template2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template2.vue?vue&type=script&lang=js& */ \"./Samples/tree-grid/columntemplate/template2.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _template2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _template2_vue_vue_type_template_id_57ee6da7___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _template2_vue_vue_type_template_id_57ee6da7___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/tree-grid/columntemplate/template2.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template2.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template2.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template2.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_template2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./template2.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template2.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_template2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template2.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template2.vue?vue&type=template&id=57ee6da7&":
-/*!***************************************************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template2.vue?vue&type=template&id=57ee6da7& ***!
-  \***************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template2_vue_vue_type_template_id_57ee6da7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./template2.vue?vue&type=template&id=57ee6da7& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template2.vue?vue&type=template&id=57ee6da7&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template2_vue_vue_type_template_id_57ee6da7___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template2_vue_vue_type_template_id_57ee6da7___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template2.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template3.vue":
-/*!********************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template3.vue ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _template3_vue_vue_type_template_id_57fc8528___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./template3.vue?vue&type=template&id=57fc8528& */ \"./Samples/tree-grid/columntemplate/template3.vue?vue&type=template&id=57fc8528&\");\n/* harmony import */ var _template3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./template3.vue?vue&type=script&lang=js& */ \"./Samples/tree-grid/columntemplate/template3.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _template3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _template3_vue_vue_type_template_id_57fc8528___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _template3_vue_vue_type_template_id_57fc8528___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/tree-grid/columntemplate/template3.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template3.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template3.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template3.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_template3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./template3.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template3.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_template3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template3.vue?");
-
-/***/ }),
-
-/***/ "./Samples/tree-grid/columntemplate/template3.vue?vue&type=template&id=57fc8528&":
-/*!***************************************************************************************!*\
-  !*** ./Samples/tree-grid/columntemplate/template3.vue?vue&type=template&id=57fc8528& ***!
-  \***************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template3_vue_vue_type_template_id_57fc8528___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./template3.vue?vue&type=template&id=57fc8528& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template3.vue?vue&type=template&id=57fc8528&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template3_vue_vue_type_template_id_57fc8528___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_template3_vue_vue_type_template_id_57fc8528___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template3.vue?");
-
-/***/ }),
-
 /***/ "./node_modules/ts-loader/index.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/App.vue?vue&type=script&lang=ts&":
 /*!**************************************************************************************************************************************************************!*\
   !*** ./node_modules/ts-loader??ref--1!./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/App.vue?vue&type=script&lang=ts& ***!
@@ -331,43 +223,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _syncfusion_ej2_vue_treegrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-vue-treegrid */ \"./node_modules/@syncfusion/ej2-vue-treegrid/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-charts */ \"./node_modules/@syncfusion/ej2-vue-charts/index.js\");\n/* harmony import */ var _data_source__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data-source */ \"./Samples/tree-grid/columntemplate/data-source.ts\");\n/* harmony import */ var _template1_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./template1.vue */ \"./Samples/tree-grid/columntemplate/template1.vue\");\n/* harmony import */ var _template2_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./template2.vue */ \"./Samples/tree-grid/columntemplate/template2.vue\");\n/* harmony import */ var _template3_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./template3.vue */ \"./Samples/tree-grid/columntemplate/template3.vue\");\n/* harmony import */ var _syncfusion_ej2_grids__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @syncfusion/ej2-grids */ \"./node_modules/@syncfusion/ej2-grids/index.js\");\n/* harmony import */ var _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @syncfusion/ej2-charts */ \"./node_modules/@syncfusion/ej2-charts/index.js\");\n\n\n\n\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_treegrid__WEBPACK_IMPORTED_MODULE_1__[\"TreeGridPlugin\"]);\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"SparklinePlugin\"]);\nvar line;\nvar column;\nvar winloss;\n/* harmony default export */ __webpack_exports__[\"default\"] = (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].extend({\n    data: function () {\n        return {\n            data: _data_source__WEBPACK_IMPORTED_MODULE_3__[\"textdata\"],\n            template1: function () {\n                return {\n                    template: _template1_vue__WEBPACK_IMPORTED_MODULE_4__[\"default\"]\n                };\n            },\n            template2: function () {\n                return {\n                    template: _template2_vue__WEBPACK_IMPORTED_MODULE_5__[\"default\"]\n                };\n            },\n            template3: function () {\n                return {\n                    template: _template3_vue__WEBPACK_IMPORTED_MODULE_6__[\"default\"]\n                };\n            }\n        };\n    },\n    methods: {\n        rowDataBound: function (args) {\n            var data = Object(_syncfusion_ej2_grids__WEBPACK_IMPORTED_MODULE_7__[\"getObject\"])('EmployeeID', args.data);\n            var spkline = args.row.querySelector('#spkline' + data);\n            var spkarea = args.row.querySelector('#spkarea' + data);\n            var spkwl = args.row.querySelector('#spkwl' + data);\n            line = new _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_8__[\"Sparkline\"]({\n                height: '50px',\n                width: '150px',\n                lineWidth: 2,\n                valueType: 'Numeric',\n                fill: '#3C78EF',\n                dataSource: Object(_data_source__WEBPACK_IMPORTED_MODULE_3__[\"getSparkData\"])('line', +data)\n            });\n            line.appendTo(spkline);\n            var column = new _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_8__[\"Sparkline\"]({\n                height: '50px',\n                width: '150px',\n                type: 'Column',\n                valueType: 'Numeric',\n                fill: '#3C78EF',\n                negativePointColor: '#f7a816',\n                dataSource: Object(_data_source__WEBPACK_IMPORTED_MODULE_3__[\"getSparkData\"])('column', +data)\n            });\n            column.appendTo(spkarea);\n            winloss = new _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_8__[\"Sparkline\"]({\n                height: '50px',\n                width: '150px',\n                type: 'WinLoss',\n                valueType: 'Numeric',\n                fill: '#3C78EF',\n                tiePointColor: 'darkgray',\n                negativePointColor: '#f7a816',\n                dataSource: Object(_data_source__WEBPACK_IMPORTED_MODULE_3__[\"getSparkData\"])('column', +data)\n            });\n            winloss.appendTo(spkwl);\n        },\n    }\n}));\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/App.vue?./node_modules/ts-loader??ref--1!./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template1.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/template1.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data () {\n    return {\n        data: {}\n    }\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template1.vue?./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template2.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/template2.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data () {\n    return {\n        data: {}\n    }\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template2.vue?./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template3.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/template3.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  data () {\n    return {\n        data: {}\n    }\n  }\n});\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template3.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _syncfusion_ej2_vue_treegrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-vue-treegrid */ \"./node_modules/@syncfusion/ej2-vue-treegrid/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-charts */ \"./node_modules/@syncfusion/ej2-vue-charts/index.js\");\n/* harmony import */ var _data_source__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data-source */ \"./Samples/tree-grid/columntemplate/data-source.ts\");\n/* harmony import */ var _syncfusion_ej2_grids__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @syncfusion/ej2-grids */ \"./node_modules/@syncfusion/ej2-grids/index.js\");\n/* harmony import */ var _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @syncfusion/ej2-charts */ \"./node_modules/@syncfusion/ej2-charts/index.js\");\n\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_treegrid__WEBPACK_IMPORTED_MODULE_1__[\"TreeGridPlugin\"]);\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_2__[\"SparklinePlugin\"]);\nvar line;\nvar column;\nvar winloss;\n/* harmony default export */ __webpack_exports__[\"default\"] = (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].extend({\n    data: function () {\n        return {\n            data: _data_source__WEBPACK_IMPORTED_MODULE_3__[\"textdata\"],\n        };\n    },\n    methods: {\n        rowDataBound: function (args) {\n            var data = Object(_syncfusion_ej2_grids__WEBPACK_IMPORTED_MODULE_4__[\"getObject\"])('EmployeeID', args.data);\n            var spkline = args.row.querySelector('#spkline' + data);\n            var spkarea = args.row.querySelector('#spkarea' + data);\n            var spkwl = args.row.querySelector('#spkwl' + data);\n            line = new _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_5__[\"Sparkline\"]({\n                height: '50px',\n                width: '150px',\n                lineWidth: 2,\n                valueType: 'Numeric',\n                fill: '#3C78EF',\n                dataSource: Object(_data_source__WEBPACK_IMPORTED_MODULE_3__[\"getSparkData\"])('line', +data)\n            });\n            line.appendTo(spkline);\n            var column = new _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_5__[\"Sparkline\"]({\n                height: '50px',\n                width: '150px',\n                type: 'Column',\n                valueType: 'Numeric',\n                fill: '#3C78EF',\n                negativePointColor: '#f7a816',\n                dataSource: Object(_data_source__WEBPACK_IMPORTED_MODULE_3__[\"getSparkData\"])('column', +data)\n            });\n            column.appendTo(spkarea);\n            winloss = new _syncfusion_ej2_charts__WEBPACK_IMPORTED_MODULE_5__[\"Sparkline\"]({\n                height: '50px',\n                width: '150px',\n                type: 'WinLoss',\n                valueType: 'Numeric',\n                fill: '#3C78EF',\n                tiePointColor: 'darkgray',\n                negativePointColor: '#f7a816',\n                dataSource: Object(_data_source__WEBPACK_IMPORTED_MODULE_3__[\"getSparkData\"])('column', +data)\n            });\n            winloss.appendTo(spkwl);\n        },\n    }\n}));\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/App.vue?./node_modules/ts-loader??ref--1!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -379,43 +235,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:\"col-lg-12 control-section\"},[_vm._m(0),_vm._v(\" \"),_vm._m(1),_vm._v(\" \"),_c('div',[_c('ejs-treegrid',{attrs:{\"dataSource\":_vm.data,\"childMapping\":\"Children\",\"treeColumnIndex\":0,\"height\":380,\"rowHeight\":83,\"rowDataBound\":_vm.rowDataBound}},[_c('e-columns',[_c('e-column',{attrs:{\"field\":\"EmpID\",\"headerText\":\"Employee ID\",\"width\":\"120\"}}),_vm._v(\" \"),_c('e-column',{attrs:{\"field\":\"Name\",\"headerText\":\"Name\",\"width\":\"100\"}}),_vm._v(\" \"),_c('e-column',{attrs:{\"field\":\"DOB\",\"headerText\":\"DOB\",\"width\":\"90\",\"format\":\"yMd\",\"textAlign\":\"Right\"}}),_vm._v(\" \"),_c('e-column',{attrs:{\"headerText\":\"Tax Per Annum\",\"width\":\"100\",\"template\":_vm.template1}}),_vm._v(\" \"),_c('e-column',{attrs:{\"headerText\":\"One Day Index\",\"width\":\"100\",\"template\":_vm.template2}}),_vm._v(\" \"),_c('e-column',{attrs:{\"headerText\":\"Year GR\",\"width\":\"120\",\"template\":_vm.template3}})],1)],1)],1)])}\nvar staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":\"action-description\"}},[_c('p',[_vm._v(\"This sample demonstrates the usage of template columns in Tree Grid. \\n       In this sample, we have shown Spark Line control in the Tree Grid columns.\\n    \")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":\"description\"}},[_c('p',[_vm._v(\"\\n        The Tree Grid provides a way to use a custom layout for each cell using column template feature. \\n        The \"),_c('code',[_vm._v(\"columns->template\")]),_vm._v(\" property accepts either string or HTML element`s ID value, which will be used as the template for the cell.\\n    \")]),_vm._v(\" \"),_c('p',[_vm._v(\"\\n        In this demo, using column template, we have presented sparkLine charts for the \\\"Tax per annum\\\", \\\"One day index\\\" and \\\"Year GR\\\" columns. In \"),_c('code',[_vm._v(\"columns->template\")]),_vm._v(\" we have assigned with the ID of a SCRIPT element whose content is used as the template.\\n    \")]),_vm._v(\" \"),_c('p',[_vm._v(\"The template expression should be provided inside \"),_c('code',[_vm._v(\"${...}\")]),_vm._v(\" interpolation syntax\")]),_vm._v(\" \"),_c('p',[_vm._v(\"\\n        More information about Column Template can be found in this documentation section.\\n    \")])])}]\nrender._withStripped = true\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template1.vue?vue&type=template&id=57e05626&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/template1.vue?vue&type=template&id=57e05626& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":(\"spkline\" + (_vm.data.EmployeeID))}})}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template1.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template2.vue?vue&type=template&id=57ee6da7&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/template2.vue?vue&type=template&id=57ee6da7& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":(\"spkarea\" + (_vm.data.EmployeeID))}})}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template2.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/tree-grid/columntemplate/template3.vue?vue&type=template&id=57fc8528&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/tree-grid/columntemplate/template3.vue?vue&type=template&id=57fc8528& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":(\"spkwl\" + (_vm.data.EmployeeID))}})}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/template3.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:\"col-lg-12 control-section\"},[_vm._m(0),_vm._v(\" \"),_vm._m(1),_vm._v(\" \"),_c('div',[_c('ejs-treegrid',{attrs:{\"dataSource\":_vm.data,\"childMapping\":\"Children\",\"treeColumnIndex\":0,\"height\":380,\"rowHeight\":83,\"rowDataBound\":_vm.rowDataBound},scopedSlots:_vm._u([{key:\"template1\",fn:function(ref){\nvar data = ref.data;\nreturn [_c('div',{attrs:{\"id\":(\"spkline\" + (data.EmployeeID))}})]}},{key:\"template2\",fn:function(ref){\nvar data = ref.data;\nreturn [_c('div',{attrs:{\"id\":(\"spkarea\" + (data.EmployeeID))}})]}},{key:\"template3\",fn:function(ref){\nvar data = ref.data;\nreturn [_c('div',{attrs:{\"id\":(\"spkwl\" + (data.EmployeeID))}})]}}])},[_c('e-columns',[_c('e-column',{attrs:{\"field\":\"EmpID\",\"headerText\":\"Employee ID\",\"width\":\"120\"}}),_vm._v(\" \"),_c('e-column',{attrs:{\"field\":\"Name\",\"headerText\":\"Name\",\"width\":\"100\"}}),_vm._v(\" \"),_c('e-column',{attrs:{\"field\":\"DOB\",\"headerText\":\"DOB\",\"width\":\"90\",\"format\":\"yMd\",\"textAlign\":\"Right\"}}),_vm._v(\" \"),_c('e-column',{attrs:{\"headerText\":\"Tax Per Annum\",\"width\":\"100\",\"template\":'template1'}}),_vm._v(\" \"),_c('e-column',{attrs:{\"headerText\":\"One Day Index\",\"width\":\"100\",\"template\":'template2'}}),_vm._v(\" \"),_c('e-column',{attrs:{\"headerText\":\"Year GR\",\"width\":\"120\",\"template\":'template3'}})],1)],1)],1)])}\nvar staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":\"action-description\"}},[_c('p',[_vm._v(\"This sample demonstrates the usage of template columns in Tree Grid. \\n       In this sample, we have shown Spark Line control in the Tree Grid columns.\\n    \")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{\"id\":\"description\"}},[_c('p',[_vm._v(\"\\n        The Tree Grid provides a way to use a custom layout for each cell using column template feature. \\n        The \"),_c('code',[_vm._v(\"columns->template\")]),_vm._v(\" property accepts either string or HTML element`s ID value, which will be used as the template for the cell.\\n    \")]),_vm._v(\" \"),_c('p',[_vm._v(\"\\n        In this demo, using column template, we have presented sparkLine charts for the \\\"Tax per annum\\\", \\\"One day index\\\" and \\\"Year GR\\\" columns. In \"),_c('code',[_vm._v(\"columns->template\")]),_vm._v(\" we have assigned with the ID of a SCRIPT element whose content is used as the template.\\n    \")]),_vm._v(\" \"),_c('p',[_vm._v(\"The template expression should be provided inside \"),_c('code',[_vm._v(\"${...}\")]),_vm._v(\" interpolation syntax\")]),_vm._v(\" \"),_c('p',[_vm._v(\"\\n        More information about Column Template can be found in this documentation section.\\n    \")])])}]\nrender._withStripped = true\n\n\n//# sourceURL=webpack:///./Samples/tree-grid/columntemplate/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ })
 

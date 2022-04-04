@@ -98,6 +98,11 @@
         .bootstrap5-dark .form-support #control_wrapper {
             background: #393939;
         }
+
+        .fluent-dark #control_wrapper { 
+            background: #212529;
+        }
+
         .tailwind-dark .form-support #control_wrapper { 
             background: #6c757d;
         }

@@ -5,6 +5,48 @@
         <e-resources>
           <e-resource field="RoomId" title="Room Type" name="MeetingRoom" textField="Name" idField="Id" colorField="Color" :dataSource="roomData"></e-resource>
         </e-resources>
+        <template v-slot:headerTemplate="{ data }">
+          <div class="quick-info-header">
+            <div class="quick-info-header-content" v-if="data.elementType == 'cell'" :style="{'align-items':'center','color':'#919191'}">
+              <div class="quick-info-title">{{getHeaderTitle(data)}}</div>
+              <div class="duration-text">{{getHeaderDetails(data)}}</div>
+            </div>
+            <div class="quick-info-header-content" v-else :style="{'background': getHeaderStyles(data),'color':'#FFFFFF'}">
+              <div class="quick-info-title">{{getHeaderTitle(data)}}</div>
+              <div class="duration-text">{{getHeaderDetails(data)}}</div>
+            </div>
+          </div>
+        </template>
+        <template v-slot:contentTemplate="{ data }">
+          <div class="quick-info-content">
+            <div class="e-cell-content" v-if="data.elementType === 'cell'">
+              <div class="content-area">
+                <ejs-textbox ref="titleObj" id="title" placeholder="Title"></ejs-textbox>
+              </div>
+              <div class="content-area">
+                <ejs-dropdownlist ref="eventTypeObj" id="eventType" :dataSource="roomData" :index="0" :fields="fields" popupHeight="200px" placeholder="Choose Type"></ejs-dropdownlist>
+              </div>
+              <div class="content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div>
+            </div>
+            <div class="event-content" v-else>
+              <div class="meeting-type-wrap"><label>Subject</label>:<span>{{data.Subject}}</span></div>
+              <div class="meeting-subject-wrap"><label>Type</label>:<span>{{getEventType(data)}}</span></div>
+              <div class="notes-wrap"><label>Notes</label>:<span>{{data.Description}}</span></div>
+            </div>
+          </div>
+        </template>
+        <template v-slot:footerTemplate="{ data }">
+          <div class="quick-info-footer">
+            <div class="cell-footer" v-if="data.elementType === 'cell'">
+              <ejs-button id="more-details" cssClass="e-flat" content="More Details" v-on:click.native="buttonClickActions"></ejs-button>
+              <ejs-button id="add" cssClass="e-flat" content="Add" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
+            </div>
+            <div class="event-footer" v-else>
+              <ejs-button id="delete" cssClass="e-flat" content="Delete" v-on:click.native="buttonClickActions"></ejs-button>
+              <ejs-button id="more-details" cssClass="e-flat" content="More Details" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
+            </div>
+          </div>
+        </template>
       </ejs-schedule>
     </div>
     <div id="action-description">
@@ -25,130 +67,205 @@
 </template>
 
 <style>
-.schedule-vue-sample .quick-info-template .quick-info-header {
-  background-color: white;
-  padding: 8px 18px;
-}
+    .schedule-vue-sample .quick-info-template .quick-info-header {
+        background-color: white;
+        padding: 8px 18px;
+    }
 
-.schedule-vue-sample .quick-info-template .quick-info-header-content {
-  justify-content: flex-end;
-  display: flex;
-  flex-direction: column;
-  padding: 5px 10px 5px;
-}
+    .schedule-vue-sample .quick-info-template .quick-info-header-content {
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px 5px;
+    }
 
-.schedule-vue-sample .quick-info-template .quick-info-title {
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 0.48px;
-  height: 22px;
-}
+    .schedule-vue-sample .quick-info-template .quick-info-title {
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.48px;
+        height: 22px;
+    }
 
-.schedule-vue-sample .quick-info-template .duration-text {
-  font-size: 11px;
-  letter-spacing: 0.33px;
-  height: 14px;
-}
+    .schedule-vue-sample .quick-info-template .duration-text {
+        font-size: 11px;
+        letter-spacing: 0.33px;
+        height: 14px;
+    }
 
-.schedule-vue-sample .quick-info-template .content-area {
-  margin: 0;
-  padding: 10px;
-  width: auto;
-}
+    .schedule-vue-sample .quick-info-template .content-area {
+        margin: 0;
+        padding: 10px;
+        width: auto;
+    }
 
-.schedule-vue-sample .quick-info-template .event-content {
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 15px;
-}
+    .schedule-vue-sample .quick-info-template .event-content {
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 15px;
+    }
 
-.schedule-vue-sample .quick-info-template .meeting-type-wrap,
-.schedule-vue-sample .quick-info-template .meeting-subject-wrap,
-.schedule-vue-sample .quick-info-template .notes-wrap {
-  font-size: 11px;
-  color: #666;
-  letter-spacing: 0.33px;
-  height: 24px;
-  padding: 5px;
-}
+    .schedule-vue-sample .quick-info-template .meeting-type-wrap,
+    .schedule-vue-sample .quick-info-template .meeting-subject-wrap,
+    .schedule-vue-sample .quick-info-template .notes-wrap {
+        font-size: 11px;
+        color: #666;
+        letter-spacing: 0.33px;
+        height: 24px;
+        padding: 5px;
+    }
 
-.schedule-vue-sample .quick-info-template .event-content div label {
-  display: inline-block;
-  min-width: 45px;
-  color: #666;
-}
+    .schedule-vue-sample .quick-info-template .event-content div label {
+        display: inline-block;
+        min-width: 45px;
+        color: #666;
+    }
 
-.schedule-vue-sample .quick-info-template .event-content div span {
-  font-size: 11px;
-  color: #151515;
-  letter-spacing: 0.33px;
-  line-height: 14px;
-  padding-left: 8px;
-}
+    .schedule-vue-sample .quick-info-template .event-content div span {
+        font-size: 11px;
+        color: #151515;
+        letter-spacing: 0.33px;
+        line-height: 14px;
+        padding-left: 8px;
+    }
 
-.schedule-vue-sample .quick-info-template .cell-footer.e-btn {
-  background-color: #ffffff;
-  border-color: #878787;
-  color: #878787;
-}
+    .schedule-vue-sample .quick-info-template .cell-footer.e-btn {
+        background-color: #ffffff;
+        border-color: #878787;
+        color: #878787;
+    }
 
-.schedule-vue-sample .quick-info-template .cell-footer {
-  padding-top: 10px;
-}
+    .schedule-vue-sample .quick-info-template .cell-footer {
+        padding-top: 10px;
+    }
 
-.quick-info-template.e-template .e-quick-popup-wrapper .e-cell-popup .e-popup-content {
-  padding: 0 14px;
-}
+    .quick-info-template .e-template.e-quick-popup-wrapper .e-cell-popup .e-popup-content {
+        padding: 0 14px;
+    }
 
-.quick-info-template.e-template .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
-  display: block;
-}
+    .quick-info-template .e-template.e-quick-popup-wrapper .e-event-popup .e-popup-footer {
+        display: block;
+    }
 
-.quick-info-template.e-template .e-quick-popup-wrapper .e-popup-footer button:first-child {
-  margin-right: 5px;
-}
+    .quick-info-template .e-template.e-quick-popup-wrapper .e-popup-footer button:first-child {
+        margin-right: 5px;
+    }
 
-.material-dark .quick-info-template .quick-info-header {
-  background-color: #424242;
-}
+    .quick-info-header {
+        background-color: white;
+        padding: 8px 18px;
+    }
 
-.highcontrast .quick-info-template .quick-info-header,
-.tailwind-dark .quick-info-template .quick-info-header,
-.bootstrap-dark .quick-info-template .quick-info-header,
-.bootstrap5-dark .quick-info-template .quick-info-header,
-.fabric-dark .quick-info-template .quick-info-header {
-  background-color: #000000;
-}
+    .quick-info-header-content {
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px 5px;
+    }
 
-.tailwind-dark .quick-info-template .quick-info-header-content,
-.bootstrap-dark .quick-info-template .quick-info-header-content,
-.fabric-dark .quick-info-template .quick-info-header-content,
-.material-dark .quick-info-template .quick-info-header-content,
-.highcontrast .quick-info-template .quick-info-header-content {
-  color: #fff !important;
-}
+    .quick-info-title {
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.48px;
+        height: 22px;
+    }
 
-.tailwind-dark .quick-info-template .event-content div label,
-.tailwind-dark .quick-info-template .event-content div span,
-.bootstrap-dark .quick-info-template .event-content div label,
-.bootstrap-dark .quick-info-template .event-content div span,
-.bootstrap5-dark .quick-info-template .event-content div label,
-.bootstrap5-dark .quick-info-template .event-content div span,
-.fabric-dark .quick-info-template .event-content div label,
-.fabric-dark .quick-info-template .event-content div span,
-.material-dark .quick-info-template .event-content div label,
-.material-dark .quick-info-template .event-content div span,
-.highcontrast .quick-info-template .event-content div label,
-.highcontrast .quick-info-template .event-content div span {
-  color: #fff;
-}
+    .duration-text {
+        font-size: 11px;
+        letter-spacing: 0.33px;
+        height: 14px;
+    }
 
-.material .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
-  display: block !important;
-  padding: 0px 18px 8px 22px !important;
-}
+    .content-area {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .event-content {
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .meeting-type-wrap,
+    .meeting-subject-wrap,
+    .notes-wrap {
+        font-size: 11px;
+        color: #666;
+        letter-spacing: 0.33px;
+        height: 24px;
+        padding: 5px;
+    }
+
+    .event-content div label {
+        display: inline-block;
+        min-width: 45px;
+        color: #666;
+    }
+
+    .event-content div span {
+        font-size: 11px;
+        color: #151515;
+        letter-spacing: 0.33px;
+        line-height: 14px;
+        padding-left: 8px;
+    }
+
+    .cell-footer.e-btn {
+        background-color: #ffffff;
+        border-color: #878787;
+        color: #878787;
+    }
+
+    .cell-footer {
+        padding-top: 10px;
+    }
+
+    .material-dark .quick-info-template .quick-info-header {
+        background-color: #424242;
+    }
+
+    .highcontrast .quick-info-template .quick-info-header,
+    .tailwind-dark .quick-info-template .quick-info-header,
+    .bootstrap-dark .quick-info-template .quick-info-header,
+    .bootstrap5-dark .quick-info-template .quick-info-header,
+    .fluent-dark .quick-info-template .quick-info-header,
+    .fabric-dark .quick-info-template .quick-info-header {
+        background-color: transparent;
+    }
+
+    .tailwind-dark .quick-info-template .quick-info-header-content,
+    .bootstrap-dark .quick-info-template .quick-info-header-content,
+    .fabric-dark .quick-info-template .quick-info-header-content,
+    .material-dark .quick-info-template .quick-info-header-content,
+    .highcontrast .quick-info-template .quick-info-header-content {
+        color: #fff !important;
+    }
+
+    .tailwind-dark .quick-info-template .event-content div label,
+    .tailwind-dark .quick-info-template .event-content div span,
+    .bootstrap-dark .quick-info-template .event-content div label,
+    .bootstrap-dark .quick-info-template .event-content div span,
+    .bootstrap5-dark .quick-info-template .event-content div label,
+    .bootstrap5-dark .quick-info-template .event-content div span,
+    .fluent-dark .quick-info-template .event-content div label,
+    .fluent-dark .quick-info-template .event-content div span,
+    .fabric-dark .quick-info-template .event-content div label,
+    .fabric-dark .quick-info-template .event-content div span,
+    .material-dark .quick-info-template .event-content div label,
+    .material-dark .quick-info-template .event-content div span,
+    .highcontrast .quick-info-template .event-content div label,
+    .highcontrast .quick-info-template .event-content div span {
+        color: #fff;
+    }
+
+    .material .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
+        display: block !important;
+        padding: 0px 18px 8px 22px !important;
+    }
 </style>
 
 <script>
@@ -178,24 +295,32 @@ var resourceData = [
   { Name: "Photogenic", Id: 10, Capacity: 25, Color: "#710193", Type: "Conference" }
 ];
 
-var headerTemplateVue = Vue.component("headerTemplate", {
-  template: `<div class="quick-info-header">
-    <div class="quick-info-header-content" v-if="data.elementType == 'cell'" :style="{'align-items':'center','color':'#919191'}">
-      <div class="quick-info-title">{{getHeaderTitle(data)}}</div>
-      <div class="duration-text">{{getHeaderDetails(data)}}</div>
-    </div>
-    <div class="quick-info-header-content" v-else :style="{'background': getHeaderStyles(data),'color':'#FFFFFF'}">
-      <div class="quick-info-title">{{getHeaderTitle(data)}}</div>
-      <div class="duration-text">{{getHeaderDetails(data)}}</div>
-    </div>
-  </div>`,
+export default Vue.extend({
   data: function() {
     return {
       intl: new Internationalization(),
-      data: {}
+      eventSettings: {
+        dataSource: extend([], quickInfoTemplateData, null, true)
+      },
+      selectedDate: new Date(2021, 0, 9),
+      fields: { text: "Name", value: "Id" },
+      roomData: extend([], resourceData, undefined, true),
+      quickInfoTemplates: {
+        header: "headerTemplate",
+        content: "contentTemplate",
+        footer: "footerTemplate"
+      }
     };
   },
+  provide: {
+    schedule: [Day, Week, WorkWeek, Month, Agenda]
+  },
   methods: {
+    onPopupOpen: function(args) {
+      if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
+        args.element.classList.add('e-template');
+      }
+    },
     getHeaderStyles: function(data) {
       const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
       const resources = scheduleObj.getResourceCollections().slice(-1)[0];
@@ -211,50 +336,13 @@ var headerTemplateVue = Vue.component("headerTemplate", {
         this.intl.formatDate(data.StartTime, { skeleton: 'hm' }) + " - " +
         this.intl.formatDate(data.EndTime, { skeleton: 'hm' }) + ")"
       );
-    }
-  }
-});
-
-var contentTemplateVue = Vue.component("contentTemplate", {
-  template: `<div class="quick-info-content"><div class="e-cell-content" v-if="data.elementType === 'cell'">
-    <div class="content-area"><ejs-textbox ref="titleObj" id="title" placeholder="Title"></ejs-textbox></div>
-    <div class="content-area"><ejs-dropdownlist ref="eventTypeObj" id="eventType" :dataSource="roomData" :index="0" :fields="fields" 
-    popupHeight="200px" placeholder="Choose Type"></ejs-dropdownlist></div>
-    <div class="content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div></div>
-    <div class="event-content" v-else><div class="meeting-type-wrap"><label>Subject</label>:<span>{{data.Subject}}</span></div>
-    <div class="meeting-subject-wrap"><label>Type</label>:<span>{{getEventType(data)}}</span></div>
-    <div class="notes-wrap"><label>Notes</label>:<span>{{data.Description}}</span></div></div></div>`,
-  data: function() {
-    return {
-      fields: { text: "Name", value: "Id" },
-      roomData: extend([], resourceData, undefined, true),
-      data: {}
-    };
-  },
-  methods: {
+    },
     getEventType: function(data) {
       const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
       const resources = scheduleObj.getResourceCollections().slice(-1)[0];
       const resourceData = resources.dataSource.filter(resource => resource.Id === data.RoomId)[0];
       return resourceData.Name;
-    }
-  }
-});
-
-var footerTemplateVue = Vue.component("footerTemplate", {
-  template: `<div class="quick-info-footer"><div class="cell-footer" v-if="data.elementType === 'cell'">
-    <ejs-button id="more-details" cssClass="e-flat" content="More Details" v-on:click.native="buttonClickActions"></ejs-button>
-    <ejs-button id="add" cssClass="e-flat" content="Add" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
-    </div><div class="event-footer" v-else>
-    <ejs-button id="delete" cssClass="e-flat" content="Delete" v-on:click.native="buttonClickActions"></ejs-button>
-    <ejs-button id="more-details" cssClass="e-flat" content="More Details" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
-    </div></div>`,
-  data: function() {
-    return {
-      data: {}
-    };
-  },
-  methods: {
+    },
     buttonClickActions: function(e) {
       const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
       const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
@@ -297,39 +385,6 @@ var footerTemplateVue = Vue.component("footerTemplate", {
       }
       scheduleObj.closeQuickInfoPopup();
     }
-  }
-});
-
-export default Vue.extend({
-  data: function() {
-    return {
-      eventSettings: {
-        dataSource: extend([], quickInfoTemplateData, null, true)
-      },
-      selectedDate: new Date(2021, 0, 9),
-      roomData: extend([], resourceData, undefined, true),
-      quickInfoTemplates: {
-        header: function(e) {
-          return { template: headerTemplateVue };
-        },
-        content: function(e) {
-          return { template: contentTemplateVue };
-        },
-        footer: function(e) {
-          return { template: footerTemplateVue };
-        }
-      }
-    };
-  },
-  provide: {
-    schedule: [Day, Week, WorkWeek, Month, Agenda]
-  },
-  methods: {
-    onPopupOpen: function(args) {
-      if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
-        args.element.classList.add('e-template');
-      }
-    },
   }
 });
 </script>

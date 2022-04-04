@@ -174,6 +174,11 @@ export default Vue.extend ({
     font-size: 15px;
 }
 
+body.fluent.e-bigger button#toggleBtn,  body.fluent-dark.e-bigger button#toggleBtn{
+     width : 100px !important;
+     margin: -8px;
+    }
+    
 .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel:hover span {
     display: block;
 }

@@ -68,6 +68,11 @@
     height: auto;
     font-size: 30px;
   }
+  
+  .bootstrap5 #toast_type .e-toast-icon.e-icons,
+  .bootstrap5-dark #toast_type .e-toast-icon.e-icons {
+    height: 25px;
+  }
 
   #toast_type .toast-icons.e-success::before {
     content: "\e701";
