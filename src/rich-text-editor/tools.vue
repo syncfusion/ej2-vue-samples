@@ -102,7 +102,6 @@
         padding: 10px;
         background: #F4F5F7;
     }
-
     .fabric-dark .e-richtexteditor .e-rte-content .e-content pre,
     .bootstrap5-dark .e-richtexteditor .e-rte-content .e-content pre,
     .material-dark .e-richtexteditor .e-rte-content .e-content pre,
@@ -174,7 +173,6 @@ export default Vue.extend({
         </li>
         </ol>
          <img alt="Logo" src="./source/rich-text-editor/images/RTEImage-Feather.png" style="width: 300px;">`,
-            maxLength: 2000,
             toolbarSettings: {
                 items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',

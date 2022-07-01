@@ -1,5 +1,6 @@
 {
     "name": "Data Grid",
+    "type":"update",
     "directory": "grid",
     "category": "Grids",
     "ftName": "datagrid",
@@ -78,6 +79,15 @@
             "description":"This demo for Essential JS 2 grid component shows usage of the master/detail in which the details of a Master grid record, is viewed in a separate grid(Detail grid) by clicking the particular row.", 
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "keyboard-navigation",
+            "name": "Keyboard Navigation",
+            "type": "new",
+            "category": "Data Grid",
+            "description":"This demo for Essential JS 2 grid component shows usage of various keys on grid.", 
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "allowFiltering", "columns", "allowGrouping", "allowPaging", "allowSorting", "toolbar", "filterSettings", "pageSettings", "editSettings"] }
         },
         {
             "url": "paging",
@@ -368,6 +378,7 @@
         {
             "url": "searching",
             "name": "Search",
+            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component shows the content searching feature.",
             "hideOnDevice": false,

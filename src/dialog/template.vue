@@ -226,7 +226,8 @@ export default Vue.extend({
     .bootstrap5-dark .dialog-template .dialogContent .dialogText,
     .tailwind-dark .dialog-template .dialogContent .dialogText,
     .fluent-dark .dialog-template .dialogContent .dialogText {
-        color: #424242;
+        background-color: rgba(255,255,255,0.20);
+        color: #ffff;
     }
     .dialog-template .dialogContent {
         display: block;

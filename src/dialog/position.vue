@@ -3,7 +3,7 @@
      <div id="target" class="col-lg-12 control-section">
          <ejs-button id="dialogBtn" v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
     
-        <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' ref='dialogObj'
+        <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' width='452px' ref='dialogObj'
             target='#target' :open='dialogOpen' :close='dialogClose' closeOnEscape='false'>
             <table id ='poschange'>
                 <tr>
@@ -96,14 +96,10 @@ export default Vue.extend({
         border: 1px solid #D8D8D8;
         border-collapse: collapse;
     }
-    
-    #target .e-dialog {
-      width: 452px;
-    }
 
-    .fluent.e-bigger #target .e-dialog,
-    .fluent-dark.e-bigger #target .e-dialog {
-      width: 502px;
+    .fluent.e-bigger .control-section .e-dialog,
+    .fluent-dark.e-bigger .control-section .e-dialog {
+      width: 502px !important;
     }
 
     #poschange {

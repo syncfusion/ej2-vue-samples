@@ -79,7 +79,6 @@
     .property-panel-content td {
         padding-top: 10px;
     }
-
     .property-panel-header {
         padding-bottom: 0px;
     }

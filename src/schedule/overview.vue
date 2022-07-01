@@ -236,12 +236,6 @@
 
 <style>
 
-    .tailwind .e-settings::before,
-    .tailwind-dark .e-settings::before {
-        content: "\e846";
-        font-size: 14px;
-    }
-
     .tailwind.e-bigger .e-settings,
     .tailwind-dark.e-bigger .e-settings {
         font-size: 16px !important;
@@ -520,7 +514,7 @@
     }
 
     .bootstrap4 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus,
-    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus, {
+    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
         background-color: #5c636a;
         color: #fff;
     }
@@ -964,11 +958,22 @@
     .material .schedule-overview .overview-header .overview-titlebar .title-bar-btn {
         box-shadow: none;
     }
+
+    @media (max-width: 481px) {
+        .schedule-overview .overview-content .right-panel {
+            position: absolute;
+            width: 90%;
+        }
+
+        .schedule-overview .overview-header .overview-titlebar {
+           overflow: auto;
+        }
+    }
 </style>
 
 <script>
     import Vue from "vue";
-    import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization, compile } from '@syncfusion/ej2-base';
+    import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization, createElement } from '@syncfusion/ej2-base';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
     import { DataManager, Predicate, Query } from '@syncfusion/ej2-data';
     import { ButtonPlugin, ButtonComponent, SwitchPlugin, SwitchComponent, CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
@@ -1221,7 +1226,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 ],
                 calendarsValue: [1],
                 isTimelineView: false,
-                buttons: { browse: this.importTemplateFn({ text: 'Import' })[0] },
+                buttons: { browse: this.importTemplateFn() },
                 exportItems: [
                   { text: 'iCalendar', iconCss: 'e-icons e-export' },
                   { text: 'Excel', iconCss: 'e-icons e-export-excel' }
@@ -1470,9 +1475,8 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 }
             }
         },
-        importTemplateFn: function(data) {
-            const template = '<div class="e-template-btn"><span class="e-btn-icon e-icons e-upload-1 e-icon-left"></span>${text}</div>';
-            return compile(template.trim())(data);
+        importTemplateFn: function() {
+            return createElement('div', { className: 'e-template-btn', innerHTML: '<span class="e-btn-icon e-icons e-upload-1 e-icon-left"></span>Import' });
         },
         onSelected: function(args) {
             let scheduleObj = document.getElementById('scheduler').ej2_instances[0];

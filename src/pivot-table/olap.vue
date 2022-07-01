@@ -19,6 +19,7 @@
           :showFieldList="showFieldList"
           :showGroupingBar="showGroupingBar"
           :toolbar="toolbar"
+          :enableFieldSearching="enableFieldSearching"
           :saveReport="saveReport"
           :loadReport="loadReport"
           :fetchReport="fetchReport"
@@ -197,6 +198,7 @@ export default Vue.extend({
       gridSettings: { columnWidth: 160 },
       allowExcelExport: true,
       allowConditionalFormatting: true,
+      enableFieldSearching: true,
       allowPdfExport: true,
       displayOption: { view: "Both" },
       showToolbar: true,
@@ -387,4 +389,8 @@ export default Vue.extend({
 /deep/ #pivotviewcontainerwrapper {
   height: auto !important;
 }
+/deep/ .e-pivotview .e-pivotchart-type-dialog {
+       max-width: 380px !important;
+       max-height: 380px !important;
+    }
 </style>

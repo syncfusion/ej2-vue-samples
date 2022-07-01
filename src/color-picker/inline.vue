@@ -62,6 +62,10 @@
 #inline-control h4 {
     margin-bottom: 20px;
 }
+
+.fluent-dark #colorpicker-control h4 {
+    color: rgba(255, 255, 255, 0.64);
+}
 .e-bigger #inline-control h4 {
     font-size: 20px;
 }

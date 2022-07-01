@@ -39,6 +39,9 @@
         content: "\e7e9";
         font-size: 18px;
     }
+    #toastBtnHide{
+       margin-left: 10px;
+    }
 </style>
 
 <script>

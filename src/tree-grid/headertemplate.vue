@@ -83,27 +83,27 @@ export default Vue.extend({
     methods : {
         image1() {
             var classNames = document.body.classList;
-            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind") || classNames.contains("fluent");
             return (normalTheme ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");
         },
         image2() {
             var classNames = document.body.classList;
-            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind") || classNames.contains("fluent");
             return (normalTheme ? "source/tree-grid/images/startdate.png": "source/tree-grid/images/darkStartname.png");
         },
         image3() {
             var classNames = document.body.classList;
-            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind") || classNames.contains("fluent");
             return (normalTheme ? "source/tree-grid/images/resources.png": "source/tree-grid/images/darkResources.png");
         },
         image4() {
             var classNames = document.body.classList;
-            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind") || classNames.contains("fluent");
             return (normalTheme ? "source/tree-grid/images/duration.png": "source/tree-grid/images/darkduration.png");
         },
         image5() {
             var classNames = document.body.classList;
-            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind");
+            var normalTheme = classNames.contains("material") || classNames.contains("fabric") || classNames.contains("bootstrap") || classNames.contains("bootstrap4") || classNames.contains("bootstrap5") || classNames.contains("tailwind") || classNames.contains("fluent");
             return (normalTheme ? "source/tree-grid/images/progress.png" :"source/tree-grid/images/darkprogress.png");
         }
   }

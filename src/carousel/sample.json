@@ -3,7 +3,6 @@
     "directory": "carousel",
     "category": "Navigation",
     "ftName": "carousel",
-    "type": "preview",
     "samples": [
         {
             "url": "default",
@@ -42,13 +41,11 @@
                     "arrowsTemplate",
                     "indicatorsTemplate",
                     "items",
-                    "showArrows"
+                    "showArrows",
+                    "animationEffect"
                 ],
                 "CarouselItem": [
                     "template"
-                ],
-                "animation": [
-                    "effect"
                 ]
             }
         },

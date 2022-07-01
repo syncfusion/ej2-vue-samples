@@ -50,7 +50,6 @@
         <code>dataLabel</code> is used to represent individual
         data and its value.
       </p>
-      <p>Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
       <p>

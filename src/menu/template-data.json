@@ -3,10 +3,10 @@
         {
             "category": "Products",
             "options": [
-                { "value": "JavaScript", "url": "javascript" },
-                { "value": "Angular", "url": "angular" },
-                { "value": "ASP.NET Core", "url": "core" },
-                { "value": "ASP.NET MVC", "url": "mvc" }
+                { "value": "JavaScript", "url": "src/menu/images/javascript.png" },
+                { "value": "Angular", "url": "src/menu/images/angular.png" },
+                { "value": "ASP.NET Core", "url": "src/menu/images/core.png" },
+                { "value": "ASP.NET MVC", "url": "src/menu/images/mvc.png" }
             ]
         },
         {

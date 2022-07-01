@@ -267,4 +267,7 @@ export default Vue.extend({
 /deep/ .control-section {
   min-height: 255px !important;
 }
+/deep/ .e-bigger .e-float-input.e-control-wrapper {
+        width: 100% !important;
+}
 </style>

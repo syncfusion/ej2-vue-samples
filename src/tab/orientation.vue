@@ -85,6 +85,19 @@
 #tab_orientation .e-content .e-item .template-container:hover {
     background: #eee;
 }
+.highcontrast #tab_orientation .e-content .e-item .template-container:hover
+{
+    background: #685708;
+}
+.bootstrap-dark #tab_orientation .e-content .e-item .template-container:hover,
+.bootstrap5-dark #tab_orientation .e-content .e-item .template-container:hover,
+.tailwind-dark #tab_orientation .e-content .e-item .template-container:hover,
+.fabric-dark #tab_orientation .e-content .e-item .template-container:hover,
+.material-dark #tab_orientation .e-content .e-item .template-container:hover,
+.fluent-dark #tab_orientation .e-content .e-item .template-container:hover
+{
+    background: #343a40;
+}
 .left {
     display: inline-block;
     vertical-align: top;
@@ -93,12 +106,15 @@
     height: 48px;
     width: 48px;
 }
-.name, .role {
+.empname, .role {
     font-size: 15px;
     line-height: normal;
 }
-.name {
+.empname {
     font-weight: 500;
+    padding: 0px !important;
+    bottom: 0px !important;
+    margin: 0px !important;
 }
 .role {
     color: grey;
@@ -162,12 +178,12 @@ Vue.use(TabPlugin);
 var Template1 = Vue.component("demo", {
   template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
         '<div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" ' +
-        'alt="Anne Dodsworth" /></div><div class="left info"><div class="name">Anne Dodsworth</div> <div class="role">' +
+        'alt="Anne Dodsworth" /></div><div class="left info"><div class="empname">Anne Dodsworth</div> <div class="role">' +
         'Product Manager</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div><div class="left info"><div class="name">' +
+        'src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div><div class="left info"><div class="empname">' +
         'Laura Callahan</div> <div class="role">Team Lead</div></div></div><div class="template-container"><div ' +
         'class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div><div ' +
-        'class="left info"><div class="name">Andrew Fuller</div> <div class="role">Developer</div></div></div></div></div>',
+        'class="left info"><div class="empname">Andrew Fuller</div> <div class="role">Developer</div></div></div></div></div>',
   data() {
     return {
       data: {}
@@ -178,12 +194,12 @@ var Template1 = Vue.component("demo", {
 var Template2 = Vue.component("demo", {
    template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
         '<div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" ' +
-        'alt="Robert King" /></div><div class="left info"><div class="name">Robert King</div> <div class="role">' +
+        'alt="Robert King" /></div><div class="left info"><div class="empname">Robert King</div> <div class="role">' +
         'Team Lead</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/5.png" alt="Michael Suyama" /></div><div class="left info"><div class="name">' +
+        'src="src/tab/Employees/5.png" alt="Michael Suyama" /></div><div class="left info"><div class="empname">' +
         'Michael Suyama</div> <div class="role">Developer</div></div></div><div class="template-container"><div ' +
         'class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div><div ' +
-        'class="left info"><div class="name">Margaret Peacock</div> <div class="role">Developer</div></div></div></div></div>',
+        'class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div></div></div></div></div>',
 
   data() {
     return {
@@ -195,12 +211,12 @@ var Template2 = Vue.component("demo", {
 var Template3 = Vue.component("demo", {
   template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
         '<div id="ripple" class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/7.png" ' +
-        'alt="Janet Leverling" /></div><div class="left info"><div class="name">Janet Leverling</div> <div class="role">' +
+        'alt="Janet Leverling" /></div><div class="left info"><div class="empname">Janet Leverling</div> <div class="role">' +
         'CEO</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div><div class="left info"><div class="name">' +
+        'src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div><div class="left info"><div class="empname">' +
         'Steven Buchanan</div> <div class="role">HR</div></div></div><div class="template-container"><div ' +
         'class="left"><img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div><div ' +
-        'class="left info"><div class="name">Nancy Davolio</div> <div class="role">Product Manager</div></div></div></div></div>',
+        'class="left info"><div class="empname">Nancy Davolio</div> <div class="role">Product Manager</div></div></div></div></div>',
   data() {
     return {
       data: {}

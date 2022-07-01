@@ -41,7 +41,6 @@
             "url": "links-and-bookmarks",
             "name": "Hyperlinks and Bookmarks",
             "category": "Editing Features",
-            "type": "update",
             "description": "The Document Editor supports hyperlinks and bookmarks. The link can be a file, mail, webpage, or bookmark."
         },
         {
@@ -84,6 +83,7 @@
             "url": "right-to-left",
             "name": "Right To Left",
             "category": "RTL",
+			"type": "update",
             "description": "The Document Editor supports right to left for users who use right-to-left languages (Arabic, Hebrew, Urdu, etc.) in Vue platform."
         },
         {
@@ -126,13 +126,13 @@
             "url": "comments",
             "name": "Comments",
             "category": "Review",
-            "type": "update",
             "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
         },
 		 {
             "url": "track-changes",
             "name": "Track Changes",
             "category": "Review",
+			"type": "update",
             "description": "The Document Editor component in JavaScript platform allows users to view, make changes and accept or reject them in a Word document." 
         },
         {

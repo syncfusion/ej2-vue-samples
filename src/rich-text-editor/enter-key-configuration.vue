@@ -78,6 +78,13 @@
     .codeViewContent {
         padding-left: 16px;
     }
+	.control-section.enter-key-sample .e-popup.e-popup-open.e-dialog {
+        height: 387px !important;
+    }
+    .control-section.enter-key-sample .e-dialog .e-dlg-content {
+        overflow: inherit;
+        overflow-x: inherit;
+    }
 </style>
 <script>
 import Vue from "vue";

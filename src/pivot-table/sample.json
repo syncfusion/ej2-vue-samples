@@ -58,6 +58,7 @@
       "name": "Field List",
       "category": "User Interaction",
       "hideOnDevice": false,
+      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the field list feature of the pivot table",
       "api": {}
     },
@@ -86,6 +87,15 @@
       "api": {}
     },
     {
+      "url": "Drill-Down",
+      "name": "Drill Down",
+      "category": "User Interaction",
+      "hideOnDevice": false,
+      "type": "new",
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the drill down feature of the pivot table",
+      "api": {}
+    },
+    {
       "url": "summary-customization",
       "name": "Show/Hide Totals",
       "category": "User Interaction",
@@ -106,7 +116,6 @@
       "name": "Toolbar",
       "category": "User Interaction",
       "hideOnDevice": false,
-      "type": "update",
       "api": {},
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },
@@ -140,6 +149,15 @@
       "category": "Sorting",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows ordering(sorting) of fields either in ascending or descending order",
+      "api": {}
+    },
+    {
+      "url": "custom-sorting",
+      "name": "Custom Sorting",
+      "category": "Sorting",
+      "hideOnDevice": false,
+      "type": "new",
+      "description": "This demo for Essential JS2 Pivot Table control shows ordering(custom sorting) of fields either in ascending or descending order",
       "api": {}
     },
     {

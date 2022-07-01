@@ -43,13 +43,6 @@
         padding: 10px;
         text-align: justify;
     }
-    #draggableTab .e-upload {
-        width: 300px;
-    }
-    .property-panel-header {
-        text-align: center;
-        padding-bottom: 0;
-    }
     .treeview-external-drag-tab .e-list-item,
     .e-bigger .treeview-external-drag-tab .e-list-item {
         border: 0.5px solid #E1E7EC;
@@ -66,12 +59,10 @@
         border-color: transparent;
         box-shadow: none !important;
     }
-    .sb-property-border {
-        border-right: none;
+    #draggableTab .e-upload {
+        width: 300px;
     }
-    #TabContainer .control-section {
-      padding-top: 20px !important;
-    }
+
 </style>
 <script>
 import Vue from "vue";

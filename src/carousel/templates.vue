@@ -8,7 +8,7 @@
           :previousButtonTemplate="previousTemplate"
           :nextButtonTemplate="nextTemplate"
           :indicatorsTemplate="indicatorsTemplate"
-          :animation="animation"
+          :animationEffect="animation"
           :buttonsVisibility="buttonsVisibility"
         >
           <e-carousel-items>
@@ -22,7 +22,7 @@
         <div id="action-description">
           <p>
             This sample demonstrates the customization of the
-            <strong>Vue Carousel</strong> component using various templates.
+            <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component using various templates.
           </p>
         </div>
         <div id="description">
@@ -244,7 +244,7 @@ var indicatorsVue = Vue.component("indicators", {
 export default Vue.extend({
   data: function () {
     return {
-      animation: { effect: "Fade" },
+      animation: "Fade",
       buttonsVisibility: "Visible",
       itemTemplate1: function () {
         return {

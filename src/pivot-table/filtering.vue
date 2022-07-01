@@ -43,6 +43,7 @@
                 <ejs-multiselect
                   id="values"
                   ref="values"
+                  placeholder="Select members"
                   :dataSource="memberDataSource"
                   mode="CheckBox"
                   showDropDownIcon="true"

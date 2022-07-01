@@ -51,6 +51,7 @@
         background-color: #C3F1D0;
         color: #00752F;
         width: 47px;
+        height: 22px;
     }
     
     /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,

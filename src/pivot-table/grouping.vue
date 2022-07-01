@@ -286,4 +286,8 @@ export default Vue.extend({
 /deep/ .pivot-table-property-section .e-multiselect {
     padding: 0;
 }
+
+/deep/ .pivot-table-property-section .e-multi-select-wrapper .e-delim-values{
+    padding: 0 !important;
+}
 </style>

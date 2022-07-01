@@ -12,7 +12,7 @@
         </ejs-carousel>
         <div id="action-description">
           <p>
-            This sample demonstrates the keyboard interactions with the <strong>Vue Carousel</strong> component.
+            This sample demonstrates the keyboard interactions with the <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
           </p>
         </div>
         <div id="description">

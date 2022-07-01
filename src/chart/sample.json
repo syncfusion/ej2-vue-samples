@@ -565,7 +565,6 @@
     {
         "url": "pie-legend",
         "name": "Pie with Legend",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
@@ -909,6 +908,7 @@
     {
         "url": "range-color-mapping",
         "name": "Range Color Mapping",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the range rolor mapping.",
         "category": "Chart Customization",
         "sourceFiles": [
@@ -949,6 +949,16 @@
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "range-selection.vue", "path": "./src/chart/range-selection.vue"}
+        ]
+    },
+    {
+        "url": "keyboard",
+        "name": "Keyboard Navigation",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control demonstrates the keyboard Navigation in chart.",
+        "category": "User Interaction",
+        "sourceFiles": [
+            {"displayName": "keyboard.vue", "path": "./src/chart/keyboard.vue"}
         ]
     },
     {

@@ -15,7 +15,7 @@
       <div id="action-description">
         <p>
           This sample demonstrates the properties available in the
-          <b>Vue Carousel</b> component.
+          <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
         </p>
       </div>
       <div id="description">

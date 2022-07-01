@@ -8,7 +8,7 @@
                         <div class="tooltip-wrap e-schedule-event-tooltip">
                             <div :class="getClass(data)"></div>
                             <div class="content-area">
-                                <div class="name">{{data.Subject}}</div>
+                                <div class="eventname">{{data.Subject}}</div>
                                 <div v-if="data.City!== null && data.City!==undefined" class="city">{{data.City}}</div>
                                 <div class="time">From&nbsp;:&nbsp;{{(data.StartTime).toLocaleString()}} </div>
                                 <div class="time">To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{(data.EndTime).toLocaleString()}} </div>
@@ -138,7 +138,7 @@
         background-image: url('./images/commercial-event1.png');
     }
 
-    .e-schedule-event-tooltip.tooltip-wrap .name {
+    .e-schedule-event-tooltip.tooltip-wrap .eventname {
         font-weight: 500;
         font-size: 14px;
     }

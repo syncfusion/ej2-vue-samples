@@ -2,6 +2,7 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -145,7 +146,7 @@
         },  
         {
             "url": "osm-with-navigation-lines",
-            "name": "Osm with Navigation Line",
+            "name": "OSM with Navigation Line",
             "category": "Map Providers",
             "api": {},
             
@@ -155,13 +156,22 @@
         },             
         {
             "url": "osm-with-sublayers",
-            "name": "Osm with Sublayer",
+            "name": "OSM with Sublayer",
             "category": "Map Providers",
             "api": {},
-            
             "sourceFiles": [
                 {"displayName": "osm-with-sublayers.vue", "path": "./src/maps/osm-with-sublayers.vue"},
                 {"displayName": "africa.json", "path": "./src/maps/map-data/africa.json"}
+            ]
+        },
+        {
+            "url": "osm-with-legend",
+            "name": "OSM with Legend",
+            "category": "Map Providers",
+            "type": "new",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "osm-with-legend.vue", "path": "./src/maps/osm-with-legend.vue"}
             ]
         },    
         {

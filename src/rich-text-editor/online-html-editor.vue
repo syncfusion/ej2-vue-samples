@@ -49,7 +49,6 @@
       letter-spacing: 1px;
       padding-left: 10px;
       text-align: center;
-      font-size: 12px;
     }
 
     .online-editor .heading {
@@ -106,7 +105,7 @@
     .sb-content-section .e-lib .e-tab .e-control .e-template .e-keyboard .e-nested .sb-content-header {
       border-bottom: none;
     }
-    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal {
+    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal, .online-editor .e-splitter.e-splitter-vertical .e-pane.e-pane-horizontal {
       min-width: 400px !important;
     }
     .online-editor .CodeMirror-scroll
@@ -118,43 +117,12 @@
       padding:0px;
     }
     
-    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal {
+    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal, .online-editor .e-splitter.e-splitter-vertical .e-pane.e-pane-horizontal {
       overflow: unset;
     }
     .online-editor .CodeMirror-sizer{
        margin-right: 10px;
        border: none;
-    }
-        .fabric-dark .cm-s-default .cm-tag,
-    .bootstrap5-dark .cm-s-default .cm-tag,
-    .bootstrap-dark .cm-s-default .cm-tag,
-    .fluent-dark .cm-s-default .cm-tag,
-    .material-dark .cm-s-default .cm-tag,
-    .tailwind-dark .cm-s-default .cm-tag,
-    .highcontrast .cm-s-default .cm-tag {
-        color: #00ff00;
-    }
-    .fabric-dark .title,
-    .bootstrap5-dark .title,
-    .bootstrap-dark .title,
-    .fluent-dark .title,
-    .material-dark .title,
-    .tailwind-dark .title,
-    .highcontrast .title{
-        color: #fff;
-    }
-    .fabric-dark .CodeMirror,
-    .bootstrap5-dark .CodeMirror,
-    .fluent-dark .CodeMirror,
-    .bootstrap-dark .CodeMirror,
-    .material-dark .CodeMirror,
-    .tailwind-dark .CodeMirror {
-        background-color: #303030;
-        color: #fff;
-    }
-    .highcontrast .CodeMirror {
-        background: black;
-        color:#fff;
     }
     .fabric-dark .CodeMirror-gutters,
     .bootstrap5-dark .CodeMirror-gutters,
@@ -163,8 +131,28 @@
     .material-dark .CodeMirror-gutters,
     .tailwind-dark .CodeMirror-gutters,
     .highcontrast .CodeMirror-gutters {
-        background-color: #303030;
+      background-color: #303030;
     }
+    .fabric-dark .CodeMirror,
+    .bootstrap5-dark .CodeMirror,
+    .fluent-dark .CodeMirror, 
+    .bootstrap-dark .CodeMirror, 
+    .material-dark .CodeMirror, 
+    .tailwind-dark .CodeMirror,
+    .highcontrast .CodeMirror {
+      background-color: #303030;
+      color: #fff;
+    }
+    .fabric-dark .title,
+    .bootstrap5-dark .title, 
+    .bootstrap-dark .title, 
+    .fluent-dark .title, 
+    .material-dark .title, 
+    .tailwind-dark .title, 
+    .highcontrast .title {
+      color: #fff;
+    }
+
   </style>
 
 <script>
@@ -237,9 +225,7 @@ var RteContent = Vue.component("pane1", {
             if (codeMirrorEle) {
                 codeMirrorEle.remove();
             }
-            if (this.$refs.rteObj.ej2Instances.value) {
-              this.renderCodeMirror(srcViewEle, this.$refs.rteObj.ej2Instances.value);
-            }
+            this.renderCodeMirror(srcViewEle, this.$refs.rteObj.ej2Instances.value);
         },
         renderCodeMirror: function(mirrorView, content) {
             this.myCodeMirror = CodeMirror(mirrorView, {

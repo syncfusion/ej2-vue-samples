@@ -2,7 +2,6 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "Editors",
-    "type": "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -103,7 +102,6 @@
             "url": "online-html-editor",
             "name": "Online Html Editor",
             "category": "Rich Text Editor",
-            "type": "new",
             "description": "The online HTML editor is a demo that provides LIVE experience for both content and HTML editing with Rich Text Editor features in a real-world scenario."
         },
         {

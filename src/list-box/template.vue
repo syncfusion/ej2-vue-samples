@@ -75,6 +75,14 @@
         margin-left: 10px;
     }
 
+     #template-listbox-control .list-wrapper .text { 
+        padding-left: 0px !important;
+    }
+    
+    #template-listbox-control .list-wrapper { 
+        display: block !important;
+    }
+
 </style>
 <!-- custom code end -->
 <script>

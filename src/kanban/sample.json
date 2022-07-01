@@ -3,7 +3,6 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
-    "type":"update",
     "samples": [
         {
             "url": "overview",
@@ -42,7 +41,7 @@
                 ]
             },
             "sourceFiles":[
-                { "displayName":"default.vue", "path":"default.vue" },
+                { "displayName":"default.vue", "path":"src/kanban/default.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
@@ -212,7 +211,6 @@
             },
             "sourceFiles":[
                 { "displayName":"header-template.vue", "path":"src/kanban/header-template.vue" },
-                { "displayName":"header-column-template.vue", "path":"src/kanban/header-column-template.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
@@ -232,14 +230,12 @@
             },
             "sourceFiles":[
                 { "displayName":"swimlane-template.vue", "path":"src/kanban/swimlane-template.vue" },
-                { "displayName":"swimlane-row-template.vue", "path":"src/kanban/swimlane-row-template.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
         {
             "url": "card-template",
             "name": "Card Template",
-            "type":"update",
             "category": "Templates",
             "description": "The example demonstrates how to customize the JavaScript Kanban cards using templates, which is used to design beautiful cards with text, images, and more.",
             "api": {

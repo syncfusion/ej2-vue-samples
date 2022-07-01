@@ -231,4 +231,7 @@ export default Vue.extend({
   margin: 1px 10px 0px 0px;
   border-top: 1px solid #eee;
 }
+/deep/ .e-bigger .e-float-input.e-control-wrapper {
+        width: 100% !important;
+    }
 </style>

@@ -185,4 +185,7 @@ export default Vue.extend({
     width: 80%;
     margin-left: 20px;
 }
+/deep/ .e-control.e-btn.e-lib.e-small.e-round.e-format-condition-button.e-icon-btn.e-flat {
+        padding: 0 0 4px 0 !important;
+    }
 </style>

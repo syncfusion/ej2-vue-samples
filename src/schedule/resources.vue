@@ -525,8 +525,9 @@
                 var selectedResource = [];
                 var resourceCollection = [].slice.call(document.querySelectorAll('.e-resource'));
                 resourceCollection.forEach(function (element, index) {
-                    if (element.getAttribute('aria-checked') === 'true') {
-                        selectedResource.push(index);
+                    var resEle = element.querySelector('.e-icons');
+                    if (resEle && resEle.classList.contains('e-check')) {
+                       selectedResource.push(index);
                     }
                 });
                 var filteredData = [];

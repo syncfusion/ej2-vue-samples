@@ -2,6 +2,7 @@
    "name": "Gantt",
    "directory": "gantt",
    "category": "Calendars",
+   "type": "update",
    "ftName": "gantt",
    "samples": [
       {
@@ -565,6 +566,27 @@
             ]
          },
          "description": "This demo explains how the Gantt Chart schedules projects in different timezones."
+      },
+      {
+         "url": "critical-path",
+         "name": "Critical Path",
+         "type": "new",
+         "category": "Scheduling Concepts",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "enableCriticalPath",
+               "taskFields",
+               "treeColumnIndex",
+               "toolbar",
+               "columns",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This sample demonstrates the rendering of critical path to the Gantt control."
       },
       {
          "url": "timeline",

@@ -28,6 +28,9 @@
         min-height: 170px;
         max-height: 400px;
     }
+    .control-section #resize .e-popup.e-popup-open.e-dialog {
+        height: 387px !important;
+    }
 </style>
 <script>
 import Vue from "vue";

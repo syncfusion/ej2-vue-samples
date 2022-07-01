@@ -145,6 +145,11 @@
 </div>
 </template>
 <style scoped>
+    .control-section {
+        overflow: auto;
+        padding-bottom: 50px;
+    }
+    
     .tagSection {
         float: left;
     }
@@ -181,7 +186,8 @@
         clear: both;
     }
 
-    .highcontrast .header {
+    .bootstrap-dark .header, .bootstrap5-dark .header, .fluent-dark .header, 
+    .fabric-dark .header, .material-dark .header, .tailwind-dark .header, .highcontrast .header {
         color: #fff;
     }
 
@@ -231,7 +237,8 @@
         color: #000000;
     }
 
-    .highcontrast .explain {
+    .bootstrap-dark .explain, .bootstrap5-dark .explain, .fluent-dark .explain,
+    .fabric-dark .explain, .material-dark .explain, .tailwind-dark .explain, .highcontrast .explain {
         color: #fff;
     }
 
@@ -374,7 +381,8 @@
          overflow-wrap: break-word;
     }
 
-    .highcontrast .posting {
+    .bootstrap-dark .posting, .bootstrap5-dark .posting, .fluent-dark .posting, 
+    .fabric-dark .posting, .material-dark .posting, .tailwind-dark .posting, .highcontrast .posting {
         color: #fff;
     }
 
@@ -384,7 +392,8 @@
         font-size: 13px;
     }
 
-    .highcontrast .authorname {
+    .bootstrap-dark .authorname, .bootstrap5-dark .authorname, .fluent-dark .authorname, 
+    .fabric-dark .authorname, .material-dark .authorname, .tailwind-dark .authorname, .highcontrast .authorname {
         color: #fff;
     }
 
@@ -394,11 +403,14 @@
         font-family: roboto, SegoeUI;
         margin-top: 7px;
     }
+    
+    button {
+        margin-left: 10px;
+    }
 
     #buttonSection {
         float: right;
         margin-top: 11px;
-
     }
 
     #buttonSection input {
@@ -438,6 +450,17 @@
     #createpostholder {
         margin-top: 25px;
     }
+    .bootstrap-dark .tag, 
+    .bootstrap5-dark .tag, 
+    .fluent-dark .tag,
+    .fabric-dark .tag, 
+    .material-dark .tag, 
+    .tailwind-dark .tag, 
+    .highcontrast .tag {
+        color: #fff;
+        background: #484644;
+    }   
+
 </style>
 <script>
 import Vue from "vue";

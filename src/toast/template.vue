@@ -105,7 +105,6 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
-
     body>#toast_template .e-toast {
         width: 400px !important;
     }
@@ -257,6 +256,15 @@
     .bootstrap5 #template_toast,
     .bootstrap5-dark #template_toast {
         padding: 10px;
+    }
+    
+    .material-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .bootstrap-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .bootstrap5-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .fabric-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .tailwind-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .fluent-dark #snoozedropDown .e-input-group.e-control-wrapper {
+        background: transparent;
     }
 </style>
 <script>

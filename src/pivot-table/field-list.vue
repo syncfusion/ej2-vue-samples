@@ -4,7 +4,7 @@
 <div class="control-section" style="overflow: auto">
     <div class="content-wrapper">
         <ejs-pivotview id="pivotview_flist" ref="pivotview" :gridSettings="gridSettings" :enginePopulated="enginePopulated" :width="width" :height="height"></ejs-pivotview>        
-        <ejs-pivotfieldlist id="pivotfieldlist1" ref="pivotfieldlist" :dataSourceSettings="dataSourceSettings" :enginePopulated="fieldEnginePopulated" :load="load" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :renderMode="renderMode"></ejs-pivotfieldlist>
+        <ejs-pivotfieldlist id="pivotfieldlist1" ref="pivotfieldlist" :dataSourceSettings="dataSourceSettings" :enginePopulated="fieldEnginePopulated" :load="load" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :enableFieldSearching="enableFieldSearching" :renderMode="renderMode"></ejs-pivotfieldlist>
         </div>
     </div>
 </div>
@@ -83,6 +83,7 @@ export default Vue.extend({
         enableSorting: true
       },
       gridSettings: { columnWidth: 140 },
+      enableFieldSearching: true,
       allowCalculatedField: true,
       renderMode: "Fixed",
       width: "99%",

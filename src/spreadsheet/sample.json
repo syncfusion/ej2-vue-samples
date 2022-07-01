@@ -3,7 +3,6 @@
     "directory": "spreadsheet",
     "category": "Grids",
     "ftName": "spreadsheet",
-    "hideOnDevice": true,
     "samples": [
         {
             "url": "default",

@@ -14,7 +14,7 @@
         </div>
     </div>
     <div id="action-description">
-    <p>This example demonstrates the track changes in DocumentEditor to view, make and accept or reject the changes.</p>
+    <p>This example demonstrates the track changes in DocumentEditor to view, make and accept or reject the changes. To unprotect the document, use password '123'.</p>
 </div>
 <div id="description">
     <p>In this example,you can find track changes feature in the document editor.

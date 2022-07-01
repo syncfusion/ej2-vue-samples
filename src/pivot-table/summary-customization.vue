@@ -327,6 +327,7 @@ export default Vue.extend({
 
 /deep/ .pivot-table-property-section  .property-panel-table td {
     width: auto;
+    padding: 0 !important;
 }
 
 /deep/ .pivot-table-property-section  .property-panel-table div {
