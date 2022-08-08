@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "20.2.36",
+  "version": "20.2.43",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -47,7 +47,7 @@
     "gulp-s3-upload": "^1.7.3",
     "marked": "^0.3.19",
     "tributejs": "^4.1.1",
-    "vue": "^2.5.2",
+    "vue": "^2.5.21",
     "vue-class-component": "^8.0.0-rc.1",
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1"

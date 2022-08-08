@@ -21,8 +21,7 @@
             :projectEndDate= "projectEndDate"
             :splitterSettings= "splitterSettings"
             :enableMultiTaskbar= "true"
-            :collapseAllParentTasks= "true"
-			:showOverAllocation= "true">
+	    :showOverAllocation= "true">
         </ejs-gantt>
     </div>
 </div>
