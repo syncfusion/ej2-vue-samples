@@ -4,8 +4,8 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Area' xName='x' yName='y' name='France' width=2 opacity=0.8> </e-series>
-                <e-series :dataSource='seriesData1' type='Area' xName='x' yName='y' name='US' width=2 opacity=0.8> </e-series>
+                <e-series :dataSource='seriesData' type='Area' xName='x' yName='y' name='France' width=2 opacity=0.5 :border='border'> </e-series>
+                <e-series :dataSource='seriesData1' type='Area' xName='x' yName='y' name='US' width=2 opacity=0.5 :border='border'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -85,7 +85,7 @@ export default Vue.extend({
                 width: 0
             }
         },
-
+      border: { width:2 },
       width : Browser.isDevice ? '100%' : '60%',
       title: "Inflation Rate"
     };

@@ -80,9 +80,6 @@
 </div>
 </template>
 <style>
-    .control-section {
-      min-height: 450px;
-    }
 
     #button-control {
       width: 100%;

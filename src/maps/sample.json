@@ -2,7 +2,6 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -168,7 +167,6 @@
             "url": "osm-with-legend",
             "name": "OSM with Legend",
             "category": "Map Providers",
-            "type": "new",
             "api": {},
             "sourceFiles": [
                 {"displayName": "osm-with-legend.vue", "path": "./src/maps/osm-with-legend.vue"}

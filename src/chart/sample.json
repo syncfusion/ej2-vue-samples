@@ -179,6 +179,15 @@
         ]
     },
     {
+        "url": "area-negative",
+        "name": "Area - Negative Points","type":"new",
+        "description": "This demo for Essential JS2 Chart control shows how to render the area series with negative points.",
+        "category": "Area Charts",
+        "sourceFiles": [
+            {"displayName": "area-empty.vue", "path": "./src/chart/area-negative.vue"}
+        ]
+    },
+    {
         "url": "area-segments",
         "name": "Area Zone",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the points in a particular range using MultiColoredArea series.",
@@ -908,7 +917,6 @@
     {
         "url": "range-color-mapping",
         "name": "Range Color Mapping",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the range rolor mapping.",
         "category": "Chart Customization",
         "sourceFiles": [
@@ -954,7 +962,6 @@
     {
         "url": "keyboard",
         "name": "Keyboard Navigation",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control demonstrates the keyboard Navigation in chart.",
         "category": "User Interaction",
         "sourceFiles": [

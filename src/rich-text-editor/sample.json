@@ -1,7 +1,8 @@
 {
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
-    "category": "Editors",
+    "category": "File Viewers & Editors",
+    "type" : "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -21,6 +22,13 @@
             "description": "This demo explains how to insert images with a blob or base64 format, link to the images, image upload, rotate left/right, and more in vue WYSIWYG HTML Editor."
         },
         {
+            "type": "New", 
+            "url": "insert-media",
+            "name": "Insert Media",
+            "category":"Rich Text Editor",
+            "description": "This demo shows how to insert audio and video, Embed video, upload audio and video, and more in Insert Media."
+        },
+        {
             "url": "inline",
             "name": "Inline",
             "category": "Rich Text Editor",
@@ -31,6 +39,13 @@
             "name": "Paste from MS Word",
             "category": "Rich Text Editor",
             "description": "This demo explains how to clean up HTML when pasting a content from Microsoft Word, Visual Studio Code, Visual Studio, or a web page in vue Rich Text Editor."
+        },
+        {
+            "type": "New",
+            "url": "mention-integration",
+            "name": "Mention Integration",
+            "category": "Rich Text Editor",
+            "description": "This example shows how to integrate @mention component within Rich Text Editor component. Type `@` character and select a user from the suggestion list."
         },
         {
             "url": "iframe",
@@ -139,12 +154,6 @@
             "name": "Custom Format",
             "category": "Markdown Editor",
             "description": "This demo explains how to convert markdown content (with the custom format) to valid HTML markup using Markdown-to-HTML of the markdown parser in vue."
-        },
-        {
-            "url": "tribute",
-            "name": "Tribute JS",
-            "category": "Third-parties Integration",
-            "description": "This demo shows how to integrate Mention library like Tribute JS within the vue HTML text editor to get the autocomplete popup with a suggestion list."
         }
     ]
 }

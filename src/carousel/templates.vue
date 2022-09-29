@@ -112,8 +112,12 @@
 @media screen and (max-width: 480px) {
   .template-carousel-section .carousel-sample {
     width: 100%;
-    height: 300px;
+    height: 250px;
   }
+  
+  .templateCarousel .img-container {
+      margin: 12px;
+    }
 }
 </style>
 

@@ -51,7 +51,6 @@
         background-color: #C3F1D0;
         color: #00752F;
         width: 47px;
-        height: 22px;
     }
     
     /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
@@ -101,7 +100,7 @@
         background-color: #df2222;
     }
 
-    /deep/ #label {
+    /deep/ #treegridlabel {
         position: relative;
         left: 10px;
         line-height: 18px;
@@ -148,7 +147,7 @@ export default Vue.extend({
             template: Vue.component('unemploymentTemplate', {
                 template: `<div id="myProgress" class="pbar">
                                 <div id="myBar" class="bar">
-                            <div id="label" class="barlabel"></div>
+                            <div id="treegridlabel" class="barlabel"></div>
                               </div>
                     </div>`,
             data: function() {

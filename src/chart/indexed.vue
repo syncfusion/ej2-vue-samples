@@ -136,6 +136,7 @@ export default Vue.extend({
       if (this.primaryXAxis.isIndexed) {
        this.seriesType = 'Column';
        this.marker.visible = false;
+       this.$refs.chart.ej2Instancestooltip.shared = true;
        let primaryXAxis = extend({},this.primaryXAxis);
        primaryXAxis.labelRotation = 0;
        this.primaryXAxis = primaryXAxis;
@@ -145,6 +146,8 @@ export default Vue.extend({
       } else {
          this.seriesType = 'Line';
          this.marker.visible = true;
+       this.$refs.chart.ej2Instances.tooltip.enable = true;
+       this.$refs.chart.ej2Instances.tooltip.shared = false;
        let primaryXAxis = extend({},this.primaryXAxis);
        primaryXAxis.labelRotation = 90;
        this.primaryXAxis = primaryXAxis;

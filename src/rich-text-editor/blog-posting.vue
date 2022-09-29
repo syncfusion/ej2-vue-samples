@@ -9,7 +9,7 @@
                         <table>
                             <tbody><tr>
                                 <td>
-                                    <div class="questionar"> </div>
+                                    <div class="questionar blog-avatar"> </div>
                                 </td>
                                 <td>
                                     <div class="Questionarname"> Kimberly </div>
@@ -66,7 +66,7 @@
                         <table>
                             <tbody><tr>
                                 <td rowspan="2">
-                                    <div class="logos"> </div>
+                                    <div class="logos blog-avatar"> </div>
                                 </td>
                                 <td>
                                     <div class="authorname">Mabel Weber</div>
@@ -282,21 +282,7 @@
     }
 
     .questionar {
-        width: 32px;
         background: url(./images/emp1.png);
-        height: 32px;
-        float: left;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #bcbcbc;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 50%;
-        color: #fff;
-        margin-top: 2px;
     }
 
     .raiser {
@@ -322,43 +308,39 @@
 
     .logos {
         background: url(./images/emp2.png);
-        height: 32px;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #bcbcbc;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 50%;
-        color: #fff;
-        width: 32px;
     }
 
     .logo {
         background: url(./images/author.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
 
     .emp1 {
         background: url(./images/1.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
 
     .emp2 {
         background: url(./images/2.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
 
     .emp3 {
         background: url(./images/3.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
+
+    .blog-avatar {
+            height: 32px;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: #bcbcbc;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            color: #fff;
+            width: 32px;
+        }
+
     .author {
         margin-bottom: 5px;
         height: 50px;
@@ -459,8 +441,7 @@
     .highcontrast .tag {
         color: #fff;
         background: #484644;
-    }   
-
+    } 
 </style>
 <script>
 import Vue from "vue";
@@ -500,10 +481,12 @@ export default Vue.extend({
                      logo.classList.remove('logos');
                      if (empCount < 3) {
                 logo.classList.add(empList[empCount]);
+                logo.classList.add('blog-avatar');
                 authorName.innerHTML = nameList[empCount];
                 empCount++;
             } else {
                 logo.classList.add('logo');
+                logo.classList.add('blog-avatar');
                 authorName.innerHTML = 'User';
             }
             var timeZone = cloneAnswer.querySelector('.detailsAnswer');

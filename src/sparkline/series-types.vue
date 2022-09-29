@@ -147,7 +147,7 @@ return{
         valueType4: 'Numeric',
         dataSource4: [12, 15, -10, 13, 15, 6, -12, 17, 13, 0, 8, -10],
         tooltipSettings4: {
-            format: '${x} : ${y}',
+            visible: true,
         },
         pieheight: '40px',
         piewidth: '100%',

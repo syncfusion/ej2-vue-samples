@@ -1,0 +1,56 @@
+{
+    "name": "SpeedDial",
+    "directory": "speed-dial",
+    "category": "Buttons",
+    "type":"preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "SpeedDial",
+            "ftName": "default",
+            "api":{"SpeedDial":["items","target","position","cssClass","openIconCss","closeIconCss"] },
+            "description": "This sample demonstrates default functionalities of SpeedDial"
+        },
+        {
+            "url": "linear",
+            "name": "Position (Linear)",
+            "category": "SpeedDial",
+            "ftName": "position-linear",
+            "api":{"SpeedDial":["items","target","position","openIconCss","direction"] },
+            "description": "This sample demonstrates linear opening direction of actions of a SpeedDial"
+        },
+        {
+            "url": "radial",
+            "name": "Radial Menu",
+            "category": "SpeedDial",
+            "ftName": "radial-menu",
+            "api":{"SpeedDial":["items","target","position","openIconCss","mode"] },
+            "description": "This sample demonstrates radial opening direction of action of a SpeedDial"
+        },
+        {
+            "url": "styles",
+            "name": "Styles",
+            "category": "SpeedDial",
+            "ftName": "appearance",
+            "api":{"SpeedDial":["items","target","position","openIconCss","cssClass","content","iconPosition"] },
+            "description": "This sample demonstrates common appearances of speed dial control. Select any property to customize the appearance of chip."
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "SpeedDial",
+            "ftName": "template",
+            "api":{"SpeedDial":["items","target","position","openIconCss","popupTemplate","content","itemTemplate"] },
+            "description": "This sample demonstrates the popup and item templates"
+        },
+        {
+            "url": "modal",
+            "name": "Modal",
+            "category": "SpeedDial",
+            "ftName": "modal",
+            "api":{"SpeedDial":["items","target","position","cssClass","openIconCss","closeIconCss","modal"] },
+            "description": "This sample demonstrates the modal view which is added to prevent background interaction and displayed as modal"
+        }
+    ]
+}

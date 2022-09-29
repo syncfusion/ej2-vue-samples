@@ -1,7 +1,7 @@
 {
     "name": "DocumentEditor",
     "directory": "document-editor",
-    "category": "Editors",
+    "category": "File Viewers & Editors",
     "type": "update",
     "ftName": "document-editor",
     "hideOnDevice": true,
@@ -83,7 +83,6 @@
             "url": "right-to-left",
             "name": "Right To Left",
             "category": "RTL",
-			"type": "update",
             "description": "The Document Editor supports right to left for users who use right-to-left languages (Arabic, Hebrew, Urdu, etc.) in Vue platform."
         },
         {
@@ -132,7 +131,6 @@
             "url": "track-changes",
             "name": "Track Changes",
             "category": "Review",
-			"type": "update",
             "description": "The Document Editor component in JavaScript platform allows users to view, make changes and accept or reject them in a Word document." 
         },
         {

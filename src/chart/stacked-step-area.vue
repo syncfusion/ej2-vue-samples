@@ -21,6 +21,7 @@
             name="Renewable"
             :opacity="opacity"
             fill="#56CCF2"
+            :border='border'
           ></e-series>
           <e-series
             :dataSource="seriesData1"
@@ -30,6 +31,7 @@
             name="Non-Renewable"
             :opacity="opacity"
             fill="#2F80ED"
+            :border='border'
           ></e-series>
         </e-series-collection>
       </ejs-chart>
@@ -113,7 +115,7 @@ export default Vue.extend({
         { x: 2008, y: 300 },
         { x: 2009, y: 173 },
         { x: 2010, y: 220 },
-        { x: 2011, y: 309 }
+        { x: 2011, y: 220 }
       ],
       //Initializing Primary X Axis
       primaryXAxis: {
@@ -137,7 +139,8 @@ export default Vue.extend({
       },
       width: "60%",
       title: "Electricity- Production",
-      opacity: 0.5
+      opacity: 0.5,
+      border: { width: 1.5 }
     };
   },
   provide: {

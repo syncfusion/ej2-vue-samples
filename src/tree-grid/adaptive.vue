@@ -9,8 +9,8 @@
         <div class="e-mobile-content">
             <ejs-treegrid ref='treegrid' id='adaptivebrowser' :dataSource="data" childMapping='subtasks' :treeColumnIndex='1' height='100%' :enableAdaptiveUI='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :editSettings='editSettings' :toolbar='toolbar' :filterSettings='filterSettings' :load='load'>
                 <e-columns>
-                    <e-column field='taskID' headerText='Task ID' :isPrimaryKey='true' width='135' textAlign='Right'></e-column>
-                    <e-column field='taskName' headerText='Task Name' width='280'></e-column>
+                    <e-column field='taskID' headerText='Task ID' :isPrimaryKey='true' width='135' :validationRules='taskidrules' textAlign='Right'></e-column>
+                    <e-column field='taskName' headerText='Task Name' :validationRules='tasknamerules' width='280'></e-column>
                     <e-column field='duration' headerText='Duration' width='140' textAlign='Right'></e-column>
                     <e-column field='progress' headerText='Progress' width='145' textAlign='Right'></e-column>
                 </e-columns>
@@ -20,8 +20,8 @@
     <div v-else class="e-desktop-layout">
             <ejs-treegrid ref='treegrid' id='adaptivedevice' :dataSource="data" childMapping='subtasks' :treeColumnIndex='1' height='100%' :enableAdaptiveUI='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :editSettings='editSettings' :toolbar='toolbar' :filterSettings='filterSettings' :load='load'>
                 <e-columns>
-                    <e-column field='taskID' headerText='Task ID' :isPrimaryKey='true' width='135' textAlign='Right'></e-column>
-                    <e-column field='taskName' headerText='Task Name' width='280'></e-column>
+                    <e-column field='taskID' headerText='Task ID' :isPrimaryKey='true' width='135' :validationRules='taskidrules' textAlign='Right'></e-column>
+                    <e-column field='taskName' headerText='Task Name' :validationRules='tasknamerules' width='280'></e-column>
                     <e-column field='duration' headerText='Duration' width='140' textAlign='Right'></e-column>
                     <e-column field='progress' headerText='Progress' width='145' textAlign='Right'></e-column>
                 </e-columns>
@@ -119,6 +119,8 @@ export default Vue.extend({
       editSettings: { allowAdding: true, allowEditing: true, allowDeleting: true, mode: 'Dialog' },
       toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'],
       filterSettings: { type: 'Excel' },
+      taskidrules: { required: true, number: true },
+      tasknamerules: { required: true },
       isDesktop: !Browser.isDevice,
     };
   },

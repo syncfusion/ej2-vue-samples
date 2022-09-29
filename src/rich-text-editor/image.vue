@@ -23,7 +23,7 @@
                             <div>Enable AutoUrl</div>
                         </td>
                         <td>
-                            <div>
+                             <div class="checkbox-container">
                              <ejs-checkbox ref="checkInstance" :change="changeCheck" id="enablehtml" ></ejs-checkbox>
                             </div>
                         </td>
@@ -109,6 +109,14 @@
         content: "\e755";
     }
 
+    .property-panel-table div {
+        padding : 10px;
+    }
+
+    .checkbox-container{
+        padding-left: 0px !important;
+    }
+	
 </style>
 <script>
 import Vue from "vue";
@@ -116,6 +124,7 @@ import { RichTextEditorPlugin, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, 
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 import { CheckBoxPlugin} from "@syncfusion/ej2-vue-buttons";
+import { isNullOrUndefined } from '@syncfusion/ej2-base';
 Vue.use(DropDownListPlugin);
 Vue.use(RichTextEditorPlugin);
 Vue.use(CheckBoxPlugin);
@@ -151,19 +160,21 @@ export default Vue.extend({
             var nodeObj = new NodeSelection();
             var range = nodeObj.getRange(this.$refs.rteObj.ej2Instances.contentModule.getDocument());
             var imgEle = nodeObj.getNodeCollection(range)[0];
-            if (e.item.tooltipText === 'Rotate Right') {
-                var transform = (imgEle.style.transform === '') ? 0 :
-                    parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10);
-                imgEle.style.transform = 'rotate(' + (transform + 90) + 'deg)';
-                this.$refs.rteObj.ej2Instances.formatter.saveData();
-                this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
-            }
-            else if (e.item.tooltipText === 'Rotate Left') {
-                var transform = (imgEle.style.transform === '') ? 0 :
-                    Math.abs(parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10));
-                imgEle.style.transform = 'rotate(-' + (transform + 90) + 'deg)';
-                defaulthis.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
-                this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
+            if (!isNullOrUndefined(e.item)) {
+                if (e.item.tooltipText === 'Rotate Right') {
+                    var transform = (imgEle.style.transform === '') ? 0 :
+                        parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10);
+                    imgEle.style.transform = 'rotate(' + (transform + 90) + 'deg)';
+                    this.$refs.rteObj.ej2Instances.formatter.saveData();
+                    this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
+                }
+                else if (e.item.tooltipText === 'Rotate Left') {
+                    var transform = (imgEle.style.transform === '') ? 0 :
+                        Math.abs(parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10));
+                    imgEle.style.transform = 'rotate(-' + (transform + 90) + 'deg)';
+                    defaulthis.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
+                    this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
+                }
             }
             },
              formatChange: function() {

@@ -136,7 +136,7 @@ export default Vue.extend({
             }]
       },
 
-      tooltip: { enable: true, format: ' Year: ${point.x}<br> Tons Per Day: ${point.y}'},
+      tooltip: { enable: true, format: ' Year: <b>${point.x}</b><br> Tons Per Day: <b>${point.y}</b>'},
 
       width: "100%",
       title: "World Pollution Report"
@@ -155,12 +155,16 @@ export default Vue.extend({
       let x = document.getElementById("xIndex");
       let primaryXAxis = extend({}, this.primaryXAxis);
       primaryXAxis.stripLines[0].visible = x.checked;
+      this.$refs.chart.ej2Instances.series[0].animation.enable = false;
+      this.$refs.chart.ej2Instances.series[1].animation.enable = false;
       this.primaryXAxis = primaryXAxis;
     },
      yChange: function(args) {
       let y = document.getElementById("yIndex");
       let primaryYAxis = extend({}, this.primaryYAxis);
       primaryYAxis.stripLines[0].visible = y.checked;
+      this.$refs.chart.ej2Instances.series[0].animation.enable = false;
+      this.$refs.chart.ej2Instances.series[1].animation.enable = false;
       this.primaryYAxis = primaryYAxis;
     }
     }

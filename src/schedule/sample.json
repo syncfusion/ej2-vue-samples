@@ -3,6 +3,7 @@
     "directory": "schedule",
     "category": "Calendars",
     "ftName": "scheduler",
+    "type":"update",
     "samples": [{
             "url": "overview",
             "name": "Overview",
@@ -192,6 +193,7 @@
             "name": "Virtual Scrolling ",
             "category": "Scrolling",
             "hideOnDevice": true,
+            "type":"update",
             "description": "This example illustrates how to achieve high performance in the Vue Scheduler using virtual scrolling to load resources and events on demand.",
             "api": {
                 "Schedule": [

@@ -71,10 +71,10 @@
     }
     
     #togglebtn1 {
-        width: 80px;
+        width: 85px;
     }
     #togglebtn2 {
-        width: 80px;
+        width: 85px;
     }
     .e-export-icon::before {
         content: '\\e728';
@@ -132,7 +132,7 @@ return{
                     { resistance: 0.25, reactance: 0 },
                 ],
             name: 'Transmission',
-            enableAnimation: true,
+            enableAnimation: false,
             tooltip: { visible: true },
             marker: {
                     shape: 'Circle',

@@ -986,7 +986,6 @@
     import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';
     MultiSelect.Inject(CheckBoxSelection);
 
-
     Vue.use(SchedulePlugin);
     Vue.use(TimePickerPlugin);
     Vue.use(ButtonPlugin);
@@ -1225,7 +1224,6 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                   { text: 'Saturday', value: 6 }
                 ],
                 calendarsValue: [1],
-                isTimelineView: false,
                 buttons: { browse: this.importTemplateFn() },
                 exportItems: [
                   { text: 'iCalendar', iconCss: 'e-icons e-export' },
@@ -1356,27 +1354,27 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                                 },
                                 onTimelineViewChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    this.isTimelineView = args.checked;
+                                    let isTimelineView = args.checked;
                                     switch (scheduleObj.currentView) {
                                         case 'Day':
                                         case 'TimelineDay':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineDay' : 'Day';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineDay' : 'Day';
                                             break;
                                         case 'Week':
                                         case 'TimelineWeek':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineWeek' : 'Week';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineWeek' : 'Week';
                                             break;
                                         case 'WorkWeek':
                                         case 'TimelineWorkWeek':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
                                             break;
                                         case 'Month':
                                         case 'TimelineMonth':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineMonth' : 'Month';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineMonth' : 'Month';
                                             break;
                                         case 'Year':
                                         case 'TimelineYear':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineYear' : 'Year';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineYear' : 'Year';
                                             break;
                                         case 'Agenda':
                                             scheduleObj.currentView = 'Agenda';
@@ -1592,24 +1590,26 @@ var footerTemplateVue = Vue.component("footerTemplate", {
     },
     onToolbarItemClicked: function(args) {
         let scheduleObj = this.$refs.scheduleObj.ej2Instances;
+        let timelineSwitch = document.getElementById('timeline_views').ej2_instances[0];
+        let isTimelineView = timelineSwitch.checked;
         switch (args.item.text) {
             case 'Day':
-                this.currentView = this.isTimelineView ? 'TimelineDay' : 'Day';
+                scheduleObj.currentView = isTimelineView ? 'TimelineDay' : 'Day';
                 break;
             case 'Week':
-                this.currentView = this.isTimelineView ? 'TimelineWeek' : 'Week';
+                scheduleObj.currentView = isTimelineView ? 'TimelineWeek' : 'Week';
                 break;
             case 'WorkWeek':
-                this.currentView = this.isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
+                scheduleObj.currentView = isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
                 break;
             case 'Month':
-                this.currentView = this.isTimelineView ? 'TimelineMonth' : 'Month';
+                scheduleObj.currentView = isTimelineView ? 'TimelineMonth' : 'Month';
                 break;
             case 'Year':
-                this.currentView = this.isTimelineView ? 'TimelineYear' : 'Year';
+                scheduleObj.currentView = isTimelineView ? 'TimelineYear' : 'Year';
                 break;
             case 'Agenda':
-                this.currentView = 'Agenda';
+                scheduleObj.currentView = 'Agenda';
                 break;
             case 'New Event':
                 const eventData = this.getEventData();

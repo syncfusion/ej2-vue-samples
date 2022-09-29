@@ -66,9 +66,9 @@
         padding-right: 4px;
     }
 	
-	.outlook-style #splitter #template ul.e-list-parent.e-ul {
-		padding: 0 0 0 16px;
-	}
+    .outlook-style #splitter #template ul.e-list-parent.e-ul {
+	padding: 0 0 0 16px;
+    }
     .material-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-item-header {
         color : #fff;
     }

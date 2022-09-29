@@ -178,6 +178,7 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(paragraphFormat));
           obj.documentName='Paragraph Formatting';
+          this.$refs.doceditcontainer.ej2Instances.documentEditorSettings.showHiddenMarks = true;
           this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();

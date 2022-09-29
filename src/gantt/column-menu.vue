@@ -44,7 +44,8 @@
         In this demo, the column menu feature is enabled by setting <code>showColumnMenu</code> to true with sorting, filtering, column chooser, and autoFit options.
     </p>
     <p>
-        More information about column menu can be found in this documentation section.
+        More information about column menu can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/column-menu/">
+        documentation section</a>.
     </p>
 </div>
 </div>

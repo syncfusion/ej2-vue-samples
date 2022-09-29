@@ -74,6 +74,10 @@
 .bootstrap5 .disableRow .e-rowcell, .fluent .disableRow .e-rowcell {
     color: rgba(0, 0, 0, .35) !important;
 }   
+.e-multiselect {
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+}
 </style>
 <!-- custom code end -->
 <script lang="ts">

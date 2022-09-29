@@ -336,7 +336,7 @@ export default Vue.extend({
     }
 
     /*Specifies the icon styles for the ListView*/
-    .javascript {
+    #listSidebarList .javascript {
         background-image: url('../images/sidebar/images/javascript.svg');
     }
 

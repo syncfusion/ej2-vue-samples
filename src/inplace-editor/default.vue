@@ -110,7 +110,7 @@
         </ul>
     </p>
     <p>
-        The edit on modes of  <code>In-place Editor</code> can be switched by selecting the appropriate values provided in a
+        The edit on modes of <code>In-place Editor</code> can be switched by selecting the appropriate values provided in a
         drop-down. The applicable modes are as follows:
         <ul>
             <li>Click - Editor opens the edit input with single click of textbox.</li>

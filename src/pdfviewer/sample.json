@@ -1,7 +1,7 @@
 {
     "name": "PDF Viewer",
     "directory": "pdfviewer",
-    "category": "Viewer",
+    "category": "File Viewers & Editors",
     "samples": [
         {
             "url": "default",

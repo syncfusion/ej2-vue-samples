@@ -254,10 +254,8 @@ methods: {
             document.getElementById('labelOffsetValue').innerHTML = value.toString();
             this.$refs.circulargauge.ej2Instances.refresh();
     },
-    changeEnablePointer:function(e){
-        let element = (document.getElementById('enable'));
-        let boolean = (event.target).checked;
-        this.$refs.circulargauge.ej2Instances.axes[0].showLastLabel = boolean;       
+    changeEnablePointer:function(args) {
+        this.$refs.circulargauge.ej2Instances.axes[0].showLastLabel = args.checked;
         this.$refs.circulargauge.ej2Instances.refresh();
     },
 }

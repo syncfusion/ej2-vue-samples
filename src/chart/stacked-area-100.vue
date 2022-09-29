@@ -4,10 +4,10 @@
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y' name='Organic' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y1' name='Fair-trade' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y2' name='Veg Alternatives' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y3' name='Others' > </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y' name='Organic' :border='border'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y1' name='Fair-trade' :border='border'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y2' name='Veg Alternatives' :border='border'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y3' name='Others' :border='border'> </e-series>
                
             </e-series-collection>
         </ejs-chart>
@@ -95,8 +95,8 @@ export default Vue.extend({
             interval: 20
         },
 
-
-       width : Browser.isDevice ? '100%' : '60%',
+      border : { width: 1, color: '#ffffff' },
+      width : Browser.isDevice ? '100%' : '60%',
       title: "Trend in Sales of Ethical Produce"
     };
   },

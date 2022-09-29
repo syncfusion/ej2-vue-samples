@@ -46,7 +46,6 @@
     </div>
 </template>
 <style>
-/* custom code start*/
 .schedule-vue-sample .drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -86,7 +85,6 @@
     font-weight: bold;
     text-align: center;
 }
-/* custom code end*/
 
 .schedule-vue-sample .treeview-external-drag #waitlist {
     width: 100%;
@@ -213,11 +211,9 @@
 }
 
 @media (max-width: 550px) {
-    /* custom code start*/
     .schedule-vue-sample .schedule-container {
         padding-bottom: 10px
     }
-    /* custom code end*/
 
     .schedule-vue-sample .treeview-external-drag.e-treeview,
     .e-bigger .schedule-vue-sample .treeview-external-drag.e-treeview {
@@ -228,7 +224,7 @@
         position: relative !important;
     }
 
-    .schedule-vue-sample .content-wrapper {
+    .schedule-vue-sample .drag-sample-wrapper {
         display: block;
     }
 }

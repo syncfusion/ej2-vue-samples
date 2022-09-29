@@ -13,7 +13,7 @@
    </div>
    <div align="center">
         <ejs-chart style='display:block;' ref='chart' id='chartRtl' align='center' :chartArea='chartArea' :width='width'
-           :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='chartTooltip' height='350' :theme='themes'>
+           :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='chartTooltip' height='350' :theme='themes' :legendSettings='legendSettings'>
            <e-series-collection>
                <e-series :dataSource='dataSource' type='Area' xName='xDate' name='England' yName='High' width='2'
                 :fill='fill' :border='border'>
@@ -213,7 +213,8 @@ export default Vue.extend({
       tooltip: { enable: true, displayMode: 'Always' },
       fill: 'url(#' + selectedTheme + '-gradient-chart)',
       border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },
-      themes: theme
+      themes: theme,
+      legendSettings: { visible: false }
     };
   },
   provide: {

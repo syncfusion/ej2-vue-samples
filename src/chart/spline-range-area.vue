@@ -25,7 +25,7 @@
             opacity="0.4"
             high="high"
             low="low"
-            :marker="marker"
+            :marker="marker"  
           >
           </e-series>
           <e-series

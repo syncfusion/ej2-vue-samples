@@ -859,6 +859,21 @@ span.e-input-group.e-control-wrapper.e-ddl {
     background-color: #0275d8;
 }
 
+.fluent .e-samplestatus.new,
+.fluent .e-samplestatus.preview {
+    margin-top: 1px;
+}
+
+.fluent .e-samplestatus.update {
+    margin-top: 0px;
+}
+
+.fluent.e-bigger .e-samplestatus.new,
+.fluent.e-bigger .e-samplestatus.update,
+.fluent.e-bigger .e-samplestatus.preview {
+    margin-top: 4px;
+}
+
 .e-samplestatus.new, .e-samplestatus.New,
 .e-samplestatus.update, .e-samplestatus.Update,
 .e-samplestatus.preview, .e-samplestatus.Preview {
@@ -2087,6 +2102,12 @@ body.highcontrast,
     float: left;
 }
 
+.sb-control-navigation .e-treeview .tree-text {
+    width: calc(100% - 65px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .tree-badge{
     float: right;
 }
@@ -2228,7 +2249,7 @@ body.highcontrast,
   }
   
   .free-trial {
-    width: 176px;
+    width: 178px;
     height: 43px;
     background-color: #FF4800;
     border-radius: 21.5px;
@@ -2299,7 +2320,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2330,7 +2351,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2360,7 +2381,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2390,7 +2411,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2421,7 +2442,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2447,7 +2468,7 @@ body.highcontrast,
     display: block;
     margin: 11px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2477,7 +2498,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2507,7 +2528,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2532,7 +2553,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2558,7 +2579,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2584,7 +2605,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2610,7 +2631,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {
@@ -2637,7 +2658,7 @@ body.highcontrast,
     display: block;
     margin: 17px auto 0px;
     float: none;
-    width: 238px;
+    width: 242px;
     padding: 11px 61px;
     }
     .content-area {

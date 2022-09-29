@@ -34,7 +34,6 @@
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
-      "type": "update",
       "api": {}
     },
     {
@@ -58,7 +57,6 @@
       "name": "Field List",
       "category": "User Interaction",
       "hideOnDevice": false,
-      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the field list feature of the pivot table",
       "api": {}
     },
@@ -91,7 +89,6 @@
       "name": "Drill Down",
       "category": "User Interaction",
       "hideOnDevice": false,
-      "type": "new",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the drill down feature of the pivot table",
       "api": {}
     },
@@ -156,7 +153,6 @@
       "name": "Custom Sorting",
       "category": "Sorting",
       "hideOnDevice": false,
-      "type": "new",
       "description": "This demo for Essential JS2 Pivot Table control shows ordering(custom sorting) of fields either in ascending or descending order",
       "api": {}
     },
@@ -198,6 +194,15 @@
       "category": "Scrolling",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows virtual scrolling option available vertically and horizontally to load large records with ease",
+      "api": {}
+    },
+    {
+      "url": "paging",
+      "name": "Paging",
+      "category": "Paging",
+      "hideOnDevice": false,
+      "description": "This demo for Essential JS2 Pivot Table control shows paging option available for rows and columns to load large records page by page",
+      "type": "new",
       "api": {}
     },
     {

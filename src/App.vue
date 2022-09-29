@@ -430,7 +430,7 @@ import VueRouter from "vue-router";
 
 /* syncfusion imports */
 import { Browser, extend, Animation, Ajax, closest, createElement, detach, enableRipple, setCurrencyCode } from '@syncfusion/ej2-base';
-import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr, registerLicense } from '@syncfusion/ej2-base';
+import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr, registerLicense, getComponent } from '@syncfusion/ej2-base';
 import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
@@ -439,6 +439,7 @@ import { Toast } from '@syncfusion/ej2-notifications';
 import { Grid } from '@syncfusion/ej2-grids';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
 import { DataManager, Query, DataUtil } from '@syncfusion/ej2-data';
+import { ImageEditor } from '@syncfusion/ej2-image-editor';
 
 /* Other imports */
 import { Locale } from './common/locale-string';
@@ -1267,6 +1268,11 @@ export default Vue.extend({
             target = closest(target, 'li');
             let themeName: string = target.id;
             this.switchTheme(themeName);
+            let imageEditorElem = document.querySelector(".e-image-editor") as HTMLElement;
+            if (imageEditorElem != null) {
+                let imageEditor = getComponent(document.getElementById(imageEditorElem.id) as HTMLElement, 'image-editor') as ImageEditor;
+                (imageEditor as ImageEditor).theme = themeName;
+            }
         },
 
         switchTheme: function (str: string): void {

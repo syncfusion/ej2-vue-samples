@@ -326,10 +326,6 @@ export default  Vue.extend({
     width: 100px;
   }
 
-  #right-sidebar {
-    display: none;
-  }
-
   .dashboard-seo .e-dock.e-close span.e-text {
     display: none;
   }

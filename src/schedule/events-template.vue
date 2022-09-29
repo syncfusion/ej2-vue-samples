@@ -150,14 +150,6 @@
                 return instance.formatDate(data.StartTime, { skeleton: 'hm' }) + " - " + instance.formatDate(data.EndTime, { skeleton: 'hm' });
             }
         },
-        mounted: function () {
-            let scheduleObj = this.$refs.ScheduleObj;
-            if (Browser.isDevice) {
-                scheduleObj.views = ['Day'];
-            }
-            scheduleObj.eventSettings.template = this.eventTemplate;
-            scheduleObj.dataBind();
-        },
         provide: {
             schedule: [Week, Day, TimelineViews, Resize, DragAndDrop]
         }

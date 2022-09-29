@@ -14,9 +14,12 @@
         In this demo, using column template, we have presented sparkLine charts for the "Tax per annum", "One day index" and "Year GR" columns. In <code>columns->template</code> we have assigned with the ID of a SCRIPT element whose content is used as the template.
     </p>
     <p>The template expression should be provided inside <code>${...}</code> interpolation syntax</p>
-    <p>
-        More information about Column Template can be found in this documentation section.
-    </p>
+        <p>
+            More information on the column template can be found in this
+            <a target="_blank" 
+                href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/column-template/">
+               documentation section</a>.
+        </p>
 </div>
     <div>
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>

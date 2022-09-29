@@ -4,8 +4,8 @@
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Renewable' width=2 > </e-series>
-                <e-series :dataSource='seriesData1' type='StepArea' xName='x' yName='y' name='Non-Renewable' width=2 > </e-series>
+                <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Renewable' width=2 opacity = 0.6 :border = 'border'> </e-series>
+                <e-series :dataSource='seriesData1' type='StepArea' xName='x' yName='y' name='Non-Renewable' width=2 opacity = 0.6 :border = 'border'> </e-series>
                
             </e-series-collection>
         </ejs-chart>
@@ -60,7 +60,7 @@ export default Vue.extend({
       seriesData1: [
              { x: 2000, y: 180 }, { x: 2001, y: 240 }, { x: 2002, y: 370 }, { x: 2003, y: 200 },
              { x: 2004, y: 229 }, { x: 2005, y: 210 }, { x: 2006, y: 337 }, { x: 2007, y: 258 },
-             { x: 2008, y: 300 }, { x: 2009, y: 173 }, { x: 2010, y: 220 }, { x: 2011, y: 309 }
+             { x: 2008, y: 300 }, { x: 2009, y: 173 }, { x: 2010, y: 220 }, { x: 2011, y: 220 }
 
       ],
       //Initializing Primary X Axis
@@ -86,7 +86,8 @@ export default Vue.extend({
             }
         },
       width: "60%",
-      title: "Electricity- Production"
+      title: "Electricity- Production",
+      border:{ width:2 }
     };
   },
   provide: {

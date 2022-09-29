@@ -18,5 +18,22 @@
         { "text": "Create a new <br>", "value": "BR" },
         { "text": "Create a new <div>", "value": "DIV" },
         { "text": "Create a new <p>", "value": "P" }
+    ],
+    "emailData": [
+        { "Name": "Selma Rose", "Status": "active", "Eimg": "styles/images/Employees/2.png", "EmailId": "selma@gmail.com" },
+        { "Name": "Maria", "Status": "active", "Eimg": "styles/images/Employees/1.png", "EmailId": "maria@gmail.com" },
+        { "Name": "Russo Kay", "Status": "busy", "Eimg": "styles/images/Employees/8.png", "EmailId": "russo@gmail.com" },
+        { "Name": "Camden Kate", "Status": "active", "Eimg": "styles/images/Employees/9.png", "EmailId": "camden@gmail.com" },
+        { "Name": "Robert", "Status": "busy", "Eimg": "styles/images/Employees/dp.png", "EmailId": "robert@gmail.com" },
+        { "Name": "Garth", "Status": "active", "Eimg": "styles/images/Employees/7.png", "EmailId": "garth@gmail.com" },
+        { "Name": "Andrew James", "Status": "away", "Eimg": "styles/images/Employees/pic04.png", "EmailId": "james@gmail.com" },
+        { "Name": "Olivia", "Status": "busy", "Eimg": "styles/images/Employees/5.png", "EmailId": "olivia@gmail.com" },
+        { "Name": "Sophia", "Status": "away", "Eimg": "styles/images/Employees/6.png", "EmailId": "sophia@gmail.com" },
+        { "Name": "Margaret", "Status": "active", "Eimg": "styles/images/Employees/3.png", "EmailId": "margaret@gmail.com" },
+        { "Name": "Ursula Ann", "Status": "active", "Eimg": "styles/images/Employees/dp.png", "EmailId": "ursula@gmail.com" },
+        { "Name": "Laura Grace", "Status": "away", "Eimg": "styles/images/Employees/4.png", "EmailId": "laura@gmail.com" },
+        { "Name": "Albert", "Status": "active", "Eimg": "styles/images/Employees/pic03.png", "EmailId": "albert@gmail.com" },
+        { "Name": "William", "Status": "away", "Eimg": "styles/images/Employees/10.png", "EmailId": "william@gmail.com" }
     ]
+
 }

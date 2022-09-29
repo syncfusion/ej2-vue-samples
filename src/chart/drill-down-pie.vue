@@ -104,7 +104,6 @@ export default Vue.extend({
         visible: true, position: 'Inside', connectorStyle: { type: 'Curve', length: '5%' }, font: { size: '14px', color: 'white' }
     },
     startAngle: 0,
-    explodeIndex: 2,
     isExplode: false,
     endAngle: 360,
     title: 'Automobile Sales by Category'

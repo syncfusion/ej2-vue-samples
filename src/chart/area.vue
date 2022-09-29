@@ -4,8 +4,8 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Area' xName='x' yName='y' name='Product A' width=2 opacity=0.5> </e-series>
-                <e-series :dataSource='seriesData1' type='Area' xName='x' yName='y' name='Product B' width=2 opacity=0.5> </e-series>
+                <e-series :dataSource='seriesData' type='Area' xName='x' yName='y' name='Product A' width=2 opacity=0.5 :border='border'> </e-series>
+                <e-series :dataSource='seriesData1' type='Area' xName='x' yName='y' name='Product B' width=2 opacity=0.5 :border='border'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -93,7 +93,8 @@ export default Vue.extend({
         }
       },
        width : Browser.isDevice ? '100%' : '60%',
-      title: "Average Sales Comparision"
+      title: "Average Sales Comparision",
+      border: { width: 1.5 },
     };
   },
   provide: {

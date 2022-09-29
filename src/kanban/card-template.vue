@@ -51,7 +51,6 @@
 #kanbanEditForm .e-float-input {
     margin-top: 0px;
 }
-
 .kanban-card-template .e-card table {
   table-layout: fixed;
 }
@@ -273,7 +272,7 @@ export default Vue.extend({
           args.data.Date = args.element
             .querySelector("#datepicker")
             .ej2_instances[0].value.toLocaleString("es-PR")
-            .split(" ")[0];
+            .split(",")[0];
         }
       }
     };

@@ -169,7 +169,7 @@ https://cli.vuejs.org/guide/deployment.html
             <a href="src/tree-grid">Tree Grid</a>
         </td>
         <td>
-            <a href="src/pivot-view">Pivot Table (Updated)</a>
+            <a href="src/pivot-table">Pivot Table (Updated)</a>
         </td>
     </tr>
     <tr>
@@ -429,7 +429,7 @@ https://cli.vuejs.org/guide/deployment.html
             <a href="src/uploader">File Upload</a>
         </td>
         <td>
-            <a href="src/slider">Range Slider</a>
+            <a href="src/range-slider">Range Slider</a>
         </td>
     </tr>
     <tr>

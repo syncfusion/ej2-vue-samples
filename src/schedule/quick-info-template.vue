@@ -20,13 +20,13 @@
         <template v-slot:contentTemplate="{ data }">
           <div class="quick-info-content">
             <div class="e-cell-content" v-if="data.elementType === 'cell'">
-              <div class="content-area">
+              <div class="quick-content-area">
                 <ejs-textbox ref="titleObj" id="title" placeholder="Title"></ejs-textbox>
               </div>
-              <div class="content-area">
+              <div class="quick-content-area">
                 <ejs-dropdownlist ref="eventTypeObj" id="eventType" :dataSource="roomData" :index="0" :fields="fields" popupHeight="200px" placeholder="Choose Type"></ejs-dropdownlist>
               </div>
-              <div class="content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div>
+              <div class="quick-content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div>
             </div>
             <div class="event-content" v-else>
               <div class="meeting-type-wrap"><label>Subject</label>:<span>{{data.Subject}}</span></div>
@@ -92,7 +92,7 @@
         height: 14px;
     }
 
-    .schedule-vue-sample .quick-info-template .content-area {
+    .schedule-vue-sample .quick-info-template .quick-content-area {
         margin: 0;
         padding: 10px;
         width: auto;
@@ -175,11 +175,6 @@
         font-size: 11px;
         letter-spacing: 0.33px;
         height: 14px;
-    }
-
-    .content-area {
-        padding: 10px;
-        width: 100%;
     }
 
     .event-content {
