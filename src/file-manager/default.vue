@@ -16,7 +16,7 @@
 						   		<div id="checkboxElement">Toolbar</div>
 						   </td>
 						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="toolbar" :checked="true" :change="onChange"></ejs-checkbox> 
+						   		<ejs-checkbox id="toolbar" ref="toolObj" :checked="true" :change="onChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 					</tbody>
@@ -92,7 +92,8 @@ export default Vue.extend ({
     methods: {
         onChange: function(args) {
             var fileobj = this.$refs.fileObject.ej2Instances;
-			if (args.event.currentTarget.id === "toolbar") {
+			var toolobj = this.$refs.toolObj.ej2Instances;
+			if (toolobj.currentTarget.id === "toolbar") {
 			    fileobj.toolbarSettings.visible = args.checked;
 		    }
         }

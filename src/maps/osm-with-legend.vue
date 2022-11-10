@@ -8,7 +8,7 @@
         <e-layer layerType='OSM'>
             <e-markerSettings>
                 <e-markerSetting visible='true' legendText='name' colorValuePath='color' shape='Circle' height='15' width='15' :dataSource='markerShapeDataSource' :tooltipSettings='markerTooltipSettings' />
-            <e-markerSettings> 
+            </e-markerSettings> 
         </e-layer>
     </e-layers>
 </ejs-maps>
