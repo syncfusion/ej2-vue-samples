@@ -16,7 +16,7 @@
 
         <ejs-grid ref='grid' :dataSource="virtualData" :enableVirtualization='true' :enableColumnVirtualization='true' height=400 :dataBound='hide' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='SNo' headerText='S.No' width='140' :isPrimaryKey='true' :validationRules='validationRules'></e-column>
+              <e-column field='SNo' headerText='S.No' width='140' :isPrimaryKey='true' :validationRules='validationSno'></e-column>
                 <e-column field='FIELD1' headerText='Player Name' width='140' :validationRules='validationRules'></e-column>
                 <e-column field='FIELD2' headerText='Year' width='100'></e-column>
                 <e-column field='FIELD3' headerText='Sports' width='160' :validationRules='validationRules' editType='dropdownedit'></e-column>
@@ -151,6 +151,7 @@ export default Vue.extend({
         display: {'display': 'none'},
         editSettings: { allowEditing: true, allowDeleting: true },
         toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
+        validationSno: { required: true, digits: true },
         validationRules: { required: true }
     };
   },

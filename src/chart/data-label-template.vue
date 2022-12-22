@@ -27,7 +27,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -35,7 +35,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -50,7 +50,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -58,7 +58,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -73,7 +73,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -81,7 +81,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -96,7 +96,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -104,7 +104,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -119,7 +119,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -127,7 +127,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -142,7 +142,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -150,7 +150,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -165,7 +165,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -173,7 +173,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -188,7 +188,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -196,7 +196,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -211,7 +211,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -219,7 +219,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -234,7 +234,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -242,7 +242,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -257,7 +257,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -265,7 +265,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -280,7 +280,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -288,7 +288,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -303,7 +303,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -311,7 +311,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -326,7 +326,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -334,7 +334,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -349,7 +349,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -357,7 +357,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -372,7 +372,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -380,7 +380,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -395,7 +395,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -403,7 +403,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -418,7 +418,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -426,7 +426,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -441,7 +441,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -449,7 +449,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -464,7 +464,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -472,7 +472,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -487,7 +487,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -495,7 +495,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -510,7 +510,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -518,7 +518,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -533,7 +533,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -541,7 +541,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -556,7 +556,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -564,7 +564,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -579,7 +579,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -587,7 +587,7 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
@@ -602,7 +602,7 @@
                 color: white;
                 font-family: Roboto;
                 font-style: medium;
-                fontp-size: 14px;
+                font-size: 14px;
                 float: right;
                 padding: 2px;
                 line-height: 20px;
@@ -610,25 +610,31 @@
                 padding-right: 6px;
               "
             >
-              <span>{{ data.point.y }}M </span>
+              <span>{{ data.point.y }} </span>
             </div>
           </div>
         </template>
         <e-series-collection>
           <e-series
             :dataSource="seriesData"
-            xName="x"
-            yName="y"
-            name="Male"
+            xName="sports"
+            yName="boys"
+            name="Boys"
             width="2"
+            type="Column"
+            columnSpacing=0.5
+            columnWidth=0.75
             :marker="marker"
           ></e-series>
           <e-series
             :dataSource="seriesData1"
-            xName="x"
-            yName="y"
-            name="Female"
+            xName="sports"
+            yName="girls"
+            name="Girls"
             width="2"
+            type="Column"
+            columnSpacing=0.5
+            columnWidth=0.75
             :marker="marker1"
           ></e-series>
         </e-series-collection>
@@ -636,16 +642,15 @@
     </div>
     <div id="action-description">
       <p>
-        This sample illustrates datalabel template support in the chart. In this sample, images are placed as datalabel by means of templates.
+        This sample illustrates data label template support in charts. Each data label for each point is rendered using the template.
       </p>
     </div>
     <div id="description">
       <p>
-        Label content can be formatted by using the template option in dataLabel. Inside the template, you can add the placeholder text
-        ${point.y}M to display corresponding data points value.
+        The Vue Charts data label template feature allows you to change the appearance and behavior of the data label for each data point using the <a target="_blank" href="https://ej2.syncfusion.com/react/documentation/chart/data-labels/#data-label-template"></a><code>Template</code> property in <a target="_blank" href="https://ej2.syncfusion.com/react/documentation/chart/data-labels/"></a> <code>ChartDataLabel</code>.
       </p>
       <br />
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         To use dataLabel, we need to inject <code>dataLabel</code> module using <code>provide: { chart: [ DataLabel] },</code> method.
       </p>
@@ -665,10 +670,10 @@ import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
   ChartPlugin,
-  LineSeries,
   Category,
   Legend,
   DataLabel,
+  ColumnSeries,
 } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
@@ -684,98 +689,68 @@ export default Vue.extend({
     return {
       theme: theme,
       seriesData: [
-        { x: 2010, y: 1014 },
-        { x: 2011, y: 1040 },
-        { x: 2012, y: 1065 },
-        { x: 2013, y: 1110 },
-        { x: 2014, y: 1130 },
-        { x: 2015, y: 1153 },
-        { x: 2016, y: 1175 },
+        { sports: "Tennis", boys: 50, girls: 38 },
+        { sports: "Badminton", boys: 30, girls: 40 },
+        { sports: "Cycling", boys: 37, girls: 20 },
+        { sports: "Football", boys: 60, girls: 21 },
+        { sports: "Hockey", boys: 15, girls: 8 },
       ],
 
       seriesData1: [
-        { x: 2010, y: 990 },
-        { x: 2011, y: 1010 },
-        { x: 2012, y: 1030 },
-        { x: 2013, y: 1070 },
-        { x: 2014, y: 1105 },
-        { x: 2015, y: 1138 },
-        { x: 2016, y: 1155 },
+        { sports: "Tennis", boys: 50, girls: 38 },
+        { sports: "Badminton", boys: 30, girls: 40 },
+        { sports: "Cycling", boys: 37, girls: 20 },
+        { sports: "Football", boys: 60, girls: 21 },
+        { sports: "Hockey", boys: 15, girls: 8 },
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        minimum: 2010,
-        maximum: 2016,
-        interval: Browser.isDevice ? 2 : 1,
-        edgeLabelPlacement: "Shift",
-        labelStyle: {
-          fontFamily: "Roboto",
-          fontStyle: "medium",
-          size: "14px",
-        },
+        valueType: 'Category',
+        edgeLabelPlacement: 'Shift',
         majorGridLines: { width: 0 },
-        lineStyle: { color: "#eaeaea", width: 1 },
+        majorTickLines: {width: 0},
+        minorTickLines: {width : 0  },
+        labelIntersectAction : "Rotate45"
       },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        labelFormat: "{value}M",
-        labelStyle: {
-          fontFamily: "Roboto",
-          fontStyle: "medium",
-          size: "14px",
-        },
-        minimum: 900,
-        maximum: 1300,
-        majorGridLines: {
-          color: "#eaeaea",
-          width: 1,
-        },
-        lineStyle: {
-          color: "#eaeaea",
-          width: 1,
-        },
+        minimum: 0,
+        maximum: 70,
+        lineStyle: { width: 0 },
+        majorGridLines: { color: '#eaeaea', width: 1 }
       },
 
-      width: "80%",
-      subTitleStyle: {
-        textAlignment: "Far",
-      },
-      titleStyle: {
-        fontFamily: "Roboto",
-        fontStyle: "medium",
-        size: "14px",
-      },
+      width: Browser.isDevice ? '100%' : "75%",
       chartArea: { border: { width: 0 } },
-      title: "Population of India Statistics",
-      subTitle: "(2010 - 2016)",
+      title: "Athletes in Popular School",
 
       marker1: {
-        visible: true,
-        shape: "Rectangle",
-        dataLabel: {
-          visible: true,
-          position: "Bottom",
-          margin: { right: 15 },
-          template: "materialWomen",
-        },
-      },
-
-      marker: {
-        visible: true,
+        visible: false,
         shape: "Circle",
         dataLabel: {
           visible: true,
-          position: "Top",
-          margin: { right: 30 },
+          position: "Outer",
+          margin: { top: 70 },
+          template: "materialWomen",
+        }, width: 2
+      },
+
+      marker: {
+        visible: false,
+        shape: "Rectangle",
+        dataLabel: {
+          visible: true,
+          position: "Outer",
+          margin: { top: 70 },
           template: "materialMan",
-        },
+        }, width: 2
       },
     };
   },
   provide: {
-    chart: [LineSeries, Legend, Category, DataLabel],
+    chart: [ColumnSeries, Legend, Category, DataLabel],
   },
   methods: {
     load: function (args) {
@@ -791,42 +766,42 @@ export default Vue.extend({
     textRender: function (args) {
       if (theme === "Material") {
         args.template =
-          args.series.name === "Male" ? "materialMan" : "materialWomen";
+          args.series.name === "Boys" ? "materialMan" : "materialWomen";
       } else if (theme === "Fabric") {
-        args.template = args.series.name === "Male" ? "fabricMan" : "fabricWomen";
+        args.template = args.series.name === "Boys" ? "fabricMan" : "fabricWomen";
       } else if (theme === "HighContrast") {
         args.template =
-          args.series.name === "Male" ? "highcontrastMan" : "highcontrastWomen";
+          args.series.name === "Boys" ? "highcontrastMan" : "highcontrastWomen";
       } else if (theme === "Tailwind") {
         args.template =
-          args.series.name === "Male" ? "tailwindMan" : "tailwindWomen";
+          args.series.name === "Boys" ? "tailwindMan" : "tailwindWomen";
       } else if (theme === "Bootstrap") {
         args.template =
-          args.series.name === "Male" ? "bootstrapMan" : "bootstrapWomen";
+          args.series.name === "Boys" ? "bootstrapMan" : "bootstrapWomen";
       } else if (theme === "Bootstrap5") {
         args.template =
-          args.series.name === "Male" ? "bootstrap5Man" : "bootstrap5Women";
+          args.series.name === "Boys" ? "bootstrap5Man" : "bootstrap5Women";
       } else if (theme === "TailwindDark") {
         args.template =
-          args.series.name === "Male" ? "tailwinddarkMan" : "tailwinddarkWomen";
+          args.series.name === "Boys" ? "tailwinddarkMan" : "tailwinddarkWomen";
       } else if (theme === "MaterialDark") {
         args.template =
-          args.series.name === "Male" ? "materialdarkMan" : "materialdarkWomen";
+          args.series.name === "Boys" ? "materialdarkMan" : "materialdarkWomen";
       } else if (theme === "FabricDark") {
         args.template =
-          args.series.name === "Male" ? "fabricdarkMan" : "fabricdarkWomen";
+          args.series.name === "Boys" ? "fabricdarkMan" : "fabricdarkWomen";
       } else if (theme === "Bootstrap5Dark") {
         args.template =
-          args.series.name === "Male" ? "bootstrap5darkMan" : "bootstrap5darkWomen";
+          args.series.name === "Boys" ? "bootstrap5darkMan" : "bootstrap5darkWomen";
       } else if (theme === "Fluent") {
         args.template =
-          args.series.name === "Male" ? "fluentMan" : "fluentWomen";
+          args.series.name === "Boys" ? "fluentMan" : "fluentWomen";
       } else if (theme === "FluentDark") {
         args.template =
-          args.series.name === "Male" ? "fluentdarkMan" : "fluentdarkWomen";
+          args.series.name === "Boys" ? "fluentdarkMan" : "fluentdarkWomen";
       } else {
         args.template =
-          args.series.name === "Male" ? "bootstrapdarkMan" : "bootstrapdarkWomen";
+          args.series.name === "Boys" ? "bootstrapdarkMan" : "bootstrapdarkWomen";
       }
     },
   },

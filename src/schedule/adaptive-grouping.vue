@@ -32,7 +32,6 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     @media (min-width: 481px) {
         .schedule-vue-sample .schedule-wrapper {
@@ -40,7 +39,6 @@
         }
     }
 </style>
-<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { resourceData, timelineResourceData } from './datasource';
@@ -53,7 +51,7 @@
                 eventSettings: {
                     dataSource: this.generateData()
                 },
-                selectedDate: new Date(2021, 3, 4),
+                selectedDate: new Date(2023, 0, 4),
                 enableAdaptiveUI: true,
                 allowMultiple : true,
                 group: {

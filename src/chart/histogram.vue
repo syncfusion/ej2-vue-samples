@@ -69,7 +69,8 @@ export default Vue.extend({
     return {
         primaryXAxis: {
             majorGridLines: { width: 0 }, title: 'Score of Final Examination',
-            minimum: 0, maximum: 100
+            minimum: 0, maximum: 100,
+            edgeLabelPlacement: 'Shift'
         },
         chartArea: { border: { width: 0 } },
         legendSettings: { visible: false },
@@ -79,7 +80,7 @@ export default Vue.extend({
             majorTickLines: { width: 0 }, lineStyle: { width: 0 }
         },
           marker: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
-           width: Browser.isDevice ? '100%' : '60%',
+           width: Browser.isDevice ? '100%' : '75%',
         title: 'Examination Result', tooltip: { enable: true },
        theme: theme,
        dataSource: chartData,

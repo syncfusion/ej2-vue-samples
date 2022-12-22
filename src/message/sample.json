@@ -3,7 +3,6 @@
    "directory": "message",
    "category": "Notifications",
    "ftName": "message",
-   "type": "preview",
    "samples": [
       {
          "url": "default",

@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :cssClass='cssClass' :currentView='currentView' :cellTemplate="'cellTemplate'">
+                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :cssClass='cssClass' :currentView='currentView' :cellTemplate="'cellTemplate'" :eventSettings='eventSettings'>
                     <template v-slot:cellTemplate="{ data }">
                         <div v-if="data.type === 'monthCells' && getCellContent(data.date) !== '' ">
                             <div class="templatewrap">
@@ -58,6 +58,7 @@
 <script>
     import Vue from "vue";
     import { SchedulePlugin, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { extend } from '@syncfusion/ej2-base';
     Vue.use(SchedulePlugin);
 
     export default Vue.extend({
@@ -65,7 +66,8 @@
             return {
                 selectedDate: new Date(2021, 11, 15),
                 currentView: 'Month',
-                cssClass: 'schedule-celltemplate'
+                cssClass: 'schedule-celltemplate',
+                eventSettings: { dataSource: extend([], null, true) },
             }
         },
         methods: {

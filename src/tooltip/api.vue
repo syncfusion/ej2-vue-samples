@@ -15,7 +15,7 @@
                     </td>
                     <td style="width: 50%;padding-right: 10px">
                         <div>
-                            <input v-on:keyup="keymonitor" id="value" ref="textbox"  type="text" placeholder="Tooltip content">
+                            <input v-on:keyup="keymonitor" id="value" ref="textbox" class="e-input"  type="text" placeholder="Tooltip content">
                         </div>
                     </td>
                 </tr>

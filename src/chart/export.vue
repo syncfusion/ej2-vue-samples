@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'  :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :tooltip='tooltip' :pointRender='pointRender' :chartArea='chartArea'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y' > </e-series>
@@ -103,8 +103,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark")
-  .replace(/contrast/i, "Contrast");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -118,12 +117,13 @@ export default Vue.extend({
       ],
     exporttype:'JPEG',
       //Initializing Primary X Axis
-    primaryXAxis: {
-            title: 'Countries',
-            valueType: 'Category',
-            majorGridLines: { width: 0 }
+      primaryXAxis: {
+        valueType: 'Category',
+        majorGridLines: { width: 0 },
+        majorTickLines: { width: 0 },
+        minorTickLines: { width: 0 }
 
-        },
+      },
         chartArea: {
             border: {
                 width: 0
@@ -139,11 +139,12 @@ export default Vue.extend({
             minimum: 0,
             maximum: 40,
             interval: 10,
-            majorGridLines: { width: 0 }
+            lineStyle: { width: 0 },
+            minorTickLines: { width: 0 },
+            majorTickLines: { width: 0 },
         },
 
       seriesType: "Column",
-
       tooltip: {
         enable: true  
       },

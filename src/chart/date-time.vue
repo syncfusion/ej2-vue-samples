@@ -47,7 +47,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 export default Vue.extend({
   data: function() {
     return {
@@ -101,10 +101,10 @@ export default Vue.extend({
        
         marker1: {
                     visible: true, height: 10, width: 10, shape: 'Diamond',
-                    dataLabel: { visible: true, position: 'Bottom' }
+                    dataLabel: { visible: true, position: 'Top' }
                 },
 
-       width: Browser.isDevice ? '100%' : '60%',
+       width: Browser.isDevice ? '100%' : '75%',
       title: "Alaska Weather Statistics - 2016"
     };
   },

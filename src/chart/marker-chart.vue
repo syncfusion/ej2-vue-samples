@@ -85,7 +85,7 @@ export default Vue.extend({
        primaryXAxis: {
             title: 'Countries', valueType: 'Category',
             interval: 1, labelIntersectAction: 'Rotate45',
-            majorGridLines: { width: 0 },
+            majorGridLines: { width: 0 },minorTickLines: {width : 0}, majorTickLines: { width : 0}
         },
 
 
@@ -102,7 +102,7 @@ export default Vue.extend({
                 width: 0
             }
         },
-        width: "60%",
+        width: Browser.isDevice ? '100%' : "75%",
        marker: {
                     visible: true, width: 10, height: 10,
                     shape: 'Diamond', dataLabel: { name: 'text' }

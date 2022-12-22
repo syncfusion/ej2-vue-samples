@@ -336,6 +336,7 @@ export default Vue.extend({
             detach(this.$el.querySelector('ul'));
             this.$refs.uploadObj.filesData = [];
             this.$refs.uploadObj.fileList = [];
+            document.getElementById('imagePreview').value = '';
         }
     };
     document.getElementById('uploadbtn').onclick = () => {

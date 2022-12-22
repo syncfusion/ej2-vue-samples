@@ -54,8 +54,7 @@ export default Vue.extend({
         },
         editSettings: {
             allowAdding: true,
-            allowEditing: true,
-	    allowDeleting: true
+            allowEditing: true
         },
         toolbar: [{ text: 'Insert task', tooltipText: 'Insert task at top', id: 'toolbarAdd', prefixIcon: 'e-add-icon tb-icons' }],
         height: '350px',

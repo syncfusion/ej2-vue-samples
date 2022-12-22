@@ -79,13 +79,14 @@ export default Vue.extend({
             valueType: 'DateTimeCategory',
             intervalType: 'Days',
             skeleton: 'Ed',
-            edgeLabelPlacement: 'Shift',
             majorGridLines: { width: 0 },
             stripLines: [
                 { visible: true, start: new Date(2017, 11, 20), end: new Date(2017, 11, 27), color: 'skyblue', opacity: 0.5, },
                 { visible: true, start: new Date(2018, 0, 2), end: new Date(2018, 0, 8), color: 'pink', opacity: 0.5 },
             ],
-            title: 'Business Days'
+            title: 'Business Days',
+            labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45',
+            labelRotation: Browser.isDevice ? -45 : 0
         },
 
       //Initializing Primary Y Axis
@@ -107,7 +108,7 @@ export default Vue.extend({
 
        legendSettings: { visible: false },
 
-       width: Browser.isDevice ? '100%' : '60%',
+       width: Browser.isDevice ? '100%' : '75%',
        tooltip: {
             enable: true
         },

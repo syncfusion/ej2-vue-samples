@@ -4,7 +4,7 @@
             <div class="sample-container">
                 <div class="default-section">
                     <ejs-richtexteditor id="mention_integration"  placeholder="Type @ and tag the name" :actionBegin="onActionBegin">
-                        <p>Hello <span contenteditable="false" class="e-mention-chip"><a title="maria@gmail.com">@Maria</a></span></p>
+                        <p>Hello <span contenteditable="false" class="e-mention-chip"><a title="maria@gmail.com">@Maria</a></span>&#8203;</p>
                         <p>Welcome to the mention integration with rich text editor demo. Type <code>@</code> character and tag user from the suggestion list. </p>
                     </ejs-richtexteditor>
                 </div>

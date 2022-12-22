@@ -1,7 +1,7 @@
 <template>
   <div class="schedule-vue-sample">
     <div class="control-section">
-      <ejs-schedule id="schedule" height="650px" cssClass="quick-info-template" :popupOpen="onPopupOpen" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
+      <ejs-schedule id="schedule" ref="scheduleObj" height="650px" cssClass="quick-info-template" :popupOpen="onPopupOpen" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
         <e-resources>
           <e-resource field="RoomId" title="Room Type" name="MeetingRoom" textField="Name" idField="Id" colorField="Color" :dataSource="roomData"></e-resource>
         </e-resources>
@@ -315,6 +315,10 @@ export default Vue.extend({
       if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
         args.element.classList.add('e-template');
       }
+      if (args.target && !args.target.classList.contains('e-appointment')) {
+        const titleObj = document.querySelector("#title").ej2_instances[0];
+        titleObj.focusIn();
+      }
     },
     getHeaderStyles: function(data) {
       const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
@@ -339,22 +343,18 @@ export default Vue.extend({
       return resourceData.Name;
     },
     buttonClickActions: function(e) {
-      const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
+      const scheduleObj = this.$refs.scheduleObj.ej2Instances;
       const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
       const getSlotData = function() {
         const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
         const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
         const eventTypeObj = quickPopup.querySelector("#eventType").ej2_instances[0];
-        let cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
-        if (isNullOrUndefined(cellDetails)) {
-          cellDetails = scheduleObj.getCellDetails(scheduleObj.activeCellsData.element);
-        }
         let addObj = {};
         addObj.Id = scheduleObj.getEventMaxID();
         addObj.Subject = isNullOrUndefined(titleObj.value) ? 'Add title' : titleObj.value;
-        addObj.StartTime = new Date(+cellDetails.startTime);
-        addObj.EndTime = new Date(+cellDetails.endTime);
-        addObj.IsAllDay = cellDetails.isAllDay;
+        addObj.StartTime = new Date(scheduleObj.activeCellsData.startTime);
+        addObj.EndTime = new Date(scheduleObj.activeCellsData.endTime);
+        addObj.IsAllDay = scheduleObj.activeCellsData.isAllDay;
         addObj.Description = isNullOrUndefined(notesObj.value) ? 'Add notes' : notesObj.value;
         addObj.RoomId = eventTypeObj.value;
         return addObj;

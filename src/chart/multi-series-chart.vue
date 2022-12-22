@@ -94,7 +94,6 @@ export default Vue.extend({
       ],
       //Initializing Primary X Axis
        primaryXAxis: {
-            title: 'Years',
             interval: Browser.isDevice ? 2 : 1,
             labelIntersectAction: 'Rotate45',
             valueType: 'Category',
@@ -126,7 +125,7 @@ export default Vue.extend({
                     height: 10
                 },
 
-      width : Browser.isDevice ? '100%' : '60%',
+      width : Browser.isDevice ? '100%' : '75%',
        legendSettings: {
             visible: true
         },

@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section">
         <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-         :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
+       :tooltip='tooltip' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Weather' :marker='marker' :fill='fill' > </e-series>
                                 
@@ -263,7 +263,8 @@ export default Vue.extend({
         valueType: "Category",
         majorGridLines: { width: 0 },
         //Initializing Striplines
-        stripLines: xAxisStripLine
+        stripLines: xAxisStripLine,majorTickLines: {width : 0},
+         minorTickLines: {width: 0},
       },
 
       //Initializing Primary Y Axis
@@ -317,7 +318,6 @@ export default Vue.extend({
         border: { width: 2, color: "#ffffff" },
         fill: "#666666"
       },
-      width: "100%",
       title: "Weather Report"
     };
   },

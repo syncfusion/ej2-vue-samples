@@ -69,7 +69,7 @@
         font-size: 28px;
         color: white;
         left: 5px;
-        top: -2px;
+        top: 7px;
         position: absolute;
     }
 	
@@ -165,7 +165,9 @@ export default Vue.extend({
                             imgEditor.select('circle');
                         },
                         created: function() {
-                            this.themeValue = window.location.href.split('#')[1].split('/')[1];
+                            if (this.themeValue && window.location.href.split('#')[1]) {
+                                this.themeValue = window.location.href.split('#')[1].split('/')[1];
+                            } 
                         }
                     },
                     computed: {

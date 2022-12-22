@@ -30,6 +30,14 @@
     </div>
 </div>
 </template>
+<!-- custom code start -->
+<style>
+    .e-bigger.bootstrap5 .e-treegrid .e-treegridexpand, .e-bigger.bootstrap5 .e-treegrid .e-treegridcollapse,
+    .e-bigger.bootstrap5-dark .e-treegrid .e-treegridexpand, .e-bigger.bootstrap5-dark .e-treegrid .e-treegridcollapse {
+        width: 18px;
+    }
+</style>
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";

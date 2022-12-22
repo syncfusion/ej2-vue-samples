@@ -2,7 +2,6 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
-    "type" : "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -22,7 +21,6 @@
             "description": "This demo explains how to insert images with a blob or base64 format, link to the images, image upload, rotate left/right, and more in vue WYSIWYG HTML Editor."
         },
         {
-            "type": "New", 
             "url": "insert-media",
             "name": "Insert Media",
             "category":"Rich Text Editor",
@@ -41,7 +39,6 @@
             "description": "This demo explains how to clean up HTML when pasting a content from Microsoft Word, Visual Studio Code, Visual Studio, or a web page in vue Rich Text Editor."
         },
         {
-            "type": "New",
             "url": "mention-integration",
             "name": "Mention Integration",
             "category": "Rich Text Editor",

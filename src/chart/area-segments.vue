@@ -2,20 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend'>
-            <e-annotations>
-                <e-annotation :content="'annotationTemplate'" x='90%' y='12%' region='Series'>
-                    <template v-slot:annotationTemplate="{}">
-                        <div style='width:80px; padding: 5px;'> <table style='width: 100%'>
-                                        <tr><td><div style='width: 10px; height: 10px;background:linear-gradient(#4ca1af, #c4e0e5);border-radius: 15px;'></div>
-                                        </td><td style='padding-left: 5px;'>Winter</td></tr>
-                                        <tr><td><div style='width: 10px; height: 10px; background:linear-gradient(#ffa751, #ffe259);border-radius: 15px;'></div>
-                                        </td><td style='padding-left: 5px;'>Summer</td></tr><tr><td>
-                                        <div style='width: 10px; height: 10px; background:linear-gradient(#1d976c, #93f9b9);border-radius: 15px;'></div>
-                                        </td><td style='padding-left: 5px;'>Spring</td></tr></table></div>
-                    </template>
-                </e-annotation>
-            </e-annotations>
+            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend' :annotations='annotations'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='MultiColoredArea' xName='XValue' segmentAxis='X' yName='YValue' name='US' width=2 :segments='segments'>
                 </e-series>
@@ -24,16 +11,16 @@
     </div>
     <div id="action-description">
     <p>
-        This sample visualizes the organic revenue data with multi colored area series in the chart. 
-        Data points are enhanced with segments and tooltip.
+        This sample visualizes the data on US season retail sales growth using a multi-colored area series in the chart. Data points are enhanced with segments and tooltips.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the area type charts. Similar to line type series, but the area get closed and filled with series color.
-        You can use <code>border</code>, <code>fill</code> properties to customize the area. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
-        Legend is enabled in this example with series type shape.
-     </p>     
+        In this example, you can see how to render and configure points in a particular range by using <code>MultiColoredArea</code> series. Points within the range can be configured with the <code>Color</code> property in ChartSegment.
+     </p>
+     <p>
+        <code>Tooltips</code> are enabled in this example, to see the tooltip in action, hover a point or tap a point in touch enabled devices.
+    </p>     
       <br>
         <p style="font-weight: 500">Injecting Module</p>
         <p>
@@ -41,8 +28,8 @@
             <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.
         </p>
         <p>
-            More information on the area series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+            More information about the area series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#area-charts">documentation section</a>.
         </p> 
        
 </div>
@@ -123,15 +110,14 @@ export default Vue.extend({
     return {
         theme: theme,
          seriesData: dataValues,
-
      
     //Initializing Primary X Axis
     primaryXAxis: {
-        valueType: 'DateTime',
-        labelFormat: 'MMM',
-        intervalType: 'Months',
-        edgeLabelPlacement: 'Shift',
-        majorGridLines: { width: 0 }
+        valueType: 'DateTime', labelFormat: 'MMM', intervalType: 'Months', majorGridLines: { width: 0 }, majorTickLines: { width: 0 },
+        minorTickLines: { width: 0 },
+        interval: 1,
+        labelRotation: Browser.isDevice ? -45 : 0,
+        labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45' 
     },
     //Initializing Primary Y Axis
     primaryYAxis: {
@@ -149,7 +135,7 @@ export default Vue.extend({
             width: 0
         }
     },
-    width: Browser.isDevice ? '100%' : '60%',
+    width: Browser.isDevice ? '100%' : '75%',
     legend: { visible: false },
     segments: [{
         value: new Date(2016, 4, 1),
@@ -161,9 +147,35 @@ export default Vue.extend({
         color: 'url(#spring)'
     }],
     tooltip: {
-        enable: true
+        enable: true,
+        header: '<b>Revenue</b>',
+        format: '${point.x} : <b>${point.y}</b>',
+        shared: true
     },
-    title: 'Organic Revenue in US - 2016'
+    title: 'US Season Retail Sales Growth',
+
+    annotations:[{
+        content: '<div style= "width: 3px; height: 3px; color: #4ca1af; font-weight: bold; padding-left: 1px;">Winter</div>',
+        region: 'Series',
+        coordinateUnits: 'Point',
+        x: new Date(2016, 1, 20),
+        y: 120
+       },
+       {
+        content: '<div style="width: 3px; height: 3px; color: #ffa751; font-weight: bold; padding-left: 1px; ">Summer</div>',
+        region: 'Series',
+        coordinateUnits: 'Point',
+        x: new Date(2016, 4, 20),
+        y: 120
+       },
+       {
+        content: '<div style="width: 3px; height: 3px; color: #93f9b9; font-weight: bold; padding-left: 1px;">Spring</div>',
+        region: 'Series',
+        coordinateUnits: 'Point',
+        x: new Date(2016, 9, 20),
+        y: 168
+       },
+      ],
     };
   },
   provide: {

@@ -121,7 +121,7 @@
     font-weight: 100;
 }
 .info {
-    padding: 7px 0 0 15px;
+    padding: 7px 15px 0 15px;
 }
 .content-title {
     height: 50px;

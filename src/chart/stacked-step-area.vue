@@ -11,6 +11,7 @@
         :primaryYAxis="primaryYAxis"
         :chartArea="chartArea"
         :width="width"
+        :legendSettings='legend'
       >
         <e-series-collection>
           <e-series
@@ -41,13 +42,12 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stacked StepArea type charts. This series forms the step line progress, by connecting points through vertical and horizontal lines with area filled.
-        You can use
-        <code>dashArray</code>,
-        <code>width</code>,
-        <code>fill</code> properties to customize the area.
-        <code>marker</code> and
-        <code>dataLabel</code> are used to represent individual data and its value.
+        In this example, you can see how to render and configure the stacked stepped area chart. This series forms the
+        step
+        area progress, by connecting points through vertical and horizontal lines with area filled. You can use
+        <code>fill</code>
+        properties to customize the area. <code>marker</code> and <code>dataLabel</code> are used to represent
+        individual data and its value.
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
@@ -57,11 +57,8 @@
         <code>provide: { chart: [StackingStepAreaSeries] }</code> method.
       </p>
       <p>
-        More information on the Stacked StepArea series can be found in this
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype"
-        >documentation section</a>.
+        More information about the area series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#area-charts">documentation section</a>.
       </p>
     </div>
   </div>
@@ -74,7 +71,8 @@ import { Browser } from "@syncfusion/ej2-base";
 import {
   ChartPlugin,
   StackingStepAreaSeries,
-  Legend
+  Legend,
+  Highlight
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
@@ -137,14 +135,15 @@ export default Vue.extend({
           width: 0
         }
       },
-      width: "60%",
+      width: Browser.isDevice ? '100%' : '75%',
+      legend: {enableHighlight : true},
       title: "Electricity- Production",
       opacity: 0.5,
       border: { width: 1.5 }
     };
   },
   provide: {
-    chart: [StackingStepAreaSeries, Legend]
+    chart: [StackingStepAreaSeries, Legend, Highlight]
   },
   methods: {}
 });

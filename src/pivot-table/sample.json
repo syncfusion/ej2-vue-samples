@@ -5,6 +5,15 @@
   "ftName": "pivot-table",
   "type": "update",
   "samples": [{
+      "url": "overview",
+      "name": "Overview",
+      "category": "Pivot Table",
+      "hideOnDevice": false,
+      "description": "This sample shows an overview of Essential JS2 Pivot Table that allows to organize and summarize the pivot data in a detailed or abstract view and displays it as a grid and chart.",
+      "type": "new",
+      "api": {}
+    },
+    {
       "url": "default",
       "name": "Default Functionalities",
       "category": "Pivot Table",
@@ -34,6 +43,7 @@
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
+      "type": "update",
       "api": {}
     },
     {
@@ -98,6 +108,7 @@
       "category": "User Interaction",
       "hideOnDevice": false,
       "api": {},
+      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the summary customization feature of the pivot table"
     },
     {
@@ -114,6 +125,7 @@
       "category": "User Interaction",
       "hideOnDevice": false,
       "api": {},
+      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },
     {
@@ -202,7 +214,6 @@
       "category": "Paging",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows paging option available for rows and columns to load large records page by page",
-      "type": "new",
       "api": {}
     },
     {

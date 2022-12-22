@@ -22,7 +22,6 @@
             "url": "paragraph-formatting",
             "name": "Paragraph Formatting",
             "category": "Editing Features",
-            "type": "update",
             "description": "The Document Editor supports paragraph formatting such as indentation, paragraph spacing, line spacing, and text alignment."
         },
         {
@@ -52,6 +51,7 @@
         {
             "url": "section-formatting",
             "name": "Section Formatting",
+	    "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports section formatting such as page size, page margins, header distance and footer distance."
         },

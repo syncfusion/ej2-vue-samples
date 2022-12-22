@@ -4,23 +4,22 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :tooltipRender='tooltipRender' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingBar' xName='x' yName='y' name='Female' width=2 :marker='marker'> </e-series>
-                <e-series :dataSource='seriesData1' type='StackingBar' xName='x' yName='y' name='Male' width=2 :marker='markerSeries2'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingBar' xName='Height' yName='Female' name='Female' width=2 :marker='marker' columnWidth=0.5> </e-series>
+                <e-series :dataSource='seriesData' type='StackingBar' xName='Height' yName='Male' name='Male' width=2 :marker='markerSeries2' columnWidth=0.5> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample illustrates stacked bar with negative data points. Data points values are showed by using data label.
+      This sample illustrates a stacked bar chart with negative data points. Data point values are shown in data labels.
     </p>
 </div>
 <div id="description">
     <p>
-    In this example, you can see how to render and configure the bar type charts. Similar to column charts, but the orientation of y axis is horizontal instead of vertical.
-    You can use <code>border</code>, <code>fill</code> properties to customize the data appearance. <code>dataLabel</code> is used to represent individual data and its value.
+      In this example, you can see how to render and configure negative values in a stacked bar chart. The stacked bar chart stacks points in the series horizontally. You can also use the <code>StackingGroup</code> property to group stacked collections based on category.
     </p>
     <p>
-      Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+      <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
      <br>
         <p style="font-weight: 500">Injecting Module</p>
@@ -29,8 +28,8 @@
             <code>StackingBarSeries</code> module using <code>provide: { chart: [StackingBarSeries] }</code> method.
         </p>
         <p>
-            More information on the bar series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+          More information about the bar type series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#bar-charts">documentation section</a>.
         </p> 
 </div>
 
@@ -43,7 +42,7 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, StackingBarSeries, Category, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, StackingBarSeries, Category, Tooltip, Legend, DataLabel, Highlight} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
@@ -55,35 +54,29 @@ export default Vue.extend({
     return {
          theme: theme,
       seriesData: [
-                { x: '4.5', y: 31 }, { x: '4.8', y: 37 },
-                { x: '5.1', y: 49 }, { x: '5.4', y: 57 },
-                { x: '5.7', y: 63 }, { x: '6', y: 69 }
-            ],
-      seriesData1: [
-                { x: '4.5', y: -31, text: '31 KG' }, { x: '4.8', y: -39, text: '39 KG' },
-                { x: '5.1', y: -52, text: '52 KG' }, { x: '5.4', y: -64, text: '64 KG' },
-                { x: '5.7', y: -70, text: '70 KG' }, { x: '6', y: -74, text: '74 KG' }
-         ],
+        { Height : 4.5, Female : 31, Male : -31, Text : "31 KG", Female_Text : "31 KG" },
+        { Height : 4.8, Female : 37, Male : -39, Text : "39 KG", Female_Text : "37 KG" },
+        { Height : 5.1, Female : 49, Male : -52, Text : "52 KG", Female_Text : "49 KG" },
+        { Height : 5.4, Female : 57, Male : -64, Text : "64 KG", Female_Text : "57 KG" },
+        { Height : 5.7, Female : 63, Male : -70, Text : "70 KG", Female_Text : "63 KG" },
+        { Height : 6, Female : 69, Male : -74, Text : "74 KG", Female_Text : "69 KG" }
+        ],
+
       //Initializing Primary X Axis
      primaryXAxis: {
-            valueType: 'Category',
+            vvalueType: 'Category',
             title: 'Height in Inches',
-            minorGridLines: { width: 0 },
-            minorTickLines: { width: 0 },
-            interval: 1,
-            majorGridLines: { width: 0 }
+            majorTickLines: { width: 0 },
+            majorGridLines: { width: 0 },
+            edgeLabelPlacement: 'Shift'
         },
       //Initializing Primary Y Axis
           primaryYAxis:
         {
-            labelFormat: '{value} KG',
-            edgeLabelPlacement: 'Shift',
-            majorGridLines: { width: 0 },
-            majorTickLines: { width: 0 },
+            title: 'Weight (kg)',
+            labelFormat: '{value}',
             lineStyle: { width: 0 },
-            labelStyle: {
-                color: 'transparent'
-            }
+            edgeLabelPlacement: 'Shift'
         },
         chartArea: {
             border: {
@@ -92,41 +85,44 @@ export default Vue.extend({
         },
         marker: {
             dataLabel: {
+            name: 'Female_Text',
             visible: true,
             position: 'Top',
-                font: {
-                        fontWeight: '600'
-                        }
-                    }
-                },
+            font: {
+                fontWeight: '600'
+            }
+            }
+        },
         markerSeries2: {
-                    dataLabel: {
-                        name: 'text',
-                        visible: true,
-                        position: 'Top',
-                        font: {
-                            fontWeight: '600'
-                        }
-                    }
-                },
+            dataLabel: {
+            name: 'Text',
+            visible: true,
+            position: 'Top',
+            font: {
+                fontWeight: '600'
+            }
+            }
+        },
 
-        width : Browser.isDevice ? '100%' : '80%',
+        width : Browser.isDevice ? '100%' : '75%',
            tooltip: { 
             enable: true
          },
         legendSettings: {
-            position: Browser.isDevice ? 'Auto' : 'Right'
+            position: Browser.isDevice ? 'Bottom' : 'Right',
+            enableHighlight : true
         },
-      title: "Sales Comparison"
+      title: "Height vs Weight"
     };
   },
   provide: {
-    chart: [StackingBarSeries, Legend, Category, Tooltip, DataLabel]
+    chart: [StackingBarSeries, Legend, Category, Tooltip, DataLabel, Highlight]
   },
   methods: {
    
      tooltipRender: function(args){
         args.text = args.text.indexOf('-') > 0 ? args.text.replace('-', '') : args.text;
+        args.text = args.text + " " + "<b>kg</b>";
     }  
 
   },

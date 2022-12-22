@@ -2,7 +2,7 @@
     <div class="control-section">
       <div align='center'>
           <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-              :chartArea='chartArea'  :tooltip='tooltip' :width='width' :margin="margin" >
+              :chartArea='chartArea'  :tooltip='tooltip' :width='width' :margin="margin" :legendSettings='legend'>
               <e-series-collection>
                   <e-series :dataSource='seriesData' type='Area' xName='x' yName='y' name='Company A' width=2 opacity=0.75 :border='border' :marker='marker'> </e-series>
                   <e-series :dataSource='seriesData1' type='Area' xName='x' yName='y' name='Company B' width=2 opacity=0.75 :border='border' :marker='marker1'> </e-series>
@@ -17,7 +17,7 @@
   </div>
   <div id="description">
     <p>
-        In this example, you can see how to render an area series with negative points. Similar to line type series, but the area gets closed and filled with series color. You can use  <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#border">border</a></code> and <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#fill">fill</a></code> properties to customize the area. Also, the legend is enabled with the shape of the series type.
+      In this example, you can see how to render an area series with negative values. Similar to line type series, but the area gets closed and filled with series color. You can use <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#border">border</a></code> and <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#fill">fill</a></code> properties to customize the area. Also, the legend is enabled with the shape of the series type.
      </p>    
         <br>
           <p style="font-weight: 500">Injecting Module</p>
@@ -39,7 +39,7 @@
   <script>
   import Vue from "vue";
   import { Browser } from '@syncfusion/ej2-base';
-  import { ChartPlugin, AreaSeries, Legend, Category , Tooltip} from "@syncfusion/ej2-vue-charts";
+  import { ChartPlugin, AreaSeries, Legend, DateTime , Tooltip, Highlight} from "@syncfusion/ej2-vue-charts";
   
   Vue.use(ChartPlugin);
   
@@ -53,32 +53,30 @@
         theme: theme,
         margin: {left : Browser.isDevice ? 2 : 10, right : Browser.isDevice ? 2 : 10, top : Browser.isDevice ? 2 : 10, bottom : Browser.isDevice ? 2 : 10},
         seriesData:  [
-                { x: 'Onion', y: 3000 },
-                { x: 'Potato', y: 4000 },
-                { x: 'Tomato', y: -4000 },
-                { x: 'Corn', y: -2000 },
-                { x: 'Carrot', y: 5000 },
+                { x: new Date(2017, 0, 1) , y: 3000 },
+                { x: new Date(2018, 0, 1) , y: 4000 },
+                { x: new Date(2019, 0, 1) , y: -4000 },
+                { x: new Date(2020, 0, 1) , y: -2000 },
+                { x: new Date(2021, 0, 1) , y: 5000 },
             ],
   
         seriesData1:[
-                { x: 'Onion', y: 2000 },
-                { x: 'Potato', y: 3000 },
-                { x: 'Tomato', y: 4000 },
-                { x: 'Corn', y: 2000 },
-                { x: 'Carrot', y: 3000 },
+                { x: new Date(2017, 0, 1) , y: 2000 },
+                { x: new Date(2018, 0, 1) , y: 3000 },
+                { x: new Date(2019, 0, 1) , y: 4000 },
+                { x: new Date(2020, 0, 1) , y: 2000 },
+                { x: new Date(2021, 0, 1) , y: 3000 },
             ],
         seriesData2: [
-                { x: 'Onion', y: 2000 },
-                { x: 'Potato', y: -1000 },
-                { x: 'Tomato', y: -3000 },
-                { x: 'Corn', y: 4000 },
-                { x: 'Carrot', y: 1000 },
+                { x: new Date(2017, 0, 1) , y: 2000 },
+                { x: new Date(2018, 0, 1) , y: -1000 },
+                { x: new Date(2019, 0, 1) , y: -3000 },
+                { x: new Date(2020, 0, 1) , y: 4000 },
+                { x: new Date(2021, 0, 1) , y: 1000 },
             ],    
         //Initializing Primary X Axis
           primaryXAxis: {
-              valueType: 'Category',
-              majorGridLines: { width: 0 },
-              edgeLabelPlacement: 'Shift'
+            valueType: 'DateTime', labelFormat: 'y', majorGridLines: { width: 0 }, minimum:new Date(2017, 0, 1), maximum: new Date(2021, 0, 1), intervalType: 'Years', edgeLabelPlacement: 'Shift'
           },
   
         //Initializing Primary Y Axis
@@ -97,13 +95,14 @@
         marker: { visible : true, isFilled : true , width : 7 , height : 7 , shape : "Circle"},
         marker1: {visible:true, isFilled : true , width : 7 , height : 7 , shape : "Diamond"},
         marker2: {visible:true, isFilled : true , width : 5 , height : 5 , shape : "Rectangle"},
-        width : Browser.isDevice ? '100%' : '60%',
+        width : Browser.isDevice ? '100%' : '75%',
+        legend: {enableHighlight : true},
         title: "Profit and Loss",
         tooltip:{ enable:true }
       };
     },
     provide: {
-      chart: [AreaSeries, Legend, Category, Tooltip]
+      chart: [AreaSeries, Legend, DateTime, Tooltip, Highlight]
     },
     methods: {
     }

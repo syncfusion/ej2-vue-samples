@@ -64,7 +64,8 @@ export default Vue.extend({
       primaryXAxis: {
             valueType: 'DateTime',
             crosshairTooltip: { enable: true },
-             majorGridLines: { width: 0 }
+             majorGridLines: { width: 0 },
+             edgeLabelPlacement: 'Shift'
      },
 
       //Initializing Primary Y Axis
@@ -82,7 +83,7 @@ export default Vue.extend({
 
         legendSettings: { visible: false },
 
-        width: Browser.isDevice ? '100%' : '80%',
+        width: Browser.isDevice ? '100%' : '75%',
 
       animation: { enable: true },
 

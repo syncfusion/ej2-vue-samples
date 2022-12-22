@@ -10,7 +10,7 @@
     :editSettings='editOptions' :toolbar='toolbarItems' :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :validationRules='orderidrules' :isPrimaryKey='true'></e-column>
-                <e-column field='CustomerID' headerText='Customer Name' width='150' :validationRules='orderidrules'
+                <e-column field='CustomerID' headerText='Customer Name' width='150' :validationRules='customeridrules'
                 foreignKeyValue='ContactName' foreignKeyField='CustomerID' :dataSource='customerData'></e-column>
                 <e-column field='Freight' headerText='Freight' width='100' format='C2' textAlign='Right' editType='numericedit'></e-column>
                 <e-column field='ShipName' headerText='Ship Name' width='170'></e-column>
@@ -54,7 +54,8 @@ export default Vue.extend({
       toolbarItems :  ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
       customerData : customerData,
       editOptions : { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' },
-      orderidrules :{ required: true }
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true },
     };
   },
   provide: {

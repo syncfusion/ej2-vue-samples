@@ -2,7 +2,6 @@
     "name": "Carousel",
     "directory": "carousel",
     "category": "Navigation",
-    "type": "update",
     "ftName": "carousel",
     "samples": [
         {
@@ -52,9 +51,8 @@
         },
         {
             "url": "partial-visible",
-            "name": "Parital Visible",
+            "name": "Partial Visible",
             "category": "Carousel",
-            "type": "new",
             "description": "This example demonstrates the simple slide show of images using Syncfusion Vue Carousel component.",
             "api": {
                 "Carousel": [

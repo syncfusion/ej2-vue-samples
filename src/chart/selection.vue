@@ -178,12 +178,12 @@
     </div>
   </div>
 </template>
-  <style scoped>
+<style scoped>
   .property-panel-table div{
     padding-top: 0px;
   }
 </style>
-  <script>
+<script>
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
@@ -235,10 +235,12 @@ export default Vue.extend({
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        title: "Countries",
         valueType: "Category",
         interval: 1,
-        labelIntersectAction: "Rotate90"
+        labelIntersectAction: "Rotate90",
+        labelIntersectAction: 'Rotate90',
+        majorTickLines: { width: 0 },
+        minorTickLines: { width: 0 }
       },
 
       //Initializing Primary Y Axis
@@ -276,7 +278,6 @@ export default Vue.extend({
       ],
       indexwidth: 120,
       tooltip: { enable: false },
-
       title: "Age Distribution by Country"
     };
   },

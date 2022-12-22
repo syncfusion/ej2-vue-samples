@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
        <div align='center'>
-        <ejs-chart style='display:block;width: 92%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart-zooming'
+        <ejs-chart style='display:block;width: 100%' :theme='theme' :chartArea='chartArea' :width='width' align='center' id='chart-zooming'
             :primaryXAxis='primaryXAxis' :legendSettings='legend' :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
             <e-series-collection>
                 <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' :fill='fill' :border='border'>
@@ -184,13 +184,12 @@
   <script>
   import Vue from "vue";
   import { Browser } from '@syncfusion/ej2-base';
-  import { ChartPlugin, AreaSeries, Zoom, Legend, DateTime, ScrollBar} from "@syncfusion/ej2-vue-charts";
+  import { ChartPlugin, AreaSeries, Zoom, Legend, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
   Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark")
-  .replace(/contrast/i, "Contrast");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast");
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark'];
 let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113'];
 
@@ -200,64 +199,64 @@ function GetZoomingData() {
         let value = 80;
         for (let i = 1; i < 500; i++) {
             if (Math.random() > .5) {
-                value += Math.random();
+            value += Math.random();
             } else {
                 value -= Math.random();
-            }
-            point1 = { x: new Date(1950, i + 2, i), y: value.toFixed(1) };
-            series.push(point1);
         }
-        return { 'series': series };
+        point1 = { x: new Date(1950, i + 2, i), y: value.toFixed(1) };
+        series.push(point1);
     }
-    let seriesData = GetZoomingData().series;
-  export default Vue.extend({
-    data: function() {
-      return {
-           theme: theme,
-          primaryXAxis: {
-        title: 'Years',
-        valueType: 'DateTime',
-        skeleton: 'yMMM',
-        edgeLabelPlacement: 'Shift',
-        majorGridLines: { width: 0 }
-    },
-    //Initializing Primary Y Axis
-    primaryYAxis:  {
-        title: 'Profit ($)',
-        rangePadding: 'None',
-        lineStyle: { width: 0 },
-        majorTickLines: { width: 0 }
-    },
-    legend:  {
-        visible: false
-    },
-    animation: { enable: false },
-     zoomSettings:  {
-        mode: 'X',
-        enableMouseWheelZooming: true,
-        enablePinchZooming: true,
-        enableSelectionZooming: true,
-        enableScrollbar: true
-    },
-     chartArea:  {
-        border: {
-            width: 0
-        }
-    },
+    return { 'series': series };
+}
+let seriesData = GetZoomingData().series;
+export default Vue.extend({
+    data: function () {
+        return {
+            theme: theme,
+            primaryXAxis: {
+                title: 'Years',
+                valueType: 'DateTime',
+                skeleton: 'yMMM',
+                edgeLabelPlacement: 'Shift',
+                majorGridLines: { width: 0 }
+            },
+            //Initializing Primary Y Axis
+            primaryYAxis: {
+                title: 'Profit ($)',
+                rangePadding: 'None',
+                lineStyle: { width: 0 },
+                majorTickLines: { width: 0 }
+            },
+            legend: {
+                visible: false
+            },
+            animation: { enable: false },
+            zoomSettings: {
+                mode: 'X',
+                enableMouseWheelZooming: true,
+                enablePinchZooming: true,
+                enableSelectionZooming: true,
+                enableScrollbar: true
+            },
+            chartArea: {
+                border: {
+                    width: 0
+                }
+            },
 
-     width: Browser.isDevice ? '100%' : '80%',
-     border: { width: 0.5, color: borderColor[themes.indexOf(theme.toLowerCase())] },
-     title: 'Sales History of Product X',
-     series: seriesData,
-     fill: "url(#" + selectedTheme + "-gradient-chart)",
+            width: Browser.isDevice ? '100%' : '75%',
+            border: { width: 0.5, color: borderColor[themes.indexOf(theme.toLowerCase())] },
+            title: 'Sales History of Product X',
+            series: seriesData,
+            fill: "url(#" + selectedTheme + "-gradient-chart)",
 
-      };
+        };
     },
     provide: {
-      chart: [AreaSeries, DateTime, Legend, Zoom, ScrollBar]
+        chart: [AreaSeries, DateTime, Legend, Zoom, ScrollBar]
     },
     methods: {
-     
-    }   
-  });
-  </script>
+
+    }
+});
+</script>

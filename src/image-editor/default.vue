@@ -76,7 +76,9 @@ export default Vue.extend({
         } else {
             this.$refs.imageEditorObj.open('src/image-editor/images/bridge.png');
         }
-        this.themeValue = window.location.href.split('#')[1].split('/')[1];
+        if (this.themeValue && window.location.href.split('#')[1]) {
+            this.themeValue = window.location.href.split('#')[1].split('/')[1];
+        } 
     }
   },
   computed: {

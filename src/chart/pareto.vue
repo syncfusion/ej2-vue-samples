@@ -61,25 +61,24 @@ export default Vue.extend({
     return {
          theme: theme,
       seriesData: [
-            { x: 'Traffic', y: 56 }, { x: 'Child Care', y: 44.8 },
-            { x: 'Transport', y: 27.2 }, { x: 'Weather', y: 19.6 },
-            { x: 'Emergency', y: 6.6 }
+            { x: 'Button Defect', y: 56 }, { x: 'Pocket Defect', y: 44.8 },
+            { x: 'Coller Defect', y: 27.2 }, { x: 'Cuff Defect', y: 19.6 },
+            { x: 'Sleeve Defect', y: 6.6 }
       ],
       
       //Initializing Primary X Axis
        primaryXAxis: {
-            title: 'Defects',
             interval: 1,
             valueType: 'Category',
             majorGridLines: { width: 0 }, minorGridLines: { width: 0 },
             majorTickLines: { width: 0 }, minorTickLines: { width: 0 },
-            lineStyle: { width: 0 },
+            lineStyle: { width: 0 }, labelIntersectAction: 'Rotate45',
         },
 
       //Initializing Primary Y Axis
      primaryYAxis:
         {
-            title: 'Frequency',
+            title: 'Frequency of Occurrence',
             minimum: 0,
             maximum: 150,
             interval: 30,
@@ -99,7 +98,7 @@ export default Vue.extend({
                     height: 10
                 },
 
-      width : Browser.isDevice ? '100%' : '60%',
+      width : Browser.isDevice ? '100%' : '75%',
        legendSettings: {
             visible: false
         },
@@ -107,7 +106,7 @@ export default Vue.extend({
             enable: true,
             shared: true
         },
-      title: "Defect vs Frequency"
+      title: "Pareto chart - Defects in Shirts"
     };
   },
   provide: {

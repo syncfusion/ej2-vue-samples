@@ -1470,6 +1470,8 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 }
                 if (!args.target.classList.contains('e-appointment')) {
                     args.element.querySelector('#eventType').ej2_instances[0].index = args.data.CalendarId - 1;
+                    const titleObj = document.querySelector("#title").ej2_instances[0];
+                    titleObj.focusIn();
                 }
             }
         },
@@ -1702,13 +1704,14 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         if (newEventElement) {
             remove(newEventElement);
             removeClass([document.querySelector('.e-selected-cell')], 'e-selected-cell');
-        }
+        }        
+        let scheduleObj = this.$refs.scheduleObj;
+        scheduleObj.closeQuickInfoPopup();
         let targetElement = args.event.target;
         if (closest(targetElement, '.e-contextmenu')) {
             return;
         }
         let menuObj = this.$refs.menuObj;
-        let scheduleObj = this.$refs.scheduleObj;
         this.selectedTarget = closest(targetElement, '.e-appointment,.e-work-cells,' +
         '.e-vertical-view .e-date-header-wrap .e-all-day-cells,.e-vertical-view .e-date-header-wrap .e-header-cells');
         if (isNullOrUndefined(this.selectedTarget)) {

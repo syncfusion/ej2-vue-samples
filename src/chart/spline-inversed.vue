@@ -4,25 +4,23 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :isTransposed='isTransposed'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Spline' xName='x' yName='y' name='London' width=2 :marker='marker'> </e-series>
-                <e-series :dataSource='seriesData1' type='Spline' xName='x' yName='y' name='France' width=2 :marker='marker'> </e-series>
-               
+                <e-series :dataSource='seriesData' type='Spline' xName='Month' yName='FR_Temperature' opacity=1 width=2 :marker='marker'> </e-series> 
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample illustrates a spline series by inversing X and Y Axis. 
-        Data points are enhanced with marker and tooltip.
+        This sample shows the music album sales with spline series by inverting X and Y Axes. 
+        Data points are enhanced by a marker and tooltip.
     </p>
 </div>
 <div id="description">
      <p>
-        In this example, you can see how to render and configure the spline type charts. Spline chart connects each point in series through a curved line.
-        You can use <code>dashArray</code>, <code>width</code>, <code>fill</code> properties to customize the spline. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
+      In this example, you can see how to render and configure the spline type charts. A Spline chart uses a curved line to connect points in a data series. 
+        <code>Markers</code>are used to represent individual data and its value.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+      <code>Tooltips</code>are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
       <br>
         <p style="font-weight: 500">Injecting Module</p>
@@ -31,8 +29,8 @@
             <code>SplineSeries</code> module using <code>provide: { chart: [SplineSeries] }</code> method.
         </p>
         <p>
-            More information on the spline series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+          More information about the line type series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#line-charts">documentation section</a>.
         </p> 
 </div>
 
@@ -58,36 +56,26 @@ export default Vue.extend({
     return {
          theme: theme,
       seriesData: [
-                    { x: 'Jan', y: -1 },
-                    { x: 'Mar', y: 12 },
-                    { x: 'Apr', y: 25 },
-                    { x: 'Jun', y: 31 },
-                    { x: 'Aug', y: 26 },
-                    { x: 'Oct', y: 14 },
-                    { x: 'Dec', y: 8 },
-
-
-                ],
-
-      seriesData1: [
-               { x: 'Jan', y: 7 },
-               { x: 'Mar', y: 2 },
-               { x: 'Apr', y: 13 },
-               { x: 'Jun', y: 21 },
-               { x: 'Aug', y: 26 },
-               { x: 'Oct', y: 10 },
-               { x: 'Dec', y: 0 },
-
-
-      ],
+        { Month : 2000, LDN_Temperature : -1, FR_Temperature : 10 },
+        { Month : 2002, LDN_Temperature : -1, FR_Temperature : 7 },
+        { Month : 2004, LDN_Temperature : 25, FR_Temperature : 13 },
+        { Month : 2005, LDN_Temperature : 31, FR_Temperature : 16 },
+        { Month : 2007, LDN_Temperature : 14, FR_Temperature : 11 },
+        { Month : 2010, LDN_Temperature : 8, FR_Temperature : 10 },
+        { Month : 2011, LDN_Temperature : 8, FR_Temperature : 15 },
+        { Month : 2013, LDN_Temperature : 8, FR_Temperature : 20 },
+        { Month : 2014, LDN_Temperature : 8, FR_Temperature : 17 },
+        { Month : 2015, LDN_Temperature : 8, FR_Temperature : 5 }
+            ],
       //Initializing Primary X Axis
         primaryXAxis: {
-            valueType: 'Category',
-            interval: 1,
-            labelIntersectAction: 'Rotate90',
-            lineStyle: { width: 0 },
-            majorTickLines: { width: 0 },
-            minorTickLines: { width: 0 }
+            title: 'Years',
+            valueType: 'Double',
+            maximum: 2016,
+            minimum: 2000,
+            interval: 4,
+            minorTickLines: { width: 0 },
+
         },
         chartArea: {
             border: {
@@ -99,23 +87,31 @@ export default Vue.extend({
       //Initializing Primary Y Axis
         primaryYAxis:
         {
-            labelFormat: '{value}°C',
-            majorGridLines: { width: 0 }
+            title: 'Sales (In Millions)',
+            maximum: 25,
+            minimum: 0,
+            interval: 5,
+            labelFormat: '{value}M',
+            edgeLabelPlacement: 'Shift'
         },
 
 
      isTransposed: true,
 
-      width : Browser.isDevice ? '100%' : '60%',
+      width : Browser.isDevice ? '100%' : '75%',
        marker: {
         visible: true,
-        height: 10,
-        width: 10
+        height: 7,
+        width: 7,
+        isFilled: true
       },
       tooltip: {
-        enable: true
+        enable: true,
+        header: "<b>Album Sale</b>",
+        shared: true,
+        format: '${point.x}: <b>${point.y}</b>',
       },
-     title: "Climate Graph - 2012"
+     title: "Music Album Sales"
     };
   },
   provide: {

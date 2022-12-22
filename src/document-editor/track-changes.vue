@@ -28,7 +28,7 @@
       
     </ul>
     <p style="display: block"> More information about the document editor features can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/getting-started/">documentation section.</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/track-changes/">documentation section.</a>
     </p>
 </div>
 </div>
@@ -90,10 +90,11 @@ import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { trackchanges } from "./data";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
-
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   components: {

@@ -36,7 +36,6 @@
             "url": "loading-animation",
             "name": "Loading Animation",
             "category": "Data Grid",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid component shows the loading indicator when grid loading and refreshing.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] }
@@ -442,11 +441,19 @@
         {
             "url": "lazy-load-grouping-with-infinite-scrolling",
             "name": "Grouping with Infinite Scrolling",
-            "type": "new",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with infinite scrolling.",
             "hideOnDevice": false,
             "api": { "Grid": ["dataSource","enableInfiniteScrolling","height","allowGrouping","groupSettings","columns"] }
+        },
+        {
+            "url": "lazy-load-grouping-with-virtual-scrolling",
+            "name": "Grouping with Virtual Scrolling",
+            "type": "new",
+            "category": "Lazy Load Grouping",
+            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with virtual scrolling.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource","enableVirtualization","height","allowGrouping","groupSettings","columns"] }
         },
         {
             "url": "export",

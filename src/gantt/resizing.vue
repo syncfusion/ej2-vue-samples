@@ -32,8 +32,7 @@
        The column resizing has been disabled in the <b>Duration</b> column 
     </p>
     <p>
-        More information about column resize can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/column-resizing/">
-        documentation section</a>.
+        More information about Column column Resizing resizing can be found in this documentation section.
     </p>
 </div>
 </div>

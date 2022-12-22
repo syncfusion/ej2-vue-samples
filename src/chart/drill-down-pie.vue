@@ -9,7 +9,7 @@
             <p id="text" style="display:inline-block;"></p>
         </div>
         <button type="button" id="back" style="visibility: hidden;" @click="onClick">Back</button>
-        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load'>
+        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load' :enableBorderOnMouseMove='false'>
              <e-annotations>
                 <e-annotation :content="Template1">
                 </e-annotation>
@@ -33,15 +33,15 @@
 
 <div id="action-description">
     <p>
-        This sample demonstrates drill down sample with pie chart for a automobiles sales by category. By clicking one category, you can navigate to other sub-category by which companies are differentiated.
+        This sample demonstrates a drill down chart with a pie for automobiles sales by category. By clicking one category, you can navigate to other sub-categories where companies are differentiated.
     </p>
 </div>
 <div id="description">
-    <p> In this example, you can see how to achieve <code>drilldown</code> concept using pie control. An automobile sales has been shown by different category, on clicking each category, you can navigate to next level, which shows the sales of those category
-        in terms of company.</p>
-    <p> Datalabel is used in this sample.</p>
+    <p> In this example, you can see how to achieve the drilldown concept using a pie chart. Automobile sales are shown in different categories. By clicking each category, you can navigate to the next level, which shows the sales by categories made by each company. <code>Datalabels</code> are used in this sample to show information about the data points.</p>
     <p style="font-weight: 500">Injecting Module</p>
     <p> Accumulation chart component features are segregated into individual feature-wise modules. To use datalabel, we need to inject <code>AccumulationDataLabelService</code> into the <code>provide</code> option of accumulation. </p>
+    More information about the drilldown in accumulation chart can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#multi-level-pie-chart">documentation section</a>.
 </div>
 </div>
 
@@ -60,13 +60,14 @@
 <script>
 import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
+import { Browser } from '@syncfusion/ej2-base';
 import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel, AccumulationAnnotation, AccumulationChartPlugin } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(AccumulationChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -101,9 +102,10 @@ export default Vue.extend({
     
     //Initializing Datalabel
     dataLabel: {
-        visible: true, position: 'Inside', connectorStyle: { type: 'Curve', length: '5%' }, font: { size: '14px', color: 'white' }
+        visible: true, position: 'Inside',  connectorStyle: { type: 'Curve', length: '10%' }, font: {  fontWeight:'600' , color: 'white' }, enableRotation: false
     },
     startAngle: 0,
+    radius: '70%',
     isExplode: false,
     endAngle: 360,
     title: 'Automobile Sales by Category'
@@ -127,6 +129,7 @@ export default Vue.extend({
                 region: 'Series', x: '50%', y: '50%'
             }];
             this.innerRadius = '30%';
+            this.radius = Browser.isDevice ? '90%' : '80%';
             switch (index.point) {
                 case 0:
                     this.data = this.suvs;
@@ -150,8 +153,10 @@ export default Vue.extend({
                     break;
             }
             let dataLabel = extend({}, this.dataLabel);
-            dataLabel.position = 'Outside';
-            dataLabel.font.color = 'black';
+            dataLabel.position = Browser.isDevice ? 'Inside' : 'Outside';
+            dataLabel.enableRotation = true;
+            dataLabel.connectorStyle.length = '20px'
+            dataLabel.font.color = '';
             this.dataLabel = dataLabel;
             let legendSettings = this.legendSettings;
             legendSettings.visible = false;
@@ -169,6 +174,7 @@ export default Vue.extend({
             let dataLabel = extend({}, this.dataLabel);
             dataLabel.position = 'Inside';
             dataLabel.font.color = 'white';
+            dataLabel.enableRotation = false;
             this.dataLabel = dataLabel;
             let legendSettings = this.legendSettings;
             legendSettings.visible = false;
@@ -179,6 +185,7 @@ export default Vue.extend({
             document.getElementById('symbol').style.visibility = 'hidden';
             document.getElementById('text').style.visibility = 'hidden';
             this.innerChart = false;
+            this.title = 'Automobile Sales by Category';
         }
     },
     onClick: function (e) {
@@ -189,6 +196,8 @@ export default Vue.extend({
         let dataLabel = extend({}, this.dataLabel);
         dataLabel.position = 'Inside';
         dataLabel.font.color = 'white';
+        dataLabel.enableRotation = false;
+        this.radius = '70%';
         this.dataLabel = dataLabel;
         let legendSettings = this.legendSettings;
         legendSettings.visible = false;
@@ -205,11 +214,13 @@ export default Vue.extend({
         this.innerChart = false;
     },
     load: function(args) {
+        
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         if (selectedTheme === 'highcontrast' || args.accumulation.theme.indexOf('Dark') > -1){
              args.accumulation.series[0].dataLabel.font.color="white";
         }
+
         if (args.accumulation.annotations[0] && this.innerChart) {
             args.accumulation.annotations[0].content = (args.accumulation.theme === 'Highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
                 '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :

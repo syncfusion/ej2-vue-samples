@@ -67,7 +67,6 @@
 </template>
 
 <style>
-    /* custom code start*/
     .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.personal .e-label {
         color: #808080;
     }
@@ -96,7 +95,6 @@
     .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
     }
-    /* custom code end*/
 
     .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
     .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-month-view .e-resource-left-td {
@@ -138,7 +136,6 @@
             schedule: [Month, TimelineViews, TimelineMonth, Resize, DragAndDrop]
         },
         methods: {
-            // custom code start
             generateCalendarData: function () {
                 var collections = [];
                 var dataCollections = [personalData, companyData, birthdayData, holidayData];
@@ -147,7 +144,6 @@
                 }
                 return collections;
             },
-            // custom code end
             onChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
                 let value = parseInt(args.event.currentTarget.querySelector('input').getAttribute('value'), 10);

@@ -66,7 +66,6 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample .calendar-import.e-upload {
         border: 0;
@@ -81,7 +80,6 @@
         display: none;
     }
 </style>
-<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { scheduleData } from './datasource';

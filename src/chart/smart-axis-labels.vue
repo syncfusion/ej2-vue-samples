@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section">
         <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :pointRender='pointRender' :legendSettings='legendSettings' :tooltip='tooltip'>
+            :chartArea='chartArea' :pointRender='pointRender' :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Column' xName='x' yName='y' name='Users' width=2 :marker='marker' > </e-series>
                
@@ -148,8 +148,8 @@ export default Vue.extend({
             interval: 1,
             majorGridLines: { width: 0 },
             labelIntersectAction: 'Hide',
-            edgeLabelPlacement: 'None',
-            labelPosition: 'Outside'
+            majorTickLines: {width : 0},
+            minorTickLines: {width: 0}
         },
         chartArea: {
             border: {
@@ -200,7 +200,6 @@ export default Vue.extend({
           args.fill = bootstrapColors[args.point.index % 10];
         }
       },
-      width: "80%",
       title: "Internet Users in Millions"
     };
   },

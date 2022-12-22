@@ -26,8 +26,7 @@
     </p>
     <p>
         In this demo sample, the first two columns is set to frozen by using the 
-        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/#frozencolumns">frozenColumns
-        </a></code>  properties.
+        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/#frozencolumns">frozenColumns</a></code> properties.
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>

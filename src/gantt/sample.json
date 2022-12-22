@@ -25,7 +25,6 @@
          "url": "editing",
          "name": "Editing",
          "category": "Gantt",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -54,6 +53,7 @@
          "url": "virtual-scroll",
          "name": "Virtual Scrolling",
          "category": "Gantt",
+         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -69,6 +69,30 @@
             ]
          },
          "description": "This example illustrates binding large data and smooth scrolling with large data using the Virtual Scroll feature in the Syncfusion Gantt chart."
+      },
+      {
+         "url": "loading-animation",
+         "name": "Loading Animation",
+         "category": "Gantt",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "highlightWeekends",
+               "splitterSettings",
+               "labelSettings",
+               "enableVirtualization",
+               "loadingIndicator",
+               "allowSelection",
+               "allowSorting",
+               "allowFiltering"
+            ]
+         },
+         "description": "This demo for Essential JS 2 gantt component shows the loading indicator when gantt loading, refreshing and performing other action."
       },
       {
          "url": "local-data",
@@ -783,7 +807,6 @@
          "url": "filtering",
          "name": "Filtering",
          "category": "Miscellaneous",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",

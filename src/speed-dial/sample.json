@@ -2,7 +2,6 @@
     "name": "SpeedDial",
     "directory": "speed-dial",
     "category": "Buttons",
-    "type":"preview",
     "samples": [
         {
             "url": "default",

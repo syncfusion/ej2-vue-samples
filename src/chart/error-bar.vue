@@ -1,10 +1,10 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart ref='chart' :theme="theme" style='display:block' :animation="animation" align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart ref='chart' :theme="theme" style='display:block'  :animation="animation" align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :tooltip='tooltip' :pointRender='pointRender' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Scatter'  xName='x' yName='y' name='Sales' :marker='marker' width=2 :errorBar='errorBar'> </e-series>
+                <e-series :dataSource='seriesData' type='Scatter'  xName='x' yName='y'  :marker='marker' width=2 :errorBar='errorBar'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -117,7 +117,6 @@ import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { NumericTextBox } from '@syncfusion/ej2-vue-inputs';
-import { EmitType } from '@syncfusion/ej2-base';
 import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
 import { ChartPlugin, ScatterSeries, Category, Tooltip, ErrorBar, ErrorBarMode, ErrorBarType, ErrorBarDirection } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
@@ -141,7 +140,8 @@ export default Vue.extend({
 
            //Initializing Primary X Axis
          primaryXAxis: {
-            valueType: 'Category', interval: 1, majorGridLines: { width: 0 }
+            valueType: 'Category', interval: 1, majorGridLines: { width: 0 },   majorTickLines: {width : 0},
+             minorTickLines: {width: 0},
         },
 
       //Initializing Primary Y Axis
@@ -166,7 +166,6 @@ export default Vue.extend({
        animation: { enable: false },
 
       listwidth:120,
-      
       title: "Sales Distribution of Car by Region",
 
     };

@@ -53,8 +53,7 @@
      <p>In this demo, you can either reorder columns by dragging and dropping or by selecting column name and column index from dropdown to reorder the columns.
      </p>
      <p>
-        More information about column reordering can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/column-reordering/">
-        documentation section</a>.
+        More information about column reordering can be found in this documentation section.
     </p>
 </div>
 

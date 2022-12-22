@@ -5,7 +5,20 @@
     "ftName": "chart",
     "type": "update",
     "samples": [
-        {
+    {
+        "url": "over-view",
+        "name": "Overview",
+         "category": "Charts",
+        "description": "This demo for overview of Essential JS2 Chart for data about the annual, monthly and product wise sales with different types of charts.",
+        "sourceFiles": [
+            {"displayName": "over-view.vue", "path": "./src/chart/over-view.vue"},
+            {"displayName": "column-template.vue", "path": "./src/chart/over-view-columntemplate.vue"},
+            {"displayName": "pie-template.vue", "path": "./src/chart/over-view-pietemplate.vue"},
+            {"displayName": "spline-template.vue", "path": "./src/chart/over-view-splinetemplate.vue"}
+        ]
+
+    },
+    {
         "url": "line",
         "name": "Line",
         "category": "Line Charts",
@@ -180,13 +193,13 @@
     },
     {
         "url": "area-negative",
-        "name": "Area - Negative Points","type":"new",
+        "name": "Area - Negative Points",
         "description": "This demo for Essential JS2 Chart control shows how to render the area series with negative points.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "area-empty.vue", "path": "./src/chart/area-negative.vue"}
         ]
-    },
+    }, 
     {
         "url": "area-segments",
         "name": "Area Zone",
@@ -583,6 +596,7 @@
     {
         "url": "semi-pie",
         "name": "Semi Pie",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render semi-pie and doughnut charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [

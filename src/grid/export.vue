@@ -8,7 +8,7 @@
     </div>
     <div>
         <ejs-grid ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' height=350
-                :allowExcelExport='true' :allowPdfExport='true' :allowGrouping="true" :excelQueryCellInfo='exportQueryCellInfo' :pdfQueryCellInfo='exportQueryCellInfo'
+                :allowExcelExport='true' :allowSorting='true' :allowPdfExport='true' :allowGrouping="true" :excelQueryCellInfo='exportQueryCellInfo' :pdfQueryCellInfo='exportQueryCellInfo'
                 :dataBound="dataBound">
             <e-columns>
                 <e-column headerText='Employee Image' width='150' textAlign='Center' :template='imageTemplate'></e-column>
@@ -67,7 +67,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { GridPlugin, GridComponent, PdfExport, ExcelExport, Group, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridPlugin, GridComponent, PdfExport, ExcelExport, Group, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
 import { employeeDetails } from "./data-source";
@@ -139,7 +139,7 @@ export default Vue.extend({
   }
   },
   provide: {
-      grid: [PdfExport, ExcelExport, Group, Toolbar]
+      grid: [PdfExport, ExcelExport, Group, Toolbar, Sort]
   }
 });
 </script>

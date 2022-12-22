@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section">
         <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-         :width='width' :tooltip='tooltip'>
+          :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData1' type='Column' xName='x' yName='y' name='All sources' > </e-series>
                 <e-series :dataSource='seriesData2' type='Column' xName='x' yName='y' name='Autos && Light Trucks' > </e-series>                
@@ -111,9 +111,10 @@ export default Vue.extend({
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        valueType: 'DateTime', interval: 5, intervalType: 'Years', majorGridLines: { width: 0 },
+        valueType: 'DateTime', intervalType: 'Years', majorGridLines: { width: 0 },
         edgeLabelPlacement: 'Shift',
-        minimum: new Date(1965, 1, 1), maximum: new Date(2010, 1, 1),
+        minimum: new Date(1965, 1, 1), maximum: new Date(2010, 1, 1), majorTickLines: {width : 0},
+         minorTickLines: {width: 0},
         //Initializing Striplines
         stripLines: [{
         startFromAxis: true, size: 5, sizeType: 'Years', isRepeat: true, repeatEvery: 10, visible: true,
@@ -137,8 +138,6 @@ export default Vue.extend({
       },
 
       tooltip: { enable: true, format: ' Year: <b>${point.x}</b><br> Tons Per Day: <b>${point.y}</b>'},
-
-      width: "100%",
       title: "World Pollution Report"
     };
   },

@@ -59,7 +59,9 @@ export default Vue.extend({
             valueType: 'Category',
             opposedPosition: true,
             isInversed: true,
-            majorGridLines: { width: 0 }
+            majorGridLines: { width: 0 },
+            majorTickLines:{ width: 0},
+            minorTickLines:  {width : 0}
         },
 
 
@@ -100,13 +102,13 @@ export default Vue.extend({
             }
         },
 
-       marker: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
+       marker: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff', size : Browser.isDevice ? '10px': '11px' } } },
          tooltip: {
             enable: true
         },
         legendSettings: { visible: false },
 
-      width: "60%",
+      width: Browser.isDevice ? "100%" : "75%",
 
       title: "Exchange Rate (INR per USD)"
     };

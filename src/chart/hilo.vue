@@ -71,7 +71,8 @@ export default Vue.extend({
             crosshairTooltip: { enable: true },
             minimum: new Date(2016, 12, 31),
             maximum: new Date(2017, 9, 30),
-            majorGridLines: { width: 0 }
+            majorGridLines: { width: 0 },
+            edgeLabelPlacement: 'Shift',
 
         },
         chartArea: {
@@ -93,7 +94,7 @@ export default Vue.extend({
 
         legendSettings: { visible: false },
 
-       width: Browser.isDevice ? '100%' : '80%',
+       width: Browser.isDevice ? '100%' : '75%',
 
       animation: { enable: true },
 

@@ -31,14 +31,6 @@
             </tr>
             <tr style="height:50px;">
                 <td style="width: 50%">
-                    <b>Alt + j</b>
-                </td>
-                <td style="width: 50%">
-                    Focus Gantt element
-                </td>
-            </tr>
-            <tr style="height:50px;">
-                <td style="width: 50%">
                     <b>Home</b>
                 </td>
                 <td style="width: 50%">

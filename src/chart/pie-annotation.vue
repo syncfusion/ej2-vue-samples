@@ -84,10 +84,9 @@ export default Vue.extend({
     ],
     //Initializing Primary X Axis
     primaryXAxis: {
-        title: 'Years',
         majorGridLines: { width: 0 }, minorGridLines: { width: 1 },
         minorTickLines: { width: 1 }, interval: 1,
-        labelIntersectAction: 'Rotate45',
+        labelIntersectAction: 'Rotate45', majorTickLines: {width : 0},
         valueType: 'Category'
     },
     chartArea: {
@@ -95,7 +94,7 @@ export default Vue.extend({
             width: 0
         }
     },
-    width: Browser.isDevice ? '100%' : '80%',
+    width: Browser.isDevice ? '100%' : '75%',
     //Initializing Primary Y Axis
     primaryYAxis: {
         title: 'Sales', lineStyle: { width: 0 },

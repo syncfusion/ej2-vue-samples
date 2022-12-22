@@ -92,8 +92,11 @@ import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar 
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { comments } from "./data";
 import { DialogUtility } from '@syncfusion/ej2-popups';
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
+Vue.use(ButtonPlugin);
 export default Vue.extend({
   components: {
     },

@@ -90,11 +90,12 @@
 import Vue from "vue";
 import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { characterFormat } from "./data";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
-
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   components: {

@@ -100,9 +100,9 @@ export default Vue.extend({
     marker: {
         visible: false
     },
-    width: Browser.isDevice ? '100%' : '80%',
+    width: Browser.isDevice ? '100%' : '75%',
     legendSettings: {
-        visible: false
+        visible: true
     }
     };
   },

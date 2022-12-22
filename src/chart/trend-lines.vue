@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-         <ejs-chart ref='chart' id='chartcontainer' :theme='theme' style='display:block; width: 92%' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :chartArea='chartArea' :title='title' :legendSettings='legendSettings'>
+         <ejs-chart ref='chart' id='chartcontainer' :theme='theme' style='display:block; width: 92%' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'  :chartArea='chartArea' :title='title' :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Spline' xName='x' yName='y' name='Rupees' :marker='marker1'>
                     <e-trendlines>
@@ -81,8 +81,6 @@
     <p>
        In this example, you can see how to render and configure the Trend Lines. You can use <code>border</code>, <code>fill</code> properties to customize the area.
     </p>
-    <p>Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
     <p style="font-weight: 500">Injecting Module</p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use Trend lines, we need to Inject <code>Treandlines</code> module using <code> provide: { chart: [Trendlines] },</code> method.
@@ -95,15 +93,13 @@
 </div>
 
 </template>
-<style scoped>
+<style>
    .control-section {
         min-height: 450px;
     }
     
     #chartcontainer_Series_0_TrendLine_0 {
         stroke-dasharray: 10;
-        -webkit-animation: dash 1s linear infinite;
-        animation: dash 1s linear infinite;
     }
     
     @keyframes dash {
@@ -116,8 +112,8 @@
 import Vue from "vue";
 import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-import { EmitType, extend } from '@syncfusion/ej2-base';
-import { ChartPlugin, ScatterSeries, Category, Tooltip, Trendlines, SplineSeries, LineSeries, Legend } from "@syncfusion/ej2-vue-charts";
+import { EmitType, Browser, extend } from '@syncfusion/ej2-base';
+import { ChartPlugin, ScatterSeries, Category, Trendlines, SplineSeries, LineSeries, Legend } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
 Vue.use(NumericTextBoxPlugin);
@@ -170,9 +166,6 @@ export default Vue.extend({
     chartArea :  {
       border: { width : 0}
     },
-    tooltip:  {
-        enable: true
-    },
     marker: {
         visible: false
     },
@@ -180,7 +173,6 @@ export default Vue.extend({
         visible :true
     },
     legendSettings : { visible: true },
-
     title: 'Historical Indian Rupee Rate (INR USD)',
 
        trenddata : [ 'Linear', 'Exponential', 'Power', 'Logarithmic', 'Polynomial', 'MovingAverage' ]
@@ -188,7 +180,7 @@ export default Vue.extend({
    };
   },
   provide: {
-    chart: [Category, Tooltip, ScatterSeries, SplineSeries, LineSeries, Trendlines, Legend]
+    chart: [Category, ScatterSeries, SplineSeries, LineSeries, Trendlines, Legend]
   },
    updated: function () {
     this.$nextTick(function() {

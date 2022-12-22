@@ -69,7 +69,7 @@ export default Vue.extend({
             majorGridLines: { width: 0 },
             edgeLabelPlacement: 'Shift'
         },
-
+        
       //Initializing Primary Y Axis
        primaryYAxis:
         {
@@ -85,11 +85,11 @@ export default Vue.extend({
             }
         },
         marker: { visible: true },
-
+ 
         tooltip: { enable: true, shared: true },
-
+        
         crosshair: { enable: true, lineType: 'Vertical' },
-        width: Browser.isDevice ? '100%' : '60%',
+        width: Browser.isDevice ? '100%' : '75%',
         title: "Average Sales per Person"
     };
   },

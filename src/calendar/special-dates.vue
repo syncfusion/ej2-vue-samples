@@ -61,7 +61,7 @@ export default Vue.extend({
       let title = "";
       if (args.event) {
         /*Displays selected date in the label*/
-        title = args.event.currentTarget.getAttribute("data-val");
+        title = args.event.currentTarget.classList.contains('e-selected') ? args.event.currentTarget.getAttribute('data-val') : args.event.currentTarget.getElementsByClassName('e-selected').length > 0 ? args.event.currentTarget.getElementsByClassName('e-selected')[0].getAttribute('data-val') : null;
         title = title == null ? "" : " ( " + title + " )";
       }
       document.getElementById("date_label").textContent =
@@ -135,7 +135,7 @@ body.highcontrast #date_label {
   margin-right: 3px;
   font-size: 4px;
   position: relative;
-  top: -1px;
+  top: 1px;
   font-weight: normal;
 }
 
@@ -152,10 +152,6 @@ body.highcontrast #date_label {
 
 body.highcontrast .e-bigger .calendar-special-dates.e-calendar span.e-icons.highlight:before {
   top: -2px;
-}
-
-.calendar-special-dates .e-selected span.e-icons.highlight:before {
-  color: #fff;
 }
 
 body.highcontrast .calendar-special-dates td.birthday span.e-icons.highlight:before {

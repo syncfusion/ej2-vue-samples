@@ -51,6 +51,7 @@
         background-color: #C3F1D0;
         color: #00752F;
         width: 47px;
+        height: 22px;
     }
     
     /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
@@ -127,6 +128,9 @@
     /deep/ #coordinates .e-image {
         filter: brightness(180%);
     }
+    /deep/.e-bigger .e-grid .e-rowcell {
+        line-height: 24px;
+    }
 </style>
 <script lang="ts">
 import Vue from "vue";
@@ -179,7 +183,7 @@ export default Vue.extend({
     locationTemplate: function () {
         return {
             template: Vue.component('locationTemplate', {
-                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
+                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }

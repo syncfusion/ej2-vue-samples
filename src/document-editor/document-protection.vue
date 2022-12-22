@@ -111,12 +111,13 @@ import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { dataProtection } from "./data";
 import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(ColorPickerPlugin);
-
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   components: {

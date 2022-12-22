@@ -11,7 +11,7 @@
     </div>
     <div id="description">
          <p>The File Manager component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete and so on.</p>
-         <b>Note: </b>File Manager's upload functionality is restricted in online demo. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/ej2-firebase-realtime-database-aspcore-file-provider">ej2-firebase-realtime-database-aspcore-file-provider</a> from the GitHub repository.
+         <b>Note: </b>File Manager's upload functionality is restricted in online demo. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/firebase-realtime-database-aspcore-file-provider">firebase-realtime-database-aspcore-file-provider</a> from the GitHub repository.
     </div>
 </div>
 </template>

@@ -103,7 +103,7 @@ export default Vue.extend({
             },
             lineType: 'Vertical'
         },
-      width: "80%",
+      width: Browser.isDevice ? "100%" : "75%",
       marker: {
         visible: false,
         

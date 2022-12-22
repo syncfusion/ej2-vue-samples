@@ -1,7 +1,6 @@
 {
     "name": "Predefined Dialogs",
     "directory": "predefined-dialogs",
-    "type":"new",
     "category": "Layout",
     "ftName": "predefined-dialogs",
     "samples": [{

@@ -42,6 +42,10 @@
                 In this demo, Grid features such as <code>Virtual Scrolling, Filtering, Sorting, Column Template, filter template </code> etc... are
                 used along with large data source.
             </p>
+            <p>
+                You can follow the guidelines in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
+                documentation</a> to get around the browser height restriction when loading and viewing millions of records.
+            </p>
             <br/> More information on the Grid instantiation can be found in this
             <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
             </p>

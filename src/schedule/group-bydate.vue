@@ -2,7 +2,9 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :group='group'>
+                <ejs-checkbox label="hideNonWorkingDays" :checked='true' :change='onChange'></ejs-checkbox>
+                <br> <br>
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :group='group'>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -11,7 +13,7 @@
                     </e-views>
                     <e-resources>
                         <e-resource field='TaskId' title='Assignee' name='Owners' :allowMultiple='allowMultiple' :dataSource='resourceDataSource'
-                            textField='text' idField='id' colorField='color'>
+                            textField='text' idField='id' colorField='color' workDaysField= 'workDays'>
                         </e-resource>
                     </e-resources>
                 </ejs-schedule>
@@ -32,6 +34,12 @@
                 <code>true</code> to the option
                 <code>byDate</code> within the
                 <code>group</code> property.
+            </p>
+            <p>
+                The different work days for the each resources are provided by using the 
+                <code>workDaysField</code> property and the Scheduler
+                will be displayed the provided dates alone when 
+                <code>hideNonWorkingDays</code> property set as <code>true</code>.
             </p>
         </div>
 
@@ -54,18 +62,29 @@
                         description: { title: 'Comments', name: 'Description' }
                     }
                 },
-                selectedDate: new Date(2021, 3, 6),
-                group: { byDate: true, resources: ['Owners'] },
+                selectedDate: new Date(2023, 0, 6),
+                group: { byDate: true, hideNonWorkingDays: true, resources: ['Owners'] },
                 allowMultiple : true,
                 resourceDataSource : [
-                    { text: 'Alice', id: 1, color: '#df5286' },
-                    { text: 'Smith', id: 2, color: '#7fa900' }
+                { text: 'Alice', id: 1, color: '#1aaa55', workDays: [1, 2, 3, 4] },
+                { text: 'Smith', id: 2, color: '#7fa900', workDays: [2, 3, 5] }
                 ],
             }
         },
         provide: {
             schedule: [Day, Week, Month, Agenda, Resize, DragAndDrop]
+        },
+        methods: {
+            onChange: function (args) {
+                let scheduleObj = this.$refs.ScheduleObj;
+                if (args.checked) {
+                    scheduleObj.ej2Instances.group.hideNonWorkingDays = true;
+                }
+                else {
+                    scheduleObj.ej2Instances.group.hideNonWorkingDays = false;
+                }
+                scheduleObj.dataBind();
+            }
         }
     });
-
 </script>

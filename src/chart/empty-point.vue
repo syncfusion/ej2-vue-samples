@@ -101,20 +101,19 @@ export default Vue.extend({
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        title: "Product",
-        valueType: "Category",
-        interval: 1
+        valueType: 'Category', interval: 1, labelIntersectAction: Browser.isDevice ? 'None' : 'Trim', labelRotation: Browser.isDevice ? -45: 0 ,majorTickLines: {width : 0},
+        minorTickLines: {width: 0}, lineStyle: {width: 0}
       },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        title: "Profit",
         minimum: 0,
         maximum: 100,
         interval: 20,
-        labelFormat: "{value}%"
+        labelFormat: "{value}%",
+        lineStyle: {width: 0}
       },
-
+      chartArea : {border: { width: 0 } },
       seriesType: "Column",
       marker: { visible: true, height: 10, width: 10 },
       emptyPointSettings: {

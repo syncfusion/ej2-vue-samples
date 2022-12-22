@@ -36,7 +36,14 @@
 
 </div>
 </template>
-
+<!-- custom code start -->
+<style>
+.e-bigger.bootstrap5 .e-treegrid .e-hierarchycheckbox .e-frame, .e-bigger.bootstrap5-dark .e-treegrid .e-hierarchycheckbox .e-frame{
+    height: 16px;
+    width: 16px;
+}
+</style>
+<!-- custom code end -->
 <script lang="ts">
 import Vue from "vue";
 import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";

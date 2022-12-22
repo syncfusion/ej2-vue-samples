@@ -9,25 +9,7 @@
             </e-series-collection>
         </ejs-chart>
     </div>
-    <div id="action-description">
-     <p>
-         This sample illustrates data editing feature in chart. Drag and drop the points to change the data values dynamically. 
-     </p>
- </div>
  
- <div id="description">
-    <p>The draggable-points allows data to be moved around the chart. In addition to this, the module fires events such as dragStart, drag and dragComplete.</p> 
-     <br>
-     <p style="font-weight: 500">Injecting Module</p>
-     <p>
-          Chart component features are segregated into individual feature-wise modules. To use data editing, we need to inject
-          <code>DataEditing</code> module using <code>Chart.Inject(DataEditing)</code> method.
-     </p>
-     <p>
-          More information on the Data Editing can be found in this
-          <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-dataEditing.html#properties">documentation section</a>.
-     </p> 
- </div>
 </div>
 </template>
 <style scoped>
@@ -68,6 +50,8 @@ export default Vue.extend({
         maximum: 6.5,
         labelPlacement: 'OnTicks',
         majorGridLines: { width: 0 },
+        minorTickLines: {width:0},
+        majorTickLines: {width:0}
       },
       //Initializing Primary Y Axis
       primaryYAxis: {
@@ -86,7 +70,7 @@ export default Vue.extend({
           width: 0
         }
       },
-      width : Browser.isDevice ? '100%' : '60%',
+      width : Browser.isDevice ? '100%' : '75%',
       marker: {
         visible: true,
         height: 10,

@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-8 control-section">
-          <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+          <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer'  :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
               :chartArea='chartArea' :tooltip='tooltip'>
               <e-series-collection>
                   <e-series :dataSource='seriesData' :type='seriesType'  xName='x' yName='car' name='Car' width=2> </e-series>
@@ -113,7 +113,6 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
 
       serieswidth: 120,
       seriesType: "StackingColumn",
-
     tooltip: {
             enable: true
         },

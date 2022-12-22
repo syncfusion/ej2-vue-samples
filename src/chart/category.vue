@@ -66,7 +66,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -74,21 +74,22 @@ export default Vue.extend({
        theme: theme,
       seriesData: [
         { x: 'Germany', y: 72, country: 'GER: 72'},
-        { x: 'Russia', y: 103.1, country: 'RUS: 103.1'},
-        { x: 'Brazil', y: 139.1, country: 'BRZ: 139.1'},
-        { x: 'India', y: 462.1, country: 'IND: 462.1'},
-        { x: 'China', y: 721.4, country: 'CHN: 721.4'},
-        { x: 'United States<br>Of America', y: 286.9, country: 'USA: 286.9'},
-        { x: 'Great Britain', y: 115.1, country: 'GBR: 115.1'},
-        { x: 'Nigeria', y: 97.2, country: 'NGR: 97.2'},
+        { x: 'Russia', y: 103, country: 'RUS: 103'},
+        { x: 'Brazil', y: 139, country: 'BRZ: 139'},
+        { x: 'India', y: 462, country: 'IND: 462'},
+        { x: 'China', y: 721, country: 'CHN: 721'},
+        { x: 'United States<br>Of America', y: 286, country: 'USA: 286'},
+        { x: 'Great Britain', y: 115, country: 'GBR: 115'},
+        { x: 'Nigeria', y: 97, country: 'NGR: 97'},
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        title: "Country",
         valueType: "Category",
         majorGridLines: { width: 0 },
         enableTrim: false,
+        majorTickLines: {width : 0},
+        minorTickLines: {width: 0}
       },
 
       //Initializing Primary Y Axis
@@ -113,10 +114,10 @@ export default Vue.extend({
       marker: {
         dataLabel: {
           visible: true,
-          position: "Top",
+          position: Browser.isDevice ? 'Outer': "Top",
           font: {
             fontWeight: "600",
-            color: "#ffffff"
+            color: Browser.isDevice ? '' : '#ffffff',
           }
         }
       },
@@ -144,7 +145,7 @@ export default Vue.extend({
           args.fill = bootstrapColors[args.point.index % 10];
         }
       },
-      width: Browser.isDevice ? '100%' : '60%',
+      width: Browser.isDevice ? '100%' : '75%',
       title: "Internet Users – 2016"
     };
   },

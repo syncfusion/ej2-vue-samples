@@ -122,6 +122,8 @@ export default Vue.extend({
         minimum: 2015,
         maximum: 2020,
         interval: 1,
+        majorTickLines: {width : 0},
+        minorTickLines: {width: 0}
       },
       chartArea: { border: { width: 0 } },
 
@@ -142,7 +144,7 @@ export default Vue.extend({
         }
       },
 
-      width: Browser.isDevice ? "100%" : "60%",
+      width: Browser.isDevice ? "100%" : "75%",
 
       tooltip: {
         enable: true,

@@ -118,7 +118,7 @@ export default Vue.extend({
   margin-right: 3px;
   font-size: 4px;
   position: relative;
-  top: -1px;
+  top: 0px;
   font-weight: normal;
 }
 
@@ -128,10 +128,6 @@ export default Vue.extend({
 
 body.highcontrast .e-bigger .datepicker-special-dates.e-calendar span.e-icons.highlight:before {
   top: -2px;
-}
-
-.datepicker-special-dates .e-selected span.e-icons.highlight:before {
-  color: #fff;
 }
 
 body.highcontrast .datepicker-special-dates td.birthday span.e-icons.highlight:before {

@@ -3,11 +3,11 @@
         <div id="speed-dial-wrapper">
             <div id="target" class="speeddial-radial-target custom-index">
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' cssClass="e-success" :items="items" target='#target'
-                    position='TopLeft' mode='Radial' title='Top Left'></ejs-speeddial>
+                    position='TopLeft' mode='Radial' :radialSettings="radialSetting1" title='Top Left'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' :items="items" target='#target'  cssClass="e-warning"
                     position='TopCenter' mode='Radial' :radialSettings="radialSetting" title='Top Center'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' cssClass="e-success" :items="items" target='#target'
-                    position='TopRight' mode='Radial' title='Top Right'></ejs-speeddial>
+                    position='TopRight' mode='Radial' :radialSettings="radialSetting1" title='Top Right'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' :items="items" target='#target'  cssClass="e-warning"
                     position='MiddleLeft' mode='Radial' :radialSettings="radialSetting" title='Middle Left'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' :items="items" target='#target'
@@ -15,11 +15,11 @@
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' :items="items" target='#target'  cssClass="e-warning"
                     position='MiddleRight' mode='Radial' :radialSettings="radialSetting" title='Middle Right'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' cssClass="e-success" :items="items" target='#target'
-                    position='BottomLeft' mode='Radial' title='Bottom Left'></ejs-speeddial>
+                    position='BottomLeft' mode='Radial' :radialSettings="radialSetting1" title='Bottom Left'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' :items="items" target='#target'  cssClass="e-warning"
                     position='BottomCenter' mode='Radial' :radialSettings="radialSetting" title='Bottom Center'></ejs-speeddial>
                 <ejs-speeddial openIconCss='speeddial-icons speeddial-icon-edit' cssClass="e-success" :items="items" target='#target'
-                    position='BottomRight' mode='Radial' title='Bottom Right'></ejs-speeddial>
+                    position='BottomRight' mode='Radial' :radialSettings="radialSetting1" title='Bottom Right'></ejs-speeddial>
             </div>
         </div>
         <div id="action-description">
@@ -72,7 +72,8 @@ export default Vue.extend({
                     iconCss: 'speeddial-icons speeddial-icon-save'
                 }
             ],
-            radialSetting: { offset: '70px' }
+            radialSetting: { offset: '70px' },
+            radialSetting1: { offset: '110px' }
         };
     }
 });
@@ -82,6 +83,11 @@ export default Vue.extend({
         min-height: 500px;
         position: relative
     }
+    
+    .speeddial-radial-target .e-fab.e-btn{
+        z-index: 99999;
+    }
+    
     .custom-index{
         z-index:500 !important;
     }

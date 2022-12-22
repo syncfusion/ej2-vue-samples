@@ -141,11 +141,13 @@ export default Vue.extend({
         pointRender: pointRender,
 
       //Initializing Primary X Axis
-      primaryXAxis: {
+        primaryXAxis: {
             rangePadding: 'Additional',
             valueType: 'Category',
             title: 'Assignee',
             majorGridLines: { width: 0 },
+            majorTickLines: { width: 0 },
+            minorTickLines: { width: 0 }
         },
 
       //Initializing Primary Y Axis
@@ -171,7 +173,7 @@ export default Vue.extend({
             },
             lineType: 'Vertical'
         },
-       width: Browser.isDevice ? '100%' : '60%',
+       width: Browser.isDevice ? '100%' : '75%',
         marker: {
                     dataLabel: {
                         visible: true,

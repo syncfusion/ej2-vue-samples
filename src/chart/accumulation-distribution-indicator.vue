@@ -113,7 +113,7 @@ export default Vue.extend({
 
       chartArea: { border: { width: 0 } },
 
-       width: Browser.isDevice ? '100%' : '80%',
+       width: Browser.isDevice ? '100%' : '75%',
 
       tooltip: {
         enable: true,

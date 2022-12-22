@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :currentView='currentView' :workDays='workDays' :timeScale="timeScale" :eventSettings='eventSettings'>
+                <ejs-schedule id='Schedule' ref="ScheduleObj" :cssClass="cssClass" height="650px" :selectedDate='selectedDate' :currentView='currentView' :workDays='workDays' :timeScale="timeScale" :eventSettings='eventSettings'>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -73,6 +73,19 @@
         </div>
     </div>
 </template>
+
+<style>
+    .time-scale.e-schedule.e-device .e-vertical-view .e-left-indent,
+    .time-scale.e-schedule.e-device .e-vertical-view .e-time-cells-wrap {
+        width: 50px;
+    }
+
+    .time-scale.e-schedule .e-timeline-view .e-date-header-wrap table col,
+    .time-scale.e-schedule .e-timeline-view .e-content-wrap table col {
+        width: 75px;
+    }
+</style>
+
 <script>
     import Vue from "vue";
     import { scheduleData } from './datasource';
@@ -99,7 +112,7 @@
     });
 
     var minorTemplateVue = Vue.component("minor-template", {
-        template: '<div style="text-align: right; margin-right: 15px">{{minorSlotTemplate(data.date)}}</div>',
+        template: '<div style="text-align: center">{{minorSlotTemplate(data.date)}}</div>',
         data() {
             return {
                 data: {}
@@ -120,6 +133,7 @@
                 currentView: 'TimelineWeek',
                 timeScale: { enable: true, interval: 60, slotCount: 6 },
                 workDays: [0, 1, 2, 3, 4, 5],
+                cssClass: 'time-scale',
                 intervalValue: '60',
                 intervalData: ['30', '60', '90', '120', '150', '180', '240', '300', '720'],
                 slotCountValue: '6',

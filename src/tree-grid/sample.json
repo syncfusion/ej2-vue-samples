@@ -16,7 +16,11 @@
      {  
       "url": "adaptive", "name": "Adaptive Layout", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns","enableAdaptiveUI","allowSorting","allowFiltering","editSettings","toolbar","allowPaging"] },
       "description": "This example demonstrates the adaptive rendering behavior of Tree Grid features."
-   },
+     },
+	 {
+      "url": "loading-animation", "name": "Loading Animation", "category": "Tree Grid", "type": "new", "api": { "TreeGrid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] },
+      "description": "This demo for Essential JS 2 Tree Grid component shows the loading indicator when Tree Grid loading and refreshing."
+     },
     
      {  
         "url":"localdata", "name": "Local Data", "category":"Data Binding","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","allowPaging","columns"] },

@@ -1,14 +1,14 @@
 <template>
-<div class="col-lg-12 control-section">
-  <div class="col-lg-7">
+<div class="col-lg-12">
+  <div class="col-lg-7 control-section sb-property-border">
     <div id="control_wrapper" class="col-lg-6 col-sm-8 col-md-8 multiselectWrapper">
-        <div id="container" style="overflow:auto">
+        <div id="container" >
               <ejs-calendar :values="date" :isMultiSelection="multiSelection" :created="onCreated" :change="onValueChange"></ejs-calendar>
         </div>   
       </div>      
     </div>
     <div class="col-lg-5">
-      <label>Selected values</label>
+      <label style="padding-top:22px">Selected values</label>
       <div class="content-value">
         <div id="multiselect"></div>
       </div>

@@ -70,20 +70,14 @@
     <p>
         Selection provides an interactive support to highlight the row or cell that you select. 
         Selection can be done through a simple Mouse down or Keyboard interaction. 
-        To enable selection, set <code>
-        allowSelection
-        </code> as true.
+        To enable selection, set <code>allowSelection</code> as true.
     </p>
-    <p>Tree Grid supports two types of selection which can be set using 
-        <code>selectionSettings->type
-        </code> property. They are,</p>
+    <p>Tree Grid supports two types of selection which can be set using <code>selectionSettings->type</code> property. They are,</p>
     <ul>
         <li><code>single</code> - Enabled by default. Allows the user to select single row/cell at a time.</li>
         <li><code>multiple</code> - Allows the user to select more than one row/cell at a time.</li>
     </ul>
-    <p>Also, supports three modes of selection which can be set using 
-        <code>selectionSettings->mode
-        </code> property. They are,
+    <p>Also, supports three modes of selection which can be set using <code>selectionSettings->mode</code> property. They are,
     </p>
     <ul>
         <li><code>Row</code> - Enabled by default. Enables row selection in Tree Grid.</li>
@@ -92,10 +86,8 @@
         Clicking any cell will select both the row and cell simultaneously.
         </li>
     </ul>
-    <p>The Tree Grid supports two types of cell selection mode that can be set by using the  
-            <code>
-            selectionSettings->cellSelectionMode
-            </code> property. They are,</p>
+    <p>The Tree Grid supports two types of cell selection mode that can be set by using 
+        the <code>selectionSettings->cellSelectionMode</code> property. They are,</p>
         <ul>
             <li><code>Flow</code> - The Flow value is set by default. The range of cells are selected between the start index
                 and end index that includes in between cells of rows.</li>

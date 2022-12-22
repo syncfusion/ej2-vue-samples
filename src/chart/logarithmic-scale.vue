@@ -86,7 +86,6 @@ export default Vue.extend({
             minimum: 0,
             maximum: 100000,
             interval: 1,
-            title: Browser.isDevice ? '' : 'Profit',
             labelFormat: '${value}'
         },        
 
@@ -95,7 +94,7 @@ export default Vue.extend({
                 },
 
 
-      width: Browser.isDevice ? '100%' : '60%',
+      width: Browser.isDevice ? '100%' : '75%',
       tooltip: { enable: true, header: 'Profit' },
         legendSettings: {
             visible: false

@@ -79,7 +79,6 @@
     </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample .header-customization {
         padding-bottom: 10px;
@@ -99,7 +98,6 @@
         }
     }
 </style>
-<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { Predicate, Query, DataManager } from '@syncfusion/ej2-data';

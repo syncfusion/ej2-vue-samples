@@ -35,7 +35,7 @@
                 <div>Direction</div>
             </td>
             <td>
-                <ejs-dropdownlist ref='direction' id='direction' :dataSource='directionData' index=0></ejs-dropdownlist>
+                <ejs-dropdownlist ref='direction' id='direction' :dataSource='directionData' :change='changeSortBy' index=0></ejs-dropdownlist>
             </td>
         </tr>
         <tr>
@@ -149,6 +149,16 @@ export default Vue.extend({
         this.fieldObj.value = 'Priority';
         this.fieldObj.enabled = true;
       }
+	if (args.value === 'Ascending') {
+		var data = this.sortByObj.value === 'Index' ? 'RankId' : 'None';
+		this.setFieldValue(data);
+		this.directionObj.value = 'Ascending';
+	}
+	if (args.value === 'Descending') {
+		var data = this.sortByObj.value === 'Index' ? 'RankId' : 'None';
+		this.setFieldValue(data);
+		this.directionObj.value = 'Descending';
+	}
     },
     setFieldValue: function (data) {
         this.fieldObj.dataSource = [data];

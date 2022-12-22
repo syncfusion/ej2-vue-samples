@@ -11,7 +11,7 @@
                     <div class="cardProfile">
                         <div :class="cardProfileImage"></div>
                     </div>
-                    <div class="cardinfo">
+                    <div class="info">
                         <label id="name" style="font-size: 15px;">{{cardname}}</label><br />
                         <label id="time" style="font-weight:normal;">{{cardtime}}</label>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="cardProfile">
                         <ejs-skeleton id="cardProfile" shape="Circle" width="60px" shimmerEffect="Fade"></ejs-skeleton>
                     </div>
-                    <div class="cardinfo">
+                    <div class="info">
                         <ejs-skeleton id="cardText1" width="30%" height="15px" shimmerEffect="Fade"></ejs-skeleton>
                         <br />
                         <ejs-skeleton id="cardText2" width="15%" height="15px" shimmerEffect="Fade"></ejs-skeleton>
@@ -48,7 +48,8 @@
             <div class="col-sm-6">
                 <h5>Pulse Effect</h5>
                 <br />
-                 <ejs-listview  v-if="isDataLoaded" id='skeleton-listview' ref="listObj"  height='420px'  :dataSource='contactdata' cssClass='e-list-template e-card' :template="'listTemplate'" sortOrder='Ascending' >
+                <div class="skeleton-listcard e-card">
+                 <ejs-listview  v-if="isDataLoaded" id='skeleton-listview' ref="listObj"  height='420px'  :dataSource='contactdata' cssClass='e-list-template' :template="'listTemplate'" sortOrder='Ascending' >
                   <template v-slot:listTemplate="{data}">
                     <div class="e-list-wrapper e-list-multi-line e-list-avatar">
                       <span :class="['e-avatar e-avatar-circle']" v-if="data.avatar !== ''">{{data.avatar}}</span>
@@ -68,6 +69,7 @@
                         </div>
                     </li>
                 </ul>
+                </div>
             </div>
         </div>
 
@@ -106,8 +108,17 @@
         line-height: inherit;
         height: 420px;
     }
+    .fluent-dark #skeletondatacard,
+    .fluent-dark #skeletonCard,
+    .fluent-dark #skeleton-list{
+        background-color: #313131;
+}
+    .skeleton-listcard,
+    .e-bigger .skeleton-listcard{
+        line-height: 20px;
+}
 
-   .skeleton-animation .cardProfile {
+    .cardProfile {
         float: left;
         margin-right: 15px;
     }

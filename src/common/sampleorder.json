@@ -8,6 +8,7 @@
   "Data Visualization": [
     "Chart",
     "Stock Chart",
+    "Arc Gauge",
     "Circular Gauge",
     "Diagram",
     "HeatMap Chart",
@@ -82,7 +83,8 @@
     "File Upload",
     "Range Slider",
     "Signature",
-    "InPlaceEditor"
+    "InPlaceEditor",
+    "Rating"
   ],
   "Layout": [
     "Avatar",

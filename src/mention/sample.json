@@ -1,7 +1,6 @@
 {
     "name": "Mention",
     "directory": "mention",
-    "type":"preview",
     "category": "Dropdowns",
     "samples": [{
             "url": "default",

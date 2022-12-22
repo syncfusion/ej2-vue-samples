@@ -90,6 +90,7 @@ export default Vue.extend({
       primaryXAxis: {
         valueType: "Category",
         labelRotation: 90,
+        labelIntersectAction : Browser.isDevice ? 'Rotate90' : 'Trim',
         border: { width: 1, type: "Rectangle" },
         isIndexed: true,
         interval: 1,
@@ -166,12 +167,12 @@ export default Vue.extend({
       marker: {
         dataLabel: {
           visible: true,
-          position: "Outer"
+          position: "Outer"      
         }
       },
       
       
-      width: "80%",
+      width: Browser.isDevice ? "100%" : "75%",
       title: "Fruits and Vegetables - Season"
     };
   },

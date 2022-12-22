@@ -99,10 +99,10 @@ export default Vue.extend({
         }
       },
     onChange: function(args) {
-        if (args.event.currentTarget.id === "floating") {
+        if (args.event.target.previousElementSibling.id === "floating") {
             this.$refs.dashboard.$el.ej2_instances[0].allowFloating = args.checked;
         }
-        if (args.event.currentTarget.id === "resizing") {
+        if (args.event.target.previousElementSibling.id === "resizing") {
             this.$refs.dashboard.$el.ej2_instances[0].allowResizing = args.checked;
         }
     },

@@ -39,7 +39,7 @@
 </div>
 
 </template>
-<style scoped>
+<style >
    #waterfallContainer_Series_0_Connector_ {
         stroke-dasharray: 10px 10px;
         stroke-linejoin: round; stroke-linecap: round;
@@ -83,26 +83,30 @@ export default Vue.extend({
         chartArea: { border: { width: 0 } },
 
            //Initializing Primary X Axis
-          primaryXAxis: {
+        primaryXAxis: {
             valueType: 'Category',
             majorGridLines: { width: 0 },
-            plotOffset: 20
+            labelRotation: Browser.isDevice ? -45 : 0,
+            labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45', majorTickLines: { width: 0 },
+            minorTickLines: { width: 0 }
         },
 
 
       //Initializing Primary Y Axis
           primaryYAxis: {
             minimum: 0, maximum: 5000, interval: 1000,
-            majorGridLines: { width: 0 },
+            majorGridLines: { width: 1 },
+            lineStyle: {width: 0},
+            minorTickLines: {width: 0},
             title: 'Expenditure'
         },
 
-        width: Browser.isDevice ? '100%' : '80%',
-
+        width: Browser.isDevice ? '100%' : '75%',
+        border :{color:'black' , width: 1}, 
         animation: { enable: true },
 
          marker:  {
-            dataLabel: { visible: true, font: { color: '#ffffff' } }
+            dataLabel: { visible: true, }
          },
          connector: { color: '#5F6A6A', width: 2 },
 
@@ -126,7 +130,7 @@ export default Vue.extend({
     textRender: function(args) {
         let value = Number(args.text) / 1000;
             value = Math.round((value * 100)) / 100;
-            args.text = value.toString();
+            args.text = value.toString() +'B';
     },
     axisLabelRender: function(args) {
         if (args.axis.name === 'primaryYAxis') {

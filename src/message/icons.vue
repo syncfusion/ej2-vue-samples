@@ -11,7 +11,7 @@
         <ejs-button id="btn4" ref="warningBtn" content="Show Warning Message" cssClass="e-outline e-primary e-warning msg-hidden" v-on:click.native="warningClick"></ejs-button>
         <ejs-message id="msg_warning_icon" ref="msgWarning" severity="Warning" :showCloseIcon="showCloseIcon" :closed="warningClosed">There was a problem with your network connection</ejs-message>
         <ejs-button id="btn5" ref="errorBtn" content="Show Error Message" cssClass="e-outline e-primary e-error msg-hidden" v-on:click.native="errorClick"></ejs-button>
-        <ejs-message id="msg_error_icon" ref="msgError" severity="Error" :showCloseIcon="showCloseIcon" :closed="errorClosed">A problem has been occurred while submitting your data</ejs-message>
+        <ejs-message id="msg_error_icon" ref="msgError" severity="Error" :showCloseIcon="showCloseIcon" :closed="errorClosed">A problem occurred while submitting your data</ejs-message>
       </div>
     </div>
     <div class="col-lg-4 property-section">

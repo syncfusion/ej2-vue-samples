@@ -1,33 +1,34 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartDashLine' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :crosshair='crosshair'>
+        <ejs-chart style='display:block' :theme='theme' align='center' id='dashed-chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :crosshair='crosshair' :load='load'>
+          <e-annotations>
+            <e-annotation content='<div >Actual</div>' coordinateUnits='Point' x='Feb' y='125' >
+            </e-annotation>
+            <e-annotation content='<div >Forecast</div>' coordinateUnits='Point' x='Aug' y='210'>
+            </e-annotation>
+          </e-annotations>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Banana' dashArray=5 width=2 :marker='marker'> </e-series>
-                <e-series :dataSource='seriesData1' type='Line' xName='x' yName='y' name='Apple' dashArray=10 width=2 :marker='markerSeries2'> </e-series>
-               
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Banana_ProductionRate' opacity=1 width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='seriesData1' type='Line' xName='Period' yName='Banana_ProductionRate' opacity=1 dashArray=10 width=2 :marker='marker'> </e-series>  
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample illustrates a line series with dash array. 
-        Dashed lines are animated by using css animation.
+        This sample shows the rate of fruit production statistics with default line series and dash array in the chart. Dashed lines are animated using CSS animation.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the line type charts. Line type charts are used to represent time-dependent
-        data, showing trends in data at equal intervals. You can use
-        <code>dashArray</code>,
-        <code>width</code>,
-        <code>fill</code> properties to customize the line.
-        <code>marker</code> and
-        <code>dataLabel</code> are used to represent individual data and its value.
+        In this example, you will see how to render and configure the line chart. Line charts are used to represent time-dependent data, showing trends in data at equal intervals. You can use
+        <code>DashArray</code>,
+        <code>Width</code>, and 
+        <code>Fill</code> properties to customize the line.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
     <br>
     <p style="font-weight: 500">Injecting Module</p>
@@ -37,40 +38,38 @@
         <code>provide: { chart: [LineSeries, Legend, DateTime, Tooltip, Crosshair]},</code> method.
     </p>
     <p>
-        More information on the line series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        More information about the line type series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#line-charts">documentation section</a>.
     </p>
 </div>
 </div>
 
 
 </template>
-<style scoped>
- #chartDashLine_Series_1,
-    #chartDashLine_Series_0 {
-        stroke-dasharray: 10px 10px;
-        stroke-linejoin: round; stroke-linecap: round;
-        -webkit-animation: dash 1s linear infinite;
-        animation: dash 1s linear infinite;
+<style >
+#control-container {
+        padding: 0px !important;
     }
-
-    #chartDashLine_Series_0_Point_3_Symbol {
-        -webkit-animation: opac 1s ease-out infinite;
-        animation: opac 1s ease-out infinite;
-    }
-
+    
+        #dashed-chartcontainer_Series_1 {
+            stroke-dasharray: 10px 10px;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+    
+    
     @-webkit-keyframes dash {
         100% {
             stroke-dashoffset: -20px;
         }
     }
-
+    
     @keyframes dash {
         100% {
             stroke-dashoffset: -20px;
         }
     }
-
+    
     @keyframes opac {
         0% {
             stroke-opacity: 1;
@@ -81,11 +80,15 @@
             stroke-width: 10px;
         }
     }
+    .dashed-chartcontainer_Annotation_0{
+        color: black ;
+        background-color: red;
+    }
 </style>
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, LineSeries, DateTime, Legend, Tooltip, Crosshair } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, LineSeries, DateTime, Legend, Tooltip, Crosshair, Category, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
@@ -97,37 +100,42 @@ export default Vue.extend({
     return {
          theme: theme,
       seriesData: [
-                    { x: new Date(2005, 0, 1), y: 12 }, { x: new Date(2006, 0, 1), y: 10.6 },
-                    { x: new Date(2007, 0, 1), y: 15.6 }, { x: new Date(2008, 0, 1), y: 38.6 },
-                    { x: new Date(2009, 0, 1), y: 27.4 }, { x: new Date(2010, 0, 1), y: 23.5 },
-                    { x: new Date(2011, 0, 1), y: 16.6 }
-
+                    { Period : "Jan", Banana_ProductionRate : 100 },
+                    { Period : "Feb", Banana_ProductionRate : 110 },
+                    { Period : "Mar", Banana_ProductionRate : 125 },
+                    { Period : "Apr", Banana_ProductionRate : 150 },
+                    { Period : "May", Banana_ProductionRate : 140 },
+                    { Period : "Jun", Banana_ProductionRate : 160 }
                 ],
-
       seriesData1: [
-                    { x: new Date(2005, 0, 1), y: 9.5 }, { x: new Date(2006, 0, 1), y: 19.9 },
-                    { x: new Date(2007, 0, 1), y: 25.2 }, { x: new Date(2008, 0, 1), y: 36 },
-                    { x: new Date(2009, 0, 1), y: 16.6 }, { x: new Date(2010, 0, 1), y: 14.2 }, { x: new Date(2011, 0, 1), y: 10.3 }
-
+                     { Period : "Jun", Banana_ProductionRate : 160 },
+                     { Period : "Jul", Banana_ProductionRate : 170 },
+                     { Period : "Aug", Banana_ProductionRate : 180 },
+                     { Period : "Sep", Banana_ProductionRate : 190 },
+                     { Period : "Oct", Banana_ProductionRate : 200 },
+                     { Period : "Nov", Banana_ProductionRate : 230 },
+                     { Period : "Dec", Banana_ProductionRate : 270 }            
       ],
       //Initializing Primary X Axis
         primaryXAxis: {
-            valueType: 'DateTime',
-            labelFormat: 'y',
-            intervalType: 'Years',
-            edgeLabelPlacement: 'Shift',
-            majorGridLines: { width: 0 }
+            valueType: 'Category',
+            interval: 1,
+            majorTickLines: {width : 0},
+            minorTickLines: {width: 0},
+            majorGridLines: { width: 0 },
+            labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45',
+            labelRotation: Browser.isDevice ? -45 : 0,
         },
 
       //Initializing Primary Y Axis
         primaryYAxis:
         {
-            labelFormat: '{value}%',
+            labelFormat: '{value}K',
             rangePadding: 'None',
             lineStyle: { width: 0 },
             minimum: 0,
-            maximum: 40,
-            interval: 10,
+            maximum: 300,
+            interval: 50,
             majorTickLines: { width: 0 },
             minorTickLines: { width: 0 }
         },
@@ -137,41 +145,104 @@ export default Vue.extend({
             }
         },
 
-      marker: {
-              visible: true,
-              width: 10,
-              height: 10
-                },
-      markerSeries2: {
-                visible: true,
-                width: 10,
-                height: 10,
-                shape: 'Diamond'
-                },
-
-
-      width : Browser.isDevice ? '100%' : '60%',
+      marker: {  visible: false },
+      width : Browser.isDevice ? '100%' : '75%',
        tooltip: {
-        enable: true,
-        shared: true
+          header: '<b>Fruits Production</b>',
+          enable: true,
+          shared: true,
+          format: '${point.x} : <b>${point.y}'
       },
       crosshair: {
-            enable: true,
-            line: {
-                color: 'rgba(204,214,235,0.25)',
-                width: Browser.isDevice ? 50 : 20,
-            },
-            lineType: 'Vertical'
+            enable: false,
         },
-
       
       title: "Fruits Production Statistics"
     };
   },
   provide: {
-    chart: [LineSeries, Legend, DateTime, Tooltip, Crosshair]
+    chart: [LineSeries, Legend, DateTime, Tooltip, Crosshair, Category, ChartAnnotation]
   },
+  
   methods: {
+    load: function(args) {
+        let selectedTheme = location.hash.split('/')[1];
+        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+        args.chart.annotations[0].content = '<div style="color:black; font-family: bold ">Actual</div>';
+        args.chart.annotations[1].content = '<div style="color:black; font-family: bold ">Forecast</div>';
+        if (selectedTheme==='material-dark')
+        {
+            this.AnnotationColor = 'dark';
+        }
+        else if(selectedTheme==='material')
+        {
+            this.AnnotationColor = "light";  
+        }
+        else if (selectedTheme==='fabric-dark')
+        {
+            this.AnnotationColor = 'dark';
+        }
+        else if(selectedTheme==='fabric')
+        {
+            this.AnnotationColor = "light";  
+        }
+        else if (selectedTheme==='bootstrap5-dark')
+        {
+            this.AnnotationColor = 'dark';
+        }
+        else if (selectedTheme==='bootstrap5')
+        {
+            this.AnnotationColor = "light";  
+        }
+        else if (selectedTheme==='fluent-dark')
+        {
+            this.AnnotationColor = "dark";    
+        }
+        else if (selectedTheme==='fluent')
+        {
+            this.AnnotationColor = "light";  
+        }
+        else if (selectedTheme==='bootstrap4')
+        {
+            this.AnnotationColor = "light";          
+        }
+        else if (selectedTheme==='bootstrap-dark')
+        {
+            this.AnnotationColor = "dark";         
+        }
+        else if (selectedTheme==='bootstrap')
+        {
+            this.AnnotationColor = "light";          
+        }
+        else if (selectedTheme==='tailwind-dark')
+        {
+            this.AnnotationColor = "dark";    
+        }
+        else if (selectedTheme==='tailwind')
+        {                    
+            this.AnnotationColor = "light";  
+        }
+        else if (selectedTheme==='highcontrast')
+        {
+            this.AnnotationColor = "dark";            
+        }
+        else
+        {
+            this.AnnotationColor = "light";  
+        }
+        
+        if(this.AnnotationColor=="light")
+        {
+            args.chart.annotations[0].content = '<div style="color:black; font-weight: bold ">Actual</div>';
+            args.chart.annotations[1].content = '<div style="color:black; font-weight: bold ">Forecast</div>';
+        }
+        else
+        {
+            args.chart.annotations[0].content = '<div style="color:whitesmoke; font-weight: bold ">Actual</div>';
+            args.chart.annotations[1].content = '<div style="color:whitesmoke; font-weight: bold ">Forecast</div>';
+        }
+  },
   },
  
 });

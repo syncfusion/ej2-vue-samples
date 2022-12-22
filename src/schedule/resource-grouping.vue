@@ -61,14 +61,12 @@
         text-align: left;
     }
 
-    /* custom code start*/
     .schedule-vue-sample .schedule-demo-heading {
         font-size: 16px;
         padding-bottom: 15px;
         text-align: center;
         font-weight: 500
     }
-    /* custom code end*/
 
     .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap {
         display: table;
@@ -142,13 +140,11 @@
         height: 67px;
     }
 
-    /* custom code start*/
     @media (max-width: 550px) {
         .schedule-vue-sample .schedule-demo-heading {
             font-size: 14px;
         }
     }
-    /* custom code end*/
 </style>
 <script>
     import Vue from "vue";
@@ -219,7 +215,6 @@
         provide: {
             schedule: [Week, Month, Agenda, Resize, DragAndDrop]
         },
-        // custom code start
         methods: {
              generateEvents: function () {
                 var subjectCollection = ['Barcelona to Los Angeles', 'Los Angeles to Barcelona'];
@@ -247,7 +242,6 @@
                 return collections;
             }
         }
-        // custom code end
     });
 
 </script>

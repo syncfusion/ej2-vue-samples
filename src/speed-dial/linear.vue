@@ -75,7 +75,12 @@ export default Vue.extend({
     .speeddial-linear-target {
         min-height: 550px;
         position: relative
-    }    
+    }  
+    
+    .speeddial-linear-target .e-fab.e-btn{
+        z-index: 99999;
+    }
+    
     .custom-index{
         z-index:500 !important;
     }

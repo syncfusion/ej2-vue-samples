@@ -1,0 +1,36 @@
+{
+    "name": "Arc Gauge",
+    "directory": "arc-gauge",
+    "type": "new",
+    "category": "Data Visualization",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "type": "new",
+            "category": "Arc Gauge",
+             "api":{"CircularGauge": ["axes"]}
+        },
+        {
+            "url": "customer-satisfaction-score",
+            "name": "Customer Satisfaction Score",
+            "type": "new",
+            "category": "Arc Gauge",
+            "api":{"CircularGauge": ["axes"]}
+        },
+        {
+            "url": "key-performance-indicator",
+            "name": "Key Performance Indicator",
+            "category": "Arc Gauge",
+            "type": "new",
+            "api":{"CircularGauge": ["axes"]}
+        },
+        {
+            "url": "patterns",
+            "name": "Patterns",
+            "type": "new",
+            "category": "Arc Gauge",
+            "api":{"CircularGauge": ["axes"]}
+        }
+    ]
+}

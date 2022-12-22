@@ -61,7 +61,7 @@ export default Vue.extend({
             width: 0
         }
     },
-    width: Browser.isDevice ? '100%' : '60%',
+    width: Browser.isDevice ? '100%' : '75%',
     vertical: true,
     count: 0,
     title: 'Indonesia - Seismograph Analysis'

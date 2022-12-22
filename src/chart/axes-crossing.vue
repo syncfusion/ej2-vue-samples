@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div class="col-md-8 control-section">
-        <ejs-chart style='display:block;' ref="chart" :legendSettings='legend' id='chartcontainer' :primaryXAxis='primaryXAxis' :tooltip='tooltip'
+        <ejs-chart style='display:block;' ref="chart" :legendSettings='legend'  id='chartcontainer' :primaryXAxis='primaryXAxis' :tooltip='tooltip'
             :primaryYAxis='primaryYAxis' :title='title' :theme='theme'>
             <e-series-collection>
                 <e-series :dataSource='data2' name='Linear Interpolation' type='Line' fill='blue' xName='x' yName='y' width=2 enableTooltip=false>

@@ -2,41 +2,8 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :load='load'>
-            <e-annotations>
-                <e-annotation :content="'annotationTemplate'" region='Series' x='90%' y='12%'>
-                    <template v-slot:annotationTemplate="{}">
-                        <div style="width:80px; padding: 5px;">
-                                <table style="width: 100%">
-                                    <tr>
-                                        <td>
-                                            <div style='width: 10px; height: 10px; background:blue;border-radius: 15px;'></div>
-                                        </td>
-                                        <td style="padding-left: 5px;">
-                                            High
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div style='width: 10px; height: 10px; background:green;;border-radius: 15px;'></div>
-                                        </td>
-                                        <td style="padding-left: 5px;">
-                                            Medium
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div style='width: 10px; height: 10px; background:red;;border-radius: 15px;'></div>
-                                        </td>
-                                        <td style="padding-left: 5px;">
-                                            Low
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                    </template>
-                </e-annotation>
-            </e-annotations>
+            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :load='load' :annotations='annotations'>
+           
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='MultiColoredLine' xName='XValue' yName='YValue' :segments='segments' name='Australia' width=2 segmentAxis='Y' > </e-series>
             </e-series-collection>
@@ -44,17 +11,18 @@
     </div>
     <div id="action-description">
     <p>
-        This sample visualizes the annual mean rainfall data with multi colored line series in the chart. 
-        Data points are enhanced with segments and tooltip.
+        This sample visualizes the annual mean rainfall in Australia with multi-colored line series in the chart. Data points are enhanced with segments and tooltips.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the points in a particular range by using <code>MultiColoredLine</code> series type. 
-        Points under the range can be configured with <code>color</code>, <code>width</code>, and <code>dashArray</code>.
+        In this example, you can see how to render and configure the points in a particular range by using
+        <code>MultiColoredLine</code> series. Points under the range can be customized with
+        <code>Color</code> and
+        <code>DashArray</code>properties in the ChartSegment.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap a point in touch enabled devices.
+        <code>Tooltips</code>are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
     <br>
     <p style="font-weight: 500">Injecting Module</p>
@@ -63,11 +31,42 @@
         <code>MultiColoredLineSeries</code> module using
         <code>provide: { chart: [MultiColoredLineSeries] },</code> method.
     </p>
+    <p>
+          More information about the line type series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#line-charts">documentation section</a>.
+    </p> 
 </div>
 </div>
 </template>
 <style scoped>
-
+ .chartCircle {
+        width: 10px;
+        height: 10px;
+        border-radius: 15px;
+    }
+    .blueCircle {
+        color: blue;
+        font-weight: bold;
+    }
+    .greenCircle {
+        color: green;
+        font-weight: bold;
+    }
+    .redCircle {
+        color: red;
+        font-weight: bold;
+    }
+    .chartPadding {
+        padding-left: 5px;
+        font-size: 14px;
+    }
+    .ellipse[id*=_Trackball_0] {
+        stroke-opacity: 1;
+    }
+    .ellipse[id*=_Trackball_1] {
+        stroke-width: 1.2 !important;
+        stroke: white !important;
+    }
 </style>
 <script>
 import Vue from "vue";
@@ -98,11 +97,8 @@ export default Vue.extend({
       theme: theme,
       //Initializing Primary X Axis
       primaryXAxis: {
-            valueType: 'DateTime',
-            labelFormat: 'y',
-            intervalType: 'Years',
+        valueType: 'DateTime', minimum : new Date(1910, 0, 1), maximum : new Date(2010, 0, 1), majorGridLines: {width : 0},
             edgeLabelPlacement: 'Shift',
-            majorGridLines: { width: 0 }
         },
 
       //Initializing Primary Y Axis
@@ -123,10 +119,29 @@ export default Vue.extend({
             }
         },
       legendSettings: { visible: false },
-      width : Browser.isDevice ? '100%' : '60%',
+      width : Browser.isDevice ? '100%' : '75%',
       tooltip: {
             enable: true, shared: true
         },
+        annotations: [{
+            content: "<div style='color:green; font-weight:bold; font-size:14px'>Medium</div>",
+            region: 'Series',
+            x: Browser.isDevice ? '24%' : '20%',
+            y: Browser.isDevice ? '44%' : '48%'
+        },
+        {
+            content: "<div style='color:blue; font-weight:bold;font-size:14px'>High</div>",
+            region: 'Series',
+            x: '68%',
+            y: '10%'
+        },
+        {
+            content: "<div style='color:red; font-weight:bold; font-size:14px'>Low</div>",
+            region: 'Series',
+            x: '95%',
+            y: '84%'
+        },
+        ],
       segments: [{
                    value: 450,
                    color: 'red'
@@ -136,7 +151,7 @@ export default Vue.extend({
                   }, {
                     color: 'blue'
                 }],
-       title: "Annual Mean Rainfall for Australia"
+       title: "Annual Mean Rainfall in Australia"
     };
   },
   provide: {

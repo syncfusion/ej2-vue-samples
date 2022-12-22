@@ -15,7 +15,7 @@
                     <div class="sb-home-text">
                         <span>HOME</span>
                     </div>
-                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html"></a>
+                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html" aria-label="Sample home page"></a>
                 </div>
                 <div class='sb-control-navigation'>
                     <div id="controlTree" class='e-view'></div>
@@ -29,11 +29,11 @@
                 </div>
                 <div class='sb-left-footer'>
                     <div class="sb-mobile-header-buttons">
-                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank">
+                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank" aria-label="About Vue component">
                             <div class="sb-mobile-header-about">
                                 About</div>
                         </a>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank" aria-label="Prcing of Vue component">
                             <div class="sb-mobile-header-price">Pricing</div>
                         </a>
                     </div>
@@ -55,7 +55,7 @@
                 <div class='sb-header-left sb-left sb-table'>
                     <div class='sb-header-item sb-table-cell'>
                         <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger" aria-label="toggle all controls navigation"
-                            title='toggle leftpane'></div>
+                            title='toggle leftpane' aria-selected="true"></div>
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
@@ -92,12 +92,12 @@
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
                     <div class='sb-header-item sb-table-cell sb-download-wrapper'>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">                
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank" aria-label="Free Trial">                
                         <button id='download-now' class='sb-download-btn'>
                                     <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
                         </a>
-                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank">
+                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" aria-label="Install NPM">
                         <button class='sb-npm-btn'>
                             <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span class="doc-npm-link">Install NPM</span>
                         </button>
@@ -193,7 +193,7 @@
                            <span class="switch-text">High Contrast</span>
                         </li>
                     </ul>
-                     <div class="sb-theme-studio"><a target="_blank" href="https://ej2.syncfusion.com/themestudio/?theme=material">Go to Theme Studio</a></div>
+                     <div class="sb-theme-studio"><a target="_blank" href="https://ej2.syncfusion.com/themestudio/?theme=material" aria-label="Go to Theme Studio">Go to Theme Studio</a></div>
                 </div>
                 <div id='settings-popup' class='sb-setting-popup'>
                     <div class='sb-setting-header'>
@@ -282,7 +282,7 @@
                         </div>
                     </div>
                     <div class='sb-desktop-wrapper'>
-                        <div id='component-name' role='header' class='sb-component-name sb-rightpane-padding'>
+                        <div id='component-name' role="heading" aria-level="1" class='sb-component-name sb-rightpane-padding'>
                             <h1 class='sb-sample-text'>Chart</h1>
                         </div>
                         <div id='sample-bread-crumb' class='sb-bread-crumb sb-rightpane-padding'>
@@ -294,7 +294,7 @@
                                 <div class='crumb-sample '></div>
                             </div>
 
-                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html"></a>
+                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html" aria-label="Sample home page"></a>
                         </div>
                         <div class='sb-action-description sb-rightpane-padding'>
                             Componet Action Description
@@ -368,23 +368,23 @@
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">
-                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank">
+                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank" aria-label="Documentation link">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank">
+                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank" aria-label="Forum link">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
-                                    <a href="https://syncfusion.com/blogs" target="_blank">
+                                    <a href="https://syncfusion.com/blogs" target="_blank" aria-label="Blog link">
                                         <div class="sb-footer-link">Blog</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/kb/" target="_blank">
+                                    <a href="https://www.syncfusion.com/kb/" target="_blank" aria-label="Knowledge base">
                                         <div class="sb-footer-link">Knowledge Base</div>
                                     </a>
                                 </div>
                                 <div class="sb-footer-copyright"></div>
                             </div>
                             <div class="sb-footer-logo">
-                                <a href="https://www.syncfusion.com/" target="_blank">
+                                <a href="https://www.syncfusion.com/" target="_blank" aria-label="Footer logo">
                                     <div class="sb-footer-logo-icon"></div>
                                 </a>
                             </div>
@@ -533,7 +533,7 @@ let mobileSetting: HTMLElement;
 let copyRight: HTMLElement;
 let hsplitter: string = '<div class="sb-toolbar-splitter sb-custom-item"></div>';
 // tslint:disable-next-line:no-multiline-string
-let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank">
+let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank" aria-label="Open new sample">
         <div class="sb-icons sb-icon-Popout"></div></a></div>`;
 let sampleNavigation: string = `<div class="sb-custom-item sample-navigation"><button id='prev-sample' class="sb-navigation-prev" 
 aria-label="previous sample">
@@ -954,7 +954,7 @@ export default Vue.extend({
                     },
                     placeholder: 'Search here...',
                     noRecordsTemplate: '<div class="search-no-record">We’re sorry. We cannot find any matches for your search term.</div>',
-                    fields: { groupBy: 'doc.component', value: 'doc.name', text: 'doc.name' },
+                    fields: { groupBy: 'doc.component', value: 'doc.uid', text: 'doc.name' },
                     popupHeight: 'auto',
                     suggestionCount: 10,
                     highlight: true,

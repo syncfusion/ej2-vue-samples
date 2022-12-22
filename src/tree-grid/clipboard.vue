@@ -38,8 +38,7 @@
     <div id="description">
     <p>Selected rows or cells data in the Tree Grid can be copied into the clipboard using the Keyboard shortcuts and
         <code><a target="_blank"
-        href="https://ej2.syncfusion.com/documentation/api/treegrid/#copy">copy
-        </a></code> method.
+        href="https://ej2.syncfusion.com/documentation/api/treegrid/#copy">copy</a></code> method.
     </p>
     <p>In this demo, selected rows data can be copied into the clipboard using the below Keyboard shortcuts or toolbar
         interactions.

@@ -2,7 +2,7 @@
 <div>
     <div class="control-section folder-upload">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :created='onCreated' >
+            <ejs-filemanager id="filemanager" ref="fileObject" :ajaxSettings='ajaxSettings' :success='onSuccess' >
             </ejs-filemanager>
         </div>
     </div>
@@ -57,7 +57,8 @@ export default Vue.extend ({
             filemanager: [NavigationPane, DetailsView, Toolbar]
     },
     methods: {
-        onCreated: function (args) {
+        onSuccess: function (args) {
+            if (!document.getElementById("filemanager_tb_upload").classList.contains("e-dropdown-btn")) {
             var customBtn = document.getElementById("filemanager_tb_upload");
             customBtn.onclick = (e) => {
                 e.stopPropagation();
@@ -80,8 +81,8 @@ export default Vue.extend ({
                 },
             },"#filemanager_tb_upload"
             );
+            }
         },
   },
 });
 </script>
-

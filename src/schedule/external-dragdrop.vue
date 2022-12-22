@@ -7,7 +7,7 @@
                     <h1 class="title-text">Doctor's Appointments</h1>
                 </div>
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :group='group' :currentView='currentView' :resourceHeaderTemplate='resourceHeaderTemplate' :drag="onItemDrag" :actionBegin="onActionBegin">
+                    :group='group' :currentView='currentView' :resourceHeaderTemplate='resourceHeaderTemplate' :actionBegin="onActionBegin">
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
                         <e-view option="TimelineMonth"></e-view>
@@ -26,7 +26,7 @@
                 <div class="title-container">
                     <h1 class="title-text">Waiting List</h1>
                 </div>
-                <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onItemDrag" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop"></ejs-treeview>
+                <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onTreeDrag" :nodeDragStart="onTreeDragStart" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop" :nodeSelecting="onItemSelecting" ></ejs-treeview>
             </div>
             <div id="action-description">
                 <p>
@@ -46,6 +46,7 @@
     </div>
 </template>
 <style>
+
 .schedule-vue-sample .drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -85,6 +86,7 @@
     font-weight: bold;
     text-align: center;
 }
+
 
 .schedule-vue-sample .treeview-external-drag #waitlist {
     width: 100%;
@@ -154,6 +156,7 @@
 .schedule-vue-sample .treeview-external-drag.e-rtl .e-text-content,
 .e-bigger .schedule-vue-sample .treeview-external-drag.e-rtl .e-text-content {
     padding: 0;
+    background-color: inherit;
 }
 .schedule-vue-sample .e-drag-item.e-treeview.treeview-external-drag,
 .e-bigger .schedule-vue-sample .e-drag-item.e-treeview.treeview-external-drag {
@@ -211,13 +214,15 @@
 }
 
 @media (max-width: 550px) {
+    
     .schedule-vue-sample .schedule-container {
         padding-bottom: 10px
     }
+    
 
     .schedule-vue-sample .treeview-external-drag.e-treeview,
     .e-bigger .schedule-vue-sample .treeview-external-drag.e-treeview {
-        width: 225px;
+        width: 250px;
     }
 
     .e-bigger .schedule-vue-sample .treeview-external-drag.e-treeview.e-drag-item {
@@ -228,6 +233,12 @@
         display: block;
     }
 }
+    .e-disble-not-allowed {
+        cursor: unset !important;
+    }
+    .e-drag-item.treeview-external-drag .e-icon-expandable {
+        display: none;
+     }
 </style>
 
 <script>
@@ -330,24 +341,15 @@
             }
         },
         methods: {
-            onItemDrag: function(event) {
+            onTreeDrag: function(event) {
                 let scheduleObj = this.$refs.ScheduleObj.ej2Instances;
                 if (scheduleObj.isAdaptive) {
                     let classElement = document.querySelector('.e-device-hover');
                     if (classElement) {
                         classElement.classList.remove('e-device-hover');
                     }
-                    if (event.event.target.classList.contains('e-work-cells')) {
-                        addClass([event.event.target], 'e-device-hover');
-                    }
-                }
-                if (document.body.style.cursor === 'not-allowed') {
-                    document.body.style.cursor = '';
-                }
-                if (event.name == 'nodeDragging') {
-                    let dragElementIcon = document.querySelectorAll('.e-drag-item .e-icon-expandable');
-                    for (let i = 0; i < dragElementIcon.length; i++) {
-                        dragElementIcon[i].style.display = 'none';
+                    if (event.target.classList.contains('e-work-cells')) {
+                        addClass([event.target], 'e-device-hover');
                     }
                 }
             },
@@ -365,6 +367,9 @@
                         remove(elements[i]);
                     }
                 }
+            },
+            onItemSelecting: function (args) {
+                args.cancel = true;
             },
             onTreeDragStop: function(event) {
                 let treeElement = closest(event.target, '.e-treeview');
@@ -398,6 +403,10 @@
                         }
                     }
                 }
+                document.body.classList.remove('e-disble-not-allowed')
+            },
+            onTreeDragStart: function() {
+                document.body.classList.add('e-disble-not-allowed');
             }
         },
         provide: {

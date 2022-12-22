@@ -105,12 +105,13 @@ export default Vue.extend({
       ],
 
       //Initializing Primary X Axis
-     primaryXAxis: {
-            title: 'Manager',
-            valueType: 'Category',
-            majorGridLines: { width: 0 }
+      primaryXAxis: {
+        valueType: 'Category',
+        majorGridLines: { width: 0 },
+        majorTickLines: { width: 0 },
+        minorTickLines: { width: 0 }
 
-        },
+      },
         chartArea: {
             border: {
                 width: 0
@@ -123,7 +124,10 @@ export default Vue.extend({
             title: 'Sales',
             minimum: 0,
             maximum: 20000,
-            majorGridLines: { width: 0 }
+            labelFormat: '${value}',
+            lineStyle: { width: 0 },
+            minorTickLines: { width: 0 },
+            majorTickLines: { width: 0 },
         },
 
       tooltip: {

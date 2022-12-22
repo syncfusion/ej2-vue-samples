@@ -35,7 +35,6 @@
             </p>
         </div>
 
-        <!-- custom code start -->
         <div id="description">
             <p>
                 With the usage of template, the user can format and change the default appearance of the events by making use of the
@@ -44,7 +43,6 @@
                 will be displayed directly on the events.
             </p>
         </div>
-        <!-- custom code end -->
 
     </div>
 </template>

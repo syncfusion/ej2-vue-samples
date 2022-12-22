@@ -98,7 +98,7 @@ export default Vue.extend({
                 },
 
 
-        width: Browser.isDevice ? '100%' : '80%',
+        width: Browser.isDevice ? '100%' : '75%',
 
        border: { width: 1.5 },
         

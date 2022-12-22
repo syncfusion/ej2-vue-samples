@@ -201,6 +201,10 @@ visibility: hidden;
     height: 100px;
 }
 
+.e-bigger .e-inplaceeditor .e-editable-value-wrapper .e-editable-value {
+    margin-right: 0px;
+}
+
 .inplace-control-section.pickers-layout .control_wrapper table td .control-label {
     margin-bottom: 0px;
 }

@@ -2,7 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartSpline' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip'>
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-annotations>
                 <e-annotation :content="'cloudTemplate'" x='Sun' y=2 coordinateUnits='Point' verticalAlignment='Top'>
                     <template v-slot:cloudTemplate="{}">
@@ -27,17 +27,16 @@
     </div>
     <div id="action-description">
     <p>
-        This sample visualizes the NC weather report for the year 2016 with default spline series in the chart. 
-        Low and high temperature of the year are indicated by using annotation.
+      This Vue Spline Chart example represents the North Carolina weather report for the year 2016 with default spline series in the chart.
     </p>
 </div>
 <div id="description">
      <p>
-        In this example, you can see how to render and configure the spline type charts. Spline chart connects each point in series through a curved line.
-        You can use <code>dashArray</code>, <code>width</code>, <code>fill</code> properties to customize the spline. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
+      In this example, you can see how to render and configure the spline chart. The Spline chart uses a curved line to connect points in a data series.
+        <code>Marker</code> are used to represent individual data and its value.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+      <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
       <br>
         <p style="font-weight: 500">Injecting Module</p>
@@ -46,8 +45,8 @@
             <code>SplineSeries</code> module using <code>provide: { chart: [SplineSeries] }</code> method.
         </p>
         <p>
-            More information on the spline series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+          More information about the line type series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#line-charts">documentation section</a>.
         </p> 
 </div>
 
@@ -81,7 +80,7 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, SplineSeries, ChartAnnotation, Category,  Legend, Tooltip } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, SplineSeries, ChartAnnotation, Category,  Legend, Tooltip, Highlight } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
@@ -126,7 +125,7 @@ export default Vue.extend({
       primaryXAxis: {
             valueType: 'Category',
             interval: 1, majorGridLines: { width: 0 },
-            labelIntersectAction: 'Rotate90'
+            labelIntersectAction: 'Rotate90', majorTickLines: {width: 0}, minorTickLines: {width : 0}
         },
       //Initializing Primary Y Axis
        primaryYAxis:
@@ -141,7 +140,7 @@ export default Vue.extend({
           width: 0
         }
       },
-       width : Browser.isDevice ? '100%' : '60%',
+       width : Browser.isDevice ? '100%' : '75%',
        marker: {
         visible: true,
         height: 10,
@@ -150,11 +149,12 @@ export default Vue.extend({
       tooltip: {
         enable: true
       },
+      legend: {enableHighlight : true},
       title: "NC Weather Report - 2016"
     };
   },
   provide: {
-    chart: [SplineSeries, Legend, Category, Tooltip, ChartAnnotation]
+    chart: [SplineSeries, Legend, Category, Tooltip, ChartAnnotation, Highlight]
   },
   methods: {
   },

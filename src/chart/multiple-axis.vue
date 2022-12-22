@@ -71,11 +71,13 @@ export default Vue.extend({
      ],
      
       //Initializing Primary X Axis
-      primaryXAxis: {
+        primaryXAxis: {
             valueType: 'Category',
             interval: 1,
             labelIntersectAction: 'Rotate90',
             majorGridLines: { width: 0 },
+            majorTickLines: { width: 0 },
+            minorTickLines: { width: 0 }
         },
 
 
@@ -103,7 +105,7 @@ export default Vue.extend({
             }
         ],
        marker: { visible: true, width: 10, height: 10, border: { width: 2, color: '#F8AB1D' } },
-       width: Browser.isDevice ? '100%' : '60%',
+       width: Browser.isDevice ? '100%' : '75%',
        tooltip: { enable: true },
         legendSettings: {
             visible: false

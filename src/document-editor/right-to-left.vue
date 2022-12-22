@@ -84,6 +84,7 @@ import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar 
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { L10n, setCulture  } from '@syncfusion/ej2-base';
 import { rtlDocument } from "./data";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
 L10n.load({
     'ar-AE': {
@@ -657,7 +658,7 @@ L10n.load({
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
-
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   components: {

@@ -1,8 +1,8 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart ref='chart' style='display:block' :theme='theme' align='center' id='keyboardcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip'  :legendSettings='legendSettings'
+        <ejs-chart ref='chart' style='display:block' :theme='theme' align='center' id='keyboardcontainer' :title='title' :width='width' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :tooltip='tooltip'  :legendSettings='legendSettings'
             :enableAnimation='enableAnimation'
             :enableSideBySidePlacement='enableSideBySidePlacement'
             :zoomSettings='zoomSettings'
@@ -136,6 +136,7 @@
 import Vue from "vue";
 import {ChartPlugin, Chart, Category, ColumnSeries, Legend, Tooltip, StripLine, Selection, Zoom} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
+import { Browser, EmitType } from '@syncfusion/ej2-base';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -300,7 +301,7 @@ export default Vue.extend({
                 width: 0
             }
         },
-      
+        width: Browser.isDevice ? "100%" : "75%",
         tooltip: { 
             enable: true
          },

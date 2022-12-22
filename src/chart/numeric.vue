@@ -104,7 +104,7 @@ export default Vue.extend({
             args.cancel = args.value === 15 || args.value === 21;
         }
          },
-         width: Browser.isDevice ? '100%' : '60%',
+         width: Browser.isDevice ? '100%' : '75%',
          title: "England vs West Indies"
     };
   },

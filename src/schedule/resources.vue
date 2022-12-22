@@ -310,7 +310,6 @@
         margin-top: 0px;
     }
 
-    /* custom code start*/
     .schedule-vue-sample .schedule-demo-heading {
         font-size: 16px;
         padding-bottom: 15px;
@@ -338,7 +337,6 @@
             font-size: 14px;
         }
     }
-    /* custom code end*/
 </style>
 <script>
     import Vue from "vue";
@@ -464,7 +462,6 @@
                 return finalData;
             },
 
-             //custom code start 
             generateEvents: function (scheduleObj) {
                 var collections = [];
                 var dataCollections = [
@@ -511,7 +508,6 @@
                 var filteredCollection = this.filterByFare(collections, scheduleObj);
                 return filteredCollection;
             },
-            //custom code end 
 
             onChange: function (args) {
                 let scheduleObj = document.getElementById('Schedule').ej2_instances[0];

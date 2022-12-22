@@ -98,7 +98,7 @@ export default Vue.extend({
 
        crosshair: { enable: true, lineType: 'Vertical' },
 
-     width: Browser.isDevice ? '100%' : '80%',
+     width: Browser.isDevice ? '100%' : '75%',
 
       tooltip: {
             enable: true, shared: true
