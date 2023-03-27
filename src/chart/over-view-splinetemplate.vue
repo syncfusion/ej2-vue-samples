@@ -7,6 +7,18 @@
                 <e-series :dataSource='seriesData1' type='SplineArea' xName='Period' yName='Percentage' name='Retail' width=2.5 opacity=0.3 :fill="fill1" :border='border1'></e-series>
             </e-series-collection>
         </ejs-chart>
+        <svg style="height: 0">
+  <defs>       
+      <linearGradient id="gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0"></stop>
+          <stop offset="1"></stop>
+      </linearGradient>
+       <linearGradient id="gradient-chart1" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0"></stop>
+          <stop offset="1"></stop>
+      </linearGradient>
+  </defs>
+</svg>
   </div>
 </template>
 
@@ -120,15 +132,4 @@ export default Vue.extend({
       stop-color: #FEC200;
   } 
 </style>
-<svg style="height: 0">
-  <defs>       
-      <linearGradient id="gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"></stop>
-          <stop offset="1"></stop>
-      </linearGradient>
-       <linearGradient id="gradient-chart1" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0"></stop>
-          <stop offset="1"></stop>
-      </linearGradient>
-  </defs>
-</svg>
+

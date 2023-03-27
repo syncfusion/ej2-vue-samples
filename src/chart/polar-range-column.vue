@@ -1,50 +1,25 @@
 <template>
-  <div class="control-section">
-    <div class="col-md-8 control-section">
-      <ejs-chart
-        ref="chart"
-        :theme="theme"
-        style="display:block"
-        align="center"
-        id="chartcontainer"
-        :title="title"
-        :primaryXAxis="primaryXAxis"
-        :legendSettings="legendSettings"
-        :primaryYSAxis="primaryYAxis"
-      >
+  <div>
+    <div class="col-md-8 control-section sb-property-border">
+      <ejs-chart ref="chart" :theme="theme" style="display:block" align="center" id="chartcontainer" :title="title"
+        :primaryXAxis="primaryXAxis" :legendSettings="legendSettings" :primaryYSAxis="primaryYAxis" :tooltip='tooltip'>
         <e-series-collection>
-          <e-series
-            :dataSource="seriesData"
-            :type="seriesType"
-            xName="x"
-            name="Germany"
-            drawType="RangeColumn"
-            :border="border"
-            low="low"
-            high="high"
-            :marker="marker"
-          ></e-series>
+          <e-series :dataSource="seriesData" :type="seriesType" xName="Month" name="Germany" drawType="RangeColumn" tooltipMappingName="MinTemp"
+            :border="border" low="MinTemp" high="MaxTemp" :marker="marker"></e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
     <div>
       <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
-          <br />
-          <br />
           <tr style="height: 50px">
             <td>
               <div>Series Type</div>
             </td>
             <td>
               <div>
-                <ejs-dropdownlist
-                  id="SelectSeriesType"
-                  :change="polarType"
-                  :dataSource="polardata"
-                  index="0"
-                  :width="polarwidth"
-                ></ejs-dropdownlist>
+                <ejs-dropdownlist id="SelectSeriesType" :change="polarType" :dataSource="polardata" index="0"
+                  :width="polarwidth"></ejs-dropdownlist>
               </div>
             </td>
           </tr>
@@ -53,23 +28,22 @@
     </div>
     <div id="action-description">
       <p>
-        This sample demonstrates polar series with range column type for temperature variation. The switching between polar and radar series can be done by using
-        <code>Series Type</code> in property panel.
+        This sample shows minimum and maximum temperature variations in polar and radar charts using a range column series.
       </p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the range column type chart You can use
-        <code>border</code>,
-        <code>fill</code> properties to customize the area.
-        <code>dataLabel</code> are used to represent individual data
-        and its value.
+        In this example, you can see how to render and configure polar and radar charts with a range column series. 
+        Switching between polar and radar series can be done using <b>Series Type</b> in the property panel.
       </p>
-      <p>Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
-
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
+        point or tap a point in touch enabled devices.
+      </p>
       <p style="font-weight: 500">Injecting Module</p>
       <p>
-        Chart component features are segregated into individual feature-wise modules. To use range column drawtype in Polar series
+        Chart component features are segregated into individual feature-wise modules. To use range column drawtype in
+        Polar series
         and Radar series, we need to inject
         <code>PolarSeries</code>,
         <code>RadarSeries</code> and
@@ -77,11 +51,10 @@
         <code>provide: { chart: [ PolarSeries, RadarSeries, RangeColumnSeries] },</code> method.
       </p>
       <p>
-        More information on the range column series can be found in this
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype"
-        >documentation section</a>.
+        More information on the polar and radar chart with a range column series can be found in this
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/chart/polar-radar/">documentation
+          section</a>.
       </p>
     </div>
   </div>
@@ -114,36 +87,34 @@ let theme = (
 ).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       theme: theme,
       seriesData: [
-        { x: "Jan", low: 2, high: 7 },
-        { x: "Feb", low: 3, high: 7 },
-        { x: "Mar", low: 3, high: 7 },
-        { x: "Apr", low: 4, high: 9 },
-        { x: "May", low: 6, high: 11 },
-        { x: "June", low: 8, high: 14 }
+        { Month: "Jan", MinTemp: 2, MaxTemp: 7 },
+        { Month: "Feb", MinTemp: 3, MaxTemp: 7 },
+        { Month: "Mar", MinTemp: 3, MaxTemp: 7 },
+        { Month: "Apr", MinTemp: 4, MaxTemp: 9 },
+        { Month: "May", MinTemp: 6, MaxTemp: 11 },
+        { Month: "June", MinTemp: 8, MaxTemp: 14 }
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
         valueType: "Category",
-        title: "Months",
         interval: 1,
         labelPlacement: "OnTicks",
-        startAngle: 90,
         coefficient: Browser.isDevice ? 80 : 100
       },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        labelFormat: "{value}˚C",
+        labelFormat: "{value}",
         minimum: 0,
         maximum: 15,
         interval: 5
       },
-
+      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> Low : <b>${point.low}°C</b> <br> High : <b>${point.high}°C' },
       border: { width: 3, color: "white" },
       legendSettings: { visible: false },
 
@@ -151,28 +122,28 @@ export default Vue.extend({
 
       polarwidth: 120,
       seriesType: "Polar",
-      title: "Maximum and Minimum Temperature",
+      title: "Temperatures of Germany",
       marker: {
         dataLabel: {
           visible: true,
           position: "Top",
-          font: { color: "#ffffff", fontWeight: "600" },
+          font: { color: "#ffffff"},
           enableRotation: true
         }
       }
     };
   },
   provide: {
-    chart: [PolarSeries, Category, RadarSeries, DataLabel]
+    chart: [PolarSeries, Category, RadarSeries, Tooltip, DataLabel]
   },
-  updated: function() {
-    this.$nextTick(function() {
+  updated: function () {
+    this.$nextTick(function () {
       this.$refs.chart.ej2Instances.dataBind();
       this.$refs.chart.ej2Instances.refresh();
     });
   },
   methods: {
-    polarType: function(args) {
+    polarType: function (args) {
       this.seriesType = SelectSeriesType.value;
     }
   }

@@ -375,10 +375,6 @@
         overflow: hidden;
     }
 
-    .e-multi-select-wrapper .e-chips {
-        padding: 0 4px 0 0px
-    }
-
     .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected {
         padding: 0 0 0 0px;
     }

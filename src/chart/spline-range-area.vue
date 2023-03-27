@@ -39,16 +39,16 @@
     <div id="description">
       <p>
         In this example, you can see how to render and configure the spline range area type chart.
-        You can use <code>dashArray</code>, <code>width</code>, <code>fill</code> properties to customize the spline range area. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
+        You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the spline range area. Both <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/marker/">marker</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/dataLabel/">dataLabel</a> are used to represent individual data and its value.
       </p>
       <p>
-        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+       The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/">tooltip</a> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
       </p>
       <br>
-      <p style="font-weight: 500">Injecting Module:</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. 
-        To use Splinerangearea series, we need to inject <code>SplineRangeAreaSeries</code> module using
+        To use spline range area series, we need to inject <code>SplineRangeAreaSeries</code> module using
         <code>provide: { chart: [SplineRangeAreaSeries] }</code> method.
       </p>
       <p>

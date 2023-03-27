@@ -1,6 +1,6 @@
 <template>
-  <div class="control-section">
-    <div class="col-md-8 control-section">
+  <div>
+    <div class="col-md-8 control-section sb-property-border">
         <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center'  :enableBorderOnMouseMove='false' id='chartcontainer' :title='title'
              :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender">
             <e-accumulation-series-collection>
@@ -87,7 +87,8 @@ export default Vue.extend({
         legendSettings: {
             visible: false,
         },
-         tooltip: { enable: true, format: '${point.x} : <b>${point.y}</b>' },
+       
+         tooltip: { enable: true, format: ' <b>${point.x}</b><br> Profit: <b>$${point.y}K</b>', header: '' },
 
          modedata: ["Drop", "Average", "Zero" ],
 

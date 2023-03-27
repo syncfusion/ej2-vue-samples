@@ -144,6 +144,9 @@ export default Vue.extend({
                 radius: '100%',
                 color: 'black',
                 value: 38,
+                animation: {
+                  duration: 1800
+                }
               }
             ],
         rangesFour: [

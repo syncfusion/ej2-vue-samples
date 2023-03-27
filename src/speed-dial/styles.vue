@@ -36,52 +36,63 @@ export default Vue.extend({
         return {
             items: [
                 {
-                    text: 'Home',
-                    iconCss: 'speeddial-icons speeddial-icon-house'
+                    text: 'Cut',
+                    iconCss: 'speeddial-icons speeddial-icon-cut'
                 },
                 {
-                    text: 'Contacts',
-                    iconCss: 'speeddial-icons speeddial-icon-people'
+                    text: 'Copy',
+                    iconCss: 'speeddial-icons speeddial-icon-copy'
                 },
                 {
-                    text: 'Search',
-                    iconCss: 'speeddial-icons speeddial-icon-search'
+                    text: 'Paste',
+                    iconCss: 'speeddial-icons speeddial-icon-paste'
                 },
                 {
-                    text: 'Message',
-                    iconCss: 'speeddial-icons speeddial-icon-message'
+                    text: 'Delete',
+                    iconCss: 'speeddial-icons speeddial-icon-delete'
+                },
+                {
+                    text: 'Save',
+                    iconCss: 'speeddial-icons speeddial-icon-save'
                 }
             ],
             itemLabel: [
                 {
-                    text: 'Home'
+                    text: 'Cut'
                 },
                 {
-                    text: 'Contacts'
+                    text: 'Copy'
                 },
                 {
-                    text: 'Search'
+                    text: 'Paste'
                 },
                 {
-                    text: 'Message'
+                    text: 'Delete'
+                },
+                {
+                    text: 'Save'
                 }
             ],
             tooltItem: [
                 {
-                    title: 'Home',
-                    iconCss: 'speeddial-icons speeddial-icon-house'
+                    title: 'Cut',
+                    iconCss: 'speeddial-icons speeddial-icon-cut'
                 },
                 {
-                    title: 'Contacts',
-                    iconCss: 'speeddial-icons speeddial-icon-people'
+                    title: 'Copy',
+                    iconCss: 'speeddial-icons speeddial-icon-copy'
                 },
                 {
-                    title: 'Search',
-                    iconCss: 'speeddial-icons speeddial-icon-search'
+                    title: 'Paste',
+                    iconCss: 'speeddial-icons speeddial-icon-paste'
                 },
                 {
-                    title: 'Message',
-                    iconCss: 'speeddial-icons speeddial-icon-message'
+                    title: 'Delete',
+                    iconCss: 'speeddial-icons speeddial-icon-delete'
+                },
+                {
+                    title: 'Save',
+                    iconCss: 'speeddial-icons speeddial-icon-save'
                 }
             ]
         };
@@ -126,27 +137,27 @@ export default Vue.extend({
         -moz-osx-font-smoothing: grayscale;
     }
     
-    .speeddial-icon-close:before {
-        content: "\e700";
+    .speeddial-icon-cut:before {
+        content: "\e70a";
     }
     
-    .speeddial-icon-house:before {
-        content: "\e701";
+    .speeddial-icon-copy:before {
+        content: "\e70b";
     }
     
-    .speeddial-icon-people:before {
-        content: "\e702";
+    .speeddial-icon-paste:before {
+        content: "\e70c";
     }
     
-    .speeddial-icon-search:before {
-        content: "\e703";
+    .speeddial-icon-delete:before {
+        content: "\e70d";
     }
     
-    .speeddial-icon-message:before {
-        content: "\e704";
+    .speeddial-icon-save:before {
+        content: "\e70e";
     }
     
-    .speeddial-icon-menu:before {
-        content: "\e705";
+    .speeddial-icon-edit:before {
+        content: "\e70f";
     }
 </style>

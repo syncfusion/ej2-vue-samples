@@ -2,7 +2,7 @@
 <div class="col-lg-12">
   <div class="col-lg-7 control-section sb-property-border">
     <div id="control_wrapper" class="col-lg-6 col-sm-8 col-md-8 multiselectWrapper">
-        <div id="container" >
+        <div id="container">
               <ejs-calendar :values="date" :isMultiSelection="multiSelection" :created="onCreated" :change="onValueChange"></ejs-calendar>
         </div>   
       </div>      

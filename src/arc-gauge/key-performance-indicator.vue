@@ -82,12 +82,13 @@
         #kpiarcgauge .text {
             font-size: 20px;
             text-align: center;
-            margin-left: 10px;
+            margin-left: -6px;
         }
 
         #kpiarcgauge .percentage {
-            font-size: 30px;
+            font-size: 25px;
             text-align: center;
+            margin-left: -25px;
         }
 
         #kpiarcgauge .triangle-up {
@@ -96,11 +97,30 @@
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 20px solid #84cbb5;
-            margin-top: -11px;
+            margin-top: -30px;
+        }
+
+        .e-view.tailwind div#kpiarcgauge .text, .e-view.tailwind-dark div#kpiarcgauge .text {
+          margin-top: 0px;
+          margin-left: -6px;
+        }
+
+        .e-view.tailwind div#kpiarcgauge .percentage, .e-view.tailwind-dark div#kpiarcgauge .percentage {
+          margin-left: -25px;
+          margin-top: -22px;
         }
 
         .e-view.tailwind div#kpiarcgauge .triangle-up, .e-view.tailwind-dark div#kpiarcgauge .triangle-up {
-          margin-top: 10px;
+          margin-top: -15px;
+        }
+       
+        .e-view.material div#kpiarcgauge .percentage,
+        .e-view.material-dark div#kpiarcgauge .percentage,
+        .e-view.bootstrap-dark div#kpiarcgauge .percentage,
+        .e-view.bootstrap div#kpiarcgauge .percentage,
+        .e-view.bootstrap4 div#kpiarcgauge.percentage {
+            margin-left: -25px;
+            margin-top: -22px;
         }
 
         .e-view.material div#kpiarcgauge .triangle-up,
@@ -113,7 +133,7 @@
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 20px solid #84cbb5;
-            margin-top: -18px;
+            margin-top: -33px;
         }
     }
 </style>

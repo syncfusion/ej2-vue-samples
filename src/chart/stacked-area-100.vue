@@ -22,9 +22,9 @@
       In this example, you can see how to render and configure the 100% stacked area chart. This chart visualizes data with y-values stacked, ensuring that the cumulative proportion of each stacked element always totals 100%.         
     </p>
     <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-        Chart component features are segregated into individual feature-wise modules. To use stackedArea100 series, we need to inject
+        Chart component features are segregated into individual feature-wise modules. To use 100% stacked area series, we need to inject
         <code>StackingAreaSeries</code> module using <code>provide: { chart: [ StackingAreaSeries ] },</code> method.
     </p>
     <p>

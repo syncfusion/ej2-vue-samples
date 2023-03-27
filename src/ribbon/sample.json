@@ -1,0 +1,27 @@
+{
+    "name": "Ribbon",
+    "directory": "ribbon",
+    "category": "Navigation",
+    "type":"preview",
+    "ftName": "ribbon",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Ribbon",
+            "description": "This sample demonstrates the default functionalities of the Syncfusion Vue Ribbon component."
+        },
+        {
+            "url": "simplified",
+            "name": "Simplified Mode",
+            "category": "Ribbon",
+            "description": "This sample demonstrates the simplified mode functionality of the Syncfusion Vue Ribbon component."
+        },
+        {
+            "url": "resize",
+            "name": "Ribbon Resizing",
+            "category": "Ribbon",
+            "description": "This sample demonstrates the resizing functionality of the Syncfusion Vue Ribbon component."
+        }
+    ]
+}

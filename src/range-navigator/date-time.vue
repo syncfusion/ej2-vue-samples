@@ -15,7 +15,7 @@
     <div align="center">
          <ejs-chart style='display:block;' ref='chart' id='chartDT' align='center' :chartArea='chartArea' :width='width' 
             :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :tooltip='chartTooltip' :theme='theme'
-            :legendSettings='legendSettings' :axisLabelRender='axisLabelRender'>
+            :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='dataSource' type='Spline' xName='x' yName='y' width='2' name='Rate'>
                 </e-series>
@@ -232,11 +232,6 @@ export default Vue.extend({
             this.$refs.chart.ej2Instances.dataBind();
        }
     },
-    axisLabelRender: function(args){
-        if (args.axis.name === 'primaryYAxis') {
-            args.text = '€' + args.text;
-        }
-    }
   }
 });
 </script>

@@ -5,7 +5,7 @@
                 <canvas id='img-canvas'></canvas>
                 <img alt="img" id="custom-img"  v-on:load="imageLoad" crossorigin="anonymous" src="src/image-editor/images/profile.png"
                 style="display: none;"/>
-                <input type="file" id="img-upload" style="display:none" v-on:change="fileChanged"/>
+                <input type="file" id="img-upload" style="display:none" v-on:change="fileChanged" accept="image/*"/>
                 <span id="custom-edit" class="e-custom-edit" v-on:click="editClicked">
                     <span class="e-custom-icon sb-icons"></span>
                 </span>
@@ -64,12 +64,13 @@
         left: calc(100% - 47px);
     }
 
-    .e-custom-icon::before {
+    #custom-edit .e-custom-icon::before {
         content: '\e911';
         font-size: 28px;
         color: white;
         left: 5px;
-        top: 7px;
+        top: 4px;
+	line-height: initial;
         position: absolute;
     }
 	

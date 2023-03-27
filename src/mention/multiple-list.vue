@@ -46,7 +46,7 @@ Vue.use(MentionPlugin);
 import * as data from './dataSource.json';
 
 var remoteData = new DataManager({
-    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    url: 'https://ej2services.syncfusion.com/vue/development/api/Employees',
     adaptor: new WebApiAdaptor,
     crossDomain: true
 });

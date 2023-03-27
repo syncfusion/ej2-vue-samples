@@ -2,7 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :legendSettings='legend'>
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Renewable' width=2 opacity = 0.6 :border = 'border'> </e-series>
                 <e-series :dataSource='seriesData1' type='StepArea' xName='x' yName='y' name='Non-Renewable' width=2 opacity = 0.6 :border = 'border'> </e-series>
@@ -20,7 +20,7 @@
     In this example, you can see how to render and configure the step area chart. This series forms a step progress by connecting points through vertical and horizontal lines with the area being filled.
   </p>
     <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use step area series, we need to inject
             <code>StepAreaSeries</code> module using <code>provide: { chart: [StepAreaSeries] }</code> method.
@@ -39,7 +39,7 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, StepAreaSeries, Legend, Highlight} from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, StepAreaSeries, Legend, Highlight, Tooltip} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
@@ -80,6 +80,9 @@ export default Vue.extend({
             lineStyle: { width: 0},
             majorTickLines: { width: 0}
         },
+        tooltip: {
+        enable: true
+        },
         chartArea: {
             border: {
                 width: 0
@@ -92,7 +95,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    chart: [StepAreaSeries, Legend, Highlight]
+    chart: [StepAreaSeries, Legend, Tooltip, Highlight]
   },
   methods: {
  

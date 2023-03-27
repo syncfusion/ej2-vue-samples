@@ -62,7 +62,14 @@
     #draggableTab .e-upload {
         width: 300px;
     }
-
+    #TabContainer {
+      display: flex;
+    }
+    @media (max-width: 550px) {
+      #TabContainer {
+        display: block;
+      }
+    }
 </style>
 <script>
 import Vue from "vue";

@@ -2,13 +2,11 @@
     "name": "Toolbar",
     "directory": "toolbar",
     "category": "Navigation",
-    "type":"update",
     "ftName" :"toolbar",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
         "category": "Toolbar",
-        "type":"update",
         "description": "The sample demonstrates the default functionalities of the Toolbar component which place commands with the scrollable mode in Vue platform.",
         "api":{"Toolbar": ["text", "prefixIcon", "type", "tooltipText", "items"]}
     },
@@ -23,7 +21,6 @@
         "url": "template",
         "name": "Template",
         "category": "Toolbar",
-        "type":"new",
         "description": "The sample demonstrates the customizing toolbar with other components using the template functionalities.",
         "api":{"Toolbar": ["showAlwaysInPopup", "showTextOn", "overflow", "overflowMode"]}   
     },

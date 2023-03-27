@@ -87,7 +87,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { IDataSet, PivotViewPlugin, GroupingBar, PivotActionCompleteEventArgs } from "@syncfusion/ej2-vue-pivotview";
-import { SortModel } from '@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model';
+import { SortModel } from '@syncfusion/ej2-pivotview/src/model/datasourcesettings-model';
 import {
   CheckBoxPlugin,
   ButtonPlugin,

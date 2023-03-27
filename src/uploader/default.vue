@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-8 control-section default-sample">
         <div class="control_wrapper">
-            <ejs-uploader ref="uploadObj" id='defaultfileupload' name="UploadFiles" :asyncSettings= "path"
+            <ejs-uploader ref="uploadObj" id='defaultfileupload' cssClass="specific" name="UploadFiles" :asyncSettings= "path"
             :dropArea = "dropElement" :removing= "onFileRemove" :sequentialUpload='isSequential' :autoUpload='isAuto' ></ejs-uploader>
         </div>
     </div>
@@ -45,6 +45,12 @@
 #defaultfileupload .e-upload.e-control {
     position: relative;
     margin: 15px 0;
+}
+.e-upload.specific .e-upload-files .e-file-delete-btn.e-icons::before,
+.e-upload.specific .e-upload-files .e-icons.e-file-reload-btn::before,
+.e-upload.specific .e-upload-files .e-file-remove-btn.e-icons::before,
+.e-upload.specific .e-upload-files .e-file-abort-btn.e-icons::before {
+    margin-top: 3px;
 }
 
 </style>

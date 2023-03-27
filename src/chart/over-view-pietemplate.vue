@@ -58,8 +58,8 @@ export default {
           }
           else if(selectedTheme.indexOf('bootstrap5') > -1 )
           {
-            args.border.color = '#343a40' ;
-            this.layoutColor= '#343a40' ;
+            args.border.color = '#212529' ;
+            this.layoutColor= '#212529' ;
           }
           else if(selectedTheme.indexOf('bootstrap') > -1 )
           {
@@ -104,6 +104,16 @@ export default {
         element1.style.color = '#F3F2F1';
         let element2 = document.querySelector('#header3')
         element2.style.color = '#F3F2F1';
+      }
+      let elementBody =  document.querySelector('#layout_0_body') 
+      elementBody.style.background= this.layoutColor;
+      let elementBody1 =  document.querySelector('#layout_2_body') 
+      if (elementBody1 != null) {
+        elementBody1.style.background = this.layoutColor;
+      }
+      let elementBody2 =  document.querySelector('#layout_1_body') 
+      if (elementBody2 != null) {
+        elementBody2.style.background = this.layoutColor;
       }
       let element = document.querySelector('#layout_0template')
       element.style.background = this.layoutColor;

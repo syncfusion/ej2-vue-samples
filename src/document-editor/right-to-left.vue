@@ -10,7 +10,7 @@
     <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="تحميل" v-bind:select="onExport" :open="openExportDropDown" title="تحميل هذا المستند"></ejs-dropdownbutton>        
 </div>
-<ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar="true" :enableRtl="true" locale='ar-AE' height='600px'></ejs-documenteditorcontainer>            
+<ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar="true" :enableRtl="true" locale='ar-AE' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
    <div id="action-description">
@@ -665,7 +665,7 @@ export default Vue.extend({
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'الشروع',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:left;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -746,7 +746,6 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(rtlDocument));
           obj.documentName='Right to Left';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };

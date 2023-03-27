@@ -168,7 +168,9 @@ export default Vue.extend({
                             // Initialize tooltip with placement and showOn
                             tooltip: { isVisible: true, placement: 'Before', showOn: 'Hover' },
                             change: (e) => {
-                                this.$refs.querybuilder.ej2Instances.notifyChange(e.value, args.elements);
+                                if (e.isInteracted) {
+                                    this.$refs.querybuilder.ej2Instances.notifyChange(e.value, args.elements);
+                                }
                             }
                         },
                         '#' + args.elements.id);

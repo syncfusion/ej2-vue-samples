@@ -234,4 +234,7 @@ export default Vue.extend({
 /deep/ .e-bigger .e-float-input.e-control-wrapper {
         width: 100% !important;
     }
+/deep/ .property-panel-table div {
+  padding: 0 !important;
+}
 </style>

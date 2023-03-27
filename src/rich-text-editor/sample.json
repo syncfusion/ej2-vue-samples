@@ -2,6 +2,7 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
+    "type" : "update",
     "samples": [{
             "url": "tools",
             "name": "Overview",
@@ -37,12 +38,6 @@
             "name": "Paste from MS Word",
             "category": "Rich Text Editor",
             "description": "This demo explains how to clean up HTML when pasting a content from Microsoft Word, Visual Studio Code, Visual Studio, or a web page in vue Rich Text Editor."
-        },
-        {
-            "url": "mention-integration",
-            "name": "Mention Integration",
-            "category": "Rich Text Editor",
-            "description": "This example shows how to integrate @mention component within Rich Text Editor component. Type `@` character and select a user from the suggestion list."
         },
         {
             "url": "iframe",
@@ -115,6 +110,19 @@
             "name": "Online Html Editor",
             "category": "Rich Text Editor",
             "description": "The online HTML editor is a demo that provides LIVE experience for both content and HTML editing with Rich Text Editor features in a real-world scenario."
+        },
+        {
+            "url": "mention-integration",
+            "name": "@ Mention",
+            "category": "Mention Integration",
+            "description": "This example shows how to integrate @mention component within Rich Text Editor component. Type `@` character and select a user from the suggestion list."
+        },
+        {
+            "url": "smart-suggestion",
+            "name": "Smart Suggestion",
+            "description": "This demo explains how to implement custom text formatting within the Rich Text Editor using the @mention component. To use it, simply type the `/` character in the editor and select the desired format from the suggestion list that appears.",
+            "category": "Mention Integration",
+            "type": "New"
         },
         {
             "url": "types",

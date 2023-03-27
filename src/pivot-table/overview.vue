@@ -84,7 +84,8 @@ import {
   Grouping,
   DrillThrough
 } from "@syncfusion/ej2-vue-pivotview";
-import { createElement, enableRipple, select } from "@syncfusion/ej2-base";
+import { createElement, enableRipple, select, isNullOrUndefined } from "@syncfusion/ej2-base";
+import { ExcelQueryCellInfoEventArgs } from '@syncfusion/ej2-grids';
 import { Universitydata } from "./data-source";
 enableRipple(false);
 
@@ -217,7 +218,12 @@ export default Vue.extend({
       maxNodeLimitInMemberEditor: 50,
       gridSettings: {
         columnWidth: 120, allowSelection: true, rowHeight: 36,
-        selectionSettings: { mode: 'Cell', type: 'Single', cellSelectionMode: 'Box' }
+        selectionSettings: { mode: 'Cell', type: 'Single', cellSelectionMode: 'Box' },
+        excelQueryCellInfo: (args: ExcelQueryCellInfoEventArgs) => {
+          if (!isNullOrUndefined(args) && (args.cell as IAxisSet).axis === 'value' && (args.cell as IAxisSet).value === undefined) {
+            (args as any).style.numberFormat = undefined;
+          }
+        }
       },
     };
   },
@@ -268,6 +274,10 @@ export default Vue.extend({
         reports = JSON.parse(localStorage.pivotviewReports);
       }
       if (args.report && args.reportName && args.reportName !== "") {
+        let report = JSON.parse(args.report);
+        report.dataSourceSettings.dataSource = [];
+        report.pivotValues = [];
+        args.report = JSON.stringify(report);
         reports.map(function (item: any) {
           if (args.reportName === item.reportName) {
             item.report = args.report;
@@ -309,7 +319,9 @@ export default Vue.extend({
         }
       });
       if (args.report) {
-        pivotObj.dataSourceSettings = JSON.parse(args.report).dataSourceSettings;
+        let report = JSON.parse(args.report);
+        report.dataSourceSettings.dataSource = pivotObj.dataSourceSettings.dataSource;
+        pivotObj.dataSourceSettings = report.dataSourceSettings;
       }
     },
     removeReport: function (args: any) {

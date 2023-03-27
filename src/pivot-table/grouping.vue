@@ -146,7 +146,7 @@ import {
 } from "@syncfusion/ej2-vue-dropdowns";
 import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
-import { GroupSettingsModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { GroupSettingsModel } from "@syncfusion/ej2-pivotview/src/model/datasourcesettings-model";
 import { gData } from "./data-source";
 enableRipple(false);
 

@@ -1,6 +1,5 @@
 <template>
 <div>
-<div class="control-section" style="overflow:hidden;">
     <div class="col-lg-8 control-section">
         <div class="control-wrapper">
             <div class="sample-container">
@@ -13,7 +12,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     <div class="col-lg-4 property-section">
         <div title="Properties" id="property">
             <table title="Properties" id="property">
@@ -42,8 +41,7 @@
             </table>
         </div>
     </div>
- </div>
-    
+
     <div id="action-description">
             <p>This sample demonstrates the option to insert the image to the Rich Text Editor content. Click the image button from the
             toolbar item to insert the image.</p>

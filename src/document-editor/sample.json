@@ -39,6 +39,7 @@
         {
             "url": "links-and-bookmarks",
             "name": "Hyperlinks and Bookmarks",
+            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports hyperlinks and bookmarks. The link can be a file, mail, webpage, or bookmark."
         },
@@ -51,7 +52,7 @@
         {
             "url": "section-formatting",
             "name": "Section Formatting",
-	    "type": "update",
+            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports section formatting such as page size, page margins, header distance and footer distance."
         },
@@ -72,6 +73,13 @@
             "name": "Form Fields",
             "category": "Editing Features",
             "description": "The Document Editor component in JavaScript platform allows users to design and fill legacy form fields (text, check box, and drop down) in a Word document." 
+        },
+        {
+            "url": "multiple-columns",
+            "name": "Multiple Columns",
+            "type": "new",
+            "category": "Editing Features",
+            "description": "The Document Editor component is used to allows users to display the text in multiple-column layout like a newspaper." 
         },
         {
             "url": "print",

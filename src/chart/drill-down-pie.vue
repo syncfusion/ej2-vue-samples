@@ -9,23 +9,13 @@
             <p id="text" style="display:inline-block;"></p>
         </div>
         <button type="button" id="back" style="visibility: hidden;" @click="onClick">Back</button>
-        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load' :enableBorderOnMouseMove='false'>
+        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;'  :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load' :enableBorderOnMouseMove='false'>
              <e-annotations>
-                <e-annotation :content="Template1">
+                <e-annotation>
                 </e-annotation>
             </e-annotations>
-            <template v-slot:Template1="{}">
-                <div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;">
-                    <img src="src/chart/images/back.png" id="back" />
-                </div>
-            </template>
-            <template v-slot:Template2="{}">
-                <div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;">
-                    <img src="src/chart/images/white.png" id="back"/>
-                </div>
-            </template>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :dataLabel="dataLabel" :explode="isExplode" explodeOffset='10%' :explodeIndex='explodeIndex'>
+                <e-accumulation-series :dataSource='data' xName='x' yName='y' :animation='animation' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :dataLabel="dataLabel" :explode="isExplode" explodeOffset='10%' :explodeIndex='explodeIndex'>
                 </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -99,7 +89,6 @@ export default Vue.extend({
     legendSettings: {
         visible: false,
     },
-    
     //Initializing Datalabel
     dataLabel: {
         visible: true, position: 'Inside',  connectorStyle: { type: 'Curve', length: '10%' }, font: {  fontWeight:'600' , color: 'white' }, enableRotation: false
@@ -107,6 +96,9 @@ export default Vue.extend({
     startAngle: 0,
     radius: '70%',
     isExplode: false,
+    animation: {
+        enable: true
+    },
     endAngle: 360,
     title: 'Automobile Sales by Category'
     };
@@ -121,8 +113,6 @@ export default Vue.extend({
     onChartMouseClick: function (args) {
         let  accChart = document.getElementById("container").ej2_instances;
         let index = indexFinder(args.target);
-        let lightThemeContent = "Template1";
-        let darkThemeContent = "Template2";
         this.isExplode = false;
         if (document.getElementById('container_Series_' + index.series + '_Point_' + index.point) && !this.innerChart) {
             accChart[0].annotations = [{
@@ -173,6 +163,8 @@ export default Vue.extend({
             this.isExplode = false;
             let dataLabel = extend({}, this.dataLabel);
             dataLabel.position = 'Inside';
+             let animation = this.animation;
+             animation.enable = false;
             dataLabel.font.color = 'white';
             dataLabel.enableRotation = false;
             this.dataLabel = dataLabel;
@@ -222,7 +214,7 @@ export default Vue.extend({
         }
 
         if (args.accumulation.annotations[0] && this.innerChart) {
-            args.accumulation.annotations[0].content = (args.accumulation.theme === 'Highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
+            args.accumulation.annotations[0].content = (selectedTheme === 'highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
                 '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :
                 '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" /></div>';
         }

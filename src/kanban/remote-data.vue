@@ -65,7 +65,7 @@ Vue.use(KanbanPlugin);
 export default Vue.extend({
   data: function() {
         let SERVICE_URI =
-      'https://js.syncfusion.com/ejServices/wcf/Northwind.svc/Tasks'
+      'https://services.syncfusion.com/vue/production/api/Kanban'
     return {
          data: new DataManager({
         url: SERVICE_URI 

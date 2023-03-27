@@ -17,6 +17,15 @@
             ]
         },
         {
+            "url": "live-data",
+            "name": "Live Data",
+            "type": "new",
+            "category": "Data Grid",
+            "description": "This demo for Essential JS 2 grid component shows how frequently the Grid cell is updated with real-time data.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "columns", "enableVirtualization", "enableVirtualMaskRow", "allowSelection", "height", "rowHeight", "queryCellInfo"] }
+        },
+        {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Data Grid",
@@ -65,6 +74,15 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
+            "url": "flexible-data",
+            "name": "Flexible Data",
+            "category": "Data Binding",
+            "description": "This sample demonstrates how to bind a data from various remote services to the Grid component.",
+            "hideOnDevice": false,
+            "type":"new",
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
             "url": "column-template",
             "name": "Column Template",
             "category": "Columns",
@@ -110,11 +128,12 @@
         },
         {
             "url": "column-resize",
-            "name": "Column Resizing",
+            "name": "AutoFit and Resizing",
+            "type": "update",
             "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component shows how the column resizing feature can be used to change width dynamically.",
+            "description": "This demo for Essential JS 2 grid control shows column rendering with fixed width and resizing feature.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
+            "api": { "Grid": ["columns", "dataSource", "allowResizing", "autoFit"] }
         },
         {
             "url": "column-menu",
@@ -266,6 +285,7 @@
         {
             "url": "filtering",
             "name": "Default Filtering",
+            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component shows how to place a filter bar row in the header to filter grid rows.",
             "hideOnDevice": false,
@@ -278,6 +298,7 @@
         {
             "url": "filter-menu",
             "name": "Filter Menu",
+            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
@@ -449,7 +470,6 @@
         {
             "url": "lazy-load-grouping-with-virtual-scrolling",
             "name": "Grouping with Virtual Scrolling",
-            "type": "new",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with virtual scrolling.",
             "hideOnDevice": false,

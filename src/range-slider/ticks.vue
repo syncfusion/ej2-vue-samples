@@ -151,8 +151,8 @@ export default Vue.extend({
   },
   methods: {
     onChange: function(e) {
-      this.$refs.defaultSlider.ticks = { placement: e.value };
-      this.$refs.rangeSlider.ticks = { placement: e.value };
+      this.$refs.defaultSlider.ej2Instances.ticks = { placement: e.value };
+      this.$refs.rangeSlider.ej2Instances.ticks = { placement: e.value };
     },
     checkbox_onChange: function(args) {
       this.$refs.defaultSlider.enabled = !args.checked;

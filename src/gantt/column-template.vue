@@ -42,6 +42,7 @@ import Vue from "vue";
 import { GanttPlugin, Selection } from "@syncfusion/ej2-vue-gantt";
 import { templateData, editingResources } from './data-source';
 import columntempVue from "./column-temp.vue";
+import { isNullOrUndefined } from '@syncfusion/ej2-base';
 
 Vue.use(GanttPlugin);
 
@@ -92,16 +93,12 @@ export default Vue.extend({
     methods:{
      queryCellInfo: function(args: any) {
         let gantt = (document.getElementsByClassName('e-gantt')[0] as any).ej2_instances[0];
-        if (args.column.field === 'resources' && args.data.ganttProperties.resourceNames) {
+        if (args.column.field === 'resources' && args.data.ganttProperties.resourceNames && !isNullOrUndefined(args.cell.getElementsByClassName('image')[0])) {
            if (gantt.enableRtl) {
-              if (args.cell.getElementsByClassName('image')[0] !== undefined) {
-                 args.cell.getElementsByClassName('image')[0].children[1].style.right = '30px';
-              }
+              args.cell.getElementsByClassName('image')[0].children[1].style.right = '30px';
            }
            else {
-              if(args.cell.getElementsByClassName('image')[0] !== undefined) {
-                args.cell.getElementsByClassName('image')[0].children[1].style.left = '30px';
-              }
+               args.cell.getElementsByClassName('image')[0].children[1].style.left = '30px';
            }
         }
       }

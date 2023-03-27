@@ -121,7 +121,7 @@ import {
   CheckBoxSelection
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
-import { FilterModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { FilterModel } from "@syncfusion/ej2-pivotview/src/model/datasourcesettings-model";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 

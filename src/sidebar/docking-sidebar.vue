@@ -325,11 +325,11 @@ export default Vue.extend({
         font-style: normal;
     }
 
-    .e-bigger .e-tbar-btn .tb-icons,
-    .e-toolbar .e-icons {
+    .e-bigger #dockToolbar .e-tbar-btn .tb-icons,
+    #dockToolbar .e-toolbar .e-icons {
         font-size: 20px;
     }
-
+    
     .e-tbar-btn .tb-icons {
         font-family: 'Material_toolbar';
         speak: none;

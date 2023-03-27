@@ -40,9 +40,7 @@
     .tailwind-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap5 .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap5-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .fluent .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .fluent-dark .ajaxsample .e-dialog .e-dlg-header > img.img1 {
+    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1{
         margin-top: 0px;
     }
     .ajaxsample .e-footer-content button.e-control.e-btn.e-flat {

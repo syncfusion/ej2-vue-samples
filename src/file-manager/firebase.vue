@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-firebase">
          <div class="sample-container">
-            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' >
+            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings" >
             </ejs-filemanager>
         </div>
     </div>
@@ -37,6 +37,11 @@ export default Vue.extend ({
                 getImageUrl: hostUrl + 'api/FirebaseProvider/FirebaseRealtimeGetImage',
                 uploadUrl: hostUrl + 'api/FirebaseProvider/FirebaseRealtimeUpload',
                 downloadUrl: hostUrl + 'api/FirebaseProvider/FirebaseRealtimeDownload'
+            },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
             }
         };
     },

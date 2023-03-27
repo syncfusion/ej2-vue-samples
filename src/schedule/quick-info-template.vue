@@ -269,7 +269,7 @@ import { extend, Internationalization, isNullOrUndefined, closest } from "@syncf
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 import { quickInfoTemplateData } from "./datasource";
 
 Vue.use(SchedulePlugin);
@@ -308,14 +308,14 @@ export default Vue.extend({
     };
   },
   provide: {
-    schedule: [Day, Week, WorkWeek, Month, Agenda]
+    schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
   },
   methods: {
     onPopupOpen: function(args) {
       if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
         args.element.classList.add('e-template');
       }
-      if (args.target && !args.target.classList.contains('e-appointment')) {
+      if (args.type == 'QuickInfo' && args.target && !args.target.classList.contains('e-appointment')) {
         const titleObj = document.querySelector("#title").ej2_instances[0];
         titleObj.focusIn();
       }

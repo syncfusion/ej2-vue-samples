@@ -4,8 +4,8 @@
                 <div class="rte-online-sample-view">
                     <ejs-splitter id='splitter' width='100%' height='450px' :created="onRefreshUI" :resizing='onRefreshUI'>
                         <e-panes>
-                            <e-pane size='50%' :resizable=true :content='pane1Content' min='20%'></e-pane>
-                            <e-pane :content='pane2Content' min='20%'></e-pane>
+                            <e-pane size='50%' :resizable=true :content='pane1Content' min='400px'></e-pane>
+                            <e-pane :content='pane2Content' min='60px'></e-pane>
                         </e-panes>
                     </ejs-splitter>
                 </div>
@@ -104,9 +104,6 @@
     .online-editor .e-richtexteditor.e-rte-tb-expand .e-rte-content, .e-richtexteditor.e-rte-tb-expand .e-source-content
     .sb-content-section .e-lib .e-tab .e-control .e-template .e-keyboard .e-nested .sb-content-header {
       border-bottom: none;
-    }
-    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal, .online-editor .e-splitter.e-splitter-vertical .e-pane.e-pane-horizontal {
-      min-width: 400px !important;
     }
     .online-editor .CodeMirror-scroll
     {

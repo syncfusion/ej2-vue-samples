@@ -24,7 +24,7 @@
       In this example, you can see how the area type chart can be rendered and configured. It is like the line chart, which represents time-dependent data and shows trends at equal intervals, but the area is closed and filled with the color of the series.
      </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
             <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.
@@ -185,21 +185,21 @@ export default Vue.extend({
         y: 0.50
        },
        {
-        content: Browser.isDevice ? '<div style="color:white; font-size: 6px; font-weight: bold">STREAMING</div>' : '<div style="color:white; font-size: 11px; font-weight: bold">STREAMING</div>',
+        content: Browser.isDevice ? '<div style="color:white; font-size: 6px; font-weight: bold"></div>' : '<div style="color:white; font-size: 11px; font-weight: bold">STREAMING</div>',
         region: 'Series',
         coordinateUnits: 'Point',
         x: new Date(2015, 1, 1),
         y: Browser.isDevice ? 1.3 : 1.2
        },
        {
-        content: Browser.isDevice ? '<div style="color:white; font-size: 8px; font-weight: bold">DOWNLOAD</div>': '<div style="color:white; font-size: 9px; font-weight: bold">DOWNLOAD</div>',
+        content: Browser.isDevice ? '<div style="color:white; font-size: 8px; font-weight: bold">DOWNLOAD</div>': '<div style="color:white; font-size: 11px; font-weight: bold">DOWNLOAD</div>',
         region: 'Series',
         coordinateUnits: 'Point',
         x: new Date(2011, 6, 1),
-        y: 1.9
+        y: 1.8
        },
        {
-        content: Browser.isDevice ?  '<div style="color:white; font-size: 8px; font-weight: bold">COMPACT DISC</div>' : '<div style="color:white; font-weight: bold">COMPACT DISC</div>',
+        content: Browser.isDevice ?  '<div style="color:white; font-size: 8px; font-weight: bold">COMPACT DISC</div>' : '<div style="color:white; font-weight: bold; font-size: 11px;">COMPACT DISC</div>',
         region: 'Series',
         coordinateUnits: 'Point',
         x: new Date(2001, 1, 1),

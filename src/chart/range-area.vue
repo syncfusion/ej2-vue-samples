@@ -17,10 +17,10 @@
     <p>In this example, you can see how to render and configure the range area chart. This chart is used to display continuous data points as a set of lines varying between high and low values over time intervals and across different categories.
      </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
-            Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
-            <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.
+            Chart component features are segregated into individual feature-wise modules. To use range area series, we need to inject
+            <code>RangeAreaSeries</code> module using <code>provide: { chart: [RangeAreaSeries] }</code> method.
         </p>
         <p>
           More information about the area series can be found in this

@@ -20,7 +20,7 @@
       In this example, you can see how to render and configure the spline area chart. This chart plots a fitted curve through each data point in a series. It is used to represent time-dependent data and show trends in data at equal intervals.
      </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use spline area series, we need to inject
             <code>SplineAreaSeries</code> module using <code>provide: { chart: [SplineAreaSeries] }</code> method.

@@ -1,99 +1,109 @@
 <template>
-  <div class="control-section">
-    <div class="col-lg-9 control-section">
-        <ejs-chart ref="chart" :theme='theme' style='display:block;' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :title='title' :tooltip='tooltip'>
-            <e-series-collection>
-                <e-series :dataSource='data' :isClosed='isClosed' :type='seriesType' drawType='Line' xName='x' yName='y' name='Warmest' width=2 :marker='marker'>
-                </e-series>
-                <e-series :dataSource='data1' :isClosed='isClosed' :type='seriesType' drawType='Line' xName='x' yName='y' name='Coldest' width=2 :marker='marker1'>
-                </e-series>
-            </e-series-collection>
-        </ejs-chart>
-         <div style="float: right; margin-right: 10px;">Source:
-            <a href="http://www.yr.no/place/USA/Alaska/Hatcher_Pass/statistics.html" target="_blank">www.yr.no</a>
-        </div>
-        </div>
-        
-    <div>
-   
-     <div class="col-lg-3 property-section">
-        <table id="property" class="property-panel-table" title="Properties" style="width: 100%">
-                    <tr style="height: 50px">
-                        <td style="width: 50%">
-                            <div>Series Type:</div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <ejs-dropdownlist id='SelectSeriesType' :change='polarType' :dataSource='polardata' index=0 width='120' ></ejs-dropdownlist>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr style="height: 50px">
-                        <td style="width: 50%">
-                            <div>Closed:</div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <input type="checkbox" @change='isClosedFunc' id="select" checked>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr style="height: 50px">
-                        <td style="width: 50%">
-                            <div id="st-lbl">Start Angle: 0</div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <input type="range" min="0" max="360" value="0" @touchmove='startAngle' @pointermove='startAngle'  @change='startAngle' id="startangle" style="width:90%">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr style="height: 50px">
-                        <td style="width: 50%">
-                            <div>Inversed:</div>
-                        </td>
-                        <td style="width: 50%;">
-                            <div>
-                                <input type="checkbox" @change='isInversedFunc' id="inversed">
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+  <div>
+    <div class="col-lg-8 control-section sb-property-border">
+      <ejs-chart ref="chart" :theme='theme' style='display:block;' id='chartcontainer' :primaryXAxis='primaryXAxis'
+        :primaryYAxis='primaryYAxis' :title='title' :tooltip='tooltip' :legendSettings='legendSettings'>
+        <e-series-collection>
+          <e-series :dataSource='data' :isClosed='isClosed' :type='seriesType' drawType='Line' xName='Month'
+            yName='GER_Temp' name='Germany' width=2 :marker='marker'>
+          </e-series>
+          <e-series :dataSource='data' :isClosed='isClosed' :type='seriesType' drawType='Line' xName='Month'
+            yName='ENG_Temp' name='England' width=2 :marker='marker'>
+          </e-series>
+        </e-series-collection>
+      </ejs-chart>
     </div>
-</div>
-<div id="action-description">
-    <p>
-        This sample demonstrates polar series with line type for Alaska weather statistics data of the year 2016. The angle can be changed and the series can be inversed by using the properties in the panel.
-    </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can see how to render and configure the column type charts. Column type charts are used for comparing the frequency, count, total or average of data in different categories. You can use <code>border</code>,
-        <code>fill</code> properties to customize the data appearance. <code>dataLabel</code> is used to represent individual data and its value.
-    </p>
-    <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
-    <p>
-        Chart component features are segregated into individual feature-wise modules. To use column feature, we need to inject
+    <div>
+
+      <div class="col-lg-4 property-section">
+        <table id="property" class="property-panel-table" title="Properties" style="width: 100%">
+          <tr style="height: 50px">
+            <td style="width: 50%">
+              <div>Series Type:</div>
+            </td>
+            <td style="width: 50%;">
+              <div>
+                <ejs-dropdownlist id='SelectSeriesType' :change='polarType' :dataSource='polardata' index=0
+                  width='120'></ejs-dropdownlist>
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td style="width: 50%">
+              <div>Closed:</div>
+            </td>
+            <td style="width: 50%;">
+              <div>
+                <input type="checkbox" @change='isClosedFunc' id="select" checked>
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td style="width: 50%">
+              <div id="st-lbl">Start Angle: 0</div>
+            </td>
+            <td style="width: 50%;">
+              <div>
+                <input type="range" min="0" max="360" value="0" @touchmove='startAngle' @pointermove='startAngle'
+                  @change='startAngle' id="startangle" style="width:90%">
+              </div>
+            </td>
+          </tr>
+          <tr style="height: 50px">
+            <td style="width: 50%">
+              <div>Inversed:</div>
+            </td>
+            <td style="width: 50%;">
+              <div>
+                <input type="checkbox" @change='isInversedFunc' id="inversed">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="action-description">
+      <p>
+        This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.
+      </p>
+    </div>
+    <div id="description">
+      <p>
+        In this example, you can see how to render and configure polar and radar charts with a line series. 
+        The type of series can be changed using the <b>Series Type</b> dropdown list in the properties panel. 
+        Also, the angle can be changed and the series can be inversed using <code>Start Angle</code> and <code>Inversed</code> properties.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
+        point or tap a point in touch enabled devices.
+      </p>
+      <p style="font-weight: 500">Injecting Module</p>
+      <p>
+        Chart component features are segregated into individual feature-wise modules. To use column feature, we need to
+        inject
         <code>ColumnService</code> into the <code>provide</code> option of chart.
+      </p>
+      <p>
+        More information on the polar and radar series with a line type chart can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/polar-radar/">documentation section</a>.
     </p>
-</div>
-</div>
+    </div>
+  </div>
 
 </template>
 <style scoped>
 #control-container {
   padding: 0px !important;
 }
+#inversed:hover {
+    cursor: pointer;
+}
 </style>
 <script>
 import Vue from "vue";
 import { Browser, extend } from "@syncfusion/ej2-base";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, ChartPlugin } from "@syncfusion/ej2-vue-charts";
+import { Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, ChartPlugin, Highlight } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
 Vue.use(DropDownListPlugin);
@@ -103,38 +113,24 @@ selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-    theme: theme,
-    isClosed: true,
-      polardata : [ 'Polar', 'Radar' ],
+      theme: theme,
+      isClosed: true,
+      polardata: ['Polar', 'Radar'],
       data: [
-        { x: "Jan", y: -7.1 },
-        { x: "Feb", y: -3.7 },
-        { x: "Mar", y: 0.8 },
-        { x: "Apr", y: 6.3 },
-        { x: "May", y: 13.3 },
-        { x: "Jun", y: 18.0 },
-        { x: "Jul", y: 19.8 },
-        { x: "Aug", y: 18.1 },
-        { x: "Sep", y: 13.1 },
-        { x: "Oct", y: 4.1 },
-        { x: "Nov", y: -3.8 },
-        { x: "Dec", y: -6.8 }
-      ],
-      data1: [
-        { x: "Jan", y: -17.4 },
-        { x: "Feb", y: -15.6 },
-        { x: "Mar", y: -12.3 },
-        { x: "Apr", y: -5.3 },
-        { x: "May", y: 1.0 },
-        { x: "Jun", y: 6.9 },
-        { x: "Jul", y: 9.4 },
-        { x: "Aug", y: 7.6 },
-        { x: "Sep", y: 2.6 },
-        { x: "Oct", y: -4.9 },
-        { x: "Nov", y: -13.4 },
-        { x: "Dec", y: -16.4 }
+        { Month: "Jan", GER_Temp: -7.1, ENG_Temp: -17.4 },
+        { Month: "Feb", GER_Temp: -3.7, ENG_Temp: -15.6 },
+        { Month: "Mar", GER_Temp: 0.8, ENG_Temp: -12.3 },
+        { Month: "Apr", GER_Temp: 6.3, ENG_Temp: -5.3 },
+        { Month: "May", GER_Temp: 13.3, ENG_Temp: 1.0 },
+        { Month: "Jun", GER_Temp: 18.0, ENG_Temp: 6.9 },
+        { Month: "Jul", GER_Temp: 19.8, ENG_Temp: 9.4 },
+        { Month: "Aug", GER_Temp: 18.1, ENG_Temp: 7.6 },
+        { Month: "Sep", GER_Temp: 13.1, ENG_Temp: 2.6 },
+        { Month: "Oct", GER_Temp: 4.1, ENG_Temp: -4.9 },
+        { Month: "Nov", GER_Temp: -3.8, ENG_Temp: -13.4 },
+        { Month: "Dec", GER_Temp: -6.8, ENG_Temp: -16.4 },
       ],
       //Initializing Primary X Axis
       primaryXAxis: {
@@ -142,7 +138,6 @@ export default Vue.extend({
         valueType: "Category",
         labelPlacement: "OnTicks",
         interval: 1,
-        coefficient: Browser.isDevice ? 80 : 100,
       },
       //Initializing Primary Y Axis
       primaryYAxis: {
@@ -154,16 +149,14 @@ export default Vue.extend({
         labelFormat: "{value}°C",
       },
       marker: {
+        isFilled: true,
         visible: true,
-        height: 10,
-        width: 10,
+        height: 7,
+        width: 7,
         shape: "Pentagon"
       },
-      marker1: {
-        visible: true,
-        height: 10,
-        width: 10,
-        shape: "Diamond"
+      legendSettings: {
+        enableHighlight: true
       },
       tooltip: {
         enable: true
@@ -173,40 +166,40 @@ export default Vue.extend({
     };
   },
   provide: {
-    chart: [Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries]
+    chart: [Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, Highlight]
   },
   methods: {
-    isClosedFunc: function(e) {
-        let element = e.target;
-        this.isClosed = element.checked;
+    isClosedFunc: function (e) {
+      let element = e.target;
+      this.isClosed = element.checked;
     },
-    isInversedFunc: function(e) {
-        let element = e.target;
-        let primaryXAxis = extend({}, this.primaryXAxis);
-        primaryXAxis.isInversed = element.checked;
-        this.primaryXAxis = primaryXAxis;
-        let primaryYAxis = extend({}, this.primaryYAxis);
-        primaryYAxis.isInversed = element.checked;
-        this.primaryYAxis = primaryYAxis;
-        this.$refs.chart.dataBind();
+    isInversedFunc: function (e) {
+      let element = e.target;
+      let primaryXAxis = extend({}, this.primaryXAxis);
+      primaryXAxis.isInversed = element.checked;
+      this.primaryXAxis = primaryXAxis;
+      let primaryYAxis = extend({}, this.primaryYAxis);
+      primaryYAxis.isInversed = element.checked;
+      this.primaryYAxis = primaryYAxis;
+      this.$refs.chart.dataBind();
     },
-    startAngle: function(e) {
-        let value = parseInt(e.target.value, 10);        
-        let primaryXAxis = extend({}, this.primaryXAxis);
-        primaryXAxis.startAngle = value;
-        this.primaryXAxis = primaryXAxis;
-        document.getElementById("st-lbl").innerHTML = "Start Angle: " + value;
-        this.$refs.chart.ej2Instances.series[0].animation.enable = false;
-        this.$refs.chart.ej2Instances.series[1].animation.enable = false;
+    startAngle: function (e) {
+      let value = parseInt(e.target.value, 10);
+      let primaryXAxis = extend({}, this.primaryXAxis);
+      primaryXAxis.startAngle = value;
+      this.primaryXAxis = primaryXAxis;
+      document.getElementById("st-lbl").innerHTML = "Start Angle: " + value;
+      this.$refs.chart.ej2Instances.series[0].animation.enable = false;
+      this.$refs.chart.ej2Instances.series[1].animation.enable = false;
     },
-    polarType: function(args) {
-        this.seriesType = SelectSeriesType.value;
+    polarType: function (args) {
+      this.seriesType = SelectSeriesType.value;
     }
   },
-    updated: function() {
-      this.$nextTick(function() {
-        this.$refs.chart.ej2Instances.refresh();
-      });
-    },
+  updated: function () {
+    this.$nextTick(function () {
+      this.$refs.chart.ej2Instances.refresh();
+    });
+  },
 });
 </script>

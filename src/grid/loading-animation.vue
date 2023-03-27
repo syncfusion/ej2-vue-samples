@@ -23,7 +23,7 @@
                 <div style="margin-left: -10px;width: 120%;">Indicator Type</div>
             </td>
             <td>
-            <div style="margin-left: -10px; width: 150%">
+            <div style="margin-left: -10px;">
               <ejs-dropdownlist ref='dropdown' id='dropdown' :dataSource='indicatortypes' index=0 :fields='fields' :change="indicatorChange"></ejs-dropdownlist>
              </div>                                 
             </td>
@@ -74,7 +74,7 @@ export default Vue.extend({
   data: () => {
     return {
       data: new DataManager({
-        url: 'https://ej2services.syncfusion.com/production/web-services/api/UrlDataSource',
+        url: 'https://services.syncfusion.com/vue/production/api/UrlDataSource',
         adaptor: new UrlAdaptor()
       }),
       pageSettings: { pageCount: 3 },

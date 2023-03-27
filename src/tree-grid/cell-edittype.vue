@@ -44,7 +44,9 @@
         <p style="font-weight: 500">Injecting Module:</p>
         <p>
             Tree Grid features are segregated into individual feature-wise modules. To use editing feature, we need to inject
-            <code>Edit</code> module into the <code>provide</code> section.
+            <code>
+            Edit
+            </code> module into the <code>provide</code> section.
         </p>
     </div>
 </div>
@@ -52,7 +54,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridPlugin, Edit, Page, TreeGridComponent, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 
 Vue.use(TreeGridPlugin);

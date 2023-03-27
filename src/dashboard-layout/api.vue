@@ -99,10 +99,13 @@ export default Vue.extend({
         }
       },
     onChange: function(args) {
-        if (args.event.target.previousElementSibling.id === "floating") {
+        var targetElement = args.event.target;
+        var previousElement = targetElement.previousElementSibling;
+        var nextElement = targetElement.nextElementSibling;
+        if ((previousElement !== null && previousElement.id === 'floating') || nextElement !== null && nextElement.previousElementSibling.id === 'floating') {
             this.$refs.dashboard.$el.ej2_instances[0].allowFloating = args.checked;
         }
-        if (args.event.target.previousElementSibling.id === "resizing") {
+        if ((previousElement !== null && previousElement.id === 'resizing') || nextElement !== null && nextElement.previousElementSibling.id === 'resizing') {
             this.$refs.dashboard.$el.ej2_instances[0].allowResizing = args.checked;
         }
     },

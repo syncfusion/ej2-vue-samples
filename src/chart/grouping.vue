@@ -1,6 +1,6 @@
 <template>
-  <div class="control-section">
-    <div class="col-md-8 control-section">
+  <div>
+    <div class="col-md-8 control-section sb-property-border">
         <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :textRender="onTextRender" :pointRender="onPointRender" :theme='theme' :enableBorderOnMouseMove='false'>
             <e-accumulation-series-collection>
                 <e-accumulation-series name='RIO' :animation='animation' :explode='true' :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" :radius="radius" innerRadius="0%"

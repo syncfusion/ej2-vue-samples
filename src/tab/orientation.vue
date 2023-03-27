@@ -1,5 +1,5 @@
 <template>
-  <div class="e-tab-section">
+  <div class="orientation-tab-section">
     <div class="col-lg-8 control-section">
         <div class="e-sample-resize-container">
         <ejs-tab ref="tabObj" id="tab_orientation" height='320px' :showCloseButton=true heightAdjustMode='Auto'>
@@ -30,15 +30,15 @@
     <div class="col-lg-4 property-section">
                 <table id="property" title="Properties">
                     <tr>
-                        <td style="width:50%">Header Placement:</td>
-                        <td style="width:50%">
+                        <td style="width:50%; padding-bottom: 10px;">Header Placement:</td>
+                        <td style="width:50%; padding-bottom: 10px;">
                               <ejs-dropdownlist ref="dropObj1" id='header-place' width='90%' :dataSource='dataPlace' :change='placeChange' :value='placeValue' :fields='placeFields'>
                             </ejs-dropdownlist>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:50%">Header Styles:</td>
-                        <td style="width:50%">
+                        <td style="width:50%; padding-bottom: 10px;">Header Styles:</td>
+                        <td style="width:50%; padding-bottom: 10px;">
                             <ejs-dropdownlist ref="dropObj2" id='header-styles' width='90%' :dataSource='dataStyles' :change='styleChange' :value='styleValue' :fields='styleFields'>
                             </ejs-dropdownlist>
                         </td>
@@ -66,16 +66,6 @@
         }
     }
 /* custom code end */
-
-    @media screen and (max-width: 481px) {
-        .control-section.e-tab-section,
-        .container-fluid,
-        .e-tab-section .content-wrapper,
-        .sb-sample-content-area .e-active {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
 
 #tab_orientation .e-content .e-item .template-container {
     height: 63px;
@@ -134,24 +124,21 @@
     font-size: 18px;
     font-weight: 600;
 }
-#property td {
-    padding-bottom: 10px;
-}
 .property-panel-content {
     padding: 10px;
 }
 @media only screen and (min-width: 1824px) {
-    .e-tab-section .e-sample-resize-container {
+    .orientation-tab-section .e-sample-resize-container {
         width: 60%;
     }
 
-    .e-bigger .e-tab-section .e-sample-resize-container {
+    .e-bigger .orientation-tab-section .e-sample-resize-container {
         width: 70%;
     }
 }
 
     @media screen and (max-width: 376px) {
-        .e-tab-section {
+        .orientation-tab-section {
             padding: 0 5px;
         }
         #tab_orientation .e-content.sb-sample-content-area .e-item.e-active {

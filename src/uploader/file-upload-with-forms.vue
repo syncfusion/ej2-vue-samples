@@ -154,27 +154,33 @@
         .form-support button#browse {
             float: right;
             margin-right: -115px;
-            margin-top: -29px;
+            margin-top: -32px;
             position: relative;
         }      
         .bootstrap4 .form-support button#browse {
 			margin-top: -33px;
         }  
         .e-bigger.bootstrap .form-support button#browse {
-            top: -12px;
+            margin-top: -41px;
         }
-        .e-bigger.material .form-support  button#browse {
-            top: -8px;
+        .e-bigger.material .form-support  button#browse,
+        .e-bigger.material-dark .form-support  button#browse {
+            margin-top: -33px;
         }
-        .e-bigger.fabric .form-support button#browse, .e-bigger.highcontrast .form-support button#browse {
-            top: -11px;
+        .e-bigger.fabric .form-support button#browse,
+        .e-bigger.fabric-dark .form-support button#browse,
+        .e-bigger.highcontrast .form-support button#browse {
+            margin-top: -41px;
             left: 2%;
         }
-        .fabric .form-support #browse, .highcontrast .form-support #browse {
-            top: -3px;
+        .fabric .form-support #browse,
+        .fabric-dark .form-support #browse,
+        .highcontrast .form-support #browse {
+            margin-top: -33px;
         }
-        .bootstrap .form-support #browse {
-            top: -6px;
+        .bootstrap .form-support #browse,
+        .bootstrap-dark .form-support #browse {
+           margin-top: -35px;
         }
         .form-support .form-title {
             text-align: center;
@@ -182,6 +188,25 @@
         #form1 .e-float-input:not(.e-input-group), #form1 .e-float-input.e-control-wrapper:not(.e-input-group) {
             display: inherit;
         }
+        .fluent .e-bigger .e-dialog .e-dlg-header-content,
+        .fluent-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind-dark .e-bigger .e-dialog .e-dlg-header-content{
+            padding-bottom: 2%;
+        }
+        .material-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .material .e-bigger .e-dialog .e-dlg-header-content{
+            padding-bottom: 3%;
+        }
+        .e-bigger.fluent .form-support button#browse,
+        .e-bigger.fluent-dark .form-support button#browse,
+        .e-bigger.bootstrap5 .form-support button#browse,
+        .e-bigger.bootstrap5-dark .form-support button#browse,
+        .e-bigger.tailwind .form-support button#browse,
+        .e-bigger.tailwind-dark .form-support button#browse{
+            margin-top: -41px;
+        }
+        
 </style>
 <style>
     .form-support .uploader-form-support.e-upload {

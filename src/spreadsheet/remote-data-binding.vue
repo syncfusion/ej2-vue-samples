@@ -95,8 +95,8 @@ export default Vue.extend({
                 }),
         query: new Query().select(['OrderID', 'CustomerID', 'Freight', 'ShipName', 'ShipCity', 'ShipCountry']).take(200),
         columns: [{ width: 100 }, { width: 130 }, { width: 100 }, { width: 220 }, { width: 150 }, { width: 180 }],
-        openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-        saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save',
+        openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+        saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save',
     }
   },
   methods: {

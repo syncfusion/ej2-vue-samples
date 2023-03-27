@@ -1,65 +1,54 @@
 <template>
   <div class="control-section">
-    <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
-         :tooltip='tooltip' :legendSettings='legendSettings'>
-            <e-series-collection>
-                <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y1' name='6 - 9' drawType='StackingColumn' :border='border' > </e-series>
-                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y1' name='9 - 11' drawType='StackingColumn' :border='border' > </e-series>
-                  <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y2' name='11 - 14' drawType='StackingColumn' :border='border' > </e-series>
-                   <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y3' name='14 - 17' drawType='StackingColumn' :border='border' > </e-series>
-                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y4' name='17 - 20' drawType='StackingColumn' :border='border' > </e-series>
-                  <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y5' name='23 Above' drawType='StackingColumn' :border='border' > </e-series>
-               
-            </e-series-collection>
-        </ejs-chart>
-        </div>
+    <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
+      :primaryXAxis='primaryXAxis' :tooltip='tooltip' :legendSettings='legendSettings'>
+      <e-series-collection>
+        <e-series :dataSource='seriesData' :type='seriesType' xName='XValue' yName='YValue' name='6-9'
+          drawType='StackingColumn' width=2> </e-series>
+        <e-series :dataSource='seriesData' :type='seriesType' xName='XValue' yName='YValue1' name='9-11'
+          drawType='StackingColumn' width=2> </e-series>
+        <e-series :dataSource='seriesData' :type='seriesType' xName='XValue' yName='YValue2' name='11-14'
+          drawType='StackingColumn' width=2> </e-series>
+        <e-series :dataSource='seriesData' :type='seriesType' xName='XValue' yName='YValue3' name='14-17'
+          drawType='StackingColumn' width=2> </e-series>
+        <e-series :dataSource='seriesData' :type='seriesType' xName='XValue' yName='YValue4' name='17-20'
+          drawType='StackingColumn' width=2> </e-series>
+        <e-series :dataSource='seriesData' :type='seriesType' xName='XValue' yName='YValue5' name='23 Above'
+          drawType='StackingColumn' width=2> </e-series>
+      </e-series-collection>
+    </ejs-chart>
     <div>
-    
-    <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <br/><br/>
-            <tr style="height: 50px">
-                <td>
-                    <div>Series Type
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <ejs-dropdownlist id='SelectSeriesType' :change='polarType' :dataSource='polardata' index=0 :width='polarwidth' ></ejs-dropdownlist>  
-                    </div>
-                </td>
-            </tr>
-        </table>
     </div>
-</div>
-<div id="action-description">
-    <p>
-        This sample demonstrates polar series with stacking column type. The switching between polar and radar series can be done by using <code>Series Type</code> in property panel. 
-    </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can see how to render and configure the stacking column type charts. Stacks the points in the series
-        vertically and also you can use <code>stackingGroup</code> property to group the stacking collection based
-        on categories. You can use <code>border</code>, <code>fill</code> properties to customize the vertical bar. <code>dataLabel</code>        is used to represent individual data and its value.
-    </p>
-    <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
-    <p>
-        Chart component features are segregated into individual feature-wise modules. To use stacking column drawtype in Polar series
+    <div id="action-description">
+      <p>
+        This sample shows a wind rose chart designed using polar and radar charts with a stacking column series. 
+        A wind rose chart helps visualize wind patterns, i.e., wind speed and wind direction.
+      </p>
+    </div>
+    <div id="description">
+      <p>
+        In this example, you can see how to render and configure the polar and radar charts with a stacking column series.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
+        point or tap a point in touch enabled devices.
+      </p>
+      <p style="font-weight: 500">Injecting Module</p>
+      <p>
+        Chart component features are segregated into individual feature-wise modules. To use stacking column drawtype in
+        Polar series
         and Radar series, we need to inject
-        <code>PolarSeries</code> and <code>RadarSeries</code> module using <code>provide: { chart: [ PolarSeries, RadarSeries] },</code>        method.
-    </p>
-    <p>
-        More information on the Polar series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-axis.html#valuetype-valuetype">documentation section</a>.
-    </p>
-</div>
-</div>
+        <code>PolarSeries</code> and <code>RadarSeries</code> module using
+        <code>provide: { chart: [ PolarSeries, RadarSeries] },</code> method.
+      </p>
+      <p>
+        More information on the polar and radar series with a stacking column type chart can be found in this
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/chart/polar-radar/">documentation
+          section</a>.
+      </p>
+    </div>
+  </div>
 
 </template>
 <style scoped>
@@ -80,6 +69,7 @@ import {
   Category,
   LineSeries,
   RadarSeries,
+  Highlight,
   ChartDrawType
 } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
@@ -89,26 +79,26 @@ selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-         theme: theme,
+      theme: theme,
       seriesData: [
-        { x: "N", y: 1, y1: 0.8, y2: 0.8, y3: 0.3, y4: 0.2, y5: 0.2 },
-        { x: "NNE", y: 0.9, y1: 0.7, y2: 0.7, y3: 0.3, y4: 0.2, y5: 0.2 },
-        { x: "NE", y: 0.7, y1: 0.8, y2: 0.5, y3: 1.1, y4: 1.2, y5: 0.5 },
-        { x: "ENE", y: 0.9, y1: 1, y2: 0.4, y3: 0.9, y4: 1, y5: 0.4 },
-        { x: "E", y: 0.9, y1: 0.6, y2: 0.9, y3: 0.5, y4: 0.7, y5: 0.4 },
-        { x: "ESE", y: 0.8, y1: 0.5, y2: 0.7, y3: 0.3, y4: 0.8, y5: 0.3 },
-        { x: "SE", y: 0.7, y1: 0.4, y2: 0.6, y3: 0.5, y4: 0.5, y5: 0.3 },
-        { x: "SSE", y: 1.4, y1: 0.4, y2: 0.5, y3: 0.4, y4: 0.6, y5: 0.2 },
-        { x: "S", y: 2, y1: 1.2, y2: 0.6, y3: 0.6, y4: 0.4, y5: 0.4 },
-        { x: "SSW", y: 2, y1: 2.5, y2: 2, y3: 1, y4: 0.5, y5: 0.3 },
-        { x: "SW", y: 2.2, y1: 2, y2: 1.8, y3: 1, y4: 0.4, y5: 0.2 },
-        { x: "WSW", y: 1.8, y1: 1.1, y2: 0.8, y3: 0.1, y4: 0.4, y5: 0.2 },
-        { x: "W", y: 1.6, y1: 1.8, y2: 2.1, y3: 1, y4: 0.4, y5: 0.4 },
-        { x: "WNW", y: 1.2, y1: 1.2, y2: 1.5, y3: 1.3, y4: 1.1, y5: 1.2 },
-        { x: "NW", y: 2, y1: 2.5, y2: 2, y3: 1, y4: 0.2, y5: 0.7 },
-        { x: "NNW", y: 1.8, y1: 1.1, y2: 0.8, y3: 0.1, y4: 0.4, y5: 0.2 }
+        { XValue: "N", YValue: 1, YValue1: 0.8, YValue2: 0.8, YValue3: 0.3, YValue4: 0.2, YValue5: 0.2 },
+        { XValue: "NNE", YValue: 0.9, YValue1: 0.7, YValue2: 0.7, YValue3: 0.3, YValue4: 0.2, YValue5: 0.2 },
+        { XValue: "NE", YValue: 0.7, YValue1: 0.8, YValue2: 0.5, YValue3: 1.1, YValue4: 1.2, YValue5: 0.5 },
+        { XValue: "ENE", YValue: 0.9, YValue1: 1, YValue2: 0.4, YValue3: 0.9, YValue4: 1, YValue5: 0.4 },
+        { XValue: "E", YValue: 0.9, YValue1: 0.6, YValue2: 0.9, YValue3: 0.5, YValue4: 0.7, YValue5: 0.4 },
+        { XValue: "ESE", YValue: 0.8, YValue1: 0.5, YValue2: 0.7, YValue3: 0.3, YValue4: 0.8, YValue5: 0.3 },
+        { XValue: "SE", YValue: 0.7, YValue1: 0.4, YValue2: 0.6, YValue3: 0.5, YValue4: 0.5, YValue5: 0.3 },
+        { XValue: "SSE", YValue: 1.4, YValue1: 0.4, YValue2: 0.5, YValue3: 0.4, YValue4: 0.6, YValue5: 0.2 },
+        { XValue: "S", YValue: 2, YValue1: 1.2, YValue2: 0.6, YValue3: 0.6, YValue4: 0.4, YValue5: 0.4 },
+        { XValue: "SSW", YValue: 2, YValue1: 2.5, YValue2: 2, YValue3: 1, YValue4: 0.5, YValue5: 0.3 },
+        { XValue: "SW", YValue: 2.2, YValue1: 2, YValue2: 1.8, YValue3: 1, YValue4: 0.4, YValue5: 0.2 },
+        { XValue: "WSW", YValue: 1.8, YValue1: 1.1, YValue2: 0.8, YValue3: 0.1, YValue4: 0.4, YValue5: 0.2 },
+        { XValue: "W", YValue: 1.6, YValue1: 1.8, YValue2: 2.1, YValue3: 1, YValue4: 0.4, YValue5: 0.4 },
+        { XValue: "WNW", YValue: 1.2, YValue1: 1.2, YValue2: 1.5, YValue3: 1.3, YValue4: 1.1, YValue5: 1.2 },
+        { XValue: "NW", YValue: 2, YValue1: 2.5, YValue2: 2, YValue3: 1, YValue4: 0.2, YValue5: 0.7 },
+        { XValue: "NNW", YValue: 1.8, YValue1: 1.1, YValue2: 0.8, YValue3: 0.1, YValue4: 0.4, YValue5: 0.2 }
       ],
 
       //Initializing Primary X Axis
@@ -118,32 +108,26 @@ export default Vue.extend({
         interval: 1,
         coefficient: Browser.isDevice ? 80 : 100
       },
-
-      border: { color: "white", width: 1 },
-
       tooltip: { enable: true },
-
       seriesType: "Polar",
-
-      legendSettings: { visible: true },
-
+      legendSettings: { enableHighlight: true },
       polardata: ["Polar", "Radar"],
       polarwidth: 120,
       title: "Wind Rose Chart"
     };
   },
   provide: {
-    chart: [Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries]
+    chart: [Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, Highlight]
   },
-   updated: function () {
-    this.$nextTick(function() {
+  updated: function () {
+    this.$nextTick(function () {
       this.$refs.chart.ej2Instances.dataBind();
       this.$refs.chart.ej2Instances.refresh();
     });
   },
   methods: {
-   polarType: function(args) {
-       this.seriesType = SelectSeriesType.value;  
+    polarType: function (args) {
+      this.seriesType = SelectSeriesType.value;
     }
   }
 });

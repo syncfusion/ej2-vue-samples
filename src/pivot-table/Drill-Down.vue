@@ -380,10 +380,4 @@ methods: {
 /deep/  .pivot-property-section table tr td:first-child {
         width: 20%;
     }
-
-/deep/ .e-bigger .pivot-property-section .e-input-group.e-control-wrapper .e-input-group-icon {
-        padding: 0px !important;
-        min-height: 36px;
-        min-width: 36px;
-    }
 </style>

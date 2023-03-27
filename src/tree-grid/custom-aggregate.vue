@@ -102,6 +102,7 @@ export default Vue.extend({
   },
   methods: {
       customAggregateFn : function (data: Object) {
+        (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.vueInstance = null;
         let sampleData: Object[] = getObject('result', data);
         let countLength: number; countLength = 0;
         sampleData.filter((item: Object) => {
@@ -114,7 +115,7 @@ export default Vue.extend({
       },
       dataBound: function() {
           let treeGridObj = (<TreeGridComponent>this.$refs.treegrid);
-            if (!isNullOrUndefined(listObj)) {
+            if (!isNullOrUndefined(listObj) && listObj.element.classList.contains('e-' + listObj.getModuleName())) {
                 listObj.destroy();
             }
             listObj = new DropDownList({

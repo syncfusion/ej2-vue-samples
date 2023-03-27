@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-amazon">
          <div class="sample-container">
-            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :searchSettings='searchSettings'>
+            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :searchSettings='searchSettings' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -38,7 +38,12 @@ export default Vue.extend ({
                 uploadUrl: hostUrl + 'AmazonS3Upload',
                 downloadUrl: hostUrl + 'AmazonS3Download'
             },
-            searchSettings: {allowSearchOnTyping: false}
+            searchSettings: {allowSearchOnTyping: false},
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
+            }
         };
     },
     provide: {

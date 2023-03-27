@@ -108,8 +108,8 @@
                 if (newEventElement) {
                     remove(newEventElement);
                     removeClass([document.querySelector('.e-selected-cell')], 'e-selected-cell');
-                }                
-                let scheduleObj = this.$refs.scheduleObj;
+                }
+                let scheduleObj = this.$refs.scheduleObj.ej2Instances;
                 scheduleObj.closeQuickInfoPopup();
                 let targetElement = args.event.target;
                 if (closest(targetElement, '.e-contextmenu')) {
@@ -132,6 +132,11 @@
                         menuObj.hideItems(['Add', 'AddRecurrence', 'Today', 'EditRecurrenceEvent', 'DeleteRecurrenceEvent'], true);
                     }
                     return;
+                } else if ((this.selectedTarget.classList.contains('e-work-cells') || this.selectedTarget.classList.contains('e-all-day-cells')) &&
+                    !this.selectedTarget.classList.contains('e-selected-cell')) {
+                    this.selectedTarget.setAttribute('aria-selected', 'true');
+                    this.selectedTarget.classList.add('e-selected-cell');
+                    removeClass([].slice.call(scheduleObj.element.querySelectorAll('.e-selected-cell')), 'e-selected-cell');
                 }
                 menuObj.hideItems(['Save', 'Delete', 'EditRecurrenceEvent', 'DeleteRecurrenceEvent'], true);
                 menuObj.showItems(['Add', 'AddRecurrence', 'Today'], true);

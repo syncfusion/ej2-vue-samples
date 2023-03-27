@@ -1,7 +1,7 @@
 <template>
 <div>
 <div id="dfarcgauge" class="control-section" align="center">
-<ejs-circulargauge width="500px" height="500px" :load='load' title="Female (% usage) on popular social network" :titleStyle='titleStyleOne'>
+<ejs-circulargauge height="500px" :load='load' title="Female (% usage) on popular social network" :titleStyle='titleStyleOne'>
       <e-axes>
         <e-axis startAngle="0" endAngle="270" minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotations' :ranges='ranges'>
           <e-pointers>
@@ -77,7 +77,7 @@ export default Vue.extend({
           color: '#7a7f82',
           startWidth: 1,
           endWidth: 1,
-          radius: '90%',
+          radius: '89%',
         },
         {
           start: 0,
@@ -93,7 +93,7 @@ export default Vue.extend({
           color: '#7a7f82',
           startWidth: 1,
           endWidth: 1,
-          radius: '76%',
+          radius: '75%',
         },
         {
           start: 0,
@@ -109,7 +109,7 @@ export default Vue.extend({
           color: '#7a7f82',
           startWidth: 1,
           endWidth: 1,
-          radius: '63%',
+          radius: '61%',
         },
         {
           start: 0,
@@ -125,7 +125,7 @@ export default Vue.extend({
           color: '#7a7f82',
           startWidth: 1,
           endWidth: 1,
-          radius: '49%',
+          radius: '47%',
         },
         {
           start: 0,
@@ -141,7 +141,7 @@ export default Vue.extend({
           color: '#7a7f82',
           startWidth: 1,
           endWidth: 1,
-          radius: '35%',
+          radius: '34%',
         }],
         annotations: [
             {
@@ -271,19 +271,35 @@ export default Vue.extend({
     }
 
     @media screen and (max-width: 420px) {
+        #dfarcgauge .tiktokText {
+          font-family:inherit;
+          font-size: 15px;
+          margin-top: 6px;
+          margin-left: -7px;
+        }
         #dfarcgauge .titleText {
             font-size: 15px;
             margin-top: 7px;
+            margin-left:-7px;
         }
 
         #dfarcgauge .annotation {
             font-size: 13px;
+            margin-top: -4px;
+            margin-left: 2px;
         }
 
         .e-view.tailwind div#dfarcgauge .titleText,
         .e-view.tailwind-dark div#dfarcgauge .titleText {
             font-size: 15px;
             margin-top: -3px;
+            margin-left:-7px;
+        }
+        .e-view.tailwind div#dfarcgauge .tiktokText,
+        .e-view.tailwind-dark div#dfarcgauge .tiktokText {
+            font-size: 15px;
+            margin-top: -2px;
+            margin-left:-7px;
         }
     }
 </style>

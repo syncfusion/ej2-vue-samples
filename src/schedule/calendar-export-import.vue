@@ -67,16 +67,16 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .calendar-import.e-upload {
+    .calendar-import.e-upload {
         border: 0;
         padding-left: 0 !important;
     }
 
-    .schedule-vue-sample .calendar-import.e-upload .e-file-select-wrap {
+    .calendar-import.e-upload .e-file-select-wrap {
         padding: 0
     }
 
-    .schedule-vue-sample .calendar-import.e-upload .e-file-select-wrap .e-file-drop {
+    .calendar-import.e-upload .e-file-select-wrap .e-file-drop {
         display: none;
     }
 </style>

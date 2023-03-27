@@ -13,7 +13,7 @@
                    :trackThickness='trackThickness'
                    :progressThickness='progressThickness'
                    :value=value
-                   :segmentCount=count
+                   :segmentCount=countValue
                    :gapWidth=gap
                    :loaded='loaded'
                    :animation='animation'
@@ -115,6 +115,7 @@ export default Vue.extend({
       trackThickness:15,
       progressThickness:15,
       count:50,
+      countValue: Browser.isDevice ? 25 : 50,
       gap:5,
       startAngle: 220,
       endAngle: 140,

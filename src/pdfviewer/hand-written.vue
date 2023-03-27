@@ -36,7 +36,7 @@ Vue.use(PdfViewerPlugin);
 export default Vue.extend({
     data: function() {
         return {
-			serviceUrl:"https://ej2services.syncfusion.com/production/web-services/api/pdfviewer",
+			serviceUrl:"https://services.syncfusion.com/vue/production/api/pdfviewer",
 			documentPath:"HandwrittenSignature.pdf"		
         }
     },

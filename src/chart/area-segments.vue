@@ -16,13 +16,13 @@
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure points in a particular range by using <code>MultiColoredArea</code> series. Points within the range can be configured with the <code>Color</code> property in ChartSegment.
+        In this example, you can see how to render and configure points in a particular range by using <code>MultiColoredArea</code> series. Points within the range can be configured with the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/chartSegment/#color">color</a> property in chart segment.
      </p>
      <p>
-        <code>Tooltips</code> are enabled in this example, to see the tooltip in action, hover a point or tap a point in touch enabled devices.
+        The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/">tooltip</a> is enabled in this example, to see the tooltip in action, hover a point or tap a point in touch enabled devices.
     </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
             <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.

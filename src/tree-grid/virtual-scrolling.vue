@@ -22,12 +22,12 @@
         <p>
             The Tree Grid UI virtualization allows you to render only rows visible within the view-port without buffering the entire datasource.
         To enable the virtualization, set <code><a target="_blank" class="code"
-        href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualization">enableVirtualization</a></code> property as true.
+        href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualization">
+        enableVirtualization </a></code> property as true.
         </p>
         <p>
-        By default, <code><a target="_blank" class="code" 
-        href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualmaskrow">enableVirtualMaskRow</a></code> is set
-        to true. we can change by setting <code>enableVirtualMaskRow</code> property to false.
+        By default, <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualmaskrow">
+        enableVirtualMaskRow </a></code> is set to true. we can change by setting <code>enableVirtualMaskRow</code> property to false.
         </p>
         <p>
             Note: The <code><a target="_blank" class="code"

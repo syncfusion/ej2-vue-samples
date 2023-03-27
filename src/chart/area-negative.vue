@@ -17,10 +17,10 @@
   </div>
   <div id="description">
     <p>
-      In this example, you can see how to render an area series with negative values. Similar to line type series, but the area gets closed and filled with series color. You can use <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#border">border</a></code> and <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#fill">fill</a></code> properties to customize the area. Also, the legend is enabled with the shape of the series type.
+      In this example, you can see how to render an area series with negative values. Similar to line type series, but the area gets closed and filled with series color. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the area. Also, the legend is enabled with the shape of the series type.
      </p>    
         <br>
-          <p style="font-weight: 500">Injecting Module</p>
+          <p style="font-weight: 500"><b>Injecting Module</b></p>
           <p>
               Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
               <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.

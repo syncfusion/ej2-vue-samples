@@ -11,7 +11,7 @@
                 <e-columns>
                     <e-column field='taskID' headerText='Task ID' :isPrimaryKey='true' width='135' :validationRules='taskidrules' textAlign='Right'></e-column>
                     <e-column field='taskName' headerText='Task Name' :validationRules='tasknamerules' width='280'></e-column>
-                    <e-column field='duration' headerText='Duration' width='150' textAlign='Right'></e-column>
+                    <e-column field='duration' headerText='Duration' width='140' textAlign='Right'></e-column>
                     <e-column field='progress' headerText='Progress' width='145' textAlign='Right'></e-column>
                 </e-columns>
             </ejs-treegrid>
@@ -22,7 +22,7 @@
                 <e-columns>
                     <e-column field='taskID' headerText='Task ID' :isPrimaryKey='true' width='135' :validationRules='taskidrules' textAlign='Right'></e-column>
                     <e-column field='taskName' headerText='Task Name' :validationRules='tasknamerules' width='280'></e-column>
-                    <e-column field='duration' headerText='Duration' width='150' textAlign='Right'></e-column>
+                    <e-column field='duration' headerText='Duration' width='140' textAlign='Right'></e-column>
                     <e-column field='progress' headerText='Progress' width='145' textAlign='Right'></e-column>
                 </e-columns>
             </ejs-treegrid>

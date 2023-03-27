@@ -345,7 +345,7 @@
                                 <div class="content-area">
                                     <div class="ad-cnt-pt">
                                         <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection"></div>
-                                        <div class="ad-cnt-text">65+ high-performance and responsive UI components</div>
+                                        <div class="ad-cnt-text">80+ high-performance and responsive UI components</div>
                                     </div>
                                     <div class="ad-cnt-pt">
                                         <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
@@ -459,10 +459,10 @@ import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
 // import { setTimeout } from "timers";
 
-loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
+loadCldr(numberingSystems["default"], chinaCultureData["default"], enCultureData["default"], swissCultureDate["default"], currencyData["default"], deCultureData["default"], arCultureData["default"]);
 L10n.load(Locale);
 setCulture('en');
-registerLicense('{SyncfusionJSLicensekey}');
+registerLicense((window as any).syncfusion_license);
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
@@ -1721,7 +1721,6 @@ export default Vue.extend({
             if (isMobile) {
                 select('#left-sidebar').classList.add('sb-hide');
                 select('.sb-left-footer-links').appendChild(select('.sb-footer-left'));
-                sidebar.toggle();
                 leftToggle.classList.remove('toggle-active');
             }
 

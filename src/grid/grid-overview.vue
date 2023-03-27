@@ -11,7 +11,7 @@
                 <br/>
             </div>
             <ejs-grid ref='overviewgrid' id='overviewgrid' :dataSource="getTradeData" :query="query" :selectionSettings='selectionSettings' :allowFiltering='true' :filterSettings='filterOptions' :allowSelection='true' :allowSorting='true'
-                :enableVirtualization='true' height='600' rowHeight=38 :enableHover='false' :enableHeaderFocus='true' :load='load' :loadingIndicator='loadingIndicator'>
+                :enableVirtualization='true' height='400' rowHeight=38 :enableHover='false' :enableHeaderFocus='true' :load='load' :loadingIndicator='loadingIndicator'>
                 <e-columns>
                     <e-column type='checkbox' :allowFiltering='false' :allowSorting='false' width='60'></e-column>
                     <e-column field='EmployeeID' :visible='false' headerText='Employee ID' :isPrimaryKey='true' width='130'></e-column>
@@ -43,8 +43,8 @@
                 used along with large data source.
             </p>
             <p>
-                You can follow the guidelines in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
-                documentation</a> to get around the browser height restriction when loading and viewing millions of records.
+                You can follow the guidelines in this documentation to get around the browser height restriction when loading and viewing millions of records. Refer <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
+                here</a> for more details.
             </p>
             <br/> More information on the Grid instantiation can be found in this
             <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
@@ -61,10 +61,12 @@
     import Vue from "vue";
     import { GridPlugin, VirtualScroll, Sort, Filter, Selection, GridComponent } from "@syncfusion/ej2-vue-grids";
     import { DropDownList, DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+    import { RatingPlugin } from "@syncfusion/ej2-vue-inputs";
     import { DataManager, Query, UrlAdaptor } from "@syncfusion/ej2-data";
 
     Vue.use(GridPlugin);
     Vue.use(DropDownListPlugin);
+    Vue.use(RatingPlugin);
 
     export default Vue.extend({
         data: () => {
@@ -126,9 +128,14 @@
                     return {
                         template: Vue.component('ratingTemplate', {
                             template: '<div id="status" class="rating">\
-                        <span v-for="i in item" :class="{checked: i <= data.Rating, star: true}"></span>\
+                        <ejs-rating :readOnly="true" :value="value" cssClass="custom-rating"></ejs-rating>\
                       </div>',
-                            data: function () { return { data: {}, item: [1, 2, 3, 4, 5] }; }
+                            data: function () { return { data: {} }; },
+                            computed: {
+                                value: function () {
+                                    return this.data.Rating;
+                                }
+                            }
                         })
                     }
                 },
@@ -191,7 +198,7 @@
         },
         computed: {
             getTradeData: function () {
-                let SERVICE_URI = "https://ej2services.syncfusion.com/production/web-services/";
+                let SERVICE_URI = "https://services.syncfusion.com/vue/production/";
                 let getTradeData = new DataManager({
                     url: SERVICE_URI + 'api/UrlDataSource',
                     adaptor: new UrlAdaptor()

@@ -75,7 +75,7 @@ export default Vue.extend({
   data: () => {
     return {
       data: new DataManager({
-        url: "https://ej2services.syncfusion.com/production/web-services/api/SelfReferenceData",
+        url: "https://services.syncfusion.com/vue/production/api/SelfReferenceData",
         adaptor: new WebApiAdaptor()
       }),
       pageSettings: { pageCount: 3 },

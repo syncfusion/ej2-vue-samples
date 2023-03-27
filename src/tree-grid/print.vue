@@ -21,7 +21,8 @@
     <p>The Tree Grid can be printed using the <code>print</code> method. While printing the pager and 
     scrollbar will be removed if they are enabled in Tree Grid.</p>
     <p>By default, all pages will be printed. 
-        We can print current page alone by setting the <code>printMode</code> property value as <code>currentpage</code>.</p>
+        We can print current page alone by setting the <code>printMode</code>property
+        value as <code>currentpage</code>.</p>
     <p>In this demo, click the print icon to print Tree Grid.</p>
     <p>More information on the print feature can be found in this documentation section.
     </p>

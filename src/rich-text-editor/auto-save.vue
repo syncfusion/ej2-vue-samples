@@ -1,5 +1,5 @@
 <template>
-<div class="control-section" style="overflow:hidden;">
+<div>
 <div class="col-lg-8 control-section">
     <div class="control-wrapper">
         <div class="sample-container">

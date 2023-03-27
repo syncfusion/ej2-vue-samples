@@ -39,7 +39,8 @@
             <li><code>WebApiAdaptor</code> - Use this to interact with Web API created under OData standards.</li>
             <li><code>WebMethodAdaptor</code> - Use this to interact with web methods.</li>
         </ul>
-        <p>In this demo, remote data is bound by assigning service data as an instance of <code>DataManager</code> to the <code>dataSource</code> property.</p>
+        <p>In this demo, remote data is bound by assigning service data as an instance of <code>DataManager</code> to the <code>dataSource
+        </code> property.</p>
         <p>
             More information on the remote data binding can be found in this
             <a target="_blank" 
@@ -60,7 +61,7 @@ Vue.use(TreeGridPlugin);
 export default Vue.extend({
   data: () => {
       let SERVICE_URI: string =
-      "https://ej2services.syncfusion.com/production/web-services/api/SelfReferenceData";
+      "https://services.syncfusion.com/vue/production/api/SelfReferenceData";
     return {
       data: new DataManager({
         url: SERVICE_URI,

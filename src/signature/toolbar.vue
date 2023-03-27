@@ -241,8 +241,6 @@ export default {
             saveBtn.disabled = true;
           }
           break;
-        case 'Disabled':
-          signature.disabled = !(args.item.template).checked;
       }
 		},
     signChange: function() {

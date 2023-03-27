@@ -4,7 +4,7 @@
         <div class="col-lg-8 control-section">
             <div class="control-styles">
                 <h4>Selection Limit</h4>
-                <ejs-multiselect ref="multiselectInstance" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
+                <ejs-multiselect ref="multiselectInstance" cssClass="e-specific" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='mode' :popupHeight='popHeight' :showDropDownIcon='true' :maximumSelectionLength='maxSelection'
                     :filterBarPlaceholder='filterPlaceholder'></ejs-multiselect>
             </div>
@@ -51,6 +51,13 @@
         margin: 0 auto; 
         width:300px; 
         padding-top: 25px
+    }
+    .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(1px);
+    }
+
+    .e-bigger .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(2px);
     }
 </style>
 <script>

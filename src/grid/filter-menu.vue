@@ -2,8 +2,9 @@
 <div class="col-lg-12 control-section">
     <div id="action-description">
         <p>
-            This sample demonstrates the way of filtering Grid columns using menu, checkbox and excel filter UI. In this sample, click the filtering
-            icon from column header to show filter UI for a particular column. You can change the filter type from the toolbar and while Excel filter type is selected, you can sort the column using the sorting option available in the excel filter dialog.
+            This sample demonstrates filtering Grid columns using menu, checkbox, and Excel filter UI.
+            In this sample, click the filter icon on the column header to filter a particular column.
+            You can change the filter type on the properties panel. When Excel filter type is selected, you can sort the column using the sort option in the Excel filter dialog.
         </p>
     </div>
     <div>
@@ -24,11 +25,10 @@
     </div>
 
      <div id="description">
-        <p>The filtering feature enables the user to view the reduced amount of records based on filter criteria. It can be
-            enabled by setting <code><a target="_blank" class="code"
+        <p>The filtering feature enables the user to view a reduced number of records based on the filter criteria. It can be enabled by setting the <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#allowfitering">allowFiltering
-        </a></code> property as true. </p>
-        <p>Grid supports the following filter types. They are </p>
+        </a></code> property to true. </p>
+        <p>Grid supports the following filter types.</p>
         <ul>
             <li><code>FilterBar</code></li>
             <li><code>Menu</code></li>
@@ -37,7 +37,29 @@
         </ul>
         you can change the filter type by setting <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/vue/documentation/grid/api-filterSettings.html#type">filterSettings->type</a></code>
-        <p> In this demo, filter menu enabled by default , you can switch to other filter type by using dropdown.</p>
+        <p>Now, the following additional filter operators are incorporated with the already existing operators.</p>
+        <p>String type columns:</p>
+            <ul>
+                <li>Not Equal</li>
+                <li>Does Not Start With</li>
+                <li>Does Not End With</li>
+                <li>Does Not Contain</li>
+                <li>Empty</li>
+                <li>Not Empty</li>
+                <li>Like</li>
+            </ul>
+        <p>Number and Date type columns:</p>
+            <ul>
+                <li>Null</li>
+                <li>Not Null</li>
+            </ul>
+        <p>For example, when the <b>Like</b> search operator is used:</p>
+            <ul>
+                <li>%a% - Filters words containing the character 'a'</li>
+                <li>a%  - Filters words ending with 'a'</li>
+                <li>%a  - Filters words starting with 'a'</li>
+            </ul>
+        <p>In this demo, filter menu is enabled by default. You can switch to other filter types using the dropdown.</p>
     </div>
 
 </div>

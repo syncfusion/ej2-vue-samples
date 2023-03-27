@@ -2,7 +2,6 @@
     "name": "Tree Grid",
     "directory": "tree-grid",
     "category": "Grids",
-    "type": "update",
     "ftName": "treegrid",
     "samples": [
       {  
@@ -18,7 +17,7 @@
       "description": "This example demonstrates the adaptive rendering behavior of Tree Grid features."
      },
 	 {
-      "url": "loading-animation", "name": "Loading Animation", "category": "Tree Grid", "type": "new", "api": { "TreeGrid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] },
+      "url": "loading-animation", "name": "Loading Animation", "category": "Tree Grid", "api": { "TreeGrid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] },
       "description": "This demo for Essential JS 2 Tree Grid component shows the loading indicator when Tree Grid loading and refreshing."
      },
     
@@ -173,7 +172,7 @@
          "description": "This demo for Essential JS 2 Tree Grid control shows frozen columns feature of Tree Grid with Freeze direction Left/Right."
         }, 
        {
-        "url": "virtual-scrolling", "name": "Virtual Scrolling", "type": "update", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
+        "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
         "description": "This demo for Essential JS 2 Tree Grid control shows the usage of the horizontal and vertical scrollbars to view Tree Grid content that exceeds the Tree Grid area."
       },
       {

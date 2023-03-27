@@ -5,7 +5,7 @@
              :legendSettings='legendSettings' :tooltip='tooltip' :enableAnimation='false' :enableBorderOnMouseMove='false' :annotations='annotations'>
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :innerRadius='innerRadius' tooltipMappingName='tooltipMappingName' :radius='radius' :startAngle='startAngle' 
-                :endAngle='endAngle' xName='Browser' yName='Users' :dataLabel='dataLabel'  :explode= 'isExplode'> </e-accumulation-series>
+                :endAngle='endAngle' xName='Browser' yName='Users' :dataLabel='dataLabel' > </e-accumulation-series>
              
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -19,7 +19,7 @@
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render a semi pie chart using <code>StartAngle</code> and <code>EndAngle</code> properties.  Data labels are wrapped to fit inside the pie slice.
+      In this example, you can see how to render a semi pie chart using <code>StartAngle</code> and <code>EndAngle</code> properties. Data labels are wrapped to fit inside the pie slice. To enable the datalabel wrap feature, use the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/data-label/#text-wrap">textwrap</a> datalabel property.
     </p>
      
     <p>
@@ -74,7 +74,6 @@ export default Vue.extend({
 
       innerRadius: '40%',
       radius : Browser.isDevice ? '85%' : '100%',
-      isExplode: true,
       annotations:[{
         content: Browser.isDevice ? '<div style="font-size:11px; font-weight:600">Browser<br> Market <br />Shares</div>' : '<div style="font-size:14px; font-weight:600">Browser<br> Market <br />Shares</div>',
         region: 'Series',

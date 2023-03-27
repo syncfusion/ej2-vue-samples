@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-virtual">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :view='view' :virtualizationSettings='virtualizationSettings'>
+            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :view='view' :enableVirtualization='enableVirtualization' :beforeSend='beforeSend' :beforeImageLoad='beforeImageLoad' :beforeDownload='beforeDownload' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -11,12 +11,7 @@
     </div>
 
     <div id="description">
-        <p>In the demo, enabled virtualization by using <code>virtualizationSettings.enable</code> property as true. Specify the number of files/folders to render on initial rendering through following APIs.
-            <ul>
-                <li>For details view, specify count by using<code>virtualizationSettings.detailsViewItemsCount</code></li>
-                <li>For large icons view, specify count by using <code>virtualizationSettings.largeIconsViewItemsCount</code></li>
-            </ul>
-        </p>
+        <p>In the demo, enabled virtualization by using <code>enableVirtualization</code> property as true.</p>
         <p>To use virtual scrolling feature, inject Virtualization module using the <code>FileManager.Inject(Virtualization)</code> section.</p>
         <p><b>Note: </b>File Manager’s upload functionality is restricted in the online demo. If you need to test upload functionality, please install 
             <a target="_blank" href="https://www.syncfusion.com/downloads">Syncfusion Essential Studio </a>on your machine and run the demo.</p>
@@ -47,17 +42,31 @@ export default Vue.extend ({
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download'
             },
-            view:"Details",  
-            virtualizationSettings: {
-                enable: true,
-                detailsViewItemsCount: 30,
-                largeIconsViewItemsCount: 50
-            }
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
+            },
+            view: "Details",  
+            enableVirtualization: true
         };
     },
     provide: {
         filemanager: [NavigationPane, DetailsView, Toolbar, Virtualization]
-    }
+    },
+    methods: {
+        beforeSend: function (args) {
+            args.ajaxSettings.beforeSend = function (args) {
+                args.httpRequest.setRequestHeader('Authorization', 'FileBrowser');
+            };
+        },
+        beforeImageLoad: function(args) {
+            args.imageUrl = args.imageUrl + '&rootName=' + 'FileBrowser';
+        },
+        beforeDownload: function(args) {
+            args.data['rootFolderName'] = 'FileBrowser';
+        },
+  },
 });
 </script>
 

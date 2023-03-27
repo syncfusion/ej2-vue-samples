@@ -14,7 +14,7 @@
     </div>
     <div>
         <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar'
-        :allowSorting='true' :allowGrouping='true' :allowFiltering='true' :filterSettings='filterOptions'>
+        :allowSorting='true' :allowGrouping='true' :allowFiltering='true' :filterSettings='filterOptions' :selectionSettings='selectOptions'>
             <e-columns>
             <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
             <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -127,10 +127,9 @@ export default Vue.extend({
       customeridrules: { required: true },
       freightrules:  { required: true },
       editparams: { params: { popupHeight: '300px' }},
-      pageSettings: { pageCount: 5},
-    filterOptions: {
-           type: 'Menu'
-        },
+      pageSettings: { pageCount: 5 },
+      filterOptions: { type: 'Menu' },
+      selectOptions: { type: 'Multiple' }
     };
   },
   provide: {

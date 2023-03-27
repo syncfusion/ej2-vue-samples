@@ -20,7 +20,7 @@
       In this example, you can see how to render an area series with empty points. Also, a legend is enabled in the shape of the series.
      </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
             <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.

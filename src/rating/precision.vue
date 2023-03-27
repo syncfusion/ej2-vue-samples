@@ -31,27 +31,27 @@
     </div>
   </template>
   <style scoped>
-     #precision-rating-control .rating-content {
-        width: 240px;
-        margin: 15px 0;
-        min-height: 75px;
-        padding:0;
-        text-align: center;
+      #precision-rating-control .rating-content {
+          width: 240px;
+          margin: 15px 0;
+          min-height: 75px;
+          padding:0;
+          text-align: center;
       }
-    .e-bigger #precision-rating-control .rating-content {
-        width: 260px;
-        margin: 15px 0;
-        min-height: 75px;
-        padding:0;
-        text-align: center;
-    }
-    #precision-rating-control {
-        margin: 6% auto;
-        max-width: 600px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+      .e-bigger #precision-rating-control .rating-content {
+          width: 330px;
+          margin: 15px 0;
+          min-height: 75px;
+          padding:0;
+          text-align: center;
+      }
+      #precision-rating-control {
+          margin: 6% auto;
+          max-width: 800px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
   </style>
   <script>
   import Vue from "vue";

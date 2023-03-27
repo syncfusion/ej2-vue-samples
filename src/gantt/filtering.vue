@@ -10,7 +10,6 @@
           :taskFields="taskFields"
           :columns="columns"
           :treeColumnIndex="0"
-          :toolbar="toolbar"
           :allowFiltering="true"
           :includeWeekend="true"
           :height="height"
@@ -130,7 +129,6 @@ import Vue from "vue";
 import {
   GanttPlugin,
   Filter,
-  Toolbar,
   Selection,
   GanttComponent 
 } from "@syncfusion/ej2-vue-gantt";
@@ -233,7 +231,7 @@ export default Vue.extend({
   },
 
   provide: {
-    gantt: [Filter, Toolbar, Selection],
+    gantt: [Filter,Selection],
   },
 });
 </script>

@@ -128,14 +128,14 @@
 
 <style>
 .api-carousel-section .carousel-sample {
-  margin: 0 auto 2em;
+  margin: 4em auto;
   max-width: 500px;
   height: 300px;
 }
 
 .api-carousel-section .property-panel-table td {
   margin: 0;
-  padding-bottom: 1em;
+  padding-top: 0;
 }
 
 .api-carousel .e-carousel-items .e-carousel-item .img-container {

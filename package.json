@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "20.4.38",
+  "version": "21.1.35",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -31,6 +31,7 @@
     "@syncfusion/ej2-vue-pivotview": "*",
     "@syncfusion/ej2-vue-popups": "*",
     "@syncfusion/ej2-vue-querybuilder": "*",
+    "@syncfusion/ej2-vue-ribbon": "*",
     "@syncfusion/ej2-vue-richtexteditor": "*",
     "@syncfusion/ej2-vue-schedule": "*",
     "@syncfusion/ej2-vue-splitbuttons": "*",

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align ='center'>
-        <ejs-chart  ref="chart" style='display:block; width: 92%'  :chartArea='chartArea'  align='center' :loaded="onChartLoad" :primaryYAxis='primaryYAxis' :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :title='title' :theme='theme'
+        <ejs-chart  ref="chart" style='display:block;' :width='width' :chartArea='chartArea'  align='center' :loaded="onChartLoad" :primaryYAxis='primaryYAxis' :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :title='title' :theme='theme'
         :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :marker='marker' :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' :fill='fill'  :border='border' > </e-series>
@@ -219,7 +219,7 @@ export default Vue.extend({
             width: 0
         }
     },
-        width: Browser.isDevice ? '100%' : '75%',
+        width: Browser.isDevice ? '100%' : '90%',
         border: { width: 0.5, color: borderColor[themes.indexOf(theme.toLowerCase())] },
         title: "Chart with 100k points",
         series: seriesData, 

@@ -3,7 +3,6 @@
     "directory": "schedule",
     "category": "Calendars",
     "ftName": "scheduler",
-    "type":"update",
     "samples": [{
             "url": "overview",
             "name": "Overview",
@@ -443,7 +442,6 @@
             "url": "group-bydate",
             "name": "Date-wise Grouping  ",
             "category": "Resource Grouping",
-            "type":"update",
             "description": "This demo shows how to group multiple resources by date in the Vue Scheduler. The resource row is rendered under each date in the header.",
             "api": {
                 "Schedule": [

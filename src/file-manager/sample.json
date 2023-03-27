@@ -39,6 +39,13 @@
         "description": "This example demonstrates how to upload the folder (directory) by using custom toolbar item with in a Vue File Manager."
     },
     {
+        "url": "virtualization",
+        "name": "Virtualization",
+        "category": "File Manager",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates the how to enable the virtual scrolling feature in a Vue File Manager."
+    },
+    {
         "url": "file-upload",
         "name": "File Upload",
         "category": "Use Case",

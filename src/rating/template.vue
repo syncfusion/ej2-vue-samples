@@ -3,11 +3,8 @@
         <div id="template-rating-control">
             <div class="rating-content" >
                 <label>Font Icon</label><br/>
-                <ejs-rating id='rating1' :emptyTemplate= "'emptyFont'" :fullTemplate= "'fullFont'" value="3.0">
+                <ejs-rating id='rating1' :emptyTemplate= "'emptyFont'" value="3.0">
                 <template v-slot:emptyFont>
-                    <span class='custom-font rating-icon-heart'></span>
-                </template>
-                <template v-slot:fullFont>
                     <span class='custom-font rating-icon-heart'></span>
                 </template>
                 </ejs-rating>

@@ -77,7 +77,7 @@ export default Vue.extend({
             title: 'Sales (In Percentage)',
             lineStyle: { width: 0},
             majorTickLines: {width: 0},
-            labelFormat: '{value}%',
+            labelFormat: '{value}',
             edgeLabelPlacement: 'Shift'
         },
         chartArea: {

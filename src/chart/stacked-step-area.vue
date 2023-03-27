@@ -42,17 +42,13 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the stacked stepped area chart. This series forms the
-        step
-        area progress, by connecting points through vertical and horizontal lines with area filled. You can use
-        <code>fill</code>
-        properties to customize the area. <code>marker</code> and <code>dataLabel</code> are used to represent
-        individual data and its value.
+        In this example, you can see how to render and configure the stacked step area chart. This series forms the
+        step area progress, by connecting points through vertical and horizontal lines with area filled. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the stacked step area. Both <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/marker/">marker</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/dataLabel/">dataLabel</a> are used to represent individual data and its value.
       </p>
       <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
-        Chart component features are segregated into individual feature-wise modules. To use step area series, we need to inject
+        Chart component features are segregated into individual feature-wise modules. To use stacked step area series, we need to inject
         <code>StackingStepAreaSeries</code> module using
         <code>provide: { chart: [StackingStepAreaSeries] }</code> method.
       </p>

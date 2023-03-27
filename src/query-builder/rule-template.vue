@@ -104,7 +104,9 @@ export default Vue.extend({
                     value: "USA",
                 },
                 ],
-            }
+            },
+            items: [{ field: 'USA', label: 'USA' }, { field: 'England', label: 'England' }, { field: 'India', label: 'India' }, { field: 'Spain', label: 'Spain' }],
+            fields: { text: 'field', value: 'label' }
         };
     },
     methods: {

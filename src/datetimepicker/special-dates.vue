@@ -70,6 +70,27 @@ export default Vue.extend({
   padding-top: 15px;
 }
 
+.datepicker-special-dates .e-input-group-icon.e-date-icon::before, 
+*.e-control-wrapper.datepicker-special-dates .e-input-group-icon.e-date-icon::before, 
+.datepicker-special-dates.e-datetime-wrapper .e-time-icon.e-icons::before {
+  transform: translate(0,1px);
+}
+
+.e-bigger .datepicker-special-dates .e-input-group-icon.e-date-icon::before, 
+.e-bigger *.e-control-wrapper.datepicker-special-dates .e-input-group-icon.e-date-icon::before,
+.e-bigger .datepicker-special-dates.e-datetime-wrapper .e-time-icon.e-icons::before {
+  transform: translate(0,2px);
+}
+
+.datepicker-special-dates.e-input-group .e-clear-icon, 
+.datepicker-special-dates.e-input-group.e-control-wrapper .e-clear-icon {
+  padding-top: 4px;
+}
+
+.e-bigger .datepicker-special-dates.e-input-group .e-clear-icon, 
+.e-bigger .datepicker-special-dates.e-input-group.e-control-wrapper .e-clear-icon {
+  padding-top: 5px;
+}
 
 @font-face {
     font-family: 'e-icons';
