@@ -27,9 +27,10 @@
         <li><code>Format</code> – Formats the sentence in different ways such as heading level, quotation, and code snippet</li>
         <li><code>Styles</code> – Allows you to apply inline styles to the selected content like bold, italic, and more.</li>
         <li><code>Insert Code</code> - Allows you to apply code format to the selected parent nodes. In the above sample, the style for the code format ('pre' tag) is applied by adding the background color.</li>
+        <li><code>Insert Emoticon</code> - Inserts the emoticon to the editor</li>
     </ul>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, EmojiPicker</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -114,7 +115,7 @@
 <script>
 import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
 
 Vue.use(RichTextEditorPlugin);
 
@@ -176,7 +177,7 @@ export default Vue.extend({
             toolbarSettings: {
                 items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
+                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , 'EmojiPicker', '|',
                 'Formats', 'Alignments', 'NumberFormatList', 'BulletFormatList',
                 'Outdent', 'Indent', '|',
                 'CreateTable', 'CreateLink', 'Image', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
@@ -267,7 +268,7 @@ export default Vue.extend({
         }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager]
+        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker]
     }
 });
 </script>

@@ -217,6 +217,25 @@
         background-color: #0088;
     }
 
+    body[class*="material3"] #skeleton-listview {
+        .pic01 {
+            background: url('./images/1.png') rgba(var(--color-sf-primary)) center;  
+            background-size: cover;
+        }
+        .pic02 {
+            background: url('./images/3.png') rgba(var(--color-sf-primary)) center;
+            background-size: cover;
+        }
+        .pic03 {
+            background: url('./images/5.png') rgba(var(--color-sf-primary)) center;
+            background-size: cover;
+        }
+        .pic04 {
+            background: url('./images/2.png') rgba(var(--color-sf-primary)) center;
+            background-size: cover;
+        }
+    }
+
     #skeleton-listview .pic01 {
         background-image: url("./images/1.png");
     }

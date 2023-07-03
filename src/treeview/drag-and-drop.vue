@@ -125,6 +125,7 @@
         font-size: 15px;
     }
     .material-dark .custom-tree .custom-delete::before,
+    .material3-dark .custom-tree .custom-delete::before,
     .fabric-dark .custom-tree .custom-delete::before,
     .bootstrap-dark .custom-tree .custom-delete::before, 
     .tailwind-dark .custom-tree .custom-delete::before,

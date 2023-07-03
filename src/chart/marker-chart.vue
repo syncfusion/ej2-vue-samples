@@ -48,7 +48,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function () {
@@ -72,7 +72,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis:
       {
-        rangePadding: 'None',
+        rangePadding: 'None', title: 'Penetration',
         labelFormat: '{value}%', minimum: 0,
         lineStyle: { width: 0 },
         maximum: 75, interval: 15,

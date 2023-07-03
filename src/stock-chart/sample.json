@@ -2,6 +2,7 @@
     "name": "Stock Chart",
     "directory": "stock-chart",
     "category": "Data Visualization",
+    "type": "update",
     "ftName": "stock-chart",
     "samples": [
         {
@@ -20,6 +21,7 @@
         {
             "url": "ohlc",
             "name": "OHLC",
+            "type": "update",
             "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Hilo Open Close series.",
             "category": "Stock Chart",
             "api": {

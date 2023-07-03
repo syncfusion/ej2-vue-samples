@@ -51,7 +51,9 @@
 </template>
 <style scoped>
 .multiline_wrapper {
-    margin: 40px 200px;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 40px 0px 0px;
 }
 .multiline-property .left-side{
     font-size: 14px;

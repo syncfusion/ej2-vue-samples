@@ -3,52 +3,34 @@
   "directory": "diagram",
   "category": "Data Visualization",
   "ftName": "diagram",
+  "type":"update",
   "samples": [
     {
       "url": "default-functionality",
-      "name": "Default Functionalities",
+      "name": "Flow Chart",
       "description": "This demo for Essential JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
+      "category": "Getting Started",
+      "order": 0,
+      "type":"update"
+    },
+    {
+      "url": "node",
+      "name": "Nodes",
+      "order": 0,
+      "description": "This demo for Essential JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
       "category": "Getting Started"
     },
     {
       "url": "shape-gallery",
       "name": "Shapes",
+      "order": 0,
       "description": "This demo for Essential JS2 Diagram component illustrates basic built-in shapes, such as basic shapes, flow shapes, and BPMN shapes.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "node",
-      "name": "Nodes",
-      "description": "This demo for Essential JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "connector",
-      "name": "Connectors",
-      "description": "This demo for Essential JS2 Diagram component visualizes the data flow in a marketing process using predefined shapes and connectors. Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "annotation",
-      "name": "Annotations",
-      "description": "This demo for Essential JS2 Diagram component illustrates the competitive environment of a business through five forces chart. The elements of the five force chart is described using nodes and annotations. Customizing the position and appearance of the annotation is illustrated in this example.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "port",
-      "name": "Ports",
-      "description": "This demo for Essential JS2 Diagram component visualizes the process flow of publishing a book using connection points. Connection points are static points over the shapes that allow creating connections to the shapes. Customizing the size and appearance of the connection points is illustrated in this example.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "swimlane",
-      "name": "Swimlane",
-      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
       "category": "Getting Started"
     },
     {
       "url": "html-node",
       "name": "HTML Shapes",
+      "order": 0,
       "description": "This demo for Essential JS2 Diagram component demonstrates how to host a HTML element inside a node. In this example, a Gauge control is hosted inside a HTML Node.",
       "category": "Getting Started",
       "sourceFiles": [
@@ -63,190 +45,316 @@
       ]
     },
     {
-      "url": "diagram-events",
-      "name": "Events",
-      "description": "This sample trace the diagram events while performing interaction in diagram.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "tooltip",
-      "name": "Tooltip",
-      "description": "This sample shows the feature of tooltip in diagram control",
-      "category": "Getting Started"
-    },
-    {
-      "url": "history-manager",
-      "name": "History Manager",
-      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started"
-    },
-    {
-      "url": "flow-execution",
-      "name": "Flow Execution",
-      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "url": "connector",
+      "name": "Connectors",
+      "order": 0,
+      "description": "This demo for Essential JS2 Diagram component visualizes the data flow in a marketing process using predefined shapes and connectors. Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
       "category": "Getting Started"
     },
     {
       "url": "line-routing",
       "name": "Line Routing",
+      "order": 0,
       "description": "This sample visualizes the connectors that are automatically re-routing or moving away if any shape found on the connectors path.",
       "category": "Getting Started"
     },
     {
-      "url": "bpmn-editor",
-      "name": "BPMN Editor",
-      "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
-      "category": "Use Case Diagram"
+      "url": "annotation",
+      "name": "Annotations",
+      "order": 0,
+      "description": "This demo for Essential JS2 Diagram component illustrates the competitive environment of a business through five forces chart. The elements of the five force chart is described using nodes and annotations. Customizing the position and appearance of the annotation is illustrated in this example.",
+      "category": "Getting Started"
     },
     {
-      "url": "logical-circuit",
-      "name": "Logic Circuit Diagram",
-      "description": "This sample visualizes implementation of three input Boolean functions using universal logic gates, and it is designed with diagram `custom` nodes.",
-      "category": "Use Case Diagram"
+      "url": "port",
+      "name": "Ports",
+      "order": 0,
+      "description": "This demo for Essential JS2 Diagram component visualizes the process flow of publishing a book using connection points. Connection points are static points over the shapes that allow creating connections to the shapes. Customizing the size and appearance of the connection points is illustrated in this example.",
+      "category": "Getting Started"
     },
     {
-      "url": "uml-activity",
-      "name": "UML Activity Diagram",
-      "description": "This sample visualizes graphical representation of message flow from one activity to another in customer service with built-in `UML activity` shapes.",
-      "category": "Use Case Diagram"
+      "url": "swimlane",
+      "name": "Swimlane",
+      "order": 0,
+      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Getting Started"
     },
     {
-      "url": "network-diagram",
-      "name": "Network Diagram",
-      "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
-      "category": "Use Case Diagram"
+      "url": "grouping-and-ordering",
+      "name": "Grouping and Ordering",
+      "order": 0,
+      "description": "This sample illustrates how to group, ungroup, and order commands with the diagram.",
+      "category": "Getting Started",
+      "type":"new"
     },
     {
-      "url": "uml-class-diagram",
-      "name": "UML Class Diagram",
-      "description": "This sample visualizes the class diagram shapes.",
-      "category": "Use Case Diagram"
+      "url": "diagram-events",
+      "name": "Events",
+      "order": 0,
+      "description": "This sample trace the diagram events while performing interaction in diagram.",
+      "category": "Getting Started"
     },
     {
-      "url": "hierarchical-model",
-      "name": "Hierarchical Tree",
-      "description": "This demo for Essential JS2 Diagram component illustrates a simple hierarchical tree that is built from an external data source. Hierarchical tree layout algorithm is used to build hierarchical trees. Customizing the spacing between objects and orientation of the trees is illustrated in this example.",
-      "category": "Automatic Layouts"
+      "url": "history-manager",
+      "name": "History Manager",
+      "order": 0,
+      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Getting Started"
     },
     {
-      "url": "organization-model",
-      "name": "Organizational Chart",
-      "description": "This demo for Essential JS2 Diagram component illustrates a simple business management structure that is built from an external data source. Hierarchical tree layout algorithm is used to build organizational charts. Customizing the orientation and structure of the organizational chart is illustrated in this example.",
-      "category": "Automatic Layouts"
+      "url": "commands",
+      "name": "Commands",
+      "order": 0,
+      "description": "This sample illustrates the various commands supported in the diagram control",
+      "category": "Getting Started",
+      "type":"new"
     },
     {
-      "url": "radial-tree",
-      "name": "Radial Tree",
-      "description": "This demo for Essential JS2 Diagram component demonstrates a huge organizational structure using a compact layout model. Radial tree layout algorithm is used to build such a layout.",
-      "category": "Automatic Layouts"
+      "url": "constraints",
+      "name": "Constraints",
+      "order": 0,
+      "description": "This sample illustrates how node constraints are used to restrict end-users from performing certain operations on nodes and connector constraints are used to restrict end-users from performing certain operation on connectors",
+      "category": "Getting Started",
+      "type":"new"
     },
     {
-      "url": "mind-map",
-      "name": "Mind Map",
-      "description": "This demo for Essential JS2 Diagram component demonstrates the concept of creativity using mind map layout algorithm. User handles are used to extend the mind map interactively.",
-      "category": "Automatic Layouts"
+      "url": "tooltip",
+      "name": "Tooltip",
+      "order": 0,
+      "description": "This sample shows the feature of tooltip in diagram control",
+      "category": "Getting Started"
     },
     {
-      "url": "symmetric-layout",
-      "name": "Symmetric Layout",
-      "description": "This demo for Essential JS2 Diagram component visualizes a simple network template using symmetrical layout algorithm.",
-      "category": "Automatic Layouts"
+      "url": "symbol-palette",
+      "name": "Symbol Palette",
+      "order": 0,
+      "description": "This example illustrates predefining shapes in a palette that can be easily dragged and dropped into the drawing area. Customizable options of the symbol palette are also illustrated in this example.",
+      "category": "Getting Started"
     },
     {
-      "url": "complex-hierarchicaltree",
-      "name": "Complex Hierarchical Tree",
-      "description": "This demo for Essential JS2 Diagram component demonstrates a complex hierarchical template that is built from an external data source using complex hierarchical tree algorithm.",
-      "category": "Automatic Layouts"
+      "url": "zooming-and-panning",
+      "name": "Zooming and Panning",
+      "order": 1,
+      "description": "This demo for Essential JS2 Diagram component visualizes how to zoom and pan in the diagram",
+      "category": "User Interaction",
+      "type": "new"
     },
     {
-      "url": "right-to-left-tree",
-      "name": "RTL Tree",
-      "description": "This demo for Essential JS2 Diagram component visualizes the concept of Artificical Intelligence using hierarchical tree layout algorithm",
-      "category": "Automatic Layouts"
+      "url": "snapping",
+      "name": "Snapping",
+      "order": 1,
+      "description": "This demo for Essential JS2 Diagram component visualizes how diagram objects snap to the nearest intersection of gridlines or objects while being dragged or resized.",
+      "category": "User Interaction",
+      "type": "new"
     },
     {
-      "url": "pert-chart",
-      "name": "PERT Chart",
-      "description": "This demo for Essential JS2 Diagram component visualizes a project development process using Program Evaluation Review Technique (PERT). Complex hierarchical tree layout algorithm is used to automatically arrange the nodes.",
-      "category": "Automatic Layouts"
+      "url": "scrolling",
+      "name": "Scrolling",
+      "order": 1,
+      "description": "This demo for Essential JS2 Diagram component visualizes how to scroll a diagram using vertical and horizontal scrollbars",
+      "category": "User Interaction",
+      "type": "new"
     },
     {
       "url": "drawing-tool",
       "name": "Drawing Tools",
+      "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes how to build a diagram interactively using drawing tools. Continuous draw option, snapping, and undo/redo support are enabled to easily draw diagrams. Rulers, gridlines, and snapping options are enabled to easily align objects.",
       "category": "User Interaction"
     },
     {
       "url": "keyboard-functions",
       "name": "Keyboard Interaction",
+      "order": 1,
       "description": "This demo for Essential JS2 Diagram component illustrates interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions.",
       "category": "User Interaction"
     },
     {
       "url": "quick-commands",
       "name": "User Handles",
+      "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes a simple flow diagram along with options to execute the frequently used commands using user handles.",
-      "category": "User Interaction"
-    },
-    {
-      "url": "symbol-palette",
-      "name": "Symbol Palette",
-      "description": "This example illustrates predefining shapes in a palette that can be easily dragged and dropped into the drawing area. Customizable options of the symbol palette are also illustrated in this example.",
       "category": "User Interaction"
     },
     {
       "url": "overview",
       "name": "Overview Panel",
+      "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes an organizational structure along with an overview for easily navigating the large organizational structure using Overview Panel.",
       "category": "User Interaction"
     },
     {
-      "url": "serialization",
-      "name": "Save and Load",
-      "description": "This demo for Essential JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
-      "category": "Print and Export"
+      "url": "organization-model",
+      "name": "Organizational Chart",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component illustrates a simple business management structure that is built from an external data source. Hierarchical tree layout algorithm is used to build organizational charts. Customizing the orientation and structure of the organizational chart is illustrated in this example.",
+      "category": "Automatic Layouts"
     },
     {
-      "url": "print-export",
-      "name": "Print and Export",
-      "description": "This demo for Essential JS2 Diagram component demonstrates printing and exporting the diagram as images.",
-      "category": "Print and Export"
+      "url": "mind-map",
+      "name": "Mind Map",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component demonstrates the concept of creativity using mind map layout algorithm. User handles are used to extend the mind map interactively.",
+      "category": "Automatic Layouts"
     },
     {
-      "url": "remote-data",
-      "name": "Remote Data",
-      "description": "This demo for Essential JS2 Diagram component demonstrates binding remote data with the diagram using the Data Manager support.",
-      "category": "Data Binding"
+      "url": "hierarchical-model",
+      "name": "Hierarchical Tree",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component illustrates a simple hierarchical tree that is built from an external data source. Hierarchical tree layout algorithm is used to build hierarchical trees. Customizing the spacing between objects and orientation of the trees is illustrated in this example.",
+      "category": "Automatic Layouts"
+    },
+    {
+      "url": "complex-hierarchicaltree",
+      "name": "Complex Hierarchical Tree",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component demonstrates a complex hierarchical template that is built from an external data source using complex hierarchical tree algorithm.",
+      "category": "Automatic Layouts"
+    },
+    {
+      "url": "radial-tree",
+      "name": "Radial Tree",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component demonstrates a huge organizational structure using a compact layout model. Radial tree layout algorithm is used to build such a layout.",
+      "category": "Automatic Layouts"
+    },
+    {
+      "url": "symmetric-layout",
+      "name": "Symmetric Layout",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component visualizes a simple network template using symmetrical layout algorithm.",
+      "category": "Automatic Layouts"
+    },
+ 
+    {
+      "url": "right-to-left-tree",
+      "name": "RTL Tree",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component visualizes the concept of Artificical Intelligence using hierarchical tree layout algorithm",
+      "category": "Automatic Layouts"
+    },
+    {
+      "url": "pert-chart",
+      "name": "PERT Chart",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component visualizes a project development process using Program Evaluation Review Technique (PERT). Complex hierarchical tree layout algorithm is used to automatically arrange the nodes.",
+      "category": "Automatic Layouts"
+    },
+    {
+      "url": "hierarchicaltree-with-multipleroots",
+      "name": "Hierarchical Layout with multiple roots",
+      "order": 2,
+      "description": "This demo for Essential JS2 Diagram component visualizes the structure of an Electricity Sector using complex hierarchical layout with multiple roots",
+      "category": "Automatic Layouts",
+      "type" :"new"
     },
     {
       "url": "local-data",
       "name": "Local Data",
+      "order": 3,
       "description": "This demo for Essential JS2 Diagram component visualizes the classifications of species using hierarchical tree layout algorithm. Data Manager support is used to bind data with the diagram.",
       "category": "Data Binding"
     },
     {
-      "url": "crud",
-      "name": "CRUD",
-      "description": "This sample visualizes diagram elements created from database with diagram CRUD. Users can read, update, and delete database entities as diagram elements.",
+      "url": "remote-data",
+      "name": "Remote Data",
+      "order": 3,
+      "description": "This demo for Essential JS2 Diagram component demonstrates binding remote data with the diagram using the Data Manager support.",
       "category": "Data Binding"
-    },
-    {
-      "url": "venn-diagram",
-      "name": "Venn Diagram",
-      "description": "This demo for Essential JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
-      "category": "Static Diagram"
-    },
-    {
-      "url": "fishbone-diagram",
-      "name": "Fishbone Diagram",
-      "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
-      "category": "Static Diagram"
     },
     {
       "url": "virtualization",
       "name": "Virtualization",
+      "order": 4,
       "description": "This sample demonstrates the default UI virtualization functionality. Scroll the diagram for UI virtualization experience.",
-      "category": "Getting Started"
+      "category": "Performance"
+    },
+    {
+      "url": "serialization",
+      "name": "Save and Load",
+      "order": 5,
+      "description": "This demo for Essential JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
+      "category": "Save and Restore"
+    },
+    {
+      "url": "print-export",
+      "name": "Print and Export",
+      "order": 6,
+      "description": "This demo for Essential JS2 Diagram component demonstrates printing and exporting the diagram as images.",
+      "category": "Export and Print"
+    },
+    {
+      "url": "bpmn-editor",
+      "name": "BPMN Editor",
+      "order": 7,
+      "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "logical-circuit",
+      "name": "Logic Circuit Diagram",
+      "order": 7,
+      "description": "This sample visualizes implementation of three input Boolean functions using universal logic gates, and it is designed with diagram `custom` nodes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "uml-activity",
+      "name": "UML Activity Diagram",
+      "order": 7,
+      "description": "This sample visualizes graphical representation of message flow from one activity to another in customer service with built-in `UML activity` shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "uml-sequence-diagram",
+      "name": "UML Sequence Diagram",
+      "order": 7,
+      "description": "This sample visualizes the sequence diagram shapes.",
+      "category": "Use Case Diagram",
+      "type":"new"
+    },
+    {
+      "url": "uml-class-diagram",
+      "name": "UML Class Diagram",
+      "order": 7,
+      "description": "This sample visualizes the class diagram shapes.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "venn-diagram",
+      "name": "Venn Diagram",
+      "order": 7,
+      "description": "This demo for Essential JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
+      "category": "Static Diagram"
+    },
+    {
+      "url": "network-diagram",
+      "name": "Network Diagram",
+      "order": 8,
+      "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
+      "category": "Static Diagram"
+    },
+
+    {
+      "url": "fishbone-diagram",
+      "name": "Fishbone Diagram",
+      "order": 8,
+      "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
+      "category": "Static Diagram"
+    },
+    {
+      "url": "databinding-with-treeview",
+      "name": "DataBinding with treeview",
+      "order": 8,
+      "description": "This sample demonstrates how to create a tree view and a diagram with a datasource.",
+      "category": "Static Diagram",
+      "type":"new"
+    },
+    {
+      "url": "flow-execution",
+      "name": "Flow Execution",
+      "order": 8,
+      "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Static Diagram"
     }
   ]
 }

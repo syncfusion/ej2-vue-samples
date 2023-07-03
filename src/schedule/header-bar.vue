@@ -173,6 +173,11 @@
         border: 0.5px solid #616161;
         background-color: #212121;
     }
+
+    .material3-dark .e-profile-wrapper {
+        border: 0.5px solid #444746;
+        background-color: #302c38;
+    }
 </style>
 <script>
     import Vue from "vue";

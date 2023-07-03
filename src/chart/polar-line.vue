@@ -84,8 +84,8 @@
         <code>ColumnService</code> into the <code>provide</code> option of chart.
       </p>
       <p>
-        More information on the polar and radar series with a line type chart can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/polar-radar/">documentation section</a>.
+        More information on the polar and radar chart with a line series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#line">documentation section</a>.
     </p>
     </div>
   </div>
@@ -110,7 +110,7 @@ Vue.use(DropDownListPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function () {

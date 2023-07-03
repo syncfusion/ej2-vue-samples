@@ -228,7 +228,8 @@
     .bootstrap-dark .quick-info-template .quick-info-header,
     .bootstrap5-dark .quick-info-template .quick-info-header,
     .fluent-dark .quick-info-template .quick-info-header,
-    .fabric-dark .quick-info-template .quick-info-header {
+    .fabric-dark .quick-info-template .quick-info-header,
+    .material3-dark .quick-info-template .quick-info-header {
         background-color: transparent;
     }
 
@@ -236,7 +237,9 @@
     .bootstrap-dark .quick-info-template .quick-info-header-content,
     .fabric-dark .quick-info-template .quick-info-header-content,
     .material-dark .quick-info-template .quick-info-header-content,
-    .highcontrast .quick-info-template .quick-info-header-content {
+    .highcontrast .quick-info-template .quick-info-header-content,
+    .fluent-dark .quick-info-template .quick-info-header-content,
+    .material3-dark .quick-info-template .quick-info-header-content {
         color: #fff !important;
     }
 
@@ -253,13 +256,22 @@
     .material-dark .quick-info-template .event-content div label,
     .material-dark .quick-info-template .event-content div span,
     .highcontrast .quick-info-template .event-content div label,
-    .highcontrast .quick-info-template .event-content div span {
+    .highcontrast .quick-info-template .event-content div span,
+    .material3-dark .quick-info-template .event-content div label,
+    .material3-dark .quick-info-template .event-content div span {
         color: #fff;
     }
 
-    .material .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
+    .material .quick-info-template .e-quick-popup-wrapper .e-popup-footer,
+    .material3 .quick-info-template .e-quick-popup-wrapper .e-popup-footer,
+    .material3-dark .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
         display: block !important;
         padding: 0px 18px 8px 22px !important;
+    }
+
+    .material3 .quick-info-template .e-quick-popup-wrapper .e-event-popup .e-popup-header,
+    .material3-dark .quick-info-template .e-quick-popup-wrapper .e-event-popup .e-popup-header {
+        border-radius: 12px;
     }
 </style>
 

@@ -3,12 +3,13 @@
     "directory": "image-editor",
     "category": "File Viewers & Editors",
     "ftName": "image-editor",
-    "type": "preview",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Image Editor",
+            "type": "update",
             "description": "This sample demonstrates the overview of basic ImageEditor features such as crop, rotate, flip, insert a shapes and text features.",
             "api": { "ImageEditor": ["width", "created"]  }
         },

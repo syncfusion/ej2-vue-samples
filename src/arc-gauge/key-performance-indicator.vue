@@ -1,7 +1,7 @@
 <template>
 <div id="kpiarcgauge">
-<div class="control-section">
-    <ejs-circulargauge :load='load'>
+<div class="control-section" >
+    <ejs-circulargauge id="keyperform" :load='load'>
        <e-axes>
          <e-axis startAngle="220" endAngle="140" radius='90%'  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsThree' :ranges='rangesThree' :pointers='pointersThree'>
          </e-axis>
@@ -35,6 +35,9 @@
 </div>
 </template>
 <style>
+    #keyperform_Annotations_0 {
+            line-height: 0.5;
+    }
     #kpiarcgauge .triangle-up {
         width: 20;
         height: 20;

@@ -30,7 +30,7 @@
               <div>File Name</div>
             </td>
             <td>
-              <div>
+              <div class="e-float-input" style='margin-top: 0px;'>
                 <input type="text" requires="" value='Chart' id="fileName" />
               </div>
             </td>

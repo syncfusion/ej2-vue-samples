@@ -59,6 +59,7 @@
         background-image: url('./images/weather.png');
     }
 
+    .material3-dark .card-control-section.basic_card_layout .e-card .e-card-header,
     .material-dark .card-control-section.basic_card_layout .e-card .e-card-header {
         padding: 10px;
     }

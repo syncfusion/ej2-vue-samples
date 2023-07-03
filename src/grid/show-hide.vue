@@ -6,7 +6,7 @@
     </div>
     <div>
         <div class='e-mastertext'>Select column name to toggle visibility</div>
-        <ejs-toolbar class='e-gridlist' :clicked="onClicked">
+        <ejs-toolbar ref='toolbar' class='e-gridlist' :clicked="onClicked">
             <e-items>
                 <e-item text='Order ID'></e-item>
                 <e-item text='Customer Name'></e-item>
@@ -73,7 +73,7 @@
 import Vue from 'vue';
 import { removeClass, addClass } from '@syncfusion/ej2-base';
 import { GridPlugin, GridComponent, Page } from '@syncfusion/ej2-vue-grids';
-import { ToolbarPlugin, ClickEventArgs} from '@syncfusion/ej2-vue-navigations';
+import { ToolbarPlugin, ClickEventArgs, ToolbarComponent} from '@syncfusion/ej2-vue-navigations';
 import { orderDetails } from './data-source';
 
 Vue.use(GridPlugin);
@@ -100,12 +100,21 @@ export default Vue.extend({
         this.flag = false;
         let hidden: boolean = element.classList.contains('e-ghidden');
         let classFn: Function = hidden ? removeClass : addClass;
-        classFn([element], 'e-ghidden');
+        const visibleColumns: HTMLElement[] = Array.from((<ToolbarComponent>this.$refs.toolbar).$el.getElementsByClassName('e-tbar-btn-text'))
+        .filter((item) => !((item as HTMLElement).classList.contains('e-ghidden'))) as HTMLElement[];
+        const isLastVisibleColumn = visibleColumns.length === 1 && visibleColumns[0].parentElement === element.parentElement;   
 
         if (hidden) {
-            (<GridComponent>this.$refs.grid).showColumns(element.innerHTML, 'headerText');
+          classFn([element], 'e-ghidden');
+          (<GridComponent>this.$refs.grid).showColumns(element.innerHTML);
         } else {
-            (<GridComponent>this.$refs.grid).hideColumns(element.innerHTML, 'headerText');
+          if (isLastVisibleColumn) {
+            alert("At least one column should be visible.");
+            this.flag = true;
+            return;
+          }
+          classFn([element], 'e-ghidden');
+          (<GridComponent>this.$refs.grid).hideColumns(element.innerHTML);
         }
         this.flag = true;
     },

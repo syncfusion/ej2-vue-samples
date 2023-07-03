@@ -6,7 +6,7 @@
                 <e-column field='taskID' headerText='Task ID' width='90' isPrimaryKey='true' textAlign='Right' :validationRules='taskidrules'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190' :validationRules='tasknamerules'></e-column>
                 <e-column field='startDate' headerText='Start Date' width='110' editType='datepickeredit' format="yMd" textAlign='Right' :validationRules='daterules'></e-column>
-                <e-column field='duration' headerText='Duration' width='90' editType='numericedit' :edit='editparams' textAlign='Right' :validationRules='durationrules'></e-column>
+                <e-column field='duration' headerText='Duration' width='140' editType='numericedit' :edit='editparams' textAlign='Right' :validationRules='durationrules'></e-column>
             </e-columns>
         </ejs-treegrid>
       </div>
@@ -64,8 +64,11 @@
 <style>
 .material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
 .bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .e-rowcell, .highcontrast .disableRow .e-rowcell, 
-.tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell {
+.tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell, .material3-dark .disableRow .e-rowcell {
     color: #757575 !important;
+}
+.material3 .disableRow .e-rowcell{
+    color: rgba(0, 0, 0, .38) !important;
 }
 .fabric .disableRow .e-rowcell {
     color: #c8c8c8 !important;

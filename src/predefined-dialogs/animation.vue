@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-4 property-section"> 
         <div id="property" title="Properties">
-            <ejs-dropdownlist id='effectDropdownlist' popupHeight='200px' floatLabelType='Always' placeholder='Animation effect' :fields='fields' :dataSource='dataSource' :change='onChange'></ejs-dropdownlist>
+            <ejs-dropdownlist id='effectDropdownlist' popupHeight='200px' floatLabelType='Always' placeholder='Animation effect' :value='value' :fields='fields' :dataSource='dataSource' :change='onChange'></ejs-dropdownlist>
         </div>
     </div>
     <div id="action-description">
@@ -49,7 +49,8 @@ let ConfirmDialogArgs  = {
     content: "Are you sure you want to permanently delete these items?",
     animationSettings: { effect: 'Zoom',delay:0,duration: 400},
     position: { X: 'center', Y: 'center' },
-    width:'420px'
+    width:'420px',
+    closeOnEscape: true
     };
 export default Vue.extend({
     data: function() {
@@ -62,7 +63,8 @@ export default Vue.extend({
         ];
         return { 
             dataSource : effectData,
-            fields : {  text: 'Text', value: 'Value' }
+            fields : {  text: 'Text', value: 'Value' },
+            value: 'FadeZoom'
         }
     },
     methods: {

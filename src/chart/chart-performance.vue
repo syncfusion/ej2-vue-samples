@@ -79,6 +79,14 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+        <linearGradient id="material3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
 </svg>
 </div>
@@ -110,7 +118,7 @@
     }
 
     #bootstrap5-gradient-chart stop {
-        stop-color: #262E0B;
+        stop-color: #6355C7;
     }
 
     #material-dark-gradient-chart stop {
@@ -130,15 +138,23 @@
     }
 
     #bootstrap5-dark-gradient-chart stop {
-        stop-color: #5ECB9B;
+        stop-color: #8F80F4;
     }
 
     #fluent-gradient-chart stop {
-        stop-color: #614570;
+        stop-color: #1AC9E6;
     }
 
     #fluent-dark-gradient-chart stop {
-        stop-color: #8AB113;
+        stop-color: #1AC9E6;
+    }
+
+    #material3-gradient-chart stop {
+        stop-color: #6355C7;
+    }
+
+    #material3-dark-gradient-chart stop {
+        stop-color: #4EAAFF;
     }
 
     .chart-gradient stop[offset="0"] {
@@ -163,9 +179,9 @@ Vue.use(ButtonPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113'];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark'];
+let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF'];
 function GetZoomingData() {
         let series1 = [];
         let point1;
@@ -219,7 +235,7 @@ export default Vue.extend({
             width: 0
         }
     },
-        width: Browser.isDevice ? '100%' : '90%',
+        width: Browser.isDevice ? '100%' : '75%',
         border: { width: 0.5, color: borderColor[themes.indexOf(theme.toLowerCase())] },
         title: "Chart with 100k points",
         series: seriesData, 

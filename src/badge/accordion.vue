@@ -90,14 +90,18 @@
     body.bootstrap5 .sample_container.badge-accordion #accordion .e-toggle-icon,
     body.bootstrap5-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
     body.fluent .sample_container.badge-accordion #accordion .e-toggle-icon,
-    body.fluent-dark .sample_container.badge-accordion #accordion .e-toggle-icon {
+    body.fluent-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.material3 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.material3-dark .sample_container.badge-accordion #accordion .e-toggle-icon {
         top: 5px;
     }
 
     body.tailwind-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
     body.tailwind .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
     body.bootstrap5 .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
-    body.bootstrap5-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons {
+    body.bootstrap5-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.material3 .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.material3-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons {
         font-size: 12px;
     }
 
@@ -106,7 +110,9 @@
     .e-bigger.bootstrap5 .badge-accordion .sample_container #accordion .e-toggle-icon ,
     .e-bigger.bootstrap5-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
     .e-bigger.fluent .badge-accordion .sample_container #accordion .e-toggle-icon,
-    .e-bigger.fluent-dark .badge-accordion .sample_container #accordion .e-toggle-icon{
+    .e-bigger.fluent-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.material3 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    .e-bigger.material3-dark .sample_container.badge-accordion #accordion .e-toggle-icon {
         top: 11px;
     }
 </style>

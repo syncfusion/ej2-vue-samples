@@ -2,13 +2,11 @@
     "name": "Progressbar",
     "directory": "progress-bar",
     "category": "Notifications",
-    "type": "update",
     "samples": [
         {
             "url": "linear",
             "name": "Linear",
             "category": "ProgressBar",
-            "type": "update",
             "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
@@ -68,7 +66,6 @@
         {
             "url": "tooltip",
             "name": "Tooltip",
-            "type": "new",
             "category": "ProgressBar",
             "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [

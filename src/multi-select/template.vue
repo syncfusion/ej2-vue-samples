@@ -83,6 +83,7 @@
         color: rgb(255, 255, 255);
     }
 
+    .material3-dark .multiselect-template .header,
     .material-dark .multiselect-template .header {
         background: rgb(66, 66, 66);
         color: rgb(255, 255, 255);

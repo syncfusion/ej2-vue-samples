@@ -52,7 +52,9 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .bootstrap5 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .bootstrap5-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .fluent .rte-markdown-overview .e-icon-btn .e-md-preview::before,
-  .fluent-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before {
+  .fluent-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .material3 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .material3-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before {
       content: '\e7de';
   }
 </style>

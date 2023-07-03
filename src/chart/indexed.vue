@@ -122,6 +122,9 @@ export default Vue.extend({
         dataLabel: {
           visible: true,
           position: Browser.isDevice ? 'Outer' : "Top",
+          font: {
+              fontWeight: '600',  
+            }
         }
       },
       datatype: ["Line", "Column"],

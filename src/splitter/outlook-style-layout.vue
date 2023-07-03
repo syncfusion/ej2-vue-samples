@@ -69,14 +69,17 @@
     .outlook-style #splitter #template ul.e-list-parent.e-ul {
 	padding: 0 0 0 16px;
     }
+    .material3-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-item-header,
     .material-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-item-header {
         color : #fff;
     }
 
+    .material3-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-content,
     .material-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-content {
         color : #9ca3af;
     }
 
+    .material3-dark .e-listview.e-list-template .e-list-item.e-hover .e-list-content,
     .material-dark .e-listview.e-list-template .e-list-item.e-hover .e-list-content {
         color : #fff;
     }

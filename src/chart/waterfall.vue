@@ -29,8 +29,8 @@
         <code>WaterfallSeries</code> module using <code>provide: { chart: [ WaterfallSeries] },</code> method.
     </p>
     <p>
-        More information on the Waterfall series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/other-types/#waterfall-chart">documentation section</a>.
+        More information on the waterfall series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/waterfall">documentation section</a>.
     </p>
 </div>
 </div>
@@ -65,7 +65,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {

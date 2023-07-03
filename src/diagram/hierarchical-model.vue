@@ -35,7 +35,7 @@
           <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
         </div>
         <div class="col-xs-6">
-          <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" style="width: 90px"
+          <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" style="width: 100%"
                 :min='hSpacingmin'
                 :max='hSpacingmax'
                 :step='hSpacingstep'
@@ -48,7 +48,7 @@
         <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
       </div>
       <div class="col-xs-6">
-        <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" style="width: 90px" 
+        <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" style="width: 100%" 
                     :min='vSpacingmin'
                     :max='vSpacingmax'
                     :step='vSpacingstep'

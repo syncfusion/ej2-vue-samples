@@ -16,7 +16,7 @@
                 <div class="rating-content">
                     <label>Exact</label><br/>
                     <ejs-rating id='rating4' precision='Exact' value='2.3'/>
-                </div>
+                </div>                
         </div>
         <div id="action-description">
             <p>
@@ -39,7 +39,7 @@
           text-align: center;
       }
       .e-bigger #precision-rating-control .rating-content {
-          width: 330px;
+          width: 260px;
           margin: 15px 0;
           min-height: 75px;
           padding:0;
@@ -47,7 +47,7 @@
       }
       #precision-rating-control {
           margin: 6% auto;
-          max-width: 800px;
+          max-width: 600px;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;

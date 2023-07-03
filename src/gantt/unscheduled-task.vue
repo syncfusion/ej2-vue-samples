@@ -104,7 +104,8 @@ export default Vue.extend({
     .bootstrap5 #unscheduledGantt /deep/  .e-add-icon:before,
 	  .bootstrap5-dark #unscheduledGantt /deep/  .e-add-icon:before,
     .tailwind #Unscheduled .e-add-icon:before,.tailwind-dark #Unscheduled .e-add-icon:before,
-    .fluent #Unscheduled .e-add-icon:before, .fluent-dark #Unscheduled .e-add-icon:before  {
+    .fluent #Unscheduled .e-add-icon:before, .fluent-dark #Unscheduled .e-add-icon:before,
+    .material3-dark #Unscheduled .e-add-icon:before ,.material3 #Unscheduled .e-add-icon:before  {
         content: "\e836"
     }
 

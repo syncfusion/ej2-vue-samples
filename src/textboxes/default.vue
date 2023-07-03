@@ -238,7 +238,7 @@
 
 <style scoped>
     .e-upload-picture:before {
-        content: '\e335';
+        content: '\e60f';
         font-family: e-icons;
         font-size: 14px;
     }
@@ -314,8 +314,10 @@
         vertical-align: top;
     }
     .tailwind .e-upload-picture:before,
-    .tailwind-dark .e-upload-picture:before {
-        content: '\e7da';
+    .tailwind-dark .e-upload-picture:before,
+    .material3 .e-upload-picture:before,
+    .material3-dark .e-upload-picture:before {
+        content: '\e712';
         font-size: 17px;
     }
 

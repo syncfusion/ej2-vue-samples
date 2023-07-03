@@ -186,6 +186,7 @@
         color: rgb(255, 255, 255);
     }
 
+    .material3-dark .combobox-template .header,
     .material-dark .combobox-template .header {
         background: rgb(66, 66, 66);
         color: rgb(255, 255, 255);

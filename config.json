@@ -59,6 +59,7 @@
     "cssComponent": [
         "card"
     ],
+    "platform": "vue",
     "customNames": [
         "heatmap",
         "datasource",

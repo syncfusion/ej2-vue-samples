@@ -88,13 +88,6 @@
         "description": "This example demonstrates how to configure and use the firebase realtime database service in a Vue File Manager."
     },
     {
-        "url": "FTPFileProvider",
-        "name": "FTP File Provider",
-        "category": "Cloud Service Providers",
-        "api": { "FileManager": ["ajaxSettings", "view"] },
-        "description": "This example demonstrates how to configure and use the File Transfer Protocol in a vue File Manager."
-    },
-    {
         "url": "ibm-cos-node-file-provider",
         "name": "IBM Cloud File Provider",
         "category": "Cloud Service Providers",

@@ -162,6 +162,12 @@
     padding: 5px 50px 5px 5px;
 }
 
+.material3 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
@@ -223,6 +229,7 @@
 
 .bootstrap4 .call-history .layout #list-container .e-listview .e-active .e-icon,
 .bootstrap5 .layout #list-container .e-listview .e-active .e-icon,
+.material3-dark .layout #list-container .e-listview .e-active .e-icon,
 .bootstrap5-dark .layout #list-container .e-listview .e-active .e-icon {
         color: #fff;
 }
@@ -254,14 +261,16 @@
 .bootstrap5-dark .call-history .layoutWrapper,
 .material-dark .call-history .layoutWrapper .layout, .material-dark .call-history .layoutWrapper .camera, .material-dark .call-history .layoutWrapper .outerButton, .material-dark .call-history .layoutWrapper .speaker,
 .material-dark .call-history .layoutWrapper,
+.material3-dark .call-history .layoutWrapper .layout, .material3-dark .call-history .layoutWrapper .camera, .material3-dark .call-history .layoutWrapper .outerButton, .material3-dark .call-history .layoutWrapper .speaker,
+.material3-dark .call-history .layoutWrapper,
 .fabric-dark .call-history .layoutWrapper .layout, .fabric-dark .call-history .layoutWrapper .camera, .fabric-dark .call-history .layoutWrapper .outerButton,
 .fabric-dark .call-history .layoutWrapper .speaker,
 .fabric-dark .call-history .layoutWrapper,
 .tailwind-dark .call-history .layoutWrapper .layout, .tailwind-dark .call-history .layoutWrapper .camera, .tailwind-dark .call-history .layoutWrapper .outerButton, .tailwind-dark .call-history .layoutWrapper .speaker,
 .tailwind-dark .call-history .layoutWrapper,
 .bootstrap-dark .call-history .layoutWrapper .layout, .bootstrap-dark .call-history .layoutWrapper .camera, .bootstrap-dark .call-history .layoutWrapper .outerButton, .bootstrap-dark .call-history .layoutWrapper .speaker,
-.bootstrap-dark .call-history .layoutWrapper,
- {
+.bootstrap-dark .call-history .layoutWrapper
+{
   border-color: white;
 }
 
@@ -270,6 +279,7 @@ body.bootstrap-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-lin
   color: rgba(255,255,255,0.7);
 }
 
+body.material3-dark .layout #list-container .e-icon,
 body.material-dark .layout #list-container .e-icon,
 body.highcontrast .layout #list-container .e-icon,
 body.tailwind-dark .layout #list-container .e-icon,

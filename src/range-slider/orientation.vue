@@ -12,6 +12,8 @@
                     ref="defaultSlider"
                     v-model="value"
                     :orientation="orientation"
+                    :tooltip ="tooltip"
+                    :ticks="ticks"
                   ></ejs-slider>
                 </div>
               </td>
@@ -23,6 +25,8 @@
                     v-model="minValue"
                     :type="mintype"
                     :orientation="orientation"
+                    :tooltip ="tooltip"
+                    :ticks="ticks"
                   ></ejs-slider>
                 </div>
               </td>
@@ -34,6 +38,23 @@
                     v-model="rangevalue"
                     :type="rangetype"
                     :orientation="orientation"
+                    :tooltip ="tooltip"
+                    :ticks="ticks"
+                  ></ejs-slider>
+                </div>
+              </td>
+              <td>
+                <div class="sliderwrap">
+                  <ejs-slider
+                    id="reverse"
+                    ref="reverseSlider"
+                    :min="min"
+                    :max="max"
+                    :tooltip ="tooltip"
+                    v-model="reversevalue"
+                    :type="rangetype"
+                    :orientation="orientation"
+                    :ticks="ticks"
                   ></ejs-slider>
                 </div>
               </td>
@@ -86,6 +107,8 @@
           Range – allows to select a range of values with two handles, where the handles are connected with a range selection
           in vertical orientation
         </li>
+        <li>Reverse – Allows to render the component in reverse order. To utilise this, set the maximum value to the Min
+            property and set the minimum value to the Max property</li>
         <p>In this demo, the default, MinRange, and range slider types can be seen.</p>
         <p>The dragInterval is used to drag both handles using the range bar which is also applicable only to the range slider.</p>
         <p>
@@ -148,42 +171,41 @@ export default Vue.extend({
       value: 30,
       minValue: 30,
       rangevalue: [30, 70],
+      reversevalue: [30, 70],
+      min: 100,
+      max: 0,
       mintype: "MinRange",
       rangetype: "Range",
       orientation: "Vertical",
-      check: false,
+      check: true,
       ticks: {
-        placement: "None",
+        placement: "Before",
         largeStep: 20,
         smallStep: 5,
         showSmallTicks: true
       },
-      tooltip: { isVisible: false, placement: "Before" }
+      tooltip: { isVisible: true, placement: "Before" }
     };
   },
   methods: {
-    enableDisableTicks: function(args) {
-      this.ticks.placement = args.checked ? "Before" : "None";
-      this.$refs.defaultSlider.ticks = this.ticks;
-      this.$refs.minSlider.ticks = this.ticks;
-      this.$refs.rangeSlider.ticks = this.ticks;
+    enableDisableTicks: function (args) {
+      this.ticks = args.checked ? { placement: "Before", largeStep: 20, smallStep: 5, showSmallTicks: true } : { placement: "None", largeStep: 20, smallStep: 5, showSmallTicks: true };
     },
-    enableDisableTooltip: function(args) {
-      this.tooltip.isVisible = args.checked;
-      this.$refs.defaultSlider.tooltip = this.tooltip;
-      this.$refs.minSlider.tooltip = this.tooltip;
-      this.$refs.rangeSlider.tooltip = this.tooltip;
+    enableDisableTooltip: function (args) {
+      this.tooltip = args.checked ? { isVisible: true, placement: "Before" } : { isVisible: false, placement: "Before" };
     },
     onScroll: function() {
       if (
         document.getElementById("minrange") &&
         this.$refs.defaultSlider &&
         this.$refs.minSlider &&
-        this.$refs.rangeSlider
+        this.$refs.rangeSlider &&
+        this.$refs.reverseSlider
       ) {
         this.$refs.defaultSlider.ej2Instances.refreshTooltip(this.$refs.defaultSlider.ej2Instances.tooltipTarget);
         this.$refs.minSlider.ej2Instances.refreshTooltip(this.$refs.minSlider.ej2Instances.tooltipTarget);
         this.$refs.rangeSlider.ej2Instances.refreshTooltip(this.$refs.rangeSlider.ej2Instances.tooltipTarget);
+        this.$refs.reverseSlider.ej2Instances.refreshTooltip(this.$refs.reverseSlider.ej2Instances.tooltipTarget);
       }
     }
   },

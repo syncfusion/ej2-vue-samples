@@ -118,6 +118,22 @@
     outline-color: transparent;
     pointer-events: none;
 }
+
+.material3 .e-menu-wrapper ul .e-menu-item .e-avatar,
+.material3-dark .e-menu-wrapper ul .e-menu-item .e-avatar,
+.e-bigger .material3 .e-menu-wrapper ul .e-menu-item .e-avatar,
+.e-bigger .material3-dark .e-menu-wrapper ul .e-menu-item .e-avatar
+{
+    height: 24px;
+}
+
+.material3 .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.material3-dark .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.e-bigger .material3 .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.e-bigger .material3-dark .e-menu-wrapper ul.e-ul .e-menu-item .e-card
+{
+    border-radius: 0;
+}
 </style>
 <!-- custom code end -->
 

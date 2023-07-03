@@ -3,6 +3,7 @@
     "directory": "carousel",
     "category": "Navigation",
     "ftName": "carousel",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -63,6 +64,22 @@
                     "template"
                 ]
             }
+        },
+        {
+            "url": "indicator-type",
+            "name": "Indicator Type",
+            "category": "Carousel",
+            "type": "new",
+            "api": {
+                "Carousel": [
+                    "indicatorsType",
+                    "items"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            },
+            "description": "This example showcases the available indicator types and its functionalities in Syncfusion Vue Carousel component."
         },
         {
             "url": "keyboard-navigation",

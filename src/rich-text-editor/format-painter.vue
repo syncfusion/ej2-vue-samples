@@ -81,13 +81,13 @@
             <p><b>Keyboard Shortcut</b></p>
             <ul>
                 <li>
-                    <kbd>CTRL + SHIFT + C</kbd> - Copy the selection format or current range.
+                    <kbd>ALT + SHIFT + C</kbd> - Copy the selection format or current range.
                 </li>
                 <li>
-                    <kbd>CTRL + SHIFT + V</kbd> - Paint the copied format.
+                    <kbd>ALT + SHIFT + V</kbd> - Paint the copied format.
                 </li>
                 <li>
-                    <kbd>ESC</kbd> - Remove the previously copied format.
+                    <kbd>ESC</kbd> - Remove the previously copied format and disable the sticky mode.
                 </li>
             </ul>
             <p>The following settings are available to customize the format painter in the <code>formatPainterSettings</code> property.</p>

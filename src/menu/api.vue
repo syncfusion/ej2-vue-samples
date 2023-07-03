@@ -94,6 +94,7 @@ import Vue from "vue";
 import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
 import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from '@syncfusion/ej2-base';
 import * as dataSource from './menu-data.json';
 
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
@@ -120,10 +121,12 @@ export default Vue.extend({
     },
     methods: {
         modeChange: function(args) {
-        this.$refs.menu.orientation = args.value;
+            let menuObj = getComponent(document.getElementById('menu'), 'menu');
+            menuObj.orientation = args.value;
         },
         itemOnClick: function(args) {
-        this.$refs.menu.showItemOnClick = args.checked;
+            let menuObj = getComponent(document.getElementById('menu'), 'menu');
+            menuObj.showItemOnClick = args.checked;
         },
         enableDisableChange: function(args) {
             if (args.value) {

@@ -56,7 +56,7 @@ Vue.use(StockChartPlugin);
  export let series = [];
  let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 function GetZoomingData() {
         let point1;
@@ -91,7 +91,7 @@ export default Vue.extend({
         labelFormat: "n0",
         lineStyle: { width: 0 },
         rangePadding: "None",
-        majorTickLines: { width: 0 }
+        majorTickLines: { height: 0 }
       },
 
       animation: { enable: true },

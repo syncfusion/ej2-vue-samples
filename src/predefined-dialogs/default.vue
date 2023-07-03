@@ -70,7 +70,8 @@ export default Vue.extend({
                 title: 'Low Battery',
                 content: '10% of battery remaining',
                 okButton: {click:this.alertOkAction},
-                position: { X: 'center', Y: 'center' }
+                position: { X: 'center', Y: 'center' },
+                closeOnEscape: true
             });
         },
         alertOkAction:function(){
@@ -85,7 +86,8 @@ export default Vue.extend({
                 content: "Are you sure you want to permanently delete these items?",
                 okButton: { click:this.confirmOkAction},
                 cancelButton: { click:this.confirmCancelAction},
-                position: { X: 'center', Y: 'center' }
+                position: { X: 'center', Y: 'center' },
+                closeOnEscape: true
             });
         },
         confirmOkAction:function () {
@@ -105,7 +107,8 @@ export default Vue.extend({
                 content:'<P>Enter your name:</p><input id= "inputEle" type="text" name="Required" class="e-input" placeholder="Type here.." />',
                 okButton: { click:this.promptOkAction },
                 cancelButton: { click:this.promptCancelAction},
-                position: { X: 'center', Y: 'center' }
+                position: { X: 'center', Y: 'center' },
+                closeOnEscape: true
             });
         },
         promptOkAction:function () {

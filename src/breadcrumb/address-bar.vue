@@ -1,28 +1,20 @@
 <template>
 <div>
-<div class="control-section">
-    <div class="content-wrapper breadcrumb-control-wrapper">
-        <div class="row material2">
-            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <h5 style="display: inline-block">File Manager like Breadcrumb</h5>
-                 <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick">Reset State</ejs-button>
-            </div>
-        </div>
-        <div class="row material2">
-            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <ejs-breadcrumb ref="breadcrumb" id="breadcrumb" cssClass="e-addressbar-breadcrumb" :itemTemplate="itemTemplate" :separatorTemplate="separatorTemplate">
-                    <e-breadcrumb-items>
-                        <e-breadcrumb-item iconCss="e-bicons e-picture"></e-breadcrumb-item>
-                        <e-breadcrumb-item text="This PC"></e-breadcrumb-item>
-                        <e-breadcrumb-item text="Local Disk (C:)"></e-breadcrumb-item>
-                        <e-breadcrumb-item text="Users"></e-breadcrumb-item>
-                        <e-breadcrumb-item text="Admin"></e-breadcrumb-item>
-                        <e-breadcrumb-item text="Pictures"></e-breadcrumb-item>
-                        </e-breadcrumb-items>
-                </ejs-breadcrumb>
-            </div>
-        </div>
-    </div>
+  <div class="control-section">
+      <div class="content-wrapper breadcrumb-control-wrapper">
+          <div class="row material2">
+              <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                  <h5 style="display: inline-block">File Manager like Breadcrumb</h5>
+                  <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick">Reset State</ejs-button>
+              </div>
+          </div>
+          <div class="row material2">
+              <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                  <ejs-breadcrumb ref="breadcrumb" id="breadcrumb" :items="breadcrumbItems" cssClass="e-addressbar-breadcrumb" :itemTemplate="itemTemplate" :separatorTemplate="separatorTemplate">
+                  </ejs-breadcrumb>
+              </div>
+          </div>
+      </div>
 </div>
 
 <div id="action-description">
@@ -107,6 +99,13 @@
 .e-bigger .fluent-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret
 {
     right: 1px;
+}
+.material3 .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.material3-dark .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .material3 .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .material3-dark .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret
+{
+    right: 2px;
 }
 </style>
 <!-- custom code end -->
@@ -259,8 +258,8 @@ export default Vue.extend({
                 return {
                     template : Vue.component('itemTemplate', {
                         template:
-                            `<div style="display: flex;">
-                            <ejs-menu v-if="data.text !== 'LastItem'" :items="[{ text: data.text, iconCss: data.iconCss }]" :select="selectHandler"></ejs-menu>
+                            `<div v-if="data.text !== 'LastItem'" style="display: flex;">
+                            <ejs-menu :items="[{ text: data.text, iconCss: data.iconCss }]" :select="selectHandler"></ejs-menu>
                             </div>
                             `,
                             inject: ["breacrumb"],
@@ -271,12 +270,13 @@ export default Vue.extend({
                                         if (breadcrumbItems[i].text === args.item.text) {
                                             breadcrumbItems = breadcrumbItems.slice(0, i + 1);
                                             breadcrumbItems[0].iconCss = 'e-bicons e-' + this.$parent.$parent.getItems(args.item.text, true)[0].items.type;
-                                            this.$parent.$parent.$refs.breadcrumb.items = breadcrumbItems;
+                                            this.$parent.$parent.breadcrumbItems = breadcrumbItems;
                                             break;
                                         }
                                     }
-                                    this.$parent.$parent.$refs.breadcrumb.items.push({ text: 'LastItem' });
-                                    this.$parent.$parent.$refs.breadcrumb.activeItem = 'LastItem';
+                                    this.$parent.$parent.breadcrumbItems.push({ text: 'LastItem' });
+                                    var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
+                                    breadcrumb.activeItem = 'LastItem';
                                 }
                             }
                     })
@@ -286,8 +286,8 @@ export default Vue.extend({
                 return {
                     template : Vue.component('separatorTemplate', {
                         template:
-                            `<div style="display: flex;">
-                            <ejs-menu v-if="getItems(data.previousItem.text)[0].items" :showItemOnClick="true" :items="getItems(data.previousItem.text)" :select="subMenuSelectHandler" :beforeOpen="beforeOpen" :onClose="onClose"></ejs-menu>
+                            `<div v-if="getItems(data.previousItem.text)[0].items" style="display: flex;">
+                            <ejs-menu :showItemOnClick="true" :items="getItems(data.previousItem.text)" :select="subMenuSelectHandler" :beforeOpen="beforeOpen" :onClose="onClose"></ejs-menu>
                             </div>
                             `,
                             inject: ["breacrumb"],
@@ -317,7 +317,7 @@ export default Vue.extend({
                                         }
                                         breadcrumbItems.push({ text: args.item.text });
                                         breadcrumbItems.push({ text: 'LastItem' });
-                                        this.$parent.$parent.$refs.breadcrumb.items = breadcrumbItems;
+                                        this.$parent.$parent.breadcrumbItems = breadcrumbItems;
                                         }
                                 },
                                 beforeOpen: function() {
@@ -478,9 +478,7 @@ export default Vue.extend({
             return subItems;
         },
     btnClick: function() {
-        var breadcrumb = document.getElementById('breadcrumb');
-        var breadcrumbInst = getComponent(breadcrumb, 'breadcrumb');
-        breadcrumbInst.items = [
+        this.breadcrumbItems = [
         {
             iconCss: 'e-bicons e-picture'
         },

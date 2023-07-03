@@ -63,7 +63,9 @@
   .tailwind .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .tailwind-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
-  .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
+  .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .material3 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .material3-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
     content: '\e80e';
   }
   .tailwind .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
@@ -71,7 +73,9 @@
   .bootstrap5 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .fluent .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
-  .fluent-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
+  .fluent-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .material3 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .material3-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
       content: '\e7de';
   }
 </style>

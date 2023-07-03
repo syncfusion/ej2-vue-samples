@@ -215,6 +215,7 @@
         color: rgb(255, 255, 255);
     }
 
+    .material3-dark .ddl-template .header,
     .material-dark .ddl-template .header {
         background: rgb(66, 66, 66);
         color: rgb(255, 255, 255);

@@ -25,12 +25,14 @@
     </div>
 
     <div id="action-description">
-      <p>  This sample renders the stock chart without period selector, data's can be navigated through range selector.</p>
+      <p>By hiding the period selector in the stock chart, this sample visualizes the AAPL stock price. The tooltip and crosshair display data and period information.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>AreaSeries</code> is used to represent selected data value.
+        In this example, you can see how to render and configure stock chart to visualize the stock data. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartModel/#enableperiodselector">enablePeriodSelector</a> property allows to toggle the visibility of period selector.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
@@ -38,6 +40,10 @@
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
         <code>DateTime</code> and <code>AreaSeries</code> module using <code> provide: { stockchart: [ DateTime, AreaSeries] },</code> method.
+      </p>
+      <p>
+        More information about the series type can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
       </p>
     </div>
     <svg style="height: 0">
@@ -98,6 +104,14 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+        <linearGradient id="material3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
   </svg>
 </div>
@@ -137,17 +151,24 @@
         stop-color: #4f46e5;
     }
     #bootstrap5-gradient-chart stop {
-        stop-color: #262E0B;
+        stop-color: #6355C7;
     }
     #bootstrap5-dark-gradient-chart stop {
-        stop-color: #5ECB9B;
+        stop-color: #8F80F4;
     }
     #fluent-gradient-chart stop {
-        stop-color: #614570;
+        stop-color: #1AC9E6;
     }
     #fluent-dark-gradient-chart stop {
-        stop-color: #8AB113;
+        stop-color: #1AC9E6;
     }
+    #material3-gradient-chart stop {
+        stop-color: #6200EE;
+    }
+    #material3-dark-gradient-chart stop {
+        stop-color: #4EAAFF;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
     }
@@ -179,7 +200,7 @@ Vue.use(StockChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -196,7 +217,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 }
+        majorTickLines: { color: "transparent", height: 0 }
       },
       crosshair: {
         enable: true,

@@ -185,13 +185,6 @@
     padding: 5px
 }
 
-.tailwind .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category,
-.tailwind .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name,
-.tailwind-dark .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category,
-.tailwind-dark .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name {
-  padding: unset !important;
-}
-
 .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-parent-node .specialist-name {
     padding: 0 10px
 }

@@ -116,6 +116,8 @@ export default Vue.extend({
 .highcontrast .datepicker-special-dates td.e-icons.highlight:before,
 .material-dark .datepicker-special-dates td.e-icons.highlight,
 .material-dark .datepicker-special-dates td.e-icons.highlight:before,
+.material3-dark .datepicker-special-dates td.e-icons.highlight,
+.material3-dark .datepicker-special-dates td.e-icons.highlight:before,
 .fabric-dark .datepicker-special-dates td.e-icons.highlight,
 .fabric-dark .datepicker-special-dates td.e-icons.highlight:before,
 .bootstrap-dark .datepicker-special-dates td.e-icons.highlight,

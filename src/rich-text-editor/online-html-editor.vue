@@ -39,7 +39,7 @@
       width: 100%;
       position: relative;
       box-sizing: border-box;
-      padding: 5px;
+      padding: 0px;
       border-left:none;
       border-top:none;
     }
@@ -49,6 +49,7 @@
       letter-spacing: 1px;
       padding-left: 10px;
       text-align: center;
+      margin: 10px 0;
     }
 
     .online-editor .heading {
@@ -113,10 +114,6 @@
     {
       padding:0px;
     }
-    
-    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal, .online-editor .e-splitter.e-splitter-vertical .e-pane.e-pane-horizontal {
-      overflow: unset;
-    }
     .online-editor .CodeMirror-sizer{
        margin-right: 10px;
        border: none;
@@ -127,6 +124,10 @@
     }
     .fluent-dark .CodeMirror-gutters, .fluent-dark .CodeMirror {
       background-color: #1B1A19;
+      color: #fff;
+    }
+    .material3-dark .CodeMirror-gutters, .material3-dark .CodeMirror {
+      background-color: #1C1B1F;
       color: #fff;
     }
     .bootstrap-dark .CodeMirror-gutters, .bootstrap-dark .CodeMirror {
@@ -150,7 +151,7 @@
       color: #fff;
     }
     .fabric-dark .title, .bootstrap5-dark .title, .bootstrap-dark .title, .fluent-dark .title, 
-    .material-dark .title, .tailwind-dark .title, .highcontrast .title {
+    .material-dark .title, .tailwind-dark .title, .highcontrast .title,.material3-dark .title  {
       color: #fff;
     }
 

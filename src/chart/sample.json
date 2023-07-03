@@ -137,7 +137,6 @@
     {
         "url": "range-step-area",
         "name": "Range Step Area",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows how to render the range step area series.",
         "category": "Area Charts",
         "sourceFiles": [
@@ -367,7 +366,6 @@
     {
         "url": "donut",
         "name": "Donut",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the doughnut charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
@@ -477,7 +475,6 @@
     {
         "url": "error-bar",
         "name": "Error Bar",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the error bars in charts.",
         "category": "Other Types",
         "sourceFiles": [
@@ -505,6 +502,7 @@
     {
         "url": "pareto",
         "name": "Pareto Chart",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render pareto charts.",
         "category": "Other Types",
         "sourceFiles": [
@@ -744,6 +742,7 @@
     {
         "url": "lazy-loading",
         "name": "Lazy Loading",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the Lazy Loading behavior in chart.",
         "category": "Data Binding",
         "sourceFiles": [
@@ -770,7 +769,7 @@
     },
     {
         "url": "date-time-category",
-        "name": "DateTime Categoty Axis",
+        "name": "DateTime Category Axis",
         "description": "This demo for Essential JS2 Chart control shows how to render the date-time category axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
@@ -824,7 +823,8 @@
     },
     {
         "url": "strip-line",
-        "name": "Strip Line",
+        "name": "Stripline",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the strip lines in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
@@ -1016,6 +1016,7 @@
     {
         "url": "zooming",
         "name": "Zooming and Panning",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the zooming and panning behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [

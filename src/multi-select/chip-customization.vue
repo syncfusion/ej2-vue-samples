@@ -98,6 +98,26 @@
     .multiselect-chip-custom .e-chips.tomato:hover {
         background-color: #FF745C;
     }
+
+    .fabric .multiselect-chip-custom .e-chips.chocolate,
+    .fabric .multiselect-chip-custom .e-chips.chocolate:hover {
+        background-color: #3c2f27;
+    }
+
+    .fabric .multiselect-chip-custom .e-chips.darkred,
+    .fabric .multiselect-chip-custom .e-chips.darkred:hover {
+        background-color: #960f0a;
+    }
+
+    .fabric .multiselect-chip-custom .e-chips.cadetblue,
+    .fabric .multiselect-chip-custom .e-chips.cadetblue:hover {
+        background-color: #36bac7;
+    }
+
+    .fabric .multiselect-chip-custom .e-chips.indigo,
+    .fabric .multiselect-chip-custom .e-chips.indigo:hover {
+        background-color: #58a4df;
+    }
 </style>
 <script>
 import Vue from "vue";

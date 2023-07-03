@@ -140,7 +140,7 @@ import { Browser, EmitType } from '@syncfusion/ej2-base';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let FillColors=[] ;
 let TextColor;
 if(theme === "Material"){
@@ -148,19 +148,19 @@ if(theme === "Material"){
     TextColor = '#000000';
 }
 else if(theme === 'Fluent'){
-    FillColors =  ["#614570", "#4C6FB1", "#CC6952", "#3F579A", "#4EA09B", "#6E7A89", "#D4515C", "#E6AF5D", "#639751", "#9D4D69"];
+    FillColors = ['#1AC9E6', '#DA4CB2', '#EDBB40', '#AF4BCF', '#FF7266', '#1BD565', '#EE993D', '#5887FF', '#EC548D', '#7D39C0'];
     TextColor = '#000000';
 }
 else if(theme === 'FluentDark'){
-    FillColors =  ["#8AB113", "#2A72D5", "#43B786", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#EBA844", "#26BC7A", "#BC4870"];
+    FillColors =  ['#1AC9E6', '#DA4CB2', '#EDBB40', '#AF4BCF', '#FF7266', '#1BD565', '#EE993D', '#5887FF', '#EC548D', '#7D39C0'];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Bootstrap5'){
-    FillColors =  ["#262E0B", "#668E1F", "#AF6E10", "#862C0B", "#1F2D50", "#64680B", "#311508", "#4C4C81", "#0C7DA0", "#862C0B"];
+    FillColors =  ['#6355C7', '#FFB400', '#2196F5', '#F7523F', '#963C70', '#4BE0BC', '#FD7400', '#C9E422', '#DE3D8A', '#162F88'];
     TextColor = '#000000';
 }
 else if(theme === 'Bootstrap5Dark'){
-    FillColors =  ["#5ECB9B", "#A860F1", "#EBA844", "#557EF7", "#E9599B", "#BFC529", "#3BC6CF", "#7A68EC", "#74B706", "#EA6266"];
+    FillColors =   ['#8F80F4', '#FFD46D', '#6CBDFF', '#FF7F71', '#FF6DB3', '#63F5D2', '#FCAA65', '#ECFF77', '#EF8EFF', '#5F82FD'];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Tailwind'){
@@ -195,9 +195,18 @@ else if(theme === 'Bootstrap4'){
     FillColors =  ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e', '#ff6ea6','#7953ac', '#b99b4f', '#407c92', '#5ea716', '#b91c52'];
     TextColor = '#000000';
 }
-else if(theme === 'Highcontrast'){
+else if(theme === 'HighContrast'){
     FillColors = ['#79ECE4', '#E98272', '#DFE6B6', '#C6E773', '#BA98FF','#FA83C3', '#00C27A', '#43ACEF', '#D681EF', '#D8BC6E'];
     TextColor = '#FFFFFF';
+}
+else if(theme === 'Material3'){
+    FillColors = ["#6355C7", "#00AEE0", "#FFB400", "#F7523F", "#963C70", "#FD7400", "#4BE0BC", "#2196F5", "#DE3D8A", "#162F88"];
+    TextColor = "#000000";
+}
+else if(theme === 'Material3Dark'){
+    FillColors = ["#4EAAFF", "#FA4EAB", "#FFF500", "#17EA58", "#38FFE7",
+        "#FF9E45", "#B3F32F", "#B93CE4", "#FC5664", "#9B55FF"];
+    TextColor = "#FFFFFF";
 }
 else {
     FillColors =  ["#5ECB9B", "#A860F1", "#EBA844", "#557EF7", "#E9599B", "#BFC529", "#3BC6CF", "#7A68EC", "#74B706","#EA6266"];
