@@ -54,10 +54,9 @@ body.highcontrast #letterAvatarList{
         height: 54px;
     }
 
-    .material .avatar-listview #letterAvatarList .e-list-header .e-text {
-        line-height: 22px;
-    }
-
+    .material3 .avatar-listview #letterAvatarList .e-list-header .e-text,
+    .material3-dark .avatar-listview #letterAvatarList .e-list-header .e-text,
+    .material .avatar-listview #letterAvatarList .e-list-header .e-text,
     .fabric .avatar-listview #letterAvatarList .e-list-header .e-text {
         line-height: 22px;
     }
@@ -77,8 +76,9 @@ body.highcontrast #letterAvatarList{
         border: 0;
     }
 
+    .material3 #letterAvatarList .e-list-item,
+    .material3-dark #letterAvatarList .e-list-item,
     .tailwind .avatar-listview #letterAvatarList .e-list-item {
-        line-height: 50px;
         padding-top: 0;
         padding-bottom: 0;
     }
@@ -159,6 +159,9 @@ body.highcontrast #letterAvatarList{
         line-height: 35px;
     }
 
+    .material3 #letterAvatarList .e-list-item,
+    .material3-dark #letterAvatarList .e-list-item,
+    .tailwind .avatar-listview #letterAvatarList .e-list-item,
     body.material #letterAvatarList .e-list-item,
     body.material-dark #letterAvatarList .e-list-item {
         line-height: 50px;

@@ -7,7 +7,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' height=350
+        <ejs-grid id='DefaultExport' ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' height=350
                 :allowExcelExport='true' :allowSorting='true' :allowPdfExport='true' :allowGrouping="true" :excelQueryCellInfo='exportQueryCellInfo' :pdfQueryCellInfo='exportQueryCellInfo'
                 :dataBound="dataBound">
             <e-columns>
@@ -93,14 +93,14 @@ export default Vue.extend({
   },
   methods:{
     toolbarClick: function (args: ClickEventArgs) {
-        switch (args.item.text) {
-            case 'PDF Export':
+        switch (args.item.id) {
+            case 'DefaultExport_pdfexport':
                 (<any>this.$refs.grid).pdfExport();
                 break;
-            case 'Excel Export':
+            case 'DefaultExport_excelexport':
                 (<any>this.$refs.grid).excelExport();
                 break;
-            case 'CSV Export':
+            case 'DefaultExport_csvexport':
                 (<any>this.$refs.grid).csvExport();
                 break;
         }

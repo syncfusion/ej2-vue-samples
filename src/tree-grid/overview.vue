@@ -52,6 +52,17 @@
         color: #00752F;
         width: 47px;
     }
+     /deep/ .material3-dark .rating .star.checked, .material3 .rating .star.checked {
+        color: #6750A4;
+    }
+
+     /deep/ .material3-dark #myBar, .material3 #myBar {
+        background-color: #53CA17;
+    }
+
+    /deep/ .material3-dark #myBar.progressdisable, .material3 #myBar.progressdisable {
+        background-color: rgba(242, 184, 181, 1);
+    }
     
     /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
     .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{

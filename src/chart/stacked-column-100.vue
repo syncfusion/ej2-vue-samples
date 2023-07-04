@@ -31,8 +31,8 @@
         <code>StackingColumnSeries</code> module using <code>provide: { chart: [ StackingColumnSeries ] },</code> method.
     </p>
     <p>
-        More information about the column type series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#column-charts">documentation section</a>.
+        More information about the 100% stacked column series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stacked-column">documentation section</a>.
     </p>
 </div>
 </div>
@@ -49,7 +49,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {

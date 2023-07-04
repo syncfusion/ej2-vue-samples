@@ -29,7 +29,7 @@
     </p>
     <p>
         More information about the bubble series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#bubble-chart">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/bubble">documentation section</a>.
     </p>
 </div>
 </div>
@@ -47,13 +47,13 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, BubbleSeries, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
 import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, 
         bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, 
-        pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors} from './theme-color';
+        pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors } from './theme-color';
 
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -168,6 +168,14 @@ export default Vue.extend({
         {
             args.fill = bubblePointHighContrastColors[args.point.index % 10];
             args.border.color = pointHighContrastColors[args.point.index % 10];           
+        }
+        else if (selectedTheme === 'material3') {
+            args.fill = bubbleMaterial3Colors[args.point.index % 10];
+            args.border.color = pointMaterial3Colors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'material3-dark') {
+            args.fill = bubbleMaterial3DarkColors[args.point.index % 10];
+            args.border.color = pointMaterial3DarkColors[args.point.index % 10];
         }
         else
         {

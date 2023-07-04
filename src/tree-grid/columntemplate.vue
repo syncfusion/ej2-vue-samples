@@ -24,12 +24,12 @@
     <div>
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>
             <e-columns>
-                <e-column field='EmpID' headerText='Employee ID' width='120'></e-column>
-                <e-column field='Name' headerText='Name' width='100'></e-column>
-                <e-column field='DOB' headerText='DOB' width='90' format='yMd' textAlign='Right'></e-column>
-                <e-column headerText='Tax Per Annum' width='100' :template="'template1'" ></e-column>
-                <e-column headerText='One Day Index' width='100' :template="'template2'" ></e-column>
-                <e-column headerText='Year GR' width='120' :template="'template3'" ></e-column>
+                <e-column field='EmpID' headerText='Employee ID' width='180'></e-column>
+                <e-column field='Name' headerText='Name' width='170'></e-column>
+                <e-column field='DOB' headerText='DOB' width='110' format='yMd' textAlign='Right'></e-column>
+                <e-column headerText='Tax Per Annum' width='170' :template="'template1'" ></e-column>
+                <e-column headerText='One Day Index' width='170' :template="'template2'" ></e-column>
+                <e-column headerText='Year GR' width='180' :template="'template3'" ></e-column>
             </e-columns>
             <template v-slot:template1="{data}">
                <div :id="`spkline${data.EmployeeID}`"></div>

@@ -2,6 +2,7 @@
     "name": "Kanban",
     "directory": "kanban",
     "category": "Data Visualization",
+    "type": "update",
     "ftName": "kanban",
     "samples": [
         {
@@ -159,6 +160,28 @@
             "sourceFiles":[
                 { "displayName":"sorting.vue", "path":"src/kanban/sorting.vue" },
                 { "displayName":"sorting-card-template.vue", "path":"src/kanban/sorting-card-template.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
+        },
+        {
+            "url": "virtual-scrolling",
+            "name": "Virtual Scrolling",
+            "category": "Kanban",
+            "type": "New",
+            "description": "The example demonstrates how to load a large number of cards in the Vue Kanban board with optimal load time using the virtual scrolling feature.",
+            "api": {
+                "Kanban": [
+                    "dataSource",
+                    "keyField",
+                    "columns",
+                    "cardSettings",
+                    "dialogSettings",
+                    "enableTooltip"
+                ]
+            },
+            "sourceFiles":[
+                { "displayName":"virtual-scrolling.vue", "path":"src/kanban/virtual-scrolling.vue" },
+                { "displayName":"virtual-card-templete.vue", "path":"src/kanban/virtual-card-templete.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },

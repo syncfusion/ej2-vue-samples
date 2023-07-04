@@ -75,6 +75,7 @@
     .highcontrast .uploader-custom-file-drop-target span a {
         color: #ffd939;
     }
+    .material3-dark .uploader-custom-file-drop-target span a,
     .material-dark .uploader-custom-file-drop-target span a {
         color:#56a4fd;
     }
@@ -189,35 +190,52 @@
         left: 7px;
         position: inherit;
         top: 7px;
-        content: '\e932';
+        content: '\e7e7';
     }
     .tailwind .uploader-template-view .close-icon-container.e-icons::before,
     .tailwind-dark .uploader-template-view .close-icon-container.e-icons::before {
-        content: '\e771';
+        content: '\e7e7';
     }
     .fabric .uploader-template-view .close-icon-container.e-icons::before,
     .fabric-dark .uploader-template-view .close-icon-container.e-icons::before,
-    .bootstrap .uploader-template-view .close-icon-container.e-icons::before,
-    .bootstrap-dark .uploader-template-view .close-icon-container.e-icons::before,
     .highcontrast .uploader-template-view .close-icon-container.e-icons::before {
-        content: '\e7fc';
+        content: '\e953';
     }
     .bootstrap5 .uploader-template-view .close-icon-container.e-icons::before,
     .bootstrap5-dark .uploader-template-view .close-icon-container.e-icons::before {
         content: '\e7e7';
     }
+    
+    .bootstrap4 .template_wrapper .close-icon-container.e-icons::before {
+        content: '\e745';
+    }
+
+    .material .close-icon-container.e-icons::before,
+    .material-dark .close-icon-container.e-icons::before {
+        content: '\e932';
+    }
+
+    .bootstrap .close-icon-container.e-icons::before,
+    .bootstrap-dark .close-icon-container.e-icons::before {
+        content: '\e7fc';
+    }
+
     .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e94a';
     }
 
+    .bootstrap4 .template_wrapper .close-icon-container.delete-icon::before {
+        content: '\e773';
+    }
+
     .fluent .uploader-template-view .close-icon-container.delete-icon::before,
     .fluent-dark .uploader-template-view .close-icon-container.delete-icon::before {
-        content: '\e7e7';
+        content: '\e820';
     }
 
     .tailwind .uploader-template-view .close-icon-container.delete-icon::before
     .tailwind-dark .uploader-template-view .close-icon-container.delete-icon::before {
-        content: '\e78d';
+        content: '\e820';
     }
     .bootstrap5 .uploader-template-view .close-icon-container.delete-icon::before,
     .bootstrap5-dark .uploader-template-view .close-icon-container.delete-icon::before {
@@ -228,7 +246,7 @@
         content: '\e965';
     }
     .highcontrast .uploader-template-view .close-icon-container.delete-icon::before {
-        content: '\e84e';
+        content: '\e965';
     }
     .tailwind .uploader-template-view .close-icon-container.delete-icon {
         top: 10px;

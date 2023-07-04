@@ -30,8 +30,8 @@
         <code>ColumnSeries</code> module using <code>provide: { chart: [ColumnSeries] }</code> method.
     </p>
     <p>
-      More information about the column type series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#column-charts">documentation section</a>.
+      More information about the column series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column">documentation section</a>.
     </p>
 </div>
 

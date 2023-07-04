@@ -60,6 +60,7 @@
         color: #495057;
     }
     .material-dark .combobox-icons-css .e-list-icon,
+    .material3-dark .combobox-icons-css .e-list-icon,
     .bootstrap5-dark .combobox-icons-css .e-list-icon,
     .tailwind-dark .combobox-icons-css .e-list-icon,
     .fluent-dark .combobox-icons-css .e-list-icon {

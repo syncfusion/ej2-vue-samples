@@ -502,6 +502,9 @@ body {
 .material-dark .slider-azure .pricing-slider,
 .material-dark .slider-azure #pricing-slider .label-text,
 .material-dark .slider-azure #pricing-slider .sub-heading,
+.material3-dark .slider-azure .pricing-slider,
+.material3-dark .slider-azure #pricing-slider .label-text,
+.material3-dark .slider-azure #pricing-slider .sub-heading,
 .fabric-dark .slider-azure .pricing-slider,
 .fabric-dark .slider-azure #pricing-slider .label-text,
 .fabric-dark .slider-azure #pricing-slider .sub-heading,
@@ -537,6 +540,12 @@ body {
 .material-dark .slider-azure #StorageDialog,
 .material-dark .slider-azure #CloudDialog,
 .material-dark .slider-azure #processorDialog,
+.material3-dark .slider-azure #dollar,
+.material3-dark .slider-azure #pricevalue,
+.material3-dark .slider-azure #dialog-header,
+.material3-dark .slider-azure #StorageDialog,
+.material3-dark .slider-azure #CloudDialog,
+.material3-dark .slider-azure #processorDialog,
 .fabric-dark .slider-azure #dollar,
 .fabric-dark .slider-azure #pricevalue,
 .fabric-dark .slider-azure #dialog-header,
@@ -576,7 +585,8 @@ body {
 .bootstrap5-dark .slider-azure #pricing-slider .row,
 .fabric-dark .slider-azure #pricing-slider .row,
 .fluent-dark .slider-azure #pricing-slider .row,
-.material-dark .slider-azure #pricing-slider .row {
+.material-dark .slider-azure #pricing-slider .row,
+.material3-dark .slider-azure #pricing-slider .row {
   border: 1px solid #969696;
 }
 
@@ -586,7 +596,8 @@ body {
 .bootstrap5-dark .slider-azure #cloud-right-pane,
 .fabric-dark .slider-azure #cloud-right-pane,
 .fluent-dark .slider-azure #cloud-right-pane,
-.material-dark .slider-azure #cloud-right-pane {
+.material-dark .slider-azure #cloud-right-pane,
+.material3-dark .slider-azure #cloud-right-pane {
   border-left: 1px solid #969696;
 }
 
@@ -594,6 +605,8 @@ body {
 .highcontrast .slider-azure #pricing-slider #cloud-right-pane .btn-size,
 .material-dark .slider-azure #cloud-slider-text,
 .material-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.material3-dark .slider-azure #cloud-slider-text,
+.material3-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
 .fabric-dark .slider-azure #cloud-slider-text,
 .fabric-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
 .fluent-dark .slider-azure #cloud-slider-text,
@@ -609,6 +622,7 @@ body {
 
 .highcontrast .slider-azure #processor,
 .material-dark .slider-azure #processor,
+.material3-dark .slider-azure #processor,
 .bootstrap-dark .slider-azure #processor,
 .bootstrap5-dark .slider-azure #processor,
 .fabric-dark .slider-azure #processor,
@@ -619,6 +633,7 @@ body {
 
 .highcontrast .slider-azure #memory,
 .material-dark .slider-azure #memory,
+.material3-dark #memory,
 .fabric-dark .slider-azure #memory,
 .fluent-dark .slider-azure #memory,
 .tailwind-dark .slider-azure #memory,
@@ -629,6 +644,7 @@ body {
 
 .highcontrast .slider-azure #storage,
 .material-dark .slider-azure #storage,
+.material3-dark #storage,
 .fabric-dark .slider-azure #storage,
 .fluent-dark .slider-azure #storage,
 .tailwind-dark .slider-azure #storage,
@@ -639,6 +655,7 @@ body {
 
 .highcontrast .slider-azure #cloud-left-pane,
 .material-dark .slider-azure #cloud-left-pane,
+.material3-dark #cloud-left-pane,
 .fabric-dark .slider-azure #cloud-left-pane,
 .fluent-dark .slider-azure #cloud-left-pane,
 .tailwind-dark .slider-azure #cloud-left-pane,
@@ -649,6 +666,7 @@ body {
 
 .highcontrast .slider-azure #cloud-right-pane,
 .material-dark .slider-azure #cloud-right-pane,
+.material3-dark .slider-azure #cloud-right-pane,
 .fabric-dark .slider-azure #cloud-right-pane,
 .fluent-dark .slider-azure #cloud-right-pane,
 .tailwind-dark .slider-azure #cloud-right-pane,
@@ -684,7 +702,11 @@ body {
 .material-dark .slider-azure #processorPriceName,
 .material-dark .slider-azure #memoryPriceName,
 .material-dark .slider-azure #storagePriceName,
-.material-dark .slider-azure #cloudPriceName {
+.material-dark .slider-azure #cloudPriceName,
+.material3-dark .slider-azure #processorPriceName,
+.material3-dark .slider-azure #memoryPriceName,
+.material3-dark .slider-azure #storagePriceName,
+.material3-dark .slider-azure #cloudPriceName {
   color: white;
   opacity: 1;
 }

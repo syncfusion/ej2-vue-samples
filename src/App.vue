@@ -160,13 +160,21 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS Dark</span>
                         </li>
-                        <li class='active' id="material" role="listitem">
+                        <li class='e-list' id="material" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material</span>
                         </li>
                         <li class="e-list" id="material-dark">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material Dark</span>
+                        </li>
+                        <li class='active' id="material3" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material 3</span>
+                        </li>
+                        <li class="e-list" id="material3-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material 3 Dark</span>
                         </li>
                         <li id="fabric" role="listitem">
                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
@@ -216,6 +224,8 @@
                                     <option value="tailwind-dark">Tailwind CSS Dark</option>
                                     <option value="material">Material</option>
                                     <option value="material-dark">Material Dark</option>
+                                    <option value="material3">Material 3</option>
+                                    <option value="material3-dark">Material 3 Dark</option>
                                     <option value="fabric">Fabric</option>
                                     <option value="fabric-dark">Fabric Dark</option>
                                     <option value="bootstrap4">Bootstrap v4</option>
@@ -431,7 +441,7 @@ import VueRouter from "vue-router";
 /* syncfusion imports */
 import { Browser, extend, Animation, Ajax, closest, createElement, detach, enableRipple, setCurrencyCode } from '@syncfusion/ej2-base';
 import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr, registerLicense, getComponent } from '@syncfusion/ej2-base';
-import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
+import { TreeView, Sidebar, Tab, EventArgs } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
 import { Button } from '@syncfusion/ej2-buttons';
@@ -448,7 +458,7 @@ import * as currencyData from './common/cldr-data/supplemental/currencyData.json
 import * as deCultureData from './common/cldr-data/main/de/all.json';
 import * as arCultureData from './common/cldr-data/main/ar/all.json';
 import * as swissCultureDate from './common/cldr-data/main/fr-CH/all.json';
-import * as enCultureData from './common/cldr-data/main/fr-CH/all.json';
+import * as enCultureData from './common/cldr-data/main/en/all.json';
 import * as chinaCultureData from './common/cldr-data/main/zh/all.json';
 import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
@@ -468,8 +478,8 @@ const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
-let selectedTheme: string = location.hash.split('/')[1] || 'bootstrap5';
-const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
+let selectedTheme: string = location.hash.split('/')[1] || 'material3';
+const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'material3', 'material3-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -730,7 +740,7 @@ export default Vue.extend({
                         continue;
                     }
                     let data: DataManager = new DataManager((temp as any).samples);
-                    temp.samples = <Samples[]>data.executeLocal(new Query());
+                    temp.samples = <Samples[]>data.executeLocal(new Query().where('hideOnDevice', 'notEqual', true));
                     tempLists = tempLists.concat(temp);
                 }
                 return tempLists;
@@ -784,7 +794,7 @@ export default Vue.extend({
                 this.controlListRefresh(arg.node || arg.item);
                 if (path !== curHashCollection) {
                     this.sampleOverlay();
-                    let theme: string = location.hash.split('/')[1] || 'bootstrap5';
+                    let theme: string = location.hash.split('/')[1] || 'material3';
                     if (arg.item && ((isMobile) ||
                         ((isTablet || (Browser.isDevice && isPc)) && this.isLeftPaneOpen()))) {
                         this.toggleLeftPane();
@@ -906,7 +916,10 @@ export default Vue.extend({
         isLeftPaneOpen: function (): boolean {
             return sidebar.isOpen;
         },
-
+        closeRightSidebar: function (args: EventArgs): void {
+          let targetEle: HTMLElement | null = args.event ? args.event.target as HTMLElement : null;
+          if (targetEle && targetEle.closest('.e-popup')) args.cancel = true;
+        },
         rendersbPopup: function (): void {
             switcherPopup = new Popup(sb.vars.sample, {
                 relateTo: sb.vars.switch, position: { X: 'left' },
@@ -979,7 +992,7 @@ export default Vue.extend({
                 position: { X: 'right', Y: 'bottom' }
                 , collision: { X: 'flip', Y: 'flip' }
             });
-            settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, showBackdrop: true, type: 'Over' });
+            settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, close: this.closeRightSidebar, showBackdrop: true, type: 'Over' });
             settingSidebar.appendTo('#right-sidebar');
             themeDropDown = new DropDownList({
                 index: 0,
@@ -1548,7 +1561,7 @@ export default Vue.extend({
                 let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
                     dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
                 for (let sample of samples) {
-                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'bootstrap5';
+                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material3';
                     let control: string = node.directory;
                     let sampleUrl: string = sample.url;
                     let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
@@ -1663,7 +1676,7 @@ export default Vue.extend({
                                     content: `${hideLocation} component not supported in mobile device`
                                 });
                             }, 200);
-                        window.location.hash = "#/bootstrap5/grid/grid-overview.html"
+                        window.location.hash = "#/material3/grid/grid-overview.html"
                     }
                 }
                 let curIndex: number = samplesAr.indexOf(location.hash);
@@ -1731,7 +1744,7 @@ export default Vue.extend({
             this.overlay();
             this.changeMouseOrTouch(switchText);
             localStorage.removeItem('ej2-switch');
-            enableRipple(selectedTheme === 'material' || !selectedTheme);
+            enableRipple(selectedTheme.indexOf('material') !== -1 || !selectedTheme);
             this.loadTheme(selectedTheme);
         }
     }

@@ -76,8 +76,8 @@
         <code>provide: { chart: [StackingLineSeries] }</code> method.
       </p>
       <p>
-        More information about the line type series can be found in this
-          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#line-charts">documentation section</a>.
+        More information about the 100% stacked line series can be found in this
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stacked-line">documentation section</a>.
       </p>
     </div>
   </div>
@@ -102,7 +102,7 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {

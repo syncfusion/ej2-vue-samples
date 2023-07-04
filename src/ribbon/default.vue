@@ -39,7 +39,7 @@
                       </e-ribbon-collection>
                       <e-ribbon-collection>
                         <e-ribbon-items>
-                          <e-ribbon-item type="ColorPicker" displayOptions="Simplified" allowedSizes="Small" :colorPickerSettings="colorPicker" >
+                          <e-ribbon-item type="ColorPicker" :displayOptions="colorPickerDisplayMode" allowedSizes="Small" :colorPickerSettings="colorPicker" >
                           </e-ribbon-item>
                           <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="boldButton" >
                           </e-ribbon-item>
@@ -248,7 +248,7 @@
 
 <script>
   import Vue from "vue";
-  import { RibbonFileMenu, RibbonItemSize, RibbonPlugin, RibbonColorPicker } from "@syncfusion/ej2-vue-ribbon";
+  import { RibbonFileMenu, RibbonItemSize, RibbonPlugin, RibbonColorPicker, DisplayMode } from "@syncfusion/ej2-vue-ribbon";
   import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
   import { ToastPlugin, ToastUtility } from '@syncfusion/ej2-vue-notifications';
   import { Query } from '@syncfusion/ej2-data';
@@ -267,6 +267,7 @@ export default {
   data: function () {
     return {
       largeSize: RibbonItemSize.Large,
+      colorPickerDisplayMode: DisplayMode.Classic | DisplayMode.Simplified,
       fileSettings: {
         visible: true,
         menuItems: [
@@ -302,7 +303,8 @@ export default {
       sizeOptions: {
         dataSource: ["8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", "96" ],
         index: 4,
-        width: "80px",
+        width: "65px",
+        popupWidth: '85px',
         allowFiltering: true,
         change:(args) => { this.updateContent( "Font Size -> " + args.itemData.text)}
       },
@@ -531,6 +533,10 @@ export default {
 
   .font-group .e-ribbon-group-content {
       justify-content: center;
+  }
+
+  #default #header_footer .e-ribbon-group-overflow-ddb {
+      min-width: 10ch;
   }
 
   @font-face {

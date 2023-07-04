@@ -294,6 +294,19 @@ export default Vue.extend({
             'New', 'Open', 'Separator', 'Undo',
             'Redo',
             'Separator',
+            {
+                prefixIcon: 'sf-icon-InsertMergeField',
+                tooltipText: 'Insert Field',
+                text: this.onWrapText('Insert Field'),
+                id: 'InsertField'
+            },
+            {
+                prefixIcon: 'sf-icon-FinishMerge',
+                tooltipText: 'Merge Document',
+                text: this.onWrapText('Merge Document'),
+                id: 'MergeDocument'
+            },
+            'Separator',
             'Image',
             'Table',
             'Hyperlink',
@@ -316,19 +329,6 @@ export default Vue.extend({
             'Separator',
             'FormFields',
             'UpdateFields',
-            'Separator',
-            {
-                prefixIcon: 'sf-icon-InsertMergeField',
-                tooltipText: 'Insert Field',
-                text: this.onWrapText('Insert Field'),
-                id: 'InsertField'
-            },
-            {
-                prefixIcon: 'sf-icon-FinishMerge',
-                tooltipText: 'Merge Document',
-                text: this.onWrapText('Merge Document'),
-                id: 'MergeDocument'
-            },
         ],
         header: 'Merge Field',
         content:

@@ -84,7 +84,8 @@ export default Vue.extend({
         content:'<div class="new" style="display: flex;flex-direction: column;align-items: center;"><p><span class="circle-border"><span class="e-icons e-check" style="font-size: 30px; color: green; padding:5px 0 0 0; font-weight: 700;"></span></span></p><p><b style="font-size:25px; font-weight: 500 !important;">Good job!</b></p><p>You clicked the button!</p></div>',
         okButton: { text: 'OK',click:this.alertOkAction },
         position: { X: 'center', Y: 'center' },
-        width:'240px'
+        width:'240px',
+        closeOnEscape: true
       });
     },
     alertOkAction:function(){
@@ -100,7 +101,8 @@ export default Vue.extend({
         okButton: { text: 'YES',click:this.confirmOkAction },
         cancelButton: { text: 'No',click:this.confirmCancelAction },
         position: { X: 'center', Y: 'center' },
-        width:'420px'
+        width:'420px',
+        closeOnEscape: true
       });
     },
     confirmOkAction:function () {
@@ -121,13 +123,22 @@ export default Vue.extend({
         okButton: { text: 'OK',click:this.promptOkAction },
         cancelButton: { click:this.promptCancelAction },
         position: { X: 'center', Y: 'center' },
-        width: '240px'
+        width: '240px',
+        closeOnEscape: true
       });
     },
     promptOkAction:function () {
-      dialogObj.hide();
-      document.getElementById("statusText").innerHTML="The user confirmed the dialog box";
-      document.getElementById("statusText").style.display="block";
+      value = document.getElementById("password").value;
+        if(value ==""){
+            dialogObj.hide();
+            document.getElementById("statusText").innerHTML="The user's input is returned as\" \"";
+            document.getElementById("statusText").style.display="block";
+        }
+        else{
+            dialogObj.hide();
+            document.getElementById("statusText").innerHTML="The user's input is returned as" +" "+ value;
+            document.getElementById("statusText").style.display="block";
+        } 
     },
     promptCancelAction:function () {
       dialogObj.hide ();

@@ -239,6 +239,8 @@ export default Vue.extend({
     .bootstrap5-dark .e-template-list,
     .tailwind .e-template-list,
     .tailwind-dark .e-template-list,
+    .material3 .e-template-list,
+    .material3-dark .e-template-list,
     .bootstrap4 .e-template-list {
         border: 0;
         border-radius: 0;

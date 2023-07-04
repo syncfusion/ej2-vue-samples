@@ -4,10 +4,10 @@
         <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='0' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='taskName' width='200' :headerTemplate="'nametemplate'"></e-column>
-                <e-column field='startDate' width='100' :headerTemplate="'datetemplate'" format='yMd'  textAlign='Right'></e-column>
-                <e-column field='resourceId' width='100' :headerTemplate="'resourcetemplate'" textAlign='Right'></e-column>
-                <e-column field='duration' width='100' :headerTemplate="'durationtemplate'"  textAlign='Right' ></e-column>
-                <e-column field='progress' width='100' :headerTemplate="'progresstemplate'"  textAlign='Right'></e-column>
+                <e-column field='startDate' width='120' :headerTemplate="'datetemplate'" format='yMd'  textAlign='Right'></e-column>
+                <e-column field='resourceId' width='120' :headerTemplate="'resourcetemplate'" textAlign='Right'></e-column>
+                <e-column field='duration' width='110' :headerTemplate="'durationtemplate'"  textAlign='Right' ></e-column>
+                <e-column field='progress' width='150' :headerTemplate="'progresstemplate'"  textAlign='Right'></e-column>
             </e-columns>
             <template v-slot:nametemplate="{data}">
                 <div class="image">
@@ -83,7 +83,7 @@ export default Vue.extend({
     methods : {
         getTheme() {
               let themeName: string = location.hash.split('/')[1];
-              return ["material","fabric","bootstrap","bootstrap4","bootstrap5","tailwind","fluent" ].includes(themeName);
+              return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","tailwind","fluent" ].includes(themeName);
         },
         image1() {
             return (this.getTheme() ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");

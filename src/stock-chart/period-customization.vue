@@ -86,7 +86,7 @@ Vue.use(StockChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 function GetZoomingData() {
   let series = [];
@@ -120,13 +120,14 @@ export default Vue.extend({
       },
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 },
+        majorTickLines: { color: "transparent", height: 0 },
         crosshairTooltip: { enable: true }
       },
      
        title: 'AAPL stock price by minutes',
        crosshair: {
-          enable: true
+          enable: true,
+          lineType: 'Both' 
         },
         border: { width: 0}, 
        chartArea: {

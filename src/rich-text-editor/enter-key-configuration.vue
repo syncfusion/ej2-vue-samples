@@ -72,6 +72,12 @@
         height: 200px;
         width: 100%;
     }
+    .bootstrap-dark .codeView{
+        border:1px solid rgb(80,80,80);
+    }
+    .highcontrast #codeView {
+        border:1px solid rgb(255,255,255);
+    }
     .enter-key-sample .CodeMirror {
         height: 190px;
     }

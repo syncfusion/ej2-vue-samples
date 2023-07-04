@@ -29,7 +29,7 @@
     </p>
     <p>
         More information on the box and whisker series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/other-types/#customization-of-box-and-whisker-series">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/box-whisker">documentation section</a>.
     </p>
 </div>
 </div>
@@ -50,7 +50,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");     
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');     
 export default Vue.extend({
     data: function () {
         return {
@@ -71,7 +71,7 @@ export default Vue.extend({
             primaryXAxis: {
                 valueType: 'Category',
                 majorGridLines: { width: 0 },
-                labelIntersectAction: 'Rotate45',
+                labelIntersectAction: 'Rotate90',
                 majorTickLines: { width: 0 },
             },
             chartArea: {

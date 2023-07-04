@@ -30,7 +30,7 @@
     </p>
     <p>
         More information on the histogram series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/other-types/#histogram-series">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/histogram">documentation section</a>.
     </p>
    </div>
 </div>
@@ -47,7 +47,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function () {
@@ -182,7 +182,7 @@ export default Vue.extend({
   },
   methods: {
     load: function (args) {
-      if (args.chart.theme === 'Highcontrast') {
+      if (selectedTheme === 'highcontrast') {
         args.chart.series[0].marker.dataLabel.font.color = '#000000';
       }
     }

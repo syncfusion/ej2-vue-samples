@@ -28,7 +28,7 @@
     </p>
     <p>
       More information about the column series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#column-charts">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/range-column">documentation section</a>.
     </p>
 </div>
 </div>

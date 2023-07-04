@@ -6,7 +6,7 @@
     <e-item  type= "Input"
         text= "Export" :template='template' ></e-item>
           <e-item type= "Button"
-        text= "Print" ></e-item>
+        text= "Print" prefixIcon='e-print e-icons' ></e-item>
     <e-item type= "Input" ref="checkboxObject" id="checkbox"
        :template='checkBoxTemplate'></e-item>
     </e-items>
@@ -333,7 +333,7 @@ export default Vue.extend({
         return {
           template: Vue.component("DropDownButton", {
             template:
-              '<ejs-dropdownbutton :items=items iconCss= "e-ddb-icons  e-export" content= "Export"  :select= onselect></ejs-dropdownbutton>',
+              '<ejs-dropdownbutton :items=items iconCss="e-export e-icons" content= "Export"  :select= onselect></ejs-dropdownbutton>',
             data() {
               return {
                 items: [
@@ -342,9 +342,6 @@ export default Vue.extend({
                   },
                   {
                     text: "PNG"
-                  },
-                  {
-                    text: "BMP"
                   },
                   {
                     text: "SVG"
@@ -360,9 +357,6 @@ export default Vue.extend({
                         exportOptions.format = args.item.text;
                         break;
                       case "PNG":
-                        exportOptions.format = args.item.text;
-                        break;
-                      case "BMP":
                         exportOptions.format = args.item.text;
                         break;
                       case "SVG":

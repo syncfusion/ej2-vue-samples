@@ -37,7 +37,7 @@
             <e-columns>
                 <e-column field='ID' headerText='S.No' width='90' textAlign='Right'></e-column>
                 <e-column field='Name' headerText='ShipMent Name' width='220'></e-column>
-                <e-column field='category' headerText='Category' width='220'></e-column>
+                <e-column field='category' headerText='Category' width='230'></e-column>
                 <e-column field='unitPrice' headerText='Unit Price($)' format='c2' width='120' textAlign='Right'></e-column>
                 <e-column field='price' headerText='Price($)' width='100' format='c' textAlign='Right'></e-column>
             </e-columns>
@@ -102,7 +102,7 @@ export default Vue.extend({
   },
   methods: {
       customAggregateFn : function (data: Object) {
-        (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.vueInstance = null;
+      (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.vueInstance = null;
         let sampleData: Object[] = getObject('result', data);
         let countLength: number; countLength = 0;
         sampleData.filter((item: Object) => {
@@ -115,7 +115,7 @@ export default Vue.extend({
       },
       dataBound: function() {
           let treeGridObj = (<TreeGridComponent>this.$refs.treegrid);
-            if (!isNullOrUndefined(listObj) && listObj.element.classList.contains('e-' + listObj.getModuleName())) {
+            if (!isNullOrUndefined(listObj)) {
                 listObj.destroy();
             }
             listObj = new DropDownList({

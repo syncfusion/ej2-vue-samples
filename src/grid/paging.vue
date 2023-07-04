@@ -6,7 +6,7 @@
             You can also change the page size using the dropdown.
         </p>
     </div>
-    <div>
+    <div class="paging-api">
         <ejs-grid :dataSource="data" locale='en-US' height='365' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
@@ -41,6 +41,10 @@
         pageSettings->pageCount
         </a></code>set to 4.
         </p>
+        <p>
+            The Pager component has been enhanced to be more responsive. 
+            It now includes the ability to automatically resize itself and dynamically show or hide pager items based on the width of the Grid
+        </p>  
         <p>Changed default pager details information using the <code>totalItemsInfo</code> locale property.</p>
         <br>
         <p style="font-weight: 500">Injecting Module:</p>
@@ -56,6 +60,11 @@
 
 </div>
 </template>
+<style>
+    .paging-api .e-pager .e-pagecountmsg {
+        display: inline-block;
+    }
+</style>
 <script lang="ts">
 import Vue from "vue";
 import { L10n, setCulture } from '@syncfusion/ej2-base';

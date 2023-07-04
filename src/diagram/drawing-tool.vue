@@ -45,13 +45,14 @@
         </div>
         <div class="image-pattern-style" id="cubic" style="background-image: url(./src/diagram/Images/drawingTool/connector/Connectors_3.png); ">
         </div>
+        <div class="image-pattern-style" id="freehand" style="background-image: url(./src/diagram/Images/drawingTool/connector/FreeHand_4.png);margin-top: 5px ">
+        </div>
       </div>
       <div class="row" style="padding-top: 10px">
         <ejs-checkbox id="checked"       
                       :label='checkedlabel'
                       :checked='checkedchecked'
                       :change='checkedchange'></ejs-checkbox>
-
       </div>
     </div>
 </div>
@@ -340,6 +341,9 @@ export default Vue.extend({
             break;
           case "text":
             getTextNode();
+            break;
+          case "freehand":
+             setdrawobject(null, { type: "Freehand" });
             break;
           default:
             if (

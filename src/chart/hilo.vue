@@ -35,9 +35,9 @@
                 <code>HiloSeries</code> module using <code>provide: { chart: [HiloSeries] },</code> method.
             </p>
             <p>
-                More information on the Hilo series can be found in this
+                More information on the HILO series can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/financial-types/#hilo">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/high-low">documentation
                     section</a>.
             </p>
         </div>
@@ -57,7 +57,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
     data: function () {

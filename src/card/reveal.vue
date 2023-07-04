@@ -93,6 +93,7 @@
         text-align: left
     }
     
+    .material3-dark .card-control-section.reveal_card_layout .e-card .e-card-header,
     .material-dark .card-control-section.reveal_card_layout .e-card .e-card-header {
         padding: 10px;
     }

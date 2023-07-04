@@ -153,14 +153,13 @@
                     remote
                     based
                     adaptors.</li>
-                <li><code>ODataAdaptor</code> - Use this to interact with OData endpoints.</li>
                 <li><code>ODataV4Adaptor</code> - Use this to interact with OData V4 endpoints.</li>
                 <li><code>WebApiAdaptor</code> - Use this to interact with Web API created under OData standards.</li>
                 <li>Own Service - Custom databinding is used where data actions like paging, sorting are perfromed in
                     <code>dataStateChange</code> event of grid.
                 </li>
             </ul>
-            <p>By default ODataAdaptor is used in this demo. The adaptor type will be automatically assigned based on the
+            <p>By default ODataV4Adaptor is used in this demo. The adaptor type will be automatically assigned based on the
                 selected
                 data service. </p> <br>
             <p>The dataSource of grid can be dynamically changed using <code>changeDataSource</code> method by following the
@@ -244,7 +243,7 @@ import { GridPlugin, Grid, Filter, Page, Selection, ColumnModel, CheckBoxChangeE
 import { Ajax, removeClass, addClass } from '@syncfusion/ej2-base';
 import { DropDownList, DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
 import { CheckBox } from '@syncfusion/ej2-buttons';
-import { DataManager, WebApiAdaptor, ODataAdaptor, UrlAdaptor, ODataV4Adaptor, Query } from "@syncfusion/ej2-data";
+import { DataManager, WebApiAdaptor, UrlAdaptor, ODataV4Adaptor, Query } from "@syncfusion/ej2-data";
 Vue.use(GridPlugin);
 Vue.use(DropDownListPlugin);
 export default Vue.extend({
@@ -264,14 +263,12 @@ export default Vue.extend({
                     return false;
                 },
             }),
-            BASE_URL:
-                'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders',
+            BASE_URL: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders',
             serviceURL: [
                 { text: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders/', value: 'ODataV4Adaptor' },
-                { text: 'https://js.syncfusion.com/ejServices/Wcf/Northwind.svc/Orders/', value: 'ODataAdaptor' },
                 { text: 'https://services.syncfusion.com/js/production/api/Orders', value: 'WebApiAdaptor' },
                 { text: 'https://services.syncfusion.com/js/production/api/UrlDataSource', value: 'UrlAdaptor' },
-                { text: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders', value: 'Custom Binding' }
+                { text: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders', value: 'Custom Binding' }
             ],
             defaultColumns: [
                 { field: 'OrderID', headerText: 'Order ID', textAlign: 'Right', width: 120, type: 'number' },
@@ -307,9 +304,6 @@ export default Vue.extend({
             if (this.changedAdaptor === 'Custom Binding') {
                 addClass(paramElements, 'hide_elem');
             }
-            if (this.changedAdaptor === 'ODataAdaptor') {
-                addClass(headerElements, 'hide_elem');
-            }
         },
         httpAdditionalInfo: (name, val, btn) => {
             let parameterKey = document.getElementById(name).value;
@@ -341,15 +335,14 @@ export default Vue.extend({
             this.params = this.defaultParam ? this.createObjectArray(this.defaultParam) : [];
             var pageQuery = `$skip=${state.skip}&$top=${state.take}`;
             if (this.$refs.chkbox.ej2Instances.checked) {
-                this.ajax.url = this.BASE_URL + "?" + pageQuery + "&$inlinecount=allpages&$format=json";
+                this.ajax.url = this.BASE_URL + "?" + pageQuery + "&$count=true";
             }
             else {
-                this.ajax.url = this.BASE_URL + "?" + "&$inlinecount=allpages&$format=json";
+                this.ajax.url = this.BASE_URL + "?" + "&$count=true";
             }
-            this.ajax.data = Object.assign({}, ...this.params);
             return this.ajax.send().then((response) => {
                 let data = JSON.parse(response);
-                return { result: data['d']['results'], count: parseInt(data['d']['__count'], 10) };
+                return { result: data['value'], count: parseInt(data['@odata.count'], 10) };
             });
         },
         connectOnclick: function (e) {
@@ -412,21 +405,11 @@ export default Vue.extend({
                         crossDomain: true
                     });
                 }
-                else if (this.changedAdaptor === 'ODataAdaptor') {
-                    newDataSource = new DataManager({
-                        url: 'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders',
-                        adaptor: new ODataAdaptor(),
-                        crossDomain: true
-                    });
-                }
                 grid.changeDataSource(newDataSource, col)
             }
             let payloadInfo;
             if (this.changedAdaptor === 'Custom Binding') {
                 payloadInfo = `<b><u>Payload Information</u></b><br> Custom Binding <br> Service URL: ${this.selectedService}`;
-            }
-            else if (this.changedAdaptor === 'ODataAdaptor') {
-                payloadInfo = `<b><u>Payload Information</u></b><br> Service URL: ${this.selectedService} <br> Adaptor Type: ${this.changedAdaptor} <br> Additional Parameters: ${this.defaultParam}`;
             }
             else {
                 payloadInfo = `<b><u>Payload Information</u></b><br> Service URL: ${this.selectedService} <br> Adaptor Type: ${this.changedAdaptor} <br> Additional Parameters: ${this.defaultParam} <br> Headers: ${this.defaultHeader}`;

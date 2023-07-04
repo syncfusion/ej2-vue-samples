@@ -142,7 +142,8 @@ data: function() {
         {
           type: "Button",
           tooltipText: "ZoomIn",
-          text: "Zoom In"
+          text: "Zoom In",
+          prefixIcon:'e-icons e-zoom-in'
         },
         {
           type: "Separator"
@@ -150,7 +151,9 @@ data: function() {
         {
           type: "Button",
           tooltipText: "ZoomOut",
-          text: "Zoom Out"
+          text: "Zoom Out",
+           prefixIcon:'e-icons e-zoom-out'
+          
         },
         {
           type: "Separator"
@@ -158,7 +161,8 @@ data: function() {
         {
           type: "Button",
           tooltipText: "Reset",
-          text: "Reset"
+          text: "Reset",
+          prefixIcon : 'e-icons e-reset'
         }
       ]
      

@@ -6,6 +6,26 @@
    "ftName": "gantt",
    "samples": [
       {
+         "url": "overview",
+         "name": "Overview",
+         "category": "Gantt",
+	 "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "height",
+               "highlightWeekends",
+               "eventMarkers",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate"
+             ]
+         },
+         "description": "This example demonstrates the simple Gantt chart with summary task, child tasks, milestone tasks, dependencies with event markers of project"
+      },
+      
+      {
          "url": "default",
          "name": "Default Functionalities",
          "category": "Gantt",
@@ -25,6 +45,7 @@
          "url": "editing",
          "name": "Editing",
          "category": "Gantt",
+	 "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -560,7 +581,6 @@
          "url": "resource-multi-taskbar",
          "name": "Resource Multi Taskbar",
          "category": "Resources",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",

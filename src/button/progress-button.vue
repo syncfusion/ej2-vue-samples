@@ -144,6 +144,18 @@
 #contract.e-progress-active .e-btn-content {
     display: none;
 }
+
+.material3 #roundbtn .e-play-icon,
+.material3-dark #roundbtn .e-play-icon {
+    margin-top: -4px;
+    margin-left: 2px;
+}
+
+.e-bigger .material3 #roundbtn .e-play-icon,
+.e-bigger .material3-dark #roundbtn .e-play-icon {
+    margin-top: -4px;
+    margin-left: 2px;
+}
 /* custom code end */
 
 #contract {

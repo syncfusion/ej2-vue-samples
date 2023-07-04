@@ -136,19 +136,17 @@ export default Vue.extend({
   },
   methods:{
     dragdropChange: function(args) {
-        var gantt = document.getElementsByClassName('e-gantt')[0].ej2_instances[0];
         if (args.checked) {
-            gantt.allowTaskbarDragAndDrop = true;
+            this.$refs.gantt.allowTaskbarDragAndDrop = true;
         } else {
-            gantt.allowTaskbarDragAndDrop = false;
+            this.$refs.gantt.allowTaskbarDragAndDrop = false;
         }
     },
     overlapChange: function(args) {
-        var gantt = document.getElementsByClassName('e-gantt')[0].ej2_instances[0];
         if (args.checked) {
-            gantt.allowTaskbarOverlap = true;
+            this.$refs.gantt.allowTaskbarOverlap = true;
         } else {
-            gantt.allowTaskbarOverlap = false;
+            this.$refs.gantt.allowTaskbarOverlap = false;
         }
     }
   }

@@ -336,7 +336,7 @@ export default Vue.extend({
         color: #fff;
     }
 
-    #sidebar-wrapper .e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+   #sidebar-wrapper .e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
         margin: 18px 16px 18px 12px;
     }
 

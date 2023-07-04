@@ -3,14 +3,12 @@
     <div>
       <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings'
-        :chartArea='chartArea' :width='width'>
+        :chartArea='chartArea' :width='width' :titleStyle='titleStyle' :subTitle='subTitle'>
         <e-series-collection>
-          <e-series :dataSource='WeatherReportsA' type='Spline' xName='Day' yName='Temperature' name='Product A'
-            :marker='marker' width=2> </e-series>
-          <e-series :dataSource='WeatherReportsB' type='Spline' xName='Day' yName='Temperature' name='Product B'
-            :marker='marker' width=2> </e-series>
-          <e-series :dataSource='WeatherReportsC' type='Spline' xName='Day' yName='Temperature' name='Product C'
-            :marker='marker' width=2> </e-series>
+          <e-series :dataSource='WeatherReportsA' type='Spline' xName='x' yName='wind' name='Wind Speed (km/h)' legendShape='HorizontalLine'
+            width=4> </e-series>
+          <e-series :dataSource='WeatherReportsB' type='Spline' xName='x' yName='gust' name='Wind Gust (km/h)' legendShape='HorizontalLine'
+            width=4> </e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
@@ -18,14 +16,12 @@
     </div>
     <div id="action-description">
       <p>
-        This sample highlights a certain temperature range recorded over a year using the strip line feature.
+        This sample displays the changes in wind speed and gust with stripline feature.
       </p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure a strip line for the chart. 
-        Use the <code>Start</code> and <code>End</code> properties in the <code>ChartStripline</code> option to add a strip line to an axis. 
-        You can add more than one strip line to the axis.
+          In this example, you can see how to render and configure a strip line for the chart. Use the <code>start</code> and <code>end</code> properties in the <code>chartStripline</code> option to add a strip line to an axis. Additionally, the title for the chart can be positioned anywhere in the chart by using the <code>position</code> property in <code>titleStyle</code>.
       </p>
       <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
@@ -61,7 +57,7 @@ import {
   SplineSeries,
   Tooltip,
   Legend,
-  Category,
+  DateTimeCategory,
   StripLine,
   Highlight
 } from "@syncfusion/ej2-vue-charts";
@@ -69,7 +65,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let fontSize = Browser.isDevice ? "14px" : "16px";
 
 export default Vue.extend({
@@ -77,46 +73,38 @@ export default Vue.extend({
     return {
       theme: theme,
       WeatherReportsA: [
-        { Day: "Jan", Temperature: 90 },
-        { Day: "Feb", Temperature: 92 },
-        { Day: "Mar", Temperature: 94 },
-        { Day: "Apr", Temperature: 95 },
-        { Day: "May", Temperature: 94 },
-        { Day: "Jun", Temperature: 96 },
-        { Day: "Jul", Temperature: 97 },
-        { Day: "Aug", Temperature: 98 },
-        { Day: "Sep", Temperature: 97 },
-        { Day: "Oct", Temperature: 95 },
-        { Day: "Nov", Temperature: 90 },
-        { Day: "Dec", Temperature: 95 },
+        { x: new Date(2023, 4, 1), wind : 19 },
+        { x: new Date(2023, 4, 2), wind : 17 },
+        { x: new Date(2023, 4, 3), wind : 14 },
+        { x: new Date(2023, 4, 4), wind : 9 },
+        { x: new Date(2023, 4, 5), wind : 10 },
+        { x: new Date(2023, 4, 6), wind : 8 },
+        { x: new Date(2023, 4, 7), wind : 8 },
+        { x: new Date(2023, 4, 8), wind : 16 },
+        { x: new Date(2023, 4, 9), wind : 9 },
+        { x: new Date(2023, 4, 10), wind : 13 },
+        { x: new Date(2023, 4, 11), wind : 7 },
+        { x: new Date(2023, 4, 12), wind : 12 },
+        { x: new Date(2023, 4, 13), wind : 10 },
+        { x: new Date(2023, 4, 14), wind : 5 },
+        { x: new Date(2023, 4, 15), wind : 8 }
       ],
       WeatherReportsB: [
-        { Day: "Jan", Temperature: 85 },
-        { Day: "Feb", Temperature: 86 },
-        { Day: "Mar", Temperature: 87 },
-        { Day: "Apr", Temperature: 88 },
-        { Day: "May", Temperature: 87 },
-        { Day: "Jun", Temperature: 90 },
-        { Day: "Jul", Temperature: 91 },
-        { Day: "Aug", Temperature: 90 },
-        { Day: "Sep", Temperature: 93 },
-        { Day: "Oct", Temperature: 90 },
-        { Day: "Nov", Temperature: 85 },
-        { Day: "Dec", Temperature: 90 },
-      ],
-      WeatherReportsC: [
-        { Day: "Jan", Temperature: 80 },
-        { Day: "Feb", Temperature: 81 },
-        { Day: "Mar", Temperature: 82 },
-        { Day: "Apr", Temperature: 83 },
-        { Day: "May", Temperature: 84 },
-        { Day: "Jun", Temperature: 83 },
-        { Day: "Jul", Temperature: 82 },
-        { Day: "Aug", Temperature: 81 },
-        { Day: "Sep", Temperature: 85 },
-        { Day: "Oct", Temperature: 84 },
-        { Day: "Nov", Temperature: 83 },
-        { Day: "Dec", Temperature: 82 },
+        { x: new Date(2023, 4, 1), gust : 30 },
+        { x: new Date(2023, 4, 2), gust : 28 },
+        { x: new Date(2023, 4, 3), gust : 26 },
+        { x: new Date(2023, 4, 4), gust : 19 },
+        { x: new Date(2023, 4, 5), gust : 21 },
+        { x: new Date(2023, 4, 6), gust : 14 },
+        { x: new Date(2023, 4, 7), gust : 13 },
+        { x: new Date(2023, 4, 8), gust : 29 },
+        { x: new Date(2023, 4, 9), gust : 19 },
+        { x: new Date(2023, 4, 10), gust : 20 },
+        { x: new Date(2023, 4, 11), gust : 15 },
+        { x: new Date(2023, 4, 12), gust : 25 },
+        { x: new Date(2023, 4, 13), gust : 20 },
+        { x: new Date(2023, 4, 14), gust : 10 },
+        { x: new Date(2023, 4, 15), gust : 15 }
       ],
       chartArea: {
         border: {
@@ -125,66 +113,89 @@ export default Vue.extend({
       },
       //Initializing Primary X Axis
       primaryXAxis: {
-        valueType: "Category",
+        valueType: "DateTimeCategory",
         majorGridLines: { width: 0 },
         majorTickLines: { width: 0 },
+        labelFormat : 'E dd/MM',
+        labelRotation: -90,
+        labelIntersectAction: Browser.isDevice ? 'Rotate90' : 'None',
       },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        minimum: 80,
-        maximum: 100,
-        interval: 5,
-        lineStyle: { color: "#808080" },
-        labelFormat: "{value}%",
+        minimum: 0,
+        maximum: 30,
+        interval: 10,
+        lineStyle: { width: 0 },
         rangePadding: "None",
         majorTickLines: { width: 0 },
+        majorGridLines: { width: 0 },
+        title: 'Wind Speed and Gust (km/h)',
         //Initializing Striplines
         stripLines: [
           {
-            start: 95,
-            end: 100,
-            text: "Good",
-            color: "#ff512f",
-            visible: true,
-            horizontalAlignment: 'Middle',
-            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "500" },
-            border: { width: 0 }
+            start: 0, 
+            end: 5, 
+            text: 'Calm', 
+            color: 'rgba(68, 170, 213, 0.1)', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 },
+          }, 
+          {
+            start: 5, 
+            end: 8, 
+            text: 'Light Air', 
+            color: 'rgba(0, 0, 0, 0)', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 },
           },
           {
-            start: 85,
-            end: 95,
-            text: "ok",
-            color: "#fc902a",
-            horizontalAlignment: 'Middle',
-            visible: true,
-            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "500" },
-            border: { width: 0 }
+            start: 8, 
+            end: 11, 
+            text: 'Light Breeze', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 }, color: 'rgba(68, 170, 213, 0.1)'
           },
           {
-            start: 80,
-            end: 85,
-            text: "Average",
-            visible: true,
-            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "500" },
-            border: { width: 0 },
-            color: "#f9d423"
+            start: 11, 
+            end: 18, 
+            text: 'Gentle Breeze', 
+            color: 'rgba(0, 0, 0, 0)', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 },
+          }, 
+          {
+            start: 18, 
+            end: 28, 
+            text: 'Moderate Breeze', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 }, color: 'rgba(68, 170, 213, 0.1)'
+          },
+          {
+            start: 28, 
+            end: 30, 
+            text: 'Fresh Breeze', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 }, color: 'rgba(0, 0, 0, 0)'
           }
         ]
       },
-      legendSettings: { visible: true, enableHighlight: true },
-      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> Ratings : <b>${point.y}</b>' },
-      marker: {
-        visible: true,
-        width: 7,
-        height: 7,
-      },
+      legendSettings: { visible: true, enableHighlight: true, shapeWidth: 15 },
+      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> ${series.name} : <b>${point.y}</b>', enableMarker: false },
       width: Browser.isDevice ? "100%" : "75%",
-      title: "Customer Satisfaction Rating"
+      title: "Wind Speed and Gust (km/h)",
+      titleStyle: { position : 'Bottom', textAlignment:'Far' },
+      subTitle: 'WorldWeatherOnline.com',
     };
   },
   provide: {
-    chart: [SplineSeries, Category, Legend, Tooltip, StripLine, Highlight]
+    chart: [SplineSeries, DateTimeCategory, Legend, Tooltip, StripLine, Highlight]
   },
   updated: function () {
     this.$nextTick(function () {

@@ -8,7 +8,7 @@
             </div>
             <div class="layout">
                 <div id="container">
-                    <ejs-menu ref="menu" id="menu" :items="menuItems" :hamburgerMode="true" :showItemOnClick="true" :created="menuCreated"></ejs-menu>
+                    <ejs-menu ref="menu" id="menu" :items="menuItems" :hamburgerMode="hamburgerMode" :showItemOnClick="showItemOnClick" :created="menuCreated"></ejs-menu>
                 </div>
             </div>
             <div class="outerButton"> </div>
@@ -94,9 +94,15 @@
     .fluent-dark .e-menu-wrapper.e-lib.e-keyboard {
         background-color: black;
     }
+    
+    .material3-dark .e-menu-wrapper.e-hamburger.e-lib.e-keyboard {
+        background: #1c1b1f;
+        border-radius: 0;
+    }
 
     .deviceLayout.tabletview {
         width: 767px;
+        z-index: 1;
     }
 
     .deviceLayout .speaker {
@@ -161,6 +167,8 @@ Vue.use(DropDownListPlugin);
 export default Vue.extend({
   data: function() {
     return {
+            hamburgerMode: true,
+            showItemOnClick: true,
             menuItems: dataSource.hamburgerData,
             viewModeData: [
                 { text: 'Mobile', value: 'Mobile' },
@@ -180,13 +188,13 @@ export default Vue.extend({
                     container.classList.add('deviceLayout');
                     container.classList[args.value === 'Mobile' ? 'remove' : 'add']('tabletview');
                     menu.parentElement.classList[args.value === 'Mobile' ? 'remove' : 'add']('e-menu-icon-right');
-                    this.$refs.menu.hamburgerMode = true;
-                    this.$refs.menu.showItemOnClick = true;
+                    this.hamburgerMode = true;
+                    this.showItemOnClick = true;
                 break;
                 case 'Desktop':
                     container.classList.remove('deviceLayout', 'tabletview');
-                    this.$refs.menu.hamburgerMode = false;
-                    this.$refs.menu.showItemOnClick = false;
+                    this.hamburgerMode = false;
+                    this.showItemOnClick = false;
                 break;
             }
         },

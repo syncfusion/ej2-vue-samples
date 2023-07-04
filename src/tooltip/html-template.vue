@@ -87,6 +87,11 @@ export default Vue.extend({
   height: 385px;
 }
 
+body.material3 #htmlTemplate,
+body.material3-dark #htmlTemplate {
+  height: 450px;
+}
+
 .htmlTemplate #customization {
   display: table;
   margin: 0 auto;

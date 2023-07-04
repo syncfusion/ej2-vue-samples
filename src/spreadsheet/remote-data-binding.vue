@@ -5,7 +5,7 @@
             <e-sheets>
                 <e-sheet name="Shipment Details" :columns="columns">
                     <e-ranges>
-                        <e-range :dataSource="dataSource" :query="query" :showFieldAsHeader="false" startCell="A2"></e-range>
+                        <e-range :dataSource="dataSource" :showFieldAsHeader="false" startCell="A2"></e-range>
                     </e-ranges>
                     <e-rows>
                         <e-row>
@@ -83,17 +83,34 @@
 <script>
 import Vue from "vue";
 import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import { DataManager, Query } from "@syncfusion/ej2-data";
+import { DataManager, ODataAdaptor } from "@syncfusion/ej2-data";
 Vue.use(SpreadsheetPlugin);
+
+class CustomAdaptor extends ODataAdaptor {
+    processResponse() {
+        var result = [];
+        var original = super.processResponse.apply(this, arguments);
+        original.result.forEach(function (item, idx) {
+            result[idx] = {};
+            Object.keys(item).forEach(function (key) {
+                if (["OrderID", "CustomerID", "Freight", "ShipName", "ShipCity", "ShipCountry"].indexOf(key) > -1) {
+                    result[idx][key] = item[key];
+                }
+            });
+        });
+        return { result: result, count: original.count };
+    }
+}
+
 export default Vue.extend({
    data: () => {
     return {
         dataSource: new DataManager({
                     // Remote service url
-                    url: 'https://js.syncfusion.com/demos/ejServices//wcf/Northwind.svc/Orders',
-                    crossDomain: true
+                    url: "https://services.syncfusion.com/vue/production/api/Orders",
+                    adaptor: new CustomAdaptor(),
+                    crossDomain: true,
                 }),
-        query: new Query().select(['OrderID', 'CustomerID', 'Freight', 'ShipName', 'ShipCity', 'ShipCountry']).take(200),
         columns: [{ width: 100 }, { width: 130 }, { width: 100 }, { width: 220 }, { width: 150 }, { width: 180 }],
         openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
         saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save',

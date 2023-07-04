@@ -10,12 +10,14 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "DocumentEditor",
+            "type":"update",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
         {
             "url": "character-formatting",
             "name": "Character Formatting",
             "category": "Editing Features",
+            "type":"update",
             "description": "The Document Editor supports character formatting such as bold, italic, underline, subscript, superscript, font color, and more."
         },
         {
@@ -28,6 +30,7 @@
             "url": "styles",
             "name": "Styles",
             "category": "Editing Features",
+            "type":"update",
             "description": "The Document Editor supports both built-in and custom styles for character format and paragraph format."
         },
         {
@@ -39,7 +42,6 @@
         {
             "url": "links-and-bookmarks",
             "name": "Hyperlinks and Bookmarks",
-            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports hyperlinks and bookmarks. The link can be a file, mail, webpage, or bookmark."
         },
@@ -52,13 +54,13 @@
         {
             "url": "section-formatting",
             "name": "Section Formatting",
-            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports section formatting such as page size, page margins, header distance and footer distance."
         },
         {
             "url": "headers-and-footers",
             "name": "Headers and Footers",
+            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports headers and footers. Different headers and footers can be added to the first page, odd pages, and even pages."
         },
@@ -77,7 +79,6 @@
         {
             "url": "multiple-columns",
             "name": "Multiple Columns",
-            "type": "new",
             "category": "Editing Features",
             "description": "The Document Editor component is used to allows users to display the text in multiple-column layout like a newspaper." 
         },
@@ -121,6 +122,7 @@
             "url": "document-protection",
             "name": "Document Protection",
             "category": "Security",
+            "type":"update",
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
         },
         {
@@ -133,6 +135,7 @@
             "url": "comments",
             "name": "Comments",
             "category": "Review",
+            "type":"update",
             "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
         },
 		 {

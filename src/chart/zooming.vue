@@ -6,7 +6,7 @@
                     align='center' id='chart-zooming' :primaryXAxis='primaryXAxis' :legendSettings='legend'
                     :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
                     <e-series-collection>
-                        <e-series :dataSource='series' type='Area' xName='x' yName='y' :animation='animation'
+                        <e-series :dataSource='series' type='SplineArea' xName='x' yName='y' :animation='animation'
                             :fill='fill' :border='border' width=2 opacity=1>
                         </e-series>
                     </e-series-collection>
@@ -19,7 +19,7 @@
             </p>
         </div>
         <div id="description">
-            <p>This sample demonstrates the zooming and panning behavior in chart.</p>
+            <p>This sample shows the following zooming and panning behaviors.</p>
             <ul>
                 <li>Click and drag the mouse on a chart area to enable selection zooming.</li>
                 <li>Hover the mouse on the toolbar at the top right corner of chart area to switch between zooming and
@@ -127,6 +127,14 @@
                     <stop offset="0"></stop>
                     <stop offset="1"></stop>
                 </linearGradient>
+                <linearGradient id="material3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0"></stop>
+                    <stop offset="1"></stop>
+                </linearGradient>
+                <linearGradient id="material3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0"></stop>
+                    <stop offset="1"></stop>
+                </linearGradient>
             </defs>
         </svg>
 
@@ -158,7 +166,7 @@
 }
 
 #bootstrap5-gradient-chart stop {
-    stop-color: #262E0B;
+    stop-color: #6355C7;
 }
 
 #material-dark-gradient-chart stop {
@@ -178,15 +186,23 @@
 }
 
 #bootstrap5-dark-gradient-chart stop {
-    stop-color: #5ECB9B;
+    stop-color: #8F80F4;
 }
 
 #fluent-gradient-chart stop {
-    stop-color: #614570;
+    stop-color: #1AC9E6;
 }
 
 #fluent-dark-gradient-chart stop {
-    stop-color: #8AB113;
+    stop-color: #1AC9E6;
+}
+
+#material3-gradient-chart stop {
+    stop-color: #6355C7;
+}
+
+#material3-dark-gradient-chart stop {
+    stop-color: #4EAAFF;
 }
 
 .chart-gradient stop[offset="0"] {
@@ -205,14 +221,14 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, AreaSeries, Zoom, Legend, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, SplineAreaSeries, Zoom, Legend, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast");
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113'];
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark'];
+let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF'];
 
 function GetZoomingData() {
     let series = [];
@@ -255,7 +271,7 @@ export default Vue.extend({
                 enableMouseWheelZooming: true,
                 enablePinchZooming: true,
                 enableSelectionZooming: true,
-                enableScrollbar: true
+                showToolbar: true
             },
             chartArea: {
                 border: {
@@ -263,14 +279,14 @@ export default Vue.extend({
                 }
             },
             width: Browser.isDevice ? '100%' : '75%',
-            border: { width: 1, color: borderColor[themes.indexOf(theme.toLowerCase())] },
+            border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },
             title: 'Sales History of Product X',
             series: seriesData,
             fill: "url(#" + selectedTheme + "-gradient-chart)",
         };
     },
     provide: {
-        chart: [AreaSeries, DateTime, Legend, Zoom, ScrollBar]
+        chart: [SplineAreaSeries, DateTime, Legend, Zoom, ScrollBar]
     },
     methods: {
 

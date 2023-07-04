@@ -99,7 +99,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work week</label>
                             </div>
                             <div class="col-right">
-                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' enableSelectionOrder="false" showClearButton="false"
+                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' enableSelectionOrder="false" :showClearButton="false"
                                     showDropDownIcon="true" :mode='checkboxMode' :fields='fields' :value='workDays'
                                     :change='onWorkWeekDayChange'></ejs-multiselect>
                             </div>
@@ -119,7 +119,7 @@
                                 <label style="line-height: 34px; margin: 0;">Day Start Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='dayStartHour' showClearButton='false'
+                                <ejs-timepicker id='dayStartHour' :showClearButton='false'
                                     :value='dayStartHourValue' :change='onDayStartHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -129,7 +129,7 @@
                                 <label style="line-height: 34px; margin: 0;">Day End Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='dayEndHour' showClearButton='false'
+                                <ejs-timepicker id='dayEndHour' :showClearButton='false'
                                     :value='dayEndHourValue' :change='onDayEndHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -139,7 +139,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work Start Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='workHourStart' showClearButton='false'
+                                <ejs-timepicker id='workHourStart' :showClearButton='false'
                                     :value='workStartHourValue' :change='onWorkStartHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -149,7 +149,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work End Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='workHourEnd' showClearButton='false'
+                                <ejs-timepicker id='workHourEnd' :showClearButton='false'
                                     :value='workEndHourValue' :change='onWorkEndHourChange'></ejs-timepicker>
                             </div>
                         </div>
@@ -285,6 +285,14 @@
     .highcontrast .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #000000;
         color: #ffffff;
+    }
+
+    .material3 .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f3f1f8;
+    }
+
+    .material3-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #2a2731;
     }
 
     .schedule-overview .overview-toolbar.e-rtl + *{
@@ -451,15 +459,11 @@
         height: 20px;
     }
 
-    .tailwind .schedule-overview.e-schedule .e-left-indent .e-header-cells,
-    .tailwind-dark .schedule-overview.e-schedule .e-left-indent .e-header-cells {
-        height: 66px;
-    }
-
     .fluent .e-appbar .e-btn-icon.e-icons,
     .fluent-dark .e-appbar .e-btn-icon.e-icons {
         margin-top: -2px;
     }
+
     .fluent .e-toolbar-item .e-checkbox-wrapper .e-icons.e-frame,
     .fluent-dark .e-toolbar-item .e-checkbox-wrapper .e-icons.e-frame {
         height: 17px;

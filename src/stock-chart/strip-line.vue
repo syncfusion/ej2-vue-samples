@@ -12,6 +12,7 @@
         :theme="theme"
         :seriesType="series"
         :indicatorType="indicator"
+        :trendlineType="trendlineType"
       >
         <e-stockchart-series-collection>
           <e-stockchart-series
@@ -31,6 +32,11 @@
       <p>
           In this example, you can see how to highlight a particular range in stock chart. Period and range selector help us to navigate different of data.
         <code>LineSeries</code> is used to represent selected data value.
+      </p>
+      <p>
+      <p>
+        Stock Chart provides support to 6 types of <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/trend-lines">trendlines</a> namely <code>Linear</code>, <code>Exponential</code>, <code>Logarithmic</code>, <code>Polynomial</code>, <code>Power</code>, <code>Moving Average</code>. By using trendline dropdown button, the required trendline type can be added or removed.
+      </p>
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
@@ -80,7 +86,7 @@ Vue.use(StockChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -88,6 +94,7 @@ export default Vue.extend({
       theme: theme,
       series: [],
       indicator: [],
+      trendlineType: ['Linear', 'Exponential', 'Polynomial', 'Logarithmic', 'MovingAverage'],
       seriesData: amzn,
       //Initializing Primary X Axis
       primaryXAxis: {
@@ -98,7 +105,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 },
+        majorTickLines: { color: "transparent", height: 0 },
         stripLines: [{ start: 340, end: 380, color: "#3CB371", opacity: 0.1 }]
       },
 
