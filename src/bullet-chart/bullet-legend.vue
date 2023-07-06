@@ -62,7 +62,7 @@ export default Vue.extend({
     return {
       theme: theme,
       tooltip: {
-        enable: false
+        enable: true
       },
       width: Browser.isDevice ? "100%" : "70%",
       data: [{ value: 25, target: [20, 26, 28] }],

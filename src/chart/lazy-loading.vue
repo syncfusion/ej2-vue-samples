@@ -59,17 +59,13 @@
 
 <div id="action-description">
     <p>
-        This sample illustrates lazy laoding feature in chart. Loads data for chart on demand. 
+        This sample illustrates lazy loading feature in chart which loads data on demand.
     </p>
 </div>
 
 <div id="description">
      <p>
-        In this example, you can see how to load data for chart on demand. Chart will fire the <code>scrollEnd</code> event,
-        in that can udpate the chart with required data based on point length and axis range.
-    </p>
-    <p>
-        ScrollBar is enabled in the sample and ScrollBar module injected to the chart.
+        In this example, you can see how to load data for the chart on demand. The chart will fire the <code>scrollEnd</code> event, and in that event, we can update the chart with the required data based on the point length and axis range. The scrollbar in the chart can be customized using the <code>height</code>, <code>trackColor</code>, <code>trackRadius</code>, <code>scrollbarRadius</code>, <code>scrollbarColor</code>, <code>enableZoom</code>, and <code>gripColor</code> properties in <code>scrollbarSettings</code>.
     </p>
     <br>
     <p style="font-weight: 500">Injecting Module</p>
@@ -113,7 +109,7 @@ Vue.use(DatePickerPlugin);
 Vue.use(NumericTextBoxPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let intl = new Internationalization();
 //let spinnerEle = document.getElementById("spinner");
 
@@ -181,7 +177,6 @@ export default Vue.extend({
       enabledmax: "true",
       enabledmin: "true",
       primaryXAxis: {
-        title: "Day",
         valueType: "DateTime",
         skeleton: "yMMM",
         skeletonType: "Date",
@@ -192,7 +187,9 @@ export default Vue.extend({
             maximum: new Date(2014, 0, 1)
           },
           enable: true,
-          pointsLength: 1000
+          pointsLength: 1000,
+          enableZoom: false,
+          height: 14
         }
       },
       //Initializing Primary Y Axis

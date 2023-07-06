@@ -9,7 +9,7 @@
             style="display:block"
             align="center"
             id="defaultContainer"
-            :orientation="orientation" :allowPdfExport='allowPdfExport' :allowPrint='allowPrint' :allowImageExport='allowImageExport'
+            :orientation="orientation" allowMargin='false' :allowPdfExport='allowPdfExport' :allowPrint='allowPrint' :allowImageExport='allowImageExport'
           >
             <e-axes>
               <e-axis
@@ -229,7 +229,6 @@ export default Vue.extend({
       labelStyle: {
         position: "Outside",
         font: {
-          color: "red",
           fontFamily: 'Segoe UI'
         },
         offset: 4

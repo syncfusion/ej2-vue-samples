@@ -402,7 +402,11 @@ methods: {
         outline: 1px solid #0078DE;
         border-color: #0078DE;
     }
-
+    .material3 #emojiDialog .char_block.e-active,
+    .material3-dark #emojiDialog .char_block.e-active {
+        outline: 1px solid #D0BCFF;
+        border-color: #D0BCFF;
+    }
     .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
     .highcontrast.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
         padding-right: 10px;

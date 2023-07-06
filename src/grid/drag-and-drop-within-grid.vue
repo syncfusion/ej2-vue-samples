@@ -5,7 +5,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :height="400" :allowRowDragAndDrop="true" :selectionSettings="selection">
+        <ejs-grid :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowGrouping='true' :selectionSettings="selection">
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -18,17 +18,22 @@
     </div>
 
      <div id="description">
-         <p>Row drag and drop enabled by settting  
-            <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/documentation/grid/api-grid.html#allowrowdraganddrop">
-        allowRowDragAndDrop
-        </a></code> property as true. 
-                
-        <p style="font-weight: 500">Injecting Module:</p>
+        <p>Row drag and drop enabled by setting
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowrowdraganddrop">allowRowDragAndDrop</a></code> property as true.
+        </p>           
+        <p>Grouping can be enabled by setting  
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowgrouping">allowGrouping</a></code> property as true.
+        </p>  
         <p>
-            Grid features are segregated into individual feature-wise modules. 
-            To use row, drag and drop feature we need to inject
-            <code>RowDD</code> module into the <code>provide</code> section.   
+        Grid features are segregated into individual feature-wise modules.
+              To use row drag and drop and grouping features, 
+              we need to inject 
+              <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowdraganddropmodule">RowDD</a></code>, 
+              <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/group">Group</a></code> modules into the <code>provide</code>.
+        </p> 
+        <p>
+            The row drag and drop functionality is enabled with grouped records in the grid.
+            Now, you can drag and drop the records from one group to another group of your choice.
         </p>     
     </div>
 
@@ -36,7 +41,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { GridPlugin, Selection, RowDD } from "@syncfusion/ej2-vue-grids";
+import { GridPlugin, Selection, RowDD, Group, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 Vue.use(GridPlugin);
@@ -49,7 +54,7 @@ export default Vue.extend({
     };
   },
   provide: {
-      grid: [Selection, RowDD]
+      grid: [Selection, RowDD, Group, Sort]
   }
 });
 </script>

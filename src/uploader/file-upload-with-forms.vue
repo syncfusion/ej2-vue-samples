@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group" style="padding-top: 11px;">
                             <div class="e-float-input">
-                                <input type="text" id="mobileno" name="MobileNo" data-required-message="* Enter your mobile number" required="" data-msg-containerid="noError">
+                                <input type="tel" maxlength="10" id="mobileno" name="MobileNo" data-required-message="* Enter your mobile number" required="" data-msg-containerid="noError">
                                 <span class="e-float-line"></span>
                                 <label class="e-float-text e-label-top" for="mobileno">Mobile No</label>
                             </div>   
@@ -93,6 +93,7 @@
 
         .highcontrast .form-support #control_wrapper,
         .material-dark .form-support #control_wrapper,
+        .material3-dark .form-support #control_wrapper,
         .fabric-dark .form-support #control_wrapper,
         .bootstrap-dark .form-support #control_wrapper,
         .bootstrap5-dark .form-support #control_wrapper {

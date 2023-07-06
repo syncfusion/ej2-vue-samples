@@ -87,7 +87,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 let dataManager = new DataManager({
     url: 'https://services.syncfusion.com/vue/production/api/orders'
@@ -190,7 +190,7 @@ export default Vue.extend({
     },
     methods: {
         tooltipRender: function (args) {
-            args.text = '<b>' + args.data.pointX + ': ' + '$' + args.data.pointY * 1000;
+            args.text =args.data.pointX + '<b>' + ': ' + '$' + args.data.pointY * 1000 + '</b>';
         },
         axisLabelRender: function (args) {
             if (args.axis.name === 'primaryYAxis') {

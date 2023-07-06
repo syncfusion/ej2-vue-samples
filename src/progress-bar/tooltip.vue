@@ -94,10 +94,10 @@
           
       </div>
       <div id="action-description">
-        <p>This sample illustrates a linear progress bar with the tooltip.</p>
+        <p>This sample illustrates a linear progress bar with a tooltip.</p>
       </div>
       <div id="description">
-        <p>In this example, you can see how to render and configure the linear progress bar with the tooltip. The <code>format</code> and <code>textStyle</code> properties in the tooltip setting can be used to format and customize the tooltip text.</p>
+        <p>In this example, you can see how to render and configure the linear progress bar with a tooltip. The <code>format</code> and <code>textStyle</code> properties in the tooltip settings can be used to format and customize the tooltip text.</p>
       </div>
     </div>
   </template>
@@ -207,7 +207,7 @@
           args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
           selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
           if(args.progressBar.theme === 'HighContrast' || args.progressBar.theme === 'Bootstrap5Dark' || args.progressBar.theme === 'BootstrapDark' || args.progressBar.theme === 'FabricDark'
-                  || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark') {
+                  || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark' || args.progressBar.theme === 'Material3Dark') {
               for (let i = 0; i < div.length; i++) {
                   div[i].setAttribute('style', 'color:white');
               }

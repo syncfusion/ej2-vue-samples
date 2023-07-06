@@ -38,8 +38,8 @@
         <code>provide: { chart: [LineSeries, Legend, DateTime, Tooltip, Crosshair]},</code> method.
     </p>
     <p>
-        More information about the line type series can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#line-charts">documentation section</a>.
+        More information about the dashed line series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/line#series-customization">documentation section</a>.
     </p>
 </div>
 </div>
@@ -93,7 +93,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -151,7 +151,7 @@ export default Vue.extend({
           header: '<b>Fruits Production</b>',
           enable: true,
           shared: true,
-          format: '${point.x} : <b>${point.y}'
+          format: '${point.x} : <b>${point.y}</b>'
       },
       crosshair: {
             enable: false,
@@ -168,7 +168,7 @@ export default Vue.extend({
     load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
         args.chart.annotations[0].content = '<div style="color:black; font-family: bold ">Actual</div>';
         args.chart.annotations[1].content = '<div style="color:black; font-family: bold ">Forecast</div>';
         if (selectedTheme==='material-dark')
@@ -226,6 +226,12 @@ export default Vue.extend({
         else if (selectedTheme==='highcontrast')
         {
             this.AnnotationColor = "dark";            
+        }
+        else if (selectedTheme === 'material3-dark') {
+            this.AnnotationColor = "dark";  
+        }
+        else if (selectedTheme === 'material3') {
+            this.AnnotationColor = "light"; 
         }
         else
         {

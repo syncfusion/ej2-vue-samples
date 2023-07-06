@@ -21,7 +21,7 @@
                ></e-progressbar-annotation>
             </e-progressbar-annotations>
           </ejs-progressbar>
-      </div>
+       </div>
     </div>
    <div class="col-lg-4 col-md-4 col-sm-4 paligncenter">
       <div id="pause-container">
@@ -114,7 +114,7 @@ import {
 Vue.use(ProgressBarPlugin);
     let clearTimeout1;
     let clearTimeout2;
-    let annotationColors = { fluent: '#0D6EFD', fluentdark: '#0D6EFD', material: '#e91e63', fabric: '#0078D6', bootstrap: '#317ab9', bootstrap4: '#007bff', highcontrast: '#FFD939', tailwind: '#4F46E5', bootstrap5: '#0D6EFD', bootstrap5dark: '#0D6EFD', bootstrapdark: '#9A9A9A', fabricdark: '#9A9A9A', materialdark: '#9A9A9A', tailwinddark: '#22D3EE' };
+    let annotationColors = { fluent: '#0D6EFD', fluentdark: '#0D6EFD', material: '#e91e63', fabric: '#0078D6', bootstrap: '#317ab9', bootstrap4: '#007bff', highcontrast: '#FFD939', tailwind: '#4F46E5', bootstrap5: '#0D6EFD', bootstrap5dark: '#0D6EFD', bootstrapdark: '#9A9A9A', fabricdark: '#9A9A9A', materialdark: '#9A9A9A', tailwinddark: '#22D3EE', material3 : '#6750A4', material3dark: '#D0BCFF' };
 
 export default Vue.extend({
   data: function() {

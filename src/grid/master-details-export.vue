@@ -4,7 +4,7 @@
         <p>This sample demonstrates the hierarchy Grid export feature. In this sample, you can export the hierarchy grid by clicking the corresponding export button from the grid's toolbar.</p>
     </div>
     <div>
-        <ejs-grid ref='grid' :dataSource="parentData" :childGrid="childGrid" :toolbar="['PdfExport', 'ExcelExport']" 
+        <ejs-grid id='MasterDetailsExport' ref='grid' :dataSource="parentData" :childGrid="childGrid" :toolbar="['PdfExport', 'ExcelExport']" 
         :allowPdfExport='true' :allowExcelExport='true' :toolbarClick="toolbarClick">
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
@@ -87,10 +87,10 @@ export default Vue.extend({
   },
   methods:{
       toolbarClick: function(args: ClickEventArgs) {
-        if (args.item.text === 'Excel Export') {
+        if (args.item.id === 'MasterDetailsExport_excelexport') {
             (<any>this.$refs.grid).excelExport({hierarchyExportMode: 'All'});
         }
-        if (args.item.text === 'PDF Export') {
+        if (args.item.id === 'MasterDetailsExport_pdfexport') {
             (<any>this.$refs.grid).pdfExport({hierarchyExportMode: 'All'});
         }
       }

@@ -28,8 +28,8 @@
             <code>StackingBarSeries</code> module using <code>provide: { chart: [StackingBarSeries] }</code> method.
         </p>
         <p>
-          More information about the bar type series can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-types/#bar-charts">documentation section</a>.
+          More information about the stacked bar type series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stack-bar">documentation section</a>.
         </p> 
 </div>
 
@@ -47,7 +47,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {

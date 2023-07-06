@@ -63,12 +63,12 @@ export default Vue.extend ({
             // disable the state ComboBox
             this.stateEnabled = args.value !== null;
             // query the data source based on country ComboBox selected value
-            this.tempQuery = new Query().where('CountryId', 'equal', this.$refs.countryObj.$data.ej2Instances.value);
+            this.tempQuery = new Query().where('CountryId', 'equal', this.$refs.countryObj.ej2Instances.value);
             this.stateQuery = this.tempQuery;
             // clear the existing selection
-            this.$refs.stateObj.$data.ej2Instances.value = null;
+            this.$refs.stateObj.ej2Instances.value = null;
             // clear the existing selection
-            this.$refs.cityObj.$data.ej2Instances.value = null;
+            this.$refs.cityObj.ej2Instances.value = null;
             // disable the city ComboBox
             this.cityEnabled = false;
         },
@@ -76,10 +76,10 @@ export default Vue.extend ({
             // disable the city ComboBox
             this.cityEnabled = args.value !== null;
             // query the data source based on state ComboBox selected value
-            this.tempQuery = new Query().where('StateId', 'equal', this.$refs.stateObj.$data.ej2Instances.value);
+            this.tempQuery = new Query().where('StateId', 'equal', this.$refs.stateObj.ej2Instances.value);
             this.cityQuery = this.tempQuery;
             // clear the existing selection
-            this.$refs.cityObj.$data.ej2Instances.value = null;
+            this.$refs.cityObj.ej2Instances.value = null;
         },
     }
 });

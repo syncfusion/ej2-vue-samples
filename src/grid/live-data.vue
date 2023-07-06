@@ -340,6 +340,12 @@ function updateCellDetails(cell, className) {
     color: #38FF9C;
 }
 
+.material3-dark .e-grid .e-rowcell.e-increase,
+.material3-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd) {
+    background-color: #143E17;
+    color: #8EDA94;
+}
+
 .fluent .e-grid .e-rowcell.e-decrease,
 .bootstrap5 .e-grid .e-rowcell.e-decrease,
 .tailwind .e-grid .e-rowcell.e-decrease,
@@ -376,6 +382,12 @@ function updateCellDetails(cell, className) {
 .bootstrap-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd) {
     background-color: #55241E;
     color: #FF9CA0;
+}
+
+.material3-dark .e-grid .e-rowcell.e-decrease,
+.material3-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd) {
+    background-color: #3A1618;
+    color: #FF7B81;
 }
 
 #livestreamgrid .e-headercelldiv {

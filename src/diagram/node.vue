@@ -41,7 +41,7 @@
         </div>
         <div class="row" style="padding-top: 8px">
             <!-- Enable or disable the Interaction for Node. -->
-            <ejs-checkbox id="lock"       
+            <ejs-checkbox id="lock"  ref="lockoobj"      
                           :checked='lockchecked'
                           :label='label'
                           :change='lockchange'/>
@@ -158,6 +158,7 @@ let connections = [
 let node;
 let diagramInstance;
 let element;
+let lockElement;
 
 export default Vue.extend({
   data: function() {
@@ -190,17 +191,18 @@ export default Vue.extend({
 
       aspectRatiochecked: false,
       aspectRatiolabel: "Aspect ratio",
-      aspectRatiochange: changed,
+      aspectRatiochange: setNodeAspectConstraints,
 
       lockchecked: false,
       label: "Lock",
-      lockchange: changed
+      lockchange: setNodeLockConstraints
     };
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObject.ej2Instances;
     diagramInstance.fitToPage();
     element = this.$refs.aspectRatioobj.ej2Instances;
+    lockElement = this.$refs.lockoobj.ej2Instances;
     //Click event for Appearance of the Property Panel
     let appearanceObj = document.getElementById("appearance");
     //Click event for Appearance of the Property Panel
@@ -285,33 +287,31 @@ export default Vue.extend({
   }
 });
 
-//Enable or disable the Constraints for Node.
-function changed(args) {
-  for (let i = 0; i < diagramInstance.nodes.length; i++) {
-    node = diagramInstance.nodes[i];
-    if (node.constraints) {
-      if (args.event && (args.event.target).id === "lock") {
-        if (args.checked) {
-          node.constraints &= ~(
-            NodeConstraints.Resize |
-            NodeConstraints.Rotate |
-            NodeConstraints.Drag
-          );
-          node.constraints |= NodeConstraints.ReadOnly;
-        } else {
-          node.constraints |=
-            NodeConstraints.Default & ~NodeConstraints.ReadOnly;
-        }
-      } else {
+
+//Enable or disable the Aspect Ratio Constraints for Node.
+function setNodeAspectConstraints(args) {
+    for (let i = 0; i < diagramInstance.nodes.length; i++) {
+        let node = diagramInstance.nodes[i];
         if (element.checked) {
-          node.constraints |= NodeConstraints.AspectRatio;
+            node.constraints |= NodeConstraints.AspectRatio;
         } else {
-          node.constraints &= ~NodeConstraints.AspectRatio;
+            node.constraints &= ~NodeConstraints.AspectRatio;
         }
-      }
+        diagramInstance.dataBind();
+    }
+}
+//Enable or disable the Lock Constraints for Node.
+function setNodeLockConstraints(args) {
+    for (let i = 0; i < diagramInstance.nodes.length; i++) {
+        let node= diagramInstance.nodes[i];
+        if (lockElement.checked) {
+            node.constraints &= ~(NodeConstraints.Resize | NodeConstraints.Rotate | NodeConstraints.Drag);
+            node.constraints |= NodeConstraints.ReadOnly;
+        } else {
+            node.constraints |= NodeConstraints.Default & ~(NodeConstraints.ReadOnly);
+        }
     }
     diagramInstance.dataBind();
-  }
 }
 
 //Set customStyle for Node.
@@ -331,7 +331,6 @@ function applyStyle( //it is in dedicated line here.
     node.style.strokeColor = "#024249";
     node.style.strokeDashArray = array;
   }
-  if (node.constraints) node.constraints &= con;
   if (!type && node.style && node.style.gradient) {
     node.style.gradient.type = "None";
   } else {
@@ -351,7 +350,10 @@ function applyStyle( //it is in dedicated line here.
   }
   if (con & NodeConstraints.Shadow) {
     node.shadow = { angle: 45, distance: 15, opacity: 0.3, color: "grey" };
-  }
+    node.constraints |= con;
+  } else {
+        node.constraints &= con;
+    }
   diagramInstance.dataBind();
   target.classList.add("e-selected-style");
 }

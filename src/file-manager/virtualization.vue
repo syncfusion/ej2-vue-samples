@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-virtual">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :view='view' :enableVirtualization='enableVirtualization' :beforeSend='beforeSend' :beforeImageLoad='beforeImageLoad' :beforeDownload='beforeDownload' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
+            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :view='view' :enableVirtualization='enableVirtualization' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -37,10 +37,10 @@ export default Vue.extend ({
         return {            
            ajaxSettings:
             {
-                url: hostUrl + 'api/FileManager/FileOperations',
-                getImageUrl: hostUrl + 'api/FileManager/GetImage',
-                uploadUrl: hostUrl + 'api/FileManager/Upload',
-                downloadUrl: hostUrl + 'api/FileManager/Download'
+                url: hostUrl + 'api/Virtualization/FileOperations',
+                getImageUrl: hostUrl + 'api/Virtualization/GetImage',
+                uploadUrl: hostUrl + 'api/Virtualization/Upload',
+                downloadUrl: hostUrl + 'api/Virtualization/Download'
             },
             toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'View', 'Details']},
             contextMenuSettings: {
@@ -53,20 +53,7 @@ export default Vue.extend ({
     },
     provide: {
         filemanager: [NavigationPane, DetailsView, Toolbar, Virtualization]
-    },
-    methods: {
-        beforeSend: function (args) {
-            args.ajaxSettings.beforeSend = function (args) {
-                args.httpRequest.setRequestHeader('Authorization', 'FileBrowser');
-            };
-        },
-        beforeImageLoad: function(args) {
-            args.imageUrl = args.imageUrl + '&rootName=' + 'FileBrowser';
-        },
-        beforeDownload: function(args) {
-            args.data['rootFolderName'] = 'FileBrowser';
-        },
-  },
+    }
 });
 </script>
 

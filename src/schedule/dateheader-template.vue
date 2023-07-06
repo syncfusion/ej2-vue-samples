@@ -109,11 +109,6 @@
      .schedule-date-header-template.e-schedule.e-rtl .e-month-view .weather-image {
         float: left;
     }
-
-    .tailwind .schedule-date-header-template.e-schedule .e-left-indent .e-header-cells,
-    .tailwind-dark .schedule-date-header-template.e-schedule .e-left-indent .e-header-cells {
-        height: 66px;
-    }
 </style>
 <script>
     import Vue from "vue";

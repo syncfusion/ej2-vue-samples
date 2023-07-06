@@ -665,6 +665,50 @@ export let hierarchicalTree: object[] = [
   { Name: "Business", Category: "Management" }
 ];
 
+export let hierarchicalTreewithmultipleroots : object[] = [
+  { id: "1", Label: 'Production Manager' },
+  { id: "2", Label: 'Control Room', parentId: "1" },
+  { id: "3", Label: 'Plant Operator', parentId: "1" },
+  { id: "4", Label: 'Foreman', parentId: "2" },
+  { id: "5", Label: 'Foreman', parentId: "3" },
+  { id: "6", Label: 'Craft Personnel', parentId: "4" },
+  { id: "7", Label: 'Craft Personnel', parentId: "4" },
+  { id: "8", Label: 'Craft Personnel', parentId: "5" },
+  { id: "9", Label: 'Craft Personnel', parentId: "5" },
+  { id: "10", Label: 'Administrative Officer' },
+  { id: "11", Label: 'Security Supervisor', parentId: "10" },
+  { id: "12", Label: 'HR Supervisor', parentId: "10" },
+  { id: "13", Label: 'Reception Supervisor', parentId: "10" },
+  { id: "14", Label: 'Securities', parentId: "11" },
+  { id: "15", Label: 'HR Officer', parentId: "12" },
+  { id: "16", Label: 'Receptionist', parentId: "13" },
+  { id: "17", Label: 'Maintainence Manager' },
+  { id: "18", Label: 'Electrical Supervisor', parentId: "17" },
+  { id: "19", Label: 'Mechanical Supervisor', parentId: "17" },
+  { id: "20", Label: 'Craft Personnel', parentId: "18" },
+  { id: "21", Label: 'Craft Personnel', parentId: "19" },
+];
+
+export let dataBindingTreeView : object[] = [
+  { Name: "Plant Manager", Id: "1", hasChild: true, expanded: true },
+  { Name: "Production Manager", Id: "2", ParentId: "1", hasChild: true, expanded: true },
+  { Name: "Control Room", Id: "3", ParentId: "2", hasChild: true, expanded: true },
+  { Name: "Foreman1", Id: "4", ParentId: "3", hasChild: true, expanded: true },
+  { Name: "Craft Personnel5", Id: "5", ParentId: "4" },
+  { Name: "Craft Personnel6", Id: "6", ParentId: "4" },
+  { Name: "Plant Operator", Id: "7", ParentId: "2", hasChild: true, expanded: true },
+  { Name: "Foreman2", Id: "8", ParentId: "7", hasChild: true, expanded: true },
+  { Name: "Craft Personnel7", Id: "9", ParentId: "8" },
+  { Name: "Administrative Officer", Id: "10", ParentId: "1" },
+  { Name: "Maintenance Manager", Id: "11", ParentId: "1", hasChild: true, expanded: true },
+  { Name: "Electrical Supervisor", Id: "12", ParentId: "11", hasChild: true, expanded: true },
+  { Name: "Craft Personnel1", Id: "13", ParentId: "12" },
+  { Name: "Craft Personnel2", Id: "14", ParentId: "12" },
+  { Name: "Mechanical Supervisor", Id: "15", ParentId: "11", hasChild: true, expanded: true },
+  { Name: "Craft Personnel3", Id: "16", ParentId: "15" },
+  { Name: "Craft Personnel4", Id: "17", ParentId: "15" }
+];
+
 export let radialTree: object[] = [
   {
     Id: "parent",

@@ -211,7 +211,9 @@
     .material-dark .sample_container .layout,
     .fabric-dark .sample_container .layout,
     .bootstrap-dark .sample_container .layout,
-    .bootstrap5-dark .sample_container .layout {
+    .bootstrap5-dark .sample_container .layout,
+    .fluent-dark .sample_container .layout,
+    .material3-dark .sample_container .layout {
         background: inherit;
         border: 1px solid #FFFFFF;
         color: #FFFFFF;

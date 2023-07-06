@@ -298,6 +298,8 @@ export default Vue.extend({
 @media screen and (max-width: 420px) {
   .e-bigger .tooltip-menu .toolbarContainer {
     width: 75%;
+    overflow: auto;
+    margin: auto;
   }
 }
 

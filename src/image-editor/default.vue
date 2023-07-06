@@ -6,7 +6,7 @@
             </ejs-imageeditor>
         </div>
         <div id="action-description">
-            <p>This sample demonstrates Image Editor features such as crop, rotate, flip, insert shape and text.</p>
+            <p>This sample demonstrates Image Editor features such as crop, rotate, flip, insert annotations such as rectangle, ellipse, line, arrow, path, and text.</p>
         </div>
         <div id="description">
             <p>
@@ -22,7 +22,9 @@
                 <li><b>Freehand drawing</b> : Draw freehand on the image and adjust the pen's stroke width and stroke color.</li>
                 <li><b>Reset</b> : Revert all the edited states and load the original image.</li>
                 <li><b>Save</b> : Save the edited image in JPEG, PNG, and SVG formats.</li>
-                <li><b>Annotation</b> : Text, rectangle, ellipse, and line annotation shapes are supported.</li>
+                <li><b>Annotation</b> : Text, rectangle, ellipse, arrow, path, and line annotation shapes are supported.</li>
+		<li><b>Finetunes</b> : The effects such as brightness, contrast, hue, sauration, and blur can be applied to the image.</li>
+                <li><b>Filters</b> : The predefined filters such as chrome, cold, warm, grayscale, sepia, and invert can be applied to the image.</li>
             </ul>
             <p>
                 More information about Image Editor can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/image-editor/getting-started/">documentation</a> section.
@@ -59,7 +61,7 @@
 <script>
 import Vue from "vue";
 import { ImageEditorPlugin } from "@syncfusion/ej2-vue-image-editor";
-import { Browser } from "@syncfusion/ej2-base";
+import { Browser, getComponent, isNullOrUndefined } from "@syncfusion/ej2-base";
 
 Vue.use(ImageEditorPlugin);
 
@@ -74,22 +76,33 @@ export default Vue.extend({
         if (Browser.isDevice) {
             this.$refs.imageEditorObj.open('src/image-editor/images/flower.png');
         } else {
-            this.$refs.imageEditorObj.open('src/image-editor/images/bridge.png');
+            this.$refs.imageEditorObj.open('src/image-editor/images/default.png');
         }
         if (this.themeValue && window.location.href.split('#')[1]) {
             this.themeValue = window.location.href.split('#')[1].split('/')[1];
         } 
+    },
+    onScroll: function() {
+        if (document.getElementById('imageeditor_sliderWrapper')) {
+            var slider = getComponent(document.getElementById('imageeditor_sliderWrapper'), 'slider');
+            slider.refreshTooltip(slider.tooltipTarget);
+        }
+    }
+  },
+  mounted: function() {
+    if (!isNullOrUndefined(document.getElementById("right-pane"))) {
+        document.getElementById("right-pane").addEventListener("scroll", this.onScroll.bind(this));
     }
   },
   computed: {
-        themeValue: {
-            get: function () {
-                return this.theme;
-            },
-            set: function (theme) {
-                this.theme = theme
-            }
+    themeValue: {
+        get: function () {
+            return this.theme;
+        },
+        set: function (theme) {
+            this.theme = theme
         }
     }
+  }
 });
 </script>

@@ -20,12 +20,14 @@
     </div>
 
     <div id="action-description">
-      <p>This sample renders the stock chart without range selector, data's can be navigated through period selector.</p>
+      <p>By hiding the range selector in the stock chart, this sample visualizes the AAPL stock price. The tooltip and crosshair display data and period information.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>LineSeries</code> is used to represent selected data value.
+        In this example, you can see how to render and configure stock chart to visualize the stock data. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartModel/#enableselector">enableSelector</a> property allows to toggle the visibility of range selector.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
@@ -33,6 +35,10 @@
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
         <code>DateTime</code> and <code>LineSeries</code> module using <code> provide: { stockchart: [ DateTime, LineSeries] },</code> method.
+      </p>
+      <p>
+        More information about the series type can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
       </p>
     </div>
   </div>
@@ -70,7 +76,7 @@ import {
 Vue.use(StockChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -87,7 +93,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 }
+        majorTickLines: { color: "transparent", height: 0 }
       },
       crosshair: {
         enable: true,

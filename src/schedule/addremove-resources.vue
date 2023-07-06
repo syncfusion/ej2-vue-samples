@@ -92,7 +92,8 @@
     }
 
     .highcontrast .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
-    .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
+    .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
+    .material3-dark .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
     }
 

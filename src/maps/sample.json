@@ -270,7 +270,7 @@
            "category": "Use Cases",
            "api": {},
            "sourceFiles": [
-               {"displayName": "default.vue", "path": "./src/maps/default.vue"},
+               {"displayName": "navigation-line.vue", "path": "./src/maps/navigation-line.vue"},
                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
                {"displayName": "navigation-data.ts", "path": "./src/maps/map-data/navigation-data.ts"}
            ]

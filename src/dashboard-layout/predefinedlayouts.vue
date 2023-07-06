@@ -224,6 +224,8 @@ export default Vue.extend({
         padding: 15px;
     }
 
+    body.material3-dark #predefined-dashboard .e-panel .panel-content,
+    body.fluent-dark #predefined-dashboard .e-panel .panel-content,
     body.material-dark #predefined-dashboard .e-panel .panel-content,
     body.fabric-dark #predefined-dashboard .e-panel .panel-content,
     body.bootstrap-dark #predefined-dashboard .e-panel .panel-content,

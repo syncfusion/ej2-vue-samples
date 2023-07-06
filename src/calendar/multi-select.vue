@@ -92,6 +92,7 @@ body.fluent-dark #date_label,
 body.bootstrap5-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
+body.material3-dark #date_label,
 body.fabric-dark #date_label,
 body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
@@ -104,6 +105,7 @@ body.highcontrast #date_label {
 
 .highcontrast .content-value,
 .material-dark .content-value,
+.material3-dark .content-value,
 .fabric-dark .content-value,
 .bootstrap-dark .content-value,
 .bootstrap5-dark .content-value,

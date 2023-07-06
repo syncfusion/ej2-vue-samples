@@ -56,7 +56,7 @@
       <p>
         More information on the polar and radar chart with a scatter series can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/polar-radar/">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#scatter">documentation
           section</a>.
       </p>
     </div>
@@ -87,7 +87,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function () {

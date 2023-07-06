@@ -14,6 +14,7 @@
         :border="border"
         :title="title"
         :theme="theme"
+        :legendSettings="legend"
       >
         <e-stockchart-axes>
           <e-stockchart-axis
@@ -29,19 +30,21 @@
           <e-stockchart-row height="70%"></e-stockchart-row>
         </e-stockchart-rows>
         <e-stockchart-series-collection>
-          <e-stockchart-series :dataSource="seriesData" type="Column" xName="x" yName="volume" :enableTooltip="false"></e-stockchart-series>
-          <e-stockchart-series :dataSource="seriesData" type="Candle" volume='volume' xName='x' low='low' high='high' open='open' close='close' yAxisName="yAxis1"></e-stockchart-series>
+          <e-stockchart-series :dataSource="seriesData" type="Candle" volume='volume' xName='x' low='low' high='high' open='open' close='close' yAxisName="yAxis1" name="Apple Inc"></e-stockchart-series>
+          <e-stockchart-series :dataSource="seriesData" type="Column" xName="x" yName="volume" :enableTooltip="false" name="Volume"></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>
     </div>
 
     <div id="action-description">
-      <p>This sample visualizes stock chart with multiple pane.</p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-stock-chart">Vue Stock Chart</a> example visualizes the AAPL stock price with Candle chart. Tooltip and crosshair show the information about the data and period.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart with volume.
-        <code>CandleSeries</code> is used to represent selected data value and <code>ColumnSeries</code> is used to represent the volume.
+        In this example, you can see how to render and configure a stock chart for AAPL data, as well as how to use column charts to display data volume. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/period-selector">Period Selector</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/range-selector">Range Selector</a> can be used to select a range with specified periods.
+      </p>
+      <p>
+        The legend is enabled, and you can use it to toggle the visibility of series in the stock chart. To customize the legend in the stock chart, use the <code>stockChartLegendSettings</code> property.
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
@@ -84,14 +87,15 @@ import {
   AccumulationDistributionIndicator,
   MacdIndicator,
   StochasticIndicator,
-  Export
+  Export,
+  StockLegend
 } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(StockChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -101,7 +105,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 }
+        majorTickLines: { color: "transparent", height: 0 }
       },
       primaryXAxis: {
        valueType: 'DateTime', 
@@ -115,11 +119,14 @@ export default Vue.extend({
       },
       title: 'AAPL Historical',
       border: {width: 0},
-      tooltip: { enable: true },
+      tooltip: { enable: true, format:'High : <b>${point.high}</b><br/>Low : <b>${point.low}</b><br/>Open : <b>${point.open}</b><br/>Close : <b>${point.close}</b><br/>Volume : <b>${point.volume}</b>' },
       crosshair: {
-        enable: true,
-       
-      }
+        enable: true 
+      },
+      legend: {
+        visible: true,
+        padding: 3
+      },
     };
   },
   provide: {
@@ -146,7 +153,8 @@ export default Vue.extend({
       AccumulationDistributionIndicator,
       MacdIndicator,
       StochasticIndicator,
-      Export
+      Export,
+      StockLegend
     ]
   },
   methods: {

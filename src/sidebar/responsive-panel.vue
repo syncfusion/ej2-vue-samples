@@ -308,6 +308,8 @@ export default {
     }
 
     .tailwind .sidebar-treeview .e-treeview .e-icon-collapsible,
+    .tailwind .sidebar-treeview .e-treeview .e-icon-expandable,
+    .tailwind-dark .sidebar-treeview .e-treeview .e-icon-collapsible,
     .tailwind-dark .sidebar-treeview .e-treeview .e-icon-expandable {
         margin: 7px;
     }
@@ -315,6 +317,20 @@ export default {
     .e-bigger .sidebar-treeview .e-treeview .e-icon-collapsible,
     .e-bigger .sidebar-treeview .e-treeview .e-icon-expandable {
         margin: 8px;
+    }
+
+    .material3 .sidebar-treeview .e-treeview .e-icon-expandable,
+    .material3 .sidebar-treeview .e-treeview .e-icon-collapsible,
+    .material3-dark .sidebar-treeview .e-treeview .e-icon-expandable,
+    .material3-dark .sidebar-treeview .e-treeview .e-icon-collapsible {
+        margin: 11px;
+    }
+
+    .e-bigger.material3 .sidebar-treeview .e-treeview .e-icon-expandable,
+    .e-bigger.material3 .sidebar-treeview .e-treeview .e-icon-collapsible,
+    .e-bigger.material3-dark .sidebar-treeview .e-treeview .e-icon-expandable,
+    .e-bigger.material3-dark .sidebar-treeview .e-treeview .e-icon-collapsible {
+        margin: 13px;
     }
 
     .sidebar-treeview .e-treeview,

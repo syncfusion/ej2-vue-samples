@@ -37,6 +37,8 @@ export default Vue.extend({
       tasknamerules: { required: true },
       startdaterules:  { date: true },
       numberrules: { number: true, min: 0},
+      durationrules : { number: true , min: 0},
+      progressrules : { number: true , min: 0},
       editparams: { params: { format: 'n' }},
       pageSettings: { pageCount: 5}
     };

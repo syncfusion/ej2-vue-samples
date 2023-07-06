@@ -129,7 +129,7 @@
 import Vue from "vue";
 import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
 import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-import { Ajax } from '@syncfusion/ej2-base';
+import { Fetch } from '@syncfusion/ej2-base';
 Vue.use(ListViewPlugin);
 Vue.use(TooltipPlugin);
 export default Vue.extend({
@@ -151,9 +151,8 @@ export default Vue.extend({
    methods: {
        onBeforeRender: function(args){
             
-   let ajax = new Ajax('./source/tooltip/tooltipdata.json', 'GET', true);
-        ajax.onSuccess = (data) => {
-            data = JSON.parse(data);
+   let fetchApi = new Fetch('./source/tooltip/tooltipdata.json', 'GET');
+        fetchApi.onSuccess = (data) => {
             for (var i = 0; i < data.length; i++) {
                 if (data[i].Id === args.target.getAttribute('data-content')) {
                     /* tslint:disable */
@@ -162,7 +161,7 @@ export default Vue.extend({
                 }
             }   
         };
-        ajax.send();
+        fetchApi.send();
        }
    }
 });

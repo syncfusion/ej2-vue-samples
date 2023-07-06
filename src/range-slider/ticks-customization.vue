@@ -114,70 +114,60 @@
 
     .material .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .material-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         font-size: 10px;
-    }
-
-    .material .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .material-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         line-height: 2.6;
         left: calc(50% - 5px);
     }
 
+    .material3 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .material3-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .material .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .material-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
         left: calc(0% - 5px);
     }
 
+    .fluent .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .fluent-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .material3 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .material3-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .bootstrap5 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .bootstrap5-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .tailwind .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .tailwind-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .material .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .material-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
         left: calc(100% - 6px);
     }
 
+    .highcontrast .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+    .bootstrap .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
     .fabric .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .fabric-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         font-size: 14px;
     }
 
     .fabric .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .fabric-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         line-height: 2.4;
+    }
+
+    .bootstrap4 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+    .highcontrast .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+    .bootstrap .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+    .fabric .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .fabric-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         left: calc(50% - 7px);
     }
 
+    .bootstrap4 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
+    .highcontrast .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
+    .bootstrap .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .bootstrap-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .fabric .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .fabric-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
         left: calc(0% - 7px);
     }
 
-    .fabric .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .fabric-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
-        left: calc(100% - 7px);
-    }
-
-    .bootstrap .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
-        font-size: 14px;
-    }
-
-    .bootstrap .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
-        line-height: 1.8;
-        left: calc(50% - 7px);
-    }
-
-    .bootstrap .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .bootstrap-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
-        left: calc(0% - 7px);
-    }
-
+    .bootstrap4 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .highcontrast .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .fabric .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .fabric-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .bootstrap .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .bootstrap-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
         left: calc(100% - 7px);
     }
 
-    .highcontrast .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
-        font-size: 14px;
+    .bootstrap .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
+        line-height: 1.8;
     }
 
     .highcontrast .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         line-height: 2.5;
-        left: calc(50% - 7px);
-    }
-
-    .highcontrast .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
-        left: calc(0% - 7px);
-    }
-
-    .highcontrast .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
-        left: calc(100% - 7px);
     }
 
     .slider-customticks #slider+.e-scale .e-tick.e-first-tick :nth-child(2) {
@@ -191,51 +181,35 @@
         font-style: normal;
     }
 
+    .fluent #ticks_slider .e-scale .e-tick.e-custom::before, .fluent-dark #ticks_slider .e-scale .e-tick.e-custom::before,
+    .bootstrap5 #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark #ticks_slider .e-scale .e-tick.e-custom::before,
+    .tailwind #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .bootstrap4 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
         line-height: 2.3;
-        left: calc(50% - 7px);
-    }
-	
-	.bootstrap4 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
-        left: calc(0% - 7px);
-    }
-    
-    .bootstrap4 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
-        left: calc(100% - 7px);
     }
 
+    .fluent #ticks_slider .e-scale .e-tick.e-custom::before, .fluent-dark #ticks_slider .e-scale .e-tick.e-custom::before,
+    .bootstrap5 #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .tailwind #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark #ticks_slider .e-scale .e-tick.e-custom::before {
-        line-height: 2.3;
         left: calc(50% - 6px);
     }
 
+    .bootstrap5.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before,
     .tailwind.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before {
         top: 2px;
     }
 
+    .fluent #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .fluent-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
+    .bootstrap5 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .bootstrap5-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .tailwind #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .tailwind-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
         left: calc(0% - 6px);
     }
 
-    .tailwind #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .tailwind-dark #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
-        left: calc(100% - 6px);
-    }
-
-    .bootstrap5 #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark #ticks_slider .e-scale .e-tick.e-custom::before {
-        line-height: 2.3;
-        left: calc(50% - 6px);
-    }
-
-    .bootstrap5.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before {
-        top: 2px;
-    }
-
-    .bootstrap5 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .bootstrap5-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
-        left: calc(0% - 6px);
-    }
-
-    .bootstrap5 #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .bootstrap5-dark #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
-        left: calc(100% - 6px);
+    @media (max-width:550px){
+        .e-bigger .e-control-wrapper.e-slider-container .e-scale .e-tick .e-tick-value{
+            font-size: 10px;
+            font-weight: 600;
+        }
     }
 </style>
 <script>

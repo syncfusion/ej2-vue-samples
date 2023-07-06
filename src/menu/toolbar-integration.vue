@@ -119,6 +119,12 @@
 	color: #6c757d;
 	box-shadow: none;
 }
+.material3 .toolbar-menu-control .e-toolbar .e-input-group,
+.material3-dark .toolbar-menu-control .e-toolbar .e-input-group,
+.material3 .toolbar-menu-control .e-toolbar-items .e-dropdown-btn,
+.material3-dark .toolbar-menu-control .e-toolbar-items .e-dropdown-btn  {
+    background: transparent;
+}
 .bootstrap4 .toolbar-menu-control .e-menu-wrapper ul {
         background-color: transparent;
     }

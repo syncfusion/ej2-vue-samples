@@ -29,7 +29,7 @@
                     <div class="char_block" title="&#169;">&#169;</div>
                     <div class="char_block" title="&#170;">&#170;</div>
                     <div class="char_block" title="&#171;">&#171;</div>
-                    <div class="char_block" title="&#172;">&#172;</div>
+                    <div class="char_block" title="&#172;">&#45;</div>
                     <div class="char_block" title="&#173;">&#173;</div>
                     <div class="char_block" title="&#174;">&#174;</div>
                     <div class="char_block" title="&#175;">&#175;</div>
@@ -152,6 +152,12 @@
     .fluent-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #0078DE;
         border-color: #0078DE;
+    }
+    
+    .material3 .e-rte-custom-tbar-section .char_block.e-active,
+    .material3-dark .e-rte-custom-tbar-section .char_block.e-active {
+	outline: 1px solid #7D69B1;
+	border-color: #7D69B1;
     }
 
     .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,

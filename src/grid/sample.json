@@ -19,7 +19,6 @@
         {
             "url": "live-data",
             "name": "Live Data",
-            "type": "new",
             "category": "Data Grid",
             "description": "This demo for Essential JS 2 grid component shows how frequently the Grid cell is updated with real-time data.",
             "hideOnDevice": false,
@@ -79,7 +78,6 @@
             "category": "Data Binding",
             "description": "This sample demonstrates how to bind a data from various remote services to the Grid component.",
             "hideOnDevice": false,
-            "type":"new",
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
@@ -129,7 +127,6 @@
         {
             "url": "column-resize",
             "name": "AutoFit and Resizing",
-            "type": "update",
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid control shows column rendering with fixed width and resizing feature.",
             "hideOnDevice": false,
@@ -210,6 +207,7 @@
         {
             "url": "drag-and-drop-within-grid",
             "name": "Drag and Drop within Grid",
+            "type": "update",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged within a grids using the row drag-and-drop feature.",
             "api": { "Grid": ["columns", "dataSource", "allowRowDragAndDrop"] }
@@ -285,7 +283,6 @@
         {
             "url": "filtering",
             "name": "Default Filtering",
-            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component shows how to place a filter bar row in the header to filter grid rows.",
             "hideOnDevice": false,
@@ -298,7 +295,6 @@
         {
             "url": "filter-menu",
             "name": "Filter Menu",
-            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
@@ -319,6 +315,7 @@
         {
             "url": "paging",
             "name": "Paging",
+            "type": "update",
             "category": "Paging",
             "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
             "hideOnDevice": false,
@@ -327,6 +324,7 @@
         {
             "url": "grouping",
             "name": "Grouping",
+            "type": "update",
             "category": "Grouping",
             "description": "This demo for Essential JS 2 grid component demonstrates the grouping feature of the grid component. The grid component has options to group records based on columns.",
             "hideOnDevice": false,

@@ -186,7 +186,7 @@
         clear: both;
     }
 
-    .bootstrap-dark .header, .bootstrap5-dark .header, .fluent-dark .header, 
+    .bootstrap-dark .header, .bootstrap5-dark .header, .fluent-dark .header, .material3-dark .header, 
     .fabric-dark .header, .material-dark .header, .tailwind-dark .header, .highcontrast .header {
         color: #fff;
     }
@@ -237,7 +237,7 @@
         color: #000000;
     }
 
-    .bootstrap-dark .explain, .bootstrap5-dark .explain, .fluent-dark .explain,
+    .bootstrap-dark .explain, .bootstrap5-dark .explain, .fluent-dark .explain,.material3-dark .explain,
     .fabric-dark .explain, .material-dark .explain, .tailwind-dark .explain, .highcontrast .explain {
         color: #fff;
     }
@@ -363,7 +363,7 @@
          overflow-wrap: break-word;
     }
 
-    .bootstrap-dark .posting, .bootstrap5-dark .posting, .fluent-dark .posting, 
+    .bootstrap-dark .posting, .bootstrap5-dark .posting, .fluent-dark .posting, .material3-dark .posting,
     .fabric-dark .posting, .material-dark .posting, .tailwind-dark .posting, .highcontrast .posting {
         color: #fff;
     }
@@ -374,7 +374,7 @@
         font-size: 13px;
     }
 
-    .bootstrap-dark .authorname, .bootstrap5-dark .authorname, .fluent-dark .authorname, 
+    .bootstrap-dark .authorname, .bootstrap5-dark .authorname, .fluent-dark .authorname, .material3-dark .authorname,
     .fabric-dark .authorname, .material-dark .authorname, .tailwind-dark .authorname, .highcontrast .authorname {
         color: #fff;
     }
@@ -435,6 +435,7 @@
     .bootstrap-dark .tag, 
     .bootstrap5-dark .tag, 
     .fluent-dark .tag,
+    .material3-dark .tag,
     .fabric-dark .tag, 
     .material-dark .tag, 
     .tailwind-dark .tag, 

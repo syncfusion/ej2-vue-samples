@@ -9,9 +9,9 @@
         <ejs-treegrid :dataSource="data" childMapping='Children' height=335 :rowHeight = '83' width='auto' :treeColumnIndex='0' :rowTemplate="'rowTemplate'">
             <e-columns>
                 <e-column field='EmpID' headerText='Employee ID' width='180'></e-column>
-                <e-column field='Name' headerText='Employee Name'></e-column>
-                <e-column field='Address' headerText = 'Employee Details' width='350'></e-column>
-                <e-column field='DOB' headerText = 'DOB'></e-column>
+                <e-column field='Name' headerText='Employee Name' width='140'></e-column>
+                <e-column field='Address' headerText = 'Employee Details' width='390'></e-column>
+                <e-column field='DOB' headerText = 'DOB' width='100'></e-column>
             </e-columns>
             <template v-slot:rowTemplate="{data}">
                 <tr>

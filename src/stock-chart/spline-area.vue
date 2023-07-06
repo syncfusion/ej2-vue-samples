@@ -27,12 +27,14 @@
     </div>
 
     <div id="action-description">
-      <p> This sample visualizes stock data with spline area. Period and range selector help us to navigate different of data.</p>
+      <p>This sample uses spline area series to visualize stock data. Crosshair display information about the data and period.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>SplineAreaSeries</code> is used to represent selected data value.
+        In this example, you can see how to render and configure stock chart to visualize the stock data with spline area series. Use series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockSeries/#type">type</a> as <b>SplineArea</b> to render a spline area series.
+      </p>
+      <p>
+        <code>Crosshair</code> is enabled in this example. To see the crosshair in action, hover the chart or tap on it in touch enabled devices.
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module</p>
@@ -40,6 +42,10 @@
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
         <code>DateTime</code> and <code>SplineAreaSeries</code> module using <code> provide: { stockchart: [ DateTime, SplineAreaSeries] },</code> method.
+      </p>
+      <p>
+        More information about the series type can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
       </p>
 
     </div>
@@ -78,15 +84,15 @@ Vue.use(StockChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
     return {
       theme: theme,
       seriesData: googl,
-       seriesType:[],
-       indicator:[],
+      seriesType:[],
+      indicator:[],
       //Initializing Primary X Axis
       primaryXAxis: {
         valueType: "DateTime",
@@ -97,7 +103,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 },
+        majorTickLines: { color: "transparent", height: 0 },
         crosshairTooltip: { enable: true }
       },
       title: "Google Stock Price",
@@ -108,6 +114,7 @@ export default Vue.extend({
       },
        crosshair: {
         enable: true,
+        lineType: 'Both' 
       },
       border: { width: 0}
     };
