@@ -162,7 +162,7 @@
   top: calc(50% - 3px);
   border-radius: 5px;
   background: -webkit-linear-gradient(
-    left,
+    to left,
     #e1451d 0,
     #fdff47 17%,
     #86f9fe 50%,
@@ -172,7 +172,7 @@
     #e14423 100%
   );
   background: linear-gradient(
-    left,
+    to left,
     #e1451d 0,
     #fdff47 17%,
     #86f9fe 50%,

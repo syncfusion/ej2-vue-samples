@@ -90,9 +90,9 @@
 <script>
 import Vue from "vue";
 import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-import { ButtonPugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DashboardLayoutPlugin,ButtonPugin);
+Vue.use(DashboardLayoutPlugin,ButtonPlugin);
 
 export default Vue.extend ({
     data: function() {
