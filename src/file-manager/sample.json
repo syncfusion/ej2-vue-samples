@@ -32,6 +32,20 @@
         "description": "This example demonstrates how to drag and drop the files in a Vue File Manager."
     },
     {
+        "url": "directory-upload",
+        "name": "Directory upload",
+        "category": "File Manager",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to upload the folder (directory) by using custom toolbar item with in a Vue File Manager."
+    },
+    {
+        "url": "virtualization",
+        "name": "Virtualization",
+        "category": "File Manager",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates the how to enable the virtual scrolling feature in a Vue File Manager."
+    },
+    {
         "url": "file-upload",
         "name": "File Upload",
         "category": "Use Case",
@@ -72,13 +86,6 @@
         "category": "Cloud Service Providers",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to configure and use the firebase realtime database service in a Vue File Manager."
-    },
-    {
-        "url": "FTPFileProvider",
-        "name": "FTP File Provider",
-        "category": "Cloud Service Providers",
-        "api": { "FileManager": ["ajaxSettings", "view"] },
-        "description": "This example demonstrates how to configure and use the File Transfer Protocol in a vue File Manager."
     },
     {
         "url": "ibm-cos-node-file-provider",

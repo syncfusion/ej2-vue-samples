@@ -6,6 +6,7 @@
                     :group='group'>
                     <e-views>
                         <e-view option="TimelineMonth" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
+                        <e-view option="Month" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
                     </e-views>
                     <e-resources>
                         <e-resource field='ResourceId' title='Reosurce' name='Resources' allowMultiple=true :dataSource='resourceData' textField='Text'
@@ -25,8 +26,8 @@
 
         <div id="description">
             <p>
-               In this example, the virtual scrolling option is enabled on timeline month view to load the large number of
-               resources and its associated events. To enable the dynamic loading of events and resources in timeline view of
+               In this example, the virtual scrolling option is enabled on timeline month and month views to load the large number of
+               resources and its associated events. To enable the dynamic loading of events and resources in the
                Scheduler, set the <code>allowVirtualScrolling</code> property to <code>true</code> within the view-specific settings.
             </p>
         </div>
@@ -34,26 +35,35 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .e-schedule .template-wrap .subject {
+    .schedule-vue-sample .virtual-scroll.e-schedule .template-wrap .subject {
         padding: 10px 25px;
     }
 
-    .schedule-vue-sample .e-schedule .e-more-event-popup .template-wrap .subject {
+    .schedule-vue-sample .virtual-scroll.e-schedule .e-more-event-popup .template-wrap .subject {
         padding: 0px 25px;
     }
 
-    .schedule-vue-sample .e-schedule .template-wrap {
+    .schedule-vue-sample .virtual-scroll.e-schedule .template-wrap {
         width: 100%;
     }
 
-    .schedule-vue-sample .e-schedule .e-timeline-month-view .e-resource-left-td {
+    .schedule-vue-sample .virtual-scroll.e-schedule .e-month-view .template-wrap .subject {
+        padding: 3px 10px;
+    }
+
+    .schedule-vue-sample .virtual-scroll.e-schedule .e-month-view .e-date-header-wrap table col,
+    .schedule-vue-sample .virtual-scroll.e-schedule .e-month-view .e-work-cells {
+        width: 46px;
+    }
+
+    .schedule-vue-sample .virtual-scroll.e-schedule .e-timeline-month-view .e-resource-left-td {
         width: 150px;
     }
 </style>
 <script>
     import Vue from "vue";
     import { generateResourceData, generateStaticEvents } from './datasource';
-    import { SchedulePlugin, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { SchedulePlugin, TimelineMonth, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
 
     Vue.use(SchedulePlugin);   
 
@@ -87,7 +97,7 @@
             }
         },
         provide: {
-            schedule: [TimelineMonth, Resize, DragAndDrop]
+            schedule: [TimelineMonth, Month, Resize, DragAndDrop]
         }
     });
 

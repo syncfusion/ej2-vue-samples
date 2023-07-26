@@ -3,73 +3,54 @@
 <div class="col-lg-12 control-section">
     <div class="content-wrapper">
         <div class="schedule-overview">
-            <div class="overview-header">
-                <div class="overview-titlebar">
-                    <div class="left-panel">
-                        <div class="schedule-overview-title" style="border: 1px solid transparent;">Scheduler
-                            Overview Functionalities</div>
-                    </div>
-                    <div class="center-panel">
-                        <ejs-button id="timezoneBtn" cssClass="title-bar-btn" disabled='true'
-                            iconCss="e-icons e-time-zone">UTC</ejs-button>
-                        <ejs-button id="timeBtn" cssClass="title-bar-btn" disabled='true'
-                            iconCss="e-icons e-clock" :content="liveTimeUpdate"></ejs-button>
-                    </div>
-                    <div class="right-panel">
-                        <div class="control-panel calendar-export">
-                            <ejs-button id="printBtn" cssClass="title-bar-btn"
-                                iconCss="e-icons e-print" v-on:click.native="onPrint">Print</ejs-button>
-                        </div>
-                        <div class="control-panel">
-                            <ejs-uploader id='icalendar' cssClass='calendar-import' :multiple='multiple'
-                                :buttons='buttons' :showFileList='showFileList' allowedExtensions='.ics'
-                                :selected='onSelected'></ejs-uploader>
-                        </div>
-                        <div class="control-panel calendar-export">
-                            <ejs-dropdownbutton id="exporting" :items='exportItems' :select="onExportItemSelect">Export</ejs-dropdownbutton>
-                        </div>
-                    </div>
+            <ejs-appbar colorMode="Primary">
+                <span class="time e-icons e-time-zone"></span>
+                <span id="timezoneBtn" class="time ">UTC</span>
+                <span class="time e-icons e-clock"></span>
+                <span id="timeBtn" class="time current-time">{{liveTimeUpdate}}</span>
+                <div class="e-appbar-spacer"></div>
+                <ejs-button id="printBtn" cssClass="title-bar-btn e-inherit"
+                    iconCss="e-icons e-print" v-on:click.native="onPrint">Print</ejs-button>
+                 <div class="control-panel import-button">
+                    <ejs-uploader id='icalendar' cssClass='calendar-import' :multiple='multiple'
+                        :buttons='buttons' :showFileList='showFileList' allowedExtensions='.ics'
+                            :selected='onSelected'></ejs-uploader>
                 </div>
-            </div>
-            <div class="overview-toolbar">
-                <div style="height: 70px;width: calc(100% - 90px);">
-                    <ejs-toolbar id="toolbar_options" height="70px" overflowMode="Scrollable" scrollStep="100"
+                <div class="control-panel calendar-export">
+                    <ejs-dropdownbutton id="exportBtn" cssClass = 'e-inherit' :items='exportItems' :select="onExportItemSelect">Export</ejs-dropdownbutton>
+                </div>
+                    <ejs-button id="settingsBtn" iconCss="e-icons e-settings"
+                        cssClass="overview-toolbar-settings e-inherit" iconPosition="Top"
+                        v-on:click.native="onSettingsClick"></ejs-button>
+            </ejs-appbar>
+                    <ejs-toolbar id="toolbarOptions" height="70px" overflowMode="Scrollable" scrollStep="100"  cssClass= 'overview-toolbar'
                         :created="onToolbarCreated" :clicked="onToolbarItemClicked">
                         <e-items>
-                            <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event'>
+                            <e-item prefixIcon='e-icons e-plus' tooltipText='New Event' text='New Event' tabindex="0">
                             </e-item>
                             <e-item prefixIcon='e-icons e-repeat'
-                                tooltipText='New Recurring Event' text='New Recurring Event'></e-item>
+                                tooltipText='New Recurring Event' text='New Recurring Event' tabindex="0"></e-item>
                             <e-item type='Separator'></e-item>
-                            <e-item prefixIcon='e-icons e-day' tooltipText='Day' text='Day'></e-item>
-                            <e-item prefixIcon='e-icons e-week' tooltipText='Week' text='Week'></e-item>
+                            <e-item prefixIcon='e-icons e-day' tooltipText='Day' text='Day' tabindex="0"></e-item>
+                            <e-item prefixIcon='e-icons e-week' tooltipText='Week' text='Week' tabindex="0"></e-item>
                             <e-item prefixIcon='e-icons e-week' tooltipText='WorkWeek'
-                                text='WorkWeek'></e-item>
-                            <e-item prefixIcon='e-icons e-month' tooltipText='Month' text='Month'>
+                                text='WorkWeek' tabindex="0"></e-item>
+                            <e-item prefixIcon='e-icons e-month' tooltipText='Month' text='Month' tabindex="0">
                             </e-item>
-                            <e-item prefixIcon='e-icons e-month' tooltipText='Year' text='Year'></e-item>
-                            <e-item prefixIcon='e-icons e-agenda-date-range' tooltipText='Agenda' text='Agenda'>
+                            <e-item prefixIcon='e-icons e-month' tooltipText='Year' text='Year' tabindex="0"></e-item>
+                            <e-item prefixIcon='e-icons e-agenda-date-range' tooltipText='Agenda' text='Agenda' tabindex="0">
                             </e-item>
                             <e-item tooltipText="Timeline Views" :template="timelineTemplate"></e-item>
                             <e-item type='Separator'></e-item>
                             <e-item tooltipText="Resource Grouping" :template="groupTemplate"></e-item>
-                            <e-item tooltipText="Gridlines" :template="gridlineTemplate"></e-item>
-                            <e-item tooltipText="Row Auto Height" :template="autoHeightTemplate"></e-item>
-                            <e-item tooltipText="Tooltip" :template="tooltipTemplate"></e-item>
-                            <e-item tooltipText="Allow Multi Drag" :template="multiDragTemplate"></e-item>
+                            <e-item tooltipText="Time Slots" :template="gridlineTemplate"></e-item>
+                            <e-item tooltipText="Auto Fit Rows" :template="autoHeightTemplate"></e-item>
                         </e-items>
                     </ejs-toolbar>
-                </div>
-                <div style="height:70px;width:90px;">
-                    <ejs-button id="settingsBtn" iconCss="e-icons e-settings"
-                        cssClass="overview-toolbar-settings" iconPosition="Top"
-                        v-on:click.native="onSettingsClick">Settings</ejs-button>
-                </div>
-            </div>
             <div class="overview-content">
                 <div class="left-panel">
                     <div class="overview-scheduler">
-                        <ejs-schedule id='scheduler' ref="scheduleObj"  height="100%" cssClass='schedule-overview' :popupOpen='onPopupOpen' :currentView='currentView' timezone='UTC' :quickInfoTemplates="quickInfoTemplates" :dateHeaderTemplate="dateHeaderTemplate" :group='group' :eventSettings='eventSettings'>
+                        <ejs-schedule id='scheduler' ref="scheduleObj"  height="100%" cssClass='schedule-overview' :currentView='currentView' timezone='UTC' :dateHeaderTemplate="dateHeaderTemplate" :group='group' :eventSettings='eventSettings'>
                             <e-views>
                                 <e-view option="Day"></e-view>
                                 <e-view option="Week"></e-view>
@@ -89,19 +70,28 @@
                               </e-resource>
                             </e-resources>
                          </ejs-schedule>
-                         <ejs-contextmenu id="contextmenu" ref="menuObj" cssClass="schedule-context-menu" target=".e-schedule" :items="menuItems" :beforeOpen="onContextMenuBeforeOpen" :select="onMenuItemSelect" ></ejs-contextmenu>
+                         <ejs-contextmenu id="overviewContextMenu" ref="menuObj" cssClass="schedule-context-menu" target=".e-schedule" :items="menuItems" :beforeOpen="onContextMenuBeforeOpen" :select="onMenuItemSelect" ></ejs-contextmenu>
                     </div>
                 </div>
                 <div class="right-panel hide">
                     <div class="control-panel e-css">
+                       <div class="col-row">
+                            <div class="col-left">
+                                <label style="line-height: 34px; margin: 0;">Calendar</label>
+                            </div>
+                            <div class="col-right">
+                                <ejs-multiselect id='resources' ref="resourcesObj" cssClass="schedule-workweek" index="0" :dataSource='resourceDataSource' 
+                                    :mode='checkboxMode' :fields='calendarFields' enableSelectionOrder="false" showClearButton="false" showDropDownIcon="true" 
+                                    :value='calendarsValue' :change='onResourceChange'></ejs-multiselect>
+                            </div>
+                        </div>
                         <div class="col-row">
                             <div class="col-left">
                                 <label style="line-height: 34px; margin: 0;">First Day of Week</label>
                             </div>
                             <div class="col-right">
                                 <ejs-dropdownlist id='weekFirstDay' :dataSource='weekDays'
-                                    :change='onWeekDayChange' :value='firstDayOfWeek' :fields='fields'
-                                    popupHeight='150px'></ejs-dropdownlist>
+                                    :change='onWeekDayChange' :value='firstDayOfWeek' :fields='fields'></ejs-dropdownlist>
                             </div>
                         </div>
                         <div class="col-row">
@@ -109,19 +99,9 @@
                                 <label style="line-height: 34px; margin: 0;">Work week</label>
                             </div>
                             <div class="col-right">
-                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' enableSelectionOrder="false" showClearButton="false"
-                                    showDropDownIcon="true" :mode='checkboxMode' :fields='fields' popupHeight='150px' :value='workDays'
+                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' enableSelectionOrder="false" :showClearButton="false"
+                                    showDropDownIcon="true" :mode='checkboxMode' :fields='fields' :value='workDays'
                                     :change='onWorkWeekDayChange'></ejs-multiselect>
-                            </div>
-                        </div>
-                        <div class="col-row">
-                            <div class="col-left">
-                                <label style="line-height: 34px; margin: 0;">Resources</label>
-                            </div>
-                            <div class="col-right">
-                                <ejs-multiselect id='resources' ref="resourcesObj" cssClass="schedule-workweek" index="0" :dataSource='resourceDataSource' 
-                                    :mode='checkboxMode' :fields='calendarFields' popupHeight='150px' enableSelectionOrder="false" showClearButton="false" showDropDownIcon="true" 
-                                    :value='calendarsValue' :change='onResourceChange'></ejs-multiselect>
                             </div>
                         </div>
                          <div class="col-row">
@@ -139,7 +119,7 @@
                                 <label style="line-height: 34px; margin: 0;">Day Start Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='dayStartHour' showClearButton='false'
+                                <ejs-timepicker id='dayStartHour' :showClearButton='false'
                                     :value='dayStartHourValue' :change='onDayStartHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -149,7 +129,7 @@
                                 <label style="line-height: 34px; margin: 0;">Day End Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='dayEndHour' showClearButton='false'
+                                <ejs-timepicker id='dayEndHour' :showClearButton='false'
                                     :value='dayEndHourValue' :change='onDayEndHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -159,7 +139,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work Start Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='workHourStart' showClearButton='false'
+                                <ejs-timepicker id='workHourStart' :showClearButton='false'
                                     :value='workStartHourValue' :change='onWorkStartHourChange'>
                                 </ejs-timepicker>
                             </div>
@@ -169,7 +149,7 @@
                                 <label style="line-height: 34px; margin: 0;">Work End Hour</label>
                             </div>
                             <div class="col-right">
-                                <ejs-timepicker id='workHourEnd' showClearButton='false'
+                                <ejs-timepicker id='workHourEnd' :showClearButton='false'
                                     :value='workEndHourValue' :change='onWorkEndHourChange'></ejs-timepicker>
                             </div>
                         </div>
@@ -213,6 +193,16 @@
                                     popupHeight='150px'></ejs-dropdownlist>
                             </div>
                         </div>
+                        <div class="col-row">
+                            <div class="col-left">
+                                <label style="line-height: 34px; margin: 0;">Tooltip</label>
+                            </div>
+                            <div class="col-right">
+                                <ejs-dropdownlist id='tooltip' :dataSource='tooltipData'
+                                    :change='onTooltipChange' :fields='fields' :value='tooltipValue'
+                                    popupHeight='150px'></ejs-dropdownlist>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -236,345 +226,118 @@
 
 <style>
 
-    .tailwind .e-settings::before,
-    .tailwind-dark .e-settings::before {
-        content: "\e846";
-        font-size: 14px;
-    }
-
-    .tailwind.e-bigger .e-settings,
-    .tailwind-dark.e-bigger .e-settings {
-        font-size: 16px !important;
-    }
-
-    .material .schedule-overview .overview-toolbar .e-toolbar {
-        border-style: solid;
-    }
-
-    .material .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import .e-upload-browse-btn,
-    .material-dark .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import .e-upload-browse-btn {
-        text-transform: capitalize;
-        box-shadow: none;
-    }
-
-    .highcontrast .schedule-overview .overview-header .overview-titlebar {
-        background-color: #ffd939;
-        color: black;
-    }
-
-    .highcontrast .schedule-overview .overview-header,
-    .highcontrast .schedule-overview .overview-content {
-        border: 1px solid #969696;
-    }
-
-    .tailwind-dark .schedule-overview .overview-header,
-    .tailwind-dark .schedule-overview .overview-content {
-        border: 1px solid #4b5563;
-        border-top: 0;
-    }
-
-    .highcontrast .schedule-overview .overview-content {
-        border-top: 0;
-    }
-
-    .fabric-dark .schedule-overview .overview-content {
-        border: 1px solid #414040;
-    }
-
-    .fluent-dark .schedule-overview .overview-content {
-        border: 1px solid #c1c1c1;
-    }
-
-    .fluent-dark .schedule-overview .overview-toolbar .e-toolbar {
-        border: 1px solid #c1c1c1;
-        border-top-color: transparent;
-    }
-
-    .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-color: #414040;
-    }
-
-    .fluent-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-color: #c1c1c1;
-    }
-
-    .tailwind .schedule-overview .overview-toolbar .e-toolbar {
-        border: 1px solid #e5e7eb;
-    }
-
-    .tailwind-dark .schedule-overview .overview-toolbar .e-toolbar {
-        border: 1px solid #4b5563;
-    }
-
-    .tailwind .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .tailwind .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #f3f4f6;
-        border-color: #e5e7eb;
-        box-shadow: none;
     }
 
-    .tailwind-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #374151;
-        border-color: #4b5563;
-        box-shadow: none;
         color: #fff;
     }
 
-    .highcontrast .schedule-overview .overview-toolbar .e-toolbar,
-    .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-items .e-toolbar-item.e-separator,
-    .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-hscroll .e-scroll-nav.e-scroll-left-nav,
-    .highcontrast .schedule-overview .overview-toolbar .e-toolbar .e-hscroll .e-scroll-nav.e-scroll-right-nav {
-        border-color: #969696;
-    }
-
-    .material .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .material .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #fafafa;
-        text-transform: capitalize;
-        box-shadow: none;
     }
 
-    .material-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .material-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #2a2a2a;
         color: #ffff;
     }
 
-    .fabric .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .fabric .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #ffffff;
     }
 
-    .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .fabric-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #333232;
         color: #fff;
     }
 
-    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings,
-    .bootstrap5 .schedule-overview .overview-content .right-panel .control-panel {
-        background-color: #f8f9fa;
-        color: #212529;
-        font-weight: 400;
-    }
-
-    .fluent .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .fluent .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #f3f2f1;
     }
 
-    .bootstrap .schedule-overview .overview-toolbar .overview-toolbar-settings,
-    .bootstrap .schedule-overview .overview-content .right-panel .control-panel {
-        background-color: #f8f8f8;
-    }
-
-    .bootstrap5-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
-    .bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel {
-        background-color: #343a40;
-        color: #fff;
-        font-weight: 400;
-    }
-
-    .fluent-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
     .fluent-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #252423;
         border-color: #c1c1c1;
         color: #fff;
     }
 
-    .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings,
+    .bootstrap .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f8f8f8;
+    }
+
     .bootstrap-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #2a2a2a;
         color: #fff;
     }
 
-
-    .highcontrast .schedule-overview .overview-toolbar .overview-toolbar-settings,
-    .highcontrast .schedule-overview .overview-content .right-panel .control-panel {
-        background-color: #000000;
-        border-color: #969696;
-        color: #ffffff;
-    }
-
-    .highcontrast .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
-    .highcontrast .schedule-overview .overview-header .overview-titlebar .calendar-import .e-file-select-wrap .e-css.e-btn,
-    .highcontrast .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn.e-btn {
-        color: black;
-    }
-
-    .schedule-overview .overview-header {
-        border: 1px solid #007bff;
-    }
-
-    .schedule-overview .overview-header .overview-titlebar {
-        background-color: #007bff;
-        color: #ffffff;
-        height: 40px;
-        line-height: 40px;
-        width: 100%;
-        font-size: 12px;
-        padding: 0 10px;
-        font-family: inherit;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .schedule-overview .overview-header .overview-titlebar .right-panel {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import {
-        line-height: 40px;
-    }
-
-    .bootstrap5 .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
-    .bootstrap5 .schedule-overview .overview-header .overview-titlebar .calendar-export,
-    .bootstrap5-dark .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
-    .bootstrap5-dark .schedule-overview .overview-header .overview-titlebar .calendar-export,
-    .fabric .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
-    .fabric .schedule-overview .overview-header .overview-titlebar .calendar-export,
-    .fabric-dark .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import,
-    .fabric-dark .schedule-overview .overview-header .overview-titlebar .calendar-export,
-    .highcontrast .schedule-overview .overview-header .overview-titlebar .calendar-export,
-    .highcontrast .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import {
-        line-height: 1.5em;
-    }
-
-    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button,
-    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button:focus,
-    .schedule-overview .overview-header .overview-titlebar .e-upload.calendar-import button:hover {
-        background-color: transparent;
-        border-color: transparent;
-        box-shadow: none;
-        color: inherit;
-        font-size: 12px;
-        height: 40px;
-        text-transform: capitalize;
-    }
-
-    .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
-    .schedule-overview .overview-header .overview-titlebar .title-bar-btn:hover,
-    .schedule-overview .overview-header .overview-titlebar .title-bar-btn:focus,
-    .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn,
-    .schedule-overview .overview-header .overview-titlebar .e-dropdown-btn.e-btn {
-        background: transparent;
-        box-shadow: none;
-        font-family: inherit;
-        border-color: transparent;
-        border-radius: 2px;
-        color: inherit;
-        font-size: 12px;
-        text-transform: capitalize;
-        height: 40px;
-        font-weight: 400;
-    }
-
-    .schedule-overview .overview-header .overview-titlebar .e-btn:not([disabled]):focus {
-        background-color: rgba(255, 255, 255, 0.4) !important;
-    }
-
-    .schedule-overview .overview-toolbar {
-        display: flex;
-        height: 70px;
-    }
-
-    .schedule-overview .overview-toolbar .e-toolbar {
-        border-radius: 0;
-    }
-
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-tbtn-txt {
-        display: inline-grid;
-    }
-
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template {
-        margin: 0 5px;
-    }
-
-    .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-radius: 0;
+    .bootstrap5 .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #f8f9fa;
-        border-color: rgba(0, 0, 0, 0.15);
-        border-left-width: 0;
-        border-top-width: 0;
-        box-shadow: none;
-        color: #495057;
-        height: 72px;
-        line-height: 1.6;
-        outline: none;
-        text-transform: capitalize;
-        width: 100%;
+        color: #212529;
     }
 
-    .material .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: #0000001f;
-    }
-
-    .fabric .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: #f4f4f4;
-    }
-
-    .bootstrap .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: rgb(230, 230, 230);
-    }
-
-    .bootstrap4 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus,
-    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings:focus, {
-        background-color: #5c636a;
+    .bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #343a40;
         color: #fff;
     }
 
-    .tailwind .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: #e5e7eb;
+    .highcontrast .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #000000;
+        color: #ffffff;
     }
 
-    .highcontrast .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: rgb(104, 87, 8);
+    .material3 .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #f3f1f8;
     }
 
-    .material-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: #ffffff1a;
+    .material3-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #2a2731;
     }
 
-    .fabric-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: rgb(65, 64, 64);
+    .schedule-overview .overview-toolbar.e-rtl + *{
+        flex-direction: row-reverse;
     }
 
-    .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: rgb(49, 49, 49);
+    .schedule-overview .overview-toolbar.e-toolbar {
+        border-radius: 0;
     }
 
-    .tailwind-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: #4b5563;
+    .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn.e-tbtn-txt {
+        display: inline-grid;
     }
 
-    .bootstrap5-dark .schedule-overview .overview-toolbar .overview-toolbar-settings:focus {
-        background-color: #5c636a;
+    .material .schedule-overview .overview-toolbar.e-toolbar {
+        border-style: solid;
     }
 
-    .bootstrap5 .schedule-overview .overview-toolbar .e-toolbar {
-        border: 1px solid #dee2e6;
+    .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item:not(.e-separator) {
+        padding: 3.5px;
     }
 
-    .bootstrap5-dark .schedule-overview .overview-toolbar .e-toolbar {
-        border: 1px solid #444c54;
+    .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item .e-btn.e-tbar-btn .e-icons.e-btn-icon,
+    .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item .e-btn.e-tbar-btn .e-tbar-btn-text {
+        line-height: 23px !important;
+        min-height: 23px !important;
+        padding: 0px !important;
+    }
+
+    .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item.e-template {
+        margin: 0 5px;
     }
 
     .schedule-overview .overview-content {
-        border: 1px solid #00000026;
-        border-top: 0;
         display: flex;
     }
 
     .schedule-overview .overview-content .left-panel {
-        height: 600px;
+        height: 700px;
         width: 100%;
     }
 
     .schedule-overview .overview-content .right-panel {
         display: block;
-        height: 600px;
+        height: 700px;
         transform: translateX(0%);
         transition: transform .5s ease, width 500ms;
         width: 500px;
@@ -589,16 +352,11 @@
 
     .schedule-overview .overview-content .right-panel .control-panel {
         background: #f8f9fa;
-        border-left: 1px solid #00000026;
         font-size: 14px;
         height: 100%;
         overflow: auto;
         padding: 15px;
         width: 100%;
-    }
-
-    .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
-        background: #374151;
     }
 
     .schedule-overview .overview-content .right-panel .control-panel .col-row {
@@ -624,32 +382,7 @@
 
     .schedule-overview .overview-scheduler {
         height: 100%;
-        padding: 10px;
         width: 100%;
-    }
-
-    .schedule-overview .e-schedule .e-vertical-view .e-header-cells {
-        text-align: center !important;
-    }
-
-    .schedule-overview .e-schedule .date-text {
-        font-size: 14px;
-    }
-
-    .schedule-overview .e-schedule.e-device .date-text {
-        font-size: 12px;
-    }
-
-    .schedule-overview .e-schedule .weather-image {
-        width: 20px;
-        height: 20px;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .schedule-overview .e-schedule .weather-text {
-        font-size: 11px;
     }
 
     .schedule-overview .e-schedule-toolbar .e-views,
@@ -671,152 +404,13 @@
         user-select: none;
     }
 
-    .schedule-overview .quick-info-header {
-        background-color: white;
-        padding: 8px 18px;
-    }
-
-    .tailwind-dark .schedule-overview .quick-info-header {
-        background-color: #374151;
-    }
-
-    .bootstrap5-dark .schedule-overview .quick-info-header {
-        background-color: transparent;
-    }
-
-    .bootstrap-dark .schedule-overview .quick-info-header {
-        background-color: #1a1a1a;
-    }
-
-    .fabric-dark .schedule-overview .quick-info-header {
-        background-color: #201f1f;
-    }
-
-    .fluent-dark .schedule-overview .quick-info-header {
-        background-color: #252423;
-    }
-
-    .material-dark .schedule-overview .quick-info-header {
-        background-color: #424242;
-    }
-
-    .highcontrast .schedule-overview .quick-info-header {
-        background-color: #000000;
-    }
-
-    .schedule-overview .quick-info-header-content {
-        justify-content: flex-end;
-        display: flex;
-        flex-direction: column;
-        padding: 5px 10px 5px;
-    }
-
-    .tailwind-dark .schedule-overview .quick-info-header-content,
-    .bootstrap-dark .schedule-overview .quick-info-header-content,
-    .bootstrap5-dark .schedule-overview .quick-info-header-content,
-    .fabric-dark .schedule-overview .quick-info-header-content,
-    .material-dark .schedule-overview .quick-info-header-content,
-    .highcontrast .schedule-overview .quick-info-header-content {
-        color: #fff !important;
-    }
-
-    .schedule-overview .quick-info-title {
-        font-weight: 500;
-        font-size: 16px;
-        letter-spacing: 0.48px;
-        height: 22px;
-    }
-
-    .schedule-overview .duration-text {
-        font-size: 11px;
-        letter-spacing: 0.33px;
-        height: 14px;
-    }
-
-    .schedule-overview .content-area {
-        padding: 10px;
-        width: auto;
-        margin: unset;
-    }
-
-    .schedule-overview .event-content {
-        height: 90px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 15px;
-    }
-
-    .schedule-overview .meeting-type-wrap,
-    .schedule-overview .meeting-subject-wrap,
-    .schedule-overview .notes-wrap {
-        font-size: 11px;
-        color: #666;
-        letter-spacing: 0.33px;
-        height: 24px;
-        padding: 5px;
-        display: flex;
-    }
-
-    .schedule-overview .event-content div label {
-        display: inline-block;
-        min-width: 45px;
-        color: #666;
-    }
-
-    .schedule-overview .event-content div span {
-        font-size: 11px;
-        color: #151515;
-        letter-spacing: 0.33px;
-        line-height: 14px;
-        padding-left: 8px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .tailwind-dark .schedule-overview .event-content div label,
-    .bootstrap-dark .schedule-overview .event-content div label,
-    .bootstrap5-dark .schedule-overview .event-content div label,
-    .fluent-dark .schedule-overview .event-content div label,
-    .fabric-dark .schedule-overview .event-content div label,
-    .material-dark .schedule-overview .event-content div label,
-    .highcontrast .schedule-overview .event-content div label,
-    .tailwind-dark .schedule-overview .event-content div span,
-    .bootstrap-dark .schedule-overview .event-content div span,
-    .bootstrap5-dark .schedule-overview .event-content div span,
-    .fluent-dark .schedule-overview .event-content div span,
-    .fabric-dark .schedule-overview .event-content div span,
-    .material-dark .schedule-overview .event-content div span,
-    .highcontrast .schedule-overview .event-content div span {
-        color: #fff;
-    }
-
-    .schedule-overview .cell-footer.e-btn {
-        background-color: #ffffff;
-        border-color: #878787;
-        color: #878787;
-    }
-
-    .schedule-overview .cell-footer {
-        padding-top: 10px;
-    }
-
-    .schedule-overview .e-quick-popup-wrapper.e-template .e-cell-popup .e-popup-content {
-        padding: 0 14px;
-    }
-
-    .schedule-overview .e-quick-popup-wrapper.e-template .e-event-popup .e-popup-footer {
-        display: block;
-    }
-
-    .schedule-overview .e-quick-popup-wrapper.e-template .e-popup-footer button:first-child {
-        margin-right: 5px;
-    }
-
     .schedule-overview .calendar-import.e-upload {
         border: 0;
         padding-left: 0 !important;
+    }
+
+    .schedule-overview .calendar-import.e-upload .e-btn-icon {
+        margin-left: initial;
     }
 
     .schedule-overview .calendar-import.e-upload .e-file-select-wrap {
@@ -828,23 +422,13 @@
         display: none;
     }
 
-    .schedule-overview .quick-info-header {
-        background-color: white;
-        padding: 8px 18px;
-    }
-
-    .schedule-overview .content-area {
-        padding: 10px;
-        width: 100%;
-    }
-
     .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 14px;
     }
 
     .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 12px;
-    }   
+    }
 
     .schedule-overview.e-schedule .e-vertical-view .e-header-cells,
     .schedule-overview.e-schedule .e-timeline-month-view .e-header-cells {
@@ -868,10 +452,6 @@
         background-size: cover;
     }
 
-    .schedule-overview.e-schedule .weather-text {
-        font-size: 11px;
-    }
-
     .schedule-overview.e-schedule .e-month-view .weather-image {
         float: right;
         margin: -20px 2px 0 0;
@@ -879,96 +459,90 @@
         height: 20px;
     }
 
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn {
-        height: 50px !important;
+    .fluent .e-appbar .e-btn-icon.e-icons,
+    .fluent-dark .e-appbar .e-btn-icon.e-icons {
+        margin-top: -2px;
     }
 
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item:not(.e-separator) {
-        padding: 3.5px;
+    .fluent .e-toolbar-item .e-checkbox-wrapper .e-icons.e-frame,
+    .fluent-dark .e-toolbar-item .e-checkbox-wrapper .e-icons.e-frame {
+        height: 17px;
+        line-height: 17px;
+        width: 17px;
     }
 
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn {
-        padding: 1.5px;
+    .fluent .e-toolbar-item .e-checkbox-wrapper .e-icons.e-frame.e-check,
+    .fluent-dark .e-toolbar-item .e-checkbox-wrapper .e-icons.e-frame.e-check {
+        font-size: 15px;
+        line-height: 16px;
     }
 
-    .e-bigger .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item:not(.e-separator) {
-        padding: 5px;
+    .e-toolbar .e-toolbar-item .e-tbar-btn {
+        padding-top: 2px;
+        padding-bottom: 2px;
     }
 
-    .e-bigger .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn {
-        padding: 6px;
+    #exportBtn {
+        white-space: nowrap;
     }
 
-    .bootstrap:not(.e-bigger) .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn:hover,
-    .bootstrap-dark:not(.e-bigger) .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn:hover,
-    .bootstrap4:not(.e-bigger) .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn:hover {
-        border-width: 1.5px;
-        padding: unset !important;
+    .time {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        padding: 0 5px;
     }
 
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-btn.e-tbar-btn .e-icons.e-btn-icon,
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item .e-btn.e-tbar-btn .e-tbar-btn-text {
-        line-height: 23px !important;
-        min-height: 23px !important;
-        padding: 0px !important;
+    .template {
+        height: 46px;
+        line-height: 23px;
     }
 
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template .icon-child {
+    .template .icon-child {
+        text-align: center;
         height: 23px !important;
     }
 
-    .schedule-overview .overview-toolbar .e-toolbar .e-toolbar-item.e-template .text-child {
+    .template .text-child {
+        font-size: 14px;
         line-height: 23px !important;
     }
 
-    .tailwind .schedule-overview.e-schedule .e-left-indent .e-header-cells,
-    .tailwind-dark .schedule-overview.e-schedule .e-left-indent .e-header-cells {
-        height: 66px;
+    @media (max-width: 481px) {
+        .schedule-overview .overview-content .right-panel {
+            position: absolute;
+            width: 90%;
+        }
+
+        .import-button,
+        #printBtn,
+        #exportBtn {
+            display: none;
+        }
+
     }
 
-    .tailwind .schedule-overview .e-more-popup-wrapper .e-more-event-close .e-btn-icon,
-    .tailwind-dark .schedule-overview .e-more-popup-wrapper .e-more-event-close .e-btn-icon {
-        margin-top: 0px;
-    }
+    @media (max-width: 1024px) {
+        .schedule-overview .overview-content .right-panel .control-panel .col-row {
+            display: initial;
+        }
 
-    .bootstrap-dark .schedule-overview .overview-content {
-        border: 1px solid #505050;
-    }
+        .schedule-overview .overview-content .right-panel .control-panel .col-left {
+            flex: initial;
+            max-width: initial;
+            margin-bottom: initial;
+        }
 
-    .bootstrap5-dark .schedule-overview .overview-content {
-        border: 1px solid #444c54;
-    }
-
-    .material-dark .schedule-overview .overview-content {
-        border: 1px solid #616161;
-    }
-
-    .bootstrap5 .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-color: #dee2e6;
-    }
-
-    .bootstrap5-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-color: #444c54;
-    }
-
-    .bootstrap-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-color: #505050;
-    }
-
-    .material-dark .schedule-overview .overview-toolbar .overview-toolbar-settings {
-        border-color: #616161;
-    }
-
-    .bootstrap-dark .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
-    .material-dark .schedule-overview .overview-header .overview-titlebar .title-bar-btn,
-    .material .schedule-overview .overview-header .overview-titlebar .title-bar-btn {
-        box-shadow: none;
+        .schedule-overview .overview-content .right-panel .control-panel .col-right {
+            flex: initial;
+            max-width: initial;
+        }
     }
 </style>
 
 <script>
     import Vue from "vue";
-    import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization, compile } from '@syncfusion/ej2-base';
+    import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization, createElement } from '@syncfusion/ej2-base';
     import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
     import { DataManager, Predicate, Query } from '@syncfusion/ej2-data';
     import { ButtonPlugin, ButtonComponent, SwitchPlugin, SwitchComponent, CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
@@ -979,8 +553,8 @@
     import { MultiSelectPlugin, DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
     import { MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
     import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';
+    import { AppBarPlugin } from "@syncfusion/ej2-vue-navigations";
     MultiSelect.Inject(CheckBoxSelection);
-
 
     Vue.use(SchedulePlugin);
     Vue.use(TimePickerPlugin);
@@ -994,11 +568,12 @@
     Vue.use(MultiSelectPlugin);
     Vue.use(DropDownListPlugin);
     Vue.use(CheckBoxPlugin);
+    Vue.use(AppBarPlugin)
     Vue.component(SwitchComponent);
     Vue.component(ButtonComponent);
-
     var dateHeaderTemplate = Vue.component("date-header-template", {
-        template: '<div><div class="date-text">{{getDateHeaderText(data.date)}}</div><div v-html=getWeather(data.date)></div></div>',
+        template: '<div><div class="date-text">{{getDateHeaderDay(data.date)}}</div><div class="date-text">' +
+            '{{getDateHeaderDate(data.date)}}</div><div v-html=getWeather(data.date)></div></div>',
         data() {
             return {
                 intl: new Internationalization(),
@@ -1006,167 +581,36 @@
             };
         },
         methods: {
-            getDateHeaderText: function (value) {
-                return this.intl.formatDate(value, { skeleton: 'Ed' });
+            getDateHeaderDay: function (value) {
+                return this.intl.formatDate(value, { skeleton: 'E' });
+            },
+             getDateHeaderDate: function (value) {
+                return this.intl.formatDate(value, { skeleton: 'd' });
             },
             getWeather: function (value) {
-                switch (value.getDay()) {
-                    case 0:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clear.svg"/><div class="weather-text">25°C</div>';
-                    case 1:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clouds.svg"/><div class="weather-text">18°C</div>';
-                    case 2:
-                        return '<img class="weather-image" src="source/schedule/images/weather-rain.svg"/><div class="weather-text">10°C</div>';
-                    case 3:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clouds.svg"/><div class="weather-text">16°C</div>';
-                    case 4:
-                        return '<img class="weather-image" src="source/schedule/images/weather-rain.svg"/><div class="weather-text">8°C</div>';
-                    case 5:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clear.svg"/><div class="weather-text">27°C</div>';
-                    case 6:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clouds.svg"/><div class="weather-text">17°C</div>';
-                    default:
-                        return null;
+            switch (value.getDay()) {
+            case 0:
+                return '<img class="weather-image" src="src/schedule/images/weather-clear.svg"/>';
+            case 1:
+                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg"/>';
+            case 2:
+                return '<img class="weather-image" src="src/schedule/images/weather-rain.svg"/>';
+            case 3:
+                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg"/>';
+            case 4:
+                return '<img class="weather-image" src="src/schedule/images/weather-rain.svg"/>';
+            case 5:
+                return '<img class="weather-image" src="src/schedule/images/weather-clear.svg"/>';
+            case 6:
+                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg"/>';
+            default:
+                return null;
                 }
             }
         }
     });
 
-    var headerTemplateVue = Vue.component("headerTemplate", {
-        template:  `<div class="quick-info-header">
-        <div class="quick-info-header-content" :style="getHeaderStyles(data)">
-        <div class="quick-info-title">{{getHeaderTitle(data)}}</div>
-        <div class="duration-text">{{getHeaderDetails(data)}}</div>
-        </div></div>`,
-        data: function() {
-            return {
-                intl: new Internationalization(),
-                data: {}
-            };
-        },
-        methods: {
-    getHeaderStyles: function(data) {
-        if (data.elementType === 'cell') {
-            return { 'align-items': 'center', 'color': '#919191' };
-        } else {
-          const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-          const resources = scheduleObj.getResourceCollections()[0];
-          const resourceData = (resources.dataSource).filter((resource) =>
-          resource.CalendarId === data.CalendarId)[0];
-          let calendarColor = '#3f51b5';
-          if (resourceData) {
-            calendarColor = (resourceData.CalendarColor).toString();
-          }
-          return { 'background': calendarColor, 'color': '#FFFFFF' };
-        }
-    },
-    getHeaderTitle: function(data) {
-        return (data.elementType === 'cell') ? 'Add Appointment' : 'Appointment Details';
-    },
-    getHeaderDetails: function(data) {
-      return (
-        this.intl.formatDate(data.StartTime, { type: "date", skeleton: "full" }) + " (" +
-        this.intl.formatDate(data.StartTime, { skeleton: 'hm' }) + " - " +
-        this.intl.formatDate(data.EndTime, { skeleton: 'hm' }) + ")"
-      );
-    } 
-  }
-});
-
-var contentTemplateVue = Vue.component("contentTemplate", {
-  template: `<div class="quick-info-content"><div class="e-cell-content" v-if="data.elementType === 'cell'">
-    <div class="content-area"><ejs-textbox ref="titleObj" id="title" placeholder="Title"></ejs-textbox></div>
-    <div class="content-area"><ejs-dropdownlist ref="eventTypeObj" id="eventType" :dataSource="roomData" index="0" :fields="fields" 
-    popupHeight="150px" placeholder="Choose Type"></ejs-dropdownlist></div>
-    <div class="content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div></div>
-    <div class="event-content" v-else><div class="meeting-type-wrap"><label>Subject</label>:<span>{{data.Subject}}</span></div>
-    <div class="meeting-subject-wrap"><label>Type</label>:<span>{{getEventType(data)}}</span></div>
-    <div class="notes-wrap"><label>Notes</label>:<span>{{data.Description}}</span></div></div></div>`,
-  data: function() {
-    return {
-      fields: { text: 'CalendarName', value: 'CalendarId' },
-      roomData: [
-            { CalendarName: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
-            { CalendarName: 'Company', CalendarId: 2, CalendarColor: '#ff7f50' },
-            { CalendarName: 'Birthday', CalendarId: 3, CalendarColor: '#AF27CD' },
-            { CalendarName: 'Holiday', CalendarId: 4, CalendarColor: '#808000' }
-        ],
-      data: {}
-    };
-  },
-  methods: {
-    getEventType: function(data) {
-      const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-      const resources = scheduleObj.getResourceCollections()[0];
-      const resourceData = (resources.dataSource).filter((resource) =>
-      resource.CalendarId === data.CalendarId)[0];
-      let calendarText = '';
-        if (resourceData) {
-            calendarText = resourceData.CalendarText.toString();
-        }
-      return calendarText;
-    }
-  }
-});
-
-var footerTemplateVue = Vue.component("footerTemplate", {
-  template:  `<div class="quick-info-footer"><div class="cell-footer" v-if="data.elementType === 'cell'">
-    <ejs-button id="more-details" cssClass="e-flat" content="More Details" v-on:click.native="buttonClickActions"></ejs-button>
-    <ejs-button id="add" cssClass="e-flat" content="Add" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
-    </div><div class="event-footer" v-else>
-    <ejs-button id="delete" cssClass="e-flat" content="Delete" v-on:click.native="buttonClickActions"></ejs-button>
-    <ejs-button id="more-details" cssClass="e-flat" content="More Details" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
-    </div></div>`,
-  data: function() {
-    return {
-      data: {}
-    };
-  },
-  methods: {
-    buttonClickActions: function(e) {
-      const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-      const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
-      const getSlotData = function() {
-        const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
-        const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
-        const eventTypeObj = quickPopup.querySelector("#eventType").ej2_instances[0];
-        let cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
-        if (isNullOrUndefined(cellDetails)) {
-            cellDetails = scheduleObj.getCellDetails(scheduleObj.activeCellsData.element);
-        }
-        let addObj = {};
-        addObj.Id = scheduleObj.getEventMaxID();
-        addObj.Subject = isNullOrUndefined(titleObj.value) ? 'Add title' : titleObj.value;
-        addObj.StartTime = new Date(+cellDetails.startTime);
-        addObj.EndTime = new Date(+cellDetails.endTime);
-        addObj.IsAllDay = cellDetails.isAllDay;
-        addObj.Description = isNullOrUndefined(notesObj.value) ? 'Add notes' : notesObj.value;
-        addObj.CalendarId = eventTypeObj.value;
-        return addObj;
-      };
-      if (e.target.id === "add") {
-        const addObj = getSlotData();
-        scheduleObj.addEvent(addObj);
-      } else if (e.target.id === "delete") {
-        const eventDetails = scheduleObj.activeEventData.event;
-        let currentAction = "Delete";
-        if (eventDetails.RecurrenceRule) {
-          currentAction = "DeleteOccurrence";
-        }
-        scheduleObj.deleteEvent(eventDetails, currentAction);
-      } else {
-        const isCellPopup = quickPopup.firstElementChild.classList.contains("e-cell-popup");
-        const eventDetails = isCellPopup ? getSlotData() : scheduleObj.activeEventData.event;
-        let currentAction = isCellPopup ? "Add" : "Save";
-        if (eventDetails.RecurrenceRule) {
-          currentAction = "EditOccurrence";
-        }
-        scheduleObj.openEditor(eventDetails, currentAction, true);
-      }
-      scheduleObj.closeQuickInfoPopup();
-    }
-  }
-});
+    var liveTimeInterval;
 
     export default Vue.extend({
         data: function () {
@@ -1208,6 +652,11 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                     { text: 'First Four-Day Week', value: 'FirstFourDayWeek' }
                 ],
                 weekNumberValue: "Off",
+                tooltipData: [
+                    { text: 'Off', value: "Off"},
+                    { text: 'On', value: "On"},
+                ],
+                tooltipValue: 'Off',
                 checkboxMode: 'CheckBox',
                 workDays: [1, 2, 3, 4, 5],
                 weekDays: [
@@ -1220,8 +669,7 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                   { text: 'Saturday', value: 6 }
                 ],
                 calendarsValue: [1],
-                isTimelineView: false,
-                buttons: { browse: this.importTemplateFn({ text: 'Import' })[0] },
+                buttons: { browse: this.importTemplateFn() },
                 exportItems: [
                   { text: 'iCalendar', iconCss: 'e-icons e-export' },
                   { text: 'Excel', iconCss: 'e-icons e-export-excel' }
@@ -1311,67 +759,39 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                         }]
                     }
                 ],
-                selectedTarget: null,
-                quickInfoTemplates: {
-                  header: function(e) {
-                    return { template: headerTemplateVue };
-                  },
-                  content: function(e) {
-                    return { template: contentTemplateVue };
-                  },
-                  footer: function(e) {
-                    return { template: footerTemplateVue };
-                  }
-                },              
-                multiDragTemplate: function () {
-                    return {
-                        template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="multi_Drag" :checked="false" :created="onCreated" :change="onAllowMultiDrag"></ejs-switch></div><div class="text-child" style="font-size:14px;">Allow Multi Drag</div></div>',
-                            data: function () { return { data: {} }; },
-                            methods : {
-                                onCreated: function() {
-                                    document.getElementById('multi_Drag').setAttribute('tabindex', '-1');
-                                },
-                                onAllowMultiDrag: function(args) {
-                                    let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    scheduleObj.allowMultiDrag = args.checked;
-                                }
-                            }
-                        })
-                    }
-                },
+                selectedTarget: null,              
                 timelineTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="timeline_views" :checked="false" :created="onCreated" :change="onTimelineViewChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Timeline Views</div></div>',
+                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="timeline_views" :checked="false" :created="onCreated" :change="onTimelineViewChange"></ejs-checkbox></div><div class="text-child">Timeline Views</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
                                 onCreated: function() {
-                                    document.getElementById('timeline_views').setAttribute('tabindex', '-1');
+                                    document.getElementById('timeline_views').setAttribute('tabindex', '0');
                                 },
                                 onTimelineViewChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    this.isTimelineView = args.checked;
+                                    let isTimelineView = args.checked;
                                     switch (scheduleObj.currentView) {
                                         case 'Day':
                                         case 'TimelineDay':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineDay' : 'Day';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineDay' : 'Day';
                                             break;
                                         case 'Week':
                                         case 'TimelineWeek':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineWeek' : 'Week';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineWeek' : 'Week';
                                             break;
                                         case 'WorkWeek':
                                         case 'TimelineWorkWeek':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
                                             break;
                                         case 'Month':
                                         case 'TimelineMonth':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineMonth' : 'Month';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineMonth' : 'Month';
                                             break;
                                         case 'Year':
                                         case 'TimelineYear':
-                                            scheduleObj.currentView = this.isTimelineView ? 'TimelineYear' : 'Year';
+                                            scheduleObj.currentView = isTimelineView ? 'TimelineYear' : 'Year';
                                             break;
                                         case 'Agenda':
                                             scheduleObj.currentView = 'Agenda';
@@ -1386,11 +806,11 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 groupTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Grouping</div></div>',
+                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-checkbox></div><div class="text-child">Grouping</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
                                 onCreated: function() {
-                                    document.getElementById('grouping').setAttribute('tabindex', '-1');
+                                    document.getElementById('grouping').setAttribute('tabindex', '0');
                                 },
                                 onGroupingChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
@@ -1403,13 +823,13 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 gridlineTemplate: function () {
                     return {
                         template: Vue.component('SwitchComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="gridlines" :checked="true" :created="onCreated" :change="onGridlinesChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Gridlines</div></div>',
+                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="timeSlot" :checked="true" :created="onCreated" :change="onTimeSlotChange"></ejs-checkbox></div><div class="text-child">Time Slots</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
                                 onCreated: function() {
-                                    document.getElementById('gridlines').setAttribute('tabindex', '-1');
+                                    document.getElementById('timeSlot').setAttribute('tabindex', '0');
                                 },
-                                onGridlinesChange: function(args) {
+                                onTimeSlotChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.timeScale.enable = args.checked;
                                 }
@@ -1420,32 +840,15 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 autoHeightTemplate: function () {
                     return {
                         template: Vue.component('ButtonComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="row_auto_height" :checked="false" :created="onCreated" :change="onRowAutoHeightChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Row Auto Height</div></div>',
+                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="row_auto_height" :checked="false" :created="onCreated" :change="onRowAutoHeightChange"></ejs-checkbox></div><div class="text-child">Auto Fit Rows</div></div>',
                             data: function () { return { data: {} }; },
                             methods: {
                                 onCreated: function() {
-                                    document.getElementById('row_auto_height').setAttribute('tabindex', '-1');
+                                    document.getElementById('row_auto_height').setAttribute('tabindex', '0');
                                 },
                                  onRowAutoHeightChange: function(args) {
                                     let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
                                     scheduleObj.rowAutoHeight = args.checked;
-                                }
-                            }
-                        })
-                    }
-                },
-                tooltipTemplate: function () {
-                    return {
-                        template: Vue.component('ButtonComponent', {
-                            template: '<div style="height:46px;line-height:27px;"><div class="icon-child" style="text-align:center;"><ejs-switch id="tooltip" :checked="false" :created="onCreated" :change="onTooltipChange"></ejs-switch></div><div class="text-child" style="font-size:14px;">Tooltip</div></div>',
-                            data: function () { return { data: {} }; },
-                            methods: {
-                                onCreated: function() {
-                                    document.getElementById('tooltip').setAttribute('tabindex', '-1');
-                                },
-                                onTooltipChange: function(args) {
-                                    let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    scheduleObj.eventSettings.enableTooltip = args.checked;
                                 }
                             }
                         })
@@ -1459,20 +862,18 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop,TimelineMonth, TimelineViews, Year, TimelineYear, Print, ExcelExport,ICalendarImport, ICalendarExport]
         },
-        methods: {
-        onPopupOpen: function(args) {
-            if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo')) {
-                if (!args.element.classList.contains('e-template')) {
-                    args.element.classList.add('e-template');
-                }
-                if (!args.target.classList.contains('e-appointment')) {
-                    args.element.querySelector('#eventType').ej2_instances[0].index = args.data.CalendarId - 1;
-                }
+        beforeDestroy: function () {
+            if (liveTimeInterval) {
+                clearInterval(liveTimeInterval);
             }
         },
-        importTemplateFn: function(data) {
-            const template = '<div class="e-template-btn"><span class="e-btn-icon e-icons e-upload-1 e-icon-left"></span>${text}</div>';
-            return compile(template.trim())(data);
+         mounted: function () { 
+            const element = document.querySelector('.calendar-import .e-css.e-btn');
+            element.classList.add('e-inherit');
+         },
+        methods: {
+        importTemplateFn: function() {
+            return createElement('div', { className: 'e-template-btn', innerHTML: '<span class="e-btn-icon e-icons e-upload-1 e-icon-left"></span>Import' });
         },
         onSelected: function(args) {
             let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
@@ -1580,32 +981,40 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         scheduleObj.firstDayOfWeek = args.value;
       },
     updateLiveTime: function(timezone = 'UTC') {
-        this.liveTimeUpdate = new Date().toLocaleTimeString('en-US', { timeZone: timezone });
+        let scheduleObj = this.$refs.scheduleObj.ej2Instances;
+        if (scheduleObj.isAdaptive) {
+            this.liveTimeUpdate = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: timezone });
+        }
+        else {
+            this.liveTimeUpdate = new Date().toLocaleTimeString('en-US', { timeZone: timezone });
+        }
     },
     onToolbarCreated: function() {
         let scheduleObj = this.$refs.scheduleObj.ej2Instances;
-        setInterval(() => { this.updateLiveTime(scheduleObj ? scheduleObj.timezone : 'UTC'); }, 1000);
+        liveTimeInterval = setInterval(() => { this.updateLiveTime(scheduleObj ? scheduleObj.timezone : 'UTC'); }, 1000);
     },
     onToolbarItemClicked: function(args) {
         let scheduleObj = this.$refs.scheduleObj.ej2Instances;
+        let timelineSwitch = document.getElementById('timeline_views').ej2_instances[0];
+        let isTimelineView = timelineSwitch.checked;
         switch (args.item.text) {
             case 'Day':
-                this.currentView = this.isTimelineView ? 'TimelineDay' : 'Day';
+                scheduleObj.currentView = isTimelineView ? 'TimelineDay' : 'Day';
                 break;
             case 'Week':
-                this.currentView = this.isTimelineView ? 'TimelineWeek' : 'Week';
+                scheduleObj.currentView = isTimelineView ? 'TimelineWeek' : 'Week';
                 break;
             case 'WorkWeek':
-                this.currentView = this.isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
+                scheduleObj.currentView = isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
                 break;
             case 'Month':
-                this.currentView = this.isTimelineView ? 'TimelineMonth' : 'Month';
+                scheduleObj.currentView = isTimelineView ? 'TimelineMonth' : 'Month';
                 break;
             case 'Year':
-                this.currentView = this.isTimelineView ? 'TimelineYear' : 'Year';
+                scheduleObj.currentView = isTimelineView ? 'TimelineYear' : 'Year';
                 break;
             case 'Agenda':
-                this.currentView = 'Agenda';
+                scheduleObj.currentView = 'Agenda';
                 break;
             case 'New Event':
                 const eventData = this.getEventData();
@@ -1693,18 +1102,23 @@ var footerTemplateVue = Vue.component("footerTemplate", {
         scheduleObj.resources[0].query = resourcePredicate ? new Query().where(resourcePredicate) :
         new Query().where('CalendarId', 'equal', 1);
     },
+    onTooltipChange(args) {
+        let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+    scheduleObj.eventSettings.enableTooltip = args.value;
+    },
     onContextMenuBeforeOpen: function(args) {
         let newEventElement = document.querySelector('.e-new-event');
         if (newEventElement) {
             remove(newEventElement);
             removeClass([document.querySelector('.e-selected-cell')], 'e-selected-cell');
         }
+        let scheduleObj = this.$refs.scheduleObj.ej2Instances;
+        scheduleObj.closeQuickInfoPopup();
         let targetElement = args.event.target;
         if (closest(targetElement, '.e-contextmenu')) {
             return;
         }
         let menuObj = this.$refs.menuObj;
-        let scheduleObj = this.$refs.scheduleObj;
         this.selectedTarget = closest(targetElement, '.e-appointment,.e-work-cells,' +
         '.e-vertical-view .e-date-header-wrap .e-all-day-cells,.e-vertical-view .e-date-header-wrap .e-header-cells');
         if (isNullOrUndefined(this.selectedTarget)) {
@@ -1720,7 +1134,12 @@ var footerTemplateVue = Vue.component("footerTemplate", {
                 menuObj.showItems(['Save', 'Delete'], true);
                 menuObj.hideItems(['Add', 'AddRecurrence', 'Today', 'EditRecurrenceEvent', 'DeleteRecurrenceEvent'], true);
             }
-        return;
+            return;
+        } else if ((this.selectedTarget.classList.contains('e-work-cells') || this.selectedTarget.classList.contains('e-all-day-cells')) &&
+            !this.selectedTarget.classList.contains('e-selected-cell')) {
+            this.selectedTarget.setAttribute('aria-selected', 'true');
+            this.selectedTarget.classList.add('e-selected-cell');
+            removeClass([].slice.call(scheduleObj.element.querySelectorAll('.e-selected-cell')), 'e-selected-cell');
         }
         menuObj.hideItems(['Save', 'Delete', 'EditRecurrenceEvent', 'DeleteRecurrenceEvent'], true);
         menuObj.showItems(['Add', 'AddRecurrence', 'Today'], true);

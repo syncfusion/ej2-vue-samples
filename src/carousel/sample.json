@@ -3,7 +3,7 @@
     "directory": "carousel",
     "category": "Navigation",
     "ftName": "carousel",
-    "type": "preview",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -42,15 +42,44 @@
                     "arrowsTemplate",
                     "indicatorsTemplate",
                     "items",
-                    "showArrows"
+                    "showArrows",
+                    "animationEffect"
                 ],
                 "CarouselItem": [
                     "template"
-                ],
-                "animation": [
-                    "effect"
                 ]
             }
+        },
+        {
+            "url": "partial-visible",
+            "name": "Partial Visible",
+            "category": "Carousel",
+            "description": "This example demonstrates the simple slide show of images using Syncfusion Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "items",
+                    "partialVisible"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            }
+        },
+        {
+            "url": "indicator-type",
+            "name": "Indicator Type",
+            "category": "Carousel",
+            "type": "new",
+            "api": {
+                "Carousel": [
+                    "indicatorsType",
+                    "items"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            },
+            "description": "This example showcases the available indicator types and its functionalities in Syncfusion Vue Carousel component."
         },
         {
             "url": "keyboard-navigation",

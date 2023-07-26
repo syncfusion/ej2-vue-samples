@@ -1,5 +1,5 @@
 <template>
-<div class="control-section" style="overflow:hidden;">
+<div>
 <div class="col-lg-8 control-section">
     <div class="control-wrapper">
         <div class="sample-container">
@@ -37,7 +37,7 @@
                         <div>ReadOnly </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="padding-left: 0;padding-top: 0">
                             <ejs-checkbox ref="checkInstance1" :change="changeCheck" id="readonly" :checked=checked></ejs-checkbox>
                         </div>
                     </td>
@@ -47,7 +47,7 @@
                         <div>Enabled </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="padding-left: 0;padding-top: 0">
                             <ejs-checkbox ref="checkInstance2" :change="changeState" id="enable" checked=true></ejs-checkbox>
                         </div>
                     </td>
@@ -57,7 +57,7 @@
                         <div>Enable Html Encode </div>
                     </td>
                     <td>
-                        <div>
+                        <div style="padding-left: 0;padding-top: 0">
                             <ejs-checkbox ref="checkInstance3" :change="changeHtml" id="enablehtml" :checked=checked></ejs-checkbox>
                         </div>
                     </td>

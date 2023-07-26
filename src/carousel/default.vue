@@ -13,7 +13,7 @@
             </ejs-carousel>
             <div id="action-description">
                 <p>
-                    This sample demonstrates the basic rendering of the <b>Vue Carousel</b> component with
+                    This sample demonstrates the basic rendering of the <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component with
                     <code>items</code>.
                 </p>
             </div>
@@ -48,7 +48,7 @@
     }
 
     .default-carousel .e-carousel-items .e-carousel-item .img-caption {
-        bottom: 4em;
+        bottom: 5em;
         color: #fff;
         font-size: 12pt;
         height: 2em;

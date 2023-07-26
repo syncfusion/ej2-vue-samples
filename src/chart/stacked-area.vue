@@ -2,36 +2,33 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width'>
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingArea' xName='x' yName='y' name='Organic' > </e-series>
-                <e-series :dataSource='seriesData1' type='StackingArea' xName='x' yName='y' name='Fair-trade' > </e-series>
-                <e-series :dataSource='seriesData2' type='StackingArea' xName='x' yName='y' name='Veg Alternatives' > </e-series>
-                <e-series :dataSource='seriesData3' type='StackingArea' xName='x' yName='y' name='Others' > </e-series>
-               
+                <e-series :dataSource='seriesData' type='StackingArea' xName='x' yName='y' name='Bank Transfer' :border='border'> </e-series>
+                <e-series :dataSource='seriesData1' type='StackingArea' xName='x' yName='y' name='Credit Card' :border='border'> </e-series>
+                <e-series :dataSource='seriesData2' type='StackingArea' xName='x' yName='y' name='Debit Card' :border='border'> </e-series>
+                <e-series :dataSource='seriesData3' type='StackingArea' xName='x' yName='y' name='Cash' :border='border'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
    <div id="action-description">
     <p>
-        Trend in the sales of ethical product is visualized with default stacked area series in chart. 
-        Legend in the sample shows the information about the series.
+      This Vue Stacked Area example visualizes the amount of sales by payment mode with default stacked area series. A legend in the sample shows information about the series.
     </p>
 </div>
 <div id="description">
    <p>
-    In this example, you can see how to render and configure the stacking area type charts. Stacks the series on top of another series to avoid the overlapping of series with one another, when rendering more than one area series in same chart.
-    You can use <code>fill</code> properties to customize the stacked area. <code>dataLabel</code> is used to represent individual data and its value.
+    In this example, you can see how to render and configure the stacked area chart. This chart visualizes data with y-values stacked one over another in a series order. It shows the relationship between individual values to the total sum of points.
     </p>  
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use stacking area series, we need to inject
             <code>StackingAreaSeries</code> module using <code>provide: { chart: [StackingAreaSeries] }</code> method.
         </p>
         <p>
-            More information on the stacking area series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+          More information about the stacked area series can be found in this
+         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stack-area">documentation section</a>.
         </p>  
 </div>
 
@@ -44,12 +41,12 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, StackingAreaSeries, Legend, DateTime} from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, StackingAreaSeries, Legend, DateTime, Tooltip, Highlight} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -107,31 +104,34 @@ export default Vue.extend({
             majorGridLines: { width: 0 },
             labelFormat: 'y',
             edgeLabelPlacement: 'Shift',
-            lineStyle: { width: 0},
-            majorTickLines: { width: 0}
         },
 
       //Initializing Primary Y Axis
          primaryYAxis:
         {
-            title: 'Spends',
+            title: 'Amount of sales in €',
             minimum: 0, maximum: 7, interval: 1,
-            labelFormat: '{value}B',
+            labelFormat: '{value}K',
             lineStyle: { width: 0},
-            majorTickLines: { width: 0}
+            majorTickLines: { width: 0},
+            minorTickLines: { width: 0 }
         },
         chartArea: {
             border: {
                 width: 0
             }
         },
-
-        width : Browser.isDevice ? '100%' : '60%',
-      title: "Trend in Sales of Ethical Produce"
+      border: { width: 2, color:' #666666'},
+      tooltip: {
+        enable: true
+      },
+      legend: {enableHighlight : true},
+      width : Browser.isDevice ? '100%' : '75%',
+      title: "Amount of Sales by Payment Mode"
     };
   },
   provide: {
-    chart: [StackingAreaSeries, Legend, DateTime]
+    chart: [StackingAreaSeries, Legend, DateTime, Tooltip, Highlight]
   },
   methods: {
    },

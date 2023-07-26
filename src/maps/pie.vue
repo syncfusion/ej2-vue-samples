@@ -6,7 +6,7 @@
                 <div id="pieChart1" style="height:70px;width:70px;"></div>
             </template>
             <template v-slot:pieTwoTemplate="{}">
-                <div id="pieChart2" style="height:70px;width:70px;">
+                <div id="pieChart2" style="height:70px;width:70px;"></div>
             </template>
             <template v-slot:pieThreeTemplate="{}">
                 <div id="pieChart3" style="top:10px;left:10px;height:70px;width:70px;"></div>

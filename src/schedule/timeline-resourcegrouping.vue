@@ -71,7 +71,7 @@
                 eventSettings: {
                     dataSource: this.generateData()
                 },
-                selectedDate: new Date(2021, 3, 4),
+                selectedDate: new Date(2023, 0, 4),
                 currentView: 'TimelineWeek',
                 workDays: [0, 1, 2, 3, 4, 5],
                 allowMultiple : true,

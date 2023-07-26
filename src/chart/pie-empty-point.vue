@@ -1,8 +1,8 @@
 <template>
-  <div class="control-section">
-    <div class="col-md-8 control-section">
-        <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-             :legendSettings='legendSettings' :tooltip='tooltip'>
+  <div>
+    <div class="col-md-8 control-section sb-property-border">
+        <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center'  :enableBorderOnMouseMove='false' id='chartcontainer' :title='title'
+             :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender">
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :mode='emptydata' xName='x' yName='y' :dataLabel='dataLabel' name='Profit' type='Pie' :emptyPointSettings='emptyPointSettings'> </e-accumulation-series>
              
@@ -30,21 +30,20 @@
 </div>
 <div id="action-description">
     <p>
-        This sample illustrates an organization’s annual product-wise profit analysis with the empty point functionality in pie series.  The Mode of empty point can be changed by using <code>Empty Point Mode</code> in property panel.
+        This sample illustrates the annual product-wise profit analysis of an organization with empty point functionality in the pie series.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the empty points. You can use <code>border</code>,
-        <code>fill</code>, <code>mode</code> properties to customize the empty points.
+        In this example, you can see how to render and configure the pie series with empty points. The empty point in the chart can be handled using the <code>EmptyPointSettings</code> property.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
     <br>
     <p>
-        More information on the empty points can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        More information about the empty points in accumulation chart can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/empty-points/">documentation section</a>.
     </p>
 </div>
 </div>
@@ -63,7 +62,7 @@ Vue.use(AccumulationChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -75,35 +74,10 @@ export default Vue.extend({
             { x: 'Milk', y: 70 }, { x: 'Peas', y: 80 },
             { x: 'Fruit', y: 60 }, { x: 'Butter', y: null }
       ],
-     
-      //Initializing Primary X Axis
-       primaryXAxis: {
-            title: 'Years',
-            interval: Browser.isDevice ? 2 : 1,
-            labelIntersectAction: 'Rotate45',
-            valueType: 'Category',
-            majorGridLines: { width: 0 }, minorGridLines: { width: 0 },
-            majorTickLines: { width: 0 }, minorTickLines: { width: 0 },
-            lineStyle: { width: 0 },
-        },
-
-      //Initializing Primary Y Axis
-      primaryYAxis:
-        {
-            title: 'Growth',
-            minimum: -3,
-            maximum: 3,
-            interval: 1,
-            lineStyle: { width: 0 },
-            majorTickLines: { width: 0 }, majorGridLines: { width: 1 },
-            minorGridLines: { width: 1 }, minorTickLines: { width: 0 },
-            labelFormat: '{value}B',
-        },
         
         dataLabel: {
-                    visible: true, position: 'Inside', font: {
+                    visible: true, position: 'Inside',enableRotation: true, font: {
                         fontWeight: '600',
-                        color: '#ffffff'
                     }
                 },
                 emptyPointSettings: {
@@ -113,7 +87,8 @@ export default Vue.extend({
         legendSettings: {
             visible: false,
         },
-         tooltip: { enable: true, format: '${point.x} : <b>${point.y}</b>' },
+       
+         tooltip: { enable: true, format: ' <b>${point.x}</b><br> Profit: <b>$${point.y}K</b>', header: '' },
 
          modedata: ["Drop", "Average", "Zero" ],
 
@@ -138,7 +113,10 @@ export default Vue.extend({
             emptyPointSettings.mode = empty;
             this.emptyPointSettings = emptyPointSettings; 
             
-      }
+      },
+      onTextRender: function (args) {
+        args.text = args.point.x + ": $" + args.point.y + "K";
+    },
   },
 
 });

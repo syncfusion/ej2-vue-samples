@@ -1,7 +1,7 @@
 <template>
   <div class="schedule-vue-sample">
     <div class="control-section">
-      <ejs-schedule id="schedule" height="650px" cssClass="quick-info-template" :popupOpen="onPopupOpen" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
+      <ejs-schedule id="schedule" ref="scheduleObj" height="650px" cssClass="quick-info-template" :popupOpen="onPopupOpen" :selectedDate="selectedDate" :quickInfoTemplates="quickInfoTemplates" :eventSettings="eventSettings">
         <e-resources>
           <e-resource field="RoomId" title="Room Type" name="MeetingRoom" textField="Name" idField="Id" colorField="Color" :dataSource="roomData"></e-resource>
         </e-resources>
@@ -20,13 +20,13 @@
         <template v-slot:contentTemplate="{ data }">
           <div class="quick-info-content">
             <div class="e-cell-content" v-if="data.elementType === 'cell'">
-              <div class="content-area">
+              <div class="quick-content-area">
                 <ejs-textbox ref="titleObj" id="title" placeholder="Title"></ejs-textbox>
               </div>
-              <div class="content-area">
+              <div class="quick-content-area">
                 <ejs-dropdownlist ref="eventTypeObj" id="eventType" :dataSource="roomData" :index="0" :fields="fields" popupHeight="200px" placeholder="Choose Type"></ejs-dropdownlist>
               </div>
-              <div class="content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div>
+              <div class="quick-content-area"><ejs-textbox ref="notesObj" id="notes" placeholder="Notes"></ejs-textbox></div>
             </div>
             <div class="event-content" v-else>
               <div class="meeting-type-wrap"><label>Subject</label>:<span>{{data.Subject}}</span></div>
@@ -92,7 +92,7 @@
         height: 14px;
     }
 
-    .schedule-vue-sample .quick-info-template .content-area {
+    .schedule-vue-sample .quick-info-template .quick-content-area {
         margin: 0;
         padding: 10px;
         width: auto;
@@ -177,11 +177,6 @@
         height: 14px;
     }
 
-    .content-area {
-        padding: 10px;
-        width: 100%;
-    }
-
     .event-content {
         height: 90px;
         display: flex;
@@ -233,7 +228,8 @@
     .bootstrap-dark .quick-info-template .quick-info-header,
     .bootstrap5-dark .quick-info-template .quick-info-header,
     .fluent-dark .quick-info-template .quick-info-header,
-    .fabric-dark .quick-info-template .quick-info-header {
+    .fabric-dark .quick-info-template .quick-info-header,
+    .material3-dark .quick-info-template .quick-info-header {
         background-color: transparent;
     }
 
@@ -241,7 +237,9 @@
     .bootstrap-dark .quick-info-template .quick-info-header-content,
     .fabric-dark .quick-info-template .quick-info-header-content,
     .material-dark .quick-info-template .quick-info-header-content,
-    .highcontrast .quick-info-template .quick-info-header-content {
+    .highcontrast .quick-info-template .quick-info-header-content,
+    .fluent-dark .quick-info-template .quick-info-header-content,
+    .material3-dark .quick-info-template .quick-info-header-content {
         color: #fff !important;
     }
 
@@ -258,13 +256,22 @@
     .material-dark .quick-info-template .event-content div label,
     .material-dark .quick-info-template .event-content div span,
     .highcontrast .quick-info-template .event-content div label,
-    .highcontrast .quick-info-template .event-content div span {
+    .highcontrast .quick-info-template .event-content div span,
+    .material3-dark .quick-info-template .event-content div label,
+    .material3-dark .quick-info-template .event-content div span {
         color: #fff;
     }
 
-    .material .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
+    .material .quick-info-template .e-quick-popup-wrapper .e-popup-footer,
+    .material3 .quick-info-template .e-quick-popup-wrapper .e-popup-footer,
+    .material3-dark .quick-info-template .e-quick-popup-wrapper .e-popup-footer {
         display: block !important;
         padding: 0px 18px 8px 22px !important;
+    }
+
+    .material3 .quick-info-template .e-quick-popup-wrapper .e-event-popup .e-popup-header,
+    .material3-dark .quick-info-template .e-quick-popup-wrapper .e-event-popup .e-popup-header {
+        border-radius: 12px;
     }
 </style>
 
@@ -274,7 +281,7 @@ import { extend, Internationalization, isNullOrUndefined, closest } from "@syncf
 import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 import { quickInfoTemplateData } from "./datasource";
 
 Vue.use(SchedulePlugin);
@@ -313,12 +320,16 @@ export default Vue.extend({
     };
   },
   provide: {
-    schedule: [Day, Week, WorkWeek, Month, Agenda]
+    schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
   },
   methods: {
     onPopupOpen: function(args) {
       if ((args.type == 'QuickInfo' || args.type == 'ViewEventInfo') && !args.element.classList.contains('e-template')) {
         args.element.classList.add('e-template');
+      }
+      if (args.type == 'QuickInfo' && args.target && !args.target.classList.contains('e-appointment')) {
+        const titleObj = document.querySelector("#title").ej2_instances[0];
+        titleObj.focusIn();
       }
     },
     getHeaderStyles: function(data) {
@@ -344,22 +355,18 @@ export default Vue.extend({
       return resourceData.Name;
     },
     buttonClickActions: function(e) {
-      const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
+      const scheduleObj = this.$refs.scheduleObj.ej2Instances;
       const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
       const getSlotData = function() {
         const titleObj = quickPopup.querySelector("#title").ej2_instances[0];
         const notesObj = quickPopup.querySelector("#notes").ej2_instances[0];
         const eventTypeObj = quickPopup.querySelector("#eventType").ej2_instances[0];
-        let cellDetails = scheduleObj.getCellDetails(scheduleObj.getSelectedElements());
-        if (isNullOrUndefined(cellDetails)) {
-          cellDetails = scheduleObj.getCellDetails(scheduleObj.activeCellsData.element);
-        }
         let addObj = {};
         addObj.Id = scheduleObj.getEventMaxID();
         addObj.Subject = isNullOrUndefined(titleObj.value) ? 'Add title' : titleObj.value;
-        addObj.StartTime = new Date(+cellDetails.startTime);
-        addObj.EndTime = new Date(+cellDetails.endTime);
-        addObj.IsAllDay = cellDetails.isAllDay;
+        addObj.StartTime = new Date(scheduleObj.activeCellsData.startTime);
+        addObj.EndTime = new Date(scheduleObj.activeCellsData.endTime);
+        addObj.IsAllDay = scheduleObj.activeCellsData.isAllDay;
         addObj.Description = isNullOrUndefined(notesObj.value) ? 'Add notes' : notesObj.value;
         addObj.RoomId = eventTypeObj.value;
         return addObj;

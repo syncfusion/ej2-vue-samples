@@ -31,6 +31,11 @@
     </div>
 </div>
 </template>
+<style scoped>
+    .e-dropdownbase .e-list-item .e-highlight {
+        color: red;
+    }
+</style>
 <script>
 import Vue from "vue";
 import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";

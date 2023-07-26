@@ -29,7 +29,7 @@
                 <e-markerSetting height='30' width='30' visible='true' :dataSource='dataSourceSydney' :template="'templateSydney'"></e-markerSetting>
                 <e-markerSetting height='30' width='30' visible='true' :dataSource='dataSourceAliceSprings' :template="'templateAlice'"></e-markerSetting>
                 <e-markerSetting height='30' width='30' visible='true' :dataSource='dataSourceBrisbane' :template="'templateBrisbane'"></e-markerSetting>
-            <e-markerSettings>
+            </e-markerSettings>
         </e-layer>
     </e-layers>
 </ejs-maps>

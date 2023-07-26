@@ -162,7 +162,7 @@ export default Vue.extend ({
 
 @media (max-width: 650px) {
     .dashboard-dynamic #togglebtn{
-        display: none;
+        width: 90px !important;
     }
 }
 

@@ -2,36 +2,32 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :border='border'>
+            :chartArea='chartArea' :width='width' :legendSettings='legend' :tooltip='tooltip' >
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='SplineArea' xName='x' yName='y' name='US' width=2 opacity=0.5> </e-series>
-                <e-series :dataSource='seriesData1' type='SplineArea' xName='x' yName='y' name='France' width=2 opacity=0.5> </e-series>
-                 <e-series :dataSource='seriesData2' type='SplineArea' xName='x' yName='y' name='Germany' width=2 opacity=0.5> </e-series>
+                <e-series :dataSource='seriesData' type='SplineArea' xName='Period' yName='US_InflationRate' name='US' width=2 opacity=0.5 :border='border' :marker='circleMarker'> </e-series>
+                <e-series :dataSource='seriesData' type='SplineArea' xName='Period' yName='FR_InflationRate' name='France' width=2 opacity=0.5 :border='border' :marker='diamondMarker'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
 
 <div id="action-description">
     <p>
-        This sample visualizes the data about inflation rate comparison for three countries by using spline area series in the chart. 
-        Legend in the sample shows the information about the series.
+      This Vue Spline Area Chart example visualizes the inflation rate comparision for two countries by using spline area series.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the spline area type charts. This is similar to line type series, but the area will be closed and filled with series color. 
-        You can use <code>border</code> and <code>fill</code> properties to customize the area. <code>marker</code> and <code>dataLabel</code> properties are used to represent individual data and its value. 
-        Legend is enabled in this example with series type shape.
+      In this example, you can see how to render and configure the spline area chart. This chart plots a fitted curve through each data point in a series. It is used to represent time-dependent data and show trends in data at equal intervals.
      </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use spline area series, we need to inject
             <code>SplineAreaSeries</code> module using <code>provide: { chart: [SplineAreaSeries] }</code> method.
         </p>
         <p>
-            More information on the area series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+          More information about the spline area series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/spline-area">documentation section</a>.
         </p> 
 </div>
 </div>
@@ -44,55 +40,46 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, SplineAreaSeries, Legend, DateTime } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, SplineAreaSeries, Legend, DateTime, Highlight , Tooltip} from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
     return {
        theme: theme,
       seriesData: [
-                    { x: new Date(2002, 0, 1), y: 2.2 }, { x: new Date(2003, 0, 1), y: 3.4 },
-                    { x: new Date(2004, 0, 1), y: 2.8 }, { x: new Date(2005, 0, 1), y: 1.6 },
-                    { x: new Date(2006, 0, 1), y: 2.3 }, { x: new Date(2007, 0, 1), y: 2.5 },
-                    { x: new Date(2008, 0, 1), y: 2.9 }, { x: new Date(2009, 0, 1), y: 3.8 },
-                    { x: new Date(2010, 0, 1), y: 1.4 }, { x: new Date(2011, 0, 1), y: 3.1 }
-
+            { Period : new Date(2002, 1, 1), US_InflationRate : 2.2, FR_InflationRate : 2    },
+            { Period : new Date(2003, 1, 1), US_InflationRate : 3.4, FR_InflationRate : 1.7  },
+            { Period : new Date(2004, 1, 1), US_InflationRate : 2.8, FR_InflationRate : 1.8, },
+            { Period : new Date(2005, 1, 1), US_InflationRate : 1.6, FR_InflationRate : 2.1, },
+            { Period : new Date(2006, 1, 1), US_InflationRate : 2.3, FR_InflationRate : 2.3, },
+            { Period : new Date(2007, 1, 1), US_InflationRate : 2.5, FR_InflationRate : 1.7, },
+            { Period : new Date(2008, 1, 1), US_InflationRate : 2.9, FR_InflationRate : 1.5, },
+            { Period : new Date(2009, 1, 1), US_InflationRate : 1.1, FR_InflationRate : 0.5, },
+            { Period : new Date(2010, 1, 1), US_InflationRate : 1.4, FR_InflationRate : 1.5, },
+            { Period : new Date(2011, 1, 1), US_InflationRate : 1.1, FR_InflationRate : 1.3, }
       ],
-      seriesData1: [
-                    { x: new Date(2002, 0, 1), y: 2 }, { x: new Date(2003, 0, 1), y: 1.7 },
-                    { x: new Date(2004, 0, 1), y: 1.8 }, { x: new Date(2005, 0, 1), y: 2.1 },
-                    { x: new Date(2006, 0, 1), y: 2.3 }, { x: new Date(2007, 0, 1), y: 1.7 },
-                    { x: new Date(2008, 0, 1), y: 1.5 }, { x: new Date(2009, 0, 1), y: 2.8 },
-                    { x: new Date(2010, 0, 1), y: 1.5 }, { x: new Date(2011, 0, 1), y: 2.3 }
-
-      ],
-
-      seriesData2: [
-                    { x: new Date(2002, 0, 1), y: 0.8 }, { x: new Date(2003, 0, 1), y: 1.3 },
-                    { x: new Date(2004, 0, 1), y: 1.1 }, { x: new Date(2005, 0, 1), y: 1.6 },
-                    { x: new Date(2006, 0, 1), y: 2 }, { x: new Date(2007, 0, 1), y: 1.7 },
-                    { x: new Date(2008, 0, 1), y: 2.3 }, { x: new Date(2009, 0, 1), y: 2.7 },
-                    { x: new Date(2010, 0, 1), y: 1.1 }, { x: new Date(2011, 0, 1), y: 2.3 }
-                ],
       //Initializing Primary X Axis
        primaryXAxis: {
             valueType: 'DateTime',
-            labelFormat: 'y',
+            labelFormat: 'yyyy',
             majorGridLines: { width: 0 },
             intervalType: 'Years',
-            edgeLabelPlacement: 'Shift'
+            edgeLabelPlacement: 'Shift',
+            minimum: new Date(2001, 0, 1), maximum: new Date(2012, 0, 1),
         },
       //Initializing Primary Y Axis
         primaryYAxis: {
             labelFormat: '{value}%',
             lineStyle: { width: 0 },
-            majorTickLines: { width: 0 },
-            minorTickLines: { width: 0 }
+            minimum: 0,
+            maximum: 4,
+            interval: 1,
+            majorTickLines: { width: 0 },   
         },
       chartArea: {
         border: {
@@ -100,14 +87,20 @@ export default Vue.extend({
         }
       },
       border: {
-           color: 'transparent'
+          width:2
         },
-       width : Browser.isDevice ? '100%' : '60%',
+        circleMarker:  { visible: true, height: 6, width: 6 , shape: 'Circle' , isFilled: true },
+        diamondMarker:  { visible: true, height: 7, width: 7 , shape: 'Diamond' , isFilled: true },
+       width : Browser.isDevice ? '100%' : '75%',
+       legend: {enableHighlight : true},
+       tooltip: {
+        enable: true
+      },
       title: "Inflation Rate in Percentage"
     };
   },
   provide: {
-    chart: [SplineAreaSeries, Legend, DateTime]
+    chart: [SplineAreaSeries, Legend, DateTime, Highlight, Tooltip]
   },
   methods: {
    },

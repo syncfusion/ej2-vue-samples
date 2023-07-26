@@ -72,11 +72,24 @@
         height: 200px;
         width: 100%;
     }
+    .bootstrap-dark .codeView{
+        border:1px solid rgb(80,80,80);
+    }
+    .highcontrast #codeView {
+        border:1px solid rgb(255,255,255);
+    }
     .enter-key-sample .CodeMirror {
         height: 190px;
     }
     .codeViewContent {
         padding-left: 16px;
+    }
+	.control-section.enter-key-sample .e-popup.e-popup-open.e-dialog {
+        height: 387px !important;
+    }
+    .control-section.enter-key-sample .e-dialog .e-dlg-content {
+        overflow: inherit;
+        overflow-x: inherit;
     }
 </style>
 <script>

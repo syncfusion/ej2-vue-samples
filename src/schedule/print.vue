@@ -63,7 +63,6 @@
     </div>
 </template>
 <style>
-    /* custom code start*/
 
     .print-property-panel td {
         padding-bottom: 1rem;
@@ -73,7 +72,6 @@
         padding-left: 0;
     }
 
-    /* custom code end*/
 
     .schedule-vue-sample .print.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today,
     .print-property-panel .e-hide-row {

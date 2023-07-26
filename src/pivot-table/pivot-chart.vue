@@ -190,4 +190,10 @@ export default Vue.extend({
 /deep/ #pivotview_chartcontainerwrapper {
   height: auto !important;
 }
+/deep/ .e-bigger .e-float-input.e-control-wrapper {
+        width: 100% !important;
+    }
+/deep/ .property-panel-table div {
+  padding: 0 !important;
+}
 </style>

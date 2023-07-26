@@ -44,7 +44,6 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample #EventLog b {
         color: #388e3c;
@@ -55,7 +54,6 @@
         border-top: 1px solid #eee;
     }
 </style>
-<!-- custom code end -->
 <script>
     import Vue from "vue";
     import { scheduleData } from './datasource';

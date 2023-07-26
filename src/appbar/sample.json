@@ -1,0 +1,31 @@
+{
+    "name": "AppBar",
+    "directory": "appbar",
+    "category": "Navigation",
+    "ftName": "appbar",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "AppBar",
+            "description": "This sample demonstrates the default functionalities of the Syncfusion Vue AppBar component.",
+            "api": {
+                "AppBar": [
+                    "mode",
+                    "colorMode"
+                ]
+            }
+        },
+        {
+            "url": "color",
+            "name": "Color",
+            "category": "AppBar",
+            "description": "This sample demonstrates the available bar color modes in the Syncfusion Vue AppBar component.",
+            "api": {
+                "AppBar": [
+                    "colorMode"
+                ]
+            }
+        }
+    ]
+}

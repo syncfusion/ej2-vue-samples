@@ -1,9 +1,9 @@
 <template>
-  <div class="control-section">
-    <div class="col-md-8 control-section">
-        <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :textRender="onTextRender" :pointRender="onPointRender" :theme='theme'>
+  <div>
+    <div class="col-md-8 control-section sb-property-border">
+        <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :textRender="onTextRender" :pointRender="onPointRender" :theme='theme' :enableBorderOnMouseMove='false'>
             <e-accumulation-series-collection>
-                <e-accumulation-series name='RIO' :animation='animation' :explode='true' :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" innerRadius="0%" radius="70%"
+                <e-accumulation-series name='RIO' :animation='animation' :explode='true' :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" :radius="radius" innerRadius="0%"
                  groupMode='Point' :dataLabel="dataLabel" :groupTo='clubvalue'>
                 </e-accumulation-series>
             </e-accumulation-series-collection>
@@ -43,13 +43,22 @@
 
     <div id="action-description">
     <p>
-        This sample illustrates the grouping functionality in pie series.  The grouping value can be changed by using <code>Group To</code> property.
+        This sample shows the gold medal count scored by each country at the Rio Olympic Games, along with the pie series grouping functionality.
     </p>
 </div>
 <div id="description">
-    <p> In this example, you can see how to <code>group</code> points in pie chart</p>
-    <p> Points having value below the <code>'groupTo'</code> value are grouped and showed as separate point. You can view this points on mouse click and can customize this point using <code>'pointRender'</code> event. </p>
-    <p> DataLabel is used to represent individual data and its value.</p>
+    <p>In this example, you can see how to group points based on count and values. 
+        The slice can be grouped based on the number of points by specifying the <code>GroupMode</code> to <code>Point</code>. 
+        For example, if the <code>GroupTo</code> property is set to 10, the chart will display the first 10 points and the remaining entries from the collection will be grouped as a single point. 
+        The slice can also be grouped based on values by specifying the <code>GroupMode</code> to <code>Value</code>. 
+        For example, if the GroupTo is set to 10, the first 10 points with a lower value will be grouped together and shown as a single point while the others as a slice.</p>
+        <p>
+            <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
+        </p>
+    <p>
+        More information about the grouping in accumulation chart can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/grouping/">documentation section</a>.
+    </p>
 </div>
 
 </div>
@@ -61,15 +70,17 @@
 </style>
 <script>
 import Vue from "vue";
+
 import { AccumulationChartPlugin, AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip, AccumulationSelection } from "@syncfusion/ej2-vue-charts";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { Browser } from '@syncfusion/ej2-base';
 
 Vue.use(AccumulationChartPlugin);
 Vue.use(DropDownListPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -80,20 +91,20 @@ export default Vue.extend({
             enable: false
         },
         data: [
-        { 'x': 'China', y: 26, text: 'China: 26' },
-        { 'x': 'Russia', y: 19, text: 'Russia: 19' },
-        { 'x': 'Germany', y: 17, text: 'Germany: 17' },
-        { 'x': 'Japan', y: 12, text: 'Japan: 12' },
-        { 'x': 'France', y: 10, text: 'France: 10' },
-        { 'x': 'South Korea', y: 9, text: 'South Korea: 9' },
-        { 'x': 'Great Britain', y: 27, text: 'Great Britain: 27' },
-        { 'x': 'Italy', y: 8, text: 'Italy: 8' },
-        { 'x': 'Australia', y: 8, text: 'Australia: 8' },
-        { 'x': 'Netherlands', y: 8, text: 'Netherlands: 8' },
-        { 'x': 'Hungary', y: 8, text: 'Hungary: 8' },
-        { 'x': 'Brazil', y: 7, text: 'Brazil: 7' },
-        { 'x': 'Spain', y: 7, text: 'Spain: 7' },
-        { 'x': 'Kenya', y: 6, text: 'Kenya: 6' },
+            { 'x': 'Australia', y: 26, text: 'Australia: 26' },
+            { 'x': 'Russia', y: 19, text: 'Russia: 19' },
+            { 'x': 'Germany', y: 17, text: 'Germany: 17' },
+            { 'x': 'Japan', y: 12, text: 'Japan: 12' },
+            { 'x': 'China', y: 10, text: 'China: 10' },
+            { 'x': 'South Korea', y: 9, text: 'South Korea: 9' },
+            { 'x': 'Great Britain', y: 27, text: 'Great Britain: 27' },
+            { 'x': 'Italy', y: 8, text: 'Italy: 8' },
+            { 'x': 'France', y: 8, text: 'France: 8' },
+            { 'x': 'Spain', y: 7, text: 'Spain: 7' },
+            { 'x': 'Hungary', y: 8, text: 'Hungary: 8' },
+            { 'x': 'Brazil', y: 7, text: 'Brazil: 7' },
+            { 'x': 'Netherlands', y: 8, text: 'Netherlands: 8' },
+            { 'x': 'Kenya', y: 6, text: 'Kenya: 6' },
     ],
     //Initializing Legend
     legendSettings: {
@@ -103,16 +114,17 @@ export default Vue.extend({
     dataLabel: {
         visible: true,
         position: 'Outside',
-        connectorStyle: { type: 'Line', length: '5%' },
+        connectorStyle: { type: 'Curve', length: '20px' },
         font: {
-            size: '14px'
+            fontWeight: '600',  
         }
     },
     clubvalue: '9',
     startAngle: 0,
+    radius: Browser.isDevice ? '40%' : '70%',
     endAngle: 360,
-    tooltip: { enable: false },
-    title: 'RIO Olympics Gold ',
+    tooltip: { enable: true, header:'', format:'<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>' },
+    title: 'Rio Olympic Gold Medals',
     };
   },
   provide: {

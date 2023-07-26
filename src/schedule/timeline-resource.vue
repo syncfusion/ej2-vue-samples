@@ -87,13 +87,35 @@
     }
 
     .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .bootstrap5 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .bootstrap5 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         height: 37px;
     }
 
     .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         height: 37px;
         line-height: 37px;
+    }
+
+    .material3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .material3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+        height: 40px;
+    }
+
+    .material3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .material3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .material3 .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .material3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #c4c7c5;
+    }
+
+    .material3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .material3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #444746;
     }
 
     .material-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
@@ -193,6 +215,11 @@
         overflow: hidden;
         padding-left: 5px;
         text-overflow: ellipsis;
+    }
+
+    .material3 .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div,
+    .material3-dark .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div {
+        line-height: 83px;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div:last-child {

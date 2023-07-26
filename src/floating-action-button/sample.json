@@ -1,0 +1,35 @@
+{
+    "name": "Floating Action Button",
+    "directory": "floating-action-button",
+    "category": "Buttons",
+    "samples": [
+        {
+            "url": "overview",
+            "name": "Overview",
+            "category": "Floating Action Button",
+            "api":{"Fab":["iconCss", "target"] },
+            "description": "This example demonstrates the overview usage of the Syncfusion Floating Action Button (FAB)."
+        },
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Floating Action Button",
+            "api":{"Fab":["isPrimary","cssClass", "iconCss", "content","target","disabled"] },
+            "description": "This example demonstrates the default functionalities - icon, only label & icon with label of the Syncfusion Floating Action Button (FAB)."
+        },
+        {
+            "url": "position",
+            "name": "Position",
+            "category": "Floating Action Button",
+            "api":{"Fab":["position", "iconCss", "content","target"] },
+            "description": "This example demonstrates all the available built-in positions of the Floating Action Button (FAB)."
+        },
+        {
+            "url": "styles",
+            "name": "Styles",
+            "category": "Floating Action Button",
+            "api":{"Fab":["isPrimary","cssClass", "iconCss", "content","target"] },
+            "description": "This example demonstrates the available types of the Syncfusion Floating Action Button (FAB)."
+        }
+    ]
+} 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-md-8 control-section">
-      <div class="content-wrapper">
+      <div class="content-wrapper kanban-overflow">
         <ejs-kanban id="kanban" ref="KanbanObj" keyField="Status" :dataSource="kanbanData"
            :cardSettings="cardSettings" :swimlaneSettings="swimlaneSettings" height="500px">
           <e-columns>
@@ -85,6 +85,11 @@
 
 </div>
 </template>
+<style>
+    .kanban-overflow{
+        overflow: hidden;
+    }
+</style>
 <script>
 import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";

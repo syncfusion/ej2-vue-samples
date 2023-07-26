@@ -2,17 +2,17 @@
 <div>
     <div class="control-section file-sql">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' >
+            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings" >
             </ejs-filemanager>
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates how to utilize the <a target="_blank" href="https://github.com/SyncfusionExamples/ej2-sql-server-database-aspcore-file-provider">SQL server file system provider</a> with File Manager component. To run the service, configure the SQL server database connection using the <code>SetSQLConnection</code> method to set the connection <i><b>name</b></i>, <i><b>table name</b></i> and <i><b>rootId</b></i> of the SQL table.</p>
+        <p>This sample demonstrates how to utilize the <a target="_blank" href="https://github.com/SyncfusionExamples/sql-server-database-aspcore-file-provider">SQL server file system provider</a> with File Manager component. To run the service, configure the SQL server database connection using the <code>SetSQLConnection</code> method to set the connection <i><b>name</b></i>, <i><b>table name</b></i> and <i><b>rootId</b></i> of the SQL table.</p>
     </div>
     <div id="description">
         <p>The File Manager component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete and so on.</p>
 
-         <p><b>Note: </b>File Manager’s upload functionality is restricted in online demo. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/ej2-sql-server-database-aspcore-file-provider">SQL Database Provider</a> from the GitHub repository.</p>
+         <p><b>Note: </b>File Manager’s upload functionality is restricted in online demo. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/sql-server-database-aspcore-file-provider">SQL Database Provider</a> from the GitHub repository.</p>
     </div>
 </div>
 </template>
@@ -38,6 +38,11 @@ export default Vue.extend ({
                 getImageUrl: hostUrl + 'api/FileManager/GetImage',
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download'
+            },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
             }
         };
     },

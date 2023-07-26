@@ -43,13 +43,6 @@
         padding: 10px;
         text-align: justify;
     }
-    #draggableTab .e-upload {
-        width: 300px;
-    }
-    .property-panel-header {
-        text-align: center;
-        padding-bottom: 0;
-    }
     .treeview-external-drag-tab .e-list-item,
     .e-bigger .treeview-external-drag-tab .e-list-item {
         border: 0.5px solid #E1E7EC;
@@ -66,11 +59,16 @@
         border-color: transparent;
         box-shadow: none !important;
     }
-    .sb-property-border {
-        border-right: none;
+    #draggableTab .e-upload {
+        width: 300px;
     }
-    #TabContainer .control-section {
-      padding-top: 20px !important;
+    #TabContainer {
+      display: flex;
+    }
+    @media (max-width: 550px) {
+      #TabContainer {
+        display: block;
+      }
     }
 </style>
 <script>
@@ -167,7 +165,7 @@ export default Vue.extend({
                 readonly: true,
                 eventSettings: {
                   dataSource: new DataManager({
-                    url: "https://ej2services.syncfusion.com/production/web-services/api/Schedule",
+                    url: "https://services.syncfusion.com/vue/production/api/schedule",
                     adaptor: new ODataV4Adaptor(),
                     crossDomain: true,
                   }),

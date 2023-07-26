@@ -5,7 +5,7 @@
                 <template v-slot:menuTemplate="{data}">
                     <span v-if="data.category">{{data.category}}</span>
                     <div v-else-if="data.value" style="width: 100%;display: flex;justify-content: space-between;">
-                        <img v-if="data.url" class="e-avatar e-avatar-small" :src="image" />
+                        <img v-if="data.url" class="e-avatar e-avatar-small" :src="data.url" />
                             <span style="width:100%;">{{data.value}}</span>
                             <span v-if="data.count" class="e-badge e-badge-success">{{data.count}}</span>
                     </div>
@@ -118,6 +118,22 @@
     outline-color: transparent;
     pointer-events: none;
 }
+
+.material3 .e-menu-wrapper ul .e-menu-item .e-avatar,
+.material3-dark .e-menu-wrapper ul .e-menu-item .e-avatar,
+.e-bigger .material3 .e-menu-wrapper ul .e-menu-item .e-avatar,
+.e-bigger .material3-dark .e-menu-wrapper ul .e-menu-item .e-avatar
+{
+    height: 24px;
+}
+
+.material3 .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.material3-dark .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.e-bigger .material3 .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.e-bigger .material3-dark .e-menu-wrapper ul.e-ul .e-menu-item .e-card
+{
+    border-radius: 0;
+}
 </style>
 <!-- custom code end -->
 
@@ -138,10 +154,5 @@ export default Vue.extend({
         }
     };
   },
-  computed: {
-    image: function() {
-      return `src/menu/images/${this.data.url}.png`
-    }
-  }
 });
 </script>

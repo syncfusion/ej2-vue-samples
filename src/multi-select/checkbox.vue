@@ -4,7 +4,7 @@
         <div class="col-lg-8 control-section">
             <div class="control-styles">
                 <h4>CheckBox</h4>
-                <ejs-multiselect id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
+                <ejs-multiselect id='multiselect-checkbox' cssClass="e-specific" :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='multiMode' :popupHeight='popHeight' :showDropDownIcon='showDropDownIcon' :showSelectAll='showSelectAll'
                     :enableSelectionOrder='enableSelectionOrder' :filterBarPlaceholder='filterPlaceholder'></ejs-multiselect>
             </div>
@@ -60,6 +60,13 @@
         margin: 0 auto; 
         width:300px; 
         padding-top: 25px
+    }
+    .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(1px);
+    }
+
+    .e-bigger .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(2px);
     }
 </style>
 <script>

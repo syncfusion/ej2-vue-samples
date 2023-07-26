@@ -1,0 +1,35 @@
+{
+    "name": "Skeleton",
+    "directory": "skeleton",
+    "category": "Notifications",
+    "ftName": "skeleton",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Skeleton",
+            "description": "The sample demonstrates about default functionalities of a Skeleton control and showcase with all variants in TypeScript platform.",
+            "api": {
+                "Skeleton": [
+                    "shape",
+                    "width",
+                    "height"
+                ]
+            }
+        },
+        {
+            "url": "animation",
+            "name": "Animation",
+            "category": "Skeleton",
+            "description": "The sample demonstrates the individual Skeleton component rendering with fade effect to represent the card layout in TypeScript platform.",
+            "api": {
+                "Skeleton": [
+                    "shape",
+                    "width",
+                    "height",
+                    "shimmerEffect"
+                ]
+            }
+        }
+    ]
+}

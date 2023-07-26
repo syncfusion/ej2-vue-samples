@@ -1,0 +1,36 @@
+{
+    "name": "Mention",
+    "directory": "mention",
+    "category": "Dropdowns",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Mention",
+            "description": "This example demonstrates the default functionalities of the Vue mention component.",
+            "sourceFiles":[
+                { "displayName": "default.vue", "path":"src/mention/default.vue" },
+                { "displayName": "dataSource.json", "path":"src/mention/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "multiple-list",
+            "name": "Multiple List",
+            "category": "Mention",
+            "description": "This example demonstrates the multiple list functionalities of the Vue mention component.",
+            "sourceFiles":[
+                { "displayName": "multiple-list.vue", "path":"src/mention/multiple-list.vue" },
+                { "displayName": "dataSource.json", "path":"src/mention/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "Mention",
+            "description": "This example demonstrates template functionalities of the Vue mention component.",
+            "sourceFiles":[
+                { "displayName": "template.vue", "path":"src/mention/template.vue" },
+                { "displayName": "dataSource.json", "path":"src/mention/dataSource.json" } 
+            ]
+        }
+    ]
+}

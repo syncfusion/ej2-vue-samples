@@ -83,6 +83,7 @@
         color: rgb(255, 255, 255);
     }
 
+    .material3-dark .multiselect-template .header,
     .material-dark .multiselect-template .header {
         background: rgb(66, 66, 66);
         color: rgb(255, 255, 255);
@@ -373,10 +374,6 @@
     .e-multi-select-wrapper .e-chips {
         max-width: 166px;
         overflow: hidden;
-    }
-
-    .e-multi-select-wrapper .e-chips {
-        padding: 0 4px 0 0px
     }
 
     .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected {

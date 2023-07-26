@@ -51,19 +51,31 @@
             </div>
         </div>
         <div id="action-description">
-            <p>This demo showcases the way of customizing the look of events that are displayed on Schedule. Any kind of text,
-                images and links can be added to customize the look of the events. Here, the webinar sessions on specific
-                topic that are scheduled on respective week days have been displayed on Scheduler across its respective time
-                duration.
+            <p>This demo illustrates the way of customizing the default editor window with custom template option and the
+                customized design is automatically replaced onto the usual event editor. Here, a doctor's daily appointment with his
+                patients is listed out and shaded with specific color based on its status.
             </p>
         </div>
 
         <div id="description">
             <p>
-                With the usage of template, the user can format and change the default appearance of the events by making use of the
-                <code>template</code> option which is available within the
-                <code>eventSettings</code> property. Here, the HTML template design is compiled and then the resultant output
-                will be displayed directly on the events.
+                In this demo, the event window is customized based on the specific appointment-related fields required for doctors which can 
+                be achieved by making use of the <code>editorTemplate</code> API and its type should be <code>v-slot</code>.
+            </p>
+            <p>
+                Each field defined through it should contain the <code>e-field</code> class, and <code>data-name</code> attribute, 
+                so as to allow the processing of those fields in the default event object from internal source
+            </p>
+            <p>
+                Within the <code>eventRendered</code> event that triggers before every appointment getting rendered on the Scheduler
+                user interface, the colors for the appointments are set based on its status which is retrieved from the appointment
+                data.
+            </p>
+            <p>
+                The additional restriction has been added to the Scheduler cells such that if a cell already contains an
+                appointment – then it should be prevented to book with multiple appointments on the same time for which the
+                <code>isSlotAvailable</code> method is used. This method returns true, if the underlying cell is available for
+                adding new events by checking whether it already has any events in it.
             </p>
         </div>
 

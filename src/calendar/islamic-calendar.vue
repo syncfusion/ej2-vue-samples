@@ -89,6 +89,7 @@ body.fluent-dark #date_label,
 body.bootstrap5-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
+body.material3-dark #date_label,
 body.fabric-dark #date_label,
 body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
@@ -171,6 +172,7 @@ body.highcontrast .e-bigger .calendar-islamic-custom.e-calendar span.e-icons.hig
 
     .highcontrast .calendar-islamic-custom .sf-icon-cup:before,
     .material-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .material3-dark .calendar-islamic-custom .sf-icon-cup:before,
     .fabric-dark .calendar-islamic-custom .sf-icon-cup:before,
     .bootstrap-dark .calendar-islamic-custom .sf-icon-cup:before,
     .bootstrap5-dark .calendar-islamic-custom .sf-icon-cup:before,
@@ -181,6 +183,7 @@ body.highcontrast .e-bigger .calendar-islamic-custom.e-calendar span.e-icons.hig
 
     .highcontrast .calendar-islamic-custom .sf-icon-start:before,
     .material-dark .calendar-islamic-custom .sf-icon-start:before,
+    .material3-dark .calendar-islamic-custom .sf-icon-start:before,
     .fabric-dark .calendar-islamic-custom .sf-icon-start:before,
     .bootstrap-dark .calendar-islamic-custom .sf-icon-start:before,
     .bootstrap5-dark .calendar-islamic-custom .sf-icon-start:before,

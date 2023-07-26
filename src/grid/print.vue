@@ -127,7 +127,7 @@ export default Vue.extend({
         element = <HTMLElement>(element.tagName === 'BUTTON' ? element.firstElementChild : element);
         removeClass([].slice.apply(document.getElementsByClassName('e-ghidden')), 'e-ghidden');
         addClass([(<any>element.parentElement).parentElement], 'e-ghidden');
-        (<any>this.$refs.grid).hierarchyPrintMode = (<any>this.$refs.grid).childGrid.hierarchyPrintMode = <HierarchyGridPrintMode>element.innerHTML;
+        (<any>this.$refs.grid).ej2Instances.hierarchyPrintMode = (<any>this.$refs.grid).ej2Instances.childGrid.hierarchyPrintMode = <HierarchyGridPrintMode>element.innerHTML;
       }
   },
   provide: {

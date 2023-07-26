@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-overview">
          <div class="sample-container">
-            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :view='view' >
+            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :view='view' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -46,7 +46,25 @@ export default Vue.extend ({
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download'
             },
-            view:"Details"
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
+            },
+            view:"Details",
+            detailsViewSettings: {
+                columns: [
+                    {
+                        field: 'name', headerText: 'Name', customAttributes: { class: 'e-fe-grid-name' }
+                    },
+                    {
+                        field: '_fm_modified', headerText: 'DateModified', format: 'MM/dd/yyyy hh:mm a'
+                    },
+                    {
+                        field: 'size', headerText: 'Size', template: '<span class="e-fe-size">${size}</span>', format: 'n2'
+                    }
+                ]
+            }
         };
     },
     provide: {

@@ -9,7 +9,7 @@
                         <table>
                             <tbody><tr>
                                 <td>
-                                    <div class="questionar"> </div>
+                                    <div class="questionar blog-avatar"> </div>
                                 </td>
                                 <td>
                                     <div class="Questionarname"> Kimberly </div>
@@ -66,7 +66,7 @@
                         <table>
                             <tbody><tr>
                                 <td rowspan="2">
-                                    <div class="logos"> </div>
+                                    <div class="logos blog-avatar"> </div>
                                 </td>
                                 <td>
                                     <div class="authorname">Mabel Weber</div>
@@ -145,6 +145,11 @@
 </div>
 </template>
 <style scoped>
+    .control-section {
+        overflow: auto;
+        padding-bottom: 50px;
+    }
+    
     .tagSection {
         float: left;
     }
@@ -181,7 +186,8 @@
         clear: both;
     }
 
-    .highcontrast .header {
+    .bootstrap-dark .header, .bootstrap5-dark .header, .fluent-dark .header, .material3-dark .header, 
+    .fabric-dark .header, .material-dark .header, .tailwind-dark .header, .highcontrast .header {
         color: #fff;
     }
 
@@ -231,7 +237,8 @@
         color: #000000;
     }
 
-    .highcontrast .explain {
+    .bootstrap-dark .explain, .bootstrap5-dark .explain, .fluent-dark .explain,.material3-dark .explain,
+    .fabric-dark .explain, .material-dark .explain, .tailwind-dark .explain, .highcontrast .explain {
         color: #fff;
     }
 
@@ -275,21 +282,7 @@
     }
 
     .questionar {
-        width: 32px;
         background: url(./images/emp1.png);
-        height: 32px;
-        float: left;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #bcbcbc;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 50%;
-        color: #fff;
-        margin-top: 2px;
     }
 
     .raiser {
@@ -315,43 +308,39 @@
 
     .logos {
         background: url(./images/emp2.png);
-        height: 32px;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #bcbcbc;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 50%;
-        color: #fff;
-        width: 32px;
     }
 
     .logo {
         background: url(./images/author.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
 
     .emp1 {
         background: url(./images/1.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
 
     .emp2 {
         background: url(./images/2.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
 
     .emp3 {
         background: url(./images/3.png) no-repeat scroll 0 0 transparent;
-        height: 32px;
-        width: 32px;
     }
+
+    .blog-avatar {
+            height: 32px;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: #bcbcbc;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            color: #fff;
+            width: 32px;
+        }
+
     .author {
         margin-bottom: 5px;
         height: 50px;
@@ -374,7 +363,8 @@
          overflow-wrap: break-word;
     }
 
-    .highcontrast .posting {
+    .bootstrap-dark .posting, .bootstrap5-dark .posting, .fluent-dark .posting, .material3-dark .posting,
+    .fabric-dark .posting, .material-dark .posting, .tailwind-dark .posting, .highcontrast .posting {
         color: #fff;
     }
 
@@ -384,7 +374,8 @@
         font-size: 13px;
     }
 
-    .highcontrast .authorname {
+    .bootstrap-dark .authorname, .bootstrap5-dark .authorname, .fluent-dark .authorname, .material3-dark .authorname,
+    .fabric-dark .authorname, .material-dark .authorname, .tailwind-dark .authorname, .highcontrast .authorname {
         color: #fff;
     }
 
@@ -394,11 +385,14 @@
         font-family: roboto, SegoeUI;
         margin-top: 7px;
     }
+    
+    button {
+        margin-left: 10px;
+    }
 
     #buttonSection {
         float: right;
         margin-top: 11px;
-
     }
 
     #buttonSection input {
@@ -438,6 +432,17 @@
     #createpostholder {
         margin-top: 25px;
     }
+    .bootstrap-dark .tag, 
+    .bootstrap5-dark .tag, 
+    .fluent-dark .tag,
+    .material3-dark .tag,
+    .fabric-dark .tag, 
+    .material-dark .tag, 
+    .tailwind-dark .tag, 
+    .highcontrast .tag {
+        color: #fff;
+        background: #484644;
+    } 
 </style>
 <script>
 import Vue from "vue";
@@ -477,10 +482,12 @@ export default Vue.extend({
                      logo.classList.remove('logos');
                      if (empCount < 3) {
                 logo.classList.add(empList[empCount]);
+                logo.classList.add('blog-avatar');
                 authorName.innerHTML = nameList[empCount];
                 empCount++;
             } else {
                 logo.classList.add('logo');
+                logo.classList.add('blog-avatar');
                 authorName.innerHTML = 'User';
             }
             var timeZone = cloneAnswer.querySelector('.detailsAnswer');

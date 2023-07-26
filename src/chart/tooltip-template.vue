@@ -1,18 +1,9 @@
 <template>
   <div class="control-section">
     <div align="center">
-      <ejs-chart
-        id="chartcontainer"
-        :backgroundImage="backgroundImage"
-        :title="title"
-        :primaryXAxis="primaryXAxis"
-        :primaryYAxis="primaryYAxis"
-        :tooltip="tooltip"
-        :chartArea="chartArea"
-        :width="width"
-        :theme="theme"
-      >
-        <template v-slot:myTemplate="{data}">
+      <ejs-chart id="chartcontainer" :backgroundImage="backgroundImage" :title="title" :primaryXAxis="primaryXAxis"
+        :primaryYAxis="primaryYAxis" :tooltip="tooltip" :chartArea="chartArea" :width="width" :theme="theme">
+        <template v-slot:myTemplate="{ data }">
           <div id="wrap">
             <table style="width:100%;  border: 1px solid black;" class="table-borderless">
               <tr>
@@ -20,55 +11,45 @@
                   <img src="src/chart/images/grain.png" />
                 </th>
                 <td
-                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 14px; color: #E7C554; font-weight: bold; padding-left: 5px"
-                >{{data.y}}</td>
+                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 14px; color: #E7C554; font-weight: bold; padding-left: 5px">
+                  {{ data.y }}</td>
               </tr>
               <tr>
                 <td
-                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 18px; color: #FFFFFF; font-weight: bold; padding-left: 5px"
-                >{{data.x}}</td>
+                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 18px; color: #FFFFFF; font-weight: bold; padding-left: 5px">
+                  {{ data.x }}</td>
               </tr>
             </table>
           </div>
         </template>
         <e-series-collection>
-          <e-series
-            :dataSource="seriesData"
-            type="Line"
-            xName="x"
-            yName="y"
-            width="2"
-            fill="#333333"
-            :marker="marker"
-          ></e-series>
+          <e-series :dataSource="seriesData" type="Line" xName="x" yName="y" width="2" fill="#333333"
+            :marker="marker"></e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
     <div id="action-description">
       <p>
-        This sample visualizes the USA Wheat Production data with default line series in the chart.
-        Data points are enhanced with marker and tooltip.
+        This sample visualizes USA wheat production data with the default line series in the chart. 
+        Data points are enhanced with a background image and a tooltip template.
       </p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the backgroundImage and tooltip template for the charts.
-        You can use backgroundImage, tooltip, fill properties to customize the line. marker is used to represent individual data and its value.
+        In this example, you can see how to render and configure a background image and the tooltip template for the chart. 
+        You can use the <code>BackgroundImage</code> property to configure the background for the chart and the <code>Template</code> property in <code>ChartTooltipSettings</code> to customize the tooltip UI.
       </p>
-      <p>Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
-      <br />
       <p style="font-weight: 500">Injecting Module</p>
       <p>
-        Chart component features are segregated into individual feature-wise modules. To use line series, we need to inject
+        Chart component features are segregated into individual feature-wise modules. To use line series, we need to
+        inject
         <code>LineSeries</code> module using
         <code>provide: { chart: [LineSeries] }</code> method.
       </p>
       <p>
-        More information on the line series can be found in this
-        <a
-          target="_blank"
-          href="https://ej2.syncfusion.com/documentation/api/chart/series/#type"
-        >documentation section</a>.
+        More information on the tooltip template can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/tool-tip/#tooltip-template">documentation
+          section</a>.
       </p>
     </div>
   </div>
@@ -89,10 +70,10 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       backgroundImage: "source/chart/images/wheat.png",
       theme: theme,
@@ -111,17 +92,19 @@ export default Vue.extend({
       ],
       primaryXAxis: {
         labelStyle: { color: "white" },
+        intervelType: 'Years',
         valueType: "Category",
+        labelForamt: 'y',
         edgeLabelPlacement: "Shift",
         majorGridLines: { width: 0 },
         majorTickLines: { width: 0 },
-        lineStyle: { color: "#EFEFEF" }
+        lineStyle: { color: "#EFEFEF", width: 3 }
       },
 
       primaryYAxis: {
         rangePadding: "None",
         labelStyle: { color: "white" },
-        majorGridLines: { color: "#EFEFEF" },
+        majorGridLines: { color: "#EFEFEF", width: 2 },
         majorTickLines: { width: 0 },
         title: "Billion Bushels",
         titleStyle: { color: "white" },
@@ -132,11 +115,11 @@ export default Vue.extend({
           width: 0
         }
       },
-      width: Browser.isDevice ? "100%" : "80%",
+      width: Browser.isDevice ? "100%" : "75%",
       marker: {
         visible: true,
-        width: 10,
-        height: 10,
+        width: 7,
+        height: 7,
         fill: "#C1272D",
         border: { color: "#333333", width: 2 }
       },

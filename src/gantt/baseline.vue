@@ -118,7 +118,7 @@ export default Vue.extend({
   },
   methods: {
       format: function(value) {
-                return instance.formatDate(value, { skeleton: 'yMd', type: 'date' });
+                return this.$refs.gantt.getFormatedDate(value, 'hh:mm a');
             }
   }
 });

@@ -1,26 +1,36 @@
 <template>
-  <div class="control-section">
-    <div align='center'>
-    <ejs-chart ref="chart" :theme='theme' style='display:block;' :chartArea='chartArea' :width='width' align='center' id='chart-vertical' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :title='title' :isTransposed='vertical' :loaded='loaded'>
-        <e-series-collection>
-            <e-series :dataSource='data1' type='Line' xName='x' yName='y' width=2 :animation='animation1'>
-            </e-series>
-        </e-series-collection>
-    </ejs-chart>
+    <div class="control-section">
+        <div align='center'>
+            <ejs-chart ref="chart" :theme='theme' style='display:block;' :chartArea='chartArea' :width='width'
+                align='center' id='chart-vertical' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+                :title='title' :legendSettings='legendSettings' :axes='axes' :tooltip='tooltip'
+                :isTransposed='isTransposed'>
+                <e-series-collection>
+                    <e-series :dataSource='data' type='Column' xName='Year' yName='column' width=2
+                        name='Sales'></e-series>
+                    <e-series :dataSource='data' yAxisName='yAxis2' type='Line' xName='Year' yName='series'
+                        name='Profit Margin' width=2 :marker='marker'></e-series>
+                </e-series-collection>
+            </ejs-chart>
+        </div>
+        <div id="action-description">
+            <p>
+                This sample illustrates a sales versus profit margin analysis using a vertical chart by changing the
+                orientation of the x-axis to vertical and the y-axis to horizontal.
+            </p>
+        </div>
+        <div id="description">
+            <p>
+                In this example, you can see how to render and configure a vertical chart.
+                Use the <code>IsTransposed</code> property to render the chart vertically.
+            </p>
+            <p>
+                More information on the vertical chart can be found in this
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/vertical">documentation
+                    section</a>.
+            </p>
+        </div>
     </div>
-    <div id="action-description">
-    <p>
-        This sample illustrates the vertical chart by changing the orientation of x-axis to vertical and y-axis to horizontal.
-    </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can see how to render and configure the vertical type charts. To render a chart in vertical manner, you can use
-        <code>isTransposed</code> in chart.
-    </p>
-</div>
-
-</div>
 </template>
 <style scoped>
 
@@ -28,84 +38,71 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, LineSeries, getElement } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, LineSeries, Legend, Tooltip, ColumnSeries, Category } from "@syncfusion/ej2-vue-charts";
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
-  data: function() {
-    return {
-        theme: theme,
-        clrInterval: 0,
+    data: function () {
+        return {
+            theme: theme,
+            data: [
+                { Year: "2016", column: 13600, series: 0.5 },
+                { Year: "2017", column: 12900, series: 1.5 },
+                { Year: "2018", column: 12500, series: 3.5 },
+                { Year: "2019", column: 14500, series: 1.5 },
+                { Year: "2020", column: 14500, series: 3 },
+                { Year: "2021", column: 12000, series: 2.5 }],
 
-        data1: [{x: 0, y: 0}],
-
-        primaryXAxis: {
-            title: 'Time (s)', majorGridLines: { width: 0 } 
-        },
-
-    primaryYAxis: {
-        title: 'Velocity (m/s)', majorGridLines: { width: 0 }, minimum: -15, maximum: 15, interval: 5
-    },
-    marker: {
-        visible: false
-    },
-    animation1: {
-        enable: false
-    },
-    chartArea: {
-        border: {
-            width: 0
-        }
-    },
-    width: Browser.isDevice ? '100%' : '60%',
-    vertical: true,
-    count: 0,
-    title: 'Indonesia - Seismograph Analysis'
-    };
-  },
-  provide: {
-    chart: [LineSeries]
-  },
-  methods: {
-    loaded: function (args) {
-        this.clrInterval =
-            setInterval(() => {
-                args.chart.series[0].dataSource = this.liveData(args.chart.series[0].dataSource, args.chart.series[0]);
-                args.chart.refresh();
+            primaryXAxis: {
+                valueType: 'Category',
+                majorGridLines: { width: 0 },
+                majorTickLines: { width: 0 }
             },
-      100);
+            isTransposed: true,
+            primaryYAxis: {
+                title: 'Sales in Billion',
+                minimum: 11000,
+                maximum: 15000,
+                interval: 1000,
+                majorGridLines: { width: 0 },
+                majorTickLines: { width: 0 },
+                lineStyle: { width: 0 },
+                edgeLabelPlacement: 'Shift'
+            },
+            axes: [{
+                name: 'yAxis2',
+                title: 'Profit(In Percentage)',
+                maximum: 4, minimum: 0, interval: 0.5,
+                opposedPosition: true,
+                labelFormat: '{value}%',
+                edgeLabelPlacement: 'Shift',
+                majorGridLines: { width: 0 }, lineStyle: { width: 0 }, majorTickLines: { width: 0 }
+            }],
+            marker: {
+                visible: true,
+                isFilled: true,
+                height: 7,
+                width: 7
+            },
+            chartArea: {
+                border: {
+                    width: 0
+                }
+            },
+            tooltip: { enable: true },
+            legendSettings: { visible: false },
+            width: Browser.isDevice ? '100%' : '75%',
+            title: 'Sales Vs Profit Margin'
+        };
     },
-    liveData: function(data, series) {
-        this.count = this.count + 1;
-        let newData = data;
-        if (this.count > 350 || getElement('chart-vertical') === null) {
-            clearInterval(this.clrInterval);
-        } else if (this.count > 300) {
-            newData.push({ x: this.getXValue(data), y: this.getYValue(0, 0) });
-        } else if (this.count > 250) {
-            newData.push({ x: this.getXValue(data), y: this.getYValue(-2, 1) });
-        } else if (this.count > 180) {
-            newData.push({ x: this.getXValue(data), y: this.getYValue(-3, 2) });
-        } else if (this.count > 100) {
-            newData.push({ x: this.getXValue(data), y: this.getYValue(-7, 6) });
-        } else if (this.count < 50) {
-            newData.push({ x: this.getXValue(data), y: this.getYValue(-3, 3) });
-        } else {
-            newData.push({ x: this.getXValue(data), y: this.getYValue(-9, 9) });
-        }
-        return newData;
+    provide: {
+        chart: [LineSeries, Legend, Tooltip, ColumnSeries, Category]
     },
-    getXValue: function (data) {
-        return data.length;
+    methods: {
     },
-    getYValue: function (min, max) {
-        return Math.random() * (max - min) + min;
-    }
-  },
-   
 });
 </script>

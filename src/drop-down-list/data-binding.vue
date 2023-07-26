@@ -84,7 +84,7 @@ Vue.use(DropDownListPlugin);
 Vue.use(CheckBoxPlugin);
 
 var remoteData = new DataManager({
-    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    url: 'https://services.syncfusion.com/vue/production/api/Employees',
     adaptor: new WebApiAdaptor,
     crossDomain: true
 });

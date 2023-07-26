@@ -5,29 +5,32 @@
         :chartArea='chartArea' :legendSettings='legendSettings' :primaryYAxis='primaryYAxis' :width='width'
         :title='title' :load='load' :tooltip='tooltip' :theme='theme'>
             <e-series-collection>
-                <e-series type='Histogram' width=2 yName='y' name='Score' :dataSource='dataSource' 
+                <e-series type='Histogram' width=2 yName='Score' name='Score' :dataSource='chartData' 
                 :binInterval='binInterval' :marker='marker' :showNormalDistribution='showNormalDistribution' :columnWidth='columnWidth'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample visualizes the student's results of the final examination with histogram series in chart. Number of students between each interval is shown by using the data label.
+      This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/histogram-chart">Vue Histogram Chart</a> example visualizes final examination results. The number of students between each interval is shown in data labels.
     </p>
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render and configure the histogram type charts. Histogram type charts can provide a visual display of large amounts of data that are difficult to understand in a tabular or spreadsheet form. You can use the border and fill properties to customize the vertical rectangle. The dataLabel property is used to represent individual data and its value.
+      In this example, you can see how to render and configure the histogram chart. The histogram chart is a bar (column) chart used for frequency distribution in which the widths of the bars are proportional to classes into which variables have been divided and the heights of the bars are proportional to class frequencies. The <code>DataLabel</code> property is used to present details on individual data points.
     </p>
     <p>
-       Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over a point or tap a point in touch enabled devices.
+       <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a point or tap a point in touch enabled devices.
     </p>
-    <br>
     <p style="font-weight: 500">Injecting Module</p>
     <p>
        Chart component features are segregated into individual feature-wise modules. To use histogram series, you should inject the 
         <code>HistogramSeries </code> module using the
         <code>Chart.Inject(HistogramSeries)</code> method.
+    </p>
+    <p>
+        More information on the histogram series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/histogram">documentation section</a>.
     </p>
    </div>
 </div>
@@ -44,49 +47,132 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
-let chartData = [];
-let points = [5.250, 7.750, 0, 8.275, 9.750, 7.750, 8.275, 6.250, 5.750,
-        5.250, 23.000, 26.500, 27.750, 25.025, 26.500, 26.500, 28.025, 29.250, 26.750, 27.250,
-        26.250, 25.250, 34.500, 25.625, 25.500, 26.625, 36.275, 36.250, 26.875, 40.000, 43.000,
-        46.500, 47.750, 45.025, 56.500, 56.500, 58.025, 59.250, 56.750, 57.250,
-        46.250, 55.250, 44.500, 45.525, 55.500, 46.625, 46.275, 56.250, 46.875, 43.000,
-        46.250, 55.250, 44.500, 45.425, 55.500, 56.625, 46.275, 56.250, 46.875, 43.000,
-        46.250, 55.250, 44.500, 45.425, 55.500, 46.625, 56.275, 46.250, 56.875, 41.000, 63.000,
-        66.500, 67.750, 65.025, 66.500, 76.500, 78.025, 79.250, 76.750, 77.250,
-        66.250, 75.250, 74.500, 65.625, 75.500, 76.625, 76.275, 66.250, 66.875, 80.000, 85.250,
-        87.750, 89.000, 88.275, 89.750, 97.750, 98.275, 96.250, 95.750, 95.250
-    ];
-points.map((value) => {
-    chartData.push({
-        y: value
-    });
-});
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-        primaryXAxis: {
-            majorGridLines: { width: 0 }, title: 'Score of Final Examination',
-            minimum: 0, maximum: 100
-        },
-        chartArea: { border: { width: 0 } },
-        legendSettings: { visible: false },
-        primaryYAxis: {
-            title: 'Number of Students',
-            minimum: 0, maximum: 50, interval: 10,
-            majorTickLines: { width: 0 }, lineStyle: { width: 0 }
-        },
-          marker: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
-           width: Browser.isDevice ? '100%' : '60%',
-        title: 'Examination Result', tooltip: { enable: true },
-       theme: theme,
-       dataSource: chartData,
-       tooltip: {enable: true},
-       binInterval: 20,
-       columnWidth: 0.99,
-       showNormalDistribution: true
+      chartData :[{ Score: 5.250 },
+      { Score: 7.750 },
+      { Score: 0 },
+      { Score: 8.275 },
+      { Score: 9.750 },
+      { Score: 7.750 },
+      { Score: 8.275 },
+      { Score: 6.250 },
+      { Score: 5.750 },
+      { Score: 5.250 },
+      { Score: 23.000 },
+      { Score: 26.500 },
+      { Score: 27.750 },
+      { Score: 25.025 },
+      { Score: 26.500 },
+      { Score: 28.025 },
+      { Score: 29.250 },
+      { Score: 26.750 },
+      { Score: 27.250 },
+      { Score: 26.250 },
+      { Score: 25.250 },
+      { Score: 34.500 },
+      { Score: 25.625 },
+      { Score: 25.500 },
+      { Score: 26.625 },
+      { Score: 36.275 },
+      { Score: 36.250 },
+      { Score: 26.875 },
+      { Score: 40.000 },
+      { Score: 43.000 },
+      { Score: 46.500 },
+      { Score: 47.750 },
+      { Score: 45.025 },
+      { Score: 56.500 },
+      { Score: 58.025 },
+      { Score: 59.250 },
+      { Score: 56.750 },
+      { Score: 57.250 },
+      { Score: 46.250 },
+      { Score: 55.250 },
+      { Score: 44.500 },
+      { Score: 45.525 },
+      { Score: 55.500 },
+      { Score: 46.625 },
+      { Score: 46.275 },
+      { Score: 56.250 },
+      { Score: 46.875 },
+      { Score: 43.000 },
+      { Score: 46.250 },
+      { Score: 55.250 },
+      { Score: 44.500 },
+      { Score: 45.425 },
+      { Score: 55.500 },
+      { Score: 56.625 },
+      { Score: 46.275 },
+      { Score: 56.250 },
+      { Score: 46.875 },
+      { Score: 43.000 },
+      { Score: 46.250 },
+      { Score: 55.250 },
+      { Score: 44.500 },
+      { Score: 45.425 },
+      { Score: 55.500 },
+      { Score: 46.625 },
+      { Score: 56.275 },
+      { Score: 46.250 },
+      { Score: 56.875 },
+      { Score: 41.000 },
+      { Score: 63.000 },
+      { Score: 66.500 },
+      { Score: 67.750 },
+      { Score: 65.025 },
+      { Score: 66.500 },
+      { Score: 76.500 },
+      { Score: 78.025 },
+      { Score: 79.250 },
+      { Score: 76.750 },
+      { Score: 77.250 },
+      { Score: 66.250 },
+      { Score: 75.250 },
+      { Score: 74.500 },
+      { Score: 65.625 },
+      { Score: 75.500 },
+      { Score: 76.625 },
+      { Score: 76.275 },
+      { Score: 66.250 },
+      { Score: 66.875 },
+      { Score: 80.000 },
+      { Score: 85.250 },
+      { Score: 87.750 },
+      { Score: 89.000 },
+      { Score: 88.275 },
+      { Score: 89.750 },
+      { Score: 97.750 },
+      { Score: 98.275 },
+      { Score: 96.250 },
+      { Score: 95.750 },
+      { Score: 95.250 }
+      ],
+      primaryXAxis: {
+        majorGridLines: { width: 0 }, title: 'Score of Final Examination',
+        minimum: 0, maximum: 100,
+        edgeLabelPlacement: 'Shift'
+      },
+      chartArea: { border: { width: 0 } },
+      legendSettings: { visible: false },
+      primaryYAxis: {
+        title: 'Number of Students',
+        minimum: 0, maximum: 50, interval: 10,
+        lineStyle: { width: 0 }
+      },
+      marker: {
+        visible: true, height: 7, width: 7,
+        dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } }
+      },
+      width: Browser.isDevice ? '100%' : '75%',
+      title: 'Examination Result', tooltip: { enable: true, header:"" },
+      theme: theme,
+      binInterval: 20,
+      columnWidth: 0.99,
+      showNormalDistribution: true
 
 
     };
@@ -95,12 +181,11 @@ export default Vue.extend({
     chart: [HistogramSeries, DataLabel, Tooltip]
   },
   methods: {
-    load: function(args) {
-       if (args.chart.theme === 'Highcontrast') {
-                args.chart.series[0].marker.dataLabel.font.color = '#000000';
-            }
+    load: function (args) {
+      if (selectedTheme === 'highcontrast') {
+        args.chart.series[0].marker.dataLabel.font.color = '#000000';
+      }
     }
   },
-   
 });
 </script>

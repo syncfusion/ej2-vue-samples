@@ -1,39 +1,48 @@
 <template>
-  <div class="control-section">
-    <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :legendSettings='legendSettings' :indicators='indicators' :crosshair='crosshair' :tooltip='tooltip' :zoomSettings='zoomSettings' :axes='axes' :rows='rows'>
-            <e-series-collection>
-                <e-series :dataSource='cData' type='Candle' xName='x' yName='y' name='Apple Inc' width=2 low='low' high='high' close='close' open='open' volume='volume' bearFillColor='#2ecd71' bullFillColor='#e74c3d' :animation='animation'> </e-series>
+    <div class="control-section">
+        <div align='center'>
+            <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
+                :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width'
+                :legendSettings='legendSettings' :indicators='indicators' :crosshair='crosshair' :tooltip='tooltip'
+                :zoomSettings='zoomSettings' :axes='axes' :rows='rows'>
+                <e-series-collection>
+                    <e-series :dataSource='cData' type='Candle' xName='period' name='Apple Inc' width=2 low='low'
+                        high='high' close='close' open='open' volume='volume' bearFillColor='#2ecd71'
+                        bullFillColor='#e74c3d' :animation='animation'> </e-series>
+                </e-series-collection>
+            </ejs-chart>
+        </div>
+        <div id="action-description">
+            <p>
+                This sample illustrates a chart with candle series and a stochastic oscillator . 
+                The trackball shows information about each day’s stock and indicator values.
+            </p>
+        </div>
+        <div id="description">
+            <p>
+                In this example, you can see how to render and configure a stochastic oscillator that is a momentum indicator. 
+                It shows the location of the close relative to the high-low range over a set number of periods.
+            </p>
+            <p>
+                <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
+                point or tap a point in touch enabled devices.
+            </p>
 
-            </e-series-collection>
-        </ejs-chart>
+            <p style="font-weight: 500">Injecting Module</p>
+            <p>
+                Chart component features are segregated into individual feature-wise modules. To use Stochastic
+                Indicator, we need to Inject
+                <code>StochasticIndicator</code> module using <code>provide: { chart: [ StochasticIndicator ] },</code>
+                method.
+            </p>
+            <p>
+                More information on the Stochastic Indicator can be found in this
+                <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/technical-indicators/#stochastic">documentation
+                    section</a>.
+            </p>
+        </div>
     </div>
-<div id="action-description">
-    <p>
-        This sample illustrates a stock chart with candle series and an Stochastic indicator. Trackball shows the information about the stock and indicator value of a day.
-   </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can see how to render and configure the Stochastic Indicator.You can use <code>border</code>, 
-        <code>fill</code> properties to customize the area.
-    </p>
-    <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
-
-    <p style="font-weight: 500">Injecting Module</p>
-    <p>
-        Chart component features are segregated into individual feature-wise modules. To use Stochastic Indicator, we need to Inject
-        <code>StochasticIndicator</code> module using <code>provide: { chart: [ StochasticIndicator ] },</code> method.
-    </p>
-    <p>
-        More information on the Stochastic Indicator can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
-    </p>
-</div>
-</div>
 
 </template>
 <style scoped>
@@ -43,90 +52,93 @@
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartPlugin, Category, CandleSeries, Tooltip, DateTime, Zoom, Crosshair, LineSeries, Logarithmic, StripLine, StochasticIndicator } from "@syncfusion/ej2-vue-charts";
+import { chartValue } from './financial-data';
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-import { chartData } from './financial-data';
+
 export default Vue.extend({
-  data: function() {
-    return {
-      theme: theme,
-     cData : chartData,
-      //Initializing Primary X Axis
-     primaryXAxis: {
-            valueType: 'DateTime',
-            majorGridLines: { width: 0 },
-            zoomFactor: 0.2, zoomPosition: 0.6,
-            crosshairTooltip: { enable: true },
-        },
+    data: function () {
+        return {
+            theme: theme,
+            cData: chartValue,
+            //Initializing Primary X Axis
+            primaryXAxis: {
+                valueType: 'DateTime',
+                majorGridLines: { width: 0 },
+                zoomFactor: 0.2, zoomPosition: 0.6,
+                crosshairTooltip: { enable: true },
+            },
 
-      //Initializing Primary Y Axis
-      primaryYAxis: {
-            title: 'Price',
-            labelFormat: '${value}',
-            minimum: 80, maximum: 170,
-            plotOffset: 25,
-            interval: 30, rowIndex: 1, opposedPosition: true, lineStyle: { width: 0 }
-        },
+            //Initializing Primary Y Axis
+            primaryYAxis: {
+                title: 'Price (in Million)',
+                labelFormat: '${value}M',
+                minimum: 50, maximum: 170,
+                plotOffset: 25,
+                interval: 30, rowIndex: 1, opposedPosition: true, lineStyle: { width: 0 },
+                majorTickLines: { width: 0 },
+            },
 
-       rows: [
-            {
-                height: '40%'
-            }, {
-                height: '60%'
-            }
-        ],
-
-        axes: [{
-            name: 'secondary',
-            opposedPosition: true, rowIndex: 0,
-            majorGridLines: { width: 0 }, lineStyle: { width: 0 }, minimum: 0, maximum: 120, interval: 60,
-            majorTickLines: { width: 0 }, title: 'Stochastic', stripLines: [
+            rows: [
                 {
-                    start: 0, end: 120, text: '', color: '#6063ff', visible: true,
-                    opacity: 0.1, zIndex: 'Behind'
-                }]
-        }],
+                    height: '40%'
+                }, {
+                    height: '60%'
+                }
+            ],
 
-        indicators: [{
-            type: 'Stochastic', field: 'Close', seriesName: 'Apple Inc', yAxisName: 'secondary', fill: '#6063ff',
-            kPeriod: 2, dPeriod: 3, showZones: true, periodLine: { color: '#f2ec2f' },
-            period: 3, animation: { enable: false }, upperLine: { color: '#e74c3d' }, lowerLine: { color: '#2ecd71' }
-        }],
+            axes: [{
+                name: 'secondary',
+                opposedPosition: true, rowIndex: 0,
+                majorGridLines: { width: 0 }, lineStyle: { width: 0 }, minimum: 0, maximum: 120, interval: 60,
+                majorTickLines: { width: 0 }, title: 'Stochastic', stripLines: [
+                    {
+                        start: 0, end: 120, text: '', color: 'black', visible: true,
+                        opacity: 0.03, zIndex: 'Behind'
+                    }]
+            }],
 
-        tooltip: {
-            enable: true, shared: true
-        },
+            indicators: [{
+                type: 'Stochastic', field: 'Close', seriesName: 'Apple Inc', yAxisName: 'secondary', fill: '#6063ff',
+                kPeriod: 2, dPeriod: 3, showZones: true, periodLine: { color: '#f2ec2f' },
+                period: 3, animation: { enable: false }, upperLine: { color: '#2ecd71' }, lowerLine: { color: '#e74c3d' }
+            }],
 
-         animation: { enable: true },
+            tooltip: {
+                enable: true, shared: true
+            },
 
-        crosshair: { enable: true, lineType: 'Vertical' },
+            animation: { enable: true },
 
-       chartArea: { border: { width: 0 } },
+            crosshair: { enable: true, lineType: 'Vertical' },
 
-       zoomSettings:
-        {
-           enableSelectionZooming: true,
-            mode: 'X',
-            enablePan : true
-        },
+            chartArea: { border: { width: 0 } },
 
-      width: Browser.isDevice ? '100%' : '80%',
+            zoomSettings:
+            {
+                enableSelectionZooming: true,
+                mode: 'X',
+                enablePinchZooming: true,
+                enablePan: true
+            },
 
-      legendSettings: { visible: false },
-        
-      title: "AAPL 2012-2017"
-    };
-  },
-  provide: {
-    chart: [CandleSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, LineSeries, StochasticIndicator, StripLine]
-  },
-  methods: {
-    
-  },
- 
+            width: Browser.isDevice ? '100%' : '75%',
+
+            legendSettings: { visible: false },
+
+            title: "AAPL Stock Price 2012-2017"
+        };
+    },
+    provide: {
+        chart: [CandleSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, LineSeries, StochasticIndicator, StripLine]
+    },
+    methods: {
+
+    },
+
 });
 </script>

@@ -1,41 +1,50 @@
 {
   "Grids": [
     "Data Grid",
-    "Tree Grid",
     "Pivot Table",
+    "Tree Grid",
     "Spreadsheet"
   ],
   "Data Visualization": [
     "Chart",
-    "Diagram",
     "Stock Chart",
-    "Maps",
-    "TreeMap",
-    "HeatMap Chart",
+    "Arc Gauge",
     "Circular Gauge",
+    "Diagram",
+    "HeatMap Chart",
     "Linear Gauge",
+    "Maps",
     "Range Selector",
-    "Sparkline Charts",
     "Smith Chart",
     "Barcode",
+    "Sparkline Charts",
+    "TreeMap",
     "Bullet Chart",
     "Kanban"
   ],
-  "Editors": [
+  "Forms": [
+    "Query Builder"
+  ],
+  "File Viewers & Editors": [
+    "PDF Viewer",
     "Rich Text Editor",
     "DocumentEditor",
-    "Chips",
-    "Button",
-    "InPlaceEditor"
+    "Image Editor"
   ],
   "Calendars": [
     "Scheduler",
-    "Gantt",
     "Calendar",
     "DatePicker",
     "DateRangePicker",
     "DateTimePicker",
-    "TimePicker"
+    "TimePicker",
+    "Gantt"
+  ],
+  "Buttons": [
+    "Button",
+    "Chips",
+    "Floating Action Button",
+    "SpeedDial"
   ],
   "Dropdowns": [
     "AutoComplete",
@@ -43,24 +52,29 @@
     "Dropdown List",
     "Dropdown Tree",
     "MultiSelect Dropdown",
-    "List Box"
+    "List Box",
+    "Mention"
   ],
   "Navigation": [
     "Accordion",
+    "AppBar",
     "Breadcrumb",
     "Carousel",
     "Context Menu",
-    "File Manager",
     "Menu Bar",
     "Sidebar",
     "Tabs",
     "Toolbar",
-    "TreeView"
+    "TreeView",
+    "File Manager",
+    "Ribbon"
   ],
   "Notifications": [
     "Badge",
+    "Message",
     "Toast",
-    "Progressbar"
+    "Progressbar",
+    "Skeleton"
   ],
   "Inputs": [
     "TextBox",
@@ -69,21 +83,18 @@
     "Color Picker",
     "File Upload",
     "Range Slider",
-    "Signature"
+    "Signature",
+    "InPlaceEditor",
+    "Rating"
   ],
   "Layout": [
     "Avatar",
     "Card",
-    "Dashboard Layout",
     "Dialog",
+    "Predefined Dialogs",
     "ListView",
     "Tooltip",
-    "Splitter"
-  ],
-  "Forms": [
-    "Query Builder"
-  ],
-  "Viewer": [
-    "PDF Viewer"
+    "Splitter",
+    "Dashboard Layout"
   ]
 }

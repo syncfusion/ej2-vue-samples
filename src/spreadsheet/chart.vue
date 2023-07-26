@@ -85,8 +85,8 @@ export default Vue.extend({
         cells2: [
         { index: 6, chart: [{ type: 'Column', range: 'A3:E10' }] }
         ],
-         openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-         saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+         openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+         saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {

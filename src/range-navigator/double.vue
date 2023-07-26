@@ -4,7 +4,7 @@
      <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Score Comparision AUS vs SL</h4>
     <div align="center">
          <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerDouble' :value='value' :tooltipRender='tooltipRender'
-         labelPosition ='Outside' :width='width' :changed='changed' :theme='theme' :tooltip='tooltip' >
+         labelPosition ='Outside' :width='width' :changed='changed' :theme='theme' :legendSettings='legendSettings' :tooltip='tooltip' >
             <e-rangenavigator-series-collection >
                 <e-rangenavigator-series :dataSource='ausData' xName='x' type='Line' yName='y' ></e-rangenavigator-series>
                 <e-rangenavigator-series :dataSource='slData' xName='x' type='Line' yName='y' ></e-rangenavigator-series>
@@ -57,7 +57,7 @@ Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let chartAnnotation = [];
 chartAnnotation.push({
   content: '<div id="exchangeRate"></div>',
@@ -100,6 +100,7 @@ export default Vue.extend({
       animation: { enable: false },
       height: "350",
       ausData: aus,
+      legendSettings: { visible: false },
       slData: sl,
       //Range Navigator Properties
       tooltip: { enable: true },

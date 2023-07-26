@@ -57,6 +57,7 @@
         color: #495057;
     }
     .material-dark .ddl-icons-css .e-list-icon,
+    .material3-dark .ddl-icons-css .e-list-icon,
     .bootstrap5-dark .ddl-icons-css .e-list-icon,
     .tailwind-dark .ddl-icons-css .e-list-icon,
     .fluent-dark .ddl-icons-css .e-list-icon {

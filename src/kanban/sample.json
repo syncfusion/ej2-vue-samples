@@ -2,8 +2,8 @@
     "name": "Kanban",
     "directory": "kanban",
     "category": "Data Visualization",
+    "type": "update",
     "ftName": "kanban",
-    "type":"update",
     "samples": [
         {
             "url": "overview",
@@ -42,7 +42,7 @@
                 ]
             },
             "sourceFiles":[
-                { "displayName":"default.vue", "path":"default.vue" },
+                { "displayName":"default.vue", "path":"src/kanban/default.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
@@ -164,6 +164,28 @@
             ]
         },
         {
+            "url": "virtual-scrolling",
+            "name": "Virtual Scrolling",
+            "category": "Kanban",
+            "type": "New",
+            "description": "The example demonstrates how to load a large number of cards in the Vue Kanban board with optimal load time using the virtual scrolling feature.",
+            "api": {
+                "Kanban": [
+                    "dataSource",
+                    "keyField",
+                    "columns",
+                    "cardSettings",
+                    "dialogSettings",
+                    "enableTooltip"
+                ]
+            },
+            "sourceFiles":[
+                { "displayName":"virtual-scrolling.vue", "path":"src/kanban/virtual-scrolling.vue" },
+                { "displayName":"virtual-card-templete.vue", "path":"src/kanban/virtual-card-templete.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
+        },
+        {
             "url": "local-data",
             "name": "Local Data",
             "category": "Data Binding",
@@ -212,7 +234,6 @@
             },
             "sourceFiles":[
                 { "displayName":"header-template.vue", "path":"src/kanban/header-template.vue" },
-                { "displayName":"header-column-template.vue", "path":"src/kanban/header-column-template.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
@@ -232,14 +253,12 @@
             },
             "sourceFiles":[
                 { "displayName":"swimlane-template.vue", "path":"src/kanban/swimlane-template.vue" },
-                { "displayName":"swimlane-row-template.vue", "path":"src/kanban/swimlane-row-template.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },
         {
             "url": "card-template",
             "name": "Card Template",
-            "type":"update",
             "category": "Templates",
             "description": "The example demonstrates how to customize the JavaScript Kanban cards using templates, which is used to design beautiful cards with text, images, and more.",
             "api": {

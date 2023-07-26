@@ -48,6 +48,9 @@
   </div>
 </template>
 <style>
+#kanbanEditForm .e-float-input {
+    margin-top: 0px;
+}
 .kanban-card-template .e-card table {
   table-layout: fixed;
 }
@@ -60,7 +63,7 @@
   color: #b8860b;
 }
 .kanban-card-template .e-card .e-kanban-date {
-  padding-left: 3px;
+  padding-right: 3px;
 }
 .kanban-card-template .e-card .e-date {
   display: contents;
@@ -168,10 +171,6 @@
 .e-kanban-dialog .e-kanban-form-wrapper table .e-label, .e-kanban-dialog .e-kanban-form-container table .e-label {
   width: 80px;
 }
-.kanban-card-template .e-kanban-dialog .e-float-input, .e.kanban .e-float-input.e-control-wrapper
-{
-  margin-top:0px;
-}
 
 @keyframes blinker {
   50% {
@@ -273,7 +272,7 @@ export default Vue.extend({
           args.data.Date = args.element
             .querySelector("#datepicker")
             .ej2_instances[0].value.toLocaleString("es-PR")
-            .split(" ")[0];
+            .split(",")[0];
         }
       }
     };

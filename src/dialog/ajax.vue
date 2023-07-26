@@ -77,7 +77,7 @@ Vue.use(ButtonPlugin);
 export default Vue.extend({
     data: function() {
         return {
-            header: '<img class="img1" src="src/dialog/images/dialog-img2.png">Whats Coming from Microsoft this Fall',
+            header: '<img class="img1" src="src/dialog/images/dialog-img2.png" alt="Microsoft roadmap">Whats Coming from Microsoft this Fall',
             target:'.control-section',
             showCloseIcon:  true,
             ajaxHeight:  '270px',

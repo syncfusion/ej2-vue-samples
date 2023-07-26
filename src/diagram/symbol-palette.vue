@@ -196,12 +196,14 @@ export default Vue.extend({
       palettes: [
         {
           id: "flow",
+          iconCss: 'e-ddb-icons e-flow', 
           expanded: true,
           symbols: flowshapes,
           title: "Flow Shapes"
         },
         {
           id: "basic",
+          iconCss: 'e-ddb-icons e-basic',
           expanded: true,
           symbols: basicShapes,
           title: "Basic Shapes"
@@ -209,6 +211,7 @@ export default Vue.extend({
         {
           id: "connectors",
           expanded: true,
+          iconCss: 'e-ddb-icons e-connector',
           symbols: connectorSymbols,
           title: "Connectors"
         }

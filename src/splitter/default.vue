@@ -75,7 +75,7 @@
     }
      .default-splitter .splitterContent.e-rtl div.e-pane-horizontal, .default-splitter .splitterContent.e-rtl div.e-pane-vertical {
       justify-content: initial;
-    text-align: initial;
+      text-align: initial;
     }
 </style>
 <script>

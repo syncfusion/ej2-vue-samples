@@ -1,7 +1,7 @@
 <template>
   <div class="control-section accordion-default">
     <div class="accordion-control-wrapper">
-      <ejs-accordion>
+      <ejs-accordion ref="Accordion_Obj">
         <e-accordionitems>
           <e-accordionitem
             expanded="true"
@@ -268,5 +268,13 @@ import { AccordionPlugin } from "@syncfusion/ej2-vue-navigations";
 
 Vue.use(AccordionPlugin);
 
-export default Vue.extend({});
+export default Vue.extend({
+  mounted: function () {
+    document.body.addEventListener('keydown', (e) => {
+      if (e.altKey && e.keyCode === 74 && this.$refs.Accordion_Obj) {
+        this.$refs.Accordion_Obj.select(0);
+      }
+    });
+  },
+});
 </script>

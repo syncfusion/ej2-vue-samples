@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group" style="padding-top: 11px;">
                             <div class="e-float-input">
-                                <input type="text" id="mobileno" name="MobileNo" data-required-message="* Enter your mobile number" required="" data-msg-containerid="noError">
+                                <input type="tel" maxlength="10" id="mobileno" name="MobileNo" data-required-message="* Enter your mobile number" required="" data-msg-containerid="noError">
                                 <span class="e-float-line"></span>
                                 <label class="e-float-text e-label-top" for="mobileno">Mobile No</label>
                             </div>   
@@ -93,6 +93,7 @@
 
         .highcontrast .form-support #control_wrapper,
         .material-dark .form-support #control_wrapper,
+        .material3-dark .form-support #control_wrapper,
         .fabric-dark .form-support #control_wrapper,
         .bootstrap-dark .form-support #control_wrapper,
         .bootstrap5-dark .form-support #control_wrapper {
@@ -154,27 +155,33 @@
         .form-support button#browse {
             float: right;
             margin-right: -115px;
-            margin-top: -29px;
+            margin-top: -32px;
             position: relative;
         }      
         .bootstrap4 .form-support button#browse {
 			margin-top: -33px;
         }  
         .e-bigger.bootstrap .form-support button#browse {
-            top: -12px;
+            margin-top: -41px;
         }
-        .e-bigger.material .form-support  button#browse {
-            top: -8px;
+        .e-bigger.material .form-support  button#browse,
+        .e-bigger.material-dark .form-support  button#browse {
+            margin-top: -33px;
         }
-        .e-bigger.fabric .form-support button#browse, .e-bigger.highcontrast .form-support button#browse {
-            top: -11px;
+        .e-bigger.fabric .form-support button#browse,
+        .e-bigger.fabric-dark .form-support button#browse,
+        .e-bigger.highcontrast .form-support button#browse {
+            margin-top: -41px;
             left: 2%;
         }
-        .fabric .form-support #browse, .highcontrast .form-support #browse {
-            top: -3px;
+        .fabric .form-support #browse,
+        .fabric-dark .form-support #browse,
+        .highcontrast .form-support #browse {
+            margin-top: -33px;
         }
-        .bootstrap .form-support #browse {
-            top: -6px;
+        .bootstrap .form-support #browse,
+        .bootstrap-dark .form-support #browse {
+           margin-top: -35px;
         }
         .form-support .form-title {
             text-align: center;
@@ -182,6 +189,25 @@
         #form1 .e-float-input:not(.e-input-group), #form1 .e-float-input.e-control-wrapper:not(.e-input-group) {
             display: inherit;
         }
+        .fluent .e-bigger .e-dialog .e-dlg-header-content,
+        .fluent-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind-dark .e-bigger .e-dialog .e-dlg-header-content{
+            padding-bottom: 2%;
+        }
+        .material-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .material .e-bigger .e-dialog .e-dlg-header-content{
+            padding-bottom: 3%;
+        }
+        .e-bigger.fluent .form-support button#browse,
+        .e-bigger.fluent-dark .form-support button#browse,
+        .e-bigger.bootstrap5 .form-support button#browse,
+        .e-bigger.bootstrap5-dark .form-support button#browse,
+        .e-bigger.tailwind .form-support button#browse,
+        .e-bigger.tailwind-dark .form-support button#browse{
+            margin-top: -41px;
+        }
+        
 </style>
 <style>
     .form-support .uploader-form-support.e-upload {

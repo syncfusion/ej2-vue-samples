@@ -51,7 +51,7 @@ export default Vue.extend({
       },
       allowInline: true,
       workDays: [0, 1, 2, 3, 4, 5],
-      selectedDate: new Date(2021, 3, 4),
+      selectedDate: new Date(2023, 0, 4),
       currentView: "TimelineWeek",
       allowMultiple: true,
       group: {

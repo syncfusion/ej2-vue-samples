@@ -1,0 +1,50 @@
+<template>
+  <div class="col-lg-12 control-section msg-default-section">
+    <div class="content-section">
+      <ejs-message id="msg_default" content="Editing is restricted"></ejs-message>
+      <ejs-message id="msg_info" content="Please read the comments carefully" severity="Info"></ejs-message>
+      <ejs-message id="msg_success" content="Your message has been sent successfully" severity="Success"></ejs-message>
+      <ejs-message id="msg_warning" content="There was a problem with your network connection" severity="Warning"></ejs-message>
+      <ejs-message id="msg_error" content="A problem occurred while submitting your data" severity="Error"></ejs-message>
+    </div>
+    <div id="action-description">
+      <p>This sample demonstrates the default functionalities of the Vue Message component with different severity types and predefined styles.</p>
+    </div>
+    <div id="description">
+      <p>The Message component displays messages with different severity levels, set with icons and colors to denote the importance and context of the message to the end user.</p>
+      <p>The available severity messages are <b>Normal</b>, <b>Success</b>, <b>Info</b>, <b>Warning</b> and <b>Error</b>.</p>
+      <ul>
+        <li><b>Normal</b> - The message is displayed with an icon and color to denote it as a normal message.</li>
+        <li><b>Success</b> - The message is displayed with an icon and color to denote it as a success message.</li>
+        <li><b>Info</b> - The message is displayed with an icon and color to denote it as information.</li>
+        <li><b>Warning</b> - The message is displayed with an icon and color to denote it as a warning message.</li>
+        <li><b>Error</b> - The message is displayed with an icon and color to denote it as an error message.</li>
+      </ul>
+      <p>In this sample, messages are displayed with a distinct icon and a color based on the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/message/#content">content</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/message/#severity">severity</a> properties.</p>
+    </div>
+  </div>
+</template>
+
+<style>
+.msg-default-section .content-section {
+  margin: 0 auto;
+  max-width: 520px;
+  padding-top: 10px;
+}
+
+.msg-default-section .e-message {
+  margin: 10px 0;
+}
+</style>
+
+<script>
+import Vue from "vue";
+import { MessagePlugin } from "@syncfusion/ej2-vue-notifications";
+
+Vue.use(MessagePlugin);
+export default Vue.extend({
+  data: function () {
+    return {};
+  },
+});
+</script>

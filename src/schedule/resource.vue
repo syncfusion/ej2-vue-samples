@@ -53,7 +53,6 @@
     </div>
 </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.margaret .e-frame {
         background-color: #ea7a57;
@@ -70,7 +69,6 @@
         border-color: transparent;
     }
 </style>
-<!-- custom code end -->
 
 <script>
     import Vue from "vue";

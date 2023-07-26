@@ -14,7 +14,7 @@
                 <div style="padding-bottom: 8px">
                     Visibility
                 </div>
-                <div>
+                <div  style="width:80%;">
                     <!-- Enable or disable the visibility of the Port -->
                         <ejs-multiselect ref='portsVisiblityObj' id='portsVisiblity'
                                         :enabled='portsVisiblityenabled'
@@ -31,7 +31,7 @@
                 <div style="padding-bottom: 8px">
                     Shape
                 </div>
-                <div>
+                <div  style="width:80%;">
                      <!-- DropDownList is used to apply the shape of the Port. -->
                         <ejs-dropdownlist ref='shapeObj' id='shape' 
                                           :enabled='shapeenabled'
@@ -69,7 +69,7 @@
                 <div style="padding-bottom: 8px">
                     Stroke Width
                 </div>
-                <div style="padding-bottom: 8px">
+                <div style="padding-bottom: 8px;width:80%;">
                     <!-- NumericTextBox is used to apply the StrokeWidth of the Port. -->
                         <ejs-numerictextbox ref='widthObj' id='width' 
                                             :enabled='widthenabled'
@@ -83,7 +83,7 @@
                 <div style="padding-bottom: 8px">
                     Size
                 </div>
-                <div style="padding-bottom: 8px">
+                <div style="padding-bottom: 8px;width:80%;">
                      <!-- NumericTextBox is used to apply the size of the Port. -->
                         <ejs-numerictextbox ref= 'sizeObj' id='size' 
                                             :enabled='sizeenabled'

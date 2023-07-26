@@ -1,26 +1,25 @@
 <template>
   <div class="control-section">
-    <div align='center'>
+    <div class="trackball-control-section" align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-             :width='width' :tooltip='tooltip' :pointRender='pointRender' :legendSettings='legendSettings'>
+             :width='width' :tooltip='tooltip' :pointRender='pointRender' :legendSettings='legendSettings' >
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Bubble' xName='x' size='size' yName='y' name='Pound' width=2 :marker='marker' minRadius=3  maxRadius=8> </e-series>
+                <e-series :dataSource='seriesData' type='Bubble' xName='Literacy' size='BubbleSize' yName='GDPGrowth' name='Pound' :marker='marker' minRadius=3  maxRadius=8 :border='border' tooltipMappingName='Text'> </e-series>
                 
             </e-series-collection>
         </ejs-chart>
     </div>
    <div id="action-description">
     <p>
-        This sample visualizes the  Literacy Rate and GDP Growth Rate of world countries by using bubble series in the chart. Tooltip shows the information about the  countries.
+        This Vue bubble chart example visualizes the literacy rates and GDP growth rates of countries. A tooltip shows more information about the countries.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the bubble type charts.A bubble chart is a type of chart that displays three dimensions of data. 
-        Each points is drawn as a bubble, where bubble's size depends on <code>size</code> property. You can use <code>fill</code> property to customize the data appearance.        
+        In this example, you can see how to render and configure the bubble chart. The bubble chart is a type of chart that shows three dimensions of the data. Each point is drawn as a bubble, where the bubble's size depends on the <code>Size</code> property. You can also use the <code>Fill</code> property to customize the data appearance.         
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
     <br>
     <p style="font-weight: 500">Injecting Module</p>
@@ -29,106 +28,167 @@
         <code>BubbleSeries</code> module using <code>provide: { chart: [BubbleSeries] },</code> method.
     </p>
     <p>
-        More information on the bubble series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        More information about the bubble series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/bubble">documentation section</a>.
     </p>
 </div>
 </div>
 
 </template>
-<style scoped>
-
+<style >
+.trackball-control-section ellipse[id*=_Trackball_0] {
+        stroke-width: 1 !important;
+    } 
 </style>
 <script>
 import Vue from "vue";
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, BubbleSeries, Tooltip} from "@syncfusion/ej2-vue-charts";
-import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluentColors, fluentDarkColors } from './theme-color';
+import { ChartPlugin, BubbleSeries, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
+import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, 
+        bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, 
+        pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors } from './theme-color';
 
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
     return {
-         theme: theme,
+     theme: theme,
      seriesData: [
-    { x: 92.2, y: 7.8, size: 1.347, text: 'China' },
-                    { x: 74, y: 6.5, size: 1.241, text: 'India' },
-                    { x: 90.4, y: 6.0, size: 0.238, text: 'Indonesia' },
-                    { x: 99.4, y: 2.2, size: 0.312, text: 'US' },
-                    { x: 88.6, y: 1.3, size: 0.197, text: 'Brazil' },
-                    { x: 99, y: 0.7, size: 0.0818, text: 'Germany' },
-                    { x: 72, y: 2.0, size: 0.0826, text: 'Egypt' },
-                    { x: 99.6, y: 3.4, size: 0.143, text: 'Russia' },
-                    { x: 99, y: 0.2, size: 0.128, text: 'Japan' },
-                    { x: 86.1, y: 4.0, size: 0.115, text: 'Mexico' },
-                    { x: 92.6, y: 6.6, size: 0.096, text: 'Philippines' },
-                    { x: 61.3, y: 1.45, size: 0.162, text: 'Nigeria' },
-                    { x: 82.2, y: 3.97, size: 0.7, text: 'Hong Kong' },
-                    { x: 79.2, y: 3.9, size: 0.162, text: 'Netherland' },
-                    { x: 72.5, y: 4.5, size: 0.7, text: 'Jordan' },
-                    { x: 81, y: 3.5, size: 0.21, text: 'Australia' },
-                    { x: 66.8, y: 3.9, size: 0.028, text: 'Mongolia' },
-                    { x: 78.4, y: 2.9, size: 0.231, text: 'Taiwan' }
-
-],
+        { Literacy : 92.2, GDPGrowth : 7.8, BubbleSize : 1.347, TooltipMappingName : "China", Text : "China" },
+        { Literacy : 74, GDPGrowth : 6.5, BubbleSize : 1.241, TooltipMappingName : "India", Text : "India" },
+        { Literacy : 90.4, GDPGrowth : 6.0, BubbleSize : 0.238, TooltipMappingName : Browser.isDevice ? 'ID': "Indonesia", Text : "Indonesia" },
+        { Literacy : 99.4, GDPGrowth : 2.2, BubbleSize : 0.312, TooltipMappingName : "US", Text : "United States" },
+        { Literacy : 88.6, GDPGrowth : 1.3, BubbleSize : 0.197, TooltipMappingName : Browser.isDevice ? 'BR' : "Brazil", Text : "Brazil" },
+        { Literacy : 99, GDPGrowth : 0.7, BubbleSize : 0.0818, TooltipMappingName : Browser.isDevice ? 'DE' : "Germany", Text : "Germany" },
+        { Literacy : 72, GDPGrowth : 2.0, BubbleSize : 0.0826, TooltipMappingName : Browser.isDevice ? 'EG': "Egypt", Text : "Egypt" },
+        { Literacy : 99.6, GDPGrowth : 3.4, BubbleSize : 0.143, TooltipMappingName : Browser.isDevice ? 'RUS': "Russia", Text : "Russia" },
+        { Literacy : 96.5, GDPGrowth : 0.2, BubbleSize : 0.128, TooltipMappingName : Browser.isDevice ? 'JP': "Japan", Text : "Japan" },
+        { Literacy : 86.1, GDPGrowth : 4.0, BubbleSize : 0.115, TooltipMappingName : "MLI", Text : "MeLiteracy Ion" },
+        { Literacy : 92.6, GDPGrowth : 5.2, BubbleSize : 0.096, TooltipMappingName : "PH", Text : "Philipines" },
+        { Literacy : 61.3, GDPGrowth : 1.45, BubbleSize : 0.162, TooltipMappingName : "Nigeria", Text : "Nigeria" },
+        { Literacy : 82.2, GDPGrowth : 3.97, BubbleSize : 0.7, TooltipMappingName : Browser.isDevice ? 'HK' : "Hong Kong", Text : "Hong Kong" },
+        { Literacy : 79.2, GDPGrowth : 4.9, BubbleSize : 0.162, TooltipMappingName : "NL", Text : "NetherLand" },
+        { Literacy : 72.5, GDPGrowth : 4.5, BubbleSize : 0.7, TooltipMappingName : "Jordan", Text : "Jordan" },
+        { Literacy : 81, GDPGrowth : 2.5, BubbleSize : 0.21, TooltipMappingName : Browser.isDevice ? 'AU' : "Australia", Text : "Australia" },
+        { Literacy : 66.8, GDPGrowth : 3.9, BubbleSize : 0.028, TooltipMappingName : "MN", Text : "Mongolia" },
+        { Literacy : 78.4, GDPGrowth : 2.9, BubbleSize : 0.231, TooltipMappingName : Browser.isDevice ? 'TW' :"Taiwan", Text : "Taiwan" }
+   ],
     
            //Initializing Primary X Axis
      primaryXAxis: {
-            title: 'Literacy Rate',
-            minimum: 60,
-            maximum: 100,
+            crossesAt: 5,
+            minimum: 65,
+            maximum: 102,
             interval: 5
         },
         
      //Initializing Primary Y Axis
        primaryYAxis: {
-            title: 'GDP Growth Rate',
+            crossesAt: 85,
             minimum: 0,
             maximum: 10,
             interval: 2.5
         },
 
-        width : Browser.isDevice ? '100%' : '60%',
-      marker: { dataLabel: { name: 'text' } },
+      width : Browser.isDevice ? '100%' : '75%',
+      marker: {  dataLabel: { name: 'TooltipMappingName' , visible: true , position: 'Middle' , font: { fontWeight: '500'}} },
+      border: { width: 2 },
+      legendSettings: { visible: false },
+      tooltip: {
+        header: '<b>${point.tooltip}</b>',
+        enableMarker: false,
+        enable: true,
+        format: "Literacy Rate : <b>${point.x}%</b> <br/>GDP Annual Growth Rate : <b>${point.y}</b><br/>Population : <b>${point.size} Billion</b>"
+    },
+
+    title: "World Countries Details",
 
        pointRender: function(args) {
        let selectedTheme = location.hash.split('/')[1];
-    selectedTheme = selectedTheme ? selectedTheme : 'Material';
-    if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
-        args.fill = fabricColors[args.point.index % 10];
-    } else if (selectedTheme === 'material') {
-        args.fill = materialColors[args.point.index % 10];
-    } else if (selectedTheme === 'highcontrast') {
-        args.fill = highContrastColors[args.point.index % 10];
-    } else if (selectedTheme === 'fluent') {
-        args.fill = fluentColors[args.point.index % 10];
-    } else if (selectedTheme === 'fluent-dark') {
-        args.fill = fluentDarkColors[args.point.index % 10];
-    } else {
-        args.fill = bootstrapColors[args.point.index % 10];
-    }
+       selectedTheme = selectedTheme ? selectedTheme : 'Material';
+
+        if (selectedTheme==='material-dark')
+        {
+            args.fill = bubblePointMaterialDarkColors[args.point.index % 10];
+            args.border.color = pointMaterialDarkColors[args.point.index % 10];
+        }
+        else if(selectedTheme==='material')
+        {
+            args.fill = bubblePointMaterialColors[args.point.index % 10];
+            args.border.color = pointMaterialColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='fabric-dark' || selectedTheme==='fabric')
+        {
+            args.fill = bubblePointFabricColors[args.point.index % 10];
+            args.border.color = pointFabricColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='bootstrap5-dark')
+        {
+            args.fill = bubblePointBootstrap5DarkColors[args.point.index % 10];
+            args.border.color = pointBootstrap5DarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='bootstrap5')
+        {
+            args.fill = bubblePointBootstrap5Colors[args.point.index % 10];
+            args.border.color = pointBootstrap5Colors[args.point.index % 10];
+        }
+        else if (selectedTheme==='fluent-dark')
+        {
+            args.fill = bubblePointFluentDarkColors[args.point.index % 10];
+            args.border.color = pointFluentDarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='fluent')
+        {
+            args.fill = bubblePointFluentColors[args.point.index % 10];
+            args.border.color = pointFluentColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='bootstrap4' || selectedTheme==='bootstrap')
+        {
+                args.fill = bubblePointBootstrapColors[args.point.index % 10];
+                args.border.color = pointBootstrapColors[args.point.index % 10];           
+        }
+        else if (selectedTheme==='tailwind-dark')
+        {
+            args.fill = bubblePointTailwindDarkColors[args.point.index % 10];
+            args.border.color = pointTailwindDarkColors[args.point.index % 10];                     
+
+        }
+        else if (selectedTheme==='tailwind')
+        {                    
+            args.fill = bubblePointTailwindColors[args.point.index % 10];
+            args.border.color = pointTailwindColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='highcontrast')
+        {
+            args.fill = bubblePointHighContrastColors[args.point.index % 10];
+            args.border.color = pointHighContrastColors[args.point.index % 10];           
+        }
+        else if (selectedTheme === 'material3') {
+            args.fill = bubbleMaterial3Colors[args.point.index % 10];
+            args.border.color = pointMaterial3Colors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'material3-dark') {
+            args.fill = bubbleMaterial3DarkColors[args.point.index % 10];
+            args.border.color = pointMaterial3DarkColors[args.point.index % 10];
+        }
+        else
+        {
+            args.fill = bubblePointBootstrapColors[args.point.index % 10];
+            args.border.color = pointBootstrapColors[args.point.index % 10];           
+        }
 
    },
 
-       legendSettings: { visible: false },
-
-      tooltip: {
-            enable: true,
-            format: '${point.text}<br/>Literacy Rate : <b>${point.x}%</b>' +
-                '<br/>GDP Annual Growth Rate : <b>${point.y}</b><br/>Population : <b>${point.size} Billion</b>'
-        },
-      
-      title: "World Countries Details"
     };
   },
   provide: {
-    chart: [BubbleSeries, Tooltip]
+    chart: [BubbleSeries, Tooltip, Legend, DataLabel]
   },
   methods: {
   }

@@ -10,7 +10,7 @@
         :contextMenuItems="contextMenuItems" :editSettings  ='editing'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name'  width='150'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='160'></e-column>
                 <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' editType='numericedit' width='120'></e-column>
                 <e-column field='ShipName' headerText='Ship Name' width='200'></e-column>
                 <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit'></e-column>

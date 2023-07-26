@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div class="control_wrapper month-picker">
-        <div id="container" style="overflow:auto">
+        <div id="container">
               <ejs-calendar id="calendar" :change="onValueChange" :start="start" :depth="depth"></ejs-calendar>
             <span id="date_label"> Selected Value: </span>
 
@@ -64,6 +64,7 @@ body.fluent-dark #date_label,
 body.bootstrap5-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
+body.material3-dark #date_label,
 body.fabric-dark #date_label,
 body.bootstrap-dark #date_label,
 body.highcontrast #date_label {

@@ -15,7 +15,7 @@
                     <div class="sb-home-text">
                         <span>HOME</span>
                     </div>
-                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html"></a>
+                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html" aria-label="Sample home page"></a>
                 </div>
                 <div class='sb-control-navigation'>
                     <div id="controlTree" class='e-view'></div>
@@ -29,11 +29,11 @@
                 </div>
                 <div class='sb-left-footer'>
                     <div class="sb-mobile-header-buttons">
-                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank">
+                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank" aria-label="About Vue component">
                             <div class="sb-mobile-header-about">
                                 About</div>
                         </a>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank" aria-label="Prcing of Vue component">
                             <div class="sb-mobile-header-price">Pricing</div>
                         </a>
                     </div>
@@ -55,7 +55,7 @@
                 <div class='sb-header-left sb-left sb-table'>
                     <div class='sb-header-item sb-table-cell'>
                         <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger" aria-label="toggle all controls navigation"
-                            title='toggle leftpane'></div>
+                            title='toggle leftpane' aria-selected="true"></div>
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
@@ -92,12 +92,12 @@
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
                     <div class='sb-header-item sb-table-cell sb-download-wrapper'>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">                
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank" aria-label="Free Trial">                
                         <button id='download-now' class='sb-download-btn'>
                                     <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
                         </a>
-                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank">
+                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" aria-label="Install NPM">
                         <button class='sb-npm-btn'>
                             <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span class="doc-npm-link">Install NPM</span>
                         </button>
@@ -160,13 +160,21 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS Dark</span>
                         </li>
-                        <li class='active' id="material" role="listitem">
+                        <li class='e-list' id="material" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material</span>
                         </li>
                         <li class="e-list" id="material-dark">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material Dark</span>
+                        </li>
+                        <li class='active' id="material3" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material 3</span>
+                        </li>
+                        <li class="e-list" id="material3-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material 3 Dark</span>
                         </li>
                         <li id="fabric" role="listitem">
                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
@@ -193,7 +201,7 @@
                            <span class="switch-text">High Contrast</span>
                         </li>
                     </ul>
-                     <div class="sb-theme-studio"><a target="_blank" href="https://ej2.syncfusion.com/themestudio/?theme=material">Go to Theme Studio</a></div>
+                     <div class="sb-theme-studio"><a target="_blank" href="https://ej2.syncfusion.com/themestudio/?theme=material" aria-label="Go to Theme Studio">Go to Theme Studio</a></div>
                 </div>
                 <div id='settings-popup' class='sb-setting-popup'>
                     <div class='sb-setting-header'>
@@ -216,6 +224,8 @@
                                     <option value="tailwind-dark">Tailwind CSS Dark</option>
                                     <option value="material">Material</option>
                                     <option value="material-dark">Material Dark</option>
+                                    <option value="material3">Material 3</option>
+                                    <option value="material3-dark">Material 3 Dark</option>
                                     <option value="fabric">Fabric</option>
                                     <option value="fabric-dark">Fabric Dark</option>
                                     <option value="bootstrap4">Bootstrap v4</option>
@@ -282,7 +292,7 @@
                         </div>
                     </div>
                     <div class='sb-desktop-wrapper'>
-                        <div id='component-name' role='header' class='sb-component-name sb-rightpane-padding'>
+                        <div id='component-name' role="heading" aria-level="1" class='sb-component-name sb-rightpane-padding'>
                             <h1 class='sb-sample-text'>Chart</h1>
                         </div>
                         <div id='sample-bread-crumb' class='sb-bread-crumb sb-rightpane-padding'>
@@ -294,7 +304,7 @@
                                 <div class='crumb-sample '></div>
                             </div>
 
-                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html"></a>
+                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html" aria-label="Sample home page"></a>
                         </div>
                         <div class='sb-action-description sb-rightpane-padding'>
                             Componet Action Description
@@ -345,7 +355,7 @@
                                 <div class="content-area">
                                     <div class="ad-cnt-pt">
                                         <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection"></div>
-                                        <div class="ad-cnt-text">65+ high-performance and responsive UI components</div>
+                                        <div class="ad-cnt-text">80+ high-performance and responsive UI components</div>
                                     </div>
                                     <div class="ad-cnt-pt">
                                         <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
@@ -368,23 +378,23 @@
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">
-                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank">
+                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank" aria-label="Documentation link">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank">
+                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank" aria-label="Forum link">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
-                                    <a href="https://syncfusion.com/blogs" target="_blank">
+                                    <a href="https://syncfusion.com/blogs" target="_blank" aria-label="Blog link">
                                         <div class="sb-footer-link">Blog</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/kb/" target="_blank">
+                                    <a href="https://www.syncfusion.com/kb/" target="_blank" aria-label="Knowledge base">
                                         <div class="sb-footer-link">Knowledge Base</div>
                                     </a>
                                 </div>
                                 <div class="sb-footer-copyright"></div>
                             </div>
                             <div class="sb-footer-logo">
-                                <a href="https://www.syncfusion.com/" target="_blank">
+                                <a href="https://www.syncfusion.com/" target="_blank" aria-label="Footer logo">
                                     <div class="sb-footer-logo-icon"></div>
                                 </a>
                             </div>
@@ -430,8 +440,8 @@ import VueRouter from "vue-router";
 
 /* syncfusion imports */
 import { Browser, extend, Animation, Ajax, closest, createElement, detach, enableRipple, setCurrencyCode } from '@syncfusion/ej2-base';
-import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr, registerLicense } from '@syncfusion/ej2-base';
-import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
+import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr, registerLicense, getComponent } from '@syncfusion/ej2-base';
+import { TreeView, Sidebar, Tab, EventArgs } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
 import { Button } from '@syncfusion/ej2-buttons';
@@ -439,6 +449,7 @@ import { Toast } from '@syncfusion/ej2-notifications';
 import { Grid } from '@syncfusion/ej2-grids';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
 import { DataManager, Query, DataUtil } from '@syncfusion/ej2-data';
+import { ImageEditor } from '@syncfusion/ej2-image-editor';
 
 /* Other imports */
 import { Locale } from './common/locale-string';
@@ -447,7 +458,7 @@ import * as currencyData from './common/cldr-data/supplemental/currencyData.json
 import * as deCultureData from './common/cldr-data/main/de/all.json';
 import * as arCultureData from './common/cldr-data/main/ar/all.json';
 import * as swissCultureDate from './common/cldr-data/main/fr-CH/all.json';
-import * as enCultureData from './common/cldr-data/main/fr-CH/all.json';
+import * as enCultureData from './common/cldr-data/main/en/all.json';
 import * as chinaCultureData from './common/cldr-data/main/zh/all.json';
 import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
@@ -458,17 +469,17 @@ import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 import routes from './router.config';
 // import { setTimeout } from "timers";
 
-loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
+loadCldr(numberingSystems["default"], chinaCultureData["default"], enCultureData["default"], swissCultureDate["default"], currencyData["default"], deCultureData["default"], arCultureData["default"]);
 L10n.load(Locale);
 setCulture('en');
-registerLicense('{SyncfusionJSLicensekey}');
+registerLicense((window as any).syncfusion_license);
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
-let selectedTheme: string = location.hash.split('/')[1] || 'bootstrap5';
-const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
+let selectedTheme: string = location.hash.split('/')[1] || 'material3';
+const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'material3', 'material3-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -532,7 +543,7 @@ let mobileSetting: HTMLElement;
 let copyRight: HTMLElement;
 let hsplitter: string = '<div class="sb-toolbar-splitter sb-custom-item"></div>';
 // tslint:disable-next-line:no-multiline-string
-let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank">
+let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank" aria-label="Open new sample">
         <div class="sb-icons sb-icon-Popout"></div></a></div>`;
 let sampleNavigation: string = `<div class="sb-custom-item sample-navigation"><button id='prev-sample' class="sb-navigation-prev" 
 aria-label="previous sample">
@@ -729,7 +740,7 @@ export default Vue.extend({
                         continue;
                     }
                     let data: DataManager = new DataManager((temp as any).samples);
-                    temp.samples = <Samples[]>data.executeLocal(new Query());
+                    temp.samples = <Samples[]>data.executeLocal(new Query().where('hideOnDevice', 'notEqual', true));
                     tempLists = tempLists.concat(temp);
                 }
                 return tempLists;
@@ -783,7 +794,7 @@ export default Vue.extend({
                 this.controlListRefresh(arg.node || arg.item);
                 if (path !== curHashCollection) {
                     this.sampleOverlay();
-                    let theme: string = location.hash.split('/')[1] || 'bootstrap5';
+                    let theme: string = location.hash.split('/')[1] || 'material3';
                     if (arg.item && ((isMobile) ||
                         ((isTablet || (Browser.isDevice && isPc)) && this.isLeftPaneOpen()))) {
                         this.toggleLeftPane();
@@ -905,7 +916,10 @@ export default Vue.extend({
         isLeftPaneOpen: function (): boolean {
             return sidebar.isOpen;
         },
-
+        closeRightSidebar: function (args: EventArgs): void {
+          let targetEle: HTMLElement | null = args.event ? args.event.target as HTMLElement : null;
+          if (targetEle && targetEle.closest('.e-popup')) args.cancel = true;
+        },
         rendersbPopup: function (): void {
             switcherPopup = new Popup(sb.vars.sample, {
                 relateTo: sb.vars.switch, position: { X: 'left' },
@@ -953,7 +967,7 @@ export default Vue.extend({
                     },
                     placeholder: 'Search here...',
                     noRecordsTemplate: '<div class="search-no-record">We’re sorry. We cannot find any matches for your search term.</div>',
-                    fields: { groupBy: 'doc.component', value: 'doc.name', text: 'doc.name' },
+                    fields: { groupBy: 'doc.component', value: 'doc.uid', text: 'doc.name' },
                     popupHeight: 'auto',
                     suggestionCount: 10,
                     highlight: true,
@@ -978,7 +992,7 @@ export default Vue.extend({
                 position: { X: 'right', Y: 'bottom' }
                 , collision: { X: 'flip', Y: 'flip' }
             });
-            settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, showBackdrop: true, type: 'Over' });
+            settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, close: this.closeRightSidebar, showBackdrop: true, type: 'Over' });
             settingSidebar.appendTo('#right-sidebar');
             themeDropDown = new DropDownList({
                 index: 0,
@@ -1267,6 +1281,11 @@ export default Vue.extend({
             target = closest(target, 'li');
             let themeName: string = target.id;
             this.switchTheme(themeName);
+            let imageEditorElem = document.querySelector(".e-image-editor") as HTMLElement;
+            if (imageEditorElem != null) {
+                let imageEditor = getComponent(document.getElementById(imageEditorElem.id) as HTMLElement, 'image-editor') as ImageEditor;
+                (imageEditor as ImageEditor).theme = themeName;
+            }
         },
 
         switchTheme: function (str: string): void {
@@ -1542,7 +1561,7 @@ export default Vue.extend({
                 let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
                     dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
                 for (let sample of samples) {
-                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'bootstrap5';
+                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material3';
                     let control: string = node.directory;
                     let sampleUrl: string = sample.url;
                     let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
@@ -1657,7 +1676,7 @@ export default Vue.extend({
                                     content: `${hideLocation} component not supported in mobile device`
                                 });
                             }, 200);
-                        window.location.hash = "#/bootstrap5/grid/grid-overview.html"
+                        window.location.hash = "#/material3/grid/grid-overview.html"
                     }
                 }
                 let curIndex: number = samplesAr.indexOf(location.hash);
@@ -1715,7 +1734,6 @@ export default Vue.extend({
             if (isMobile) {
                 select('#left-sidebar').classList.add('sb-hide');
                 select('.sb-left-footer-links').appendChild(select('.sb-footer-left'));
-                sidebar.toggle();
                 leftToggle.classList.remove('toggle-active');
             }
 
@@ -1726,7 +1744,7 @@ export default Vue.extend({
             this.overlay();
             this.changeMouseOrTouch(switchText);
             localStorage.removeItem('ej2-switch');
-            enableRipple(selectedTheme === 'material' || !selectedTheme);
+            enableRipple(selectedTheme.indexOf('material') !== -1 || !selectedTheme);
             this.loadTheme(selectedTheme);
         }
     }

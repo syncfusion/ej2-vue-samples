@@ -35,7 +35,6 @@
             </p>
         </div>
 
-        <!-- custom code start -->
         <div id="description">
             <p>
                 With the usage of template, the user can format and change the default appearance of the events by making use of the
@@ -44,7 +43,6 @@
                 will be displayed directly on the events.
             </p>
         </div>
-        <!-- custom code end -->
 
     </div>
 </template>
@@ -149,14 +147,6 @@
             getTimeString: function (data) {
                 return instance.formatDate(data.StartTime, { skeleton: 'hm' }) + " - " + instance.formatDate(data.EndTime, { skeleton: 'hm' });
             }
-        },
-        mounted: function () {
-            let scheduleObj = this.$refs.ScheduleObj;
-            if (Browser.isDevice) {
-                scheduleObj.views = ['Day'];
-            }
-            scheduleObj.eventSettings.template = this.eventTemplate;
-            scheduleObj.dataBind();
         },
         provide: {
             schedule: [Week, Day, TimelineViews, Resize, DragAndDrop]

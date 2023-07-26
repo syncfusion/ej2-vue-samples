@@ -1,14 +1,14 @@
 <template>
-<div class="col-lg-12 control-section">
-  <div class="col-lg-7">
+<div class="col-lg-12">
+  <div class="col-lg-7 control-section sb-property-border">
     <div id="control_wrapper" class="col-lg-6 col-sm-8 col-md-8 multiselectWrapper">
-        <div id="container" style="overflow:auto">
+        <div id="container">
               <ejs-calendar :values="date" :isMultiSelection="multiSelection" :created="onCreated" :change="onValueChange"></ejs-calendar>
         </div>   
       </div>      
     </div>
     <div class="col-lg-5">
-      <label>Selected values</label>
+      <label style="padding-top:22px">Selected values</label>
       <div class="content-value">
         <div id="multiselect"></div>
       </div>
@@ -92,6 +92,7 @@ body.fluent-dark #date_label,
 body.bootstrap5-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
+body.material3-dark #date_label,
 body.fabric-dark #date_label,
 body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
@@ -104,6 +105,7 @@ body.highcontrast #date_label {
 
 .highcontrast .content-value,
 .material-dark .content-value,
+.material3-dark .content-value,
 .fabric-dark .content-value,
 .bootstrap-dark .content-value,
 .bootstrap5-dark .content-value,

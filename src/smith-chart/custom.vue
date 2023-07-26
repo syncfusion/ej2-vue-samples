@@ -210,7 +210,7 @@ methods:{
             this.$refs.smithchart.ej2Instances.refresh();
     },
     changeMarker:function(e){
-        let boolean = (event.target).checked;
+        let boolean = (e.checked);
         if (boolean) {
             this.$refs.smithchart.ej2Instances.series[0].marker.visible = true;
             this.$refs.smithchart.ej2Instances.series[1].marker.visible = true;
@@ -221,7 +221,7 @@ methods:{
         this.$refs.smithchart.ej2Instances.refresh();
     },
     changeDatalabel:function(e){
-        let boolean = (event.target).checked;
+        let boolean = (e.checked);
         if (boolean) {
             this.$refs.smithchart.ej2Instances.series[0].marker.dataLabel.visible = true;
             this.$refs.smithchart.ej2Instances.series[1].marker.dataLabel.visible = true;
@@ -232,7 +232,7 @@ methods:{
         this.$refs.smithchart.ej2Instances.refresh();
     },
     changeAnimate:function(e){
-        let boolean = (event.target).checked;
+        let boolean = (e.checked);
         if (boolean) {
             this.$refs.smithchart.ej2Instances.series[0].enableAnimation = true;
             this.$refs.smithchart.ej2Instances.series[1].enableAnimation = true;
@@ -243,7 +243,7 @@ methods:{
         this.$refs.smithchart.ej2Instances.refresh();
     },
     changeTooltip:function(e){
-        let boolean = (event.target).checked;
+        let boolean = (e.checked);
         if (boolean) {
             this.$refs.smithchart.ej2Instances.series[0].tooltip.visible = true;
             this.$refs.smithchart.ej2Instances.series[1].tooltip.visible = true;
@@ -255,7 +255,7 @@ methods:{
     },
     legendChange:function(e){
         let mode = document.getElementById('legend1');
-        let boolean = (event.target).checked;
+        let boolean = (e.checked);
         if (boolean) {
             this.$refs.smithchart.ej2Instances.legendSettings.visible = true;
             this.$refs.legendPosition.ej2Instances.enabled = true;

@@ -184,6 +184,7 @@ export default Vue.extend({
           type: "Button",
           tooltipText: "ZoomIn",
           text: "Zoom In",
+          prefixIcon:'e-icons e-zoom-in'
         },
         {
           type: "Separator"
@@ -192,6 +193,7 @@ export default Vue.extend({
           type: "Button",
           tooltipText: "ZoomOut",
           text: "Zoom Out",
+          prefixIcon:'e-icons e-zoom-out'
         },
         {
           type: "Separator"
@@ -200,6 +202,7 @@ export default Vue.extend({
           type: "Button",
           tooltipText: "Reset",
           text: "Reset",
+          prefixIcon : 'e-icons e-reset'
         }
       ]
     };

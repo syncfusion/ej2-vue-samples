@@ -42,7 +42,10 @@
         <p>In this demo, remote data is bound by assigning service data as an instance of <code>DataManager</code> to the <code>dataSource
         </code> property.</p>
         <p>
-            More information on the data binding can be found in this documentation section.
+            More information on the remote data binding can be found in this
+            <a target="_blank" 
+                href="https://ej2.syncfusion.com/vue/documentation/treegrid/data-binding/remote-data/">
+               documentation section</a>.
         </p>
     </div>
 </div>
@@ -58,7 +61,7 @@ Vue.use(TreeGridPlugin);
 export default Vue.extend({
   data: () => {
       let SERVICE_URI: string =
-      "https://ej2services.syncfusion.com/production/web-services/api/SelfReferenceData";
+      "https://services.syncfusion.com/vue/production/api/SelfReferenceData";
     return {
       data: new DataManager({
         url: SERVICE_URI,

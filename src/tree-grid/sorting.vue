@@ -162,32 +162,32 @@ export default Vue.extend({
         }
       },
       namecheck: function(e: checkboxchangeargs){
-          if(e.checked){
+        if(e.checked){
               (<TreeGridComponent>this.$refs.treegrid).sortByColumn('orderName','Ascending',true);
-          } else {
+        } else {
               (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('orderName');
-          }
+        }
       },
       categorycheck: function(e: checkboxchangeargs){
-          if(e.checked){
+        if(e.checked){
               (<TreeGridComponent>this.$refs.treegrid).sortByColumn('Category','Ascending',true);
-          } else {
+        } else {
               (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('Category');
-          }
+        }
       },
       datecheck: function(e: checkboxchangeargs){
-          if(e.checked){
+        if(e.checked){
               (<TreeGridComponent>this.$refs.treegrid).sortByColumn('orderDate','Ascending',true);
-          } else {
+        } else {
               (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('orderDate');
-          }
+        }
       },
       unitscheck: function(e: checkboxchangeargs){
-          if(e.checked){
+        if(e.checked){
               (<TreeGridComponent>this.$refs.treegrid).sortByColumn('units','Ascending',true);
-          } else {
+        } else {
               (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('units');
-          }
+        }
       }
   }
 

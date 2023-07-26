@@ -19,7 +19,7 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div id='columnddl'>
-                     <ejs-dropdownlist ref='columns' width='110px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields' :change="onColChange"></ejs-dropdownlist>
+                     <ejs-dropdownlist ref='columns' width='110px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
@@ -29,7 +29,7 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div>
-                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>

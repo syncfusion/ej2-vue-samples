@@ -51,6 +51,9 @@
     #colorpicker-control h4 {
         margin-bottom: 20px;
     }
+    .fluent-dark #colorpicker-control h4 {
+        color: #fff;
+    }
 
     .e-bigger #colorpicker-control h4 {
         font-size: 20px;

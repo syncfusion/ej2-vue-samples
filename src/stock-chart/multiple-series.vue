@@ -9,6 +9,7 @@
         :chartArea="chartArea"
         :indicatorType="indicatorType"
         :trendlineType="trendlineType"
+        :seriesType="seriesType"
         :crosshair="crosshair"
         :legendSettings="legend"
         :border="border"
@@ -24,13 +25,14 @@
     </div>
 
     <div id="action-description">
-      <p>This sample visualizes stock chart with multiple series and legend.</p>
+      <p>This sample visualizes the close value of multiple stock. Crosshair show the information about the data and period.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock Chart.
-        The <code>SplineSeries</code> is used to display data based on the selection made in the Range Selector. 
-        Since there are multiple series, the interactive legend has been enabled, which provides a quick overview of each series.
+        In this example, you can see how to render and configure stock chart to visualize the data for multiple stock. Stock Chart supports 6 major types of series namely <code>Line</code>, <code>Spline</code>, <code>Hilo</code>, <code>HiloOpenClose</code>, <code>Hollow Candle</code> and <code>Candle</code>. By using the series dropdown button in period selector you can navigate between the above listed series types.
+      </p>
+      <p>
+        The legend is enabled, and you can use it to toggle the visibility of series in the stock chart. To customize the legend in the stock chart, use the <code>stockChartLegendSettings</code> property.
       </p>
       <br>
       <p style="font-weight: 500">Injecting Module:</p>
@@ -38,6 +40,10 @@
         The Stock Chart component features are segregated into individual feature-wise modules. To use date-time axis, inject 
         <code>DateTime</code> and <code>LineSeries</code> module using <code> provide: { stockchart: [ DateTime, LineSeries] },</code> method. 
         To use Legend in Stock Chart, inject <code>StockLegend</code> module using <code> provide: { stockchart: [ StockLegend] },</code> method.
+      </p>
+      <p>
+        More information about the series type can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
       </p>
 
     </div>
@@ -78,7 +84,7 @@ Vue.use(StockChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default Vue.extend({
   data: function() {
@@ -88,6 +94,7 @@ export default Vue.extend({
       seriesData1: googl,
       trendlineType:[],
       indicatorType:[],
+      seriesType: ['Line', 'Hilo', 'HiloOpenClose', 'Spline', 'Candle'],
       //Initializing Primary X Axis
       primaryXAxis: {
         valueType: "DateTime",
@@ -99,11 +106,12 @@ export default Vue.extend({
       primaryYAxis: {
         interval: 40,
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 },
+        majorTickLines: { color: "transparent", height: 0 },
         crosshairTooltip: { enable: true }
       },
        crosshair: {
-          enable: true
+          enable: true,
+          lineType: 'Both' 
         },
       legend: {
         visible: true

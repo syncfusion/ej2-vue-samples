@@ -77,6 +77,11 @@ export default Vue.extend({
       }      
     };
   },
+  methods: {
+    image: function(data) {
+      return 'source/kanban/images/' + data.keyField + '.png';
+    }
+  },
   provide: {
     kanban: []
   }

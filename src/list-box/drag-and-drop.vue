@@ -110,7 +110,7 @@ export default Vue.extend({
         };
     },
     methods: {
-        savechanges() {
+        saveChanges() {
             this.dataA.saveChanges(this.modifiedDataA);
             this.dataB.saveChanges(this.modifiedDataB);
             this.modifiedDataA.addedRecords = []; this.modifiedDataB.addedRecords = [];

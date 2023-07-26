@@ -9,7 +9,7 @@
                 <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
@@ -111,19 +111,20 @@ import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import { dataProtection } from "./data";
 import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
 
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
 Vue.use(DropDownListPlugin);
 Vue.use(ColorPickerPlugin);
-
+Vue.use(ButtonPlugin);
 
 export default Vue.extend({
   components: {
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Getting Started',
           documentTitle: 'Untitled Document',
           userDetails:  ['engineer@mycompany.com', 'manager@mycompany.com'],
@@ -213,7 +214,6 @@ export default Vue.extend({
           this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;
           editor.open(JSON.stringify(dataProtection));
           editor.documentName='Document Protection';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
           };

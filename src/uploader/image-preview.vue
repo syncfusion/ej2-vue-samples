@@ -98,6 +98,7 @@
     .highcontrast .uploader-image-preview-drop-area span a {
         color: #ffd939;
     }
+    .material3-dark .uploader-image-preview-drop-area a,
     .material-dark .uploader-image-preview-drop-area a {
         color:#56a4fd;
     }
@@ -192,6 +193,7 @@
         color: #333;
     }
     .material-dark.uploader-preview .e-upload .e-upload-files .e-icons,
+    .material3-dark.uploader-preview .e-upload .e-upload-files .e-icons,
     .fabric-dark.uploader-preview .e-upload .e-upload-files .e-icons,
     .bootstrap-dark.uploader-preview .e-upload .e-upload-files .e-icons, 
     .bootstrap5-dark.uploader-preview .e-upload .e-upload-files .e-icons,
@@ -217,6 +219,7 @@
     }
     .highcontrast .file-preview .uploader-preview  div.file-name,
     .material-dark .file-preview .uploader-preview div.file-name,
+    .material3-dark .file-preview .uploader-preview div.file-name,
     .fabric-dark .file-preview .uploader-preview div.file-name,
     .bootstrap-dark .file-preview .uploader-preview div.file-name,
     .bootstrap5-dark .file-preview .uploader-preview div.file-name,
@@ -247,6 +250,7 @@
    }
     .highcontrast .uploader-preview progress,
     .material-dark .uploader-preview progress,
+    .material3-dark .uploader-preview progress,
     .fabric-dark .uploader-preview progress,
     .bootstrap-dark .uploader-preview progress,
     .bootstrap5-dark .uploader-preview progress,
@@ -336,6 +340,7 @@ export default Vue.extend({
             detach(this.$el.querySelector('ul'));
             this.$refs.uploadObj.filesData = [];
             this.$refs.uploadObj.fileList = [];
+            document.getElementById('imagePreview').value = '';
         }
     };
     document.getElementById('uploadbtn').onclick = () => {

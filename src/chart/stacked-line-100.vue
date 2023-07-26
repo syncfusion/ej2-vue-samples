@@ -12,6 +12,7 @@
         :tooltip="tooltip"
         :chartArea="chartArea"
         :width="width"
+        :legendSettings='legend'
       >
         <e-series-collection>
           <e-series
@@ -21,8 +22,7 @@
             yName="y"
             name="John"
             width="2"
-            dashArray="5,1"
-            :marker="marker"
+            :marker='circleMarker'
           ></e-series>
           <e-series
             :dataSource="seriesData"
@@ -31,8 +31,7 @@
             yName="y1"
             name="Peter"
             width="2"
-            dashArray="5,1"
-            :marker="marker"
+            :marker='diamondMarker'
           ></e-series>
           <e-series
             :dataSource="seriesData"
@@ -41,8 +40,7 @@
             yName="y2"
             name="Steve"
             width="2"
-            dashArray="5,1"
-            :marker="marker"
+            :marker='rectangleMarker'
           ></e-series>
           <e-series
             :dataSource="seriesData"
@@ -51,32 +49,26 @@
             yName="y3"
             name="Charle"
             width="2"
-            dashArray="5,1"
-            :marker="marker"
+            :marker='triangleMarker'
           ></e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
     <div id="action-description">
       <p>
-        This sample visualizes the family expense data with stacked line series in the chart
-        to identify who spent more money in each category. Data points are enhanced
-        with marker and tooltip.
+        This Vue 100% Stacked Line Chart example visualizes the family expenses data with 100% stacked line series to identify who spent more
+        money in each category. Data points are enhanced with markers and tooltips.
       </p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the stacked line type charts.
-        100% Stacked Line type charts are used to represent time-dependent data, showing trends in data
-        at equal intervals with stacked values of multiple series.
-        You can use
-        <code>dashArray</code>,
-        <code>width</code>,
-        <code>fill</code> properties to customize the line.
-        <code>marker</code> used to represent individual data.
+        In this example, you can see how to render and configure the 100% stacked line chart. This chart displays multiple series of data as stacked lines, ensuring that the cumulative proportion of each stacked element always totals 100%.
+        <code>Markers</code> are used to represent individual data and its values.
       </p>
-      <p>Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
-      <br>
+      <p>
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch
+        enabled devices.
+      </p>
       <p style="font-weight: 500">Injecting Module</p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use 100% stacking line series, we need to inject
@@ -84,11 +76,8 @@
         <code>provide: { chart: [StackingLineSeries] }</code> method.
       </p>
       <p>
-        More information on the 100% Stacking Line series can be found in this
-        <a
-          target="_blank"
-          href="https://ej2.syncfusion.com/documentation/api/chart/series/#type"
-        >documentation section</a>.
+        More information about the 100% stacked line series can be found in this
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stacked-line">documentation section</a>.
       </p>
     </div>
   </div>
@@ -104,6 +93,7 @@ import {
   Legend,
   Tooltip,
   Category,
+  Highlight
 } from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
@@ -112,40 +102,33 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
     return {
       theme: theme,
       seriesData: [
-        { x: "Food", y: 90, y1: 40, y2: 70, y3: 120 },
-        { x: "Transport", y: 80, y1: 90, y2: 110, y3: 70 },
-        { x: "Medical", y: 50, y1: 80, y2: 120, y3: 50 },
-        { x: "Clothes", y: 70, y1: 30, y2: 60, y3: 180 },
-        { x: "Personal Care", y: 30, y1: 80, y2: 80, y3: 30 },
-        { x: "Books", y: 10, y1: 40, y2: 30, y3: 270 },
-        { x: "Fitness", y: 100, y1: 30, y2: 70, y3: 40 },
-        { x: "Electricity", y: 55, y1: 95, y2: 55, y3: 75 },
-        { x: "Tax", y: 20, y1: 50, y2: 40, y3: 65 },
-        { x: "Pet Care", y: 40, y1: 20, y2: 80, y3: 95 },
-        { x: "Education", y: 45, y1: 15, y2: 45, y3: 195 },
-        { x: "Entertainment", y: 75, y1: 45, y2: 65, y3: 115 }
+        { x: 'Jan', y: 90, y1: 40, y2: 70, y3: 120 },
+        { x: 'Feb', y: 80, y1: 90, y2: 110, y3: 70 },
+        { x: 'Mar', y: 50, y1: 80, y2: 120, y3: 50 },
+        { x: 'Apr', y: 70, y1: 30, y2: 60, y3: 180 },
+        { x: 'May', y: 30, y1: 80, y2: 80, y3: 30 },
+        { x: 'Jun', y: 10, y1: 40, y2: 30, y3: 270 },
+        { x: 'Jul', y: 100, y1: 30, y2: 70, y3: 40 },
+        { x: 'Aug', y: 55, y1: 95, y2: 55, y3: 75 },
+        { x: 'Sep', y: 20, y1: 50, y2: 40, y3: 65 },
+        { x: 'Oct', y: 40, y1: 20, y2: 80, y3: 95 },
+        { x: 'Nov', y: 45, y1: 15, y2: 45, y3: 195 },
+        { x: 'Dec', y: 75, y1: 45, y2: 65, y3: 115 }
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        majorGridLines: { width: 0 },
-        minorGridLines: { width: 0 },
-        majorTickLines: { width: 0 },
-        minorTickLines: { width: 0 },
-        interval: 1,
-        lineStyle: { width: 0 },
-        valueType: "Category"
+        majorTickLines: { width: 0 }, minorTickLines : { width: 0 }, majorGridLines: { width: 0 }, lineStyle: { width: 0 }, valueType: 'Category', labelRotation: Browser.isDevice ? -45 : 0, labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45', interval: 1
       },
       //Initializing Primary Y Axis
       primaryYAxis: {
-        title: "Expense",
         lineStyle: { width: 0 },
         interval: 20,
         minorTickLines: { width: 0 },
@@ -158,19 +141,24 @@ export default Vue.extend({
           width: 0
         }
       },
-      width: Browser.isDevice ? "100%" : "90%",
-      marker: {
-        visible: true
-      },
+      width: Browser.isDevice ? "100%" : "75%",
+
+      circleMarker: { visible: true, height: 7, width: 7 , shape: 'Circle' , isFilled: true },
+      triangleMarker: { visible: true, height: 6, width: 6 , shape: 'Triangle' , isFilled: true },
+      diamondMarker: {  visible: true, height: 7, width: 7 , shape: 'Diamond' , isFilled: true  },
+      rectangleMarker: { visible: true, height: 5, width: 5 , shape: 'Rectangle' , isFilled: true },
+
+      legend: {enableHighlight : true},
+
       tooltip: {
         enable: true,
         format: "${point.x} : <b>${point.y} (${point.percentage}%)</b>"
       },
-      title: "Family Expense for Month",
+      title: "Family Expense for Year",
     };
   },
   provide: {
-    chart: [StackingLineSeries, Legend, Tooltip, Category]
+    chart: [StackingLineSeries, Legend, Tooltip, Category, Highlight]
   },
   methods: {}
 });

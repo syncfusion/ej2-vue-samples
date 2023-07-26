@@ -145,6 +145,11 @@ export default Vue.extend({
       }
     };
   },
+  methods: {
+    getClassName: function(data) {
+      return "header-icon e-icons " + data.keyField;
+    }
+  },
   provide: {
     kanban: []
   }

@@ -44,7 +44,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { GridPlugin, DetailRow, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridPlugin, DetailRow, Sort, Page } from "@syncfusion/ej2-vue-grids";
 import { employeeData, orderDatas, customerData } from "./data-source";
 
 Vue.use(GridPlugin);
@@ -89,7 +89,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    grid: [DetailRow, Sort]
+    grid: [DetailRow, Sort, Page]
   }
 });
 </script>

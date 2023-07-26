@@ -11,10 +11,10 @@
         "api":{"Accordion": ["header", "content", "expanded", "items"]}
     },
     {
-        "url": "ajax",
-        "name": "Ajax Content",
+        "url": "template",
+        "name": "Template",
         "category": "Accordion",
-        "description":"The sample demonstrates how to load the content to the Accordion component from external sources using Ajax library in Vue platform.",
+        "description":"The sample demonstrates how to load the content to the Accordion component from vue template(v-slot).",
         "api":{"Accordion": ["expandMode", "expanding"]}  
     },
     {

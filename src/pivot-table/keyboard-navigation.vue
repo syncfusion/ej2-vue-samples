@@ -947,4 +947,8 @@ export default Vue.extend({
   display: inline-block;
   width: 130px;
 }
+/deep/ .e-bigger button.e-dlg-closeicon-btn.e-control.e-btn.e-lib.e-flat.e-icon-btn {
+        padding: 0!important;
+        left: -9px !important;
+    }
 </style>

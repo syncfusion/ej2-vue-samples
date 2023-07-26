@@ -11,7 +11,7 @@
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
                 <e-column field='Title' headerText='Title' width='170'></e-column>
                 <e-column field='HireDate' headerText='Hire Date' width='130' format="yMd" textAlign='Right' :headerTemplate="'datetemplate'"></e-column>
-                <e-column field='ReportsTo' headerText='Reports To' width='120'></e-column>
+                <e-column field='ReportsTo' headerText='Reports To' width='120' textAlign='Right'></e-column>
             </e-columns>
             <template v-slot:employeetemplate="{data}">
               <div><span class="e-icon-userlogin e-icons employee"></span>Emp ID</div>

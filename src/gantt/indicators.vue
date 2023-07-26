@@ -96,7 +96,8 @@ export default Vue.extend({
     content: '\e72b';
     }
     .tailwind #Indicators .okIcon::before, .tailwind-dark #Indicators .okIcon::before,
-    .fluent #Indicators .okIcon::before, .fluent-dark #Indicators .okIcon::before {
+    .fluent #Indicators .okIcon::before, .fluent-dark #Indicators .okIcon::before,
+     .material3-dark #Indicators .okIcon::before,.material3 #Indicators .okIcon::before {
     content: '\e72b';
     }
     .tailwind #Indicators .description::before, .tailwind-dark #Indicators .description::before,

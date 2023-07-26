@@ -124,7 +124,8 @@
     .bootstrap-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .fabric-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .material-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
-    .highcontrast .schedule-vue-sample .e-schedule .e-appointment .template-wrap {
+    .highcontrast .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .material3-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap {
         color: #fff;
     }
 
@@ -147,7 +148,8 @@
     .bootstrap-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .fabric-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .material-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
-    .highcontrast .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells) {
+    .highcontrast .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .material3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells) {
         color: #33DB33;
     }
 
@@ -157,7 +159,8 @@
     .bootstrap-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .fabric-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .material-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
-    .highcontrast .schedule-vue-sample .e-schedule .e-work-cells.best-price {
+    .highcontrast .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .material3-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price {
         background-color: #393939;
     }
 
@@ -310,7 +313,6 @@
         margin-top: 0px;
     }
 
-    /* custom code start*/
     .schedule-vue-sample .schedule-demo-heading {
         font-size: 16px;
         padding-bottom: 15px;
@@ -338,7 +340,6 @@
             font-size: 14px;
         }
     }
-    /* custom code end*/
 </style>
 <script>
     import Vue from "vue";
@@ -464,7 +465,6 @@
                 return finalData;
             },
 
-             //custom code start 
             generateEvents: function (scheduleObj) {
                 var collections = [];
                 var dataCollections = [
@@ -511,7 +511,6 @@
                 var filteredCollection = this.filterByFare(collections, scheduleObj);
                 return filteredCollection;
             },
-            //custom code end 
 
             onChange: function (args) {
                 let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
@@ -525,8 +524,9 @@
                 var selectedResource = [];
                 var resourceCollection = [].slice.call(document.querySelectorAll('.e-resource'));
                 resourceCollection.forEach(function (element, index) {
-                    if (element.getAttribute('aria-checked') === 'true') {
-                        selectedResource.push(index);
+                    var resEle = element.querySelector('.e-icons');
+                    if (resEle && resEle.classList.contains('e-check')) {
+                       selectedResource.push(index);
                     }
                 });
                 var filteredData = [];

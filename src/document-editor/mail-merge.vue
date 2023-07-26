@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-10 control-section" style='padding-left: 0px;padding-right: 0px;padding-top: 0px;' >
 
-<ejs-documenteditorcontainer id="container" ref="doceditcontainer" :enableToolbar='true' height='600px' :toolbarClick='clickHandler'>
+<ejs-documenteditorcontainer id="container" ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px' :toolbarClick='clickHandler'>
      <ejs-dialog ref="accessDialog" :header='header' :target='target' :width='width' :height='height' :showCloseIcon='true'  :buttons='buttons' :content='content'>
         </ejs-dialog></ejs-documenteditorcontainer>  
                 
@@ -220,7 +220,7 @@ export default Vue.extend({
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Mail Merge',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -294,6 +294,19 @@ export default Vue.extend({
             'New', 'Open', 'Separator', 'Undo',
             'Redo',
             'Separator',
+            {
+                prefixIcon: 'sf-icon-InsertMergeField',
+                tooltipText: 'Insert Field',
+                text: this.onWrapText('Insert Field'),
+                id: 'InsertField'
+            },
+            {
+                prefixIcon: 'sf-icon-FinishMerge',
+                tooltipText: 'Merge Document',
+                text: this.onWrapText('Merge Document'),
+                id: 'MergeDocument'
+            },
+            'Separator',
             'Image',
             'Table',
             'Hyperlink',
@@ -316,19 +329,6 @@ export default Vue.extend({
             'Separator',
             'FormFields',
             'UpdateFields',
-            'Separator',
-            {
-                prefixIcon: 'sf-icon-InsertMergeField',
-                tooltipText: 'Insert Field',
-                text: this.onWrapText('Insert Field'),
-                id: 'InsertField'
-            },
-            {
-                prefixIcon: 'sf-icon-FinishMerge',
-                tooltipText: 'Merge Document',
-                text: this.onWrapText('Merge Document'),
-                id: 'MergeDocument'
-            },
         ],
         header: 'Merge Field',
         content:
@@ -476,7 +476,7 @@ export default Vue.extend({
                // waitingPopUp = document.getElementById('waiting-popup');
                 //inActiveDiv = document.getElementById('popup-overlay');
                 this.showHideWaitingIndicator(true);
-                var baseUrl = this.hostUrl + 'api/documenteditor/MailMerge';
+                var baseUrl = 'https://services.syncfusion.com/vue/production/api/documenteditor/MailMerge';
                 var httpRequest = new XMLHttpRequest();
                 httpRequest.open('POST', baseUrl, true);
                 httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -540,7 +540,6 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(mailmerge));
           obj.documentName='Mail Merge';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                this.$refs.accessDialog.hide();
             };

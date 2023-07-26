@@ -138,6 +138,12 @@ export default Vue.extend({
         margin: 0;
     }
 
+    .material3 .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .material3-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
+        width: 24px;
+        margin-right: 12px;
+    }
+
     .material .dockSidebar .e-listview .e-list-icon.sb-icons,
     .material-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
     .bootstrap .dockSidebar .e-listview .e-list-icon.sb-icons,
@@ -325,11 +331,11 @@ export default Vue.extend({
         font-style: normal;
     }
 
-    .e-bigger .e-tbar-btn .tb-icons,
-    .e-toolbar .e-icons {
+    .e-bigger #dockToolbar .e-tbar-btn .tb-icons,
+    #dockToolbar .e-toolbar .e-icons {
         font-size: 20px;
     }
-
+    
     .e-tbar-btn .tb-icons {
         font-family: 'Material_toolbar';
         speak: none;

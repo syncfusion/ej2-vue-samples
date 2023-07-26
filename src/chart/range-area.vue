@@ -2,34 +2,29 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :zoomSettings='zoomSettings' :seriesRender='seriesRender' :legendSettings='legendSettings'>
+            :chartArea='chartArea' :width='width'  :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='RangeArea' xName='x' :border='border' name='India' width=2 opacity=0.5 high='high' low='low'> </e-series>
-                
+                <e-series :dataSource='cData' type='RangeArea' xName='x' :border='border' width=2 opacity=0.4 high='high' low='low' :enableTooltip='enableTooltip'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample visualizes the data about average sales comparison of two products by using default area series in the chart. 
-        Legend in the sample shows the information about the series.
+      This Vue Range Area Chart example visualizes minimum and maximum temperatures of different days with default range area series.
     </p>
 </div>
 <div id="description">
-    <p>
-        In this example, you can see how to render and configure the area type charts. Similar to line type series, but the area get closed and filled with series color.
-        You can use <code>border</code>, <code>fill</code> properties to customize the area. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
-        Legend is enabled in this example with series type shape.
+    <p>In this example, you can see how to render and configure the range area chart. This chart is used to display continuous data points as a set of lines varying between high and low values over time intervals and across different categories.
      </p>     
       <br>
-        <p style="font-weight: 500">Injecting Module</p>
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
-            Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
-            <code>AreaSeries</code> module using <code>provide: { chart: [AreaSeries] }</code> method.
+            Chart component features are segregated into individual feature-wise modules. To use range area series, we need to inject
+            <code>RangeAreaSeries</code> module using <code>provide: { chart: [RangeAreaSeries] }</code> method.
         </p>
         <p>
-            More information on the area series can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+          More information about the range area series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/range-area">documentation section</a>.
         </p> 
 </div>
 
@@ -42,40 +37,25 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, RangeAreaSeries, Category, DateTime, Zoom } from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, RangeAreaSeries, DateTime, LineSeries, Tooltip} from "@syncfusion/ej2-vue-charts";
+import { chartDataValues } from './financial-data';
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-
-    let series1 = [];
-    let value = 35;
-    let point1;
-
-    for (let i = 1; i < 360; i++) {
-        if (Math.random() > .5) {
-            value += Math.random();
-        } else {
-            value -= Math.random();
-        }
-        point1 = {
-            x: new Date(2015, 0, i),
-            high: value, low: value - 10
-        };
-        series1.push(point1);
-    }
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 export default Vue.extend({
   data: function() {
     return {
          theme: theme,
-      seriesData: series1,
+         cData : chartDataValues,
       //Initializing Primary X Axis
         primaryXAxis: {
-            valueType: 'DateTime',
-            edgeLabelPlacement: 'Shift',
-            majorGridLines: { width: 0 }
+          valueType: 'DateTime',
+          labelFormat: 'dd MMM',
+          edgeLabelPlacement: (Browser.isDevice) ? 'Shift' : 'Hide',
+          majorGridLines: { width: 0 }
         },
         chartArea: {
             border: {
@@ -85,32 +65,37 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis:
         {
-            labelFormat: '{value}˚C',
-            lineStyle: { width: 0 },
-            majorTickLines: { width: 0 }
+          labelFormat: '{value}˚C',
+                        lineStyle: { width: 0 },
+                        minimum: -10,
+                        maximum: 25,
+                        interval: 5,
+                        majorTickLines: { width: 0 }
         },
-        zoomSettings:
-        {
-            enableSelectionZooming: true,
-            mode: 'X'
+        marker: {
+        visible :true,
+        width : 7 ,
+        height : 7
         },
-       width : Browser.isDevice ? '100%' : '80%',
+      enableTooltip:true,
+       width : Browser.isDevice ? '100%' : '75%',
        legendSettings: {
             visible: false
         },
           border: {
                     width: 2
                 },
-       seriesRender: function (args) {
-            let areathemes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast'];
-            let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4'];
-            args.series.border.color = borderColor[areathemes.indexOf(args.series.chart.theme.toLowerCase())];
+        tooltip: {
+            enable: true,
+            format: 'Temperature : <b>${point.low} - ${point.high}</b>',
+            shared: false,
+            header: '<b>${point.x}</b>'
         },
-      title: "Temperature Variation"
+      title: "Temperature Variation by Month"
     };
   },
   provide: {
-    chart: [RangeAreaSeries, Category, DateTime, Zoom]
+    chart: [RangeAreaSeries,  DateTime, LineSeries, Tooltip]
   },
   methods: {
     

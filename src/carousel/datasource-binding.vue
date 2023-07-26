@@ -3,11 +3,11 @@
     <div class="col-lg-12">
       <div class="carousel-sample">
         <ejs-carousel cssClass="db-carousel" :dataSource="productDetails" buttonsVisibility="Hidden" 
-          :itemTemplate="productTemplate" :animation="animation"></ejs-carousel>
+          :itemTemplate="productTemplate" :animationEffect="animation"></ejs-carousel>
         <div id="action-description">
           <p>
             This sample demonstrates the basic rendering of the
-            <strong>Vue Carousel</strong> component by binding
+            <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component by binding
             <code>dataSource</code> property.
           </p>
         </div>
@@ -18,16 +18,6 @@
             is bound using <code>dataSource</code> property. Also,
             <code>itemTemplate</code> is used to customize the slides of the
             carousel.
-          </p>
-          <p>
-            More information about dataSource binding to the Vue Carousel
-            component can be found in this
-            <a
-              target="_blank"
-              href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/"
-            >
-              documentation section</a
-            >.
           </p>
         </div>
       </div>
@@ -76,7 +66,7 @@
   height: 3em;
 }
 
-.db-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div {
+.db-carousel .e-carousel-indicators.e-default .e-indicator-bar .e-indicator div {
   background-color: #e7e7e7;
 }
 
@@ -122,7 +112,7 @@ var productVue = Vue.component("product", {
 export default Vue.extend({
   data: function () {
     return {
-      animation: { effect: "Fade" },
+      animation: "Fade",
       productDetails: [
         {
           ID: 1,

@@ -27,7 +27,7 @@
                 <td style="padding-left: 5px; color:black; padding-right: 5px; padding-bottom: 2px;">Target : {{data.target}}K</td>
               </tr>
               <tr>
-                <td style="padding-left: 5px; color:black; padding-right: 5px">Current : {{data.value}}K</td>
+                <td style="padding-left: 5px; color:black; padding-right: 5px">Current : {{data.value}}</td>
               </tr>
             </table>
           </div>

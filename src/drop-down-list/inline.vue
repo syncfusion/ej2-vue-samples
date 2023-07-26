@@ -71,6 +71,12 @@
     .material-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
     .material-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
     .material-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after,
+    .material3-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .material3-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .material3-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .material3-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .material3-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .material3-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after,
     .fabric-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
     .fabric-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
     .fabric-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
@@ -95,7 +101,12 @@
     .tailwind-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
     .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
     .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
-    .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after {
+    .tailwind-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after,
+    .fluent-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl,
+    .fluent-dark .ddl-inlinecss.e-input-group.e-control-wrapper.e-ddl:hover,
+    .fluent-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus,
+    .fluent-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::before,
+    .fluent-dark .ddl-inlinecss.e-input-group.e-ddl.e-input-focus::after {
         border-bottom: 1px dashed #f0f0f0;
     }
     

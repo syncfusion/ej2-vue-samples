@@ -1,8 +1,8 @@
 <template>
   <div class="control-section">
     <div class="row linear-parent">
-        <div class="col-lg-12 col-md-12" style="margin-top:1%">
-           <div class="col-lg-12 col-md-12 progressbar-label" >Determinate</div>
+        <div style="margin-top:1%">
+           <div class="col-lg-12 col-md-12 progressbar-label-linear" >Determinate</div>
             <div class="linear-progress">
             <div id="lineardeterminate">
             <ejs-progressbar
@@ -19,8 +19,8 @@
           </div>
         </div>
         </div>
-        <div class="col-lg-12 col-md-12" style="margin-top:2.5%">
-        <div class="col-lg-12 col-md-12 progressbar-label">Indeterminate</div>
+        <div style="margin-top:2.5%">
+        <div class="col-lg-12 col-md-12 progressbar-label-linear">Indeterminate</div>
         <div class="linear-progress">
         <div id="linearindeterminate">
           <ejs-progressbar
@@ -37,8 +37,8 @@
             </div>
           </div>
         </div>
-         <div class="col-lg-12 col-md-12" style="margin-top:2.5%">
-           <div class="col-lg-12 col-md-12 progressbar-label" >Segment</div>
+         <div style="margin-top:2.5%">
+           <div class="col-lg-12 col-md-12 progressbar-label-linear" >Segment</div>
             <div  class="linear-progress">
             <div id="linearsegment">
            <ejs-progressbar
@@ -56,12 +56,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-12 col-md-12" style="margin-top:2.5%">
-           <div class="col-lg-12 col-md-12 progressbar-label" >
-              <div class="row">
-                <div class="col-lg-8 col-md-8">Buffer</div>
-             </div>
-            </div>
+        <div  style="margin-top:2.5%">
+           <div class="col-lg-12 col-md-12 progressbar-label-linear" >Buffer</div>
           <div class="linear-progress">
           <div id="linearbuffer">
           <ejs-progressbar
@@ -72,6 +68,7 @@
             width='90%'
             :value='value4'
             :secondaryProgress='secvalue'
+            secondaryProgressColor=" "
             :animation="animation"
             :load='load'
             >
@@ -79,12 +76,8 @@
             </div>
          </div>
         </div>
-         <div class="col-lg-12 col-md-12" style="margin-top:2.5%">
-           <div class="col-lg-12 col-md-12 progressbar-label" >
-              <div class="row">
-                <div class="col-lg-8 col-md-8">Active</div>
-             </div>
-            </div>
+         <div style="margin-top:2.5%">
+          <div class="col-lg-12 col-md-12 progressbar-label-linear" >Active</div>
           <div class="linear-progress">
           <div id="linearactive">
           <ejs-progressbar
@@ -106,18 +99,17 @@
       <button id="reLoad" class="e-control e-btn e-lib e-outline e-primary" @click="onclick">Reload</button>
     </div>
   <div id="action-description">
-      <p>This sample illustrates a linear progress bar with determinate and indeterminate states, segments and buffer value.</p>
+      <p>This sample illustrates a linear progress bar with determinate and indeterminate states, segments, and buffer values.</p>
     </div>
     <div id="description">
-      <p> In this example, you can see how to render and configure the linear progress bar. Progress bar is used to visualize the progression of an extended operation. The sample shows the determinate and indeterminate states, buffer and segments of linear progress bar.</p>
+      <p>In this example, you can see how to render and configure a linear progress bar. A progress bar is used to visualize the progression of an extended operation. The sample shows the determinate and indeterminate states, buffer values, and segments of a linear progress bar.</p>
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped>     
   .e-progressbar, #lineardeterminate, #linearindeterminate, #linearbuffer, #linearsegment {
             display: block;
-        }
-        .actual-txt{
+        }            .actual-txt{
             font-size: 14px;
         }
          #control-container {
@@ -131,7 +123,7 @@
             text-align: center;
         }
 
-        .progressbar-label {
+        .progressbar-label-linear {
             text-align: left;
             font-family: Roboto-Regular;
             font-size: 14px;
@@ -188,7 +180,7 @@ import {
   ProgressAnnotation
 } from "@syncfusion/ej2-vue-progressbar";
 
-let div = document.getElementsByClassName('progressbar-label');
+let div = document.getElementsByClassName('progressbar-label-linear');
  
 function annotationElementContent(color, controlID) {
         let content;
@@ -213,12 +205,14 @@ export default Vue.extend({
       value3: 100,
       value4: 40,
       secvalue:60,
+     
       count:8,
       animation: {
         enable: true,
         duration: 2000,
         delay: 0
-      }
+      },
+
     };
   },
   provide: {},
@@ -235,11 +229,40 @@ export default Vue.extend({
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
         selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         if(args.progressBar.theme === 'HighContrast' || args.progressBar.theme === 'Bootstrap5Dark' || args.progressBar.theme === 'BootstrapDark' || args.progressBar.theme === 'FabricDark'
-                || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark') {
+                || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark' || args.progressBar.theme === 'Material3Dark') {
             for (let i = 0; i < div.length; i++) {
                 div[i].setAttribute('style', 'color:white');
             }
          }
+         if (selectedTheme === 'fabric') {
+          args.progressBar.secondaryProgressColor = '#b0d0e9'
+        } else if (selectedTheme === 'material-dark') {
+          args.progressBar.secondaryProgressColor = '#b8b8b8'
+        } else if (selectedTheme === 'material') {
+          args.progressBar.secondaryProgressColor = '#f087ab'
+        } else if (selectedTheme === 'bootstrap5-dark') {
+          args.progressBar.secondaryProgressColor = '#2b5288'
+        } else if (selectedTheme === 'bootstrap5') {
+          args.progressBar.secondaryProgressColor = '#98c5f5'
+        } else if (selectedTheme === 'bootstrap') {
+          args.progressBar.secondaryProgressColor = '#acc6dc'
+        }
+        else if (selectedTheme === 'bootstrap4') {
+          args.progressBar.secondaryProgressColor = '#98c5f5'
+        }
+        else if (selectedTheme === 'bootstrap-dark') {
+          args.progressBar.secondaryProgressColor = '#b8b8b8'
+        } else if (selectedTheme === 'highcontrast') {
+          args.progressBar.secondaryProgressColor = '#aca379'
+        } else if (selectedTheme === 'fluent-dark') {
+          args.progressBar.secondaryProgressColor = '#2b5288'
+        } else if (selectedTheme === 'fluent') {
+          args.progressBar.secondaryProgressColor = '#98c5f5'
+        } else if (selectedTheme === 'tailwind-dark') {
+          args.progressBar.secondaryProgressColor = '#386e7f'
+        } else if (selectedTheme === 'tailwind') {
+          args.progressBar.secondaryProgressColor = '#b1afe9'
+        }
   }
   }
 });

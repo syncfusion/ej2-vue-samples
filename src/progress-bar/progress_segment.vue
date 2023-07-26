@@ -13,7 +13,7 @@
                    :trackThickness='trackThickness'
                    :progressThickness='progressThickness'
                    :value=value
-                   :segmentCount=count
+                   :segmentCount=countValue
                    :gapWidth=gap
                    :loaded='loaded'
                    :animation='animation'
@@ -115,6 +115,7 @@ export default Vue.extend({
       trackThickness:15,
       progressThickness:15,
       count:50,
+      countValue: Browser.isDevice ? 25 : 50,
       gap:5,
       startAngle: 220,
       endAngle: 140,
@@ -171,6 +172,12 @@ export default Vue.extend({
                 case 'tailwind-dark':
                     args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#22D3EE"><span></span></div>';
                     break;
+                case 'material3':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#6750A4"><span></span></div>';
+                    break;
+                case 'material3-dark':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#D0BCFF"><span></span></div>';
+                    break; 
                 default:
                     args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#FFD939"><span></span></div>';
                     break;

@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
       <div class="col-md-8 control-section">
-          <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+          <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer'  :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
               :chartArea='chartArea' :tooltip='tooltip'>
               <e-series-collection>
                   <e-series :dataSource='seriesData' :type='seriesType'  xName='x' yName='car' name='Car' width=2> </e-series>
@@ -52,8 +52,8 @@
     <p style="font-weight: 500"> Injecting Module </p>
     <p>Chart component features are segregated into individual feature-wise modules. To use stacking column series, we need to inject StackingColumnSeries module using  <code>provide: { chart: [StackingColumnSeries] },</code> method.</p>
     <p>
-        More information on the stacking column series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        More information on the stacked column series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stack-column">documentation section</a>.
     </p>
 </div>
 </div>
@@ -72,7 +72,7 @@
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
   export default Vue.extend({
     data: function() {
@@ -113,7 +113,6 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
 
       serieswidth: 120,
       seriesType: "StackingColumn",
-
     tooltip: {
             enable: true
         },

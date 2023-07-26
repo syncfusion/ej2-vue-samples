@@ -219,7 +219,7 @@
 
     @media (max-width: 450px) {
         .e-sample-resize-container {
-            height: 450px;
+            height: 500px;
         }
     
 /* custom code end */

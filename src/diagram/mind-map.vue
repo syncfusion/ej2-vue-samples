@@ -86,6 +86,7 @@ export default Vue.extend({
       tool: DiagramTools.SingleSelect,
       layout: {
         type: "MindMap",
+         orientation:"Horizontal",
         getBranch: (node, nodes) => {
           return ((node).data).branch;
         },
@@ -305,13 +306,7 @@ class LeftExtendTool extends ToolBase {
           ) {
             (node.data).branch = "subRight";
           }
-          let connector = addConnector(selectedObject[0], node);
-          diagramInstance.clearSelection();
-          let nd = diagramInstance.add(node);
-          diagramInstance.add(connector);
-          diagramInstance.doLayout();
-          diagramInstance.bringIntoView(nd.wrapper.bounds);
-          diagramInstance.startTextEdit(nd);
+          getTextEditValue(selectedObject[0], node);
         }
       }
     }
@@ -339,13 +334,7 @@ class RightExtendTool extends ToolBase {
           ) {
             (node.data).branch = "subLeft";
           }
-          let connector = addConnector(selectedObject[0], node);
-          diagramInstance.clearSelection();
-          let nd = diagramInstance.add(node);
-          diagramInstance.add(connector);
-          diagramInstance.doLayout();
-          diagramInstance.bringIntoView(nd.wrapper.bounds);
-          diagramInstance.startTextEdit(nd);
+          getTextEditValue(selectedObject[0], node);
         }
       }
     }
@@ -505,5 +494,15 @@ function applyHandle( //it is in dedicated line here.
   handle.margin = margin;
   handle.horizontalAlignment = halignment;
   handle.verticalAlignment = valignment;
+}
+function getTextEditValue(selectObject, node){
+    var connector = addConnector(selectObject, node);
+   diagramInstance.clearSelection();
+   var nd = diagramInstance.add(node);
+   diagramInstance.add(connector);
+   diagramInstance.doLayout();
+   diagramInstance.bringIntoView(nd.wrapper.bounds);
+   diagramInstance.select([diagramInstance.nameTable[nd.id]]);
+   diagramInstance.startTextEdit(diagramInstance.selectedItems.nodes[0]);
 }
 </script>

@@ -70,6 +70,27 @@ export default Vue.extend({
   padding-top: 15px;
 }
 
+.datepicker-special-dates .e-input-group-icon.e-date-icon::before, 
+*.e-control-wrapper.datepicker-special-dates .e-input-group-icon.e-date-icon::before, 
+.datepicker-special-dates.e-datetime-wrapper .e-time-icon.e-icons::before {
+  transform: translate(0,1px);
+}
+
+.e-bigger .datepicker-special-dates .e-input-group-icon.e-date-icon::before, 
+.e-bigger *.e-control-wrapper.datepicker-special-dates .e-input-group-icon.e-date-icon::before,
+.e-bigger .datepicker-special-dates.e-datetime-wrapper .e-time-icon.e-icons::before {
+  transform: translate(0,2px);
+}
+
+.datepicker-special-dates.e-input-group .e-clear-icon, 
+.datepicker-special-dates.e-input-group.e-control-wrapper .e-clear-icon {
+  padding-top: 4px;
+}
+
+.e-bigger .datepicker-special-dates.e-input-group .e-clear-icon, 
+.e-bigger .datepicker-special-dates.e-input-group.e-control-wrapper .e-clear-icon {
+  padding-top: 5px;
+}
 
 @font-face {
     font-family: 'e-icons';
@@ -95,6 +116,8 @@ export default Vue.extend({
 .highcontrast .datetimepicker-special-dates td.e-icons.highlight:before,
 .material-dark .datetimepicker-special-dates td.e-icons.highlight,
 .material-dark .datetimepicker-special-dates td.e-icons.highlight:before,
+.material3-dark .datetimepicker-special-dates td.e-icons.highlight,
+.material3-dark .datetimepicker-special-dates td.e-icons.highlight:before,
 .fabric-dark .datetimepicker-special-dates td.e-icons.highlight,
 .fabric-dark .datetimepicker-special-dates td.e-icons.highlight:before,
 .bootstrap-dark .datetimepicker-special-dates td.e-icons.highlight,
@@ -116,7 +139,7 @@ export default Vue.extend({
   margin-right: 3px;
   font-size: 4px;
   position: relative;
-  top: -1px;
+  top: 0px;
   font-weight: normal;
 }
 
@@ -126,10 +149,6 @@ export default Vue.extend({
 
 body.highcontrast .e-bigger .datetimepicker-special-dates.e-calendar span.e-icons.highlight:before {
   top: -2px;
-}
-
-.datetimepicker-special-dates .e-selected span.e-icons.highlight:before {
-  color: #fff;
 }
 
 body.highcontrast .datetimepicker-special-dates td.birthday span.e-icons.highlight:before {

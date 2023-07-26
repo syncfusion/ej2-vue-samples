@@ -4,27 +4,24 @@
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :enableSideBySidePlacement='false'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Column' xName='x' yName='y' name='Total' width=2 columnWidth=0.5 :marker='marker' > </e-series>
-                <e-series :dataSource='seriesData1' type='Column' xName='x' yName='y' name='Apple' width=2 columnWidth=0.4 :marker='marker1' > </e-series>
-                <e-series :dataSource='seriesData2' type='Column' xName='x' yName='y' name='Orange' width=2 columnWidth=0.3 :marker='marker1' > </e-series>
-                <e-series :dataSource='seriesData3' type='Column' xName='x' yName='y' name='Grapes' width=2 columnWidth=0.2 :marker='marker1' > </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='ConsumerName' yName='TotalCount' name='Total' width=2 columnWidth=0.5 :marker='dataLebelMarker' > </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='ConsumerName' yName='AppleCount' name='Apple' width=2 columnWidth=0.4 :marker='marker' > </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='ConsumerName' yName='OrangeCount' name='Orange' width=2 columnWidth=0.3 :marker='marker' > </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='ConsumerName' yName='GrapesCount' name='Grapes' width=2 columnWidth=0.2 :marker='marker' > </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample illustrates four column series. Each column is rendered with different column width and it is placed  behind to another one.
+      This sample shows four series of columns in which each column is rendered with a different width and placed behind the previous column.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the column type charts. Column type charts are used for comparing
-        the frequency, count, total or average of data in different categories. You can use <code>border</code>,
-        <code>fill</code> properties to customize the vertical rectangle. <code>dataLabel</code> is used to represent individual
-        data and its value. You can enable side by side position by <code>enableSideBySidePlacement</code> property.
+      In this example, you can see how to render and configure the column chart. The column chart is used to compare the frequency, count, total, or average of data in different categories. The <code>EnableSideBySidePlacement</code> property is used to enable and disable side-by-side positioning. <code>DataLabel</code> is used to present details about individual data points.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+      <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
     <br>
     <p style="font-weight: 500">Injecting Module</p>
@@ -33,8 +30,8 @@
         <code>ColumnSeries</code> module using <code>provide: { chart: [ColumnSeries] }</code> method.
     </p>
     <p>
-        More information on the column series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+      More information about the column series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column">documentation section</a>.
     </p>
 </div>
 
@@ -47,39 +44,28 @@
 <script>
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip} from "@syncfusion/ej2-vue-charts";
+import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip, Legend} from "@syncfusion/ej2-vue-charts";
 
 Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 export default Vue.extend({
   data: function() {
     return {
          theme: theme,
       seriesData: [
-               { x: 'Jamesh', y: 10, text: 'Total 10' },
-               { x: 'Michael', y: 9, text: 'Total 9' },
-               { x: 'John', y: 11, text: 'Total 11' }
-
-              ],
-
-      seriesData1: [
-             { x: 'Jamesh', y: 5 }, { x: 'Michael', y: 4 }, { x: 'John', y: 5 }
-         ],
-
-       seriesData2: [
-             { x: 'Jamesh', y: 4 }, { x: 'Michael', y: 3 }, { x: 'John', y: 4 }
-        ],
-
-        seriesData3: [
-             { x: 'Jamesh', y: 1 }, { x: 'Michael', y: 2 }, { x: 'John', y: 2 }
-        ],
+        { ConsumerName : "Jamesh", TotalCount : 10, AppleCount : 5, OrangeCount : 4, GrapesCount : 1, DataLabelMappingName : "Total 10" },
+        { ConsumerName : "Michael", TotalCount : 9, AppleCount : 4, OrangeCount : 3, GrapesCount : 2, DataLabelMappingName : "Total 9" },
+        { ConsumerName : "John", TotalCount : 11, AppleCount : 5, OrangeCount : 4, GrapesCount : 2, DataLabelMappingName : "Total 11" },
+        { ConsumerName : "Jack", TotalCount : 8, AppleCount : 5, OrangeCount : 2, GrapesCount : 1, DataLabelMappingName : "Total 8" },
+        { ConsumerName : "Lucas", TotalCount : 10, AppleCount : 6, OrangeCount : 3, GrapesCount : 1, DataLabelMappingName : "Total 10" }
+      ],
 
       //Initializing Primary X Axis
         primaryXAxis: {
-            valueType: 'Category', interval: 1, majorGridLines: { width: 0 }
+            valueType: 'Category', interval: 1, majorGridLines: { width: 0 }, minorTickLines: {width: 0}, interval: 1, majorGridLines: { width: 0 }, majorTickLines: {width: 0}, minorTickLines: {width : 0}
         },
         chartArea: { border: { width: 0 } },
 
@@ -87,18 +73,14 @@ export default Vue.extend({
       //Initializing Primary Y Axis
          primaryYAxis:
         {
-            majorGridLines: { width: 0 },
-            majorTickLines: { width: 0 }, lineStyle: { width: 0 }, labelStyle: { color: 'transparent' }
+            title: 'Fruits Count',
+          majorTickLines: { width: 0 }, lineStyle: { width: 0 },
         },
 
-        
+       width : Browser.isDevice ? '100%' : '75%',
 
-       width : Browser.isDevice ? '100%' : '60%',
-
-       marker: { dataLabel: { visible: true, name: 'text', position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
-
-       marker1: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
-      
+       marker: { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } },
+      dataLebelMarker: {dataLabel: { visible: true, name: 'DataLabelMappingName', position: Browser.isDevice ? 'Outer' : 'Top', font: {size: '11px',  fontWeight: '600', color: Browser.isDevice ? '' : '#ffffff' } } },
       tooltip: { 
             enable: true,
              shared: true
@@ -108,7 +90,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    chart: [ColumnSeries, DataLabel, Category, Tooltip]
+    chart: [ColumnSeries, DataLabel, Category, Tooltip, Legend]
   },
   methods: {
   },

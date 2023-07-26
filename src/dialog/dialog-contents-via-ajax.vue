@@ -14,8 +14,8 @@
     </div>
     <div id="description">
         <p>
-            The user can load dialog's content dynamically from external source like external file using AJAX library.
-            The AJAX library can make the request and load dialog's content using its success event. 
+            The user can load dialog's content dynamically from external source like external file using Fetch library.
+            The Fetch library can make the request and load dialog's content using its success event. 
         </p>
     </div>
 
@@ -40,9 +40,7 @@
     .tailwind-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap5 .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap5-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .fluent .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .fluent-dark .ajaxsample .e-dialog .e-dlg-header > img.img1 {
+    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1{
         margin-top: 0px;
     }
     .ajaxsample .e-footer-content button.e-control.e-btn.e-flat {
@@ -91,7 +89,7 @@
 import Vue from "vue";
 import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { Ajax } from '@syncfusion/ej2-base';
+import { Fetch } from '@syncfusion/ej2-base';
 Vue.use(DialogPlugin);
 Vue.use(ButtonPlugin);
 let ShowBtn = undefined;
@@ -126,11 +124,11 @@ export default Vue.extend({
         },
         dlgButtonClick: function() {
             if (document.querySelector('.e-footer-content .e-btn').textContent === 'More Details') {
-                let ajax = new Ajax('./src/dialog/blog.html', 'GET', true);
-                ajax.onSuccess = (data) => {
+                let fetchApi = new Fetch('./src/dialog/blog.html', 'GET');
+                fetchApi.onSuccess = (data) => {
                     this.$refs.dialogObj.ej2Instances.content = data;
                 };                
-                ajax.send();                
+                fetchApi.send();                
                 document.querySelector('.e-footer-content .e-btn').textContent = 'Less Details';
             } else {
                 this.$refs.dialogObj.ej2Instances.content = this.contentData;

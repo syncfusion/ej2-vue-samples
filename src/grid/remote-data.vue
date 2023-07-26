@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='160'></e-column>
@@ -66,13 +66,12 @@ Vue.use(GridPlugin);
 export default Vue.extend({
   data: () => {
     let SERVICE_URI: string =
-      "https://ej2services.syncfusion.com/production/web-services/";
+      "https://services.syncfusion.com/vue/production/";
     return {
       data: new DataManager({
         url: SERVICE_URI + 'api/Orders',
         adaptor: new WebApiAdaptor()
-      }),
-      pageSettings: { pageCount: 3 }
+      })
     };
   },
   provide: {

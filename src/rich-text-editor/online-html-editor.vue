@@ -4,8 +4,8 @@
                 <div class="rte-online-sample-view">
                     <ejs-splitter id='splitter' width='100%' height='450px' :created="onRefreshUI" :resizing='onRefreshUI'>
                         <e-panes>
-                            <e-pane size='50%' :resizable=true :content='pane1Content' min='20%'></e-pane>
-                            <e-pane :content='pane2Content' min='20%'></e-pane>
+                            <e-pane size='50%' :resizable=true :content='pane1Content' min='400px'></e-pane>
+                            <e-pane :content='pane2Content' min='60px'></e-pane>
                         </e-panes>
                     </ejs-splitter>
                 </div>
@@ -39,7 +39,7 @@
       width: 100%;
       position: relative;
       box-sizing: border-box;
-      padding: 5px;
+      padding: 0px;
       border-left:none;
       border-top:none;
     }
@@ -49,7 +49,7 @@
       letter-spacing: 1px;
       padding-left: 10px;
       text-align: center;
-      font-size: 12px;
+      margin: 10px 0;
     }
 
     .online-editor .heading {
@@ -106,9 +106,6 @@
     .sb-content-section .e-lib .e-tab .e-control .e-template .e-keyboard .e-nested .sb-content-header {
       border-bottom: none;
     }
-    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal {
-      min-width: 400px !important;
-    }
     .online-editor .CodeMirror-scroll
     {
       border-top: 1px solid #e8e8e8;
@@ -117,54 +114,47 @@
     {
       padding:0px;
     }
-    
-    .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal {
-      overflow: unset;
-    }
     .online-editor .CodeMirror-sizer{
        margin-right: 10px;
        border: none;
     }
-        .fabric-dark .cm-s-default .cm-tag,
-    .bootstrap5-dark .cm-s-default .cm-tag,
-    .bootstrap-dark .cm-s-default .cm-tag,
-    .fluent-dark .cm-s-default .cm-tag,
-    .material-dark .cm-s-default .cm-tag,
-    .tailwind-dark .cm-s-default .cm-tag,
-    .highcontrast .cm-s-default .cm-tag {
-        color: #00ff00;
+    .fabric-dark .CodeMirror-gutters, .fabric-dark .CodeMirror {
+      background-color: #201F1F;
+      color: #fff;
     }
-    .fabric-dark .title,
-    .bootstrap5-dark .title,
-    .bootstrap-dark .title,
-    .fluent-dark .title,
-    .material-dark .title,
-    .tailwind-dark .title,
-    .highcontrast .title{
-        color: #fff;
+    .fluent-dark .CodeMirror-gutters, .fluent-dark .CodeMirror {
+      background-color: #1B1A19;
+      color: #fff;
     }
-    .fabric-dark .CodeMirror,
-    .bootstrap5-dark .CodeMirror,
-    .fluent-dark .CodeMirror,
-    .bootstrap-dark .CodeMirror,
-    .material-dark .CodeMirror,
-    .tailwind-dark .CodeMirror {
-        background-color: #303030;
-        color: #fff;
+    .material3-dark .CodeMirror-gutters, .material3-dark .CodeMirror {
+      background-color: #1C1B1F;
+      color: #fff;
     }
-    .highcontrast .CodeMirror {
-        background: black;
-        color:#fff;
+    .bootstrap-dark .CodeMirror-gutters, .bootstrap-dark .CodeMirror {
+      background-color: #1A1A1A;
+      color: #fff;
     }
-    .fabric-dark .CodeMirror-gutters,
-    .bootstrap5-dark .CodeMirror-gutters,
-    .fluent-dark .CodeMirror-gutters,
-    .bootstrap-dark .CodeMirror-gutters,
-    .material-dark .CodeMirror-gutters,
-    .tailwind-dark .CodeMirror-gutters,
-    .highcontrast .CodeMirror-gutters {
-        background-color: #303030;
+    .bootstrap5-dark .CodeMirror-gutters, .bootstrap5-dark .CodeMirror {
+      background-color: #212529;
+      color: #fff;
     }
+    .material-dark .CodeMirror-gutters, .material-dark .CodeMirror {
+      background-color: #303030;
+      color: #fff;
+    }
+    .tailwind-dark .CodeMirror-gutters, .tailwind-dark .CodeMirror {
+      background-color: #1F2937;
+      color: #fff;
+    }
+    .highcontrast .CodeMirror-gutters, .highcontrast .CodeMirror {
+      background-color: #000000;
+      color: #fff;
+    }
+    .fabric-dark .title, .bootstrap5-dark .title, .bootstrap-dark .title, .fluent-dark .title, 
+    .material-dark .title, .tailwind-dark .title, .highcontrast .title,.material3-dark .title  {
+      color: #fff;
+    }
+
   </style>
 
 <script>
@@ -237,9 +227,7 @@ var RteContent = Vue.component("pane1", {
             if (codeMirrorEle) {
                 codeMirrorEle.remove();
             }
-            if (this.$refs.rteObj.ej2Instances.value) {
-              this.renderCodeMirror(srcViewEle, this.$refs.rteObj.ej2Instances.value);
-            }
+            this.renderCodeMirror(srcViewEle, this.$refs.rteObj.ej2Instances.value);
         },
         renderCodeMirror: function(mirrorView, content) {
             this.myCodeMirror = CodeMirror(mirrorView, {

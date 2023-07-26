@@ -3,6 +3,10 @@
     border: 1px solid #dddddd;
 }
 
+.e-input-group-icon.e-icons.e-sicon.e-clear-icon.e-clear-icon-hide {
+    display: none;
+}
+
 #adaptivebrowser:not(.e-grid.e-row-responsive) > .e-gridcontent {
     height: calc(100% - 224px) !important;
 }

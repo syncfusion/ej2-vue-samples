@@ -258,8 +258,8 @@ export default Vue.extend({
     }
 
     .sidebar-menu,
-    .e-menu-wrapper,
-    .e-menu-wrapper ul {
+    .sidebar-menu .e-menu-wrapper,
+    .sidebar-menu .e-menu-wrapper ul {
         overflow: hidden;
     }
 

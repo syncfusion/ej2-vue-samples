@@ -10,7 +10,7 @@
                 <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34'
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl"  :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34'
             :commentDelete="commentDelete"></ejs-documenteditorcontainer>
         </div>
     </div>
@@ -92,14 +92,17 @@ import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar 
 import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
 import { comments } from "./data";
 import { DialogUtility } from '@syncfusion/ej2-popups';
+import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+
 Vue.use(DocumentEditorContainerPlugin);
 Vue.use(DropDownButtonPlugin);
+Vue.use(ButtonPlugin);
 export default Vue.extend({
   components: {
     },
     data: function() {
         return {           
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Comments',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -193,7 +196,6 @@ export default Vue.extend({
           this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;          
           obj.open(JSON.stringify(comments));
           obj.documentName='Comments';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentEditor.showComments = true;
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
           this.documentChangedEvent();

@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-nodejs">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' >
+            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -38,6 +38,11 @@ export default Vue.extend ({
                 getImageUrl: hostUrl + 'GetImage',
                 uploadUrl: hostUrl + 'Upload',
                 downloadUrl: hostUrl + 'Download'
+            },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
             }
         };
     },

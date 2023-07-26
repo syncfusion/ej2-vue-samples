@@ -1,6 +1,5 @@
 <template>
 <div>
-<div class="control-section" style="overflow:hidden;">
     <div class="col-lg-8 control-section">
         <div class="control-wrapper">
             <div class="sample-container">
@@ -13,7 +12,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     <div class="col-lg-4 property-section">
         <div title="Properties" id="property">
             <table title="Properties" id="property">
@@ -23,7 +22,7 @@
                             <div>Enable AutoUrl</div>
                         </td>
                         <td>
-                            <div>
+                             <div class="checkbox-container">
                              <ejs-checkbox ref="checkInstance" :change="changeCheck" id="enablehtml" ></ejs-checkbox>
                             </div>
                         </td>
@@ -42,8 +41,7 @@
             </table>
         </div>
     </div>
- </div>
-    
+
     <div id="action-description">
             <p>This sample demonstrates the option to insert the image to the Rich Text Editor content. Click the image button from the
             toolbar item to insert the image.</p>
@@ -84,31 +82,37 @@
     .bootstrap4 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
         content: "\e778";
     }
-    
-    .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
-    .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
-        content: "\e7bd";
-    }
-    
-    .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
-    .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
-        content: "\e7b9";
-    }
 
     .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
-    .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
+    .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .material3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .material3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
         content: "\e713";
     }
     
     .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
-    .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
+    .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .material3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .material3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
         content: "\e755";
     }
 
+    .property-panel-table div {
+        padding : 10px;
+    }
+
+    .checkbox-container{
+        padding-left: 0px !important;
+    }
+	
 </style>
 <script>
 import Vue from "vue";
@@ -116,6 +120,7 @@ import { RichTextEditorPlugin, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, 
 import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 import { CheckBoxPlugin} from "@syncfusion/ej2-vue-buttons";
+import { isNullOrUndefined } from '@syncfusion/ej2-base';
 Vue.use(DropDownListPlugin);
 Vue.use(RichTextEditorPlugin);
 Vue.use(CheckBoxPlugin);
@@ -151,19 +156,21 @@ export default Vue.extend({
             var nodeObj = new NodeSelection();
             var range = nodeObj.getRange(this.$refs.rteObj.ej2Instances.contentModule.getDocument());
             var imgEle = nodeObj.getNodeCollection(range)[0];
-            if (e.item.tooltipText === 'Rotate Right') {
-                var transform = (imgEle.style.transform === '') ? 0 :
-                    parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10);
-                imgEle.style.transform = 'rotate(' + (transform + 90) + 'deg)';
-                this.$refs.rteObj.ej2Instances.formatter.saveData();
-                this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
-            }
-            else if (e.item.tooltipText === 'Rotate Left') {
-                var transform = (imgEle.style.transform === '') ? 0 :
-                    Math.abs(parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10));
-                imgEle.style.transform = 'rotate(-' + (transform + 90) + 'deg)';
-                defaulthis.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
-                this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
+            if (!isNullOrUndefined(e.item)) {
+                if (e.item.tooltipText === 'Rotate Right') {
+                    var transform = (imgEle.style.transform === '') ? 0 :
+                        parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10);
+                    imgEle.style.transform = 'rotate(' + (transform + 90) + 'deg)';
+                    this.$refs.rteObj.ej2Instances.formatter.saveData();
+                    this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
+                }
+                else if (e.item.tooltipText === 'Rotate Left') {
+                    var transform = (imgEle.style.transform === '') ? 0 :
+                        Math.abs(parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10));
+                    imgEle.style.transform = 'rotate(-' + (transform + 90) + 'deg)';
+                    defaulthis.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
+                    this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
+                }
             }
             },
              formatChange: function() {

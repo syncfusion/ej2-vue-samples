@@ -96,7 +96,7 @@ export default Vue.extend({
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData1: new MapAjax('https://cdn.syncfusion.com/maps/map-data/usa.json'),
+        shapeData1: new MapAjax('./src/maps/map-data/usa.json'),
         shapeSettings1: {
                     fill: '#E5E5E5',
                     border: {
@@ -112,7 +112,7 @@ export default Vue.extend({
                         fontFamily: 'Segoe UI'
                     }
         },
-        shapeData2: new MapAjax('https://cdn.syncfusion.com/maps/map-data/texas.json'),
+        shapeData2: new MapAjax('./src/maps/map-data/texas.json'),
         type2: 'SubLayer',
         shapeSettings2: {
                     fill: 'rgba(141, 206, 255, 0.6)',
@@ -131,7 +131,7 @@ export default Vue.extend({
             }
         },
         texasTextDataSource: [{ latitude: 31.80289258670676, longitude: -98.96484375 }],
-        shapeData3: new MapAjax('https://cdn.syncfusion.com/maps/map-data/california.json'),
+        shapeData3: new MapAjax('./src/maps/map-data/california.json'),
         type3: 'SubLayer',
         shapeSettings3: {
                     fill: 'rgba(141, 206, 255, 0.6)',

@@ -5,7 +5,7 @@
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='100'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
-                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' width='110'></e-column>
+                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' width='125'></e-column>
                 <e-column field='duration' headerText='Duration' textAlign='Right'  width='110'></e-column>
             </e-columns>
         </ejs-treegrid>

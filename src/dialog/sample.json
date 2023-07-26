@@ -11,13 +11,6 @@
             "hideOnDevice": true
         },
         {
-            "url": "custom-dialog",
-            "name": "Custom Dialogs",
-            "category": "Dialog",
-            "description":"This example demonstrates how to create custom dialogs such as alert dialogs, confirmation dialogs, and prompt dialogs using the Vue dialog component.",
-            "hideOnDevice": true
-        },
-        {
             "url": "modal-dialog",
             "name": "Modal",
             "category": "Dialog",

@@ -39,7 +39,7 @@ Vue.use(PdfViewerPlugin);
 export default Vue.extend({
     data: function() {
         return {
-			serviceUrl:"https://ej2services.syncfusion.com/production/web-services/api/pdfviewer",
+            serviceUrl:"https://services.syncfusion.com/vue/production/api/pdfviewer",
 			documentPath:"RTLText.pdf",
             annotationSettings: {author: 'مقبول'}		
         }
@@ -277,7 +277,9 @@ L10n.load({
             'Up': 'فوق',
             'Down': 'تحت',
             'Multiline': 'متعدد الأسطر',
-            'Initial': 'أولي'
+            'Initial': 'أولي',
+            'Export XFDF': 'تصدير التعليق التوضيحي إلى ملف XFDF',
+            'Import XFDF': 'استيراد التعليقات التوضيحية من ملف XFDF'
         }
     }
 });

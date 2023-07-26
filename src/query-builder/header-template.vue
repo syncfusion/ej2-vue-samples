@@ -60,7 +60,7 @@
         padding-left: 10px;
         height: 32px;
     }
-     .e-bigger .e-query-builder .e-custom-group-btn {
+    .e-bigger .e-query-builder .e-custom-group-btn {
         padding-left: 10px; 
         height: 36px;
     }

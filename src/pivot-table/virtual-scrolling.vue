@@ -170,7 +170,7 @@ export default Vue.extend({
           { name: "Sold", caption: "Unit Sold" }
         ]
       },
-      width: 860,
+      width: Browser.isDevice ? '100%' : 860,
       height: 300,
       enableVirtualization: true,
       gridSettings: { columnWidth: 140 }

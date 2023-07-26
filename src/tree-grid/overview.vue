@@ -52,6 +52,17 @@
         color: #00752F;
         width: 47px;
     }
+     /deep/ .material3-dark .rating .star.checked, .material3 .rating .star.checked {
+        color: #6750A4;
+    }
+
+     /deep/ .material3-dark #myBar, .material3 #myBar {
+        background-color: #53CA17;
+    }
+
+    /deep/ .material3-dark #myBar.progressdisable, .material3 #myBar.progressdisable {
+        background-color: rgba(242, 184, 181, 1);
+    }
     
     /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
     .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{
@@ -100,7 +111,7 @@
         background-color: #df2222;
     }
 
-    /deep/ #label {
+    /deep/ #treegridlabel {
         position: relative;
         left: 10px;
         line-height: 18px;
@@ -127,6 +138,9 @@
     /deep/ #coordinates .e-image {
         filter: brightness(180%);
     }
+    .e-bigger .e-grid .e-rowcell {
+        line-height: 24px;
+    }
 </style>
 <script lang="ts">
 import Vue from "vue";
@@ -147,7 +161,7 @@ export default Vue.extend({
             template: Vue.component('unemploymentTemplate', {
                 template: `<div id="myProgress" class="pbar">
                                 <div id="myBar" class="bar">
-                            <div id="label" class="barlabel"></div>
+                            <div id="treegridlabel" class="barlabel"></div>
                               </div>
                     </div>`,
             data: function() {
@@ -179,7 +193,7 @@ export default Vue.extend({
     locationTemplate: function () {
         return {
             template: Vue.component('locationTemplate', {
-                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
+                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }

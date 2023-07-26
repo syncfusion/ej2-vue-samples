@@ -7,7 +7,7 @@
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge1'>
                             <template v-slot:firstImageTemplate="{}">
-                                <div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>{{value1}}</div></div></div>
+                                <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p class="gauge_text">{{value1}}%</p></div>
                             </template>
                             <template v-slot:firstTextTemplate="{}">
                                 <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">Germany</div>
@@ -28,7 +28,7 @@
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge2'>
                             <template v-slot:twoImageTemplate="{}">
-                                <div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>{{value2}}</div></div></div>
+                                <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p class="gauge_text">{{value2}}%</p></div>
                             </template>
                             <template v-slot:twoTextTemplate="{}">
                                 <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">USA</div>
@@ -49,7 +49,7 @@
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge3'>
                             <template v-slot:threeImageTemplate="{}">
-                                <div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Segoe UI'>{{value3}}</div></div></div>
+                                <div class='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p class="gauge_text">{{value3}}%</p></div>
                             </template>
                             <template v-slot:threeTextTemplate="{}">
                                 <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">UK</div>
@@ -322,9 +322,9 @@ export default Vue.extend({
                     germany.ej2_instances[0].setPointerValue(0, 0, value1);
                     usa.ej2_instances[0].setPointerValue(0, 0, value2);
                     uk.ej2_instances[0].setPointerValue(0, 0, value3);
-                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
+                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
+                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px;display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
+                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
 
 
                 } else {
@@ -336,14 +336,22 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
-#templateWrap img {
-    width: 16px;
-    height: 16px;
-    margin-top: 4px;
+.templateWrap {
+    display: inline;
+    margin-left: -10px;
 }
-
-#templateWrap .des {
-    float: right;
-    padding-left: 5px;
+.templateWrap img {
+    width: 16px;
+    height: 16px; 
+    margin-top: 4px; 
+    display: inline-block; 
+    vertical-align: middle;
+}
+.gauge_text {
+    display: inline-block; 
+    vertical-align: sub; 
+    color:#424242; 
+    font-size:20px; 
+    font-family:Roboto;
 }
 </style>
