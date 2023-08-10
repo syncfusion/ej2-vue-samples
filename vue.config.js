@@ -1,6 +1,6 @@
 module.exports = {
     runtimeCompiler: true,
-    baseUrl:'.',
+    publicPath:'.',
     configureWebpack:{
       performance: {
         hints: false

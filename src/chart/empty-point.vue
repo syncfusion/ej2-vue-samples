@@ -75,7 +75,6 @@ import {
   ChartPlugin,
   ColumnSeries,
   SplineSeries,
-  EmptyPointMode,
   Category,
   Legend,
   Tooltip,
@@ -138,7 +137,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    chart: [ColumnSeries, Category, Legend, Tooltip, SplineSeries, SplineAreaSeries, EmptyPointMode]
+    chart: [ColumnSeries, Category, Legend, Tooltip, SplineSeries, SplineAreaSeries]
   },
   methods: {
     edgeMode: function (args) {

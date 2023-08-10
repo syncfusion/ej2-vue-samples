@@ -8,7 +8,6 @@ var sampleOrder = JSON.parse(fs.readFileSync(__dirname + '/src/common/sampleorde
 var sampleList;
 const elasticlunr = require('elasticlunr');
 var shelljs = require('shelljs');
-require('./build/samples');
 
 function generateSearchIndex(sampleArray) {
     elasticlunr.clearStopWords();
@@ -183,7 +182,7 @@ gulp.task('copy-source', gulp.series(function (done) {
       for (var i = 0; i < localeJson.length; i++) {
         if (localeJson[i].indexOf('/common') == -1) {
           console.log(localeJson[i])
-          shelljs.cp('-R', localeJson[i], localeJson[i].replace('src', 'public/source'));
+          shelljs.cp('-R', localeJson[i], localeJson[i].replace('src', 'public/src'));
         }
       }
     }
@@ -203,12 +202,7 @@ gulp.task('build', gulp.series(function(done) {
 }));
 
 gulp.task('serve',gulp.series('build', function(done) {
-    const serve = require('serve')
-    const server = serve(__dirname + '/dist', {
-        port: 3000,
-        ignore: ['node_modules']
-    })
-    done();
+    shelljs.exec('node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve', done);
 }));
 
 gulp.task('ci-report', gulp.series(function(done)
