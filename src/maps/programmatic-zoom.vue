@@ -81,17 +81,24 @@
 <script>
 import Vue from "vue";
 import {
-  MapsPlugin,
+  MapsComponent,
+  LayersDirective,
+  LayerDirective,
   Marker,
   MapsTooltip,
   MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
 import { southAmericaCountryCapitals } from "../maps/map-data/marker-location";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       useGroupingSeparator: true,
@@ -155,5 +162,5 @@ export default Vue.extend({
     }
   }
   /* custom code end */
-});
+};
 </script>

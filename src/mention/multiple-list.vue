@@ -39,11 +39,9 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { MentionPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { MentionComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-Vue.use(MentionPlugin);
-import * as data from './dataSource.json';
+import data from './dataSource.json';
 
 var remoteData = new DataManager({
     url: 'https://services.syncfusion.com/vue/production/api/Employees',
@@ -52,6 +50,9 @@ var remoteData = new DataManager({
 });
 
 export default {
+        components: {
+            'ejs-mention': MentionComponent
+        },
         data: function() {
         return {
           target: "#multipleList",

@@ -34,8 +34,8 @@
       <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
@@ -151,16 +151,16 @@
         stop-color: #4f46e5;
     }
     #bootstrap5-gradient-chart stop {
-        stop-color: #6355C7;
+        stop-color: #262E0B;
     }
     #bootstrap5-dark-gradient-chart stop {
-        stop-color: #8F80F4;
+        stop-color: #5ECB9B;
     }
     #fluent-gradient-chart stop {
-        stop-color: #1AC9E6;
+        stop-color: #614570;
     }
     #fluent-dark-gradient-chart stop {
-        stop-color: #1AC9E6;
+        stop-color: #8AB113;
     }
     #material3-gradient-chart stop {
         stop-color: #6200EE;
@@ -181,7 +181,9 @@ import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { aapl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   Crosshair,
   Tooltip,
@@ -196,13 +198,16 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       seriesData: aapl,
@@ -217,7 +222,7 @@ export default Vue.extend({
       //Initializing Primary Y Axis
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", height: 0 }
+        majorTickLines: { color: "transparent", width: 0 }
       },
       crosshair: {
         enable: true,
@@ -256,5 +261,5 @@ export default Vue.extend({
         args.stockChart.series[0].fill = 'url(#' + selectedTheme.toLowerCase() + '-gradient-chart)';
     },
   }
-});
+};
 </script>

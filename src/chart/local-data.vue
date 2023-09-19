@@ -42,10 +42,8 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, LineSeries, Legend, Tooltip, DateTime, Highlight, Crosshair } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, Tooltip, DateTime, Highlight, Crosshair } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -73,7 +71,12 @@ for (i = 1; i < 500; i++) {
   series2.push(point2);
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       seriesData: series1,
@@ -125,5 +128,5 @@ export default Vue.extend({
   methods: {
   },
 
-});
+};
 </script>

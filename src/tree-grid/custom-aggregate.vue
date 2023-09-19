@@ -66,15 +66,12 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, TreeGridComponent, Aggregate, Page } from "@syncfusion/ej2-vue-treegrid";
+import { createApp } from "vue";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, AggregateDirective, AggregatesDirective, Aggregate, Page } from "@syncfusion/ej2-vue-treegrid";
 import { summaryData } from "./data-source";
-import { DropDownList, DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownList, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { getObject, CustomSummaryType } from '@syncfusion/ej2-grids';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
 
 let listObj: DropDownList;
 let value = 'Frozen seafood';
@@ -84,12 +81,20 @@ let foods = [
     { food : 'Edible'},
     { food : 'Solid crystals'}
 ];
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-aggregates': AggregatesDirective,
+    'e-aggregate': AggregateDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: summaryData,
       footerTemp: function () {
-        return  { template : Vue.component('footerTemplate', {
+        return  { template : createApp({}).component('footerTemplate', {
             template: `<span>Count of <input type="text" id="customers" />: {{data.Custom}}</span>`,
             data () {return { data: {}};}
             })
@@ -102,7 +107,7 @@ export default Vue.extend({
   },
   methods: {
       customAggregateFn : function (data: Object) {
-      (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.vueInstance = null;
+      ((this as any).$refs.treegrid).ej2Instances.grid.vueInstance = null;
         let sampleData: Object[] = getObject('result', data);
         let countLength: number; countLength = 0;
         sampleData.filter((item: Object) => {
@@ -114,7 +119,7 @@ export default Vue.extend({
         return countLength;
       },
       dataBound: function() {
-          let treeGridObj = (<TreeGridComponent>this.$refs.treegrid);
+          let treeGridObj = ((this as any).$refs.treegrid);
             if (!isNullOrUndefined(listObj)) {
                 listObj.destroy();
             }
@@ -137,5 +142,5 @@ export default Vue.extend({
             listObj.appendTo('#customers');
             }
   }
-});
+}
 </script>

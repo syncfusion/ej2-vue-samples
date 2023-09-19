@@ -6,7 +6,7 @@
     </div>
     <div>
 
-        <ejs-treegrid ref='treegrid' :dataSource="virtualData" :enableVirtualization='true' :enableVirtualMaskRow='true' :treeColumnIndex='1' childMapping='Crew' :editSettings='editSettings' :toolbar='toolbar' height=600 :dataBound='hide'>
+        <ejs-treegrid ref='treegrid' :dataSource="virtualData" :enableVirtualization='true' :enableVirtualMaskRow='true' :treeColumnIndex='1' childMapping='Crew' :editSettings='editSettings' :toolbar='toolbar' height=600 >
             <e-columns>
                 <e-column field='TaskID' headerText='Player Jersey' :validationRules='taskidrules' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
                 <e-column field='FIELD1' headerText='Player Name' :validationRules='tasknamerules' width='120'></e-column>
@@ -48,17 +48,19 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, VirtualScroll, TreeGridComponent, Toolbar, RowDD, Edit } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, VirtualScroll, Toolbar, RowDD, Edit } from "@syncfusion/ej2-vue-treegrid";
 import { DataManager, JsonAdaptor } from '@syncfusion/ej2-data'; 
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { virtualData, dataSource } from './data-source';
-
-Vue.use(TreeGridPlugin);
 
 dataSource();
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: function() {
     return {
         virtualData: virtualData,
@@ -72,5 +74,5 @@ export default Vue.extend({
   provide: {
       treegrid: [VirtualScroll, Edit, Toolbar, RowDD]
   }
-});
+}
 </script>

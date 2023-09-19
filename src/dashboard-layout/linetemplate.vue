@@ -10,16 +10,17 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
-import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
-
-Vue.use(ChartPlugin);
-
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, ColumnSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
 export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data() {
     return {
       theme: theme,
@@ -55,8 +56,8 @@ export default {
     chart: [ColumnSeries, Category, DataLabel, Tooltip, Legend]
   },
   mounted(){
-    this.$refs.lineInstance.height ="100%";
-    this.$refs.lineInstance.width ="100%";
+    this.$refs.lineInstance.ej2Instances.height ="100%";
+    this.$refs.lineInstance.ej2Instances.width ="100%";
   }
 };
 </script>

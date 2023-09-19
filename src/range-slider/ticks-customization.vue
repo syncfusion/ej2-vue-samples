@@ -213,11 +213,9 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { SliderTickRenderedEventArgs, SliderTickEventArgs, Placement } from '@syncfusion/ej2-inputs';
-Vue.use(SliderPlugin);
-export default Vue.extend({
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+
+export default {
   data: function() {
     return {
      count: 1,
@@ -230,6 +228,7 @@ export default Vue.extend({
      slider_ticks: { placement: 'Both', largeStep: 20, smallStep: 5 },
     };
   },
+  components: { 'ejs-slider': SliderComponent },
   methods:{
        renderingTicks: function(args) {
         if (args.tickElement.classList.contains('e-large')) {
@@ -244,5 +243,5 @@ export default Vue.extend({
         }
     }
   }
-});
+};
 </script>

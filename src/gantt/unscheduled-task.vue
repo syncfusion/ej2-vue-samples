@@ -36,12 +36,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Gantt, Edit, Toolbar, Selection } from "@syncfusion/ej2-vue-gantt";
-import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations"
+import { GanttComponent, Edit, Toolbar, Selection } from "@syncfusion/ej2-vue-gantt";
 import { unscheduledData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
         dataSource: unscheduledData,
@@ -81,7 +82,7 @@ export default Vue.extend({
     gantt: [Edit, Toolbar, Selection]
   },
   methods: {
-    toolbarClick: function(args) {
+    toolbarClick: function() {
         let data = {
             Duration: null,
             StartDate: null,
@@ -91,7 +92,7 @@ export default Vue.extend({
         this.$refs.unscheduleGantt.addRecord(data);
     }
   }
-});
+}
 </script>
 
 <style scoped>

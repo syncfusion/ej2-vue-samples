@@ -67,26 +67,33 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
 import { Browser } from "@syncfusion/ej2-base";
-import { DropDownList } from '@syncfusion/ej2-dropdowns';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   ColumnSeries,
   SplineSeries,
+  EmptyPointMode,
   Category,
   Legend,
   Tooltip,
   SplineAreaSeries
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function () {
     return {
       theme: theme,
@@ -104,6 +111,7 @@ export default Vue.extend({
 
       //Initializing Primary X Axis
       primaryXAxis: {
+        title: 'Product',
         valueType: 'Category', interval: 1, labelIntersectAction: Browser.isDevice ? 'None' : 'Trim', labelRotation: Browser.isDevice ? -45 : 0,
         majorTickLines: { width: 0 },
         majorGridLines: { width: 0 },
@@ -116,7 +124,8 @@ export default Vue.extend({
         interval: 20,
         labelFormat: "{value}%",
         majorTickLines: { width: 0 },
-        lineStyle: { width: 0 }
+        lineStyle: { width: 0 },
+        title: 'Profit'
       },
       chartArea: { border: { width: 0 } },
       seriesType: "Column",
@@ -137,7 +146,7 @@ export default Vue.extend({
     };
   },
   provide: {
-    chart: [ColumnSeries, Category, Legend, Tooltip, SplineSeries, SplineAreaSeries]
+    chart: [ColumnSeries, Category, Legend, Tooltip, SplineSeries, SplineAreaSeries, EmptyPointMode]
   },
   methods: {
     edgeMode: function (args) {
@@ -158,5 +167,5 @@ export default Vue.extend({
     }
   }
 
-});
+};
 </script>

@@ -72,48 +72,49 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-Vue.use(DashboardLayoutPlugin);
-import { SidebarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(SidebarPlugin);
+import { createApp } from "vue";
+import { DashboardLayoutComponent, PanelsDirective, PanelDirective } from "@syncfusion/ej2-vue-layouts";
+import { SidebarComponent } from "@syncfusion/ej2-vue-navigations";
 import visitorsByTypeTempalte from "./linetemplate.vue";
 import mapTemplate from "./map.vue";
 import useageStatisticsTemplate from "./useage.vue";
 import activeVisitorTemplate from "./activeVisitors.vue";
 import splineTemplate from "./splinetemplate.vue";
-import { AutoCompletePlugin } from '@syncfusion/ej2-vue-dropdowns';
 
-Vue.use(AutoCompletePlugin);
-
-var card1Template = Vue.component("card1", {
+var card1Template = {
   template: '<div class="card"><span class="e-icons session"></span><div class="card-content text">Session</div><div class="card-content number">124,444</div></div>',
   data() {
     return {
       data: {}
     };
   }
-});
+};
 
-var card2Template = Vue.component("card2", {
+var card2Template = {
   template: '<div class="card"><span class="e-icons profile"></span><div class="card-content text">Users</div><div class="card-content number">64,496</div></div>',
   data() {
     return {
       data: {}
     };
   }
-});
+};
 
-var card3Template = Vue.component("card3", {
+var card3Template = {
   template: '<div class="card"><span class="e-icons views"></span><div class="card-content text">Views</div><div class="card-content number">442,278</div></div>',
   data() {
     return {
       data: {}
     };
   }
-});
+};
 
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-sidebar': SidebarComponent,
+    'ejs-dashboardlayout': DashboardLayoutComponent,
+    'e-panels': PanelsDirective,
+    'e-panel': PanelDirective
+  },
   data() {
     return {
         enableDock: true,
@@ -124,38 +125,38 @@ export default  Vue.extend({
         closeOnDocumentClick: true,
         target: '#sidebarTarget',
         spline: function () {
-          return { template : splineTemplate }
+          return { template: createApp({}).component("spline",  splineTemplate) }
         },
         line: function () {
-          return { template : visitorsByTypeTempalte }
+          return { template: createApp({}).component("visitorByType",  visitorsByTypeTempalte) }
         },
         visitor: function() {
-          return { template : activeVisitorTemplate }   
+          return { template: createApp({}).component("activeVisitor",  activeVisitorTemplate) }   
         },
         usage: function() {
-          return { template : useageStatisticsTemplate }  
+          return { template: createApp({}).component("usageStatistics",  useageStatisticsTemplate) }  
         },
         map: function() {
-          return { template : mapTemplate }  
+          return { template: createApp({}).component("mapTemplate",  mapTemplate) }  
         },
         card1: function(e) {
           return {
-            template: card1Template
+            template: createApp({}).component("card1", card1Template)
           }
         },
         card2: function(e) {
           return {
-            template: card2Template
+            template: createApp({}).component("card2", card2Template)
           }
         },
         card3: function(e) {
           return {
-            template: card3Template
+            template: createApp({}).component("card3", card3Template)
           }
       }
     };
   },
-});
+};
 </script>
 
 <style>

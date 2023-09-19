@@ -39,23 +39,25 @@
         position: relative;
         top: 1px;
     }
-    .e-twitter:before {
+    .e-twitter::before {
         content: '\a701';
     }
-    .e-facebook:before {
+    .e-facebook::before {
         content: '\a705';
     }
-    .e-whatsapp:before {
+    .e-whatsapp::before {
         content: '\a700';
     }
 </style>
 <script>
-import Vue from "vue";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TabComponent, TabItemDirective, TabItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(TabPlugin);
-
-export default Vue.extend({
+export default {
+   components: {
+    'ejs-tab': TabComponent,
+    'e-tabitem': TabItemDirective,
+    'e-tabitems': TabItemsDirective
+   },
    data: function(){
         return {
            headerText0: { text: "Twitter", 'iconCss': 'e-twitter' },
@@ -69,7 +71,7 @@ export default Vue.extend({
         'users posting 340 million tweets a day in 2012. The service also handled 1.6 billion search queries per day.',     
     content1: 'Facebook is an online social networking service headquartered in Menlo Park, California. Its website ' +
         'was launched on February 4, 2004, by Mark Zuckerberg with his Harvard College roommates and fellow students Eduardo ' +
-        'Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. The founders had initially limited the website\'\s ' +
+        'Saverin, Andrew McCollum, Dustin Moskovitz and Chris Hughes. The founders had initially limited the website\' ' +
         'membership to Harvard students, but later expanded it to colleges in the Boston area, the Ivy League, and Stanford ' +
         'University. It gradually added support for students at various other universities and later to high-school students.',
    
@@ -80,5 +82,5 @@ export default Vue.extend({
         'Mountain View, California, was acquired by Facebook Inc. on February 19, 2014, for approximately US$19.3 billion.'
         }
    },
-});
+}
 </script>

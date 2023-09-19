@@ -1,6 +1,6 @@
 <template>
 
-<div class="col-lg-12 control-section"style="padding-top: 0px;">
+<div class="col-lg-12 control-section" style="padding-top: 0px;">
 
  <div class="content-wrapper" style="width: 100%">
       <ejs-toolbar id='toolbar' style="width:100%;height: 10%;margin-top: 10px;" :clicked='toolbarclicked' :items='toolbaritems'></ejs-toolbar>
@@ -84,9 +84,8 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   DiagramTools,
@@ -103,14 +102,16 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
 import { radialTree } from "./diagram-data";
-import { Toolbar, ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
+import { ToolbarComponent, ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 Diagram.Inject(DataBinding, RadialTree);
-
-Vue.use(DiagramPlugin);
 
 let diagramInstance;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-toolbar': ToolbarComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -214,7 +215,7 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+};
 
 //based on the option, Click event to perform ZoomIn,ZoomOut and Reset.
 function onItemClick(args) {

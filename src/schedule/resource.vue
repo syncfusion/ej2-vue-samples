@@ -71,21 +71,24 @@
 </style>
 
 <script>
-    import Vue from "vue";
     import { Predicate, Query } from '@syncfusion/ej2-data';
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
     import { extend } from '@syncfusion/ej2-base';
     import { resourceSampleData } from './datasource';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, DragAndDrop, Resize } from '@syncfusion/ej2-vue-schedule';
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-
+    import { ScheduleComponent, ResourceDirective, ResourcesDirective, Day, Week, WorkWeek, Month, Agenda, DragAndDrop, Resize } from '@syncfusion/ej2-vue-schedule';
+    
     var ownerCollections = [
         { OwnerText: 'Margaret', OwnerId: 1, Color: '#ea7a57' },
         { OwnerText: 'Robert', OwnerId: 2, Color: '#df5286' },
         { OwnerText: 'Laura', OwnerId: 3, Color: '#865fcf' }
     ];
-     export default Vue.extend({
+     export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 selectedDate: new Date(2021, 5, 6),
@@ -99,7 +102,7 @@
             schedule: [Day, Week, WorkWeek, Month, Agenda, DragAndDrop, Resize]
         },
         methods: {
-            onChange: function (args) {
+            onChange: function () {
                 let scheduleObj = this.$refs.ScheduleObj;
                 let ownerOneObj = this.$refs.ownerOneObj;
                 let ownerTwoObj = this.$refs.ownerTwoObj;
@@ -118,5 +121,5 @@
         scheduleObj.ej2Instances.eventSettings.query = new Query().where(predicate);
             }
         }
-    });
+    }
 </script>

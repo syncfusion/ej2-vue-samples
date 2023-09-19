@@ -110,14 +110,11 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
-Vue.use(SliderPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-export default Vue.extend({
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
   data: function() {
     return {
       enabled:true,
@@ -149,15 +146,20 @@ export default Vue.extend({
       fields: { text: "text", value: "value" }
     };
   },
+  components: { 
+    'ejs-slider': SliderComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   methods: {
     onChange: function(e) {
       this.$refs.defaultSlider.ej2Instances.ticks = { placement: e.value };
       this.$refs.rangeSlider.ej2Instances.ticks = { placement: e.value };
     },
     checkbox_onChange: function(args) {
-      this.$refs.defaultSlider.enabled = !args.checked;
-      this.$refs.rangeSlider.enabled = !args.checked;
+      this.$refs.defaultSlider.ej2Instances.enabled = !args.checked;
+      this.$refs.rangeSlider.ej2Instances.enabled = !args.checked;
     }
   }
-});
+};
 </script>

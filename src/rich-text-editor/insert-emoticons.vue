@@ -23,17 +23,16 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
-import * as CodeMirror from 'codemirror';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/css/css.js';
-import 'codemirror/mode/htmlmixed/htmlmixed.js';
+import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { TabComponent } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-dialog': DialogComponent,
+      'ejs-tab': TabComponent
+    },
     data: function() {
         return {
             toolbarSettings: {
@@ -45,5 +44,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, EmojiPicker]
     }
-});
+}
 </script>

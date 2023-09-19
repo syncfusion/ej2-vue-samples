@@ -7,7 +7,7 @@
             <div class="speeddial-form">
                 <div class="head">
                   <div class="textEle">Feedback & Question</div>
-                 <div class="iconEle"> <span class="speeddial-icons speeddial-icon closeicon" @click="closeClick"></span></div>
+                 <div class="iconEle"> <span class="speeddial-icons speeddial-icon-close closeicon" @click="closeClick"></span></div>
                 </div>
                 <div class="content">
                   <ejs-textbox id='name' floatLabelType="Always" showClearButton="true" placeholder="Enter your name" style="width:100%;"></ejs-textbox>
@@ -18,7 +18,7 @@
                   <br>
                 </div>
                 <div class="footer">
-                  <ejs-button id="primarybtn" class="e-success" v-on:click.native="submitClick"> Submit </ejs-button>
+                  <ejs-button id="primarybtn" class="e-success" v-on:click="submitClick"> Submit </ejs-button>
                 </div>
             </div>
           </template>
@@ -48,16 +48,15 @@
 </template>
  
 <script>
-import Vue from "vue";
-import { SpeedDialPlugin,ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { SpeedDialComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-
-Vue.use(SpeedDialPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(TextBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-speeddial': SpeedDialComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-textbox': TextBoxComponent
+  },
   data: function () {    
     return {
       items: [
@@ -88,7 +87,7 @@ export default Vue.extend({
               this.$refs.speeddial.hide();
           },
       }   
-});
+};
 </script>
 
 <style>
@@ -170,7 +169,8 @@ body[class*="high"] .speeddial-form {
 .e-bigger .e-speeddial-li .itemlist {
   padding: 10px;
 }
-.e-speeddial-li .itemlist:hover {
+.e-speeddial-li .itemlist:hover,
+.e-speeddial-li.e-speeddial-li-active:not(.e-disabled) .itemlist {
     background:rgb(224, 224, 224);
 }
 body[class*="dark"] .e-speeddial-li .itemlist,
@@ -178,7 +178,9 @@ body[class*="high"] .e-speeddial-li .itemlist {
   background: #333;
 }
 body[class*="dark"] .e-speeddial-li .itemlist:hover,
-body[class*="high"] .e-speeddial-li .itemlist:hover{
+body[class*="dark"] .e-speeddial-li.e-speeddial-li-active:not(.e-disabled) .itemlist,
+body[class*="high"] .e-speeddial-li .itemlist:hover,
+body[class*="high"] .e-speeddial-li.e-speeddial-li-active:not(.e-disabled) .itemlist{
   background: #bfbfbf;
 }
 /**Item Template CSS  End*/

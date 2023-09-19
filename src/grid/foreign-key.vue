@@ -22,10 +22,10 @@
      <div id="description">
        <p>
             Grid has option to show foreign key columns. It can be enabled by setting 
-            <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#datasource">column.dataSource </a></code> 
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">column.dataSource </a></code> 
             property with either local or remote data and column field and text can be defined by using
-            <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#foreignkeyfield">column.foreignKeyField</a></code> and
-            <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#foreignkeyvalue">column.foreignKeyValue</a></code> properties.
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#foreignkeyfield">column.foreignKeyField</a></code> and
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#foreignkeyvalue">column.foreignKeyValue</a></code> properties.
         </p>    
          
          <br>
@@ -39,13 +39,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, ForeignKey, Sort, Edit, Filter, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, ForeignKey, Sort, Edit, Filter, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
 import { orderDetails, customerData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails.slice(0),
@@ -61,5 +63,5 @@ export default Vue.extend({
   provide: {
       grid: [ForeignKey, Sort, Edit, Filter, Toolbar, Page ]
   }
-});
+}
 </script>

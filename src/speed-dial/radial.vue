@@ -41,13 +41,10 @@
 </template>
     
 <script>
+import { SpeedDialComponent } from "@syncfusion/ej2-vue-buttons";
 
-import Vue from "vue";
-import { SpeedDialPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(SpeedDialPlugin);
-
-export default Vue.extend({
+export default {
+    components: { 'ejs-speeddial': SpeedDialComponent },
     data: function () {
         return {
             items: [
@@ -66,17 +63,13 @@ export default Vue.extend({
                 {
                     title: 'Delete',
                     iconCss: 'speeddial-icons speeddial-icon-delete'
-                },
-                {
-                    title: 'Save',
-                    iconCss: 'speeddial-icons speeddial-icon-save'
                 }
             ],
             radialSetting: { offset: '70px' },
             radialSetting1: { offset: '110px' }
         };
     }
-});
+}
 </script>
 <style>
     .speeddial-radial-target {

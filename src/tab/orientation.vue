@@ -4,9 +4,52 @@
         <div class="e-sample-resize-container">
         <ejs-tab ref="tabObj" id="tab_orientation" height='320px' :showCloseButton=true heightAdjustMode='Auto'>
             <e-tabitems>
-                <e-tabitem :header='headerText0' :content='RomeTemplate'></e-tabitem>
-                <e-tabitem :header='headerText1' :content='ParisTemplate'></e-tabitem>
-                <e-tabitem :header='headerText2' :content='LondonTemplate'></e-tabitem>
+                <e-tabitem :header='headerText0' :content="'RomeTemplate'"></e-tabitem>
+                <template v-slot:RomeTemplate>
+                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
+                        <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" alt="Anne Dodsworth" /></div>
+                        <div class="left info"><div class="empname">Anne Dodsworth</div> 
+                        <div class="role">Product Manager</div></div></div><div class="template-container"><div class="left">
+                            <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div>
+                            <div class="left info">
+                                <div class="empname">Laura Callahan</div> <div class="role">Team Lead</div></div></div>
+                                <div class="template-container"><div class="left">
+                                    <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div>
+                                    <div class="left info"><div class="empname">Andrew Fuller</div> <div class="role">Developer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <e-tabitem :header='headerText1' :content="'ParisTemplate'"></e-tabitem>
+                <template v-slot:ParisTemplate>
+                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
+                        <div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" alt="Robert King" /></div>
+                            <div class="left info"><div class="empname">Robert King</div> 
+                            <div class="role">Team Lead</div></div></div><div class="template-container"><div class="left">
+                                <img class="empImg" src="src/tab/Employees/5.png" alt="Michael Suyama" /></div>
+                                <div class="left info"><div class="empname">Michael Suyama</div> <div class="role">Developer</div></div></div>
+                                    <div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div>
+                                    <div class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <e-tabitem :header='headerText2' :content="'LondonTemplate'"></e-tabitem>
+                <template v-slot:LondonTemplate>
+                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div>
+                    <div id="rome"><div id="ripple" class="template-container"><div class="left">
+                        <img class="empImg" src="src/tab/Employees/7.png" alt="Janet Leverling" /></div>
+                    <div class="left info"><div class="empname">Janet Leverling</div> 
+                    <div class="role"> CEO</div></div></div><div class="template-container"><div class="left">
+                        <img class="empImg" src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div>
+                    <div class="left info"><div class="empname">Steven Buchanan</div> <div class="role">HR</div></div></div>
+                    <div class="template-container"><div class="left">
+                        <img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div>
+                    <div class="left info"><div class="empname">Nancy Davolio</div> 
+                    <div class="role">Product Manager</div></div></div></div></div>
+                </template>
             </e-tabitems>
         </ejs-tab>
         </div>
@@ -58,14 +101,7 @@
         display: inherit;
     }
 
-/* custom code start */
-    @media screen and (min-width: 768px) {
-        .e-sample-resize-container {
-            width: 75%;
-            margin: 0 auto;
-        }
-    }
-/* custom code end */
+
 
 #tab_orientation .e-content .e-item .template-container {
     height: 63px;
@@ -157,61 +193,16 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TabComponent, TabItemsDirective, TabItemDirective } from "@syncfusion/ej2-vue-navigations";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(TabPlugin);
-
-var Template1 = Vue.component("demo", {
-  template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" ' +
-        'alt="Anne Dodsworth" /></div><div class="left info"><div class="empname">Anne Dodsworth</div> <div class="role">' +
-        'Product Manager</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div><div class="left info"><div class="empname">' +
-        'Laura Callahan</div> <div class="role">Team Lead</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div><div ' +
-        'class="left info"><div class="empname">Andrew Fuller</div> <div class="role">Developer</div></div></div></div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var Template2 = Vue.component("demo", {
-   template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" ' +
-        'alt="Robert King" /></div><div class="left info"><div class="empname">Robert King</div> <div class="role">' +
-        'Team Lead</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/5.png" alt="Michael Suyama" /></div><div class="left info"><div class="empname">' +
-        'Michael Suyama</div> <div class="role">Developer</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div><div ' +
-        'class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div></div></div></div></div>',
-
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var Template3 = Vue.component("demo", {
-  template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div id="ripple" class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/7.png" ' +
-        'alt="Janet Leverling" /></div><div class="left info"><div class="empname">Janet Leverling</div> <div class="role">' +
-        'CEO</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div><div class="left info"><div class="empname">' +
-        'Steven Buchanan</div> <div class="role">HR</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div><div ' +
-        'class="left info"><div class="empname">Nancy Davolio</div> <div class="role">Product Manager</div></div></div></div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-tab': TabComponent,
+        'e-tabitems': TabItemsDirective,
+        'e-tabitem': TabItemDirective,
+        'ejs-dropdownlist': DropDownListComponent,
+    },
      data: function(){
         return {
             headerText0: { text: 'Rome' },
@@ -223,22 +214,7 @@ export default Vue.extend({
             styleFields: { text: 'class', value: 'id' },
             placeValue: 'top',
             placeFields: { text: 'position', value: 'id' },
-            RomeTemplate: function () {
-             return {
-            template : Template1
-             }
-             },
-            ParisTemplate: function () {
-             return {
-            template : Template2
-             }
-             },
-            LondonTemplate: function () {
-             return {
-            template : Template3
-             }
-             }
-    }
+        }
    },
      methods: {
        placeChange: function(args) {
@@ -262,5 +238,5 @@ export default Vue.extend({
             this.tabObj.refreshActiveBorder();
        }
     }
-});
+};
 </script>

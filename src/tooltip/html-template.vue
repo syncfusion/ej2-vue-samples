@@ -2,8 +2,8 @@
 <div>
     <div class="col-lg-12 control-section htmlTemplate">
         <!-- Tooltip element -->
-        <ejs-tooltip ref="tooltip" target="#content" :beforeRender="onBeforeRender" :created='created' :showTipPointer="show"
-            cssClass="e-tooltip-template-css" opensOn="Click" :content="template1">
+        <ejs-tooltip ref="tooltip" target="#content" :created='created'
+            cssClass="e-tooltip-template-css" opensOn="Click" :content="template1" :windowCollision='true' position="BottomCenter" :height='toolTipHeight'>
             <div id="customization">
                 <ejs-button class="text" id="content">HTML Template</ejs-button>
             </div>
@@ -20,19 +20,21 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-Vue.use(TooltipPlugin);
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(ButtonPlugin);
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { Browser } from '@syncfusion/ej2-base';
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       template1: `
         <div id="democontent" class="democontent">
           <h3 style="margin-top:10px">Eastern Bluebird</h3>
-          <img id="bird" src="./source/tooltip/images/bird.png" />
+          <img id="bird" src="source/tooltip/images/bird.png" />
           <p>The
             <a href="https://en.wikipedia.org/wiki/Eastern_bluebird" target="_blank"> Eastern Bluebird</a>
             is easily found in open fields and sparse woodland areas, including along woodland edges. These are <i>cavity-nesting birds</i>
@@ -44,7 +46,8 @@ export default Vue.extend({
             <a href="https://en.wikipedia.org/wiki/Eastern_bluebird" target="_blank">https://en.wikipedia.org/wiki/Eastern_bluebird</a>
           </p>
         </div>
-      `
+      `,
+      toolTipHeight: Browser.isDevice ? "60%" : "auto",
     };
   },
   methods: {
@@ -67,7 +70,7 @@ export default Vue.extend({
           this.$refs.tooltip &&
           document.getElementsByClassName("e-tooltip-wrap").length > 0
         ) {
-          this.$refs.tooltip.close();
+          this.$refs.tooltip.ej2Instances.close();
         }
       }
     },
@@ -76,11 +79,11 @@ export default Vue.extend({
         this.$refs.tooltip &&
         document.getElementsByClassName("e-tooltip-wrap").length > 0
       ) {
-        this.$refs.tooltip.close();
+        this.$refs.tooltip.ej2Instances.close();
       }
     }
   }
-});
+}
 </script>
 <style>
 .htmlTemplate {

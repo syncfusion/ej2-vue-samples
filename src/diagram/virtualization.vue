@@ -52,9 +52,8 @@
     </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -66,6 +65,7 @@ import {
 import { CheckBox } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBox } from "@syncfusion/ej2-vue-inputs";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
+import { ToolbarComponent } from "@syncfusion/ej2-vue-navigations";
 import {
   Node,
   DataBinding,
@@ -76,7 +76,6 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { virtualizationData } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
 let diagramInstance;
 var bound = new Rect(100, 100, 500, 100);
 var virtualData = new DataManager(dataVirtualization());
@@ -97,7 +96,11 @@ function dataVirtualization() {
     }
     return data;
 }
-export default Vue.extend({
+export default {
+components: {
+  'ejs-diagram': DiagramComponent,
+  'ejs-toolbar': ToolbarComponent
+},
 data: function() {
   return {
       width: "100%",
@@ -176,7 +179,7 @@ data: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage({ mode: 'Page',region: 'CustomBounds',margin: { left: 50, right: 50 },customBounds: bound });
   }
-  });  
+  }  
 //sets node default value
 function nodeDefaults(obj, diagram) {
   obj.shape = { type: 'Text', content: obj.data.Name, shape: 'Rectangle', cornerRadius: 5 };

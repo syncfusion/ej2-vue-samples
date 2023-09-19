@@ -29,13 +29,16 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip} from "@syncfusion/ej2-vue-treemap";
+import { createApp } from "vue";
+import { TreeMapComponent,TreeMapTooltip} from "@syncfusion/ej2-vue-treemap";
 import { Browser } from '@syncfusion/ej2-base';
 import { Metals } from '../treemap/treemap-data/metals';
 import Template from './customization-temp.vue';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -64,7 +67,7 @@ return{
             templatePosition: 'Center',
             border: { color: 'black', width: 0.5 },
             labelFormat: ' ${Sport} - ${Gold}',
-            labelTemplate: function () { return {template: Template}; },
+            labelTemplate: function () { return { template: createApp({}).component('labelTemplate', Template) }; },
         }
 }
 },
@@ -81,5 +84,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

@@ -47,10 +47,10 @@
      <div id="description" style="padding-top: 32px">
      <p>
         The <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#enableadaptiveui">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enableadaptiveui">
             enableAdaptiveUI</a></code> property is used to render the grid filter, sort and edit dialogs adaptively and
         <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowrenderingmode"> rowRenderingMode</a></code>
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowrenderingmode"> rowRenderingMode</a></code>
         property is used to render the grid row elements in the following directions,
     </p>
     <ul>
@@ -62,7 +62,7 @@
     <p>
         More information on the rowRenderingMode configuration can be found in this
         <a target="_blank" 
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowrenderingmode">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowrenderingmode">
         documentation section</a>.
     </p>
     </div>
@@ -165,16 +165,21 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page, Edit, Sort, Filter, Toolbar, Aggregate } from "@syncfusion/ej2-vue-grids";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { createApp } from 'vue';
+import { GridComponent, ColumnDirective, ColumnsDirective, AggregatesDirective, AggregateDirective, Page, Edit, Sort, Filter, Toolbar, Aggregate } from "@syncfusion/ej2-vue-grids";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { Browser } from "@syncfusion/ej2-base";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'e-aggregates': AggregatesDirective,
+    'e-aggregate': AggregateDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -189,7 +194,7 @@ export default Vue.extend({
       isDesktop: !Browser.isDevice,
       sumTemplate: function() {
         return {
-            template: Vue.component('sumTemplate', {
+            template: createApp({}).component('sumTemplate', {
             template: `<span>Sum: {{data.Sum}}</span>`,
             data: function () {return {data: {data: {}}};}
             })
@@ -197,7 +202,7 @@ export default Vue.extend({
       },
       avgTemplate: function() {
         return {
-            template : Vue.component('avgTemplate', {
+            template : createApp({}).component('avgTemplate', {
             template: `<span>Average: {{data.Average}}</span>`, 
             data: function () {return { data: {data: {}}};}
             })
@@ -207,7 +212,7 @@ export default Vue.extend({
   },
   methods: {
     onChange: function(args: any) {
-        let gObj = (this.$refs.grid as any).$el.ej2_instances[0];
+        let gObj = ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0];
         if (args.checked) {
             gObj.rowRenderingMode = 'Horizontal';
         } else {
@@ -215,11 +220,11 @@ export default Vue.extend({
         }
     },
     load: function() {
-        (this.$refs.grid as any).$el.ej2_instances[0].adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
+        ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0].adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
     }
   },
   provide: {
       grid: [Page, Edit, Sort, Filter, Toolbar, Aggregate]
   }
-});
+};
 </script>

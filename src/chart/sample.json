@@ -273,6 +273,16 @@
         ]
     },
     {
+        "url": "cylindrical-column",
+        "name": "Cylindrical Column",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows how to render the cylindrical-column series.",
+        "category": "Bar Charts",
+        "sourceFiles": [
+            {"displayName": "cylindrical-column.vue", "path": "./src/chart/cylindrical-column.vue"}
+        ]
+    },
+    {
         "url": "bar",
         "name": "Bar",
         "description": "This demo for Essential JS2 Chart control shows how to render bar series.",
@@ -318,12 +328,12 @@
         ]
     },
     {
-        "url": "tornado",
+        "url": "negative-stack",
         "name": "Negative Stack",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the bar charts.",
         "category": "Bar Charts",
         "sourceFiles": [
-            {"displayName": "tornado.vue", "path": "./src/chart/tornado.vue"}
+            {"displayName": "negative-stack.vue", "path": "./src/chart/negative-stack.vue"}
         ]
     },
     {
@@ -502,7 +512,6 @@
     {
         "url": "pareto",
         "name": "Pareto Chart",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render pareto charts.",
         "category": "Other Types",
         "sourceFiles": [
@@ -742,7 +751,6 @@
     {
         "url": "lazy-loading",
         "name": "Lazy Loading",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the Lazy Loading behavior in chart.",
         "category": "Data Binding",
         "sourceFiles": [
@@ -769,7 +777,7 @@
     },
     {
         "url": "date-time-category",
-        "name": "DateTime Category Axis",
+        "name": "DateTime Categoty Axis",
         "description": "This demo for Essential JS2 Chart control shows how to render the date-time category axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
@@ -824,7 +832,6 @@
     {
         "url": "strip-line",
         "name": "Stripline",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the strip lines in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
@@ -904,6 +911,16 @@
         ]
     },
     {
+        "url": "synchronized-chart",
+        "name": "Synchronized Charts",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows how to add more information to the chart using Synchronized Charts.",
+        "category": "Chart Customization",
+        "sourceFiles": [
+            {"displayName": "synchronized-chart.vue", "path": "./src/chart/synchronized-chart.vue"}
+        ]
+    },
+    {
         "url": "data-label-template",
         "name": "DataLabel Template",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the data label template.",
@@ -960,6 +977,7 @@
     {
         "url": "export",
         "name": "Export",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to export the charts to Excel, PDF, and image formats such as SVG, JPEG, and PNG at client-side.",
         "category": "Print and Export",
         "sourceFiles": [
@@ -1016,7 +1034,6 @@
     {
         "url": "zooming",
         "name": "Zooming and Panning",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the zooming and panning behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [

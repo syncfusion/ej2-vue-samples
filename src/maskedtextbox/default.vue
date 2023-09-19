@@ -49,9 +49,9 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MaskedTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { MaskedTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(MaskedTextBoxPlugin);
-export default Vue.extend ({});
+export default {
+    components: { 'ejs-maskedtextbox': MaskedTextBoxComponent }
+};
 </script>

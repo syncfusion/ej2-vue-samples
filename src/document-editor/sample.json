@@ -10,14 +10,12 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "DocumentEditor",
-            "type":"update",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
         {
             "url": "character-formatting",
             "name": "Character Formatting",
             "category": "Editing Features",
-            "type":"update",
             "description": "The Document Editor supports character formatting such as bold, italic, underline, subscript, superscript, font color, and more."
         },
         {
@@ -30,7 +28,6 @@
             "url": "styles",
             "name": "Styles",
             "category": "Editing Features",
-            "type":"update",
             "description": "The Document Editor supports both built-in and custom styles for character format and paragraph format."
         },
         {
@@ -48,6 +45,7 @@
         {
             "url": "table-formatting",
             "name": "Table Formatting",
+            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports table formatting such as cell margins, cell spacing, horizontal merge, vertical merge, border styles, background color, and more."
         },
@@ -60,7 +58,6 @@
         {
             "url": "headers-and-footers",
             "name": "Headers and Footers",
-            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports headers and footers. Different headers and footers can be added to the first page, odd pages, and even pages."
         },
@@ -122,7 +119,6 @@
             "url": "document-protection",
             "name": "Document Protection",
             "category": "Security",
-            "type":"update",
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
         },
         {
@@ -135,7 +131,6 @@
             "url": "comments",
             "name": "Comments",
             "category": "Review",
-            "type":"update",
             "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
         },
 		 {

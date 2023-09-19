@@ -21,7 +21,7 @@
 
      <div id="description">
         <p> The Grid supports CRUD operations. This CRUD operations can be configured in Grid using
-            <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html">
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#editsettings">
             editSettings</a></code>. Also, it has different modes to manipulate the datasource.
         </p>
         <p>The available modes are,</p>
@@ -32,13 +32,13 @@
         </ul>
         <p>
             In this demo, Batch mode is enabled for editing by defining <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#mode">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/editSettingsModel/#mode">
             editSettings.mode
             </a></code> as <code>batch</code>. You can start editing by double clicking a cell and can change the cell value.
             The edited cell will be highlighted while navigating to a new cell, so that you know which cells had been edited.
             You can bulk save the edited data to the datasource by clicking on the toolbar's <code>update</code> button or by externally
             invoking the <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-edit.html#batchsave">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/edit/#batchsave">
             batchSave
             </a></code> method.
         </p>
@@ -46,20 +46,22 @@
         <p>
             Grid component features are segregated into individual feature-wise modules. To use editing feature, we need to inject
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-edit.html">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/edit/">
                 Edit </a></code> into the <code>provide</code> section.
         </p>
     </div>
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Toolbar, Edit, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Toolbar, Edit, Page } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: orderDetails.slice(0),
@@ -75,5 +77,5 @@ export default Vue.extend({
   provide: {
       grid: [Toolbar, Edit, Page]
   }
-});
+}
 </script>

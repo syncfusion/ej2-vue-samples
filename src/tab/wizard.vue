@@ -261,23 +261,27 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-import { TabPlugin } from '@syncfusion/ej2-vue-navigations';
-import { GridPlugin } from '@syncfusion/ej2-vue-grids';
-import { NumericTextBoxPlugin} from '@syncfusion/ej2-vue-inputs';
-import { DialogPlugin} from '@syncfusion/ej2-vue-popups';
-import { DatePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { TabComponent, TabItemDirective,TabItemsDirective } from '@syncfusion/ej2-vue-navigations';
+import { GridComponent, ColumnDirective, ColumnsDirective } from '@syncfusion/ej2-vue-grids';
+import { NumericTextBoxComponent} from '@syncfusion/ej2-vue-inputs';
+import { DialogComponent} from '@syncfusion/ej2-vue-popups';
+import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(DatePickerPlugin);
-Vue.use(GridPlugin);
-Vue.use(TabPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-tab': TabComponent,
+    'e-tabitem': TabItemDirective,
+    'e-tabitems': TabItemsDirective,
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dialog': DialogComponent,
+    'ejs-datepicker': DatePickerComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
         cities: [
@@ -319,7 +323,7 @@ export default Vue.extend({
     }
   },
    methods: {
-       showDate: function(args){
+       showDate: function(){
            var journeyDate = this.$refs.dateObj.ej2Instances;
            journeyDate.show();
        },
@@ -400,7 +404,7 @@ export default Vue.extend({
                  if (args.isSwiped)
                       args.cancel = true;
            },
-           dlgClick: function(args){
+           dlgClick: function(){
                 var tabObj = this.$refs.tabObj.ej2Instances;
                 var alertDlg = this.$refs.dialogObj.ej2Instances;
                 alertDlg.hide();
@@ -420,7 +424,7 @@ export default Vue.extend({
                 tabObj.enableTab(3, false);
                 tabObj.select(0);
             },
-            filterTrains: function(args){
+            filterTrains: function(){
                 let result= [];
                 var fromCity = this.$refs.startObj.ej2Instances.value;
                 var toCity = this.$refs.endObj.ej2Instances.value;
@@ -437,7 +441,7 @@ export default Vue.extend({
                 }
             availableTrain.dataSource = result;
           },
-          finalizeDetails: function(args){
+          finalizeDetails: function(){
                var reserved= [];
                var passCount = 0;
                var startPoint = this.$refs.startObj.ej2Instances;
@@ -479,5 +483,5 @@ export default Vue.extend({
           ticketDetailGrid.dataSource = reserved;
        }
    }
-});
+}
 </script>

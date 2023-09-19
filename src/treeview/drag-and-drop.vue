@@ -155,16 +155,14 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { createApp } from 'vue';
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { closest, getComponent } from "@syncfusion/ej2-base";
 import * as dataSource from './drag-data.json';
 
-Vue.use(TreeViewPlugin);
-Vue.use(ListViewPlugin);
-
-var lTemplate = Vue.component("demo", {
+var app = createApp();
+var lTemplate = app.component("demo", {
   template: '<div><span>{{data.text}}</span><span :id="data.iconId" :class="data.class"></span></div>',
   data() {
     return {
@@ -175,7 +173,11 @@ var lTemplate = Vue.component("demo", {
 
 var id = 1;
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent,
+        'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
             fields1: { dataSource: dataSource.dragData1, id: 'id', text: 'name', child: 'child' },
@@ -231,5 +233,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

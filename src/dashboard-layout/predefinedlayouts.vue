@@ -31,7 +31,7 @@
             </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12" style="padding:10px">
-                 <ejs-button id="reset" v-on:click.native="onButtonClick">Reset</ejs-button>
+                 <ejs-button id="reset" v-on:click="onButtonClick">Reset</ejs-button>
             </div>
       </div>
     <div id="action-description">
@@ -49,13 +49,16 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(ButtonPlugin);
-Vue.use(DashboardLayoutPlugin);
+import { DashboardLayoutComponent, PanelDirective, PanelsDirective } from "@syncfusion/ej2-vue-layouts";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-dashboardlayout': DashboardLayoutComponent,
+    'e-panel': PanelDirective,
+    'e-panels': PanelsDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
         headerCount: 0,
@@ -63,7 +66,7 @@ export default Vue.extend({
     };
   },
   methods:{
-      onButtonClick: function(args){
+      onButtonClick: function(){
         var selectedElement = document.getElementsByClassName('e-selected-style');
         this.$refs.dashboard.$el.ej2_instances[0].removeAll();
         this.initializeTemplate(selectedElement[0]);
@@ -160,7 +163,7 @@ export default Vue.extend({
         target.classList.add('e-selected-style');
     };
   }
-});
+}
 </script>
 <style>
     .dashboard-predefined .row .e-btn {

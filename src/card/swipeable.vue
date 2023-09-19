@@ -340,10 +340,8 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { Touch, ScrollEventArgs, SwipeEventArgs, closest, isNullOrUndefined } from '@syncfusion/ej2-base';
-export default Vue.extend({
-    
+export default {
 	mounted: function() {
         var dir;
         var ele = document.getElementById('horizontal_product');
@@ -395,6 +393,6 @@ export default Vue.extend({
             ele.style.removeProperty('left');
      }
   }
-});
+}
 
 </script>

@@ -1,8 +1,7 @@
 <template>
 <div>
     <div class="col-lg-12 control-section tooltip-menu">
-        <ejs-tooltip ref="tooltip" target="#toolbar-menu button" :beforeOpen="onBeforeRender" :created='created'
-            :showTipPointer="show" :width="170" cssClass="e-tooltip-menu-settings" opensOn="Click" id="tooltip-menu">
+        <ejs-tooltip ref="tooltip" target="#toolbar-menu button" :beforeOpen="onBeforeRender" :created='created' :width="170" cssClass="e-tooltip-menu-settings" opensOn="Click" id="tooltip-menu">
             <div class="toolbarContainer">
                 <ejs-toolbar id='toolbar-menu'>
                     <e-items>
@@ -33,16 +32,19 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { closest } from "@syncfusion/ej2-base";
-Vue.use(ToolbarPlugin);
-Vue.use(TooltipPlugin);
-Vue.use(ListViewPlugin);
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective,
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       headerText0: {
@@ -174,13 +176,13 @@ export default Vue.extend({
       ];
       for (let i = 0; i < data.length; i++) {
         if (data[i].title === args.target.parentElement.getAttribute("title")) {
-          this.$refs.listview.dataSource = data[i].data;
-          this.$refs.tooltip.content = this.$refs.listview.$el;
+          this.$refs.listview.ej2Instances.dataSource = data[i].data;
+          this.$refs.tooltip.ej2Instances.content = this.$refs.listview.$el;
         }
       }
     }
   }
-});
+}
 </script>
 <style>
 @font-face {

@@ -115,16 +115,18 @@
 	
 </style>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, NodeSelection } from "@syncfusion/ej2-vue-richtexteditor";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { RichTextEditorComponent, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, NodeSelection } from "@syncfusion/ej2-vue-richtexteditor";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
-import { CheckBoxPlugin} from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent} from "@syncfusion/ej2-vue-buttons";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(DropDownListPlugin);
-Vue.use(RichTextEditorPlugin);
-Vue.use(CheckBoxPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+        'ejs-richtexteditor': RichTextEditorComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         return {
              height: '200px',
@@ -165,10 +167,10 @@ export default Vue.extend({
                     this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
                 }
                 else if (e.item.tooltipText === 'Rotate Left') {
-                    var transform = (imgEle.style.transform === '') ? 0 :
+                     transform = (imgEle.style.transform === '') ? 0 :
                         Math.abs(parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10));
                     imgEle.style.transform = 'rotate(-' + (transform + 90) + 'deg)';
-                    defaulthis.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
+                    this.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
                     this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
                 }
             }
@@ -189,5 +191,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar]
     }
-});
+}
 </script>

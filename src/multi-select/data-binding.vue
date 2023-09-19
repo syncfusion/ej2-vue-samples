@@ -67,14 +67,9 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
-
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin);
+import data from './dataSource.json';
 
 var remoteData = new DataManager({
     url: 'https://services.syncfusion.com/vue/production/api/Employees',
@@ -82,7 +77,10 @@ var remoteData = new DataManager({
     crossDomain: true
 });
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent,
+    },
     data: function() {
         return {
             localFields: { text: 'Name', value: 'Code' },
@@ -94,5 +92,5 @@ export default Vue.extend ({
             remoteWaterMark: 'Select names',
         };
     }
-});
+}
 </script>

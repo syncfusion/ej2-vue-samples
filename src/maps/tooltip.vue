@@ -10,9 +10,9 @@
   <div id="template" style="display:none">
         <div class="toolback">
             <div class="listing2">
-                <center>
+                <span style="text-align: center;">
                     ${country}                                       
-                </center>
+                </span>
             </div>
             <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
             <div>
@@ -72,10 +72,14 @@
 
 </style>
 <script>
-import Vue from 'vue'
-import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+},
 data:function(){
     return{
         titleSettings: {
@@ -151,7 +155,7 @@ methods:{
         }
     }
 }
-})
+}
 </script>
 
   

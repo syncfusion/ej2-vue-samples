@@ -4,22 +4,22 @@
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :annotations='annotations' :centerPosition='centerPosition'>
     <template v-slot:mexicoSvgTemplate="{}">
-        <div><img src="src/maps/images/group.svg" style="height:15px;width:15px;"></img></div>
+        <div><img src="src/maps/images/group.svg" style="height:15px;width:15px;"></div>
     </template>
     <template v-slot:mexicoBalloonTemplate="{}">
-        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"></img></div>
+        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"></div>
     </template>
     <template v-slot:mexicoTextTemplate="{}">
         <div style= "font-weight:500; font-size: 13px; text-align: left; font-family:Segoe UI; ">Mexico</div>
     </template>
     <template v-slot:laSvgTemplate="{}">
-        <div><img src="src/maps/images/oval.svg" style="height:15px;width:15px;"></img></div>
+        <div><img src="src/maps/images/oval.svg" style="height:15px;width:15px;"></div>
     </template>
     <template v-slot:laBalloonTemplate="{}">
-        <div><div style="text-align: right; font-weight:500; font-size: 13px; font-family:Segoe UI;">Los Angeles</br>International Airport</div></div>
+        <div><div style="text-align: right; font-weight:500; font-size: 13px; font-family:Segoe UI;">Los Angeles<br>International Airport</div></div>
     </template>
     <template v-slot:laTextTemplate="{}">
-        <div><img src="src/maps/images/map-tooltip.svg" style="height:50px;width:100px;"></img></div>
+        <div><img src="src/maps/images/map-tooltip.svg" style="height:50px;width:100px;"></div>
     </template>
     <e-layers>
         <e-layer layerType='OSM' :navigationLineSettings='navigationLineSettings'>
@@ -52,7 +52,7 @@
     <div id="description">
         <p>
             In this example, you can see how to render the navigation lines in the OpenStreetMap. The source and destination locations have been denoted using the marker template.
-       
+        </p>
         <p style="font-weight: 500">Injecting Module</p>
         <p>
             The maps component features are segregated into individual modules by feature. To use a marker, inject the Marker module using the <code>Maps.Inject(Marker)</code> method.
@@ -61,10 +61,16 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+},
 data:function(){
     return{
         titleSettings: {
@@ -130,5 +136,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

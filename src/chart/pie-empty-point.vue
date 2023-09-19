@@ -53,18 +53,22 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
-import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
-import { AccumulationChartPlugin, AccumulationTooltip, PieSeries, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
-Vue.use(AccumulationChartPlugin);
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationTooltip, PieSeries, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
          theme: theme,
@@ -119,5 +123,5 @@ export default Vue.extend({
     },
   },
 
-});
+};
 </script>

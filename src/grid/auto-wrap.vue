@@ -22,14 +22,14 @@
 
      <div id="description">
         <p>Auto wrap cell content can be enabled using <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowtextwrap">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowtextwrap">
         allowTextWrap
         </a></code> property of the Grid. 
             Setting this property will wrap cell text on multiple lines. 
             This feature is useful to view the cell content when it exceeds the cell width.</p>
         <p>Setting this property will wrap the text in both content cell and header cell.</p>
          <p>In this demo, the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowtextwrap">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowtextwrap">
         allowTextWrap
         </a></code> property is enabled and you can also see that the <strong>main fields of invention</strong> column 
         whose content exceeded the cell width is wrapped into multiple lines.
@@ -39,13 +39,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { inventoryData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },   
   data: () => {
     return {
       data: inventoryData,
@@ -55,5 +57,5 @@ export default Vue.extend({
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

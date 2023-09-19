@@ -10,8 +10,8 @@
                 <h4 style="display: inline-block; font-size: 14px">Feed Delay(ms):</h4>
                 <ejs-numerictextbox ref="feeddelay" :value="value" format="N0" :min="min" :max="max" :step="step"
                     :width="width" style="margin-left: 7px;"></ejs-numerictextbox>
-                <ejs-button ref="updatebtn" id="update" v-on:click.native="updateClick" style="margin-left: 10px;">Start Data Update</ejs-button>
-                 <ejs-button ref="clearbtn" id="clear" v-on:click.native="clearClick" style="margin-left: 10px;">Stop Data Update</ejs-button>
+                <ejs-button ref="updatebtn" id="update" v-on:click="updateClick" style="margin-left: 10px;">Start Data Update</ejs-button>
+                 <ejs-button ref="clearbtn" id="clear" v-on:click="clearClick" style="margin-left: 10px;">Stop Data Update</ejs-button>
             </div>
             <ejs-grid ref='livestreamgrid' id='livestreamgrid' :dataSource="getTradeData" :allowSelection='false'
                 :enableVirtualization='true' rowHeight=38 :queryCellInfo='queryCellInfo' height=500 :enableHover='false'
@@ -49,17 +49,19 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
-import { GridPlugin, VirtualScroll, Selection, QueryCellInfoEventArgs } from "@syncfusion/ej2-vue-grids";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { GridComponent, ColumnsDirective, ColumnDirective, VirtualScroll, Selection, QueryCellInfoEventArgs } from "@syncfusion/ej2-vue-grids";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { getTradeData } from "./data-source";
 
-Vue.use(GridPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(NumericTextBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-grid': GridComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective,
+        'ejs-button': ButtonComponent,
+        'ejs-numerictextbox': NumericTextBoxComponent
+    },
     data: () => {
         return {
             isDataBound: true,
@@ -259,7 +261,7 @@ export default Vue.extend({
     provide: {
         grid: [Selection, VirtualScroll]
     }
-});
+};
 function updateCellDetails(cell, className) {
     var div = document.createElement('div');
     var span1 = document.createElement('span');

@@ -160,3 +160,8 @@
         z-index: 100;
     }
 </style>
+
+<script>
+export default {
+}
+</script>

@@ -355,14 +355,13 @@
 
 
 <script>
-import Vue from "vue";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-Vue.use(TextBoxPlugin);
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 
-export default Vue.extend({
+export default {
     data: function() {
         return { }
     },
+    components: { 'ejs-textbox': TextBoxComponent },
     mounted: function() {
         let input = document.querySelectorAll('.e-input-group .e-input,.e-float-input.e-input-group input');
         let inputIcon = document.querySelectorAll('.e-input-group-icon');
@@ -400,6 +399,6 @@ export default Vue.extend({
             return parentNode;
         }
     }
-});
+};
 
 </script>

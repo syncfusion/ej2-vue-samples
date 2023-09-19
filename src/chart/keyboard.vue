@@ -133,9 +133,7 @@
 
 </style>
 <script>
-import Vue from "vue";
-import {ChartPlugin, Chart, Category, ColumnSeries, Legend, Tooltip, StripLine, Selection, Zoom} from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Chart, Category, ColumnSeries, Legend, Tooltip, StripLine, Selection, Zoom} from "@syncfusion/ej2-vue-charts";
 import { Browser, EmitType } from '@syncfusion/ej2-base';
 
 let selectedTheme = location.hash.split("/")[1];
@@ -148,19 +146,23 @@ if(theme === "Material"){
     TextColor = '#000000';
 }
 else if(theme === 'Fluent'){
-    FillColors = ['#1AC9E6', '#DA4CB2', '#EDBB40', '#AF4BCF', '#FF7266', '#1BD565', '#EE993D', '#5887FF', '#EC548D', '#7D39C0'];
+    FillColors =  ["#1AC9E6", "#DA4CB2", "#EDBB40", "#AF4BCF", "#FF7266", "#1BD565", "#EE993D", "#5887FF", "#EC548D",
+    "#7D39C0"];
     TextColor = '#000000';
 }
 else if(theme === 'FluentDark'){
-    FillColors =  ['#1AC9E6', '#DA4CB2', '#EDBB40', '#AF4BCF', '#FF7266', '#1BD565', '#EE993D', '#5887FF', '#EC548D', '#7D39C0'];
+    FillColors =  ["#1AC9E6", "#DA4CB2", "#EDBB40", "#AF4BCF", "#FF7266", "#1BD565", "#EE993D", "#5887FF", "#EC548D",
+    "#7D39C0"];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Bootstrap5'){
-    FillColors =  ['#6355C7', '#FFB400', '#2196F5', '#F7523F', '#963C70', '#4BE0BC', '#FD7400', '#C9E422', '#DE3D8A', '#162F88'];
+    FillColors =  ["#6355C7", "#FFB400", "#2196F5", "#F7523F", "#963C70", "#4BE0BC", "#FD7400", "#C9E422", "#0C7DA0",
+    "#162F88"];
     TextColor = '#000000';
 }
 else if(theme === 'Bootstrap5Dark'){
-    FillColors =   ['#8F80F4', '#FFD46D', '#6CBDFF', '#FF7F71', '#FF6DB3', '#63F5D2', '#FCAA65', '#ECFF77', '#EF8EFF', '#5F82FD'];
+    FillColors =  ["#8F80F4", "#FFD46D", "#6CBDFF", "#FF7F71", "#FF6DB3", "#63F5D2", "#FCAA65", "#ECFF77", "#EF8EFF",
+    "#5F82FD"];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Tailwind'){
@@ -196,7 +198,8 @@ else if(theme === 'Bootstrap4'){
     TextColor = '#000000';
 }
 else if(theme === 'HighContrast'){
-    FillColors = ['#79ECE4', '#E98272', '#DFE6B6', '#C6E773', '#BA98FF','#FA83C3', '#00C27A', '#43ACEF', '#D681EF', '#D8BC6E'];
+    FillColors = ["#79ECE4", "#E98272", "#DFE6B6", "#C6E773", "#BA98FF", "#FA83C3", "#00C27A", "#43ACEF", "#D681EF",
+        "#D8BC6E"];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Material3'){
@@ -213,7 +216,12 @@ else {
     TextColor = '#FFFFFF';
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
@@ -385,5 +393,5 @@ export default Vue.extend({
         this.$refs.chart.refreshLiveData();
       }
     },
-});
+};
 </script>

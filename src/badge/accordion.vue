@@ -4,10 +4,26 @@
             <div class="sample_container">
                 <ejs-accordion id="accordion" :created="onCreated">
                     <e-accordionitems>
-                        <e-accordionitem expanded='true' header='Robert' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
-                        <e-accordionitem header='Kevin' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
-                        <e-accordionitem header='Eric' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
-                        <e-accordionitem header='Peter' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
+                        <e-accordionitem expanded='true' header='Robert' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
+                        <e-accordionitem header='Kevin' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
+                        <e-accordionitem header='Eric' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
+                        <e-accordionitem header='Peter' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
                     </e-accordionitems>
                 </ejs-accordion>
             </div>
@@ -78,7 +94,7 @@
 
     .badge-accordion .sample_container #accordion .e-toggle-icon {
         font-size: 18px;
-        top: -1px;
+        top: 5px;
         display: block;
     }
 
@@ -118,18 +134,20 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { AccordionPlugin } from "@syncfusion/ej2-vue-navigations";
+
+import { AccordionComponent,AccordionItemDirective,AccordionItemsDirective } from "@syncfusion/ej2-vue-navigations";
 import { createElement } from '@syncfusion/ej2-base';
 import accordiontemplateVue from "./accordion-template.vue";
 
-Vue.use(AccordionPlugin);
-export default Vue.extend({
+export default {
+    components: { 
+        'ejs-accordion': AccordionComponent,
+        'e-accordionitem': AccordionItemDirective,
+        'e-accordionitems': AccordionItemsDirective,
+        accordiontemplateVue
+    },
     data: function() {
         return {
-            accordionTemplate: function () {
-                return { template : accordiontemplateVue}
-            },
             iconCss: 'e-people e-acrdn-icons',
         };
     },
@@ -147,5 +165,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

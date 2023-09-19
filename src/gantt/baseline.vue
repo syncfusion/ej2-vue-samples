@@ -68,11 +68,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Gantt, Selection } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Gantt, Selection } from "@syncfusion/ej2-vue-gantt";
 import { baselineData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
             dataSource: baselineData,
@@ -121,5 +123,5 @@ export default Vue.extend({
                 return this.$refs.gantt.getFormatedDate(value, 'hh:mm a');
             }
   }
-});
+}
 </script>

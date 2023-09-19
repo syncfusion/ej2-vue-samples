@@ -8,29 +8,32 @@
   </ejs-splitter>
 </template>
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from "@syncfusion/ej2-vue-layouts";
+import { createApp } from "vue";
+import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej2-vue-layouts";
 import pane1Content from "./code-editor-pane1content.vue";
 import pane2Content from "./code-editor-pane2content.vue";
 import pane3Content from "./code-editor-pane3content.vue";
-Vue.use(SplitterPlugin);
 
-
-export default Vue.extend({
+export default {
+  components: {
+        'ejs-splitter': SplitterComponent,
+        'e-panes': PanesDirective,
+        'e-pane': PaneDirective
+  },
   data: function() {
     return {
       orient: "Vertical",
       pane1Content: function() {
-        return { template: pane1Content };
+        return { template: createApp({}).component('pane1', pane1Content) };
       },
       pane2Content: function() {
-        return { template: pane2Content };
+        return { template: createApp({}).component('pane2', pane2Content) };
       },
       pane3Content: function() {
-        return { template: pane3Content };
+        return { template: createApp({}).component('pane3', pane3Content) };
       }
     };
   },
   methods: {}
-});
+};
 </script>

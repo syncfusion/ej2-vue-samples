@@ -54,17 +54,27 @@
 </template>
 
 <script>
-import Vue from "vue";
 import { resourceData, timelineResourceData } from "./datasource";
 import {
-  SchedulePlugin,
+  ScheduleComponent,
+  ViewDirective,
+  ViewsDirective,
+  ResourceDirective,
+  ResourcesDirective,
   Month,
   TimelineMonth,
   Resize,
   DragAndDrop,
 } from "@syncfusion/ej2-vue-schedule";
-Vue.use(SchedulePlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-schedule': ScheduleComponent,
+    'e-view': ViewDirective,
+    'e-views': ViewsDirective,
+    'e-resource': ResourceDirective,
+    'e-resources': ResourcesDirective
+  },
   data: function () {
     return {
       eventSettings: {
@@ -100,5 +110,5 @@ export default Vue.extend({
       return collections;
     },
   },
-});
+}
 </script>

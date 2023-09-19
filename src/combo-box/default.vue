@@ -18,18 +18,18 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(ComboBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent
+    },
     data: function() {
         return {
             waterMark: 'e.g. Basketball',
             sportsData:data['sportsDataa']
         };
     }
-});
+}
 </script>

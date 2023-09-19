@@ -199,18 +199,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   PagerPosition,
   Pager
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
-  CheckBoxPlugin,
+  CheckBoxComponent,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import { enableRipple } from "@syncfusion/ej2-base";
@@ -220,17 +219,18 @@ import {
 } from "@syncfusion/ej2-data";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
-
 let remoteData: DataManager = new DataManager({
   url: "https://bi.syncfusion.com/northwindservice/api/orders",
   adaptor: new WebApiAdaptor(),
   crossDomain: true
 });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -269,7 +269,7 @@ export default Vue.extend({
   },
   methods: {
     onDropDownChange: function (args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.element.id === 'Pager_Position') {
         pivotObj.pagerSettings.position = args.value as PagerPosition;
       } else if (args.element.id === 'Pager_View') {
@@ -297,15 +297,15 @@ export default Vue.extend({
       }
     },
     onCompactCheckBoxChange: function (args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.pagerSettings.enableCompactView = args.checked;
     },
     onInverseCheckBoxChange: function (args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.pagerSettings.isInversed = args.checked;
     },
   }
-});
+}
 </script>
 
 <style scoped>

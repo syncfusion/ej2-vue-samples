@@ -10,7 +10,7 @@
                 <span id="timeBtn" class="time current-time">{{liveTimeUpdate}}</span>
                 <div class="e-appbar-spacer"></div>
                 <ejs-button id="printBtn" cssClass="title-bar-btn e-inherit"
-                    iconCss="e-icons e-print" v-on:click.native="onPrint">Print</ejs-button>
+                    iconCss="e-icons e-print" v-on:click="onPrint">Print</ejs-button>
                  <div class="control-panel import-button">
                     <ejs-uploader id='icalendar' cssClass='calendar-import' :multiple='multiple'
                         :buttons='buttons' :showFileList='showFileList' allowedExtensions='.ics'
@@ -40,11 +40,42 @@
                             <e-item prefixIcon='e-icons e-month' tooltipText='Year' text='Year' tabindex="0"></e-item>
                             <e-item prefixIcon='e-icons e-agenda-date-range' tooltipText='Agenda' text='Agenda' tabindex="0">
                             </e-item>
-                            <e-item tooltipText="Timeline Views" :template="timelineTemplate"></e-item>
+                            <e-item tooltipText="Timeline Views" :template="'timelineTemplate'"></e-item>
+                            <template v-slot:timelineTemplate>
+                                <div class="template">
+                                    <div class="icon-child">
+                                        <ejs-checkbox id="timeline_views" :checked="false" :created="onTimelineCreated" :change="onTimelineViewChange"></ejs-checkbox>
+                                    </div>
+                                    <div class="text-child">Timeline Views</div>
+                                </div>                                             
+                            </template>
                             <e-item type='Separator'></e-item>
-                            <e-item tooltipText="Resource Grouping" :template="groupTemplate"></e-item>
-                            <e-item tooltipText="Time Slots" :template="gridlineTemplate"></e-item>
-                            <e-item tooltipText="Auto Fit Rows" :template="autoHeightTemplate"></e-item>
+                            <e-item tooltipText="Resource Grouping" :template="'groupTemplate'"></e-item>
+                            <template v-slot:groupTemplate>
+                                <div class="template">
+                                    <div class="icon-child">
+                                        <ejs-checkbox id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-checkbox>
+                                    </div><div class="text-child">Grouping</div>
+                                </div>                            
+                            </template>
+                            <e-item tooltipText="Time Slots" :template="'gridlineTemplate'"></e-item>
+                            <template v-slot:gridlineTemplate>
+                                <div class="template">
+                                    <div class="icon-child">
+                                        <ejs-checkbox id="timeSlot" :checked="true" :created="onTimeSlotCreated" :change="onTimeSlotChange"></ejs-checkbox>
+                                    </div>
+                                    <div class="text-child">Time Slots</div>
+                                </div>                        
+                            </template>
+                            <e-item tooltipText="Auto Fit Rows" :template="'autoHeightTemplate'"></e-item>
+                            <template v-slot:autoHeightTemplate>
+                                <div class="template">
+                                    <div class="icon-child">
+                                        <ejs-checkbox id="row_auto_height" :checked="false" :created="onRowAutoHeightCreated" :change="onRowAutoHeightChange"></ejs-checkbox>
+                                    </div>
+                                    <div class="text-child">Auto Fit Rows</div>
+                                </div>                        
+                            </template>
                         </e-items>
                     </ejs-toolbar>
             <div class="overview-content">
@@ -477,7 +508,7 @@
         line-height: 16px;
     }
 
-    .e-toolbar .e-toolbar-item .e-tbar-btn {
+    .schedule-overview .overview-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn {
         padding-top: 2px;
         padding-bottom: 2px;
     }
@@ -541,54 +572,42 @@
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from 'vue';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
     import { addClass, extend, removeClass, closest, remove, isNullOrUndefined, Internationalization, createElement } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, TimelineMonth, Year, TimelineViews,TimelineYear, Resize, DragAndDrop, Timezone, Print, ExcelExport,ICalendarImport, ICalendarExport } from "@syncfusion/ej2-vue-schedule";
     import { DataManager, Predicate, Query } from '@syncfusion/ej2-data';
-    import { ButtonPlugin, ButtonComponent, SwitchPlugin, SwitchComponent, CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-    import { UploaderPlugin, TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-    import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-    import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-    import { TimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-    import { MultiSelectPlugin, DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+    import { ButtonComponent, CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+    import { UploaderComponent, TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+    import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+    import { ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
+    import { TimePickerComponent } from "@syncfusion/ej2-vue-calendars";
+    import { MultiSelectComponent, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
     import { MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
-    import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';
-    import { AppBarPlugin } from "@syncfusion/ej2-vue-navigations";
+    import { ContextMenuComponent } from '@syncfusion/ej2-vue-navigations';
+    import { AppBarComponent } from "@syncfusion/ej2-vue-navigations";
     MultiSelect.Inject(CheckBoxSelection);
 
-    Vue.use(SchedulePlugin);
-    Vue.use(TimePickerPlugin);
-    Vue.use(ButtonPlugin);
-    Vue.use(UploaderPlugin);
-    Vue.use(DropDownButtonPlugin);
-    Vue.use(TextBoxPlugin);
-    Vue.use(ToolbarPlugin);
-    Vue.use(ContextMenuPlugin);
-    Vue.use(SwitchPlugin);
-    Vue.use(MultiSelectPlugin);
-    Vue.use(DropDownListPlugin);
-    Vue.use(CheckBoxPlugin);
-    Vue.use(AppBarPlugin)
-    Vue.component(SwitchComponent);
-    Vue.component(ButtonComponent);
-    var dateHeaderTemplate = Vue.component("date-header-template", {
+    var app = createApp();
+    var dateHeaderTemplate = app.component("date-header-template", {
         template: '<div><div class="date-text">{{getDateHeaderDay(data.date)}}</div><div class="date-text">' +
             '{{getDateHeaderDate(data.date)}}</div><div v-html=getWeather(data.date)></div></div>',
         data() {
             return {
                 intl: new Internationalization(),
-                data: {}
+                data: {},
+                dateHeader: ''
             };
         },
         methods: {
             getDateHeaderDay: function (value) {
-                return this.intl.formatDate(value, { skeleton: 'E' });
+                return value ? this.intl.formatDate(value, { skeleton: 'E' }): '';
             },
              getDateHeaderDate: function (value) {
-                return this.intl.formatDate(value, { skeleton: 'd' });
+                return value ? this.intl.formatDate(value, { skeleton: 'd' }): '';
             },
             getWeather: function (value) {
-            switch (value.getDay()) {
+                if (value) {
+                    switch (value.getDay()) {
             case 0:
                 return '<img class="weather-image" src="src/schedule/images/weather-clear.svg"/>';
             case 1:
@@ -606,13 +625,34 @@
             default:
                 return null;
                 }
+                }
+
             }
         }
     });
 
     var liveTimeInterval;
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-dropdownlist': DropDownListComponent,
+          'ejs-appbar': AppBarComponent,
+          'ejs-button': ButtonComponent,
+          'ejs-uploader': UploaderComponent,
+          'ejs-dropdownbutton': DropDownButtonComponent,
+          'ejs-toolbar': ToolbarComponent,
+          'e-items': ItemsDirective,
+          'e-item': ItemDirective,
+          'ejs-contextmenu': ContextMenuComponent,
+          'ejs-timepicker': TimePickerComponent,
+          'ejs-multiselect': MultiSelectComponent,
+          'ejs-checkbox': CheckBoxComponent,
+        },
         data: function () {
             return {
                 intl: new Internationalization(),
@@ -760,100 +800,6 @@
                     }
                 ],
                 selectedTarget: null,              
-                timelineTemplate: function () {
-                    return {
-                        template: Vue.component('SwitchComponent', {
-                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="timeline_views" :checked="false" :created="onCreated" :change="onTimelineViewChange"></ejs-checkbox></div><div class="text-child">Timeline Views</div></div>',
-                            data: function () { return { data: {} }; },
-                            methods: {
-                                onCreated: function() {
-                                    document.getElementById('timeline_views').setAttribute('tabindex', '0');
-                                },
-                                onTimelineViewChange: function(args) {
-                                    let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    let isTimelineView = args.checked;
-                                    switch (scheduleObj.currentView) {
-                                        case 'Day':
-                                        case 'TimelineDay':
-                                            scheduleObj.currentView = isTimelineView ? 'TimelineDay' : 'Day';
-                                            break;
-                                        case 'Week':
-                                        case 'TimelineWeek':
-                                            scheduleObj.currentView = isTimelineView ? 'TimelineWeek' : 'Week';
-                                            break;
-                                        case 'WorkWeek':
-                                        case 'TimelineWorkWeek':
-                                            scheduleObj.currentView = isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
-                                            break;
-                                        case 'Month':
-                                        case 'TimelineMonth':
-                                            scheduleObj.currentView = isTimelineView ? 'TimelineMonth' : 'Month';
-                                            break;
-                                        case 'Year':
-                                        case 'TimelineYear':
-                                            scheduleObj.currentView = isTimelineView ? 'TimelineYear' : 'Year';
-                                            break;
-                                        case 'Agenda':
-                                            scheduleObj.currentView = 'Agenda';
-                                            break;
-                                    }
-                                },
-
-                            }
-                        })
-                    }
-                },
-                groupTemplate: function () {
-                    return {
-                        template: Vue.component('SwitchComponent', {
-                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-checkbox></div><div class="text-child">Grouping</div></div>',
-                            data: function () { return { data: {} }; },
-                            methods: {
-                                onCreated: function() {
-                                    document.getElementById('grouping').setAttribute('tabindex', '0');
-                                },
-                                onGroupingChange: function(args) {
-                                    let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    scheduleObj.group.resources = args.checked ? ['Calendars'] : [];
-                                }
-                            }
-                        })
-                    }
-                },
-                gridlineTemplate: function () {
-                    return {
-                        template: Vue.component('SwitchComponent', {
-                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="timeSlot" :checked="true" :created="onCreated" :change="onTimeSlotChange"></ejs-checkbox></div><div class="text-child">Time Slots</div></div>',
-                            data: function () { return { data: {} }; },
-                            methods: {
-                                onCreated: function() {
-                                    document.getElementById('timeSlot').setAttribute('tabindex', '0');
-                                },
-                                onTimeSlotChange: function(args) {
-                                    let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    scheduleObj.timeScale.enable = args.checked;
-                                }
-                            }
-                        })
-                    }
-                },
-                autoHeightTemplate: function () {
-                    return {
-                        template: Vue.component('ButtonComponent', {
-                            template: '<div class="template"><div class="icon-child"><ejs-checkbox id="row_auto_height" :checked="false" :created="onCreated" :change="onRowAutoHeightChange"></ejs-checkbox></div><div class="text-child">Auto Fit Rows</div></div>',
-                            data: function () { return { data: {} }; },
-                            methods: {
-                                onCreated: function() {
-                                    document.getElementById('row_auto_height').setAttribute('tabindex', '0');
-                                },
-                                 onRowAutoHeightChange: function(args) {
-                                    let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-                                    scheduleObj.rowAutoHeight = args.checked;
-                                }
-                            }
-                        })
-                    }
-                },
                 dateHeaderTemplate: function () {
                     return { template: dateHeaderTemplate }
                 },
@@ -862,7 +808,7 @@
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop,TimelineMonth, TimelineViews, Year, TimelineYear, Print, ExcelExport,ICalendarImport, ICalendarExport]
         },
-        beforeDestroy: function () {
+        beforeUnmount: function () {
             if (liveTimeInterval) {
                 clearInterval(liveTimeInterval);
             }
@@ -872,6 +818,59 @@
             element.classList.add('e-inherit');
          },
         methods: {
+        onTimelineCreated: function() {
+            document.getElementById('timeline_views').setAttribute('tabindex', '0');
+        },
+        onTimelineViewChange: function(args) {
+            let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+            let isTimelineView = args.checked;
+            switch (scheduleObj.currentView) {
+                case 'Day':
+                case 'TimelineDay':
+                    scheduleObj.currentView = isTimelineView ? 'TimelineDay' : 'Day';
+                    break;
+                case 'Week':
+                case 'TimelineWeek':
+                    scheduleObj.currentView = isTimelineView ? 'TimelineWeek' : 'Week';
+                    break;
+                case 'WorkWeek':
+                case 'TimelineWorkWeek':
+                    scheduleObj.currentView = isTimelineView ? 'TimelineWorkWeek' : 'WorkWeek';
+                    break;
+                case 'Month':
+                case 'TimelineMonth':
+                    scheduleObj.currentView = isTimelineView ? 'TimelineMonth' : 'Month';
+                    break;
+                case 'Year':
+                case 'TimelineYear':
+                    scheduleObj.currentView = isTimelineView ? 'TimelineYear' : 'Year';
+                    break;
+                case 'Agenda':
+                    scheduleObj.currentView = 'Agenda';
+                    break;
+            }
+        },
+        onTimeSlotCreated: function() {
+            document.getElementById('timeSlot').setAttribute('tabindex', '0');
+        },
+        onTimeSlotChange: function(args) {
+            let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+            scheduleObj.timeScale.enable = args.checked;
+        },
+        onCreated: function() {
+            document.getElementById('grouping').setAttribute('tabindex', '0');
+        },
+        onGroupingChange: function(args) {
+            let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+            scheduleObj.group.resources = args.checked ? ['Calendars'] : [];
+        },
+        onRowAutoHeightCreated: function() {
+            document.getElementById('row_auto_height').setAttribute('tabindex', '0');
+        },
+        onRowAutoHeightChange: function(args) {
+            let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
+            scheduleObj.rowAutoHeight = args.checked;
+        },
         importTemplateFn: function() {
             return createElement('div', { className: 'e-template-btn', innerHTML: '<span class="e-btn-icon e-icons e-upload-1 e-icon-left"></span>Import' });
         },
@@ -1104,7 +1103,7 @@
     },
     onTooltipChange(args) {
         let scheduleObj = document.getElementById('scheduler').ej2_instances[0];
-    scheduleObj.eventSettings.enableTooltip = args.value;
+        scheduleObj.eventSettings.enableTooltip = args.value;
     },
     onContextMenuBeforeOpen: function(args) {
         let newEventElement = document.querySelector('.e-new-event');
@@ -1184,5 +1183,5 @@
                 }
             },
         }
-    });
+    };
 </script>

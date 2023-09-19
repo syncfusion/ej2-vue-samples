@@ -55,14 +55,16 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
 import { DataManager } from '@syncfusion/ej2-data';
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
+import { KanbanComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-kanban";
 
-Vue.use(KanbanPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: function() {
         let SERVICE_URI =
       'https://services.syncfusion.com/vue/production/api/Kanban'
@@ -85,5 +87,5 @@ export default Vue.extend({
         args.cancel = true;
     },
   }
-});
+}
 </script>

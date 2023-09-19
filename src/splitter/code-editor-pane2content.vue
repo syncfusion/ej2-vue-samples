@@ -12,19 +12,13 @@
     </div>
 </div>
 </template>
-<style scoped>
-</style>
-<script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
-Vue.use(SplitterPlugin);
 
-export default Vue.extend({
-    data: function() {
+<script>
+export default {
+    data() {
         return {
+            data: {}
         }
-    },
-    methods: {
     }
-});
+}
 </script>

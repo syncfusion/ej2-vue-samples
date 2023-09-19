@@ -21,11 +21,9 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+    
     var calendarId = 'en.usa%23holiday@group.v.calendar.google.com';
     var publicKey = 'AIzaSyBgbX_tgmVanBP4yafDPPXxWr70sjbKAXM';
     var dataManger = new DataManager({
@@ -34,7 +32,10 @@
         crossDomain: true
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
                 selectedDate: new Date(2018, 10, 14),
@@ -73,6 +74,6 @@
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda]
         }
-    });
+    }
 
 </script>

@@ -23,13 +23,10 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin, Islamic } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent, Islamic } from "@syncfusion/ej2-vue-calendars";
 import { addClass, Internationalization  } from "@syncfusion/ej2-base";
 
-Vue.use(CalendarPlugin);
-
-export default Vue.extend({
+export default {
   data: function() {
     return {
       cssClass: "calendar-islamic-custom",
@@ -37,6 +34,7 @@ export default Vue.extend({
       globalize: new Internationalization('en')
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     load: function(args) {
        /*Date need to be disabled*/
@@ -69,7 +67,7 @@ export default Vue.extend({
    provide: {
         calendar: [Islamic]
     }
-});
+};
 </script>
 
 <style scoped>

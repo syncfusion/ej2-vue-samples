@@ -2,8 +2,8 @@
   <div class="control-section">
     <div align="center">
       <ejs-chart style="display: block" :theme="theme" align="center" id="chartcontainer" :title="title"
-        :primaryXAxis="primaryXAxis" :primaryYAxis="primaryYAxis" :subTitle="subTitle" :chartArea="chartArea"
-        :width="width" :textRender="textRender" :load="load" :subTitleStyle="subTitleStyle" >
+        :primaryXAxis="primaryXAxis" :primaryYAxis="primaryYAxis" :chartArea="chartArea"
+        :width="width" :textRender="textRender" :load="load" >
         <template v-slot:materialMan="{ data }">
           <div style="background-color: #00bdae; border-radius: 3px">
             <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
@@ -329,7 +329,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5Man="{ data }">
-          <div style="background-color: #6355C7; border-radius: 3px">
+          <div style="background-color: #262e0b; border-radius: 3px">
             <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -347,7 +347,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5Women="{ data }">
-          <div style="background-color: #FFB400; border-radius: 3px">
+          <div style="background-color: #668e1f; border-radius: 3px">
             <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -365,7 +365,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5darkMan="{ data }">
-          <div style="background-color: #8F80F4; border-radius: 3px">
+          <div style="background-color: #5ecb9b; border-radius: 3px">
             <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -383,7 +383,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5darkWomen="{ data }">
-          <div style="background-color: #FFD46D; border-radius: 3px">
+          <div style="background-color: #a860f1; border-radius: 3px">
             <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />'
             <div style="
                 color: white;
@@ -473,7 +473,7 @@
           </div>
         </template>
         <template v-slot:fluentMan="{ data }">
-          <div style="background-color: #1AC9E6; border-radius: 3px">
+          <div style="background-color: #614570; border-radius: 3px">
             <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -491,7 +491,7 @@
           </div>
         </template>
         <template v-slot:fluentWomen="{ data }">
-          <div style="background-color: #DA4CB2; border-radius: 3px">
+          <div style="background-color: #4C6FB1; border-radius: 3px">
             <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -509,7 +509,7 @@
           </div>
         </template>
         <template v-slot:fluentdarkMan="{ data }">
-          <div style="background-color: #1AC9E6; border-radius: 3px">
+          <div style="background-color: #8AB113; border-radius: 3px">
             <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -527,7 +527,7 @@
           </div>
         </template>
         <template v-slot:fluentdarkWomen="{ data }">
-          <div style="background-color: #DA4CB2; border-radius: 3px">
+          <div style="background-color: #2A72D5; border-radius: 3px">
             <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
             <div style="
                 color: white;
@@ -579,10 +579,11 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   Category,
   Legend,
   DataLabel,
@@ -590,15 +591,18 @@ import {
   Highlight
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       theme: theme,
@@ -723,5 +727,5 @@ export default Vue.extend({
       }
     },
   },
-});
+};
 </script>

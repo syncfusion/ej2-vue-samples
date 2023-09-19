@@ -91,18 +91,20 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { KanbanComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-kanban";
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -140,5 +142,5 @@ export default Vue.extend({
         this.kanbanObj.swimlaneSettings.enableFrozenRows = args.checked;
     }
     }
-});
+}
 </script>

@@ -71,11 +71,11 @@
     <p>
       In this example, you can see how to render and configure the period selector with range navigator to see the price changes for Bitcoin. Tooltip is enabled in this example, to see the tooltip in action, while the selected range is changed.
      </p>     
-      <br>
-        <p style="font-weight: 500">Injecting Module</p>
+      
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Range Navigator component features are segregated into individual feature-wise modules. To use period selector, we need to inject 
-            <code>PeriodSelector</code> module in the <code>provide</code> section.
+            <code>PeriodSelector</code> module using <code>provide: { rangeNavigator: [PeriodSelector] }</code> method.
         </p>
 </div>
 </div></div>
@@ -98,17 +98,12 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { RangeNavigatorPlugin, ChartPlugin, LineSeries, AreaSeries, DateTime, Crosshair, ChartTheme,
-  ChartAnnotation, PeriodSelector, CandleSeries, MomentumIndicator, Tooltip, withInBounds, RangeTooltip,
+import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorSeriesCollectionDirective, ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, AreaSeries, DateTime, Crosshair, ChartTheme,
+  AnnotationsDirective, AnnotationDirective, ChartAnnotation, PeriodSelector, CandleSeries, MomentumIndicator, Tooltip, withInBounds, RangeTooltip,
   Zoom, getElement } from "@syncfusion/ej2-vue-charts";
-import { SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 import { periodData } from "./period-data";
 import { Browser, remove } from "@syncfusion/ej2-base";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
-Vue.use(SwitchPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -125,7 +120,18 @@ for (let i = 2110; i < periodData.length; i++) {
   });
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-switch': SwitchComponent,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'e-rangenavigator-series-collection': RangenavigatorSeriesCollectionDirective,
+    'e-rangenavigator-series': RangenavigatorSeriesDirective
+  },
   data: function() {
     return {
       dataSource: dataBind,
@@ -264,5 +270,5 @@ export default Vue.extend({
       chart.refresh();
     }
   }
-});
+};
 </script>

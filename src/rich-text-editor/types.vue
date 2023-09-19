@@ -62,6 +62,7 @@
     <ul>
         <li><code>Expand</code>: The toolbar hides the overflowing items in the next row. Click the expand arrow to view overflowing toolbar items</li>
         <li><code>Multi Row</code>: The toolbar hides the overflowing items in the next row.</li>
+        <li><code>Scrollable</code>: All the elements are displayed in a single line with horizontal scrolling enabled.</li>
     </ul>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
@@ -85,28 +86,27 @@
 /* custom code end */
 </style>
 <script>
-import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
 import {
-  RichTextEditorPlugin,
+  RichTextEditorComponent,
   Toolbar,
   Link,
   Image,
-  ToolbarType,
   HtmlEditor,
   QuickToolbar
 } from "@syncfusion/ej2-vue-richtexteditor";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(RichTextEditorPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-richtexteditor': RichTextEditorComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
-      data: [{ text: "Expand", value: 1 }, { text: "MultiRow", value: 2 }],
+      data: [{ text: "Expand", value: 1 }, { text: "MultiRow", value: 2 },{ text: "Scrollable", value: 3 }],
       fields: { text: "text", value: "value" },
       toolbarSettings: {
         type: "Expand",
@@ -145,13 +145,16 @@ export default Vue.extend({
     };
   },
   methods: {
-    onChange: function(e) {
+    onChange: function() {
       switch (this.$refs.dropdownInstance.ej2Instances.value) {
         case 1:
           this.$refs.rteInstance.ej2Instances.toolbarSettings.type = "Expand";
           break;
         case 2:
           this.$refs.rteInstance.ej2Instances.toolbarSettings.type = "MultiRow";
+          break;
+        case 3:
+          this.$refs.rteInstance.ej2Instances.toolbarSettings.type = "Scrollable";
           break;
       }
       this.$refs.rteInstance.ej2Instances.dataBind();
@@ -196,7 +199,7 @@ export default Vue.extend({
         transformElement.style.transform = "translateX(0px)";
       }
     },
-    actionCompleteHandler: function(e) {
+    actionCompleteHandler: function() {
         var proxy = this;
         setTimeout(function() {
           proxy.$refs.rteInstance.ej2Instances.refreshUI();
@@ -206,5 +209,5 @@ export default Vue.extend({
   provide: {
     richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar]
   }
-});
+}
 </script>

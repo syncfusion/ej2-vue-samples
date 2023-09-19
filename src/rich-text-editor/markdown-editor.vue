@@ -44,7 +44,9 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .tailwind-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .bootstrap5-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
+  .bootstrap5-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .material3 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .material3-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before{
       content: '\e80e';
   }
   .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before,
@@ -59,12 +61,14 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   }
 </style>
 <script>
-  import Vue from "vue";
-  import { RichTextEditorPlugin, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
+  import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
   import { MarkdownFormatter } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";  
-  Vue.use(RichTextEditorPlugin);  
-  export default Vue.extend({
+
+  export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+    },
     data: function() {
       return {
         id: "",
@@ -138,5 +142,5 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
     provide: {
       richtexteditor: [Toolbar, Link, Image, Table, MarkdownEditor]
     }
-  });
+  }
 </script>

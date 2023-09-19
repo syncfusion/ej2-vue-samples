@@ -4,8 +4,8 @@
                 <ejs-toast ref='toastRef' id='toast_default' :position='position' :created='created' :close='onclose' :beforeOpen='onbeforeOpen'></ejs-toast>
                 <div class="col-lg-12 col-sm-12 col-md-12 center">
                     <div id="toastBtnDefault" style="margin: auto;text-align: center">
-                        <ejs-button ref='showButtonRef' class="e-btn" id="toastBtnShow" v-on:click.native="showBtnClick">Show Toasts</ejs-button>
-                        <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn" id="toastBtnHide" v-on:click.native="hideBtnClick">Hide All</ejs-button>
+                        <ejs-button ref='showButtonRef' class="e-btn" id="toastBtnShow" v-on:click="showBtnClick">Show Toasts</ejs-button>
+                        <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn" id="toastBtnHide" v-on:click="hideBtnClick">Hide All</ejs-button>
                     </div>
                 </div>
             </div>
@@ -45,15 +45,11 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { ToastPlugin, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
+import { ToastComponent } from "@syncfusion/ej2-vue-notifications";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(ButtonPlugin);
-Vue.use(ToastPlugin);
-let ShowBtn = undefined;
-export default Vue.extend({
+export default {
     data: function(){
         return {
             position: {
@@ -61,6 +57,10 @@ export default Vue.extend({
             },
             ShowBtn: false
         }
+    },
+    components: {
+        'ejs-toast': ToastComponent,
+        'ejs-button': ButtonComponent
     },
     mounted: function() {
         setTimeout(() => {
@@ -71,13 +71,13 @@ export default Vue.extend({
         },200);
     },
     methods: {
-        showBtnClick: function(args){
+        showBtnClick: function(){
             this.$refs.toastRef.show();
         },
-        hideBtnClick: function(args){
+        hideBtnClick: function(){
             this.$refs.toastRef.hide('All');
         },
-        created: function(args){
+        created: function(){
             document.addEventListener('click', function() {
                if (!isNullOrUndefined(this.$refs.toastRef) && !isNullOrUndefined(this.$refs.showButtonRef) && event.target !== this.$refs.showButtonRef.$el) {
                    this.$refs.toastRef.hide('All');
@@ -93,5 +93,5 @@ export default Vue.extend({
             this.ShowBtn = true;
         }
     }
-});
+};
 </script>

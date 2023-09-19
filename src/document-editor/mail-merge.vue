@@ -8,7 +8,7 @@
     <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
-    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
+    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
 </div>
 <div class="col-lg-2 control-section" style="padding-right: inherit;padding-top:5px;padding-left: 5px;height: 600px;border-left: 1px solid rgb(238, 238, 238);border-bottom:  1px solid rgb(238, 238, 238);" >
@@ -18,7 +18,7 @@
                 <div class="col-lg-10 control-section" style='padding-left: 0px;padding-right: 0px;padding-top: 0px;' >
 
 <ejs-documenteditorcontainer id="container" ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px' :toolbarClick='clickHandler'>
-     <ejs-dialog ref="accessDialog" :header='header' :target='target' :width='width' :height='height' :showCloseIcon='true'  :buttons='buttons' :content='content'>
+     <ejs-dialog ref="accessDialog" :header='header' :width='width' :height='height' :showCloseIcon='true'  :buttons='buttons' :content='content'>
         </ejs-dialog></ejs-documenteditorcontainer>  
                 
                 </div>            
@@ -197,26 +197,22 @@ font-size: 14px;
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { mailmerge } from "./data";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { Dialog } from '@syncfusion/ej2-popups';
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { Draggable, Droppable } from '@syncfusion/ej2-base';
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-Vue.use(ListViewPlugin);
-Vue.use(DialogPlugin);
-Vue.use(ButtonPlugin);
-
-
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent,
+        'ejs-dialog': DialogComponent,
+        'ejs-listview': ListViewComponent
     },
     data: function() {
         return {
@@ -576,6 +572,6 @@ export default Vue.extend({
     }
      
     
-});
+};
 
 </script>

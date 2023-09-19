@@ -1,7 +1,7 @@
 <template>
     <div class="control-section e-tbar-section-popup">
     <div class="e-sample-resize-container">
-        <ejs-toolbar overflowMode='Popup'>
+        <ejs-toolbar overflowMode='Popup'  ref="toolbarObj">
             <e-items>
                 <e-item prefixIcon='e-cut-icon tb-icons' tooltipText='Cut' text='Cut' showTextOn='Overflow' overflow='Show'></e-item>
                 <e-item prefixIcon='e-copy-icon tb-icons' tooltipText='Copy' text='Copy' showTextOn='Overflow' overflow='Show'></e-item>
@@ -373,11 +373,22 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(ToolbarPlugin);
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-export default Vue.extend({
-  
-});
+export default {
+  components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+  },
+  mounted: function () {
+      var toolbarObj = this.$refs.toolbarObj.ej2Instances;
+      document.body.addEventListener('keydown', (e) => {
+        var toolbarElement = toolbarObj.element.querySelector('.e-toolbar-items .e-toolbar-item .e-tbar-btn');
+        if (e.altKey && e.keyCode === 74 && toolbarElement) {
+            toolbarElement.focus();
+        }
+      });
+    }
+}
 </script>

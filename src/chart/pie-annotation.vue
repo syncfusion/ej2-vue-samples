@@ -28,7 +28,7 @@
                 <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
                 point or tap a point in touch enabled devices.
             </p>
-            <p style="font-weight: 500">Injecting Module</p>
+            <p style="font-weight: 500"><b>Injecting Module</b></p>
             <p>
                 Chart component features are segregated into individual feature-wise modules. To use Annotation feature,
                 we need to inject
@@ -346,19 +346,21 @@ annotaion ellipse[id*=_Trackball_1] {
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { annotationData } from './financial-data';
-import { ChartPlugin, StackingColumnSeries, Category, Legend, Selection, ChartAnnotation, AreaSeries, Tooltip } from "@syncfusion/ej2-vue-charts";
-
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingColumnSeries, Category, Legend, Selection, ChartAnnotation, AreaSeries, Tooltip } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark'];
-let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6200EE', '#4EAAFF'];
-export default Vue.extend({
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6200EE', '#4EAAFF'];
+export default {
+    components: {
+        'ejs-chart': ChartComponent,
+        'e-series-collection': SeriesCollectionDirective,
+        'e-series': SeriesDirective
+    },
     data: function () {
         return {
             theme: theme,
@@ -447,5 +449,5 @@ export default Vue.extend({
             this.$refs.chart.ej2Instances.refresh();
         });
     }
-}); 
+}; 
 </script>

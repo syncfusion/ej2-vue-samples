@@ -99,15 +99,17 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapHighlight, TreeMapSelection} from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent,TreeMapHighlight, TreeMapSelection} from "@syncfusion/ej2-vue-treemap";
 import { importData } from '../treemap/treemap-data/import';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -179,5 +181,5 @@ methods:{
         this.$refs.treemap.ej2Instances.refresh();   
     }
 }
-})
+}
 </script>

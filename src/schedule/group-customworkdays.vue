@@ -107,14 +107,15 @@
     }
 </style>
 <script>
-    import Vue from "vue";
+    import { createApp } from "vue";
     import { extend, addClass } from '@syncfusion/ej2-base';
     import { doctorData } from './datasource';
-    import { SchedulePlugin, WorkWeek, Month } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ResourceDirective, ResourcesDirective, ViewDirective, ViewsDirective, WorkWeek, Month } from "@syncfusion/ej2-vue-schedule";
+    
+    const app = createApp({})
 
-    var resourceTemplate = Vue.component("resource-template", {
-        template: '<div class="template-wrap"><div class="resource-image"><img :src="getImage" :alt="getImage" width="45px" height="45px"/></div>' +
+    var resourceTemplate = app.component("resource-template", {
+        template: '<div class="template-wrap"><div class="resource-image"><img class="resource-image" :src="getImage" :alt="getImage"/></div>' +
         '<div class="resource-details"><div class="resource-name">{{getDoctorName(data)}}</div><div class="resource-designation">{{getDoctorLevel(data)}}</div></div></div>',
         data() {
             return {
@@ -123,7 +124,7 @@
         },
         computed: {
             getImage: function() {
-                return './source/schedule/images/' + this.getDoctorImage(this.data) + '.png';
+                return 'source/schedule/images/' + this.getDoctorImage(this.data) + '.png';
             }
         },
         methods: {
@@ -142,7 +143,14 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -208,6 +216,6 @@
                 return (startHour <= startDate.getHours() && endHour >= endDate.getHours());
             }
         }
-    });
+    }
 
 </script>

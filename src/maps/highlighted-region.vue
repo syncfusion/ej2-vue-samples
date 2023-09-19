@@ -34,12 +34,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { highlight, highlight1 } from '../maps/map-data/highlighted';
 import Template from './earthquake-temp.vue';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+        'ejs-maps': MapsComponent,
+        'e-layers': LayersDirective,
+        'e-layer': LayerDirective
+    },
     data: function () {
         return {
             centerPosition: {
@@ -142,5 +146,5 @@ export default Vue.extend({
         }
     }
     /* custom code end */
-})
+}
 </script>

@@ -46,12 +46,20 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { resourceData } from './datasource';
-    import { SchedulePlugin, Day, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ResourceDirective, ResourcesDirective, ViewDirective, ViewsDirective,  Day, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+   
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -86,5 +94,5 @@
                 scheduleObj.dataBind();
             }
         }
-    });
+    }
 </script>

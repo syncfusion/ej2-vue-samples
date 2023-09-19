@@ -8,6 +8,27 @@
                 <ejs-schedule id="Schedule" width="100%" height="650px" :cssClass="cssClass" :readonly="readonly" :selectedDate="selectedDate"
                     :eventSettings="eventSettings" :dataBinding="dataBinding" :dataBound="dataBound" :actionBegin="actionBegin"
                     :popupOpen="popupOpen">
+                    <template v-slot:tooltipTemplate="{data}">
+                        <div class="event-tooltip">
+                            <div class='airline-header'>
+                                <div :class="['airline-logo ' + `${getAirwaysImage(data.AirlineId)}`]"></div>
+                                <div class='airline-name'>{{ getAirwaysName(data.AirlineId) }}</div>
+                            </div>
+                            <div class='airline-details text-size'>
+                                <div class='airline-title'>Fare Details:</div>
+                                <div class='airline-fare'>${{ data.Fare }} per person</div>
+                            </div>
+                            <div class='airline-flex-row text-size'>
+                                <div class='airline-flex-col airline-title border-right'>Arrival</div>
+                                <div class='airline-flex-col airline-title text-right'>Depature</div>
+                            </div>
+                            <div class='airline-flex-row text-size'>
+                                <div class='airline-flex-col border-right'>{{ getFormattedTime(data.StartTime) }}</div>
+                                <div class='airline-flex-col margin-right text-right'>{{ getFormattedTime(data.EndTime) }}
+                                </div>
+                            </div>
+                        </div>
+                    </template>
                     <e-resources>
                         <e-resource field="AirlineId" title="Airline" :dataSource="resourceDataSource" :allowMultiple="allowMultiple" name="Airlines"
                             textField="text" idField="id">
@@ -342,19 +363,18 @@
     }
 </style>
 <script>
-    import Vue from "vue";
+    import { createApp } from "vue";
     import { Month } from '@syncfusion/ej2-vue-schedule';
     import { extend, Internationalization, createElement, closest, remove, addClass, removeClass } from '@syncfusion/ej2-base';
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-    import { SchedulePlugin } from '@syncfusion/ej2-vue-schedule';
-    import tooltipTemplate from "./resource-tooltipTemplate.vue";
-    Vue.use(DropDownListPlugin);
-    Vue.use(SchedulePlugin);
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+    import { ScheduleComponent, ResourceDirective, ResourcesDirective, ViewDirective, ViewsDirective } from '@syncfusion/ej2-vue-schedule';
+    
     var dManager = [];
-    var initialLoad = true;
+    
+    const app = createApp({});
 
     var instance = new Internationalization();
-    var eventTemplateVue = Vue.component("event-template", {
+    var eventTemplateVue = app.component("event-template", {
         template: '<div class="template-wrap"><div class="fare-detail">${{data.Fare}}</div>' +
         '<div class="airline-name" style="display:flex;padding-left:5px;">' +
         '<div :class="getClass"></div>' +
@@ -382,16 +402,21 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
-            let tooltip = function () {
-                return { template: tooltipTemplate }
-            };
             let eventTemplate = function () {
                 return { template: eventTemplateVue }
             };
             return {
-                eventSettings: { template: eventTemplate, enableTooltip: true, tooltipTemplate: tooltip },
+                eventSettings: { template: eventTemplate, enableTooltip: true, tooltipTemplate: 'tooltipTemplate' },
                 cssClass: "schedule-resources",
                 selectedDate: new Date(2021, 3, 1),
                 allowMultiple: true,
@@ -415,7 +440,7 @@
                     args.items = args.items.splice(2, 1);
                 }
             },
-            dataBinding: function (args) {
+            dataBinding: function () {
                 if (this.initialLoad) {
                     let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
                     scheduleObj.eventSettings.dataSource = this.generateEvents(scheduleObj);
@@ -512,7 +537,7 @@
                 return filteredCollection;
             },
 
-            onChange: function (args) {
+            onChange: function () {
                 let scheduleObj = document.getElementById('Schedule').ej2_instances[0];
                 var tdElement = scheduleObj.element.querySelector('.best-price:not(.e-work-cells)');
                 if (tdElement) {
@@ -542,9 +567,16 @@
                 filteredData = this.filterByFare(filteredData, scheduleObj);
                 scheduleObj.eventSettings.dataSource = filteredData;
                 scheduleObj.dataBind();
+            },
+            getAirwaysName: function (value) {
+                return (value === 1) ? 'Airways 1' : (value === 2) ? 'Airways 2' : 'Airways 3';
+            },
+            getAirwaysImage: function (value) {
+                return (value === 1) ? 'airways-1' : (value === 2) ? 'airways-2' : 'airways-3';
+            },
+            getFormattedTime: function (date) {
+                return instance.formatDate(date, { skeleton: 'Hm' });
             }
-
         }
-    });
-
+    }
 </script>

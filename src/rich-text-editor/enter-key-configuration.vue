@@ -93,20 +93,15 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
-import * as CodeMirror from 'codemirror';
 
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/css/css.js';
-import 'codemirror/mode/htmlmixed/htmlmixed.js';
-
-Vue.use(DropDownListPlugin);
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             saveInterval: 1,
@@ -173,5 +168,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
     }
-});
+}
 </script>

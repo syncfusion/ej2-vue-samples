@@ -43,7 +43,7 @@
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
       </p>
 
-           <p style="font-weight: 500">Injecting Module</p>
+           <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
@@ -60,11 +60,12 @@
   <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { googl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   Tooltip,
   RangeTooltip,
@@ -88,13 +89,16 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       seriesData: googl,
@@ -111,7 +115,7 @@ export default Vue.extend({
         labelFormat: "n0",
         lineStyle: { width: 0 },
         rangePadding: "None",
-        majorTickLines: { color: "transparent", height: 0 }
+        majorTickLines: { width: 0 }
       },
       title: 'AAPL Stock Price',
       animation: { enable: true },
@@ -162,5 +166,5 @@ export default Vue.extend({
         }
     } 
   }
-});
+};
 </script>

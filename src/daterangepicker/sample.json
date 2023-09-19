@@ -2,11 +2,11 @@
     "name": "DateRangePicker",
     "directory": "daterangepicker",
     "category": "Calendars",
+    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "placeholder" ]},
             "description": "This example demonstrates a simple, mobile-friendly and responsive JavaScript DateRangePicker to select a range of dates (startDate and endDate)"
         },
@@ -14,7 +14,6 @@
             "url": "day-span",
             "name": "Day Span",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "placeholder", "minDays", "maxDays" ]},
             "description": "This example demonstrates how to restrict the users to select the minimum and maximum number of days (minspan and maxspan) between the selected range of start and end dates"
             },
@@ -22,7 +21,6 @@
             "url": "date-range",
             "name": "Date Range",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "placeholder", "min", "max" ]} ,
             "description": "This example demonstrates how to disables the specific range of dates (min and max) in a Vue DateRangePicker"
         },
@@ -30,7 +28,6 @@
             "url": "date-format",
             "name": "Format",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "format", "value" ]},
             "description": "This example demonstrates how to change the date time format in the input field based on the format in a Vue DateRangePicker"
         },
@@ -38,7 +35,6 @@
             "url": "presets",
             "name": "Presets",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "placeholder", "presets" ]},
             "description": "This example demonstrates how to specify the predefined custom date ranges (presets range) like last month, last year and current week in the dropdown popup"
         },
@@ -46,7 +42,6 @@
             "url": "month-range-picker",
             "name": "Month Range Picker",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "start", "depth" ]},
             "description": "The Vue DateRangePicker component can act as a month and year picker. It helps you to select a month or year quickly with all months related properties."
         },
@@ -54,7 +49,6 @@
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "DateRangePicker",
-            "hideOnDevice": true,
             "api":{"DateRangePicker": [ "value" ]}
         }
     ]

@@ -4,13 +4,15 @@
         <div id='uploadFileManager' class="fileupload">
             <ejs-uploader ref="uploadObj" id='defaultfileupload' name="UploadFiles">
             </ejs-uploader>
-            <ejs-button id="openBtn" v-on:click.native="btnClick">File Browser</ejs-button>
+            <ejs-button id="openBtn" v-on:click="btnClick">File Browser</ejs-button>
         </div>
         <div id='target' class="control-section">
             <ejs-dialog ref="uploadDialog" id="dialog" v-bind:visible="false" :header='dialogHeader' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :open="dialogOpen" :close="dialogClose" :target='target'
             :width='dialogWidth'>
+            <div>
                 <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :contextMenuSettings="contextMenuSettings" :toolbarSettings="toolbarSettings" v-bind:allowMultiSelection="false" :fileOpen="onFileOpen" >
                 </ejs-filemanager>
+            </div>
             </ejs-dialog>
         </div>
     </div>
@@ -70,22 +72,23 @@
 </style>
 
 <script>
-    import Vue from "vue";
-    import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-    import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-    import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
-    Vue.use(FileManagerPlugin);
-    Vue.use(DialogPlugin);
-    Vue.use(UploaderPlugin);
-    Vue.use(ButtonPlugin);
+    import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+    import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+    import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
     /**
     * File Manager real time use case sample
      */
     let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
     let contextmenuItems = ['Open', '|', 'Cut', 'Copy', 'Delete', 'Rename', '|', 'Details'];
 
-    export default Vue.extend({
+    export default {
+        components: {
+            'ejs-filemanager': FileManagerComponent,
+            'ejs-uploader': UploaderComponent,
+            'ejs-button': ButtonComponent,
+            'ejs-dialog': DialogComponent
+        },
         data: function(){
             return {
                 dialogHeader: 'Select a file',
@@ -130,10 +133,10 @@
                 let file = args.fileDetails;
                 if (file.isFile) {
                     args.cancel = true;
-                    this.$refs.uploadObj.files = [{name: file.name, size: file.size, type: file.type }];
+                    this.$refs.uploadObj.ej2Instances.files = [{name: file.name, size: file.size, type: file.type }];
                     this.$refs.uploadDialog.hide();
                 }
             }
         }
-    });
+    };
 </script>

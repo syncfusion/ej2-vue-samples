@@ -88,11 +88,13 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SparklinePlugin,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
+import { SparklineComponent,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3 } from "./seriestypes";
-Vue.use(SparklinePlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent
+},
 data:function(){
 return{
         height: '80px',
@@ -183,6 +185,6 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>
 

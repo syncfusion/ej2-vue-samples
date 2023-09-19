@@ -4,7 +4,7 @@
         <div id="spark-range-band" class="row">
             <div class="cols-sample-area" align="center">
                 <p>
-                    <font size=4px> Sales Growth Comparison with various Products</font>
+                    <h2 styles="font-size: 4px;"> Sales Growth Comparison with various Products</h2>
                     <ejs-grid id='Grid' :dataSource='dataSource' :allowSelection='allowSelection' :enableHover='enableHover' height=400>
                         <e-columns>
                             <e-column field="name" headerText="Name" width=50 textAlign="Right" />
@@ -68,24 +68,31 @@
     }
 </style>
 <script>
-import Vue from 'vue';
+import { createApp } from "vue";
 import {
-    GridPlugin,
+    GridComponent,
+    ColumnDirective,
+    ColumnsDirective,
     Selection
 } from "@syncfusion/ej2-vue-grids";
 import { Query, DataManager } from '@syncfusion/ej2-data';
 import { getInstance } from '@syncfusion/ej2-base';
 import { products } from './datasource';
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { SparklinePlugin, Sparkline } from "@syncfusion/ej2-vue-charts";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { SparklineComponent, Sparkline } from "@syncfusion/ej2-vue-charts";
 import columntempVue from "./column-template-one.vue";
 import columntempVue2 from "./column-template-two.vue";
 import { line } from "./rangeband";
-Vue.use(GridPlugin);
-Vue.use(SliderPlugin);
-Vue.use(SparklinePlugin);
+
 let lineData = line;
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-sparkline': SparklineComponent,
+        'ejs-grid': GridComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective,
+        'ejs-slider': SliderComponent
+    },
     data: function () {
         return {
             dataSource: new DataManager(products).executeLocal(new Query()),
@@ -96,12 +103,12 @@ export default Vue.extend({
             type: 'MinRange',
             cTemplate: function () {
                 return {
-                    template: columntempVue
+                    template: createApp({}).component('cTemplate', columntempVue)
                 }
             },
             gTemplate: function () {
                 return {
-                    template: columntempVue2
+                    template: createApp({}).component('gTemplate', columntempVue2)
                 }
             }
         }
@@ -143,7 +150,7 @@ export default Vue.extend({
                 spark2.dataSource = lineData[i + 5];
                 spark2.appendTo('#sparkline2011' + i);
             }
-        }, 100);
+        }, 1000);
         /* custom code start */
     function load(args){
         let theme = location.hash.split('/')[1];
@@ -180,6 +187,6 @@ export default Vue.extend({
             }
         }
     }
-})
+}
 </script>
 

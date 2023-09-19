@@ -23,17 +23,19 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { createApp } from "vue";
+import { TreeMapComponent,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { Continent_Data } from '../treemap/treemap-data/pie-chart';
-import { AccumulationChartPlugin, AccumulationChart,  PieSeries, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
+import { AccumulationChart,  PieSeries, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 import Template from './pie-temp.vue';
-Vue.use(TreeMapPlugin);
-Vue.use(AccumulationChartPlugin);
+
 AccumulationChart.Inject(AccumulationTooltip);
 let chartCollection = [];
 let count = 0;
-export default Vue.extend({
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
     return{
         tooltipSettings: {
@@ -60,7 +62,7 @@ data:function(){
             border: { color: 'black', width: 0.5 },
             labelFormat: '${Gender} : ${Population}',
             templatePosition: 'Center',
-            labelTemplate: function () { return {template: Template}; },
+            labelTemplate: function () { return { template: createApp({}).component('labelTemplate', Template) }; },
         },
         levels: [
             {
@@ -220,5 +222,5 @@ provide:{
     accumulationchart:[PieSeries, AccumulationTooltip],
     treemap:[TreeMapTooltip]
 }
-})
+}
 </script>

@@ -29,15 +29,14 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as dataSource from './customTemplate-data.json';
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
+import dataSource from './customTemplate-data.json';
 
-Vue.use(DropDownTreePlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent
+    },
     data: function() {
-        var temp = this;
         return {
             fields: { dataSource: dataSource.checkboxData, value: 'id', text: 'name', parentValue: 'pid', hasChildren: 'hasChild' },
             height: '200px',
@@ -46,5 +45,5 @@ export default Vue.extend({
             customTemplate: '${value.length} item(s) selected'
         };
     }
-});
+}
 </script>

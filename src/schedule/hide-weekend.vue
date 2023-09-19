@@ -31,7 +31,7 @@
                         <td style="width: 100%;">
                             <div style="font-weight:500">Non-Working days</div>
                             <div>
-                                <ejs-button class="e-active" isToggle="true" v-on:click.native="btnClick">Show</ejs-button>
+                                <ejs-button class="e-active" isToggle="true" v-on:click="btnClick">Show</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -70,17 +70,20 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-    import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+    import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 
-    Vue.use(MultiSelectPlugin);
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-button': ButtonComponent,
+          'ejs-multiselect': MultiSelectComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
@@ -130,6 +133,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

@@ -30,15 +30,14 @@ border: none;
 /* custom code end*/
 </style>
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import {
   Diagram,
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,NodeConstraints,
   HtmlModel
 } from "@syncfusion/ej2-vue-diagrams";
 import NodeTemplate from "./complex-template.vue";
-Vue.use(DiagramPlugin);
 
 let diagramInstance;
 let shape = { type: 'HTML' };
@@ -66,11 +65,14 @@ let nodes = [
   }
 ]
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       nodeTemplate: function () {
-        return { template: NodeTemplate };
+        return { template: createApp({}).component('nodeTemplate', NodeTemplate) };
       },
       width: "100%",
       height: "1000px",
@@ -78,6 +80,6 @@ export default Vue.extend({
       backgroundColor:'#f5f5f5'
     };
   }
-});
+}
 
 </script>

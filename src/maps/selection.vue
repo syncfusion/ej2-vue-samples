@@ -141,11 +141,15 @@ margin-top: -10px;
 </style>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, MapsTooltip, Selection, Highlight, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Selection, Highlight, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data:function(){
       return{
         titleSettings: {
@@ -253,5 +257,5 @@ methods:{
             }
     }
 }
-})
+}
 </script>

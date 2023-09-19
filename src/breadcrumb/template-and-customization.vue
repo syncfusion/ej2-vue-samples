@@ -4,8 +4,8 @@
     <div class="content-wrapper breadcrumb-control-wrapper">
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <h5>Custom Breadcrumb</h5>
-                <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick"> Reset State</ejs-button>
+                <h5 style="display: inline-block;">Custom Breadcrumb</h5>
+                <ejs-button id='reset' class="reset-btn e-small" v-on:click="btnClick"> Reset State</ejs-button>
             </div>
         </div>
         <div class="row material2">
@@ -59,7 +59,7 @@
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 e-bc-separator">
                 <ejs-breadcrumb :separatorTemplate= "'separatorTemplate'">
-                    <template v-slot:separatorTemplate="{data}">
+                    <template v-slot:separatorTemplate>
                         <span class="e-icons e-arrow"></span>
                     </template>
                     <e-breadcrumb-items>
@@ -596,17 +596,21 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { BreadcrumbPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { ChipListPlugin  } from "@syncfusion/ej2-vue-buttons";
+import { BreadcrumbComponent, BreadcrumbItemDirective, BreadcrumbItemsDirective } from "@syncfusion/ej2-vue-navigations";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { ChipListComponent, ChipsDirective, ChipDirective  } from "@syncfusion/ej2-vue-buttons";
 import { getComponent } from '@syncfusion/ej2-base';
 
-Vue.use(BreadcrumbPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(ChipListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-breadcrumb': BreadcrumbComponent,
+    'e-breadcrumb-item': BreadcrumbItemDirective,
+    'e-breadcrumb-items': BreadcrumbItemsDirective,
+    'ejs-button': ButtonComponent,
+    'e-chip': ChipDirective,
+    'e-chips': ChipsDirective,
+    'ejs-chiplist': ChipListComponent
+  },
   data: function() {
     return {}
   },
@@ -625,5 +629,5 @@ export default Vue.extend({
         }
     }
   }
-});
+}
 </script>

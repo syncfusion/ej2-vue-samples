@@ -3,10 +3,15 @@
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
+    "type": "update",
     "samples": [
       {  
         "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
         "description": "This demo for Essential JS 2 Tree Grid component is an overview of how to display and manipulate large data with configuration options."
+      },
+      {
+         "url": "livedata", "name": "Live Data", "type": "new", "category": "Tree Grid", "api": { "TreeGrid": ["dataSource", "columns", "enableVirtualization", "enableVirtualMaskRow", "allowSelection", "height", "rowHeight", "queryCellInfo"]},
+         "description": "This demo for Essential JS 2 Tree Grid component shows the grid Local Live Data Update.", "hideOnDevice": false
       },
       {  
         "url": "default", "name": "Default Functionalities", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
@@ -20,8 +25,7 @@
       "url": "loading-animation", "name": "Loading Animation", "category": "Tree Grid", "api": { "TreeGrid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] },
       "description": "This demo for Essential JS 2 Tree Grid component shows the loading indicator when Tree Grid loading and refreshing."
      },
-    
-     {  
+     {
         "url":"localdata", "name": "Local Data", "category":"Data Binding","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","allowPaging","columns"] },
         "description": "This example shows the binding of an array of list objects in the Syncfusion Essential JS2 Tree Grid control."
      },

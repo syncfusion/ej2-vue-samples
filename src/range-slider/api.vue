@@ -216,16 +216,12 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(CheckBoxPlugin);
-Vue.use(SliderPlugin);
-Vue.use(NumericTextBoxPlugin);
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
      tooltip:  { isVisible: true, placement: 'Before', showOn: 'Hover' },
@@ -243,6 +239,11 @@ export default Vue.extend({
       numericvalue : 30
     };
   },
+  components: { 
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-slider': SliderComponent,
+    },
   methods: {
     onChange: function(args) {
       this.numericvalue = args.value;
@@ -283,5 +284,5 @@ export default Vue.extend({
         document.getElementById('right-pane').addEventListener('scroll', this.onScroll.bind(this));
     }
  }
-});
+};
 </script>

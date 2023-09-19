@@ -365,28 +365,16 @@ This example shows how to display encoded text or numerical values as the label 
 
 
 <script>
-import Vue from "vue";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DataMatrixGeneratorComponent } from "@syncfusion/ej2-vue-barcode-generator";
 import {
-  Button,
-  ButtonPlugin,
-  CheckBoxPlugin
-} from "@syncfusion/ej2-vue-buttons";
-import { Browser } from "@syncfusion/ej2-base";
-import { DataMatrixGeneratorPlugin } from "@syncfusion/ej2-vue-barcode-generator";
-import {
-  NumericTextBox,
-  ColorPicker,
-  NumericTextBoxPlugin,
-  TextBoxPlugin,
-  ColorPickerPlugin,
-  ColorPickerEventArgs
+  NumericTextBoxComponent,
+  TextBoxComponent,
+  ColorPickerComponent,
+  FormValidator
 } from "@syncfusion/ej2-vue-inputs";
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DataMatrixGeneratorPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(TextBoxPlugin);
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+
 let barCodeInstance;
 let textPositiondataSourceValue = [
   { type: "Bottom", text: "Bottom" },
@@ -435,7 +423,15 @@ let matrixSize = [
         { value: 'Base256', text: 'Base256' },
     ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-datamatrixgenerator': DataMatrixGeneratorComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       width: "200px",
@@ -512,5 +508,5 @@ export default Vue.extend({
   mounted: function() {
     barCodeInstance = this.$refs.barcodeControl.ej2Instances;
   }
-});
+};
 </script>

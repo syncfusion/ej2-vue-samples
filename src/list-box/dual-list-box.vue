@@ -74,12 +74,11 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ListBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './datasource.json';
-Vue.use(ListBoxPlugin);
+import { createApp } from "vue";
+import { ListBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './datasource.json';
 
-var norecordVue = Vue.component( "noRecordsTemplate", {
+var norecordVue = createApp({}).component( "noRecordsTemplate", {
   template: '<div class= "e-list-nrt"><span>NO DATA AVAILABLE</span></div>',
     data() {
         return {
@@ -88,7 +87,10 @@ var norecordVue = Vue.component( "noRecordsTemplate", {
     }
 });
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-listbox': ListBoxComponent
+    },
     data: function() {
         return {
             // Set the groupa & groupb data to the data source.
@@ -105,5 +107,5 @@ export default Vue.extend({
             }
         };
     }
-});
+};
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-md-8 control-section sb-property-border">
+    <div class="col-lg-9 control-section sb-property-border">
       <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings'
         :pointRender='pointRender' :chartArea='chartArea' :width='width'>
@@ -10,7 +10,7 @@
       </ejs-chart>
     </div>
     <div>
-      <div class="col-md-4 property-section">
+      <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
           <tr style="height: 50px; text-align: center">
             <td>
@@ -20,7 +20,7 @@
           <tr style="height: 50px; text-align: center">
             <td>
               <div>
-                <ejs-button id='togglebtn' @click.native='print' cssClass="e-flat" :iconCss='iconCss'
+                <ejs-button id='togglebtn' @click='print' cssClass="e-flat" :iconCss='iconCss'
                   isPrimary="true">Print</ejs-button>
               </div>
             </td>
@@ -52,7 +52,10 @@
 .e-print-icon::before {
   content: "\e34b";
 }
-
+.e-view.material3 .e-print-icon::before,
+.e-view.material3-dark .e-print-icon::before {
+  content: "\e75d";
+}
 .e-view.fabric .e-print-icon::before,
 .e-view.fabric-dark .e-print-icon::before {
   content: "\e7df";
@@ -84,34 +87,36 @@
 .e-view.fluent-dark .e-print-icon::before {
   content: "\e75d";
 }
-.e-view.material3 .e-print-icon::before,
-.e-view.material3-dark .e-print-icon::before {
-  content: '\e75d';
-}
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { Button } from '@syncfusion/ej2-vue-buttons';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import {
   pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
   pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors
 } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   ColumnSeries,
   Category,
   Legend, DataLabel
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function () {
     return {
       theme: theme,
@@ -146,7 +151,7 @@ export default Vue.extend({
       },
 
       tooltip: {
-        enable: true
+        enable: false
       },
       width : Browser.isDevice ? '100%' : '75%',
       iconCss: 'e-icons e-print-icon',
@@ -214,5 +219,5 @@ export default Vue.extend({
     },
 
   },
-});
+};
 </script>

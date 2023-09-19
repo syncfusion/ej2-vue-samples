@@ -52,31 +52,36 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { SignaturePlugin, ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { SplitButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import { CheckBoxPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { createApp } from "vue";
+import { SignatureComponent, ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
+import { ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
+import { SplitButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { CheckBoxComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { getComponent, addClass, createElement } from '@syncfusion/ej2-base';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-
-Vue.use(SignaturePlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(SplitButtonPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
 export default {
+  components: {
+    'ejs-signature': SignatureComponent,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-splitbutton': SplitButtonComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
 	data: function() {
     return {
       maxStrokeWidth: 2,
 			SaveTemplate: function () {
 				return {
-					template: Vue.component('SplitButtonComponent', {
+					template: createApp({}).component('SplitButtonComponent', {
 						template: '<ejs-splitbutton content="Save" id="save-option" :items="items" iconCss= "e-sign-icons e-save" :select="onSelect" disabled="true"></ejs-splitbutton>',
+            components: {
+              'ejs-splitbutton': SplitButtonComponent
+            },
 						data() { return {
 							items: [
 								{
@@ -101,14 +106,21 @@ export default {
   		},
 			StrokeColorTemplate: function () {
 				return {
-					template: Vue.component('ColorPickerComponent', {
+					template: createApp({}).component('ColorPickerComponent', {
 						template: '<ejs-colorpicker id="stroke-color" mode="Palette" cssClass="e-stroke-color" :change="strokeColorChanged"  :modeSwitcher= "false" :columns="4" :presetColors="customColors" :beforeTileRender="beforeTileRender" :showButtons= "false"></ejs-colorpicker>',
+            components: {
+              'ejs-colorpicker': ColorPickerComponent
+            },
 						data() { return {
               customColors:{
                 'custom': ['#000000', '#e91e63', '#9c27b0', '#673ab7', '#2196f3', '#03a9f4', '#00bcd4',
                 '#009688', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107']
               }
             };},
+            mounted () {
+              var strokeColor = getComponent(document.getElementById('stroke-color'), 'colorpicker');
+			        addClass([strokeColor.element.nextElementSibling.querySelector('.e-selected-color')], 'e-sign-icons');
+            },
 						methods: {
               beforeTileRender: function(args) {
                 args.element.classList.add('e-circle-palette');
@@ -130,14 +142,21 @@ export default {
   		},
 			BgColorTemplate: function () {
 				return {
-					template: Vue.component('ColorPickerComponent', {
+					template: createApp({}).component('ColorPickerComponent', {
 						template: '<ejs-colorpicker id="bg-color" noColor="true" mode="Palette" cssClass="e-bg-color" :change="bgColorChanged" :modeSwitcher= "false" :columns="4" :presetColors="customColors" :beforeTileRender="beforeTileRender1" :showButtons= "false"></ejs-colorpicker>',
+            components: {
+              'ejs-colorpicker': ColorPickerComponent
+            },
 						data() { return {
               customColors:{
                 'custom': ['#ffffff', '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#2196f3', '#03a9f4', '#00bcd4',
                 '#009688', '#8bc34a', '#cddc39', '#ffeb3b']
               }
             };},
+            mounted () {
+              var bgColor = getComponent(document.getElementById('bg-color'), 'colorpicker');
+              addClass([bgColor.element.nextElementSibling.querySelector('.e-selected-color')], 'e-sign-icons');
+            },
 						methods: {
               beforeTileRender1: function(args) {
                 args.element.classList.add('e-circle-palette');
@@ -159,8 +178,11 @@ export default {
   		},
 			DisableTemplate: function () {
 				return {
-					template: Vue.component('CheckBoxComponent', {
+					template: createApp({}).component('CheckBoxComponent', {
 						template: '<ejs-checkbox label="Disabled" :change="change1"></ejs-checkbox>',
+            components: {
+              'ejs-checkbox': CheckBoxComponent
+            },
 						data() { return {
             };},
             methods: {
@@ -174,8 +196,11 @@ export default {
   		},
       StrokeWidthTemplate: function () {
 				return {
-					template: Vue.component('DropDownListComponent', {
-						template: '<ejs-dropdownlist  :value="value" width="60" :dataSource="items":change="numChange"></ejs-dropdownlist>',
+					template: createApp({}).component('DropDownListComponent', {
+						template: '<ejs-dropdownlist  :value="value" width="60" :dataSource="items" :change="numChange"></ejs-dropdownlist>',
+            components: {
+              'ejs-dropdownlist': DropDownListComponent
+            },
 						data() { return {
               value: 2,
               items:[1, 2, 3, 4, 5]
@@ -193,10 +218,6 @@ export default {
   },
   methods: {
 		onCreate: function() {
-			var strokeColor = getComponent(document.getElementById('stroke-color'), 'colorpicker');
-			var bgColor = getComponent(document.getElementById('bg-color'), 'colorpicker');
-			addClass([strokeColor.element.nextElementSibling.querySelector('.e-selected-color')], 'e-sign-icons');
-      addClass([bgColor.element.nextElementSibling.querySelector('.e-selected-color')], 'e-sign-icons');
       document.getElementById('save-option').addEventListener('click', this.saveBtnClick);
       var cBtn = this.clearButton();
       cBtn.disabled = true;

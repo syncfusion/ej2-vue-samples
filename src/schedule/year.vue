@@ -73,16 +73,20 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { SchedulePlugin, Year, TimelineYear, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Year, TimelineYear, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(SchedulePlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-schedule': ScheduleComponent,
+    'e-view': ViewDirective,
+    'e-views': ViewsDirective,
+    'e-resource': ResourceDirective,
+    'e-resources': ResourcesDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
     return {
       eventSettings: {
@@ -168,5 +172,5 @@ export default Vue.extend({
       return dateCollections;
     }
   }
-});
+}
 </script>

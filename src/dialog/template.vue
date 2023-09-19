@@ -1,7 +1,7 @@
 <template>
   <div>
      <div class="col-lg-12 control-section dialog-template">
-        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="BtnClick">Open</ejs-button>
+        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click="BtnClick">Open</ejs-button>
         <ejs-dialog :header="'headerTemplate'" ref="dialogObj" :footerTemplate="'footerTemplate'" :content="'contentTemplate'" :height='height' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen"
             :close="dialogClose">
             <template v-slot:headerTemplate>
@@ -38,12 +38,15 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { detach, isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(DialogPlugin);
 
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             proxy: this,
@@ -92,7 +95,7 @@ export default Vue.extend({
             enteredVal.value = '';
         }
     }
-});
+}
 </script>
 
 <style>
@@ -107,7 +110,8 @@ export default Vue.extend({
     .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content,
     .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content,
     .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content,
-    .material .dialog-template .e-dialog .e-dlg-header-content {
+    .material .dialog-template .e-dialog .e-dlg-header-content,
+    .material3 .dialog-template .e-dialog .e-dlg-header-content {
         background-color: #3f51b5;
     }
     .bootstrap .dialog-template .e-dialog .e-dlg-header-content {
@@ -221,6 +225,7 @@ export default Vue.extend({
         background-color: #f5f5f5;
     }
     .material-dark .dialog-template .dialogContent .dialogText,
+    .material3-dark .dialog-template .dialogContent .dialogText,
     .fabric-dark .dialog-template .dialogContent .dialogText,
     .bootstrap-dark .dialog-template .dialogContent .dialogText,
     .bootstrap5-dark .dialog-template .dialogContent .dialogText,
@@ -280,5 +285,10 @@ export default Vue.extend({
         display: inline-block;
         width: 36px;
         height: 36px;
+    }
+
+    .control-section {
+        height: 100%;
+        min-height: 350px;
     }
 </style>

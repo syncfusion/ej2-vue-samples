@@ -1,8 +1,13 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
+import routes from './router.config';
+import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router';
 
-Vue.config.productionTip = false;
+export const routerConfig = createRouter({
+    history: createWebHashHistory(),
+    routes: routes as RouteRecordRaw[]
+});
 
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app');
+const app = createApp(App);
+app.use(routerConfig);
+app.mount('#app');

@@ -50,9 +50,8 @@
 </div>
 </template>
 
-<style scoped>
-/* custom code start */
-/* Common sample level styles */
+<style>
+
 #custom-control {
     margin: auto 0;
     text-align: center;
@@ -110,25 +109,28 @@
 #custom-control.e-mobile-control #custom-content .col-xs-12 {
     flex: 0 0 auto;
 }
-/* custom code end */
-/* Circle palette customization */
-.e-container .e-palette .e-circle-palette {
+
+#custom-control .e-container .e-palette .e-circle-palette {
     border: 0;
     height: 32px;
     width: 32px;
     border-radius: 20px;
     margin: 4px;
 }
-.e-bigger .e-container .e-palette .e-circle-palette {
+.e-bigger #custom-control .e-container .e-palette .e-circle-palette {
     height: 32px;
     width: 32px;
 }
-.e-container .e-palette .e-circle-palette:hover {
+#custom-control .e-container .e-palette .e-square-palette {
+    width: 20px;
+    height: 20px;
+}
+#custom-control .e-container .e-palette .e-circle-palette:hover {
     box-shadow: none;
     transform: scale(1.2);
     transition: transform .2s ease-out;
 }
-.e-circle-palette .e-circle-selection {
+#custom-control .e-circle-palette .e-circle-selection {
     height: 32px;
     width: 32px;
     border-radius: 20px;
@@ -136,7 +138,7 @@
     transform: scale(0);
     transition: transform 1.2s ease-in;
 }
-.e-circle-palette.e-selected .e-circle-selection {
+#custom-control .e-circle-palette.e-selected .e-circle-selection {
     transform: scale(0.8);
     background-color: #fff;
     transition: transform .2s ease-out;
@@ -153,7 +155,7 @@
 .e-bigger #scroll-palette+.e-container .e-custom-palette.e-palette-group {
     height: 125px;
 }
-.e-container .e-palette .e-scroll-palette {
+#custom-control .e-container .e-palette .e-scroll-palette {
     border: 0;
     color: #fff;
     line-height: 24px;
@@ -163,39 +165,39 @@
     margin-top: 2px;
     margin-left: 10px;
 }
-.e-bigger .e-container .e-palette .e-scroll-palette {
+.e-bigger #custom-control .e-container .e-palette .e-scroll-palette {
     height: 24px;
     width: 35px;
 }
-.e-container .e-palette .e-scroll-palette.e-selected::before {
+#custom-control .e-container .e-palette .e-scroll-palette.e-selected::before {
     content: '\e933';
 }
-.tailwind .e-container .e-palette .e-scroll-palette.e-selected::before,
-.tailwind-dark .e-container .e-palette .e-scroll-palette.e-selected::before {
+.tailwind #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.tailwind-dark #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before {
     content: '\e856';
 }
-.bootstrap5 .e-container .e-palette .e-scroll-palette.e-selected::before,
-.bootstrap5-dark .e-container .e-palette .e-scroll-palette.e-selected::before {
+.bootstrap5 #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.bootstrap5-dark #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before {
     content: '\e727';
 }
-.bootstrap4 .e-container .e-palette .e-scroll-palette.e-selected::before,
-.bootstrap4-dark .e-container .e-palette .e-scroll-palette.e-selected::before {
+.bootstrap4 #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.bootstrap4-dark #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before {
     content: '\e718';
 }
-.bootstrap .e-container .e-palette .e-scroll-palette.e-selected::before,
-.bootstrap-dark .e-container .e-palette .e-scroll-palette.e-selected::before,
-.fabric .e-container .e-palette .e-scroll-palette.e-selected::before,
-.fabric-dark .e-container .e-palette .e-scroll-palette.e-selected::before,
-.highcontrast .e-container .e-palette .e-scroll-palette.e-selected::before {
+.bootstrap #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.bootstrap-dark #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.fabric #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.fabric-dark #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before,
+.highcontrast #custom-control .e-container .e-palette .e-scroll-palette.e-selected::before {
     content: '\e7ff';
 }
-.highcontrast .e-container .e-palette {
+.highcontrast #custom-control .e-container .e-palette {
     border-bottom-color: transparent;
 }
 
 /* Square palette customization */
-.e-container .e-palette .e-square-palette,
-.e-bigger .e-container .e-palette .e-square-palette {
+.e-container #custom-control .e-palette .e-square-palette,
+.e-bigger #custom-control .e-container .e-palette .e-square-palette {
     width: 20px;
     height: 20px;
 }
@@ -205,36 +207,33 @@
 }
 
 /* Rounded corner palette customization */
-.e-container .e-palette .e-rounded-palette {
+#custom-control .e-container .e-palette .e-rounded-palette {
     border-radius: 4px;
     margin: 3px;
     height: 16px;
     width: 16px;
 }
-.e-bigger .e-container .e-palette .e-rounded-palette {
+.e-bigger #custom-control .e-container .e-palette .e-rounded-palette {
     height: 16px;
     width: 16px;
 }
-.e-container .e-palette .e-rounded-palette:hover,
-.e-container .e-palette .e-scroll-palette:hover {
+#custom-control .e-container .e-palette .e-rounded-palette:hover,
+#custom-control .e-container .e-palette .e-scroll-palette:hover {
     box-shadow: none;
 }
-.e-container .e-palette .e-circle-palette.e-selected,
-.e-container .e-palette .e-rounded-palette.e-selected,
-.e-container .e-palette .e-square-palette.e-selected,
-.e-container .e-palette .e-scroll-palette.e-selected {
+#custom-control .e-container .e-palette .e-circle-palette.e-selected,
+#custom-control .e-container .e-palette .e-rounded-palette.e-selected,
+#custom-control .e-container .e-palette .e-square-palette.e-selected,
+#custom-control .e-container .e-palette .e-scroll-palette.e-selected {
     outline: none;
 }
 </style>
 
 <script>
-import Vue from "vue";
 import { createElement } from "@syncfusion/ej2-base";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(ColorPickerPlugin);
-
-export default Vue.extend({
+export default {
   data: function() {
     return {
         biggerPalettesColn: 4,
@@ -262,6 +261,7 @@ export default Vue.extend({
                     '#FF8A65', '#FF7043', '#FF5722']}
     }
   },
+  components: { 'ejs-colorpicker': ColorPickerComponent },
   methods: {
     onChange: function(args) {
       document.getElementById("e-shirt-preview").style.backgroundColor = args.currentValue.hex;
@@ -293,5 +293,5 @@ export default Vue.extend({
         }
     });
   }
-});
-</script>
+};
+</script>       

@@ -185,12 +185,12 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { ContextMenuPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ContextMenuComponent } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(ContextMenuPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-contextmenu': ContextMenuComponent
+  },
   data: function() {
     return {
       menuItems: [
@@ -249,5 +249,5 @@ export default Vue.extend({
         menuObj.animationSettings.effect = "SlideDown";
       }
   }
-});
+}
 </script>

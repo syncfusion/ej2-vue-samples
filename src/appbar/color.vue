@@ -108,12 +108,17 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { AppBarPlugin } from "@syncfusion/ej2-vue-navigations";
+import { AppBarComponent, MenuComponent } from "@syncfusion/ej2-vue-navigations";
+import { DropDownButtonComponent } from '@syncfusion/ej2-vue-splitbuttons';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(AppBarPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-appbar': AppBarComponent,
+      'ejs-menu': MenuComponent,
+      'ejs-button': ButtonComponent,
+      'ejs-dropdownbutton': DropDownButtonComponent
+    },
     data: function () {
         return {
             productDropDownButtonItems: [
@@ -202,5 +207,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script >

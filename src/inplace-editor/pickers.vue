@@ -104,14 +104,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { InPlaceEditorPlugin, TimePicker, DateRangePicker } from "@syncfusion/ej2-vue-inplace-editor";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { InPlaceEditorComponent, TimePicker, DateRangePicker } from "@syncfusion/ej2-vue-inplace-editor";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(InPlaceEditorPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-inplaceeditor': InPlaceEditorComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
         datePickerValue: new Date('5/23/2017'),
@@ -144,7 +144,7 @@ export default Vue.extend({
       this.editorMode = this.$refs.editorMode.ej2Instances;
   },
   methods: {
-        changeEditorMode: function(args) {
+        changeEditorMode: function() {
            var editMode = this.$refs.editorMode.ej2Instances.text;
            this.dateObj.mode = editMode;
            this.timeObj.mode = editMode;
@@ -175,7 +175,7 @@ export default Vue.extend({
   provide:{
         "inplaceeditor":[TimePicker, DateRangePicker]
   }
-});
+}
 </script>
 <style scoped>
 

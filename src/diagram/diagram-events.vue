@@ -191,20 +191,14 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
-  SymbolPalettePlugin,
+  DiagramComponent,
+  SymbolPaletteComponent,
   Diagram, DiagramContextMenu,
   DiagramConstraints
 } from "@syncfusion/ej2-vue-diagrams";
-import { ListViewPlugin, ListView } from "@syncfusion/ej2-vue-lists";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
-Vue.use(ListViewPlugin);
-Vue.use(ButtonPlugin);
+import { ListViewComponent, ListView } from "@syncfusion/ej2-vue-lists";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let diagramInstance;
 
@@ -249,7 +243,13 @@ let connectorSymbols = [
   },
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent,
+    'ejs-listview': ListViewComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       // listview data
@@ -403,7 +403,7 @@ export default Vue.extend({
       clearEventLog();
     }
   }
-});
+}
 
 function clearEventLog() {
   let data = document.getElementById('EventLog');

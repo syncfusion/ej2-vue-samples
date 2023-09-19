@@ -53,10 +53,14 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { RecurrenceEditorPlugin } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(RecurrenceEditorPlugin);
-    export default Vue.extend({
+    import { RecurrenceEditorComponent } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+    
+    export default {
+        components: {
+          'ejs-recurrenceeditor': RecurrenceEditorComponent,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 datas: [
@@ -72,15 +76,15 @@
             }
         },
         mounted: function () {
-            let recObject = this.$refs.EditorObj;
+            let recObject = this.$refs.EditorObj.ej2Instances;
             recObject.selectedType = 1;
         },
         methods: {
             onChange: function (args) {
-                let recObject = this.$refs.EditorObj;
+                let recObject = this.$refs.EditorObj.ej2Instances;
                 recObject.setRecurrenceRule(args.value);
             }
         }
-    });
+    }
 
 </script>

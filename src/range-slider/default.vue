@@ -63,16 +63,15 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(SliderPlugin);
-export default Vue.extend({
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+export default {
   data: function() {
     return {
       value: 30,
       minValue: 30,
       rangevalue: [30,70]
     };
-  }
-});
+  },
+  components: { 'ejs-slider': SliderComponent },
+};
 </script>

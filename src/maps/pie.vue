@@ -56,20 +56,26 @@
                     Maps component features are segregated into individual feature-wise modules. To use marker template, you need to inject <code>Marker</code> module using <code>Maps.Inject(Marker)</code> method.
                 </p>
             </div>
+        </p>
     </div>
 </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { AccumulationChartPlugin, PieSeries, AccumulationDataLabel, AccumulationTooltip,AccumulationChart } from '@syncfusion/ej2-vue-charts';
-Vue.use(MapsPlugin);
-Vue.use(AccumulationChartPlugin);
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { PieSeries, AccumulationDataLabel, AccumulationTooltip,AccumulationChart } from '@syncfusion/ej2-vue-charts';
+
 AccumulationChart.Inject(AccumulationTooltip);
 let chartCollection = [];
 let count = 0;
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-maps': MapsComponent,
+        'e-layers': LayersDirective,
+        'e-layer': LayerDirective,
+        'e-markerSettings': MarkersDirective,
+        'e-markerSetting': MarkerDirective
+    },
     data: function () { 
         return {
             titleSettings: {
@@ -230,5 +236,5 @@ export default Vue.extend({
     return new Object({ name: dataName, data: dataSource });
 }   
     }
-})
+}
 </script>

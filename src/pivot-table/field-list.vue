@@ -36,10 +36,9 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
-  PivotFieldListPlugin,
+  PivotViewComponent,
+  PivotFieldListComponent,
   FieldList,
   CalculatedField,
   IDataSet
@@ -54,11 +53,13 @@ import {
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(PivotFieldListPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-pivotfieldlist': PivotFieldListComponent
+  },
   data: function() {
     return {
       dataSourceSettings: {
@@ -93,8 +94,8 @@ export default Vue.extend({
   methods: {
     enginePopulated: function() {
       if (!Browser.isDevice) {
-          let fieldListObj = (<any>this.$refs.pivotfieldlist).ej2Instances;
-          let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+          let fieldListObj = ((this as any).$refs.pivotfieldlist).ej2Instances;
+          let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
           if (fieldListObj && pivotObj) {
             fieldListObj.update(pivotObj);
           }
@@ -102,7 +103,7 @@ export default Vue.extend({
     },
     load: function() {
       if (Browser.isDevice) {
-        let fieldListObj = (<any>this.$refs.pivotfieldlist).ej2Instances;
+        let fieldListObj = ((this as any).$refs.pivotfieldlist).ej2Instances;
         fieldListObj.renderMode = "Popup";
         fieldListObj.target = ".control-section";
         setStyleAttribute(<any>document.getElementById("pivotfieldlist1"), {
@@ -114,7 +115,7 @@ export default Vue.extend({
       }
     },
     dataBound: function() {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (Browser.isDevice) {
           pivotObj.element.style.width = "100%";
           pivotObj.allowCalculatedField = true;
@@ -124,15 +125,15 @@ export default Vue.extend({
       pivotObj.refresh();
     },
     fieldEnginePopulated: function() {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      let fieldListObj = (<any>this.$refs.pivotfieldlist).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      let fieldListObj = ((this as any).$refs.pivotfieldlist).ej2Instances;
       fieldListObj.updateView(pivotObj);
     }
   },
   provide: {
     pivotview: [CalculatedField,FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

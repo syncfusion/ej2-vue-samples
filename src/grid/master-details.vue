@@ -28,11 +28,11 @@
         <p>The steps to achieve this scenario is as follows,</p>
         <ul>
             <li> Get the selected record of Master Grid in the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowselected">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowselected">
         rowSelected
         </a></code> event.</li>
             <li> Filter the data based on the selected record and bind the result to the Detail Grid`s <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#datasource">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property.</li>  
         </ul>
@@ -42,14 +42,14 @@
             <li>The <code>DetailComponent</code> has an <code>Input</code> property <code>key</code>, based on which 
             the data will be filtered and set to the Detail Grid. Here the <strong>CustomerID</strong> value is used as key value.</li>
             <li>Created an another vue component named <code>MasterComponent</code> which has Master Grid component with <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowselected">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowselected">
         rowSelected
         </a></code> event bound to it.</li>
             <li>The <code>MasterComponent</code> uses <code>DetailComponent</code> and it updates <code>key</code> property when a row is selected in the Master Grid.</li>
             <li>Now based on the key value, the data is filtered and the Detail Grid is updated with the filtered data.</li>
         </ul>
         <p>Use <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#selectedrowindex">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#selectedrowindex">
         selectedRowIndex
         </a></code> to select a row at the initial rendering.</p>
         <p style="font-weight: 500">Injecting Module</p>
@@ -80,35 +80,10 @@ ej-griddetail {
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, RowSelectEventArgs } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, RowSelectEventArgs } from "@syncfusion/ej2-vue-grids";
 import { customerData, data } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
-  data: () => {
-      var names = ['AROUT', 'BERGS', 'BLONP', 'CHOPS', 'ERNSH'];
-    return {
-      names: names,
-      data: customerData.filter((e: any) => names.indexOf(e.CustomerID) !== -1),
-      key: null
-    };
-  },
-  methods: {
-      onRowSelected: function (args: RowSelectEventArgs): void {
-        let record: any = args.data;
-        this.key = record.ContactName;
-    }
-  }
-});
-
-Vue.component('detailsGrid', {
-  props: ['selected'],
-  data: () => {
-    return {
-    };
-  },
+const detailsGrid = {
   template: `<div>
         <ejs-grid :dataSource='detailData' :allowSelection='false'>
             <e-columns>
@@ -120,11 +95,44 @@ Vue.component('detailsGrid', {
             </e-columns>
         </ejs-grid>
     </div>`,
+    props: ['selected'],
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+  },
+  data: () => {
+    return {
+    };
+  },
     computed: {
         detailData: function () : Object[] {
-            return data.filter((record: any) => record.CustomerName === this.selected).slice(0, 5);
+            return data.filter((record: any) => record.CustomerName === (this as GridComponent).selected).slice(0, 5);
         }
     }
-});
+};
+
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    detailsGrid
+  },
+  data: () => {
+      var names = ['AROUT', 'BERGS', 'BLONP', 'CHOPS', 'ERNSH'];
+    return {
+      names: names,
+      data: customerData.filter((e: any) => names.indexOf(e.CustomerID) !== -1),
+      key: null
+    };
+  },
+  methods: {
+      onRowSelected: function (args: RowSelectEventArgs): void {
+        let record: any = args.data;
+        (this as GridComponent).key = record.ContactName;
+    }
+  }
+};
 
 </script>

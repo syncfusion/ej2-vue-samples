@@ -80,25 +80,26 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
   ChangeEventArgs as checkEventArgs,
-  CheckBoxPlugin
+  CheckBoxComponent
 } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -141,33 +142,33 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function(args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (pivotObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
       }
     },
     checkbox_onFilter: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.groupingBarSettings.showFilterIcon = args.checked;
     },
     checkbox_onSort: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.groupingBarSettings.showSortIcon = args.checked;
     },
     checkbox_onRemove: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.groupingBarSettings.showRemoveIcon = args.checked;
     },
     checkbox_onValueType: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.groupingBarSettings.showValueTypeIcon = args.checked;
     }
   },
   provide: {
     pivotview: [GroupingBar]
   }
-});
+}
 </script>
 
 <style scoped>

@@ -187,7 +187,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    .uploader-preview..e-upload .e-upload-files .e-icons:not(.e-uploaded):hover{
+    .uploader-preview.e-upload .e-upload-files .e-icons:not(.e-uploaded):hover{
         background-color: #e6e6e6;
         border-color: #adadad;
         color: #333;
@@ -307,20 +307,22 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
 import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
 import { createElement, isNullOrUndefined, detach, EventHandler } from '@syncfusion/ej2-base';
 
-Vue.use(UploaderPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.jpg, .png',
@@ -497,5 +499,5 @@ export default Vue.extend({
             args.postRawFile = false;
         }
     }
-});
+}
 </script>

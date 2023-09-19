@@ -65,24 +65,26 @@
         }
 </style>
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
-import { Splitter } from '@syncfusion/ej2-layouts';
+import { createApp } from "vue";
+import { SplitterComponent, PanesDirective, PaneDirective } from '@syncfusion/ej2-vue-layouts';
 import paneContent from "./code-editor-pane.vue";
 import pane4Content from "./code-editor-pane4content.vue";
 
-Vue.use(SplitterPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-splitter': SplitterComponent,
+        'e-panes': PanesDirective,
+        'e-pane': PaneDirective
+    },
     data: function() {
         return {
             pane4Content: function () {
-                return { template : pane4Content }
+                return { template : createApp({}).component('pane4', pane4Content) }
             },
             paneContent: function () {
-                return { template : paneContent }
+                return { template : createApp({}).component('pane', paneContent) }
             }
         }
     }
-});
+};
 </script>

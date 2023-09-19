@@ -13,16 +13,16 @@
 <div id="template" style="display:none">
     <div class="toolback">
         <div class="listing2">
-            <center>
+            <span style="text-align: center;">
                 ${State}                                            
-            </center>
+            </span>
         </div>
         <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
         <div>
-            <center>  <span class="listing1">Inches : </span><span class="listing2">${inches}</span></center>
+            <span style="text-align: center;">  <span class="listing1">Inches : </span><span class="listing2">${inches}</span></span>
         </div> 
         <div>
-            <center>  <span class="listing1">Category : </span><span class="listing2">${value}</span> </center>
+            <span style="text-align: center;">  <span class="listing1">Category : </span><span class="listing2">${value}</span> </span>
         </div>
     </div>
 </div>
@@ -130,14 +130,18 @@
     
  </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data:function(){
       return{
         titleSettings: {
@@ -402,5 +406,5 @@ methods:{
         }
     }
 }
-})
+}
 </script>

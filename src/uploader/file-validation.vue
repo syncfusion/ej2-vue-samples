@@ -44,24 +44,21 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 
-Vue.use(UploaderPlugin);
-
-export default Vue.extend({
+export default {
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.doc, .docx, .xls, .xlsx',
           autoUpload: false
         }
     },
+    components: { 'ejs-uploader': UploaderComponent },
     methods: {
         onFileSelect: function(args) {
             args.filesData.splice(5);
@@ -83,5 +80,5 @@ export default Vue.extend({
             args.postRawFile = false;
         }
     }
-});
+};
 </script>

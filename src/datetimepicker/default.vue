@@ -21,17 +21,16 @@
 
 <script>
 
-import Vue from "vue";
-import { DateTimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DateTimePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DateTimePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a date and time"
     };
-  }
-});
+  },
+  components: { 'ejs-datetimepicker': DateTimePickerComponent }
+};
 </script>
 
 

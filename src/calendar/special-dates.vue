@@ -24,17 +24,16 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 import { addClass } from "@syncfusion/ej2-base";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       cssClass: "calendar-special-dates"
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     specialDate: function(args, name) {
       let span = document.createElement("span");
@@ -68,7 +67,7 @@ export default Vue.extend({
         "Selected Value: " + args.value.toLocaleDateString() + title;
     }
   }
-});
+};
 </script>
 
 <style scoped>

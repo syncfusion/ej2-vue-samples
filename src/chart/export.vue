@@ -1,60 +1,63 @@
 <template>
   <div>
-    <div class="col-md-8 control-section sb-property-border">
+    <div class="col-lg-9 control-section sb-property-border">
       <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :pointRender='pointRender'
-        :chartArea='chartArea' :width='width'>
+        :chartArea='chartArea' :width='width' :legendSettings='legendSettings'>
         <e-series-collection>
-          <e-series :dataSource='seriesData' type='Column' xName='Country' yName='GigaWatts' :marker='marker'>
+          <e-series :dataSource='seriesData' type='Column' xName='Country' yName='GigaWatts' :marker='marker' name='Measurements (in Gigawatt)'>
           </e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
-    <div>
-      <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+      <div class="col-lg-3 property-section">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px">
           <tr style="height: 50px">
-            <td>
+            <td style="width: 40%">
               <div>Export Type
               </div>
             </td>
-            <td>
-              <div>
+            <td  style="width: 60%;">
+              <div style="margin-left: -10px;">
                 <ejs-dropdownlist ref="dropdown" id='mode' :change='modeChange' :dataSource='exportdata' index=0
                   :width='exportwidth'></ejs-dropdownlist>
               </div>
             </td>
           </tr>
           <tr style="height: 50px">
-            <td>
+            <td style="width: 40%">
               <div>File Name</div>
             </td>
             <td>
-              <div class="e-float-input" style='margin-top: 0px;'>
-                <input type="text" requires="" value='Chart' id="fileName" />
+              <div style="margin-left: -10px; margin-top: -10px;" class="e-float-input">
+                <input style="width: 90px;" type="text" requires="" value='Chart' id="fileName" />
               </div>
             </td>
           </tr>
           <tr align='center'>
             <td>
-              <div>
-                <ejs-button id='togglebtn' @click.native='exportIcon' :iconCss='iconCss' cssClass="e-flat"
+              <div style="margin-left:50%;">
+                <ejs-button id='togglebtn' @click='exportIcon' :iconCss='iconCss'
                   isPrimary="true">Export</ejs-button>
               </div>
             </td>
           </tr>
         </table>
       </div>
-    </div>
     <div id="action-description">
       <p>
-        This example demonstrates how to save the chart as a PDF file and in image formats including JPEG, PNG, and SVG.
+        This sample demonstrates client-side exporting of the chart, enabling you to export its data to Excel, PDF, and CSV formats. Additionally, it allows you to save the chart in image formats such as JPEG, PNG, and SVG.
       </p>
     </div>
     <div id="description">
       <p>
-        By clicking on <b>Export</b> button, you can export the chart to the specific type using <code>ExportAsync</code> method. To be more precise, define parameters such as the export type and the file name while exporting.
+        In this example, you can see how the export functionality is configured. The rendered chart can be exported in JPEG, PNG, SVG, and PDF file types. Data from the chart can also be exported to Excel and CSV files.
       </p>
+          <p style="font-weight: 500"><b>Injecting Module</b></p>
+          <p>
+            Chart component features are segregated into individual feature-wise modules. To use export, we need to inject
+              <code>Export</code> module using <code>provide: { chart: [Export] }</code> method.
+          </p>
       <p>
         More information on the export can be found in this
         <a target="_blank"
@@ -101,23 +104,28 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { Button } from '@syncfusion/ej2-vue-buttons';
-import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
+import { ButtonComponent} from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import {
   pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
   pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors
 } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
-import { ChartPlugin, ColumnSeries, Category, Legend, Export, DataLabel } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, Export, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function () {
     return {
       theme: theme,
@@ -151,11 +159,11 @@ export default Vue.extend({
           width: 0
         }
       },
+      legendSettings: { visible: false },
       //Initializing Primary Y Axis
       primaryYAxis:
       {
-        title: 'Measurements (in Gigawatt)',
-        labelFormat: Browser.isDevice ? '{value}' : '{value}GW',
+        labelFormat: '{value}GW',
         minimum: 0,
         maximum: 40,
         interval: 10,
@@ -163,9 +171,9 @@ export default Vue.extend({
         majorGridLines: { width: 2 },
         majorTickLines: { width: 0 },
       },
-      width : Browser.isDevice ? '100%' : '75%',
+      width : Browser.isDevice ? '100%' : '95%',
       tooltip: {
-        enable: true
+        enable: false
       },
       marker: {
         dataLabel: {
@@ -181,10 +189,10 @@ export default Vue.extend({
           }
         }
       },
-      exportdata: ['JPEG', 'PNG', 'SVG', 'PDF'],
-      exportwidth: 120,
+      exportdata: ['JPEG', 'PNG', 'SVG', 'PDF', 'XLSX', 'CSV'],
+      exportwidth: 90,
       title: "Top 10 Countries Using Solar Power",
-      iconCss: 'e-icons e-export-icon',
+      iconCss: 'e-icons e-export icon',
     };
   },
   provide: {
@@ -247,5 +255,5 @@ export default Vue.extend({
 
   },
 
-});
+};
 </script>

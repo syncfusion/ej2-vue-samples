@@ -111,16 +111,18 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { extend, Internationalization } from '@syncfusion/ej2-base';
     import { scheduleData } from './datasource';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
     var instance = new Internationalization();
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
@@ -171,6 +173,6 @@
                 args.element.style.backgroundColor = categoryColor;
             },
         }
-    });
+    }
 
 </script>

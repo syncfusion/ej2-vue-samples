@@ -68,15 +68,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { workTimeRange } from './data-source';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(GanttPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
       return{
             data: workTimeRange,
@@ -147,5 +147,5 @@ export default Vue.extend({
           isTimeUpdated = false;
         }
     },
-});
+}
 </script>

@@ -140,9 +140,8 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -150,8 +149,8 @@ import {
   TextModel,
   LayoutOrientation
 } from "@syncfusion/ej2-vue-diagrams";
-import { CheckBox } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBox } from "@syncfusion/ej2-vue-inputs";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
 import {
   Node,
@@ -162,14 +161,17 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { hierarchicalTree } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
 let diagramInstance;
 let hSpacing;
 let vSpacing;
 let checkBoxObj;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -269,7 +271,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 //update the orientation of the Layout.
 function updatelayout(target, orientation) {

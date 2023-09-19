@@ -56,12 +56,15 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { SchedulePlugin, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
     import { extend } from '@syncfusion/ej2-base';
-    Vue.use(SchedulePlugin);
-
-    export default Vue.extend({
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 selectedDate: new Date(2021, 11, 15),
@@ -95,6 +98,6 @@
         provide: {
             schedule: [Month, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

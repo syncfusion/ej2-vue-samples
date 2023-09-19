@@ -195,12 +195,13 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(ToolbarPlugin);
-
-export default Vue.extend({
-  
-});
+export default {
+  components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+  }
+}
 </script>

@@ -179,19 +179,16 @@
 }
 </style>
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { kanbanPizzaData } from "./datasource";
 import cardTemplate from "./card.vue";
-import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-Vue.use(DatePickerPlugin);
-Vue.use(TextBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(KanbanPlugin);
-var ContentTemplate = Vue.component("dialogTemplate", {
+import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
+
+var ContentTemplate = createApp({}).component("dialogTemplate", {
   template: `<div>
 <table>
     <tbody>
@@ -238,6 +235,11 @@ var ContentTemplate = Vue.component("dialogTemplate", {
     </tbody>
 </table>
 </div>`,
+  components: {
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-datepicker': DatePickerComponent
+  },
   data() {
     var categoryData = [
       { text: "Menu" },
@@ -252,19 +254,24 @@ var ContentTemplate = Vue.component("dialogTemplate", {
     };
   },
 });
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+  },
   data: function () {
     return {
       kanbanData: extend([], kanbanPizzaData, null, true),
       cardSettings: {
         headerField: "Id",
         template: function () {
-          return { template: cardTemplate };
+          return { template: createApp({}).component('sortCardTemplate', cardTemplate) };
         },
       },
       dialogSettings: {
         template: function () {
-          return { template: ContentTemplate };
+          return { template: createApp({}).component('sortCardTemplate', ContentTemplate) };
         },
       },
       dialogClose: function (args) {
@@ -280,5 +287,5 @@ export default Vue.extend({
   provide: {
     kanban: [],
   },
-});
+};
 </script>

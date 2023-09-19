@@ -9,7 +9,6 @@
          "url": "overview",
          "name": "Overview",
          "category": "Gantt",
-	 "type": "new",
          "api": {
             "Gantt": [
                "dataSource",
@@ -45,7 +44,6 @@
          "url": "editing",
          "name": "Editing",
          "category": "Gantt",
-	 "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -155,6 +153,30 @@
             ]
          },
          "description": "This sample demonstrates the way of binding data to Gantt chart with remote service. The Gantt chart data source is bound to remote data using DataManager."
+      },
+      {
+         "url": "load-on-demand",
+         "name": "Load On Demand",
+         "type":"new",
+         "category": "Data Binding",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "includeWeekend",
+               "projectStartDate",
+               "projectEndDate"
+            ]
+         },
+         "description": "This sample demonstrates the load on-demand data binding support in Gantt Chart."
       },
       {
          "url": "self-reference-data",
@@ -703,6 +725,7 @@
       {
          "url": "tooltip-template",
          "name": "Tooltip Template",
+	 "hideOnDevice": true,
         "category": "Templates",
          "api": {
             "Gantt": [
@@ -798,6 +821,7 @@
       {
          "url": "exporting",
          "name": "Exporting",
+         "type": "update",
          "category": "Miscellaneous",
          "api": {
             "Gantt": [
@@ -941,6 +965,7 @@
       {
          "url": "keyboard-interactions",
          "name": "Keyboard Navigation",
+	 "hideOnDevice": true,
          "category": "Miscellaneous",
          "api": {
             "Gantt": [

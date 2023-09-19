@@ -53,12 +53,18 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { zooEventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], zooEventsData, null, true) },
@@ -82,6 +88,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

@@ -57,13 +57,11 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
+import { createApp } from "vue";
+import { SplitterComponent, PanesDirective, PaneDirective } from '@syncfusion/ej2-vue-layouts';
 import rightPaneContent from "./expand-collapse-content.vue";
 
-Vue.use(SplitterPlugin);
-
-var leftPaneContent = Vue.component("lpane1", {
+var leftPaneContent = {
   template: `<div class="content">
         <a href="https://www.syncfusion.com/ebooks/neuralnetworks" target="_blank">Neural Networks Using C# Succinctly</a>
         <p>Neural networks are an exciting field of software development used to calculate outputs from input data. 
@@ -82,18 +80,23 @@ var leftPaneContent = Vue.component("lpane1", {
       data: {}
     };
   }
-});
+};
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-splitter': SplitterComponent,
+        'e-panes': PanesDirective,
+        'e-pane': PaneDirective
+    },
     data: function() {
         return {
             leftPaneContent: function () {
-                return { template : leftPaneContent }
+                return { template : createApp({}).component('leftPane', leftPaneContent) }
             },
             rightPaneContent: function () {
-                return { template : rightPaneContent }
+                return { template : createApp({}).component('rightPane', rightPaneContent) }
             }
         }
     }
-});
+};
 </script>

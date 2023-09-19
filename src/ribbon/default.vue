@@ -3,7 +3,7 @@
     <div class="default-ribbon-container">
       <div id="ribbonContainer">
         <div id="ribbon">
-          <ejs-ribbon id="default" ref="defaultRibbon" :fileMenu="fileSettings" :launcherIconClick="launcherIconClicked">
+          <ejs-ribbon id="default" ref="defaultRibbon" :enablePersistence="true" :fileMenu="fileSettings" :launcherIconClick="launcherIconClicked">
             <e-ribbon-tabs>
               <e-ribbon-tab header="Home">
                 <e-ribbon-groups>
@@ -39,18 +39,28 @@
                       </e-ribbon-collection>
                       <e-ribbon-collection>
                         <e-ribbon-items>
+                          <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonMultiple"></e-ribbon-item>
                           <e-ribbon-item type="ColorPicker" :displayOptions="colorPickerDisplayMode" allowedSizes="Small" :colorPickerSettings="colorPicker" >
                           </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="boldButton" >
+                        </e-ribbon-items>
+                      </e-ribbon-collection>
+                    </e-ribbon-collections>
+                  </e-ribbon-group>
+                  <e-ribbon-group header="Paragraph" orientation="Row" groupIconCss="e-icons e-align-center" >
+                    <e-ribbon-collections>
+                      <e-ribbon-collection>
+                        <e-ribbon-items>
+                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="decreaseIndent">
                           </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="italicButton">
+                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="increaseIndent">
                           </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="underlineButton" >
+                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="paragraphBtn">
                           </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="strikethroughButton">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="caseButton" >
-                          </e-ribbon-item>
+                        </e-ribbon-items>
+                      </e-ribbon-collection>
+                      <e-ribbon-collection>
+                        <e-ribbon-items>
+                          <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonSingle"></e-ribbon-item>
                         </e-ribbon-items>
                       </e-ribbon-collection>
                     </e-ribbon-collections>
@@ -240,26 +250,33 @@
         <p>This sample showcases the basic ribbon features with all its item types.</p>
       </div>
       <div id="description">
-        <p>The ribbon organizes the application's features and functions into tabs and groups for easy navigation. The ribbon supports different types of built-in items such as buttons, drop-down buttons, split buttons, combo boxes, checkboxes, and color pickers.</p>
+        <p>The ribbon organizes the application's features and functions into tabs and groups for easy navigation. The ribbon supports different types of built-in items such as buttons, groupbutton, drop-down buttons, split buttons, combo boxes, checkboxes, and color pickers.</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Vue from "vue";
-  import { RibbonFileMenu, RibbonItemSize, RibbonPlugin, RibbonColorPicker, DisplayMode } from "@syncfusion/ej2-vue-ribbon";
-  import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-  import { ToastPlugin, ToastUtility } from '@syncfusion/ej2-vue-notifications';
-  import { Query } from '@syncfusion/ej2-data';
-
-  Vue.use(RibbonPlugin);
-  Vue.use(ListViewPlugin);
-  Vue.use(ToastPlugin);
-
+  import { RibbonComponent, RibbonTabsDirective, RibbonTabDirective, RibbonCollectionsDirective, RibbonCollectionDirective, RibbonGroupsDirective, RibbonGroupDirective, RibbonItemsDirective, RibbonItemDirective, RibbonColorPicker, DisplayMode, RibbonGroupButtonSelection} from '@syncfusion/ej2-vue-ribbon';
+  import { RibbonFileMenu, RibbonItemSize } from '@syncfusion/ej2-vue-ribbon';
+  import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
+  import { ToastUtility } from '@syncfusion/ej2-vue-notifications';
+  
   var isPasteDisabled = true;
 
 export default {
+  components: {
+    'ejs-ribbon': RibbonComponent,
+    'e-ribbon-collection': RibbonCollectionDirective,
+    'e-ribbon-collections': RibbonCollectionsDirective,
+    'e-ribbon-item': RibbonItemDirective,
+    'e-ribbon-items': RibbonItemsDirective,
+    'e-ribbon-group': RibbonGroupDirective,
+    'e-ribbon-groups': RibbonGroupsDirective,
+    'e-ribbon-tab': RibbonTabDirective,
+    'e-ribbon-tabs': RibbonTabsDirective,
+    'ejs-listview': ListViewComponent
+  },
   name: "App",
   provide: {
     ribbon: [RibbonFileMenu, RibbonColorPicker]
@@ -284,9 +301,29 @@ export default {
         ],
         select:(args) => { this.selectMenuItem(args) }
       },
+      groupButtonMultiple: {
+        selection: RibbonGroupButtonSelection.Multiple, 
+        items: [{ iconCss: 'e-icons e-bold', content: 'Bold', selected: true, click: () => { this.updateContent("Bold") } }, 
+        {iconCss: 'e-icons e-italic', content: 'Italic', click: () => { this.updateContent("Italic") }}, 
+        {iconCss: 'e-icons e-underline', content: 'Underline', click: () => { this.updateContent("Underline") }}, 
+        {iconCss: 'e-icons e-strikethrough', content: 'Strikethrough', click: () => { this.updateContent("Strikethrough") }}, 
+        {iconCss: 'e-icons e-change-case', content: 'Change Case', click: () => { this.updateContent("Change Case") }}]
+      },
+      decreaseIndent: { iconCss: "e-icons e-decrease-indent", clicked: () => { this.updateContent("Decrease Indent"); } },
+      increaseIndent: { iconCss: "e-icons e-increase-indent", clicked: () => { this.updateContent("Increase Indent"); } },
+      paragraphBtn: { iconCss: "e-icons e-paragraph", clicked: () => { this.updateContent("Paragraph Mark"); } },
+      groupButtonSingle: { 
+        selection: RibbonGroupButtonSelection.Single, 
+        items: [
+          {iconCss: 'e-icons e-align-left', selected: true, click: () => { this.updateContent("Align Left") }},
+          {iconCss: 'e-icons e-align-center', click: () => { this.updateContent("Align Center") }}, 
+          {iconCss: 'e-icons e-align-right', click: () => { this.updateContent("Align Right") }}, 
+          {iconCss: 'e-icons e-justify', click: () => { this.updateContent("Justify") }}
+        ]
+      },
       pasteSettigs:{ 
         iconCss: 'e-icons e-paste', content: 'Paste',
-        items: [{ text: "Keep Source Format" }, { text: "Merge format" }, { text: "Keep text only" }],
+        items: [{ text: "Keep Source Format" }, { text: "Merge Format" }, { text: "Keep Text Only" }],
         select:(args) => { this.updateContent( "Paste -> " + args.item.text) },
         click: () => { this.updateContent("Paste"); }
       },
@@ -298,7 +335,7 @@ export default {
         index: 3,
         width: "150px",
         allowFiltering: true,
-        change:(args) => { this.updateContent( "Font Style -> " + args.itemData.text)}
+        change:(args) => { if (args.itemData) { this.updateContent( "Font Style -> " + args.itemData.text) } }
       },
       sizeOptions: {
         dataSource: ["8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", "96" ],
@@ -306,7 +343,7 @@ export default {
         width: "65px",
         popupWidth: '85px',
         allowFiltering: true,
-        change:(args) => { this.updateContent( "Font Size -> " + args.itemData.text)}
+        change:(args) => { if (args.itemData) { this.updateContent( "Font Size -> " + args.itemData.text) } }
       },
       boldButton:  { iconCss: "e-icons e-bold", content: "Bold", isToggle: "true", clicked: () => { this.updateContent("Bold") } },
       italicButton:  { iconCss: "e-icons e-italic", content: "Italic", isToggle: "true", clicked: () => { this.updateContent("Italic") } },
@@ -546,7 +583,7 @@ export default {
       font-style: normal;
   }
 
-  [class^="sf-icon-"], [class*=" sf-icon-"] {
+  .default-ribbon-container [class^="sf-icon-"], .default-ribbon-container [class*=" sf-icon-"] {
       font-family: 'ribbon' !important;
       speak: none;
       font-style: normal;
@@ -558,59 +595,59 @@ export default {
       -moz-osx-font-smoothing: grayscale;
   }
 
-  .sf-icon-3d-model:before {
+  .default-ribbon-container .sf-icon-3d-model:before {
       content: "\e700";
   }
 
-  .sf-icon-shapes:before {
+  .default-ribbon-container .sf-icon-shapes:before {
       content: "\e701";
   }
 
-  .sf-icon-dictate:before {
+  .default-ribbon-container .sf-icon-dictate:before {
       content: "\e702";
   }
 
-  .sf-icon-chart:before {
+  .default-ribbon-container .sf-icon-chart:before {
       content: "\e703";
   }
 
-  .sf-icon-screenshot:before {
+  .default-ribbon-container .sf-icon-screenshot:before {
       content: "\e704";
   }
 
-  .sf-icon-smart-art:before {
+  .default-ribbon-container .sf-icon-smart-art:before {
       content: "\e706";
   }
 
-  .sf-icon-share:before {
+  .default-ribbon-container .sf-icon-share:before {
       content: "\e707";
   }
 
-  .sf-icon-read:before {
+  .default-ribbon-container .sf-icon-read:before {
       content: "\e708";
   }
 
-  .sf-icon-web-layout:before {
+  .default-ribbon-container .sf-icon-web-layout:before {
       content: "\e709";
   }
 
-  .sf-icon-mode:before {
+  .default-ribbon-container .sf-icon-mode:before {
       content: "\e70b";
   }
 
-  .sf-icon-draft:before {
+  .default-ribbon-container .sf-icon-draft:before {
       content: "\e70c";
   }
 
-  .sf-icon-reuse:before {
+  .default-ribbon-container .sf-icon-reuse:before {
       content: "\e70f";
   }
 
-  .sf-icon-editor:before {
+  .default-ribbon-container .sf-icon-editor:before {
       content: "\e70a";
   }
 
-  .sf-icon-word:before {
+  .default-ribbon-container .sf-icon-word:before {
       content: "\e70d";
   }
 </style>

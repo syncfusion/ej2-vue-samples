@@ -361,11 +361,12 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(ToolbarPlugin);
+import { createApp } from "vue";
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-var Template1 = Vue.component("demo", {
+const app = createApp();
+
+var Template1 = app.component("demo-1", {
   template: '<div class="e-tool-name">' + new Date().toLocaleString('en-us', { month: 'long' }) + ' ' + new Date().getFullYear() + '</div>',
   data() {
     return {
@@ -374,7 +375,12 @@ var Template1 = Vue.component("demo", {
   }
 });
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-toolbar': ToolbarComponent,
+        'e-item': ItemDirective,
+        'e-items': ItemsDirective
+    },
     data: function(){
         return {
             vueTemplate: function () {
@@ -384,5 +390,5 @@ export default Vue.extend({
             }
         }
    }
-});
+}
 </script>

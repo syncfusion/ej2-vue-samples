@@ -162,9 +162,6 @@
                     content: "\e71e";
             }
             
-            .e-file-select-wrap {
-                    display: none;
-                }
 
                 .e-btn, .e-css.e-btn {
                 background-color: transparent ;
@@ -298,16 +295,16 @@
 </style>
 
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   UndoRedo,
   ConnectorModel,
   PointPortModel,
   Connector,
-  SymbolPalettePlugin,
+  SymbolPaletteComponent,
   PrintAndExport,
   IExportOptions,
   NodeConstraints,
@@ -316,19 +313,16 @@ import {
   DiagramTools,
   GridlinesModel
 } from "@syncfusion/ej2-vue-diagrams";
-import { Uploader, UploaderPlugin } from "@syncfusion/ej2-vue-inputs";
+import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import {
-  ToolbarPlugin,
+  ToolbarComponent,
+  ItemsDirective,
+  ItemDirective,
   Toolbar,
   ClickEventArgs
 } from "@syncfusion/ej2-vue-navigations";
-import { SplitButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { SplitButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 
-Vue.use(SplitButtonPlugin);
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(UploaderPlugin);
 let isMobile;
 let interval;
 
@@ -632,7 +626,16 @@ let connectorSymbols = [
   }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent,
+    'ejs-uploader': UploaderComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-splitbutton': SplitButtonComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -837,9 +840,12 @@ export default Vue.extend({
       drawingObject : { type : 'Orthogonal'},
       exportImage: function() {
         return {
-          template: Vue.component("export", {
+          template: createApp({}).component("export", {
             template:
               ' <ejs-splitbutton :items="items" iconCss="e-export e-icons" :select="exportOptions"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 items : [
@@ -864,9 +870,12 @@ export default Vue.extend({
       },
       drawConnector: function() {
         return {
-          template: Vue.component("drawConnector", {
+          template: createApp({}).component("drawConnector", {
             template:
               '<ejs-splitbutton :items ="conTypeItems" iconCss="e-ddb-icons e-connector e-icons" :select="onConnectorSelect"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 conTypeItems : [
@@ -889,9 +898,12 @@ export default Vue.extend({
       },
       drawShapes: function() {
         return {
-          template: Vue.component("drawShapes", {
+          template: createApp({}).component("drawShapes", {
             template:
               '<ejs-splitbutton :items="shapesItems" iconCss="e-shapes e-icons" :select="onShapesSelect"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 shapesItems : [
@@ -914,9 +926,12 @@ export default Vue.extend({
       },
       alignObjects: function() {
         return {
-          template: Vue.component("alignObjects", {
+          template: createApp({}).component("alignObjects", {
             template:
               '<ejs-splitbutton :items="alignItems" iconCss="sf-diagram-icon-align-center-1" :select="onSelectAlignObjects"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 alignItems : [
@@ -953,9 +968,12 @@ export default Vue.extend({
       },
        distributeObjects: function() {
         return {
-          template: Vue.component("distributeObjects", {
+          template: createApp({}).component("distributeObjects", {
             template:
               '<ejs-splitbutton :items="distributeItems" iconCss="sf-diagram-icon-distribute-vertical" :select="onSelectDistributeObjects"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 distributeItems : [
@@ -978,9 +996,12 @@ export default Vue.extend({
       },
       orderCommands: function() {
         return {
-          template: Vue.component("orderCommands", {
+          template: createApp({}).component("orderCommands", {
             template:
               '<ejs-splitbutton :items="orderItems" iconCss="e-icons e-order" :select="onSelectOrder"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 orderItems : [
@@ -1013,9 +1034,12 @@ export default Vue.extend({
       },
       groupUngroup: function() {
         return {
-          template: Vue.component("groupUngroup", {
+          template: createApp({}).component("groupUngroup", {
             template:
               '<ejs-splitbutton :items="groupItems" iconCss="e-icons e-group-1" :select="onSelectGroup"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 groupItems : [
@@ -1038,9 +1062,12 @@ export default Vue.extend({
       },
       rotateObjects: function() {
         return {
-          template: Vue.component("rotateObjects", {
+          template: createApp({}).component("rotateObjects", {
             template:
               '<ejs-splitbutton :items="rotateItems" iconCss="e-icons e-repeat" :select="onSelectRotate"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 rotateItems : [
@@ -1063,9 +1090,12 @@ export default Vue.extend({
       },
       flipObjects: function() {
         return {
-          template: Vue.component("flipObjects", {
+          template: createApp({}).component("flipObjects", {
             template:
               '<ejs-splitbutton :items="flipItems" iconCss="e-icons e-flip-horizontal" :select="onSelectFlip"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 flipItems : [
@@ -1082,9 +1112,12 @@ export default Vue.extend({
       },
       zoomDiagram: function() {
         return {
-          template: Vue.component("zoomDiagram", {
+          template: createApp({}).component("zoomDiagram", {
             template:
               '<ejs-splitbutton id="btnZoom" :items="zoomMenuItems" content="100%" :select="zoomChange"></ejs-splitbutton>',
+              components: {
+                'ejs-splitbutton': SplitButtonComponent
+              },
               data() {
                 return{
                 zoomMenuItems : [
@@ -1185,7 +1218,7 @@ export default Vue.extend({
     let diagram = this.$refs.diagramObject.ej2Instances;
     diagram.fitToPage();
   }
-});
+};
 
 function getPorts() {
   let ports = [

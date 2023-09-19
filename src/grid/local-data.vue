@@ -20,7 +20,7 @@
      <div id="description">
         <p>The Grid supports data binding. 
         The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/documentation/grid/api-grid.html#datasource">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property can be assigned either with the array of JavaScript objects or instance of <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
@@ -35,13 +35,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -51,5 +53,5 @@ export default Vue.extend({
   provide : {
       grid: [Page]
   }
-});
+}
 </script>

@@ -105,14 +105,16 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin,Page, Edit, Sort, Filter, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Edit, Sort, Filter, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 import { Browser } from "@syncfusion/ej2-base";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -126,11 +128,11 @@ export default Vue.extend({
   },
   methods: {
     load: function() {
-        (this.$refs.treegrid as any).$el.ej2_instances[0].grid.adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
+        ((this as any).$refs.treegrid as any).$el.ej2_instances[0].grid.adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
     }
   },
   provide: {
       treegrid: [Page, Edit, Sort, Filter, Toolbar]
   }
-});
+}
 </script>

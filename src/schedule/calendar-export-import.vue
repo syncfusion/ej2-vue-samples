@@ -22,7 +22,7 @@
                             <div>Export as iCalendar</div>
                         </td>
                         <td style="width: 50%;">
-                            <ejs-button id='ics-export' v-on:click.native="onClick">Export</ejs-button>
+                            <ejs-button id='ics-export' v-on:click="onClick">Export</ejs-button>
                         </td>
                     </tr>
                     <tr style="height: 50px">
@@ -81,17 +81,20 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, ICalendarExport, ICalendarImport, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, Agenda, ICalendarExport, ICalendarImport, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    Vue.use(UploaderPlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-uploader': UploaderComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
@@ -119,6 +122,5 @@
                 scheduleObj.importICalendar(args.event.target.files[0]);
             }
         }
-    });
-
+    }
 </script>

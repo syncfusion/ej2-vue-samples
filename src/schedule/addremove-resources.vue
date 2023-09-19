@@ -108,20 +108,25 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
     import { holidayData, birthdayData, companyData, personalData } from './datasource';
-    import { SchedulePlugin, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-
+    import { ScheduleComponent, ResourcesDirective, ResourceDirective, ViewsDirective, ViewDirective, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    
     var calendarCollections = [
         { CalendarText: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
         { CalendarText: 'Company', CalendarId: 2, CalendarColor: '#ff7f50' },
         { CalendarText: 'Birthday', CalendarId: 3, CalendarColor: '#AF27CD' },
         { CalendarText: 'Holiday', CalendarId: 4, CalendarColor: '#808000' }
     ];
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 cssClass: 'schedule-add-remove-resources',
@@ -159,6 +164,6 @@
             }
 
         }
-    });
+    }
 
 </script>

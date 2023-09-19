@@ -31,13 +31,10 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
-import * as dataSource from './data-source.json';
+import { QueryBuilderComponent, ColumnsDirective, ColumnDirective} from "@syncfusion/ej2-vue-querybuilder";
+import dataSource from './data-source.json';
 
-Vue.use(QueryBuilderPlugin);
-
-export default Vue.extend({
+export default {
     data: function() {
         return {
             dataSource: dataSource.complexData,
@@ -96,6 +93,11 @@ export default Vue.extend({
                 { field: 'Name', label: 'Name', type: 'string'}
             ],
         };
+    },
+    components: { 
+        'ejs-querybuilder': QueryBuilderComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective
     }
-});
+};
 </script>

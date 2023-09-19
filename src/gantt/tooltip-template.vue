@@ -26,12 +26,11 @@
     <table>
         <template v-if="data.ganttProperties.resourceNames">
         <tr>
-            <td rowspan="3" style="padding:3px"><img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'" height="40px" /></td>
+            <td rowspan="3" style="padding:3px"><img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'" style="height: 40px;" /></td>
             <td style="padding:3px">Task done By:</td>
             <td style="padding:3px">{{data.ganttProperties.resourceNames}}</td>
         </tr>
         </template>
-        <template>
         <tr>
             <td style="padding:3px">Starts On:</td>
             <td style="padding:3px">{{format(data.StartDate)}}</td>
@@ -40,7 +39,6 @@
             <td style="padding:3px">Ends On:</td>
             <td style="padding:3px">{{format(data.EndDate)}}</td>
         </tr>
-        </template>
     </table>
     </div>
 </template>
@@ -90,13 +88,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { tooltipData, editingResources } from './data-source';
 import BaselineTemplate from "./tooltip-temp-baseline.vue";
 import TaskbarTemplate from "./tooltip-temp-taskbar.vue";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: tooltipData,
@@ -155,5 +155,5 @@ export default Vue.extend({
                 return this.$refs.gantt.getFormatedDate(value, 'd/M/y');
             }
   }
-});
+}
 </script>

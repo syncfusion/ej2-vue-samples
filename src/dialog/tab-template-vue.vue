@@ -2,11 +2,31 @@
     <div class="dialogContent">
       <ejs-tab id="tab_default">
             <e-tabitems>
-                <e-tabitem :header='headerText0' :content='GridTemplate'></e-tabitem>
-                <e-tabitem :header='headerText1' :content='ScheduleTemplate'></e-tabitem>
-                <e-tabitem :header='headerText2' :content='ChartTemplate'></e-tabitem>
-                <e-tabitem :header='headerText3' :content='RichTextEditorTemplate'></e-tabitem>
-                <e-tabitem :header='headerText4' :content='FormsTemplate'></e-tabitem>
+                <e-tabitem :header='headerText0' :content="'GridTemplate'">
+                  <template v-slot:GridTemplate>
+                    <GridTemplateVue />
+                  </template>
+                </e-tabitem>
+                <e-tabitem :header='headerText1' :content="'ScheduleTemplate'">
+                  <template v-slot:ScheduleTemplate>
+                    <ScheduleTemplateVue />
+                  </template>
+                </e-tabitem>
+                <e-tabitem :header='headerText2' :content="'ChartTemplate'">
+                  <template v-slot:ChartTemplate>
+                    <ChartTemplateVue />
+                  </template>
+                </e-tabitem>
+                <e-tabitem :header='headerText3' :content="'RichTextEditorTemplate'">
+                  <template v-slot:RichTextEditorTemplate>
+                    <RichTextEditorTemplateVue />
+                  </template>
+                </e-tabitem>
+                <e-tabitem :header='headerText4' :content="'FormsTemplate'">
+                  <template v-slot:FormsTemplate>
+                    <FormsTemplateVue />
+                  </template>
+                </e-tabitem>
             </e-tabitems>
         </ejs-tab>
   </div>
@@ -24,49 +44,34 @@
   
 </style>
 <script>
-import Vue from "vue";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TabComponent, TabItemDirective, TabItemsDirective } from "@syncfusion/ej2-vue-navigations";
 import GridTemplateVue from "./grid-template-vue.vue";
 import ScheduleTemplateVue from "./schedule-template-vue.vue";
 import ChartTemplateVue from "./chart-template-vue.vue";
 import RichTextEditorTemplateVue from "./richtexteditor-template-vue.vue";
 import FormsTemplateVue from "./forms-template-vue.vue";
-Vue.use(TabPlugin);
+
  export default {
-   data: function(){
-        return {
-           headerText0: { text: "Grid"},
-           headerText1: { text: "Scheduler"}, 
-           headerText2: { text: "Chart" },
-           headerText3: { text: "Rich Text Editor" },
-           headerText4: { text: "Forms" },
-           GridTemplate: function () {
-        return {
-          template: GridTemplateVue
-        }
-      },
-      ScheduleTemplate: function () {
-        return {
-          template: ScheduleTemplateVue
-        }
-      },
-       ChartTemplate: function () {
-        return {
-          template: ChartTemplateVue
-        }
-      },
-      RichTextEditorTemplate: function () {
-        return {
-          template: RichTextEditorTemplateVue
-        }
-      },
-      FormsTemplate: function () {
-        return {
-          template: FormsTemplateVue
-        }
-      }
-              }
+   components: {
+    'ejs-tab': TabComponent,
+    'e-tabitem': TabItemDirective,
+    'e-tabitems': TabItemsDirective,
+    GridTemplateVue,
+    ScheduleTemplateVue,
+    ChartTemplateVue,
+    RichTextEditorTemplateVue,
+    FormsTemplateVue
    },
+   data: function(){
+    return {
+      headerText0: { text: "Grid"},
+      headerText1: { text: "Scheduler"}, 
+      headerText2: { text: "Chart" },
+      headerText3: { text: "Rich Text Editor" },
+      headerText4: { text: "Forms" },
+
+    }
+  }
   
 }
 </script>

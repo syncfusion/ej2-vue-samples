@@ -31,11 +31,13 @@
 </div>  
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
 import { CarSales } from '../treemap/treemap-data/car-sale';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -93,5 +95,5 @@ methods:{
 provide:{
     treemap:[TreeMapTooltip, TreeMapLegend]
 }
-})
+}
 </script>

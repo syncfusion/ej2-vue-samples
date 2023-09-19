@@ -64,12 +64,18 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import {  CircularGaugePlugin } from "@syncfusion/ej2-vue-circulargauge";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(CircularGaugePlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-circulargauge";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+    components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective,
+        'e-pointers': PointersDirective,
+        'e-pointer': PointerDirective,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function () {
         return {
             radius: '70%',
@@ -152,7 +158,7 @@ export default Vue.extend({
             args.text = value[args.value];
         }
     }
-})
+}
 </script>
 
 <style scoped>

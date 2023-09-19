@@ -54,7 +54,7 @@
                 cssClass="e-flat"
                 :isPrimary="true"
                 :isToggle="true"
-                v-on:click.native="btnClick"
+                v-on:click="btnClick"
                 :content ="contentValue"
               >Play</ejs-button>
             </div>
@@ -75,9 +75,9 @@
         </div>
       </div>
     </div>
-    <div
-      id="action-description"
-    >This sample demonstrates the default functionalities of the Button with different types and predefined styles.</div>
+    <div id="action-description">
+      <p>This sample demonstrates the default functionalities of the Button with different types and predefined styles.</p>
+    </div>
     <div id="description">
       <p>Button is a graphical user interface element that triggers an event on click action. It contains the text, an image, or both.</p>
       <p>
@@ -162,12 +162,12 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-button': ButtonComponent
+  },
   data: function () {
     return {
       content: "Play",
@@ -203,5 +203,5 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>

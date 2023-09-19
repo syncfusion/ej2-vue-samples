@@ -51,15 +51,22 @@
 <script>
 import Vue from "vue";
 import {
-  MapsPlugin,
+  MapsComponent,
+  LayersDirective,
+  LayerDirective,
   Marker,
   MapsTooltip,
   MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
 import { salesmapdata } from "../maps/map-data/marker-location";
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data: function() {
     return {
       useGroupingSeparator: true,
@@ -125,5 +132,5 @@ export default Vue.extend({
     }
   }
   /* custom code end */
-});
+};
 </script>

@@ -90,22 +90,18 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
-import { RichTextEditorPlugin, Link, Image, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { createApp } from "vue";
+import mitt from "mitt";
+import { SplitterComponent, PanesDirective, PaneDirective } from '@syncfusion/ej2-vue-layouts';
+import { RichTextEditorComponent, Link, Image, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import pane1Content from "./outlook-pane1-content.vue";
 import pane2Content from "./outlook-pane2-content.vue";
 
 let rteobj = undefined;
 
-Vue.use(TextBoxPlugin);
-Vue.use(RichTextEditorPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(SplitterPlugin);
-
-var pane3Content = Vue.component("pane3", {
+var pane3Content = {
   template: `<div>
     <div style="width: 100%; padding: 15px;">
         <table>
@@ -133,13 +129,18 @@ var pane3Content = Vue.component("pane3", {
         </div>
     </div>
 </div>`,
+  components: {
+    'ejs-richtexteditor': RichTextEditorComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-textbox': TextBoxComponent
+  },
   data() {
     return {
       isPrimary: true
     };
   },
     mounted() {
-        bus.$emit("rteInst", this.$refs.rteInstance);
+        bus.emit("rteInst", this.$refs.rteInstance);
         this.$nextTick(function () {
             this.$refs.rteInstance.refreshUI();
              rteobj =  this.$refs.rteInstance;
@@ -148,21 +149,26 @@ var pane3Content = Vue.component("pane3", {
     provide:{
         richtexteditor:[Link, Image, HtmlEditor, Toolbar]
     }
-});
+};
 
-var bus = new Vue({});
+var bus = mitt();
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-splitter': SplitterComponent,
+        'e-panes': PanesDirective,
+        'e-pane': PaneDirective
+    },
     data: function() {
         return {
             pane1Content: function () {
-                return { template : pane1Content }
+                return { template : createApp({}).component('pane1', pane1Content) }
             },
             pane2Content: function () {
-                return { template : pane2Content }
+                return { template : createApp({}).component('pane2', pane2Content) }
             },
             pane3Content: function () {
-                return { template : pane3Content }
+                return { template : createApp({}).component('pane3', pane3Content) }
             }
         }
     },
@@ -171,5 +177,5 @@ export default Vue.extend({
             rteobj.refreshUI();
         }
     }
-});
+};
 </script>

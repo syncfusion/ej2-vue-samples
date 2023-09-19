@@ -41,7 +41,7 @@
                 Also, the colors defined at the last level resources will get applied to the events of those resources by default. In case,
                 if the colors of parent level needs to be applied to child events, then it is necessary to define the
                 <code>resourceColorField</code> option within the
-                <code>eventSettings</code> property with the parent level resource name value.
+                <code>eventSettings</code> property with the parent level resource name value.
             </p>
         </div>
     </div>
@@ -57,12 +57,16 @@
 </style>
 
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { resourceTeamData } from './datasource';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ResourceDirective, ResourcesDirective, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -93,6 +97,6 @@
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

@@ -47,19 +47,16 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-    Vue.use(TextBoxPlugin);
+    import { MaskedTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-    import { MaskedTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-    Vue.use(MaskedTextBoxPlugin);
-    export default Vue.extend({
+    export default {
         data: function () {
             return {
                 mask: "Enter a value",
                 value: null
             };
-        }
-    });
+        },
+        components: { 'ejs-maskedtextbox': MaskedTextBoxComponent },
+    };
 
 </script>

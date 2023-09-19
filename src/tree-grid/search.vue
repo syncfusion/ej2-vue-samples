@@ -68,15 +68,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Filter, TreeGridComponent, Toolbar } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Filter, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -96,9 +98,9 @@ export default Vue.extend({
     },
    methods:{
        onChange: function(e: ChangeEventArgs): void {
-        this.searchSettings = { hierarchyMode: <any>e.value };
-        (<TreeGridComponent>this.$refs.treegrid).search('');
+        (this as any).searchSettings = { hierarchyMode: <any>e.value };
+        ((this as any).$refs.treegrid).search('');
     }
   }
-});
+}
 </script>

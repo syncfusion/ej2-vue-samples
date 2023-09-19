@@ -18,7 +18,7 @@
           <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
             <img
               :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
-              height="40px" />
+              style="height: 40px;" />
             <div style="display:inline-block;width:100%;position:relative;">
               {{data.ganttProperties.resourceNames}}</div>
           </div>
@@ -38,15 +38,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { GanttPlugin, Selection } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, ColumnDirective, ColumnsDirective, Selection } from "@syncfusion/ej2-vue-gantt";
 import { templateData, editingResources } from './data-source';
 import columntempVue from "./column-temp.vue";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 
-Vue.use(GanttPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
            data: templateData,
@@ -103,5 +105,5 @@ export default Vue.extend({
         }
       }
     }
-  });
+  }
 </script>

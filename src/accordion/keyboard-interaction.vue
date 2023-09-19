@@ -263,12 +263,14 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { AccordionPlugin } from "@syncfusion/ej2-vue-navigations";
+import { AccordionComponent, AccordionItemDirective, AccordionItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(AccordionPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accordion': AccordionComponent,
+    'e-accordionitem': AccordionItemDirective,
+    'e-accordionitems': AccordionItemsDirective
+  },
   mounted: function () {
     document.body.addEventListener('keydown', (e) => {
       if (e.altKey && e.keyCode === 74 && this.$refs.Accordion_Obj) {
@@ -276,5 +278,5 @@ export default Vue.extend({
       }
     });
   },
-});
+}
 </script>

@@ -55,16 +55,16 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import {
-  AccumulationChartPlugin,
+  AccumulationChartComponent,
+  AccumulationSeriesCollectionDirective,
+  AccumulationSeriesDirective,
   AccumulationTooltip,
   FunnelSeries,
   AccumulationLegend,
   AccumulationDataLabel
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(AccumulationChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -72,7 +72,12 @@ let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -122,5 +127,5 @@ export default Vue.extend({
       this.$refs.funnel.ej2Instances.refreshChart();
     });
   }
-});
+};
 </script>

@@ -66,7 +66,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button v-on:click.native="getValue" class="btn btn-default" id="getVal">Get Value</ejs-button>
+                            <ejs-button v-on:click="getValue" class="btn btn-default" id="getVal">Get Value</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -74,7 +74,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button v-on:click.native="getSelection" class="btn btn-default" id="selectHtml">Get Selection</ejs-button>
+                            <ejs-button v-on:click="getSelection" class="btn btn-default" id="selectHtml">Get Selection</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -82,7 +82,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button v-on:click.native="selectAll" class="btn btn-default" id="selectall">Select All </ejs-button>
+                            <ejs-button v-on:click="selectAll" class="btn btn-default" id="selectall">Select All </ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -126,18 +126,18 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
-import { CheckBoxPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { CheckBoxComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-
-Vue.use(RichTextEditorPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(NumericTextBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: 
+    {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-checkbox': CheckBoxComponent,
+      'ejs-button': ButtonComponent,
+      'ejs-numerictextbox': NumericTextBoxComponent
+    },
     data: function() {
         return {
             showCharCount: true,
@@ -177,5 +177,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar]
     }
-});
+}
 </script>

@@ -56,12 +56,18 @@
 </style>
 
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { scheduleData, timelineData } from './datasource';
-    import { SchedulePlugin, TimelineMonth, TimelineViews, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, TimelineMonth, TimelineViews, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+   
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-datepicker': DatePickerComponent
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -80,5 +86,5 @@
                 this.selectedDate = args.value;
             }
         }
-    });
+    }
 </script>

@@ -141,10 +141,14 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations, Gradient } from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, Annotations, Gradient } from "@syncfusion/ej2-vue-circulargauge";
+
+export default {
+   components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective
+   },
    data:function(){
     return{
         majorTicks: {
@@ -285,6 +289,6 @@ export default Vue.extend({
             /* custom code end */
         }
     }
-})
+}
 </script>
 

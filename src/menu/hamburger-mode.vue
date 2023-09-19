@@ -49,7 +49,7 @@
 </div>
 </div>
 </template>
-<style scoped>
+<style>
     /**
     * ej2 Menu styles customization
     */
@@ -94,7 +94,7 @@
     .fluent-dark .e-menu-wrapper.e-lib.e-keyboard {
         background-color: black;
     }
-    
+
     .material3-dark .e-menu-wrapper.e-hamburger.e-lib.e-keyboard {
         background: #1c1b1f;
         border-radius: 0;
@@ -153,18 +153,18 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { MenuComponent } from "@syncfusion/ej2-vue-navigations";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as dataSource from './menu-data.json';
 // custom code start
 import { Browser, select } from '@syncfusion/ej2-base';
 // custom code end
 
-Vue.use(MenuPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-menu': MenuComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
             hamburgerMode: true,
@@ -209,5 +209,5 @@ export default Vue.extend({
         },
         // custom code end
     }
-});
+}
 </script>

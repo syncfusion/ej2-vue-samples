@@ -6,8 +6,13 @@
         <div>
             <ejs-toolbar cssClass="listToolbar" v-on:clicked="toolbarCliked">
                 <e-items>
-                    <e-item prefixIcon="e-tbar-menu-icon tb-icons" tooltipText="Menu"></e-item>
-                    <e-item :template="folderTemplate"></e-item>
+                    <e-item prefixIcon="e-icon e-menu" tooltipText="Menu"></e-item>
+                    <e-item :template="'folderTemplate'"></e-item>
+                    <template v-slot:folderTemplate>
+                    <div class="e-folder">
+                        <div class="e-folder-name">Language</div>
+                    </div>
+                    </template>
                 </e-items>
             </ejs-toolbar>
         </div>
@@ -41,21 +46,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { SidebarPlugin } from '@syncfusion/ej2-vue-navigations';
-import { ListViewPlugin } from '@syncfusion/ej2-vue-lists';
+import { createApp } from 'vue';
+import { SidebarComponent, ItemsDirective, ToolbarComponent, ItemDirective,} from '@syncfusion/ej2-vue-navigations';
+import { ListViewComponent } from '@syncfusion/ej2-vue-lists';
 import { enableRipple } from '@syncfusion/ej2-base';
-Vue.use(SidebarPlugin, ListViewPlugin);
 
-var folderTemplate = Vue.component("demo", {
-    template: '<div class="e-folder"><div class="e-folder-name">Language</div></div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
-var listTemplate = Vue.component("demo", {
+var app = createApp();
+var listTemplate = app.component("demo", {
     template: "<div class='list-wrapper'>"
                 + "<span :class='data.pic' class='e-avatar e-avatar-xsmall e-avatar-circle'></span>"
                 + "<span class='text e-text-content'>{{data.text}}</span>"
@@ -93,14 +90,16 @@ var ListData = [
             " libraries or existing projects. On the other hand, Vue is also perfectly capable of powering" +
             " sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries." }
 ];
-export default Vue.extend({
+export default {
+    components: {
+    'ejs-sidebar': SidebarComponent,
+    'ejs-listview': ListViewComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+  },
     data: function() {
         return {
-            folderTemplate: function () {
-                return {
-                    template: folderTemplate
-                };
-            },
             ListData: ListData,
             listTemplates: function() {
                 return {
@@ -121,11 +120,15 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>
 
 
 <style>
+    #listSidebarList {
+        border: 0px;
+    }
+
     /* Specifies sample level styles for Sidebar */
     #wrapper .listcontent {
         font-size: 14px;
@@ -155,10 +158,6 @@ export default Vue.extend({
         font-size: 20px;
     }
 
-    #wrapper .e-tbar-menu-icon:before {
-        content: "\e914";
-        font-family: 'sbicons';
-    }
 
     /* Specifies the border bottom styles for toolbar in light theme*/
     .material #wrapper .e-toolbar,
@@ -356,7 +355,7 @@ export default Vue.extend({
 
     .react {
         background-image: url('../images/sidebar/images/react.svg');
-    }
+     } 
 
     .material-dark #wrapper .listcontent {
         color: white;

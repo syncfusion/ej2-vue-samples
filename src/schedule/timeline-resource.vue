@@ -262,13 +262,14 @@
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from "vue";
     import { extend, isNullOrUndefined } from '@syncfusion/ej2-base';
     import { roomData } from './datasource';
-    import { SchedulePlugin, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    const app = createApp({});
 
-    var resourceHeaderVue = Vue.component("resourceHeader", {
+    var resourceHeaderVue = app.component("resourceHeader", {
         template: '<div class="template-wrap"><div class="room-name">{{data.resourceData.text}}</div>'+
         '<div class="room-type">{{data.resourceData.type}}</div>'+
         '<div class="room-capacity">{{data.resourceData.capacity}}</div></div>',
@@ -279,7 +280,14 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 cssClass: 'room-scheduler',
@@ -298,7 +306,7 @@
                 currentView: 'TimelineWeek',
                 workHours: { start: '08:00', end: '18:00' },
                 timeScale: { interval: 60, slotCount: 1 },
-                resourceHeaderTemplate: function (e) {
+                resourceHeaderTemplate: function () {
                     return {
                         template: resourceHeaderVue
                     };
@@ -377,5 +385,5 @@
                 }
             }
         }
-    });
+    }
 </script>

@@ -64,11 +64,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin,Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent,Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             dataSource: new DataManager({
@@ -126,5 +128,5 @@ export default Vue.extend({
   provide: {
       gantt: [Selection, DayMarkers]
   }
-});
+}
 </script>

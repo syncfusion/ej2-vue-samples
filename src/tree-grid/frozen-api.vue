@@ -75,17 +75,21 @@ The freezing feature enables the user to freeze certain rows/columns at both sid
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
 import { freezeDirection, Column } from "@syncfusion/ej2-vue-grids";
 import { Browser } from '@syncfusion/ej2-base';
-import { DropDownListPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
-import { TreeGridPlugin, Freeze, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Freeze } from "@syncfusion/ej2-vue-treegrid";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-dialog': DialogComponent
+  },  
   data: function() {
     return {
     refresh : true,
@@ -121,23 +125,23 @@ export default Vue.extend({
   methods: {
     columnChange: function(e: ChangeEventArgs): void {
         let columnName: string = <string>e.value;
-        let column: Column = this.$refs.treegrid.ej2Instances.grid.getColumnByField(columnName);
+        let column: Column = (this as any).$refs.treegrid.ej2Instances.grid.getColumnByField(columnName);
         let value: string = column.freeze === undefined ? 'Center' : column.freeze;
-        this.refresh = this.$refs.directions.ej2Instances.value === value;
-        this.$refs.directions.ej2Instances.value = value;
+        (this as any).refresh = (this as any).$refs.directions.ej2Instances.value === value;
+        (this as any).$refs.directions.ej2Instances.value = value;
     },
     directionChange: function(e: ChangeEventArgs): void {
-        if (this.refresh) {
-        let columnName: string = this.$refs.columns.ej2Instances.value;
-        let mvblColumns: Column[] = this.$refs.treegrid.ej2Instances.grid.getMovableColumns();
+        if ((this as any).refresh) {
+        let columnName: string = (this as any).$refs.columns.ej2Instances.value;
+        let mvblColumns: Column[] = (this as any).$refs.treegrid.ej2Instances.grid.getMovableColumns();
         if (mvblColumns.length === 1 && columnName === mvblColumns[0].field && e.value !== mvblColumns[0].freeze) {
             ((<any>this).$refs.alertDialog as any).show();
         } else {
-            (this.$refs.treegrid.ej2Instances.grid.getColumnByField(columnName) as any).freeze = e.value === 'Center' ? undefined : e.value as freezeDirection;
-            this.$refs.treegrid.ej2Instances.grid.refreshColumns();
+            ((this as any).$refs.treegrid.ej2Instances.grid.getColumnByField(columnName) as any).freeze = e.value === 'Center' ? undefined : e.value as freezeDirection;
+            (this as any).$refs.treegrid.ej2Instances.grid.refreshColumns();
         }
         }
-        this.refresh = true;
+        (this as any).refresh = true;
     },
     alertDlgBtnClick: function() {
         ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
@@ -146,5 +150,5 @@ export default Vue.extend({
   provide: {
       treegrid: [Freeze]
   }
-});
+}
 </script>

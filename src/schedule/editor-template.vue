@@ -3,13 +3,21 @@
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='650px' :selectedDate="selectedDate" :eventSettings="eventSettings" :actionBegin="onActionBegin"
-                    :popupOpen="onPopupOpen" :eventRendered="onEventRendered" :showQuickInfo="showQuickInfo" :editorTemplate="'editorTemplate'">
+                    :popupOpen="onPopupOpen" :eventRendered="onEventRendered" :showQuickInfo="showQuickInfo" :editorTemplate="'editorTemplate'" :editorHeaderTemplate="'editorHeaderTemplate'">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
                         <e-view option="WorkWeek"></e-view>
                         <e-view option="Month"></e-view>
                     </e-views>
+                    <template v-slot:editorHeaderTemplate="{ data }">
+                        <div v-if="data.Subject === undefined">
+                            <div>Create New Event</div>
+                        </div>
+                        <div v-else>
+                            <div>{{data.Subject}}</div>
+                        </div>
+                    </template>
                     <template v-slot:editorTemplate>
                         <table class="schedule-custom-event-editor" width="100%" cellpadding="5">
                             <tbody>
@@ -62,6 +70,9 @@
                 In this demo, the event window is customized based on the specific appointment-related fields required for doctors which can 
                 be achieved by making use of the <code>editorTemplate</code> API and its type should be <code>v-slot</code>.
             </p>
+            <p> 
+               In this demo, the editor window header is customized based on the appointment subject field which can be achieved by the <code>editorHeaderTemplate</code>. 
+            </p>
             <p>
                 Each field defined through it should contain the <code>e-field</code> class, and <code>data-name</code> attribute, 
                 so as to allow the processing of those fields in the default event object from internal source
@@ -93,19 +104,21 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DateTimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DateTimePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
     import { extend } from '@syncfusion/ej2-base';
     import { doctorsEventData } from './datasource';
 
-    Vue.use(SchedulePlugin);
-    Vue.use(DropDownListPlugin);
-    Vue.use(DateTimePickerPlugin);
-
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-datetimepicker': DateTimePickerComponent,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 selectedDate: new Date(2021, 1, 15),
@@ -154,6 +167,6 @@
 
             }
         }
-    });
+    }
 
 </script>

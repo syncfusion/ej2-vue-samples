@@ -2,6 +2,7 @@
     "name": "File Manager",
     "directory": "file-manager",
     "category": "Navigation",
+    "type": "update",
     "ftName" :"file-manager",
     "samples": [{
         "url": "overview",
@@ -34,6 +35,7 @@
     {
         "url": "directory-upload",
         "name": "Directory upload",
+        "type": "update",
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to upload the folder (directory) by using custom toolbar item with in a Vue File Manager."

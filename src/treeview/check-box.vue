@@ -43,23 +43,23 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import * as dataSource from './checkbox-data.json';
 
-Vue.use(TreeViewPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         var temp = this;
         return {
             fields: { dataSource: dataSource.checkboxData, id: 'id', text: 'name', parentID: 'pid', hasChildren: 'hasChild' },
             change: (args) => {
-                temp.$refs.treeObj.autoCheck = args.checked;
+                temp.$refs.treeObj.$el.autoCheck = args.checked;
             }
         };
     }
-});
+}
 </script>

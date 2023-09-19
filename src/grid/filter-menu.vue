@@ -26,7 +26,7 @@
 
      <div id="description">
         <p>The filtering feature enables the user to view a reduced number of records based on the filter criteria. It can be enabled by setting the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#allowfitering">allowFiltering
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowfiltering">allowFiltering
         </a></code> property to true. </p>
         <p>Grid supports the following filter types.</p>
         <ul>
@@ -36,7 +36,7 @@
             <li><code>Excel</code></li>
         </ul>
         you can change the filter type by setting <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-filterSettings.html#type">filterSettings->type</a></code>
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/filterSettings/#type">filterSettings->type</a></code>
         <p>Now, the following additional filter operators are incorporated with the already existing operators.</p>
         <p>String type columns:</p>
             <ul>
@@ -70,15 +70,17 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Filter, Page, FilterType, Sort, GridComponent } from "@syncfusion/ej2-vue-grids";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { GridComponent, ColumnDirective, ColumnsDirective, Filter, Page, FilterType, Sort } from "@syncfusion/ej2-vue-grids";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { orderDataSource  } from "./data-source";
 
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       data: orderDataSource,
@@ -94,12 +96,12 @@ export default Vue.extend({
   },
   methods: {
       onChange: function(e: ChangeEventArgs): void {
-        this.filterSettings = {type: <FilterType>e.value};
-        (<GridComponent>this.$refs.grid).clearFiltering();
+        (this as any).filterSettings = {type: <FilterType>e.value};
+        ((this as any).$refs.grid).clearFiltering();
     }
   },
   provide: {
       grid: [Filter, Page, Sort]
   }
-});
+}
 </script>

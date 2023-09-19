@@ -2,8 +2,8 @@
 <div>
 <div class="control-section col-lg-9">
     <div>
-        <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap style='height:300px' id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :allowSelection='allowSelection' :load='load' :cellSelected='cellSelected'></ejs-heatmap>
+        <div class="content-wrapper" style='width:99%;margin-left: -10px;'>
+        <ejs-heatmap style='height:300px' id='container' ref='heatmap' :cellSettings='cellSettings' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :allowSelection='allowSelection' :load='load' :cellSelected='cellSelected'></ejs-heatmap>
          <ejs-chart style='display:block;height:300px' ref='chart' id='chartcontainer' :primaryXAxis='primaryXAxis'
          :primaryYAxis='primaryYAxis' :chartArea='chartArea' :tooltip='tooltip' :series='series' :load='chartLoad'>
         </ejs-chart>
@@ -15,7 +15,7 @@
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%;">
-                        <ejs-button id='clearSelection' v-on:click.native="onClick">Clear Selection</ejs-button>
+                        <ejs-button id='clearSelection' v-on:click="onClick">Clear Selection</ejs-button>
                     </td>
                 </tr>
             </tbody>
@@ -30,42 +30,52 @@
     <p>
         In this example, you can see how to selected the cell in heat map and render the column chart based on selected data.
     </p>
-    <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
+    <p>The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item on touch-enabled devices.</p>
     <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p><b>Injecting Module</b></p>
     <p>
-        Heatmap component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip </code> module using the <code>Heatmap.Inject(Tooltip) </code> method.
+      Heatmap component features are separated into discrete feature-based modules. To use a tooltip, inject the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> module using the <code>provide:{ heatmap:[Tooltip] }</code> method.
     </p>
 </div>
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { HeatMapPlugin, Tooltip } from "@syncfusion/ej2-vue-heatmap";
-import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip as chartTooltip, Legend} from "@syncfusion/ej2-vue-charts";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { chartData, cellSeletionData } from './cell-seletion-data.json';
-Vue.use(HeatMapPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(ChartPlugin);
+import { HeatMapComponent, Tooltip } from "@syncfusion/ej2-vue-heatmap";
+import { ChartComponent, ColumnSeries, Category, DataLabel, Tooltip as chartTooltip, Legend } from "@syncfusion/ej2-vue-charts";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import data from './cell-seletion-data.json';
 
-
-export default Vue.extend({
+export default {
+components: {
+    'ejs-heatmap': HeatMapComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-chart': ChartComponent
+},
 data:function(){
 return{
         titleSettings: {
-            text:'Top export products 2014-2018, Value in USD million'
+            text:'Top export products 2014-2018, Value in USD million',
+            textStyle: {
+                size: '15px',
+                fontWeight: '500',
+                fontStyle: 'Normal',
+                fontFamily:'inherit'
+            }
         },
          xAxis: {
-            labels: ['Cereals', 'Meat', 'Spices', 'Tea', 'Edible Oil', 'Dairy Products', 'Wheat']
+            labels: ['Cereals', 'Meat', 'Spices', 'Tea', 'Edible Oil', 'Dairy Products', 'Wheat'],
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         yAxis: {
-            labels:['2014','2015','2016','2017','2018']
+            labels:['2014','2015','2016','2017','2018'],
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         allowSelection:true,
-        dataSource: cellSeletionData,
+        dataSource: data.cellSeletionData,
         paletteSettings: {
              palette: [
                 {color: '#3C5E62 '},
@@ -74,6 +84,16 @@ return{
         },
         legendSettings: {
             visible: false
+        },
+        tooltipSettings:{
+            textStyle: {
+                fontFamily: 'inherit'
+            }
+        },
+        cellSettings:{
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         primaryXAxis: {
         valueType: 'Category', interval: 1, majorGridLines: { width: 0 }
@@ -84,7 +104,7 @@ return{
         majorGridLines: { width: 0 },
         majorTickLines: { width: 0 }, lineStyle: { width: 0 }, labelStyle: { color: 'transparent' }
     },
-    series: chartData,
+    series: data.chartData,
     tooltip: {
         enable: true
     }
@@ -96,16 +116,20 @@ provide:{
 },
 methods: {
     load: function(args) {
+      /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+      /* custom code end */
     },
     chartLoad: function(args)
     {
+        /* custom code start */    
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.chart.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+        /* custom code end */
     },
     cellSelected: function(args)
     {
@@ -150,9 +174,9 @@ methods: {
     },
     onClick: function(){
         this.$refs.heatmap.ej2Instances.clearSelection();
-        this.$refs.chart.ej2Instances.series = chartData;
+        this.$refs.chart.ej2Instances.series = data.chartData;
         this.$refs.chart.ej2Instances.refresh();
     }
   }
-})
+}
 </script>

@@ -63,14 +63,17 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import {
-  GanttPlugin, Selection, VirtualScroll, Sort, Filter
+  GanttComponent, Selection, VirtualScroll, Sort, Filter
 } from "@syncfusion/ej2-vue-gantt";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { virtualData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function () {
     return {
       data: virtualData,
@@ -123,5 +126,5 @@ export default Vue.extend({
   provide: {
     gantt: [Selection, VirtualScroll, Sort, Filter],
   },
-});
+}
 </script>

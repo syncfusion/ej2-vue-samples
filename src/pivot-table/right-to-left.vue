@@ -23,9 +23,8 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   FieldList,
   IDataSet
@@ -34,10 +33,12 @@ import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -82,7 +83,7 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function(args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (pivotObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
@@ -92,7 +93,7 @@ export default Vue.extend({
   provide: {
     pivotview: [GroupingBar, FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

@@ -42,9 +42,9 @@
             background-color: #4B4B4B ;
         }
     #mapslider_Annotation_0 .e-control-wrapper.e-slider-container.e-horizontal .e-slider-track {
-        background: linear-gradient(to left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
-        background: -moz-linear-gradient(to left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
-         background: -webkit-linear-gradient(to left, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
+        background: linear-gradient(to right, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
+        background: -moz-linear-gradient(to right, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
+         background: -webkit-linear-gradient(to right, #7E9CDC 0, #DCD57E 17%, #7EDCA2 34%, #6EB5D0 51%, #A6DC7E 68%, #DCA87E 85%, #d075c6 100%);
     }
     #map-with-slider .e-limit-bar.e-limits {
         background-color: transparent !important;
@@ -60,14 +60,19 @@
 </style>
 <script>
 import Vue from 'vue';
-import { MapsPlugin,Legend, MapsTooltip, MapAjax, Annotations } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax, Annotations } from '@syncfusion/ej2-vue-maps';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-import { SliderPlugin, Slider } from "@syncfusion/ej2-vue-inputs";
-Vue.use(SliderPlugin);
-Vue.use(MapsPlugin);
+import { SliderComponent, Slider } from "@syncfusion/ej2-vue-inputs";
+
 let colorCodes = ['#7E9CDC', '#DCD57E', '#7EDCA2', '#6EB5D0', '#A6DC7E', '#DCA87E', '#d075c6'];
 let sliderVal = [-2 , 4];
-export default Vue.extend({
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-slider': SliderComponent
+},
 data:function(){
     return{
         margin: {
@@ -177,5 +182,5 @@ methods:{
     }
 
 }
-})
+}
 </script>

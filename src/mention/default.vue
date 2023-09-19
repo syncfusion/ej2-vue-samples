@@ -25,12 +25,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { MentionPlugin } from "@syncfusion/ej2-vue-dropdowns";
-Vue.use(MentionPlugin);
-import * as data from './dataSource.json';
+import { MentionComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
 export default {
+        components: {
+            'ejs-mention': MentionComponent
+        },
         data: function() {
         return {
           commenttarget : '#commentsMention',

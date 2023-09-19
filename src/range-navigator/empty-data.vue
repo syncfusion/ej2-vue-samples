@@ -140,7 +140,7 @@
     }
 
     #bootstrap5-gradient-chart stop {
-        stop-color: #6355C7;
+        stop-color: #262E0B;
     }
 
     #material-dark-gradient-chart stop {
@@ -160,15 +160,15 @@
     }
 
     #bootstrap5-dark-gradient-chart stop {
-        stop-color: #8F80F4;
+        stop-color: #5ECB9B;
     }
 
     #fluent-gradient-chart stop {
-        stop-color: #1AC9E6;
+        stop-color: #614570;
     }
 
     #fluent-dark-gradient-chart stop {
-        stop-color: #1AC9E6;
+        stop-color: #8AB113;
     }
 
     #material3-gradient-chart stop {
@@ -189,13 +189,9 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, ChartPlugin, AreaSeries, DateTime, Crosshair, RangeTooltip, Tooltip } from "@syncfusion/ej2-vue-charts";
+import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorSeriesCollectionDirective, ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries, DateTime, Crosshair, RangeTooltip, Tooltip } from "@syncfusion/ej2-vue-charts";
 import { chartData } from "./stock-data";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
 
 var stockData = [];
 for (var i = 0; i <= 250; i++) {
@@ -217,12 +213,20 @@ selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];
-let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF'];
-let regionColor = ['rgba(99, 85, 199, 0.3)', 'rgba(143, 128, 244, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
+let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
     'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
-    'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(26, 201, 230, 0.3)', 'rgba(26, 201, 230, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)'];
+    'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(97, 69, 112, 0.3)', 'rgba(138, 177, 19, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)'];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'e-rangenavigator-series-collection': RangenavigatorSeriesCollectionDirective,
+    'e-rangenavigator-series': RangenavigatorSeriesDirective
+  },
   data: function() {
     return {
       //Chart Properties
@@ -263,12 +267,12 @@ export default Vue.extend({
     },
   methods: {
    changed: function(args) {
-     if(document.getElementById('chartEmpty').children.length) {
+     if(document.getElementById('chartEmpty').children.length && !document.getElementById('chartEmpty').querySelector('div.e-directive')) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
         this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
         this.$refs.chart.ej2Instances.dataBind();
      }
     }
   }
-});
+};
 </script>

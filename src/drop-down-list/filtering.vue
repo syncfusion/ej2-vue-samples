@@ -22,14 +22,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             fields: { text: 'Name', value: 'Code' },
@@ -48,5 +48,5 @@ export default Vue.extend ({
             e.updateData(this.data, query);
         }
     }
-});
+}
 </script>

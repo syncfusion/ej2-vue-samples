@@ -32,11 +32,9 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     let year = new Date().getFullYear();
     let month = new Date().getMonth();
@@ -49,6 +47,7 @@ export default Vue.extend({
       ]
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     onCreated: function () {
       let element = document.getElementById("multiselect");
@@ -69,7 +68,7 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>
 
 <style scoped>

@@ -12,12 +12,12 @@
                 </th>
                 <td
                   style="height: 25px; width: 50px; background-color: #C1272D; font-size: 14px; color: #E7C554; font-weight: bold; padding-left: 5px">
-                  {{ data.y }}</td>
+                  {{ data.x }}</td>
               </tr>
               <tr>
                 <td
-                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 18px; color: #FFFFFF; font-weight: bold; padding-left: 5px">
-                  {{ data.x }}</td>
+                  style="height: 25px; width: 50px; background-color: #C1272D; font-size: 18px; color:#FFFFFF ; font-weight: bold; padding-left: 5px">
+                  {{ data.y + 'B' }}</td>
               </tr>
             </table>
           </div>
@@ -39,7 +39,7 @@
         In this example, you can see how to render and configure a background image and the tooltip template for the chart. 
         You can use the <code>BackgroundImage</code> property to configure the background for the chart and the <code>Template</code> property in <code>ChartTooltipSettings</code> to customize the tooltip UI.
       </p>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use line series, we need to
         inject
@@ -55,24 +55,29 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   LineSeries,
   Category,
   Legend,
   Tooltip
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(ChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       backgroundImage: "source/chart/images/wheat.png",
@@ -134,5 +139,5 @@ export default Vue.extend({
     chart: [LineSeries, Category, Legend, Tooltip]
   },
   methods: {}
-});
+};
 </script>

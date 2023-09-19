@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="col-lg-12 control-section" id="predefinedDialogCustomization">
-        <ejs-button id="alertDlgBtn"  v-on:click.native="alertBtnClick" cssClass="e-danger">Alert</ejs-button>
-        <ejs-button id="ConfirmDlgBtn"  v-on:click.native="confirmBtnClick" cssClass="e-success">Confirm</ejs-button>
-        <ejs-button id="PromptDlgBtn"  v-on:click.native="promptBtnClick" :isPrimary="true">Prompt</ejs-button>
+        <ejs-button id="alertDlgBtn"  v-on:click="alertBtnClick" cssClass="e-danger">Alert</ejs-button>
+        <ejs-button id="ConfirmDlgBtn"  v-on:click="confirmBtnClick" cssClass="e-success">Confirm</ejs-button>
+        <ejs-button id="PromptDlgBtn"  v-on:click="promptBtnClick" :isPrimary="true">Prompt</ejs-button>
         <span id="statusText"></span>
     </div>
     <div id="action-description">
@@ -69,10 +69,14 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { DialogUtility } from "@syncfusion/ej2-vue-popups";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+
 let dialogObj=undefined;
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return { }
     },
@@ -128,7 +132,7 @@ export default Vue.extend({
       });
     },
     promptOkAction:function () {
-      value = document.getElementById("password").value;
+      let value = document.getElementById("password").value;
         if(value ==""){
             dialogObj.hide();
             document.getElementById("statusText").innerHTML="The user's input is returned as\" \"";
@@ -146,5 +150,5 @@ export default Vue.extend({
       document.getElementById("statusText").style.display="block";
     }
   },
-});
+}
 </script>

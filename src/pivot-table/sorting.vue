@@ -43,7 +43,7 @@
               <td></td>
                 <td>
                     <div style="float: right">
-                        <ejs-button id="apply" ref="apply" v-on:click.native="btnClick" isPrimary='true'>Apply</ejs-button>
+                        <ejs-button id="apply" ref="apply" v-on:click="btnClick" isPrimary='true'>Apply</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -68,28 +68,29 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { IDataSet, PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
+import { IDataSet, PivotViewComponent } from "@syncfusion/ej2-vue-pivotview";
 import {
-  CheckBoxPlugin,
-  ButtonPlugin,
+  CheckBoxComponent,
+  ButtonComponent,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs as dropEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -126,8 +127,8 @@ export default Vue.extend({
   },
   methods: {
     fieldOnChange: function(args: dropEventArgs) {
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      let orderddl = (<any>this.$refs.order).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      let orderddl = ((this as any).$refs.order).ej2Instances;
       if (
         fieldsddl.dataSource[fieldsddl.index].Order ===
         fieldsddl.dataSource[fieldsddl.index].Field + "_asc"
@@ -138,7 +139,7 @@ export default Vue.extend({
       }
     },
     orderOnChange: function(args: dropEventArgs) {
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
       if (args.value === "Ascending") {
         fieldsddl.dataSource[fieldsddl.index].Order =
           fieldsddl.dataSource[fieldsddl.index].Field + "_asc";
@@ -149,10 +150,10 @@ export default Vue.extend({
       fieldsddl.refresh();
     },
     checkbox_onChange: function(args: checkEventArgs) {
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      let orderddl = (<any>this.$refs.order).ej2Instances;
-      let btn = (<any>this.$refs.apply).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      let orderddl = ((this as any).$refs.order).ej2Instances;
+      let btn = ((this as any).$refs.apply).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let ischecked: boolean = args.checked as boolean;
       fieldsddl.enabled = ischecked;
       orderddl.enabled = ischecked;
@@ -160,9 +161,9 @@ export default Vue.extend({
       pivotObj.dataSourceSettings.enableSorting = ischecked;
     },
     btnClick: function(args: checkEventArgs) {
-      let checkBoxObj = (<any>this.$refs.sorting).ej2Instances;
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let checkBoxObj = ((this as any).$refs.sorting).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (checkBoxObj.checked) {
         pivotObj.dataSourceSettings.enableSorting = true;
         pivotObj.dataSourceSettings.sortSettings = [
@@ -201,7 +202,7 @@ export default Vue.extend({
       }
     }
   }
-});
+}
 </script>
 
 <style scoped>

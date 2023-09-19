@@ -33,7 +33,7 @@
       <p>
         In this example, you can see how to render a doughnut chart with legends. You can use <code>Radius</code> and <code>InnerRadius</code> properties to render the doughnut. Here, the legend text is wrapped using the <code>TextWrap</code> property.
       </p>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         AccumulationChart component features are segregated into individual feature-wise modules. To use legend, we need to Inject
         <code>AccumulationLegend</code> into the
@@ -52,9 +52,10 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import {
-  AccumulationChartPlugin,
+  AccumulationChartComponent,
+  AccumulationSeriesCollectionDirective,
+  AccumulationSeriesDirective,
   AccumulationLegend,
   PieSeries,
   AccumulationDataLabel,
@@ -64,12 +65,17 @@ import {
   ChartAnnotation
 } from "@syncfusion/ej2-vue-charts";
 import { Browser } from '@syncfusion/ej2-base';
-Vue.use(AccumulationChartPlugin);
+
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -127,5 +133,5 @@ export default Vue.extend({
       ChartAnnotation
     ]
   }
-});
+};
 </script>

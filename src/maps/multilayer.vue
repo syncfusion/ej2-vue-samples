@@ -79,10 +79,16 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, DataLabel, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, DataLabel, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+  },
   data:function(){
       return{
         zoomSettings: {
@@ -109,7 +115,8 @@ export default Vue.extend({
                     labelPath: 'iso_3166_2',
                     smartLabelMode: 'Hide',
                     textStyle: {
-                        fontFamily: 'Segoe UI'
+                        fontFamily: 'Segoe UI',
+                        color: 'black'
                     }
         },
         shapeData2: new MapAjax('./src/maps/map-data/texas.json'),
@@ -166,5 +173,5 @@ methods:{
     } 
 }
 /* custom code end */
-})
+}
 </script>

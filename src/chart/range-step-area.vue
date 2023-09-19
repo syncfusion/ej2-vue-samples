@@ -44,7 +44,6 @@
       <p>
        The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/">tooltip</a> is enabled in this example. To see the tooltip in action, hover over a point or tap on a point in touch-enabled devices.
       </p>
-      <br>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Charts component’s features are segregated into individual feature modules by feature. To use range step area series, we need to inject the <code>RangeStepAreaSeries</code> module using
@@ -59,23 +58,28 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   Tooltip,
   Highlight,
   DateTime,
   RangeStepAreaSeries
 } from "@syncfusion/ej2-vue-charts";
 import { chartDataValues } from './financial-data';
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       cData : chartDataValues,
@@ -142,5 +146,5 @@ export default Vue.extend({
       }
     }
   },
-});
+};
 </script>

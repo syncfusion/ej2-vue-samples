@@ -44,11 +44,13 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { nestedListData } from "./listData";
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       data:nestedListData,
@@ -56,5 +58,5 @@ export default Vue.extend({
     headerTitle: 'Folders',
     };
   }
-});
+}
 </script>

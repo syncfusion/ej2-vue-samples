@@ -36,16 +36,18 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, ContextMenu, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, ContextMenu } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 import { BeforeOpenCloseEventArgs } from '@syncfusion/ej2-vue-inputs';
 import { MenuEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { getValue, isNullOrUndefined } from '@syncfusion/ej2-base';
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -63,10 +65,10 @@ export default Vue.extend({
                 let elem: Element = arg.event.target as Element;
                 let row: Element | null = elem.closest('.e-row');
                 let uid = row && row.getAttribute('data-uid');
-                if (uid === null || isNullOrUndefined(getValue('hasChildRecords', (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data))) {
+                if (uid === null || isNullOrUndefined(getValue('hasChildRecords', ((this as any).$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data))) {
                     arg.cancel = true;
                 } else {
-                    let flag: boolean = getValue('expanded', (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data);
+                    let flag: boolean = getValue('expanded', ((this as any).$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data);
                     let val: string = flag ? 'none' : 'block';
                     document.querySelectorAll('li#expandrow')[0].setAttribute('style', 'display: ' + val + ';');
                     val = !flag ? 'none' : 'block';
@@ -74,15 +76,15 @@ export default Vue.extend({
                 }
             },
             contextMenuClick:function (args: MenuEventArgs) {
-                let selectedRows = (<TreeGridComponent>this.$refs.treegrid).getSelectedRows() as any;
-                let selectedRecords = (<TreeGridComponent>this.$refs.treegrid).getSelectedRecords() as any;
+                let selectedRows = ((this as any).$refs.treegrid).getSelectedRows() as any;
+                let selectedRecords = ((this as any).$refs.treegrid).getSelectedRecords() as any;
                 if (args.item.id === 'collapserow') {
-                    (<TreeGridComponent>this.$refs.treegrid).collapseRow(<HTMLTableRowElement>selectedRows[0], selectedRecords[0]);
+                    ((this as any).$refs.treegrid).collapseRow(<HTMLTableRowElement>selectedRows[0], selectedRecords[0]);
                 } else {
-                    (<TreeGridComponent>this.$refs.treegrid).expandRow(<HTMLTableRowElement>(selectedRows[0]), selectedRecords[0]);
+                    ((this as any).$refs.treegrid).expandRow(<HTMLTableRowElement>(selectedRows[0]), selectedRecords[0]);
                     }
             }
   }
 
-});
+}
 </script>

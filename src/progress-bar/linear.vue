@@ -173,31 +173,11 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { Browser } from "@syncfusion/ej2-base";
-import {
-  ProgressBarPlugin,
-  ProgressAnnotation
-} from "@syncfusion/ej2-vue-progressbar";
+import { ProgressBarComponent } from "@syncfusion/ej2-vue-progressbar";
 
 let div = document.getElementsByClassName('progressbar-label-linear');
- 
-function annotationElementContent(color, controlID) {
-        let content;
-        let annotation='';
-        switch (controlID) {
-         case 'rounded-container':
-                content = '60%';
-                annotation='<div id="point1" style="font-size:20px;font-weight:bold;color: ' + color + ' "><span>' + content + '</span></div>';
-                break;
-        }
-        return annotation;
-    }
- let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#FFD939'];
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
   data: function() {
     return {
       value1: 100,
@@ -215,6 +195,7 @@ export default Vue.extend({
 
     };
   },
+  components: { 'ejs-progressbar': ProgressBarComponent },
   provide: {},
   methods: {
     onclick: function() {
@@ -265,5 +246,5 @@ export default Vue.extend({
         }
   }
   }
-});
+};
 </script>

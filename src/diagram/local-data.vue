@@ -29,9 +29,8 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -43,9 +42,10 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { species } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -101,6 +101,6 @@ export default Vue.extend({
   provide: {
     diagram: [DataBinding, HierarchicalTree]
   }
-});
+}
 
 </script>

@@ -56,10 +56,11 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser, extend } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective, 
+  SeriesCollectionDirective,
   ColumnSeries,
   LineSeries,
   Legend,
@@ -68,14 +69,16 @@ import {
   Category, DataLabel,
 } from "@syncfusion/ej2-vue-charts";
 
-
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       theme: theme,
@@ -122,9 +125,6 @@ export default Vue.extend({
         dataLabel: {
           visible: true,
           position: Browser.isDevice ? 'Outer' : "Top",
-          font: {
-              fontWeight: '600',  
-            }
         }
       },
       datatype: ["Line", "Column"],
@@ -162,5 +162,5 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>

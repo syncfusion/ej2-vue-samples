@@ -178,9 +178,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -191,7 +190,7 @@ import {
   SubTreeAlignments
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBox } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBox } from "@syncfusion/ej2-inputs";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
 import {
   Node,
@@ -202,8 +201,6 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { localBindData } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
 let diagramInstance;
 let orien;
 let typ;
@@ -212,7 +209,11 @@ let vSpacing;
 
 
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -388,7 +389,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 //set orientation and type of the Layout.
 function getLayoutInfo(

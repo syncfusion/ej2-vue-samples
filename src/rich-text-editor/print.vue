@@ -30,12 +30,12 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
 
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+    },
     data: function() {
         return {
         toolbarSettings: {
@@ -47,5 +47,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
     }
-});
+}
 </script>

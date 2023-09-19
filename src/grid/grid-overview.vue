@@ -46,6 +46,7 @@
                 You can follow the guidelines in this documentation to get around the browser height restriction when loading and viewing millions of records. Refer <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
                 here</a> for more details.
             </p>
+            <p>
             <br/> More information on the Grid instantiation can be found in this
             <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
             </p>
@@ -58,17 +59,20 @@
 </style>
 
 <script>
-    import Vue from "vue";
-    import { GridPlugin, VirtualScroll, Sort, Filter, Selection, GridComponent } from "@syncfusion/ej2-vue-grids";
-    import { DropDownList, DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-    import { RatingPlugin } from "@syncfusion/ej2-vue-inputs";
+    import { createApp } from "vue";
+    import { GridComponent, ColumnsDirective, ColumnDirective, VirtualScroll, Sort, Filter, Selection } from "@syncfusion/ej2-vue-grids";
+    import { DropDownList, DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+    import { RatingComponent } from "@syncfusion/ej2-vue-inputs";
     import { DataManager, Query, UrlAdaptor } from "@syncfusion/ej2-data";
 
-    Vue.use(GridPlugin);
-    Vue.use(DropDownListPlugin);
-    Vue.use(RatingPlugin);
-
-    export default Vue.extend({
+    export default {
+        components: {
+            'ejs-grid': GridComponent,
+            'e-columns': ColumnsDirective,
+            'e-column': ColumnDirective,
+            'ejs-dropdownlist': DropDownListComponent,
+            'ejs-rating': RatingComponent
+        },
         data: () => {
             return {
                 ddData: [{ value: 1000, text: '1,000 Rows and 11 Columns' }, { value: 10000, text: '10,000 Rows and 11 Columns' }],
@@ -81,11 +85,10 @@
                 fields: { text: 'text', value: 'value' },
                 empTemplate: function () {
                     return {
-                        template: Vue.component('empTemplate', {
+                        template: createApp({}).component('empTemplate', {
                             template: `<div>
                             <div class="e-grid-empimg">
                                 <span :class="{'e-userimg': true, 'sf-grid-icon-Male': data.EmployeeImg == usermale, 'sf-grid-icon-FeMale': data.EmployeeImg == userfemale}"></span>
-                                </span>
                             </div>
                             <span id="Emptext">{{data.Employees}}</span>                            
                         </div>`,
@@ -95,7 +98,7 @@
                 },
                 coltemplate: function () {
                     return {
-                        template: Vue.component('coltemplate', {
+                        template: createApp({}).component('coltemplate', {
                             template: '<div><img src="src/grid/images/Map.png" class="e-image" :alt="data.Location"/> &nbsp<span id="locationtext">{{data.Location}}</span></div>',
                             data: function () { return { data: {} }; }
                         })
@@ -104,7 +107,7 @@
 
                 statusTemplate: function () {
                     return {
-                        template: Vue.component('statusTemplate', {
+                        template: createApp({}).component('statusTemplate', {
                             template: `<div id="status" :class="{'statustemp': true, 'e-activecolor': data.Status == active, 'e-inactivecolor': data.Status == inactive}">\
              <span :class="{'statustxt': true, 'e-activecolor': data.Status == active, 'e-inactivecolor': data.Status == inactive}">{{data.Status}}</span></div>`,
                             data: function () { return { data: {}, active: 'Active', inactive: 'Inactive' }; }
@@ -113,7 +116,7 @@
                 },
                 trustTemplate: function () {
                     return {
-                        template: Vue.component('trustTemplate', {
+                        template: createApp({}).component('trustTemplate', {
                             template: '<div><img style="width: 31px; height: 24px" :src="image" :alt="data.Trustworthiness" /><span id="Trusttext">{{data.Trustworthiness}}</span></div>',
                             data: function () { return { data: {}, Perfect: 'Perfect', Sufficient: 'Sufficient', Insufficient: 'Insufficient' }; },
                             computed: {
@@ -126,11 +129,12 @@
                 },
                 ratingTemplate: function () {
                     return {
-                        template: Vue.component('ratingTemplate', {
+                        template: createApp({}).component('ratingTemplate', {
                             template: '<div id="status" class="rating">\
                         <ejs-rating :readOnly="true" :value="value" cssClass="custom-rating"></ejs-rating>\
                       </div>',
                             data: function () { return { data: {} }; },
+                            components: { 'ejs-rating': RatingComponent },
                             computed: {
                                 value: function () {
                                     return this.data.Rating;
@@ -142,7 +146,7 @@
 
                 progessTemplate: function () {
                     return {
-                        template: Vue.component('progessTemplate', {
+                        template: createApp({}).component('progessTemplate', {
                             template: `<div id="myProgress" class="pbar">
                           <div id="myBar" :class="{'bar': true, 'progressdisable': data.Status == inactive}" :style="{'width': width}">
                             <div id="pbarlabel" class="barlabel" v-html=width ></div>
@@ -215,6 +219,6 @@
             grid: [Filter, Selection, Sort, VirtualScroll]
         }
 
-    });
+    };
 
 </script>

@@ -81,10 +81,8 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RowDirective, RowsDirective, RangeDirective, RangesDirective, CellDirective, CellsDirective } from "@syncfusion/ej2-vue-spreadsheet";
 import { DataManager, ODataAdaptor } from "@syncfusion/ej2-data";
-Vue.use(SpreadsheetPlugin);
 
 class CustomAdaptor extends ODataAdaptor {
     processResponse() {
@@ -102,7 +100,18 @@ class CustomAdaptor extends ODataAdaptor {
     }
 }
 
-export default Vue.extend({
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective
+   },
    data: () => {
     return {
         dataSource: new DataManager({
@@ -121,5 +130,5 @@ export default Vue.extend({
         this.$refs.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A1:F1');
     }
   }
-});
+}
 </script>

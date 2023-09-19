@@ -133,16 +133,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { InPlaceEditorPlugin } from "@syncfusion/ej2-vue-inplace-editor";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(InPlaceEditorPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
+import { InPlaceEditorComponent } from "@syncfusion/ej2-vue-inplace-editor";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-inplaceeditor': InPlaceEditorComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
         textModel: {
@@ -175,18 +176,18 @@ export default Vue.extend({
     this.editorMode = this.$refs.editorMode.ej2Instances;
   },
   methods: {
-        changeEditorMode: function(args) {
+        changeEditorMode: function() {
            var editMode = this.$refs.editorMode.ej2Instances.text;
            this.editObj.mode = this.numericObj.mode = this.maskedObj.mode = editMode;
         },
-        onEditableOn: function(args) {
+        onEditableOn: function() {
            var editableOn = this.$refs.editableOn.ej2Instances.value;
            this.editObj.editableOn = this.numericObj.editableOn = this.maskedObj.editableOn = editableOn;
         },
-        onChange: function(args) {            
+        onChange: function() {            
             this.$refs.checkObj1.ej2Instances.checked ? this.editObj.showButtons = this.numericObj.showButtons = this.maskedObj.showButtons = true : this.editObj.showButtons = this.numericObj.showButtons = this.maskedObj.showButtons = false;
         },
-        onChangeEnable: function(args) {            
+        onChangeEnable: function() {            
             this.$refs.checkObj2.ej2Instances.checked ? this.editObj.disabled = this.numericObj.disabled = this.maskedObj.disabled = true : this.editObj.disabled = this.numericObj.disabled = this.maskedObj.disabled = false;
         },
         created: function() {
@@ -207,7 +208,7 @@ export default Vue.extend({
             }
         }
     },
-});
+}
 </script>
 <style scoped>
 

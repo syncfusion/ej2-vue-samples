@@ -68,11 +68,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./chart-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, RowDirective, RowsDirective, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, ColumnDirective, ColumnsDirective, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
+import  dataSource from "./chart-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },  
    data: () => {
     return {
         height: 30,
@@ -100,5 +110,5 @@ export default Vue.extend({
              spreadsheet.merge('A1:E1');
             }
         }
-});
+}
 </script>

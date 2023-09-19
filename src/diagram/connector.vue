@@ -14,7 +14,7 @@
     </div>
     <div class="row" id="appearance">
         <div class="row row-header">
-            Appearance
+            <b>Connector types</b>
         </div>
         <div class="row" style="padding-top: 8px">
             <div class="image-pattern-style" id="straightConnector" style="background-image: url(./src/diagram/Images/connector/Connectors_1.png); margin-right: 3px">
@@ -49,11 +49,50 @@
             </div>
         </div>
     </div>
-    <div class="row" style="padding-top: 10px">
-        <div class="row" style="padding-top: 8px">
-          <!-- checkbox is used to enable or disable the connector interaction. -->
-          <ejs-checkbox id="checked" :checked=false :label='label' :change='change'></ejs-checkbox>
-        </div>
+    <div class="row " id="decorators"  style="padding-top: 10px">
+              <div class="row row-header" style="padding-top: 8px">
+                  <b>Decorators</b>
+              </div>
+              <div class="row" style="padding-top: 8px; display: flex;">
+                  <label>Source Decorators</label>
+                  <div>
+                      <ejs-dropdownlist id='sourceDecorator2' 
+                                                :enabled=true
+                                                :value='srcdecoratorValue'
+                                                :dataSource='decoratorShape'
+                                                :change='srcDecShapeChange'/>
+                  </div>
+              </div>
+              <div class="row" style="padding-top: 8px; display: flex;">
+                  <label>Target Decorators</label>
+                  <div>
+                    <ejs-dropdownlist id='targetDecorator' 
+                                                :enabled=true
+                                                :value='tardecoratorValue'
+                                                :dataSource='decoratorShape'
+                                                :change='tarDecShapeChange'/>
+                  </div>
+              </div>
+              <div class="row" style="padding-top: 8px; display: flex;">
+                  <label>Segment Decorators</label>
+                  <div>
+                    <ejs-dropdownlist id='segmentDecorator' 
+                                                :enabled=true
+                                                :value='segmentValue'
+                                                :dataSource='decoratorShape'
+                                                :change='segDecShapeChange'
+                                                />
+                  </div>
+              </div>
+    </div>
+    <div class="row" id="color-tab" style="padding-top: 10px">
+          <div class="row row-header">
+              <b>Appearance</b>
+          </div>
+          <div class="row" style="padding-top: 8px; display: flex;">
+            <label>Line color</label>
+            <ejs-colorpicker id="color" :mode='colorMode' :showButtons='colorShowButton' :modeSwitcher='colorModeSwitch' :value='fillColorValue' :change='colorChange'></ejs-colorpicker>
+          </div>
     </div>
 </div>
 <div id="action-description">
@@ -73,8 +112,6 @@
     </p>
 
     <p>
-        Additionally, you can see how to lock the connectors to disable editing. The
-        <code>constraints</code> property of connector enables/disables editing. 
         In this example, the shapes are automatically arranged using hierarchical tree layout.
     </p>
 
@@ -129,22 +166,39 @@
   border-color: #006ce6;
   border-width: 2px;
 }
+
+.e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn .e-selected-color .e-split-preview{
+  width: 100px!important;
+  margin-left: -40px!important;
+}
+.e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn{
+  width: 110px!important;
+}
+
+label{
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 400;
+      width: 100%;
+      margin-top: auto;
+};
+
 </style>
 
 <script>
-import Vue from "vue";
 import {
   Node,
   TextElement,
   HierarchicalTree,
   ConnectorConstraints,
+  ConnectorEditing,
   Segments,
   StackPanel,
   PointPortModel,
   Connector,
   BasicShapeModel,
   SelectorConstraints,
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -156,10 +210,16 @@ import {
   CheckBox,
   ChangeEventArgs as CheckBoxChangeEventArgs
 } from "@syncfusion/ej2-vue-buttons";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons/src/check-box/checkbox.component";
-
-Vue.use(DiagramPlugin);
-Vue.use(CheckBoxPlugin);
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons/src/check-box/checkbox.component";
+import {
+  DropDownList,
+  DropDownListComponent,
+} from "@syncfusion/ej2-vue-dropdowns";
+import {
+  ColorPicker,
+  ColorPickerComponent,
+  ColorPickerEventArgs
+} from "@syncfusion/ej2-vue-inputs";
 
 let diagramInstance;
 let node;
@@ -228,7 +288,27 @@ let connectors = [
   }
 ];
 
-export default Vue.extend({
+let decoratorShapeSource = [
+  { shape: 'None', text: 'None' },
+  { shape: 'Square', text: 'Square' },
+  { shape: 'Circle', text: 'Circle' },
+  { shape: 'Diamond', text: 'Diamond' },
+  { shape: 'Arrow', text: 'Arrow' },
+  { shape: 'OpenArrow', text: 'Open Arrow' },
+  { shape: 'Fletch', text: 'Fletch' },
+  { shape: 'OpenFetch', text: 'Open Fetch' },
+  { shape: 'IndentedArrow', text: 'Indented Arrow' },
+  { shape: 'OutdentedArrow', text: 'Outdented Arrow' },
+  { shape: 'DoubleArrow', text: 'Double Arrow' }
+];
+
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-colorpicker': ColorPickerComponent
+  },
   data: function() {
     return {
       //Initializes diagram control
@@ -274,7 +354,26 @@ export default Vue.extend({
             fill: "#6f409f"
           }
         };
+        obj.segments = [
+          {
+            type: 'Bezier',
+          }
+        ];
+        obj.constraints = ConnectorConstraints.Default | ConnectorConstraints.DragSegmentThumb;
       },
+
+      srcdecoratorValue:"None",
+      tardecoratorValue:"Arrow",
+      segmentValue:"Circle",
+      fillColorValue: "#6f409f",
+      segDecShapeChange: onSegDecShapeChange,
+      tarDecShapeChange: onTarDecShapeChange,
+      srcDecShapeChange: onSrcDecShapeChange,
+      decoratorShape: decoratorShapeSource,
+      colorChange: onColorChange,
+      colorMode: true,
+      colorShowButton: false,
+      colorModeSwitch: true,
       //Customizes the content of the node
       setNodeTemplate: (obj) => {
         if (obj.id === "node6") {
@@ -291,30 +390,10 @@ export default Vue.extend({
         }
         return null;
       },
-      change: (args) => {
-        for (let i = 0; i < diagramInstance.connectors.length; i++) {
-          connector = diagramInstance.connectors[i];
-          if (connector.constraints) {
-            if (args.checked) {
-              connector.constraints &= ~(
-                ConnectorConstraints.DragSourceEnd |
-                ConnectorConstraints.DragTargetEnd |
-                ConnectorConstraints.DragSegmentThumb
-              );
-              connector.constraints |= ConnectorConstraints.ReadOnly;
-            } else {
-              connector.constraints |=
-                ConnectorConstraints.Default & ~ConnectorConstraints.ReadOnly;
-            }
-          }
-          diagramInstance.dataBind();
-        }
-      },
-      label: "Lock"
     };
   },
   provide: {
-    diagram: [HierarchicalTree]
+    diagram: [HierarchicalTree, ConnectorEditing]
   },
   mounted: function() {
     //let diagramObj = document.getElementById("diagram");
@@ -373,7 +452,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 //creation of the TextElement.
 function getTextElement(text, color) {
@@ -466,21 +545,65 @@ function applyConnectorStyle(
         if (sourceDec) {
             connector.sourceDecorator = {
                 style: {
-                    strokeColor: '#6f409f',
-                    fill: '#6f409f', strokeWidth: 2
+                    strokeColor: connector.style.strokeColor,
+                    fill: connector.style.strokeColor, strokeWidth: 2
                 }, shape: 'Circle'
             };
+            document.getElementById('sourceDecorator2').value='Circle';
         } else {
             connector.sourceDecorator = { shape: 'None' };
+            document.getElementById('sourceDecorator2').value='None';
         }
         connector.targetDecorator = {
             style: {
-                strokeColor: '#6f409f',
-                fill: '#6f409f', strokeWidth: 2
+                strokeColor: connector.style.strokeColor,
+                fill: connector.style.strokeColor, strokeWidth: 2
             }, shape: 'Arrow'
         };
+        document.getElementById('targetDecorator').value='Arrow';
         diagramInstance.dataBind();
     }
     target.classList.add('e-selected-style');
+}
+function onColorChange(args) {
+  for (let i = 0; i < diagramInstance.connectors.length; i++) {
+    diagramInstance.connectors[i].style.strokeColor = args.currentValue.hex;
+    diagramInstance.connectors[i].targetDecorator.style.strokeColor = args.currentValue.hex;
+    diagramInstance.connectors[i].targetDecorator.style.fill = args.currentValue.hex;
+    diagramInstance.connectors[i].sourceDecorator.style.strokeColor = args.currentValue.hex;
+    diagramInstance.connectors[i].sourceDecorator.style.fill = args.currentValue.hex;
+  }
+  diagramInstance.dataBind();
+}
+function onSrcDecShapeChange(args) {
+  for (let i = 0; i < diagramInstance.connectors.length; i++) {
+    diagramInstance.connectors[i].sourceDecorator = {
+      shape: args.itemData.shape,
+      style: {
+        strokeColor: diagramInstance.connectors[i].style.strokeColor,
+        fill: diagramInstance.connectors[i].style.strokeColor,
+      }
+    };
+  }
+  diagramInstance.dataBind();
+
+}
+function onTarDecShapeChange(args) {
+  for (let i = 0; i < diagramInstance.connectors.length; i++) {
+    diagramInstance.connectors[i].targetDecorator = {
+      shape: args.itemData.shape,
+      style: {
+        strokeColor: diagramInstance.connectors[i].style.strokeColor,
+        fill: diagramInstance.connectors[i].style.strokeColor,
+      }
+    };
+    diagramInstance.dataBind();
+  }
+}
+function onSegDecShapeChange(args) {
+  for (let i = 0; i < diagramInstance.connectors.length; i++) {
+    diagramInstance.segmentThumbShape = args.itemData.shape;
+  }
+  diagramInstance.dataBind();
 }
 </script>

@@ -112,14 +112,13 @@
     
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { Query } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             fields: { text: 'Name'},
@@ -131,5 +130,5 @@ export default Vue.extend ({
             data: data['employees'],
         };
     }
-});
+}
 </script>

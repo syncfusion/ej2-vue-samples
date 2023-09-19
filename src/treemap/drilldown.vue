@@ -84,11 +84,19 @@
     
  </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { DrillDown } from '../treemap/treemap-data/drilldown-sample';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         palette: ['#9999ff', '#CCFF99', '#FFFF99', '#FF9999', '#FF99FF', '#FFCC66'],
@@ -186,5 +194,5 @@ methods:{
         treemap.refresh();
     }        
 }
-})
+}
 </script>

@@ -71,12 +71,10 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: { 'ejs-checkbox': CheckBoxComponent },
   data: function () {
     return {
       label: "CheckBox: true"
@@ -97,5 +95,5 @@ export default Vue.extend({
      this.label = "CheckBox: " + args.checked;
     }
   }
-});
+}
 </script>

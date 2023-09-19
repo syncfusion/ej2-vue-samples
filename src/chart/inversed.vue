@@ -37,21 +37,23 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { ChartPlugin, ColumnSeries, Category, Tooltip, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Tooltip, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
 import {
     pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
     pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors
 } from './theme-color';
 import { Browser, EmitType } from '@syncfusion/ej2-base';
 
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-chart': ChartComponent,
+        'e-series-collection': SeriesCollectionDirective,
+        'e-series': SeriesDirective
+    },
     data: function () {
         return {
             theme: theme,
@@ -153,5 +155,5 @@ export default Vue.extend({
 
     },
 
-});
+};
 </script>

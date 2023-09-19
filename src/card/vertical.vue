@@ -93,6 +93,10 @@
 </div>
 </div>
 </template>
+<script>
+export default {}
+
+</script>
 <style scoped>
 .fabric .card-control-section.vertical_card_layout .e-card:hover,
     .highcontrast .card-control-section.vertical_card_layout .e-card:hover {
@@ -276,10 +280,3 @@
         }
     }
 </style>
-<script>
-import Vue from "vue";
-export default Vue.extend({
-
-});
-
-</script>

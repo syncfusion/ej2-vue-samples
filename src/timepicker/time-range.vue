@@ -35,13 +35,10 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { TimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(TimePickerPlugin);
-Vue.use(CheckBoxPlugin);
+import { TimePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMark: "Select a time",
@@ -55,6 +52,10 @@ export default Vue.extend({
       startVal: null,
       endVal: null
     };
+  },
+  components: { 
+    'ejs-timepicker': TimePickerComponent,
+    'ejs-checkbox': CheckBoxComponent
   },
   methods: {
     changeValue: function(args) {
@@ -93,7 +94,7 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>
 <style scoped>
 

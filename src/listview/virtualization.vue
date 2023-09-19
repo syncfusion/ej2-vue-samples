@@ -3,8 +3,17 @@
     <div class="col-lg-8 control-section virtualization">
         <!-- ListView element -->
         <ejs-listview id='ui-list' ref="list" :dataSource='listData' :showHeader='header' :fields='fields' :headerTitle='title'
-            :height='height' :cssClass='cssClass' :enableVirtualization='enableUi' :actionComplete='onActionComplete'
-            :actionBegin='onActionBegin' :template='gTemplate'>
+        :height='height' :cssClass='cssClass' :enableVirtualization='enableUi' :actionComplete='onActionComplete'
+        :actionBegin='onActionBegin' :template="'gTemplate'">
+            <template v-slot:gTemplate="{ data }">
+                <div class="e-list-wrapper e-list-avatar" >
+                    <span :class="['e-avatar e-avatar-circle ' + data.icon + ' showUI']" v-if="data.imgUrl == undefined">{{ data.icon }}</span>
+                    <span :class="['e-avatar e-avatar-circle ' + data.icon + ' hideUI']" v-if="data.imgUrl !== undefined">{{ data.icon }}</span> 
+                    <img :class="['e-avatar e-avatar-circle showUI']" :src="data.imgUrl" v-if="data.imgUrl !== undefined" />
+                    <img :class="['e-avatar e-avatar-circle hideUI']" :src="data.imgUrl" v-if="data.imgUrl == undefined" />
+                    <span class="e-list-content">{{ data.name }}</span>
+                </div>
+            </template>
         </ejs-listview>
     </div>
     <div class="col-lg-4 property-section">
@@ -118,21 +127,21 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin, Virtualization } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent, Virtualization } from "@syncfusion/ej2-vue-lists";
 import { Browser } from "@syncfusion/ej2-base";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import {createSpinner, hideSpinner, showSpinner} from "@syncfusion/ej2-popups";
 import { virtualizationData } from "./listData";
-Vue.use(ListViewPlugin);
-Vue.use(DropDownListPlugin);
 let commonData = [];
 let dataSource = {};
 let endTime = undefined;
 let startTime = undefined;
 let liElement = undefined;
-let listObj = undefined;
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-listview': ListViewComponent,
+      'ejs-dropdownlist': DropDownListComponent
+    },
     beforeCreate: function() {
         commonData =virtualizationData;
         [
@@ -161,11 +170,6 @@ export default Vue.extend({
     },
     data: function() {
         return {
-            gTemplate: '<div class="e-list-wrapper e-list-avatar">' +
-                '<span class="e-avatar e-avatar-circle ${icon} ${$imgUrl ? \'hideUI\' : \'showUI\' }">' +
-                '${icon}</span> <img class="e-avatar e-avatar-circle ${$imgUrl ? \'showUI\' : \'hideUI\' }" ' +
-                'src="${$imgUrl ?  $imgUrl : \' \' }" />' +
-                '<span class="e-list-content">${name}</span></div>',
             listData: dataSource.data1,
             cssClass: 'e-list-template',
             header: true,
@@ -220,7 +224,7 @@ export default Vue.extend({
         onChange: function(e) {
             showSpinner(liElement);
             startTime = new Date();
-            this.$refs.list.dataSource = dataSource["data" + e.value];
+            this.$refs.list.ej2Instances.dataSource = dataSource["data" + e.value];
             this.$refs.list.dataBind();
             endTime = new Date();
             document.getElementById("time").innerText =
@@ -231,5 +235,5 @@ export default Vue.extend({
     provide: {
         listview: [Virtualization]
     }
-});
+}
 </script>

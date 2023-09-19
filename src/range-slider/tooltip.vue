@@ -142,15 +142,11 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { TooltipPlacement, TooltipShowOn } from "@syncfusion/ej2-inputs";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-import { Z_NULL } from "zlib";
-Vue.use(SliderPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+
+export default {
   data: function() {
     return {
       value: 30,
@@ -175,6 +171,10 @@ export default Vue.extend({
       ],
       fields1: { text: "text", value: "value" }
     };
+  },
+  components: { 
+    'ejs-slider': SliderComponent,
+    'ejs-dropdownlist': DropDownListComponent
   },
   methods: {
     changeTooltip: function(e) {
@@ -204,5 +204,5 @@ export default Vue.extend({
         .addEventListener("scroll", this.onScroll.bind(this));
     }
   }
-});
+};
 </script>

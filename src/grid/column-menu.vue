@@ -25,7 +25,7 @@
             interact the features like sorting, grouping, filtering, column chooser and autoFit. This features can be enabled
             by defining the
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#showcolumnmenu">showColumnMenu
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#showcolumnmenu">showColumnMenu
                 </a></code> as true. The default items are
             <br>
         </p>
@@ -68,13 +68,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Group, Sort, Resize, ColumnMenu, Page, Filter } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, Sort, Resize, ColumnMenu, Page, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -85,5 +87,5 @@ export default Vue.extend({
   provide: {
       grid: [Group, Sort, Resize, ColumnMenu, Page, Filter]
   }
-});
+}
 </script>

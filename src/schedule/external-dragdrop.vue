@@ -7,7 +7,17 @@
                     <h1 class="title-text">Doctor's Appointments</h1>
                 </div>
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :group='group' :currentView='currentView' :resourceHeaderTemplate='resourceHeaderTemplate' :actionBegin="onActionBegin">
+                    :group='group' :currentView='currentView' :resourceHeaderTemplate="'resourceHeaderTemplate'" :actionBegin="onActionBegin">
+                    <template v-slot:resourceHeaderTemplate="{data}">
+                        <div className="template-wrap">
+                            <div class="specialist-category">
+                                <div v-if=getConsultantImageName(data)>
+                                    <img class="specialist-image" :src="getImage(data)" :alt="getImage(data)"/>
+                                </div>
+                            <div class="specialist-name">{{getConsultantName(data)}}</div>
+                            <div class="specialist-designation">{{getConsultantDesignation(data)}}</div>
+                        </div></div>
+                    </template>
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
                         <e-view option="TimelineMonth"></e-view>
@@ -235,15 +245,14 @@
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from 'vue';
     import { addClass, extend, closest } from '@syncfusion/ej2-base';
     import { hospitalData, waitingList } from './datasource';
-    import { SchedulePlugin, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-    Vue.use(TreeViewPlugin);    
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";  
 
-    var treeVue = Vue.component("tree-template", {
+    var app = createApp();
+    var treeVue = app.component("tree-template", {
         template: '<div id="waiting"><div id="waitdetails"><div id="waitlist">{{data.Name}}</div>' +
                   '<div id="waitcategory">{{data.DepartmentName}} - {{data.Description}}</div></div></div>',
         data() {
@@ -253,46 +262,15 @@
         }
     });
 
-    var resourceHeaderVue = Vue.component("resource-headerTemplate", {
-        template: '<div className="template-wrap"><div class="specialist-category"><div v-if=getConsultantImageName(data)><img class="specialist-image" :src="getImage" :alt="getImage"/></div><div class="specialist-name">' +
-                  '{{getConsultantName(data)}}</div><div class="specialist-designation">{{getConsultantDesignation(data)}}</div></div></div>',
-        data() {
-            return {
-                data: {}
-            };
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-treeview': TreeViewComponent
         },
-        computed: {
-            getImage: function() {
-                return './source/schedule/images/' + this.getConsultantName(this.data).toLowerCase() + '.png';
-            }
-        },
-        methods: {
-            getConsultantName: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
-            },
-            getConsultantImageName: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                let resourceName = (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
-                if (resourceName === 'GENERAL' || resourceName === 'DENTAL') {
-                    return false;
-                } else {
-                    return true;
-                }
-            },
-            getConsultantDesignation: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                var resourceName = value.resourceData[value.resource.textField];
-                if (resourceName === "GENERAL" || resourceName === "DENTAL") {
-                    return '';
-                } else {
-                    return value.resourceData.Designation;
-                }
-            }
-        }
-    });
-
-    export default Vue.extend({
         data: function () {
             return {
                 eventSettings: {
@@ -323,9 +301,6 @@
                     { Text: 'Laura', Id: 5, GroupId: 1, Color: '#bbdc00', Designation: 'Orthopedic' },
                     { Text: 'Margaret', Id: 6, GroupId: 2, Color: '#9e5fff', Designation: 'Endodontist' }
                 ],
-                resourceHeaderTemplate: function (e) {
-                    return { template: resourceHeaderVue }
-                },
                 treeViewFields: { dataSource: waitingList, id: 'Id', text: 'Name' },
                 treeTemplate: function(e){
                     return {template: treeVue}
@@ -400,11 +375,39 @@
             },
             onTreeDragStart: function() {
                 document.body.classList.add('e-disble-not-allowed');
+            },
+            getConsultantName: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
+            },
+            getConsultantImageName: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                let resourceName = (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
+                if (resourceName === 'GENERAL' || resourceName === 'DENTAL') {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            getConsultantDesignation: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                var resourceName = value.resourceData[value.resource.textField];
+                if (resourceName === "GENERAL" || resourceName === "DENTAL") {
+                    return '';
+                } else {
+                    return value.resourceData.Designation;
+                }
             }
+        },
+        computed: {
+            getImage() {
+                return (data) => {
+                    return 'source/schedule/images/' + this.getConsultantName(data).toLowerCase() + '.png';
+                };
+            },
         },
         provide: {
             schedule: [TimelineViews, TimelineMonth, Resize, DragAndDrop]
         }
-    });
-
+    };
 </script>

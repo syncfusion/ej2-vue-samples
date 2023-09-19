@@ -38,15 +38,17 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend, closest, isNullOrUndefined, remove, removeClass } from '@syncfusion/ej2-base';
     import { DataManager, Query } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
-    import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';
-    Vue.use(SchedulePlugin);
-    Vue.use(ContextMenuPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+    import { ContextMenuComponent } from '@syncfusion/ej2-vue-navigations';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-contextmenu': ContextMenuComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
@@ -145,6 +147,8 @@
                 let scheduleObj = this.$refs.scheduleObj.ej2Instances;
                 let selectedMenuItem = args.item.id;
                 let eventObj;
+                let selectedCells;
+                let activeCellsData;
                 if (this.selectedTarget.classList.contains('e-appointment')) {
                     eventObj = scheduleObj.getEventDetails(this.selectedTarget);
                 }
@@ -154,8 +158,8 @@
                         break;
                     case 'Add':
                     case 'AddRecurrence':
-                        let selectedCells = scheduleObj.getSelectedElements();
-                        let activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
+                         selectedCells = scheduleObj.getSelectedElements();
+                         activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
                         if (selectedMenuItem === 'Add') {
                             scheduleObj.openEditor(activeCellsData, 'Add');
                         } else {
@@ -181,6 +185,6 @@
                 }
             }
         }
-    });
+    }
 
 </script>

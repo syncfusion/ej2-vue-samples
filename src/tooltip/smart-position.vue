@@ -43,11 +43,13 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
 import { Draggable } from '@syncfusion/ej2-base';
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-tooltip': TooltipComponent
+   },
    data: function(){
         return {
             tooltipAnimation:  {
@@ -56,7 +58,7 @@ export default Vue.extend({
     }
         }
    },
-    mounted: function (args) {
+    mounted: function () {
         var ele = document.getElementById('demoSmart');
         var drag = new Draggable(ele, { 
             clone : false,
@@ -73,7 +75,7 @@ export default Vue.extend({
                     this.$refs.tooltip.open(args.element);
                 }
             },
-            dragStop: (args) => {
+            dragStop: () => {
                 this.$refs.tooltip.close();
             }
         });
@@ -81,5 +83,5 @@ export default Vue.extend({
    methods: {
      
    }
-});
+}
 </script>

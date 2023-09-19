@@ -29,9 +29,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-    DiagramPlugin,
+    DiagramComponent,
     NodeModel,
     UndoRedo,
     Node,
@@ -47,7 +46,6 @@ import {
     SnapConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 
-Vue.use(DiagramPlugin);
 let diagramInstance;
 //Initializes the nodes for the diagram
 let nodes = [
@@ -331,7 +329,10 @@ function CreateConnector(
     }
     return connector;
 }
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-diagram': DiagramComponent
+    },
     data: function() {
         return {
             //Initializes diagram control
@@ -352,7 +353,7 @@ export default Vue.extend({
         diagramInstance = this.$refs.diagramObj.ej2Instances;
         diagramInstance.fitToPage("Width");
     }
-});
+}
 
 function getConnectorDefaults(connector) {
     connector.targetDecorator = { shape: 'Arrow', width: 5, height: 5 };

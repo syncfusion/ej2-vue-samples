@@ -6,7 +6,12 @@
         <ejs-toolbar cssClass="dockToolbar" id="dockToolbar" v-on:clicked="toolbarCliked">
             <e-items>
                 <e-item prefixIcon="e-tbar-menu-icon tb-icons" tooltipText="Menu"></e-item>
-                <e-item :template="folderTemplate"></e-item>
+                <e-item :template="'folderTemplate'"></e-item>
+                <template v-slot:folderTemplate>
+                <div class="e-folder">
+                    <div class="e-folder-name">Vue Documentation</div>
+                </div>
+                </template>
             </e-items>
         </ejs-toolbar> 
     </div>
@@ -43,19 +48,9 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { SidebarPlugin, ToolbarPlugin } from '@syncfusion/ej2-vue-navigations';
-import { ListViewPlugin } from '@syncfusion/ej2-vue-lists';
-Vue.use(SidebarPlugin, ToolbarPlugin, ListViewPlugin);
+import { SidebarComponent, ToolbarComponent, ItemsDirective, ItemDirective, } from '@syncfusion/ej2-vue-navigations';
+import { ListViewComponent } from '@syncfusion/ej2-vue-lists';
 
-var folderTemplate = Vue.component("demo", {
-    template: '<div class="e-folder"><div class="e-folder-name">Vue Documentation</div></div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
 var listData = [
         { id: "1", text: "Grid", iconcss: "sb-icons icon-grid e-sb-icon control-icon", 
             description: "The Vue DataGrid is a feature-rich component useful for" +
@@ -86,14 +81,16 @@ var listData = [
             " from a list of predefined values. It has several out-of-the-box features, such as data binding," +
             " filtering, grouping, UI customization, accessibility, and preselected values." }
     ];
-export default Vue.extend({
+export default {
+    components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-sidebar': SidebarComponent,
+    'ejs-listview': ListViewComponent
+  },
     data: function() {
         return {
-            folderTemplate: function (e) {
-                return {
-                    template: folderTemplate
-                };
-            },
             enableDock: true, 
             ListData: listData,
             showIcon: true,
@@ -110,7 +107,7 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>
 
 <style>
@@ -130,12 +127,6 @@ export default Vue.extend({
     
     #wrapper .dockSidebar {
         z-index: 20 !important;
-    }
-
-    /* Specifies sample level styles for ListView icon alignment */
-
-    .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin: 0;
     }
 
     .material3 .dockSidebar .e-listview .e-list-icon.sb-icons,

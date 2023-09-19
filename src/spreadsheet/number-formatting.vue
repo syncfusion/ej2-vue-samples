@@ -88,11 +88,23 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./number-format-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, RowDirective, RowsDirective, CellDirective, CellsDirective, ColumnDirective, ColumnsDirective, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
+import dataSource from "./number-format-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },
    data: () => {
     return {
       dataSource: dataSource.numberFormatData,
@@ -125,5 +137,5 @@ export default Vue.extend({
         spreadsheet.numberFormat('[Red][<=350]$#,##0.00;[Blue][>350]$#,##0.00', 'E4:E14');
     }
   }
-});
+}
 </script>

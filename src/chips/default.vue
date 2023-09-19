@@ -87,19 +87,21 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { ChipListPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ChipListComponent, ChipDirective, ChipsDirective } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(ChipListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chiplist': ChipListComponent,
+    'e-chip': ChipDirective,
+    'e-chips': ChipsDirective
+  }, 
   data: function() {
     return {
       choiceSelected: [1],
       filterSelected: [1, 3]
     };
   }
-});
+}
 </script>
 
 <style>

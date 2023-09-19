@@ -41,17 +41,18 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
-
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails.slice(0, 12)
     };
   }
-});
+}
 </script>

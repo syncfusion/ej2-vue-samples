@@ -18,7 +18,7 @@
 						   		<div id="checkboxElement">Toolbar</div>
 						   </td>
 						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="toolbar" :checked="true" :change="onChange"></ejs-checkbox> 
+						   		<ejs-checkbox id="toolbar" :checked="true" :change="toolbarChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
@@ -26,7 +26,7 @@
 						   		<div id="checkboxElement">allowMultiSelection</div>
 						   </td>
 						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="multiSelect" :checked="true" :change="onChange"></ejs-checkbox> 
+						   		<ejs-checkbox id="multiSelect" :checked="true" :change="multiSelectChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
@@ -34,7 +34,7 @@
 						   		<div id="checkboxElement">showFileExtension</div>
 						   </td>
 						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="fileExtension" :checked="true" :change="onChange"></ejs-checkbox> 
+						   		<ejs-checkbox id="fileExtension" :checked="true" :change="fileExtensionChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
@@ -42,7 +42,7 @@
 						   		<div id="checkboxElement">showThumbnail</div>
 						   </td>
 						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="thumbnail" :checked="true" :change="onChange"></ejs-checkbox> 
+						   		<ejs-checkbox id="thumbnail" :checked="true" :change="thumbnailChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
@@ -109,20 +109,21 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { FileManagerPlugin ,NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { FileManagerComponent ,NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(FileManagerPlugin);
 /**
  * File Manager API sample
  */
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
-export default Vue.extend ({
+export default {
+    components: {
+      'ejs-filemanager': FileManagerComponent,
+      'ejs-checkbox': CheckBoxComponent,
+      'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {               
          ajaxSettings:
@@ -149,31 +150,32 @@ export default Vue.extend ({
             filemanager: [NavigationPane, Toolbar, DetailsView]
     },
     methods: {
-        onChange: function(args) {
-           var fileObj = document.getElementById("file").ej2_instances[0];
-		   if (args.event.target.previousElementSibling.id == "toolbar"){
-			   fileObj.toolbarSettings.visible = args.checked;
-		   }
-		   if (args.event.target.previousElementSibling.id == "multiSelect") {
-            	fileObj.allowMultiSelection = args.checked;
-        	}
-           if (args.event.target.previousElementSibling.id == "fileExtension") {
-            	fileObj.showFileExtension = args.checked;
-        	}
-           if (args.event.target.previousElementSibling.id == "thumbnail") {
-            	fileObj.showThumbnail = args.checked;
-        	}  
+		toolbarChange: function(args) {
+			var fileObj = this.$refs.fileObject;
+			fileObj.ej2Instances.toolbarSettings.visible = args.checked ? true : false
+		},
+		multiSelectChange: function(args) {
+			var fileObj = this.$refs.fileObject;
+			fileObj.ej2Instances.allowMultiSelection = args.checked ? true : false
+		},
+		fileExtensionChange: function(args) {
+			var fileObj = this.$refs.fileObject;
+			fileObj.ej2Instances.showFileExtension = args.checked ? true : false
+		},
+		thumbnailChange: function(args) {
+			var fileObj = this.$refs.fileObject;
+			fileObj.ej2Instances.showThumbnail = args.checked ? true : false
 		},
 		itemChange: function(args) {
-			var fileObj = document.getElementById("file").ej2_instances[0];
+			var fileObj = this.$refs.fileObject;
         	var changedItem = args.itemData.value;
         	if (args.element.id == 'enable') {
-            	fileObj.enableToolbarItems([changedItem]);
+            	fileObj.ej2Instances.enableToolbarItems([changedItem]);
         	} else {
-            	fileObj.disableToolbarItems([changedItem]);
+            	fileObj.ej2Instances.disableToolbarItems([changedItem]);
         	}
     	}
 	}
-});
+};
 </script>
 

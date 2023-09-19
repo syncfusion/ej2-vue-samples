@@ -27,7 +27,6 @@
           :removeReport="removeReport"
           :newReport="newReport"
           :toolbarRender="beforeToolbarRender"
-          :displayOption="displayOption"
           :chartSettings="chartSettings"
         ></ejs-pivotview>
       </div>
@@ -684,10 +683,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-vue-charts";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   FieldList,
   IDataSet,
@@ -703,10 +701,12 @@ import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare let require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -811,7 +811,7 @@ export default Vue.extend({
       args.reportName = reeportList;
     },
     loadReport: function (args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let reportCollection = [];
       if (
         localStorage.pivotviewReports &&
@@ -878,7 +878,7 @@ export default Vue.extend({
       }
     },
     newReport: function () {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.setProperties(
         {
           dataSourceSettings: {
@@ -913,7 +913,7 @@ export default Vue.extend({
       DrillThrough,
     ],
   },
-});
+}
 </script>
 
 <style scoped>

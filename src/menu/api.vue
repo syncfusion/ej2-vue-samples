@@ -90,21 +90,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { MenuComponent } from "@syncfusion/ej2-vue-navigations";
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { getComponent } from '@syncfusion/ej2-base';
 import * as dataSource from './menu-data.json';
 
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(MenuPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-menu': MenuComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
         menuItems: dataSource.apiData,
@@ -138,5 +138,5 @@ export default Vue.extend({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

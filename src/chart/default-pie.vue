@@ -19,7 +19,7 @@
     <p>
       In this example, you can see how to render and configure a pie chart. The pie chart is a circular graphic, which is ideal for displaying categories as a proportion or a percentage of the whole. The radius of the pie chart can be customized using the <code>Radius</code> property.
     </p>
-    <br>
+    
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
           Accumulation Chart component features are segregated into individual feature-wise modules. To use pie chart, we need to inject <code>PieSeries</code> module using <code>provide: { chart: [PieSeries] }</code> method.
@@ -42,14 +42,18 @@
 import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { DropDownList } from '@syncfusion/ej2-vue-dropdowns';
-import { AccumulationChartPlugin, AccumulationTooltip, PieSeries, AccumulationDataLabel, AccumulationLegend } from "@syncfusion/ej2-vue-charts";
-Vue.use(AccumulationChartPlugin);
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationTooltip, PieSeries, AccumulationDataLabel, AccumulationLegend } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
@@ -104,5 +108,5 @@ export default Vue.extend({
   methods: {
   }
 
-});
+};
 </script>

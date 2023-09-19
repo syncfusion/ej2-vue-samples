@@ -42,7 +42,7 @@
         </tr>
         <tr style='padding-top: 10px'>
             <td colspan="2">
-                <ejs-button ref='select' v-on:click.native="select">Select Rows</ejs-button>
+                <ejs-button ref='select' v-on:click="select">Select Rows</ejs-button>
             </td>
         </tr>
         <tr>
@@ -53,7 +53,7 @@
         <tr>
             <td colspan="2">
                 <div class="col-md-6" style="padding-bottom: 10px">
-                    <ejs-button ref='clear' v-on:click.native="clear">Clear Selection</ejs-button>
+                    <ejs-button ref='clear' v-on:click="clear">Clear Selection</ejs-button>
                 </div>
             </td>
         </tr>
@@ -120,20 +120,22 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { TreeGridPlugin, TreeGridComponent, Page, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin, ClickEventArgs, ButtonComponent} from '@syncfusion/ej2-vue-buttons';
-import { NumericTextBoxPlugin, NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { TreeGridComponent, ColumnsDirective, ColumnDirective, Page, Column } from "@syncfusion/ej2-vue-treegrid";
+import { ChangeEventArgs, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ClickEventArgs, ButtonComponent} from '@syncfusion/ej2-vue-buttons';
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(NumericTextBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: () => {
     return {
       data: sampleData,
@@ -147,18 +149,18 @@ export default Vue.extend({
     },
     methods: {
         select: function(e: ClickEventArgs) {
-             let startRow: number = (<NumericTextBoxComponent>this.$refs.start).ej2Instances.value;
-             let toRow: number = (<NumericTextBoxComponent>this.$refs.to).ej2Instances.value;
+             let startRow: number = ((this as NumericTextBoxComponent).$refs.start).ej2Instances.value;
+             let toRow: number = ((this as NumericTextBoxComponent).$refs.to).ej2Instances.value;
              let rows: number[] = [];
              for ( let i: number = startRow ; i <= toRow ; i++ ) {
                  rows.push(i);
              }
-             (<TreeGridComponent>this.$refs.treegrid).selectRows(rows);           
+             ((this as TreeGridComponent).$refs.treegrid).selectRows(rows);           
         },
         clear: function(e: ClickEventArgs){
-            (<TreeGridComponent>this.$refs.treegrid).clearSelection();
+            ((this as TreeGridComponent).$refs.treegrid).clearSelection();
         }
     }
 
-});
+};
 </script>

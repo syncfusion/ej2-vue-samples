@@ -87,17 +87,16 @@
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from 'vue';
     import { scheduleData } from './datasource';
     import { Internationalization, extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-    Vue.use(SchedulePlugin);
-    Vue.use(DropDownListPlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
+    var app = createApp();
     let instance = new Internationalization();
 
-    var majorTemplateVue = Vue.component("major-template", {
+    var majorTemplateVue = app.component("major-template", {
         template: '<div>{{majorSlotTemplate(data.date)}}</div>',
         data() {
             return {
@@ -111,7 +110,7 @@
         }
     });
 
-    var minorTemplateVue = Vue.component("minor-template", {
+    var minorTemplateVue = app.component("minor-template", {
         template: '<div style="text-align: center">{{minorSlotTemplate(data.date)}}</div>',
         data() {
             return {
@@ -125,7 +124,13 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
@@ -181,6 +186,6 @@
                 scheduleObj.dataBind();
             }
         }
-    });
+    };
 
 </script>

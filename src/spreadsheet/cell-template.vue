@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-cell-template">
-      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :showFormulaBar="false" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
+      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :showFormulaBar="false" cssClass="e-custom-spreadsheet" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
         <e-sheets>
           <e-sheet name="Registration Form" :rowCount="40" :colCount="30" :showGridLines="false">
             <e-ranges>
@@ -188,21 +188,58 @@
     .margin {
       margin-left: 10px !important;
     }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-input-group.e-control-wrapper {
+      background-color: rgb(56, 56, 56);
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio + label .e-label {
+      color: #000;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio + label::before {
+      background-color: #fff;
+      border-color: #757575;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio:checked + label::before {
+      border-color: #00b0ff;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio-wrapper {
+      padding-right: 10px;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
+      color: #000;
+    }
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import { ButtonPlugin, RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-import { DropDownListPlugin, MultiSelectPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(DropDownListPlugin);
-Vue.use(TextBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(RadioButtonPlugin);
-Vue.use(SpreadsheetPlugin);
-Vue.use(MultiSelectPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, ColumnsDirective, RowsDirective, RowDirective, CellsDirective, RangesDirective, RangeDirective, CellDirective, ColumnDirective } from "@syncfusion/ej2-vue-spreadsheet";
+import { ButtonComponent, RadioButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { DropDownListComponent, MultiSelectComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-radiobutton': RadioButtonComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-multiselect': MultiSelectComponent
+   },
    data: () => {
     return {
       scrollSettings: { isFinite: true },
@@ -221,5 +258,5 @@ export default Vue.extend({
       spreadsheet.merge('B1:C1');
     }
   }
-});
+}
 </script>

@@ -45,19 +45,21 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, TreeGridExcelExportProperties, TreeGridPdfExportProperties, TreeGridComponent, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, TreeGridExcelExportProperties, TreeGridPdfExportProperties, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { sampleData } from "./data-source";
 import { DialogUtility } from '@syncfusion/ej2-popups';
-import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-
-Vue.use(TreeGridPlugin);
-Vue.use(CheckBoxPlugin);
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
 
 let persistCollapseState: boolean = true;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       data: sampleData,
@@ -67,7 +69,7 @@ export default Vue.extend({
   },
   methods:{
     toolbarClick: function (args: ClickEventArgs) {
-        let instance :any = (<any>this.$refs.treegrid).ej2Instances;
+        let instance :any = ((this as any).$refs.treegrid).ej2Instances;
         switch (args.item.id) {
             case instance.grid.element.id + '_pdfexport':
             if (instance.enableRtl === true && (instance.locale === 'ar')) {
@@ -95,7 +97,7 @@ export default Vue.extend({
         }
     },
     collapsestate: function () {
-      let instance :any = (<any>this.$refs.checkbox).ej2Instances;
+      let instance :any = ((this as any).$refs.checkbox).ej2Instances;
       if (instance.checked) {
         persistCollapseState = true;
       } else{
@@ -106,5 +108,5 @@ export default Vue.extend({
   provide: {
       treegrid: [PdfExport, ExcelExport, Page, Toolbar]
   }
-});
+}
 </script>

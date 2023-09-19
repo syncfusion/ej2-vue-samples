@@ -67,7 +67,7 @@
           <p>
             The detail row template provides an additional information about a data row which can show or hide by clicking
             on expand or collapse button. The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#detailtemplate">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#detailtemplate">
         detailTemplate</a></code> property accepts the template for the detail row.
         </p>
         <p>
@@ -87,17 +87,19 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, DetailRow } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 import detailTemplate from "./detail-temp.vue";
 import { Internationalization } from '@syncfusion/ej2-base';
 
-Vue.use(GridPlugin);
-
 let instance = new Internationalization();
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: employeeData,
@@ -111,5 +113,5 @@ export default Vue.extend({
   provide: {
       grid: [DetailRow]
   }
-});
+}
 </script>

@@ -19,21 +19,20 @@
 
 <script>
 
-import Vue from "vue";
-import { DateTimePickerPlugin, MaskedDateTime } from "@syncfusion/ej2-vue-calendars";
+import { DateTimePickerComponent, MaskedDateTime } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DateTimePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       mask: true,
       dateTimeFormat: 'M/d/yyyy hh:mm a'
     };
   },
+  components: { 'ejs-datetimepicker': DateTimePickerComponent },
   provide: {
       datetimepicker: [MaskedDateTime]
   }
-});
+};
 </script>
 
 

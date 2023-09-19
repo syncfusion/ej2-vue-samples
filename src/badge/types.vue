@@ -265,3 +265,8 @@
         overflow: initial;
     }
 </style>
+
+<script>
+export default {
+}
+</script>

@@ -225,14 +225,16 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Edit, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Edit } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -253,5 +255,5 @@ export default Vue.extend({
    methods:{
   }
 
-});
+}
 </script>

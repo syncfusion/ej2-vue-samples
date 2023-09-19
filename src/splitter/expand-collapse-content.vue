@@ -7,11 +7,10 @@
   </ejs-splitter>
 </template>
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from "@syncfusion/ej2-vue-layouts";
-Vue.use(SplitterPlugin);
+import { createApp } from "vue";
+import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej2-vue-layouts";
 
-var topContent = Vue.component("pane1", {
+var topContent = {
   template: `<div class="content">
                 <a href="https://www.syncfusion.com/ebooks/data_capture_and_extraction_with_c_sharp_succinctly" target="_blank">Data Capture and Extraction with C# Succinctly</a>
                 <p>Capturing and extracting information is one of the most important tasks a developer can perform, and making this task more
@@ -26,9 +25,9 @@ var topContent = Vue.component("pane1", {
       data: {}
     };
   }
-});
+};
 
-var bottomContent = Vue.component("pane2", {
+var bottomContent = {
   template: `<div class="content">
                     <a href="https://www.syncfusion.com/ebooks/spark" target="_blank">Spark Succinctly</a>
                     <p>Mastering big data requires an aptitude at every step of information processing. 
@@ -43,20 +42,25 @@ var bottomContent = Vue.component("pane2", {
       data: {}
     };
   }
-});
+};
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-splitter': SplitterComponent,
+    'e-panes': PanesDirective,
+    'e-pane': PaneDirective
+  },
   data: function() {
     return {
       orient: "Vertical",
       topPaneContent: function() {
-        return { template: topContent };
+        return { template: createApp({}).component('pane1', topContent) };
       },
       bottomPaneContent: function() {
-        return { template: bottomContent };
+        return { template: createApp({}).component('pane2', bottomContent) };
       }
     };
   },
   methods: {}
-});
+};
 </script>

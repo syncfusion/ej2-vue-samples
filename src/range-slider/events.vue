@@ -127,14 +127,11 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(ButtonPlugin);
-Vue.use(SliderPlugin);
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       value: 30,
@@ -150,8 +147,12 @@ export default Vue.extend({
       tooltip: { isVisible: true, placement: "Before", showOn: "Focus" }
     };
   },
+  components: { 
+    'ejs-slider': SliderComponent,
+    'ejs-button': ButtonComponent
+  },
   methods: {
-    onCreated: function(args) {
+    onCreated: function() {
       this.appendElement("Slider control has been <b>created</b><hr>");
     },
     onChange: function(args) {
@@ -197,5 +198,5 @@ export default Vue.extend({
         .addEventListener("scroll", this.onScroll.bind(this));
     }
   }
-});
+};
 </script>

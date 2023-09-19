@@ -54,7 +54,7 @@
 </template>
 <style scoped>
     .e-btn-hide {
-	    display: none;
+    display: none;
 	}
   .form-title {
         width: 100%;
@@ -86,6 +86,7 @@
     }
 
     .material-dark #formId,
+    .material3-dark #formId,
     .bootstrap5-dark #formId {
         background: #212529;
     }
@@ -103,6 +104,7 @@
         background: #111111;
     }
     .material-dark .form-title,
+    .material3-dark .form-title,
     .bootstrap-dark .form-title,
     .fabric-dark .form-title,
     .tailwind-dark .form-title,
@@ -135,11 +137,13 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { FormValidator  } from '@syncfusion/ej2-vue-inputs';
-import { DatePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-Vue.use(DatePickerPlugin);
-export default Vue.extend({
+import { FormValidator } from '@syncfusion/ej2-vue-inputs';
+import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+
+export default {
+    components: {
+      'ejs-datepicker': DatePickerComponent
+    },
     data () {
       return {
         formObj: null,
@@ -179,5 +183,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

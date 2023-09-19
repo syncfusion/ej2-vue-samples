@@ -99,15 +99,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -134,8 +136,8 @@ export default Vue.extend({
    methods:{
         ontypeChange: function(e: ChangeEventArgs) {
             let value: string = <string>e.value;
-            let modeval: any = <string>(<DropDownListComponent>this.$refs.mode).ej2Instances.value;
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.selectionSettings.type = value;
+            let modeval: any = <string>( (this as any).$refs.mode).ej2Instances.value;
+            ( (this as any).$refs.treegrid).ej2Instances.selectionSettings.type = value;
             if ( value === 'Multiple' && modeval === 'Cell' ) {
                 (<HTMLElement>document.getElementsByClassName('con-prop')[0]).style.display = 'table-row';
             } else {
@@ -144,8 +146,8 @@ export default Vue.extend({
         },
         onmodeChange: function(e: ChangeEventArgs) {
             let value: string = <string>e.value;
-            let typeval: string = <string>(<DropDownListComponent>this.$refs.type).ej2Instances.value;
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.selectionSettings.mode = value;
+            let typeval: string = <string>( (this as any).$refs.type).ej2Instances.value;
+            ( (this as any).$refs.treegrid).ej2Instances.selectionSettings.mode = value;
             if ( typeval === 'Multiple' && value === 'Cell' ) {
                 (<HTMLElement>document.getElementsByClassName('con-prop')[0]).style.display = 'table-row';
             } else {
@@ -154,9 +156,9 @@ export default Vue.extend({
         },
          oncellChange: function(e: ChangeEventArgs) {
             let value: string = <string>e.value;
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.selectionSettings.cellSelectionMode = value;
+            ( (this as any).$refs.treegrid).ej2Instances.selectionSettings.cellSelectionMode = value;
         }
   }
 
-});
+}
 </script>

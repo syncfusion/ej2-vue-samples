@@ -27,7 +27,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button cssClass="e-flat" v-on:click.native="btnClick">Apply</ejs-button>
+                            <ejs-button cssClass="e-flat" v-on:click="btnClick">Apply</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -61,17 +61,17 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as data from './dataSource.json';
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent,
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             checkFields: { text: 'Name', value: 'Code' },
@@ -94,5 +94,5 @@ export default Vue.extend ({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

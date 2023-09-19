@@ -62,15 +62,17 @@
 <!-- custom code end -->
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page, GridComponent, Sort, Filter } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { DataManager, UrlAdaptor } from "@syncfusion/ej2-data";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { ChangeEventArgs, DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       data: new DataManager({
@@ -88,17 +90,17 @@ export default Vue.extend({
   },
   methods: {
     indicatorChange: function(e: ChangeEventArgs): void {
-        if ((<DropDownListComponent>this.$refs.dropdown).ej2Instances.value === "Shimmer") {
-            (<GridComponent>this.$refs.grid).ej2Instances.loadingIndicator.indicatorType = 'Shimmer';
-            (<GridComponent>this.$refs.grid).ej2Instances.refresh();
+        if (((this as any).$refs.dropdown as DropDownListComponent).ej2Instances.value === "Shimmer") {
+            ((this as any).$refs.grid as GridComponent).ej2Instances.loadingIndicator.indicatorType = 'Shimmer';
+            ((this as any).$refs.grid as GridComponent).ej2Instances.refresh();
         } else {
-            (<GridComponent>this.$refs.grid).ej2Instances.loadingIndicator.indicatorType = 'Spinner';
-            (<GridComponent>this.$refs.grid).ej2Instances.refresh();
+            ((this as any).$refs.grid as GridComponent).ej2Instances.loadingIndicator.indicatorType = 'Spinner';
+            ((this as any).$refs.grid as GridComponent).ej2Instances.refresh();
         }
     }
   },
   provide: {
       grid: [Page, Sort, Filter]
   }
-});
+}
 </script>

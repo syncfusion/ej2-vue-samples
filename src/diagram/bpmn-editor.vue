@@ -401,18 +401,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
   Diagram,
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   UndoRedo,
   BpmnActivityModel,
   ConnectorModel,
   PointPortModel,
   Connector,
-  SymbolPalettePlugin,
+  SymbolPaletteComponent,
   SymbolInfo,
   IDragEnterEventArgs,
   BpmnDataObjects,
@@ -435,8 +434,6 @@ import {
   BpmnEvents,
   DataBinding,
 } from "@syncfusion/ej2-vue-diagrams";
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
 
 let diagram;
 let nodes = [
@@ -982,7 +979,11 @@ let contextMenu = {
   ],
   showCustomMenuOnly: true
 };
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -1079,7 +1080,7 @@ export default Vue.extend({
     diagram = this.$refs.diagramObject.ej2Instances;
     diagram.fitToPage();
   }
-});
+}
 
 function getConnectors(){
   let connectorSymbols = [

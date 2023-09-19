@@ -34,20 +34,22 @@
         </p>
         <p>
             More information on the stacked header configuration can be found in this 
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/columns/#resize-stacked-column">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/columns/column-resizing#resize-stacked-column">documentation section</a>.
         </p>
     </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import { GridPlugin, Page, Resize } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Resize } from '@syncfusion/ej2-vue-grids';
 import { orderDetails } from './data-source';
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
       return {
         data: orderDetails,
@@ -90,5 +92,5 @@ export default Vue.extend({
   provide: {
       grid: [Page, Resize]
   }
-})
+}
 </script>

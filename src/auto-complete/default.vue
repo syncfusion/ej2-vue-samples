@@ -23,18 +23,18 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { AutoCompleteComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(AutoCompletePlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-autocomplete': AutoCompleteComponent
+    },
     data: function() {
         return {
             waterMark: 'e.g. Basketball',
             sportsData: data['sportsData']
         };
     }
-});
+}
 </script>

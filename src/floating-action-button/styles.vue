@@ -88,7 +88,9 @@
         margin: 0 5px;
         transition: width .5s linear .2s, margin .2s linear 0s;
     }
- .e-bigger .e-btn.fab-hover .e-btn-icon.e-icon-left,
+    /*end of hover css*/
+    /*start of mobile view css*/
+    .e-bigger .e-btn.fab-hover .e-btn-icon.e-icon-left,
     .e-btn.fab-hover .e-btn-icon.e-icon-left {
         margin-left: 0;
         width: 1em;
@@ -101,7 +103,12 @@
     .e-bigger .fab-hover:hover .text-container {
         width: 80px;
     }
- /*end of hover css*/
+    
+    body[class*="material3"].e-bigger .fab-hover:hover .text-container,
+    body[class*="material3-dark"].e-bigger .fab-hover:hover .text-container {
+        width: 65px;
+    }
+    /*end of  mobile view css*/
 
     @font-face {
         font-family: 'fab-icons';
@@ -129,10 +136,9 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { FabPlugin } from "@syncfusion/ej2-vue-buttons";
+import { FabComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(FabPlugin);
-
-export default Vue.extend({});
+export default {
+    components: { 'ejs-fab': FabComponent}
+}
 </script>

@@ -243,12 +243,12 @@
 </style>
 
 <script>
-import Vue from 'vue';
-import { ProgressButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { ProgressButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 
-Vue.use(ProgressButtonPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-progressbutton': ProgressButtonComponent
+    },
     data: function() {
         return {
             spinRight : { position: 'Right' },
@@ -269,5 +269,5 @@ export default Vue.extend({
             this.$refs.contractBtn.ej2Instances.element.classList.remove('e-round');
         }
     }
-});
+}
 </script>

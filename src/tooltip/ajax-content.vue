@@ -126,13 +126,15 @@
     
 </style>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { Fetch } from '@syncfusion/ej2-base';
-Vue.use(ListViewPlugin);
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-listview': ListViewComponent
+   },
    data: function(){
         return {
             content : "Loading..",
@@ -151,7 +153,7 @@ export default Vue.extend({
    methods: {
        onBeforeRender: function(args){
             
-   let fetchApi = new Fetch('./source/tooltip/tooltipdata.json', 'GET');
+   let fetchApi = new Fetch('source/tooltip/tooltipdata.json', 'GET');
         fetchApi.onSuccess = (data) => {
             for (var i = 0; i < data.length; i++) {
                 if (data[i].Id === args.target.getAttribute('data-content')) {
@@ -164,5 +166,5 @@ export default Vue.extend({
         fetchApi.send();
        }
    }
-});
+}
 </script>

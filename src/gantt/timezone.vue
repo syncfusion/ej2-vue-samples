@@ -32,10 +32,12 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection } from "@syncfusion/ej2-vue-gantt";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+import { GanttComponent, Selection } from "@syncfusion/ej2-vue-gantt";
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function () {
     return {
       data: [
@@ -98,5 +100,5 @@ export default Vue.extend({
   provide: {
     gantt: [Selection],
   },
-});
+}
 </script>

@@ -20,13 +20,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent
+    },
     data: function() {
         return {
             filterFields: { text: 'Name', value: 'Code' },
@@ -42,5 +42,5 @@ export default Vue.extend ({
             countries: data['countries'],
         };
     }
-});
+}
 </script>

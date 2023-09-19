@@ -32,9 +32,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   ConnectorModel,
   Connector,
@@ -68,16 +67,15 @@ import {
 import { DataManager, Query } from "@syncfusion/ej2-data";
 import { mindMap } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
-
-
 let diagramInstance;
 let items = new DataManager(
   mindMap,
   new Query().take(7)
 );
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -239,7 +237,7 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+}
 
 //creation of the Ports
 function getPort() {

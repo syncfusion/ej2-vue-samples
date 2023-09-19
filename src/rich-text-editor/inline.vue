@@ -42,14 +42,14 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, HtmlEditor, QuickToolbar, ToolbarType } from "@syncfusion/ej2-vue-richtexteditor";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(RichTextEditorPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         return {
             toolbarSettings: {
@@ -74,5 +74,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar]
     }
-});
+}
 </script>

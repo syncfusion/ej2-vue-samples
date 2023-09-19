@@ -22,18 +22,17 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import {
   BasicShapeModel,
   SnapConstraints,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel
 } from "@syncfusion/ej2-vue-diagrams";
-Vue.use(DiagramPlugin);
+
 let diagramInstance;
 //Initialize shape
 let shape = { type: "Basic", shape: "Ellipse" };
@@ -116,7 +115,10 @@ let nodes = [
   }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       //Initializes diagram control
@@ -131,5 +133,5 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObject.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+}
 </script>

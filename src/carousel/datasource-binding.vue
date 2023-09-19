@@ -79,12 +79,11 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { CarouselPlugin } from "@syncfusion/ej2-vue-navigations";
+import { createApp } from 'vue';
+import { CarouselComponent } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(CarouselPlugin);
-
-var productVue = Vue.component("product", {
+var app = createApp();
+var productVue = app.component("product", {
   template:
     '<div class="card">' +
     '<img class="card-img-top" :src="getImage" :alt="getAlt" style="height:210px;width:100%;" />' +
@@ -109,7 +108,10 @@ var productVue = Vue.component("product", {
   methods: {},
 });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-carousel': CarouselComponent
+    },
   data: function () {
     return {
       animation: "Fade",
@@ -147,5 +149,5 @@ export default Vue.extend({
       },
     };
   },
-});
+};
 </script>

@@ -91,9 +91,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
   PivotView,
   PivotViewComponent,
   SummaryTypes,
@@ -101,15 +99,13 @@ import {
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { rData } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
 let data: IDataSet[] = JSON.parse(JSON.stringify(rData));
@@ -159,7 +155,11 @@ let cData: { [key: string]: Object }[] = [
 
 let dataFields: object = { text: "text", value: "value" };
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -225,10 +225,10 @@ export default Vue.extend({
           delete data[ln].Date;
         }
       }
-      (<any>this.$refs.pivotview).ej2Instances.dataSourceSettings.dataSource = data;
+      ((this as any).$refs.pivotview).ej2Instances.dataSourceSettings.dataSource = data;
     },
     setSummaryType(fieldName: string, summaryType: SummaryTypes): void {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let isAvail: boolean = false;
       for (
         let vCnt: number = 0;
@@ -253,7 +253,7 @@ export default Vue.extend({
   provide: {
     pivotview: [FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

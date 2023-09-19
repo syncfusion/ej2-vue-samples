@@ -73,20 +73,21 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { PivotViewPlugin, IDataSet } from "@syncfusion/ej2-vue-pivotview";
+import { PivotViewComponent, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import {
-  RadioButtonPlugin ,
+  RadioButtonComponent ,
 } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(RadioButtonPlugin );
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-radiobutton': RadioButtonComponent
+  },
   data: () => {
     return {
         dataSourceSettings: {
@@ -107,7 +108,7 @@ export default Vue.extend({
   },
   methods: {
     onRadioChange: function(args: any) {
-        let pivotObj = (<any>this.$refs.pivotview).ej2Instances; 
+        let pivotObj = ((this as any).$refs.pivotview).ej2Instances; 
         let id: string = (args.event.target as HTMLElement).id;
         if (id !== 'collapse') {
             /** To restrict multiple times grid rendering on property change. */
@@ -132,7 +133,7 @@ export default Vue.extend({
         }
     }
   }
-});
+}
 </script>
 
 <style scoped>

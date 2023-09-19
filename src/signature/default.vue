@@ -5,11 +5,11 @@
             <div class='e-sign-heading'>
                 <span id="signdescription">Sign below</span>
                 <span class="e-btn-options">
-                    <ejs-button id="signsave" cssClass="e-primary e-sign-save" disabled="true" v-on:click.native="BtnClick">SAVE</ejs-button>
-                    <ejs-button id="signclear" cssClass="e-primary e-sign-clear" disabled="true" v-on:click.native="clearBtnClick">CLEAR</ejs-button>
+                    <ejs-button id="signsave" cssClass="e-primary e-sign-save" disabled="true" v-on:click="BtnClick">SAVE</ejs-button>
+                    <ejs-button id="signclear" cssClass="e-primary e-sign-clear" disabled="true" v-on:click="clearBtnClick">CLEAR</ejs-button>
                 </span>
             </div>
-            <ejs-signature id="signature" style="height: 90%; width:100%;":change="change"></ejs-signature>  
+            <ejs-signature id="signature" style="height: 90%; width:100%;" :change="change"></ejs-signature>  
         </div>
     </div>
     <div id="action-description">
@@ -30,19 +30,17 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { SignaturePlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { getComponent } from '@syncfusion/ej2-base';
-
-Vue.use(SignaturePlugin);
-Vue.use(ButtonPlugin);
-
+import { SignatureComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from "@syncfusion/ej2-base";
 
 export default {
-  data: function() {
-    return {
-    };
+  data: function () {
+    return {};
+  },
+  components: {
+    "ejs-button": ButtonComponent,
+    "ejs-signature": SignatureComponent,
   },
   methods: {
 		BtnClick: function() {
@@ -73,7 +71,6 @@ export default {
 </script>
 
 <style>
-
 #signature-control h4 {
     margin-bottom: 20px;
     text-align: center;
@@ -102,5 +99,4 @@ export default {
 .e-bigger #signature-control h4 {
     font-size: 20px;
 }
-
 </style>

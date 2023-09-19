@@ -43,8 +43,8 @@
         In this example, you can see how to render and configure the Stock chart.
         <code>LineSeries</code> is used to represent selected data value.
       </p>
-      <br>
-           <p style="font-weight: 500">Injecting Module</p>
+      
+           <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
@@ -56,10 +56,13 @@
 </template>
  
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
+  StockChartPeriodsDirective,
+  StockChartPeriodDirective,
   DateTime,
   LineSeries,
   SplineSeries,
@@ -82,8 +85,6 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
@@ -104,7 +105,14 @@ function GetZoomingData() {
   return { series: series };
 }
 let seriesData1 = GetZoomingData().series;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective,
+    'e-stockchart-periods': StockChartPeriodsDirective,
+    'e-stockchart-period': StockChartPeriodDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -120,7 +128,7 @@ export default Vue.extend({
       },
       primaryYAxis: {
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", height: 0 },
+        majorTickLines: { color: "transparent", width: 0 },
         crosshairTooltip: { enable: true }
       },
      
@@ -162,5 +170,5 @@ export default Vue.extend({
     ]
   },
   methods: {}
-});
+};
 </script>

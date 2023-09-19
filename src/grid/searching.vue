@@ -18,7 +18,7 @@
 
      <div id="description">
         <p>The Grid has an option to search its content using the  <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#search">search
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/search/">search
         </a></code> method with search key as the parameter.</p>
         <br>
         <p>In this demo, type in the search box to perform search operation.</p>
@@ -31,13 +31,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { categoryData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: categoryData,
@@ -48,5 +50,5 @@ export default Vue.extend({
   provide: {
       grid: [Page, Toolbar]
   }
-});
+}
 </script>

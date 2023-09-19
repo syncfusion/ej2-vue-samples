@@ -78,14 +78,17 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, Toolbar, RowDD, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar, RowDD } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin, DropDownListPlugin);
-
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -111,13 +114,13 @@ export default  Vue.extend({
      methods:{
        onChange: function(e: ChangeEventArgs): void {
            if(e.value === 'Row'){
-               this.editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: <any>e.value };
-               this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'];
+               (this as any).editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: <any>e.value };
+               (this as any).toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'];
            } else {
-               this.editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: <any>e.value };
-               this.toolbar = ['Add', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'];
+               (this as any).editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: <any>e.value };
+               (this as any).toolbar = ['Add', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'];
            }       
      }
     }
-});
+}
 </script>

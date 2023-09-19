@@ -1,7 +1,7 @@
 <template>
   <div>
      <div id="target" class="col-lg-12 control-section">
-         <ejs-button id="dialogBtn" v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
+         <ejs-button id="dialogBtn" v-if="ShowBtn" v-on:click="buttonClick">Open Dialog</ejs-button>
     
         <ejs-dialog id='defaultDialog' header='Choose a Dialog Position' showCloseIcon='true' :position='position' :footerTemplate='footerTemplate' width='452px' ref='dialogObj'
             target='#target' :open='dialogOpen' :close='dialogClose' closeOnEscape='false'>
@@ -40,13 +40,15 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-Vue.use(DialogPlugin);
-Vue.use(RadioButtonPlugin);
-let ShowBtn = undefined;
-export default Vue.extend({
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent, RadioButtonComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent,
+      'ejs-radiobutton': RadioButtonComponent
+    },
     data: function() {
         return {
             footerTemplate: '<span id="posvalue" style="float:left;margin-left:8px;padding:10px;">Position: { X: "Center", Y: "Center" }</span>',
@@ -58,7 +60,7 @@ export default Vue.extend({
         document.getElementById('radio5').click();
     },
     methods: {
-        buttonClick: function(args){
+        buttonClick: function(){
             this.$refs.dialogObj.show();
         },
         changePosition: function(event) {
@@ -74,7 +76,7 @@ export default Vue.extend({
             this.ShowBtn = false;
         }
     }
-});
+}
 </script>
 
 <style scoped>

@@ -118,15 +118,9 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import {
-  SliderTooltipEventArgs,
-  SliderTickEventArgs
-} from "@syncfusion/ej2-inputs";
-import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(SliderPlugin);
-export default Vue.extend({
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+
+export default {
   data: function() {
     return {
       min: 0,
@@ -179,6 +173,9 @@ export default Vue.extend({
       }
     };
   },
+  components: { 
+    'ejs-slider': SliderComponent,
+  },
   methods: {
     tooltipChangeHandler: function(args) {
       let totalMiliSeconds = args.text.split(" ");
@@ -217,9 +214,11 @@ export default Vue.extend({
     }
   },
   mounted: function() {
-    document
-      .getElementById("right-pane")
-      .addEventListener("scroll", this.onScroll.bind(this));
+    if (document.getElementById('right-pane')) {
+      document
+        .getElementById('right-pane')
+        .addEventListener('scroll', this.onScroll.bind(this));
+    }
   }
-});
+};
 </script>

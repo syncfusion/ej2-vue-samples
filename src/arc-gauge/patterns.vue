@@ -1,6 +1,6 @@
 <template>
 <div id="patternsarcgauge">
-    <div class="control-section">
+    <div class="control-section" style="overflow: auto">
         <table>
             <tr>
                 <td class="gaugeAlign">
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td class="gaugeAlign">
-                      <ejs-circulargauge width="280px" height="300px" :load='gaugeload4' id='container4' :centerY='centerY3'>
+                      <ejs-circulargauge width="280px" height="300px" :load='gaugeload4' id='container4'>
                         <e-axes>
                             <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsSeven' :ranges='rangesSeven' :pointers='pointersSeven'>
                             </e-axis>
@@ -38,7 +38,7 @@
                     </ejs-circulargauge>
                 </td>
                 <td class="gaugeAlign">
-                    <ejs-circulargauge width="280px" height="300px" :load='gaugeload5' id='container5' :centerY='centerY6'>
+                    <ejs-circulargauge width="280px" height="300px" :load='gaugeload5' id='container5'>
                         <e-axes>
                             <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsEight' :ranges='rangesEight' :pointers='pointersEight'>
                             </e-axis>
@@ -46,7 +46,7 @@
                     </ejs-circulargauge>
                 </td>
                 <td class="gaugeAlign">
-                    <ejs-circulargauge width="280px" height="300px" ref="circulargauge2" :load='gaugeload6' id='container6' :centerY='centerY5'>
+                    <ejs-circulargauge width="280px" height="300px" ref="circulargauge2" :load='gaugeload6' id='container6'>
                         <e-axes>
                             <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsNine' :ranges='rangesNine' :pointers='pointersNine'>
                             </e-axis>
@@ -82,10 +82,14 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations, Gradient } from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, Annotations, Gradient } from "@syncfusion/ej2-vue-circulargauge";
+
+export default {
+    components: {
+          'ejs-circulargauge': CircularGaugeComponent,
+          'e-axes': AxesDirective,
+          'e-axis': AxisDirective
+    },
     data: function () {
         return {
         majorTicks: {
@@ -1527,7 +1531,7 @@ export default Vue.extend({
             /* custom code end */
         }
     }
-})
+}
 </script>
 <style>
     #patternsarcgauge .annotationText {

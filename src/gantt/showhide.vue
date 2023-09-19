@@ -30,12 +30,12 @@
         <tr>
             <td style="width: 30%">
                 <div>
-                   <ejs-button ref='hide' v-on:click.native="hide">Hide</ejs-button>
+                   <ejs-button ref='hide' v-on:click="hide">Hide</ejs-button>
                 </div>
             </td>
             <td style="width: 70%">
                 <div>
-                    <ejs-button ref='show' disabled='true' v-on:click.native="show">Show</ejs-button>
+                    <ejs-button ref='show' disabled='true' v-on:click="show">Show</ejs-button>
                 </div>
             </td>
         </tr>
@@ -84,18 +84,18 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
 import { Column } from "@syncfusion/ej2-vue-grids";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin, ClickEventArgs, ButtonComponent} from '@syncfusion/ej2-vue-buttons';
-import { GanttPlugin, Selection, GanttComponent, Gantt} from "@syncfusion/ej2-vue-gantt";
+import { DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent, ClickEventArgs } from '@syncfusion/ej2-vue-buttons';
+import { GanttComponent, Selection, Gantt} from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from "./data-source";
 
-Vue.use(GanttPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: () => {
     return {
        data: projectNewData,
@@ -134,35 +134,35 @@ export default Vue.extend({
     },
     methods: {
         onColChange: function(e: ChangeEventArgs): void {
-          let columnName = <string>e.value;
-          let column: Column = (<GanttComponent>this.$refs.gantt).ej2Instances.treeGrid.grid.getColumnByField(columnName) as Column;
+          let columnName = e.value;
+          let column: Column = ((this as GanttComponent).$refs.gantt).ej2Instances.treeGrid.grid.getColumnByField(columnName) as Column;
           if (column.visible === undefined || column.visible) {
-                (<ButtonComponent>this.$refs.show).ej2Instances.disabled = true;
-                (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = false;
+                ((this as ButtonComponent).$refs.show).ej2Instances.disabled = true;
+                ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = false;
             } else {
-                (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = true;
-                (<ButtonComponent>this.$refs.show).ej2Instances.disabled = false;
+                ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = true;
+                ((this as ButtonComponent).$refs.show).ej2Instances.disabled = false;
             }
         },
         hide: function(e: ClickEventArgs) {
-             let dropValue = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-             let columnName: string = (<GanttComponent>this.$refs.gantt).ej2Instances.treeGrid.getColumnByField(dropValue).headerText;
-             (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = true;
-             (<ButtonComponent>this.$refs.show).ej2Instances.disabled = false;
+             let dropValue = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
+             let columnName: string = ((this as GanttComponent).$refs.gantt).ej2Instances.treeGrid.getColumnByField(dropValue).headerText;
+             ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = true;
+             ((this as ButtonComponent).$refs.show).ej2Instances.disabled = false;
              let hiddencols: HTMLTextAreaElement = document.getElementById('hiddencolumns') as HTMLTextAreaElement;
              hiddencols.value = hiddencols.value + columnName + '\n';
-             (<GanttComponent>this.$refs.gantt).hideColumn(columnName);
+             ((this as GanttComponent).$refs.gantt).hideColumn(columnName);
         },
         show: function(e: ClickEventArgs){
-            let dropValue = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-            let columnName: string = (<GanttComponent>this.$refs.gantt).ej2Instances.treeGrid.getColumnByField(dropValue).headerText;
-            (<ButtonComponent>this.$refs.show).ej2Instances.disabled = true;
-            (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = false;
+            let dropValue = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
+            let columnName: string = ((this as GanttComponent).$refs.gantt).ej2Instances.treeGrid.getColumnByField(dropValue).headerText;
+            ((this as ButtonComponent).$refs.show).ej2Instances.disabled = true;
+            ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = false;
             let hiddencols: HTMLTextAreaElement = document.getElementById('hiddencolumns') as HTMLTextAreaElement;
             let value = hiddencols.value.replace(columnName + '\n','');
             hiddencols.value = value;
-            (<GanttComponent>this.$refs.gantt).showColumn(columnName);
+            ((this as GanttComponent).$refs.gantt).showColumn(columnName);
         }
     }
-});
+};
 </script>

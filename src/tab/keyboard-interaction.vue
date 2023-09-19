@@ -108,10 +108,26 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(TabPlugin);
-export default Vue.extend({
+import { TabComponent, TabItemDirective, TabItemsDirective } from "@syncfusion/ej2-vue-navigations";
+
+export default {
+  components: {
+    'ejs-tab': TabComponent,
+    'e-tabitem': TabItemDirective,
+    'e-tabitems': TabItemsDirective
+  },
+  mounted: function () {
+    var tabObj = this.$refs.tabObj.ej2Instances;
+    document.body.addEventListener('keydown', (e) => {
+      var tabElement = tabObj.element.querySelector(
+        '.e-toolbar-item.e-template.e-active .e-tab-wrap'
+      );
+      
+      if (e.altKey && e.keyCode === 74 && tabElement) {
+        tabElement.focus();
+      }
+    });
+  },
   data: function () {
     return {
       headerText0: { text: "HTML" },
@@ -173,5 +189,5 @@ export default Vue.extend({
         "both game development and the creation of desktop applications.",
     };
   },
-});
+}
 </script>

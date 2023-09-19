@@ -160,18 +160,14 @@
   
   </style>
   <script>
-  import Vue from "vue";
-  import { Browser } from "@syncfusion/ej2-base";
-  import {
-    ProgressBarPlugin,
-    ProgressAnnotation
-  } from "@syncfusion/ej2-vue-progressbar";
+  import { ProgressBarComponent } from "@syncfusion/ej2-vue-progressbar";
   
   let div = document.getElementsByClassName('progressbar-label-tooltip');
   
-  Vue.use(ProgressBarPlugin);
-  
-  export default Vue.extend({
+  export default {
+    components: {
+      'ejs-progressbar': ProgressBarComponent
+    },
     data: function() {
       return {
         value1: 75,
@@ -214,6 +210,6 @@
            }
     }
     }
-  });
+  };
   </script>
   

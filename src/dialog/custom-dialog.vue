@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="col-lg-12 control-section" style="padding:10px;position:relative;">
-        <ejs-button class='dlgbtn' id='alertbtn' v-if="ShowBtn" v-on:click.native="alertBtnClick">Alert</ejs-button>
+        <ejs-button class='dlgbtn' id='alertbtn' v-if="ShowBtn" v-on:click="alertBtnClick">Alert</ejs-button>
 
-        <ejs-button class='dlgbtn' v-if="ShowBtn" v-on:click.native="confirmBtnClick">Confirm</ejs-button>
+        <ejs-button class='dlgbtn' v-if="ShowBtn" v-on:click="confirmBtnClick">Confirm</ejs-button>
 
-        <ejs-button class='dlgbtn' v-if="ShowBtn" v-on:click.native="promptBtnClick">Prompt</ejs-button>
+        <ejs-button class='dlgbtn' v-if="ShowBtn" v-on:click="promptBtnClick">Prompt</ejs-button>
 
         <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :open="dialogOpen" :close="dialogClose" :target='target'
             :width='alertWidth'>
@@ -64,7 +64,7 @@
 	}
     /* custom code start */
 	.dlgbtn {
-	    margin-right: 2%;
+    margin-right: 2%;
     }
     .control-section {
         height: 100%;
@@ -74,11 +74,14 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-Vue.use(DialogPlugin);
-let ShowBtn = undefined;
-export default Vue.extend({
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             alertHeader: 'Low Battery',
@@ -128,5 +131,5 @@ export default Vue.extend({
             this.ShowBtn = false;
         }
     }
-});
+}
 </script>

@@ -38,15 +38,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as data from './dataSource.json';
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent,
+    },
     data: function() {
         return {
             checkFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
@@ -64,5 +62,5 @@ export default Vue.extend ({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

@@ -60,12 +60,12 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { CarouselPlugin } from "@syncfusion/ej2-vue-navigations";
+import { createApp } from 'vue';
+import { CarouselComponent, CarouselItemsDirective, CarouselItemDirective } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(CarouselPlugin);
+var app = createApp();
 
-var itemTemplate1Vue = Vue.component("itemTemplate1", {
+var itemTemplate1Vue = app.component("itemTemplate1", {
     template: '<figure class="img-container">' +
         '<img src="src/carousel/images/bridge.jpg" alt="bridge" style="height:100%;width:100%;" />' +
         '<figcaption class="img-caption">Golden Gate Bridge, San Francisco</figcaption>' +
@@ -77,7 +77,7 @@ var itemTemplate1Vue = Vue.component("itemTemplate1", {
     }
 });
 
-var itemTemplate2Vue = Vue.component("itemTemplate2", {
+var itemTemplate2Vue = app.component("itemTemplate2", {
     template: '<figure class="img-container">' +
         '<img src="src/carousel/images/trees.jpg" alt="spring_trees" style="height:100%;width:100%;" />' +
         '<figcaption class="img-caption">Spring Flower Trees</figcaption>' +
@@ -89,7 +89,7 @@ var itemTemplate2Vue = Vue.component("itemTemplate2", {
     }
 });
 
-var itemTemplate3Vue = Vue.component("itemTemplate3", {
+var itemTemplate3Vue = app.component("itemTemplate3", {
     template: '<figure class="img-container">' +
         '<img src="src/carousel/images/waterfall.jpg" alt="waterfall" style="height:100%;width:100%;" />' +
         '<figcaption class="img-caption">Oddadalen Waterfalls, Norway</figcaption>' +
@@ -101,7 +101,7 @@ var itemTemplate3Vue = Vue.component("itemTemplate3", {
     }
 });
 
-var itemTemplate4Vue = Vue.component("itemTemplate4", {
+var itemTemplate4Vue = app.component("itemTemplate4", {
     template: '<figure class="img-container">' +
         '<img src="src/carousel/images/sea.jpg" alt="sea" style="height:100%;width:100%;" />' +
         '<figcaption class="img-caption">Anse Source d\'Argent, Seychelles</figcaption>' +
@@ -113,7 +113,7 @@ var itemTemplate4Vue = Vue.component("itemTemplate4", {
     }
 });
 
-var itemTemplate5Vue = Vue.component("itemTemplate5", {
+var itemTemplate5Vue = app.component("itemTemplate5", {
     template: '<figure class="img-container">' +
         '<img src="src/carousel/images/rocks.jpeg" alt="rocks" style="height:100%;width:100%;" />' +
         '<figcaption class="img-caption">Stonehenge, England</figcaption>' +
@@ -125,7 +125,12 @@ var itemTemplate5Vue = Vue.component("itemTemplate5", {
     }
 });
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-carousel': CarouselComponent,
+        'e-carousel-items': CarouselItemsDirective,
+        'e-carousel-item': CarouselItemDirective
+    },
     data: function () {
         return {
             itemTemplate1: function (e) {
@@ -156,5 +161,5 @@ export default Vue.extend({
         }
     },
     methods: {}
-});
+};
 </script>

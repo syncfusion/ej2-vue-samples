@@ -16,14 +16,11 @@
                 </div>
                 <div  style="width:80%;">
                     <!-- Enable or disable the visibility of the Port -->
-                        <ejs-multiselect ref='portsVisiblityObj' id='portsVisiblity'
+                        <ejs-dropdownlist ref='portsVisiblityObj' id='portsVisiblity'
                                         :enabled='portsVisiblityenabled'
                                         :dataSource='portsVisiblitydataSource'
                                         :fields='portsVisiblityfields'
-                                        :showSelectAll='portsVisiblityshowSelectAll'
-                                        :showDropDownIcon='portsVisiblityshowDropDownIcon'
-                                        :popupHeight='portsVisiblitypopupHeight'
-                                        :popupWidth='portsVisiblitypopupWidth'
+                                        :value='portsVisiblityValue'
                                         :change='portsVisiblitychange'/>
                 </div>
             </div>
@@ -147,9 +144,8 @@
 
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   ConnectorModel,
   PointPortModel,
@@ -161,27 +157,21 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DropDownList,
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs as DropDownChangeEventArgs,
   MultiSelect,
-  MultiSelectPlugin,
+  MultiSelectComponent,
   MultiSelectChangeEventArgs,
   CheckBoxSelection
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
   NumericTextBox,
-  NumericTextBoxPlugin,
+  NumericTextBoxComponent,
   ChangeEventArgs as NumericChangeEventArgs,
   ColorPicker,
-  ColorPickerPlugin,
+  ColorPickerComponent,
   ColorPickerEventArgs
 } from "@syncfusion/ej2-vue-inputs";
-
-Vue.use(DiagramPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ColorPickerPlugin);
 
 let diagramInstance;
 let portVisibilityDrop;
@@ -608,7 +598,14 @@ let shape = [
   { shape: "Custom", text: "Custom" }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-colorpicker': ColorPickerComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -667,11 +664,8 @@ export default Vue.extend({
       portsVisiblitydataSource: visibility,
       portsVisiblityfields: { value: "PortVisibility", text: "text" },
       portsVisiblitymode: "CheckBox",
-      portsVisiblityshowSelectAll: true,
-      portsVisiblityshowDropDownIcon: true,
-      portsVisiblitypopupHeight: "280px",
-      portsVisiblitypopupWidth: "180px",
       portsVisiblitychange: portVisibilityDropOnChange,
+      portsVisiblityValue:"Visible",
 
       fillcolorvalue: "#000",
       fillchange: (args) => {
@@ -718,7 +712,7 @@ export default Vue.extend({
     portWidthNum = this.$refs.widthObj.ej2Instances;
     diagramInstance.select([diagramInstance.nodes[0]]);
   }
-});
+}
 
 //get the port for the selected node.
 function getPort() {
@@ -746,22 +740,7 @@ function selectChange(args) {
       if (args.newValue[0] instanceof Node && selectedElement.length) {
         selectedElement[0].classList.remove("e-remove-selection");
         let port = getPort()[0];
-        portVisibilityDrop.value = [];
-          if (PortVisibility.Visible & port.visibility) {
-                        portVisibilityDrop.value.push(PortVisibility.Visible);
-                    }
-          if (PortVisibility.Hidden & port.visibility) {
-                        portVisibilityDrop.value.push(PortVisibility.Hidden);
-                    }
-          if (PortVisibility.Hover & port.visibility) {
-                        portVisibilityDrop.value.push(PortVisibility.Hover);
-                    }
-          if (PortVisibility.Connect & port.visibility) {
-                        portVisibilityDrop.value.push(PortVisibility.Connect);
-                    }
-          if (portVisibilityDrop.value.length === 0) {
-                        portVisibilityDrop.placeholder = 'Select Visibility';
-                    }
+        portVisibilityDrop.value = port.visibility;
         portVisibilityDrop.dataBind();
         portFillDrop.value = port.style.fill;
         portFillDrop.dataBind();
@@ -807,10 +786,7 @@ function portVisibilityDropOnChange(args) {
   let port = getPort();
   if (port) {
     for (let j = 0; j < port.length; j++) {
-      port[j].visibility = 0;
-      for (let i = 0; i < args.value.length; i++) {
-        port[j].visibility += args.value[i];
-      }
+        port[j].visibility = portVisibilityDrop.value ;
       diagramInstance.dataBind();
     }
   }

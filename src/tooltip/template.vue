@@ -1,7 +1,7 @@
 <template>
   <div class="control-section tooltip-template">
     <ejs-tooltip ref="tooltip" :content="content" target=".toolbarContainer [title]" :beforeRender="onBeforeRender" :showTipPointer="show"
-       :width="170" cssClass="tooltip-template-settings">
+       :width="170" cssClass="tooltip-template-settings" :windowCollision='true' position="BottomCenter">
         <div class="toolbarContainer">
 
             <!-- Toolbar element -->
@@ -126,12 +126,16 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(ToolbarPlugin);
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
+
+export default {
+   components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+   },
    data: function(){
         return {
             content : "Loading..",
@@ -161,5 +165,5 @@ export default Vue.extend({
         }
        }
    }
-});
+}
 </script>

@@ -19,7 +19,7 @@
     <p>
       In this example, you can see how to render an area series with negative values. Similar to line type series, but the area gets closed and filled with series color. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the area. Also, the legend is enabled with the shape of the series type.
      </p>    
-        <br>
+       
           <p style="font-weight: 500"><b>Injecting Module</b></p>
           <p>
               Chart component features are segregated into individual feature-wise modules. To use area series, we need to inject
@@ -37,17 +37,19 @@
   
   </style>
   <script>
-  import Vue from "vue";
   import { Browser } from '@syncfusion/ej2-base';
-  import { ChartPlugin, AreaSeries, Legend, DateTime , Tooltip, Highlight} from "@syncfusion/ej2-vue-charts";
-  
-  Vue.use(ChartPlugin);
+  import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries, Legend, DateTime , Tooltip, Highlight} from "@syncfusion/ej2-vue-charts";
   
   let selectedTheme = location.hash.split("/")[1];
   selectedTheme = selectedTheme ? selectedTheme : "Material";
   let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
   
-  export default Vue.extend({
+  export default {
+    components: {
+      'ejs-chart': ChartComponent,
+      'e-series-collection': SeriesCollectionDirective,
+      'e-series': SeriesDirective
+    },
     data: function() {
       return {
         theme: theme,
@@ -107,5 +109,5 @@
     methods: {
     }
    
-  });
+  };
   </script>

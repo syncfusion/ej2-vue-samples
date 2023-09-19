@@ -8,17 +8,15 @@
         </div>
     </div>
     <div class="col-lg-4 property-section">
-        <table id="property" class="property-panel-table" title="Properties">
-            <table id="property" title="Properties" style="width: 100%; margin:10px">
-                <tr>
-                    <td style="padding:5px; width:25%">Value</td>
-                    <td>:<span id='value' style='padding-left:10px'></span></td>
-                </tr>
-                <tr>
-                    <td style="padding:5px; width:25%">Text</td>
-                    <td>:<span id='text' style='padding-left:10px'></span></td>
-                </tr>
-            </table>
+        <table id="property" class="property-panel-table" title="Properties" style="width: 100%; margin:10px">
+            <tr>
+                <td style="padding:5px; width:25%">Value</td>
+                <td>:<span id='value' style='padding-left:10px'></span></td>
+            </tr>
+            <tr>
+                <td style="padding:5px; width:25%">Text</td>
+                <td>:<span id='text' style='padding-left:10px'></span></td>
+            </tr>
         </table>
     </div>
     <div id="action-description">
@@ -42,13 +40,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as dataSource from './default-data.json';
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
+import dataSource from './default-data.json';
 
-Vue.use(DropDownTreePlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent
+    },
     data: function() {
         return {
            fields: { dataSource: dataSource.defaultData , value: 'id', text: 'name', child: 'subChild' },
@@ -65,5 +63,5 @@ export default Vue.extend ({
             text.innerHTML = defaultObj.text;
         }
     }
-});
+}
 </script>

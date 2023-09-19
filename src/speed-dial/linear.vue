@@ -41,16 +41,11 @@
     </div>
 </template>
     
-
-
 <script>
+import { SpeedDialComponent } from "@syncfusion/ej2-vue-buttons";
 
-import Vue from "vue";
-import { SpeedDialPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(SpeedDialPlugin);
-
-export default Vue.extend({
+export default {
+    components: { 'ejs-speeddial': SpeedDialComponent },
     data: function () {
         return {
             items: [
@@ -69,7 +64,7 @@ export default Vue.extend({
             ]
         };
     }
-});
+}
 </script>
 <style>
     .speeddial-linear-target {

@@ -112,7 +112,7 @@
           <code>Lasso</code> - Select free form of selection area points.
         </li>
       </ul>
-      <p><b>Injecting Module</b></p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use selection feature, we need
         to inject
@@ -134,12 +134,13 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   Selection,
   ScatterSeries,
   ColumnSeries,
@@ -147,8 +148,6 @@ import {
   Category,
   Highlight
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
-Vue.use(ColorPickerPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -156,7 +155,14 @@ let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function () {
     return {
       theme: theme,
@@ -256,5 +262,5 @@ export default Vue.extend({
       this.$refs.chart.ej2Instances.dataBind();
     },
   }
-});
+};
 </script>

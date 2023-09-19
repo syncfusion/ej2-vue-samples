@@ -53,7 +53,7 @@
                     </tr>
                 </table>
                 <div class='e-reset-button'>
-                    <ejs-button id='reset_filter' class="e-btn" v-on:click.native="resetClick">Reset</ejs-button>
+                    <ejs-button id='reset_filter' class="e-btn" v-on:click="resetClick">Reset</ejs-button>
                 </div>
             </div>
         </div>
@@ -100,21 +100,23 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { Query } from '@syncfusion/ej2-data';
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(TextBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-textbox': TextBoxComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -190,5 +192,5 @@ export default Vue.extend({
       this.reset();
     }
   }
-});
+};
 </script>

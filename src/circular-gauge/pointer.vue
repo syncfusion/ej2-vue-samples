@@ -103,10 +103,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, Annotations } from "@syncfusion/ej2-vue-circulargauge";
+
+export default {
+    components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective,
+        'e-pointers': PointersDirective,
+        'e-pointer': PointerDirective
+    },
     data: function () {
         return {
             gauge1startAngle: 270,
@@ -439,5 +445,5 @@ export default Vue.extend({
         }
         /* custom code end */
     }
-})
+}
 </script>

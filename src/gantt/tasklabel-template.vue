@@ -17,7 +17,7 @@
           <div v-if="data.ganttProperties.resourceInfo">
             <span v-for="resource in data.ganttProperties.resourceInfo">
               <img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + resource.resourceName + '.png'"
-                height="40px" />
+              style="height: 40px;"/>
               <span style="marginLeft:5px;marginRight:5px">{{ resource.resourceName }}</span>
             </span>
           </div>
@@ -37,11 +37,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { labelData, editingResources } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: labelData,
@@ -78,7 +80,7 @@ export default Vue.extend({
                 taskLabel: '${Progress}%'
             },
             splitterSettings: {
-                columnIndex: 2
+                position: "35%"
             },
             projectStartDate: new Date('03/25/2019'),
             projectEndDate: new Date('05/04/2019'),
@@ -87,5 +89,5 @@ export default Vue.extend({
   provide: {
       gantt: [DayMarkers, Selection]
   }
-});
+}
 </script>

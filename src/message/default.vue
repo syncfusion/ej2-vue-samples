@@ -38,13 +38,12 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { MessagePlugin } from "@syncfusion/ej2-vue-notifications";
+import { MessageComponent } from "@syncfusion/ej2-vue-notifications";
 
-Vue.use(MessagePlugin);
-export default Vue.extend({
+export default {
   data: function () {
     return {};
   },
-});
+  components: { 'ejs-message': MessageComponent }
+};
 </script>

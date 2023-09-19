@@ -8,7 +8,7 @@
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' textAlign= 'Right' width='120'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='160'></e-column>
-                <e-column field='ProductID' headerText='Product ID' textAlign= 'Right width='120'></e-column>
+                <e-column field='ProductID' headerText='Product ID' textAlign= 'Right' width='120'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='160'></e-column>
             </e-columns>
@@ -20,26 +20,28 @@
         The Lazy load grouping, allows the Grid to render only the initial level caption rows in the collapsed state while grouping.
         The child rows of each caption will render only when we expand the captions.
         To enable lazy load grouping, set <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/documentation/grid/api-groupSettings.html#enablelazyloading">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/groupSettingsModel/#enablelazyloading">
             groupSettings->enableLazyLoading</a></code> property as true.
     </p> 
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
         Grid component features are segregated into individual feature-wise modules. 
         To use lazy load grouping feature, we need to inject
-        <code>LazyLoadGroup</code> into the <code>provide</code> section.</p>
+        <code>LazyLoadGroup</code> into the <code>provide</code> section.
     </p> 
     </div>
 </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, GridComponent, Page, Group, LazyLoadGroup, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Group, LazyLoadGroup, Sort } from "@syncfusion/ej2-vue-grids";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: function() {
     return {
         groupSettings: { enableLazyLoading: true, columns: ['ProductName', 'CustomerName'] }
@@ -102,5 +104,5 @@ export default Vue.extend({
   provide: {
       grid: [Page, Group, LazyLoadGroup, Sort]
   }
-});
+}
 </script>

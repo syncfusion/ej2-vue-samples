@@ -23,15 +23,15 @@
 
      <div id="description">
         <p> The Grid supports CRUD operations. This CRUD operations can be configured in Grid using
-            <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html">
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#editsettings">
             editSettings</a></code>.
         </p>
         <p>
             In this demo, Dialog template is enabled for editing by defining <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#mode">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/editSettingsModel/#mode">
             editSettings.mode
             </a></code> as <code>Dialog</code> and <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html#template">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/editSettingsModel/#template">
                 editSettings.template
                 </a></code> accepts vue component which holds the template for dialog. You can start editing by double clicking a row or clicking on toolbar's <code>Edit</code>
             button, then the currently selected row will be shown on a dialog with custom elements and you can change the row values and save edited data to the datasource.
@@ -40,35 +40,30 @@
         <p>
             Grid component features are segregated into individual feature-wise modules. To use editing feature, we need to inject
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-edit.html">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/edit/">
                 Edit </a></code> into the <code>provide</code> section.
         </p>
     </div>
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { GridPlugin, Edit, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
+import {createApp} from 'vue';
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 import DialogTemplate from "./dialog-temp.vue";
-import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBox } from "@syncfusion/ej2-inputs";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(DatePickerPlugin);
-Vue.use(NumericTextBoxPlugin)
-
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+  },
   data: () => {
     return {
       data: orderDetails.slice(0),
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog', template: function () {
-          return { template : DialogTemplate}
+        return { template : createApp({}).component('dialog',DialogTemplate)}
       } },
       toolbar: ['Add', 'Edit', 'Delete'],
       orderidrules: { required: true, number: true },
@@ -89,5 +84,5 @@ export default Vue.extend({
   provide: {
       grid: [Edit, Toolbar, Page]
   }
-});
+}
 </script>

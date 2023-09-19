@@ -88,13 +88,13 @@
           <tr style="height: 50px">
             <td colspan="2">
               <div style="float:right;margin-right: 4px">
-                <ejs-button id="clear" ref="clear" v-on:click.native="onClear">Clear</ejs-button>
+                <ejs-button id="clear" ref="clear" v-on:click="onClear">Clear</ejs-button>
               </div>
               <div style="float:right;margin-right: 4px">
                 <ejs-button
                   id="apply"
                   ref="apply"
-                  v-on:click.native="onClick"
+                  v-on:click="onClick"
                   isPrimary="true"
                   disabled="true"
                 >Apply</ejs-button>
@@ -163,19 +163,18 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   Operators,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
-  MaskedTextBoxPlugin,
+  MaskedTextBoxComponent,
   MaskChangeEventArgs
 } from "@syncfusion/ej2-vue-inputs";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
@@ -183,10 +182,6 @@ import { FilterModel } from "@syncfusion/ej2-pivotview/src/model/datasourcesetti
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(MaskedTextBoxPlugin);
 /* tslint:disable */
 declare var require: any;
 let fieldCollections: { [key: string]: FilterModel } = {};
@@ -223,7 +218,13 @@ function setFilters(
   };
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-maskedtextbox': MaskedTextBoxComponent
+  },
   data: () => {
     return {
       value: "",
@@ -258,17 +259,17 @@ export default Vue.extend({
   methods: {
     ondataBound: function(args: any) {
       fieldCollections = {};
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       for (let field of pivotObj.dataSourceSettings.filterSettings) {
         fieldCollections[field.name] = field;
       }
     },
     onClick: function() {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       let filterOptions: FilterModel[] = [];
       for (let field of fields) {
         if (fieldCollections[field] && fieldCollections[field].value1 !== "") {
@@ -289,9 +290,9 @@ export default Vue.extend({
       pivotObj.dataSourceSettings.filterSettings = filterOptions;
     },
     onClear: function() {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       pivotObj.dataSourceSettings.filterSettings = [];
       valueInput1.value = "";
       valueInput2.value = "";
@@ -299,9 +300,9 @@ export default Vue.extend({
       this.updateButtonState();
     },
     onFieldChange: function(args: ChangeEventArgs) {
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       if (fieldCollections[args.value as string]) {
         operatorddl.value = fieldCollections[args.value as string].condition;
         valueInput1.value = fieldCollections[args.value as string]
@@ -317,9 +318,9 @@ export default Vue.extend({
       this.updateButtonState();
     },
     onOperatorChange: function(args: ChangeEventArgs) {
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       if (args.value === "Between" || args.value === "NotBetween") {
         (document.querySelector(".input2cls") as HTMLElement).style.display =
           "";
@@ -336,10 +337,10 @@ export default Vue.extend({
       this.updateButtonState();
     },
     onValue1Change: function(e: MaskChangeEventArgs) {
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       setFilters(
         fieldsddl.value as string,
         operatorddl.value as Operators,
@@ -349,10 +350,10 @@ export default Vue.extend({
       this.updateButtonState();
     },
     onValue2Change: function(e: MaskChangeEventArgs) {
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       setFilters(
         fieldsddl.value as string,
         operatorddl.value as Operators,
@@ -362,7 +363,7 @@ export default Vue.extend({
       this.updateButtonState();
     },
     updateButtonState: function() {
-      var applyBtn = (<any>this.$refs.apply).ej2Instances;
+      var applyBtn = ((this as any).$refs.apply).ej2Instances;
       applyBtn.disabled = true;
       for (let field of fields) {
         if (
@@ -376,7 +377,7 @@ export default Vue.extend({
       }
     }
   }
-});
+}
 </script>
 
 <style scoped>

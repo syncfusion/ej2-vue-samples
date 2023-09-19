@@ -153,19 +153,24 @@
 
 
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { createApp } from 'vue';
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import listtemplateVue from "./list-template.vue";
 import{ badgeData } from "./listData";
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+let app = createApp();
+var externalTemplate = app.component('list-template', listtemplateVue);
+export default {
+    components: {
+        'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
            data:badgeData,
             title: "Inbox",
             header: true,
             listTemplate: function () {
-                return { template : listtemplateVue}
+                return { template : externalTemplate}
             },
             fieldData: { groupBy: 'type' }
         };
@@ -176,5 +181,5 @@ export default Vue.extend({
             list.style.display = 'none';
         }
     }
-});
+};
 </script>

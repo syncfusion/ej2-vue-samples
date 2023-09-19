@@ -36,10 +36,14 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations, GaugeTooltip, Legend } from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, Annotations, GaugeTooltip, Legend } from "@syncfusion/ej2-vue-circulargauge";
+
+export default {
+   components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective
+   },
    data:function(){
     return{
         allowmargin: false,
@@ -189,6 +193,6 @@ export default Vue.extend({
             /* custom code end */
         }
     }
-})
+}
 </script>
 

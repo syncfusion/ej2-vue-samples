@@ -95,6 +95,10 @@
 </div>
 </div>
 </template>
+<script>
+export default {}
+
+</script>
 <style scoped>
     .e-card-horizontal.e-product {
         height: 420px;
@@ -177,7 +181,7 @@
     }
 
     img {
-	    height: 100%;
+    height: 100%;
     }
     @media (min-width: 912px) {
         .card-control-section.horizontal_card_layout .col-xs-6.col-sm-6.col-lg-6.col-md-6 {
@@ -216,10 +220,4 @@
         }
     }
 </style>
-<script>
-import Vue from "vue";
-export default Vue.extend({
 
-});
-
-</script>

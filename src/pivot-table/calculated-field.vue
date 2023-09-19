@@ -13,7 +13,7 @@
                 <tr style="height: 50px">
                     <td>
                         <div>
-                          <ejs-button id="calculated-field-btn" v-on:click.native="btnClick" isPrimary='true'>Calculated Field</ejs-button>
+                          <ejs-button id="calculated-field-btn" v-on:click="btnClick" isPrimary='true'>Calculated Field</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -38,26 +38,27 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet,
   CalculatedField,
   FieldList
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  ButtonPlugin,
+  ButtonComponent,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple, Browser } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent
+  },
   data: () => {
     return {
         dataSourceSettings: {
@@ -85,7 +86,7 @@ export default Vue.extend({
   },
   methods: {
     btnClick: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (Browser.isDevice) {
         (pivotObj.pivotFieldListModule.dialogRenderer as any).onShowFieldList();
       } else {
@@ -96,7 +97,7 @@ export default Vue.extend({
   provide: {
     pivotview: [CalculatedField,FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

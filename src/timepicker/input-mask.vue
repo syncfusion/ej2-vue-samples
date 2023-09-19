@@ -22,21 +22,20 @@
 
 <script>
 
-import Vue from "vue";
-import { TimePickerPlugin, MaskedDateTime } from "@syncfusion/ej2-vue-calendars";
+import { TimePickerComponent, MaskedDateTime } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(TimePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       mask: true,
       timeFormat: 'h:mm a'
     };
   },
+  components: { 'ejs-timepicker': TimePickerComponent },
   provide: {
     timepicker: [MaskedDateTime]
   }
-});
+};
 </script>
 
 <style scoped>

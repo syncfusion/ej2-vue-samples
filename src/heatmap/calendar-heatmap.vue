@@ -3,7 +3,7 @@
 <div class="control-section">
     <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' :titleSettings='titleSettings' height='300px' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
+        <ejs-heatmap id='container' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' height='300px' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
     </div>
 </div>
@@ -13,29 +13,29 @@
     </p>
 </div>
 <div id="description">
-   <p>
-         In this example, you can see how to display a calendar data using heatmap. You can make the axis labels to display at specific time intervals along the datetime axis using the showLabelOn property.  
-         
-    </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        In this example, you can see how to display a calendar data using heatmap. You can make the axis labels to display at specific time intervals along the datetime axis using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/axisModel/#showlabelon">showLabelOn</a> property.
     </p>
+    <p>The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item on touch-enabled devices.</p>
     <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p><b>Injecting Module</b></p>
     <p>
-       Heatmap component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip </code>  module using the <code>Heatmap.Inject(Tooltip) </code> method, and use a legend by injecting the <code>Legend </code>  module using the <code>Heatmap.Inject(Legend) </code>  method.
+      Heatmap component features are separated into discrete feature-based modules. To use a tooltip and the legend, inject the <a target="_blank"
+      href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
+      href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-
 </div>
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
+import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { Internationalization } from '@syncfusion/ej2-base';
-import { calendarDataSource } from './calendar-data-source.json';
-Vue.use(HeatMapPlugin);
-export default Vue.extend({
+import data from './calendar-data-source.json';
+
+export default {
+components: {
+    'ejs-heatmap': HeatMapComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -44,7 +44,7 @@ return{
                 size: '15px',
                 fontWeight: '500',
                 fontStyle: 'Normal',
-                fontFamily: 'Segoe UI'
+                fontFamily: 'inherit'
             }
         },
         xAxis: {
@@ -56,17 +56,28 @@ return{
             showLabelOn: 'Months',
             labelFormat: 'MMM',
             increment: 7,
-            labelIntersectAction: 'Rotate45'
+            labelIntersectAction: 'Rotate45',
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         yAxis: {
             labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             isInversed: true,
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
-        dataSource: calendarDataSource,
+        dataSource: data.calendarDataSource,
         cellSettings: {
             showLabel: false,
             border: {
                 color: 'white'
+            }
+        },
+        tooltipSettings:{
+            textStyle: {
+                fontFamily: 'inherit'
             }
         },
         paletteSettings: {
@@ -86,8 +97,11 @@ return{
             alignment: 'Near',
             showLabel: true,
             labelDisplayType: 'None',
-            enableSmartLegend: true
-        },
+            enableSmartLegend: true,
+            textStyle: {
+                fontFamily: 'inherit'
+            }
+        }
 }
 },
 provide:{
@@ -95,10 +109,12 @@ provide:{
 },
 methods: {
     load: function(args) {
+      /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+      /* custom code end */
     },
     tooltipRender: function(args)
     {
@@ -113,5 +129,5 @@ methods: {
         args.content = [(args.value === 0 ? 'No' : args.value) + ' ' + 'contributions' + '<br>' + value];
     }
   }
-})
+}
 </script>

@@ -44,12 +44,19 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Annotations, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { createApp } from 'vue';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Annotations, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
 import Template1 from './annotation-temp1.vue';
 import Template2 from './annotation-temp2.vue';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+  },
   data:function(){
       return{
         zoomSettings: {
@@ -57,10 +64,10 @@ export default Vue.extend({
         },
         annotations: [
             {
-                content: function () { return {template: Template1}; },
+                content: function () { return { template: createApp({}).component('template1',Template1) }; },
                 x: '0%', y: '70%'
             }, {
-                content: function () { return {template: Template2}; },
+                content: function () { return { template: createApp({}).component('template2',Template2) }; },
                 x: '80%', y: '5%'
             }
         ],
@@ -87,5 +94,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

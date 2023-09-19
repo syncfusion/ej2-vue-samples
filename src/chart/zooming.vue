@@ -41,8 +41,8 @@
                 <li><code>X</code> - Zoom the chart with respect to horizontal axis.</li>
                 <li><code>Y</code> - Zoom the chart with respect to vertical axis.</li>
             </ul>
-            <br>
-            <p style="font-weight: 500">Injecting Module</p>
+            
+            <p style="font-weight: 500"><b>Injecting Module</b></p>
             <p>
                 Chart component features are segregated into individual feature-wise modules. To use zooming, we need to
                 inject
@@ -166,7 +166,7 @@
 }
 
 #bootstrap5-gradient-chart stop {
-    stop-color: #6355C7;
+    stop-color: #262E0B;
 }
 
 #material-dark-gradient-chart stop {
@@ -186,15 +186,15 @@
 }
 
 #bootstrap5-dark-gradient-chart stop {
-    stop-color: #8F80F4;
+    stop-color: #5ECB9B;
 }
 
 #fluent-gradient-chart stop {
-    stop-color: #1AC9E6;
+    stop-color: #614570;
 }
 
 #fluent-dark-gradient-chart stop {
-    stop-color: #1AC9E6;
+    stop-color: #8AB113;
 }
 
 #material3-gradient-chart stop {
@@ -219,16 +219,14 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, SplineAreaSeries, Zoom, Legend, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineAreaSeries, Zoom, Legend, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast");
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark'];
-let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
 
 function GetZoomingData() {
     let series = [];
@@ -246,7 +244,12 @@ function GetZoomingData() {
     return { 'series': series };
 }
 let seriesData = GetZoomingData().series;
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-chart': ChartComponent,
+        'e-series-collection': SeriesCollectionDirective,
+        'e-series': SeriesDirective
+    },
     data: function () {
         return {
             theme: theme,
@@ -291,5 +294,5 @@ export default Vue.extend({
     methods: {
 
     }
-});
+};
 </script>

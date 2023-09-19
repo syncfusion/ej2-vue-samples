@@ -49,18 +49,19 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+    
     var dataManager = new DataManager({
         url: 'https://services.syncfusion.com/vue/production/api/schedule',
         adaptor: new WebApiAdaptor,
         crossDomain: true
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
                 readonly: true,
@@ -71,6 +72,6 @@
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda]
         }
-    });
+    }
 
 </script>

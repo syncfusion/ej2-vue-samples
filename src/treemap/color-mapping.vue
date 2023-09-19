@@ -57,16 +57,16 @@
     <div id="template" style="display:none">
     <div class="toolback">
                 <div class="listing2">
-                    <center>
+                    <span style="text-align: center;">
                         ${Name}                                            
-                    </center>
+                    </span>
                 </div>
                 <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
                 <div>
-                    <center>  <span class="listing1">Area : </span><span class="listing2">${Area}</span></center>
+                    <span style="text-align: center;">  <span class="listing1">Area : </span><span class="listing2">${Area}</span></span>
                 </div> 
                 <div>
-                    <center>  <span class="listing1">Continent : </span><span style="display:inline-block;" class="listing2">${Location}</span> </center>
+                    <span style="text-align: center;">  <span class="listing1">Continent : </span><span style="display:inline-block;" class="listing2">${Location}</span> </span>
                 </div>
     </div>
 </div>
@@ -118,14 +118,16 @@
         }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend, TreeMapAjax } from "@syncfusion/ej2-vue-treemap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { TreeMapComponent, TreeMapTooltip, TreeMapLegend, TreeMapAjax } from "@syncfusion/ej2-vue-treemap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -379,5 +381,5 @@ methods:{
         }
     }
 }
-})
+}
 </script>

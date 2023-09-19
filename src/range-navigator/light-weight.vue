@@ -44,10 +44,10 @@
     <p>
         In this example, you can see how to render a light-weight range navigator without series. You can use <code>width</code>, <code>height</code>, <code>fill</code> and <code>border</code> properties to customize the <code>thumb</code> in range navigator. You can also change the type of the thumb using <code>type</code> property.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-       The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module in the <code>provide</code> section.
+      The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module using <code>provide: { rangeNavigator: [DateTime] }</code> method.
     </p>
 </div>
 </div>
@@ -63,18 +63,18 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, DateTime } from "@syncfusion/ej2-vue-charts";
+import { RangeNavigatorComponent, DateTime } from "@syncfusion/ej2-vue-charts";
 import { GetDateTimeData } from "./data-service";
-
-Vue.use(RangeNavigatorPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-rangenavigator': RangeNavigatorComponent
+  },
   data: function() {
     return {
       valueType: "DateTime",
@@ -111,5 +111,5 @@ export default Vue.extend({
       document.getElementById("weekendcount").innerHTML = " " + holidaysDaysCount;
     }
   }
-});
+};
 </script>

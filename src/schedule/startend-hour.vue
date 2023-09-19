@@ -34,7 +34,7 @@
                     <tr style="height: 50px">
                         <td>
                             <div>
-                                <ejs-button id='submit' v-on:click.native="onSubmit">Submit</ejs-button>
+                                <ejs-button id='submit' v-on:click="onSubmit">Submit</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -60,17 +60,20 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { TimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { TimePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    Vue.use(TimePickerPlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-timepicker': TimePickerComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
@@ -101,6 +104,6 @@
                     args.element.style.backgroundColor = categoryColor;
                 }
         }
-    });
+    }
 
 </script>

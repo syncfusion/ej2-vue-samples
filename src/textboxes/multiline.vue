@@ -66,18 +66,13 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(TextBoxPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
     data: function(){
         return {
             max: 20,
@@ -119,5 +114,12 @@ export default Vue.extend({
         }
         }
     },
-});
-    </script>
+    components: {
+        'ejs-textbox': TextBoxComponent,
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-numerictextbox': NumericTextBoxComponent
+    }
+};
+
+</script>

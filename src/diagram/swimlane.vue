@@ -1,6 +1,6 @@
 <template>
   <div class="control-section">
-    <link href="https://ej2.syncfusion.com/javascript/demos/srcsrc/diagram/styles/diagram-common.css" rel="stylesheet">
+    <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css" rel="stylesheet">
     <div id="swimlaneDiagram" style="width: 100%;">
       <div class="sb-mobile-palette-bar">
         <div id="palette-icon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
@@ -24,7 +24,6 @@
     </div>
   </div>
 </template>
-    <script src="https://ej2.syncfusion.com/demos/src/diagram/script/diagram-common.js"></script>
     <style scoped>
        @font-face {
             font-family: 'e-ddb-icons';
@@ -122,9 +121,6 @@
             right: 15px;
         }
 
-        .e-file-select-wrap {
-            display: none;
-        }
 
         .material #swimlaneDiagram #palette-space .e-accordion {
             border: none;
@@ -152,16 +148,15 @@
         }
     </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   UndoRedo,
   ConnectorModel,
   PointPortModel,
   Connector,
-  SymbolPalettePlugin,
+  SymbolPaletteComponent,
   SnapConstraints,
   IDragEnterEventArgs,
   GridlinesModel,
@@ -170,8 +165,7 @@ import {
   PortConstraints,
   SelectorConstraints
 } from "@syncfusion/ej2-vue-diagrams";
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
+
 let isMobile;
 
 let middle;
@@ -613,7 +607,11 @@ function getSymbolInfo(symbol) {
   return { tooltip: symbol.addInfo ? symbol.addInfo.tooltip : symbol.id };
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -642,5 +640,5 @@ export default Vue.extend({
     diagram = this.$refs.diagramObject.ej2Instances;
     diagram.fitToPage();
   }
-});
+}
 </script>

@@ -23,7 +23,7 @@
       <p>The crosshair is used to inspect or focus on an individual data point using a vertical and a horizontal line. 
         You can enable the crosshair using the <code>Enable</code> property in the <code>ChartCrosshairSettings</code> class and customize its tooltip by using the <code>ChartAxisCrosshairTooltip</code> in the axis.
       </p>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use Crosshair, we need to
         inject
@@ -41,18 +41,20 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, LineSeries, HiloOpenCloseSeries, DateTime, Crosshair, Zoom } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, HiloOpenCloseSeries, DateTime, Crosshair, Zoom } from "@syncfusion/ej2-vue-charts";
 import { axesData } from './financial-data';
-
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       theme: theme,
@@ -109,5 +111,5 @@ export default Vue.extend({
   methods: {
   },
 
-});
+};
 </script>

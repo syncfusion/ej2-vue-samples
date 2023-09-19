@@ -6,13 +6,13 @@
             </div>
             <div id="toast_types">
                 <div>
-                    <ejs-button ref='infoRef' class="e-btn e-control e-info" id="info_Toast" v-on:click.native="infoClick"> Info Message </ejs-button>
-                    <ejs-button ref='successRef' class="e-btn e-control e-success" id="success_Toast" v-on:click.native='successClick'> Success Message </ejs-button>
-                    <ejs-button ref='warningRef' class="e-btn e-control e-warning" id="warning_Toast" v-on:click.native="warningClick"> Warning Message </ejs-button>
-                    <ejs-button ref='errorRef' class="e-btn e-control e-danger" id="error_Toast" v-on:click.native="errorClick">Danger Message</ejs-button>
+                    <ejs-button ref='infoRef' class="e-btn e-control e-info" id="info_Toast" v-on:click="infoClick"> Info Message </ejs-button>
+                    <ejs-button ref='successRef' class="e-btn e-control e-success" id="success_Toast" v-on:click='successClick'> Success Message </ejs-button>
+                    <ejs-button ref='warningRef' class="e-btn e-control e-warning" id="warning_Toast" v-on:click="warningClick"> Warning Message </ejs-button>
+                    <ejs-button ref='errorRef' class="e-btn e-control e-danger" id="error_Toast" v-on:click="errorClick">Danger Message</ejs-button>
                 </div>
                 <div style="padding-top: 15px">
-                    <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn e-control" id="hideToast" v-on:click.native="hideClick"> Hide All </ejs-button>
+                    <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn e-control" id="hideToast" v-on:click="hideClick"> Hide All </ejs-button>
                 </div>
             </div>
               <div id="action-description">
@@ -93,18 +93,18 @@
   }
 </style>
 <script>
-import Vue from "vue";
-import { ToastPlugin, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
+import { ToastComponent } from "@syncfusion/ej2-vue-notifications";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(ToastPlugin);
-let ShowBtn = undefined;
-export default Vue.extend({
+
+export default {
    data: function(){
         return {
             position: { X: 'Right' },
             ShowBtn: false
         }
    },
+   components: { "ejs-toast": ToastComponent, "ejs-button": ButtonComponent },
    mounted: function() {
      this.toasts = [
                 { title: 'Warning!', content: 'There was a problem with your network connection.', cssClass: 'e-toast-warning', icon: 'e-warning toast-icons' },
@@ -116,37 +116,37 @@ export default Vue.extend({
          },200);
    },
     methods: {
-       hideClick: function(args){
+       hideClick: function(){
            this.$refs.toastRef.hide('All');
        },
-       infoClick: function(args){
+       infoClick: function(){
           this.$refs.toastRef.show(this.toasts[3]);
        },
-       warningClick: function(args){
+       warningClick: function(){
           this.$refs.toastRef.show(this.toasts[0]);
        },
-       successClick: function(args){
+       successClick: function(){
           this.$refs.toastRef.show(this.toasts[1]);
        },
-       errorClick: function(args){
+       errorClick: function(){
            this.$refs.toastRef.show(this.toasts[2]);
        },
-       created: function(args){
+       created: function(){
             document.addEventListener('click', function() {
                if (!isNullOrUndefined(this.$refs.toastRef) && !isNullOrUndefined(this.$refs.successRef) && !isNullOrUndefined(this.$refs.errorRef) && !isNullOrUndefined(this.$refs.infoRef) && !isNullOrUndefined(this.$refs.warningRef) && event.target !== this.$refs.infoRef.$el && event.target !== this.$refs.warningRef.$el && event.target !== this.$refs.successRef.$el && event.target !== this.$refs.errorRef.$el) {
                    this.$refs.toastRef.hide('All');
                }
             }.bind(this));
         },
-        onclose: function(e){
+        onclose: function(){
             if (this.$refs.toastRef.$el.childElementCount === 0 ) {
               this.ShowBtn = false;
             }
         },
-        onbeforeOpen: function(e){
+        onbeforeOpen: function(){
             this.ShowBtn = true;
         }
     }
-});
+};
 
 </script>

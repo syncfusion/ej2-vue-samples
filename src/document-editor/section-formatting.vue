@@ -7,7 +7,7 @@
     <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
-    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
+    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
 </div>
 <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>            
@@ -82,18 +82,16 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { sectionFormat } from "./data";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent
     },
     data: function() {
         return {
@@ -182,5 +180,5 @@ export default Vue.extend({
             };
        });
     }
-});
+};
 </script>

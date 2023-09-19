@@ -32,11 +32,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, VirtualScroll } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, VirtualScroll } from "@syncfusion/ej2-vue-gantt";
 import { virtualData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: virtualData,
@@ -68,5 +70,5 @@ export default Vue.extend({
   provide: {
       gantt: [ Selection, VirtualScroll]
   }
-});
+}
 </script>

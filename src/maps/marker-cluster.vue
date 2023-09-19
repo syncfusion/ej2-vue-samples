@@ -16,9 +16,9 @@
 <div id="template" style="display:none">
     <div class="toolback">
                 <div class="listing2">
-                    <center>
+                    <span style="text-align: center;">
                         ${city}                                            
-                    </center>
+                    </span>
                 </div>
                 <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">                    
                 <div>
@@ -78,12 +78,16 @@
    }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, MapsTooltip, MapAjax, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
 import { topPopulation } from '../maps/map-data/marker-location';
 import { cluster } from '../maps/map-data/marker-cluster';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+},
 data:function(){
     return{
         useGroupingSeparator: true,
@@ -141,6 +145,6 @@ methods:{
     } 
 }
 /* custom code end */
-})
+}
 </script>
     

@@ -66,7 +66,7 @@
               <td></td>
                 <td>
                     <div style="float: right">
-                        <ejs-button id="apply" ref="apply" v-on:click.native="btnClick" isPrimary='true'>Apply</ejs-button>
+                        <ejs-button id="apply" ref="apply" v-on:click="btnClick" isPrimary='true'>Apply</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -122,16 +122,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { IDataSet, PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
+import { IDataSet, PivotViewComponent } from "@syncfusion/ej2-vue-pivotview";
 import {
-  CheckBoxPlugin,
-  ButtonPlugin,
+  CheckBoxComponent,
+  ButtonComponent,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
-  MultiSelectPlugin,
+  DropDownListComponent,
+  MultiSelectComponent,
   SelectEventArgs,
   RemoveEventArgs,
   PopupEventArgs,
@@ -142,11 +141,6 @@ import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
     let fieldCollections: { [key: string]: { [key: string]: Object }[] } = {};
@@ -157,7 +151,14 @@ declare var require: any;
     let values: { [key: string]: Object }[] = [];
     let index: number;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -194,21 +195,21 @@ methods: {
     dataBound: function(args: any) {
     if (isInitial) {
         /** To fill the members for each fields into the object fieldCollections. */
-        let fieldCnt: number = this.fields.length - 1;
+        let fieldCnt: number = (this as any).fields.length - 1;
         while (fieldCnt > -1) {
-            let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-            let members: string[] = Object.keys(pivotObj.engineModule.fieldList[this.fields[fieldCnt].Field as string].members);
+            let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+            let members: string[] = Object.keys(pivotObj.engineModule.fieldList[(this as any).fields[fieldCnt].Field as string].members);
             let memberCnt: number = members.length;
             let membersCollection: { Member: string; Checked: string; }[] = [];
             for (let i: number = 0; i < memberCnt; i++) {
                 membersCollection.push({ Member: members[i], Checked: members[i] + '_' + false });
             }
-            fieldCollections[this.fields[fieldCnt].Field as string] = membersCollection;
+            fieldCollections[(this as any).fields[fieldCnt].Field as string] = membersCollection;
             fieldCnt--;
         }
-        let membersOrder = (<any>this.$refs.expand_members).ej2Instances;
-        let fieldsddl = (<any>this.$refs.expand_fields).ej2Instances;
-        values = fieldCollections[this.fields[0].Field as string];
+        let membersOrder = ((this as any).$refs.expand_members).ej2Instances;
+        let fieldsddl = ((this as any).$refs.expand_fields).ej2Instances;
+        values = fieldCollections[(this as any).fields[0].Field as string];
         membersOrder.dataSource = values;
         membersOrder.dataBind();
         fieldsddl.dataBind();
@@ -216,15 +217,15 @@ methods: {
       }
     },
     fieldOnChange: function(args: dropEventArgs) {
-        let field1 = (<any>this.$refs.expand_fields_1).ej2Instances;
-        let membersOrder = (<any>this.$refs.expand_members).ej2Instances;
+        let field1 = ((this as any).$refs.expand_fields_1).ej2Instances;
+        let membersOrder = ((this as any).$refs.expand_members).ej2Instances;
         membersOrder.dataSource = fieldCollections[(<any>args).itemData['Field']];
         membersOrder.value = this.getSelectedMembers((<any>args).itemData['Field']);
         membersOrder.dataBind();
         field1.dataBind();
     },
     onChangeOption: function(args: dropEventArgs) {
-        let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+        let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
        (document.querySelector('.field_cls') as HTMLElement).style.display = 'none';
             (document.querySelector('.field_cls_1') as HTMLElement).style.display = 'none';
             (document.querySelector('.members_cls') as HTMLElement).style.display = 'none';
@@ -250,9 +251,9 @@ methods: {
             }
     },
      fieldOnSelect: function(args: SelectEventArgs) {
-      let fieldsddl = (<any>this.$refs.expand_fields).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      let membersOrder = (<any>this.$refs.expand_members).ej2Instances;
+      let fieldsddl = ((this as any).$refs.expand_fields).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      let membersOrder = ((this as any).$refs.expand_members).ej2Instances;
      membersOrder.value = [];
             if (storeMembers['Country'].length > 0 || storeMembers['Year'].length > 0) {
                 storeMembers = { 'Country': [], 'Year': [] };
@@ -270,7 +271,7 @@ methods: {
             }
     },
     fieldOnRemoved: function(args: RemoveEventArgs) {
-        let fieldsddl = (<any>this.$refs.expand_fields).ej2Instances;
+        let fieldsddl = ((this as any).$refs.expand_fields).ej2Instances;
       if ((<any>args).itemData['Field'] === 'Country') {
                 this.updateRowColumn(false, false, isColumnSelect);
                 isRowSelect = false;
@@ -281,14 +282,14 @@ methods: {
             }
     },
     memberOnSelect: function(args: SelectEventArgs) {
-      let field1 = (<any>this.$refs.expand_fields_1).ej2Instances;
-      let applyBtn = (<any>this.$refs.apply).ej2Instances;
+      let field1 = ((this as any).$refs.expand_fields_1).ej2Instances;
+      let applyBtn = ((this as any).$refs.apply).ej2Instances;
         this.setMemberCheckedState((<any>field1).itemData.Field, (args['item'].textContent as string), args['item'].textContent + '_' + true);
             applyBtn.disabled = false;
             storeMembers[(<any>field1).itemData.Field].push((<any>args).itemData['Member']);
     },
     memberOnRemoved: function(args: RemoveEventArgs) {
-      let field1 = (<any>this.$refs.expand_fields_1).ej2Instances;
+      let field1 = ((this as any).$refs.expand_fields_1).ej2Instances;
         this.setMemberCheckedState((<any>field1).itemData.Field, (args['item'].textContent as string), args['item'].textContent + '_' + false);
             index = storeMembers[(<any>field1).itemData.Field].indexOf((<any>args).itemData['Member']);
             if (storeMembers[(<any>field1).itemData.Field].indexOf((<any>args).itemData['Member']) > -1) {
@@ -301,8 +302,8 @@ methods: {
       ) as HTMLElement).style.display = "none";
     },
     btnClick: function(args: checkEventArgs) {
-      let fieldsddl = (<any>this.$refs.expand_fields).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let fieldsddl = ((this as any).$refs.expand_fields).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
        fieldsddl.value = [];
         isRowSelect = false;
         isColumnSelect = false;
@@ -337,8 +338,8 @@ methods: {
     },
 
     updateRowColumn: function(isExpand: boolean, isRowExpand: boolean, isColumnExpand: boolean) {
-        let fieldsddl = (<any>this.$refs.expand_fields).ej2Instances;
-         let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+        let fieldsddl = ((this as any).$refs.expand_fields).ej2Instances;
+         let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
         pivotObj.setProperties({
             dataSourceSettings: {
                 expandAll: isExpand, rows: [
@@ -354,8 +355,8 @@ methods: {
     },
 
     clear: function() {
-        let membersOrder = (<any>this.$refs.expand_members).ej2Instances;
-        let fieldsddl = (<any>this.$refs.expand_fields).ej2Instances;
+        let membersOrder = ((this as any).$refs.expand_members).ej2Instances;
+        let fieldsddl = ((this as any).$refs.expand_fields).ej2Instances;
         fieldsddl.value = [];
         isRowSelect = false;
         isColumnSelect = false;
@@ -369,7 +370,7 @@ methods: {
   provide: {
     multiselect: [CheckBoxSelection]
   }
-});
+}
 </script>
 
 <style scoped>

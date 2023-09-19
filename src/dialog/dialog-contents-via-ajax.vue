@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-lg-12 control-section ajaxsample" style="padding:10px;position:relative;">
-        <ejs-button id='ajaxBtn' v-if="ShowBtn" v-on:click.native="ajaxBtnClick">Open</ejs-button>
+        <ejs-button id='ajaxBtn' v-if="ShowBtn" v-on:click="ajaxBtnClick">Open</ejs-button>
         <ejs-dialog ref="dialogObj" :header='header' :buttons='dlgButtons' :content='contentData' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen" :close="dialogClose">
         </ejs-dialog>
     </div>
@@ -87,13 +87,16 @@
 
 <script>
 import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { Fetch } from '@syncfusion/ej2-base';
-Vue.use(DialogPlugin);
-Vue.use(ButtonPlugin);
+
 let ShowBtn = undefined;
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             header: '<img class="img1" src="./source/dialog/images/dialog-img2.png">Whats Coming from Microsoft this Fall',
@@ -136,5 +139,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

@@ -37,7 +37,7 @@
      <div id="description">
             <p>The Grid supports aggregates which will be displayed at the footer, group footer and group caption of the Grid.
     The aggregate configurations can be provided by the <code><a target="_blank" className="code"
-                href="http://ej2.syncfusion.com/documentation/grid/api-grid.html">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#aggregates">
                 aggregates
         </a></code> property.</p>
             <p>
@@ -45,20 +45,25 @@
     </p>
             <p>
               By default, reactive aggregate update is not supported by inline and dialog edit modes. But, we can refresh aggregates manually. Please refer to the <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/grid/aggregates.html#refresh-aggregates-in-inline-edit-mode">
+                href="https://ej2.syncfusion.com/vue/documentation/grid/aggregates/reactive-aggregate#refresh-aggregate-values-in-inline-editing">
                 documentation.</a>
             </p>
           </div>      
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Toolbar, Edit, Page, Group, Aggregate } from "@syncfusion/ej2-vue-grids";
+import { createApp } from "vue";
+import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Edit, Page, Group, AggregateDirective, AggregatesDirective, Aggregate, } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'e-aggregates': AggregatesDirective,
+    'e-aggregate': AggregateDirective,
+  },
   data: () => {
     return {
       data: orderDetails.slice(0),
@@ -68,7 +73,7 @@ export default Vue.extend({
       groupSettings: {showDropArea: false, columns:['CustomerID']},
       sumTemplate: function() {
         return {
-            template: Vue.component('sumTemplate', {
+            template: createApp({}).component('sumTemplate', {
             template: `<span>Sum: {{data.Sum}}</span>`,
             data: function () {return {data: {data: {}}};}
             })
@@ -76,7 +81,7 @@ export default Vue.extend({
       },
       avgTemplate: function() {
         return {
-            template : Vue.component('avgTemplate', {
+            template : createApp({}).component('avgTemplate', {
             template: `<span>Average: {{data.Average}}</span>`, 
             data: function () {return { data: {data: {}}};}
             })
@@ -87,5 +92,5 @@ export default Vue.extend({
   provide: {
       grid: [Toolbar, Edit, Page, Group, Aggregate]
   }
-});
+};
 </script>

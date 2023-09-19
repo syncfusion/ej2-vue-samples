@@ -9,8 +9,6 @@
           :gridSettings="gridSettings"
           :width="width"
           :height="height"
-          :load="load"
-          :dataBound="dataBound"
           :allowExcelExport="allowExcelExport"
           :allowConditionalFormatting="allowConditionalFormatting"
           :allowPdfExport="allowPdfExport"
@@ -129,10 +127,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-vue-charts";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   FieldList,
   IDataSet,
@@ -145,14 +142,16 @@ import {
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -247,7 +246,7 @@ export default Vue.extend({
       args.reportName = reeportList;
     },
     newReport: function() {
-      let pivotObject = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObject = ((this as any).$refs.pivotview).ej2Instances;
       pivotObject.setProperties(
         {
           dataSourceSettings: {
@@ -261,7 +260,7 @@ export default Vue.extend({
       );
     },
     loadReport: function(args: any) {
-      let pivotObject = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObject = ((this as any).$refs.pivotview).ej2Instances;
       let reportsCollection = [];
       if (
         localStorage.pivotviewReports &&
@@ -369,7 +368,7 @@ export default Vue.extend({
       GroupingBar
     ]
   }
-});
+}
 </script>
 
 <style scoped>

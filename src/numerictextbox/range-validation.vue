@@ -47,7 +47,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button id="buttonApply" class="e-flat e-primary" v-on:click.native="onClick">Apply</ejs-button>
+                            <ejs-button id="buttonApply" class="e-flat e-primary" v-on:click="onClick">Apply</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -158,13 +158,10 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend ({
+export default {
     data: function() {
         return {
             min: 1,
@@ -173,8 +170,12 @@ export default Vue.extend ({
             value: 15,
         }
     },
+    components: { 
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'ejs-button': ButtonComponent 
+    },
 	methods: {
-        onClick: function(args) {
+        onClick: function() {
             var min=parseFloat(document.getElementById("min").value);
             var max=parseFloat(document.getElementById("max").value);
             var step=parseFloat(document.getElementById("step").value);
@@ -183,5 +184,5 @@ export default Vue.extend ({
             this.step=step;
         }
 	}
-});
+};
 </script>

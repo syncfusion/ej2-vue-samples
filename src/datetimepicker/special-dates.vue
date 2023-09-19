@@ -23,18 +23,17 @@
 
 <script>
 
-import Vue from "vue";
-import { DateTimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DateTimePickerComponent } from "@syncfusion/ej2-vue-calendars";
 import { addClass } from "@syncfusion/ej2-base";
 
-Vue.use(DateTimePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       dateValue: new Date("1/13/2017"),
       cssClass: "datetimepicker-special-dates"
     };
   },
+  components: { 'ejs-datetimepicker': DateTimePickerComponent },
   methods: {
     specialDate: function(args, name) {
       let span = document.createElement("span");
@@ -58,7 +57,7 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>
 
 

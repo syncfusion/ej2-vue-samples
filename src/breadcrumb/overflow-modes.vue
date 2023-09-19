@@ -5,7 +5,7 @@
             <div class="row material2">
                 <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                     <h5 style="display: inline-block">Overflow Mode - Hidden</h5>
-                    <ejs-button id="reset" cssClass="reset-btn e-small" content="Reset State" v-on:click.native="btnClick"></ejs-button>
+                    <ejs-button id="reset" cssClass="reset-btn e-small" content="Reset State" v-on:click="btnClick"></ejs-button>
                 </div>
             </div>
             <div class="row material2">
@@ -133,7 +133,7 @@
     .content-wrapper div.row:nth-child(even) {
         padding-top: 0;
     }
-    @@media only screen and (max-width: 480px) {
+    @media only screen and (max-width: 480px) {
         .content-wrapper {
             width: 92%;
         }
@@ -168,15 +168,17 @@
    <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { BreadcrumbPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { BreadcrumbComponent, BreadcrumbItemDirective, BreadcrumbItemsDirective } from "@syncfusion/ej2-vue-navigations";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { getComponent } from '@syncfusion/ej2-base';
 
-Vue.use(BreadcrumbPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-breadcrumb': BreadcrumbComponent,
+    'e-breadcrumb-item': BreadcrumbItemDirective,
+    'e-breadcrumb-items': BreadcrumbItemsDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       
@@ -192,5 +194,5 @@ export default Vue.extend({
         }
     }
   }
-});
+}
 </script>

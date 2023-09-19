@@ -27,7 +27,7 @@
                       </div>
                   </div>
               </div>
-              <div id="scrollableDiv">
+              <div id="scrollableArea">
                   <div class="property-panel-header">
                       Scrollable Area
                   </div>
@@ -180,38 +180,28 @@
             pointer-events: none;
             opacity: 0.4;
         }
-        .e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn .e-selected-color .e-split-preview{
-        width: 100px!important;
-        margin-left: -40px!important;
-        }
-        .e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn{
-            width: 110px!important;
-        }
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   UndoRedo,
   ConnectorModel,
   PointPortModel,
   Connector,
-  SymbolPalettePlugin,
+  SymbolPaletteComponent,
   SymbolInfo,
   IDragEnterEventArgs,
   DiagramTools,
   GridlinesModel,
   Rect
 } from "@syncfusion/ej2-vue-diagrams";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-Vue.use(TextBoxPlugin);
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
-Vue.use(DropDownListPlugin);
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+
 let isMobile;
 let interval;
 
@@ -344,7 +334,14 @@ let connectorSymbols = [
     },
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+   'ejs-textbox': TextBoxComponent,
+   'ejs-diagram': DiagramComponent,
+   'ejs-symbolpalette': SymbolPaletteComponent,
+   'ejs-dropdownlist': DropDownListComponent,
+   'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -354,7 +351,7 @@ export default Vue.extend({
         verticalGridlines: gridlines
       },      
       created: (args) => {
-        var element2 = document.getElementById('scrollableDiv');
+        var element2 = document.getElementById('scrollableArea');
         element2.className = "disabledbutton";
       },
       //Sets the default values of a node
@@ -388,7 +385,7 @@ export default Vue.extend({
       },
       scrollSettings : {
         scrollLimit : 'Infinity',
-        canAutoScroll: false, 
+        canAutoScroll: true,
         autoScrollBorder: { left: 30, right: 30, top: 30, bottom: 30 },
         scrollableArea: { x: 0, y: 0, width: 1500, height: 1500 }
       },
@@ -398,7 +395,7 @@ export default Vue.extend({
       ],
       scrollLimitChange :(args)=>{
         var diagram = document.getElementById("diagram").ej2_instances[0];
-        var element = document.getElementById('scrollableDiv');
+        var element = document.getElementById('scrollableArea');
         element.className = args.value === "Limited" ? "" : "disabledbutton";
         diagram.scrollSettings.scrollLimit = args.value;
       },
@@ -512,7 +509,7 @@ export default Vue.extend({
   mounted: function() {
     let diagram = this.$refs.diagramObject.ej2Instances;
   }
-});
+}
 
 function getPorts() {
   let ports = [

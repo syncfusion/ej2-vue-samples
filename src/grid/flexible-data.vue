@@ -69,7 +69,7 @@
                         <td style="width : 50%">
                             <div class="prop-name">
                                 <ejs-button style=" width :100%;" data-ripple="true" id="additionalParams"
-                                    cssClass='samplebtn e-control e-btn e-primary' v-on:click.native='parameterOnClick'
+                                    cssClass='samplebtn e-control e-btn e-primary' v-on:click='parameterOnClick'
                                     >Add</ejs-button>
                             </div>
                         </td>
@@ -102,7 +102,7 @@
                         <td style="width : 50%">
                             <div class='e-flexible-grid-add'>
                                 <ejs-button style=" width :100%;" data-ripple="true" id="headerId"
-                                    cssClass='samplebtn e-control e-btn e-primary' v-on:click.native='headerOnClick'
+                                    cssClass='samplebtn e-control e-btn e-primary' v-on:click='headerOnClick'
                                     >Add</ejs-button>
                             </div>
                         </td>
@@ -118,7 +118,7 @@
                             <div>
                                 <ejs-button style="width:100%" data-ripple="true" id="validateSubmit"
                                     ref="connect" cssClass='samplebtn e-control e-btn e-primary'
-                                    v-on:click.native='connectOnclick'>Connect</ejs-button>
+                                    v-on:click='connectOnclick'>Connect</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -128,7 +128,7 @@
 
         <div id="description">
             <p>The Grid supports data binding. The <code><a target="_blank" class="code"
-                                    href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#datasource">
+                                    href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
                             dataSource</a></code> property can be assigned with the instance of <code><a target="_blank" class="code"
                                 href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
                             DataManager</a></code> to bind remote data.</p>
@@ -238,15 +238,22 @@
 </style>
 
 <script >
-import Vue from "vue";
-import { GridPlugin, Grid, Filter, Page, Selection, ColumnModel, CheckBoxChangeEventArgs, DataResult, DataStateChangeEventArgs, Sorts } from "@syncfusion/ej2-vue-grids";
+import { createApp } from "vue";
+import { GridComponent, ColumnsDirective, ColumnDirective, Grid, Filter, Page, Selection, ColumnModel, CheckBoxChangeEventArgs, DataResult, DataStateChangeEventArgs, Sorts } from "@syncfusion/ej2-vue-grids";
 import { Ajax, removeClass, addClass } from '@syncfusion/ej2-base';
-import { DropDownList, DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBox } from '@syncfusion/ej2-buttons';
+import { DropDownList, DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent, ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DataManager, WebApiAdaptor, UrlAdaptor, ODataV4Adaptor, Query } from "@syncfusion/ej2-data";
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+        'ejs-grid': GridComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-button': ButtonComponent
+    },
     data: () => {
         return {
             payloadInfo: "<b><u>Payload Information</u></b><br> Service URL: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders/' <br> Adaptor Type: ODataV4Adaptor",
@@ -423,5 +430,5 @@ export default Vue.extend({
     provide: {
         grid: [Page]
     }
-});
+};
 </script>

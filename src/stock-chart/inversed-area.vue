@@ -36,8 +36,8 @@
       <p>
         <code>Crosshair</code> is enabled in this example. To see the crosshair in action, hover the chart or tap on touch enabled devices.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
@@ -51,11 +51,12 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { aapl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   AreaSeries,
   Crosshair,
@@ -79,12 +80,16 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       seriesData: aapl,
@@ -103,7 +108,7 @@ export default Vue.extend({
       primaryYAxis: {
         lineStyle: { color: "transparent" },
         crosshairTooltip: { enable: true },
-        majorTickLines: { color: "transparent", height: 0 },
+        majorTickLines: { color: "transparent", width: 0 },
         isInversed: true
       },
        crosshair: {
@@ -145,5 +150,5 @@ export default Vue.extend({
     ]
   },
   methods: {}
-});
+};
 </script>

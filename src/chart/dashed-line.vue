@@ -30,8 +30,8 @@
     <p>
         <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use line series, we need to inject
         <code>LineSeries</code> module using
@@ -86,16 +86,21 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, LineSeries, DateTime, Legend, Tooltip, Crosshair, Category, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationDirective, AnnotationsDirective, LineSeries, DateTime, Legend, Tooltip, Crosshair, Category, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective
+  },
   data: function() {
     return {
          theme: theme,
@@ -251,5 +256,5 @@ export default Vue.extend({
   },
   },
  
-});
+};
 </script>

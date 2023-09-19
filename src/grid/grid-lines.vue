@@ -30,7 +30,7 @@
      <div id="description">
         <p>
             The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#gridlines">
+        href="http://ej2.syncfusion.com/vue/documentation/api/grid/#gridlines">
         gridLines</a></code> property is used to control the line visibility that separates the rows and columns.
             The Grid allow us to display the following grid lines,
         </p>
@@ -45,7 +45,7 @@
         </p>
          <p>
             More information on the gridLines configuration can be found in this 
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#gridlines">documentation section</a>.
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/grid/#gridlines">documentation section</a>.
         </p>
 
     </div>
@@ -69,16 +69,20 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from 'vue';
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { GridPlugin, GridLine, Grid, Page } from '@syncfusion/ej2-vue-grids';
-import { ToolbarPlugin, ClickEventArgs, ItemModel, ToolbarComponent } from '@syncfusion/ej2-vue-navigations';
+import { GridComponent, ColumnDirective, ColumnsDirective, GridLine, Grid, Page } from '@syncfusion/ej2-vue-grids';
+import { ToolbarComponent, ItemDirective, ItemsDirective, ClickEventArgs, ItemModel } from '@syncfusion/ej2-vue-navigations';
 import { customerData } from './data-source';
 
-Vue.use(GridPlugin);
-Vue.use(ToolbarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+  },
   data: () => {
       return {
         data: customerData,
@@ -87,11 +91,11 @@ export default Vue.extend({
   },
   methods: {
       onClicked: function (e: ClickEventArgs){
-        this.lines = <GridLine>e.item.text;
+        (this as any).lines = <GridLine>e.item.text;
       }
   },
   provide: {
       grid: [Page]
   }
-})
+}
 </script>

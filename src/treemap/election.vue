@@ -71,13 +71,15 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
 import { electionData } from '../treemap/treemap-data/election-data';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -199,5 +201,5 @@ methods:{
     treemap.refresh();
     }
   },
-})
+}
 </script>

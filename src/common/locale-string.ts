@@ -637,7 +637,16 @@ export let Locale: Object = {
             "CustomFormatTypeList": "Typ",
             "CellReferenceTypoError": "Wir haben einen Tippfehler in Ihrem Zellbezug gefunden. Möchten Sie diesen Verweis wie folgt korrigieren?",
             "Material3": "Material 3",
-            "Material3Dark": "Material 3 Dunkel"
+            "Material3Dark": "Material 3 Dunkel",
+            "InvalidFormulaError": "Wir haben festgestellt, dass Sie eine ungültige Formel eingegeben haben.",
+            "InvalidArguments": "Wir haben festgestellt, dass Sie eine Formel mit ungültigen Argumenten eingegeben haben.",
+            "EmptyExpression": "Wir haben festgestellt, dass Sie eine Formel mit einem leeren Ausdruck eingegeben haben.",
+            "MismatchedParenthesis": "Wir haben festgestellt, dass Sie eine Formel eingegeben haben, bei der eine oder mehrere öffnende oder schließende Klammern fehlten.",
+            "ImproperFormula": "Wir haben festgestellt, dass Sie eine Formel eingegeben haben, die falsch ist.",
+            "WrongNumberOfArguments": "Wir haben festgestellt, dass Sie eine Formel mit einer falschen Anzahl von Argumenten eingegeben haben.",
+            "Requires3Arguments": "Wir haben festgestellt, dass Sie eine Formel eingegeben haben, die drei Argumente erfordert.",
+            "MismatchedStringQuotes" : "Wir haben festgestellt, dass Sie eine Formel mit nicht übereinstimmenden Anführungszeichen eingegeben haben.",
+            "FormulaCircularRef" : "Wir haben festgestellt, dass Sie eine Formel mit einem Zirkelbezug eingegeben haben."
         },
         "querybuilder": {
             "AddGroup": "Gruppe hinzufügen",
@@ -2203,7 +2212,16 @@ export let Locale: Object = {
             "CustomFormatTypeList": "يكتب",
             "CellReferenceTypoError": "وجدنا خطأ مطبعي في مرجع الخلية الخاصة بك. هل تريد تصحيح هذا المرجع على النحو التالي؟",
             "Material3": "المادة 3",
-            "Material3Dark": "المادة 3 الظلام"
+            "Material3Dark": "المادة 3 الظلام",
+            "InvalidFormulaError": "وجدنا أنك كتبت صيغة غير صالحة.",
+            "InvalidArguments": "لقد اكتشفنا أنك كتبت صيغة تحتوي على وسيطات غير صالحة.",
+            "EmptyExpression": "وجدنا أنك كتبت صيغة بتعبير فارغ.",
+            "MismatchedParenthesis": "لقد اكتشفنا أنك قمت بكتابة صيغة تحتوي على قوس فتح أو إغلاق واحد أو أكثر مفقود.",
+            "ImproperFormula": "وجدنا أنك كتبت صيغة غير صحيحة.",
+            "WrongNumberOfArguments": "وجدنا أنك كتبت صيغة بعدد خاطئ من الوسائط.",
+            "Requires3Arguments": "وجدنا أنك كتبت صيغة تتطلب ثلاث وسيطات.",
+            "MismatchedStringQuotes": "لقد اكتشفنا أنك كتبت صيغة تحتوي على علامات اقتباس غير متطابقة.",
+            "FormulaCircularRef": "لقد وجدنا أنك كتبت صيغة بمرجع دائري."
         },
         "querybuilder": {
             "AddGroup": "إضافة مجموعة",
@@ -3764,7 +3782,16 @@ export let Locale: Object = {
             "CustomFormatTypeList": "Type",
             "CellReferenceTypoError": "We found a typo in your cell reference. Do you want to correct this reference as follows?",
             "Material3": "Material 3",
-            "Material3Dark": "Material 3 Dark"
+            "Material3Dark": "Material 3 Dark",
+            "InvalidFormulaError": "We found that you typed a formula which is invalid.",
+            "InvalidArguments" : "We found that you typed a formula with an invalid arguments.",
+            "EmptyExpression" : "We found that you typed a formula with an empty expression.",
+            "MismatchedParenthesis" : "We found that you typed a formula with one or more missing opening or closing parenthesis.",
+            "ImproperFormula" : "We found that you typed a formula which is improper.",
+            "WrongNumberOfArguments" : "We found that you typed a formula with a wrong number of arguments.",
+            "Requires3Arguments": "We found that you typed a formula which requires 3 arguments.",
+            "MismatchedStringQuotes" : "We found that you typed a formula with a mismatched quotes.",
+            "FormulaCircularRef" : "We found that you typed a formula with a circular reference."
         },
         "querybuilder": {
             "AddGroup": "Add Group",
@@ -5329,7 +5356,16 @@ export let Locale: Object = {
             "CustomFormatTypeList": "類型",
             "CellReferenceTypoError": "我們在您的單元格引用中發現了拼寫錯誤。是否要按如下方式更正此引用？",
             "Material3": "材料 3",
-            "Material3Dark": "材質 3 深色"
+            "Material3Dark": "材質 3 深色",
+            "InvalidFormulaError": "我们发现您输入的公式无效。",
+            "InvalidArguments" : "我们发现您输入的公式包含无效参数。",
+            "EmptyExpression" : "我們發現您輸入的公式包含空表達式。",
+            "MismatchedParenthesis" : "我们发现您键入的公式缺少一个或多个左括号或右括号。",
+            "ImproperFormula" : "我们发现您输入的公式不正确。",
+            "WrongNumberOfArguments" : "我們發現您輸入的公式參數數量錯誤。",
+            "Requires3Arguments": "我们发现您输入的公式需要 3 个参数。",
+            "MismatchedStringQuotes" : "我们发现您输入的公式的引号不匹配。",
+            "FormulaCircularRef" : "我们发现您输入的公式带有循环引用。"
         },
         "querybuilder": {
             "AddGroup": "添加组",
@@ -6895,7 +6931,16 @@ export let Locale: Object = {
             "CustomFormatTypeList": "Taper",
             "CellReferenceTypoError": "Nous avons trouvé une faute de frappe dans votre référence de cellule. Voulez-vous corriger cette référence comme suit ?",
             "Material3": "Matériel 3",
-            "Material3Dark": "Matériau 3 foncé"
+            "Material3Dark": "Matériau 3 foncé",
+            "InvalidFormulaError": "Nous avons constaté que vous avez saisi une formule non valide.",
+            "InvalidArguments" : "Nous avons constaté que vous avez saisi une formule avec des arguments non valides.",
+            "EmptyExpression" : "Nous avons constaté que vous avez tapé une formule avec une expression vide.",
+            "MismatchedParenthesis" : "Nous avons constaté que vous avez tapé une formule avec une ou plusieurs parenthèses ouvrantes ou fermantes manquantes.",
+            "ImproperFormula" : "Nous avons constaté que vous avez saisi une formule incorrecte.",
+            "WrongNumberOfArguments" : "Nous avons constaté que vous avez tapé une formule avec un mauvais nombre d'arguments.",
+            "Requires3Arguments": "Nous avons constaté que vous avez tapé une formule qui nécessite 3 arguments.",
+            "MismatchedStringQuotes" : "Nous avons constaté que vous aviez saisi une formule avec des guillemets incompatibles.",
+            "FormulaCircularRef" : "Nous avons constaté que vous aviez tapé une formule avec une référence circulaire."
         },
         "querybuilder": {
             "AddGroup": "ajouter un groupe",

@@ -19,7 +19,7 @@
             <tbody><tr id="button-control" style="height: 50px">
                 <td align="center">
                     <div>
-                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click.native='clickToggle'></ejs-button>
+                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click='clickToggle'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -92,11 +92,16 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Legend, MapsTooltip, MapAjax, Print } from '@syncfusion/ej2-vue-maps';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-Vue.use(MapsPlugin,ButtonPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax, Print } from '@syncfusion/ej2-vue-maps';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-button': ButtonComponent
+  },
   data:function(){
       return{
         allowPrint: true,
@@ -187,6 +192,6 @@ methods:{
         this.$refs.maps.ej2Instances.print();
     }
 }
-})
+}
 </script>
 

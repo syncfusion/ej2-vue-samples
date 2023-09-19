@@ -9,6 +9,7 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "Ribbon",
+            "type": "update",
             "description": "This sample demonstrates the default functionalities of the Syncfusion Vue Ribbon component."
         },
         {
@@ -22,6 +23,13 @@
             "name": "Ribbon Resizing",
             "category": "Ribbon",
             "description": "This sample demonstrates the resizing functionality of the Syncfusion Vue Ribbon component."
+        },
+        {
+            "url": "backstage",
+            "name": "Ribbon Backstage",
+            "category": "Ribbon",
+            "type": "new",
+            "description": "This sample demonstrates the backstage functionality of the Syncfusion JavaScript(ES5) Ribbon component."
         }
     ]
 }

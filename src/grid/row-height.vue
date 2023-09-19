@@ -20,7 +20,7 @@
      <div id="description">
          <p>
             The Grid has support to provide <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowheight">rowHeight
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowheight">rowHeight
         </a></code> property.
         </p>
     </div>
@@ -31,14 +31,16 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -53,18 +55,18 @@ export default Vue.extend({
   methods:{
       clickHandler: function (args: ClickEventArgs) {
         if (args.item.id === 'small') {
-            this.rowHeight = 20;
+            (this as any).rowHeight = 20;
         }
         if (args.item.id === 'medium') {
-            this.rowHeight = 40;
+            (this as any).rowHeight = 40;
         }
         if (args.item.id === 'big') {
-            this.rowHeight = 60;
+            (this as any).rowHeight = 60;
         }
       }
   },
   provide: {
       grid: [Toolbar]
   }
-});
+}
 </script>

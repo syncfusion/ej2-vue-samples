@@ -127,10 +127,20 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RowDirective, RowsDirective, CellDirective, CellsDirective, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-spreadsheet";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },
    data: () => {
     return {
         //To insert image in a cell
@@ -153,5 +163,5 @@ export default Vue.extend({
             spreadsheet.setBorder({ border: '1px solid #e0e0e0' }, 'B7:F13', 'Horizontal');
             }
   }
-});
+}
 </script>

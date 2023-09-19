@@ -154,18 +154,9 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import {
-  TicksDataModel,
-  TooltipDataModel,
-  Placement
-} from "@syncfusion/ej2-inputs";
-import { CheckBoxPlugin, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
-import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(SliderPlugin);
-Vue.use(CheckBoxPlugin);
-export default Vue.extend({
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+export default {
   data: function() {
     return {
       value: 30,
@@ -186,6 +177,10 @@ export default Vue.extend({
       },
       tooltip: { isVisible: true, placement: "Before" }
     };
+  },
+  components: { 
+    'ejs-slider': SliderComponent,
+    'ejs-checkbox': CheckBoxComponent,
   },
   methods: {
     enableDisableTicks: function (args) {
@@ -210,9 +205,11 @@ export default Vue.extend({
     }
   },
   mounted: function() {
-    document
-      .getElementById("right-pane")
-      .addEventListener("scroll", this.onScroll.bind(this));
+    if (document.getElementById('right-pane')) {
+      document
+        .getElementById('right-pane')
+        .addEventListener('scroll', this.onScroll.bind(this));
+    }
   }
-});
+};
 </script>

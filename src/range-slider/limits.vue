@@ -238,16 +238,11 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(CheckBoxPlugin);
-Vue.use(SliderPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       min: 0,
@@ -297,6 +292,11 @@ export default Vue.extend({
       checked: false
     };
   },
+  components: { 
+    'ejs-slider': SliderComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   methods: {
     minstartChange: function(args) {
       this.$refs.slider.ej2Instances.limits.minStart = args.value;
@@ -333,9 +333,11 @@ export default Vue.extend({
     }
   },
   mounted: function() {
-    document
-      .getElementById("right-pane")
-      .addEventListener("scroll", this.onScroll.bind(this));
+    if (document.getElementById('right-pane')) {
+      document
+        .getElementById('right-pane')
+        .addEventListener('scroll', this.onScroll.bind(this));
+    }
   }
-});
+};
 </script>

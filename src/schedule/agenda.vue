@@ -68,25 +68,27 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { generateObject } from './datasource';
-    import { SchedulePlugin, Agenda } from '@syncfusion/ej2-vue-schedule';
-    import { NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+    import { ScheduleComponent, ViewsDirective, ViewDirective, Agenda } from '@syncfusion/ej2-vue-schedule';
+    import { NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+    import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
-    Vue.use(NumericTextBoxPlugin);
-    Vue.use(DropDownListPlugin);
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-numerictextbox': NumericTextBoxComponent,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: generateObject() },
                 selectedDate: new Date(2021, 1, 15),
-                datas: ['Agenda'],
+                datas: ['True', 'False'],
                 scheduleView: 'Agenda',
                 virtualscroll: false,
                 value: 'False',
-                datas: ['True', 'False'],
                 values: 'True'
             }
         },
@@ -107,6 +109,6 @@
                 this.$refs.ScheduleObj.ej2Instances.agendaDaysCount = args.value !== null ? args.value : 7;
             }
         }
-    });
+    }
 
 </script>

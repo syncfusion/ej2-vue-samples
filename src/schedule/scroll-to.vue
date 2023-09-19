@@ -40,14 +40,18 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { TimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-    Vue.use(SchedulePlugin);
-    Vue.use(TimePickerPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { TimePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-timepicker': TimePickerComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
@@ -72,6 +76,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

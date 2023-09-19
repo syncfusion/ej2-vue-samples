@@ -38,12 +38,12 @@
         <template v-slot:footerTemplate="{ data }">
           <div class="quick-info-footer">
             <div class="cell-footer" v-if="data.elementType === 'cell'">
-              <ejs-button id="more-details" cssClass="e-flat" content="More Details" v-on:click.native="buttonClickActions"></ejs-button>
-              <ejs-button id="add" cssClass="e-flat" content="Add" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
+              <ejs-button id="more-details" cssClass="e-flat" content="More Details" v-on:click="buttonClickActions"></ejs-button>
+              <ejs-button id="add" cssClass="e-flat" content="Add" :isPrimary="true" v-on:click="buttonClickActions"></ejs-button>
             </div>
             <div class="event-footer" v-else>
-              <ejs-button id="delete" cssClass="e-flat" content="Delete" v-on:click.native="buttonClickActions"></ejs-button>
-              <ejs-button id="more-details" cssClass="e-flat" content="More Details" :isPrimary="true" v-on:click.native="buttonClickActions"></ejs-button>
+              <ejs-button id="delete" cssClass="e-flat" content="Delete" v-on:click="buttonClickActions"></ejs-button>
+              <ejs-button id="more-details" cssClass="e-flat" content="More Details" :isPrimary="true" v-on:click="buttonClickActions"></ejs-button>
             </div>
           </div>
         </template>
@@ -219,6 +219,10 @@
         padding-top: 10px;
     }
 
+    .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
+      display: block;
+    }
+
     .material-dark .quick-info-template .quick-info-header {
         background-color: #424242;
     }
@@ -243,22 +247,22 @@
         color: #fff !important;
     }
 
-    .tailwind-dark .quick-info-template .event-content div label,
-    .tailwind-dark .quick-info-template .event-content div span,
-    .bootstrap-dark .quick-info-template .event-content div label,
-    .bootstrap-dark .quick-info-template .event-content div span,
-    .bootstrap5-dark .quick-info-template .event-content div label,
-    .bootstrap5-dark .quick-info-template .event-content div span,
-    .fluent-dark .quick-info-template .event-content div label,
-    .fluent-dark .quick-info-template .event-content div span,
-    .fabric-dark .quick-info-template .event-content div label,
-    .fabric-dark .quick-info-template .event-content div span,
-    .material-dark .quick-info-template .event-content div label,
-    .material-dark .quick-info-template .event-content div span,
-    .highcontrast .quick-info-template .event-content div label,
-    .highcontrast .quick-info-template .event-content div span,
-    .material3-dark .quick-info-template .event-content div label,
-    .material3-dark .quick-info-template .event-content div span {
+    .tailwind-dark .quick-info-content .event-content div label,
+    .tailwind-dark .quick-info-content .event-content div span,
+    .bootstrap-dark .quick-info-content .event-content div label,
+    .bootstrap-dark .quick-info-content .event-content div span,
+    .bootstrap5-dark .quick-info-content .event-content div label,
+    .bootstrap5-dark .quick-info-content .event-content div span,
+    .fluent-dark .quick-info-content .event-content div label,
+    .fluent-dark .quick-info-content .event-content div span,
+    .fabric-dark .quick-info-content .event-content div label,
+    .fabric-dark .quick-info-content .event-content div span,
+    .material-dark .quick-info-content .event-content div label,
+    .material-dark .quick-info-content .event-content div span,
+    .highcontrast .quick-info-content .event-content div label,
+    .highcontrast .quick-info-content .event-content div span,
+    .material3-dark .quick-info-content .event-content div label,
+    .material3-dark .quick-info-content .event-content div span {
         color: #fff;
     }
 
@@ -276,18 +280,12 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { extend, Internationalization, isNullOrUndefined, closest } from "@syncfusion/ej2-base";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ScheduleComponent, ResourceDirective, ResourcesDirective, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 import { quickInfoTemplateData } from "./datasource";
-
-Vue.use(SchedulePlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(TextBoxPlugin);
 
 var resourceData = [
   { Name: "Jammy", Id: 1, Capacity: 20, Color: "#ea7a57", Type: "Conference" },
@@ -302,7 +300,15 @@ var resourceData = [
   { Name: "Photogenic", Id: 10, Capacity: 25, Color: "#710193", Type: "Conference" }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-schedule': ScheduleComponent,
+    'e-resource': ResourceDirective,
+    'e-resources': ResourcesDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-textbox': TextBoxComponent
+  },
   data: function() {
     return {
       intl: new Internationalization(),
@@ -393,5 +399,5 @@ export default Vue.extend({
       scheduleObj.closeQuickInfoPopup();
     }
   }
-});
+}
 </script>

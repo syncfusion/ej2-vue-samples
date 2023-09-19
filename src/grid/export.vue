@@ -31,11 +31,11 @@
                 pdfQueryCellInfo</a></code> events.
                 The ExcelExport, PdfExport, and CsvExport items are defined in the toolbar, for which we have defined actions in toolbarClick event to export the Grid data using the 
             <code><a target="_blank" class="code"            
-                    href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#excelexport">excelExport</a></code>,
+                    href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a></code>,
             <code><a target="_blank" class="code"
-                    href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#pdfexport">pdfExport</a></code>and
+                    href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code>and
             <code><a target="_blank" class="code"
-                    href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#csvexport">csvExport</a></code>            methods.</p>
+                    href="https://ej2.syncfusion.com/vue/documentation/api/grid/#csvexport">csvExport</a></code>            methods.</p>
         <br/>
         <p>
                         Note: Since CSV format is supported only plain text, images and hyperlinks will not be exported on this.</p>
@@ -46,8 +46,8 @@
         </p>
         <p>
             More information on the exporting can be found in these
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/excel-exporting/">Excel Export</a> &
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export/">PDF Export</a>
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/excel-export">Excel Export</a> &
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export">PDF Export</a>
             documentation section.
         </p>
     </div>
@@ -66,28 +66,31 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, GridComponent, PdfExport, ExcelExport, Group, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { createApp } from "vue";
+import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Group, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { employeeDetails } from "./data-source";
 import columntempVue from "./column-temp.vue";
 import urltempVue from "./url-temp.vue";
 
-Vue.use(GridPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       data: employeeDetails,
       flag: false,
       toolbar: ['ExcelExport', 'PdfExport', 'CsvExport'],
        imageTemplate: function () {
-          return { template : columntempVue}
+          return { template : createApp({}).component('columnTemplate', columntempVue) }
       },
        urlTemplate: function () {
-          return { template : urltempVue}
+          return { template : createApp({}).component('urlTemplate', urltempVue) }
       }
     };
   },
@@ -95,13 +98,13 @@ export default Vue.extend({
     toolbarClick: function (args: ClickEventArgs) {
         switch (args.item.id) {
             case 'DefaultExport_pdfexport':
-                (<any>this.$refs.grid).pdfExport();
+                ((this as any).$refs.grid).pdfExport();
                 break;
             case 'DefaultExport_excelexport':
-                (<any>this.$refs.grid).excelExport();
+                ((this as any).$refs.grid).excelExport();
                 break;
             case 'DefaultExport_csvexport':
-                (<any>this.$refs.grid).csvExport();
+                ((this as any).$refs.grid).csvExport();
                 break;
         }
     },
@@ -124,22 +127,22 @@ export default Vue.extend({
         let grid = (document.getElementsByClassName('e-grid')[0] as any).ej2_instances[0];
         let fields: string[] = ["Employee Image", "Email ID"];
             if (args.checked) {
-                (<any>this.$refs.grid).showColumns(fields, "headerText");
-                (<any>this.$refs.grid).ej2Instances.toolbarModule.toolbar.hideItem(2, true);
+                ((this as any).$refs.grid).showColumns(fields, "headerText");
+                ((this as any).$refs.grid).ej2Instances.toolbarModule.toolbar.hideItem(2, true);
             } else {
-                (<any>this.$refs.grid).hideColumns(fields, "headerText");
-                (<any>this.$refs.grid).ej2Instances.toolbarModule.toolbar.hideItem(2, false);
+                ((this as any).$refs.grid).hideColumns(fields, "headerText");
+                ((this as any).$refs.grid).ej2Instances.toolbarModule.toolbar.hideItem(2, false);
       }
     },
     dataBound: function() {
-      if (!(<any>this).flag) {
-        (<any>this.$refs.grid).ej2Instances.toolbarModule.toolbar.hideItem(2, true);
-        (<any>this).flag = true;
+      if (!(this as any).flag) {
+        ((this as any).$refs.grid).ej2Instances.toolbarModule.toolbar.hideItem(2, true);
+        (this as any).flag = true;
       }
   }
   },
   provide: {
       grid: [PdfExport, ExcelExport, Group, Toolbar, Sort]
   }
-});
+}
 </script>

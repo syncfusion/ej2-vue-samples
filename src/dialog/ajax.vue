@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-lg-12 control-section ajaxsample" style="padding:10px;position:relative;">
-        <ejs-button id='ajaxBtn' v-on:click.native="ajaxBtnClick">Open</ejs-button>
+        <ejs-button id='ajaxBtn' v-on:click="ajaxBtnClick">Open</ejs-button>
         <ejs-dialog ref="dialogObj" :header='header' :buttons='dlgButtons' :content='contentData' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen" :close="dialogClose">
         </ejs-dialog>
     </div>
@@ -44,7 +44,7 @@
        min-height: 65px; 
     }
 	.ajaxsample .e-dialog .e-icon-dlg-close::before{
-	    top: 6px;
+    top: 6px;
     }
     .material .ajaxsample .e-dialog {
         height: 278px;
@@ -56,7 +56,7 @@
         padding: 28px 25px 19px;
     }
 	.ajaxsample .e-bigger.e-dialog .e-footer-content .e-btn, .ajaxsample .e-bigger .e-dialog .e-footer-content .e-btn{
-	   margin-left: 0px;
+    margin-left: 0px;
     }
 	.ajaxsample .e-footer-content button.e-control.e-btn.e-flat {
 		width: initial;
@@ -67,14 +67,15 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { Ajax } from '@syncfusion/ej2-base';
-Vue.use(DialogPlugin);
-Vue.use(ButtonPlugin);
 
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             header: '<img class="img1" src="src/dialog/images/dialog-img2.png" alt="Microsoft roadmap">Whats Coming from Microsoft this Fall',
@@ -108,7 +109,6 @@ export default Vue.extend({
             document.getElementById('ajaxBtn').style.display = 'none';
         },
         dlgButtonClick: function() {
-            let localObj = this;
             if (document.querySelector('.e-footer-content .e-btn').textContent === 'More Details') {
                 let ajax = new Ajax('./src/dialog/blog.html', 'GET', true);
                 ajax.onSuccess = (data) => {
@@ -122,5 +122,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

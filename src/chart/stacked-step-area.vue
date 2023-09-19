@@ -45,7 +45,7 @@
         In this example, you can see how to render and configure the stacked step area chart. This series forms the
         step area progress, by connecting points through vertical and horizontal lines with area filled. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the stacked step area. Both <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/marker/">marker</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/dataLabel/">dataLabel</a> are used to represent individual data and its value.
       </p>
-      <br>
+      
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use stacked step area series, we need to inject
@@ -62,15 +62,15 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   StackingStepAreaSeries,
   Legend,
   Highlight
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -78,7 +78,12 @@ let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -135,12 +140,12 @@ export default Vue.extend({
       legend: {enableHighlight : true},
       title: "Electricity- Production",
       opacity: 0.5,
-      border: { width: 1.5 }
+      border: { width: 2.5 }
     };
   },
   provide: {
     chart: [StackingStepAreaSeries, Legend, Highlight]
   },
   methods: {}
-});
+};
 </script>

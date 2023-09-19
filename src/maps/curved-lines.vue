@@ -71,12 +71,18 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, NavigationLine,Zoom , MapAjax} from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, NavigationLine,Zoom , MapAjax} from '@syncfusion/ej2-vue-maps';
 import { markerLocation } from '../maps/map-data/map-location';
 import { data } from '../maps/map-data/navigation-data';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+  },
   data:function(){
       return{
         centerPosition: {
@@ -336,5 +342,5 @@ methods:{
     }  
 }
 /* custom code end */
-})
+}
 </script>

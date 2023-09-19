@@ -50,11 +50,11 @@
     <p>
        In this example, you can see how to render and configure the period Selector with the financial chart. Tooltip is enabled in this example, to see the tooltip in action, while the selected range is changed.
      </p>     
-      <br>
-        <p style="font-weight: 500">Injecting Module</p>
+      
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
            Range Navigator component features are segregated into individual feature-wise modules. To use period selector, we need to inject
-           <code>PeriodSelector</code> module in the <code>provide</code> section.
+           <code>PeriodSelector</code> module using <code>provide: { rangeNavigator: [PeriodSelector] }</code> method.
         </p>
 </div>
 </div>
@@ -74,18 +74,14 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser, remove } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, ChartPlugin, DateTime, Zoom, LineSeries, ChartTheme, ChartAnnotation,
+import { RangeNavigatorComponent, ChartComponent, AnnotationDirective, AnnotationsDirective, IndicatorsDirective, IndicatorDirective, DateTime, Zoom, LineSeries, ChartTheme, ChartAnnotation,
   PeriodSelector, CandleSeries, Tooltip, ColumnSeries, Crosshair, StripLine } from "@syncfusion/ej2-vue-charts";
 import { SmaIndicator, EmaIndicator, TmaIndicator, AccumulationDistributionIndicator, AtrIndicator } from "@syncfusion/ej2-vue-charts";
 import { chartData } from "./stock-chart-data";
 import { getElement } from "@syncfusion/ej2-svg-base/src/tooltip/helper";
 import { RsiIndicator, MacdIndicator, StochasticIndicator, MomentumIndicator, BollingerBands } from "@syncfusion/ej2-charts";
 import { withInBounds } from "@syncfusion/ej2-charts/src/common/utils/helper";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
 
 let index = 0;
 let selectedTheme = location.hash.split("/")[1];
@@ -139,7 +135,15 @@ function getContent(value) {
   return html;
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'ejs-chart': ChartComponent,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'e-indicators': IndicatorsDirective,
+    'e-indicator': IndicatorDirective
+  },
   data: function() {
     return {
       primaryXAxis: {
@@ -269,5 +273,5 @@ export default Vue.extend({
       document.getElementById("stockRange").style.transform = "translateX(" + (value - 10) + "px)";
     }
   }
-});
+};
 </script>

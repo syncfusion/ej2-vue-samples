@@ -6,8 +6,13 @@
         <div>
             <ejs-toolbar id="resToolbar" cssClass="resToolbar" v-on:clicked="toolbarCliked">
                 <e-items>
-                    <e-item prefixIcon="e-tbar-menu-icon tb-icons" tooltipText="Menu"></e-item>
-                    <e-item :template="folderTemplate"></e-item>
+                    <e-item prefixIcon="e-icon e-menu" tooltipText="Menu"></e-item>
+                    <e-item :template="'folderTemplate'"></e-item>
+                    <template v-slot:folderTemplate>
+                    <div class="e-folder">
+                        <div class="e-folder-name">Vue Documentation</div>
+                    </div>
+                    </template>
                 </e-items>
             </ejs-toolbar>
         </div>
@@ -15,7 +20,12 @@
         <ejs-sidebar id="sideTree" class="sidebar-treeview" ref="sidebarTreeviewInstance" width="290px" target=".main-sidebar-content" mediaQuery="(min-width: 600px)" :isOpen="true">
             <div class='main-menu'>
                 <div class="table-content">
-                    <ejs-textbox id="resSearch" placeholder="Search..."></ejs-textbox>
+                    <div class="e-input-group e-float-icon-left">
+                        <span class="e-icons e-search e-input-group-icon"></span>
+                        <div class="e-input-in-wrap">
+                            <input class="e-input" name="input" type="text" placeholder="Search..."/>
+                        </div>
+                    </div>
                     <p class="main-menu-header">TABLE OF CONTENTS</p>
                 </div>
                 <div>
@@ -56,22 +66,18 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { SidebarPlugin, TreeViewPlugin, ToolbarPlugin } from '@syncfusion/ej2-vue-navigations';
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { SidebarComponent, ToolbarComponent, ItemsDirective, ItemDirective, TreeViewComponent } from '@syncfusion/ej2-vue-navigations';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { enableRipple } from '@syncfusion/ej2-base';
-Vue.use(SidebarPlugin, TreeViewPlugin, ToolbarPlugin);
-Vue.use(TextBoxPlugin);
 
-var folderTemplate = Vue.component("demo", {
-    template: '<div class="e-folder"><div class="e-folder-name">Vue Documentation</div></div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
 export default {
+    components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-sidebar': SidebarComponent,
+    'ejs-treeview': TreeViewComponent
+  },
     data () {
         var dataSource = [
             {
@@ -122,11 +128,6 @@ export default {
             }
         ];    
         return {
-            folderTemplate: function (e) {
-                return {
-                    template: folderTemplate
-                };
-            },
             fields: { dataSource: dataSource, id: 'nodeId', text: 'nodeText', child: 'nodeChild', iconCss: "iconCss" }
         }
     },
@@ -268,12 +269,7 @@ export default {
     #wrapper .e-toolbar .e-icons {
         font-size: 20px;
     }
-
-    #wrapper .e-tbar-menu-icon:before {
-        content: '\e914';
-        font-family: 'sbicons';
-    }
-
+    
     .e-bigger .e-folder {
         font-size: 18px;
     }

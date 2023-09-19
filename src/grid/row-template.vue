@@ -56,7 +56,7 @@
          <p>
             The Grid provides a way to use a custom layout for its rows using template feature. The
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#rowtemplate">rowTemplate
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowtemplate">rowTemplate
         </a></code> property accepts the template for the row.
         </p>
         <p>
@@ -72,17 +72,18 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 import { Internationalization } from '@syncfusion/ej2-base';
 
-
-Vue.use(GridPlugin);
-
 let instance = new Internationalization();
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: employeeData,
@@ -93,5 +94,5 @@ export default Vue.extend({
         return instance.formatDate(value, { skeleton: 'yMd', type: 'date' });
     }
   }
-});
+}
 </script>

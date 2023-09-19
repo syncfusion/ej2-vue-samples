@@ -96,16 +96,17 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager custom thumbnail sample
  */
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
-export default Vue.extend ({
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {        
            ajaxSettings:
@@ -127,6 +128,6 @@ export default Vue.extend ({
     provide: {
             filemanager: [DetailsView, NavigationPane, Toolbar]
     }
-});
+}
 </script>
 

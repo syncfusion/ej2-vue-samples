@@ -21,11 +21,11 @@
      <div id="description">
        <p>Paging allows you to display the contents of the Grid in page segments. By default, paging is disabled. To enable
             paging, set <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowpaging">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowpaging">
             allowPaging
             </a></code> property to true.
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-pageSettings.html#pagesizes">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/pageSettingsModel/#pagesizes">
         pageSettings->pageSizes
         </a></code> property enables a dropdown in pager which allows you to change the number of records in the 
                     Grid dynamically.
@@ -33,11 +33,11 @@
         <p>
             In this demo, the Grid is rendered with
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-pageSettings.html#pagesizes">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/pageSettingsModel/#pagesizes">
         pageSettings->pageSizes
         </a></code>set to true, and
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-pageSettings.html#pagecount">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/pageSettingsModel/#pagecount">
         pageSettings->pageCount
         </a></code>set to 4.
         </p>
@@ -66,9 +66,8 @@
     }
 </style>
 <script lang="ts">
-import Vue from "vue";
 import { L10n, setCulture } from '@syncfusion/ej2-base';
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
 
 setCulture('de-DE');
@@ -82,9 +81,12 @@ L10n.load({
     }
 });
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: data,
@@ -94,5 +96,5 @@ export default Vue.extend({
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

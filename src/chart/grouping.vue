@@ -69,20 +69,21 @@
 }
 </style>
 <script>
-import Vue from "vue";
-
-import { AccumulationChartPlugin, AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip, AccumulationSelection } from "@syncfusion/ej2-vue-charts";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip, AccumulationSelection } from "@syncfusion/ej2-vue-charts";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Browser } from '@syncfusion/ej2-base';
-
-Vue.use(AccumulationChartPlugin);
-Vue.use(DropDownListPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
         groupModeData: ["Point", "Value"],
@@ -165,5 +166,5 @@ export default Vue.extend({
         this.$refs.pie.ej2Instances.refreshChart();
       });
     }
-});
+};
 </script>

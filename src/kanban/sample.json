@@ -2,7 +2,6 @@
     "name": "Kanban",
     "directory": "kanban",
     "category": "Data Visualization",
-    "type": "update",
     "ftName": "kanban",
     "samples": [
         {
@@ -167,7 +166,6 @@
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling",
             "category": "Kanban",
-            "type": "New",
             "description": "The example demonstrates how to load a large number of cards in the Vue Kanban board with optimal load time using the virtual scrolling feature.",
             "api": {
                 "Kanban": [

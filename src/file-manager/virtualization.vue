@@ -24,15 +24,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent, Virtualization } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView, Virtualization } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager virtualization feature sample
  */
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
-export default Vue.extend ({
+
+export default {
+    components: {
+      'ejs-filemanager': FileManagerComponent
+    },
     data: function() {
         return {            
            ajaxSettings:
@@ -54,6 +56,6 @@ export default Vue.extend ({
     provide: {
         filemanager: [NavigationPane, DetailsView, Toolbar, Virtualization]
     }
-});
+}
 </script>
 

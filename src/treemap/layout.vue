@@ -48,13 +48,15 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip, RenderingMode } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent,TreeMapTooltip, RenderingMode } from "@syncfusion/ej2-vue-treemap";
 import { econmics } from '../treemap/treemap-data/econmics';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         // To config title for treemap 
@@ -135,5 +137,5 @@ methods:{
         this.$refs.treemap.ej2Instances.refresh();
     }
 }
-})
+}
 </script>

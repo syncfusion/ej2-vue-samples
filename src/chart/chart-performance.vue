@@ -1,10 +1,10 @@
 <template>
   <div class="control-section">
     <div align ='center'>
-        <ejs-chart  ref="chart" style='display:block;' :width='width' :chartArea='chartArea'  align='center' :loaded="onChartLoad" :primaryYAxis='primaryYAxis' :primaryXAxis='primaryXAxis' :enableCanvas='enableCanvas' :title='title' :theme='theme'
+        <ejs-chart  ref="chart" style='display:block;' :width='width' :chartArea='chartArea'  align='center' :primaryYAxis='primaryYAxis' :primaryXAxis='primaryXAxis' :title='title' :theme='theme'
         :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :marker='marker' :dataSource='series' type='Area' xName='x' yName='y' :animation='animation' :fill='fill'  :border='border' > </e-series>
+                <e-series :marker='marker' :dataSource='series' type='Area' xName='x' yName='y' :fill='fill'  :border='border' > </e-series>
             </e-series-collection>
         </ejs-chart>
         
@@ -118,7 +118,7 @@
     }
 
     #bootstrap5-gradient-chart stop {
-        stop-color: #6355C7;
+        stop-color: #262E0B;
     }
 
     #material-dark-gradient-chart stop {
@@ -138,15 +138,15 @@
     }
 
     #bootstrap5-dark-gradient-chart stop {
-        stop-color: #8F80F4;
+        stop-color: #5ECB9B;
     }
 
     #fluent-gradient-chart stop {
-        stop-color: #1AC9E6;
+        stop-color: #614570;
     }
 
     #fluent-dark-gradient-chart stop {
-        stop-color: #1AC9E6;
+        stop-color: #8AB113;
     }
 
     #material3-gradient-chart stop {
@@ -169,19 +169,14 @@
 	}
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { ChartPlugin, AreaSeries, Legend, DateTime } from "@syncfusion/ej2-vue-charts";
-
-Vue.use(ChartPlugin);
-Vue.use(ButtonPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries, Legend, DateTime } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark'];
-let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
 function GetZoomingData() {
         let series1 = [];
         let point1;
@@ -206,7 +201,12 @@ function GetZoomingData() {
         return { 'series': series1 };
     }
     let seriesData = GetZoomingData().series;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+  },
   data: function() {
     return {
         theme: theme,
@@ -256,5 +256,5 @@ export default Vue.extend({
 
  
    
-});
+};
 </script>

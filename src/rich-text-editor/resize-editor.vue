@@ -33,12 +33,12 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Resize, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Resize, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
 
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+     components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+     },
      data: function() {
         return {
             height: 500
@@ -47,5 +47,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, Resize, HtmlEditor]
     }
-});
+}
 </script>

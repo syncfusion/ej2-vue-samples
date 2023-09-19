@@ -111,13 +111,15 @@
 
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Edit, Toolbar, Page, Group, Filter, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Toolbar, Page, Group, Filter, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails.slice(0),
@@ -135,5 +137,5 @@ export default Vue.extend({
   provide: {
       grid: [Edit, Toolbar, Page, Filter, Group, Sort]
   }
-});
+}
 </script>

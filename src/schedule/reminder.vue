@@ -26,17 +26,18 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { getReminderEvents } from './datasource';
-    import { compile } from '@syncfusion/ej2-base';
-    import { ToastPlugin } from "@syncfusion/ej2-vue-notifications";
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    Vue.use(ToastPlugin);
+    import { ToastComponent } from "@syncfusion/ej2-vue-notifications";
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
 
     var reminderInterval;
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-toast': ToastComponent
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -52,7 +53,7 @@
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
         },
-        beforeDestroy: function () {
+        beforeUnmount: function () {
             if (reminderInterval) {
                 clearInterval(reminderInterval);
             }
@@ -65,7 +66,7 @@
                 eventCollection.forEach((event) => {
                     function dateFormat(date) {
                         return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds())
-                    };
+                    }
                     const startTime = dateFormat(event[scheduleObj.eventFields.startTime]);
                     const currentTime = dateFormat(new Date(new Date().toUTCString().slice(0, -3)));
                     const difference = startTime.getTime() - currentTime.getTime();
@@ -84,5 +85,5 @@
                 reminderInterval = setInterval(function () { this.refreshEventReminder(); }.bind(this), 5000);
             },
         }
-    });
+    }
 </script>

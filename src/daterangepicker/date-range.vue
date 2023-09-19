@@ -24,19 +24,18 @@
 
 <script>
 
-import Vue from "vue";
-import { DateRangePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DateRangePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DateRangePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a Range",
       minDate: new Date("1/15/2017"),
       maxDate: new Date("12/20/2017")
     };
-  }
-});
+  },
+  components: { 'ejs-daterangepicker': DateRangePickerComponent },
+};
 </script>
 
 

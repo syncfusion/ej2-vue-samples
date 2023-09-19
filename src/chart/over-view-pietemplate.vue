@@ -8,14 +8,17 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
-import { AccumulationChartPlugin, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
-Vue.use(AccumulationChartPlugin);
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective
+  },
   data() {
     return {
       theme: theme,
@@ -105,8 +108,10 @@ export default {
         let element2 = document.querySelector('#header3')
         element2.style.color = '#F3F2F1';
       }
-      let elementBody =  document.querySelector('#layout_0_body') 
+      let elementBody =  document.querySelector('#layout_0_body')
+      if (elementBody != null) {
       elementBody.style.background= this.layoutColor;
+      }
       let elementBody1 =  document.querySelector('#layout_2_body') 
       if (elementBody1 != null) {
         elementBody1.style.background = this.layoutColor;
@@ -116,9 +121,13 @@ export default {
         elementBody2.style.background = this.layoutColor;
       }
       let element = document.querySelector('#layout_0template')
-      element.style.background = this.layoutColor;
+      if (element != null) {
+        element.style.background = this.layoutColor;
+      }
       let element1 = document.querySelector('#layout_1template')
-      element1.style.background = this.layoutColor;
+      if (element1 != null) {
+        element1.style.background = this.layoutColor;
+      }
       let element2 = document.querySelector('#layout_2template')
       if (element2 != null) {
         element2.style.background = this.layoutColor;
@@ -126,8 +135,8 @@ export default {
     }
   },
     mounted(){
-    this.$refs.accumulationInstance.height ="100%";
-    this.$refs.accumulationInstance.width ="100%";
+    this.$refs.accumulationInstance.ej2Instances.height ="100%";
+    this.$refs.accumulationInstance.ej2Instances.width ="100%";
   }
 };
 </script>

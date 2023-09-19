@@ -67,8 +67,7 @@
      <p>
         In this example, you can see how to load data for the chart on demand. The chart will fire the <code>scrollEnd</code> event, and in that event, we can update the chart with the required data based on the point length and axis range. The scrollbar in the chart can be customized using the <code>height</code>, <code>trackColor</code>, <code>trackRadius</code>, <code>scrollbarRadius</code>, <code>scrollbarColor</code>, <code>enableZoom</code>, and <code>gripColor</code> properties in <code>scrollbarSettings</code>.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use lazy loading, we need to inject
         <code>ScrollBar</code> and <code>Zoom</code>module using
@@ -86,16 +85,18 @@
   <script>
 import Vue from "vue";
 import { Browser, Internationalization } from "@syncfusion/ej2-base";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import {
   createSpinner,
   showSpinner,
   hideSpinner
 } from "@syncfusion/ej2-popups";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   LineSeries,
   Zoom,
   Tooltip,
@@ -104,9 +105,7 @@ import {
   DateTime,
   ScrollBar
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
-Vue.use(DatePickerPlugin);
-Vue.use(NumericTextBoxPlugin);
+
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
@@ -162,7 +161,15 @@ function getRandomInt(min, max) {
 }
 let seriesData = GetDateTimeData(new Date(2009, 0, 1), new Date(2009, 8, 1));
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-datepicker': DatePickerComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       theme: theme,
@@ -281,5 +288,5 @@ export default Vue.extend({
       this.$refs.chart.ej2Instances.refresh();
     }
   }
-});
+};
 </script>

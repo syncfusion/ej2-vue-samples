@@ -30,13 +30,13 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ListBoxPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './datasource.json';
+import { ListBoxComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import data from './datasource.json';
 
-Vue.use(ListBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-listbox': ListBoxComponent
+    },
     data: function() {
         return {
             // Set the info to the dataSource property.
@@ -49,5 +49,5 @@ export default Vue.extend({
         // Injecting CheckBoxSelection module
         listbox: [CheckBoxSelection]
     }
-});
+}
 </script>

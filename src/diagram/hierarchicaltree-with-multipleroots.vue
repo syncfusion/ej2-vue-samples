@@ -18,9 +18,8 @@
 
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -41,15 +40,15 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { hierarchicalTreewithmultipleroots } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
 let diagramInstance;
 let hSpacing;
 let vSpacing;
 let checkBoxObj;
 
-export default Vue.extend({
-  
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -121,6 +120,6 @@ export default Vue.extend({
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
   }
-});
+}
 
 </script>

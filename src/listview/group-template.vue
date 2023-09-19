@@ -239,14 +239,16 @@ body.highcontrast #groupedList.e-listview {
 }
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from "@syncfusion/ej2-base";
 import { dataSource } from "./newsData";
 import { groupTemplateData } from "./listData";
 enableRipple(false);
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       cssClass: "e-list-template",
@@ -259,5 +261,5 @@ export default Vue.extend({
       title: "Settings"
     };
   }
-});
+}
 </script>

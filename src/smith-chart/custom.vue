@@ -83,8 +83,8 @@
     <p>
         In this example, you can see how to render a Smith chart with multiple series. Legend has been enabled to denote the series in Smith chart.
     </p>
-    <br/>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>      
         Smith chart component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip</code> module using the <code>SmithChart.Inject(TooltipRender)</code> method, and use a legend by injecting the <code>Legend</code> module using the <code>SmithChart.Inject(Legend)</code> method
     </p>
@@ -97,16 +97,20 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SmithchartPlugin,SmithchartLegend, TooltipRender } from '@syncfusion/ej2-vue-charts';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(SmithchartPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(SliderPlugin);
-export default Vue.extend({
+import { SmithchartComponent, SeriesCollectionDirective, SeriesDirective, SmithchartLegend, TooltipRender } from '@syncfusion/ej2-vue-charts';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-smithchart': SmithchartComponent,
+    'e-seriesCollection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-slider': SliderComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{  
         horizontalAxis: {
@@ -266,5 +270,5 @@ methods:{
         this.$refs.smithchart.ej2Instances.refresh();
     }
 }
-})
+}
 </script>

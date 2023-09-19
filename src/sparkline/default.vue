@@ -196,8 +196,8 @@
             Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over the data points or tap
             on a data point in touch enabled devices.
         </p>
-        <br/>
-        <p style="font-weight: 500">Injecting Module</p>
+        
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Sparkline component features are segregated into individual feature-wise modules. To use a tooltip, inject the
             <code>SparklineTooltip</code> module using the
@@ -207,15 +207,17 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { SparklinePlugin,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
+import { SparklineComponent,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3, data4, data5, data6, data7, data8, data9, data10,
          data11, data12, data13, data14, data15, data16, data17, data18, data19, data20,
          data21, data22, data23, data24, data25, data26, data27, data28, data29, data30,
          data31, data32, data33, data34, data35, data36, data37, data38, data39, data40
     } from "./defaultdata";
-Vue.use(SparklinePlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent
+},
 data:function(){
 return{
         format: 'n',
@@ -728,5 +730,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

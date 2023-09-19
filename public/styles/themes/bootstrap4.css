@@ -1,0 +1,10 @@
+.bootstrap4 .copycode::before {
+    content: '\e77b';
+    font-size: 25px;
+}
+
+.bootstrap4 .e-samplestatus.new.tree,
+.bootstrap4 .e-samplestatus.update.tree,
+.bootstrap4 .e-samplestatus.preview.tree {
+    margin-top: 4px !important
+}

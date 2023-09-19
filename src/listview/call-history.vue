@@ -301,15 +301,20 @@ body.tailwind .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap {
 
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
+import { createApp } from "vue";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
+import { TabComponent, TabItemDirective, TabItemsDirective } from "@syncfusion/ej2-vue-navigations";
 import { Browser } from "@syncfusion/ej2-base";
 import callHistoryTemplate from "./call-history-template.vue";
 import { callHistory } from "./listData";
-Vue.use(ListViewPlugin);
-Vue.use(TabPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent,
+    'ejs-tab': TabComponent,
+    'e-tabitem': TabItemDirective,
+    'e-tabitems': TabItemsDirective
+  },
   data: function() {
     return {
       cssClass: 'e-list-template',
@@ -332,7 +337,7 @@ export default Vue.extend({
       types: ["", "received", "missed"],
       listTemplate: function() {
         return {
-          template: callHistoryTemplate
+          template: createApp({}).component('callHistory', callHistoryTemplate)
         };
       }
     };
@@ -372,5 +377,5 @@ export default Vue.extend({
       }
     }
   }
-});
+}
 </script>

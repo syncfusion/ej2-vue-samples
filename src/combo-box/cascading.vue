@@ -23,14 +23,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
+import data from './dataSource.json';
 
-Vue.use(ComboBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent
+    },
     data: function() {
         return {
         countryData:data['country'] ,
@@ -82,5 +82,5 @@ export default Vue.extend ({
             this.$refs.cityObj.ej2Instances.value = null;
         },
     }
-});
+}
 </script>

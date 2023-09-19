@@ -264,14 +264,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
-  MultiSelectPlugin,
+  DropDownListComponent,
+  MultiSelectComponent,
   SelectEventArgs,
   RemoveEventArgs,
   PopupEventArgs,
@@ -279,16 +278,17 @@ import {
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 enableRipple(false);
-import { RadioButtonPlugin, ChangeArgs } from "@syncfusion/ej2-vue-buttons";
+import { RadioButtonComponent, ChangeArgs } from "@syncfusion/ej2-vue-buttons";
 import { Pivot_Data } from "./data-source";
 
-Vue.use(RadioButtonPlugin);
-Vue.use(PivotViewPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(DropDownListPlugin);
-/* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-radiobutton': RadioButtonComponent,
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       field: [
@@ -356,14 +356,14 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function (args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (pivotObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
       }
     },
     onSelect: function (args: SelectEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       for (let i: number = 0; i < pivotObj.dataSourceSettings.columns.length; i++) {
         if (
           (pivotObj.dataSourceSettings.columns[i].name ||
@@ -385,7 +385,7 @@ export default Vue.extend({
       pivotObj.refreshData();
     },
     onRemove: function (args: RemoveEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       for (let i: number = 0; i < pivotObj.dataSourceSettings.columns.length; i++) {
         if (
           (pivotObj.dataSourceSettings.columns[i].name ||
@@ -407,7 +407,7 @@ export default Vue.extend({
       pivotObj.refreshData();
     },
     onChange: function (args: ChangeArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.value === "None") {
         pivotObj.setProperties({ dataSourceSettings: { showGrandTotals: false } }, true);
         pivotObj.setProperties({ dataSourceSettings: { showRowGrandTotals: true } }, true);
@@ -440,7 +440,7 @@ export default Vue.extend({
       }
     },
     onChange1: function (args: ChangeArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.value === 'Top') {
         pivotObj.setProperties({ dataSourceSettings: { grandTotalsPosition: 'Bottom' } }, true);
         pivotObj.dataSourceSettings.grandTotalsPosition = 'Top';
@@ -452,7 +452,7 @@ export default Vue.extend({
       pivotObj.refreshData();
     },
     onChange2: function (args: ChangeArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.value === 'None') {
         pivotObj.setProperties({ dataSourceSettings: { showSubTotals: false } }, true);
         pivotObj.setProperties({ dataSourceSettings: { showRowSubTotals: true } }, true);
@@ -474,7 +474,7 @@ export default Vue.extend({
       pivotObj.refreshData();
     },
     onChange3: function (args: ChangeArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.value === 'Top') {
         pivotObj.setProperties({ dataSourceSettings: { subTotalsPosition: 'Top' } }, true);
       }
@@ -495,7 +495,7 @@ export default Vue.extend({
   provide: {
     multiselect: [CheckBoxSelection]
   }
-});
+}
 </script>
 
 <style scoped>

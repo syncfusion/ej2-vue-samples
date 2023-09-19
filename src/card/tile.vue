@@ -158,14 +158,14 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from '@syncfusion/ej2-vue-dropdowns';
+import { MultiSelectComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { Query, DataManager, Predicate } from '@syncfusion/ej2-data';
-import * as data from "./data.json";
+import data from "./data.json";
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-multiselect': MultiSelectComponent
+  },
   mounted: function() {
     this.emptyData = true;
     this.categoryResult = [];
@@ -228,5 +228,5 @@ export default Vue.extend({
       this.cardData = result;
     }
   }
-});
+}
 </script>

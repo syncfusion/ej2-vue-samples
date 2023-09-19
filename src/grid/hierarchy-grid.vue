@@ -21,11 +21,11 @@
         <p>
             The Hierarchy Grid is used to display table data in hierarchical structure which can show or hide by clicking on expand or collapse button. 
             This feature can be enabled by defining <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#childgrid">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#childgrid">
                 childGrid</a></code> and <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#querystring">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#querystring">
                 childGrid.queryString</a></code>. And the <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#detaildatabound">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#detaildatabound">
                 detailDataBound</a></code> event triggers at initial expand of every child Grid.         
             </p>
             <p>
@@ -43,13 +43,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, DetailRow, Sort, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, DetailRow, Sort, Page } from "@syncfusion/ej2-vue-grids";
 import { employeeData, orderDatas, customerData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+  },
   data: () => {
     let secondChildGrid = {
       dataSource: customerData,
@@ -91,5 +93,5 @@ export default Vue.extend({
   provide: {
     grid: [DetailRow, Sort, Page]
   }
-});
+}
 </script>

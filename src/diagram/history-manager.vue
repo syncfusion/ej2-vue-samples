@@ -106,9 +106,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-    DiagramPlugin,
+    DiagramComponent,
     Diagram,
     NodeModel,
     ConnectorModel,
@@ -126,19 +125,13 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import {
     CheckBox,
-    CheckBoxPlugin,
+    CheckBoxComponent,
     ChangeEventArgs as CheckBoxChangeEventArgs
 } from "@syncfusion/ej2-vue-buttons";
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ListViewPlugin, ListView } from "@syncfusion/ej2-vue-lists";
-
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(DiagramPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(ListViewPlugin);
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ListViewComponent, ListView } from "@syncfusion/ej2-vue-lists";
 
 let nodes = [
     {
@@ -215,7 +208,14 @@ let clear;
 let end;
 let undoButton;
 let redoButton;
-export default Vue.extend({
+export default {
+    components: {
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-diagram': DiagramComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
             width: "100%",
@@ -266,7 +266,7 @@ export default Vue.extend({
             getValue();
         }
     }
-});
+}
 function setStackLimit(args) {
     diagram.setStackLimit(args.value);
 }

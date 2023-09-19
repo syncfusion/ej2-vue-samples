@@ -33,17 +33,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, DateTime, RangeTooltip } from "@syncfusion/ej2-vue-charts";
-
-Vue.use(RangeNavigatorPlugin);
+import { RangeNavigatorComponent, DateTime, RangeTooltip } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-rangenavigator': RangeNavigatorComponent
+  },
   data: function() {
     let points = [];
     let value = 0;
@@ -67,5 +67,5 @@ export default Vue.extend({
   },
   methods: {
    }
-});
+};
 </script>

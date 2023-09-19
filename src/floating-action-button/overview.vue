@@ -2,7 +2,7 @@
     <div class="control-section">
         <div class="fab-grid-container custom-index">
             <ejs-grid  ref="grid" id="Grid" :dataSource="data" :editSettings="editSettings"> </ejs-grid>
-            <ejs-fab id="fab" target="#Grid" iconCss="fab-icons fab-icon-add" title="Add Record" v-on:click.native="fabClick"></ejs-fab>
+            <ejs-fab id="fab" target="#Grid" iconCss="fab-icons fab-icon-add" title="Add Record" v-on:click="fabClick"></ejs-fab>
         </div>
         <div id="action-description">
               <p>This sample demonstrates the usage of the Floating Action Button (FAB) component to add a new record to a DataGrid.</p>
@@ -48,11 +48,16 @@
     }
 </style>
 <script>
-    import Vue from 'vue'
-    import { GridPlugin,Edit } from '@syncfusion/ej2-vue-grids';
-    import { FabPlugin } from "@syncfusion/ej2-vue-buttons";
-    Vue.use(GridPlugin,FabPlugin);
+    import { GridComponent, ColumnDirective, ColumnsDirective, Edit } from '@syncfusion/ej2-vue-grids';
+    import { FabComponent } from "@syncfusion/ej2-vue-buttons";
+
     export default {
+        components: {
+            'ejs-grid': GridComponent,
+            'e-columns': ColumnsDirective,
+            'e-column': ColumnDirective,
+            'ejs-fab': FabComponent
+        },
         data () {
             let orders=[];
                 for (let i = 1; i < 10; i++) {

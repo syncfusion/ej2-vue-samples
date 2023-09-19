@@ -25,14 +25,14 @@
         <br/>
 
         <p>The Grid columns can be resized by clicking and dragging at the right edge of column's header. To enable column, resize behavior, set the <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowresizing">allowResizing
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowresizing">allowResizing
             </a></code> property to true. You can also prevent the resize of a particular column by setting
             <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#allowresizing">columns->allowResizing
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowresizing">columns->allowResizing
             </a></code> to false in columns definition.
     
             And, by double clicking at the right edge of column header, the respective column width will get auto adjusted to its fit using the <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#autofitcolumns">autoFitColumns
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#autofitcolumns">autoFitColumns
                 </a></code> method.
     
         </p>
@@ -41,9 +41,9 @@
         <p>
             In this demo, the allowResizing feature is enabled by setting the <code>allowResizing</code> property to true and <b>Order ID</b> column can be resized
             between the range of <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#minwidth">minWidth (100px)
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#minwidth">minWidth (100px)
                 </a></code> and <code><a target="_blank" class="code"
-                    href="http://ej2.syncfusion.com/vue/documentation/grid/api-columnDirective.html#maxwidth">maxWidth (200px).
+                    href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#maxwidth">maxWidth (200px).
                     </a></code> Also, column resizing is disabled for the <b>Shipped Date</b> column.
         </p>
     
@@ -58,13 +58,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Resize } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Resize } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails
@@ -73,5 +75,5 @@ export default Vue.extend({
   provide: {
       grid: [Resize]
   }
-});
+}
 </script>

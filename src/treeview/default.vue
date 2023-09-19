@@ -27,17 +27,17 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import * as dataSource from './default-data.json';
 
-Vue.use(TreeViewPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
             fields: { dataSource: dataSource.defaultData , id: 'id', text: 'name', child: 'subChild' },
         };
     }
-});
+}
 </script>

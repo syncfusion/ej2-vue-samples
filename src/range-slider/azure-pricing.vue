@@ -5,7 +5,7 @@
         <div class="row">
           <div id="cloud-left-pane" class="col-lg-8 col-md-8 col-sm-8">
             <div class="cloud-slider">
-              <div id="processor">{{this.computedValues.computedProcessor}}</div>
+              <div id="processor">{{computedValues.computedProcessor}}</div>
               <span class="label-text">Processor</span>
               <!-- processor Slider element -->
               <ejs-slider
@@ -15,12 +15,11 @@
                 min="1"
                 max="16"
                 :change="sliderValueChange"
-                :created="onCreateProcessor"
               ></ejs-slider>
               <div class="sub-heading">Each core included minimum 2.26 GHz power</div>
             </div>
             <div class="cloud-slider cloud-left-slider">
-              <div id="memory">{{this.computedValues.computedMemory}}</div>
+              <div id="memory">{{computedValues.computedMemory}}</div>
               <span class="label-text">Memory</span>
               <!-- memory Slider element -->
               <ejs-slider
@@ -30,12 +29,11 @@
                 min="1"
                 max="12"
                 :change="sliderValueChange"
-                :created="onCreateMemory"
               ></ejs-slider>
               <div class="sub-heading">Equal to burstable memory included</div>
             </div>
             <div class="cloud-slider cloud-left-slider">
-              <div id="storage">{{this.computedValues.computedStorage}}</div>
+              <div id="storage">{{computedValues.computedStorage}}</div>
               <span class="label-text">Storage</span>
               <!-- storage Slider element -->
               <ejs-slider
@@ -45,7 +43,6 @@
                 min="10"
                 max="500"
                 :change="sliderValueChange"
-                :created="onCreateStorage"
               ></ejs-slider>
               <div class="sub-heading">1000 GB bandwidth per month, at 100 Mbit/s uplink port</div>
             </div>
@@ -59,38 +56,38 @@
                   id="xSmallBtn"
                   cssClass="e-info"
                   isPrimary="true"
-                  v-on:click.native="sliderPriceValue"
+                  v-on:click="sliderPriceValue"
                 >XS</ejs-button>
                 <ejs-button
                   id="smallBtn"
                   cssClass="e-info"
                   isPrimary="true"
-                  v-on:click.native="sliderPriceValue"
+                  v-on:click="sliderPriceValue"
                 >S</ejs-button>
                 <ejs-button
                   id="mediumBtn"
                   cssClass="e-info"
                   isPrimary="true"
-                  v-on:click.native="sliderPriceValue"
+                  v-on:click="sliderPriceValue"
                 >M</ejs-button>
 
                 <ejs-button
                   id="largeBtn"
                   cssClass="e-info"
                   isPrimary="true"
-                  v-on:click.native="sliderPriceValue"
+                  v-on:click="sliderPriceValue"
                 >L</ejs-button>
                 <ejs-button
                   id="xLargeBtn"
                   cssClass="e-info"
                   isPrimary="true"
-                  v-on:click.native="sliderPriceValue"
+                  v-on:click="sliderPriceValue"
                 >XL</ejs-button>
               </div>
               <div class="label-text right-text">Estimated Price</div>
               <div id="cloud-slider-text">
                 <span id="dollar">$</span>
-                <span id="pricevalue">{{this.computedValues.computedCloudPrice}}</span>
+                <span id="pricevalue">{{computedValues.computedCloudPrice}}</span>
                 <span class="suffix">/month</span>
               </div>
               <div class="discount">
@@ -119,7 +116,7 @@
                   id="btn"
                   class="dlgbtn"
                   isPrimary="true"
-                  v-on:click.native="signup"
+                  v-on:click="signup"
                 >Signup Now</ejs-button>
               </div>
               <div id="dialogWrapper" class="content-wrapper">
@@ -173,19 +170,11 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { Placement, SliderChangeEventArgs } from "@syncfusion/ej2-inputs";
-import { ButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { enableRipple } from "@syncfusion/ej2-base";
-import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DialogComponent } from "@syncfusion/ej2-vue-popups";
 
-Vue.use(SliderPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
   data: function() {
     return {
       processorValue: 4,
@@ -236,6 +225,12 @@ export default Vue.extend({
         }
       ]
     };
+  },
+  components: { 
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-slider': SliderComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dialog': DialogComponent,
   },
   computed: {
     computedValues: function() {
@@ -301,7 +296,7 @@ export default Vue.extend({
       this.$refs.alertDialog.show();
     }
   }
-});
+};
 </script>
 <style>
 html,

@@ -70,15 +70,15 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as data from './dataSource.json';
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         return {
             checkFields: { text: 'Name', value: 'Code' },
@@ -112,5 +112,5 @@ export default Vue.extend ({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

@@ -36,14 +36,18 @@
   </template>
   
 <script>
-  import Vue from "vue";
+  import { createApp } from "vue";
   import { extend, addClass } from "@syncfusion/ej2-base";
-  import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
+  import { KanbanComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-kanban";
   import { generateKanbanDataVirtualScrollData } from "./datasource";
   import virtualCardTemplete from "./virtual-card-templete.vue";
-  Vue.use(KanbanPlugin);
   
-  export default Vue.extend({
+  export default {
+    components: {
+    'ejs-kanban': KanbanComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+    },
     data: function() {
       return {
         kanbanData: extend([], generateKanbanDataVirtualScrollData(), null, true),
@@ -51,7 +55,7 @@
         cardSettings: {
             headerField: "Id",
             template: function () {
-                    return { template: virtualCardTemplete };
+                    return { template: createApp({}).component('sortCardTemplate', virtualCardTemplete) };
                 },
             selectionType: "Multiple"
         },
@@ -74,7 +78,7 @@
                 addClass([args.element], val);
             }
         }
-    });
+    }
 </script>
 
 <style>
@@ -89,33 +93,7 @@
         }
     }
     @media (max-width: 1200px) {
-        #KanbanVirtualScrolling .e-story-points {
-            display: none;
-        }
-    }
-    @media (max-width: 1100px) {
-        #KanbanVirtualScrolling .e-card-avatar {
-            display: none;
-        }
-    }
-    /* Touch devices styles */
-    @media (max-width: 1670px) {
-        .e-bigger #KanbanVirtualScrolling .e-project {
-            display: none;
-        }
-    }
-    @media (max-width: 1500px) {
-        .e-bigger #KanbanVirtualScrolling .e-priority {
-            display: none;
-        }
-    }
-    @media (max-width: 1440px) {
-        .e-bigger #KanbanVirtualScrolling .e-story-points {
-            display: none;
-        }
-    }
-    @media (max-width: 1280px) {
-        .e-bigger #KanbanVirtualScrolling .e-card-avatar {
+        #KanbanVirtualScrolling .e-story-points  {
             display: none;
         }
     }

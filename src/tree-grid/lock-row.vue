@@ -84,20 +84,20 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { MultiSelectPlugin, ChangeEventArgs, MultiSelectComponent, CheckBoxSelection, DropDownListPlugin} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { MultiSelectComponent, ChangeEventArgs, CheckBoxSelection, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData, lockRowDropDownData } from "./data-source";
 import { RowDataBoundEventArgs, BeginEditArgs } from '@syncfusion/ej2-vue-grids';
 import { addClass, removeClass, getValue } from '@syncfusion/ej2-base';
-import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin)
-
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-multiselect': MultiSelectComponent
+  },  
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -119,13 +119,13 @@ export default  Vue.extend({
     },
      methods:{
         onselect: function(e: ChangeEventArgs): void {
-           (<TreeGridComponent>this.$refs.treegrid).refresh();
+           ((this as any).$refs.treegrid).refresh();
         },
         removed: function(e: ChangeEventArgs){
-            (<TreeGridComponent>this.$refs.treegrid).refresh();
+            ((this as any).$refs.treegrid).refresh();
         },
         rowDataBound: function(args: RowDataBoundEventArgs) {
-                let value:Object[] = <Object[]>(<MultiSelectComponent>this.$refs.rows).ej2Instances.value;
+                let value:Object[] = <Object[]>((this as any).$refs.rows).ej2Instances.value;
                 let rowval = getValue('taskID', args.data );
                 if (value.indexOf(rowval) !== -1) {
                     addClass([args.row as Element], 'disableRow');
@@ -135,12 +135,12 @@ export default  Vue.extend({
             },
         beginEdit: function(args: BeginEditArgs) {
                 let key = 'taskID';
-                let value:Object[] = <Object[]>(<MultiSelectComponent>this.$refs.rows).ej2Instances.value;
+                let value:Object[] = <Object[]>((this as any).$refs.rows).ej2Instances.value;
                 let rowval = getValue('taskID', args.rowData);
                 if (value.indexOf(rowval) !== -1) {
                     args.cancel = true;
                 }
             }        
      }
-});
+}
 </script>

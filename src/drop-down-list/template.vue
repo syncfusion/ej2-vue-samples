@@ -171,28 +171,30 @@
     .bootstrap4 .ddl-template .header {
         color: #6c757d;
     }
-    .value {
+    .ddl-template .value {
         border-radius: 50%;
         float: left;
-        margin-top: 2px;
+        margin-top: 3px;
         margin-left: 2px;
+        height: 24px;
+        width: 24px;
     }
 
-    .e-bigger:not(.bootstrap) .value {
+    .e-bigger:not(.bootstrap) .ddl-template .value {
         margin-top: 6px;
     }
-    .name {
-        padding: 8px 42px;
+    .ddl-template .name {
+        padding: 8px 30px;
         opacity: .87;
         line-height: 1.063em;
     }
-    .e-bigger:not(.bootstrap) .name {
+    .e-bigger:not(.bootstrap) .ddl-template .name {
         padding: 11px 42px;
     }
-    .bootstrap.e-bigger .value {
+    .bootstrap.e-bigger .ddl-template .value {
       margin-top: 5px;
     }
-    .bootstrap.e-bigger .name {
+    .bootstrap.e-bigger .ddl-template .name {
       padding-top : 11px;
     }
     
@@ -232,13 +234,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             fields: { value: 'Name', text: 'Name' },
@@ -246,5 +248,5 @@ export default Vue.extend ({
             data: data['empList']
         };
     }
-});
+}
 </script>

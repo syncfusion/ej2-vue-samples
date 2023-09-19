@@ -96,13 +96,10 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { MaskedTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { MaskedTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(MaskedTextBoxPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend ({
+export default {
     data: function () {
         return {
             dynamicMask: '(999)-999-9999',
@@ -117,6 +114,10 @@ export default Vue.extend ({
             ],
             fields: { text: 'prompt', value: 'prompt' },
         };
+    },
+    components: { 
+        'ejs-maskedtextbox': MaskedTextBoxComponent,
+        'ejs-dropdownlist': DropDownListComponent,
     },
     mounted: function() {
         this.dynamicMask = document.getElementById("input1").value;
@@ -154,7 +155,7 @@ export default Vue.extend ({
             document.getElementById('val1').innerHTML= args.value;
             document.getElementById('val2').innerHTML=args.maskedValue;
         },
-        changeDrop: function(args) {
+        changeDrop: function() {
             this.dynamicPrompt = document.getElementById("dropdown").value;
             var mask = this.$refs.mask_instance;
             setTimeout(function(){
@@ -162,5 +163,5 @@ export default Vue.extend ({
             }, 100);
         }
     },
-});
+};
 </script>

@@ -40,12 +40,17 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { resourceData, timelineResourceData } from './datasource';
-    import { SchedulePlugin, Day, Week, Month, DragAndDrop, Resize } from '@syncfusion/ej2-vue-schedule';
-    Vue.use(SchedulePlugin);
-
-     export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourcesDirective, ResourceDirective, Day, Week, Month, DragAndDrop, Resize } from '@syncfusion/ej2-vue-schedule';
+   
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -85,5 +90,5 @@
                 return collections;
             }
         }
-    });
+    }
 </script>

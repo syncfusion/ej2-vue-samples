@@ -47,13 +47,12 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio } from "@syncfusion/ej2-vue-richtexteditor";
 
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({ 
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+    }, 
     data: function() {
         return {
             toolbarSettings: {
@@ -64,5 +63,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Video, Audio]
     }
-});
+}
 </script>

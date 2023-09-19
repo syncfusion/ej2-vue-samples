@@ -43,11 +43,13 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent } from "@syncfusion/ej2-vue-spreadsheet";
 import * as dataSource from "./cell-format-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent
+   }, 
    data: () => {
       return {
           sheets: [{
@@ -106,5 +108,5 @@ export default Vue.extend({
       return !this.$refs.spreadsheet.ej2Instances.isOpen && this.$refs.spreadsheet.ej2Instances.sheets[this.$refs.spreadsheet.ej2Instances.activeSheetIndex].name === 'Order Details';
     }
   }
-});
+}
 </script>

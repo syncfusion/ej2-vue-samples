@@ -47,8 +47,8 @@
         <tr>
             <td style="width: 100%">
                 <div>
-                    <ejs-button ref='sort' style="margin-right: 5px; width: 80px;" v-on:click.native="sort">Sort</ejs-button>
-                    <ejs-button ref='clear' style="width: 80px" v-on:click.native="clear">Clear</ejs-button>
+                    <ejs-button ref='sort' style="margin-right: 5px; width: 80px;" v-on:click="sort">Sort</ejs-button>
+                    <ejs-button ref='clear' style="width: 80px" v-on:click="clear">Clear</ejs-button>
                 </div>
             </td>
         </tr>
@@ -78,15 +78,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers, Sort } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers, Sort } from "@syncfusion/ej2-vue-gantt";
 import { editingData } from './data-source';
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin, ClickEventArgs} from "@syncfusion/ej2-vue-buttons";
-Vue.use(GanttPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
       return{
             data: editingData,
@@ -142,14 +144,14 @@ export default Vue.extend({
   },
   methods: {
       
-      sort: function(ClickEventArgs) {
+      sort: function() {
         let columnName = this.$refs.columns.ej2Instances.value;
         let sortType = this.$refs.direction.ej2Instances.value;
         this.$refs.gantt.sortColumn(columnName, sortType, false);
     },
-       clear: function(ClickEventArgs) {
+       clear: function() {
         this.$refs.gantt.clearSorting();
     }
   }
-});
+}
 </script>

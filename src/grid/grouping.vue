@@ -45,23 +45,24 @@
         </p>
         <p>
             More information on the grouping feature configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#groupsettings">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#groupsettings">documentation section</a>.
         </p>
     </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Group, Page, Sort, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, Page, Sort, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { orderDataSource } from "./data-source";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-
-Vue.use(GridPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dialog': DialogComponent
+  },
   data: function() {
     return {
       alertHeader: 'Grouping',
@@ -89,7 +90,7 @@ export default Vue.extend({
     },
     columnDragStart: function(args: any) {
         if(args.column.field === "OrderDate"){
-             (<any>this.$refs.alertDialog).show();
+             ((this as any).$refs.alertDialog).show();
         }
     },
     alertDlgBtnClick: function() {
@@ -99,5 +100,5 @@ export default Vue.extend({
   provide: {
     grid: [Group, Page, Sort, Edit, Toolbar]
   }
-});
+}
 </script>

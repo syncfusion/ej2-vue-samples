@@ -35,7 +35,7 @@
             :projectEndDate= "projectEndDate"
             :splitterSettings= "splitterSettings"
             :enableMultiTaskbar= "true"
-	    :showOverAllocation= "true">
+            :showOverAllocation= "true">
         </ejs-gantt>
     </div>
 </div>
@@ -71,14 +71,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Edit, DayMarkers, Toolbar, Resize, RowDD  } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Edit, DayMarkers, Toolbar, Resize, RowDD  } from "@syncfusion/ej2-vue-gantt";
 import { multiTaskbarData, resources } from './data-source';
-import { SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(GanttPlugin);
-Vue.use(SwitchPlugin);
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-switch': SwitchComponent
+  },
   data: function() {
       return{
             data: multiTaskbarData,
@@ -137,18 +138,18 @@ export default Vue.extend({
   methods:{
     dragdropChange: function(args) {
         if (args.checked) {
-            this.$refs.gantt.allowTaskbarDragAndDrop = true;
+            this.$refs.gantt.ej2Instances.allowTaskbarDragAndDrop = true;
         } else {
-            this.$refs.gantt.allowTaskbarDragAndDrop = false;
+            this.$refs.gantt.ej2Instances.allowTaskbarDragAndDrop = false;
         }
     },
     overlapChange: function(args) {
         if (args.checked) {
-            this.$refs.gantt.allowTaskbarOverlap = true;
+            this.$refs.gantt.ej2Instances.allowTaskbarOverlap = true;
         } else {
-            this.$refs.gantt.allowTaskbarOverlap = false;
+            this.$refs.gantt.ej2Instances.allowTaskbarOverlap = false;
         }
     }
   }
-});
+}
 </script>

@@ -24,7 +24,7 @@
      <div id="description">
         <p>The filtering feature enables the user to view a reduced amount of records based on filter criteria. It can be enabled
         by setting the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowfiltering">allowFiltering
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowfiltering">allowFiltering
         </a></code> property to true. A filter bar row will be rendered next to header which allows users to filter
         data by entering text within its cells.</p>
          <p>The Filterbar uses two modes which specifies how to start filtering. They are,</p>    
@@ -32,7 +32,7 @@
              <li><code>OnEnter</code> - Enabled by default, filter will be initiated when the <code>Enter</code> key is pressed.</li>
              <li><code>Immediate</code> - Filter will start after user finishes typing. There will be a time delay of <i>1500ms</i> to initiate
             filter after the user stops typing. It can be overridden using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#filtersettings">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/filterSettings/">
         filterSettings->immediateModeDelay
         </a></code> property.</li>
          </ul>
@@ -86,17 +86,19 @@
 @import "../../styles/Grid/filtering.css";
 </style>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Filter, Page, GridComponent } from "@syncfusion/ej2-vue-grids";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { GridComponent, ColumnDirective, ColumnsDirective, Filter, Page } from "@syncfusion/ej2-vue-grids";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { categoryData } from "./data-source";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       data: categoryData,
@@ -108,9 +110,9 @@ export default Vue.extend({
   methods: {
       onChange: function(e: ChangeEventArgs): void {
         if (e.value === 'All') {
-            (<GridComponent>this.$refs.grid).clearFiltering();
+            ((this as any).$refs.grid).clearFiltering();
         } else {
-            (<any>this.$refs.grid).filterByColumn('CategoryName', 'equal', e.value);
+            ((this as any).$refs.grid).filterByColumn('CategoryName', 'equal', e.value);
         }
     },
     filterbaroperator: function(args: any): void {
@@ -125,5 +127,5 @@ export default Vue.extend({
   provide: {
       grid: [Filter, Page]
   }
-});
+}
 </script>

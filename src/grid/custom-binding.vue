@@ -28,12 +28,12 @@
             In this demo, simply select the paging and click the column header to sort a column, multiple sorting is also enabled.
             To group a specify column, drag and drop the column in the group drop area.
             To enable paging, sorting and grouping, set the <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowpaging">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowpaging">
             allowPaging
             </a></code> , <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowsorting">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowsorting">
             allowSorting </a></code> and <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowgrouping">
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowgrouping">
             allowGrouping</a></code> as true.
         </p>
         <p style="font-weight: 500">Injecting Module:</p>
@@ -47,13 +47,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GridPlugin, DataStateChangeEventArgs, Sorts, Sort, Group, Page, DataResult } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DataStateChangeEventArgs, Sorts, Sort, Group, Page, DataResult } from "@syncfusion/ej2-vue-grids";
 import { OrderService } from "./order-service";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data() {
     return {
       data: {},
@@ -73,5 +75,5 @@ export default Vue.extend({
   provide: {
       grid: [Sort, Group, Page]
   }
-});
+}
 </script>

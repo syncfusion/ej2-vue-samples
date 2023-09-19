@@ -70,10 +70,16 @@
         }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+},
 data:function(){
     return{
         titleSettings: {
@@ -121,5 +127,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

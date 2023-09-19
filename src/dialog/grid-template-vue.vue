@@ -13,15 +13,16 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
 import { DataManager, Query } from "@syncfusion/ej2-data";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
- import { extend } from '@syncfusion/ej2-base';
+import { GridComponent, Page, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       gridData: new DataManager(orderDetails).executeLocal(new Query().take(15)),
@@ -31,5 +32,5 @@ export default Vue.extend({
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

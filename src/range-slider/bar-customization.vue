@@ -162,7 +162,7 @@
   top: calc(50% - 3px);
   border-radius: 5px;
   background: -webkit-linear-gradient(
-    to left,
+    to right,
     #e1451d 0,
     #fdff47 17%,
     #86f9fe 50%,
@@ -172,7 +172,7 @@
     #e14423 100%
   );
   background: linear-gradient(
-    to left,
+    to right,
     #e1451d 0,
     #fdff47 17%,
     #86f9fe 50%,
@@ -182,7 +182,7 @@
     #e14423 100%
   );
   background: -moz-linear-gradient(
-    left,
+    to right,
     #e1451d 0,
     #fdff47 17%,
     #86f9fe 50%,
@@ -205,14 +205,9 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import {
-  SliderPlugin,
-  SliderChangeEventArgs
-} from "@syncfusion/ej2-vue-inputs";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(SliderPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       value: 30,
@@ -222,6 +217,9 @@ export default Vue.extend({
       range: "MinRange",
       dynamic_value: 20
     };
+  },
+  components: { 
+    'ejs-slider': SliderComponent
   },
   methods: {
     created: function() {
@@ -260,5 +258,5 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>

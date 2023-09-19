@@ -126,7 +126,7 @@
     .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
-    	content: "\e71c";
+    content: "\e71c";
     }
 
     .card-control-section.reveal_card_layout .row.card-layout .e-card #card_reveal.e-reveal-show {
@@ -268,8 +268,7 @@
     }
 </style>
 <script>
-import Vue from "vue";
-export default Vue.extend({
+export default {
   mounted: function() {
     document.getElementById('showcarddata').onclick = function () {
             var cEle = document.getElementById('card_revealed');
@@ -301,6 +300,6 @@ export default Vue.extend({
             revealedEle.classList.remove('e-reveal-hide');
         };
   }
-});
+}
 
 </script>

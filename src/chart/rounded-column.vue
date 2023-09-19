@@ -50,8 +50,7 @@
       <p>
         In this example, you can see how to render and configure the column chart. The column chart is used to compare the frequency, count, total, or average of data in different categories. You can use the <code>ChartCornerRadius</code> option to customize the vertical rectangle, resulting in a rounded column.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use column series, we need to inject
         <code>ColumnSeries</code> module using
@@ -67,10 +66,11 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   ColumnSeries,
   Category,
   DataLabel,
@@ -83,7 +83,6 @@ import {
   bootstrapColors,
   highContrastColors
 } from "./theme-color";
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -91,7 +90,12 @@ let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -116,7 +120,7 @@ export default Vue.extend({
       primaryYAxis: {
         labelFormat: '{value}%',
         title: 'Literacy Rate In Percentage',
-        minimum: 0, maximum: 100, interval: 20, majorTickLines: { width: 0 },
+        minimum: 0, maximum: 100, interval: 25, majorTickLines: { width: 0 },
         minorTickLines: { width: 0 }, lineStyle: { width: 0 }
       },
 
@@ -126,8 +130,8 @@ export default Vue.extend({
         dataLabel: {
           visible: true,
           position: "Top",
-          font: { fontWeight: "600", color: "#ffffff" },
-          size: Browser.isDevice ? '8px' : '11px'
+          font: { fontWeight: "600", color: "#ffffff", size: Browser.isDevice ? '8px' : '11px'}
+          
         }
       },
 
@@ -248,5 +252,5 @@ export default Vue.extend({
         }
     },
   }
-});
+};
 </script>

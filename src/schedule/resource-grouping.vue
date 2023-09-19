@@ -134,11 +134,12 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { SchedulePlugin, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { createApp } from "vue";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    const app= createApp({});
 
-    var resourceTemplateVue = Vue.component("resource-template", {
+    var resourceTemplateVue = app.component("resource-template", {
         template: '<div class="template-wrap"><div class="airline-image"><img :src="getImage" :alt="getImage" />' +
         '</div><div class="airline-details"><div class="airline-name">{{getAirlineName(data)}}</div><div class="airline-model">Model no: {{getAirlineModel(data)}}</div>' +
         '<div class="airline-seats">No.of seats: {{getAirlineSeats(data)}}</div></div></div>',
@@ -149,7 +150,7 @@
         },
         computed: {
             getImage: function() {
-                return './source/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
+                return 'source/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
             }
         },
         methods: {
@@ -172,7 +173,14 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 cssClass: 'schedule-group',
@@ -229,6 +237,6 @@
                 return collections;
             }
         }
-    });
+    }
 
 </script>

@@ -55,11 +55,13 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SparklinePlugin } from "@syncfusion/ej2-vue-charts";
+import { SparklineComponent } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3, data4 } from "./liveupdate";
-Vue.use(SparklinePlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent
+},
 data:function(){
 return{
         height: '130px',
@@ -144,7 +146,7 @@ methods:{
      load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     update: function() {
@@ -222,5 +224,5 @@ methods:{
         }, 500);
     }
 }
-})
+}
 </script>

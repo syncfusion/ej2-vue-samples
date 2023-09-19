@@ -23,18 +23,17 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 import { Internationalization } from '@syncfusion/ej2-base';
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
     data: function() {
     return {
       start: 'Year',
       depth: 'Year'
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     onValueChange: function(args) {
         var  intl = new Internationalization();
@@ -43,7 +42,7 @@ export default Vue.extend({
         "Selected Value: " + value;
     }
   }
-});
+};
 </script>
 
 

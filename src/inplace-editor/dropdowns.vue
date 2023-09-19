@@ -101,14 +101,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { InPlaceEditorPlugin, AutoComplete, MultiSelect, ComboBox } from "@syncfusion/ej2-vue-inplace-editor";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { InPlaceEditorComponent, AutoComplete, MultiSelect, ComboBox } from "@syncfusion/ej2-vue-inplace-editor";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(InPlaceEditorPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-inplaceeditor': InPlaceEditorComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     let dropdownData = ['Australia', 'Bermuda', 'Canada', 'Cameroon', 'Denmark', 'Finland', 'Greenland', 'Poland'];
     return {
@@ -146,7 +146,7 @@ export default Vue.extend({
       this.editorMode = this.$refs.editorMode.ej2Instances;
   },
   methods: {
-        changeEditorMode: function(args) {
+        changeEditorMode: function() {
            var editMode = this.$refs.editorMode.ej2Instances.text;
            this.dropObj.mode = editMode;
            this.autoObj.mode = editMode;
@@ -177,7 +177,7 @@ export default Vue.extend({
   provide:{
         "inplaceeditor":[AutoComplete, MultiSelect, ComboBox]
   }
-});
+}
 </script>
 <style scoped>
 

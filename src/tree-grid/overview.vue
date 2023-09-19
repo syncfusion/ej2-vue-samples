@@ -143,22 +143,25 @@
     }
 </style>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Filter, TreeGridComponent, Sort, Reorder, ITreeData } from "@syncfusion/ej2-vue-treegrid";
+import { createApp } from "vue";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Filter, Sort, Reorder, ITreeData } from "@syncfusion/ej2-vue-treegrid";
 import { QueryCellInfoEventArgs, Column, getObject, ActionEventArgs } from '@syncfusion/ej2-grids';
 import { addClass, isNullOrUndefined } from '@syncfusion/ej2-base';
 import { countries } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: countries,
       filterSettings: { type: 'Excel' },
       unemploymentTemplate: function () {
         return {
-            template: Vue.component('unemploymentTemplate', {
+            template: createApp({}).component('unemploymentTemplate', {
                 template: `<div id="myProgress" class="pbar">
                                 <div id="myBar" class="bar">
                             <div id="treegridlabel" class="barlabel"></div>
@@ -174,15 +177,15 @@ export default Vue.extend({
     },
     flagtemplate: function () {
         return {
-            template: Vue.component('flagtemplate', {
-                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</img></div>`,
+            template: createApp({}).component('flagtemplate', {
+                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</div>`,
             data: function () { return { data: { } }; },
             })
         }
     },
     ratingTemplate: function () {
         return {
-            template: Vue.component('ratingTemplate', {
+            template: createApp({}).component('ratingTemplate', {
                 template: '<div id="status" class="rating">\
                     <span v-for="i in item" :class="{checked: i <= data.rating, star: true}"></span>\
             </div>',
@@ -192,7 +195,7 @@ export default Vue.extend({
     },
     locationTemplate: function () {
         return {
-            template: Vue.component('locationTemplate', {
+            template: createApp({}).component('locationTemplate', {
                 template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
@@ -200,7 +203,7 @@ export default Vue.extend({
     },
     gdpTemplate: function() {
         return {
-            template: Vue.component('gdpTemplate', {
+            template: createApp({}).component('gdpTemplate', {
                 template: `<div class="statustemp">
                 <span class="statustxt">{{data.gdp}} %</span>
             </div>`,
@@ -214,8 +217,8 @@ export default Vue.extend({
     },
     timezoneTemplate: function() {
         return {
-            template: Vue.component('timezoneTemplate', {
-                template: `<div><img src="source/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</img></div>`,
+            template: createApp({}).component('timezoneTemplate', {
+                template: `<div><img src="source/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</div>`,
             data: function() {
                     return {
                         data: {}
@@ -226,7 +229,7 @@ export default Vue.extend({
     },
     areaTemplate: function() {
       return {
-            template: Vue.component('areaTemplate', {
+            template: createApp({}).component('areaTemplate', {
                 template: `<span>{{data.area}} km <sup>2</sup>
                 </span>`,
             data: function() {
@@ -297,6 +300,6 @@ export default Vue.extend({
         }
     },
   },
-});
+}
 </script>
 

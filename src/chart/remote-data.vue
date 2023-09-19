@@ -76,14 +76,11 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
 import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
          pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
-import { ChartPlugin, ColumnSeries, Category, Legend, Tooltip, DataLabel } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
-
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, Tooltip, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -135,7 +132,12 @@ let pointRender = function (args) {
     }
 };
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-chart': ChartComponent,
+        'e-series-collection': SeriesCollectionDirective,
+        'e-series': SeriesDirective
+    },
     data: function () {
         return {
             theme: theme,
@@ -200,5 +202,5 @@ export default Vue.extend({
 
     },
 
-});
+};
 </script>

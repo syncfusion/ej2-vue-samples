@@ -131,15 +131,15 @@
 }
 </style>
 <script>
-    import Vue from "vue";
-    import { RichTextEditorPlugin, HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image} from "@syncfusion/ej2-vue-richtexteditor";
-    import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+    import { RichTextEditorComponent, HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image} from "@syncfusion/ej2-vue-richtexteditor";
+    import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
     import * as data from './data-source.json';
 
-    Vue.use(RichTextEditorPlugin);
-    Vue.use(TextBoxPlugin);
-
-    export default Vue.extend({
+    export default {
+        components: {
+            'ejs-richtexteditor': RichTextEditorComponent,
+            'ejs-textbox': TextBoxComponent
+        },
         data: function() {
             return {
                 toolbarSettings : {
@@ -163,6 +163,6 @@
         provide : {
             richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image]
         }
-    });
+    }
 
 </script>

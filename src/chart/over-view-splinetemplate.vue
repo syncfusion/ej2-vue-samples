@@ -23,16 +23,19 @@
 </template>
 
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, SplineAreaSeries, Legend, DateTime, Tooltip, Category , Highlight} from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineAreaSeries, Legend, DateTime, Tooltip, Category , Highlight} from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -109,11 +112,11 @@ export default Vue.extend({
     chart: [SplineAreaSeries, Legend, DateTime, Category, Tooltip, Highlight]
   },
   mounted(){
-    this.$refs.splineInstance.height ="100%";
-    this.$refs.splineInstance.width ="100%";
+    this.$refs.splineInstance.ej2Instances.height ="100%";
+    this.$refs.splineInstance.ej2Instances.width ="100%";
   }
  
-});
+};
 </script>
 <style scoped>
 .dashboard-seo .chart-content, .dashboard-dynamic .chart-content{

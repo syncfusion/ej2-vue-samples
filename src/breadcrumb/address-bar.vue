@@ -5,7 +5,7 @@
           <div class="row material2">
               <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                   <h5 style="display: inline-block">File Manager like Breadcrumb</h5>
-                  <ejs-button id='reset' class="reset-btn e-small" v-on:click.native="btnClick">Reset State</ejs-button>
+                  <ejs-button id='reset' class="reset-btn e-small" v-on:click="btnClick">Reset State</ejs-button>
               </div>
           </div>
           <div class="row material2">
@@ -237,45 +237,48 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { BreadcrumbPlugin, MenuPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { createApp } from 'vue';
+import {  BreadcrumbComponent, MenuComponent } from "@syncfusion/ej2-vue-navigations";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { getComponent } from "@syncfusion/ej2-base";
 
-Vue.use(BreadcrumbPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(MenuPlugin);
+var app = createApp({});
 
-export default Vue.extend({
-    provide: function() {
-        return {
-            breacrumb: this.$refs.breacrumb
-        }
+export default {
+    components: {
+        'ejs-breadcrumb': BreadcrumbComponent,
+        'ejs-button': ButtonComponent
     },
     data: function() {
         return {
             itemTemplate:() => {
                 return {
-                    template : Vue.component('itemTemplate', {
+                    template : app.component('itemTemplate', {
+                        components: {
+                            'ejs-menu': MenuComponent,
+                        },
                         template:
                             `<div v-if="data.text !== 'LastItem'" style="display: flex;">
                             <ejs-menu :items="[{ text: data.text, iconCss: data.iconCss }]" :select="selectHandler"></ejs-menu>
                             </div>
                             `,
-                            inject: ["breacrumb"],
+                            data: function() {
+                              return {data: {}}
+                            },
+                            mixins: [this],
                             methods: {
                                 selectHandler: function(args) {
-                                    var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.$parent.$parent.breadcrumbItems;
+                                    var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
+                                    var breadcrumbItems = breadcrumb.items || this.$options.breadcrumbItems;
                                     for (var i = 0; i < breadcrumbItems.length; i++) {
                                         if (breadcrumbItems[i].text === args.item.text) {
                                             breadcrumbItems = breadcrumbItems.slice(0, i + 1);
-                                            breadcrumbItems[0].iconCss = 'e-bicons e-' + this.$parent.$parent.getItems(args.item.text, true)[0].items.type;
-                                            this.$parent.$parent.breadcrumbItems = breadcrumbItems;
+                                            breadcrumbItems[0].iconCss = 'e-bicons e-' + this.$options.getItems(args.item.text, true)[0].items.type;
+                                            breadcrumb.items = breadcrumbItems;
                                             break;
                                         }
                                     }
-                                    this.$parent.$parent.breadcrumbItems.push({ text: 'LastItem' });
-                                    var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
+                                    breadcrumb.items.push({ text: 'LastItem' });
                                     breadcrumb.activeItem = 'LastItem';
                                 }
                             }
@@ -284,20 +287,27 @@ export default Vue.extend({
             },
             separatorTemplate:() => {
                 return {
-                    template : Vue.component('separatorTemplate', {
+                    template : app.component('separatorTemplate', {
+                        components: {
+                            'ejs-menu': MenuComponent,
+                        },
                         template:
                             `<div v-if="getItems(data.previousItem.text)[0].items" style="display: flex;">
                             <ejs-menu :showItemOnClick="true" :items="getItems(data.previousItem.text)" :select="subMenuSelectHandler" :beforeOpen="beforeOpen" :onClose="onClose"></ejs-menu>
                             </div>
                             `,
-                            inject: ["breacrumb"],
+                            data: function() {
+                              return {data: {}}
+                            },
+                            mixins: [this],
                             methods: {
                                 getItems: function(text, needParent) {
-                                    return this.$parent.$parent.getItems(text, needParent);
+                                    return this.$options.getItems(text, needParent);
                                 },
                                 subMenuSelectHandler: function(args) {
                                     if (!args.element.parentElement.classList.contains('e-menu') && (args.item).parentObj.items[0] && (args.item).parentObj.items[0].items) {
-                                        var breadcrumbItems = this.$parent.$parent.$refs.breadcrumb.items || this.$parent.$parent.breadcrumbItems;
+                                        var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
+                                        var breadcrumbItems = breadcrumb.items;
                                         var subItems = (args.item).parentObj.items;
                                         var idx;
                                         for (let i = 0; i < subItems.length; i++) {
@@ -317,8 +327,8 @@ export default Vue.extend({
                                         }
                                         breadcrumbItems.push({ text: args.item.text });
                                         breadcrumbItems.push({ text: 'LastItem' });
-                                        this.$parent.$parent.breadcrumbItems = breadcrumbItems;
-                                        }
+                                        breadcrumb.items = breadcrumbItems;
+                                    }
                                 },
                                 beforeOpen: function() {
                                     this.$el.classList.add('e-open');
@@ -478,27 +488,28 @@ export default Vue.extend({
             return subItems;
         },
     btnClick: function() {
-        this.breadcrumbItems = [
-        {
-            iconCss: 'e-bicons e-picture'
-        },
-        {
-            text: 'This PC'
-        },
-        {
-            text: 'Local Disk (C:)'
-        },
-        {
-            text: 'Users'
-        },
-        {
-            text: 'Admin'
-        },
-        {
-            text: 'Pictures'
-        }
-    ]
+        var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
+        breadcrumb.items = [
+            {
+                iconCss: 'e-bicons e-picture'
+            },
+            {
+                text: 'This PC'
+            },
+            {
+                text: 'Local Disk (C:)'
+            },
+            {
+                text: 'Users'
+            },
+            {
+                text: 'Admin'
+            },
+            {
+                text: 'Pictures'
+            }
+        ]
     }
 }
-});
+};
 </script>

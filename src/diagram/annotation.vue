@@ -252,9 +252,8 @@
 
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ShapeAnnotationModel,
@@ -272,23 +271,16 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DropDownList,
-  DropDownListPlugin
+  DropDownListComponent
 } from "@syncfusion/ej2-vue-dropdowns";
-import { Button, ButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { Button, ButtonComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import {
   NumericTextBox,
   ColorPicker,
-  NumericTextBoxPlugin,
-  ColorPickerPlugin,
+  NumericTextBoxComponent,
+  ColorPickerComponent,
   ColorPickerEventArgs
 } from "@syncfusion/ej2-vue-inputs";
-
-Vue.use(DiagramPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(CheckBoxPlugin);
 
 let diagramInstance;
 
@@ -406,7 +398,15 @@ let templateList = [
   { value: "substitutes", text: "Substitutes" }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -585,7 +585,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 //Apply the appearence of the Annotation
 function changed(value) {

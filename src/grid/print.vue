@@ -28,10 +28,10 @@
 
     <div id="description">
         <p>The Grid can be printed using the <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/api/grid#print">print
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid#print">print
             </a></code> method. While printing the pager and scrollbar will be removed if they are enabled in Grid.
             By default, all pages will be printed. We can print current page alone by setting the <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/api/grid#printmode">printMode
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid#printmode">printMode
             </a></code> property value as <code>currentpage</code>. The child grid allows us to print the grid with following options,
         </p>
         <ul>
@@ -41,7 +41,7 @@
         </ul>
         <p>
             We can change the child grid's print option by using the <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/api/grid#hierarchyprintmode">hierarchyPrintMode
+            href="httsp://ej2.syncfusion.com/vue/documentation/api/grid#hierarchyprintmode">hierarchyPrintMode
             </a></code> property.
         </p>
         <p>
@@ -77,17 +77,21 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, DetailRow, Grid, HierarchyGridPrintMode, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, Grid, HierarchyGridPrintMode, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { employeeData, orderDatas, customerData, hierarchyOrderdata } from "./data-source";
 import { ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
-import { ClickEventArgs, ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
+import { ClickEventArgs, ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
 import { removeClass, addClass } from "@syncfusion/ej2-base";
 
-Vue.use(GridPlugin);
-Vue.use(ToolbarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective
+  },
   data: () => {
     let secondLevelGrid = {
         dataSource: customerData,
@@ -127,11 +131,11 @@ export default Vue.extend({
         element = <HTMLElement>(element.tagName === 'BUTTON' ? element.firstElementChild : element);
         removeClass([].slice.apply(document.getElementsByClassName('e-ghidden')), 'e-ghidden');
         addClass([(<any>element.parentElement).parentElement], 'e-ghidden');
-        (<any>this.$refs.grid).ej2Instances.hierarchyPrintMode = (<any>this.$refs.grid).ej2Instances.childGrid.hierarchyPrintMode = <HierarchyGridPrintMode>element.innerHTML;
+        ((this as any).$refs.grid).ej2Instances.hierarchyPrintMode = ((this as any).$refs.grid).ej2Instances.childGrid.hierarchyPrintMode = <HierarchyGridPrintMode>element.innerHTML;
       }
   },
   provide: {
     grid: [DetailRow, Toolbar]
   }
-});
+}
 </script>

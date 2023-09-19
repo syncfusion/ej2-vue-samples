@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-   <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :rulerSettings='rulerSettings' :selectionChange='selectionChange' :selectedItems='selectedItems' :nodes='nodes' :connectors='connectors' ></ejs-diagram>
+   <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :rulerSettings='rulerSettings' :selectionChange='selectionChange' :selectedItems='selectedItems' :nodes='nodes' :connectors='connectors' :contextMenuSettings="contextMenuSettings" :onUserHandleMouseDown="onUserHandleMouseDown"></ejs-diagram>
 </div>
   <div class="col-lg-2 property-section" style="float:right;margin-top:-720px; margin-right:-10px">
             <div class="property-panel-header">
@@ -48,9 +48,7 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
   Diagram,
   ShapeAnnotationModel,
   NodeModel,
@@ -70,11 +68,7 @@ import {
     ISelectionChangeEventArgs,
     ToolBase,
 } from "@syncfusion/ej2-vue-diagrams";
-Diagram.Inject(ConnectorEditing);
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(DiagramPlugin);
-
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
 let diagramInstance;
 
@@ -337,7 +331,11 @@ let handles = [
         }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },  
   data: function() {
     return {
       width: "80%",
@@ -378,7 +376,7 @@ export default Vue.extend({
                     };
                 }
                 else {
-                    if (args.newValue[0].id !== 'endThumb') {
+                    if (args.newValue && args.newValue.length > 0 && args.newValue[0].id !== 'endThumb') {
                         diagram.selectedItems = {
                             constraints: SelectorConstraints.All & ~SelectorConstraints.UserHandle,
                         };
@@ -456,6 +454,12 @@ export default Vue.extend({
         }
             diagram.dataBind();
       },
+      onUserHandleMouseDown : (args)=>{
+        let diagram = document.getElementById("diagram").ej2_instances[0];
+        if (args.element.name === 'delete') {
+            diagram.remove();
+        }
+     },
       selectableChange :(args)=>{
       let diagram = document.getElementById("diagram").ej2_instances[0];
         for (let i = 0; i < diagram.nodes.length; i++) {
@@ -526,6 +530,6 @@ for (let j  = 0; j < diagram.connectors.length; j++) {
        let diagram = this.$refs.diagramObj.ej2Instances;
        diagram.fitToPage();
     },
-});
+}
 
 </script>

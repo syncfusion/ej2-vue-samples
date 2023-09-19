@@ -229,12 +229,11 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { CarouselPlugin } from "@syncfusion/ej2-vue-navigations";
+import { createApp } from 'vue';
+import { CarouselComponent, CarouselItemDirective, CarouselItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(CarouselPlugin);
-
-var itemTemplate1Vue = Vue.component("itemTemplate1", {
+var app = createApp();
+var itemTemplate1Vue = app.component("itemTemplate1", {
     template: `<div class="product-container">
       <div class="col-sm-5 component-container">
         <div class="heading">San Francisco</div>
@@ -259,7 +258,7 @@ var itemTemplate1Vue = Vue.component("itemTemplate1", {
     methods: {}
 });
 
-var itemTemplate2Vue = Vue.component("itemTemplate2", {
+var itemTemplate2Vue = app.component("itemTemplate2", {
     template: `<div class="product-container">
       <div class="col-sm-5 component-container">
         <div class="heading">London</div>
@@ -285,7 +284,7 @@ var itemTemplate2Vue = Vue.component("itemTemplate2", {
     methods: {}
 });
 
-var itemTemplate3Vue = Vue.component("itemTemplate3", {
+var itemTemplate3Vue = app.component("itemTemplate3", {
     template: `<div class="product-container">
       <div class="col-sm-5 component-container">
         <div class="heading">Tokyo</div>
@@ -310,7 +309,7 @@ var itemTemplate3Vue = Vue.component("itemTemplate3", {
     methods: {}
 });
 
-var itemTemplate4Vue = Vue.component("itemTemplate4", {
+var itemTemplate4Vue = app.component("itemTemplate4", {
     template: `<div class="product-container">
       <div class="col-sm-5 component-container">
         <div class="heading">Moscow</div>
@@ -335,7 +334,12 @@ var itemTemplate4Vue = Vue.component("itemTemplate4", {
     methods: {}
 });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-carousel': CarouselComponent,
+    'e-carousel-items': CarouselItemsDirective,
+    'e-carousel-item': CarouselItemDirective
+    },
     mounted: function () {
       document.body.addEventListener('keydown', (e) => {
         let carouselElement = document.querySelector('.e-carousel');
@@ -369,5 +373,5 @@ export default Vue.extend({
       }
     },
     methods: {}
-});
+};
 </script>

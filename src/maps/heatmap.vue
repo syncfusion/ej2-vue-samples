@@ -28,10 +28,14 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data:function(){
       return{
         useGroupingSeparator: true,
@@ -111,5 +115,5 @@ methods:{
     }  
 }
 /* custom code end */
-})
+}
 </script>

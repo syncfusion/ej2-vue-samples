@@ -66,7 +66,7 @@
   .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .material3 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .material3-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
-    content: '\e80e';
+      content: '\e80e';
   }
   .tailwind .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .tailwind-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
@@ -81,13 +81,14 @@
 </style>
 
 <script>
-  import Vue from "vue";
-  import { RichTextEditorPlugin, Toolbar, Link, Image, Table, MarkdownFormatter, MarkdownEditor } from "@syncfusion/ej2-vue-richtexteditor";
+ 
+  import { RichTextEditorComponent, Toolbar, Link, Image, Table, MarkdownFormatter, MarkdownEditor } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";
   
-  Vue.use(RichTextEditorPlugin);
-  
-  export default Vue.extend({
+  export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+    },
     data: function() {
       return {
         id: "",
@@ -166,5 +167,5 @@
     provide: {
       richtexteditor: [Toolbar, Link, Image, Table, MarkdownEditor]
     }
-  });
+  }
 </script>

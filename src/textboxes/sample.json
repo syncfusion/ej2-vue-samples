@@ -3,25 +3,23 @@
     "directory": "textboxes",
     "category": "Inputs",
     "ftName": "textbox",
+    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "TextBox",
-            "hideOnDevice": true,
             "description":"The example describes key features of Vue textbox such as a floating label, input group, placeholder, validation states, sizing, types, and more."
         },
         {
             "url": "multiline",
             "name": "Multiline TextBox",
             "category": "TextBox",
-            "hideOnDevice": true,
             "description":"The example exposes a Vue Multiline TextBox (textarea). It helps to render address, feedback, and more in a form with customizable rows and columns."
         },
         {
             "url": "two-way-binding",
             "name": "Two-way Binding",
             "category": "TextBox",
-            "hideOnDevice": true,
             "description":"The Vue TextBox component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve sync with data in the DOM."
         }
     ]

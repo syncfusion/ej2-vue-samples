@@ -56,7 +56,7 @@
             </tr>
             <tr style="height: 50px">
                 <td>
-                    <div class="text"> Marker type</div
+                    <div class="text"> Marker type</div>
                 </td>
                 <td>
                 <div class="text">
@@ -77,7 +77,7 @@
              <tr style="height: 50px">
                 <td align="center">
                     <div style="margin-left: 50%;">
-                        <ejs-button ref="togglebtn" id="togglebtn" :disabled='disabled' style="text-transform:none !important;width: 80px;margin-top: 10px"  v-on:click.native="btnClick" v-model="togglebtnCheck">Clear</ejs-button>
+                        <ejs-button ref="togglebtn" id="togglebtn" :disabled='disabled' style="text-transform:none !important;width: 80px;margin-top: 10px"  v-on:click="btnClick" v-model="togglebtnCheck">Clear</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -116,23 +116,27 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax, ILoadEventArgs,NavigationLine, MarkerSettingsModel, MarkerSettings, Zoom  } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, MapsTooltip, MapAjax, ILoadEventArgs,NavigationLine, MarkerSettingsModel, MarkerSettings, Zoom  } from '@syncfusion/ej2-vue-maps';
 import { topPopulation } from '../maps/map-data/marker-location';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-Vue.use(TextBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(MapsPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent, ButtonComponent, buttonObserver } from "@syncfusion/ej2-vue-buttons";
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+
 let latitude = [];
 let longitude = [];
 let navigationLines = [];
 
 
-export default Vue.extend({
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-textbox': TextBoxComponent
+},
 data:function(){
     return{
         zoomSettings: {
@@ -281,6 +285,6 @@ methods:{
     },
 }
 /* custom code end */
-})
+}
 </script>
     

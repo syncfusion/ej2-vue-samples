@@ -328,22 +328,17 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
-import { createElement, isNullOrUndefined, detach, EventHandler } from '@syncfusion/ej2-base';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { createElement, isNullOrUndefined, detach } from '@syncfusion/ej2-base';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(UploaderPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           filesList: [],
@@ -351,6 +346,10 @@ export default Vue.extend({
           parentElement: '',
           progressbarContainer: ''
         }
+    },
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-button': ButtonComponent
     },
     mounted: function () {
         document.getElementById('browse').onclick = function() {
@@ -402,7 +401,6 @@ export default Vue.extend({
            
         onFileUpload: function(args) {
             let li = document.getElementById('dropTarget').querySelector('[data-file-name="' + args.file.name + '"]');
-            let localObj = this;
             let progressValue = Math.round((args.e.loaded / args.e.total) * 100);
             if (!isNaN(progressValue)) { 
                 li.getElementsByTagName('progress')[0].value = progressValue;
@@ -410,7 +408,6 @@ export default Vue.extend({
         },
 
         onUploadSuccess: function(args) {
-            let spinnerElement = document.getElementById('dropTarget');
             let li= document.getElementById('dropTarget').querySelector('[data-file-name="' + args.file.name + '"]');
             if (!isNullOrUndefined(li.querySelector('.progress-bar-container'))) { 
                 detach(li.querySelector('.progress-bar-container')); 
@@ -445,7 +442,6 @@ export default Vue.extend({
 
         onUploadFailed: function(args) {
             let li = document.getElementById('dropTarget').querySelector('[data-file-name="' + args.file.name + '"]');
-            let localObj = this;
             li.querySelector('.file-name').classList.add('upload-fails');
             li.querySelector('.close-icon-container').classList.remove('remove-btn');
             if (args.operation === 'remove') {
@@ -481,5 +477,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

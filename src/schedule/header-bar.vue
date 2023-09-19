@@ -180,16 +180,19 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { Popup } from '@syncfusion/ej2-vue-popups';
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-    import { createElement, compile, extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-
-    export default Vue.extend({
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+    import { createElement, extend } from '@syncfusion/ej2-base';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -259,6 +262,6 @@
                 this.$refs.ScheduleObj.ej2Instances.showHeaderBar = args.checked;
             }
         }
-    });
+    }
 
 </script>

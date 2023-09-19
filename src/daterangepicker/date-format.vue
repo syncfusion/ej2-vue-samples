@@ -47,13 +47,10 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DateRangePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DateRangePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DateRangePickerPlugin);
-Vue.use(RadioButtonPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a Range",
@@ -63,13 +60,17 @@ export default Vue.extend({
       separate: "-"
     };
   },
+  components: {
+      'ejs-daterangepicker': DateRangePickerComponent,
+      'ejs-radiobutton': RadioButtonComponent
+  },
   methods: {
     changeFormat: function(args) {
       this.dateFormat = args.value;
       this.separate = args.value === "yyyy/MM/dd HH:mm" ? "to" : "-";
     }
   }
-});
+};
 </script>
 
 <style scoped>

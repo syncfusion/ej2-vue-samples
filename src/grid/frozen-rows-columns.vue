@@ -26,8 +26,8 @@
         </p>
         <p>
         In this demo sample, the first column and two rows are set to frozen by using the  <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#frozenrows">frozenRows</a></code>  and 
-        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#frozencolumns">frozenColumns
+        href="http://ej2.syncfusion.com/vue/documentation/api/grid/#frozenrows">frozenRows</a></code>  and 
+        <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/api/grid/#frozencolumns">frozenColumns
         </a></code>  properties.
     </p>
     <p style="font-weight: 500">Injecting Module:</p>
@@ -50,18 +50,18 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Freeze, Resize, Sort, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Freeze, Resize, Sort, Page } from "@syncfusion/ej2-vue-grids";
 import { Browser } from '@syncfusion/ej2-base';
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(NumericTextBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -72,12 +72,12 @@ export default Vue.extend({
   },
   methods: {
       btnClick: function (){
-        this.rows = parseInt((<any>this.$refs.row).getText(), 10);
-        this.columns = parseInt((<any>this.$refs.col).getText(), 10);
+        (this as any).rows = parseInt(((this as any).$refs.row).getText(), 10);
+        (this as any).columns = parseInt(((this as any).$refs.col).getText(), 10);
     }
   },
   provide: {
       grid: [Freeze, Resize, Sort, Page]
   }
-});
+}
 </script>

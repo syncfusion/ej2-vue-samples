@@ -6,7 +6,7 @@
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
                     <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
                 </div>
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
             <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
@@ -21,7 +21,7 @@
             <div class="control-label lable-padding"><b>Current User</b>
             </div>
             <div class="control-label lable-padding">
-                <ejs-dropdownlist id='ddlelement' :dataSource='userDetails' :value='currentUser'  :change='onUserChange'></ejs-dropdownlist></td>
+                <ejs-dropdownlist id='ddlelement' :dataSource='userDetails' :value='currentUser'  :change='onUserChange'></ejs-dropdownlist>
             </div>
             <div class="control-label lable-padding"><b>User Color</b>
             </div>
@@ -105,27 +105,25 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { dataProtection } from "./data";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-colorpicker': ColorPickerComponent
     },
     data: function() {
         return {
           hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
-          documentName : 'Getting Started',
+          documentName : 'Document Protection',
           documentTitle: 'Untitled Document',
           userDetails:  ['engineer@mycompany.com', 'manager@mycompany.com'],
           currentUser: 'engineer@mycompany.com',
@@ -220,5 +218,5 @@ export default Vue.extend({
           this.$refs.usercolorpicker.ej2Instances.value = editor.userColor;
        });
     }
-});
+};
 </script>

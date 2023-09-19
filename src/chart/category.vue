@@ -20,7 +20,7 @@
         You can use the category axis to represent string values instead of numbers in the chart. 
         To use the category axis, set <code>ValueType</code> in axis to <b>Category</b>.
       </p>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use Category axis, we need to
         inject
@@ -40,10 +40,11 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   BarSeries,
   DataLabel,
   Category
@@ -51,13 +52,16 @@ import {
 import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, 
         pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors} from './theme-color';
 
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function () {
     return {
       theme: theme,
@@ -164,5 +168,5 @@ export default Vue.extend({
   },
   methods: {
   }
-});
+};
 </script>

@@ -45,25 +45,25 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as dataSource from './checkbox-data.json';
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import dataSource from './checkbox-data.json';
 
-Vue.use(DropDownTreePlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
-        var temp = this;
         return {
             fields: { dataSource: dataSource.checkboxData, value: 'id', text: 'name', parentValue: 'pid', hasChildren: 'hasChild' },
             height: '200px',
             waterMark: 'Select items',
             change: (args) => {
-                temp.$refs.ddtreeObj.treeSettings = {autoCheck : args.checked}
+                let ddtree = document.getElementById('dropdowntree');
+                ddtree.ej2_instances[0].treeSettings = {autoCheck : args.checked}
             }
         };
     }
-});
+}
 </script>

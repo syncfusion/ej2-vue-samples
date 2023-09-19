@@ -4,7 +4,7 @@
          <div class="col-lg-12 col-md-12">
                 <div class="row">
                     <div class="col-lg-9 col-md-9" id="column1" style="margin-left: -5%">
-                        <ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='gauge1' :load='load' width ='400px' height ='400px' >
+                        <ejs-circulargauge ref="circulargauge" :background='background' style='display:block' align='center' id='gauge1' :load='load' width ='400px' height ='400px' >
                             <template v-slot:mainOneTemplate="{}">
                                 <div class="annotation1"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image1.svg" /></div>
                             </template>
@@ -30,11 +30,11 @@
                     </e-axes>
                 </ejs-circulargauge>
                     </div>
-                    <div class="col-lg-3 col-md-3" style="height:400px;margin-left: -9%">
+                    <div class="col-lg-3 col-md-3" style="height:400px;margin-left: -9%;margin-top: 2%;">
                     <div>
                      <div class="panel">
                       <div style="float:left;">
-                        <ejs-circulargauge ref="circulargauge1" style='display:block:height:250px; margin-top: 5px' align='center' id='gauge2' :load='load1' width ='65px' height ='65px' >
+                        <ejs-circulargauge ref="circulargauge1" :background='background' style='display:block:height:250px; margin-top: 5px' align='center' id='gauge2' :load='load1' width ='65px' height ='65px' >
                         <template v-slot:oneTemplate="{}">
                             <div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image1.svg" /></div>
                         </template>
@@ -56,8 +56,7 @@
                 <span class="secondcontent" style="color: #fa114f; font-size: 19px">338/520 CAL</span>                
                 </div>
                 </div>
-                </br>
-
+                <br>                
                 <div class="panel">
                       <div style="float:left;">
                          <ejs-circulargauge ref="circulargauge2" style='display:block; margin-top: 5px;' align='center' id='gauge3' :load='load2' width ='65px' height ='65px' >
@@ -83,7 +82,6 @@
                 </div>
                 </div>
                 <br/>
-
                  <div class="panel">
                       <div style="float:left;">
                          <ejs-circulargauge ref="circulargauge3" style='display:block; margin-top: 5px;' align='center' id='gauge4' :load='load3' width ='65px' height ='65px' >
@@ -101,44 +99,43 @@
                         </e-axis>
                     </e-axes>
                 </ejs-circulargauge>
-                </div>                
-                <div class="subgauge" style="margin-top: 10px"> 
-                 <span class="firstcontent" style="font-size: 18px;">STAND</span>
-                        <span class="firstcontent" style="font-size: 18px;color: #00d8fe"> 58%</span><br/>
-                        <span class="secondcontent" style="color: #00d8fe; font-size: 19px">7/12 HR</span>             
-                </div>
-                </div>
-
-                
-
-                                   
-                    </div>
-                    </div>
-                    
-                </div>
-            </div>
+                     </div>                
+                        <div class="subgauge" style="margin-top: 10px"> 
+                            <span class="firstcontent" style="font-size: 18px;">STAND</span>
+                            <span class="firstcontent" style="font-size: 18px;color: #00d8fe"> 58%</span><br/>
+                            <span class="secondcontent" style="color: #00d8fe; font-size: 19px">7/12 HR</span>             
+                        </div>
+                        </div>           
+                     </div>
+                </div>    
+             </div>
+           </div>
         </div>
-        <div id="action-description">
+<div id="action-description">
     <p>
-        This sample resembles the appearance of Apple watch rings. This functions similar to an activity tracker that denotes the move, exercise, and stand details.
-   </p>
+        This sample resembles the appearance of Apple watch rings. This is similar to an activity tracker, which records
+        the specifics of each move, exercise, and stand.
+    </p>
 </div>
 <div id="description">
     <p>
-    In this example, you can see how to make the circular gauge look like the Apple watch rings. Ranges are rendered with rounded corners and annotations are placed to denote the move, exercise, and stand values.
+        In this example, you can see how to make the circular gauge look like the Apple watch rings. Ranges have rounded
+        corners and annotations are used to indicate the move, exercise, and stand values.
     </p>
     <p>
-    For more information on ranges, refer to this <a target="_blank" href="https://ej2.syncfusion.com/documentation/circular-gauge/gauge-ranges">documentation section</a>.
+        More information on the annotations can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-annotations/">documentation
+            section</a>.
     </p>
 </div>
         </div>
 </template>
  <style scoped>    
    .panel {
-        width: 105% !important;
-        height: 80px !important;
+        width: 190px !important;
+        height: 70px !important;
         margin-left: 5% !important;
-        margin-top: 15% !important;
+        margin-top: 10% !important;
         border-color: lightgray;
         float: left;
         background-color: transparent;
@@ -147,14 +144,15 @@
     .content {
         float: left !important;
         margin-left: 62px !important;
-        margin-top: 6% !important;
+        margin-top: 10px !important;
         text-align: left !important;
         position: absolute;
+        width: 120px;
     }
 
     @media screen and (max-width: 1160px) {
         .panel {
-            width: 115% !important;
+            width: 165px !important;
         }
 
         .firstcontent {
@@ -164,19 +162,26 @@
         .secondcontent {
             font-size: 15px !important;
         }
+        .content {
+            margin-top: 15px !important;
+        }
+
+        .divide {
+            margin-left: 0%;
+        }
     }
 
     @media screen and (max-width: 990px) {
         .panel {
-            width: 50% !important;
+            width: 40% !important;
             height: 80px !important;
             margin-left: 27% !important;
-            margin-top: 0% !important;
+            margin-top: 0% !important;  
         }
 
         .subgauge {
             margin-left: 8% !important;
-            margin-top: 1% !important;
+            margin-top: 5% !important;
         }
 
         .content {
@@ -191,7 +196,21 @@
         .secondcontent {
             font-size: 18px !important;
         }
-    }    
+    }
+
+    @media screen and (max-width: 700px) {
+        .subgauge {
+            margin-left: 8% !important;
+            margin-top: 6% !important;
+        }
+    }   
+    @media screen and (max-width: 600px) {
+        .subgauge {
+            margin-left: 8% !important;
+            margin-top: 6% !important;
+        }
+    }  
+
 
     @media screen and (max-width: 410px) {
         #column1 {
@@ -203,7 +222,7 @@
         }
 
         .panel {
-            width: 55% !important;
+            width: 52% !important;
         }
 
         .content {
@@ -252,20 +271,28 @@
 
 </style>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
-import { SliderPlugin,SliderChangeEventArgs, Slider } from "@syncfusion/ej2-vue-inputs";
-Vue.use(SliderPlugin);
-Vue.use(CircularGaugePlugin);
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, Annotations } from "@syncfusion/ej2-vue-circulargauge";
+import { SliderComponent,SliderChangeEventArgs, Slider } from "@syncfusion/ej2-vue-inputs";
 
 let annotationTemplate_7 = '<div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image4.svg" /></div>';
 let annotationTemplate_8 = '<div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image5.svg" /></div>';
 let annotationTemplate_9 = '<div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image6.svg" /></div>';
 
-export default Vue.extend({
+export default {
+   components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-slider': SliderComponent
+   },
    data:function(){
     return{
             startAngle: 0,
+            background:'transparent',
             endAngle: 360,
             majorTicks: {
                 width: 0
@@ -328,16 +355,17 @@ export default Vue.extend({
     circulargauge: [Annotations]
 },
 methods: {
-    /* custom code start */
     load: function(args) {
+      /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+      /*custom code end */
     },
-    /*custom code end */
     load1: function(args) {
+      /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
@@ -346,8 +374,10 @@ methods: {
          if (selectedTheme === 'highcontrast') {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_7;
         }
+      /*custom code end */
     },
     load2: function(args) {
+      /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
@@ -356,8 +386,10 @@ methods: {
         if (selectedTheme === 'highcontrast') {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_8;
         }
+      /*custom code end */
     },
     load3: function(args) {
+      /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
@@ -366,8 +398,9 @@ methods: {
         if (selectedTheme === 'highcontrast') {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_9;
         }
+      /*custom code end */
     }
 }
-})
+}
 </script>
 

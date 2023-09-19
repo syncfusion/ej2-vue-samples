@@ -82,11 +82,9 @@
     }
 </style> 
 <script>
-import Vue from "vue";
-import { FabPlugin } from "@syncfusion/ej2-vue-buttons";
+import { FabComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(FabPlugin);
-
-export default Vue.extend({});
+export default {
+    components: { 'ejs-fab': FabComponent}
+}
 </script>
-

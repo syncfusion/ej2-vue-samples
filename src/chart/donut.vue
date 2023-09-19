@@ -19,7 +19,7 @@
 <div id="description">
     <p>
       In this example, you can see how to render and configure a donut chart. To create a donut in the pie series, we use the <code>innerRadius</code> property. The <code>centerLabel</code> property allows you to specify the default text that will be rendered in the center. You can also customize the text that will render when the mouse pointer is hovered over one of the donut slices using the <code>hoverTextFormat</code> property.</p>
-      <br>
+      
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
           The Charts component’s features are segregated into individual feature modules. To use pie chart, we need to inject <code>PieSeries</code> module using <code>provide: { chart: [PieSeries] }</code> method.
@@ -35,24 +35,28 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { AccumulationChartPlugin, PieSeries, AccumulationLegend, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
-Vue.use(AccumulationChartPlugin);
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationLegend, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
+
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 let seriesColor = ['#FFE066', "#FAB666", "#F68F6A", "#F3646A", "#CC555A", "#9C4649"];
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective
+  },
   data: function() {
     return {
          theme:theme,
          seriesData:
-        [{ Browser: 'Chrome', Users: 61.31, DataLabelMappingName: 'Chrome: 61.31%' }, 
+        [{ Browser: 'Chrome', Users: 61.31, DataLabelMappingName: Browser.isDevice ? 'Chrome:<br> 61.31%' : 'Chrome: 61.31%' }, 
           { Browser: 'Safari', Users: 24.68, DataLabelMappingName: Browser.isDevice ? 'Safari:<br> 24.68%' : 'Safari: 24.68%' },
           { Browser: 'Edge', Users: 5.00, DataLabelMappingName: 'Edge: 5.00%' },
-          { Browser: 'Samsung Internet', Users: 2.72, DataLabelMappingName: 'Samsung Internet: 2.72%' },
-          { Browser: 'Firefox', Users: 2.66, DataLabelMappingName: 'Firefox: 2.66%' },
+          { Browser: 'Samsung Internet', Users: 2.72, DataLabelMappingName: Browser.isDevice ? 'Samsung Internet:<br> 2.72%' :'Samsung Internet: 2.72%' },
+          { Browser: 'Firefox', Users: 2.66, DataLabelMappingName: Browser.isDevice ? 'Firefox:<br> 2.66%' : 'Firefox: 2.66%' },
           { Browser: 'Others', Users: 3.63, DataLabelMappingName: Browser.isDevice ? 'Others: <br> 3.63%' : 'Others: 3.63%' }
         ],
 
@@ -150,5 +154,5 @@ export default Vue.extend({
 
   }
 
-});
+};
 </script>

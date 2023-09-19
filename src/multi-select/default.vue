@@ -42,13 +42,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent
+    },
     data: function() {
         return {
             waterMark: 'Favorite Sports',
@@ -58,5 +58,5 @@ export default Vue.extend ({
             sportsData: data['sportsData']
         };
     }
-});
+}
 </script>

@@ -46,22 +46,23 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin } from "@syncfusion/ej2-vue-treegrid";
-import { SparklinePlugin } from "@syncfusion/ej2-vue-charts";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, } from "@syncfusion/ej2-vue-treegrid";
+import { SparklineComponent } from "@syncfusion/ej2-vue-charts";
 import { sparkdata, textdata, getSparkData } from "./data-source";
 import { RowDataBoundEventArgs, getObject } from '@syncfusion/ej2-grids';
 import { EmitType } from '@syncfusion/ej2-base';
 import { Sparkline, ISparklineLoadEventArgs, SparklineTheme } from '@syncfusion/ej2-charts';
 
-Vue.use(TreeGridPlugin);
-Vue.use(SparklinePlugin);
-
 let line: Sparkline;
 let column: Sparkline;
 let winloss: Sparkline;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: textdata,
@@ -106,5 +107,5 @@ export default Vue.extend({
         },    
   }
 
-});
+}
 </script>

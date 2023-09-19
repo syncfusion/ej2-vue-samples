@@ -88,14 +88,18 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { recurrenceData } from './datasource';
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-checkbox': CheckBoxComponent,
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], recurrenceData, null, true) },
@@ -120,6 +124,6 @@
                 };
             }
         }
-    });
+    }
 
 </script>

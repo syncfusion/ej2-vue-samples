@@ -24,18 +24,17 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
+    components: { 'ejs-calendar': CalendarComponent },
   methods: {
     onValueChange: function(args) {
       document.getElementById("date_label").textContent =
         "Selected Value: " + args.value.toLocaleDateString();
     }
   }
-});
+};
 </script>
 
 

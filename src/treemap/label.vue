@@ -45,13 +45,15 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+import { TreeMapComponent, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { Country_Population } from '../treemap/treemap-data/country-population';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -118,5 +120,5 @@ methods:{
         this.$refs.treemap.ej2Instances.refresh();
     }
 }
-})
+}
 </script>

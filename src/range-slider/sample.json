@@ -2,7 +2,6 @@
     "name": "Range Slider",
     "directory": "range-slider",
     "category": "Inputs",
-    "type": "update",
     "ftName" : "range-slider",
     "samples": [{
             "url": "default",
@@ -26,7 +25,6 @@
             "url": "orientation",
             "name": "Vertical  Orientation",
             "category": "Range Slider",
-            "type": "update",
             "description": "Essential JS 2 slider control demo showing the vertical and horizontal orientation properties along with ticks and tooltips."
         },
         {

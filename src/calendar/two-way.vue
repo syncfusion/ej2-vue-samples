@@ -32,17 +32,16 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       date: new Date()
     };
-  }
-});
+  },
+  components: { 'ejs-calendar': CalendarComponent }
+};
 </script>
 
 <style scoped>

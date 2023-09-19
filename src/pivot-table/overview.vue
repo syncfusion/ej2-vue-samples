@@ -66,10 +66,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-charts";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   FieldList,
   IDataSet,
@@ -89,14 +88,16 @@ import { ExcelQueryCellInfoEventArgs } from '@syncfusion/ej2-grids';
 import { Universitydata } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare let require: any;
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -229,11 +230,11 @@ export default Vue.extend({
   },
   methods: {
     chartSeriesCreated: function (args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.chartSettings.chartSeries.legendShape = pivotObj.chartSettings.chartSeries.type === 'Polar' ? 'Rectangle' : 'SeriesType';
     },
     getCellContent: function (args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.cellInfo && args.cellInfo.axis === 'value' && pivotObj.pivotValues[args.cellInfo.rowIndex] && pivotObj.pivotValues[args.cellInfo.rowIndex][0].hasChild) {
         if (args.targetCell.classList.contains(args.cellInfo.cssClass)) {
           args.targetCell.classList.remove(args.cellInfo.cssClass);
@@ -258,7 +259,7 @@ export default Vue.extend({
       return '';
     },
     hyperlinkCellClick: function (args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let cell = (args.target).parentElement;
       let pivotValue = pivotObj.pivotValues[Number(cell.getAttribute('index'))][Number(cell.getAttribute('data-colindex'))];
       let link = pivotValue.index ? pivotObj.dataSourceSettings.dataSource[pivotValue.index[0]].link : "";
@@ -305,7 +306,7 @@ export default Vue.extend({
       args.reportName = reeportList;
     },
     loadReport: function (args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let reportCollection = [];
       if (
         localStorage.pivotviewReports &&
@@ -372,7 +373,7 @@ export default Vue.extend({
       }
     },
     newReport: function () {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.setProperties(
         {
           dataSourceSettings: {
@@ -409,7 +410,7 @@ export default Vue.extend({
       DrillThrough
     ]
   }
-});
+}
 </script>
 
 <style scoped>

@@ -22,12 +22,9 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { PivotViewPlugin, IDataSet } from "@syncfusion/ej2-vue-pivotview";
+import { PivotViewComponent, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 enableRipple(false);
-
-Vue.use(PivotViewPlugin);
 
 /* tslint:disable */
 function getPivotData() {
@@ -1285,7 +1282,10 @@ function getPivotData() {
   return pivotData;
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -1306,7 +1306,7 @@ export default Vue.extend({
       height: 290
     };
   }
-});
+}
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@
         <div class='e-profile e-hide'>
             <div class="e-custom-wrapper">
                 <canvas id='img-canvas'></canvas>
-                <img alt="img" id="custom-img"  v-on:load="imageLoad" crossorigin="anonymous" src="src/image-editor/images/profile.png"
+                <img alt="img" id="custom-img"  v-on:load="imageLoad" crossorigin="anonymous" src="./images/profile.png"
                 style="display: none;"/>
                 <input type="file" id="img-upload" style="display:none" v-on:change="fileChanged" accept="image/*"/>
                 <span id="custom-edit" class="e-custom-edit" v-on:click="editClicked">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div id='profile-dialog' class="e-img-editor-profile">
-            <ejs-dialog id="componentsDialog" :position="position" :closeOnEscape=true :open="dlgOpened" :buttons='dlgButtons' ref="dialogObj" :header='header' :animationSettings='animationSettings' :content='imageEditorTemplate' showCloseIcon=true :target='target' width='340px' height="400px" :visible= false>
+            <ejs-dialog id="componentsDialog" :position="position" :closeOnEscape=true :open="dlgOpened" :buttons='dlgButtons' :header='header' :animationSettings='animationSettings' :content='imageEditorTemplate' showCloseIcon=true :target='target' width='340px' height="400px" :visible= false>
         </ejs-dialog>
         </div>
         <div id="action-description">
@@ -33,12 +33,11 @@
     </div>
 </template>
 
-<!-- custom code start -->
 <style>
    
     .e-img-editor-canvas {
-		position: relative;
-	}
+	position: relative;
+    }
 
     .e-profile {
         width: 200px;
@@ -74,8 +73,8 @@
         position: absolute;
     }
 	
-	.tailwind .e-custom-icon::before,
-	.tailwind-dark .e-custom-icon::before {
+    .tailwind .e-custom-icon::before,
+    .tailwind-dark .e-custom-icon::before {
     	top: 6px;
 	}
 
@@ -92,17 +91,16 @@
 
     .e-img-custom-open {
         float: left;
-		margin-left: 0 !important;
+	margin-left: 0 !important;
     }
 
     .e-img-custom-reset {
         float: left;
     }
 	
-	.e-bigger #profile-dialog .e-dlg-header {
-		font-size: 18px !important;
-	}
-	
+    .e-bigger #profile-dialog .e-dlg-header {
+	font-size: 18px !important;
+    }
 
     .highcontrast .e-custom-img-btn,
     .fabric .e-custom-img-btn,
@@ -122,18 +120,21 @@
     .e-bigger.material-dark .e-custom-img-btn {
         padding: 3px 10px !important;
     }
+
     .e-bigger.bootstrap .e-custom-img-btn,
     .e-bigger.bootstrap-dark .e-custom-img-btn {
         padding: 1px 10px !important;
     }
 
-    .e-img-editor-sample {
+    .e-img-editor-canvas {
         min-height: 450px;
     }
     
     .e-img-editor-canvas .e-hide {
 	display: none;
     }
+
+    .e-custom-img-btn,
     .material3 .e-custom-img-btn,
     .material3-dark .e-custom-img-btn,
     .e-bigger.material3 .e-custom-img-btn,
@@ -142,24 +143,23 @@
       margin-left: 3px !important;
     }
 </style>
-<!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { ImageEditorPlugin } from "@syncfusion/ej2-vue-image-editor";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { createApp } from "vue";
+import { ImageEditorComponent } from "@syncfusion/ej2-vue-image-editor";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { getComponent, createElement } from "@syncfusion/ej2-base";
-Vue.use(DialogPlugin);
 
-Vue.use(ImageEditorPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-dialog': DialogComponent
+  },
   data: function() {
     return {
-        target: '.sb-desktop-wrapper',
+        target: '.e-img-editor-canvas',
         header: 'Profile',
 	imgSrc: '',
-        position: {X: 'center', Y: 100},
+        position: {X: 'center', Y: 'center'},
 	imgSrc: '',
         dlgButtons: [
             { click: this.dlgOpenBtnClick, buttonModel: { content: 'Open', cssClass: 'e-custom-img-btn e-img-custom-open' } },
@@ -170,9 +170,17 @@ export default Vue.extend({
         animationSettings: { effect: 'None' },
         imageEditorTemplate: function() {
             return {
-                template: Vue.component('ImageEditorComponent', {
-                    theme: 'Bootstrap5',
+                template: createApp({}).component('ImageEditorComponent', {
                     template: '<ejs-imageeditor :theme="themeValue" id="image-editor" :created="created" :fileOpened="fileOpened" :toolbar=[]></ejs-imageeditor>',
+                    components: {
+                        'ejs-imageeditor': ImageEditorComponent,
+                    },
+                    data() {
+                        return {
+                            data: {},
+                            theme: 'Bootstrap5'
+                        }
+                    },
                     methods: {
                         fileOpened: function() {
                             let imgEditor = getComponent(document.getElementById('image-editor'), 'image-editor');
@@ -217,7 +225,8 @@ export default Vue.extend({
             imgEditor.open(image.src);
         },
         editClicked: function() {
-            this.$refs.dialogObj.show();
+	    let dlgObj = getComponent(document.getElementById('componentsDialog'), 'dialog');
+            dlgObj.show();
         },
         dlgOpenBtnClick: function() {
             document.getElementById('img-upload').click();
@@ -245,7 +254,8 @@ export default Vue.extend({
             ctx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
             tempCanvas.remove();
             parentDiv.style.borderRadius = '100%'; canvas.style.backgroundColor = '#fff';
-            this.$refs.dialogObj.hide();
+            let dlgObj = getComponent(document.getElementById('componentsDialog'), 'dialog');
+            dlgObj.hide();
 	    if (this.imgSrc !== '') {
 	   	const img = document.querySelector('#custom-img');
 	   	img.src = this.imgSrc;
@@ -259,5 +269,5 @@ export default Vue.extend({
 	    this.imgSrc = url.toString();
         }
     }
-});
+};
 </script>

@@ -10,8 +10,7 @@
       "name": "Flow Chart",
       "description": "This demo for Essential JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
       "category": "Getting Started",
-      "order": 0,
-      "type":"update"
+      "order": 0
     },
     {
       "url": "node",
@@ -49,7 +48,8 @@
       "name": "Connectors",
       "order": 0,
       "description": "This demo for Essential JS2 Diagram component visualizes the data flow in a marketing process using predefined shapes and connectors. Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started"
+      "category": "Getting Started",
+      "type":"update"
     },
     {
       "url": "line-routing",
@@ -84,8 +84,7 @@
       "name": "Grouping and Ordering",
       "order": 0,
       "description": "This sample illustrates how to group, ungroup, and order commands with the diagram.",
-      "category": "Getting Started",
-      "type":"new"
+      "category": "Getting Started"
     },
     {
       "url": "diagram-events",
@@ -106,16 +105,14 @@
       "name": "Commands",
       "order": 0,
       "description": "This sample illustrates the various commands supported in the diagram control",
-      "category": "Getting Started",
-      "type":"new"
+      "category": "Getting Started"
     },
     {
       "url": "constraints",
       "name": "Constraints",
       "order": 0,
       "description": "This sample illustrates how node constraints are used to restrict end-users from performing certain operations on nodes and connector constraints are used to restrict end-users from performing certain operation on connectors",
-      "category": "Getting Started",
-      "type":"new"
+      "category": "Getting Started"
     },
     {
       "url": "tooltip",
@@ -136,24 +133,21 @@
       "name": "Zooming and Panning",
       "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes how to zoom and pan in the diagram",
-      "category": "User Interaction",
-      "type": "new"
+      "category": "User Interaction"
     },
     {
       "url": "snapping",
       "name": "Snapping",
       "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes how diagram objects snap to the nearest intersection of gridlines or objects while being dragged or resized.",
-      "category": "User Interaction",
-      "type": "new"
+      "category": "User Interaction"
     },
     {
       "url": "scrolling",
       "name": "Scrolling",
       "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes how to scroll a diagram using vertical and horizontal scrollbars",
-      "category": "User Interaction",
-      "type": "new"
+      "category": "User Interaction"
     },
     {
       "url": "drawing-tool",
@@ -245,8 +239,7 @@
       "name": "Hierarchical Layout with multiple roots",
       "order": 2,
       "description": "This demo for Essential JS2 Diagram component visualizes the structure of an Electricity Sector using complex hierarchical layout with multiple roots",
-      "category": "Automatic Layouts",
-      "type" :"new"
+      "category": "Automatic Layouts"
     },
     {
       "url": "local-data",
@@ -309,8 +302,7 @@
       "name": "UML Sequence Diagram",
       "order": 7,
       "description": "This sample visualizes the sequence diagram shapes.",
-      "category": "Use Case Diagram",
-      "type":"new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "uml-class-diagram",
@@ -324,14 +316,14 @@
       "name": "Venn Diagram",
       "order": 7,
       "description": "This demo for Essential JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
-      "category": "Static Diagram"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "network-diagram",
       "name": "Network Diagram",
       "order": 8,
       "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
-      "category": "Static Diagram"
+      "category": "Real-time Diagrams"
     },
 
     {
@@ -339,22 +331,21 @@
       "name": "Fishbone Diagram",
       "order": 8,
       "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
-      "category": "Static Diagram"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "databinding-with-treeview",
       "name": "DataBinding with treeview",
       "order": 8,
       "description": "This sample demonstrates how to create a tree view and a diagram with a datasource.",
-      "category": "Static Diagram",
-      "type":"new"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "flow-execution",
       "name": "Flow Execution",
       "order": 8,
       "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Static Diagram"
+      "category": "Real-time Diagrams"
     }
   ]
 }

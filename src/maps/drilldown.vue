@@ -94,12 +94,18 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Highlight, MapsTooltip, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Highlight, MapsTooltip, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { MouseEventArgs } from '@syncfusion/ej2-base';
-Vue.use(MapsPlugin);
+
 let touchmove = false;
-export default Vue.extend({
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+},
 data:function(){
     return{
         zoomSettings: {
@@ -266,5 +272,5 @@ methods:{
         (document.getElementById('symbol')).style.visibility = 'hidden';
     }
 }
-})
+}
 </script>

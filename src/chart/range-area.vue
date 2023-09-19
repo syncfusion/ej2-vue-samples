@@ -16,7 +16,7 @@
 <div id="description">
     <p>In this example, you can see how to render and configure the range area chart. This chart is used to display continuous data points as a set of lines varying between high and low values over time intervals and across different categories.
      </p>     
-      <br>
+     
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use range area series, we need to inject
@@ -35,17 +35,20 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, RangeAreaSeries, DateTime, LineSeries, Tooltip} from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, RangeAreaSeries, DateTime, LineSeries, Tooltip} from "@syncfusion/ej2-vue-charts";
 import { chartDataValues } from './financial-data';
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
@@ -101,5 +104,5 @@ export default Vue.extend({
     
   },
  
-});
+};
 </script>

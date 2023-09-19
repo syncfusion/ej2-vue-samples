@@ -26,13 +26,15 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { generateObject } from './datasource';
-    import { SchedulePlugin, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
-    Vue.use(SchedulePlugin);
-
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: generateObject(new Date(2021, 11, 19).getTime(), new Date(2022, 2, 12).getTime(), true) },
@@ -45,5 +47,5 @@
         },
         methods: {
         }
-    });
+    }
 </script>

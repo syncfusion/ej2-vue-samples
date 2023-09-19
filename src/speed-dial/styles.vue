@@ -24,14 +24,14 @@
 </template>
     
 <script>
-import Vue from "vue";
-import { SpeedDialPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
+import { SpeedDialComponent } from "@syncfusion/ej2-vue-buttons";
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
 
-Vue.use(TooltipPlugin);
-Vue.use(SpeedDialPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-speeddial': SpeedDialComponent,
+        'ejs-tooltip': TooltipComponent
+    },
     data: function () {
         return {
             items: [
@@ -97,7 +97,7 @@ export default Vue.extend({
             ]
         };
     }
-});
+}
 </script>
 
 <style>

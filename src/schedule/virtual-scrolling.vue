@@ -61,13 +61,13 @@
     }
 </style>
 <script>
-    import Vue from "vue";
+    import { createApp } from "vue";
     import { generateResourceData, generateStaticEvents } from './datasource';
-    import { SchedulePlugin, TimelineMonth, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, TimelineMonth, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
 
-    Vue.use(SchedulePlugin);   
+    const app = createApp({});
 
-    var monthTempVue = Vue.component("monthTemp", {
+    var monthTempVue = app.component("monthTemp", {
         template: '<div class="template-wrap" :style="{background: data.PrimaryColor}">'+
         '<div class="subject" :style="{background: data.SecondaryColor}">{{data.Subject}}</div></div>',
         data() {
@@ -77,13 +77,20 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 selectedDate: new Date(2021, 4, 1),
                 cssClass: 'virtual-scroll',
                 virtualScroll: true,
-                eventTemplate: function (e) {
+                eventTemplate: function () {
                     return {
                         template: monthTempVue
                     };
@@ -99,6 +106,6 @@
         provide: {
             schedule: [TimelineMonth, Month, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

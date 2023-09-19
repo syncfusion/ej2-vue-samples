@@ -27,19 +27,21 @@
         </p>
         <p>
             More information on the RTL can be found in this 
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablertl">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/global-local#right-to-left---rtl">documentation section</a>.
         </p>
     </div>
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Sort, Edit, Page, Group, Filter, Reorder } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Sort, Edit, Page, Group, Filter, Reorder } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
     data: orderDetails,
@@ -52,5 +54,5 @@ export default Vue.extend({
   provide: {
       grid: [Sort, Edit, Page, Group, Filter, Reorder]
     }
-});
+}
 </script>

@@ -7,7 +7,7 @@
     </div>
     <div>
         <div class='div-button'>
-            <ejs-button @click.native='onClick' cssClass='e-info'>Load 100K Data</ejs-button>
+            <ejs-button @click='onClick' cssClass='e-info'>Load 100K Data</ejs-button>
             <span id="popup" :style="display">
                 <span id="gif" class="imagepop"></span>
             </span>
@@ -55,16 +55,16 @@
        <p>
         The Grid UI virtualization allows you to render only rows and columns visible within the view-port without buffering the entire datasource.
         Grid supports row and column virtualization. To enable row virtualization, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#enablevirtualization">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablevirtualization">
         enableVirtualization </a></code> property as true. For column virtualization, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#enablecolumnvirtualization">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablecolumnvirtualization">
         enableColumnVirtualization</a></code> property as true.
     </p>
     <p>
         Note: The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#height">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#height">
         height</a></code> property must be defined when enabling <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#enablevirtualization">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablevirtualization">
         enableVirtualization </a></code>.
     </p>
     <p>
@@ -81,13 +81,10 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, VirtualScroll, GridComponent, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, VirtualScroll, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { DataManager, JsonAdaptor } from '@syncfusion/ej2-data'; 
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(GridPlugin);
-Vue.use(ButtonPlugin);
 
 function generateData() {
       let datas: any = [];
@@ -144,7 +141,13 @@ function generateData() {
       return datas;
     }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
         flag: true, date1: 0, date2: 0, virtualData: [], timeTaken: 'Time Taken: 0 ms',
@@ -157,28 +160,28 @@ export default Vue.extend({
   },
   methods: {
     show: function() {
-        this.display = {'display': 'inline-block'};
+        (this as GridComponent).display = {'display': 'inline-block'};
     },
     hide: function() {
-      if (this.flag && this.date1) {
-        this.date2 = new Date().getTime();
-        this.timeTaken = "Time Taken: " + (this.date2 - this.date1) + "ms";
-        (<GridComponent>this.$refs.grid).ej2Instances.editSettings.allowAdding= true;
-        this.flag = false;
+      if ((this as GridComponent).flag && (this as GridComponent).date1) {
+        (this as GridComponent).date2 = new Date().getTime();
+        (this as GridComponent).timeTaken = "Time Taken: " + ((this as GridComponent).date2 - (this as GridComponent).date1) + "ms";
+        ((this as GridComponent).$refs.grid).ej2Instances.editSettings.allowAdding= true;
+        (this as GridComponent).flag = false;
       }
-      this.display = {'display': 'none'};
+      (this as GridComponent).display = {'display': 'none'};
     },
     onClick: function (args: any) {
-      if (!this.virtualData.length) {
-        this.show();      
-        this.virtualData = generateData();
-        this.date1 = new Date().getTime();
-        this.flag = true;
+      if (!(this as GridComponent).virtualData.length) {
+        (this as GridComponent).show();      
+        (this as GridComponent).virtualData = generateData();
+        (this as GridComponent).date1 = new Date().getTime();
+        (this as GridComponent).flag = true;
       }
     }
   },
   provide: {
       grid: [VirtualScroll, Toolbar, Edit]
   }
-});
+};
 </script>

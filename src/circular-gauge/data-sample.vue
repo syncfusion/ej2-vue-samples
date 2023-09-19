@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge1'>
+                        <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge1'>
                             <template v-slot:firstImageTemplate="{}">
                                 <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p class="gauge_text">{{value1}}%</p></div>
                             </template>
@@ -26,7 +26,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge2'>
+                        <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge2'>
                             <template v-slot:twoImageTemplate="{}">
                                 <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p class="gauge_text">{{value2}}%</p></div>
                             </template>
@@ -47,7 +47,7 @@
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:block; height:250px' align='center' id='gauge3'>
+                        <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge3'>
                             <template v-slot:threeImageTemplate="{}">
                                 <div class='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p class="gauge_text">{{value3}}%</p></div>
                             </template>
@@ -88,29 +88,43 @@
     </div>
     <div id="action-description">
         <p>
-            This sample demonstrates the live data sample in circular gauge.
+            This sample shows live stock price data displayed in multiple circular gauges.
         </p>
     </div>
     <div id="description">
         <p>
-            Pointer values in the gauge can be updated dynamically by using <code>setPointerValue</code> method. In this example, a stock price changes over the countries, are showed by using a gauge.
+            The pointer value in the circular gauge can be dynamically updated using the <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/circular-gauge/#setpointervalue">setPointerValue</a>
+            method. In this example, the stock price changes across countries are displayed in multiple circular gauges.
         </p>
         <p>
-            More information on the gauge and its methods can be found in can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation"> documentation section</a>.
+            More information on the circular gauge can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/"> documentation
+                section</a>.
         </p>
     </div>
 </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations} from "@syncfusion/ej2-vue-circulargauge";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, Annotations} from "@syncfusion/ej2-vue-circulargauge";
+import { GridComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-grids";
 import { Query, DataManager } from '@syncfusion/ej2-data';
-Vue.use(CircularGaugePlugin, GridPlugin);
-export default Vue.extend({
-    data: () => {
+
+export default {
+    components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+   },
+   data: () => {
         let value1 = Math.round(Math.random() * (90 - 55) + 55);
         let value2 = Math.round(Math.random() * (75 - 60) + 60);
         let value3 = Math.round(Math.random() * (40 - 10) + 10);
@@ -135,6 +149,7 @@ export default Vue.extend({
         }];
         return {
             gauge1startAngle: 230,
+            background:'transparent',
             gauge1endAngle: 130,
             gauge1majorTicks: {
                 width: 0
@@ -273,15 +288,15 @@ export default Vue.extend({
         circulargauge: [Annotations]
     },
     methods: {
-        /* custom code start */
         load: function (args) {
+            /* custom code start */
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            /* custom code end */
         },
-        /* custom code end */
         toolTipInterval1: function () {
             setInterval(function () {
                 let germany = document.getElementById('gauge1');
@@ -312,10 +327,8 @@ export default Vue.extend({
                         'vsTarget': -gridData3
                     }];
                     let data = new DataManager(orderData).executeLocal(new Query().take(3));
-
                     grid.ej2_instances[0].dataSource = data;
                     grid.ej2_instances[0].refresh();
-
                     germany.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
                     usa.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
                     uk.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
@@ -324,16 +337,14 @@ export default Vue.extend({
                     uk.ej2_instances[0].setPointerValue(0, 0, value3);
                     germany.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
                     usa.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px;display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
-                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
-
-
+                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>-${pointers[0].value}%</p></div>");
                 } else {
                     clearInterval(this.toolTipInterval1);
                 }
             }, 2000)
         }
     }
-})
+}
 </script>
 <style scoped>
 .templateWrap {
@@ -352,6 +363,6 @@ export default Vue.extend({
     vertical-align: sub; 
     color:#424242; 
     font-size:20px; 
-    font-family:Roboto;
+    font-family:inherit;
 }
 </style>

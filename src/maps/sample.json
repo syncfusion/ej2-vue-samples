@@ -109,7 +109,7 @@
             "sourceFiles": [
                 {"displayName": "legend.vue", "path": "./src/maps/legend.vue"},
                 {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
-                {"displayName": "legend-datasource.json", "path": "./src/maps/map-data/legend-datasource.json"}
+                {"displayName": "legend-datasource.ts", "path": "./src/maps/map-data/legend-datasource.ts"}
             ]
         },
         {

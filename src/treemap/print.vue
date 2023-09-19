@@ -24,7 +24,6 @@
              <br>
              <p style="font-weight: 500"> <b>Injecting Module</b></p>
             <p>To make use of the print and export support, we need to inject the <code>Print</code>, <code>ImageExport</code> and <code>PdfExport</code> modules using the <code>provide</code> section. </p>
-        </p>
     </div>
 
     <div class="col-lg-3 property-section">
@@ -54,12 +53,12 @@
                 <tr id="button-control" style="height: 70px" align='center'>
                     <td align="center">
                         <div>
-                            <ejs-button id='togglebtn1' :style='style' :isPrimary='isPrimary' :content='content1' v-on:click.native='clickExport'></ejs-button>
+                            <ejs-button id='togglebtn1' :style='style' :isPrimary='isPrimary' :content='content1' v-on:click='clickExport'></ejs-button>
                         </div>
                     </td>
                     <td align="center">
                         <div>
-                            <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content2' v-on:click.native='clickPrint'></ejs-button>
+                            <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content2' v-on:click='clickPrint'></ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -101,15 +100,17 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, Print, ImageExport, PdfExport } from "@syncfusion/ej2-vue-treemap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { TreeMapComponent, TreeMapTooltip, Print, ImageExport, PdfExport } from "@syncfusion/ej2-vue-treemap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { ProductSale } from '../treemap/treemap-data/product';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+},
 data:function(){
 return{
       allowImageExport: true,
@@ -175,5 +176,5 @@ methods:{
         this.$refs.treemap.ej2Instances.print();
     }
 }
-})
+}
 </script>

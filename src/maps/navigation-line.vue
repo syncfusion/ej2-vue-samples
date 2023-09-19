@@ -74,11 +74,17 @@
 </style>
 // custom code end
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, Zoom, NavigationLine, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Zoom, NavigationLine, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { penisular_location, penisular_marker } from '../maps/map-data/map-location';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+  },
   data:function(){
       return{
         titleSettings: {
@@ -135,5 +141,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

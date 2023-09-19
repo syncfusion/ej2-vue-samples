@@ -5,19 +5,63 @@
         <ejs-carousel
           ref="carObj"
           cssClass="templateCarousel"
-          :previousButtonTemplate="previousTemplate"
-          :nextButtonTemplate="nextTemplate"
+          :previousButtonTemplate="'previousTemplate'"
+          :nextButtonTemplate="'nextTemplate'"
           :indicatorsTemplate="indicatorsTemplate"
           :animationEffect="animation"
           :buttonsVisibility="buttonsVisibility"
         >
+        <template v-slot:previousTemplate>
+          <ejs-button cssClass="e-flat e-outline nav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+              <path d="m13.5 7.01 13 13m-13 13 13-13"></path>
+            </svg>
+          </ejs-button>
+        </template>
+          <template v-slot:nextTemplate>
+            <ejs-button cssClass="e-flat e-outline nav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+                <path d="m13.5 7.01 13 13m-13 13 13-13"></path>
+              </svg>
+            </ejs-button>
+          </template>     
           <e-carousel-items>
-            <e-carousel-item :template="itemTemplate1"></e-carousel-item>
-            <e-carousel-item :template="itemTemplate2"></e-carousel-item>
-            <e-carousel-item :template="itemTemplate3"></e-carousel-item>
-            <e-carousel-item :template="itemTemplate4"></e-carousel-item>
-            <e-carousel-item :template="itemTemplate5"></e-carousel-item>
-          </e-carousel-items>
+            <e-carousel-item template="itemTemplate1"></e-carousel-item>
+              <template v-slot:itemTemplate1>
+                <figure class="img-container">
+                  <img src="https://ej2.syncfusion.com/products/images/carousel/cardinal.png" alt="Cardinal"
+                      style="height: 100%; width: 100%" />
+                </figure>
+              </template>
+              <e-carousel-item template="itemTemplate2"></e-carousel-item>
+              <template v-slot:itemTemplate2>
+                <figure class="img-container">
+                  <img src="https://ej2.syncfusion.com/products/images/carousel/hunei.png" alt="hunei"
+                    style="height: 100%; width: 100%" />
+                </figure>
+              </template>
+              <e-carousel-item template="itemTemplate3"></e-carousel-item>
+              <template v-slot:itemTemplate3>
+                <figure class="img-container">
+                  <img src="https://ej2.syncfusion.com/products/images/carousel/costa-rica.png" alt="costa-rica"
+                    style="height: 100%; width: 100%" />
+                </figure>
+              </template>
+              <e-carousel-item template="itemTemplate4"></e-carousel-item>
+              <template v-slot:itemTemplate4>
+                <figure class="img-container">
+                  <img src="https://ej2.syncfusion.com/products/images/carousel/kaohsiung.png" alt="kaohsiung"
+                    style="height: 100%; width: 100%" />
+                  </figure>
+              </template>
+              <e-carousel-item template="itemTemplate5"></e-carousel-item>
+              <template v-slot:itemTemplate5>
+                <figure class="img-container">
+                  <img src="https://ej2.syncfusion.com/products/images/carousel/bee-eater.png" alt="bee-eater"
+                    style="height: 100%; width: 100%" />
+                </figure>
+              </template>
+            </e-carousel-items>
         </ejs-carousel>
         <div id="action-description">
           <p>
@@ -122,114 +166,13 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { CarouselPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { createApp } from 'vue';
+import { CarouselComponent, CarouselItemDirective, CarouselItemsDirective } from "@syncfusion/ej2-vue-navigations";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(ButtonPlugin);
-Vue.use(CarouselPlugin);
+var app = createApp();
 
-var itemTemplate1Vue = Vue.component("itemTemplate1", {
-  template:
-    '<figure class="img-container">' +
-    '<img src="src/carousel/images/cardinal.png" alt="cardinal" style="height:100%;width:100%;" />' +
-    "</figure>",
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var itemTemplate2Vue = Vue.component("itemTemplate2", {
-  template:
-    '<figure class="img-container">' +
-    '<img src="src/carousel/images/hunei.png" alt="hunei" style="height:100%;width:100%;" />' +
-    "</figure>",
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var itemTemplate3Vue = Vue.component("itemTemplate3", {
-  template:
-    '<figure class="img-container">' +
-    '<img src="src/carousel/images/costa-rica.png" alt="costa-rica" style="height:100%;width:100%;" />' +
-    "</figure>",
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var itemTemplate4Vue = Vue.component("itemTemplate4", {
-  template:
-    '<figure class="img-container">' +
-    '<img src="src/carousel/images/kaohsiung.png" alt="kaohsiung" style="height:100%;width:100%;" />' +
-    "</figure>",
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var itemTemplate5Vue = Vue.component("itemTemplate5", {
-  template:
-    '<figure class="img-container">' +
-    '<img src="src/carousel/images/bee-eater.png" alt="bee-eater" style="height:100%;width:100%;" />' +
-    "</figure>",
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var previousVue = Vue.component("previousButton", {
-  template: `<ejs-button cssClass="e-flat e-outline nav-btn">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-      <path d="m13.5 7.01 13 13m-13 13 13-13"></path>
-    </svg>
-  </ejs-button>`,
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var nextVue = Vue.component("nextButton", {
-  template: `<ejs-button cssClass="e-flat e-outline nav-btn">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-      <path d="m13.5 7.01 13 13m-13 13 13-13"></path>
-    </svg>
-  </ejs-button>`,
-  data() {
-    return {
-      data: {},
-    };
-  },
-  computed: {},
-  methods: {},
-});
-
-var indicatorsVue = Vue.component("indicators", {
+var indicatorsVue = app.component("indicators", {
   template: `<div class="indicator">
       <img :src="getThumpImage(data.index)" alt="image" style="height:100%;width:100%;" />
     </div>`,
@@ -245,46 +188,17 @@ var indicatorsVue = Vue.component("indicators", {
   },
 });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-carousel': CarouselComponent,
+    'e-carousel-items': CarouselItemsDirective,
+    'e-carousel-item': CarouselItemDirective,
+    'ejs-button': ButtonComponent,
+    },
   data: function () {
     return {
       animation: "Fade",
       buttonsVisibility: "Visible",
-      itemTemplate1: function () {
-        return {
-          template: itemTemplate1Vue,
-        };
-      },
-      itemTemplate2: function () {
-        return {
-          template: itemTemplate2Vue,
-        };
-      },
-      itemTemplate3: function () {
-        return {
-          template: itemTemplate3Vue,
-        };
-      },
-      itemTemplate4: function () {
-        return {
-          template: itemTemplate4Vue,
-        };
-      },
-      itemTemplate5: function () {
-        return {
-          template: itemTemplate5Vue,
-        };
-      },
-      previousTemplate: function () {
-        return {
-          template: previousVue,
-        };
-      },
-      nextTemplate: function () {
-        return {
-          template: nextVue,
-        };
-      },
       indicatorsTemplate: function () {
         return {
           template: indicatorsVue,
@@ -293,5 +207,5 @@ export default Vue.extend({
     };
   },
   methods: {},
-});
+};
 </script>

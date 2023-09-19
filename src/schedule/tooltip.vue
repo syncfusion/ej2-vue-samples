@@ -148,15 +148,16 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { eventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {  
             return {
                 eventSettings: { dataSource: extend([], eventsData, null, true), enableTooltip: true, tooltipTemplate: 'tooltipTemplate' },
@@ -205,6 +206,6 @@
                 return 'image ' + data.EventType;
             }
         }
-    });
+    }
 
 </script>

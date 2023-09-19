@@ -63,14 +63,13 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet,
   IDataOptions
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
@@ -82,15 +81,17 @@ import {
 } from "@syncfusion/ej2-data";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-
 let remoteData: DataManager = new DataManager({
   url: "https://bi.syncfusion.com/northwindservice/api/orders",
   adaptor: new WebApiAdaptor(),
   crossDomain: true
 });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       jsonReport: {
@@ -137,15 +138,15 @@ export default Vue.extend({
   },
   methods: {
     ddlOnChange: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.value === "JSON") {
-        pivotObj.dataSourceSettings = this.jsonReport;
+        pivotObj.dataSourceSettings = (this as any).jsonReport;
       } else if (args.value === "CSV") {
-        pivotObj.dataSourceSettings = this.csvReport;
+        pivotObj.dataSourceSettings = (this as any).csvReport;
       }
     }
   }
-});
+}
 </script>
 
 <style scoped>

@@ -22,11 +22,13 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { RTLData } from '../treemap/treemap-data/rtl-data';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         palette: ['#5B244D', '#6F3953', ' #87525A', '#A26F63', '#BA896B', '#D5A574', '#F1C37D'],
@@ -73,5 +75,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

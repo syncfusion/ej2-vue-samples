@@ -200,11 +200,16 @@
 </style>
 <script>
 import Vue from 'vue';
-import { MapsPlugin, Zoom, MapAjax} from '@syncfusion/ej2-vue-maps';
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(MapsPlugin);
-Vue.use(SliderPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, MapAjax} from '@syncfusion/ej2-vue-maps';
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+
+export default {
+    components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-slider': SliderComponent
+  },
   data:function(){
       return{
             zoomSettings: {
@@ -285,5 +290,5 @@ methods:{
         document.getElementById('dur').innerHTML = args.value.toString() + 'ms';
     }
 }
-})
+}
 </script>

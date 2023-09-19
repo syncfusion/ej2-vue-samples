@@ -134,12 +134,20 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin , getRangeColor , Annotations, Range} from "@syncfusion/ej2-vue-circulargauge";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CircularGaugePlugin);
-Vue.use(CheckBoxPlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, getRangeColor , Annotations, Range} from "@syncfusion/ej2-vue-circulargauge";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-checkbox': CheckBoxComponent
+   },
 data:function(){
     return{
         enablePointerDrag: true,
@@ -235,7 +243,7 @@ methods: {
         this.$refs.circulargauge.ej2Instances.enableRangeDrag = value;        
     }
 }
-})
+}
  function setPointersValue(circulargauge, pointerValue) {
         // let cotainerObj=document.getElementById('user-container');                    
         let color = getRangeColor(pointerValue,circulargauge.axes[0].ranges, circulargauge.axes[0].pointers[0].color);

@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "22.1.34",
+  "version": "23.1.36",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -40,19 +40,17 @@
     "@syncfusion/ej2-vue-treemap": "*",
     "@syncfusion/ej2-vue-progressbar": "*",
     "@syncfusion/ej2-vue-image-editor": "*",
-    "@types/codemirror": "0.0.56",
-    "@types/node": "12.12.22",
-    "@microsoft/signalr": "5.0.9",
-    "codemirror": "^5.37.0",
+    "@types/codemirror": "5.60.8",
+    "@types/node": "20.4.2",
+    "@microsoft/signalr": "7.0.9",
+    "codemirror": "6.0.1",
     "elasticlunr": "0.9.5",
-    "fuse.js": "^3.2.0",
-    "gulp-s3-upload": "^1.7.3",
-    "marked": "^0.3.19",
-    "tributejs": "^4.1.1",
-    "vue": "2.6.13",
-    "vue-class-component": "^8.0.0-rc.1",
-    "vue-property-decorator": "^6.0.0",
-    "vue-router": "3.5.4"
+    "fuse.js": "6.6.2",
+    "gulp-s3-upload": "1.7.3",
+    "marked": "4.3.0",
+    "tributejs": "5.1.3",
+    "vue": "^2.5.21",
+    "vue-router": "4.2.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
@@ -65,13 +63,14 @@
     "serve": "^6.5.4",
     "shelljs": "^0.8.1",
     "typescript": "3.6.2",
-    "vue-template-compiler": "2.6.13",
+    "vue-template-compiler": "^2.5.21",
     "webpack": "^4.41.5"
   },
   "scripts": {
     "serve": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
     "serve: watch": "vue-cli-service serve",
     "build": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build",
-    "build-watch": "vue-cli-service build"
+    "build-watch": "vue-cli-service build",
+    "ci-publish": "gulp publish-samples"
   }
 }

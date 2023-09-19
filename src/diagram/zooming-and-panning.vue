@@ -44,11 +44,10 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  OverviewPlugin,
+  OverviewComponent,
   Diagram,
-  DiagramPlugin,
+  DiagramComponent,
   ConnectorModel,
   Node,
   SnapConstraints,
@@ -65,13 +64,20 @@ import { DataManager } from "@syncfusion/ej2-data";
 import { data } from "./diagram-data";
 import {
   Toolbar,
-  ToolbarPlugin,
+  ItemDirective,
+  ItemsDirective,
+  ToolbarComponent,
 } from "@syncfusion/ej2-vue-navigations";
-Vue.use(DiagramPlugin);
-Vue.use(ToolbarPlugin);
+
 let diagramInstance;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective
+  },
   data: function() {
     return {
       width: "100%",
@@ -185,7 +191,7 @@ export default Vue.extend({
       }
     }
   },
-});
+}
 
 //Funtion to add the Template of the Node.
 function setNodeTemplate(obj, diagram) {

@@ -36,7 +36,7 @@
                         </td>
                         <td style="width: 60%;">
                             <div>
-                            <ejs-dropdownlist ref='dropdown' id='exporttype' index=0 :dataSource='dropDownData' width='80'></ejs-dropdownlist>
+                            <ejs-dropdownlist ref='dropdown' id='exporttype' index=0 :dataSource='dropDownData' width='90'></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -45,22 +45,22 @@
                             <div>File Name:</div>
                         </td>
                         <td style="width: 40%;">
-                            <div class="e-float-input" style='margin-top: 0px;'>
+                            <div class="e-float-input" style='margin-top: 0px;  width: 100px;'>
                                 <input type="text" value="Chart" id="fileName">
                             </div>
                         </td>
                     </tr>
                     <tr id="button-control" style="height: 50px" align='center'>
                         <td align='center'>
-                            <div>
-                                <ejs-button cssClass="e-flat" iconCss='e-icons e-export-icon' isPrimary=true v-on:click.native='onClick' id="exportBtn">EXPORT</ejs-button>
+                            <div style="margin-left: 50%;">
+                                <ejs-button cssClass="e-flat" iconCss='e-icons e-export-icon' isPrimary=true v-on:click='onClick' id="rangeExportBtn">EXPORT</ejs-button>
                             </div>
                         </td>
                     </tr>
                     <tr id="button-control" style="height: 50px">
                             <td align='center'>
-                                <div>
-                                     <ejs-button id="togglebtn" cssClass= 'e-flat' isPrimary=true :iconCss='iconCss' v-on:click.native='mode'>Print</ejs-button>
+                                <div style="margin-left: 50%;">
+                                     <ejs-button id="togglebtn" cssClass= 'e-flat' isPrimary=true :iconCss='iconCss' v-on:click='mode'>Print</ejs-button>
                                 </div>
                             </td>
                         </tr>
@@ -93,6 +93,10 @@
     .e-print-icon::before {
         content: "\e34b";
     }
+    .e-view.material3 .e-print-icon::before,
+    .e-view.material3-dark .e-print-icon::before {
+    	content: "\e75d";
+    }
 
    .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
         content: "\e7df";
@@ -121,35 +125,33 @@
     .e-view.material .e-export-icon::before, .e-view.material-dark .e-export-icon::before, .e-view.bootstrap .e-export-icon::before, .e-view.bootstrap-dark .e-export-icon::before {
         content: '\e728';
     }
-    .e-view.material3 .e-print-icon::before, .e-view.material3-dark .e-print-icon::before {
-        content: '\e75d';
-    }
-
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, ChartPlugin, SplineAreaSeries, StepLineSeries, DateTime, Crosshair,
+import { RangeNavigatorComponent, ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineAreaSeries, StepLineSeries, DateTime, Crosshair,
   Tooltip, Export} from "@syncfusion/ej2-vue-charts";
 import { exportData } from "./data-source";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark', 'material3', 'material3dark'];
-let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF'];
-let regionColor = ['rgba(99, 85, 199, 0.3)', 'rgba(143, 128, 244, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
-'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
-'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(26, 201, 230, 0.3)', 'rgba(26, 201, 230, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)'];
+let themes = ['Material', 'Fabric', 'Bootstrap', 'HighContrast', 'Bootstrap5', 'Tailwind', 'MaterialDark', 'FabricDark', 'BootstrapDark', 'TailwindDark', 'Bootstrap5Dark', 'Bootstrap4', 'Fluent', 'FluentDark', 'Material3', 'Material3Dark'];
+let borderColor = ['#FF4081', '#007897', '#428BCA', '#FFD939', '#4F46E5', '#4F46E5', '#FF4081', '#007897', '#428BCA', '#22D3EE', '#ADB5BD', '#FFD939', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
+let regionColor = ['rgba(255, 64, 129, 0.3)', ' rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(79, 70, 229, 0.3)',
+    'rgba(79, 70, 229, 0.3)', 'rgba(255, 64, 129, 0.3)', 'rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(34, 211, 238, 0.3)',
+    'rgba(173,181,189,0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(97,69,112,0.3)', 'rgba(138,177,19,0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)'];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       //Chart Properties
@@ -157,8 +159,8 @@ export default Vue.extend({
          valueType: 'DateTime', crosshairTooltip: { enable: true },
          edgeLabelPlacement: 'Shift', majorGridLines: { width: 0 }
       },
-      fill: regionColor[themes.indexOf(theme.toLowerCase())],
-      border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },
+      fill: regionColor[themes.indexOf(theme)],
+      border: { width: 2, color: borderColor[themes.indexOf(theme)] },
       primaryYAxis: {
           minimum: 81, maximum: 87, interval: 2,
             majorTickLines: { width: 0 }, lineStyle: { width: 0 },
@@ -190,7 +192,7 @@ export default Vue.extend({
     },
   methods: {
    changed: function(args) {
-     if(document.getElementById('chartExport').children.length) {
+     if(document.getElementById('chartExport').children.length && !document.getElementById('chartExport').querySelector('div.e-directive')) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
         this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
         this.$refs.chart.ej2Instances.dataBind();
@@ -207,5 +209,5 @@ export default Vue.extend({
       this.$refs.range.ej2Instances.print(["containerExport", "chartExport"]);
     }
   }
-});
+};
 </script>

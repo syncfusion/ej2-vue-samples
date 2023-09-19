@@ -205,7 +205,7 @@
         margin: 1px 16px;
     }
 
-    .value {
+    .multiselect-template .value {
         border-radius: 50%;
         float: left;
         margin-top: -1px;
@@ -214,39 +214,51 @@
         height: 24px;
         width: 24px;
     }
-    .material .value {
-        margin-top: 18px;
+
+    .e-bigger:not(.bootstrap) .multiselect-template .name {
+        padding: 11px 42px;
     }
-    .highcontrast .value{
+
+    .e-bigger:not(.bootstrap) .multiselect-template .value {
+        margin-top: 6px;
+    }
+
+    .highcontrast .multiselect-template .value{
         margin-top: 0px;
     }
 
-    .highcontrast .name {
+    .highcontrast .multiselect-template .name {
         padding: 3px 28px;
     }
 
-    .bootstrap .value {
+    .bootstrap .multiselect-template .value,
+    .bootstrap-dark .multiselect-template .value {
         left: -9px;
         height: 28px;
         width: 28px;
         margin-top: 18px;
     }
 
-    .fabric .value {
+    .fabric .multiselect-template .value,
+    .fabric-dark .multiselect-template .value {
         margin-top: 22px;
     }
 
-    .material .name {
+    .material .multiselect-template .name
+    .material-dark .multiselect-template .name,
+    .material3 .multiselect-template .name
+    .material3-dark .multiselect-template .name {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         padding: 3px 0 0 28px;
-        bottom: 23px;
+        bottom: 21px;
         position: relative;
         margin-right: -16px;
     }
 
-    .bootstrap .name {
+    .bootstrap .multiselect-template .name,
+    .bootstrap-dark .multiselect-template .name {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -256,33 +268,31 @@
         margin-right: -24px;
     }
 
-    .e-bigger .value {
+    .e-bigger .multiselect-template .value {
         margin-top: 0px;
         height: 30px;
         width: 30px;
     }
 
-    .e-bigger.fabric .value {
+    .e-bigger.fabric .multiselect-template .value,
+    .e-bigger.fabric-dark .multiselect-template .value {
         margin-top: 2px;
     }
 
-    .e-bigger.material .value {
-        margin-top: 18px;
-    }
-
-    .e-bigger .name {
+    .e-bigger .multiselect-template .name {
         padding: 0 0 0 36px;
         bottom: 24px;
         width: 121px;
     }
 
-    .e-bigger.highcontrast .name {
-        padding: 6px 0 0 36px;
+    .e-bigger.highcontrast .multiselect-template .name {
+        padding: 10px 0 0 36px;
         bottom: 24px;
         width: 121px;
     }
 
-    .fabric .name {
+    .fabric .multiselect-template .name,
+    .fabric-dark .multiselect-template .name {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -292,7 +302,8 @@
         margin-right: -23px;
     }
 
-    .fabric.e-bigger .name {
+    .fabric.e-bigger .multiselect-template .name,
+    .fabric-dark.e-bigger .multiselect-template .name {
         padding: 7px 0 0 32px;
         width: 100%;
         position: relative;
@@ -302,7 +313,8 @@
         margin-right: -6px;
     }
 
-    .bootstrap.e-bigger .name {
+    .bootstrap.e-bigger .multiselect-template .name,
+    .bootstrap-dark.e-bigger .multiselect-template .name {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -312,62 +324,84 @@
         margin-right: -24px;
     }
 
-    .bootstrap.e-bigger .value {
+    .bootstrap4.e-bigger .multiselect-template .name {
+        padding: 9px 0 9px 24px;
+    }
+
+    .bootstrap.e-bigger .multiselect-template .value,
+    .bootstrap-dark.e-bigger .multiselect-template .value {
         left: -9px;
         margin-top: 17px;
     }
 
-    .e-bigger .value {
+    .bootstrap5.e-bigger .multiselect-template .value {
+        margin-top: 1px;
+    }
+
+    .e-bigger .multiselect-template .value {
         position: relative;
     }
 
-    .tailwind.e-bigger .name {
+    .tailwind.e-bigger .multiselect-template .name,
+    .tailwind-dark.e-bigger .multiselect-template .name {
         padding: 6px 0 0 35px;
         line-height: 1.2em;
     }
 
-    .tailwind .name,
-    .bootstrap4 .name {
+    .tailwind .multiselect-template .name,
+    .bootstrap4 .multiselect-template .name {
         padding: 3px 0px 0px 25px;
         line-height: 1.2em;
     }
 
-    .bootstrap5 .name {
+    .bootstrap5 .multiselect-template .name {
         padding: 3px 0px 0px 30px;
     }    
 
-    .bootstrap5.e-bigger .name {
-        padding: 6px 0px 0px 35px;
+    .bootstrap5.e-bigger .multiselect-template .name {
+        padding: 7px 0px 0px 35px;
     }    
-    .bootstrap4 .value {
+    .bootstrap4 .multiselect-template .value {
       margin-left: -5px;
     }
-    .tailwind .value,
-    .bootstrap4 .value {
+    .tailwind .multiselect-template .value,
+    .bootstrap4 .multiselect-template .value {
         margin-top: 1px;
         height: 22px;
         width: 22px;
     }
-    .tailwind.e-bigger .value {
+    .tailwind.e-bigger .multiselect-template .value,
+    .tailwind-dark.e-bigger .multiselect-template .value {
         margin-top: 1px;
         height: 26px;
         width: 26px;
     }
 
-    .material.e-bigger .name {
-        padding: 2px 0 0 36px;
+    .material.e-bigger .multiselect-template .name,
+    .material-dark.e-bigger .multiselect-template .name,
+    .material3.e-bigger .multiselect-template .name,
+    .material3-dark.e-bigger .multiselect-template .name {
+        padding: 8px 0px 0px 26px;
+        margin-top: 0px;
+        position: unset;
         bottom: 24px;
         width: 100%;
-        position: relative;
     }
 
+    .material.e-bigger .multiselect-template .value,
+    .material-dark.e-bigger .multiselect-template .value,
+    .material3.e-bigger .multiselect-template .value,
+    .material3-dark.e-bigger .multiselect-template .value {
+        margin-top: 1px;
+    }
+    
     .material.e-bigger .e-chips.e-mob-chip.e-chip-selected .name {
         left: 0px;
         width: 110px;
         position: relative;
     }
 
-    .name {
+    .multiselect-template .name {
         padding: 3px 20px;
         line-height: 1.2em;
     }
@@ -393,13 +427,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent
+    },
     data: function() {
         return {
             fields: { value: 'Name', text: 'Name' },
@@ -407,5 +441,5 @@ export default Vue.extend ({
             data: data['empList']
         };
     }
-});
+}
 </script>

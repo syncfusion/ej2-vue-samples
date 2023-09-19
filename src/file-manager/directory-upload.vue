@@ -2,7 +2,26 @@
 <div>
     <div class="control-section folder-upload">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" ref="fileObject" :ajaxSettings='ajaxSettings' :success='onSuccess' >
+            <ejs-filemanager id="filemanager" ref="filemanagerInstance" :ajaxSettings='ajaxSettings' >
+                <e-toolbaritems>
+                    <e-toolbaritem name="NewFolder"></e-toolbaritem>
+                    <e-toolbaritem :template="'uploadTemplate'" name="Upload">
+                        <template v-slot:uploadTemplate>
+                            <div><ejs-dropdownbutton id="dropButton" ref="dropButtonInstance" cssClass="e-tbar-btn e-tbtn-txt" iconCss="e-icons e-fe-upload" :items='items' :select="onSelect" :onClick="uploadClick"> <span className="e-tbar-btn-text">Upload</span></ejs-dropdownbutton></div>
+                        </template>
+                    </e-toolbaritem>
+                    <e-toolbaritem name="SortBy"></e-toolbaritem>
+                    <e-toolbaritem name="Refresh"></e-toolbaritem>
+                    <e-toolbaritem name="Cut"></e-toolbaritem>
+                    <e-toolbaritem name="Copy"></e-toolbaritem>
+                    <e-toolbaritem name="Paste"></e-toolbaritem>
+                    <e-toolbaritem name="Delete"></e-toolbaritem>
+                    <e-toolbaritem name="Download"></e-toolbaritem>
+                    <e-toolbaritem name="Rename"></e-toolbaritem>
+                    <e-toolbaritem name="Selection"></e-toolbaritem>
+                    <e-toolbaritem name="View"></e-toolbaritem>
+                    <e-toolbaritem name="Details"></e-toolbaritem>
+                </e-toolbaritems>
             </ejs-filemanager>
         </div>
     </div>
@@ -21,7 +40,7 @@
             The <b>File Manager</b> component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete, refresh and so on.
         </p>
          <p>
-            <b>Note: </b>File Manager's upload functionality is restricted in the online demo. If you need to test upload functionality, please install 
+            <b>Note: </b>File Manager's upload functionality is restricted in the online demo. If you need to test upload functionality, please install
             <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
         </p>
     </div>
@@ -33,56 +52,50 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
-import { DropDownButton, ItemModel } from "@syncfusion/ej2-splitbuttons";
-Vue.use(FileManagerPlugin);
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView,ToolbarItemDirective,ToolbarItemsDirective} from "@syncfusion/ej2-vue-filemanager";
+import { DropDownButtonComponent, ItemModel } from "@syncfusion/ej2-vue-splitbuttons";
 /**
  * File Manager directory upload feature sample
  */
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-filemanager': FileManagerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'e-toolbaritem': ToolbarItemDirective,
+        'e-toolbaritems': ToolbarItemsDirective
+    },
      data: function() {
-        return {            
+        return {
            ajaxSettings:
             {
                 url: hostUrl + 'api/FileManager/FileOperations',
                 getImageUrl: hostUrl + 'api/FileManager/GetImage',
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download'
-            }
+            },
+            items: [{ text: "Folder" }, { text: "Files" }]
         };
     },
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar]
     },
     methods: {
-        onSuccess: function (args) {
-            if (!document.getElementById("filemanager_tb_upload").classList.contains("e-dropdown-btn")) {
-            var customBtn = document.getElementById("filemanager_tb_upload");
-            customBtn.onclick = (e) => {
-                e.stopPropagation();
-            };
-            //DropDownButton items definition
-            var items = [{ text: "Folder" }, { text: "Files" }];
-            var drpDownBtn = new DropDownButton({
-                items: items,
-                select: (args) => {
-                    var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                    if (args.item.text === "Folder") {
-                        fileObj.uploadSettings.directoryUpload = true;
-                    } else {
-                        fileObj.uploadSettings.directoryUpload = false;
-                    }
-                    setTimeout(function () {
-                        var uploadBtn = document.querySelector(".e-file-select-wrap button");
-                        uploadBtn.click();
-                    }, 100);
-                },
-            },"#filemanager_tb_upload"
-            );
+        onSelect: function (args) {
+            var fileObj = this.$refs.filemanagerInstance;
+            if (args.item.text === "Folder") {
+                fileObj.ej2Instance.uploadSettings.directoryUpload = true;
+            } else {
+                fileObj.ej2Instance.uploadSettings.directoryUpload = false;
             }
+            setTimeout(function () {
+                var uploadBtn = document.querySelector(".e-file-select-wrap button");
+                uploadBtn.click();
+            }, 100);
         },
-  },
-});
+        uploadClick: function(args){
+             args.stopPropagation();
+        }
+    },
+};
 </script>

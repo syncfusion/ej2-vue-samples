@@ -27,8 +27,7 @@
         {
             "url": "form-designer",
             "name": "Form Designer",
-            "category": "PDF Viewer",
-            "type": "update"
+            "category": "PDF Viewer"
         },
         {
             "url": "annotations",
@@ -39,6 +38,12 @@
             "url": "hand-written",
             "name": "Handwritten Signature",
             "category": "PDF Viewer"
+        },
+        {
+            "url": "invisible-signature",
+            "name": "Invisible Signature",
+            "category": "PDF Viewer",
+            "type": "new"
         }
     ]
 

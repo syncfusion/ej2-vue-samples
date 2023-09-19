@@ -152,9 +152,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   Node,
@@ -166,13 +165,12 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
 import { ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import {
-  NumericTextBox,
+  NumericTextBoxComponent,
   ChangeEventArgs as NumericChangeEventArgs
 } from "@syncfusion/ej2-vue-inputs";
 import { multiParentData } from "./diagram-data";
-
-Vue.use(DiagramPlugin);
 
 let diagramInstance;
 let marginTopObj;
@@ -180,7 +178,12 @@ let marginLeftObj;
 let horizontalSpacingObj;
 let verticalSpacingObj;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -295,7 +298,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 //Apply the Alignment for the layout.
 function update(value) {

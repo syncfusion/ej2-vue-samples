@@ -41,12 +41,14 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -91,6 +93,6 @@
 
             }
         }
-    });
+    }
 
 </script>

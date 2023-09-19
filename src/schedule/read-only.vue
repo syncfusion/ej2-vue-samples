@@ -35,12 +35,16 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { readonlyEventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], readonlyEventsData, null, true) },
@@ -72,6 +76,6 @@
                 return (eventObj.StartTime < new Date());
             }
         }
-    });
+    }
 
 </script>

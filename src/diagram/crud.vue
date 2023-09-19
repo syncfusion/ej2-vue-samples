@@ -176,16 +176,15 @@
 </style>
 
 <script lang='ts'>
-import Vue from 'vue';
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-import { DialogPlugin, Dialog } from '@syncfusion/ej2-vue-popups';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { DialogComponent, Dialog } from '@syncfusion/ej2-vue-popups';
 import {
-  ToolbarPlugin,
+  ToolbarComponent,
   Toolbar,
   ClickEventArgs
 } from '@syncfusion/ej2-vue-navigations';
 import {
-  DiagramPlugin,
+  DiagramComponent,
   ConnectorModel,
   NodeModel,
   Node,
@@ -200,22 +199,15 @@ import {
   Diagram
 } from '@syncfusion/ej2-vue-diagrams';
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   DropDownList,
   ChangeEventArgs
 } from '@syncfusion/ej2-vue-dropdowns';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { Ajax } from '@syncfusion/ej2-base';
 import CrudTemplate from './crud-template.vue';
 
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-
-Vue.use(DiagramPlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(DialogPlugin);
-Vue.use(TextBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
 
 let diagram: Diagram;
 let dialog: Dialog;
@@ -227,7 +219,15 @@ let targetID: string;
 
 let nodeData: { [key: string]: Object }[] = [];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'ejs-dialog': DialogComponent,
+    'ejs-textbox': TextBoxComponent
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       width: '100%',
@@ -322,7 +322,7 @@ export default Vue.extend({
     let targetDropdownObj: any = document.getElementById('TargetId');
     targetDropdown = targetDropdownObj.ej2_instances[0];
   }
-});
+}
 
 function dlgButtonClick(evt: Event) {
   let selectedItem: NodeModel | ConnectorModel | any = {};

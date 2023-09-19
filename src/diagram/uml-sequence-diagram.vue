@@ -18,9 +18,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   ShapeAnnotationModel,
   NodeModel,
@@ -30,8 +29,6 @@ import {
   SnapConstraints,
   UmlClassifierShapeModel
 } from "@syncfusion/ej2-vue-diagrams";
-
-Vue.use(DiagramPlugin);
 
 let diagramInstance;
 
@@ -156,7 +153,10 @@ let connectors = [
   },
   ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -185,6 +185,6 @@ export default Vue.extend({
        let diagram = this.$refs.diagramObj.ej2Instances;
         diagram.fitToPage();
   }
-});
+}
 
 </script>

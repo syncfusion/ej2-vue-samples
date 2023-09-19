@@ -7,11 +7,28 @@
         <ejs-toolbar cssClass="defaultToolbar" id="defaultToolbar" v-on:clicked="toolbarCliked">
             <e-items>
                 <e-item prefixIcon="e-tbar-menu-icon tb-icons" tooltipText="Menu"></e-item>
-                <e-item :template="folderTemplate"></e-item>
-                <e-item align="Right" :template="userTemplate"></e-item>
-                <e-item cssClass="e-custom" align="Right" :template="userImageTemplate"></e-item>
-            </e-items>
-        </ejs-toolbar>
+                <e-item :template="'folderTemplate'"> </e-item>
+                <template v-slot:folderTemplate>
+                <div class="e-folder">
+                    <div class="e-folder-name">Webmail</div>
+                </div>
+                </template>
+                <e-item align="Right" :template="'userTemplate'"></e-item>
+                <template v-slot:userTemplate>
+                <div class="e-user-name">John</div>
+                </template>
+                <e-item cssClass="e-custom" align="Right" :template="'userImageTemplate'"></e-item>
+                <template v-slot:userImageTemplate>
+                    <div class="image-container">
+                        <img
+                        height="20px"
+                        src="https://ej2.syncfusion.com/vue/demos/src/images/sidebar/images/user.svg"
+                        alt="John"
+                        />
+                    </div>
+                </template>
+                </e-items>
+            </ejs-toolbar>
         </div>
         <div class="maincontent">
             <ejs-listview id="listView" ref="listview" :template="listTemplate" cssClass="e-list-template" :dataSource='listData' :fields='fields' v-on:select="onListSelect">
@@ -43,38 +60,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { SidebarPlugin, ToolbarPlugin, TreeViewPlugin } from '@syncfusion/ej2-vue-navigations';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { ListViewPlugin } from '@syncfusion/ej2-vue-lists';
+import { createApp } from 'vue';
+import { SidebarComponent, ToolbarComponent, ItemDirective, ItemsDirective, TreeViewComponent } from '@syncfusion/ej2-vue-navigations';
+import { ListViewComponent } from '@syncfusion/ej2-vue-lists';
 import * as dataSource from './default-data.json';
-Vue.use(SidebarPlugin, ButtonPlugin, ToolbarPlugin, ListViewPlugin, TreeViewPlugin);
 
-var folderTemplate = Vue.component("demo", {
-   template: '<div class="e-folder"><div class="e-folder-name">Webmail</div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-var userTemplate = Vue.component("demo", {
-   template: '<div><div class="e-user-name">John</div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-var userImageTemplate = Vue.component("demo", {
-   template: '<div class="image-container"><img height="20px" src="../images/sidebar/images/user.svg" alt="John" /></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-var listTemplate = Vue.component("demo", {
+var app = createApp();
+var listTemplate = app.component("demo", {
    template: "<div class='e-list-wrapper e-list-avatar e-list-multi-line'>"
             + "<span class='e-avatar e-avatar-circle e-icon sf-icon-profile'></span>"
             + "<span class='e-list-item-header'>{{data.text}}</span>"
@@ -87,24 +79,17 @@ var listTemplate = Vue.component("demo", {
     };
   }
 });
-export default Vue.extend({
+export default {
+    components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-sidebar': SidebarComponent,
+    'ejs-treeview': TreeViewComponent,
+    'ejs-listview': ListViewComponent
+  },
     data: function() {
         return {
-            folderTemplate: function (e) {
-                return {
-                    template: folderTemplate
-                };
-            },
-            userTemplate: function() {
-                return {
-                    template: userTemplate
-                }
-            },
-            userImageTemplate: function() {
-                return {
-                    template: userImageTemplate
-                }
-            },
             listTemplate: function() {
                 return {
                     template: listTemplate
@@ -149,7 +134,7 @@ export default Vue.extend({
             this.listData = ListData;
         }
     }
-});
+};
 </script>
 
 

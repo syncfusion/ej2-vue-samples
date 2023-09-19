@@ -24,7 +24,7 @@
             Grid has options to show the context menu when right click on it. To configure the items in context menu, you should define
             either default or custom item in
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#contextmenuitems">contextMenuItems
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#contextmenuitems">contextMenuItems
                 </a></code>. Each item will be shown based on it target. The default items are
             <br>
         </p>
@@ -80,13 +80,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
     data: orderDetails,
@@ -100,5 +102,5 @@ export default Vue.extend({
   provide: {
       grid: [ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize]
     }
-});
+}
 </script>

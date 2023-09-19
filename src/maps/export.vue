@@ -56,7 +56,7 @@
             <tr id="button-control" style="height: 70px">
                 <td align='center'>
                     <div style="margin-left: 50%;">
-                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click.native='clickExport'></ejs-button>
+                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click='clickExport'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -126,14 +126,18 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, MapAjax, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data:function(){
       return{
         allowImageExport: true,
@@ -213,5 +217,5 @@ methods:{
     }
 
 }
-})
+}
 </script>

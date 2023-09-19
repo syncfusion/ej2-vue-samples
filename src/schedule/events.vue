@@ -22,7 +22,7 @@
                     <tr>
                         <td>
                             <div class="evtbtn" style="padding-bottom: 10px">
-                                <ejs-button id='clear' v-on:click.native="onClear">Clear</ejs-button>
+                                <ejs-button id='clear' v-on:click="onClear">Clear</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -55,15 +55,16 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
@@ -128,6 +129,6 @@
             },
 
         }
-    });
+    }
 
 </script>

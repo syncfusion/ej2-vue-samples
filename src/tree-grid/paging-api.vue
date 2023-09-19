@@ -110,21 +110,22 @@
   </template>
 
   <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Filter, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Filter, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
-import { NumericTextBoxPlugin, NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-import { CheckBoxPlugin, CheckBoxComponent, ChangeEventArgs as checkboxchangeargs } from '@syncfusion/ej2-vue-buttons';
+import { CheckBoxComponent, ChangeEventArgs as checkboxchangeargs } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(CheckBoxPlugin);
-
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -141,44 +142,44 @@ export default Vue.extend({
     },
    methods:{
        oncheck: function(e: checkboxchangeargs) {
-           (<TreeGridComponent>this.$refs.treegrid).ej2Instances.allowPaging = e.checked;
-           this.toggleInputs(e.checked as boolean, true);
+           ((this as any).$refs.treegrid).ej2Instances.allowPaging = e.checked;
+           (this as any).toggleInputs(e.checked as boolean, true);
        },
        onChange: function(e: ChangeEventArgs): void {
          let type: string = <string>e.value;
-         let pagesize = (<NumericTextBoxComponent>this.$refs.pagesize).ej2Instances.value;
+         let pagesize = ((this as any).$refs.pagesize).ej2Instances.value;
             if (type === 'Root') {
-                (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings = { pageSizeMode: 'Root', pageSize: 2 };
+                ((this as any).$refs.treegrid).ej2Instances.pageSettings = { pageSizeMode: 'Root', pageSize: 2 };
             } else {
-                (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings = { pageSizeMode: 'All', pageSize: pagesize };
+                ((this as any).$refs.treegrid).ej2Instances.pageSettings = { pageSizeMode: 'All', pageSize: pagesize };
             }
-            this.toggleInputs(type === 'All',false);
+            (this as any).toggleInputs(type === 'All',false);
        },
         sizechange: function(e: ChangeEventArgs) {
-            let pagesize = (<NumericTextBoxComponent>this.$refs.pagesize).ej2Instances.value;
-            (<NumericTextBoxComponent>this.$refs.pagesize).ej2Instances.value = pagesize > (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings.totalRecordsCount ?
-                 (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings.totalRecordsCount : pagesize;
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings.pageSize = pagesize;
-            (<NumericTextBoxComponent>this.$refs.currentpage).ej2Instances.max = Math.ceil((<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings.totalRecordsCount / (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings.pageSize);
+            let pagesize = ((this as any).$refs.pagesize).ej2Instances.value;
+            ((this as any).$refs.pagesize).ej2Instances.value = pagesize > ((this as any).$refs.treegrid).ej2Instances.pageSettings.totalRecordsCount ?
+                 ((this as any).$refs.treegrid).ej2Instances.pageSettings.totalRecordsCount : pagesize;
+            ((this as any).$refs.treegrid).ej2Instances.pageSettings.pageSize = pagesize;
+            ((this as any).$refs.currentpage).ej2Instances.max = Math.ceil(((this as any).$refs.treegrid).ej2Instances.pageSettings.totalRecordsCount / ((this as any).$refs.treegrid).ej2Instances.pageSettings.pageSize);
         },
         countchange: function(e: ChangeEventArgs) {
-            let pagecount = (<NumericTextBoxComponent>this.$refs.pagecount).ej2Instances.value;
-            (<NumericTextBoxComponent>this.$refs.pagecount).ej2Instances.value = pagecount > 8 ? 8 : pagecount;
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.pageSettings.pageCount = (<NumericTextBoxComponent>this.$refs.pagecount).ej2Instances.value;
+            let pagecount = ((this as any).$refs.pagecount).ej2Instances.value;
+            ((this as any).$refs.pagecount).ej2Instances.value = pagecount > 8 ? 8 : pagecount;
+            ((this as any).$refs.treegrid).ej2Instances.pageSettings.pageCount = ((this as any).$refs.pagecount).ej2Instances.value;
 
         },
         pagechange: function(e: ChangeEventArgs) {
-            let currentpage = (<NumericTextBoxComponent>this.$refs.currentpage).ej2Instances.value;
-            let max = (<NumericTextBoxComponent>this.$refs.currentpage).ej2Instances.max;
-            (<NumericTextBoxComponent>this.$refs.currentpage).ej2Instances.value = currentpage > max ? max : currentpage;
-            let pageNumber: number = (<NumericTextBoxComponent>this.$refs.currentpage).ej2Instances.value;
-            (<TreeGridComponent>this.$refs.treegrid).goToPage(pageNumber);
+            let currentpage = ((this as any).$refs.currentpage).ej2Instances.value;
+            let max = ((this as any).$refs.currentpage).ej2Instances.max;
+            ((this as any).$refs.currentpage).ej2Instances.value = currentpage > max ? max : currentpage;
+            let pageNumber: number = ((this as any).$refs.currentpage).ej2Instances.value;
+            ((this as any).$refs.treegrid).goToPage(pageNumber);
         },
         toggleInputs: function(state: boolean, isPager?: boolean): void {
         if (isPager) {
             (<HTMLElement>document.getElementsByClassName('con-prop1')[0]).style.display = state ? 'table-row' : 'none';
         }
-        let flag: Boolean = (<DropDownListComponent>this.$refs.ddl).ej2Instances.value === 'All';
+        let flag: Boolean = ((this as any).$refs.ddl).ej2Instances.value === 'All';
         let elem: HTMLCollectionOf<Element> = document.getElementsByClassName('con-prop2');
         for (let i: number = 0; i < elem.length; i++) {
             (<HTMLElement>elem[i]).style.display = state && flag ? 'table-row' : 'none';
@@ -186,5 +187,5 @@ export default Vue.extend({
   }
 }
 
-});
+}
 </script>

@@ -21,15 +21,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager sample with firebase realtime database service
  */
 let hostUrl = 'https://realtime-firebase.azurewebsites.net/';
-export default Vue.extend ({
+
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {            
            ajaxSettings:  {
@@ -48,5 +50,5 @@ export default Vue.extend ({
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar]
     }
-});
+}
 </script>

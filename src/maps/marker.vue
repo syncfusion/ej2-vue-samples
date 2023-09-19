@@ -25,9 +25,9 @@
           <div id="template" style="display:none">
             <div class="toolback">
               <div class="listing2">
-               <center>
+               <span style="text-align: center;">
                   ${name}
-               </center>
+               </span>
              </div>
             <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">                    
             <div>
@@ -133,18 +133,24 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  MapsPlugin,
+  MapsComponent,
+  LayersDirective,
+  LayerDirective,
   Marker,
   MapsTooltip,
   MapAjax
 } from "@syncfusion/ej2-vue-maps";
 import { topPopulation } from "../maps/map-data/marker-location";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       useGroupingSeparator: true,
@@ -212,5 +218,5 @@ export default Vue.extend({
     }
   }
   /* custom code end */
-});
+};
 </script>

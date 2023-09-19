@@ -23,17 +23,17 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { HubConnectionBuilder } from "@microsoft/signalr";
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     import { scheduleData } from './datasource';
-
-    Vue.use(SchedulePlugin);
 
     var connection;    
     var isHubConnected = false;
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: scheduleData },
@@ -58,7 +58,7 @@
 
             connection.start().then(() => { isHubConnected = true; }).catch(() => { isHubConnected = false; });
         },
-        beforeDestroy() {
+        beforeUnmount() {
             if (connection) {
                 connection.stop().then(() => { isHubConnected = false; }).catch((err) => { console.log(err); });
             }
@@ -76,5 +76,5 @@
                 }
             }
         }
-    });
+    }
 </script>

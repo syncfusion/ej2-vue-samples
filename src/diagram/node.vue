@@ -112,9 +112,8 @@
 
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -130,13 +129,10 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   CheckBox,
-  CheckBoxPlugin,
+  CheckBoxComponent,
   ChangeEventArgs as CheckBoxChangeEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import { Point } from "@syncfusion/ej2-diagrams/src/diagram/primitives/point";
-
-Vue.use(DiagramPlugin);
-Vue.use(CheckBoxPlugin);
 
 let nodes =  [
   {id: 'sdlc', offsetX: 300, offsetY: 288, annotations: [{content: 'SDLC'}]},
@@ -160,7 +156,11 @@ let diagramInstance;
 let element;
 let lockElement;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -285,7 +285,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 
 //Enable or disable the Aspect Ratio Constraints for Node.

@@ -78,38 +78,32 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   UndoRedo,
   ConnectorModel,
   Node,
   Connector,
-  SymbolPalette,
+  SymbolPaletteComponent,
   SymbolInfo,
   ShapeModel
 } from "@syncfusion/ej2-vue-diagrams";
 import { ExpandMode } from "@syncfusion/ej2-vue-navigations";
 import {
   DropDownList,
-  DropDownListPlugin
+  DropDownListComponent
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
   CheckBox,
   ChangeEventArgs,
-  CheckBoxPlugin
+  CheckBoxComponent
 } from "@syncfusion/ej2-vue-buttons";
 import {
   NumericTextBox,
-  NumericTextBoxPlugin
+  NumericTextBoxComponent
 } from "@syncfusion/ej2-vue-inputs";
-
-Vue.use(DiagramPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DropDownListPlugin);
 
 //Initialize the flowshapes for the symbol palatte
 let flowshapes = [
@@ -188,7 +182,14 @@ let palette;
 let size;
 let expand;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent
+  },
   data: function() {
     return {
       expandMode: "Multiple",
@@ -277,7 +278,7 @@ export default Vue.extend({
     expand = this.$refs.expandObj.ej2Instances;
     palette.dataBind();
   }
-});
+}
 
 //Add or Remove the Text for Symbol palette item.
 function onHeaderIconChange(args) {

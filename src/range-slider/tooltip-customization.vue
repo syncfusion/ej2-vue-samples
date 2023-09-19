@@ -145,16 +145,10 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import {
-  Placement,
-  SliderTooltipEventArgs,
-  SliderTickEventArgs
-} from "@syncfusion/ej2-inputs";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(SliderPlugin);
-export default Vue.extend({
+
+export default {
   data: function() {
     return {
       ticks: {
@@ -179,6 +173,7 @@ export default Vue.extend({
       slidervalue: new Date(2013, 6, 13, 17).getTime()
     };
   },
+  components: { 'ejs-slider': SliderComponent },
   methods: {
     renderingTicksHandler: function(args) {
       let totalMiliSeconds = Number(args.value);
@@ -240,5 +235,5 @@ export default Vue.extend({
         .addEventListener("scroll", this.onScroll.bind(this));
     }
   }
-});
+};
 </script>

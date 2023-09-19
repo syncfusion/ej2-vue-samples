@@ -27,12 +27,12 @@
         <tr>
             <td style="width: 30%">
                 <div>
-                   <ejs-button ref='hide' v-on:click.native="hide">Hide</ejs-button>
+                   <ejs-button ref='hide' v-on:click="hide">Hide</ejs-button>
                 </div>
             </td>
             <td style="width: 70%">
                 <div>
-                    <ejs-button ref='show' disabled='true' v-on:click.native="show">Show</ejs-button>
+                    <ejs-button ref='show' disabled='true' v-on:click="show">Show</ejs-button>
                 </div>
             </td>
         </tr>
@@ -84,18 +84,20 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { TreeGridPlugin, TreeGridComponent, Page, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin, ClickEventArgs, ButtonComponent} from '@syncfusion/ej2-vue-buttons';
+import { TreeGridComponent, ColumnsDirective, ColumnDirective, Page, Column } from "@syncfusion/ej2-vue-treegrid";
+import { ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { ClickEventArgs, ButtonComponent} from '@syncfusion/ej2-vue-buttons';
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+  },
   data: () => {
     return {
       data: sampleData,
@@ -116,37 +118,37 @@ export default Vue.extend({
     methods: {
         onColChange: function(e: ChangeEventArgs): void {
           let columnName = <string>e.value;
-          let column: Column = (<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column;
+          let column: Column = ((this as TreeGridComponent).$refs.treegrid).getColumnByField(columnName) as Column;
           if (column.visible === undefined || column.visible) {
-                (<ButtonComponent>this.$refs.show).ej2Instances.disabled = true;
-                (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = false;
+                ((this as ButtonComponent).$refs.show).ej2Instances.disabled = true;
+                ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = false;
             } else {
-                (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = true;
-                (<ButtonComponent>this.$refs.show).ej2Instances.disabled = false;
+                ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = true;
+                ((this as ButtonComponent).$refs.show).ej2Instances.disabled = false;
             }
         },
         hide: function(e: ClickEventArgs) {
-             let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-             let column: Column = (<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column;
-             (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = true;
-             (<ButtonComponent>this.$refs.show).ej2Instances.disabled = false;
+             let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
+             let column: Column = ((this as TreeGridComponent).$refs.treegrid).getColumnByField(columnName) as Column;
+             ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = true;
+             ((this as ButtonComponent).$refs.show).ej2Instances.disabled = false;
              let hiddencols: HTMLTextAreaElement = document.getElementById('hiddencolumns') as HTMLTextAreaElement;
              let value: string = <string>column.headerText + '\n';
              hiddencols.value = hiddencols.value + value;
              console.log(hiddencols.value);
-             (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.hideColumns(column.headerText, 'headerText');
+             ((this as TreeGridComponent).$refs.treegrid).ej2Instances.grid.hideColumns(column.headerText, 'headerText');
         },
         show: function(e: ClickEventArgs){
-            let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-            let column: Column = (<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column;
-            (<ButtonComponent>this.$refs.show).ej2Instances.disabled = true;
-            (<ButtonComponent>this.$refs.hide).ej2Instances.disabled = false;
+            let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
+            let column: Column = ((this as TreeGridComponent).$refs.treegrid).getColumnByField(columnName) as Column;
+            ((this as ButtonComponent).$refs.show).ej2Instances.disabled = true;
+            ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = false;
             let hiddencols: HTMLTextAreaElement = document.getElementById('hiddencolumns') as HTMLTextAreaElement;
             let value = hiddencols.value.replace(column.headerText + '\n','');
             hiddencols.value = value;
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.showColumns(column.headerText, 'headerText');
+            ((this as TreeGridComponent).$refs.treegrid).ej2Instances.grid.showColumns(column.headerText, 'headerText');
         }
     }
 
-});
+};
 </script>

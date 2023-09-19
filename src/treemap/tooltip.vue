@@ -73,11 +73,13 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
 import { Airport_Count } from '../treemap/treemap-data/airport-count';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         tooltipSettings: {
@@ -162,5 +164,5 @@ methods:{
     }
 }
 /* custom code end */
-})
+}
 </script>

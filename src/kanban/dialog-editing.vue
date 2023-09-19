@@ -18,7 +18,7 @@
       <table id="property" title="Properties">
         <tr>
           <td>
-            <ejs-button id="addNew" class="e-btn e-dialog-add" v-on:click.native="addClick">Add New Card</ejs-button>
+            <ejs-button id="addNew" class="e-btn e-dialog-add" v-on:click="addClick">Add New Card</ejs-button>
           </td>
         </tr>
       </table>
@@ -51,15 +51,20 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import { extend, isNullOrUndefined, closest } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { kanbanData } from "./datasource";
 import ContentTemplate from "./dialog-addedit-content.vue";
 
-Vue.use(KanbanPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -69,7 +74,7 @@ export default Vue.extend({
       },
       dialogSettings: {
         template: function() {
-          return { template: ContentTemplate };
+          return { template: createApp({}).component('contentTemplate', ContentTemplate) };
         }
       }
     };
@@ -85,5 +90,5 @@ export default Vue.extend({
       this.$refs.kanbanInstance.ej2Instances.openDialog('Add', cardDetails);
     }
   }
-});
+};
 </script>

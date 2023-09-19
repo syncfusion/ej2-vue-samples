@@ -258,8 +258,7 @@
     }
 </style>
 <script>
-import Vue from "vue";
-export default Vue.extend({
+export default {
 	mounted: function() {
         document.getElementById('card_flip').onclick = function (e) {
             var cardEle = e.currentTarget;
@@ -288,6 +287,6 @@ export default Vue.extend({
             cardEle.classList.remove('e-flipped');
         };
     }
-});
+}
 
 </script>

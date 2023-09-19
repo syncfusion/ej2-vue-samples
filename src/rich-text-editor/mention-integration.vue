@@ -34,15 +34,15 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
-import { MentionPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { MentionComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 
-Vue.use(MentionPlugin);
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-mention': MentionComponent
+    },
     data: function() {
         return {
           data: data.emailData,
@@ -59,7 +59,7 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>
 
 <style scoped>

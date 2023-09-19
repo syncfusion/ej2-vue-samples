@@ -44,9 +44,8 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet,
   IAxisSet,
   IFieldOptions
@@ -55,12 +54,13 @@ import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { rData } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-
 /* tslint:disable */
 declare var require: any;
 let data: IDataSet[] = JSON.parse(JSON.stringify(rData));
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -121,13 +121,13 @@ export default Vue.extend({
     },
     dataBound: function(args: any) {
       /* jshint ignore:start */
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let cTable: HTMLElement[] = [].slice.call(
         document.getElementsByClassName("e-table")
       );
       let colLen: number = pivotObj.pivotValues[3].length;
-      let cLen: number = cTable[3].children[0].children.length;
-      let rLen: number = cTable[3].children[1].children.length;
+      let cLen: number = cTable[1].children[0].children.length - 1;
+      let rLen: number = cTable[1].children[1].children.length;
       let rowIndx: number;
 
       for (let k: number = 0; k < rLen; k++) {
@@ -141,7 +141,7 @@ export default Vue.extend({
         }
       }
       let rowHeaders: HTMLElement[] = [].slice.call(
-        cTable[2].children[1].querySelectorAll("td")
+        cTable[1].children[1].querySelectorAll('.e-rowsheader')
       ) as HTMLElement[];
       let rows: IFieldOptions[] = pivotObj.dataSourceSettings
         .rows as IFieldOptions[];
@@ -174,16 +174,16 @@ export default Vue.extend({
                 let row: number = fields[fieldHeaders[rnt]];
                 let prevRow: number = fields[fieldHeaders[rnt - 1]];
                 for (
-                  let j: number = 0, ci = 1;
+                  let j: number = 1, ci = 1;
                   j < cLen && ci < colLen;
                   j++, ci++
                 ) {
-                  if (!cTable[3].children[1].children[row]) {
+                  if (!cTable[1].children[1].children[row]) {
                       break;
                   }
-                  let node: HTMLElement = cTable[3].children[1].children[row]
+                  let node: HTMLElement = cTable[1].children[1].children[row]
                     .childNodes[j] as HTMLElement;
-                  let prevNode: HTMLElement = cTable[3].children[1].children[
+                  let prevNode: HTMLElement = cTable[1].children[1].children[
                     prevRow
                   ].childNodes[j] as HTMLElement;
                   let ri: any = undefined;
@@ -239,16 +239,16 @@ export default Vue.extend({
             ) {
               var row = fields[fieldHeaders[rnt]];
               for (
-                let j: number = 0, ci = 1;
+                let j: number = 1, ci = 1;
                 j < cLen && ci < colLen;
                 j++, ci++
               ) {
-                if (!cTable[3].children[1].children[row]) {
+                if (!cTable[1].children[1].children[row]) {
                     break;
                 }
-                let node: HTMLElement = cTable[3].children[1].children[row]
+                let node: HTMLElement = cTable[1].children[1].children[row]
                   .childNodes[j] as HTMLElement;
-                let prevNode: HTMLElement = cTable[3].children[1].children[
+                let prevNode: HTMLElement = cTable[1].children[1].children[
                   row - 1
                 ].childNodes[j] as HTMLElement;
                 let ri: any = undefined;
@@ -260,12 +260,12 @@ export default Vue.extend({
                   prevRi = prevNode.getAttribute("index");
                 }
                 if (ri && ri < [].slice.call(pivotObj.pivotValues).length) {
-                  let cRowFieldName: string = (cTable[2].children[1].children[
+                  let cRowFieldName: string = (cTable[1].children[1].children[
                     row
                   ].childNodes[0] as HTMLElement).getAttribute(
                     "fieldname"
                   ) as string;
-                  let prevRowFieldName: string = (cTable[2].children[1]
+                  let prevRowFieldName: string = (cTable[1].children[1]
                     .children[row - 1]
                     .childNodes[0] as HTMLElement).getAttribute(
                     "fieldname"
@@ -310,7 +310,7 @@ export default Vue.extend({
     }
     /* jshint ignore:end */
   }
-});
+}
 </script>
 <style scoped>
 /deep/ #pivotview {

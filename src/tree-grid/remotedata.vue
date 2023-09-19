@@ -51,14 +51,16 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-treegrid";
 import { DataManager, WebApiAdaptor } from "@syncfusion/ej2-data";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
       let SERVICE_URI: string =
       "https://services.syncfusion.com/vue/production/api/SelfReferenceData";
@@ -77,5 +79,5 @@ export default Vue.extend({
       
   }
 
-});
+}
 </script>

@@ -3,14 +3,14 @@
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
             <div align='center'>
-                <ejs-lineargauge :load='load' ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container' :titleStyle='titleStyle'>
+                <ejs-lineargauge :load='load' :background='background' ref="lineargauge" style='display:block' align='center' id='boxContainer' :title='title' :container='container' :titleStyle='titleStyle'>
                     <e-axes>
                         <e-axis minimum=0 maximum=180 :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                             <e-pointers>
                                 <e-pointer value=90 :height='height' :roundedCornerRadius='roundedCornerRadius' :width='width' :type='type' :color='color'></e-pointer>
                             </e-pointers>
                         </e-axis>
-                        <e-axis minimum=0 maximum=180 :line='line2' :majorTicks='majorTicks2' :opposedPosition='opposedPosition'>
+                        <e-axis minimum=0 maximum=180 :line='line2' :majorTicks='majorTicks2' :minorTicks='minorTicks2' :opposedPosition='opposedPosition'>
                             <e-pointers>
                                 <e-pointer :width='width2'></e-pointer>
                             </e-pointers>
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-
+<br>
 <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <colgroup>
@@ -28,9 +28,9 @@
             <col span="1" style="width: 70%;">
          </colgroup>
             <tbody>
-                <tr style="height: 50px">
+                <tr style="height: 40px">
                     <td>
-                        <div>Orientation</div>
+                        <div style="font-size:14px" >Orientation</div>
                     </td>
                     <td>
                         <div>
@@ -38,9 +38,9 @@
                         </div>
                     </td>
                 </tr>
-                <tr style="height: 50px">
+                <tr style="height: 40px">
                     <td>
-                        <div>Container Type</div>
+                        <div style="font-size:14px">Container Type</div>
                     </td>
                     <td>
                         <div>
@@ -52,45 +52,40 @@
             </tbody>
         </table>
     </div>
-    <div id="action-description">
-        <p>
-            This sample illustrates the default rendering of linear gauge.
-        </p>
-    </div>
-    <div id="description">
-        <p>
-            This sample demonstrates the orientation and container customization in linear gauge. The gauge can be rendered either in vertical or horizontal orientation. And you can use <code>type</code> property in container to change the type of the
-            container.
-        </p>
-        <br>
-        <p>
-            More information about container can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation">documentation section</a>.
-        </p>
-    </div>
+<div id="action-description">
+    <p>
+        This sample shows the different types of containers, such as normal, thermometer, and rounded rectangle. The
+        linear gauge's orientation can also be changed from vertical to horizontal.
+    </p>
+</div>
+<div id="description">
+    <p>
+        The linear gauge can be rendered vertically or horizontally depending on the option selected in the
+        <b>Orientation</b> drop-down list. You can also select the container type from the <b>Container Type</b>
+        drop-down list.
+    </p>
+    <p>
+        More information on the containers can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/linear-gauge-appearance#customizing-the-linear-gauge-container">documentation
+            section</a>. Likewise, information about orientation can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/axis/#orientation">documentation
+            section</a>.
+    </p>
+    <br>
+</div>
 </div>
 </template>
-<style scoped>
-    #control-container {
-        padding: 0px !important;
-    }
-
-    .property-panel-section {
-        height: 380px;
-    }
-</style>
 <script>
-import Vue from "vue";
-import { LinearGaugePlugin } from "@syncfusion/ej2-vue-lineargauge";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(LinearGaugePlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-lineargauge";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
     data: function () {
         return {
             title: 'Temperature Measure',
+            background:'transparent',
             titleStyle: {
-                fontFamily: 'Segoe UI'
+                fontFamily: 'inherit'
             },
             container: {
                 width: 13,
@@ -102,15 +97,14 @@ export default Vue.extend({
             },
             labelStyle:{
                 font: {
-                    fontFamily: 'Segoe UI'
+                    fontFamily: 'inherit'
                 }
-           },
+            },
             majorTicks: {
-                interval: 20,
-                color: '#9e9e9e'
+                interval: 20, height: 20, color: '#9e9e9e'
             },
             minorTicks: {
-                color: '#9e9e9e'
+                height: 10, interval: 10, color: '#9e9e9e'
             },
             roundedCornerRadius: 5,
             height: 13,
@@ -121,7 +115,10 @@ export default Vue.extend({
                 width: 0
             },
             majorTicks2: {
-                interval: 20
+                interval: 20, height: 20, color: '#9e9e9e'
+            },
+            minorTicks2: {
+                height: 10, interval: 10, color: '#9e9e9e'
             },
             opposedPosition: true,
             width2: 0,
@@ -133,15 +130,15 @@ export default Vue.extend({
             containerwidth: '100%',
         }
     },
+    components: {
+        'ejs-lineargauge': LinearGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective,
+        'e-pointers': PointersDirective,
+        'e-pointer': PointerDirective,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     methods: {
-        /* custom code start */
-        load: function (args) {
-            let selectedTheme = location.hash.split("/")[1];
-            selectedTheme = selectedTheme ? selectedTheme : "Material";
-            args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        },
-        /* custom code end */
         changeContainer: function (args) {
             this.$refs.lineargauge.ej2Instances.container.type = containerMode.value;
             this.$refs.lineargauge.ej2Instances.refresh();
@@ -149,14 +146,16 @@ export default Vue.extend({
         changeOrientation: function (args) {
             this.$refs.lineargauge.ej2Instances.orientation = orientationMode.value;
             this.$refs.lineargauge.ej2Instances.refresh();
+        },
+        load: function(args) {
+        /* custom code start */
+        let selectedTheme = location.hash.split("/")[1];
+        selectedTheme = selectedTheme ? selectedTheme : "Material";
+        args.gauge.theme =
+            (selectedTheme.charAt(0).toUpperCase() +
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+        /* custom code end */
         }
     }
-});
+};
 </script>
-
-<style>
-#control-container {
-    padding: 0px !important;
-}
-</style>
-

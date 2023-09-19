@@ -4,14 +4,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { createApp } from "vue";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from "@syncfusion/ej2-base";
 import datatempVue from "./data-vue-template.vue";
 
 enableRipple(false);
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       cssClass: "e-list-template",
@@ -24,10 +27,10 @@ export default Vue.extend({
       ],
       datatemplate: function() {
         return {
-          template: datatempVue
+          template: createApp({}).component('dataTemplate', datatempVue)
         };
       }
     };
   }
-});
+};
 </script>

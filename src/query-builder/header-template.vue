@@ -8,12 +8,12 @@
                             <ejs-dropdownlist :id="data.ruleID +'_cndtn'" cssClass="e-custom-group-btn" :dataSource="items" :fields="fields"  v-model="data.condition"  :change="conditionChange"></ejs-dropdownlist>
                             <div class = "e-header">
                                 <div class = "e-qb-hdr-content">
-                                    <ejs-button :id="data.ruleID + '_addgrp'" cssClass="e-primary" class = "e-grp-btn" v-on:click.native='grpbtnClick'>Add Group</ejs-button>
+                                    <ejs-button :id="data.ruleID + '_addgrp'" cssClass="e-primary" class = "e-grp-btn" v-on:click='grpbtnClick'>Add Group</ejs-button>
                                 </div>
                                 <div class = "e-qb-hdr-content">
-                                    <ejs-button :id="data.ruleID + '_addrule'" cssClass="e-primary" class = "e-cond-btn" v-on:click.native='rulebtnClick'>Add Condition</ejs-button>
+                                    <ejs-button :id="data.ruleID + '_addrule'" cssClass="e-primary" class = "e-cond-btn" v-on:click='rulebtnClick'>Add Condition</ejs-button>
                                 </div>
-                                <ejs-button v-if="data.ruleID !== 'querybuilder_group0'" :id="data.ruleID + '_dltbtn'" class = "e-del-btn" v-on:click.native='btnClick' cssClass="e-danger">Delete Group</ejs-button>
+                                <ejs-button v-if="data.ruleID !== 'querybuilder_group0'" :id="data.ruleID + '_dltbtn'" class = "e-del-btn" v-on:click='btnClick' cssClass="e-danger">Delete Group</ejs-button>
                             </div>
                             </div>
                         </div>
@@ -90,16 +90,20 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { QueryBuilderComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-querybuilder";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { getComponent, compile,closest } from '@syncfusion/ej2-base';
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
-Vue.use(QueryBuilderPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+        'ejs-querybuilder': QueryBuilderComponent,
+        'e-column': ColumnDirective,
+        'e-columns': ColumnsDirective,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             importRules: {
@@ -145,5 +149,5 @@ export default Vue.extend({
                 qryBldrObj.deleteGroup(closest(args.target.offsetParent, '.e-group-container'));
             }
     }
-});
+}
 </script>

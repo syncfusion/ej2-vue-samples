@@ -28,7 +28,7 @@
                 </td>
                 <td style="padding-bottom: 16px">
                     <div>
-                        <ejs-dropdownlist id='measures' ref="measures" :dataSource='measures' :fields='measureFields' index=0 width='100%' :change='onMeasureChange'></ejs-dropdownlist>
+                        <ejs-dropdownlist id='measures' ref="measures" :dataSource='measures' :fields='measureFields' index=0 width='100%'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -68,10 +68,10 @@
             <tr style="height: 50px">
               <td colspan="2">
                   <div style="float:right;margin-right: 4px">
-                      <ejs-button id="clear" ref="clear" v-on:click.native="onClear">Clear</ejs-button>
+                      <ejs-button id="clear" ref="clear" v-on:click="onClear">Clear</ejs-button>
                   </div>
                   <div style="float:right;margin-right: 4px">
-                      <ejs-button id="apply" ref="apply" v-on:click.native="onClick" isPrimary='true'>Apply</ejs-button>
+                      <ejs-button id="apply" ref="apply" v-on:click="onClick" isPrimary='true'>Apply</ejs-button>
                   </div>
               </td>
             </tr>
@@ -144,15 +144,14 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { PivotViewPlugin, Operators, IDataSet } from "@syncfusion/ej2-vue-pivotview";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { PivotViewComponent, Operators, IDataSet } from "@syncfusion/ej2-vue-pivotview";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
-  NumericTextBoxPlugin,
+  NumericTextBoxComponent,
   ChangeEventArgs as NumericEventArgs
 } from "@syncfusion/ej2-vue-inputs";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
@@ -160,10 +159,6 @@ import { FilterModel } from "@syncfusion/ej2-pivotview/src/model/datasourcesetti
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
 /* tslint:disable */
 declare var require: any;
 let fieldCollections: { [key: string]: FilterModel } = {};
@@ -202,7 +197,13 @@ function setFilters(
   };
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -240,18 +241,18 @@ export default Vue.extend({
   methods: {
     ondataBound: function(args: any) {
       fieldCollections = {};
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       for (let field of pivotObj.dataSourceSettings.filterSettings) {
         fieldCollections[field.name] = field;
       }
     },
     onClick: function() {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-        var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-        var measuresddl = (<any>this.$refs.measures).ej2Instances;
-        var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-        var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-        var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+        var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+        var measuresddl = ((this as any).$refs.measures).ej2Instances;
+        var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+        var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+        var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       let filterOptions: FilterModel[] = [];
       filterOptions = [{
           name: fieldsddl.value,
@@ -264,18 +265,18 @@ export default Vue.extend({
       pivotObj.dataSourceSettings.filterSettings = filterOptions;
     },
     onClear: function() {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       pivotObj.dataSourceSettings.filterSettings = [];
       valueInput1.value = '0';
       valueInput2.value = '0';
     },
     onFieldChange: function(args: ChangeEventArgs) {
-      var measuresddl = (<any>this.$refs.measures).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var measuresddl = ((this as any).$refs.measures).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       if (fieldCollections[args.value as string]) {
         measuresddl.value = fieldCollections[args.value as string].measure;
         operatorddl.value = fieldCollections[args.value as string].condition;
@@ -286,10 +287,10 @@ export default Vue.extend({
       }
     },
     onOperatorChange: function(args: ChangeEventArgs) {
-      var measuresddl = (<any>this.$refs.measures).ej2Instances;
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var measuresddl = ((this as any).$refs.measures).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       if (args.value === "Between" || args.value === "NotBetween") {
         (document.querySelector(".input2cls") as HTMLElement).style.display = "";
       } else {
@@ -304,11 +305,11 @@ export default Vue.extend({
       );
     },
     onValue1Change: function(e: NumericEventArgs) {
-      var measuresddl = (<any>this.$refs.measures).ej2Instances;
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var measuresddl = ((this as any).$refs.measures).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       setFilters(
         fieldsddl.value as string,
         measuresddl.value as string,
@@ -318,11 +319,11 @@ export default Vue.extend({
       );
     },
     onValue2Change: function(e: NumericEventArgs) {
-      var measuresddl = (<any>this.$refs.measures).ej2Instances;
-      var fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
+      var measuresddl = ((this as any).$refs.measures).ej2Instances;
+      var fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
       setFilters(
         fieldsddl.value as string,
         measuresddl.value as string,
@@ -332,7 +333,7 @@ export default Vue.extend({
       );
     }
   }
-});
+}
 </script>
 
 <style scoped>

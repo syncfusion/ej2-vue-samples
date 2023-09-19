@@ -54,17 +54,13 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
-import { GridPlugin, Page, Selection } from "@syncfusion/ej2-vue-grids";
-import { DataManager, Query, Predicate } from '@syncfusion/ej2-data';
+import { QueryBuilderComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-querybuilder";
+import { GridComponent, Page, Selection } from "@syncfusion/ej2-vue-grids";
+import { DataManager, Query } from '@syncfusion/ej2-data';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 import * as dataSource from './data-source.json';
 
-Vue.use(QueryBuilderPlugin);
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
   data: function() {
     return {
       dataSource: dataSource.hardwareData,
@@ -82,6 +78,12 @@ export default Vue.extend({
       }
     };
   },
+  components: { 
+        'ejs-querybuilder': QueryBuilderComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective,
+        'ejs-grid': GridComponent
+    },
   methods: {
         updateRule: function(args) {
             var predicate = this.$refs.querybuilder.ej2Instances.getPredicate(args.rule);
@@ -110,5 +112,5 @@ export default Vue.extend({
   provide: {
       grid: [Page, Selection]
    }
-});
+};
 </script>

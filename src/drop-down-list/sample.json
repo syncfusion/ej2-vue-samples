@@ -2,6 +2,7 @@
     "name": "Dropdown List",
     "directory": "drop-down-list",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -39,6 +40,17 @@
             "description": "This example demonstrates how to customize the appearance of each item in the Vue drop-down list component pop-up list using the template.",
             "sourceFiles":[
                 { "displayName": "template.vue", "path":"src/drop-down-list/template.vue" },
+                { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "virtual-scroll",
+            "name": "Virtualization",
+            "category": "Dropdown List",
+            "type": "new",
+            "description": "This example demonstrates how to utilize the virtual scrolling support of Vue drop-down list component.",
+            "sourceFiles":[
+                { "displayName": "virtual-scroll.vue", "path":"src/drop-down-list/virtual-scroll.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },

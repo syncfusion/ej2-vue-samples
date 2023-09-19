@@ -16,7 +16,7 @@
                         <div>Export Type</div>
                     </td>
                     <td style="width: 60%;">
-                        <div style="margin-left: -30px">
+                        <div style="margin-left: -10px">
                             <ejs-dropdownlist ref="dropdown" id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>  
                         </div>
                     </td>
@@ -33,15 +33,15 @@
                 </tr>
                 <tr id="button-control1">
                     <td>
-                        <div style="height: 45px">
-                            <ejs-button id='togglebtn1' :style='style' :cssClass="e-flat" iconCss='e-icons e-export-icon' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
+                        <div style="height: 45px; margin-left: 50%;">
+                            <ejs-button  cssClass="e-flat" iconCss='e-icons e-export-icon' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click='clickExport'></ejs-button>
                         </div>
                     </td>
                 </tr>
                 <tr id="button-control2">
                     <td>
-                        <div style="height: 45px">
-                            <ejs-button id='togglebtn2' :style='style' :cssClass="e-flat" iconCss='e-icons e-print-icon' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>                       
+                        <div style="height: 45px; margin-left: 50%;">
+                            <ejs-button  cssClass="e-flat" iconCss='e-icons e-print-icon' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click='clickPrint'></ejs-button>                       
                         </div>
                     </td>
                 </tr>
@@ -70,11 +70,9 @@
         font-weight: 400 !important;
     }
     
-    #togglebtn1 {
-        width: 85px;
-    }
-    #togglebtn2 {
-        width: 85px;
+    .e-view.material3 .e-print-icon::before,
+    .e-view.material3-dark .e-print-icon::before {
+    	content: "\e75d";
     }
     .e-export-icon::before {
         content: '\\e728';
@@ -84,14 +82,18 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SmithchartPlugin,SmithchartLegend, TooltipRender } from '@syncfusion/ej2-vue-charts';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(SmithchartPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+import { SmithchartComponent, SeriesCollectionDirective, SeriesDirective, SmithchartLegend, TooltipRender } from '@syncfusion/ej2-vue-charts';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-smithchart': SmithchartComponent,
+    'e-seriesCollection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{  
         horizontalAxis: {
@@ -165,5 +167,5 @@ methods:{
         this.$refs.smithchart.ej2Instances.print();
    } 
 }
-})
+}
 </script>

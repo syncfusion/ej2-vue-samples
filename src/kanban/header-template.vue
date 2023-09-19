@@ -128,14 +128,16 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
+import { KanbanComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-kanban";
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -153,5 +155,5 @@ export default Vue.extend({
   provide: {
     kanban: []
   }
-});
+}
 </script>

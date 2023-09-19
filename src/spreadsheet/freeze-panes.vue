@@ -96,11 +96,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent, SheetDirective, RowsDirective, RowDirective, SheetsDirective, ColumnsDirective, ColumnDirective, RangesDirective, RangeDirective } from '@syncfusion/ej2-vue-spreadsheet';
 import dataSource from "./freeze-panes-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective
+   },
    data: () => {
     return {
       dataSource: dataSource.defaultData,
@@ -132,5 +142,5 @@ export default Vue.extend({
         spreadsheet.numberFormat('$#,##0.00', 'O27:P27');
     }
   }
-});
+}
 </script>

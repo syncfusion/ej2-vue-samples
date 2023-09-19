@@ -2,6 +2,7 @@
     "name": "AutoComplete",
     "directory": "auto-complete",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -39,6 +40,17 @@
             "description": "This example demonstrates how to customize the appearance of each item in the Vue autocomplete component pop-up list using template.",
             "sourceFiles":[
                 { "displayName": "template.vue", "path":"src/auto-complete/template.vue" },
+                { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "virtual-scroll",
+            "name": "Virtualization",
+            "category": "AutoComplete",
+            "type": "new",
+            "description": "This example demonstrates how to utilize the virtual scrolling support of Vue autocomplete component.",
+            "sourceFiles":[
+                { "displayName": "virtual-scroll.vue", "path":"src/auto-complete/virtual-scroll.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },

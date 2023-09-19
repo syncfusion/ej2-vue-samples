@@ -70,11 +70,19 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./sorting-and-filtering-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, ColumnDirective, ColumnsDirective  } from "@syncfusion/ej2-vue-spreadsheet";
+import dataSource from "./sorting-and-filtering-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },
    data: () => {
     return {
         Employeedetails:"Employee deatils",
@@ -93,5 +101,5 @@ export default Vue.extend({
             });
             }
         }
-});
+}
 </script>

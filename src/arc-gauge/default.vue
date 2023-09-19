@@ -5,6 +5,8 @@
       <e-axes>
         <e-axis startAngle="0" endAngle="270" minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotations' :ranges='ranges'>
           <e-pointers>
+		      <e-pointer pointerWidth="0" :cap='pointerCap'>
+		  </e-pointer>
           </e-pointers>
         </e-axis>
       </e-axes>
@@ -35,12 +37,21 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, Annotations, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-circulargauge";
+
+export default {
+  components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective,
+        'e-pointers': PointersDirective,
+		'e-pointer': PointerDirective
+   },
    data:function(){
     return{
+	   pointerCap: {
+	      radius:0
+	   },
        titleStyleOne:{
           size:'18px',
           fontFamily: 'inherit'
@@ -145,7 +156,7 @@ export default Vue.extend({
         }],
         annotations: [
             {
-            content: '<div class="titleText" style="color:#c8eab7;">YouTube</div>',
+            content: '<div class="youTubeText" style="color:#c8eab7;">YouTube</div>',
             angle: 344,
             radius: '94%',
             zIndex: '1',
@@ -163,9 +174,9 @@ export default Vue.extend({
               zIndex: '1',
             },
             {
-              content: '<div class="titleText" style="color:#1d91bf;">Facebook</div>',
-              angle: 332,
-              radius: '55%',
+              content: '<div class="fbText" style="color:#1d91bf;">Facebook</div>',
+              angle: 328,
+              radius: '50%',
               zIndex: '1',
             },
             {
@@ -236,33 +247,49 @@ export default Vue.extend({
         /* custom code end */
         }
     }
-})
+}
 </script>
 <style>
-    #dfarcgauge .titleText {
+    #dfarcgauge .titleText, 
+    #dfarcgauge .fbText {
         font-family:inherit;
         font-size: 22px;
-        margin-top: 3px;
+        margin-top: -2px;
         margin-left: -18px;
     }
-
-    .e-view.tailwind div#dfarcgauge .titleText,
-    .e-view.tailwind-dark div#dfarcgauge .titleText {
+    
+    #dfarcgauge .youTubeText {
+        font-family:inherit;
         font-size: 22px;
-        margin-top: -5px;
-        margin-left: -18px;
+        margin-top: -2px;
+        margin-left: -13px;
     }
+    
+    .e-view.tailwind div#dfarcgauge .titleText,
+    .e-view.tailwind-dark div#dfarcgauge .titleText,
+    .e-view.tailwind div#dfarcgauge .youTubeText,
+    .e-view.tailwind-dark div#dfarcgauge .youTubeText {
+        font-size: 22px;
+        margin-top: -7px;
+    }
+    
+    .e-view.tailwind div#dfarcgauge .fbText,
+    .e-view.tailwind-dark div#dfarcgauge .fbText {
+        font-size: 22px;
+        margin-top: 17px;
+    }
+    
     #dfarcgauge .tiktokText {
         font-family:inherit;
         font-size: 22px;
-        margin-top: 3px;
-        margin-left: -10px;
+        margin-top: -2px;
+        margin-left:-10px;
     }
 
     .e-view.tailwind div#dfarcgauge .tiktokText,
     .e-view.tailwind-dark div#dfarcgauge .tiktokText {
         font-size: 22px;
-        margin-top: -5px;
+        margin-top: -6px;
     }
     #dfarcgauge .annotation {
         font-family:inherit;
@@ -282,6 +309,13 @@ export default Vue.extend({
             margin-top: 7px;
             margin-left:-7px;
         }
+        
+        #dfarcgauge .fbText, 
+        #dfarcgauge .youTubeText {
+            font-size: 15px;
+            margin-top: 7px;
+            margin-left:-7px;
+        }
 
         #dfarcgauge .annotation {
             font-size: 13px;
@@ -293,13 +327,28 @@ export default Vue.extend({
         .e-view.tailwind-dark div#dfarcgauge .titleText {
             font-size: 15px;
             margin-top: -3px;
-            margin-left:-7px;
+            margin-left:-6px;
         }
+        
+        .e-view.tailwind div#dfarcgauge .youTubeText,
+        .e-view.tailwind-dark div#dfarcgauge .youTubeText {
+            font-size: 15px;
+            margin-top: -3px;
+            margin-left:-6px;
+        }
+        
+        .e-view.tailwind div#dfarcgauge .fbText,
+        .e-view.tailwind-dark div#dfarcgauge .fbText {
+            font-size: 15px;
+            margin-top: 19px;
+            margin-left:-6px;
+        }
+        
         .e-view.tailwind div#dfarcgauge .tiktokText,
         .e-view.tailwind-dark div#dfarcgauge .tiktokText {
             font-size: 15px;
             margin-top: -2px;
-            margin-left:-7px;
+            margin-left:-6px;
         }
     }
 </style>

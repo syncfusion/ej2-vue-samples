@@ -91,13 +91,19 @@ div.property-text {
 </style>
 <script>
 import Vue from 'vue';
-import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { legendData } from '../maps/map-data/legend-datasource';    
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data:function(){
       return{
         zoomSettings: {
@@ -123,7 +129,7 @@ export default Vue.extend({
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        dataSource: new MapAjax('./src/maps/map-data/legend-datasource.json'),
+        dataSource: legendData,
         tooltipSettings: {
                     visible: true,
                     valuePath: 'name',
@@ -233,6 +239,6 @@ methods:{
         maps.refresh();
     }
 }
-})
+}
 </script>
 

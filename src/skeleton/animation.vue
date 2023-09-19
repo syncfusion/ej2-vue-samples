@@ -2,7 +2,7 @@
     <div class="control-section">
         <div class="row skeleton-animation">
              <div>
-                <ejs-button id="reloadSkeleton" class="e-primary" v-on:click.native="reloadClick">Reload</ejs-button>
+                <ejs-button id="reloadSkeleton" class="e-primary" v-on:click="reloadClick">Reload</ejs-button>
             </div>
             <div class="col-sm-6">
                 <h5>Fade Effect</h5>
@@ -254,13 +254,11 @@
 </style>
   
 <script>
-import Vue from "vue";
-import { SkeletonPlugin } from "@syncfusion/ej2-vue-notifications";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-Vue.use(SkeletonPlugin,ListViewPlugin);
+import { SkeletonComponent } from "@syncfusion/ej2-vue-notifications";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-
-export default Vue.extend({
+export default {
     data: function() {
     return {
       isDataLoaded:false,
@@ -271,6 +269,11 @@ export default Vue.extend({
       cardPostImage: "image",
       fields: {text: 'text'},
     };
+  },
+  components: { 
+    'ejs-skeleton': SkeletonComponent,
+    'ejs-listview': ListViewComponent,
+    'ejs-button': ButtonComponent,
   },
   methods:{
      getData:function() {
@@ -318,6 +321,6 @@ export default Vue.extend({
   mounted() {
    this.loadData()
   }
-});
+};
 </script>
   

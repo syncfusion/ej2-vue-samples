@@ -22,7 +22,7 @@
       <div class="row" style="padding-top: 8px">
         <div title="Pentagon" class="image-pattern-style" id="shape4" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_4.png); margin-right: 3px">
         </div>
-        <div title="Polygon" class="image-pattern-style" id="shape5" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_5.png); margin: 0px 3px">
+        <div title="Triangle" class="image-pattern-style" id="shape5" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_5.png); margin: 0px 3px">
         </div>
         <div title="Path" class="image-pattern-style" id="path" style="background-image: url(./src/diagram/Images/drawingTool/DrawingTool_6.png);">
         </div>
@@ -143,9 +143,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   BasicShapes,
   Segments,
@@ -167,9 +166,7 @@ import {
   PointModel,
   BasicShape
 } from "@syncfusion/ej2-vue-diagrams";
-import { CheckBox, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(DiagramPlugin);
+import { CheckBoxComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
 
 let shape = [
   { shapeName: "BasicShape", shapeId: "Basic" },
@@ -247,7 +244,11 @@ let snapSettings = {
   verticalGridlines: gridlines
 };
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -318,7 +319,7 @@ export default Vue.extend({
             SetShape("Pentagon");
             break;
           case "shape5":
-            SetShape("Polygon");
+            SetShape("Triangle");
             break;
           case "straight":
             setdrawobject(null, { type: "Straight" });
@@ -357,7 +358,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 function onChange(args) {
   diagramInstance.tool = args.checked

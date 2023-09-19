@@ -79,15 +79,17 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
+import { SplitterComponent, PaneDirective, PanesDirective } from '@syncfusion/ej2-vue-layouts';
 
-Vue.use(SplitterPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-splitter': SplitterComponent,
+      'e-pane': PaneDirective,
+      'e-panes': PanesDirective
+    },
     data: function() {
         return {
         }
     }
-});
+}
 </script>

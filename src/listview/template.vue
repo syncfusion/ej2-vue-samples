@@ -252,14 +252,16 @@ body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .comme
 
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from '@syncfusion/ej2-base';
 import { dataSource } from './newsData';
 
 enableRipple(false);
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+      'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
             cssClass: 'e-list-template',
@@ -304,7 +306,7 @@ export default Vue.extend({
     },
 
     methods: {
-        onComplete: function(args) {
+        onComplete: function() {
             let listHeader = this.$refs.list.$el.childNodes[0];
             let header = listHeader.childNodes[0];
             if (header.style.display === 'none' || listHeader.childNodes.length === 3) {
@@ -320,5 +322,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

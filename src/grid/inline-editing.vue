@@ -39,7 +39,7 @@
 
      <div id="description">
         <p> The Grid supports CRUD operations. This CRUD operations can be configured in Grid using
-            <code><a target="_blank" class="code" href="http://ej2.syncfusion.com/vue/documentation/grid/api-editSettings.html">
+            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#editsettings">
             editSettings</a></code>. Also, it has different modes to manipulate the datasource.
         </p>
         <p>The available modes are,</p>
@@ -57,7 +57,7 @@
         <p>
             Grid component features are segregated into individual feature-wise modules. To use editing feature, we need to inject
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-edit.html">
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/edit/">
                 Edit </a></code> into the <code>provide</code> section.
         </p>
     </div>
@@ -71,15 +71,17 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { GridPlugin, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { orderDataSource } from "./data-source";
-import { DropDownList, DropDownListPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
+import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
 
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       newRowPositionDataSource: [{ value: 'Top', text: 'Top' }, { value: 'Bottom', text: 'Bottom' }],
@@ -113,5 +115,5 @@ export default Vue.extend({
         }
     }
   }
-});
+}
 </script>

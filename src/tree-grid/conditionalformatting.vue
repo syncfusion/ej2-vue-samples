@@ -34,14 +34,16 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-treegrid";
 import { QueryCellInfoEventArgs, Column } from '@syncfusion/ej2-grids';
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: sampleData,
@@ -53,7 +55,7 @@ export default Vue.extend({
   },
    methods:{
        queryCellInfo:function (args: QueryCellInfoEventArgs) {
-           (<TreeGridComponent>this.$refs.treegrid);
+           ((this as any).$refs.treegrid);
            if ((args.cell as HTMLElement).innerHTML === 'High') {
              let x: HTMLElement = document.createElement('IMG');
              x.setAttribute('src', 'source/tree-grid/images/high.png');
@@ -101,5 +103,5 @@ export default Vue.extend({
            }
         }
   }
-});
+}
 </script>

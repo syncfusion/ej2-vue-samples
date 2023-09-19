@@ -43,14 +43,16 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Week, Resize, DragAndDrop, ExcelExport
-    } from "@syncfusion/ej2-vue-schedule";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Week, Resize, DragAndDrop, ExcelExport } from "@syncfusion/ej2-vue-schedule";
     import { scheduleData } from './datasource';
-    Vue.use(SchedulePlugin);
-
-    export default Vue.extend({
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 cssClass: 'excel-export',
@@ -86,5 +88,5 @@
                 scheduleObj.exportToExcel(exportValues);
             }
         }
-    });
+    }
 </script>

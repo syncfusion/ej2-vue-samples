@@ -68,15 +68,17 @@
   </template>
 
   <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       data: sampleData,
@@ -101,18 +103,18 @@ export default Vue.extend({
     },
    methods:{
        onColChange: function(e: ChangeEventArgs): void {
-        let column: Column = (<TreeGridComponent>this.$refs.treegrid).getColumnByField(<string>e.value) as Column;
+        let column: Column = ((this as any).$refs.treegrid).getColumnByField(<string>e.value) as Column;
         let alignment: string = column.textAlign;
-        var dropdownlistObject = (<DropDownListComponent>this.$refs.alignment).ej2Instances;
+        var dropdownlistObject = ((this as any).$refs.alignment).ej2Instances;
         dropdownlistObject.value = alignment;
        },
        onChange: function(e: ChangeEventArgs): void {
-        let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-        let alignment = (<DropDownListComponent>this.$refs.alignment).ej2Instances.value;
-        ((<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column).textAlign = alignment;
-        (<TreeGridComponent>this.$refs.treegrid).refreshColumns();
+        let columnName = ((this as any).$refs.columns).ej2Instances.value;
+        let alignment = ((this as any).$refs.alignment).ej2Instances.value;
+        (((this as any).$refs.treegrid).getColumnByField(columnName) as Column).textAlign = alignment;
+        ((this as any).$refs.treegrid).refreshColumns();
     }
   }
 
-});
+}
 </script>

@@ -46,18 +46,18 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { DataManager,Query,ODataV4Adaptor } from "@syncfusion/ej2-data";
-
-Vue.use(DropDownTreePlugin);
 
 var remoteData = new DataManager({
     url: 'https://services.odata.org/V4/Northwind/Northwind.svc',
             adaptor: new ODataV4Adaptor,
             crossDomain: true,
 });
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent
+    },
     data: function() {
         return {
             fields: { dataSource: remoteData, query: new Query().from('Employees').select('EmployeeID,FirstName,Title').take(5), value: 'EmployeeID', text: 'FirstName', hasChildren: 'EmployeeID',
@@ -66,5 +66,5 @@ export default Vue.extend({
             waterMark: 'Select a name',
         };
     },
-});
+}
 </script>

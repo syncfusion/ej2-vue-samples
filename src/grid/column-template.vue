@@ -27,7 +27,7 @@
         <p>
             The Grid provides a way to use a custom layout for each cell using column template feature. The
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#template">columns->template
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#template">columns->template
         </a></code> property accepts the template for the cell.
         </p>
         <p>
@@ -48,17 +48,19 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: employeeData,
     };
   }
-});
+}
 </script>

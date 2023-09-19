@@ -36,14 +36,14 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Image, Link, HtmlEditor, QuickToolbar, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
-
-Vue.use(RichTextEditorPlugin);
+import { RichTextEditorComponent, Toolbar, Image, Link, HtmlEditor, QuickToolbar, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+    },
     data: function() {
         return {
             toolbarSettings: {
@@ -64,5 +64,5 @@ export default Vue.extend({
     provide: {
         richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar, FileManager]
     }
-});
+}
 </script>

@@ -3,8 +3,8 @@
     <div>
         <div style="width: 100%;height: 50px;margin-bottom: 5px;">
             <div class="btn-group" style="float:left;width:70%">
-            <ejs-button  :isPrimary = true id="addbtn" :disabled= "true"  v-on:click.native="addButton1"  >Add Node</ejs-button>
-            <ejs-button :isPrimary="true" id="deletebtn" :disabled= "true"  v-on:click.native="deleteButton1" >Delete Node</ejs-button>
+            <ejs-button  :isPrimary = true id="addbtn" :disabled= "true"  v-on:click="addButton1"  >Add Node</ejs-button>
+            <ejs-button :isPrimary="true" id="deletebtn" :disabled= "true"  v-on:click="deleteButton1" >Delete Node</ejs-button>
             </div>
             <div class="icon" style="width:30%;float:right;font-size: 16px;">
                     <span >Diagram Binding with Treeview</span>
@@ -52,11 +52,10 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
   OverviewPlugin,
   Diagram,
-  DiagramPlugin,
+  DiagramComponent,
   ConnectorModel,
   Node,
   SnapConstraints,
@@ -70,14 +69,10 @@ import {
   TreeInfo,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import { DataManager } from "@syncfusion/ej2-data";
 import { dataBindingTreeView } from "./diagram-data";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(ButtonPlugin);
-Vue.use(TreeViewPlugin);
-Vue.use(DiagramPlugin);
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let diagramInstance;
 let addButton = document.getElementById("addbtn");
@@ -108,7 +103,12 @@ let data = [
 
 let workingData = data;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-treeview': TreeViewComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -248,7 +248,7 @@ export default Vue.extend({
         }
     },
   },
-});
+};
 
   function nodeSelected(args) {
     let addButton = document.getElementById("addbtn");

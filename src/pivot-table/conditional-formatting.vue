@@ -12,12 +12,12 @@
             <tbody>
                 <tr style="height: 50px">
                     <td>
-                        <ejs-button id="conditional-formatting-btn" v-on:click.native="applyFormat" isPrimary='true'>APPLY FORMAT</ejs-button>
+                        <ejs-button id="conditional-formatting-btn" v-on:click="applyFormat" isPrimary='true'>APPLY FORMAT</ejs-button>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
-                        <ejs-button id="conditional-formatting-reset-btn" v-on:click.native="resetFormat" isPrimary='true'>RESET ALL</ejs-button>
+                        <ejs-button id="conditional-formatting-reset-btn" v-on:click="resetFormat" isPrimary='true'>RESET ALL</ejs-button>
                     </td>
                 </tr>
             </tbody>
@@ -84,26 +84,27 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet,
   ConditionalFormatting,
   FieldList
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  ButtonPlugin,
+  ButtonComponent,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -158,11 +159,11 @@ export default Vue.extend({
   },
   methods: {
     applyFormat: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.conditionalFormattingModule.showConditionalFormattingDialog();
     },
     resetFormat: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
         if (pivotObj.dataSourceSettings.conditionalFormatSettings.length > 0) {  
             pivotObj.setProperties({ dataSourceSettings: { conditionalFormatSettings: [] } }, true);
             pivotObj.renderPivotGrid();
@@ -174,7 +175,7 @@ export default Vue.extend({
   provide: {
     pivotview: [ConditionalFormatting, FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

@@ -72,10 +72,9 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(RadioButtonPlugin);
-
-export default Vue.extend({});
+export default {
+    components: { 'ejs-radiobutton': RadioButtonComponent }
+}
 </script>

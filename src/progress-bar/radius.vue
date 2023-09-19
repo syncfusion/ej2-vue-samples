@@ -120,16 +120,14 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
+  ProgressBarComponent,
   ProgressAnnotation,
+  ProgressBarAnnotationsDirective,
+  ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
   data: function () {
     return {
       animation: {
@@ -153,6 +151,11 @@ export default Vue.extend({
         '<div id="point1" style="font-size:20px;font-weight:bold;color:#ffffff;fill:#ffffff"><span>60%</span></div>',
     };
   },
+  components: { 
+    'ejs-progressbar': ProgressBarComponent,
+    'e-progressbar-annotations':  ProgressBarAnnotationsDirective,
+    'e-progressbar-annotation':  ProgressBarAnnotationDirective
+   },
   provide: {
     progressbar: [ProgressAnnotation],
   },
@@ -211,7 +214,6 @@ export default Vue.extend({
             break;
         case 'bootstrap5':
         case 'bootstrap5-dark':
-        case 'fluent':
         case 'fluent-dark':
             args.progressBar.progressColor = '#0D6EFD';
             args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#0D6EFD"><span></span></div>';
@@ -224,6 +226,13 @@ export default Vue.extend({
             args.progressBar.progressColor = '#D0BCFF';
             args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#D0BCFF"><span></span></div>';
             break; 
+        case 'fluent':
+            if (args.progressBar.element.id === "full-background") {
+              args.progressBar.progressColor = '#0D6EFD';
+            } else {
+              args.progressBar.trackColor = '#0D6EFD';
+            }
+            break;
         default:
           args.progressBar.progressColor = '#D0BCFF';
           args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#D0BCFF"><span></span></div>';
@@ -248,5 +257,5 @@ export default Vue.extend({
     //   }
     // },
   },
-});
+};
 </script>

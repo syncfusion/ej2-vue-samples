@@ -67,14 +67,13 @@
 </style>
   
 <script>
-import Vue from "vue";
-import { SkeletonPlugin } from "@syncfusion/ej2-vue-notifications";
+import { SkeletonComponent } from "@syncfusion/ej2-vue-notifications";
 
-Vue.use(SkeletonPlugin);
-export default Vue.extend({
+export default {
     data: function () {
         return {};
     },
-});
+    components: { 'ejs-skeleton': SkeletonComponent }
+};
 </script>
   

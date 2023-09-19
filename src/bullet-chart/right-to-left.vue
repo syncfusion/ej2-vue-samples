@@ -37,11 +37,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { BulletChartPlugin, BulletTooltip } from "@syncfusion/ej2-vue-charts";
-
-Vue.use(BulletChartPlugin);
+import { BulletChartComponent, BulletRangeDirective, BulletRangeCollectionDirective, BulletTooltip } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -50,7 +47,12 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
   .replace(/light/i, "Light")
   .replace(/contrast/i, "Contrast");
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-bulletchart': BulletChartComponent,
+    'e-bullet-range-collection': BulletRangeCollectionDirective,
+    'e-bullet-range': BulletRangeDirective
+  },
   data: function() {
     return {
       width: Browser.isDevice ? "100%" : "80%",
@@ -73,5 +75,5 @@ export default Vue.extend({
     bulletChart: [BulletTooltip]
   },
   methods: {}
-});
+};
 </script>

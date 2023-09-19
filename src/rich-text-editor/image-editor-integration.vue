@@ -9,8 +9,7 @@
                     <img
                       id="img1"
                       style="height: 350px;"
-                      src="https://ej2.syncfusion.com/demos/src/image-editor/images/bridge.png"
-                    ></img>
+                      src="https://ej2.syncfusion.com/demos/src/image-editor/images/bridge.png" />
                     </p>
                     <p>
                         It allows users to quickly and easily add an Image Editor to their Rich Text Editor.
@@ -28,14 +27,13 @@
                     :visible="visible"
                     :showCloseIcon="showCloseIcon"
                     width="800px"
-                    height="550px"
+                    height="800px"
                     :isModal="isModal">
                 <div>
                     <ejs-imageeditor                
                     ref="imageEditorObj"
                     id="image-editor"
-                    height="400px"
-                    :toolbar="toolbar"
+                    height="335px"
                     ></ejs-imageeditor>
                 </div>
                 </ejs-dialog>
@@ -59,34 +57,29 @@
 </template>
 <script>
 import Vue from "vue";
-import {RichTextEditorPlugin, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
-import { DialogPlugin } from "@syncfusion/ej2-vue-popups";
-import { ImageEditorPlugin } from "@syncfusion/ej2-vue-image-editor";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { DialogComponent } from "@syncfusion/ej2-vue-popups";
+import { ImageEditorComponent } from "@syncfusion/ej2-vue-image-editor";
 
-Vue.use(DialogPlugin);
-Vue.use(ImageEditorPlugin);
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-richtexteditor': RichTextEditorComponent,
+        'ejs-dialog': DialogComponent,
+        'ejs-imageeditor': ImageEditorComponent
+    },
     data: function() {
         return {
             visible: false,
-            showCloseIcon: true,
+            showCloseIcon: false,
             isModal: false,
             selection: new NodeSelection(),
-            range: null,
+            ranges: null,
             saveSelection: null,
             dataURL: null,
             isLoaded: false,
-            imageElement: null,
-            toolbar: ['Undo', 'Redo', 'Crop', 'Annotate', 'ZoomIn', 'ZoomOut',
-                      'Reset', 'Pan', 'Finetune', 'Filter', 'Pen', 'Line', 'Rectangle', 'Ellipse', 'Arrow',
-                      'Path', 'Text', 'CustomSelection', 'CircleSelection', 'SquareSelection', 'RatioSelection',
-                      'Default', 'Chrome', 'Cold', 'Warm', 'Grayscale', 'Sepia', 'Invert', 'Brightness', 'Contrast',
-                      'Hue', 'Saturation', 'Exposure', 'Opacity', 'Blur' ],
             dlgButtons: [
                 {
-                buttonModel: { content: "Save", isPrimary: true },
+                buttonModel: { content: "Insert", isPrimary: true },
                 click: this.onInsert.bind(this),
                 },
                 { buttonModel: { content: "Cancel" }, click: this.onCancel },
@@ -139,7 +132,6 @@ export default Vue.extend({
                 width: { width: canvas.width },
                 height: { height: canvas.height },
                 selection: this.saveSelection,
-                cssClass: this.imageElement.getAttribute('class').replace('e-rte-image', ''),
             });
             this.$refs.defaultRTE.ej2Instances.formatter.saveData();            
             this.$refs.dialogObj.hide();
@@ -149,20 +141,20 @@ export default Vue.extend({
             this.$refs.dialogObj.hide();
         },
         OnBeforeOpen: function () {
+            var imageELement;
             var selectNodes = this.$refs.defaultRTE.ej2Instances.formatter.editorManager.nodeSelection.getNodeCollection(
                 this.range
             );
             if (selectNodes.length == 1 && selectNodes[0].tagName == "IMG") {
-                this.imageElement = selectNodes[0];
-                this.imageElement.crossOrigin = "anonymous";
+                imageELement = selectNodes[0];
+                imageELement.crossOrigin = "anonymous";
                 var canvas = document.createElement("CANVAS");
                 var ctx = canvas.getContext("2d");
-                canvas.height = this.imageElement.offsetHeight;
-                canvas.width = this.imageElement.offsetWidth;
+                canvas.height = imageELement.offsetHeight;
+                canvas.width = imageELement.offsetWidth;
                 var editorobj = this.$refs.imageEditorObj;
-                var imageElementLoad = this.imageElement;
-                this.imageElement.onload = function () {
-                ctx.drawImage(imageElementLoad, 0, 0, canvas.width, canvas.height);
+                imageELement.onload = function () {
+                ctx.drawImage(imageELement, 0, 0, canvas.width, canvas.height);
                 this.dataURL = canvas.toDataURL();
                     if (!this.isLoaded) {
                         editorobj.open(this.dataURL);
@@ -174,7 +166,7 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar]
     }
-});
+};
 </script>
 
 <style>

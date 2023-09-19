@@ -28,20 +28,20 @@
 </template>
     
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
+import { createApp } from "vue";
+import { DashboardLayoutComponent, PanelsDirective, PanelDirective } from "@syncfusion/ej2-vue-layouts";
 import overviewcolumntemplate from "./over-view-columntemplate.vue";
 import overviewpietemplate from "./over-view-pietemplate.vue";
 import overviewsplinetemplate from "./over-view-splinetemplate.vue";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
 import { detach, isNullOrUndefined } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
-Vue.use(DialogPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DashboardLayoutPlugin);
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dashboardlayout': DashboardLayoutComponent,
+        'e-panels': PanelsDirective,
+        'e-panel': PanelDirective
+    },
     data: function() {
         return {
             spacing: [15, 15],
@@ -56,13 +56,13 @@ export default Vue.extend ({
             splineSizeX: Browser.isDevice ? 2 : 8,
           splineSizeY: Browser.isDevice ? 1 : 3,
           spline: function () {
-                return { template : overviewsplinetemplate }
+                return { template : createApp({}).component('splineTemplate', overviewsplinetemplate) }
             },
           pie: function () {
-                return { template : overviewpietemplate }
+                return { template : createApp({}).component('pieTemplate', overviewpietemplate) }
             },
           column: function () {
-                return { template : overviewcolumntemplate }
+                return { template : createApp({}).component('columnTemplate', overviewcolumntemplate) }
             },
         };
     },
@@ -77,7 +77,7 @@ onPanelResize: function(args) {
     }
     },
   },
-});
+};
 </script>
 
 <style>

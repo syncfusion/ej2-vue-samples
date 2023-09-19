@@ -19,7 +19,7 @@
 
      <div id="description">
         <p>The Grid supports data binding. The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#datasource">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property can be assigned with the instance of <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
@@ -44,26 +44,28 @@
         <p>In this demo, remote data is bound by assigning service data as an instance of <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
         DataManager</a></code> to the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#datasource">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property.</p>
 
         <p>
             More information on the data binding can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/data-binding.html#remote-data">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/data-binding/remote-data">documentation section</a>.
         </p>
     </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective,ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { DataManager, WebApiAdaptor } from "@syncfusion/ej2-data";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     let SERVICE_URI: string =
       "https://services.syncfusion.com/vue/production/";
@@ -77,5 +79,5 @@ export default Vue.extend({
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

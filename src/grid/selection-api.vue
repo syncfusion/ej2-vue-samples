@@ -23,7 +23,7 @@
         <p>
             Selection provides an interactive support to highlight the row or cell or column that you select. Selection can be done through simple
             Mouse down or Keyboard interaction. To enable selection, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowselectio">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowselection">
         allowSelection
         </a></code> as true.
         </p>
@@ -85,16 +85,18 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
-import { ToolbarPlugin, ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
+import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
+import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { orderDetails } from "./data-source";
 import { CheckBox } from "@syncfusion/ej2-buttons";
 
-Vue.use(GridPlugin);
-Vue.use(ToolbarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-toolbar': ToolbarComponent
+  },
   data: function() {
     return {
       data: orderDetails,
@@ -105,25 +107,25 @@ export default Vue.extend({
   },
   methods: {
       onChange(e: ClickEventArgs): void {
-        let option = this.selectOptions;
+        let option = (this as any).selectOptions;
         let mode: string = option.mode;
         let type: string = option.type;
         let column: boolean = option.allowColumnSelection;
         if (e.item.id === 'mode') {
             mode = e.item.text === 'Row' ? 'Cell' : 'Row';
-            this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, disabled: column,cssClass: 'e-gmode', id: 'mode'},
+            (this as any).items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, disabled: column,cssClass: 'e-gmode', id: 'mode'},
             {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: column })}];
         } else if (e.item.id === 'type') {
             type = e.item.text === 'Multiple' ? 'Single' : 'Multiple';
-            this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode , disabled: column,cssClass: 'e-gmode', id: 'mode'},
+            (this as any).items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode , disabled: column,cssClass: 'e-gmode', id: 'mode'},
             {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: column})}];
         } else {
            ((<any>this).$refs.grid.ej2Instances as any).clearSelection();
            column = !column;
-           this.items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, disabled: column, cssClass: 'e-gmode', id: 'mode'},
+           (this as any).items = [{text: type, cssClass: 'e-gtype', id: 'type'}, {text: mode, disabled: column, cssClass: 'e-gmode', id: 'mode'},
            {id: 'column', type: 'Input', template: new CheckBox({ label: 'Enable Column Selection', checked: column })}];
         }
-        this.selectOptions = {mode: mode, type: type, allowColumnSelection: column};
+        (this as any).selectOptions = {mode: mode, type: type, allowColumnSelection: column};
     },
     selectingEvent(e: any): void {
       if(((<any>this).$refs.grid.ej2Instances as any).selectionSettings.allowColumnSelection){
@@ -134,5 +136,5 @@ export default Vue.extend({
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

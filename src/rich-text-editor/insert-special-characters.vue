@@ -153,13 +153,12 @@
         outline: 1px solid #0078DE;
         border-color: #0078DE;
     }
-    
+
     .material3 .e-rte-custom-tbar-section .char_block.e-active,
     .material3-dark .e-rte-custom-tbar-section .char_block.e-active {
-	outline: 1px solid #7D69B1;
-	border-color: #7D69B1;
+        outline: 1px solid #7D69B1;
+        border-color: #7D69B1;
     }
-
     .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
     .highcontrast.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
         padding-right: 10px;
@@ -220,20 +219,14 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import * as CodeMirror from 'codemirror';
+import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/css/css.js';
-import 'codemirror/mode/htmlmixed/htmlmixed.js';
-
-Vue.use(RichTextEditorPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-dialog': DialogComponent
+    },
     data: function() {
         return {
             selection: new NodeSelection(),
@@ -258,11 +251,11 @@ export default Vue.extend({
         };
     },
     methods: {
-        onCreate: function(e) {
+        onCreate: function() {
         this.customBtn = document.getElementById('custom_tbar');
          this.$refs.dialogObj.ej2Instances.target = document.getElementById('rteSection');
          var proxy = this;
-        this.customBtn.onclick = function (e) {
+        this.customBtn.onclick = function () {
             proxy.$refs.rteObj.ej2Instances.contentModule.getEditPanel().focus();
             proxy.range = proxy.selection.getRange(document);
             proxy.saveSelection = proxy.selection.save(proxy.range, document);
@@ -316,5 +309,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar]
     }
-});
+}
 </script>

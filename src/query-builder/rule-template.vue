@@ -74,16 +74,20 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { QueryBuilderComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-querybuilder";
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { DropDownList, MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
 import { createElement, getComponent, isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(DropDownListPlugin);
-Vue.use(QueryBuilderPlugin);
-Vue.use(RadioButtonPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+        'ejs-querybuilder': QueryBuilderComponent,
+        'e-column': ColumnDirective,
+        'e-columns': ColumnsDirective,
+        'ejs-radiobutton': RadioButtonComponent,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             importRules: {
@@ -123,5 +127,5 @@ export default Vue.extend({
                 qryBldrObj.notifyChange(args.value, args.element, "value");
             }
         }
-});
+}
 </script>

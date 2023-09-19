@@ -39,19 +39,21 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { DatePicker } from '@syncfusion/ej2-calendars';
 import { sampleData } from "./data-source";
 import { getValue } from '@syncfusion/ej2-base';
 
-Vue.use(TreeGridPlugin);
-
 let elem: HTMLElement;
 let datePickerObj: DatePicker;
 
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -92,5 +94,5 @@ export default  Vue.extend({
      methods:{
       
     }
-});
+}
 </script>

@@ -29,7 +29,6 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import {
   Diagram,
   NodeModel,
@@ -40,7 +39,7 @@ import {
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   DataBinding,
   HierarchicalTree,
   SnapConstraints,
@@ -50,9 +49,10 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { artificialIntelligence } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -123,7 +123,7 @@ export default Vue.extend({
   provide: {
     diagram: [DataBinding, HierarchicalTree]
   }
-});
+}
 
 //Create and add ports for Node.
 function getPorts(root) {

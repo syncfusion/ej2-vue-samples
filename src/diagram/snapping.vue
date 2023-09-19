@@ -121,11 +121,16 @@
     float: right;
     /* margin-left: 20px; */
     }
+    .e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn .e-selected-color .e-split-preview{
+        width: 100px!important;
+        margin-left: -40px!important;
+    }
+    .e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn{
+        width: 110px!important;
+    }
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
   Diagram,
   DiagramComponent,
   Node,
@@ -149,18 +154,12 @@ import {
     Gridlines,
   UmlClassifierShapeModel
 } from "@syncfusion/ej2-vue-diagrams";
-Diagram.Inject(Snapping, ConnectorEditing);
-Diagram.Inject(UndoRedo);
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(RadioButtonPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DiagramPlugin);
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { ColorPickerComponent, NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let diagramInstance;
-
+let drawingNode;
 let nodes = [
      {
             id:'node_1',width:100,height:100,offsetX:350,offsetY:250,
@@ -212,7 +211,14 @@ let connectors = [
        },
     ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-radiobutton': RadioButtonComponent,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-diagram': DiagramComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },  
   data: function() {
     return {
       width: "95%",
@@ -337,11 +343,14 @@ export default Vue.extend({
       }
     }
   },
+  provide:{
+    diagram: [DiagramContextMenu, UndoRedo, Snapping, ConnectorEditing]
+  },
   mounted: function() {
        let diagram = this.$refs.diagramObj.ej2Instances;
        diagram.fitToPage();
     },
-});
+}
 
 function scale(){
     var diagram = document.getElementById("diagram").ej2_instances[0];

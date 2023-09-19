@@ -3,7 +3,18 @@
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :group='group' :currentView='currentView' :resourceHeaderTemplate='resourceHeaderTemplate'>
+                    :group='group' :currentView='currentView' :resourceHeaderTemplate="'resourceHeaderTemplate'">
+                    <template v-slot:resourceHeaderTemplate="{data}">
+                        <div class="template-wrap">
+                            <div class="resource-image">
+                                <img class="resource-image" :src="getImage(data)" :alt="getImage(data)" />
+                            </div>
+                            <div class="resource-details">
+                                <div class="resource-name">{{getEmployeeName(data)}}</div>
+                                <div class="resource-designation">{{getEmployeeDesignation(data)}}</div>
+                            </div>
+                        </div>
+                    </template>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="WorkWeek"></e-view>
@@ -94,13 +105,13 @@
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from 'vue';
     import { extend } from '@syncfusion/ej2-base';
     import { resourceConferenceData } from './datasource';
-    import { SchedulePlugin, Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
-    var groupVue = Vue.component("demo", {
+    var app = createApp();
+    var groupVue = app.component("demo", {
         template: '<div class="subject">{{data.Subject}}</div>',
         data() {
             return {
@@ -109,37 +120,14 @@
         }
     });
 
-    var resourceHeaderVue = Vue.component("resource-headerTemplate", {
-        template: '<div class="template-wrap"><div class="resource-image"><img :src="getImage" :alt="getImage" width="45px" height="45px"/>' +
-        '</div><div class="resource-details"><div class="resource-name">{{getEmployeeName(data)}}</div><div class="resource-designation">{{getEmployeeDesignation(data)}}</div></div></div>',
-        data() {
-            return {
-                data: {}
-            };
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
         },
-        computed: {
-            getImage: function() {
-                return './source/schedule/images/' + this.getEmployeeImage(this.data) + '.png';
-            }
-        },
-        methods: {
-            getEmployeeName: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
-            },
-            getEmployeeImage: function (data) {
-                let resourceName = this.getEmployeeName(data);
-                return resourceName.toLowerCase();
-            },
-            getEmployeeDesignation: function (data) {
-                let resourceName = this.getEmployeeName(data);
-                return (resourceName === 'Margaret') ? 'Sales Representative' : (resourceName === 'Robert') ?
-                    'Vice President, Sales' : 'Inside Sales Coordinator';
-            }
-        }
-    });
-
-    export default Vue.extend({
         data: function () {
             return {
                 eventSettings: {
@@ -164,9 +152,6 @@
                     { Text: 'Laura', Id: 3, Color: '#7fa900' }
                 ],
                 allowMultiple: true,
-                resourceHeaderTemplate: function (e) {
-                    return { template: resourceHeaderVue }
-                },
                 monthEventTemplate: function (e) {
                     return {
                         template: groupVue
@@ -176,7 +161,29 @@
         },
         provide: {
             schedule: [Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]
-        }
-    });
+        },
+        computed: {
+            getImage() {
+                return (data) => {
+                    return 'source/schedule/images/' + this.getEmployeeImage(data) + '.png';
+                };
+            },
+        },
+        methods: {
+            getEmployeeName: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
+            },
+            getEmployeeImage: function (data) {
+                let resourceName = this.getEmployeeName(data);
+                return resourceName.toLowerCase();
+            },
+            getEmployeeDesignation: function (data) {
+                let resourceName = this.getEmployeeName(data);
+                return (resourceName === 'Margaret') ? 'Sales Representative' : (resourceName === 'Robert') ?
+                    'Vice President, Sales' : 'Inside Sales Coordinator';
+            }
+        },
+    };
 
 </script>

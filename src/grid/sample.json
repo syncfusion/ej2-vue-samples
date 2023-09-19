@@ -207,7 +207,6 @@
         {
             "url": "drag-and-drop-within-grid",
             "name": "Drag and Drop within Grid",
-            "type": "update",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged within a grids using the row drag-and-drop feature.",
             "api": { "Grid": ["columns", "dataSource", "allowRowDragAndDrop"] }
@@ -315,7 +314,6 @@
         {
             "url": "paging",
             "name": "Paging",
-            "type": "update",
             "category": "Paging",
             "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
             "hideOnDevice": false,
@@ -324,7 +322,6 @@
         {
             "url": "grouping",
             "name": "Grouping",
-            "type": "update",
             "category": "Grouping",
             "description": "This demo for Essential JS 2 grid component demonstrates the grouping feature of the grid component. The grid component has options to group records based on columns.",
             "hideOnDevice": false,
@@ -421,6 +418,7 @@
         {
             "url": "frozen-api",
             "name": "Frozen API",
+            "type":"update",
             "category": "Scrolling",
             "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
             "hideOnDevice": false,
@@ -496,6 +494,24 @@
             "description": "This demo for Essential JS 2 grid component shows how to export the hierarchy grid content.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport", "childGrid"] }
+        },
+        {
+            "url": "detail-template-export",
+            "name": "Detail Template Exporting",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control shows the client-side exporting of grid content with Detail template to Excel and PDF formats.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport", "detailTemplate", "toolbar"] }
+        },
+        {
+            "url": "multiple-export",
+            "name": "Multiple Exporting",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control shows the client-side exporting of multiple grid content to Excel and PDF formats.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport"] }
         },
         {
             "url": "print",

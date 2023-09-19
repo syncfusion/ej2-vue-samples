@@ -138,13 +138,13 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
+import { MenuComponent } from "@syncfusion/ej2-vue-navigations";
 import dataSource from './template-data.json';
 
-Vue.use(MenuPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-menu': MenuComponent
+  },
   data: function() {
     return {
         data: dataSource.templateData,
@@ -154,5 +154,5 @@ export default Vue.extend({
         }
     };
   },
-});
+}
 </script>

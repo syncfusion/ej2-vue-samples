@@ -2,7 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
-         :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width' :tooltip='tooltip' :load='load'>
+         :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width' :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='Column' xName='Year' yName='USA_Total' name='USA Total Medals' width=2 :marker='marker' groupName= 'USA' columnWidth= 0.7 columnSpacing= 0.1> </e-series>
                 <e-series :dataSource='seriesData' type='Column' xName='Year' yName='USA_Gold' name='USA Gold Medals' width=2 :marker='marker' groupName= 'USA' columnWidth= 0.5 columnSpacing= 0.1> </e-series>
@@ -27,7 +27,7 @@
       <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point
         in touch-enabled devices.
     </p>
-    <p><b>Injecting Module</b></p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use column series, we need to inject
         <code>ColumnSeries</code> module using <code>provide: { chart: [ColumnSeries] }</code> method.
@@ -44,17 +44,19 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, ColumnSeries, Category, DataLabel, Tooltip, Legend} from "@syncfusion/ej2-vue-charts";
-
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel, Tooltip, Legend} from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
@@ -98,5 +100,5 @@ export default Vue.extend({
   },
  
  
-});
+};
 </script>

@@ -64,7 +64,7 @@
               <td></td>
                 <td>
                     <div style="float: right">
-                        <ejs-button id="apply" ref="apply" v-on:click.native="btnClick" isPrimary='true'>Apply</ejs-button>
+                        <ejs-button id="apply" ref="apply" v-on:click="btnClick" isPrimary='true'>Apply</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -85,18 +85,17 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { IDataSet, PivotViewPlugin, GroupingBar, PivotActionCompleteEventArgs } from "@syncfusion/ej2-vue-pivotview";
+import { IDataSet, PivotViewComponent, GroupingBar, PivotActionCompleteEventArgs } from "@syncfusion/ej2-vue-pivotview";
 import { SortModel } from '@syncfusion/ej2-pivotview/src/model/datasourcesettings-model';
 import {
-  CheckBoxPlugin,
-  ButtonPlugin,
+  CheckBoxComponent,
+  ButtonComponent,
   ChangeEventArgs as checkEventArgs,
 ChangeEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
-  MultiSelectPlugin,
+  DropDownListComponent,
+  MultiSelectComponent,
   SelectEventArgs,
   RemoveEventArgs,
   PopupEventArgs,
@@ -107,11 +106,6 @@ import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
 let fieldCollections: { [key: string]: { [key: string]: Object }[] } = {};
@@ -123,7 +117,14 @@ let memOrder: string[] = [];
 let index: number;
 let membersData: { [key: string]: Object; }[] = [];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -161,21 +162,21 @@ methods: {
     dataBound: function(args: any) {
       if (isInitial) {
           /** To fill the members for each fields into the object fieldCollections. */
-          let fieldCount: number = this.fieldData.length - 1;
+          let fieldCount: number = (this as any).fieldData.length - 1;
           while (fieldCount > -1) {
-            let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-              let members: string[] = Object.keys(pivotObj.engineModule.fieldList[this.fieldData[fieldCount].Field as string].members);
+            let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+              let members: string[] = Object.keys(pivotObj.engineModule.fieldList[(this as any).fieldData[fieldCount].Field as string].members);
               let memberCnt: number = members.length;
               let memberColl: { Member: string; Checked: string; }[] = [];
               for (let i: number = 0; i < memberCnt; i++) {
                   memberColl.push({ Member: members[i], Checked: members[i] + '_' + false });
               }
-              fieldCollections[this.fieldData[fieldCount].Field as string] = memberColl;
+              fieldCollections[(this as any).fieldData[fieldCount].Field as string] = memberColl;
               fieldCount--;
           }
-          let membersOrder = (<any>this.$refs.sorting_members).ej2Instances;
+          let membersOrder = ((this as any).$refs.sorting_members).ej2Instances;
           fieldCollections.Order_Source.reverse();
-          membersData = (fieldCollections[this.fieldData[0].Field as string]) as { [key: string]: Object }[];
+          membersData = (fieldCollections[(this as any).fieldData[0].Field as string]) as { [key: string]: Object }[];
           membersOrder.dataSource = membersData;
           fieldCollections.Country[0].Checked = "France_true";
           fieldCollections.Country[3].Checked = "United States_true";
@@ -188,7 +189,7 @@ methods: {
       }
     },
     actionComplete: function(args: PivotActionCompleteEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let sortDetails: SortModel[] = pivotObj.dataSourceSettings.sortSettings;
             for (let i: number = 0; i < (pivotObj.dataSourceSettings.rows.length + pivotObj.dataSourceSettings.columns.length); i++) {
                 if (sortDetails.length > 0) {
@@ -208,9 +209,9 @@ methods: {
             }
     },
     fieldOnChange: function(args: ChangeEventArgs) {
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
-      let orderInfo = (<any>this.$refs.sorting_order).ej2Instances;
-      let membersOrder = (<any>this.$refs.sorting_members).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
+      let orderInfo = ((this as any).$refs.sorting_order).ej2Instances;
+      let membersOrder = ((this as any).$refs.sorting_members).ej2Instances;
      if (fieldsObj.dataSource[fieldsObj.index].Order === fieldsObj.dataSource[fieldsObj.index].Field + '_asc') {
                 orderInfo.index = 0;
             }
@@ -243,14 +244,14 @@ methods: {
             orderInfo.dataBind();
     },
     memberOnSelect: function(args: SelectEventArgs) {
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
-      let applyBtn = (<any>this.$refs.apply).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
+      let applyBtn = ((this as any).$refs.apply).ej2Instances;
       applyBtn.disabled = false;
       this.maintainCheckedState((<any>fieldsObj).itemData.Field, (args.item.textContent as string), args.item.textContent + '_' + true);
       getMembers[(<any>fieldsObj).itemData.Field].push((<any>args).itemData['Member']);
     },
     memberOnRemoved: function(args: RemoveEventArgs) {
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
       this.maintainCheckedState((<any>fieldsObj).itemData.Field, (args.item.textContent as string), args.item.textContent + '_' + false);
       index = getMembers[(<any>fieldsObj).itemData.Field].indexOf((<any>args).itemData['Member']);
       if (getMembers[(<any>fieldsObj).itemData.Field].indexOf((<any>args).itemData['Member']) > -1) {
@@ -263,7 +264,7 @@ methods: {
       ) as HTMLElement).style.display = "none";
     },
     orderOnChange: function(args: dropEventArgs) {
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
       if (args.value === 'Ascending') {
                 fieldsObj.dataSource[fieldsObj.index].Order = fieldsObj.dataSource[fieldsObj.index].Field + '_asc';
             }
@@ -273,11 +274,11 @@ methods: {
             fieldsObj.refresh();
     },
     checkbox_onChange: function(args: checkEventArgs) {
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
-      let orderInfo = (<any>this.$refs.sorting_order).ej2Instances;
-      let membersOrder = (<any>this.$refs.sorting_members).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      let btn = (<any>this.$refs.apply).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
+      let orderInfo = ((this as any).$refs.sorting_order).ej2Instances;
+      let membersOrder = ((this as any).$refs.sorting_members).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      let btn = ((this as any).$refs.apply).ej2Instances;
       let ischecked: boolean = args.checked as boolean;
           fieldsObj.enabled = ischecked;
           orderInfo.enabled = ischecked;
@@ -286,9 +287,9 @@ methods: {
           pivotObj.dataSourceSettings.enableSorting = ischecked;
     },
     btnClick: function(args: checkEventArgs) {
-      let checkBoxObj = (<any>this.$refs.sorting).ej2Instances;
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let checkBoxObj = ((this as any).$refs.sorting).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (checkBoxObj.checked) {
           pivotObj.setProperties({
               dataSourceSettings: {
@@ -332,8 +333,8 @@ methods: {
         return membersCollections;
     },
     updateOrder: function(sortDetails: SortModel[] , i: number, fieldName: string, j: number) {
-      let fieldsObj = (<any>this.$refs.sorting_fields).ej2Instances;
-      let orderInfo = (<any>this.$refs.sorting_order).ej2Instances;
+      let fieldsObj = ((this as any).$refs.sorting_fields).ej2Instances;
+      let orderInfo = ((this as any).$refs.sorting_order).ej2Instances;
       if (sortDetails[i].order === 'Ascending') {
           if ((<any>fieldsObj).itemData.Field === fieldName) {
               orderInfo.index = 0;
@@ -352,7 +353,7 @@ methods: {
     multiselect: [CheckBoxSelection],
     pivotview: [GroupingBar]
   }
-});
+}
 </script>
 
 <style scoped>

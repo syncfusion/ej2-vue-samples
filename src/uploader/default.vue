@@ -55,19 +55,15 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(UploaderPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           change: (args) => {
@@ -82,10 +78,14 @@ export default Vue.extend({
         isAuto: true
         }
     },
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     methods:{
         onFileRemove: function (args) {
             args.postRawFile = false;
         }
     }
-});
+};
 </script>

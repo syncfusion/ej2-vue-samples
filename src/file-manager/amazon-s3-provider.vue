@@ -21,15 +21,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager sample with Amazon S3 service
  */
 let hostUrl = 'https://amazons3.azurewebsites.net/api/AmazonS3Provider/';
-export default Vue.extend ({
+
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {            
            ajaxSettings:  {
@@ -49,5 +51,5 @@ export default Vue.extend ({
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar]
     }
-});
+}
 </script>

@@ -70,13 +70,14 @@
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { blockData } from './datasource';
-    import { SchedulePlugin, Day, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Day, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    const app = createApp({})
 
-    var resourceHeaderVue = Vue.component("resource-headerTemplate", {
+    var resourceHeaderVue = app.component("resource-headerTemplate", {
         template: '<div className="template-wrap"><div class="employee-category"><div><img class="employee-image" :src="getImage" :alt="getImage"/></div><div class="employee-name">' +
                   '{{getEmployeeName(data)}}</div><div class="employee-designation">{{getEmployeeDesignation(data)}}</div></div></div>',
         data() {
@@ -86,7 +87,7 @@
         },
         computed: {
             getImage: function() {
-                return './source/schedule/images/' + this.getEmployeeName(this.data).toLowerCase() + '.png';
+                return 'source/schedule/images/' + this.getEmployeeName(this.data).toLowerCase() + '.png';
             }
         },
         methods: {
@@ -101,7 +102,14 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -122,7 +130,7 @@
                     { Text: 'Laura', Id: 5, GroupId: 1, Color: '#bbdc00', Designation: 'Human Resource' },
                     { Text: 'Margaret', Id: 6, GroupId: 2, Color: '#9e5fff', Designation: 'Content Analyst' }
                 ],
-                resourceHeaderTemplate: function (e) {
+                resourceHeaderTemplate: function () {
                     return { template: resourceHeaderVue }
                 }
             }
@@ -130,6 +138,6 @@
         provide: {
             schedule: [Day, TimelineViews, TimelineMonth, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

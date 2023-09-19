@@ -27,7 +27,7 @@ line-height: 1;
     background-color: #0078d6;
 }
 
-.material .e-grid-empimg {
+.material .e-grid-empimg, .material3 .e-grid-empimg {
     background-color: #e3165b;
 }
 
@@ -58,6 +58,10 @@ _:-ms-fullscreen,
 
 .tailwind .e-grid-empimg {
     background-color: #4f46e5;
+}
+
+.fluent .e-grid-empimg {
+    background-color: #106EBE;
 }
 
 #Emptext {

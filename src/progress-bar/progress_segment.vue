@@ -99,16 +99,20 @@
         }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
-  ProgressAnnotation
+  ProgressBarComponent,
+  ProgressAnnotation,
+  ProgressBarAnnotationsDirective,
+  ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-progressbar': ProgressBarComponent,
+    'e-progressbar-annotations':  ProgressBarAnnotationsDirective,
+    'e-progressbar-annotation':  ProgressBarAnnotationDirective
+  },
   data: function() {
     return {
       value:40,
@@ -195,5 +199,5 @@ export default Vue.extend({
       }
    }
   }
-});
+}
 </script>

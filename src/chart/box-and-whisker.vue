@@ -23,7 +23,7 @@
     <p>
        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a point or tap a point in touch enabled devices.
     </p>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use box and whisker series, we need to inject <code>BoxAndWhiskerSeries</code> module using <code>provide: { chart: [BoxAndWhiskerSeries] },</code> method.
     </p>
@@ -39,19 +39,21 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, Category, Tooltip, BoxAndWhiskerSeries } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Category, Tooltip, BoxAndWhiskerSeries } from "@syncfusion/ej2-vue-charts";
 import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, 
         pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors} from './theme-color';
-
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');     
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-chart': ChartComponent,
+        'e-series-collection': SeriesCollectionDirective,
+        'e-series': SeriesDirective
+    },
     data: function () {
         return {
             theme: theme,
@@ -164,5 +166,5 @@ export default Vue.extend({
             }
         }
     },
-});
+};
 </script>

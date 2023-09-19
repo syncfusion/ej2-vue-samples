@@ -2,11 +2,11 @@
     "name": "Calendar",
     "directory": "calendar",
     "category": "Calendars",
+    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "change" ]},
             "description":"This example demonstrates a simple, mobile-friendly and responsive Vue Calendar to select a date" 
         },
@@ -14,7 +14,6 @@
             "url": "disabled",
             "name": "Disabled Dates",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "renderDayCell", "change" ]},
             "description":"This example demonstrates how to disable the dates like weekends, weekdays and specific dates (past dates, future dates and current dates) in a Vue Calendar"
         },
@@ -22,7 +21,6 @@
             "url": "date-range",
             "name": "Date Range",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "min", "max", "change" ]},
             "description":"This example demonstrates how to disables the specific range of dates (min and max) in a Vue Calendar"
         },
@@ -30,7 +28,6 @@
             "url": "special-dates",
             "name": "Special Dates",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "renderDayCell", "change" ]},
             "description" :"This example demonstrates how to highlight the specific dates like weekends, holidays and special dates in a Vue Calendar" 
         },
@@ -38,14 +35,12 @@
             "url": "multi-select",
             "name": "Multiple Selection",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "isMultiSelection", "values" ]}
         },
 		{
             "url": "month-picker",
             "name": "Month Picker",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "start", "depth" ]},
             "description" :"The Vue Calendar component can act as a month and year picker. It helps you to select a month or year quickly with all month related properties" 
         },
@@ -53,14 +48,12 @@
             "url": "islamic-calendar",
             "name": "Islamic Calendar",
             "category": "Calendar",
-            "hideOnDevice": true,            
             "api":{"Calendar": [ "isMultiSelection", "value", "min", "max" ]}
         },
         {
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "Calendar",
-            "hideOnDevice": true,
             "api":{"Calendar": [ "value" ]}
         }
     ]

@@ -54,17 +54,14 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { fifaEventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
     import { Timezone } from '@syncfusion/ej2-schedule';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-    Vue.use(SchedulePlugin);
-    Vue.use(DropDownListPlugin);
-
-
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+   
     let timezone = new Timezone();
+    let moment;
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
         Timezone.prototype.offset = function (date, timezone) {
             return moment.tz.zone(timezone).utcOffset(date.getTime());
@@ -77,7 +74,11 @@
         data[i].EndTime = timezone.removeLocalOffset(data[i].EndTime);
     }
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: data },
@@ -114,6 +115,6 @@
                 this.$refs.ScheduleObj.ej2Instances.timezone = args.value;
             }
         },
-    });
+    }
 
 </script>

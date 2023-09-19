@@ -27,7 +27,7 @@
                     <tr>
                         <td>
                             <div class="evtbtn" style="padding-bottom: 10px">
-                               <ejs-button v-on:click.native="clear">Clear</ejs-button>
+                               <ejs-button v-on:click="clear">Clear</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -64,15 +64,17 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Sort, Edit, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { TreeGridComponent, ColumnsDirective, ColumnDirective, Page, Sort, Edit } from "@syncfusion/ej2-vue-treegrid";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent
+  },
   data: () => {
     return {
       data: sampleData,
@@ -147,5 +149,5 @@ export default Vue.extend({
    
   }
 
-});
+};
 </script>

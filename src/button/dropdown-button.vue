@@ -164,12 +164,10 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 
-Vue.use(DropDownButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: { 'ejs-dropdownbutton': DropDownButtonComponent },
   data: function() {
     return {
       items: [
@@ -192,5 +190,5 @@ export default Vue.extend({
       ]
     };
   }
-});
+}
 </script>

@@ -32,7 +32,12 @@
             <e-item text='Submit Form' align="Left"></e-item>
             <e-item :template="'searchTemplate'" cssClass="find" align="Right"></e-item>
             <template v-slot:searchTemplate>
-                <ejs-textbox id="text box" ref="textinstance" width="125px" placeholder="Find Text" :created="onCreate"></ejs-textbox>          
+                <div class="e-input-group e-float-icon-left">
+                    <span class="e-icons e-search e-input-group-icon"></span>
+                    <div class="e-input-in-wrap">
+                        <input class="e-input" name="input" type="text" placeholder="Find Text" />
+                    </div>
+                </div>          
             </template>
             <e-item prefixIcon='e-icons e-annotation-edit' tooltipText='Edit Annotations' text='Edit' showTextOn='Overflow' align="Right"></e-item>
             <e-item prefixIcon='e-icons e-print' tooltipText='Print File' text='Print' showTextOn='Overflow' align="Right"></e-item>
@@ -76,27 +81,25 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { TextBoxPlugin, NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
 
-Vue.use(ToolbarPlugin);
-Vue.use(ComboBoxPlugin);
-Vue.use(TextBoxPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { TextBoxComponent, NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 
 export default {
+    components: {
+        'ejs-toolbar': ToolbarComponent,
+        'ejs-combobox': ComboBoxComponent,
+        'ejs-textbox': TextBoxComponent,
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'e-item': ItemDirective,
+        'e-items': ItemsDirective
+    },
   data () {
     return {
         zoomData: ["25%", "50%", "75%", "100%"]
     }
   },
-  methods: {
-    onCreate: function() {
-        let textObj = this.$refs.textinstance;
-        textObj.addIcon('prepend', 'e-icons e-search')
-    }
-  }
+  methods: {}
 }
 </script>

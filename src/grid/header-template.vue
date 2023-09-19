@@ -26,7 +26,7 @@
         <p>
         The Grid provides a way to use a custom element in header element. 
         <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#headertemplate">columns->headerTemplate
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#headertemplate">columns->headerTemplate
         </a></code> property accepts a vue component, which will be used 
         as the template for the header cell.
         </p>
@@ -41,17 +41,19 @@
 @import "../../styles/Grid/header-template.css";
 </style>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: employeeData,
     };
   }
-});
+}
 </script>

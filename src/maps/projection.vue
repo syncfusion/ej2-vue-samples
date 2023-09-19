@@ -59,12 +59,16 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Legend, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
     return{
         titleSettings: {
@@ -138,5 +142,5 @@ methods:{
             this.$refs.maps.ej2Instances.refresh();        
     }
 }
-})
+}
 </script>

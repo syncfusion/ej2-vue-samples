@@ -146,10 +146,11 @@
 /* custom code end */
 </style>
 <script>
-import Vue from "vue";
 import { rippleEffect } from "@syncfusion/ej2-base";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-export default Vue.extend({
+export default {
+  components: { 'ejs-button': ButtonComponent },
   mounted: function() {
     var buttons = document.querySelectorAll('label.e-btn');
     var button;
@@ -158,5 +159,5 @@ export default Vue.extend({
         rippleEffect(button, { selector: '.e-btn' });
     }
   }
-});
+}
 </script>

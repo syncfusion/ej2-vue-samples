@@ -23,15 +23,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, ContextMenu, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView, ContextMenu } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager sample with IBM Cloud Object Storage service
  */
 let hostUrl = 'https://ej2-ibm-cos-node-file-provider.azurewebsites.net/';
-export default Vue.extend ({
+
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {            
            ajaxSettings:  {
@@ -51,5 +53,5 @@ export default Vue.extend ({
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar, ContextMenu]
     }
-});
+}
 </script>

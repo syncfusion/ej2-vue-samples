@@ -112,12 +112,10 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(ColorPickerPlugin);
-
-export default Vue.extend({
+export default {
+  components: { 'ejs-colorpicker': ColorPickerComponent },
   methods: {
     onChange: function(args) {
       document.getElementById("preview").style.backgroundColor =
@@ -131,5 +129,5 @@ export default Vue.extend({
         }
     });
   }
-});
+};
 </script>

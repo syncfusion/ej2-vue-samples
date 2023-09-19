@@ -25,11 +25,11 @@
        <p>
             The Grid provides an option to render CRUD action buttons in a column by using the CommandColumn feature. The
             <code><a target="_blank" class="code"
-            href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#commands">columns->commands
+            href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#commands">columns->commands
             </a></code> property accepts array of <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-commandModel.html">CommandModel
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/commandColumnModel/">CommandModel
             </a></code> object. The predefined command button can be defined by using <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-commandModel.html#type">type
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/commandColumnModel/#type">type
             </a></code> property.
         </p>
         <p>The built-in command button are,</p>
@@ -46,20 +46,22 @@
         </p>
         <p>
             More information on the command column configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/edit.html#command-column">
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/editing/command-column-editing">
        documentation section</a>.
         </p>
     </div>
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Edit, Page, CommandColumn } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, CommandColumn } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails.slice(0),
@@ -78,5 +80,5 @@ export default Vue.extend({
   provide: {
       grid: [Edit, Page, CommandColumn]
   }
-});
+}
 </script>

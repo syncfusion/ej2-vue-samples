@@ -82,7 +82,7 @@
         line-height: 50px;
     }
     .default-appbar-section .e-appbar.prominent-appbar {
-        background-image: url(./images/prominent.png);
+        background-image: url('./images/prominent.png');
         background-size: 100% 400px;
         color: #ffffff;
         background-repeat: no-repeat;
@@ -123,12 +123,14 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { AppBarPlugin } from "@syncfusion/ej2-vue-navigations";
+import { AppBarComponent } from "@syncfusion/ej2-vue-navigations";
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(AppBarPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-appbar': AppBarComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function () {
         return {
         }
@@ -139,5 +141,5 @@ export default Vue.extend({
         document.getElementById('denseButtonMenu').setAttribute('aria-label', 'menu');
     },
     methods: {}
-});
+}
 </script>

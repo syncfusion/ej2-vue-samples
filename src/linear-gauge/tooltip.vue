@@ -1,54 +1,50 @@
 <template>
 <div>
 <div class="control-section">
-<ejs-lineargauge ref="lineargauge" style='display:block' align='center' id='tooltipContainer' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='gaugeLoad' :annotations='annotations'>
-<e-axes>
-<e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
-<e-pointers>
-<e-pointer :type='type' :value='value' :offset='offset' :color='color'></e-pointer>
-</e-pointers>
-</e-axis>
-<e-axis :opposedPosition='opposedPosition' :minimum='minimum2' :maximum='maximum2' :line='line2' :majorTicks='majorTicks2' :minorTicks='minorTicks2' :labelStyle='labelStyle'>
-<e-pointers>
-<e-pointer :type='type2' :value='value2' :offset='offset2' :color='color2'></e-pointer>
-</e-pointers>
-</e-axis>
-</e-axes>
-</ejs-lineargauge>
+    <ejs-lineargauge ref="lineargauge1" :background='background' style='display:block' align='center' id='tooltipContainer' :loaded='loaded' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='load' :annotations='annotations'>
+        <e-axes>
+            <e-axis :minimum='minimum' :maximum='maximum' :line='line' :majorTicks='majorTicks' :minorTicks='minorTicks' :labelStyle='labelStyle'>
+                <e-pointers>
+                    <e-pointer :type='type' :value='value' :offset='offset' :color='color'></e-pointer>
+                </e-pointers>
+            </e-axis>
+            <e-axis :opposedPosition='opposedPosition' :minimum='minimum2' :maximum='maximum2' :line='line2' :majorTicks='majorTicks2' :minorTicks='minorTicks2' :labelStyle='labelStyle'>
+                <e-pointers>
+                    <e-pointer :type='type2' :value='value2' :offset='offset2' :color='color2'></e-pointer>
+                </e-pointers>
+            </e-axis>
+        </e-axes>
+    </ejs-lineargauge>
 </div>
 <div id="action-description">
     <p>
-        This sample visualizes the tooltip for pointer in gauge. To see tooltip in action, hover pointer or tap the pointer.
+        This sample depicts the linear gauge as a measuring scale and shows the tooltip in the linear gauge.
     </p>
 </div>
 <div id="description">
     <p>
-        This sample demonstrates the measuring scale by using the linear gauge. Tooltip is used to track the pointer value closer
-        to the current mouse position or touch contact. You can show the tooltip for an individual marker or bar pointer
-        by hover or tap on the pointer in touch enabled devices.
-        <br>
-        <p style="font-weight: 500">Injecting Module</p>
-        <p>
-            Linear gauge component features are segregated into individual feature-wise modules. To use tooltip, we need to inject <code>GaugeTooltip</code>module
-            using <code>LinearGauge.Inject(GaugeTooltip)</code> method.
-        </p>
-        <p>
-            More information about tooltip can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation">documentation section</a>.
-        </p>
+        The tooltip is used to track the current value that is closest to the mouse position or touch contact. When
+        using a touch-enabled device, the tooltip is displayed by hovering or tapping.
+    </p>
+    <p>
+        More information about tooltip can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/user-interaction/#tooltip">documentation
+            section</a>.
+    </p>
 </div>
 </div>
 </template>
-<style scoped>
-  #control-container {
-        padding: 0px !important;
-    }
-</style>
 <script>
-import Vue from "vue";
-import { LinearGaugePlugin, GaugeTooltip, Annotations } from "@syncfusion/ej2-vue-lineargauge";
-Vue.use(LinearGaugePlugin);
-export default Vue.extend({
+import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective, GaugeTooltip, Annotations } from "@syncfusion/ej2-vue-lineargauge";
+
+export default {
+ components: {
+    'ejs-lineargauge': LinearGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective
+ },
  data:function(){
     return{
      container: {
@@ -58,8 +54,11 @@ export default Vue.extend({
                 color: '#a6a6a6'
             }
         },
+        background:'transparent',
         tooltip: {
-            enable: true,
+        enable: true,
+        showAtMousePosition: true,
+        textStyle: { fontFamily: 'inherit' }
         },
         orientation: 'Horizontal',
         minimum: 0,
@@ -68,18 +67,18 @@ export default Vue.extend({
             offset: 140
         },
         majorTicks: {
-            interval: 1
+            interval: 1, height: 20, color: '#9E9E9E'
         },
         minorTicks: {
-            interval: 0.2
+            interval: 0.2, height: 10, color: '#9E9E9E'
         },
         labelStyle: {
             font: {
-                fontFamily: 'Segoe UI'
+                fontFamily: 'inherit'
             }
         },
         annotations: [ {
-                content: '<div id="first"><h1 style="font-size:15px; font-family: Segoe UI;">Inches</h1></div>',
+                content: '<div id="first"><h1 style="font-size:15px;color:#686868;">Inches</h1></div>',
                 axisIndex: 0,
                 axisValue: 5.4,
                 x: 35,
@@ -87,7 +86,7 @@ export default Vue.extend({
                 zIndex: '1'
             },
             {
-                content: '<div id="second"><h1 style="font-size:15px; font-family: Segoe UI;">Centimeters</h1></div>',
+                content: '<div id="second"><h1 style="font-size:15px;color:#686868;">Centimeters</h1></div>',
                 axisIndex: 1,
                 axisValue: 16.5,
                 x: 50,
@@ -105,10 +104,10 @@ export default Vue.extend({
             offset: -140,
         },
         majorTicks2: {
-            interval: 1
+            interval: 1, height: 20, color: '#9E9E9E'
         },
         minorTicks2: {
-            interval: 0.2
+            interval: 0.2, height: 10, color: '#9E9E9E'
         },
         type2: 'Bar',
         offset2: -15,
@@ -128,16 +127,53 @@ methods: {
         args.text = '';
     }
     },
-    gaugeLoad: function(args){
-        /* custom code start */
+    loaded:  function(args) {
+        if(parseInt(args.gauge.element.offsetWidth) < 500)
+        {
+            this.$refs.lineargauge1.ej2Instances.axes[1].majorTicks.interval = 2;
+            this.$refs.lineargauge1.ej2Instances.axes[1].minorTicks.interval = 1;
+            this.$refs.lineargauge1.ej2Instances.orientation = 'Vertical';
+            this.$refs.lineargauge1.ej2Instances.annotations[0].x = -57;
+            this.$refs.lineargauge1.ej2Instances.annotations[0].y = -30;
+            this.$refs.lineargauge1.ej2Instances.annotations[1].x = 50;
+            this.$refs.lineargauge1.ej2Instances.annotations[1].y = -45;
+        }
+        else {
+            this.$refs.lineargauge1.ej2Instances.axes[1].majorTicks.interval = 1;
+            this.$refs.lineargauge1.ej2Instances.axes[1].minorTicks.interval = 0.2;
+            this.$refs.lineargauge1.ej2Instances.orientation = 'Horizontal';
+            this.$refs.lineargauge1.ej2Instances.annotations[0].x = 35;
+            this.$refs.lineargauge1.ej2Instances.annotations[0].y = -58;
+            this.$refs.lineargauge1.ej2Instances.annotations[1].x = 50;
+            this.$refs.lineargauge1.ej2Instances.annotations[1].y = 52;
+        }
+
+        if(parseInt(args.gauge.element.offsetWidth) < 500)
+        {
+          document.getElementById('tooltipContainer_Annotation_0')['style']['transform'] = 'rotate(270deg)';
+          document.getElementById('tooltipContainer_Annotation_1')['style']['transform'] = 'rotate(270deg)';
+        }
+        else
+        {
+          document.getElementById('tooltipContainer_Annotation_0')['style']['transform'] = '';
+          document.getElementById('tooltipContainer_Annotation_1')['style']['transform'] = '';
+        }
+    },
+    load: function(args){
+    /* custom code start */
     let selectedTheme = location.hash.split("/")[1];
     selectedTheme = selectedTheme ? selectedTheme : 'Material';
     args.gauge.theme = (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     /* custom code end */
+
+    if (args.gauge.theme.toLowerCase().indexOf('dark') > 1 || args.gauge.theme.toLowerCase() === 'highcontrast') {
+        this.$refs.lineargauge1.ej2Instances.annotations[0].content = '<div id="first"><h1 style="font-size:15px; color: #DADADA">Inches</h1></div>';
+        this.$refs.lineargauge1.ej2Instances.annotations[1].content = '<div id="second"><h1 style="font-size:15px; color: #DADADA">Centimeters</h1></div>';
     }
+  }
 }
-});
+};
 </script>
 
 

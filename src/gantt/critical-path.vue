@@ -44,11 +44,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Gantt, Toolbar, Edit, Selection, CriticalPath } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Toolbar, Edit, Selection, CriticalPath } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
         dataSource: projectNewData,
@@ -94,5 +96,5 @@ export default Vue.extend({
     gantt: [Edit,Toolbar, Selection, CriticalPath]
   },
 
-});
+}
 </script>

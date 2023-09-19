@@ -22,17 +22,17 @@
             Grid multiple selection can be achieved with help of checkbox in each row. To render checkbox in each grid row, you need
             to define column type as <code>checkbox</code> using
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#type">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#type">
         columns->type
         </a></code> property.</p>
         <p>Selection can be persisted on all the operations using
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-selectionSettings.html#persistselection">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/selectionSettingsModel/#persistselection">
         selectionSettings-> persistSelection
         </a></code> property. For persisting selection on the Grid, any one of the column should be defined as
             a primary key using
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#isprimarykey">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#isprimarykey">
         columns->isPrimaryKey
         </a></code> property.
         </p>
@@ -43,7 +43,7 @@
         </p>
         <p>
             More information on the checkbox selection configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/selection.html#checkbox-selection">
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/selection/check-box-selection">
         documentation section</a>.
         </p>
     </div>
@@ -51,13 +51,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  }, 
   data: () => {
     return {
       data: orderDetails.slice(0),
@@ -69,5 +71,5 @@ export default Vue.extend({
   provide: {
       grid: [Page, Edit, Toolbar]
   }
-});
+}
 </script>

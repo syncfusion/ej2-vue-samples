@@ -50,16 +50,18 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Filter, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Filter, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData, formatData } from "./data-source";
 import { DateFormatOptions } from "@syncfusion/ej2-base";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: formatData,
@@ -95,28 +97,28 @@ export default Vue.extend({
          let columnName = e.value;
             let format;
             if (columnName === 'price') {
-                (<DropDownListComponent>this.$refs.format).ej2Instances.dataSource = this.priceFormat;
-                format = ((<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column).format;
-                (<DropDownListComponent>this.$refs.format).ej2Instances.value = format;
+                ((this as any).$refs.format).ej2Instances.dataSource = (this as any).priceFormat;
+                format = (((this as any).$refs.treegrid).getColumnByField(columnName) as Column).format;
+                ((this as any).$refs.format).ej2Instances.value = format;
             }
             if (columnName === 'orderDate') {
-               (<DropDownListComponent>this.$refs.format).ej2Instances.dataSource = this.dateFormat;
-                format = (((<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column).format as DateFormatOptions).format;
-                (<DropDownListComponent>this.$refs.format).ej2Instances.value = format;
+               ((this as any).$refs.format).ej2Instances.dataSource = (this as any).dateFormat;
+                format = ((((this as any).$refs.treegrid).getColumnByField(columnName) as Column).format as DateFormatOptions).format;
+                ((this as any).$refs.format).ej2Instances.value = format;
             }
     },
     onChange: function(e: ChangeEventArgs): void {
             let formatval: string = <string>e.value;
-            let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
+            let columnName = ((this as any).$refs.columns).ej2Instances.value;
             if (columnName === 'price') {
-                ((<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column).format = formatval;
+                (((this as any).$refs.treegrid).getColumnByField(columnName) as Column).format = formatval;
             }
             if (columnName === 'orderDate') {
-                ((<TreeGridComponent>this.$refs.treegrid).getColumnByField(columnName) as Column).format = { format: formatval, type: 'date' };
+                (((this as any).$refs.treegrid).getColumnByField(columnName) as Column).format = { format: formatval, type: 'date' };
             }
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.refreshColumns();
+            ((this as any).$refs.treegrid).ej2Instances.refreshColumns();
     }
   }
 
-});
+}
 </script>

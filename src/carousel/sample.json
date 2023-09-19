@@ -3,7 +3,6 @@
     "directory": "carousel",
     "category": "Navigation",
     "ftName": "carousel",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -69,7 +68,6 @@
             "url": "indicator-type",
             "name": "Indicator Type",
             "category": "Carousel",
-            "type": "new",
             "api": {
                 "Carousel": [
                     "indicatorsType",

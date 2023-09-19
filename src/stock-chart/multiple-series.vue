@@ -15,7 +15,6 @@
         :border="border"
         :title="title"
         :theme="theme"
-        :load='load'
       >
         <e-stockchart-series-collection>
           <e-stockchart-series :dataSource="seriesData" type="Spline" xName="x" yName="close" name="GOOG"></e-stockchart-series>
@@ -34,8 +33,8 @@
       <p>
         The legend is enabled, and you can use it to toggle the visibility of series in the stock chart. To customize the legend in the stock chart, use the <code>stockChartLegendSettings</code> property.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module:</p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b>:</p>
       <p>
         The Stock Chart component features are segregated into individual feature-wise modules. To use date-time axis, inject 
         <code>DateTime</code> and <code>LineSeries</code> module using <code> provide: { stockchart: [ DateTime, LineSeries] },</code> method. 
@@ -52,11 +51,12 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { goog, googl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   LineSeries,
   SplineSeries,
@@ -80,13 +80,16 @@ import {
   StockLegend
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -106,7 +109,7 @@ export default Vue.extend({
       primaryYAxis: {
         interval: 40,
         lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", height: 0 },
+        majorTickLines: { color: "transparent", width: 0 },
         crosshairTooltip: { enable: true }
       },
        crosshair: {
@@ -151,5 +154,5 @@ export default Vue.extend({
     ]
   },
   methods: {}
-});
+};
 </script>

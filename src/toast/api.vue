@@ -81,8 +81,8 @@
             </div>
         </div>
         <div class="row center">
-            <ejs-button ref='buttonShowRef' id="toastBtnShow" class="e-btn e-primary" v-on:click.native='showClicked'>Show Toasts</ejs-button>
-            <ejs-button ref='hideButtonRef' id="toastBtnHide" v-if="ShowBtn" class="e-btn e-primary" v-on:click.native='hideClicked' style="margin-Left:3px;">Hide all</ejs-button>
+            <ejs-button ref='buttonShowRef' id="toastBtnShow" class="e-btn e-primary" v-on:click='showClicked'>Show Toasts</ejs-button>
+            <ejs-button ref='hideButtonRef' id="toastBtnHide" v-if="ShowBtn" class="e-btn e-primary" v-on:click='hideClicked' style="margin-Left:3px;">Hide all</ejs-button>
         </div>
     </div>
     <div id="action-description">
@@ -138,14 +138,20 @@
 </style>
 <script>
 import Vue from "vue";
-import { ToastPlugin,Toast, ToastBeforeOpenArgs, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
+import { ToastComponent,Toast, ToastBeforeOpenArgs, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
 import { CheckBox, ChangeEventArgs } from '@syncfusion/ej2-buttons';
+import { CheckBoxComponent, ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { DropDownList, ChangeEventArgs as dropdownsChange } from '@syncfusion/ej2-dropdowns';
 import { Effect, isNullOrUndefined } from '@syncfusion/ej2-base';
 
-Vue.use(ToastPlugin);
 let ShowBtn = undefined;
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-toast': ToastComponent,
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function(){
         return {
             position: { X: 'Right', Y :'Bottom' },
@@ -319,6 +325,6 @@ export default Vue.extend({
             }
         },
     }
-});
+};
 
 </script>

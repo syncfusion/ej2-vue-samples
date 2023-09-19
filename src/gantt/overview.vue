@@ -80,11 +80,10 @@
 </div>
 </template>
 <script >
-import Vue from "vue";
-import {GanttPlugin , Selection, Toolbar, DayMarkers, Edit, Filter, Reorder, Resize, ColumnMenu, VirtualScroll, Sort, RowDD, ContextMenu, ExcelExport, PdfExport, CriticalPath} from "@syncfusion/ej2-vue-gantt";
+import {GanttComponent, ColumnDirective, ColumnsDirective, Selection, Toolbar, DayMarkers, Edit, Filter, Reorder, Resize, ColumnMenu, VirtualScroll, Sort, RowDD, ContextMenu, ExcelExport, PdfExport, CriticalPath} from "@syncfusion/ej2-vue-gantt";
 import {editingResources, overviewData } from './data-source';
 import { DropDownList } from "@syncfusion/ej2-dropdowns";
-Vue.use(GanttPlugin);
+
 import columntempVue from "./column-temp.vue";
 var theme;
 var style;
@@ -99,8 +98,12 @@ var dropDownData = [
     { ID: "Chart", Text: "Chart" }
 ];
 
-export default Vue.extend({
-    
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: function() {
       return{
             data: overviewData,
@@ -325,7 +328,7 @@ export default Vue.extend({
     return style;
     },
   }
-});
+}
 </script>
 <style>
     #overviewSample

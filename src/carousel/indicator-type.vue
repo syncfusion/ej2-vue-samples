@@ -6,11 +6,26 @@
             <h4>Default Indicator</h4>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Default" :autoPlay="false">
                 <e-carousel-items>
-                    <e-carousel-item :template="itemTemplate1"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate2"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate3"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate4"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate5"></e-carousel-item>
+                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                    <template v-slot:itemTemplate1>
+                        <div class="e-slide">Slide 1</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                    <template v-slot:itemTemplate2>
+                        <div class="e-slide">Slide 2</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                    <template v-slot:itemTemplate3>
+                        <div class="e-slide">Slide 3</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                    <template v-slot:itemTemplate4>
+                        <div class="e-slide">Slide 4</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                    <template v-slot:itemTemplate5>
+                        <div class="e-slide">Slide 5</div>
+                    </template>
                 </e-carousel-items>
             </ejs-carousel>
         </div>
@@ -18,11 +33,26 @@
             <h4>Dynamic Indicator</h4>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Dynamic" :autoPlay="false">
                 <e-carousel-items>
-                    <e-carousel-item :template="itemTemplate1"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate2"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate3"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate4"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate5"></e-carousel-item>
+                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                    <template v-slot:itemTemplate1>
+                        <div class="e-slide">Slide 1</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                    <template v-slot:itemTemplate2>
+                        <div class="e-slide">Slide 2</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                    <template v-slot:itemTemplate3>
+                        <div class="e-slide">Slide 3</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                    <template v-slot:itemTemplate4>
+                        <div class="e-slide">Slide 4</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                    <template v-slot:itemTemplate5>
+                        <div class="e-slide">Slide 5</div>
+                    </template>
                 </e-carousel-items>
             </ejs-carousel>
         </div>
@@ -32,11 +62,26 @@
             <h4>Fraction Indicator</h4>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Fraction" :autoPlay="false">
                 <e-carousel-items>
-                    <e-carousel-item :template="itemTemplate1"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate2"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate3"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate4"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate5"></e-carousel-item>
+                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                    <template v-slot:itemTemplate1>
+                        <div class="e-slide">Slide 1</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                    <template v-slot:itemTemplate2>
+                        <div class="e-slide">Slide 2</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                    <template v-slot:itemTemplate3>
+                        <div class="e-slide">Slide 3</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                    <template v-slot:itemTemplate4>
+                        <div class="e-slide">Slide 4</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                    <template v-slot:itemTemplate5>
+                        <div class="e-slide">Slide 5</div>
+                    </template>
                 </e-carousel-items>
             </ejs-carousel>
         </div> 
@@ -45,11 +90,26 @@
             <h4>Progress Indicator</h4>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Progress" :autoPlay="false">
                 <e-carousel-items>
-                    <e-carousel-item :template="itemTemplate1"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate2"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate3"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate4"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate5"></e-carousel-item>
+                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                    <template v-slot:itemTemplate1>
+                        <div class="e-slide">Slide 1</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                    <template v-slot:itemTemplate2>
+                        <div class="e-slide">Slide 2</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                    <template v-slot:itemTemplate3>
+                        <div class="e-slide">Slide 3</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                    <template v-slot:itemTemplate4>
+                        <div class="e-slide">Slide 4</div>
+                    </template>
+                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                    <template v-slot:itemTemplate5>
+                        <div class="e-slide">Slide 5</div>
+                    </template>
                 </e-carousel-items>
             </ejs-carousel>
         </div> 
@@ -125,86 +185,17 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { CarouselPlugin } from "@syncfusion/ej2-vue-navigations";
+import { CarouselComponent, CarouselItemDirective, CarouselItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-Vue.use(CarouselPlugin);
-
-var itemTemplate1Vue = Vue.component("itemTemplate1", {
-    template: '<div class="e-slide">Slide 1</div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
-
-var itemTemplate2Vue = Vue.component("itemTemplate2", {
-    template: '<div class="e-slide">Slide 2</div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
-
-var itemTemplate3Vue = Vue.component("itemTemplate3", {
-    template: '<div class="e-slide">Slide 3</div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
-
-var itemTemplate4Vue = Vue.component("itemTemplate4", {
-    template: '<div class="e-slide">Slide 4</div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
-
-var itemTemplate5Vue = Vue.component("itemTemplate5", {
-    template: '<div class="e-slide">Slide 5</div>',
-    data() {
-        return {
-            data: {}
-        };
-    }
-});
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-carousel': CarouselComponent,
+        'e-carousel-items': CarouselItemsDirective,
+        'e-carousel-item': CarouselItemDirective
+    },
     data: function () {
-        return {
-            itemTemplate1: function (e) {
-                return {
-                    template: itemTemplate1Vue
-                };
-            },
-            itemTemplate2: function (e) {
-                return {
-                    template: itemTemplate2Vue
-                };
-            },
-            itemTemplate3: function (e) {
-                return {
-                    template: itemTemplate3Vue
-                };
-            },
-            itemTemplate4: function (e) {
-                return {
-                    template: itemTemplate4Vue
-                };
-            },
-            itemTemplate5: function (e) {
-                return {
-                    template: itemTemplate5Vue
-                };
-            }
-        }
+        return {}
     },
     methods: {}
-});
+};
 </script>

@@ -57,7 +57,6 @@
         color: #495057;
     }
     .material-dark .ddl-icons-css .e-list-icon,
-    .material3-dark .ddl-icons-css .e-list-icon,
     .bootstrap5-dark .ddl-icons-css .e-list-icon,
     .tailwind-dark .ddl-icons-css .e-list-icon,
     .fluent-dark .ddl-icons-css .e-list-icon {
@@ -113,13 +112,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             groupFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
@@ -131,5 +130,5 @@ export default Vue.extend ({
             socialMediaData: data['socialMedia']
         };
     }
-});
+}
 </script>

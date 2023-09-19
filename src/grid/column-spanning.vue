@@ -30,7 +30,7 @@
 
      <div id="description">
          <p>
-            Grid allows to span the multiple adjacent cells. In <a href='http://ej2.syncfusion.com/vue/documentation/grid/api-queryCellInfoEventArgs.html'><code>queryCellInfo</code></a> event, you can define the <code>colSpan</code> attribute to span the cells.
+            Grid allows to span the multiple adjacent cells. In <a href='https://ej2.syncfusion.com/vue/documentation/api/grid/queryCellInfoEventArgs/'><code>queryCellInfo</code></a> event, you can define the <code>colSpan</code> attribute to span the cells.
         </p>
         <p>
             In this demo, Employee <b>Davolio</b> doing analysis from 9.00 AM to 10.00 AM, so that cells have spanned and
@@ -41,13 +41,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import { GridPlugin, QueryCellInfoEventArgs } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, QueryCellInfoEventArgs } from '@syncfusion/ej2-vue-grids';
 import { columnSpanData, ColumnSpanDataType  } from './data-source';
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
       return {
         data: columnSpanData
@@ -144,5 +146,5 @@ export default Vue.extend({
         }
     }
     }
-  })
+  }
 </script>

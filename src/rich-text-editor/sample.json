@@ -6,8 +6,8 @@
     "samples": [{
             "url": "tools",
             "name": "Overview",
+            "type" : "update",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
         {
@@ -44,7 +44,6 @@
             "url": "format-painter",
             "name": "Format Painter",
             "category": "Rich Text Editor",
-            "type": "New",
             "description": "This demo explains how to use Format Painter feature of the Rich Text Editor component."
         },
         {
@@ -117,7 +116,6 @@
             "url": "insert-emoticons",
             "name": "Insert Emoticons",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo demonstrates how to insert emoticons into the rich content in vue WYSIWYG HTML Editor by using an emoji picker toolbar in the editor."
         },
         {
@@ -130,7 +128,6 @@
             "url": "image-editor-integration",
             "name": "Image Editor Integration",
             "category": "Rich Text Editor",
-            "type": "New",
             "description": "This example shows how to integrate Image Editor into Rich Text Editor component, the edited image will be inserted into the Rich Text Editor."
         },
         {
@@ -142,14 +139,23 @@
         {
             "url": "smart-suggestion",
             "name": "Smart Suggestion",
+            "type" : "update",
             "description": "This demo explains how to implement custom text formatting within the Rich Text Editor using the @mention component. To use it, simply type the `/` character in the editor and select the desired format from the suggestion list that appears.",
             "category": "Mention Integration"
         },
         {
             "url": "types",
             "name": "Type",
+            "type" : "update",
             "category": "Toolbar",
             "description": "This demo demonstrates different types and behaviors of a toolbar used in the vue HTML Editor such as expand/collapse, multirow, and floating."
+        },
+        {
+            "url": "quick-format-toolbar",
+            "name": "Quick Format Toolbar",
+            "type" : "new",
+            "category": "Toolbar",
+            "description": "This sample demonstrates the 'Quick Format Toolbar' option in Rich Text Editor content. To select the text content inside the Rich Text Editor and open the quick format toolbar for editing the Rich Text Editor value."
         },
         {
             "url": "insert-special-characters",
@@ -166,6 +172,7 @@
         {
             "url": "markdown-preview",
             "name": "Preview",
+            "type" : "update",
             "category": "Markdown Editor",
             "description": "This demo shows how to render a vue Markdown editor with LIVE preview for markdown content editing using a third-party library, 'marked js'."
         },

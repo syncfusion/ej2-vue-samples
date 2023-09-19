@@ -45,7 +45,7 @@
         { "formatName": "Numbered list", "command": "OL", "formatType": "Basic blocks", "icon": "e-icons e-list-ordered icon", "description": "Create an ordered list"},
         { "formatName": "Bulleted list", "command": "UL", "formatType": "Basic blocks", "icon": "e-icons e-list-unordered icon", "description": "Create an unordered list"},
         { "formatName": "Table", "command": "CreateTable", "formatType": "Basic blocks","icon": "e-icons e-table icon", "description": "Insert a table"},
-        { "formatName": "Emoji", "command": "Emoji", "formatType": "Inline", "icon": "e-icons emoji","description": "Use emojis to express ideas and emoticons"},
+        { "formatName": "Emoji picker", "command": "EmojiPicker", "formatType": "Inline", "icon": "e-icons e-emoji icon","description": "Use emojis to express ideas and emoticons"},
         { "formatName": "Image", "command": "Image", "formatType": "Media", "icon": "e-icons e-image icon", "description": "Add image to your page"},
         { "formatName": "Audio", "command": "Audio", "formatType": "Media", "icon": "e-icons e-audio icon", "description": "Add audio to your page"},
         { "formatName": "Video", "command": "Video", "formatType": "Media", "icon": "e-icons e-video icon", "description": "Add video to your page"}

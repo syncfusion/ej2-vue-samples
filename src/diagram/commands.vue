@@ -54,10 +54,6 @@
 </template>
 <style>
 
-        .e-file-select-wrap {
-            display: none;
-        }
-
         .e-btn,
         .e-css.e-btn {
             background-color: transparent;
@@ -196,11 +192,10 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  OverviewPlugin,
+  OverviewComponent,
   Diagram,
-  DiagramPlugin,
+  DiagramComponent,
   ConnectorModel,
   Node,
   SnapConstraints,
@@ -218,10 +213,11 @@ import { DataManager } from "@syncfusion/ej2-data";
 import { data } from "./diagram-data";
 import {
   Toolbar,
-  ToolbarPlugin,
+  ToolbarComponent,
+  ItemDirective,
+  ItemsDirective
 } from "@syncfusion/ej2-vue-navigations";
-Vue.use(DiagramPlugin);
-Vue.use(ToolbarPlugin);
+
 let diagramInstance;
 
   var nodes = [
@@ -323,7 +319,13 @@ let diagramInstance;
       style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 950, offsetY: 550
   }
 ];
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective
+  },  
   data: function() {
     return {
       width: "100%",
@@ -431,7 +433,7 @@ export default Vue.extend({
       }
      }
     },
-});
+}
 
 function onClickDisable(args, selectedItems, toolbar){
     let diagram = document.getElementById("diagram").ej2_instances[0];

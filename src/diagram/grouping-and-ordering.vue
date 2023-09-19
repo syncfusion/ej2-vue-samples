@@ -137,37 +137,35 @@
 </style>
 
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   UndoRedo,
   ConnectorModel,
   PointPortModel,
   Connector,
-  SymbolPalettePlugin,
+  SymbolPaletteComponent,
   SelectorConstraints,
   SymbolInfo,
   IDragEnterEventArgs,
   DiagramTools,
+  Node
 } from "@syncfusion/ej2-vue-diagrams";
 import {
-  ToolbarPlugin,
+  ToolbarComponent,
+  ItemsDirective,
+  ItemDirective,
   Toolbar,
   ClickEventArgs
 } from "@syncfusion/ej2-vue-navigations";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(ColorPickerPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(ComboBoxPlugin);
-let isMobile;
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
 
+let isMobile;
+let drawingNode;
 //Initializes the nodes for the diagram
 var nodes = [
     {
@@ -298,7 +296,17 @@ var nodes = [
     ];
 
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-combobox': ComboBoxComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -310,7 +318,6 @@ export default Vue.extend({
       //Sets the default values of a node
       getNodeDefaults: (obj) => {
         obj.height = 50;
-        obj.style = { fill: "transparent", strokeWidth: 2 };
         return obj;
       },
         selectedItems : {
@@ -375,9 +382,12 @@ export default Vue.extend({
     },  
       fontStyle: function() {
         return {
-          template: Vue.component("fontStyle", {
+          template: createApp({}).component("fontStyle", {
             template:
               ' <ejs-combobox id="fontStyle" :dataSource="fontTypeList" :select="fontFamily" :fields="fontfamilyfields" :index="fontfamilyindex"></ejs-combobox>',
+              components: {
+                'ejs-combobox': ComboBoxComponent
+              },
               data() {
                 return{
                 fontTypeList : [
@@ -402,9 +412,12 @@ export default Vue.extend({
   
     fontSize: function() {
         return {
-          template: Vue.component("fontSize", {
+          template: createApp({}).component("fontSize", {
             template:
               '<ejs-numerictextbox id="range" :value="12" format="##.##" :step="2" :min="1" :max="30" width="90px" :change="fontSizeChange"></ejs-numerictextbox>',
+              components: {
+                'ejs-numerictextbox': NumericTextBoxComponent
+              },
               data() {
                 return{
                     fontSizeChange: function(args){
@@ -417,9 +430,12 @@ export default Vue.extend({
       },
       colorPicker : function(){
          return{
-            template: Vue.component("colorPicker", {
+            template: createApp({}).component("colorPicker", {
             template:
               '<ejs-colorpicker id="color-picker" type="color" value="#000" :change="colorChange"></ejs-colorpicker>',
+              components: {
+                'ejs-colorpicker': ColorPickerComponent
+              },
               data() {
                 return{
                   colorChange : function(args){
@@ -539,7 +555,7 @@ export default Vue.extend({
     let diagram = this.$refs.diagramObject.ej2Instances;
   },
  
-});
+};
 
 function addEvents() {
     isMobile = window.matchMedia('(max-width:550px)').matches;

@@ -29,16 +29,16 @@
             <li>The horizontal scrollbar appears when the sum of column`s width exceeds Grid element width.</li>
         </ul>
         <p>The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#height">height
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#height">height
         </a></code> and <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#width">width
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#width">width
         </a></code> property is used to set the Grid height and width respectively. The value
         of these properties can be a numeric value, pixel(<code>px</code>) or percentage (<code>%</code>).</p>
         <p>
         In this demo, the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#height">height
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#height">height
         </a></code> and <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#width">width
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#width">width
         </a></code> property of the Grid is set to <strong><em>400</em></strong> and <strong><em>auto</em></strong>
         respectively. Now, the Grid will render with vertical scrollbar when the total height of rows 
         exceeds its element height and horizontal scrollbar will appear when the
@@ -49,17 +49,19 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails
     };
   }
-});
+}
 </script>

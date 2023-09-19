@@ -24,7 +24,7 @@
                 <div style="margin-left: -10px;width: 120%;">Indicator Type</div>
             </td>
             <td>
-            <div style="margin-left: -10px; width: 150%">
+            <div style="margin-left: -10px; width: 100%">
               <ejs-dropdownlist ref='dropdown' id='dropdown' :dataSource='indicatortypes' index=0 :fields='fields' :change="indicatorChange"></ejs-dropdownlist>
              </div>                                 
             </td>
@@ -63,15 +63,17 @@
 <!-- custom code end -->
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, TreeGridComponent, Sort } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Sort } from "@syncfusion/ej2-vue-treegrid";
 import { DataManager, WebApiAdaptor } from "@syncfusion/ej2-data";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: new DataManager({
@@ -89,17 +91,17 @@ export default Vue.extend({
   },
   methods: {
     indicatorChange: function(e: ChangeEventArgs): void {
-        if ((<DropDownListComponent>this.$refs.dropdown).ej2Instances.value === "Shimmer") {
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.loadingIndicator.indicatorType = 'Shimmer';
-	    (<TreeGridComponent>this.$refs.treegrid).ej2Instances.refresh();
+        if (((this as any).$refs.dropdown).ej2Instances.value === "Shimmer") {
+            ((this as any).$refs.treegrid).ej2Instances.loadingIndicator.indicatorType = 'Shimmer';
+	    ((this as any).$refs.treegrid).ej2Instances.refresh();
         } else {
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.loadingIndicator.indicatorType = 'Spinner';
-	    (<TreeGridComponent>this.$refs.treegrid).ej2Instances.refresh();
+            ((this as any).$refs.treegrid).ej2Instances.loadingIndicator.indicatorType = 'Spinner';
+	    ((this as any).$refs.treegrid).ej2Instances.refresh();
         }
     }
   },
   provide: {
       treegrid: [Page, Sort]
   }
-});
+}
 </script>

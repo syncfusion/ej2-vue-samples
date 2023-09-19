@@ -54,11 +54,10 @@
       }
   </style>
   <script>
-  import Vue from "vue";
-  import { RatingPlugin } from "@syncfusion/ej2-vue-inputs";
-  
-  Vue.use(RatingPlugin);
-  
-  export default Vue.extend({});
+import { RatingComponent } from "@syncfusion/ej2-vue-inputs";
+
+export default {
+    components: { 'ejs-rating': RatingComponent }
+};
   </script>
   

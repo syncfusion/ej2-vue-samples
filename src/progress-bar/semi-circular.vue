@@ -177,11 +177,11 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
-  ProgressAnnotation
+  ProgressBarComponent,
+  ProgressAnnotation,
+  ProgressBarAnnotationsDirective,
+  ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
  function annotationElementContent(color, controlID) {
         let content;
@@ -203,9 +203,12 @@ import {
     }
     let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD', '#6750A4', '#D0BCFF'];
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-progressbar': ProgressBarComponent,
+    'e-progressbar-annotations':  ProgressBarAnnotationsDirective,
+    'e-progressbar-annotation':  ProgressBarAnnotationDirective
+  },
   data: function() {
     return {
       startAngle1:240,
@@ -296,5 +299,5 @@ export default Vue.extend({
           }
       }
   }
-});
+}
 </script>

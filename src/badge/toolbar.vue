@@ -92,12 +92,9 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { Browser } from '@syncfusion/ej2-base';
-Vue.use(ToolbarPlugin);
+import { ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
 
-export default Vue.extend({
+export default {
     data: function() {
         return {
             notification: '<div class="header"> Notification </div>',
@@ -121,8 +118,13 @@ export default Vue.extend({
             '</div>'
         };
     },
+    components: { 
+      'ejs-toolbar': ToolbarComponent,
+      'e-items': ItemsDirective,
+      'e-item': ItemDirective
+    },
     mounted: function() {
     }
 
-});
+};
 </script>

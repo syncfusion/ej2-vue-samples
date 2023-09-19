@@ -57,6 +57,12 @@
 </div>
 </template>
 
+<style scoped>
+  #upload-container{
+    display: none;
+  }
+</style>
+
 <style>
 .e-diagram-save::before {
   content: "\e710";
@@ -89,33 +95,28 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   UndoRedo,
   ConnectorModel,
   PointPortModel,
   Node,
-  SymbolPalette,
+  SymbolPaletteComponent,
   SymbolInfo,
   DiagramContextMenu,
   GridlinesModel
 } from "@syncfusion/ej2-vue-diagrams";
-import { Uploader, UploaderPlugin } from "@syncfusion/ej2-vue-inputs";
+import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 Diagram.Inject(UndoRedo, DiagramContextMenu);
 import {
-  ToolbarPlugin,
+  ToolbarComponent,
   Toolbar,
   ClickEventArgs
 } from "@syncfusion/ej2-vue-navigations";
 
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-
-Vue.use(DiagramPlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(UploaderPlugin);
 
 let diagramInstance;
 
@@ -273,7 +274,13 @@ let gridlines = {
   lineIntervals: interval
 };
 
-export default Vue.extend({
+export default {
+  components: {
+   'ejs-diagram': DiagramComponent,
+   'ejs-toolbar': ToolbarComponent,
+   'ejs-uploader': UploaderComponent,
+   'ejs-symbolpalette': SymbolPaletteComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -394,7 +401,7 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+}
 
 //save the diagram object in json data.
 function download(data) {

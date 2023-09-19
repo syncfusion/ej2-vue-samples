@@ -39,50 +39,50 @@
     <p>
         In this sample, the Pivot Table component plots a chart component based on the pivot report bound to it. This can be
         achieved by setting the property <code>displayOption.view</code> to <code>Chart</code>. The
-        built-in options are:</br></br>
+        built-in options are:<br>
 
-        <code>Table</code> -> Renders pivot table component only, which is the default.</br>
-        <code>Chart</code> -> Renders pivot chart component only.</br>
-        <code>Both</code> -> Renders both pivot table and pivot chart component.</br>
+        <code>Table</code> -> Renders pivot table component only, which is the default.<br>
+        <code>Chart</code> -> Renders pivot chart component only.<br>
+        <code>Both</code> -> Renders both pivot table and pivot chart component.<br>
     </p>
     <p>
         You can change the chart types using the <b>Chart Types</b> dropdown list separately.
         The chart types can be set using the <code>chartSettings.chartSeries.type</code> property. The built-in chart
         types
-        are:</br></br>
+        are:<br><br>
 
-        <code>Column</code></br>
-        <code>Line</code></br>
-        <code>Spline</code></br>
-        <code>Bar</code></br>
-        <code>Area</code></br>
-        <code>StepArea</code></br>
-        <code>SplineArea</code></br>
-        <code>StackingColumn</code></br>
-        <code>StackingArea</code></br>
-        <code>StackingBar</code></br>
-        <code>StepLine</code></br>
-        <code>Pareto</code></br>
-        <code>Bubble</code></br>
-        <code>Scatter</code></br>
-        <code>StackingColumn100</code></br>
-        <code>StackingBar100</code></br>
-        <code>StackingArea100</code></br>
-        <code>Polar</code></br>
-        <code>Radar</code></br>
-        <code>Pie</code></br>
-        <code>Doughnut</code></br>
-        <code>Funnel</code></br>
-        <code>Pyramid</code></br></br>
+        <code>Column</code><br>
+        <code>Line</code><br>
+        <code>Spline</code><br>
+        <code>Bar</code><br>
+        <code>Area</code><br>
+        <code>StepArea</code><br>
+        <code>SplineArea</code><br>
+        <code>StackingColumn</code><br>
+        <code>StackingArea</code><br>
+        <code>StackingBar</code><br>
+        <code>StepLine</code><br>
+        <code>Pareto</code><br>
+        <code>Bubble</code><br>
+        <code>Scatter</code><br>
+        <code>StackingColumn100</code><br>
+        <code>StackingBar100</code><br>
+        <code>StackingArea100</code><br>
+        <code>Polar</code><br>
+        <code>Radar</code><br>
+        <code>Pie</code><br>
+        <code>Doughnut</code><br>
+        <code>Funnel</code><br>
+        <code>Pyramid</code><br><br>
 
 
         In the sample, the field list option is enabled, through which you can see the result in the chart by altering
         the report dynamically.
-        </br>
+        <br>
     </p>
     <p>
       The drill down/up operation in the accumulation charts, such as pie, doughnut, funnel and pyramid, can be performed using the context menu on the click over the appropriate series.
-      </br>
+      <br>
     </p>
     <p>
         <strong>Injecting Module:</strong>
@@ -95,16 +95,15 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   PivotView,
   IDataSet,
   FieldList
 } from "@syncfusion/ej2-vue-pivotview";
 import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-vue-charts";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple, Browser, addClass } from "@syncfusion/ej2-base";
@@ -112,7 +111,6 @@ import { PivotChart } from "@syncfusion/ej2-pivotview/src/pivotchart";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin, DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
 
@@ -120,7 +118,11 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -177,14 +179,14 @@ export default Vue.extend({
   },
   methods: {
     ddlOnChange: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview_chart).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview_chart).ej2Instances;
       pivotObj.chartSettings.chartSeries.type = args.value.toString();
     }
   },
   provide: {
     pivotview: [FieldList, PivotChart]
   }
-});
+}
 </script>
 <style scoped>
 /deep/ #pivotview_chartcontainerwrapper {

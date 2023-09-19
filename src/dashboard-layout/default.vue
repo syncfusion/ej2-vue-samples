@@ -2,7 +2,7 @@
 <div>
     <div class="control-section dashboard-default">
      <div style="padding:5px;text-align: right;">
-         <ejs-button id="add" class="e-btn e-info"  v-on:click.native="addPanel"> Add Panel </ejs-button>
+         <ejs-button id="add" class="e-btn e-info"  v-on:click="addPanel"> Add Panel </ejs-button>
     </div>
     <ejs-dashboardlayout ref="DashbordInstance" :columns="5" id='defaultLayout' :allowResizing="true" :cellSpacing="spacing">
         <div id="one" class="e-panel" data-row="0" data-col="0" data-sizeX="1" data-sizeY="1">
@@ -88,13 +88,14 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DashboardLayoutComponent } from "@syncfusion/ej2-vue-layouts";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DashboardLayoutPlugin,ButtonPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+      'ejs-dashboardlayout': DashboardLayoutComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
           count: 8,
@@ -102,7 +103,7 @@ export default Vue.extend ({
         };
     },
     methods: {
-         addPanel: function(args) {
+         addPanel: function() {
             var panel = [{
                 'id': this.count.toString() + '_layout', 'sizeX': 1, 'sizeY': 1, 'row': 0, 'col': 0,
                 content: '<span id="close" class="e-template-icon e-clear-icon"></span><div class="text-align">' + this.count.toString() + '</div>'
@@ -124,7 +125,7 @@ export default Vue.extend ({
             closeElement[i].addEventListener('click', this.onCloseIconHandler);
         }
     }
-});
+}
 </script>
 
 <style>

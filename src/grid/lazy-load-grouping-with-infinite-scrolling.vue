@@ -8,7 +8,7 @@
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' textAlign= 'Right' width='120'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='160'></e-column>
-                <e-column field='ProductID' headerText='Product ID' textAlign= 'Right width='120'></e-column>
+                <e-column field='ProductID' headerText='Product ID' textAlign= 'Right' width='120'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='160'></e-column>
             </e-columns>
@@ -29,7 +29,7 @@
     <p>
         Grid component features are segregated into individual feature-wise modules. 
         To use lazy load grouping and infinite scrolling features, we need to inject 
-        <code>LazyLoadGroup</code> and <code>InfiniteScroll</code> into the <code>provide</code> section.</p>
+        <code>LazyLoadGroup</code> and <code>InfiniteScroll</code> into the <code>provide</code> section.
     </p> 
     </div>
 </div>
@@ -37,11 +37,14 @@
 
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, GridComponent, Group, LazyLoadGroup, Sort, InfiniteScroll } from "@syncfusion/ej2-vue-grids";
-Vue.use(GridPlugin);
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, LazyLoadGroup, Sort, InfiniteScroll } from "@syncfusion/ej2-vue-grids";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: function() {
     return {
         groupSettings: { enableLazyLoading: true, columns: ['ProductName', 'CustomerName'] },
@@ -104,5 +107,5 @@ export default Vue.extend({
   provide: {
       grid: [Group, LazyLoadGroup, InfiniteScroll, Sort]
   }
-});
+}
 </script>

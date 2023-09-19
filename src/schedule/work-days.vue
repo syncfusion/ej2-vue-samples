@@ -63,12 +63,18 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Week, WorkWeek, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Week, WorkWeek, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
@@ -117,6 +123,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

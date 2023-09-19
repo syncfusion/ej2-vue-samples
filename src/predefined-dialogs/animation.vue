@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-8 control-section" style="padding:10px;position:relative;">
      <div id="predefinedDialogAnimation">
-     <ejs-button id="dlgbtn"  v-on:click.native="confirmBtnClick" cssClass="e-success">Confirm</ejs-button>
+     <ejs-button id="dlgbtn"  v-on:click="confirmBtnClick" cssClass="e-success">Confirm</ejs-button>
      </div>
     </div>
     <div class="col-lg-4 property-section"> 
@@ -40,10 +40,10 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { DialogUtility } from "@syncfusion/ej2-vue-popups";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-Vue.use(DropDownListPlugin);
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+
 let ConfirmDialogArgs  = {
     title: " Delete Multiple Items",
     content: "Are you sure you want to permanently delete these items?",
@@ -52,7 +52,11 @@ let ConfirmDialogArgs  = {
     width:'420px',
     closeOnEscape: true
     };
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-button': ButtonComponent,
+      'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         var effectData =  [
         { Text: 'Fade zoom' ,Value: 'FadeZoom' },
@@ -75,5 +79,5 @@ export default Vue.extend({
             ConfirmDialogArgs.animationSettings.effect = args.value;
         }
     }
-});
+}
 </script>

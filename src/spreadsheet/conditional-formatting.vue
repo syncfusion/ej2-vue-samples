@@ -80,11 +80,29 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./conditional-formatting-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, ColumnsDirective,
+ColumnDirective, RowDirective, RowsDirective, CellsDirective, CellDirective,
+ConditionalFormatsDirective, ConditionalFormatDirective, RangeDirective,
+ RangesDirective, getFormatFromType } from '@syncfusion/ej2-vue-spreadsheet';
+
+import dataSource from "./conditional-formatting-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-conditionalformat': ConditionalFormatDirective,
+    'e-conditionalformats': ConditionalFormatsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective
+   },
    data: () => {
     return {
         height: 30,
@@ -96,11 +114,14 @@ export default Vue.extend({
   },
   methods: {
     created: function() {
+        var currencyFormat = getFormatFromType('Currency');
         var spreadsheet = this.$refs.spreadsheet;
             spreadsheet.merge('A1:H1');
             spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A2:H2');
             spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: "middle", fontSize: '13pt' }, 'A1:H1');
-            spreadsheet.numberFormat('$#,##0.00', 'F3:F18');
+            spreadsheet.numberFormat(currencyFormat, 'D3:D18');
+            spreadsheet.numberFormat(currencyFormat, 'E3:E18');
+            spreadsheet.numberFormat(currencyFormat, 'F3:F18');
             spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'D3:D18' });
             spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'E3:E18' });
             spreadsheet.conditionalFormat({ type: 'ThreeStars', range: 'H3:H18' });
@@ -108,5 +129,5 @@ export default Vue.extend({
             spreadsheet.conditionalFormat({ type: 'Bottom10Items', value:'1', format:{ style:{ color: '#ffffff', backgroundColor: '#c68d53', fontWeight: 'bold'}}, range: 'F3:F18' });
             }
         }
-});
+}
 </script>

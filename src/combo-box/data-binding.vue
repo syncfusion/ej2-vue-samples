@@ -77,14 +77,10 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
-
-Vue.use(ComboBoxPlugin);
-Vue.use(CheckBoxPlugin);
+import data from './dataSource.json';
 
 var remoteData = new DataManager({
     url: 'https://services.syncfusion.com/vue/production/api/Employees',
@@ -92,7 +88,11 @@ var remoteData = new DataManager({
     crossDomain: true
 });
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         return {
             localFields: { text: 'Game', value: 'Id' },
@@ -113,5 +113,5 @@ export default Vue.extend ({
             this.autofill = checkboxObj.checked;
         }
     }
-});
+}
 </script>

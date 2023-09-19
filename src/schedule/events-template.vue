@@ -119,16 +119,18 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { Browser, Internationalization, extend } from '@syncfusion/ej2-base';
+    import { Internationalization, extend } from '@syncfusion/ej2-base';
     import { webinarData } from './datasource';
-    import { SchedulePlugin, Week, Day, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective,  Week, Day, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
 
     var instance = new Internationalization();
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 selectedDate: new Date(2021, 1, 15),
@@ -151,6 +153,6 @@
         provide: {
             schedule: [Week, Day, TimelineViews, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

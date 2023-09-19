@@ -174,17 +174,19 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin,Selection, Sort, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent,Selection, Sort, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectData } from './data-source';
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-Vue.use(GanttPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
       return{
              data: projectData,
@@ -255,7 +257,7 @@ export default Vue.extend({
 
   },
   methods: {
- topTierCick: function(props) {
+ topTierCick: function() {
     if (this.$refs.topTierCheckbox.ej2Instances.checked) {
       this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit = 'Week';
         this.$refs.topTierCount.ej2Instances.enabled = true;
@@ -268,7 +270,7 @@ export default Vue.extend({
         this.$refs.topTierUnit.ej2Instances.enabled = false;
     }
   },
-   bottomTierCick: function(props) {
+   bottomTierCick: function() {
     if (this.$refs.bottomTierCheckbox.ej2Instances.checked) {
       this.$refs.gantt.ej2Instances.timelineSettings.bottomTier.unit = 'Day';
         this.$refs.bottomTierCount.ej2Instances.enabled = true;
@@ -370,5 +372,5 @@ export default Vue.extend({
   provide: {
       gantt: [Selection, Sort, DayMarkers]
   }
-});
+}
 </script>

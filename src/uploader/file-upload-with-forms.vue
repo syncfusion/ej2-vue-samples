@@ -215,20 +215,16 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 import { FormValidator  } from '@syncfusion/ej2-inputs';
-import { DialogPlugin  } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-Vue.use(UploaderPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.jpg, .png',
@@ -260,6 +256,10 @@ export default Vue.extend({
             }
         }
     },
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-dialog': DialogComponent
+    },
     mounted: function () {
         document.getElementById('browse').onclick = () => {
             document.getElementsByClassName('e-file-select-wrap')[0].querySelector('button').click(); 
@@ -284,5 +284,5 @@ export default Vue.extend({
             inputElement.value = args.filesData[0].name;
         },
     }
-});
+};
 </script>

@@ -22,8 +22,7 @@
     <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap a point in touch enabled devices.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use multi colored line series, we need to inject
         <code>MultiColoredLineSeries</code> module using
@@ -40,11 +39,9 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { rainFallData } from './financial-data';
-import { ChartPlugin, MultiColoredLineSeries, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, MultiColoredLineSeries, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -60,7 +57,12 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).rep
         });
     });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
         theme: theme,
@@ -114,5 +116,5 @@ export default Vue.extend({
   methods: {
    },
    
-});
+};
 </script>

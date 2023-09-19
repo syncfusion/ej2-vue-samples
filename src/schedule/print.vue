@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td style="padding: 15px; text-align: center">
-                            <ejs-button id="print-btn" iconCss="e-icons e-print" cssClass="e-print-btn" v-on:click.native="onPrintIconClick">Print</ejs-button>
+                            <ejs-button id="print-btn" iconCss="e-icons e-print" cssClass="e-print-btn" v-on:click="onPrintIconClick">Print</ejs-button>
                         </td>
                     </tr>
                 </tbody>
@@ -83,22 +83,22 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop, Print
-    } from "@syncfusion/ej2-vue-schedule";
-    import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-    import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-    import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-    import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop, Print } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+    import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+    import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
+    import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
     import { scheduleData } from './datasource';
-    Vue.use(SchedulePlugin);
-    Vue.use(DropDownListPlugin);
-    Vue.use(CheckBoxPlugin);
-    Vue.use(DatePickerPlugin);
-    Vue.use(ButtonPlugin);
-
-    export default Vue.extend({
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-dropdownlist': DropDownListComponent,
+          'ejs-checkbox': CheckBoxComponent,
+          'ejs-datepicker': DatePickerComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 cssClass: 'print',
@@ -136,5 +136,5 @@
                 }
             }
         }
-    });
+    }
 </script>

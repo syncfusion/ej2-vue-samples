@@ -55,14 +55,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-import { DropDownListPlugin, ChangeEventArgs} from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(GanttPlugin);
-Vue.use(DropDownListPlugin);
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -112,5 +113,5 @@ export default Vue.extend({
            this.gridLines = e.value;
         }
     }
-});
+}
 </script>
