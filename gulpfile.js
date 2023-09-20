@@ -8,12 +8,17 @@ var sampleOrder = JSON.parse(fs.readFileSync(__dirname + '/src/common/sampleorde
 var sampleList;
 const elasticlunr = require('elasticlunr');
 var shelljs = global.shelljs = global.shelljs || require('shelljs');
+var name = JSON.parse(fs.readFileSync('./package.json')).name.replace(`@syncfusion/`,'');
 
-require("@syncfusion/ej2-sample-helper-test");
 require('./build/samples');
 
 process.env.AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE = '1';
 
+var platforms = {
+    "ej2-vue-samples": {
+        "cssPath": "./public/styles"
+    }
+}
 function generateSearchIndex(sampleArray) {
     elasticlunr.clearStopWords();
     var instance = elasticlunr(function() {
@@ -207,12 +212,22 @@ gulp.task('copy-source', function (done) {
 });
 
 gulp.task('build', function(done) {
-    shelljs.exec('gulp hide-license && gulp pdfium-wasm && gulp CDN-changes && gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp sitemap-generate && gulp copy-source && gulp vue-stackblitz && npm run build', done)
+    shelljs.exec('gulp CDN-changes && gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp copy-source && gulp src-ship', done)
 });
 
 gulp.task('src-ship', function (done) {
     shelljs.cp('-rf', ['./public', './**.config.js', './Syncfusion_License.js', './**.json', './newWindowSamples/*', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
     done();
+});
+
+/* copy styles from nodemodules */
+gulp.task('styles-ship', function (done) {
+    var files=glob.sync('node_modules/@syncfusion/ej2/*.css');
+     files.forEach(file=>
+     {  
+        shelljs.cp(file,platforms[name].cssPath);   
+     })
+     done();
 });
 
 gulp.task('serve', gulp.series('build', function(done) {
