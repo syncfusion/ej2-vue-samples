@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
     "serve:watch": "vue-cli-service serve",
-    "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp open-new-license && gulp sitemap-generate && gulp src-ship",
+    "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp src-ship",
     "build-watch": "vue-cli-service build",
     "ci-publish": "gulp publish-samples && gulp ci-report-mail --option Success"
   },
