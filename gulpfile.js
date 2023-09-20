@@ -1,15 +1,24 @@
-const fs = require('fs');
-const glob = require('glob');
-const gulp = require('gulp');
-const path = require('path');
+const fs = global.fs = global.fs || require('fs');
+const glob = global.glob = global.glob || require('glob');
+const gulp = global.gulp = global.gulp || require('gulp');
+const path = global.path = global.path || require('path');
 var jsoncombine = require('gulp-jsoncombine');
-var config = require('./config.json')
+var config = require('./config.json');
 var sampleOrder = JSON.parse(fs.readFileSync(__dirname + '/src/common/sampleorder.json'));
 var sampleList;
 const elasticlunr = require('elasticlunr');
-var shelljs = require('shelljs');
+var shelljs = global.shelljs = global.shelljs || require('shelljs');
+var name = JSON.parse(fs.readFileSync('./package.json')).name.replace(`@syncfusion/`,'');
+
 require('./build/samples');
 
+process.env.AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE = '1';
+
+var platforms = {
+    "ej2-vue-samples": {
+        "cssPath": "./public/styles"
+    }
+}
 function generateSearchIndex(sampleArray) {
     elasticlunr.clearStopWords();
     var instance = elasticlunr(function() {
@@ -18,7 +27,6 @@ function generateSearchIndex(sampleArray) {
         this.setRef('uid');
     });
     for (sampleCollection of sampleArray) {
-
         var component = sampleCollection.name;
         var directory = sampleCollection.directory;
         var puid = sampleCollection.uid;
@@ -27,12 +35,11 @@ function generateSearchIndex(sampleArray) {
             sample.component = component;
             sample.dir = directory;
             sample.parentId = puid;
-            sample.hideOnDevice = hideOnDevice;
+            sample.hideOnDevice = hideOnDevice ? hideOnDevice : sample.hideOnDevice;
             instance.addDoc(sample);
         }
     }
     fs.writeFileSync('./src/common/search-index.json', JSON.stringify(instance.toJSON()));
-
 }
 
 function getSamples(data, component) {
@@ -80,7 +87,7 @@ if (fs.existsSync('./controlWiseSamples.json')) {
     sampleList = JSON.parse(fs.readFileSync('./controlWiseSample.json'));
 }
 
-gulp.task('sample-json', gulp.series(function() {
+gulp.task('sample-json', function(done) {
     if (sampleList && sampleList.length) {
         var controls = getControls();
         var samplejson = glob.sync('./src/**/sample.json', { silent: true });
@@ -94,15 +101,16 @@ gulp.task('sample-json', gulp.series(function() {
         }
         fs.writeFileSync('./samplelist.json', JSON.stringify(obj));
     }
-}))
+    done();
+});
 
-gulp.task('combine-samplelist', gulp.series(function() {
+gulp.task('combine-samplelist', function() {
     var apiReference = {};
     if (sampleList && sampleList.length) {
         var controls = getControls();
         sampleOrder = getSampleOrder(controls);
     }
-   return gulp.src(config.samplejson)
+    return gulp.src(config.samplejson)
         .pipe(jsoncombine('samplelist.ts', function(data) {
             var result = [];
             var subCategory = [];
@@ -142,14 +150,14 @@ gulp.task('combine-samplelist', gulp.series(function() {
             return new Buffer('export let samplesList : any =' + JSON.stringify(result) + ';\n\n' + 'export let apiList:any=' + JSON.stringify(apiReference) + '\n\n export let skipCommonChunk: string[] = ' + JSON.stringify(commonChunkSkip) + ';');
         }))
         .pipe(gulp.dest('./src/common/'));
-}));
-
-gulp.task('generate-routes', gulp.series(function(done) {
+});
+    
+gulp.task('generate-routes', function(done) {
     var jsonFiles = glob.sync('./src/**/sample.json');
     var imports = '',
-        routs = ["{path: '/', redirect: '/material/grid/grid-overview'}"];
+    routs = ["{path: '/', redirect: '/bootstrap5/grid/grid-overview'}"];
     jsonFiles.forEach(file => {
-        var curJson = require(file);
+        var curJson = require(__dirname + '/' + file);
         curJson.samples.forEach(curSample => {
             var path = curJson.directory + '/' + curSample.url;
             var aData = {}
@@ -162,62 +170,45 @@ gulp.task('generate-routes', gulp.series(function(done) {
     });
     fs.writeFileSync("./src/router.config.ts", imports + 'export default [' + routs + '];');
     done();
-}));
+});
 
-/* copy styles from nodemodules */
-gulp.task('copy', gulp.series(function (done) {
-     var files=glob.sync('./node_modules/@syncfusion/ej2/*.css')
-     files.forEach(file=>
-     {  
-        shelljs.cp(file,'./public/styles');    
-     })
-     done();
-}));
-
-gulp.task('copy-source', gulp.series(function (done) {
-    var localeJson = glob.sync(__dirname + '/src/**/*', {
-      silent: true,
-      ignore: ['/src/common/**/', '/src/common']
+gulp.task('copy-source', function (done) {
+    var controls = glob.sync('./src/*', {
+        ignore: ['/src/common/**/', '/src/common']
     });
-    if (localeJson.length) {
-      for (var i = 0; i < localeJson.length; i++) {
-        if (localeJson[i].indexOf('/common') == -1) {
-          console.log(localeJson[i])
-          shelljs.cp('-R', localeJson[i], localeJson[i].replace('src', 'public/source'));
-        }
-      }
+    for (var i = 0; i < controls.length; i++) {
+        shelljs.cp('-rf', controls[i], controls[i].replace('src', 'public/source'));
     }
     done();
-  })); 
+});
 
-gulp.task('src-ship', gulp.series(function (done) {
-    var indexFile = fs.readFileSync('./dist/index.html','utf8');
-    indexFile = indexFile.replace(/\"\/app.js\"/g, `"./app.js"`);
-    fs.writeFileSync('./dist/index.html', indexFile, 'utf8');
-    shelljs.cp('-rf', ['./public', './**.config.js', './**.json', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
+gulp.task('build', function(done) {
+    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp copy-source && gulp src-ship', done)
+});
+
+gulp.task('src-ship', function (done) {
+    shelljs.cp('-rf', ['./public', './**.config.js', './Syncfusion_License.js', './**.json', './newWindowSamples/*', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
     done();
-}));
+});
 
-gulp.task('build', gulp.series(function(done) {
-    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp copy && gulp copy-source', done)
-}));
+/* copy styles from nodemodules */
+gulp.task('styles-ship', function (done) {
+    var files=glob.sync('node_modules/@syncfusion/ej2/*.css');
+     files.forEach(file=>
+     {  
+        shelljs.cp(file,platforms[name].cssPath);   
+     })
+     done();
+});
 
-gulp.task('serve',gulp.series('build', function(done) {
-    const serve = require('serve')
-    const server = serve(__dirname + '/dist', {
+gulp.task('serve', gulp.series('build', function(done) {
+    const connect = require('gulp-connect');
+    connect.server({
+        root: __dirname + '/dist', 
         port: 3000,
         ignore: ['node_modules']
-    })
+    });
     done();
 }));
 
-gulp.task('ci-report', gulp.series(function(done)
-{
-    done();
-}));
 
-// Install log task.
-gulp.task('ls-log', gulp.series(function () {
-    shelljs.mkdir('-p', './cireports/logs');
-    shelljs.exec('npm ls >./cireports/logs/install.log');
-}));
