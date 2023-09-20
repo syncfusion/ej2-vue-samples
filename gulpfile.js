@@ -87,6 +87,9 @@ if (fs.existsSync('./controlWiseSamples.json')) {
     sampleList = JSON.parse(fs.readFileSync('./controlWiseSample.json'));
 }
 
+gulp.task('ship-search-file', function (done) {
+    console.log('ship-search-file');
+});
 gulp.task('sample-json', function(done) {
     if (sampleList && sampleList.length) {
         var controls = getControls();
@@ -183,7 +186,7 @@ gulp.task('copy-source', function (done) {
 });
 
 gulp.task('build', function(done) {
-    shelljs.exec('gulp CDN-changes && gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp copy-source && gulp src-ship', done)
+    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp copy-source && gulp src-ship', done)
 });
 
 gulp.task('src-ship', function (done) {
@@ -211,22 +214,4 @@ gulp.task('serve', gulp.series('build', function(done) {
     done();
 }));
 
-// Install log task.
-gulp.task('ls-log', function (done) {
-    shelljs.mkdir('-p', './cireports/logs');
-    shelljs.exec('npm ls >./cireports/logs/install.log');
-    done();
-});
 
-gulp.task('CDN-changes', function (done) {
-    var samples = glob.sync('./newWindowSamples/**/**/index.html');
-    if (fs.existsSync('./node_modules/@syncfusion/ej2-sample-helpers/config.json')) {
-        for (var i = 0; i < samples.length; i++) {
-            var htmlFile = fs.readFileSync(samples[i], 'utf8');
-            var config = JSON.parse(fs.readFileSync('./node_modules/@syncfusion/ej2-sample-helpers/config.json', 'utf-8'));
-            htmlFile = htmlFile.replace(/https:\/\/cdn.syncfusion.com\/ej2\//, 'https://cdn.syncfusion.com/ej2/' + config.releaseVersion + '/');
-            fs.writeFileSync(samples[i], htmlFile, 'utf8');
-        }
-    }
-    done();
-});

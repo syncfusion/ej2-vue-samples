@@ -1,17 +1,10 @@
 {
   "name": "ej2-vue-samples",
-  "version": "17.4.39",
+  "version": "23.1.36",
   "description": "Examples of Vue UI Components",
-  "scripts": {
-    "serve": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
-    "serve:watch": "vue-cli-service serve",
-    "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp src-ship",
-    "build-watch": "vue-cli-service build",
-    "ci-publish": "gulp publish-samples && gulp ci-report-mail --option Success"
-  },
+  
   "keywords": [],
   "dependencies": {
-    "@microsoft/signalr": "7.0.9",
     "@syncfusion/ej2": "*",
     "@syncfusion/ej2-vue-barcode-generator": "*",
     "@syncfusion/ej2-vue-base": "*",
@@ -50,6 +43,7 @@
     "@syncfusion/ej2-vue-treemap": "*",
     "@types/codemirror": "5.60.8",
     "@types/node": "20.4.2",
+    "@microsoft/signalr": "7.0.9",
     "codemirror": "6.0.1",
     "elasticlunr": "0.9.5",
     "fuse.js": "6.6.2",
@@ -75,5 +69,12 @@
     "typescript": "5.1.6",
     "webpack": "5.88.2",
     "webpack-cli": "5.1.4"
+  },
+  "scripts": {
+    "serve": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "serve:watch": "vue-cli-service serve",
+    "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp src-ship",
+    "build-watch": "vue-cli-service build",
+    "ci-publish": "gulp publish-samples && gulp ci-report-mail --option Success"
   }
 }
