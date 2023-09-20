@@ -1,7 +1,14 @@
 {
   "name": "ej2-vue-samples",
-  "version": "23.1.36",
+  "version": "17.4.39",
   "description": "Examples of Vue UI Components",
+  "scripts": {
+    "serve": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "serve:watch": "vue-cli-service serve",
+    "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp open-new-license && gulp sitemap-generate && gulp src-ship",
+    "build-watch": "vue-cli-service build",
+    "ci-publish": "gulp publish-samples && gulp ci-report-mail --option Success"
+  },
   "keywords": [],
   "dependencies": {
     "@syncfusion/ej2": "*",
@@ -49,28 +56,24 @@
     "gulp-s3-upload": "1.7.3",
     "marked": "4.3.0",
     "tributejs": "5.1.3",
-    "vue": "^2.5.21",
+    "vue": "3.3.4",
     "vue-router": "4.2.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-typescript": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
-    "file-loader": "^1.1.11",
-    "gulp": "^4.0.2",
-    "gulp-gzip": "^1.4.2",
-    "gulp-jsoncombine": "^1.0.4",
-    "serve": "^6.5.4",
-    "shelljs": "^0.8.1",
-    "typescript": "3.6.2",
-    "vue-template-compiler": "^2.5.21",
-    "webpack": "^4.41.5"
-  },
-  "scripts": {
-    "serve": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
-    "serve: watch": "vue-cli-service serve",
-    "build": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build",
-    "build-watch": "vue-cli-service build",
-    "ci-publish": "gulp publish-samples"
+    "@syncfusion/ej2-sample-helper-test": "*",
+    "@vue/cli-plugin-babel": "5.0.8",
+    "@vue/cli-plugin-typescript": "5.0.8",
+    "@vue/cli-service": "5.0.8",
+    "file-loader": "6.2.0",
+    "gulp": "4.0.2",
+    "gulp-gzip": "1.4.2",
+    "gulp-jsoncombine": "1.0.4",
+    "shelljs": "0.8.5",
+    "typescript": "5.1.6",
+    "webpack": "5.88.2",
+    "css-loader": "3.6.0",
+    "gulp-connect": "5.7.0",
+    "ts-loader": "5.2.0",
+    "webpack-cli": "5.1.4"
   }
 }
