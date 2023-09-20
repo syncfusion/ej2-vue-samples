@@ -4,7 +4,7 @@ Welcome to the demo samples repository for Syncfusion Vue components! This repos
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/en) -  `v10.24.1`
+- [Node.js](https://nodejs.org/en) -  `v16.x`
 
 ## Run the samples
 
