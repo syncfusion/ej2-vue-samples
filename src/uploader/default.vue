@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-8 control-section default-sample">
         <div class="control_wrapper">
-            <ejs-uploader ref="uploadObj" id='defaultfileupload' name="UploadFiles" :asyncSettings= "path"
+            <ejs-uploader ref="uploadObj" id='defaultfileupload' cssClass="specific" name="UploadFiles" :asyncSettings= "path"
             :dropArea = "dropElement" :removing= "onFileRemove" :sequentialUpload='isSequential' :autoUpload='isAuto' ></ejs-uploader>
         </div>
     </div>
@@ -17,7 +17,8 @@
         </div>
     </div>
     <div id="action-description">
-      <p>This example demonstrates the default functionalities of the file upload component with auto upload and sequential upload options.
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates the default functionalities of the file upload component with auto upload and sequential upload options.
           Browse or drag-and-drop the files which you want to upload to the server and upload it.</p>
     </div>
 
@@ -45,22 +46,24 @@
     position: relative;
     margin: 15px 0;
 }
+.e-upload.specific .e-upload-files .e-file-delete-btn.e-icons::before,
+.e-upload.specific .e-upload-files .e-icons.e-file-reload-btn::before,
+.e-upload.specific .e-upload-files .e-file-remove-btn.e-icons::before,
+.e-upload.specific .e-upload-files .e-file-abort-btn.e-icons::before {
+    margin-top: 3px;
+}
 
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(UploaderPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           change: (args) => {
@@ -75,10 +78,14 @@ export default Vue.extend({
         isAuto: true
         }
     },
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     methods:{
         onFileRemove: function (args) {
             args.postRawFile = false;
         }
     }
-});
+};
 </script>

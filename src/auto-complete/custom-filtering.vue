@@ -25,13 +25,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { AutoCompleteComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(AutoCompletePlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-autocomplete': AutoCompleteComponent 
+    },
     data: function() {
         return {
             fields: { value: 'BookName' },
@@ -57,9 +57,12 @@ export default Vue.extend ({
             // pass the filter data source to updateData method.
             e.updateData(data, null);
             var popupElement = document.getElementById('books_popup');
-            var lists = popupElement.querySelectorAll('.e-list-item');
-            // For highlight the typed characters, pass the result data and list items to highlightSearch method.
-            this.highlightSearch(lists, result);
+            if (popupElement)
+            {
+                var lists = popupElement.querySelectorAll('.e-list-item');
+                // For highlight the typed characters, pass the result data and list items to highlightSearch method.
+                this.highlightSearch(lists, result);
+            }
         },
         highlightSearch: function(listItems, result) {
             if (result.length > 0) {
@@ -75,5 +78,5 @@ export default Vue.extend ({
             }
         }
     }
-});
+}
 </script>

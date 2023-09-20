@@ -19,7 +19,7 @@
         <p>
             Selection provides an interactive support to highlight the row or cell or column that you select. Selection can be done through a simple
             Mouse down or Keyboard interaction. To enable selection, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowselection">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowselection">
         allowSelection
         </a></code> as true.
         </p>
@@ -64,13 +64,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: data,
@@ -81,5 +83,5 @@ export default Vue.extend({
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

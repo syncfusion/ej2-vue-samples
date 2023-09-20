@@ -47,7 +47,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button id="buttonApply" class="e-flat e-primary" v-on:click.native="onClick">Apply</ejs-button>
+                            <ejs-button id="buttonApply" class="e-flat e-primary" v-on:click="onClick">Apply</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -104,15 +104,64 @@
         font-size: 12px;
     }
 
+    .highcontrast #min,
+    .highcontrast #max,
+    .highcontrast #step {
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);;
+    }
+
+    .material3-dark #min,
+    .material3-dark #max,
+    .material3-dark #step,
+    .material-dark #min,
+    .material-dark #max,
+    .material-dark #step {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    .fabric-dark #min,
+    .fabric-dark #max,
+    .fabric-dark #step {
+        background-color: rgb(32, 31, 31);
+        color: rgb(218, 218, 218);
+    }
+
+    .bootstrap-dark #min,
+    .bootstrap-dark #max,
+    .bootstrap-dark #step {
+        background-color: rgb(26, 26, 26);
+        color: rgb(240, 240, 240);
+    }
+
+    .bootstrap5-dark #min,
+    .bootstrap5-dark #max,
+    .bootstrap5-dark #step {
+        background-color: rgb(33, 37, 41);
+        color: rgb(255, 255, 255);
+    }
+
+    .tailwind-dark #min,
+    .tailwind-dark #max,
+    .tailwind-dark #step {
+        background-color: rgb(31, 41, 55);
+        color: rgb(255, 255, 255);
+    }
+
+    .fluent-dark #min,
+    .fluent-dark #max,
+    .fluent-dark #step {
+        background-color: rgb(27, 26, 25);
+        color: rgb(255, 255, 255);
+    }
+
 </style>
 <script>
-import Vue from "vue";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend ({
+export default {
     data: function() {
         return {
             min: 1,
@@ -121,8 +170,12 @@ export default Vue.extend ({
             value: 15,
         }
     },
+    components: { 
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'ejs-button': ButtonComponent 
+    },
 	methods: {
-        onClick: function(args) {
+        onClick: function() {
             var min=parseFloat(document.getElementById("min").value);
             var max=parseFloat(document.getElementById("max").value);
             var step=parseFloat(document.getElementById("step").value);
@@ -131,5 +184,5 @@ export default Vue.extend ({
             this.step=step;
         }
 	}
-});
+};
 </script>

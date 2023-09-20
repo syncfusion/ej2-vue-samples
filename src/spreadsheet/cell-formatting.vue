@@ -3,6 +3,7 @@
     <div id="spreadsheet-cell-format">
       <ejs-spreadsheet ref="spreadsheet" :sheets="sheets" :showRibbon="false" :showFormulaBar="false" :created="createdHandler" :beforeCellRender="beforeCellRender"></ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates the <code>Spreadsheet</code> cell formatting feature by applying different styles to a
@@ -28,6 +29,7 @@
               documentation</a> section.
         </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -41,11 +43,13 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent } from "@syncfusion/ej2-vue-spreadsheet";
 import * as dataSource from "./cell-format-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent
+   }, 
    data: () => {
       return {
           sheets: [{
@@ -104,5 +108,5 @@ export default Vue.extend({
       return !this.$refs.spreadsheet.ej2Instances.isOpen && this.$refs.spreadsheet.ej2Instances.sheets[this.$refs.spreadsheet.ej2Instances.activeSheetIndex].name === 'Order Details';
     }
   }
-});
+}
 </script>

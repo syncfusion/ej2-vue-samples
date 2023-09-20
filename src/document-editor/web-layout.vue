@@ -7,10 +7,10 @@
     <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
-    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
+    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
 </div>
-<ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' :layoutType='layoutType' height='600px'></ejs-documenteditorcontainer>            
+<ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' :layoutType='layoutType' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
     <div id="action-description">
@@ -25,7 +25,7 @@
         <li>Continuous</li>
     </ul>
     <p style="display: block"> More information about the document editor features can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/how-to/change-document-view/">documentation section.</a>
     </p>
 </div>
 </div>
@@ -83,21 +83,20 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { weblayout } from "./data";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Web  layout',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -178,11 +177,10 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(weblayout));
           obj.documentName='Web Layout';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
        });
     }
-});
+};
 </script>

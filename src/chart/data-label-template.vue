@@ -1,229 +1,731 @@
 <template>
   <div class="control-section">
     <div align="center">
-      <ejs-chart
-        style="display:block"
-        :theme="theme"
-        align="center"
-        id="chartcontainer"
-        :title="title"
-        :primaryXAxis="primaryXAxis"
-        :primaryYAxis="primaryYAxis"
-        :subTitle="subTitle"
-        :chartArea="chartArea"
-        :width="width"
-        :textRender="textRender"
-        :subTitleStyle="subTitleStyle"
-      >
+      <ejs-chart style="display: block" :theme="theme" align="center" id="chartcontainer" :title="title"
+        :primaryXAxis="primaryXAxis" :primaryYAxis="primaryYAxis" :chartArea="chartArea"
+        :width="width" :textRender="textRender" :load="load" >
+        <template v-slot:materialMan="{ data }">
+          <div style="background-color: #00bdae; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:materialWomen="{ data }">
+          <div style="background-color: #404041; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />'
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fabricMan="{ data }">
+          <div style="background-color: #4472c4; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fabricWomen="{ data }">
+          <div style="background-color: #ed7d31; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrapMan="{ data }">
+          <div style="background-color: #a16ee5; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrapWomen="{ data }">
+          <div style="background-color: #f7ce69; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:highcontrastMan="{ data }">
+          <div style="background-color: #79ece4; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:highcontrastWomen="{ data }">
+          <div style="background-color: #e98272; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:material3Man="{ data }">
+          <div id='templateWrap' style="background-color:#6355C7;border-radius: 3px;">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:material3Women="{ data }">
+          <div id='templateWrap' style="background-color:#00AEE0;border-radius: 3px;">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:material3darkMan="{ data }">
+          <div id='templateWrap' style="background-color:#4EAAFF;border-radius: 3px;">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:material3darkWomen="{ data }">
+          <div id='templateWrap' style="background-color:#FA4EAB;border-radius: 3px;">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />'
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:materialdarkMan="{ data }">
+          <div style="background-color: #9ecb08; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:materialdarkWomen="{ data }">
+          <div style="background-color: #56aeff; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />'
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fabricdarkMan="{ data }">
+          <div style="background-color: #4472c4; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fabricdarkWomen="{ data }">
+          <div style="background-color: #ed7d31; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrapdarkMan="{ data }">
+          <div style="background-color: #a16ee5; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrapdarkWomen="{ data }">
+          <div style="background-color: #f7ce69; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrap5Man="{ data }">
+          <div style="background-color: #262e0b; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrap5Women="{ data }">
+          <div style="background-color: #668e1f; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrap5darkMan="{ data }">
+          <div style="background-color: #5ecb9b; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:bootstrap5darkWomen="{ data }">
+          <div style="background-color: #a860f1; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />'
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwindMan="{ data }">
+          <div style="background-color: #5a61f6; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwindWomen="{ data }">
+          <div style="background-color: #65a30d; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwinddarkMan="{ data }">
+          <div style="background-color: #8b5cf6; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwinddarkWomen="{ data }">
+          <div style="background-color: #22d3ee; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fluentMan="{ data }">
+          <div style="background-color: #614570; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fluentWomen="{ data }">
+          <div style="background-color: #4C6FB1; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fluentdarkMan="{ data }">
+          <div style="background-color: #8AB113; border-radius: 3px">
+            <img src="source/chart/images/male.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fluentdarkWomen="{ data }">
+          <div style="background-color: #2A72D5; border-radius: 3px">
+            <img src="source/chart/images/female.png" style="width: 24px; height: 24px; padding: 2px" />
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
         <e-series-collection>
-          <e-series
-            :dataSource="seriesData"
-            xName="x"
-            yName="y"
-            name="Male"
-            width="2"
-            :marker="marker"
-          ></e-series>
-          <e-series
-            :dataSource="seriesData1"
-            xName="x"
-            yName="y"
-            name="Female"
-            width="2"
-            :marker="marker1"
-          ></e-series>
+          <e-series :dataSource="seriesData" xName="sports" yName="boys" name="Boys" width="2" type="Column"
+            columnSpacing=0.5 columnWidth=0.75 :marker="marker"></e-series>
+          <e-series :dataSource="seriesData1" xName="sports" yName="girls" name="Girls" width="2" type="Column"
+            columnSpacing=0.5 columnWidth=0.75 :marker="marker1"></e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
     <div id="action-description">
-      <p>This sample illustrates datalabel template support in the chart. In this sample, images are placed as datalabel by means of templates.</p>
+      <p>
+        This sample illustrates data label template support in charts. Each data label for each point is rendered using the template.
+      </p>
     </div>
     <div id="description">
       <p>
-        Label content can be formatted by using the template option in dataLabel. Inside the template, you can add the placeholder
-        text ${point.y}M to display corresponding data points value.
+        The Blazor Charts data label template feature allows you to change the appearance and behavior of the data label for each data point using the <code>Template</code> property in <code>ChartDataLabel</code>.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
-        To use dataLabel, we need to inject
-        <code>dataLabel</code> module using
+        To use dataLabel, we need to inject <code>dataLabel</code> module using
         <code>provide: { chart: [ DataLabel] },</code> method.
       </p>
       <p>
-        More information on the Crosshair can be found in this &nbsp;
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/documentation/chart/api-dataLabelSettingsModel.html"
-        >documentation section</a>.
+        More information on the data label template can be found in this
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/chart/data-labels/#data-label-template">documentation
+          section</a>.
       </p>
     </div>
   </div>
 </template>
 <style scoped>
+
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
-  LineSeries,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   Category,
   Legend,
-  DataLabel
+  DataLabel,
+  ColumnSeries,
+  Highlight
 } from "@syncfusion/ej2-vue-charts";
-import Template1 from "./datalabel-temp1.vue";
-import Template2 from "./datalabel-temp2.vue";
-import Template3 from "./datalabel-temp3.vue";
-import Template4 from "./datalabel-temp4.vue";
-import Template5 from "./datalabel-temp5.vue";
-import Template6 from "./datalabel-temp6.vue";
-import Template7 from "./datalabel-temp7.vue";
-import Template8 from "./datalabel-temp8.vue";
-
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-let materialMan = function() {
-  return { template: Template1 };
-};
-let materialWomen = function() {
-  return { template: Template2 };
-};
-let fabricMan = function() {
-  return { template: Template3 };
-};
-let fabricWomen = function() {
-  return { template: Template4 };
-};
-let bootstrapMan = function() {
-  return { template: Template5 };
-};
-let bootstrapWomen = function() {
-  return { template: Template6 };
-};
-let highcontrastMan = function() {
-  return { template: Template7 };
-};
-let highcontrastWomen = function() {
-  return { template: Template8 };
-};
-
-export default Vue.extend({
-  data: function() {
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
+  data: function () {
     return {
       theme: theme,
       seriesData: [
-        { x: 2010, y: 1014 },
-        { x: 2011, y: 1040 },
-        { x: 2012, y: 1065 },
-        { x: 2013, y: 1110 },
-        { x: 2014, y: 1130 },
-        { x: 2015, y: 1153 },
-        { x: 2016, y: 1175 }
+        { sports: "Tennis", boys: 50, girls: 38 },
+        { sports: "Badminton", boys: 30, girls: 40 },
+        { sports: "Cycling", boys: 37, girls: 20 },
+        { sports: "Football", boys: 60, girls: 21 },
+        { sports: "Hockey", boys: 15, girls: 8 },
       ],
 
       seriesData1: [
-        { x: 2010, y: 990 },
-        { x: 2011, y: 1010 },
-        { x: 2012, y: 1030 },
-        { x: 2013, y: 1070 },
-        { x: 2014, y: 1105 },
-        { x: 2015, y: 1138 },
-        { x: 2016, y: 1155 }
+        { sports: "Tennis", boys: 50, girls: 38 },
+        { sports: "Badminton", boys: 30, girls: 40 },
+        { sports: "Cycling", boys: 37, girls: 20 },
+        { sports: "Football", boys: 60, girls: 21 },
+        { sports: "Hockey", boys: 15, girls: 8 },
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        minimum: 2010,
-        maximum: 2016,
-        interval: Browser.isDevice ? 2 : 1,
-        edgeLabelPlacement: "Shift",
-        labelStyle: {
-          fontFamily: "Roboto",
-          fontStyle: "medium",
-          size: "14px"
-        },
+        valueType: 'Category',
+        edgeLabelPlacement: 'Shift',
         majorGridLines: { width: 0 },
-        lineStyle: { color: "#eaeaea", width: 1 }
+        majorTickLines: { width: 0 },
       },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        labelFormat: "{value}M",
-        labelStyle: {
-          fontFamily: "Roboto",
-          fontStyle: "medium",
-          size: "14px"
-        },
-        minimum: 900,
-        maximum: 1300,
-        majorGridLines: {
-          color: "#eaeaea",
-          width: 1
-        },
-        lineStyle: {
-          color: "#eaeaea",
-          width: 1
-        }
+        minimum: 0,
+        maximum: 70,
+        lineStyle: { width: 0 },
+        majorTickLines: { width: 0 },
+        majorGridLines: { color: '#eaeaea', width: 1 }
       },
-
-      width: "80%",
-      subTitleStyle: {
-        textAlignment: "Far"
-      },
-      titleStyle: {
-        fontFamily: "Roboto",
-        fontStyle: "medium",
-        size: "14px"
-      },
+      width: Browser.isDevice ? '100%' : "75%",
       chartArea: { border: { width: 0 } },
-      title: "Population of India Statistics",
-      subTitle: "(2010 - 2016)",
+      title: "Athletes in Popular School",
 
       marker1: {
-        visible: true,
-        shape: "Rectangle",
-        dataLabel: {
-          visible: true,
-          position: "Bottom",
-          margin: { right: 15 },
-          template: materialWomen
-        }
-      },
-
-      marker: {
-        visible: true,
+        visible: false,
         shape: "Circle",
         dataLabel: {
           visible: true,
-          position: "Top",
-          margin: { right: 30 },
-          template: materialMan
-        }
-      }
+          position: "Outer",
+          margin: { top: 70 },
+          template: "materialWomen",
+        }, width: 2
+      },
+
+      marker: {
+        visible: false,
+        shape: "Rectangle",
+        dataLabel: {
+          visible: true,
+          position: "Outer",
+          margin: { top: 70 },
+          template: "materialMan",
+        }, width: 2
+      },
     };
   },
   provide: {
-    chart: [LineSeries, Legend, Category, DataLabel]
+    chart: [ColumnSeries, Legend, Category, DataLabel, Highlight],
   },
   methods: {
-    textRender: function(args) {
+    load: function (args) {
+      var selectedTheme = location.hash.split("/")[1];
+      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      theme = args.chart.theme = (
+        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+      )
+        .replace(/-dark/i, "Dark")
+        .replace(/contrast/i, "Contrast");
+      args.chart.theme = theme;
+    },
+    textRender: function (args) {
       if (theme === "Material") {
         args.template =
-          args.series.name === "Male" ? materialMan : materialWomen;
+          args.series.name === "Boys" ? "materialMan" : "materialWomen";
+      } else if (theme === "Material3") {
+        args.template =
+          args.series.name === "Boys" ? "material3Man" : "material3Women";
       } else if (theme === "Fabric") {
-        args.template = args.series.name === "Male" ? fabricMan : fabricWomen;
+        args.template = args.series.name === "Boys" ? "fabricMan" : "fabricWomen";
+      } else if (theme === "HighContrast") {
+        args.template =
+          args.series.name === "Boys" ? "highcontrastMan" : "highcontrastWomen";
+      } else if (theme === "Tailwind") {
+        args.template =
+          args.series.name === "Boys" ? "tailwindMan" : "tailwindWomen";
+      } else if (theme === "Bootstrap") {
+        args.template =
+          args.series.name === "Boys" ? "bootstrapMan" : "bootstrapWomen";
+      } else if (theme === "Bootstrap5") {
+        args.template =
+          args.series.name === "Boys" ? "bootstrap5Man" : "bootstrap5Women";
+      } else if (theme === "TailwindDark") {
+        args.template =
+          args.series.name === "Boys" ? "tailwinddarkMan" : "tailwinddarkWomen";
+      } else if (theme === "MaterialDark") {
+        args.template =
+          args.series.name === "Boys" ? "materialdarkMan" : "materialdarkWomen";
+      } else if (theme === "Material3Dark") {
+        args.template =
+          args.series.name === "Boys" ? "material3darkMan" : "material3darkWomen";
+      } else if (theme === "FabricDark") {
+        args.template =
+          args.series.name === "Boys" ? "fabricdarkMan" : "fabricdarkWomen";
+      } else if (theme === "Bootstrap5Dark") {
+        args.template =
+          args.series.name === "Boys" ? "bootstrap5darkMan" : "bootstrap5darkWomen";
+      } else if (theme === "Fluent") {
+        args.template =
+          args.series.name === "Boys" ? "fluentMan" : "fluentWomen";
+      } else if (theme === "FluentDark") {
+        args.template =
+          args.series.name === "Boys" ? "fluentdarkMan" : "fluentdarkWomen";
       } else {
         args.template =
-          args.series.name === "Male" ? bootstrapMan : bootstrapWomen;
+          args.series.name === "Boys" ? "bootstrapdarkMan" : "bootstrapdarkWomen";
       }
-    }
-  }
-});
+    },
+  },
+};
 </script>

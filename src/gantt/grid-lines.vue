@@ -20,11 +20,13 @@
         <div class="col-md-3 property-section">
             <table id="property" title="Properties">
                 <tr>
-                    <td style="width: 50%">
+                    <td style="width: 50%; fontSize: 15px">
                         Grid Lines
                     </td>
-                    <td style="width: 50%;padding: 10px 10px 10px 0px">
-                        <ejs-dropdownlist id='gridlines' width='100px' :dataSource='linesData' value='Both' :fields='linesFields' :change="lineChange"></ejs-dropdownlist>
+                </tr>
+                <tr>
+                    <td style="width: 100%;padding: 10px 10px 10px 0px">
+                        <ejs-dropdownlist id='gridlines' width='150px' :dataSource='linesData' value='Both' :fields='linesFields' :change="lineChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>
@@ -53,14 +55,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-import { DropDownListPlugin, ChangeEventArgs} from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(GanttPlugin);
-Vue.use(DropDownListPlugin);
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -110,5 +113,5 @@ export default Vue.extend({
            this.gridLines = e.value;
         }
     }
-});
+}
 </script>

@@ -20,7 +20,8 @@
         </div>
     </div>
     <div id="action-description">
-      <p>This example demonstrates how to pre-load the files of the Uploader. The already uploaded files are configured in file list to view and remove them.</p>
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to pre-load the files of the Uploader. The already uploaded files are configured in file list to view and remove them.</p>
     </div>
 
     <div id="description">
@@ -50,20 +51,24 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
+import { UploaderComponent, FilesDirective, UploadedFilesDirective} from '@syncfusion/ej2-vue-inputs';
+import {ButtonComponent} from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(UploaderPlugin);
-
-export default Vue.extend({
+export default {
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid'
         }
+    },
+    components: { 
+        'ejs-uploader': UploaderComponent,
+        'ejs-button': ButtonComponent,
+        'e-files': FilesDirective,
+        'e-uploadedfiles': UploadedFilesDirective
     },
      mounted: function () {
         document.getElementById('clearbtn').onclick = () => {
@@ -75,5 +80,5 @@ export default Vue.extend({
             args.postRawFile = false;
         }
     }
-});
+};
 </script>

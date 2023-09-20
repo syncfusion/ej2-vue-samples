@@ -31,16 +31,18 @@
 </div>  
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
 import { CarSales } from '../treemap/treemap-data/car-sale';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         titleSettings: {
             text: 'Car Sales by Country - 2017',
-            textStyle: { size: '15px' }
+            textStyle: { size: '15px',  fontFamily: 'Segoe UI' }
         },
         rangeColorValuePath: 'Sales',
         useGroupingSeparator: true,
@@ -49,14 +51,23 @@ return{
             visible: true,
             position: 'Top',
             shape: 'Rectangle',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         palette: ['#C33764', '#AB3566', '#993367', '#853169', '#742F6A', '#632D6C', '#532C6D', '#412A6F', '#312870', '#1D2671'],
         tooltipSettings: {
-            visible: true
+            visible: true,
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         leafItemSettings: {
             labelPath: 'Company',
-            border: { color: 'white', width: 0.5 }
+            border: { color: 'white', width: 0.5 },
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
         },
         weightValuePath: 'Sales',
        levels: [
@@ -71,7 +82,8 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     itemMove:function(args){
@@ -83,5 +95,5 @@ methods:{
 provide:{
     treemap:[TreeMapTooltip, TreeMapLegend]
 }
-})
+}
 </script>

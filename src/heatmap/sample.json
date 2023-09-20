@@ -5,14 +5,13 @@
     "ftName": "heatmap",
     "samples": [
         {
-            "url": "default",
+            "url": "default-functionalities",
             "name": "Default Functionalities",
             "category": "HeatMap Chart",
             "description": "This demo for Essential JS2 Heatmap control shows the heat map control displayed with minimum configuration",
             "api": {},
             "sourceFiles": [
-                {"displayName": "default.vue", "path": "./src/heatmap/default.vue"},
-                {"displayName": "default-data.json", "path": "./src/heatmap/default-data.json"}
+                {"displayName": "default-functionalities.vue", "path": "./src/heatmap/default-functionalities.vue"}
             ]
         },
         {
@@ -47,28 +46,28 @@
             "api": {}
         },
         {
-            "url": "array-row",
+            "url": "row",
             "name": "Row",
             "category": "Data Binding",
             "description": "This demo for Essential JS2 Heatmap control demonstrates how to bind the data to heat map with series of array for each columns.",
             "api": {}
         },
         {
-            "url": "array-cell",
+            "url": "cell",
             "name": "Cell",
             "category": "Data Binding",
             "description": "This demo for Essential JS2 Heatmap control demonstrates how to bind the array data with values for each cell to heatmap.",
             "api": {}
         },
         {
-            "url": "row-json-binding",
+            "url": "json-row",
             "name": "JSON Row",
             "category": "Data Binding",
             "description": "This demo for Essential JS2 Heatmap control demonstrates how to bind the JSON object with data for each columns to heatmap.",
             "api": {}
         },
         {
-            "url": "cell-json-binding",
+            "url": "json-cell",
             "name": "JSON Cell",
             "category": "Data Binding",
             "description": "This demo for Essential JS2 Heatmap control demonstrates how to bind the JSON object with data for each cell to heat map.",
@@ -92,8 +91,7 @@
             "description": "This demo for Essential JS2 Heatmap control shows how to inverse the axis in heat map.",
             "api": {},
             "sourceFiles": [
-                {"displayName": "inversed-axis.vue", "path": "./src/heatmap/inversed-axis.vue"},
-                {"displayName": "invered-axis-data.json", "path": "./src/heatmap/invered-axis-data.json"}
+                {"displayName": "inversed-axis.vue", "path": "./src/heatmap/inversed-axis.vue"}
             ]
         },
         {
@@ -114,8 +112,7 @@
             "description": "This demo for Essential JS2 Heatmap control shows how to group the axis labels",
             "api": {},
             "sourceFiles": [
-                {"displayName": "multi-level-labels.vue", "path": "./src/heatmap/multi-level-labels.vue"},
-                {"displayName": "multi-level-label-data.json", "path": "./src/heatmap/multi-level-label-data.json"}
+                {"displayName": "multi-level-labels.vue", "path": "./src/heatmap/multi-level-labels.vue"}
             ]
         },
         {
@@ -130,14 +127,13 @@
             ]
         },
         {
-            "url": "legend",
+            "url": "legend-placement",
             "name": "Legend Placement",
             "category": "Features",
             "description": "This demo for Essential JS2 Heatmap control shows how to place the heatmap legend in different positions.",
             "api": {},
             "sourceFiles": [
-                {"displayName": "legend.vue", "path": "./src/heatmap/legend.vue"},
-                {"displayName": "legend-sample-data.json", "path": "./src/heatmap/legend-sample-data.json"}
+                {"displayName": "legend-placement.vue", "path": "./src/heatmap/legend-placement.vue"}
             ]
         },
         {
@@ -158,8 +154,7 @@
             "description": "This demo for Essential JS2 Heatmap control demonstrates applying gradient colors or solid colors for the heatmap cells.",
             "api": {},
             "sourceFiles": [
-                {"displayName": "palette-mode.vue", "path": "./src/heatmap/palette-mode.vue"},
-                {"displayName": "palatte-sample-data.json", "path": "./src/heatmap/palatte-sample-data.json"}
+                {"displayName": "palette-mode.vue", "path": "./src/heatmap/palette-mode.vue"}
             ]
         },
         {
@@ -169,8 +164,7 @@
             "description": "This demo for Essential JS2 Heatmap shows switching the rendering mode of the heatmap cells between SVG and canvas rendering logics.",
             "api": {},
             "sourceFiles": [
-                {"displayName": "rendering-mode.vue", "path": "./src/heatmap/rendering-mode.vue"},
-                {"displayName": "render-mode-data.json", "path": "./src/heatmap/render-mode-data.json"}
+                {"displayName": "rendering-mode.vue", "path": "./src/heatmap/rendering-mode.vue"}
             ]
         },
         {
@@ -180,8 +174,7 @@
             "description": "This demo for Essential JS2 Heatmap control shows the usage of tooltip template in heat map.",
             "api": {},
             "sourceFiles": [
-                {"displayName": "tooltip-template.vue", "path": "./src/heatmap/tooltip-template.vue"},
-                {"displayName": "default-table-data-source.json", "path": "./src/heatmap/default-table-data-source.json"}
+                {"displayName": "tooltip-template.vue", "path": "./src/heatmap/tooltip-template.vue"}
             ]
         }
     ]

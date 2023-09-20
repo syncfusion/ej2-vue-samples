@@ -41,13 +41,13 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as dataSource from './local-data.json';
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
+import dataSource from './local-data.json';
 
-Vue.use(DropDownTreePlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent
+    },
     data: function() {
         return {
             fields: { dataSource: dataSource.hierarchicalData, value: 'code', text: 'name', child: 'countries' },
@@ -56,5 +56,5 @@ export default Vue.extend({
             waterMark: 'Select an item',
         };
     }
-});
+}
 </script>

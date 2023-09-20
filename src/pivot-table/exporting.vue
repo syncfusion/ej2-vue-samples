@@ -25,7 +25,7 @@
                   <td></td>
                     <td>
                         <div style="float:right">
-                            <ejs-button id="export-btn" v-on:click.native="btnClick" cssClass= 'e-flat' isPrimary='true'>Export</ejs-button>
+                            <ejs-button id="export-btn" v-on:click="btnClick" isPrimary='true'>Export</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -53,23 +53,24 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { PivotViewPlugin, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
+import { PivotViewComponent, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -103,8 +104,8 @@ export default Vue.extend({
   },
   methods: {
     btnClick: function(args: ChangeEventArgs) {
-      let ddlObj = (<any>this.$refs.typeddl).ej2Instances; 
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let ddlObj = ((this as any).$refs.typeddl).ej2Instances; 
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (ddlObj.value === "Excel") {
         pivotObj.excelExport();
       } else if (ddlObj.value === "CSV") {
@@ -117,7 +118,7 @@ export default Vue.extend({
   provide: {
     pivotview: [FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

@@ -103,10 +103,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, Annotations } from "@syncfusion/ej2-vue-circulargauge";
+
+export default {
+    components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective,
+        'e-pointers': PointersDirective,
+        'e-pointer': PointerDirective
+    },
     data: function () {
         return {
             gauge1startAngle: 270,
@@ -145,7 +151,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Range Bar</div>'
+                content: '<div style="color:#757575; font-family:Segoe UI; font-size:14px;">Range Bar</div>'
             }],
             gauge2startAngle: 270,
             gauge2endAngle: 90,
@@ -181,7 +187,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Marker</div>'
+                content: '<div style="color:#757575; font-family:Segoe UI; font-size:14px;">Marker</div>'
             }],
             gauge3startAngle: 270,
             gauge3endAngle: 90,
@@ -226,7 +232,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Customized Needle</div>'
+                content: '<div style="color:#757575; font-family:Segoe UI; font-size:14px;">Customized Needle</div>'
             }],
             centerY3: '40%',
             gauge4startAngle: 270,
@@ -271,7 +277,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Needle</div>'
+                content: '<div style="color:#757575; font-family:Segoe UI; font-size:14px;">Needle</div>'
             }],
             centerY5: '40%',
             gauge5startAngle: 270,
@@ -324,7 +330,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Live Update</div>'
+                content: '<div style="color:#757575; font-family:Segoe UI; font-size:14px;">Live Update</div>'
             }],
             gauge6startAngle: 270,
             gauge6endAngle: 90,
@@ -376,7 +382,7 @@ export default Vue.extend({
                 angle: 180,
                 zIndex: '1',
                 radius: '25%',
-                content: '<div style="color:#757575; font-family:Roboto; font-size:14px;">Multiple Needles</div>'
+                content: '<div style="color:#757575; font-family:Segoe UI; font-size:14px;">Multiple Needles</div>'
             }],
             pointerRadius8: '60%',
             value8: 40,
@@ -434,9 +440,10 @@ export default Vue.extend({
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         }
         /* custom code end */
     }
-})
+}
 </script>

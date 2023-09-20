@@ -21,17 +21,14 @@
 </template>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   ShapeAnnotationModel,
   NodeModel,
   ConnectorModel,
   UmlClassifierShapeModel
 } from "@syncfusion/ej2-vue-diagrams";
-
-Vue.use(DiagramPlugin);
 
 let diagramInstance;
 
@@ -171,7 +168,10 @@ let connectors = [
     createConnector('connect16', 'TechnicalStaff', 'Staff')
   ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -204,7 +204,7 @@ export default Vue.extend({
        let diagram = this.$refs.diagramObj.ej2Instances;
         diagram.fitToPage();
   }
-});
+}
 
  //Create a connector.
   function createConnector( id, sourceID, targetID ) {

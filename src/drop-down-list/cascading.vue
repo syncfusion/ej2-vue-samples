@@ -35,14 +35,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             countryFields: { value: 'CountryId', text: 'CountryName' },
@@ -65,7 +65,7 @@ export default Vue.extend ({
     methods: {
         onChange1: function(args) {
             // disable the state DropDownList
-            this.stateEnabled = true;
+            this.stateEnabled = args.value !== null;
             // frame the query based on selected value in country DropDownList.
             var tempQuery = new Query().where('CountryId', 'equal', args.value);
             // set the framed query based on selected value in country DropDownList.
@@ -88,5 +88,5 @@ export default Vue.extend ({
             this.cityText = null;
         }
     }
-});
+}
 </script>

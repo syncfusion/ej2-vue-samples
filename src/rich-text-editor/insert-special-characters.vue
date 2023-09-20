@@ -29,7 +29,7 @@
                     <div class="char_block" title="&#169;">&#169;</div>
                     <div class="char_block" title="&#170;">&#170;</div>
                     <div class="char_block" title="&#171;">&#171;</div>
-                    <div class="char_block" title="&#172;">&#172;</div>
+                    <div class="char_block" title="&#172;">&#45;</div>
                     <div class="char_block" title="&#173;">&#173;</div>
                     <div class="char_block" title="&#174;">&#174;</div>
                     <div class="char_block" title="&#175;">&#175;</div>
@@ -105,12 +105,24 @@
         border-color: #e3165b;
     }
 
-    .fabric #rteSpecial_char .char_block.e-active {
+    .material-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #56a4fd;
+        border-color: #56a4fd;
+    }
+
+    .fabric #rteSpecial_char .char_block.e-active,
+    .fabric-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #0078d6;
         border-color: #0078d6;
     }
 
-    .bootstrap #rteSpecial_char .char_block.e-active {
+    .bootstrap4 #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #007bff;
+        border-color: #007bff;
+    }
+
+    .bootstrap #rteSpecial_char .char_block.e-active,
+    .bootstrap-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #317ab9;
         border-color: #317ab9;
     }
@@ -120,6 +132,33 @@
         border-color: #ffd939;
     }
 
+    .tailwind #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #3730a3;
+        border-color: #3730a3;
+    }
+
+    .tailwind-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #22d3ee;
+        border-color: #22d3ee;
+    }
+
+    .bootstrap5 #rteSpecial_char .char_block.e-active,
+    .bootstrap5-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #0D6EFD;
+        border-color: #0D6EFD;
+    }
+
+    .fluent #rteSpecial_char .char_block.e-active,
+    .fluent-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #0078DE;
+        border-color: #0078DE;
+    }
+
+    .material3 .e-rte-custom-tbar-section .char_block.e-active,
+    .material3-dark .e-rte-custom-tbar-section .char_block.e-active {
+        outline: 1px solid #7D69B1;
+        border-color: #7D69B1;
+    }
     .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
     .highcontrast.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
         padding-right: 10px;
@@ -180,20 +219,14 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import * as CodeMirror from 'codemirror';
+import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/css/css.js';
-import 'codemirror/mode/htmlmixed/htmlmixed.js';
-
-Vue.use(RichTextEditorPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-dialog': DialogComponent
+    },
     data: function() {
         return {
             selection: new NodeSelection(),
@@ -218,11 +251,11 @@ export default Vue.extend({
         };
     },
     methods: {
-        onCreate: function(e) {
+        onCreate: function() {
         this.customBtn = document.getElementById('custom_tbar');
          this.$refs.dialogObj.ej2Instances.target = document.getElementById('rteSection');
          var proxy = this;
-        this.customBtn.onclick = function (e) {
+        this.customBtn.onclick = function () {
             proxy.$refs.rteObj.ej2Instances.contentModule.getEditPanel().focus();
             proxy.range = proxy.selection.getRange(document);
             proxy.saveSelection = proxy.selection.save(proxy.range, document);
@@ -276,5 +309,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar]
     }
-});
+}
 </script>

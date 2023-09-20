@@ -51,7 +51,9 @@
 </template>
 <style scoped>
 .multiline_wrapper {
-    margin: 40px 200px;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 40px 0px 0px;
 }
 .multiline-property .left-side{
     font-size: 14px;
@@ -64,18 +66,13 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(TextBoxPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
     data: function(){
         return {
             max: 20,
@@ -117,5 +114,12 @@ export default Vue.extend({
         }
         }
     },
-});
-    </script>
+    components: {
+        'ejs-textbox': TextBoxComponent,
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-numerictextbox': NumericTextBoxComponent
+    }
+};
+
+</script>

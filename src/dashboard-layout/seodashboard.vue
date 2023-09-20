@@ -72,48 +72,49 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-Vue.use(DashboardLayoutPlugin);
-import { SidebarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(SidebarPlugin);
+import { createApp } from "vue";
+import { DashboardLayoutComponent, PanelsDirective, PanelDirective } from "@syncfusion/ej2-vue-layouts";
+import { SidebarComponent } from "@syncfusion/ej2-vue-navigations";
 import visitorsByTypeTempalte from "./linetemplate.vue";
 import mapTemplate from "./map.vue";
 import useageStatisticsTemplate from "./useage.vue";
 import activeVisitorTemplate from "./activeVisitors.vue";
 import splineTemplate from "./splinetemplate.vue";
-import { AutoCompletePlugin } from '@syncfusion/ej2-vue-dropdowns';
 
-Vue.use(AutoCompletePlugin);
-
-var card1Template = Vue.component("card1", {
+var card1Template = {
   template: '<div class="card"><span class="e-icons session"></span><div class="card-content text">Session</div><div class="card-content number">124,444</div></div>',
   data() {
     return {
       data: {}
     };
   }
-});
+};
 
-var card2Template = Vue.component("card2", {
+var card2Template = {
   template: '<div class="card"><span class="e-icons profile"></span><div class="card-content text">Users</div><div class="card-content number">64,496</div></div>',
   data() {
     return {
       data: {}
     };
   }
-});
+};
 
-var card3Template = Vue.component("card3", {
+var card3Template = {
   template: '<div class="card"><span class="e-icons views"></span><div class="card-content text">Views</div><div class="card-content number">442,278</div></div>',
   data() {
     return {
       data: {}
     };
   }
-});
+};
 
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-sidebar': SidebarComponent,
+    'ejs-dashboardlayout': DashboardLayoutComponent,
+    'e-panels': PanelsDirective,
+    'e-panel': PanelDirective
+  },
   data() {
     return {
         enableDock: true,
@@ -124,38 +125,38 @@ export default  Vue.extend({
         closeOnDocumentClick: true,
         target: '#sidebarTarget',
         spline: function () {
-          return { template : splineTemplate }
+          return { template: createApp({}).component("spline",  splineTemplate) }
         },
         line: function () {
-          return { template : visitorsByTypeTempalte }
+          return { template: createApp({}).component("visitorByType",  visitorsByTypeTempalte) }
         },
         visitor: function() {
-          return { template : activeVisitorTemplate }   
+          return { template: createApp({}).component("activeVisitor",  activeVisitorTemplate) }   
         },
         usage: function() {
-          return { template : useageStatisticsTemplate }  
+          return { template: createApp({}).component("usageStatistics",  useageStatisticsTemplate) }  
         },
         map: function() {
-          return { template : mapTemplate }  
+          return { template: createApp({}).component("mapTemplate",  mapTemplate) }  
         },
         card1: function(e) {
           return {
-            template: card1Template
+            template: createApp({}).component("card1", card1Template)
           }
         },
         card2: function(e) {
           return {
-            template: card2Template
+            template: createApp({}).component("card2", card2Template)
           }
         },
         card3: function(e) {
           return {
-            template: card3Template
+            template: createApp({}).component("card3", card3Template)
           }
       }
     };
   },
-});
+};
 </script>
 
 <style>
@@ -173,15 +174,27 @@ export default  Vue.extend({
 
   .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     border-bottom: 2px solid #e6e9ed !important;
-    padding: 10px;
     height: 35px;
-    margin: 0 15px 0 15px;
+    padding: 0 15px 0 15px;
+    line-height: 35px;
   }
 
   .dashboard-seo #analysisLayout.e-dashboardlayout  .e-panel-content {
     height: calc(100% - 35px) !important;
     overflow: hidden;
     width: 100%;
+  }
+
+  .bootstrap5-dark .card-content.text,
+  .tailwind-dark .card-content.text,
+  .material-dark .card-content.text,
+  .bootstrap-dark .card-content.text,
+  .highcontrast .card-content.text {
+    color: #ffffff;
+  }
+
+  .fabric-dark .card-content.text{
+    color: #dadada
   }
 
   .dashboard-seo #sidebar-section {
@@ -224,6 +237,10 @@ export default  Vue.extend({
     -moz-osx-font-smoothing: grayscale;
   }
 
+  #dashboardSidebar .content-area {
+    margin: 0px;
+  }
+
   .dashboard-seo #dashboardSidebar {
     text-align: center;
   }
@@ -242,7 +259,7 @@ export default  Vue.extend({
     content: "\e718";
     font-family: "e-sb-icons";
   }
-
+  
   .dashboard-seo .filter::before {
     content: "\e72a";
     font-family: "e-sb-icons";
@@ -308,10 +325,6 @@ export default  Vue.extend({
     float: right;
     height: 55px;
     width: 100px;
-  }
-
-  #right-sidebar {
-    display: none;
   }
 
   .dashboard-seo .e-dock.e-close span.e-text {
@@ -484,5 +497,19 @@ body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-
 body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
 }
+
+.bootstrap-dark li.sidebar-item.filterHover,
+.material-dark li.sidebar-item.filterHover,
+.fabric-dark li.sidebar-item.filterHover,
+.tailwind-dark li.sidebar-item.filterHover,
+.bootstrap5-dark li.sidebar-item.filterHover, 
+.fluent-dark li.sidebar-item.filterHover {
+    background: inherit;
+ }
+
+ .tailwind #dashboardSidebar,
+  .bootstrap5 #dashboardSidebar {
+    background: #fff;
+  }
 
 </style>

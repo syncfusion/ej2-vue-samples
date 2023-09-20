@@ -113,42 +113,86 @@
     .schedule-vue-sample .e-profile-wrapper .destination {
         font-size: 12px;
     }
-	
-	.schedule-vue-sample .e-profile-wrapper .status-icon {
-        height:6px;
-        width:6px;
-        background:green;
-        border-radius:100%;
-        float:left;
-        margin-right:4px;
-        margin-top:4px;
+
+    .schedule-vue-sample .e-profile-wrapper .status-icon {
+        height: 6px;
+        width: 6px;
+        background: green;
+        border-radius: 100%;
+        float: left;
+        margin-right: 4px;
+        margin-top: 4px;
     }
 
     .schedule-vue-sample .e-profile-wrapper .status {
         font-size: 11px;
+        line-height: normal;
     }
 
     .highcontrast .schedule-vue-sample .e-profile-wrapper {
         border: 1px solid #969696
     }
+
     .highcontrast .schedule-vue-sample .e-profile-wrapper .profile-container {
         background-color: #000;
     }
+
+    .tailwind-dark .e-profile-wrapper {
+        background-color: #374151;
+        border: 0.5px solid #4b5563;
+    }
+
+    .bootstrap5-dark .e-profile-wrapper {
+        background-color: rgb(40, 45, 49);
+        border: 0.5px solid #4b5563;
+    }
+
+    .tailwind .e-profile-wrapper .destination,
+    .tailwind-dark .e-profile-wrapper .destination {
+        font-size: 11px;
+    }
+
+    .bootstrap-dark .e-profile-wrapper {
+        background-color: #1a1a1a;
+    }
+
+    .fluent-dark .e-profile-wrapper {
+        background-color: #201f1e;
+    }
+
+    .fabric-dark .e-profile-wrapper {
+        background-color: #333232;
+    }
+
+    .material-dark .property-panel-header {
+        color: #fff;
+    }
+
+    .material-dark .e-profile-wrapper {
+        color: #fff;
+        border: 0.5px solid #616161;
+        background-color: #212121;
+    }
+
+    .material3-dark .e-profile-wrapper {
+        border: 0.5px solid #444746;
+        background-color: #302c38;
+    }
 </style>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { Popup } from '@syncfusion/ej2-vue-popups';
-    import { ItemModel } from '@syncfusion/ej2-vue-navigations';
-    import { CheckBoxPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
-    import { createElement, compile, extend, Internationalization } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Month, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-
-    var instance = new Internationalization();
-
-    export default Vue.extend({
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+    import { createElement, extend } from '@syncfusion/ej2-base';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -156,7 +200,7 @@
                 },
                 currentView: 'Month',
                 showHeaderBar: true,
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
             }
         },
         provide: {
@@ -192,20 +236,14 @@
                         }
                     };
                 }
-                let userContentEle = createElement('div', {
-                    className: 'e-profile-wrapper'
-                });
+                let userContentEle = createElement('div', { className: 'e-profile-wrapper'});
+                let templateContent = createElement('div', { className: 'profile-container', innerHTML: `<div class="profile-image"></div><div class="content-wrap">
+                        <div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status">
+                        <div class="status-icon"></div>Online</div></div>` });
                 scheduleElement.parentElement.appendChild(userContentEle);
-
                 let userIconEle = scheduleElement.querySelector('.e-schedule-user-icon');
-                let template = 
-                        '<div class="profile-container"><div class="profile-image"></div><div class="content-wrap">' +
-                        '<div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status"> ' +
-                        '<div class="status-icon"></div>Online</div></div></div>';
-                let getDOMString = compile(template);
-                let output = getDOMString({});
                 this.profilePopup = new Popup(userContentEle, {
-                    content: output[0],
+                    content: templateContent,
                     relateTo: userIconEle,
                     position: { X: 'left', Y: 'bottom' },
                     collision: { X: 'flip', Y: 'flip' },
@@ -218,9 +256,12 @@
             },
             // function to handle the CheckBox change event
             onChange: function (args) {
+                if (!args.checked) {
+                    this.profilePopup.hide();
+                }
                 this.$refs.ScheduleObj.ej2Instances.showHeaderBar = args.checked;
             }
         }
-    });
+    }
 
 </script>

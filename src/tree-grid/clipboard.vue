@@ -73,20 +73,20 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Toolbar, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownList} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs, DropDownList} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-
-
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-dialog': DialogComponent
+  },  
   data: function() {
     return {
       alertHeader: 'Copy with Header',
@@ -95,7 +95,7 @@ export default Vue.extend({
       target: '.control-section',
       alertWidth: '300px',
       animationSettings: { effect: 'None' },
-      alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
+      alertDlgButtons: [{ click: (((this as any)).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
       data: sampleData,
       selectOptions: { type: 'Multiple' },
       toolbar: [{ text: 'Copy', tooltipText: 'Copy', prefixIcon: 'e-copy', id: 'copy' },
@@ -111,26 +111,26 @@ export default Vue.extend({
   },
   methods: {
    clickHandler: function(args: ClickEventArgs) {
-            if((<any>this.$refs.treegrid).getSelectedRecords().length>0){
+            if(((this as any).$refs.treegrid).getSelectedRecords().length>0){
                 let withHeader: boolean = false;
                 if (args.item.id === 'copyHeader') {
                     withHeader = true;
                 }
-                    (<any>this.$refs.treegrid).copy(withHeader);
+                    ((this as any).$refs.treegrid).copy(withHeader);
                 } else {
-                  (<any>this.$refs.alertDialog).ej2Instances.show();
+                  ((this as any).$refs.alertDialog).ej2Instances.show();
                 }
             },
   alertDlgBtnClick: function() {
-        ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
-    },
+        (((this as any)).$refs.alertDialog as any).ej2Instances.hide();
+  },
       onChange: function(e: ChangeEventArgs): void {
                 let mode:any = e.value.toString();
-                (<TreeGridComponent>this.$refs.treegrid).ej2Instances.copyHierarchyMode = mode;
+                ((this as any).$refs.treegrid).ej2Instances.copyHierarchyMode = mode;
             }
   },
   provide: {
     treegrid: [ Page, Toolbar ]
   }
-});
+}
 </script>

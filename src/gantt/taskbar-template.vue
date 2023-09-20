@@ -2,30 +2,84 @@
   <div>
     <div class="control-section">
       <div class="content-wrapper">
-        <ejs-gantt
-          ref="gantt"
-          id="taskbarTemplate"
-          :dataSource="dataSource"
-          :renderBaseline="true"
-          :taskFields="taskFields"
-          :columns="columns"
-          :allowSelection="true"
-          :splitterSettings="splitterSettings"
-          :treeColumnIndex="treeColumnIndex"
-          :rowHeight="rowHeight"
-          :taskbarHeight="taskbarHeight"
-          :dayWorkingTime="dayWorkingTime"
-          :durationUnit="durationUnit"
-          :timelineSettings="timelineSettings"
-          :eventMarkers="eventMarkers"
-          :height="height"
-          :taskbarTemplate="taskbarTemplate"
-          :milestoneTemplate="milestoneTemplate"
-          :tooltipSettings="tooltipSettings"
-          :labelSettings="labelSettings"
-          :projectStartDate="projectStartDate"
-          :projectEndDate="projectEndDate"
-        ></ejs-gantt>
+        <ejs-gantt ref="gantt" id="taskbarTemplate" :dataSource="dataSource" :renderBaseline="true"
+          :taskFields="taskFields" :columns="columns" :allowSelection="true" :splitterSettings="splitterSettings"
+          :treeColumnIndex="treeColumnIndex" :rowHeight="rowHeight" :taskbarHeight="taskbarHeight"
+          :dayWorkingTime="dayWorkingTime" :durationUnit="durationUnit" :timelineSettings="timelineSettings"
+          :eventMarkers="eventMarkers" :height="height" :taskbarTemplate="'taskbarTemplate'"
+          :milestoneTemplate="'milestoneTemplate'" :tooltipSettings="tooltipSettings" :labelSettings="labelSettings"
+          :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
+          <template v-slot:taskbarTemplate="{data}">
+            <div v-if="data.TaskName == 'Oscar moments'" style="height:100%">
+              <div class="e-gantt-child-taskbar e-custom-moments" style="height:100%;border-radius:5px;">
+                <template v-if="data.ganttProperties.duration < 4">
+                  <img class="moments" src="source/gantt/images/moments.svg" style="height: 32px; width: 32px;">
+                </template>
+                <template v-else>
+                  <img class="moments" src="source/gantt/images/moments.svg" style="height: 32px; width: 32px;">
+                  <span class="e-task-label"
+                    style="position:absolute;top:15px;font-size:12px;text-overflow:ellipsis;height:90%;overflow:hidden;">{{data.Performance}}</span>
+                </template>
+              </div>
+            </div>
+            <div v-else-if="data.TaskName == 'Oscar performance'" style="height:100%">
+              <div class="e-gantt-child-taskbar e-custom-performance" style="height:100%;border-radius:5px;">
+                <template v-if="data.ganttProperties.duration <= 5">
+                  <img class="face-mask" src="source/gantt/images/face-mask.svg" style="height: 32px; width: 32px;">
+                </template>
+                <template v-else>
+                  <img class="face-mask" src="source/gantt/images/face-mask.svg" style="height: 32px; width: 32px;">
+                  <span class="e-task-label"
+                    style="position:absolute;top:5px;font-size:12px;text-overflow:ellipsis;height:90%;overflow:hidden;">{{data.Performance}}</span>
+                </template>
+              </div>
+            </div>
+            <div v-else style="height:100%">
+              <div class="e-gantt-parent-taskbar e-custom-parent"
+                style="height:100%;border-radius:5px;text-overflow:ellipsis;">
+                <template v-if="data.ganttProperties.duration < 4">
+                  <img class="oscar" src="source/gantt/images/oscar.svg" style="height: 32px; width: 32px;">
+                </template>
+                <template v-else>
+                  <template v-if="data.taskData.Winner && data.taskData.Movie">
+                    <img class="oscar" src="source/gantt/images/oscar.svg" style="height: 32px; width: 32px;">
+                    <span class="e-task-label"
+                      style="position:absolute; top:13px;font-size:14px;">{{data.taskData.Winner}}</span>
+                    <span class="e-task-label"
+                      style="position:absolute;top:33px;font-size:10px;text-overflow:ellipsis;">{{data.taskData.Movie}}</span>
+                  </template>
+                  <template v-else-if="data.taskData.Movie">
+                    <img class="oscar" src="source/gantt/images/oscar.svg" style="height: 32px; width: 32px;">
+                    <span class="e-task-label"
+                      style="position:absolute; top:13px;font-size:12px;text-overflow:ellipsis;">{{data.taskData.Movie}}</span>
+                  </template>
+                  <template v-else>
+                    <span class="e-task-label"></span>
+                  </template>
+                </template>
+              </div>
+            </div>
+          </template>
+          <template v-slot:milestoneTemplate="{data}">
+            <div>
+              <div class="e-gantt-milestone" style="position:absolute;">
+                <img class="moments" src="source/gantt/images/moments.svg" style="height: 24px; width: 48px;">
+                <div class="e-milestone-top"
+                  style="border-right-width:26px; margin-top: -24px;border-left-width:26px;border-bottom-width:26px;">
+                </div>
+                <div class="e-milestone-bottom"
+                  style="top:26px;border-right-width:26px; border-left-width:26px; border-top-width:26px;"></div>
+              </div>
+            </div>
+          </template>
+          <template v-slot:tooltipTemplate="{data}">
+            <div>
+              <template v-if="data.Winner && data.Movie">{{data.Winner}} wins oscar award for {{data.Movie}}</template>
+              <template v-else-if="data.Movie">Oscar award for {{data.Movie}}</template>
+              <template v-else>{{data.Performance}}</template>
+            </div>
+          </template>
+        </ejs-gantt>
         <div style="float: right; margin: 10px;">
           Source:
           <a
@@ -59,14 +113,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Gantt, DayMarkers, Selection } from "@syncfusion/ej2-vue-gantt";
-import ChildTemplate from "./taskbar-temp.vue";
-import MilestoneTemplate from "./taskbar-milestone-temp.vue";
-import TooltipTemplate from "./taskbar-tooltip-temp.vue";
+import { GanttComponent, Gantt, DayMarkers, Selection } from "@syncfusion/ej2-vue-gantt";
 import { customizedData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
       dataSource: customizedData,
@@ -148,56 +201,48 @@ export default Vue.extend({
       },
       projectStartDate: new Date("03/05/2018 06:00 PM"),
       projectEndDate: new Date("03/05/2018 09:50 PM"),
-      taskbarTemplate: function() {
-        return { template: ChildTemplate };
-      },
-      milestoneTemplate: function() {
-        return { template: MilestoneTemplate };
-      },
       tooltipSettings: {
-        taskbar: function() {
-          return { template: TooltipTemplate };
-        }
+        taskbar: 'tooltipTemplate'
       }
     };
   },
   provide: {
     gantt: [DayMarkers, Selection]
   }
-});
+}
 </script>
 
 <style scoped>
-/deep/ .e-custom-parent {
+ .e-custom-parent {
   background-color: #6d619b;
   border: 1px solid #3f51b5;
 }
 
-/deep/ .e-custom-moments {
+ .e-custom-moments {
   background-color: #7ab748;
   border: 1px solid #3f51b5;
 }
 
-/deep/ .e-custom-performance {
+ .e-custom-performance {
   background-color: #ad7a66;
   border: 1px solid #3f51b5;
 }
 
-/deep/ .moments,
-/deep/ .face-mask,
-/deep/ .oscar {
+ .moments,
+ .face-mask,
+ .oscar {
   position: relative;
   top: 14px;
   left: 5px;
   padding-right: 4px;
 }
 
-/deep/ .e-milestone-top {
+ .e-milestone-top {
   border-bottom-color: #7ab748 !important;
   border-bottom: 1px solid #3f51b5;
 }
 
-/deep/ .e-milestone-bottom {
+ .e-milestone-bottom {
   border-top-color: #7ab748 !important;
   border-top: 1px solid #3f51b5;
 }

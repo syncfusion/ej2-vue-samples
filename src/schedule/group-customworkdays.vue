@@ -53,21 +53,21 @@
 <style>
     .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.willsmith,
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.willsmith {
-        background-color: #faebd7;
+        background-color: rgb(250 235 215 / 50%);
     }
 
     .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.alice,
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.alice {
-        background-color: #deecfc;
+        background-color: rgb(222 236 252 / 50%);
     }
 
     .schedule-vue-sample .customschedule.e-schedule .e-month-view .e-work-days.robson,
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-work-hours.robson {
-        background-color: #deeeac;
+        background-color: rgb(222 238 172 / 50%);
     }
 
     .schedule-vue-sample .customschedule.e-schedule .e-vertical-view .e-resource-cells {
-        height: 62px;
+        height: 66px;
     }
 
     .schedule-vue-sample .customschedule.e-schedule .template-wrap {
@@ -107,15 +107,15 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { extend, addClass, Internationalization } from '@syncfusion/ej2-base';
+    import { createApp } from "vue";
+    import { extend, addClass } from '@syncfusion/ej2-base';
     import { doctorData } from './datasource';
-    import { SchedulePlugin, View, WorkWeek, Month } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ResourceDirective, ResourcesDirective, ViewDirective, ViewsDirective, WorkWeek, Month } from "@syncfusion/ej2-vue-schedule";
+    
+    const app = createApp({})
 
-    var instance = new Internationalization();
-    var resourceTemplate = Vue.component("resource-template", {
-        template: '<div class="template-wrap"><div class="resource-image"><img :src="getImage" :alt="getImage" width="45px" height="45px"/></div>' +
+    var resourceTemplate = app.component("resource-template", {
+        template: '<div class="template-wrap"><div class="resource-image"><img class="resource-image" :src="getImage" :alt="getImage"/></div>' +
         '<div class="resource-details"><div class="resource-name">{{getDoctorName(data)}}</div><div class="resource-designation">{{getDoctorLevel(data)}}</div></div></div>',
         data() {
             return {
@@ -124,7 +124,7 @@
         },
         computed: {
             getImage: function() {
-                return './source/schedule/images/' + this.getDoctorImage(this.data) + '.png';
+                return 'source/schedule/images/' + this.getDoctorImage(this.data) + '.png';
             }
         },
         methods: {
@@ -143,7 +143,14 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: {
@@ -156,7 +163,7 @@
                         endTime: { title: 'To', name: 'EndTime' }
                     }
                 },
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 6),
                 currentView: 'WorkWeek',
                 cssClass: 'customschedule',
                 group: {
@@ -209,6 +216,6 @@
                 return (startHour <= startDate.getHours() && endHour >= endDate.getHours());
             }
         }
-    });
+    }
 
 </script>

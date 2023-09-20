@@ -4,8 +4,8 @@
                 <div class="e-sample-resize-container">
                     <div class="row">
                         <div id="reminder">
-                            <ejs-button ref='buttonShowRef' class="e-btn" id="toast_mail_remainder" v-on:click.native="remainderClick">Mail Reminder</ejs-button>
-                            <ejs-button class="e-btn" id="Alarm_turn_on" style="display: none" v-on:click.native="alarmClick">Turn on Alarm</ejs-button>
+                            <ejs-button ref='buttonShowRef' class="e-btn" id="toast_mail_remainder" v-on:click="remainderClick">Mail Reminder</ejs-button>
+                            <ejs-button class="e-btn" id="Alarm_turn_on" style="display: none" v-on:click="alarmClick">Turn on Alarm</ejs-button>
                         </div>
                     </div>
                     <div class="row">
@@ -13,13 +13,20 @@
                              <ejs-toast id='toast_custom' :position='cusPosition' newestOnTop=true showCloseButton=true timeOut=0 :animation='cusAnimation' :created='created'></ejs-toast>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
-                            <ejs-toast id='toast_template' :template='toasttemplate' timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'></ejs-toast>
+                            <ejs-toast id='toast_template' :template="'toasttemplate'" timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'>
+                            <template v-slot:toasttemplate>
+                            <div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
+                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img :src="'source/toast/resource/map.jpg'" :style="{ width: '100%', height: '60%' }" :alt="'map'"/>
+                                <div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div>
+                                <div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>
+                            </template>
+                            </ejs-toast>
                             <div id="toast_template_target"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <script id="template_toast_ele" type="text/x-template">
+            <div id="template_toast_ele" type="text/x-template">
                 <div id='template_toast' style="display: none">
                     <div class="horizontal-align">
                         <div class='e-icons toast-icons e-alarm'></div>
@@ -33,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="./source/toast/resource/map.jpg" width="100%" height="70%">
+                    <img src="source/toast/resource/map.jpg" width="100%" height="60%">
                     <div class="snooze"> Snooze </div>
                     <div id='snoozedropDown'>
                      <select id="snoozeDD">
@@ -47,8 +54,8 @@
                         <button id="dismiss" class='e-btn e-flat e-primary'> Dismiss </button>
                     </div>
                 </div>
-            </script>
-            <script id="toastEmail_template" type="text/x-template">
+            </div>
+            <div id="toastEmail_template" type="text/x-template">
                 <div class="e-toast-template ">
                     ${if(image)}
                     <img class="e-toast-icon e-toast-image" src="${image.url}" />
@@ -62,7 +69,7 @@
                     </div>
                     ${/if}
                 </div>
-            </script>
+            </div>
             <div id="action-description">
                     <p>This sample demonstrates the Template rendering of the Toast. Static HTML toast to display an alarm notification which can be snoozed or dismissed and Dynamic template rendered using template engine to display mail remainders.</p>
                 </div>
@@ -76,7 +83,7 @@
         documentation section</a>.</p>
                 </div>
         </div>
-    </template>
+</template>
 <style>
         @font-face {
         font-family: 'Toast_icons';
@@ -84,7 +91,6 @@
         font-weight: normal;
         font-style: normal;
     }
-
     .toast-icons {
         font-family: 'Toast_icons' !important;
         speak: none;
@@ -97,16 +103,12 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
-
     body>#toast_template .e-toast {
         width: 400px !important;
     }
-
     body>#toast_template .e-toast img {
         height: 50%;
     }
-
     /* custom code start */
     .toast-template-section #reminder {
         text-align: center;
@@ -120,11 +122,9 @@
     #toast_custom  .e-toast .e-toast-close-icon {
         color: #fff;
     }
-
     #toast_custom .e-toast-template {
         display: inline-flex;
     }
-
     #toast_custom .e-toast-icon.e-toast-image {
         border-radius: 50%;
         background-repeat: no-repeat;
@@ -133,35 +133,28 @@
         width: 50px !important;
         background-size: 50px 50px;
     }
-
     #toast_custom .camden .e-toast-icon.e-toast-image,
     #toast_custom .chase .e-toast-icon.e-toast-image {
         width: 65px !important;
     }
-
     @media (max-width: 1052px) {
         .toast-template-section .row .col-xs-6.col-sm-6.col-lg-6.col-md-6 {
             width: 100%;
         }
     }
-
     #template_toast #snooze,
     #template_toast .snooze,
     #template_toast #dismiss{
         color: #fff;
     }
-
-
     #template_toast .horizontal-align .toast-content .toast-title {
         font-weight: 500;
         color: #fff;
     }
-
     #template_toast .horizontal-align .toast-content .toast-message {
         opacity: 0.75;
         color: #fff;
     }
-
     .material #template_toast #snooze,
     .material #template_toast #dismiss,
     .fabric #template_toast #snooze,
@@ -171,85 +164,94 @@
         background-color: transparent;
         border-color: transparent;
     }
-
     .toast-template-section .e-toast-container {
         top: 0;
     }
-
     .toast-template-section #toast_template_target {
         width: 70%;
         height: 700px;
         border: none;
         margin: auto;
     }
-
     @media (max-width: 540px) {
         .toast-template-section #toast_template_target {
             width: 100%;
         }
     }
-
     #toast_template.e-toast-container .e-toast,
     #toast_custom .e-toast {
         background-color: #3277b2;
     }
-
     @media (min-width: 740px) {
         .toast-template-section #toast_template_target {
             width: 400px;
         }
     }
-
     .toast-template-section #toast_template_target .e-toast-container .e-toast {
         width: inherit !important;
         display: inline-block;
     }
-
     #template_toast .toast-icons {
         font-size: 35px;
         height: auto;
         margin: auto;
     }
-
     #template_toast .toast-icons.e-alarm::before {
         content: "\e702";
         color: #fff;
     }
-
     #template_toast .horizontal-align {
         display: inline-flex;
         flex-direction: row;
         width: 100%;
     }
-
     #template_toast .horizontal-align,
     #template_toast #snoozedropDown,
     #template_toast .snooze,
     #template_toast .snoozeBtn {
         margin: 10px 0;
     }
-
-
     #template_toast .horizontal-align .toast-content {
         display: inline-flex;
         flex: 1;
         flex-direction: column;
         margin-left: 10px;
     }
-
     .material #template_toast .e-input,
     .material #template_toast .e-ddl-icon {
         color: white !important;
     }
+    .bootstrap5 #toast_custom.e-toast-container .e-toast .e-toast-message,
+    .bootstrap5-dark #toast_custom.e-toast-container .e-toast .e-toast-message {
+        margin-left: 95px;
+    }
+    .bootstrap5 #template_toast,
+    .bootstrap5-dark #template_toast {
+        padding: 10px;
+    }
+    
+    .material-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .material3-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .bootstrap-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .bootstrap5-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .fabric-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .tailwind-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .fluent-dark #snoozedropDown .e-input-group.e-control-wrapper {
+        background: transparent;
+    }
 </style>
 <script>
-import Vue from "vue";
-import { ToastPlugin, Toast, ToastOpenArgs, ToastCloseArgs, ToastBeforeOpenArgs } from "@syncfusion/ej2-vue-notifications";
+
+import { ToastComponent, Toast, ToastOpenArgs, ToastCloseArgs, ToastBeforeOpenArgs } from "@syncfusion/ej2-vue-notifications";
 import { DropDownList, ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { compile, Browser, closest, isNullOrUndefined } from '@syncfusion/ej2-base';
 
-Vue.use(ToastPlugin);
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-toast': ToastComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function(){
         return {
             localFields: { text: 'Text', value: 'Id' },
@@ -258,15 +260,6 @@ export default Vue.extend({
                 { Id: '5min', Text: '5 minutes' },
                 { Id: '10min', Text: '10 minutes' },
             ],
-            toasttemplate: function() {
-                return {
-                    template: Vue.component('toasttemplate', {
-                    template: `<div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
-                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img src="./source/toast/resource/map.jpg" width="100%" height="70%"><div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div><div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>`,
-                    data: function () {return {emp: 'Emp ID'};}
-                    })
-                }
-            },
             localWaterMark: 'Select a snooze time',
             height: '200px',
             cusPosition: { X: 'Right' },
@@ -333,7 +326,7 @@ export default Vue.extend({
              this.listObj.appendTo(args.element.querySelector('#snoozeDD')); 
        },
        cardTemplateFn: function(args) {
-            return compile(document.getElementById('toastEmail_template').innerHTML.trim())(args);
+            return compile(document.getElementById('toastEmail_template').innerHTML.trim())(args, this);
        },
        listChange: function(args){
             this.snoozeFlag = true;
@@ -349,6 +342,5 @@ export default Vue.extend({
             }.bind(this));
         }
     }
-});
-
+};
 </script>

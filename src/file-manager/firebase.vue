@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-firebase">
          <div class="sample-container">
-            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' >
+            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings" >
             </ejs-filemanager>
         </div>
     </div>
@@ -11,7 +11,7 @@
     </div>
     <div id="description">
          <p>The File Manager component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete and so on.</p>
-         <b>Note: </b>File Manager's upload functionality is restricted in online demo. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/ej2-firebase-realtime-database-aspcore-file-provider">ej2-firebase-realtime-database-aspcore-file-provider</a> from the GitHub repository.
+         <b>Note: </b>File Manager's upload functionality is restricted in online demo. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/firebase-realtime-database-aspcore-file-provider">firebase-realtime-database-aspcore-file-provider</a> from the GitHub repository.
     </div>
 </div>
 </template>
@@ -21,15 +21,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager sample with firebase realtime database service
  */
 let hostUrl = 'https://realtime-firebase.azurewebsites.net/';
-export default Vue.extend ({
+
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {            
            ajaxSettings:  {
@@ -37,11 +39,16 @@ export default Vue.extend ({
                 getImageUrl: hostUrl + 'api/FirebaseProvider/FirebaseRealtimeGetImage',
                 uploadUrl: hostUrl + 'api/FirebaseProvider/FirebaseRealtimeUpload',
                 downloadUrl: hostUrl + 'api/FirebaseProvider/FirebaseRealtimeDownload'
+            },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
             }
         };
     },
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar]
     }
-});
+}
 </script>

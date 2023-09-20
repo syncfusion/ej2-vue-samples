@@ -34,7 +34,16 @@
 
     .badge-list #lists {
         margin: auto;
-        border: 1px solid rgba(0, 0, 0, 0.12)
+    }
+
+    body.material .badge-list #lists,
+    body.material-dark .badge-list #lists,
+    body.fabric .badge-list #lists,
+    body.fabric-dark .badge-list #lists,
+    body.bootstrap .badge-list #lists,
+    body.bootstrap-dark .badge-list #lists,
+    body.highcontrast .badge-list #lists {
+        border: 1px solid #dddddd;
     }
 
     .badge-list #lists .e-list-item {
@@ -43,6 +52,12 @@
         line-height: 48px;
         border: 0;
     }
+
+    .tailwind .badge-list .sample_container #lists .e-list-item {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
 
     /* SVG Icons and Customization */
 
@@ -57,6 +72,29 @@
     .badge-list .e-rtl .list_svg {
         margin-left: 16px;
         margin-right: 0;
+    }
+
+    .bootstrap5 .list_svg,
+    .bootstrap4 .list_svg,
+    .bootstrap5-dark .list_svg,
+    .tailwind-dark .list_svg {
+        margin-top: 5px !important;
+    }
+
+    .bootstrap5 #lists .e-list-item,
+    .bootstrap4 #lists .e-list-item,
+    .bootstrap5-dark #lists .e-list-item,
+    .tailwind-dark #lists .e-list-item {
+        line-height: 36px !important;
+    }
+
+    .bootstrap5 .listWrapper .e-badge,
+    .bootstrap4 .listWrapper .e-badge,
+    .bootstrap5-dark .listWrapper .e-badge,
+    .tailwind-dark .listWrapper .e-badge,
+    .fluent .listWrapper .e-badge,
+    .fluent-dark .listWrapper .e-badge {
+        margin-top: 8px !important;
     }
 
     .badge-list .listWrapper .e-badge {
@@ -115,19 +153,24 @@
 
 
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { createApp } from 'vue';
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import listtemplateVue from "./list-template.vue";
 import{ badgeData } from "./listData";
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+let app = createApp();
+var externalTemplate = app.component('list-template', listtemplateVue);
+export default {
+    components: {
+        'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
            data:badgeData,
             title: "Inbox",
             header: true,
             listTemplate: function () {
-                return { template : listtemplateVue}
+                return { template : externalTemplate}
             },
             fieldData: { groupBy: 'type' }
         };
@@ -138,5 +181,5 @@ export default Vue.extend({
             list.style.display = 'none';
         }
     }
-});
+};
 </script>

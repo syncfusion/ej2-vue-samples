@@ -9,8 +9,6 @@
           :gridSettings="gridSettings"
           :width="width"
           :height="height"
-          :load="load"
-          :dataBound="dataBound"
           :allowExcelExport="allowExcelExport"
           :allowConditionalFormatting="allowConditionalFormatting"
           :allowPdfExport="allowPdfExport"
@@ -19,6 +17,7 @@
           :showFieldList="showFieldList"
           :showGroupingBar="showGroupingBar"
           :toolbar="toolbar"
+          :enableFieldSearching="enableFieldSearching"
           :saveReport="saveReport"
           :loadReport="loadReport"
           :fetchReport="fetchReport"
@@ -87,7 +86,10 @@
           <td style="vertical-align: top;padding: 4px 0;">
             <code>Pivot Chart and its types:</code>
           </td>
-          <td>Allows user to view data in graphical format. The chart types include column, bar, line, area, etc.</td>
+          <td>Allows user to view data in graphical format. The chart types include column, bar, line, area, etc. It
+              also has options for showing and hiding legends and displaying chart series of different measures on
+              single and multiple axes.
+          </td>
         </tr>
         <tr>
           <td style="vertical-align: top;padding: 4px 0;">
@@ -125,10 +127,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-vue-charts";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   FieldList,
   IDataSet,
@@ -141,10 +142,16 @@ import {
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -190,6 +197,7 @@ export default Vue.extend({
       gridSettings: { columnWidth: 160 },
       allowExcelExport: true,
       allowConditionalFormatting: true,
+      enableFieldSearching: true,
       allowPdfExport: true,
       displayOption: { view: "Both" },
       showToolbar: true,
@@ -198,11 +206,10 @@ export default Vue.extend({
       showGroupingBar: true,
       chartSettings: {
          title: "Sales Analysis",
+         theme: theme,
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
-          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)) as ChartTheme;
         }
       },
       toolbar: [
@@ -239,7 +246,7 @@ export default Vue.extend({
       args.reportName = reeportList;
     },
     newReport: function() {
-      let pivotObject = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObject = ((this as any).$refs.pivotview).ej2Instances;
       pivotObject.setProperties(
         {
           dataSourceSettings: {
@@ -253,7 +260,7 @@ export default Vue.extend({
       );
     },
     loadReport: function(args: any) {
-      let pivotObject = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObject = ((this as any).$refs.pivotview).ej2Instances;
       let reportsCollection = [];
       if (
         localStorage.pivotviewReports &&
@@ -361,7 +368,7 @@ export default Vue.extend({
       GroupingBar
     ]
   }
-});
+}
 </script>
 
 <style scoped>
@@ -381,4 +388,8 @@ export default Vue.extend({
 /deep/ #pivotviewcontainerwrapper {
   height: auto !important;
 }
+/deep/ .e-pivotview .e-pivotchart-type-dialog {
+       max-width: 380px !important;
+       max-height: 380px !important;
+    }
 </style>

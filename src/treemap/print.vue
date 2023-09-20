@@ -24,44 +24,41 @@
              <br>
              <p style="font-weight: 500"> <b>Injecting Module</b></p>
             <p>To make use of the print and export support, we need to inject the <code>Print</code>, <code>ImageExport</code> and <code>PdfExport</code> modules using the <code>provide</code> section. </p>
-        </p>
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 40%">
-                      <div class="property-text">Export Type
+                    <td>
+                      <div>Export Type
                         </div>
                     </td>
-                    <td style="width: 60%;">
-                        <div style="margin-left: -10px">
+                    <td>
+                        <div>
                         <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width='modewidth'></ejs-dropdownlist>        
                         </div>
                     </td>
                 </tr>
-                <tr style="height: 50px">
-                    <td style="width: 40%">
-                        <div class="property-text">File Name</div>
-                    </td>
-                    <td style="width: 40%;">
-                        <div class="e-float-input" style='margin-top: 0px;'>
-                            <input type="text" value="Treemap" id="fileName" style="margin-left: -10px">
-                        </div>
-                    </td>
-                </tr>
-                <tr id="button-control" style="height: 50px" align='center'>
+                <tr>
                     <td>
-                        <div style="margin-left: 40%;">
-                            <ejs-button id='togglebtn1' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content1' isToggle="true" v-on:click.native='clickExport'></ejs-button>
+                        <div>File Name</div>
+                    </td>
+                    <td>
+                        <div class="e-float-input" style='margin-top: 0px;'>
+                            <input type="text" value="Treemap" id="fileName" style="width: 100%">
                         </div>
                     </td>
                 </tr>
-                <tr id="button-control" style="height: 50px">
+                <tr id="button-control" style="height: 70px" align='center'>
                     <td align="center">
-                        <div style="margin-left: 40%;">
-                            <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :isPrimary='isPrimary' :content='content2' isToggle="true" v-on:click.native='clickPrint'></ejs-button>
+                        <div>
+                            <ejs-button id='togglebtn1' :style='style' :isPrimary='isPrimary' :content='content1' v-on:click='clickExport'></ejs-button>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div>
+                            <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content2' v-on:click='clickPrint'></ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -95,11 +92,6 @@
     .e-play-icon::before {
         content: '\e728';
     }
-    .property-text {
-        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-        font-size: 13px !important;
-        font-weight: 400 !important;
-    }
     #togglebtn {
         width: 80px;
     }
@@ -108,15 +100,17 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, Print, ImageExport, PdfExport } from "@syncfusion/ej2-vue-treemap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { TreeMapComponent, TreeMapTooltip, Print, ImageExport, PdfExport } from "@syncfusion/ej2-vue-treemap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { ProductSale } from '../treemap/treemap-data/product';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+},
 data:function(){
 return{
       allowImageExport: true,
@@ -124,7 +118,7 @@ return{
       allowPrint: true,
       titleSettings: {
             text: 'Top 10 best selling smartphone brands - 2017',
-            textStyle: { size: '15px'}
+            textStyle: { size: '15px', fontFamily: 'Segoe UI'}
         },
         dataSource: ProductSale,
         layoutType: 'SliceAndDiceVertical',
@@ -132,13 +126,19 @@ return{
         rangeColorValuePath: 'Percentage',
         tooltipSettings: {
             visible: true,
-            format: '${Product} (+${Percentage}) %'
+            format: '${Product} (+${Percentage}) %',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         leafItemSettings: {
             labelPath: 'Product',
             fill: '#6699cc',
             border: { color: 'black', width: 0.5 },
             labelPosition: 'Center',
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             interSectAction: 'Hide',
             labelFormat: '${Product} (+${Percentage}) %',
             colorMapping: [
@@ -151,8 +151,8 @@ return{
                 }
             ]
         },
-        cssClass: 'e-info', isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
-        modewidth: 90,
+        isPrimary: true,content1:'Export',content2:'Print', style: 'text-transform:none !important',
+        modewidth: '100%',
         modedata:['JPEG','PNG','SVG','PDF']
 }
 },
@@ -164,7 +164,8 @@ methods:{
      load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     clickExport:function(args){
@@ -175,5 +176,5 @@ methods:{
         this.$refs.treemap.ej2Instances.print();
     }
 }
-})
+}
 </script>

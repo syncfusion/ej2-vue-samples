@@ -1,0 +1,22 @@
+{
+    "name": "Signature",
+    "directory": "signature",
+    "category": "Inputs",
+    "ftName": "signature",
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Signature",
+            "api": {"Signature": ["change"]},
+            "description": "This example demonstrates the default functionalities of the Syncfusion Vue Signature."
+        },
+        {
+            "url": "toolbar",
+            "name": "Toolbar",
+            "category": "Signature",
+            "api": {"Signature": ["change"]},
+            "description": "This example demonstrates the toolbar functionalities of the Syncfusion Vue Signature."
+        }
+        
+    ]
+}

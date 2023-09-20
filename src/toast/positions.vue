@@ -59,8 +59,8 @@
                 </tr>
             </tbody></table>
             <div id="toast_btn" style="padding-top: 25px">
-                <ejs-button ref='showButtonRef' class="e-btn e-control" id="show_Toast" style="margin-right: 15px" v-on:click.native="showClicked">Show Toasts</ejs-button>
-                <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn e-control" id="hideToast" v-on:click.native="hideClicked">Hide All</ejs-button>
+                <ejs-button ref='showButtonRef' class="e-btn e-control" id="show_Toast" style="margin-right: 15px" v-on:click="showClicked">Show Toasts</ejs-button>
+                <ejs-button ref='hideButtonRef' v-if="ShowBtn" class="e-btn e-control" id="hideToast" v-on:click="hideClicked">Hide All</ejs-button>
             </div>
         </div>
         </div>
@@ -110,21 +110,28 @@
         }
     }
 
+    .bootstrap5 #toast_pos.e-toast-container .e-toast .e-toast-icon,
+    .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-icon {
+        position: relative;
+    }
+
+    .bootstrap5 #toast_pos.e-toast-container .e-toast .e-toast-message,
+    .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-message {
+        padding-left: 10px;
+    }
+
+    .bootstrap5 #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child,
+    .bootstrap5-dark #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child {
+        padding-left: 12px;
+    }
 </style>
 <script>
-import Vue from "vue";
-import { ToastPlugin, Toast, ToastCloseArgs } from "@syncfusion/ej2-vue-notifications";
-import { DropDownList, ChangeEventArgs } from '@syncfusion/ej2-dropdowns';
-import { RadioButton, ChangeEventArgs as CheckBoxChange } from '@syncfusion/ej2-buttons';
+import { ToastComponent } from "@syncfusion/ej2-vue-notifications";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { RadioButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(RadioButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ToastPlugin);
-let ShowBtn = undefined;
-export default Vue.extend({
+export default {
      data: function(){
         return {
             position:  { X: 'Right', Y: 'Bottom' },
@@ -143,6 +150,11 @@ export default Vue.extend({
             dropValue: 'bottomright',
             ShowBtn: false
         }
+    },
+    components: {
+        'ejs-toast': ToastComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-radiobutton': RadioButtonComponent,
     },
     mounted: function(){
          setTimeout(() => {
@@ -163,21 +175,21 @@ export default Vue.extend({
              this.$refs.toastRef.show();
             },args);
        },
-       checkboxChange: function(args){
+       checkboxChange: function(){
             if (this.$refs.targetRef.ej2Instances.checked) {
                 this.$refs.toastRef.hide('All');
                 this.obj.target = '#toast_pos_target';
                 this.toastShow(1000);
             }
        },  
-       checkboxChange1: function(args){
+       checkboxChange1: function(){
             if (this.$refs.globalRef.ej2Instances.checked) {
                 this.$refs.toastRef.hide('All');
                 this.obj.target = document.body;
                 this.toastShow(1000);
             }
        },  
-       checkboxChange2: function(args){
+       checkboxChange2: function(){
             if (this.$refs.dropdownRef.ej2Instances.checked) {
                 this.$refs.toastRef.hide('All');
                 document.getElementById('dropdownChoose').style.display = 'table-cell';
@@ -187,7 +199,7 @@ export default Vue.extend({
                 this.toastShow(1000);
         }
        },  
-       checkboxChange3: function(args){
+       checkboxChange3: function(){
             if (this.$refs.customRef.ej2Instances.checked) {
             this.$refs.toastRef.hide('All');
             document.getElementById('dropdownChoose').style.display = 'none';
@@ -197,16 +209,16 @@ export default Vue.extend({
             this.toastShow(1000);
         }
        },
-       showClicked: function(args){
+       showClicked: function(){
            if (this.customFlag) {
               this.setcustomPosValue();
         }
         this.$refs.toastRef.show();
        },
-       hideClicked: function(args){
+       hideClicked: function(){
            this.$refs.toastRef.hide('All');
        },
-        setcustomPosValue: function(args){
+        setcustomPosValue: function(){
            this.obj.width = this.initialWid;
            this.obj.position.X = parseInt(document.getElementById('xPos').value, 10);
            this.obj.position.Y = parseInt(document.getElementById('yPos').value, 10);
@@ -232,7 +244,7 @@ export default Vue.extend({
                 this.obj.width = '100%'; this.obj.position.X = 'Center'; this.obj.position.Y = 'Bottom'; break;
         }
        },
-       created: function(args){
+       created: function(){
             document.addEventListener('click', function() {
                if (!isNullOrUndefined(this.$refs.toastRef) && event.target !== this.$refs.showButtonRef.$el &&  this.$refs.toastRef.target === document.body) {
                    this.$refs.toastRef.hide('All');
@@ -244,10 +256,10 @@ export default Vue.extend({
                 this.ShowBtn = false;
             }
         },
-        onbeforeOpen: function(e){
+        onbeforeOpen: function(){
              this.ShowBtn = true;
         }
     }
-});
+};
 
 </script>

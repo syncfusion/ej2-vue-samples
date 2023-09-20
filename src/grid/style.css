@@ -27,7 +27,7 @@ line-height: 1;
     background-color: #0078d6;
 }
 
-.material .e-grid-empimg {
+.material .e-grid-empimg, .material3 .e-grid-empimg {
     background-color: #e3165b;
 }
 
@@ -51,8 +51,17 @@ _:-ms-fullscreen,
     background-color: #0078d6;
 }
 
-.bootstrap4 .e-grid-empimg {
+.bootstrap4 .e-grid-empimg,
+.bootstrap5 .e-grid-empimg {
     background-color: #0078d6;
+}
+
+.tailwind .e-grid-empimg {
+    background-color: #4f46e5;
+}
+
+.fluent .e-grid-empimg {
+    background-color: #106EBE;
 }
 
 #Emptext {
@@ -103,19 +112,6 @@ position: relative;
     top: -2px;
 }
 
-.rating .star {
-    font-size: 132%;
-    color: lightgrey;
-}
-
-.rating .star.checked {
-    color: #ffa600;
-}
-
-.rating .star:before {
-    content: '★';
-}
-
  #overviewgrid td.e-rowcell.e-selectionbackground.e-active {
     background-color: transparent;
 }
@@ -129,6 +125,26 @@ position: relative;
     color: #00cc00;
     position: relative;
     top: 9px;
+}
+
+.bootstrap5 td.e-rowcell .statustxt.e-inactivecolor,
+.bootstrap5 td.e-rowcell .statustxt.e-activecolor {
+  top: 8px;
+}
+
+.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-activecolor,
+.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-inactivecolor {
+  position: relative;
+  top: 1.5px;
+}
+
+.e-bigger.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-activecolor,
+.e-bigger.bootstrap5 .e-checkboxfiltertext .statustemp .statustxt.e-inactivecolor {
+  top: -0.5px;
+}
+
+.bootstrap5 .e-checkboxfiltertext #Trusttext {
+  margin-left: -4px;
 }
 
  #overviewgrid td.e-rowcell .statustxt.e-inactivecolor {
@@ -213,10 +229,23 @@ position: relative;
     background-color: #df2222;
 }
 
-#label {
+#pbarlabel {
     position: relative;
     left: 10px;
     line-height: 18px;
     font-size: 10px;
     color: white;
+}
+
+.custom-rating.e-rating-container .e-rating-item-container .e-rating-icon {
+    -webkit-text-fill-color: lightgrey;
+    -webkit-text-stroke: 1px lightgrey;
+    font-size: 11px;
+}
+
+.custom-rating.e-rating-container .e-rating-item-container.e-rating-selected .e-rating-icon {
+    background: linear-gradient(to right, #ffa600 var(--rating-value), #ffa600 var(--rating-value));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #ffa600;
 }

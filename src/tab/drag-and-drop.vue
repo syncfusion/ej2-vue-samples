@@ -8,9 +8,43 @@
     <div class="col-lg-8 control-section">
         <ejs-tab ref="tabObj" id="draggableTab" dragArea="#TabContainer" :allowDragAndDrop="true" :created="onTabCreate" :onDragStart="onTabDragStart" :dragged="onDraggedTab">
           <e-tabitems>
-            <e-tabitem :header="headerText0" :content="Grid"></e-tabitem>
-            <e-tabitem :header="headerText1" :content="RichTextEditor"></e-tabitem>
-            <e-tabitem :header="headerText2" :content="Schedule"></e-tabitem>
+            <e-tabitem :header="headerText0" :content="'GridComponent'"></e-tabitem>
+            <template v-slot:GridComponent>
+              <ejs-grid :dataSource='gridData'>
+                <e-columns>
+                  <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=120 type='number'></e-column>
+                  <e-column field='CustomerID' headerText='Customer ID'  type='string' width= 140></e-column>
+                  <e-column field='Freight' headerText='Freight' textAlign='Right' width=120 format='C'></e-column >
+                  <e-column field='OrderDate' headerText='Order Date' width=140 format='yMd'></e-column >
+                </e-columns>
+              </ejs-grid>
+            </template>
+            <e-tabitem :header="headerText1" :content="'RichTextEditor'"></e-tabitem>
+            <template v-slot:RichTextEditor>
+              <ejs-richtexteditor height='340'>
+              <p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid <a href='https://ej2.syncfusion.com/home/' target='_blank'>HTML markup</a> or <a href='https://ej2.syncfusion.com/home/' target='_blank'>markdown</a> of the content</p>
+              <p><b>Toolbar</b></p><ol><li><p>Toolbar contains commands to align the text, insert link, insert image, insert list, undo/redo operations, HTML view, etc.</p></li><li><p>Toolbar is fully customizable</p></li></ol><p><b>Links</b></p><ol><li><p>You can insert a hyperlink with its corresponding dialog</p></li>
+              <li><p>Attach a hyperlink to the displayed text.</p></li><li><p>Customize the quick toolbar based on the hyperlink</p></li></ol><p><b>Image.</b></p><ol><li><p>Allows you to insert images from an online source as well as the local computer</p></li><li><p>You can upload an image</p></li>
+              <li><p>Provides an option to customize quick toolbar for an image</p></li></ol><img alt="Logo" src="https://ej2.syncfusion.com/vue/demos/src/rich-text-editor/images/RTEImage-Feather.png" style="width: 300px;">
+            </ejs-richtexteditor>
+            </template> 
+            <e-tabitem :header="headerText2" :content="'ScheduleComponent'"></e-tabitem>
+            <template v-slot:ScheduleComponent>
+              <ejs-schedule :height="height" :selectedDate='selectedDate' :eventSettings='eventSettings' :readonly="readonly">
+              </ejs-schedule>
+            </template> 
+            <template v-slot:CalendarComponent>
+              <ejs-calendar></ejs-calendar>
+            </template> 
+            <template v-slot:DropDownComponent>
+              <ejs-dropdownlist width="200px" popupHeight="200px" popupWidth="250px" :dataSource='sportsData' placeholder='Select a game'></ejs-dropdownlist>
+            </template>
+            <template v-slot:UploaderComponent>
+              <ejs-uploader></ejs-uploader>        
+            </template>
+            <template v-slot:DatePickerComponent>
+              <ejs-datepicker width="200px" placeholder="Enter date"></ejs-datepicker>       
+            </template>
           </e-tabitems>
         </ejs-tab>
     </div>
@@ -43,18 +77,18 @@
         padding: 10px;
         text-align: justify;
     }
-    #draggableTab .e-upload {
-        width: 300px;
-    }
-    .property-panel-header {
-        text-align: center;
-        padding-bottom: 0;
-    }
     .treeview-external-drag-tab .e-list-item,
     .e-bigger .treeview-external-drag-tab .e-list-item {
         border: 0.5px solid #E1E7EC;
         line-height: 15px;
         padding: 0 5px;
+    }
+    .bootstrap5 .treeview-external-drag-tab .e-list-item.e-active > .e-text-content .e-list-text,
+    .bootstrap4 .treeview-external-drag-tab .e-list-item.e-active > .e-text-content .e-list-text {
+      color: #212529;
+    }
+    .bootstrap .treeview-external-drag-tab .e-list-item.e-active > .e-text-content .e-list-text {
+      color: #333;
     }
     .treeview-external-drag-tab .e-list-item.e-hover>.e-fullrow,
     .treeview-external-drag-tab .e-list-item.e-active>.e-fullrow,
@@ -66,36 +100,47 @@
         border-color: transparent;
         box-shadow: none !important;
     }
-    .sb-property-border {
-        border-right: none;
+    #draggableTab .e-upload {
+        width: 300px;
     }
-    #TabContainer .control-section {
-      padding-top: 20px !important;
+    #TabContainer {
+      display: flex;
+    }
+    @media (max-width: 550px) {
+      #TabContainer {
+        display: block;
+      }
     }
 </style>
 <script>
-import Vue from "vue";
-import { TabPlugin, TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { createApp } from 'vue';
+import { TabComponent, TabItemsDirective, TabItemDirective, TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { DatePickerPlugin, CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
-import { UploaderPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+import { GridComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-grids";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { DatePickerComponent, CalendarComponent } from "@syncfusion/ej2-vue-calendars";
+import { UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import { DataManager, ODataV4Adaptor } from "@syncfusion/ej2-data";
-import { RichTextEditorPlugin, Toolbar, Link, Image, HtmlEditor, QuickToolbar } from '@syncfusion/ej2-vue-richtexteditor';
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar } from '@syncfusion/ej2-vue-richtexteditor';
 
-Vue.use(TabPlugin);
-Vue.use(TreeViewPlugin);
-Vue.use(SchedulePlugin);
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(DatePickerPlugin);
-Vue.use(CalendarPlugin);
-Vue.use(UploaderPlugin);
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+var app = createApp();
+export default {
+  components: {
+    'ejs-tab': TabComponent,
+    'e-tabitems': TabItemsDirective,
+    'e-tabitem': TabItemDirective,
+    'ejs-treeview': TreeViewComponent,
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-richtexteditor': RichTextEditorComponent,
+    'ejs-schedule': ScheduleComponent,
+    'ejs-calendar': CalendarComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-uploader': UploaderComponent,
+    'ejs-datepicker': DatePickerComponent
+  },
   data: function () {
     return {
       draggedItemHeader: "",
@@ -112,121 +157,42 @@ export default Vue.extend({
       headerText0: { text: "Grid" },
       headerText1: { text: "Rich Text Editor" },
       headerText2: { text: "Schedule" },
-      Grid: function () {
-        return {
-          template: Vue.component("GridComponent", {
-            template: `<ejs-grid :dataSource='gridData'>
-                <e-columns>
-                  <e-column field='OrderID' headerText='Order ID' textAlign='Right' width=120 type='number'></e-column>
-                  <e-column field='CustomerID' headerText='Customer ID'  type='string' width= 140></e-column>
-                  <e-column field='Freight' headerText='Freight' textAlign='Right' width=120 format='C'></e-column >
-                  <e-column field='OrderDate' headerText='Order Date' width=140 format='yMd'></e-column >
-                </e-columns>
-              </ejs-grid>`,
-            data() {
-              return {
-                gridData: [
-                  { OrderID: 10248, CustomerID: "VINET", OrderDate: new Date(8364186e5), Freight: 32.38 },
-                  { OrderID: 10249, CustomerID: "TOMSP", OrderDate: new Date(836505e6), Freight: 11.61 },
-                  { OrderID: 10250, CustomerID: "HANAR", OrderDate: new Date(8367642e5), Freight: 65.83 },
-                  { OrderID: 10251, CustomerID: "VICTE", OrderDate: new Date(8367642e5), Freight: 41.34 },
-                  { OrderID: 10252, CustomerID: "SUPRD", OrderDate: new Date(8368506e5), Freight: 51.3 }
-                ],
-              };
-            },
-          }),
-        };
-      },
-      RichTextEditor: function () {
-        return {
-          template: Vue.component("RichTextEditorComponent", {
-            template: `<ejs-richtexteditor height='340'>
-              <p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor useful to create and edit content, and return the valid <a href='https://ej2.syncfusion.com/home/' target='_blank'>HTML markup</a> or <a href='https://ej2.syncfusion.com/home/' target='_blank'>markdown</a> of the content</p>
-              <p><b>Toolbar</b></p><ol><li><p>Toolbar contains commands to align the text, insert link, insert image, insert list, undo/redo operations, HTML view, etc.</p></li><li><p>Toolbar is fully customizable</p></li></ol><p><b>Links</b></p><ol><li><p>You can insert a hyperlink with its corresponding dialog</p></li>
-              <li><p>Attach a hyperlink to the displayed text.</p></li><li><p>Customize the quick toolbar based on the hyperlink</p></li></ol><p><b>Image.</b></p><ol><li><p>Allows you to insert images from an online source as well as the local computer</p></li><li><p>You can upload an image</p></li>
-              <li><p>Provides an option to customize quick toolbar for an image</p></li></ol><img alt="Logo" src="./source/rich-text-editor/images/RTEImage-Feather.png" style="width: 300px;">
-            </ejs-richtexteditor>`,
-            data() {
-              return {};
-            },
-            provide: {
-              richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar]
-            }
-          }),
-        };
-      },
-      Schedule: function () {
-        return {
-          template: Vue.component("ScheduleComponent", {
-            template: `<ejs-schedule :height="height" :selectedDate='selectedDate' :eventSettings='eventSettings' :readonly="readonly">
-                </ejs-schedule>`,
-            data() {
-              return {
-                height: 350,
-                selectedDate: new Date(2020, 9, 20),
-                readonly: true,
-                eventSettings: {
-                  dataSource: new DataManager({
-                    url: "https://ej2services.syncfusion.com/production/web-services/api/Schedule",
-                    adaptor: new ODataV4Adaptor(),
-                    crossDomain: true,
-                  }),
-                }
-              };
-            },
-            provide: {
-              schedule: [Day, Week, WorkWeek, Month, Agenda],
-            },
-          }),
-        };
-      },
-      DropDownList: function () {
-        return {
-          template: Vue.component("DropDownListComponent", {
-            template: `<ejs-dropdownlist popupHeight="200px" popupWidth="250px" :dataSource='sportsData' placeholder='Select a game'></ejs-dropdownlist>`,
-            data() {
-              return {
-                sportsData: ["Badminton", "Cricket", "Football", "Golf", "Tennis"],
-              };
-            },
-          }),
-        };
-      },
-      DatePicker: function () {
-        return {
-          template: Vue.component("DatePickerComponent", {
-            template: `<ejs-datepicker width="250px" placeholder="Enter date"></ejs-datepicker>`,
-            data() {
-              return {};
-            },
-          }),
-        };
-      },
-      Calendar: function () {
-        return {
-          template: Vue.component("CalenderComponent", {
-            template: `<ejs-calendar></ejs-calendar>`,
-            data() {
-              return {};
-            },
-          }),
-        };
-      },
-      Uploader: function () {
-        return {
-          template: Vue.component("UploaderComponent", {
-            template: `<ejs-uploader></ejs-uploader>`,
-            data() {
-              return {};
-            },
-          }),
-        };
+      gridData: [
+        { OrderID: 10248, CustomerID: "VINET", OrderDate: new Date(8364186e5), Freight: 32.38 },
+        { OrderID: 10249, CustomerID: "TOMSP", OrderDate: new Date(836505e6), Freight: 11.61 },
+        { OrderID: 10250, CustomerID: "HANAR", OrderDate: new Date(8367642e5), Freight: 65.83 },
+        { OrderID: 10251, CustomerID: "VICTE", OrderDate: new Date(8367642e5), Freight: 41.34 },
+        { OrderID: 10252, CustomerID: "SUPRD", OrderDate: new Date(8368506e5), Freight: 51.3 }
+      ],
+      sportsData: ["Badminton", "Cricket", "Football", "Golf", "Tennis"],
+      height: 350,
+      selectedDate: new Date(1996, 6, 9),
+      readonly: true,
+      eventSettings: {
+        dataSource: new DataManager({
+         url: "https://services.odata.org/V4/Northwind/Northwind.svc/Orders",
+        adaptor: new ODataV4Adaptor,
+        crossDomain: true,
+        }),
+        fields: {
+          id: 'Id',
+          subject: { name: 'ShipName' },
+          location: { name: 'ShipCountry' },
+          description: { name: 'ShipAddress' },
+          startTime: { name: 'OrderDate' },
+          endTime: { name: 'RequiredDate' },
+          recurrenceRule: { name: 'ShipRegion' }
+        }
       },
     };
   },
+  provide: {
+    richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar],
+    schedule: [Day, Week, WorkWeek, Month, Agenda],
+  },
   methods: {
     onTabCreate: function (args) {
-      let tabElement = document.getElementById("#draggableTab");
+      let tabElement = document.getElementById("draggableTab");
       if (!isNullOrUndefined(tabElement)) {
         tabElement.querySelector(".e-tab-header").classList.add("e-droppable");
         tabElement.querySelector(".e-content").classList.add("tab-content");
@@ -254,22 +220,22 @@ export default Vue.extend({
       let dropElement = args.target.closest("#draggableTab .e-toolbar-item");
       if (dropElement != null) {
         let tabElement = document.querySelector("#draggableTab");
-        let itemPosition = (args.event.clientX < dropElement.getBoundingClientRect().left +
-          dropElement.offsetWidth / 2) ? 0 : 1;
+        let itemPosition = (((args.event.type.indexOf('touch') > -1) ? args.event.changedTouches[0].clientX
+          : args.event.clientX) < dropElement.getBoundingClientRect().left + dropElement.offsetWidth / 2) ? 0 : 1;
         let dropItemIndex = [].slice.call(tabElement.querySelectorAll(".e-toolbar-item")).indexOf(dropElement) + itemPosition;
         let tabContent;
         switch (args.draggedNodeData.text) {
           case "DropDown List":
-            tabContent = this.DropDownList;
+            tabContent = 'DropDownComponent';
             break;
           case "DatePicker":
-            tabContent = this.DatePicker;
+            tabContent = 'DatePickerComponent';
             break;
           case "Calendar":
-            tabContent = this.Calendar;
+            tabContent = 'CalendarComponent';
             break;
           case "File Upload":
-            tabContent = this.Uploader;
+            tabContent = 'UploaderComponent';
             break;
           case "Rich Text Editor":
             tabContent = this.RichTextEditor;
@@ -288,13 +254,8 @@ export default Vue.extend({
         var treeObj = this.$refs.treeObj.ej2Instances;
         tabObj.addTab(newTabItem, dropItemIndex);
         treeObj.removeNodes([args.draggedNode]);
-        args.cancel = true;
-      } else {
-        let dropNode = args.target.closest("#ListView .e-list-item ");
-        if (!isNullOrUndefined(dropNode) && args.dropIndicator === "e-drop-in") {
-          args.cancel = true;
-        }
       }
+      args.cancel = true;
     },
     onNodeDrag: function (args) {
       if (!isNullOrUndefined(args.target.closest(".tab-content"))) {
@@ -304,5 +265,5 @@ export default Vue.extend({
       }
     },
   }
-});
+};
 </script>

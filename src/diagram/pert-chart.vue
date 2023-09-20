@@ -29,7 +29,6 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import {
   SnapConstraints,
   TextStyleModel,
@@ -43,7 +42,7 @@ import {
   ConnectorModel
 } from "@syncfusion/ej2-vue-diagrams";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   DataBinding,
@@ -56,8 +55,6 @@ import {
 import { pertChartData } from "./diagram-data";
 
 import { DataManager } from "@syncfusion/ej2-data";
-
-Vue.use(DiagramPlugin);
 
 let diagramInstance;
 
@@ -96,7 +93,10 @@ let addRows = (column, node) => {
   );
 };
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -148,7 +148,7 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+}
 
 //customization of the node template.
 function getNodeTemplate(node) {

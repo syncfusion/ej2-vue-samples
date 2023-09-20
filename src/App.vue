@@ -1,5 +1,5 @@
 <template>
-<div id="app">
+    <div id="app" ref="homeEle">
         <aside id='left-sidebar'>
             <div class='sb-left-pane e-view'>
                 <div class="sb-left-pane-header">
@@ -15,7 +15,7 @@
                     <div class="sb-home-text">
                         <span>HOME</span>
                     </div>
-                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html"></a>
+                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html" aria-label="Sample home page"></a>
                 </div>
                 <div class='sb-control-navigation'>
                     <div id="controlTree" class='e-view'></div>
@@ -29,11 +29,13 @@
                 </div>
                 <div class='sb-left-footer'>
                     <div class="sb-mobile-header-buttons">
-                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank">
+                        <a href='https://www.syncfusion.com/products/essential-js2' target="_blank"
+                            aria-label="About Vue component">
                             <div class="sb-mobile-header-about">
                                 About</div>
                         </a>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank"
+                            aria-label="Prcing of Vue component">
                             <div class="sb-mobile-header-price">Pricing</div>
                         </a>
                     </div>
@@ -54,8 +56,8 @@
             <div id='sample-header' class="sb-header e-view" role="banner">
                 <div class='sb-header-left sb-left sb-table'>
                     <div class='sb-header-item sb-table-cell'>
-                        <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger" aria-label="toggle all controls navigation"
-                            title='toggle leftpane'></div>
+                        <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger"
+                            aria-label="toggle all controls navigation" title='toggle leftpane' aria-selected="true"></div>
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
@@ -65,12 +67,14 @@
                     </div>
 
                     <div class='sb-header-item sb-table-cell sb-lang-toggler-wrapper'>
-                        <span id='sb-switcher' role="button" tabindex="0" class='sb-lang-toggler sb-icons sb-icon-Dropdown' aria-label="change the samplebrowser"></span>
+                        <span id='sb-switcher' role="button" tabindex="0" class='sb-lang-toggler sb-icons sb-icon-Dropdown'
+                            aria-label="change the samplebrowser"></span>
                     </div>
                 </div>
                 <div class='sb-header-right sb-right sb-table'>
                     <div class="sb-header-item sb-table-cell">
-                        <div id="header-theme-switcher" role="button" tabindex="0" class="theme-wrapper" title='Change theme of sample browser'>
+                        <div id="header-theme-switcher" role="button" tabindex="0" class="theme-wrapper"
+                            title='Change theme of sample browser'>
                             <div id="sb-theme-text" class="sb-theme-text">
                                 <span class="sb-header-text-left">CHOOSE THEME</span>
                             </div>
@@ -80,7 +84,8 @@
                         </div>
                     </div>
                     <div class='sb-header-item sb-table-cell sb-search-wrapper'>
-                        <div class='sb-search-btn' id='sb-trigger-search' role="button" tabindex="0" aria-label="toggle sample search" title="Toggle sample search">
+                        <div class='sb-search-btn' id='sb-trigger-search' role="button" tabindex="0"
+                            aria-label="toggle sample search" title="Toggle sample search">
                             <span class='sb-settings sb-icons sb-icon-Search'></span>
                         </div>
                     </div>
@@ -92,16 +97,17 @@
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
                     <div class='sb-header-item sb-table-cell sb-download-wrapper'>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank">                
-                        <button id='download-now' class='sb-download-btn'>
-                                    <span class='sb-download-text'>FREE TRIAL</span>
+                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank" aria-label="Free Trial">
+                            <button id='download-now' class='sb-download-btn'>
+                                <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
                         </a>
-                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" style=" display: none; ">
-                        <button class='sb-npm-btn'>
-                            <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span class="doc-npm-link">Install NPM</span>
-                        </button>
-                        </a>                    
+                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" aria-label="Install NPM">
+                            <button class='sb-npm-btn'>
+                                <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span
+                                    class="doc-npm-link">Install NPM</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -136,27 +142,74 @@
                 </div>
                 <div id='theme-switcher-popup' class='sb-theme-popup'>
                     <ul id="themelist" class="options" role="list">
-                        <li class='active' id="material" role="listitem">
+                        <li class="e-list" id="fluent" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fluent</span>
+                        </li>
+                        <li class="e-list" id="fluent-dark" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fluent Dark</span>
+                        </li>
+                        <li class="e-list" id="bootstrap5" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap v5</span>
+                        </li>
+                        <li class="e-list" id="bootstrap5-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap v5 Dark</span>
+                        </li>
+                        <li class="e-list" id="tailwind">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Tailwind CSS</span>
+                        </li>
+                        <li class="e-list" id="tailwind-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Tailwind CSS Dark</span>
+                        </li>
+                        <li class='e-list' id="material" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material</span>
                         </li>
-                        <li id="fabric" role="listitem">
-                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                           <span class="switch-text">Fabric</span>
+                        <li class="e-list" id="material-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material Dark</span>
                         </li>
-                        <li class="e-list" id="bootstrap" role="listitem">
-                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                           <span class="switch-text">Bootstrap</span>
+                        <li class='active' id="material3" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material 3</span>
+                        </li>
+                        <li class="e-list" id="material3-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Material 3 Dark</span>
+                        </li>
+                        <li id="fabric" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fabric</span>
+                        </li>
+                        <li class="e-list" id="fabric-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fabric Dark</span>
                         </li>
                         <li class="e-list" id="bootstrap4" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap v4</span>
                         </li>
+                        <li class="e-list" id="bootstrap" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap</span>
+                        </li>
+                        <li class="e-list" id="bootstrap-dark">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Bootstrap Dark</span>
+                        </li>
                         <li class="e-list" id="highcontrast">
-                           <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                           <span class="switch-text">High Contrast</span>
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">High Contrast</span>
                         </li>
                     </ul>
+                    <div class="sb-theme-studio"><a target="_blank"
+                            href="https://ej2.syncfusion.com/themestudio/?theme=material" aria-label="Go to Theme Studio">Go
+                            to Theme Studio</a></div>
                 </div>
                 <div id='settings-popup' class='sb-setting-popup'>
                     <div class='sb-setting-header'>
@@ -171,10 +224,21 @@
                             </div>
                             <div class='setting-content  setting-theme-change'>
                                 <select id='sb-setting-theme' class='sb-setting-theme-select'>
+                                    <option value="fluent">Fluent</option>
+                                    <option value="fluent-dark">Fluent Dark</option>
+                                    <option value="bootstrap5">Bootstrap v5</option>
+                                    <option value="bootstrap5-dark">Bootstrap v5 Dark</option>
+                                    <option value="tailwind">Tailwind CSS</option>
+                                    <option value="tailwind-dark">Tailwind CSS Dark</option>
                                     <option value="material">Material</option>
+                                    <option value="material-dark">Material Dark</option>
+                                    <option value="material3">Material 3</option>
+                                    <option value="material3-dark">Material 3 Dark</option>
                                     <option value="fabric">Fabric</option>
-                                    <option value="bootstrap">Bootstrap</option>
+                                    <option value="fabric-dark">Fabric Dark</option>
                                     <option value="bootstrap4">Bootstrap v4</option>
+                                    <option value="bootstrap">Bootstrap</option>
+                                    <option value="bootstrap-dark">Bootstrap Dark</option>
                                     <option value="highcontrast">High Contrast</option>
                                 </select>
                             </div>
@@ -185,8 +249,12 @@
                                 <div class='sb-setting-text'>Mode Selection</div>
                             </div>
                             <div class='setting-content btn-group setting-responsive'>
-                                <div id='touch' role="button" tabindex="0" class="sb-responsive-items set-border-radious-touch" title="Increased padding for actionable items to accommodate user touches">Touch</div>
-                                <div id='mouse' role="button" tabindex="0" class="sb-responsive-items set-border-radious-mouse" title="Default control sizes, optimized for use with mouse">Mouse</div>
+                                <div id='touch' role="button" tabindex="0"
+                                    class="sb-responsive-items set-border-radious-touch"
+                                    title="Increased padding for actionable items to accommodate user touches">Touch</div>
+                                <div id='mouse' role="button" tabindex="0"
+                                    class="sb-responsive-items set-border-radious-mouse"
+                                    title="Default control sizes, optimized for use with mouse">Mouse</div>
                             </div>
                         </div>
                         <div class='sb-setting-item sb-setting-culture'>
@@ -231,12 +299,14 @@
                     <div class="sb-content-overlay">
                         <div class="sb-loading">
                             <svg class="circular" height="40" width="40">
-                                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
+                                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6"
+                                    stroke-miterlimit="10" />
                             </svg>
                         </div>
                     </div>
                     <div class='sb-desktop-wrapper'>
-                        <div id='component-name' role='header' class='sb-component-name sb-rightpane-padding'>
+                        <div id='component-name' role="heading" aria-level="1"
+                            class='sb-component-name sb-rightpane-padding'>
                             <h1 class='sb-sample-text'>Chart</h1>
                         </div>
                         <div id='sample-bread-crumb' class='sb-bread-crumb sb-rightpane-padding'>
@@ -248,7 +318,8 @@
                                 <div class='crumb-sample '></div>
                             </div>
 
-                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html"></a>
+                            <a id="sb-home" href="http://ej2.syncfusion.com/home/vue.html"
+                                aria-label="Sample home page"></a>
                         </div>
                         <div class='sb-action-description sb-rightpane-padding'>
                             Componet Action Description
@@ -288,57 +359,63 @@
                         </div>
                         <div class='description-section sb-rightpane-padding'>
                         </div>
-                            <div class="ad-wrapper">
-                <div id='ad-image' class="ad-img">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-12">
-                                <div id="ad-banner-head" class="ad-header">Transform your Vue web apps today with Syncfusion Vue components</div>
-                            </div>
-                            <div class="col-sm-12 cnt-area">
-                                <div class="content-area">
-                                    <div class="ad-cnt-pt">
-                                        <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection"></div>
-                                        <div class="ad-cnt-text">65+ high-performance and responsive UI components</div>
-                                    </div>
-                                    <div class="ad-cnt-pt">
-                                        <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
-                                        <div class="ad-cnt-text">Dedicated support</div>
-                                    </div>
-                                    <div class="ad-cnt-pt">
-                                        <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
-                                        <div class="ad-cnt-text">Hassle-free licensing</div>
+                        <div class="ad-wrapper">
+                            <div id='ad-image' class="ad-img">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12">
+                                            <div id="ad-banner-head" class="ad-header">Transform your Vue web apps today
+                                                with Syncfusion Vue components</div>
+                                        </div>
+                                        <div class="col-sm-12 cnt-area">
+                                            <div class="content-area">
+                                                <div class="ad-cnt-pt">
+                                                    <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection">
+                                                    </div>
+                                                    <div class="ad-cnt-text">80+ high-performance and responsive UI
+                                                        components</div>
+                                                </div>
+                                                <div class="ad-cnt-pt">
+                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
+                                                    </div>
+                                                    <div class="ad-cnt-text">Dedicated support</div>
+                                                </div>
+                                                <div class="ad-cnt-pt">
+                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
+                                                    </div>
+                                                    <div class="ad-cnt-text">Hassle-free licensing</div>
+                                                </div>
+                                            </div>
+                                            <a style="color:#ffff;text-decoration:none;"
+                                                href="https://www.syncfusion.com/downloads/vue">
+                                                <div class="free-trial">TRY IT FOR FREE</div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <a style="color:#ffff;text-decoration:none;"
-                                    href="https://www.syncfusion.com/downloads/vue">
-                                    <div class="free-trial">TRY IT FOR FREE</div>
-                                </a>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">
-                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank">
+                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank"
+                                        aria-label="Documentation link">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank">
+                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank" aria-label="Forum link">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
-                                    <a href="https://syncfusion.com/blogs" target="_blank">
+                                    <a href="https://syncfusion.com/blogs" target="_blank" aria-label="Blog link">
                                         <div class="sb-footer-link">Blog</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/kb/" target="_blank">
+                                    <a href="https://www.syncfusion.com/kb/" target="_blank" aria-label="Knowledge base">
                                         <div class="sb-footer-link">Knowledge Base</div>
                                     </a>
                                 </div>
                                 <div class="sb-footer-copyright"></div>
                             </div>
                             <div class="sb-footer-logo">
-                                <a href="https://www.syncfusion.com/" target="_blank">
+                                <a href="https://www.syncfusion.com/" target="_blank" aria-label="Footer logo">
                                     <div class="sb-footer-logo-icon"></div>
                                 </a>
                             </div>
@@ -356,7 +433,8 @@
                 <div class="sb-body-overlay e-view">
                     <div class="sb-loading">
                         <svg class="circular" height="40" width="40">
-                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
+                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6"
+                                stroke-miterlimit="10" />
                         </svg>
                     </div>
                 </div>
@@ -373,26 +451,25 @@
             </div>
         </div>
     </div>
-
-
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 /* Vue imports */
-import Vue from "vue";
-import VueRouter from "vue-router";
+import { ref, Ref, onMounted, onBeforeMount } from 'vue';
+import { useRoute, useRouter, Router, RouteLocationNormalized } from "vue-router";
 
 /* syncfusion imports */
-import { Browser, extend, Animation, Ajax, closest, createElement, detach, enableRipple, setCurrencyCode } from '@syncfusion/ej2-base';
-import { addClass, select, selectAll, isNullOrUndefined, MouseEventArgs, setCulture, L10n, loadCldr } from '@syncfusion/ej2-base';
-import { TreeView, Sidebar, Tab } from '@syncfusion/ej2-navigations'
+import { Browser, extend, Animation, Ajax, Fetch, closest, createElement, detach, enableRipple, setCurrencyCode } from '@syncfusion/ej2-base';
+import { select, selectAll, setCulture, L10n, loadCldr, registerLicense, getComponent } from '@syncfusion/ej2-base';
+import { TreeView, Sidebar, Tab, EventArgs } from '@syncfusion/ej2-navigations'
 import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
 import { Button } from '@syncfusion/ej2-buttons';
 import { Toast } from '@syncfusion/ej2-notifications';
 import { Grid } from '@syncfusion/ej2-grids';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
-import { DataManager, Query, DataUtil } from '@syncfusion/ej2-data';
+import { DataManager, Query } from '@syncfusion/ej2-data';
+import { ImageEditor } from '@syncfusion/ej2-image-editor';
 
 /* Other imports */
 import { Locale } from './common/locale-string';
@@ -401,7 +478,7 @@ import * as currencyData from './common/cldr-data/supplemental/currencyData.json
 import * as deCultureData from './common/cldr-data/main/de/all.json';
 import * as arCultureData from './common/cldr-data/main/ar/all.json';
 import * as swissCultureDate from './common/cldr-data/main/fr-CH/all.json';
-import * as enCultureData from './common/cldr-data/main/fr-CH/all.json';
+import * as enCultureData from './common/cldr-data/main/en/all.json';
 import * as chinaCultureData from './common/cldr-data/main/zh/all.json';
 import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
@@ -409,19 +486,19 @@ import { ListView, ListBase } from '@syncfusion/ej2-lists';
 // import * as hljs from './common/lib/highlightjs';
 let searchJson: any = require('./common/search-index.json');
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
-import routes from './router.config';
 // import { setTimeout } from "timers";
 
-loadCldr(numberingSystems, chinaCultureData, enCultureData, swissCultureDate, currencyData, deCultureData, arCultureData);
+loadCldr(numberingSystems["default"], chinaCultureData["default"], enCultureData["default"], swissCultureDate["default"], currencyData["default"], deCultureData["default"], arCultureData["default"]);
 L10n.load(Locale);
 setCulture('en');
+registerLicense((window as any).syncfusion_license);
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
-let selectedTheme: string = location.hash.split('/')[1] || 'material';
-const themeCollection: string[] = ['material', 'fabric', 'bootstrap', 'bootstrap4', 'highcontrast'];
+let selectedTheme: string = location.hash.split('/')[1] || 'material3';
+const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'material3', 'material3-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -431,14 +508,9 @@ const matchedCurrency: { [key: string]: string } = {
     'fr-CH': 'CHF'
 };
 
-/* Router Plugin */
-Vue.use(VueRouter);
-const router = new VueRouter({
-    routes, // short for `routes: routes`    
-})
-
-
-
+let rootEle: HTMLElement;
+let route: RouteLocationNormalized;
+let router: Router;
 let sb: any = { vars: {} };
 let controlSampleData: any = {};
 let preventToggle: boolean;
@@ -485,7 +557,7 @@ let mobileSetting: HTMLElement;
 let copyRight: HTMLElement;
 let hsplitter: string = '<div class="sb-toolbar-splitter sb-custom-item"></div>';
 // tslint:disable-next-line:no-multiline-string
-let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank">
+let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank" aria-label="Open new sample">
         <div class="sb-icons sb-icon-Popout"></div></a></div>`;
 let sampleNavigation: string = `<div class="sb-custom-item sample-navigation"><button id='prev-sample' class="sb-navigation-prev" 
 aria-label="previous sample">
@@ -495,1193 +567,1280 @@ aria-label="previous sample">
 <span class='sb-icons sb-icon-Next'></span>
 </button>
 </div>`;
-contentToolbarTemplate = hsplitter + openNewTemplate + hsplitter + sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
+let stackTemplate: string = '<span class="sb-icons sb-icons-plnkr"></span><span class="sb-plnkr-text">Edit in StackBlitz</span>';
+contentToolbarTemplate = '<div class="sb-desktop-setting"><button id="open-plnkr" class="sb-custom-item sb-plnr-section">' +
+    stackTemplate + '</button>' + hsplitter + openNewTemplate + hsplitter + sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
 tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', innerHTML: contentToolbarTemplate });
 
 /* vue instance */
-export default Vue.extend({
-  name: 'app',
-     data: function(){
-       return{
-       myJson: searchJson,
-       }
-    },
-    router,
-    created: function () {
-        samplesList = this.getSampleList();
-    },
+const myJson = searchJson;
+const homeEle: Ref<HTMLElement | null> = ref(null);
 
-    updated: function () {
-        sb.vars.contentTab.selectedItem = 0;
-        this.updateBreadCrumb();
-        this.updateDescription();
-        this.updatesourceTab();
-    },
+onBeforeMount(() => {
+    samplesList = getSampleList();
+});
 
-    mounted: function () {
-        sb.vars.controlTree = select('#controlTree', this.$el);
-        sb.vars.breadCrumbObject = {};
+const urlChange = async () => {
+    await router.isReady();
+    sb.vars.contentTab.selectedItem = 0;
+    updateBreadCrumb();
+    updateDescription();
+    updatesourceTab();
+};
 
-        /* breadCrumb updates */
-        sb.vars.breadCrumbObject.component = select('.sb-bread-crumb-text>.category-text', this.$el);
-        sb.vars.breadCrumbObject.categorySeparator = select('.category-seperator', this.$el);
-        sb.vars.breadCrumbObject.subCategory = select('.sb-bread-crumb-text>.component', this.$el);
-        sb.vars.breadCrumbObject.sample = select('.sb-bread-crumb-text>.crumb-sample', this.$el);
+onMounted(async () => {
+    rootEle = homeEle.value as HTMLElement;
+    router = useRouter();
+    route = useRoute();
+    await router.isReady();
+    sb.vars.controlTree = select('#controlTree', rootEle);
+    sb.vars.breadCrumbObject = {};
 
-        sb.vars.content = select('#control-content', this.$el);
-        sbHeader = <HTMLElement>select('#sample-header', this.$el);
-        leftToggle = <HTMLElement>select('#sb-toggle-left', this.$el);
-        sb.vars.sample = select('#sb-switcher-popup', this.$el);
-        // searchEle = select('#search-popup', this.$el);
-        copyRight = select('.sb-footer-copyright', this.$el);
-        copyRight.innerHTML = "Copyright © 2001 - " + new Date().getFullYear() + " Syncfusion Inc.";
-        searchButton = select('#sb-trigger-search', this.$el);
-        searchOverlay = select('.e-search-overlay', this.$el);
-        inputele = select('#search-input', this.$el);
-        sb.vars.switch = select('.sb-header-text-right', this.$el);
-        sb.vars.setResponsiveElement = select('.setting-responsive', this.$el);
-        sb.vars.leftBack = select('#sb-left-back', this.$el);
-        sb.vars.headerThemeSwitch = select('#header-theme-switcher', this.$el);
-        sb.vars.themePoppup = select('#theme-switcher-popup', this.$el);
-        sb.vars.switcher = select('#sb-switcher', this.$el);
-        sb.vars.sblink = select('#switch-sb', this.$el);
-        resetSearch = select('.sb-reset-icon', this.$el);
-        sb.vars.inputWrapper = select('#search-input-wrapper', this.$el);
-        themeList = select('#themelist', this.$el);
-        sb.vars.codesnippet = select('.ts-source-content', this.$el);
-        sb.vars.setting = select('#settings-popup', this.$el);
-        settingElement = <HTMLElement>select('.sb-setting-btn', this.$el);
-        sbRightPane = <HTMLElement>select('.sb-right-pane', this.$el);
-        headerSetting = <HTMLElement>select('.sb-header-settings', this.$el);
-        sb.vars.mobilePreference = select('.sb-mobile-preference', this.$el);
-        sbContentOverlay = <HTMLElement>select('.sb-content-overlay', this.$el);
-        sbBodyOverlay = <HTMLElement>select('.sb-body-overlay', this.$el);
-        sb.vars.contentTab = new Tab({ selected: this.changeTab, selecting: this.preventTabSwipe }, "#sb-content");
-        sb.vars.source = select('.sb-content', this.$el);
-        if (Browser.isIE) {
-            window.addEventListener('hashchange', () => {
-                var currentPath = window.location.hash.slice(1)
-                if (this.$route.path !== currentPath) {
-                    this.$router.push(currentPath);
-                    window.hashString = location.hash;
-                    this.setSelectList();
-                }
-            }, false)
+    /* breadCrumb updates */
+    sb.vars.breadCrumbObject.component = select('.sb-bread-crumb-text>.category-text', rootEle);
+    sb.vars.breadCrumbObject.categorySeparator = select('.category-seperator', rootEle);
+    sb.vars.breadCrumbObject.subCategory = select('.sb-bread-crumb-text>.component', rootEle);
+    sb.vars.breadCrumbObject.sample = select('.sb-bread-crumb-text>.crumb-sample', rootEle);
+
+    sb.vars.content = select('#control-content', rootEle);
+    sbHeader = <HTMLElement>select('#sample-header', rootEle);
+    leftToggle = <HTMLElement>select('#sb-toggle-left', rootEle);
+    sb.vars.sample = select('#sb-switcher-popup', rootEle);
+    // searchEle = select('#search-popup', rootEle);
+    copyRight = select('.sb-footer-copyright', rootEle);
+    copyRight.innerHTML = "Copyright © 2001 - " + new Date().getFullYear() + " Syncfusion Inc.";
+    searchButton = select('#sb-trigger-search', rootEle);
+    searchOverlay = select('.e-search-overlay', rootEle);
+    inputele = select('#search-input', rootEle);
+    sb.vars.switch = select('.sb-header-text-right', rootEle);
+    sb.vars.setResponsiveElement = select('.setting-responsive', rootEle);
+    sb.vars.leftBack = select('#sb-left-back', rootEle);
+    sb.vars.headerThemeSwitch = select('#header-theme-switcher', rootEle);
+    sb.vars.themePoppup = select('#theme-switcher-popup', rootEle);
+    sb.vars.switcher = select('#sb-switcher', rootEle);
+    sb.vars.sblink = select('#switch-sb', rootEle);
+    resetSearch = select('.sb-reset-icon', rootEle);
+    sb.vars.inputWrapper = select('#search-input-wrapper', rootEle);
+    themeList = select('#themelist', rootEle);
+    sb.vars.codesnippet = select('.ts-source-content', rootEle);
+    sb.vars.setting = select('#settings-popup', rootEle);
+    settingElement = <HTMLElement>select('.sb-setting-btn', rootEle);
+    sbRightPane = <HTMLElement>select('.sb-right-pane', rootEle);
+    headerSetting = <HTMLElement>select('.sb-header-settings', rootEle);
+    sb.vars.mobilePreference = select('.sb-mobile-preference', rootEle);
+    sbContentOverlay = <HTMLElement>select('.sb-content-overlay', rootEle);
+    sbBodyOverlay = <HTMLElement>select('.sb-body-overlay', rootEle);
+    sb.vars.contentTab = new Tab({ selected: changeTab, selecting: preventTabSwipe }, "#sb-content");
+    sb.vars.source = select('.sb-content', rootEle);
+    if (Browser.isIE) {
+        window.addEventListener('hashchange', () => {
+            var currentPath = window.location.hash.slice(1)
+            if (route.path !== currentPath) {
+                router.push(currentPath);
+                window.hashString = location.hash;
+                setSelectList();
+            }
+        }, false)
+    }
+    if (Browser.isDevice || isMobile) {
+        if (sidebar) {
+            sidebar.destroy();
         }
-        if (Browser.isDevice || isMobile) {
-            if (sidebar) {
-                sidebar.destroy();
-            }
-            sidebar = new Sidebar({ width: '280px', showBackdrop: true, closeOnDocumentClick: true, enableGestures: false });
-            sidebar.appendTo('#left-sidebar');
-        } else {
-            sidebar = new Sidebar({
-                width: '282px', target: <HTMLElement>document.querySelector('.sb-content '),
-                showBackdrop: false,
-                closeOnDocumentClick: false,
-                enableGestures: false,
-            });
-            sidebar.appendTo('#left-sidebar');
+        sidebar = new Sidebar({ width: '280px', showBackdrop: true, closeOnDocumentClick: true, enableGestures: false });
+        sidebar.appendTo('#left-sidebar');
+    } else {
+        sidebar = new Sidebar({
+            width: '282px', target: <HTMLElement>document.querySelector('.sb-content '),
+            showBackdrop: false,
+            closeOnDocumentClick: false,
+            enableGestures: false,
+        });
+        sidebar.appendTo('#left-sidebar');
+    }
+    loadJSON();
+    router.afterEach(urlChange);
+    updateBreadCrumb();
+    updateDescription();
+});
+
+const preventTabSwipe = (e: any): void => {
+    if (e.isSwiped) {
+        e.cancel = true;
+    }
+};
+
+const updateDescription = () => {
+    let curUrl: string = location.hash;
+    if (prev != curUrl) {
+        select('.description-section', rootEle).innerHTML = '';
+        if (select('#description')) {
+            select('.description-section', rootEle)
+                .appendChild(select('#description'));
         }
-        this.loadJSON();
-        this.$router.afterEach(this.urlChange);
-        this.updateBreadCrumb();
-        this.updateDescription();
-    },
+        select('.sb-action-description', rootEle).innerHTML = '';
+        if (select('#action-description') !== null) {
+            select('.sb-action-description', rootEle)
+                .appendChild(select('#action-description'));
+        }
+        prev = curUrl;
+    }
+};
 
-    methods: {
-        urlChange: function () {
+const breadCrumbUpdate = (controlName: string, category: string, sampleName: string) => {
+    let ele: Element = rootEle.querySelector('#sample-bread-crumb') as Element;
+    sb.vars.breadCrumbObject.component.innerHTML = controlName;
+    if (category && controlName.toLowerCase() !== category.toLowerCase()) {
+        sb.vars.breadCrumbObject.subCategory.innerHTML = category;
+        sb.vars.breadCrumbObject.subCategory.style.display = '';
+        sb.vars.breadCrumbObject.categorySeparator.style.display = '';
+    } else {
+        sb.vars.breadCrumbObject.subCategory.style.display = 'none';
+        sb.vars.breadCrumbObject.categorySeparator.style.display = 'none';
+    }
+    sb.vars.breadCrumbObject.sample.innerHTML = sampleName;
+    let title: HTMLElement = <HTMLElement>document.querySelector('title');
+
+    if ((controlName || sampleName) == undefined) {
+        title.innerHTML = 'Syncfusion Vue UI Components '
+    }
+    else
+        title.innerHTML = controlName + ' · ' + sampleName + ' · Syncfusion Vue UI Components ';
+};
+
+const updateBreadCrumb = () => {
+    (rootEle!.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = route!.meta!.eCompName! as string;
+    breadCrumbUpdate(route!.meta!.eCompName! as string, route!.meta!.eCategoryName! as string, route!.meta!.eSampleName! as string);
+    let name: string = (route!.meta!.eCompName! as string); 
+    if (name === 'PDF Viewer') {
+        (document.querySelector('.sb-plnr-section') as any).style.display = 'none';
+        (document.querySelector('.sb-open-new-wrapper') as any).style.display = 'none';
+    } else {
+        (document.querySelector('.sb-plnr-section') as any).style.display = '';
+        (document.querySelector('.sb-open-new-wrapper') as any).style.display = '';
+    }
+};
+
+const renderLeftPaneComponents = () => {
+    samplesTreeList = getTreeviewList(samplesList);
+    let sampleTreeView: TreeView = new TreeView(
+        {
+            fields: {
+                dataSource: samplesTreeList, id: 'id', parentID: 'pid',
+                text: 'name', hasChildren: 'hasChild', htmlAttributes: 'url'
+            },
+            nodeClicked: controlSelect,
+            nodeTemplate: '<div><span class="tree-text">${name}</span>' +
+                '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">Updated</span>' +
+                '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">${type}</span>${/if}${/if}'
         },
-        preventTabSwipe: function (e: any): void {
-            if (e.isSwiped) {
-                e.cancel = true;
+        '#controlTree');
+    let controlList: ListView = new ListView(
+        {
+            dataSource: controlSampleData[location.hash.split('/')[2]] || controlSampleData.grid,
+            fields: { id: 'uid', text: 'name', groupBy: 'order', htmlAttributes: 'data' },
+            select: controlSelect,
+            template: '<div class="e-text-content ${if(type)}e-icon-wrapper${/if}"> <span class="e-list-text" role="listitem">${name}' +
+                '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type}">Updated</span>' +
+                '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type}">${type}</span>${/if}${/if}' +
+                '${if(directory)}<div class="e-icons e-icon-collapsible"></div>${/if}</div>',
+            groupTemplate: '${if(items[0]["category"])}<div class="e-text-content">' +
+                '<span class="e-list-text">${items[0].category}</span>' +
+                '</div>${/if}',
+            actionComplete: setSelectList
+        },
+        '#controlList');
+};
+
+const getSampleList = (): Controls[] | { [key: string]: Object }[] => {
+    if (Browser.isDevice) {
+        let tempList: Controls[] = <Controls[]>extend([], samplesJSON.samplesList);
+        let tempLists: any = [];
+        for (let temp of tempList) {
+            if (temp.hideOnDevice == true) {
+                continue;
             }
-        },
+            let data: DataManager = new DataManager((temp as any).samples);
+            temp.samples = <Samples[]>data.executeLocal(new Query().where('hideOnDevice', 'notEqual', true));
+            tempLists = tempLists.concat(temp);
+        }
+        return tempLists;
+    }
+    return samplesJSON.samplesList;
+};
 
-        updateDescription: function () {
-            let curUrl: string = location.hash;
-            if(prev != curUrl) {
-                select('.description-section', this.$el).innerHTML = '';
-                if (select('#description')) {
-                    select('.description-section', this.$el)
-                        .appendChild(select('#description'));
-                }
-                select('.sb-action-description', this.$el).innerHTML = '';
-                if (select('#action-description') !== null) {
-                    select('.sb-action-description', this.$el)
-                        .appendChild(select('#action-description'));
-                }
-                prev = curUrl;
-            }
-        },
-
-        breadCrumbUpdate(controlName: string, category: string, sampleName: string) {
-            let ele: Element = this.$el.querySelector('#sample-bread-crumb') as Element;
-            sb.vars.breadCrumbObject.component.innerHTML = controlName;
-            if (category && controlName.toLowerCase() !== category.toLowerCase()) {
-                sb.vars.breadCrumbObject.subCategory.innerHTML = category;
-                sb.vars.breadCrumbObject.subCategory.style.display = '';
-                sb.vars.breadCrumbObject.categorySeparator.style.display = '';
-            } else {
-                sb.vars.breadCrumbObject.subCategory.style.display = 'none';
-                sb.vars.breadCrumbObject.categorySeparator.style.display = 'none';
-            }
-            sb.vars.breadCrumbObject.sample.innerHTML = sampleName;
-            let title: HTMLElement = <HTMLElement>document.querySelector('title');
-
-            if ((controlName || sampleName) == undefined) {
-                title.innerHTML = 'Syncfusion Vue UI Components '
-            }
-            else
-                title.innerHTML = controlName + ' · ' + sampleName + ' · Syncfusion Vue UI Components ';
-        },
-
-        updateBreadCrumb: function () {
-            (this.$el.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = this.$router.currentRoute.meta.eCompName;
-            this.breadCrumbUpdate(this.$router.currentRoute.meta.eCompName, this.$router.currentRoute.meta.eCategoryName, this.$router.currentRoute.meta.eSampleName);
-        },
-
-        renderLeftPaneComponents: function () {
-            samplesTreeList = this.getTreeviewList(samplesList);
-            let sampleTreeView: TreeView = new TreeView(
-                {
-                    fields: {
-                        dataSource: samplesTreeList, id: 'id', parentID: 'pid',
-                        text: 'name', hasChildren: 'hasChild', htmlAttributes: 'url'
-                    },
-                    nodeClicked: this.controlSelect,
-                    nodeTemplate:  '<div><span class="tree-text">${name}</span>' +
-                        '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">Updated</span>' +
-                        '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type} tree tree-badge">${type}</span>${/if}${/if}'
-                },
-                '#controlTree');
-            let controlList: ListView = new ListView(
-                {
-                    dataSource: controlSampleData[location.hash.split('/')[2]] || controlSampleData.grid,
-                    fields: { id: 'uid', text: 'name', groupBy: 'order', htmlAttributes: 'data' },
-                    select: this.controlSelect,
-                    template: '<div class="e-text-content ${if(type)}e-icon-wrapper${/if}"> <span class="e-list-text" role="listitem">${name}' +
-                        '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type}">Updated</span>' +
-                        '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type}">${type}</span>${/if}${/if}' +
-                        '${if(directory)}<div class="e-icons e-icon-collapsible"></div>${/if}</div>',
-                    groupTemplate: '${if(items[0]["category"])}<div class="e-text-content">' +
-                        '<span class="e-list-text">${items[0].category}</span>' +
-                        '</div>${/if}',
-                    actionComplete: this.setSelectList
-                },
-                '#controlList');
-        },
-
-        getSampleList: function (): Controls[] | { [key: string]: Object }[] {
-            if (Browser.isDevice) {
-                let tempList: Controls[] = <Controls[]>extend([], samplesJSON.samplesList);
-                let tempLists: any = [];
-                for (let temp of tempList) {
-                    if(temp.hideOnDevice == true)
-                    {
-                        continue;
-                    }
-                    let data: DataManager = new DataManager((temp as any).samples);
-                    temp.samples = <Samples[]>data.executeLocal(new Query());
-                    tempLists = tempLists.concat(temp);
-                }
-                return tempLists;
-            }
-            return samplesJSON.samplesList;
-        },
-
-        getTreeviewList: function (list: any[]): Controls[] | { [key: string]: Object }[] {
-            let id: number = 0;
-            let pid: number = 0;
-            let tempList: any[] = [];
-            let category: string = '';
-            for (let i: number = 0; i < list.length; i++) {
-                if (category !== list[i].category) {
-                    category = list[i].category;
-                    tempList = tempList.concat({ id: i + 1, name: list[i].category, hasChild: true, expanded: true });
-                    pid = i + 1;
-                    id = pid;
-                }
-                id += 1;
-                tempList = tempList.concat(
-                    {
-                        id: id,
-                        pid: pid,
-                        name: list[i].name,
-                        type: list[i].type,
-                        url: {
-                            'data-path': '/' + list[i].directory + '/' + list[i].samples[0].url + '.html',
-                            'control-name': list[i].directory,
-                        }
-                    });
-                controlSampleData[list[i].directory] = this.getSamples(list[i].samples);
-            }
-            return tempList;
-        },
-
-        getSamples: function (samples: any): any {
-            let tempSamples: any = [];
-            for (let i: number = 0; i < samples.length; i++) {
-                tempSamples[i] = samples[i];
-                tempSamples[i].data = { 'sample-name': samples[i].url, 'data-path': '/' + samples[i].dir + '/' + samples[i].url + '.html' };
-            }
-            return tempSamples;
-        },
-
-        controlSelect: function (arg: any): void {
-            sb.vars.contentTab.selectedItem = 0;
-            let path: string = (arg.node || arg.item).getAttribute('data-path');
-            let curHashCollection: string = '/' + location.hash.split('/').slice(2).join('/');
-            if (path) {
-                this.controlListRefresh(arg.node || arg.item);
-                if (path !== curHashCollection) {
-                    this.sampleOverlay();
-                    let theme: string = location.hash.split('/')[1] || 'material';
-                    if (arg.item && ((isMobile) ||
-                        ((isTablet || (Browser.isDevice && isPc)) && this.isLeftPaneOpen()))) {
-                        this.toggleLeftPane();
-                    }
-                    window.hashString = '#/' + theme + path;
-                    setTimeout(() => { location.hash = '#/' + theme + path; }, 600);
-                }
-            }
-        },
-
-        controlListRefresh: function (ele: Element): void {
-            let controlName: string = <string>ele.getAttribute('control-name');
-            let samples: any = controlSampleData[controlName];
-            if (samples) {
-                let listView: ListView = (select('#controlList', this.$el) as any).ej2_instances[0];
-                listView.dataSource = samples;
-                this.showHideControlTree();
-            }
-        },
-
-        showHideControlTree: function (): void {
-            let controlTree: HTMLElement = select('#controlTree', this.$el) as HTMLElement;
-            let controlList: HTMLElement = select('#controlSamples', this.$el) as HTMLElement;
-            let reverse: boolean = (select('#controlTree', this.$el) as HTMLElement).style.display === 'none';
-            reverse ? this.viewSwitch(controlList, controlTree, reverse) : this.viewSwitch(controlTree, controlList, reverse);
-        },
-
-        viewSwitch: function (from: HTMLElement, to: HTMLElement, reverse: boolean): void {
-            let anim: Animation = new Animation({ duration: 500, timingFunction: 'ease' });
-            let controlTree: HTMLElement = select('#controlTree', this.$el) as HTMLElement;
-            let controlList: Element = select('#controlList', this.$el);
-            controlTree.style.overflowY = 'hidden';
-            controlList.classList.remove('e-view');
-            controlList.classList.remove('sb-control-list-top');
-            controlList.classList.add('sb-adjust-juggle');
-            to.style.display = '';
-            anim.animate(from, {
-                name: reverse ? 'SlideRightOut' : 'SlideLeftOut', end: (): void => {
-                    controlTree.style.overflowY = 'auto';
-                    from.style.display = 'none';
-                    controlList.classList.add('e-view');
-                    controlList.classList.add('sb-control-list-top');
-                    controlList.classList.remove('sb-adjust-juggle');
+const getTreeviewList = (list: any[]): Controls[] | { [key: string]: Object }[] => {
+    let id: number = 0;
+    let pid: number = 0;
+    let tempList: any[] = [];
+    let category: string = '';
+    for (let i: number = 0; i < list.length; i++) {
+        if (!list[i].samples || list[i].samples.length === 0) continue;
+        if (category !== list[i].category) {
+            category = list[i].category;
+            tempList = tempList.concat({ id: i + 1, name: list[i].category, hasChild: true, expanded: true });
+            pid = i + 1;
+            id = pid;
+        }
+        id += 1;
+        tempList = tempList.concat(
+            {
+                id: id,
+                pid: pid,
+                name: list[i].name,
+                type: list[i].type,
+                url: {
+                    'data-path': '/' + list[i].directory + '/' + list[i].samples[0].url + '.html',
+                    'control-name': list[i].directory,
                 }
             });
-            anim.animate(to, { name: reverse ? 'SlideLeftIn' : 'SlideRightIn' });
-        },
+        controlSampleData[list[i].directory] = getSamples(list[i].samples);
+    }
+    return tempList;
+};
 
-        sampleOverlay: function (): void {
-            document.body.setAttribute('aria-busy', 'true');
-            sbHeader.classList.add('sb-right-pane-overlay');
-            sbRightPane.classList.add('sb-right-pane-overlay');
-            this.mobNavOverlay(true);
-            sbContentOverlay.classList.remove('sb-hide');
-        },
+const getSamples = (samples: any): any => {
+    let tempSamples: any = [];
+    for (let i: number = 0; i < samples.length; i++) {
+        tempSamples[i] = samples[i];
+        tempSamples[i].data = { 'sample-name': samples[i].url, 'data-path': '/' + samples[i].dir + '/' + samples[i].url + '.html' };
+    }
+    return tempSamples;
+};
 
-        setSelectList: function (): void {
-            let hString: string = window.hashString || location.hash;
-            let hash: string[] = hString.split('/');
-            let list: ListView = (select('#controlList', this.$el) as any).ej2_instances[0];
-            let control: Element = select('[control-name="' + hash[2] + '"]');
-            if (control) {
-                let data: any = list.dataSource;
-                let samples: any = controlSampleData[<string>control.getAttribute('control-name')];
-                if (JSON.stringify(data) !== JSON.stringify(samples)) {
-                    list.dataSource = samples;
-                    list.dataBind();
-                }
-                let selectSample: Element = select('[sample-name="' + hash.slice(-1)[0].split('.html')[0] + '"]');
-                if (selectSample) {
-                    if ((select('#controlTree', this.$el) as HTMLElement).style.display !== 'none') {
-                        this.showHideControlTree();
-                    }
-                    list.selectItem(selectSample);
-                }
-            } else {
-                this.showHideControlTree();
-                list.selectItem(select('[sample-name="grid-overview"]'));
+const controlSelect = (arg: any): void => {
+    sb.vars.contentTab.selectedItem = 0;
+    let path: string = (arg.node || arg.item).getAttribute('data-path');
+    let curHashCollection: string = '/' + location.hash.split('/').slice(2).join('/');
+    if (path) {
+        controlListRefresh(arg.node || arg.item);
+        if (path !== curHashCollection) {
+            sampleOverlay();
+            let theme: string = location.hash.split('/')[1] || 'material3';
+            if (arg.item && ((isMobile) ||
+                ((isTablet || (Browser.isDevice && isPc)) && isLeftPaneOpen()))) {
+                toggleLeftPane();
             }
-        },
-
-        toggleLeftPane: function (): void {
-            let reverse: boolean = sidebar.isOpen;
-            select('#left-sidebar').classList.remove('sb-hide');
-            if (!reverse) {
-                leftToggle.classList.add('toggle-active');
-            } else {
-                leftToggle.classList.remove('toggle-active');
-            }
-            if (sidebar) {
-                reverse = sidebar.isOpen;
-                if (reverse) {
-                    sidebar.hide();
-                    if (!isMobile && !isTablet) {
-                        resizeManualTrigger = true;
-                        setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 1500);
-                    }
-                } else {
-                    sidebar.show();
-                    resizeManualTrigger = true;
-                    setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 200);
-                }
-            }
-        },
-
-        mobNavOverlay: function (isOverlay: boolean): void {
-            if (Browser.isDevice) {
-                let mobileFoorter: Element = select('.sb-mobilefooter', this.$el);
-                if (isOverlay) {
-                    mobileFoorter.classList.add('sb-right-pane-overlay');
-                } else {
-                    mobileFoorter.classList.remove('sb-right-pane-overlay');
-                }
-            }
-        },
-
-        isLeftPaneOpen: function (): boolean {
-            return sidebar.isOpen;
-        },
-
-        rendersbPopup: function (): void {
-            switcherPopup = new Popup(sb.vars.sample, {
-                relateTo: sb.vars.switch, position: { X: 'left' },
-                collision: { X: 'flip', Y: 'flip' },
-                offsetX: 0,
-                offsetY: -15,
-                zIndex: 1001
-            });
-            switcherPopup.hide();
-            themeSwitcherPopup = new Popup(sb.vars.themePoppup, {
-                offsetY: 2,
-                zIndex: 10012,
-                relateTo: <HTMLElement>select('.theme-wrapper', this.$el), position: { X: 'left', Y: 'bottom' },
-                collision: { X: 'flip', Y: 'flip' }
-            });
-            themeSwitcherPopup.hide();
-            searchPopup = new AutoComplete(
-                {
-                    dataSource: [],
-                    filtering: (e: any) => {
-                        if (e.text && e.text.length < 3) {
-                            return;
-                        }
-                        let val: any = searchInstance.search(e.text, {
-                            fields: {
-                                component: { boost: 1 },
-                                name: { boost: 2 }
-                            },
-                            expand: true,
-                            boolean: 'AND'
-                        });
-                        let value:any = [];
-                        if (Browser.isDevice) {
-                            for (let file of val) {
-                                if (file.doc.hideOnDevice !== true) {
-                                   value = value.concat(file);
-                                }
-                            }
-                        }
-                        let query: Query = new Query().take(10).select('doc');
-                        let fields: any = searchInstance.fields;
-                        let searchValue: any = Browser.isDevice ? value : val;
-                        e.updateData(searchValue, query, fields);
-
-                    },
-                    placeholder: 'Search here...',
-                    noRecordsTemplate: '<div class="search-no-record">We’re sorry. We cannot find any matches for your search term.</div>',
-                    fields: { groupBy: 'doc.component', value: 'doc.name', text: 'doc.name' },
-                    popupHeight: 'auto',
-                    suggestionCount: 10,
-                    highlight: true,
-                    select: (e: any) => {
-                        let data: any = e.itemData.doc;
-                        let hashval: string = '#/' + location.hash.split('/')[1] + '/' + data.dir + '/' + data.url + '.html';
-                        searchPopup.hidePopup();
-                        searchOverlay.classList.add('e-search-hidden');
-                        if (location.hash !== hashval) {
-                            this.sampleOverlay();
-                            window.hashString = hashval;
-                            this.setSelectList();
-                        }
-                    }
-                }, inputele);
-            searchPopup.hidePopup();
-            settingPopup = new Popup(sb.vars.setting, {
-                offsetX: 5,
-                offsetY: 5,
-                zIndex: 10012,
-                relateTo: <any>settingElement,
-                position: { X: 'right', Y: 'bottom' }
-                , collision: { X: 'flip', Y: 'flip' }
-            });
-            settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, showBackdrop: true, type: 'Over' });
-            settingSidebar.appendTo('#right-sidebar');
-            themeDropDown = new DropDownList({
-                index: 0,
-                change: (e: any) => { this.switchTheme(e.value); }
-            });
-            themeDropDown.appendTo('#sb-setting-theme');
-            currencyDropDown = new DropDownList({
-                index: 0,
-                change: (e: any) => { setCurrencyCode(e.value); }
-            });
-
-            cultureDropDown = new DropDownList({
-                index: 0,
-                change: (e: any) => {
-                    let value: string = e.value;
-                    if (value === 'ar') {
-                        this.changeRtl(true);
-                    } else {
-                        this.changeRtl(false);
-                    }
-                    currencyDropDown.value = matchedCurrency[value];
-                    setCulture(e.value);
-                }
-            });
-            cultureDropDown.appendTo('#sb-setting-culture');
-            currencyDropDown.appendTo('#sb-setting-currency');
-            sb.vars.sourceTab = new Tab({
-                items: [],
-                cssClass: 'sb-source-code-section',
-                headerPlacement: 'Bottom',
-                selected: this.dynamicTab,
-                selecting: this.preventTabSwipe,
-            }, "#sb-source-tab")
-            let tabHeader: HTMLElement = <HTMLElement>document.getElementById('sb-content-header');
-            tabHeader.appendChild(tabContentToolbar);
-            let previous: Tooltip = new Tooltip({
-                content: 'Previous Sample'
-            });
-            previous.appendTo('#prev-sample');
-            let openNew: Tooltip = new Tooltip({
-                content: 'Open in New Window'
-            });
-            openNew.appendTo('#openNew');
-            let next: Tooltip = new Tooltip({
-                content: 'Next Sample'
-            });
-            select('#right-pane').addEventListener('scroll', function (event: any) {
-                next.close();
-                previous.close();
-            });
-
-            next.appendTo('#next-sample');
-            if (!isMobile) {
-                settingPopup.hide();
-                settingSidebar.hide();
-            } else {
-                sb.vars.mobilePreference.appendChild(sb.vars.setting);
-            }
-            let prevbutton: Button = new Button({ iconCss: 'sb-icons sb-icon-Previous', cssClass: 'e-flat' }, '#mobile-prev-sample');
-            let nextbutton: Button = new Button(
-                {
-                    iconCss: 'sb-icons sb-icon-Next',
-                    cssClass: 'e-flat', iconPosition: 'Right'
-                },
-                '#mobile-next-sample');
-        },
-
-        changeTab: function (args: any): void {
-            if (args.selectedIndex === 1) {
-                sb.vars.sourceTab.items = sourceTabItems;
-                sb.vars.sourceTab.refresh();
-                this.rendercopycode();
-                this.dynamicTabCreation(sb.vars.sourceTab);
-            }
-        },
-
-        rendercopycode: function (): void {
-            let ele: HTMLElement = createElement('div', { className: 'copy-tooltip', innerHTML: '<div class="e-icons copycode"></div>' });
-            (this.$el.querySelector('#sb-source-tab') as HTMLElement).appendChild(ele);
-            let copiedTooltip: Tooltip = new Tooltip({
-                content: 'Copied to clipboard ',
-                position: 'BottomCenter',
-                opensOn: 'Click',
-                closeDelay: 500
-            });
-            copiedTooltip.appendTo(ele);
-            select('.copycode').addEventListener('click', this.copyCode);
-        },
-
-        dynamicTab: function (e: any): void {
-            let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content-sb-source-tab_' + e.selectedIndex);
-            let codeEle: any = blockEle.children[0];
-            codeEle.innerHTML = sb.vars.sourceTab.items[e.selectedIndex].data;
-            codeEle.innerHTML = codeEle.innerHTML.replace(reg,'');
-            codeEle.classList.add('sb-src-code');
-            this.highlightCode(codeEle);
-        },
-
-        dynamicTabCreation: function (obj: any): void {
-            let blockEle: Element = obj.element.querySelector('#e-content'+ obj.tabId + '_' + obj.selectedItem ).children[0];
-            blockEle.innerHTML = obj.items[obj.selectedItem].data;
-            blockEle.innerHTML = blockEle.innerHTML.replace(reg,'');
-            blockEle.classList.add('sb-src-code');
-           this.highlightCode(blockEle);
-         
-        },
-
-        highlightCode: function(codeEle: Element): void {
-            codeEle.classList.add("sb-src-code");
-            hljs.highlightBlock(codeEle);
-          },
-
-        eventBinding: function (): void {
-            let fn: Function = (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.headerAction('changeSampleBrowser');
-            }
-            sb.vars.switcher.addEventListener('click', fn)
-            sb.vars.switch.addEventListener('click', fn)
-            sb.vars.headerThemeSwitch.addEventListener('click', (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.headerAction('changeTheme');
-
-            });
-            document.addEventListener('click', (this.headerAction.bind(this, 'closePopup') as any));
-            searchButton.addEventListener('click', (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.toggleSearchOverlay();
-            });
-            settingElement.addEventListener('click', (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.headerAction('toggleSettings');
-            });
-            sb.vars.setting.addEventListener('click', (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-            inputele.addEventListener('click', (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-            themeList.addEventListener('click', this.changeTheme);
-            sb.vars.setResponsiveElement.addEventListener('click', this.setMouseOrTouch);
-            sb.vars.sblink.addEventListener('click', (e: MouseEvent) => {
-                let target: Element = closest(<any>e.target, 'li');
-                if (target) {
-                    let anchor: any = target.querySelector('a');
-                    if (anchor) {
-                        anchor.click();
-                    }
-                }
-            })
-
-            window.addEventListener('resize', this.processResize);
-            sbRightPane.addEventListener('click', () => {
-                if (isMobile && this.isLeftPaneOpen()) {
-                    this.toggleLeftPane();
-                }
-            });
-            sb.vars.leftBack.addEventListener('click', this.showHideControlTree);
-            leftToggle.addEventListener('click', this.toggleLeftPane);
-            headerSetting.addEventListener('click', this.viewMobilePrefPane);
-            select('.sb-mobile-setting').addEventListener('click', this.viewMobilePropPane);
-            select('#next-sample').addEventListener('click', this.onNextButtonClick);
-
-            select('#prev-sample').addEventListener('click', this.onPrevButtonClick);
-            select('#mobile-next-sample').addEventListener('click', this.onNextButtonClick);
-            select('#openNew').addEventListener('click', this.onOpenNewButtonClick);
-            select('#mobile-prev-sample').addEventListener('click', this.onPrevButtonClick);
-        },
-
-        changeRtl(args: any): void {
-            let elementlist: HTMLElement[] = selectAll('.e-control', (this.$el.querySelector('#control-content') as HTMLElement));
-
-            for (let control of elementlist) {
-                let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
-                if (eleinstance) {
-                    for (let instance of eleinstance) {
-                        (<DestroyMethod>instance).enableRtl = args;
-                    }
-                }
-            }
-        },
-
-        headerAction: function (action: string, preventSearch?: boolean): void {
-            if (openedPopup) {
-                openedPopup.hide(new Animation({ name: 'FadeOut', duration: 80, delay: 0 }));
-            }
-            let curPopup: any;
-            switch (action) {
-                case 'changeSampleBrowser':
-                    curPopup = switcherPopup;
-                    break;
-                case 'changeTheme':
-                    sb.vars.headerThemeSwitch.classList.toggle('active');
-                    this.setPressedAttribute(sb.vars.headerThemeSwitch);
-                    curPopup = themeSwitcherPopup;
-                    break;
-                case 'toggleSettings':
-                    settingElement.classList.toggle('active');
-                    this.setPressedAttribute(settingElement);
-                    themeDropDown.index = themeCollection.indexOf(selectedTheme);
-                    curPopup = settingPopup;
-                    break;
-            }
-
-            if (action === 'closePopup') {
-                sb.vars.headerThemeSwitch.classList.remove('active');
-                sb.vars.switcher.classList.remove('active');
-                settingElement.classList.remove('active');
-                this.setPressedAttribute(sb.vars.headerThemeSwitch);
-                this.setPressedAttribute(settingElement);
-            }
-
-            if (preventSearch !== true && !searchOverlay.classList.contains('sb-hide')) {
-                searchOverlay.classList.add('sb-hide');
-                searchButton.classList.remove('active');
-                this.setPressedAttribute(<HTMLElement>searchButton);
-            }
-
-            if (curPopup && (curPopup !== openedPopup)) {
-                curPopup.show(new Animation({ name: 'FadeIn', duration: 400, delay: 0 }));
-
-                openedPopup = curPopup;
-            }
-            else {
-                openedPopup = null;
-            }
-            prevAction = action;
-        },
-
-        setPressedAttribute: function (ele: HTMLElement): void {
-            let status: boolean = ele.classList.contains('active');
-            ele.setAttribute('aria-pressed', status ? 'true' : 'false');
-        },
-
-        toggleSearchOverlay: function (): void {
-            this.headerAction('closePopup', true);
-            inputele.value = '';
-            searchPopup.hidePopup();
-            searchButton.classList.toggle('active');
-            this.setPressedAttribute(<HTMLElement>searchButton);
-            searchOverlay.classList.toggle('sb-hide');
-            if (!searchOverlay.classList.contains('sb-hide')) {
-                inputele.focus();
-            }
-        },
-
-        highlight: function (searchString: string, listElement: any): void {
-            let regex: RegExp = new RegExp(searchString.split(' ').join('|'), 'gi');
-            let contentElements: any[] = selectAll('.e-list-item .e-text-content .e-list-text', listElement);
-            for (let i: number = 0; i < contentElements.length; i++) {
-                let spanText: any = select('.sb-highlight');
-                if (spanText) {
-                    contentElements[i].innerHTML = contentElements[i].text;
-                }
-                contentElements[i].innerHTML = contentElements[i].innerHTML.replace(regex, (matched: string) => {
-                    return '<span class="sb-highlight">' + matched + '</span>';
-                });
-            }
-        },
-
-        SbLink: function (): void {
-            let href: any = location.href;
-            let link: string[] = href.match(urlRegex);
-            let sample: string = href.match(sampleRegex)[1];
-            for (let sb of sbArray) {
-                let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
-                if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
-                    ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
-                } else if (sb === 'blazor') {
-                    ele.href = 'https://blazor.syncfusion.com/demos/';
-                } else {
-                    ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
-                        (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');
-                }
-            }
-        },
-
-        changeTheme: function (e: MouseEvent): void {
-            let target: Element = <HTMLElement>e.target;
-            target = closest(target, 'li');
-            let themeName: string = target.id;
-            this.switchTheme(themeName);
-        },
-
-        switchTheme: function (str: string): void {
-            let hash: string[] = location.hash.split('/');
-            if (hash[1] !== str) {
-                hash[1] = str;
-                location.hash = hash.join('/');
-                location.reload();
-            }
-        },
-
-        loadTheme: function (theme: string): void {
-            let body: HTMLElement = document.body;
-            if (body.classList.length > 0) {
-                for (let themeItem of themeCollection) {
-                    body.classList.remove(themeItem);
-                }
-            }
-            body.classList.add(theme);
-            themeList.querySelector('.active').classList.remove('active');
-            themeList.querySelector('#' + theme).classList.add('active');
-            selectedTheme = theme;
-            this.renderLeftPaneComponents();
-            this.rendersbPopup();
-            this.eventBinding();
-            this.sampleArray();
-            this.updatesourceTab();
-            (elasticlunr as any).clearStopWords();
-            searchInstance = (elasticlunr as any).Index.load(searchJson);
-            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 500);
-        },
-
-        setMouseOrTouch: function (e: MouseEvent): void {
-            let ele: HTMLElement = <any>closest(<any>e.target, '.sb-responsive-items');
-            let switchType: string = ele.id;
-            this.changeMouseOrTouch(switchType);
-            this.headerAction('closePopup');
-            localStorage.setItem('ej2-switch', switchType);
-            location.reload();
-        },
-
-        changeMouseOrTouch: function (str: string): void {
-            let activeEle: Element = sb.vars.setResponsiveElement.querySelector('.active');
-            if (activeEle) {
-                activeEle.classList.remove('active');
-            }
-            if (str === 'mouse') {
-                document.body.classList.remove('e-bigger');
-            } else {
-                document.body.classList.add('e-bigger');
-            }
-            sb.vars.setResponsiveElement.querySelector('#' + str).classList.add('active');
-        },
-
-        viewMobilePrefPane: function (): void {
-            select('.sb-mobile-prop-pane').classList.add('sb-hide');
-            sb.vars.mobilePreference.classList.remove('sb-hide');
-            this.toggleRightPane();
-        },
-
-        viewMobilePropPane: function (): void {
-            sb.vars.mobilePreference.classList.add('sb-hide');
-            select('.sb-mobile-prop-pane').classList.remove('sb-hide');
-            this.toggleRightPane();
-        },
-
-        toggleRightPane: function (): void {
-            select('#right-sidebar').classList.remove('sb-hide');
-            themeDropDown.index = themeCollection.indexOf(selectedTheme);
-            if (isMobile) {
-                settingSidebar.toggle();
-            }
-        },
-        resetInput: function (arg: any): void {
-            arg.preventDefault();
-            arg.stopPropagation();
-            (<HTMLInputElement>document.getElementById('search-input')).value = '';
-            sb.vars.inputWrapper.setAttribute('data-value', '');
-            searchPopup.hidePopup();
-        },
-
-        onNextButtonClick: function (arg: any): void {
-            sb.vars.contentTab.selectedItem = 0;
-            this.sampleOverlay();
-            let curSampleUrl: string = location.hash;
-            let inx: number = samplesAr.indexOf(curSampleUrl);
-            if (inx !== -1) {
-                let prevhref: string = samplesAr[inx];
-                let curhref: string = samplesAr[inx + 1];
-                location.href = curhref;
-            }
-            window.hashString = location.hash;
-            this.setSelectList();
-        },
-        onPrevButtonClick: function (arg: any): void {
-            this.sampleOverlay();
-            let curSampleUrl: string = location.hash;
-            let inx: number = samplesAr.indexOf(curSampleUrl);
-            if (inx !== -1) {
-                let prevhref: string = samplesAr[inx];
-                let curhref: string = samplesAr[inx - 1];
-                location.href = curhref;
-            }
-            window.hashString = location.hash;
-            this.setSelectList();
-        },
-        onOpenNewButtonClick: function (arg: any): void {
-            let samplePath = location.href.split('#')[1].split('/');
-            (select('#openNew') as HTMLFormElement).href =
-            location.href.split('#')[0] + samplePath[2] + '/' + samplePath[3].replace('.html','/');
-        },
-
-        setLeftPaneHeight: function (): void {
-            let leftPane: HTMLElement = select('.sb-left-pane', this.$el) as HTMLElement;
-            leftPane.style.height = isMobile ? (document.body.offsetHeight + 'px') : '';
-        },
-
-        processResize: function (e: any): void {
-            let toggle: boolean = sidebar.isOpen;
-            isMobile = window.matchMedia('(max-width:550px)').matches;
-            isTablet = window.matchMedia('(min-width:550px) and (max-width: 850px)').matches;
-            isPc = window.matchMedia('(min-width:850px)').matches;
-            if (isTablet) {
-                resizeManualTrigger = false;
-            }
-            if (resizeManualTrigger || (isMobile && select('#right-sidebar').classList.contains('sb-hide'))) {
-                return;
-            }
-            this.setLeftPaneHeight();
-            let leftPane: Element = select('.sb-left-pane');
-            let rightPane: Element = select('.sb-right-pane');
-            let footer: Element = select('.sb-footer-left');
-            let pref: any = select('#settings-popup');
-            if (isTablet || isMobile) {
-                sb.vars.contentTab.hideTab(1);
-            } else {
-                sb.vars.contentTab.hideTab(1, false);
-            }
-            if (toggle && !isPc) {
-                this.toggleLeftPane();
-            }
-            if (isMobile || isTablet) {
-                sidebar.closeOnDocumentClick = true;
-                select('.sb-left-footer-links').appendChild(footer);
-                if (isTablet) {
-                    select('.sb-footer').appendChild(footer);
-                }
-                if (this.isVisible('.sb-mobile-overlay')) {
-                    this.removeMobileOverlay();
-                }
-                if (!pref.parentElement.classList.contains('sb-mobile-preference')) {
-                    sb.vars.mobilePreference.appendChild(pref);
-                    settingPopup.show();
-                }
-                let propPanel: Element = select('#control-content .property-section');
-                if (propPanel) {
-                    select('.sb-mobile-prop-pane').appendChild(propPanel);
-                    select('.sb-mobile-setting').classList.remove('sb-hide');
-                }
-                if (this.isVisible('.sb-mobile-overlay')) {
-                    this.removeMobileOverlay();
-                }
-            }
-            if (isPc) {
-                sidebar.target = sb.vars.source;
-                sidebar.showBackdrop = false;
-                sidebar.closeOnDocumentClick = false;
-
-                sidebar.show();
-
-                if (this.isVisible('.sb-mobile-overlay')) {
-                    this.removeMobileOverlay();
-                }
-                if (isPc && !Browser.isDevice && this.isVisible('.sb-left-pane')) {
-                    rightPane.classList.remove('control-fullview');
-                }
-                if (pref.parentElement.classList.contains('sb-mobile-preference')) {
-                    select('#sb-popup-section').appendChild(pref);
-                    settingSidebar.hide();
-                    settingPopup.hide();
-                }
-                let mobilePropPane: Element = select('.sb-mobile-prop-pane .property-section');
-                if (mobilePropPane) {
-                    select('.sb-mobile-setting').classList.add('sb-hide');
-                    select('#right-sidebar').classList.add('sb-hide');
-                    select('#control-content', this.$el).appendChild(mobilePropPane);
-                }
-                if (!select('.sb-mobile-right-pane').classList.contains('sb-hide')) {
-                    this.toggleRightPane();
-                }
-            }
-            if (switcherPopup) {
-                switcherPopup.refreshPosition();
-            }
-        },
-
-        processDeviceDependables: function (): void {
-            if (Browser.isDevice) {
-                select('.sb-desktop-setting').classList.add('sb-hide');
-            } else {
-                select('.sb-desktop-setting').classList.remove('sb-hide');
-            }
-        },
-
-        overlay: function (): void {
-            sbHeader.classList.add('sb-right-pane-overlay');
-            sbBodyOverlay.classList.remove('sb-hide');
-        },
-
-        isVisible: function (elem: string): boolean {
-            return !select(elem).classList.contains('sb-hide');
-        },
-
-        removeMobileOverlay: function (): void {
-            select('.sb-mobile-overlay').classList.add('sb-hide');
-        },
-
-        renderPropertyPane: function (ele: string): void {
-            let controlSection: Element = <HTMLElement>document.getElementById('control-content');
-            let elem: Element = <HTMLElement>controlSection.querySelector(ele);
-            let title: any;
-            if (!elem) { return; }
-            let parentEle: HTMLElement = <HTMLElement>elem.parentElement;
-            elem = detach(elem);
-            title = elem.getAttribute('title');
-            elem.classList.add('property-panel-table');
-            let parentPane: Element = createElement('div', {
-                className: 'property-panel-section',
-                innerHTML: `<div class="property-panel-header">${title}</div><div class="property-panel-content"></div>`
-            });
-            parentPane.children[1].appendChild(elem);
-            parentEle.appendChild(parentPane);
-        },
-
-        setPropertySectionHeight: function (): void {
-            let propertypane: HTMLElement = <any>select('.property-section');
-            let ele: HTMLElement = <any>document.querySelector('.control-section');
-
-            if (ele && propertypane) {
-                ele.classList.add('sb-property-border');
-            } else {
-                ele.classList.remove('sb-property-border');
-            }
-        },
-
-        toggleButtonState: function (id: string, state: boolean): void {
-            let ele: HTMLButtonElement = <HTMLButtonElement>document.getElementById(id);
-            let mobileEle: HTMLButtonElement = <HTMLButtonElement>document.getElementById('mobile-' + id);
-            ele.disabled = state;
-            mobileEle.disabled = state;
-            if (state) {
-                mobileEle.classList.add('e-disabled');
-                ele.classList.add('e-disabled');
-            } else {
-                mobileEle.classList.remove('e-disabled');
-                ele.classList.remove('e-disabled');
-            }
-        },
-        copyCode: function (): void {
-            let copyElem: HTMLElement = select('#sb-source-tab .e-item.e-active') as HTMLElement;
-            let textArea: HTMLTextAreaElement = createElement('textArea') as HTMLTextAreaElement;
-            textArea.textContent = copyElem.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            detach(textArea);
-            (select('.copy-tooltip') as any).ej2_instances[0].close();
-        },
-
-        sampleArray: function (): void {
-            for (let node of <Controls[]>samplesList) {
-                let dataManager: DataManager = new DataManager((node as any).samples);
-                let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
-                    dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
-                for (let sample of samples) {
-                    let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material';
-                    let control: string = node.directory;
-                    let sampleUrl: string = sample.url;
-                    let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
-                    samplesAr.push('#' + loc);
-                }
-            }
-        },
-
-        getStringWithOutDescription: function (code: string, descRegex: RegExp): string {
-            let lines: string[] = code.split('\n');
-            let desStartLine: any = null;
-            let desEndLine: any = null;
-            let desInsideDivCnt: number = 0;
-            for (let i: number = 0; i < lines.length; i++) {
-                let curLine: string = lines[i];
-                if (desStartLine) {
-                    if (/<div/g.test(curLine)) {
-                        desInsideDivCnt = desInsideDivCnt + 1;
-                    }
-                    if (desInsideDivCnt && /<\/div>/g.test(curLine)) {
-                        desInsideDivCnt = desInsideDivCnt - 1;
-                    } else if (!desEndLine && /<\/div>/g.test(curLine)) {
-                        desEndLine = i + 1;
-                    }
-                }
-                if (descRegex.test(curLine)) {
-                    desStartLine = i;
-                }
-            }
-            if (desEndLine && desStartLine) {
-                lines.splice(desStartLine, desEndLine - desStartLine);
-            }
-            return lines.join('\n');
-        },
-
-        sourceFileList: function (node: any): void {
-            for (let samples of node.curViewDS) {
-                if (samples.url == location.hash.split('/')[3].replace('.html', '')) {
-                    return samples.sourceFiles;
-                }
-            }
-        },
-        generatepath: function(path:any): void{
-            let splitPath: string = path.split('/')[1];
-            let filePath:any = [{path:`src/${path}.vue`,displayName:`${splitPath}.vue`}]
-            return filePath;
-        },
-
-        updatesourceTab: function (): void {
-            let curDir: any = location.hash.split('/').slice(2).join('/').replace('.html','');
-            let curSample: any = location.hash.split('/')[3].replace('.html', '');
-            let sourcePromise: Array<Promise<Ajax>> = [];
-            let ajaxvue: any = new Ajax('src/' + curDir + '.vue', 'GET', false);
-            let sObj: any = [];
-            this.SbLink();
-            sb.vars.contentTab.selectedItem = 0;
-            sb.vars.sourceTab.selectedItem = 0;
-            let sampleListFile: ListView = (select('#controlList', this.$el) as any).ej2_instances[0];
-            let sourceFiles: any = this.sourceFileList(sampleListFile) as any || this.generatepath(curDir);
-            if (sourceFiles) {
-                for (let i: number = 0; i < sourceFiles.length; i++) {
-                    sourcePromise.push((new Ajax(sourceFiles[i].path, 'GET', false)).send());
-                    sObj.push({
-                        header: { text: sourceFiles[i].displayName },
-                        data: '',
-                        content: sourceFiles[i].displayName
-                    });
-                }
-            }
-            Promise.all(sourcePromise).then((results: Object[]): void => {
-                results.forEach((value, index) => {
-                    let sampleContent: string = value.toString();
-                    sampleContent = this.getStringWithOutDescription(sampleContent, /(\'|\")description/g);
-                    sampleContent = this.getStringWithOutDescription(sampleContent, /(\'|\")action-description/g)
-                    sampleContent = sampleContent.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
-                    sObj[index].data = sampleContent;
-                })
-                sourceTabItems = sObj;
-            })
-
-            ajaxvue.send().then((value: Object): void => {
-                let controlSec: Element = <HTMLElement>document.getElementById('control-content');
-                let comp: Element = <HTMLElement>controlSec.querySelector('.property-panel-section');
-                if (comp) {
-                    document.querySelectorAll('#control-content .property-section')[1].classList.add('sb-hide')
-                }
-                this.renderPropertyPane('#property');
-                select('.sb-mobile-prop-pane', this.$el).innerHTML = '';
-                this.setPropertySectionHeight();
-                this.removeOverlay();
-                let propPanel: Element = select('#control-content .property-section');
-                if (isMobile) {
-                    if (propPanel) {
-                        select('.sb-mobile-setting').classList.remove('sb-hide');
-                        select('.sb-mobile-prop-pane').appendChild(propPanel);
-                    } else {
-                        select('.sb-mobile-setting').classList.add('sb-hide');
-                    }
-                }
-                if (Browser.isDevice) {
-                    if (location.hash && samplesAr.indexOf(location.hash) == -1) {
-                        let toastObj: Toast = new Toast({
-                            position: {
-                                X: 'Right'
-                            }
-                        });
-                        let hideLocation: string = location.hash.split('/')[2];
-                        toastObj.appendTo('#sb-home');
-                        setTimeout(
-                            () => {
-                                toastObj.show({
-                                    content: `${hideLocation} component not supported in mobile device`
-                                });
-                            }, 200);
-                        window.location.hash = "#/material/grid/grid-overview.html"
-                    }
-                }
-                let curIndex: number = samplesAr.indexOf(location.hash);
-                let samLength: number = samplesAr.length - 1;
-                if (curIndex === samLength) {
-                    this.toggleButtonState('next-sample', true);
-                } else {
-                    this.toggleButtonState('next-sample', false);
-                }
-                if (curIndex === 0) {
-                    this.toggleButtonState('prev-sample', true);
-                } else {
-                    this.toggleButtonState('prev-sample', false);
-                }
-            })
-                .catch((reason: any): void => {
-                    //errorHandler(reason.message);
-                });
-        },
-
-        destroyControls(): void {
-            let elementlist: HTMLElement[] = selectAll('.e-control', sb.vars.content);
-            for (let control of elementlist) {
-                let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
-                if (eleinstance) {
-                    for (let instance of eleinstance) {
-                        (<DestroyMethod>instance).destroy();
-                    }
-                }
-            }
-        },
-
-        removeOverlay: function (): void {
-            document.body.setAttribute('aria-busy', 'false');
-            sbContentOverlay.classList.add('sb-hide');
-            sbRightPane.classList.remove('sb-right-pane-overlay');
-            sbHeader.classList.remove('sb-right-pane-overlay');
-            this.mobNavOverlay(false);
-            if (!sbBodyOverlay.classList.contains('sb-hide')) {
-                sbBodyOverlay.classList.add('sb-hide');
-            }
-            if (!isMobile) {
-                sbRightPane.scrollTop = 0;
-            } else {
-                sbRightPane.scrollTop = 74;
-            }
-        },
-
-        loadJSON: function (): void {
-            let switchText: string = localStorage.getItem('ej2-switch') || 'mouse';
-            if (Browser.isDevice || window.screen.width <= 850) {
-                switchText = 'touch';
-            }
-            this.setLeftPaneHeight();
-            if (isMobile) {
-                select('#left-sidebar').classList.add('sb-hide');
-                select('.sb-left-footer-links').appendChild(select('.sb-footer-left'));
-                sidebar.toggle();
-                leftToggle.classList.remove('toggle-active');
-            }
-
-            if (isTablet || (Browser.isDevice && isPc)) {
-                leftToggle.classList.remove('toggle-active');
-                sbRightPane.classList.add('control-fullview');
-            }
-            this.overlay();
-            this.changeMouseOrTouch(switchText);
-            localStorage.removeItem('ej2-switch');
-            enableRipple(selectedTheme === 'material' || !selectedTheme);
-            this.loadTheme(selectedTheme);
+            window.hashString = '#/' + theme + path;
+            setTimeout(() => { location.hash = '#/' + theme + path; }, 600);
         }
     }
+};
+
+const controlListRefresh = (ele: Element): void => {
+    let controlName: string = <string>ele.getAttribute('control-name');
+    let samples: any = controlSampleData[controlName];
+    if (samples) {
+        let listView: ListView = (select('#controlList', rootEle) as any).ej2_instances[0];
+        listView.dataSource = samples;
+        showHideControlTree();
+    }
+};
+
+const showHideControlTree = (): void => {
+    let controlTree: HTMLElement = select('#controlTree', rootEle) as HTMLElement;
+    let controlList: HTMLElement = select('#controlSamples', rootEle) as HTMLElement;
+    let reverse: boolean = (select('#controlTree', rootEle) as HTMLElement).style.display === 'none';
+    reverse ? viewSwitch(controlList, controlTree, reverse) : viewSwitch(controlTree, controlList, reverse);
+};
+
+const viewSwitch = (from: HTMLElement, to: HTMLElement, reverse: boolean): void => {
+    let anim: Animation = new Animation({ duration: 500, timingFunction: 'ease' });
+    let controlTree: HTMLElement = select('#controlTree', rootEle) as HTMLElement;
+    let controlList: Element = select('#controlList', rootEle);
+    controlTree.style.overflowY = 'hidden';
+    controlList.classList.remove('e-view');
+    controlList.classList.remove('sb-control-list-top');
+    controlList.classList.add('sb-adjust-juggle');
+    to.style.display = '';
+    anim.animate(from, {
+        name: reverse ? 'SlideRightOut' : 'SlideLeftOut', end: (): void => {
+            controlTree.style.overflowY = 'auto';
+            from.style.display = 'none';
+            controlList.classList.add('e-view');
+            controlList.classList.add('sb-control-list-top');
+            controlList.classList.remove('sb-adjust-juggle');
+        }
+    });
+    anim.animate(to, { name: reverse ? 'SlideLeftIn' : 'SlideRightIn' });
+};
+
+const sampleOverlay = (): void => {
+    document.body.setAttribute('aria-busy', 'true');
+    sbHeader.classList.add('sb-right-pane-overlay');
+    sbRightPane.classList.add('sb-right-pane-overlay');
+    mobNavOverlay(true);
+    sbContentOverlay.classList.remove('sb-hide');
+};
+
+const setSelectList = (): void => {
+    let hString: string = window.hashString || location.hash;
+    let hash: string[] = hString.split('/');
+    let list: ListView = (select('#controlList', rootEle) as any).ej2_instances[0];
+    let control: Element = select('[control-name="' + hash[2] + '"]');
+    if (control) {
+        let data: any = list.dataSource;
+        let samples: any = controlSampleData[<string>control.getAttribute('control-name')];
+        if (JSON.stringify(data) !== JSON.stringify(samples)) {
+            list.dataSource = samples;
+            list.dataBind();
+        }
+        let selectSample: Element = select('[sample-name="' + hash.slice(-1)[0].split('.html')[0] + '"]');
+        if (selectSample) {
+            if ((select('#controlTree', rootEle) as HTMLElement).style.display !== 'none') {
+                showHideControlTree();
+            }
+            list.selectItem(selectSample);
+            selectSample.scrollIntoView({ block: "nearest" });
+
+        }
+    } else {
+        showHideControlTree();
+        list.selectItem(select('[sample-name="grid-overview"]'));
+    }
+};
+
+const toggleLeftPane = (): void => {
+    let reverse: boolean = sidebar.isOpen;
+    select('#left-sidebar').classList.remove('sb-hide');
+    if (!reverse) {
+        leftToggle.classList.add('toggle-active');
+    } else {
+        leftToggle.classList.remove('toggle-active');
+    }
+    if (sidebar) {
+        reverse = sidebar.isOpen;
+        if (reverse) {
+            sidebar.hide();
+            if (!isMobile && !isTablet) {
+                resizeManualTrigger = true;
+                setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 1500);
+            }
+        } else {
+            sidebar.show();
+            resizeManualTrigger = true;
+            setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 200);
+        }
+    }
+};
+
+const mobNavOverlay = (isOverlay: boolean): void => {
+    if (Browser.isDevice) {
+        let mobileFoorter: Element = select('.sb-mobilefooter', rootEle);
+        if (isOverlay) {
+            mobileFoorter.classList.add('sb-right-pane-overlay');
+        } else {
+            mobileFoorter.classList.remove('sb-right-pane-overlay');
+        }
+    }
+};
+
+const isLeftPaneOpen = (): boolean => {
+    return sidebar.isOpen;
+};
+
+const closeRightSidebar = (args: EventArgs): void => {
+    let targetEle: HTMLElement | null = args.event ? args.event.target as HTMLElement : null;
+    if (targetEle && targetEle.closest('.e-popup')) args.cancel = true;
+};
+
+const rendersbPopup = (): void => {
+    switcherPopup = new Popup(sb.vars.sample, {
+        relateTo: sb.vars.switch, position: { X: 'left' },
+        collision: { X: 'flip', Y: 'flip' },
+        offsetX: 0,
+        offsetY: -15,
+        zIndex: 1001
+    });
+    switcherPopup.hide();
+    themeSwitcherPopup = new Popup(sb.vars.themePoppup, {
+        offsetY: 2,
+        zIndex: 10012,
+        relateTo: <HTMLElement>select('.theme-wrapper', rootEle), position: { X: 'left', Y: 'bottom' },
+        collision: { X: 'flip', Y: 'flip' }
+    });
+    themeSwitcherPopup.hide();
+    searchPopup = new AutoComplete(
+        {
+            dataSource: [],
+            filtering: (e: any) => {
+                if (e.text && e.text.length < 3) {
+                    return;
+                }
+                let val: any = searchInstance.search(e.text, {
+                    fields: {
+                        component: { boost: 1 },
+                        name: { boost: 2 }
+                    },
+                    expand: true,
+                    boolean: 'AND'
+                });
+                let value: any = [];
+                if (Browser.isDevice) {
+                    for (let file of val) {
+                        if (file.doc.hideOnDevice !== true) {
+                            value = value.concat(file);
+                        }
+                    }
+                }
+                let query: Query = new Query().take(10).select('doc');
+                let fields: any = searchInstance.fields;
+                let searchValue: any = Browser.isDevice ? value : val;
+                e.updateData(searchValue, query, fields);
+
+            },
+            placeholder: 'Search here...',
+            noRecordsTemplate: '<div class="search-no-record">We’re sorry. We cannot find any matches for your search term.</div>',
+            fields: { groupBy: 'doc.component', value: 'doc.uid', text: 'doc.name' },
+            popupHeight: 'auto',
+            suggestionCount: 10,
+            highlight: true,
+            select: (e: any) => {
+                let data: any = e.itemData.doc;
+                let hashval: string = '#/' + location.hash.split('/')[1] + '/' + data.dir + '/' + data.url + '.html';
+                searchPopup.hidePopup();
+                searchOverlay.classList.add('e-search-hidden');
+                if (location.hash !== hashval) {
+                    sampleOverlay();
+                    window.hashString = hashval;
+                    setSelectList();
+                }
+            }
+        }, inputele);
+    searchPopup.hidePopup();
+    settingPopup = new Popup(sb.vars.setting, {
+        offsetX: 5,
+        offsetY: 5,
+        zIndex: 10012,
+        relateTo: <any>settingElement,
+        position: { X: 'right', Y: 'bottom' }
+        , collision: { X: 'flip', Y: 'flip' }
+    });
+    settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, close: closeRightSidebar, showBackdrop: true, type: 'Over' });
+    settingSidebar.appendTo('#right-sidebar');
+    themeDropDown = new DropDownList({
+        index: 0,
+        change: (e: any) => { switchTheme(e.value); }
+    });
+    themeDropDown.appendTo('#sb-setting-theme');
+    currencyDropDown = new DropDownList({
+        index: 0,
+        change: (e: any) => { setCurrencyCode(e.value); }
+    });
+
+    cultureDropDown = new DropDownList({
+        index: 0,
+        change: (e: any) => {
+            let value: string = e.value;
+            if (value === 'ar') {
+                changeRtl(true);
+            } else {
+                changeRtl(false);
+            }
+            currencyDropDown.value = matchedCurrency[value];
+            setCulture(e.value);
+        }
+    });
+    cultureDropDown.appendTo('#sb-setting-culture');
+    currencyDropDown.appendTo('#sb-setting-currency');
+    sb.vars.sourceTab = new Tab({
+        items: [],
+        cssClass: 'sb-source-code-section',
+        headerPlacement: 'Bottom',
+        selected: dynamicTab,
+        selecting: preventTabSwipe,
+    }, "#sb-source-tab")
+    let tabHeader: HTMLElement = <HTMLElement>document.getElementById('sb-content-header');
+    tabHeader.appendChild(tabContentToolbar);
+    let previous: Tooltip = new Tooltip({
+        content: 'Previous Sample'
+    });
+    previous.appendTo('#prev-sample');
+    let openNew: Tooltip = new Tooltip({
+        content: 'Open in New Window'
+    });
+    openNew.appendTo('#openNew');
+    let next: Tooltip = new Tooltip({
+        content: 'Next Sample'
+    });
+    select('#right-pane').addEventListener('scroll', function (event: any) {
+        next.close();
+        previous.close();
+    });
+
+    next.appendTo('#next-sample');
+    if (!isMobile) {
+        settingPopup.hide();
+        settingSidebar.hide();
+    } else {
+        sb.vars.mobilePreference.appendChild(sb.vars.setting);
+    }
+    let prevbutton: Button = new Button({ iconCss: 'sb-icons sb-icon-Previous', cssClass: 'e-flat' }, '#mobile-prev-sample');
+    let nextbutton: Button = new Button(
+        {
+            iconCss: 'sb-icons sb-icon-Next',
+            cssClass: 'e-flat', iconPosition: 'Right'
+        },
+        '#mobile-next-sample');
+};
+
+const changeTab = (args: any): void => {
+    if (args.selectedIndex === 1) {
+        sb.vars.sourceTab.items = sourceTabItems;
+        sb.vars.sourceTab.refresh();
+        rendercopycode();
+        dynamicTabCreation(sb.vars.sourceTab);
+    }
+    if (args.selectedItem && args.selectedItem.innerText === 'DEMO') {
+        let demoSection = document.getElementsByClassName('sb-demo-section')[0];
+        if (demoSection) {
+            let elementList = demoSection.getElementsByClassName('e-control e-lib');
+            for (let i = 0; i < elementList.length; i++) {
+                let instance = (elementList[i] as any).ej2_instances;
+                if (instance && instance[0] && typeof instance[0].refresh === 'function') {
+                    instance[0].refresh();
+                }
+                if (instance && instance[0] && instance[0].getModuleName() !== 'DashboardLayout')
+                    break;
+            }
+        }
+    }
+};
+
+const rendercopycode = (): void => {
+    let ele: HTMLElement = createElement('div', { className: 'copy-tooltip', innerHTML: '<div class="e-icons copycode"></div>' });
+    (rootEle.querySelector('#sb-source-tab') as HTMLElement).appendChild(ele);
+    let copiedTooltip: Tooltip = new Tooltip({
+        content: 'Copied to clipboard ',
+        position: 'BottomCenter',
+        opensOn: 'Click',
+        closeDelay: 500
+    });
+    copiedTooltip.appendTo(ele);
+    select('.copycode').addEventListener('click', copyCode);
+};
+
+const dynamicTab = (e: any): void => {
+    let blockEle: HTMLElement = <HTMLElement>document.querySelector('#sb-source-tab > .e-content > #e-content-sb-source-tab_' + e.selectedIndex);
+    let codeEle: any = blockEle.children[0];
+    codeEle.innerHTML = sb.vars.sourceTab.items[e.selectedIndex].data;
+    codeEle.innerHTML = codeEle.innerHTML.replace(reg, '');
+    codeEle.classList.add('sb-src-code');
+    highlightCode(codeEle);
+};
+
+const dynamicTabCreation = (obj: any): void => {
+    let blockEle: Element = obj.element.querySelector('#e-content' + obj.tabId + '_' + obj.selectedItem).children[0];
+    blockEle.innerHTML = obj.items[obj.selectedItem].data;
+    blockEle.innerHTML = blockEle.innerHTML.replace(reg, '');
+    blockEle.classList.add('sb-src-code');
+    highlightCode(blockEle);
+};
+
+const highlightCode = (codeEle: Element): void => {
+    codeEle.classList.add("sb-src-code");
+    hljs.highlightBlock(codeEle);
+};
+
+const eventBinding = (): void => {
+    let fn: Function = (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        headerAction('changeSampleBrowser');
+    }
+    sb.vars.switcher.addEventListener('click', fn)
+    sb.vars.switch.addEventListener('click', fn)
+    sb.vars.headerThemeSwitch.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        headerAction('changeTheme');
+
+    });
+    document.addEventListener('click', (headerAction.bind(this, 'closePopup') as any));
+    searchButton.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleSearchOverlay();
+    });
+    settingElement.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        headerAction('toggleSettings');
+    });
+    sb.vars.setting.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    inputele.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    themeList.addEventListener('click', changeTheme);
+    sb.vars.setResponsiveElement.addEventListener('click', setMouseOrTouch);
+    sb.vars.sblink.addEventListener('click', (e: MouseEvent) => {
+        let target: Element = closest(<any>e.target, 'li');
+        if (target) {
+            let anchor: any = target.querySelector('a');
+            if (anchor) {
+                anchor.click();
+            }
+        }
+    })
+
+    window.addEventListener('resize', processResize);
+    sbRightPane.addEventListener('click', () => {
+        if (isMobile && isLeftPaneOpen()) {
+            toggleLeftPane();
+        }
+    });
+    sb.vars.leftBack.addEventListener('click', showHideControlTree);
+    leftToggle.addEventListener('click', toggleLeftPane);
+    headerSetting.addEventListener('click', viewMobilePrefPane);
+    select('.sb-mobile-setting').addEventListener('click', viewMobilePropPane);
+    select('#open-plnkr').addEventListener('click', () => {
+        let stackForm: HTMLFormElement = select('#stack-form') as HTMLFormElement;
+        if (stackForm) {
+            stackForm.submit();
+        }
+    });
+    select('#next-sample').addEventListener('click', onNextButtonClick);
+
+    select('#prev-sample').addEventListener('click', onPrevButtonClick);
+    select('#mobile-next-sample').addEventListener('click', onNextButtonClick);
+    select('#openNew').addEventListener('click', onOpenNewButtonClick);
+    select('#mobile-prev-sample').addEventListener('click', onPrevButtonClick);
+};
+
+const changeRtl = (args: any): void => {
+    let elementlist: HTMLElement[] = selectAll('.e-control', (rootEle.querySelector('#control-content') as HTMLElement));
+
+    for (let control of elementlist) {
+        let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
+        if (eleinstance) {
+            for (let instance of eleinstance) {
+                (<DestroyMethod>instance).enableRtl = args;
+            }
+        }
+    }
+};
+
+const headerAction = (action: string, preventSearch?: boolean): void => {
+    if (openedPopup) {
+        openedPopup.hide(new Animation({ name: 'FadeOut', duration: 80, delay: 0 }));
+    }
+    let curPopup: any;
+    switch (action) {
+        case 'changeSampleBrowser':
+            curPopup = switcherPopup;
+            break;
+        case 'changeTheme':
+            sb.vars.headerThemeSwitch.classList.toggle('active');
+            setPressedAttribute(sb.vars.headerThemeSwitch);
+            curPopup = themeSwitcherPopup;
+            break;
+        case 'toggleSettings':
+            settingElement.classList.toggle('active');
+            setPressedAttribute(settingElement);
+            themeDropDown.index = themeCollection.indexOf(selectedTheme);
+            curPopup = settingPopup;
+            break;
+    }
+
+    if (action === 'closePopup') {
+        sb.vars.headerThemeSwitch.classList.remove('active');
+        sb.vars.switcher.classList.remove('active');
+        settingElement.classList.remove('active');
+        setPressedAttribute(sb.vars.headerThemeSwitch);
+        setPressedAttribute(settingElement);
+    }
+
+    if (preventSearch !== true && !searchOverlay.classList.contains('sb-hide')) {
+        searchOverlay.classList.add('sb-hide');
+        searchButton.classList.remove('active');
+        setPressedAttribute(<HTMLElement>searchButton);
+    }
+
+    if (curPopup && (curPopup !== openedPopup)) {
+        curPopup.show(new Animation({ name: 'FadeIn', duration: 400, delay: 0 }));
+
+        openedPopup = curPopup;
+    }
+    else {
+        openedPopup = null;
+    }
+    prevAction = action;
+};
+
+const setPressedAttribute = (ele: HTMLElement): void => {
+    let status: boolean = ele.classList.contains('active');
+    ele.setAttribute('aria-pressed', status ? 'true' : 'false');
+};
+
+const toggleSearchOverlay = (): void => {
+    headerAction('closePopup', true);
+    inputele.value = '';
+    searchPopup.hidePopup();
+    searchButton.classList.toggle('active');
+    setPressedAttribute(<HTMLElement>searchButton);
+    searchOverlay.classList.toggle('sb-hide');
+    if (!searchOverlay.classList.contains('sb-hide')) {
+        inputele.focus();
+    }
+};
+
+const highlight = (searchString: string, listElement: any): void => {
+    let regex: RegExp = new RegExp(searchString.split(' ').join('|'), 'gi');
+    let contentElements: any[] = selectAll('.e-list-item .e-text-content .e-list-text', listElement);
+    for (let i: number = 0; i < contentElements.length; i++) {
+        let spanText: any = select('.sb-highlight');
+        if (spanText) {
+            contentElements[i].innerHTML = contentElements[i].text;
+        }
+        contentElements[i].innerHTML = contentElements[i].innerHTML.replace(regex, (matched: string) => {
+            return '<span class="sb-highlight">' + matched + '</span>';
+        });
+    }
+};
+
+const SbLink = (): void => {
+    let href: any = location.href;
+    let link: string[] = href.match(urlRegex);
+    let sample: string = href.match(sampleRegex)[1];
+    for (let sb of sbArray) {
+        let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
+        if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
+            ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
+        } else if (sb === 'blazor') {
+            ele.href = 'https://blazor.syncfusion.com/demos/';
+        } else {
+            ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
+                (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');
+        }
+    }
+};
+
+const changeTheme = (e: MouseEvent): void => {
+    let target: Element = <HTMLElement>e.target;
+    target = closest(target, 'li');
+    let themeName: string = target.id;
+    switchTheme(themeName);
+    let imageEditorElem = document.querySelector(".e-image-editor") as HTMLElement;
+    if (imageEditorElem != null) {
+        let imageEditor = getComponent(document.getElementById(imageEditorElem.id) as HTMLElement, 'image-editor') as ImageEditor;
+        (imageEditor as ImageEditor).theme = themeName;
+    }
+};
+
+const switchTheme = (str: string): void => {
+    let hash: string[] = location.hash.split('/');
+    if (hash[1] !== str) {
+        hash[1] = str;
+        location.hash = hash.join('/');
+        location.reload();
+    }
+};
+
+const loadTheme = (theme: string): void => {
+    let body: HTMLElement = document.body;
+    if (body.classList.length > 0) {
+        for (let themeItem of themeCollection) {
+            body.classList.remove(themeItem);
+        }
+    }
+    body.classList.add(theme);
+    themeList.querySelector('.active').classList.remove('active');
+    themeList.querySelector('#' + theme).classList.add('active');
+    selectedTheme = theme;
+    renderLeftPaneComponents();
+    rendersbPopup();
+    eventBinding();
+    sampleArray();
+    updatesourceTab();
+    (elasticlunr as any).clearStopWords();
+    searchInstance = (elasticlunr as any).Index.load(searchJson);
+    setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 500);
+};
+
+const setMouseOrTouch = (e: MouseEvent): void => {
+    let ele: HTMLElement = <any>closest(<any>e.target, '.sb-responsive-items');
+    let switchType: string = ele.id;
+    changeMouseOrTouch(switchType);
+    headerAction('closePopup');
+    localStorage.setItem('ej2-switch', switchType);
+    location.reload();
+};
+
+const changeMouseOrTouch = (str: string): void => {
+    let activeEle: Element = sb.vars.setResponsiveElement.querySelector('.active');
+    if (activeEle) {
+        activeEle.classList.remove('active');
+    }
+    if (str === 'mouse') {
+        document.body.classList.remove('e-bigger');
+    } else {
+        document.body.classList.add('e-bigger');
+    }
+    sb.vars.setResponsiveElement.querySelector('#' + str).classList.add('active');
+};
+
+const viewMobilePrefPane = (): void => {
+    select('.sb-mobile-prop-pane').classList.add('sb-hide');
+    sb.vars.mobilePreference.classList.remove('sb-hide');
+    toggleRightPane();
+};
+
+const viewMobilePropPane = (): void => {
+    sb.vars.mobilePreference.classList.add('sb-hide');
+    select('.sb-mobile-prop-pane').classList.remove('sb-hide');
+    toggleRightPane();
+};
+
+const toggleRightPane = (): void => {
+    select('#right-sidebar').classList.remove('sb-hide');
+    themeDropDown.index = themeCollection.indexOf(selectedTheme);
+    if (isMobile) {
+        settingSidebar.toggle();
+    }
+};
+
+const resetInput = (arg: any): void => {
+    arg.preventDefault();
+    arg.stopPropagation();
+    (<HTMLInputElement>document.getElementById('search-input')).value = '';
+    sb.vars.inputWrapper.setAttribute('data-value', '');
+    searchPopup.hidePopup();
+};
+
+const stackEditor = (results?: any) => {
+        let stackFile: any = results;
+        let prevForm: Element = select('#stack-form');
+        if (prevForm) {
+            detach(prevForm);
+        }
+        let form: HTMLFormElement = createElement('form') as HTMLFormElement;
+        let res: string = 'https://stackblitz.com/run';
+        form.setAttribute('action', res);
+        form.setAttribute('method', 'post');
+        form.setAttribute('target', '_blank');
+        form.id = 'stack-form';
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        let stacks: string[] = Object.keys(stackFile);
+        for (let x: number = 0; x < stacks.length; x++) {
+            createStackInput((stacks[x] === 'dependencies' ? 'project[dependencies]' : 'project[files][' + stacks[x] + ']'),
+            stackFile[stacks[x]] as string, form);
+        }
+        createStackInput('project[template]', 'vue', form);
+        createStackInput('project[tag][0]', 'vue', form);
+        createStackInput('project[description]', 'Essential JS 2 Sample', form);
+        createStackInput('project[settings]', '{"compile":{"clearConsole":true}}', form);
 }
-);
+
+const createStackInput = (name: string, value: string, form: HTMLFormElement) => {
+    let input: HTMLElement = createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('value', value.replace(/{{theme}}/g, selectedTheme).replace(/{{ripple}}/,
+    (selectedTheme === 'material') ? 'import { enableRipple } from \'@syncfusion/ej2-base\';\nenableRipple(true);\n' : ''));
+    input.setAttribute('name', name);
+    form.appendChild(input);
+}
+
+const updateStackBlitz = () => {
+    let hash: string[] =  location.hash.split('/').slice(1);
+    let path: string = hash.slice(1).join('/').replace('.html', '');
+    let fileName: string = 'src/' + path + '-stack.json';
+    let stack: Fetch = new Fetch(fileName, 'GET');
+    stack.send().then((result: Object) => {
+        if (select('#open-plnkr') as any) {
+            (select('#open-plnkr') as any).disabled = false;
+        }
+        stackEditor(result as any);
+    });
+}
+
+const onNextButtonClick = (arg: any): void => {
+    sb.vars.contentTab.selectedItem = 0;
+    sampleOverlay();
+    let curSampleUrl: string = location.hash;
+    let inx: number = samplesAr.indexOf(curSampleUrl);
+    if (inx !== -1) {
+        let prevhref: string = samplesAr[inx];
+        let curhref: string = samplesAr[inx + 1];
+        location.href = curhref;
+    }
+    window.hashString = location.hash;
+    setSelectList();
+};
+
+const onPrevButtonClick = (arg: any): void => {
+    sampleOverlay();
+    let curSampleUrl: string = location.hash;
+    let inx: number = samplesAr.indexOf(curSampleUrl);
+    if (inx !== -1) {
+        let prevhref: string = samplesAr[inx];
+        let curhref: string = samplesAr[inx - 1];
+        location.href = curhref;
+    }
+    window.hashString = location.hash;
+    setSelectList();
+};
+
+const onOpenNewButtonClick = (arg: any): void => {
+    let samplePath = location.href.split('#')[1].split('/');
+    (select('#openNew') as HTMLFormElement).href =
+        location.href.split('#')[0] + samplePath[2] + '/' + samplePath[3].replace('.html', '/');
+};
+
+const setLeftPaneHeight = (): void => {
+    let leftPane: HTMLElement = select('.sb-left-pane', rootEle) as HTMLElement;
+    leftPane.style.height = isMobile ? (document.body.offsetHeight + 'px') : '';
+};
+
+const processResize = (e: any): void => {
+    let toggle: boolean = sidebar.isOpen;
+    isMobile = window.matchMedia('(max-width:550px)').matches;
+    isTablet = window.matchMedia('(min-width:550px) and (max-width: 850px)').matches;
+    isPc = window.matchMedia('(min-width:850px)').matches;
+    if (isTablet) {
+        resizeManualTrigger = false;
+    }
+    if (resizeManualTrigger || (isMobile && select('#right-sidebar').classList.contains('sb-hide'))) {
+        return;
+    }
+    setLeftPaneHeight();
+    let leftPane: Element = select('.sb-left-pane');
+    let rightPane: Element = select('.sb-right-pane');
+    let footer: Element = select('.sb-footer-left');
+    let pref: any = select('#settings-popup');
+    if (isTablet || isMobile) {
+        sb.vars.contentTab.hideTab(1);
+    } else {
+        sb.vars.contentTab.hideTab(1, false);
+    }
+    if (toggle && !isPc) {
+        toggleLeftPane();
+    }
+    if (isMobile || isTablet) {
+        sidebar.closeOnDocumentClick = true;
+        select('.sb-left-footer-links').appendChild(footer);
+        if (isTablet) {
+            select('.sb-footer').appendChild(footer);
+        }
+        if (isVisible('.sb-mobile-overlay')) {
+            removeMobileOverlay();
+        }
+        if (!pref.parentElement.classList.contains('sb-mobile-preference')) {
+            sb.vars.mobilePreference.appendChild(pref);
+            settingPopup.show();
+        }
+        let propPanel: Element = select('#control-content .property-section');
+        if (propPanel) {
+            select('.sb-mobile-prop-pane').appendChild(propPanel);
+            select('.sb-mobile-setting').classList.remove('sb-hide');
+        }
+        if (isVisible('.sb-mobile-overlay')) {
+            removeMobileOverlay();
+        }
+    }
+    if (isPc) {
+        sidebar.target = sb.vars.source;
+        sidebar.showBackdrop = false;
+        sidebar.closeOnDocumentClick = false;
+
+        sidebar.show();
+
+        if (isVisible('.sb-mobile-overlay')) {
+            removeMobileOverlay();
+        }
+        if (isPc && !Browser.isDevice && isVisible('.sb-left-pane')) {
+            rightPane.classList.remove('control-fullview');
+        }
+        if (pref.parentElement.classList.contains('sb-mobile-preference')) {
+            select('#sb-popup-section').appendChild(pref);
+            settingSidebar.hide();
+            settingPopup.hide();
+        }
+        let mobilePropPane: Element = select('.sb-mobile-prop-pane .property-section');
+        if (mobilePropPane) {
+            select('.sb-mobile-setting').classList.add('sb-hide');
+            select('#right-sidebar').classList.add('sb-hide');
+            select('#control-content', rootEle).appendChild(mobilePropPane);
+        }
+        if (!select('.sb-mobile-right-pane').classList.contains('sb-hide')) {
+            toggleRightPane();
+        }
+    }
+    if (switcherPopup) {
+        switcherPopup.refreshPosition();
+    }
+};
+
+const processDeviceDependables = (): void => {
+    if (Browser.isDevice) {
+        select('.sb-desktop-setting').classList.add('sb-hide');
+    } else {
+        select('.sb-desktop-setting').classList.remove('sb-hide');
+    }
+};
+
+const overlay = (): void => {
+    sbHeader.classList.add('sb-right-pane-overlay');
+    sbBodyOverlay.classList.remove('sb-hide');
+};
+
+const isVisible = (elem: string): boolean => {
+    return !select(elem).classList.contains('sb-hide');
+};
+
+const removeMobileOverlay = (): void => {
+    select('.sb-mobile-overlay').classList.add('sb-hide');
+};
+
+const renderPropertyPane = (ele: string): void => {
+    let controlSection: Element = <HTMLElement>document.getElementById('control-content');
+    let elem: Element = <HTMLElement>controlSection.querySelector(ele);
+    let title: any;
+    if (!elem) { return; }
+    let parentEle: HTMLElement = <HTMLElement>elem.parentElement;
+    elem = detach(elem);
+    title = elem.getAttribute('title');
+    elem.classList.add('property-panel-table');
+    let parentPane: Element = createElement('div', {
+        className: 'property-panel-section',
+        innerHTML: `<div class="property-panel-header">${title}</div><div class="property-panel-content"></div>`
+    });
+    parentPane.children[1].appendChild(elem);
+    parentEle.appendChild(parentPane);
+};
+
+const setPropertySectionHeight = (): void => {
+    let propertypane: HTMLElement = <any>select('.property-section');
+    let ele: HTMLElement = <any>document.querySelector('.control-section');
+
+    if (ele && propertypane) {
+        ele.classList.add('sb-property-border');
+    } else {
+        ele.classList.remove('sb-property-border');
+    }
+};
+
+const toggleButtonState = (id: string, state: boolean): void => {
+    let ele: HTMLButtonElement = <HTMLButtonElement>document.getElementById(id);
+    let mobileEle: HTMLButtonElement = <HTMLButtonElement>document.getElementById('mobile-' + id);
+    ele.disabled = state;
+    mobileEle.disabled = state;
+    if (state) {
+        mobileEle.classList.add('e-disabled');
+        ele.classList.add('e-disabled');
+    } else {
+        mobileEle.classList.remove('e-disabled');
+        ele.classList.remove('e-disabled');
+    }
+};
+
+const copyCode = (): void => {
+    let copyElem: HTMLElement = select('#sb-source-tab .e-item.e-active') as HTMLElement;
+    let textArea: HTMLTextAreaElement = createElement('textArea') as HTMLTextAreaElement;
+    textArea.textContent = copyElem.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    detach(textArea);
+    (select('.copy-tooltip') as any).ej2_instances[0].close();
+};
+
+const sampleArray = (): void => {
+    for (let node of <Controls[]>samplesList) {
+        let dataManager: DataManager = new DataManager((node as any).samples);
+        let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
+            dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
+        for (let sample of samples) {
+            let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material3';
+            let control: string = node.directory;
+            let sampleUrl: string = sample.url;
+            let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
+            samplesAr.push('#' + loc);
+        }
+    }
+};
+
+const getStringWithOutDescription = (code: string, descRegex: RegExp): string => {
+    let lines: string[] = code.split('\n');
+    let desStartLine: any = null;
+    let desEndLine: any = null;
+    let desInsideDivCnt: number = 0;
+    for (let i: number = 0; i < lines.length; i++) {
+        let curLine: string = lines[i];
+        if (desStartLine) {
+            if (/<div/g.test(curLine)) {
+                desInsideDivCnt = desInsideDivCnt + 1;
+            }
+            if (desInsideDivCnt && /<\/div>/g.test(curLine)) {
+                desInsideDivCnt = desInsideDivCnt - 1;
+            } else if (!desEndLine && /<\/div>/g.test(curLine)) {
+                desEndLine = i + 1;
+            }
+        }
+        if (descRegex.test(curLine)) {
+            desStartLine = i;
+        }
+    }
+    if (desEndLine && desStartLine) {
+        lines.splice(desStartLine, desEndLine - desStartLine);
+    }
+    return lines.join('\n');
+};
+
+const sourceFileList = (node: any): void => {
+    for (let samples of node.curViewDS) {
+        if (samples.url == location.hash.split('/')[3].replace('.html', '')) {
+            return samples.sourceFiles;
+        }
+    }
+};
+
+const generatepath = (path: any): void => {
+    let splitPath: string = path.split('/')[1];
+    let filePath: any = [{ path: `src/${path}.vue`, displayName: `${splitPath}.vue` }]
+    return filePath;
+};
+
+const updatesourceTab = (): void => {
+    let curDir: any = location.hash.split('/').slice(2).join('/').replace('.html', '');
+    let curSample: any = location.hash.split('/')[3].replace('.html', '');
+    let sourcePromise: Array<Promise<Ajax>> = [];
+    let ajaxvue: any = new Ajax('src/' + curDir + '.vue', 'GET', false);
+    let sObj: any = [];
+    SbLink();
+    sb.vars.contentTab.selectedItem = 0;
+    sb.vars.sourceTab.selectedItem = 0;
+    let sampleListFile: ListView = (select('#controlList', rootEle) as any).ej2_instances[0];
+    let sourceFiles: any = sourceFileList(sampleListFile) as any || generatepath(curDir);
+    if (sourceFiles) {
+        for (let i: number = 0; i < sourceFiles.length; i++) {
+            sourcePromise.push((new Ajax(sourceFiles[i].path, 'GET', false)).send());
+            sObj.push({
+                header: { text: sourceFiles[i].displayName },
+                data: '',
+                content: sourceFiles[i].displayName
+            });
+            updateStackBlitz();
+        }
+    }
+    Promise.all(sourcePromise).then((results: Object[]): void => {
+        results.forEach((value, index) => {
+            let sampleContent: string = value.toString();
+            sampleContent = getStringWithOutDescription(sampleContent, /(\'|\")description/g);
+            sampleContent = getStringWithOutDescription(sampleContent, /(\'|\")action-description/g)
+            sampleContent = sampleContent.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+            sObj[index].data = sampleContent;
+        })
+        sourceTabItems = sObj;
+    })
+
+    ajaxvue.send().then((value: Object): void => {
+        let controlSec: Element = <HTMLElement>document.getElementById('control-content');
+        let comp: Element = <HTMLElement>controlSec.querySelector('.property-panel-section');
+        if (comp) {
+            document.querySelectorAll('#control-content .property-section')[1].classList.add('sb-hide')
+        }
+        renderPropertyPane('#property');
+        select('.sb-mobile-prop-pane', rootEle).innerHTML = '';
+        setPropertySectionHeight();
+        removeOverlay();
+        let propPanel: Element = select('#control-content .property-section');
+        if (isMobile) {
+            if (propPanel) {
+                select('.sb-mobile-setting').classList.remove('sb-hide');
+                select('.sb-mobile-prop-pane').appendChild(propPanel);
+            } else {
+                select('.sb-mobile-setting').classList.add('sb-hide');
+            }
+        }
+        if (Browser.isDevice) {
+            if (location.hash && samplesAr.indexOf(location.hash) == -1) {
+                let toastObj: Toast = new Toast({
+                    position: {
+                        X: 'Right'
+                    }
+                });
+                let hideLocation: string = location.hash.split('/')[2];
+                toastObj.appendTo('#sb-home');
+                setTimeout(
+                    () => {
+                        toastObj.show({
+                            content: `${hideLocation} component not supported in mobile device`
+                        });
+                    }, 200);
+                window.location.hash = "#/material3/grid/grid-overview.html"
+            }
+        }
+        let curIndex: number = samplesAr.indexOf(location.hash);
+        let samLength: number = samplesAr.length - 1;
+        if (curIndex === samLength) {
+            toggleButtonState('next-sample', true);
+        } else {
+            toggleButtonState('next-sample', false);
+        }
+        if (curIndex === 0) {
+            toggleButtonState('prev-sample', true);
+        } else {
+            toggleButtonState('prev-sample', false);
+        }
+    })
+        .catch((reason: any): void => {
+            //errorHandler(reason.message);
+        });
+};
+
+const destroyControls = (): void => {
+    let elementlist: HTMLElement[] = selectAll('.e-control', sb.vars.content);
+    for (let control of elementlist) {
+        let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
+        if (eleinstance) {
+            for (let instance of eleinstance) {
+                (<DestroyMethod>instance).destroy();
+            }
+        }
+    }
+};
+
+const removeOverlay = (): void => {
+    document.body.setAttribute('aria-busy', 'false');
+    sbContentOverlay.classList.add('sb-hide');
+    sbRightPane.classList.remove('sb-right-pane-overlay');
+    sbHeader.classList.remove('sb-right-pane-overlay');
+    mobNavOverlay(false);
+    if (!sbBodyOverlay.classList.contains('sb-hide')) {
+        sbBodyOverlay.classList.add('sb-hide');
+    }
+    if (!isMobile) {
+        sbRightPane.scrollTop = 0;
+    } else {
+        sbRightPane.scrollTop = 74;
+    }
+};
+
+const loadJSON = (): void => {
+    let switchText: string = localStorage.getItem('ej2-switch') || 'mouse';
+    if (Browser.isDevice || window.screen.width <= 850) {
+        switchText = 'touch';
+    }
+    setLeftPaneHeight();
+    if (isMobile) {
+        select('#left-sidebar').classList.add('sb-hide');
+        select('.sb-left-footer-links').appendChild(select('.sb-footer-left'));
+        leftToggle.classList.remove('toggle-active');
+    }
+
+    if (isTablet || (Browser.isDevice && isPc)) {
+        leftToggle.classList.remove('toggle-active');
+        sbRightPane.classList.add('control-fullview');
+    }
+    overlay();
+    changeMouseOrTouch(switchText);
+    localStorage.removeItem('ej2-switch');
+    enableRipple(selectedTheme.indexOf('material') !== -1 || !selectedTheme);
+    loadTheme(selectedTheme);
+};
 
 </script>

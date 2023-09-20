@@ -104,14 +104,10 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { BulletChartPlugin, BulletTooltip } from "@syncfusion/ej2-vue-charts";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(BulletChartPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(CheckBoxPlugin);
+import { BulletChartComponent, BulletRangeCollectionDirective, BulletRangeDirective, BulletTooltip } from "@syncfusion/ej2-vue-charts";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -120,7 +116,14 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
   .replace(/light/i, "Light")
   .replace(/contrast/i, "Contrast");
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-bulletchart': BulletChartComponent,
+    'e-bullet-range-collection': BulletRangeCollectionDirective,
+    'e-bullet-range': BulletRangeDirective,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -175,5 +178,5 @@ export default Vue.extend({
       this.$refs.bulletchart.ej2Instances.refresh();
     }
   }
-});
+};
 </script>

@@ -4,7 +4,7 @@
     <div id="spark-container" class="row">
         <div class="cols-sample-area" align="center">
             <p>
-                <font size=4px> Worldwide car sales by brand - 2017</font>
+                <h2 styles="font-size: 4px"> Worldwide car sales by brand - 2017</h2>
             </p>
             <table style="width:100%;">
                 <tr>
@@ -163,17 +163,19 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SparklinePlugin,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+import { SparklineComponent,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { data, data2 } from "./customizationdata";
-Vue.use(SparklinePlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(SliderPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-slider': SliderComponent
+},
 data:function(){
 return{
         height: '200px',
@@ -234,7 +236,7 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast') ;
     },
     /* custom code end */
     // Code for Property Panel
@@ -543,5 +545,5 @@ methods:{
 provide:{
     sparkline:[SparklineTooltip]
 }
-})
+}
 </script>

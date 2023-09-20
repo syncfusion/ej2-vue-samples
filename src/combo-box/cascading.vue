@@ -23,14 +23,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
+import data from './dataSource.json';
 
-Vue.use(ComboBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent
+    },
     data: function() {
         return {
         countryData:data['country'] ,
@@ -63,12 +63,12 @@ export default Vue.extend ({
             // disable the state ComboBox
             this.stateEnabled = args.value !== null;
             // query the data source based on country ComboBox selected value
-            this.tempQuery = new Query().where('CountryId', 'equal', this.$refs.countryObj.$data.ej2Instances.value);
+            this.tempQuery = new Query().where('CountryId', 'equal', this.$refs.countryObj.ej2Instances.value);
             this.stateQuery = this.tempQuery;
             // clear the existing selection
-            this.$refs.stateObj.$data.ej2Instances.value = null;
+            this.$refs.stateObj.ej2Instances.value = null;
             // clear the existing selection
-            this.$refs.cityObj.$data.ej2Instances.value = null;
+            this.$refs.cityObj.ej2Instances.value = null;
             // disable the city ComboBox
             this.cityEnabled = false;
         },
@@ -76,11 +76,11 @@ export default Vue.extend ({
             // disable the city ComboBox
             this.cityEnabled = args.value !== null;
             // query the data source based on state ComboBox selected value
-            this.tempQuery = new Query().where('StateId', 'equal', this.$refs.stateObj.$data.ej2Instances.value);
+            this.tempQuery = new Query().where('StateId', 'equal', this.$refs.stateObj.ej2Instances.value);
             this.cityQuery = this.tempQuery;
             // clear the existing selection
-            this.$refs.cityObj.$data.ej2Instances.value = null;
+            this.$refs.cityObj.ej2Instances.value = null;
         },
     }
-});
+}
 </script>

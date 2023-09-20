@@ -27,14 +27,15 @@
 </template>
 
 <script>
-
-import Vue from "vue";
-import { TimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { TimePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { FormValidator, FormValidatorModel } from "@syncfusion/ej2-inputs";
 
-Vue.use(TimePickerPlugin, ButtonPlugin);
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-timepicker': TimePickerComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       success: "",
@@ -70,7 +71,7 @@ export default Vue.extend({
       e.preventDefault();
     }
   }
-});
+}
 </script>
 
 

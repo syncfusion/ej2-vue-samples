@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' 
+        <ejs-grid id='AdvancedExport' ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' 
         :allowExcelExport='true' :pageSettings='pageSettings' :allowPaging='true' :allowPdfExport='true'>
             <e-columns>
                 <e-column field='ProductID' headerText='Product ID' width='170' textAlign='Right'></e-column>
@@ -22,9 +22,9 @@
         <p>In this demo, excelexport and pdfexport items are defined in the toolbar. For these toolbar items, we have defined actions
             in toolbarClick event to export the Grid data with header and footer using the
             <code><a target="_blank" class="code"            
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#excelexport">excelExport</a></code>,
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a></code>,
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#pdfexport">pdfExport</a></code>            methods.</p>
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code>            methods.</p>
         <br/>
         <p style="font-weight: 500">Injecting Module:</p>
         <p>Grid features are segregated into individual feature-wise modules. To use exporting feature, we need to inject
@@ -34,14 +34,16 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, GridComponent, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { categoryData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: categoryData,
@@ -51,14 +53,14 @@ export default Vue.extend({
   },
   methods: {
       toolbarClick: function(args: ClickEventArgs) {
-        switch (args.item.text) {
+        switch (args.item.id) {
             /* tslint:disable */
-            case 'Excel Export':
-                (<any>this.$refs.grid).excelExport(this.getExcelExportProperties());
+            case 'AdvancedExport_excelexport':
+                ((this as any).$refs.grid as GridComponent).excelExport(this.getExcelExportProperties());
                 break;
             /* tslint:enable */
-            case 'PDF Export':
-                (<any>this.$refs.grid).pdfExport(this.getPdfExportProperties());
+            case 'AdvancedExport_pdfexport':
+                ((this as any).$refs.grid).pdfExport(this.getPdfExportProperties());
                 break;
         }
     },
@@ -230,5 +232,5 @@ export default Vue.extend({
   provide: {
       grid: [PdfExport, ExcelExport, Page, Toolbar]
   }
-});
+}
 </script>

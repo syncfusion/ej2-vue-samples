@@ -3,82 +3,66 @@
     "directory": "dialog",
     "category": "Layout",
     "ftName": "modal-dialog",
+    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "Dialog",
-            "description":"The example demonstrates the default rendering of the Vue dialog, which supports modal and non-modal (modeless), built-in buttons, and more.",
-            "hideOnDevice": true
-        },
-        {
-            "url": "custom-dialog",
-            "name": "Custom Dialogs",
-            "category": "Dialog",
-            "description":"This example demonstrates how to create custom dialogs such as alert dialogs, confirmation dialogs, and prompt dialogs using the Vue dialog component.",
-            "hideOnDevice": true
+            "description":"The example demonstrates the default rendering of the Vue dialog, which supports modal and non-modal (modeless), built-in buttons, and more."
         },
         {
             "url": "modal-dialog",
             "name": "Modal",
             "category": "Dialog",
-            "description":"This example demonstrates the modal pop-up behavior of the Vue dialog component, which helps display critical information such as errors and warnings.",
-            "hideOnDevice": true
+            "description":"This example demonstrates the modal pop-up behavior of the Vue dialog component, which helps display critical information such as errors and warnings." 
         },
         {
             "url": "template",
             "name": "Template",
             "category": "Dialog",
-            "description":"This example demonstrates how to customize user interface elements like the header, footer, and content of the Vue dialog component using a template.",
-            "hideOnDevice": true
+            "description":"This example demonstrates how to customize user interface elements like the header, footer, and content of the Vue dialog component using a template."
         },
         {
             "url": "dialog-contents-via-ajax",
             "name": "Ajax Content",
             "category": "Dialog",
-            "description":"The example demonstrates how to load the content of the Vue dialog component from external sources such as a file or website using Ajax library.",
-            "hideOnDevice": true
+            "description":"The example demonstrates how to load the content of the Vue dialog component from external sources such as a file or website using Ajax library."
         },
         {
             "url": "draggable",
             "name": "Draggable",
             "category": "Dialog",
-            "description":"This example shows how to enable drag-and-drop actions in the Vue dialog component to help reposition the dialog efficiently.",
-            "hideOnDevice": true
+            "description":"This example shows how to enable drag-and-drop actions in the Vue dialog component to help reposition the dialog efficiently."
         },
         {
             "url": "resizable",
             "name": "Resizable",
             "category": "Dialog",
-            "description":"This example shows how to create resizable modal in the Vue dialog to change the size of a dialog efficiently and view its content more comfortably.",
-            "hideOnDevice": true
+            "description":"This example shows how to create resizable modal in the Vue dialog to change the size of a dialog efficiently and view its content more comfortably."
         },
         {
             "url": "position",
             "name": "Positioning",
             "category": "Dialog",
-            "description":"This example demonstrates how to display the Vue dialog component at various built-in and custom positions.",
-            "hideOnDevice": true
+            "description":"This example demonstrates how to display the Vue dialog component at various built-in and custom positions."
         },
         {
             "url": "animation",
             "name": "Animation",
             "category": "Dialog",
-            "description":"This example demonstrates how to open or close the Vue dialog with various animation effects, and how to customize the animation duration and delay.",
-            "hideOnDevice": true
+            "description":"This example demonstrates how to open or close the Vue dialog with various animation effects, and how to customize the animation duration and delay."
         },
         {
             "url": "multiple-dialogs",
             "name": "Multiple Dialogs",
             "category": "Dialog",
-            "description":"This example shows how to display multiple dialogs sequentially and open multiple dialogs simultaneously for both modal and modeless Vue dialogs.",
-            "hideOnDevice": true
+            "description":"This example shows how to display multiple dialogs sequentially and open multiple dialogs simultaneously for both modal and modeless Vue dialogs."
         },
         {
             "url": "components-dialog",
             "name": "Components inside Dialog",
             "category": "Dialog",
-            "description":"This example demonstrates how to render other Vue Syncfusion components inside the dialog component.",
-            "hideOnDevice": true
+            "description":"This example demonstrates how to render other Vue Syncfusion components inside the dialog component."
         }
     ]
 }

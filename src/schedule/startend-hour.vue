@@ -17,34 +17,24 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Start Hour
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker id="startTime" :value="startdate" format='HH:mm'>
+                                <ejs-timepicker id="startTime" :value="startdate" format='HH:mm' floatLabelType="Always" placeholder="Start Hour">
                                 </ejs-timepicker>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                End Hour
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker id="endTime" :value="enddate" format='HH:mm'></ejs-timepicker>
+                                <ejs-timepicker id="endTime" :value="enddate" format='HH:mm' floatLabelType="Always" placeholder="End Hour"></ejs-timepicker>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
                         <td>
                             <div>
-                                <ejs-button id='submit' v-on:click.native="onSubmit">Submit</ejs-button>
+                                <ejs-button id='submit' v-on:click="onSubmit">Submit</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -70,21 +60,24 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { TimePickerPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-calendars';
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { TimePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    Vue.use(TimePickerPlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-timepicker': TimePickerComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
                 workHours: { highlight: false },
                 startdate: new Date(2000, 0, 1, 8),
@@ -111,6 +104,6 @@
                     args.element.style.backgroundColor = categoryColor;
                 }
         }
-    });
+    }
 
 </script>

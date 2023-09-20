@@ -137,15 +137,21 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Legend, Marker, NavigationLine, MapsTooltip, MapAjax, ILoadedEventArgs, NavigationLineSettingsModel} from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective,Legend, Marker, NavigationLine, MapsTooltip, MapAjax, ILoadedEventArgs, NavigationLineSettingsModel} from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+},
 data:function(){
     return{
         titleSettings: {
             text: 'Cyber Attack Map of United States',
-        textStyle: { size: '16px' }
+        textStyle: { size: '16px', fontFamily: 'Segoe UI' }
         },
         zoomSettings: {
             enable: false
@@ -283,7 +289,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     loaded: function(args) {
         let lines = args.maps.layers[0].navigationLineSettings;
@@ -320,6 +327,6 @@ methods:{
             }
     }
 }
-})
+}
 </script>
 

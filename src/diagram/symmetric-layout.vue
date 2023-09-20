@@ -65,9 +65,8 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Node,
   SnapConstraints,
   Diagram,
@@ -78,18 +77,22 @@ import {
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
-import { NumericTextBox } from "@syncfusion/ej2-vue-inputs";
-import { Button } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { symmetricData } from "./diagram-data";
 Diagram.Inject(DataBinding, SymmetricLayout);
 
-Vue.use(DiagramPlugin);
 let diagramInstance;
 let springLength;
 let springfactor;
 let maxiteration;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -161,7 +164,7 @@ export default Vue.extend({
       diagramInstance.doLayout();
     };
   }
-});
+}
 
 //Funtion to add the Template of the Node.
 function setNodeTemplate(obj, diagram) {

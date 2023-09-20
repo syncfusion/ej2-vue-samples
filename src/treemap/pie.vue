@@ -23,26 +23,31 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { createApp } from "vue";
+import { TreeMapComponent,TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { Continent_Data } from '../treemap/treemap-data/pie-chart';
-import { AccumulationChartPlugin, AccumulationChart,  PieSeries, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
+import { AccumulationChart,  PieSeries, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 import Template from './pie-temp.vue';
-Vue.use(TreeMapPlugin);
-Vue.use(AccumulationChartPlugin);
+
 AccumulationChart.Inject(AccumulationTooltip);
 let chartCollection = [];
 let count = 0;
-export default Vue.extend({
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
     return{
         tooltipSettings: {
             visible: true,
-            format: ' ${Gender} : ${Population}'
+            format: ' ${Gender} : ${Population}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         titleSettings: {
             text: 'Population of the continents based on gender and age group - 2011',
-            textStyle: { size: '15px' }
+            textStyle: { size: '15px', fontFamily: 'Segoe UI' }
         },
         useGroupingSeparator: true,
         dataSource: Continent_Data,
@@ -51,10 +56,13 @@ data:function(){
             labelPath: 'Gender',
             fill: '#A1317D',
             showLabels: false,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             border: { color: 'black', width: 0.5 },
             labelFormat: '${Gender} : ${Population}',
             templatePosition: 'Center',
-            labelTemplate: function () { return {template: Template}; },
+            labelTemplate: function () { return { template: createApp({}).component('labelTemplate', Template) }; },
         },
         levels: [
             {
@@ -69,7 +77,8 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     tooltipRendering:function(args){
@@ -213,5 +222,5 @@ provide:{
     accumulationchart:[PieSeries, AccumulationTooltip],
     treemap:[TreeMapTooltip]
 }
-})
+}
 </script>

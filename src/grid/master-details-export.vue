@@ -4,7 +4,7 @@
         <p>This sample demonstrates the hierarchy Grid export feature. In this sample, you can export the hierarchy grid by clicking the corresponding export button from the grid's toolbar.</p>
     </div>
     <div>
-        <ejs-grid ref='grid' :dataSource="parentData" :childGrid="childGrid" :toolbar="['PdfExport', 'ExcelExport']" 
+        <ejs-grid id='MasterDetailsExport' ref='grid' :dataSource="parentData" :childGrid="childGrid" :toolbar="['PdfExport', 'ExcelExport']" 
         :allowPdfExport='true' :allowExcelExport='true' :toolbarClick="toolbarClick">
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
@@ -21,9 +21,9 @@
             <p>In this demo, ExcelExport and PdfExport items are defined in the toolbar. For these toolbar items, we have defined actions
                 in toolbarClick event to export hierarchy Grid using the 
                 <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/api/grid#excelexport">excelExport</a></code>, 
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a></code>, 
                 <code><a target="_blank" class="code"
-                    href="http://ej2.syncfusion.com/vue/documentation/api/grid#pdfexport">pdfExport</a></code>
+                    href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code>
             methods and the grid will export using <code>All</code> mode.</p>
         The hierarchy grid allows us to export the grid with following options,
         <ul>
@@ -42,7 +42,7 @@
         <p>
             More information on the exporting configuration can be found in this
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export">
-            pdf-export</a> and  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/excel-exporting">
+            pdf-export</a> and  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/excel-export">
             excel-export</a> documentation sections.
         </p>
     </div>
@@ -50,14 +50,16 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, DetailRow, Grid, PdfExport, ExcelExport, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, Grid, PdfExport, ExcelExport, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { employeeData, orderDatas, customerData, hierarchyOrderdata } from "./data-source";
 import { ClickEventArgs } from "@syncfusion/ej2-navigations";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     let secondLevelGrid = {
         dataSource: customerData,
@@ -87,16 +89,16 @@ export default Vue.extend({
   },
   methods:{
       toolbarClick: function(args: ClickEventArgs) {
-        if (args.item.text === 'Excel Export') {
-            (<any>this.$refs.grid).excelExport({hierarchyExportMode: 'All'});
+        if (args.item.id === 'MasterDetailsExport_excelexport') {
+            ((this as any).$refs.grid).excelExport({hierarchyExportMode: 'All'});
         }
-        if (args.item.text === 'PDF Export') {
-            (<any>this.$refs.grid).pdfExport({hierarchyExportMode: 'All'});
+        if (args.item.id === 'MasterDetailsExport_pdfexport') {
+            ((this as any).$refs.grid).pdfExport({hierarchyExportMode: 'All'});
         }
       }
   },
   provide: {
     grid: [DetailRow, Toolbar, PdfExport, ExcelExport]
   }
-});
+}
 </script>

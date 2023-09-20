@@ -2,8 +2,8 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :readonly="readonly" :dataBinding="dataBinding"></ejs-schedule>
+                <ejs-schedule id='Schedule' height="650px" :eventSettings='eventSettings'
+                    :readonly="readonly" :dataBinding="dataBinding" :currentView='currentView' timezone='UTC'></ejs-schedule>
             </div>
         </div>
         <div id="action-description">
@@ -21,25 +21,27 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-
-    var calendarId = '5105trob9dasha31vuqek6qgp0@group.calendar.google.com';
-    var publicKey = 'AIzaSyD76zjMDsL_jkenM5AAnNsORypS1Icuqxg';
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+    
+    var calendarId = 'en.usa%23holiday@group.v.calendar.google.com';
+    var publicKey = 'AIzaSyBgbX_tgmVanBP4yafDPPXxWr70sjbKAXM';
     var dataManger = new DataManager({
         url: 'https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?key=' + publicKey,
         adaptor: new WebApiAdaptor,
         crossDomain: true
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
                 selectedDate: new Date(2018, 10, 14),
                 readonly: true,
                 eventSettings: { dataSource: dataManger },
+                currentView: 'Month'
             }
         },
         methods: {
@@ -72,6 +74,6 @@
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda]
         }
-    });
+    }
 
 </script>

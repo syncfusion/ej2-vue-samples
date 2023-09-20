@@ -6,7 +6,7 @@
                 <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6" id="horizontal_product">
                     <!-- Swipe Card Layout  -->
                     <div tabindex="0" class="e-card e-card-horizontal">
-                        <img src="./images/newyork.png" style="height:214px">
+                        <img src="./images/newyork.png" alt="newyork">
                         <div class="e-card-stacked">
                             <div class="e-card-content" style="height: 175px">
                                 New York City has been described as the cultural, financial, and media capital of the world, and exerts a significant impact
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div tabindex="0" class="e-card e-card-horizontal">
-                        <img src="./images/malaysia.png" style="height:214px">
+                        <img src="./images/malaysia.png" alt="malaysia">
                         <div class="e-card-stacked">
                             <div class="e-card-content" style="height: 175px">
                                 Malaysia is one of the Southeast Asian countries, on a peninsula of the Asian continent, to a certain extent; it can be recognized
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div tabindex="0" class="e-card e-card-horizontal">
-                        <img src="./images/eiffeltower.png" style="height:214px">
+                        <img src="./images/eiffeltower.png" alt="eiffeltower">
                         <div class="e-card-stacked">
                             <div class="e-card-content" style="height: 175px">
                                 The Eiffel Tower is acknowledged as the universal symbol of Paris and France. It was originally designed by Émile Nouguier
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div tabindex="0" class="e-card e-card-horizontal">
-                        <img src="./images/sydney.png" style="height:214px">
+                        <img src="./images/sydney.png" alt="sydney">
                         <div class="e-card-stacked">
                             <div class="e-card-content" style="height: 175px">
                                 Sydney is a city on the east coast of Australia. Sydney is the capital city of New South Wales. About four million people
@@ -340,10 +340,8 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { Touch, ScrollEventArgs, SwipeEventArgs, closest, isNullOrUndefined } from '@syncfusion/ej2-base';
-export default Vue.extend({
-    
+export default {
 	mounted: function() {
         var dir;
         var ele = document.getElementById('horizontal_product');
@@ -395,6 +393,6 @@ export default Vue.extend({
             ele.style.removeProperty('left');
      }
   }
-});
+}
 
 </script>

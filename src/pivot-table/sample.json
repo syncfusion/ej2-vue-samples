@@ -3,8 +3,15 @@
   "directory": "pivot-table",
   "category": "Grids",
   "ftName": "pivot-table",
-  "type": "update",
   "samples": [{
+      "url": "overview",
+      "name": "Overview",
+      "category": "Pivot Table",
+      "hideOnDevice": false,
+      "description": "This sample shows an overview of Essential JS2 Pivot Table that allows to organize and summarize the pivot data in a detailed or abstract view and displays it as a grid and chart.",
+      "api": {}
+    },
+    {
       "url": "default",
       "name": "Default Functionalities",
       "category": "Pivot Table",
@@ -85,6 +92,14 @@
       "api": {}
     },
     {
+      "url": "Drill-Down",
+      "name": "Drill Down",
+      "category": "User Interaction",
+      "hideOnDevice": false,
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the drill down feature of the pivot table",
+      "api": {}
+    },
+    {
       "url": "summary-customization",
       "name": "Show/Hide Totals",
       "category": "User Interaction",
@@ -106,7 +121,14 @@
       "category": "User Interaction",
       "hideOnDevice": false,
       "api": {},
-      "type": "update",
+      "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
+    },
+    {
+      "url": "keyboard-navigation",
+      "name": "Keyboard Navigation",
+      "category": "Keyboard Navigation",
+      "hideOnDevice": false,
+      "api": {},
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the toolbar feature of the pivot table"
     },
     {
@@ -122,7 +144,6 @@
       "name": "Aggregation",
       "category": "Formula",
       "hideOnDevice": false,
-      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control shows different types of aggregation for value fields",
       "api": {}
     },
@@ -132,6 +153,14 @@
       "category": "Sorting",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows ordering(sorting) of fields either in ascending or descending order",
+      "api": {}
+    },
+    {
+      "url": "custom-sorting",
+      "name": "Custom Sorting",
+      "category": "Sorting",
+      "hideOnDevice": false,
+      "description": "This demo for Essential JS2 Pivot Table control shows ordering(custom sorting) of fields either in ascending or descending order",
       "api": {}
     },
     {
@@ -172,6 +201,14 @@
       "category": "Scrolling",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows virtual scrolling option available vertically and horizontally to load large records with ease",
+      "api": {}
+    },
+    {
+      "url": "paging",
+      "name": "Paging",
+      "category": "Paging",
+      "hideOnDevice": false,
+      "description": "This demo for Essential JS2 Pivot Table control shows paging option available for rows and columns to load large records page by page",
       "api": {}
     },
     {

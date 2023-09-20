@@ -89,11 +89,9 @@
 </style>
 
 <script>
-import Vue from "vue";
-
 import { Diagram, NodeModel, ConnectorModel, ShapeAnnotationModel, Segments, Node } from '@syncfusion/ej2-vue-diagrams';
 import {
-    DiagramPlugin,
+    DiagramComponent,
     Direction,
     PathAnnotationModel,
     OrthogonalSegmentModel,
@@ -103,10 +101,7 @@ import {
 } from '@syncfusion/ej2-vue-diagrams';
 import { radiobutton, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
-import { RadioButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-
-Vue.use(DiagramPlugin);
-Vue.use(RadioButtonPlugin);
+import { RadioButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
 function CreateConnector(
     name, source, target, content, type,
@@ -185,7 +180,11 @@ let node;
 let element;
 let diagram;
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-diagram': DiagramComponent,
+        'ejs-radiobutton': RadioButtonComponent
+    }, 
     data: function() {
         return {
             width: "100%",
@@ -203,7 +202,7 @@ export default Vue.extend({
         };
         diagram.select([diagram.nodes[2]]);
     }
-});
+}
 
 let highLightedObjects = [];
 let selectedButton = 'LinksConnected';

@@ -32,7 +32,7 @@
         </p>
         <p>
             More information about Slider instantiation can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/slider/getting-started.html">
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/range-slider/getting-started.html">
                 documentation section</a>
         </p>
     </ul>
@@ -63,16 +63,15 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(SliderPlugin);
-export default Vue.extend({
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+export default {
   data: function() {
     return {
       value: 30,
       minValue: 30,
       rangevalue: [30,70]
     };
-  }
-});
+  },
+  components: { 'ejs-slider': SliderComponent },
+};
 </script>

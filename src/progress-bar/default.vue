@@ -154,18 +154,17 @@
         }
 </style>
 <script>
-import Vue from "vue";
-import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
+  ProgressBarComponent,
   ProgressAnnotation
 } from "@syncfusion/ej2-vue-progressbar";
  
 let div = document.getElementsByClassName('progress-text-align');
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-progressbar': ProgressBarComponent
+  },
   data: function() {
     return {
       value1: 100,
@@ -198,12 +197,13 @@ export default Vue.extend({
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
         selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if(selectedTheme === 'highcontrast') {
+        if(args.progressBar.theme === 'HighContrast' || args.progressBar.theme === 'Bootstrap5Dark' || args.progressBar.theme === 'BootstrapDark' || args.progressBar.theme === 'FabricDark'
+                || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark' || args.progressBar.theme === 'Material3Dark') {
             for (let i = 0; i < div.length; i++) {
                 div[i].setAttribute('style', 'color:white');
             }
          }
       }
   }
-});
+}
 </script>

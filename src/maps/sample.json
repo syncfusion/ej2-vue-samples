@@ -109,7 +109,7 @@
             "sourceFiles": [
                 {"displayName": "legend.vue", "path": "./src/maps/legend.vue"},
                 {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
-                {"displayName": "legend-datasource.json", "path": "./src/maps/map-data/legend-datasource.json"}
+                {"displayName": "legend-datasource.ts", "path": "./src/maps/map-data/legend-datasource.ts"}
             ]
         },
         {
@@ -145,7 +145,7 @@
         },  
         {
             "url": "osm-with-navigation-lines",
-            "name": "Osm with Navigation Line",
+            "name": "OSM with Navigation Line",
             "category": "Map Providers",
             "api": {},
             
@@ -155,13 +155,21 @@
         },             
         {
             "url": "osm-with-sublayers",
-            "name": "Osm with Sublayer",
+            "name": "OSM with Sublayer",
             "category": "Map Providers",
             "api": {},
-            
             "sourceFiles": [
                 {"displayName": "osm-with-sublayers.vue", "path": "./src/maps/osm-with-sublayers.vue"},
                 {"displayName": "africa.json", "path": "./src/maps/map-data/africa.json"}
+            ]
+        },
+        {
+            "url": "osm-with-legend",
+            "name": "OSM with Legend",
+            "category": "Map Providers",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "osm-with-legend.vue", "path": "./src/maps/osm-with-legend.vue"}
             ]
         },    
         {
@@ -262,7 +270,7 @@
            "category": "Use Cases",
            "api": {},
            "sourceFiles": [
-               {"displayName": "default.vue", "path": "./src/maps/default.vue"},
+               {"displayName": "navigation-line.vue", "path": "./src/maps/navigation-line.vue"},
                {"displayName": "world-map.json", "path": "./src/maps/map-data/world-map.json"},
                {"displayName": "navigation-data.ts", "path": "./src/maps/map-data/navigation-data.ts"}
            ]

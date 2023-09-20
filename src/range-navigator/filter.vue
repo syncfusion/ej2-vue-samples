@@ -30,10 +30,10 @@
     <p>
         In this example, you can see how to bind the value of the range navigator to the grid control using the <code>changed</code> event.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-        The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module in the <code>provide</code> section.
+        The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module using <code>provide: { rangeNavigator: [DateTime] }</code> method.
     </p>
 </div>
 </div>
@@ -44,19 +44,22 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
-import { RangeNavigatorPlugin, AreaSeries, DateTime } from "@syncfusion/ej2-vue-charts";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
+import { RangeNavigatorComponent, AreaSeries, DateTime } from "@syncfusion/ej2-vue-charts";
 import { employeeData } from "./data-source";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(GridPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent
+  },
   data: function() {
     let gridDataSource;
     return {
@@ -67,7 +70,7 @@ export default Vue.extend({
       dataSource: employeeData,
       width: Browser.isDevice ? "100%" : "80%",
       gridData: employeeData,
-      theme: selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+      theme: theme
     };
   },
   provide: {
@@ -90,5 +93,5 @@ export default Vue.extend({
         });
     }
   }
-});
+};
 </script>

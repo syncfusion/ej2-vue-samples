@@ -55,20 +55,32 @@
     .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-resource-left-td {
         width: 120px;
     }
+
     .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-resource-text {
         padding-left: 20px;
     }
+
+    .schedule-vue-sample .adaptive-rows.e-schedule .e-timeline-view .e-block-appointment {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
 </style>
 <script>
-    import Vue from "vue";
-    import { extend, isNullOrUndefined } from '@syncfusion/ej2-base';
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+    import { extend } from '@syncfusion/ej2-base';
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
     import { roomData } from './datasource';
-    import { SchedulePlugin, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
-     export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 cssClass: 'adaptive-rows',
@@ -83,7 +95,7 @@
                         endTime: { name: 'EndTime', title: 'To' }
                     }
                 },
-                selectedDate: new Date(2018, 7, 1),
+                selectedDate: new Date(2021, 7, 2),
                 currentView: 'TimelineWeek',
                 group: {
                     enableCompactView: false,
@@ -111,6 +123,6 @@
                 this.$refs.ScheduleObj.ej2Instances.rowAutoHeight = args.checked;               
             }
         }
-    });
+    }
 
 </script>

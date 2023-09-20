@@ -4,10 +4,26 @@
             <div class="sample_container">
                 <ejs-accordion id="accordion" :created="onCreated">
                     <e-accordionitems>
-                        <e-accordionitem expanded='true' header='Robert' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
-                        <e-accordionitem header='Kevin' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
-                        <e-accordionitem header='Eric' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
-                        <e-accordionitem header='Peter' :content='accordionTemplate' iconCss='iconCss'></e-accordionitem>
+                        <e-accordionitem expanded='true' header='Robert' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
+                        <e-accordionitem header='Kevin' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
+                        <e-accordionitem header='Eric' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
+                        <e-accordionitem header='Peter' :content="'accordionTemplate'" iconCss='iconCss'>
+                            <template v-slot:accordionTemplate>
+                                <accordiontemplateVue />
+                            </template>
+                        </e-accordionitem>
                     </e-accordionitems>
                 </ejs-accordion>
             </div>
@@ -78,24 +94,60 @@
 
     .badge-accordion .sample_container #accordion .e-toggle-icon {
         font-size: 18px;
-        top: -1px;
+        top: 5px;
         display: block;
+    }
+
+    .tailwind .badge-accordion .sample_container #accordion .e-toggle-icon {
+        top: 7px;
+    }
+
+    body.tailwind-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.bootstrap5 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.bootstrap5-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.fluent .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.fluent-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.material3 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    body.material3-dark .sample_container.badge-accordion #accordion .e-toggle-icon {
+        top: 5px;
+    }
+
+    body.tailwind-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.tailwind .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.bootstrap5 .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.bootstrap5-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.material3 .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons,
+    body.material3-dark .e-accordion .e-acrdn-item .e-acrdn-header .e-acrdn-header-icon .e-acrdn-icons.e-icons {
+        font-size: 12px;
+    }
+
+    .e-bigger.tailwind .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.tailwind-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.bootstrap5 .badge-accordion .sample_container #accordion .e-toggle-icon ,
+    .e-bigger.bootstrap5-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.fluent .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.fluent-dark .badge-accordion .sample_container #accordion .e-toggle-icon,
+    .e-bigger.material3 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    .e-bigger.material3-dark .sample_container.badge-accordion #accordion .e-toggle-icon {
+        top: 11px;
     }
 </style>
 
 <script>
-import Vue from "vue";
-import { AccordionPlugin } from "@syncfusion/ej2-vue-navigations";
+
+import { AccordionComponent,AccordionItemDirective,AccordionItemsDirective } from "@syncfusion/ej2-vue-navigations";
 import { createElement } from '@syncfusion/ej2-base';
 import accordiontemplateVue from "./accordion-template.vue";
 
-Vue.use(AccordionPlugin);
-export default Vue.extend({
+export default {
+    components: { 
+        'ejs-accordion': AccordionComponent,
+        'e-accordionitem': AccordionItemDirective,
+        'e-accordionitems': AccordionItemsDirective,
+        accordiontemplateVue
+    },
     data: function() {
         return {
-            accordionTemplate: function () {
-                return { template : accordiontemplateVue}
-            },
             iconCss: 'e-people e-acrdn-icons',
         };
     },
@@ -113,5 +165,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

@@ -3,7 +3,7 @@
     <div class="control-section">
         <div style="width:300px;margin:0 auto;padding-bottom:10px">
             <img src="src/maps/images/atm.png" alt="ATM indication" style="width:25px;height:25px;float:left">
-            <div style="padding-left:30px;font-size:18px;font-weight:400;">ATM locations in Oklahoma, USA</div>
+            <div style="padding-left:30px;font-size:18px;font-weight:400; font-family: Segoe UI;">ATM locations in Oklahoma, USA</div>
         </div>
         <ejs-maps id='container' :load='load' :centerPosition='centerPosition' :zoomSettings='zoomSettings'>
             <e-layers>
@@ -34,12 +34,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { highlight, highlight1 } from '../maps/map-data/highlighted';
 import Template from './earthquake-temp.vue';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+        'ejs-maps': MapsComponent,
+        'e-layers': LayersDirective,
+        'e-layer': LayerDirective
+    },
     data: function () {
         return {
             centerPosition: {
@@ -91,7 +95,10 @@ export default Vue.extend({
                     },
                     tooltipSettings: {
                         visible: true,
-                        valuePath: 'text'
+                        valuePath: 'text',
+                        textStyle: {
+                            fontFamily: 'Segoe UI'
+                        }
                     }
                 },
                 {
@@ -108,7 +115,10 @@ export default Vue.extend({
                     }],
                     tooltipSettings: {
                         visible: true,
-                        valuePath: 'text'
+                        valuePath: 'text',
+                        textStyle: {
+                            fontFamily: 'Segoe UI'
+                        }
                     },
                     border: {
                         color: 'transparent'
@@ -131,9 +141,10 @@ export default Vue.extend({
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.maps.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         }
     }
     /* custom code end */
-})
+}
 </script>

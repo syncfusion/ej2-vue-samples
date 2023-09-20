@@ -121,9 +121,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   ConnectorModel,
   DataBinding,
@@ -143,7 +142,6 @@ import {
   Side
 } from "@syncfusion/ej2-vue-diagrams";
 
-Vue.use(DiagramPlugin);
 let diagramInstance;
 
 //Defines the nodes collection in diagram
@@ -272,7 +270,10 @@ let handles= [
   }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -351,7 +352,7 @@ export default Vue.extend({
       diagramInstance.dataBind();
     };
   }
-});
+}
 
 //Enable the clone Tool for UserHandle.
 function getTool(action) {

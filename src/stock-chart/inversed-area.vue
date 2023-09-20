@@ -20,36 +20,43 @@
             xName="x"
             yName="high"
             name="google"
-            fill="#BDEDE9"
+            opacity="0.5"
           ></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>
     </div>
 
     <div id="action-description">
-      <p> This sample visualizes stock data with inversed axis. Period and range selector help us to navigate different of data.</p>
+      <p>This sample uses area series and inversed axis to visualize stock data. The crosshair display information about the data and period.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>AreaSeries</code> is used to represent selected data value.
+        In this example, you can see how to render and configure stock chart to visualize the stock data with inversed axis and it can be inversed by setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartAxis/#isinversed">isInversed</a> property as <b>true</b>.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p>
+        <code>Crosshair</code> is enabled in this example. To see the crosshair in action, hover the chart or tap on touch enabled devices.
+      </p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
         <code>DateTime</code> and <code>AreaSeries</code> module using <code> provide: { stockchart: [ DateTime, AreaSeries] },</code> method.
       </p>
+      <p>
+        More information about the axis can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/axis-types">documentation section</a>.
+      </p>
     </div>
   </div>
 </template>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { aapl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   AreaSeries,
   Crosshair,
@@ -73,18 +80,22 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       seriesData: aapl,
       theme: theme,
-        seriesType:[],
-        indicator: [],
+      seriesType:[],
+      indicator: [],
       //Initializing Primary X Axis
       primaryXAxis: {
         valueType: "DateTime",
@@ -102,6 +113,7 @@ export default Vue.extend({
       },
        crosshair: {
         enable: true,
+        lineType: 'Both' 
       },
       border : {width : 1},
        title: 'AAPL Stock Price',
@@ -138,5 +150,5 @@ export default Vue.extend({
     ]
   },
   methods: {}
-});
+};
 </script>

@@ -1,0 +1,38 @@
+{
+   "name": "Message",
+   "directory": "message",
+   "category": "Notifications",
+   "ftName": "message",
+   "samples": [
+      {
+         "url": "default",
+         "name": "Default Functionalities",
+         "category": "Message",
+         "description": "This sample demonstrates the basic layout of Message with different severity types."
+      },
+      {
+         "url": "variants",
+         "name": "Variants",
+         "category": "Message",
+         "description": "This sample demonstrates the Message with variant type."
+      },
+      {
+         "url": "icons",
+         "name": "Icons",
+         "category": "Message",
+         "description": "This sample demonstrates the Message with close icon."
+      },
+      {
+         "url": "customization",
+         "name": "Customization",
+         "category": "Message",
+         "description": "This sample demonstrates the Message with different types of content Alignments."
+      },
+      {
+         "url": "template",
+         "name": "Template",
+         "category": "Message",
+         "description": "This sample demonstrates the template rendering in Message."
+      }
+   ]
+}

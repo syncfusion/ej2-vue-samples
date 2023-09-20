@@ -33,12 +33,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
-Vue.use(MultiSelectPlugin);
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent
+    },
   data: function() {
     return {
       waterMark: "Favourite Sports",
@@ -47,7 +48,7 @@ export default Vue.extend({
       game: null
     };
   }
-});
+}
 </script>
 
 
@@ -59,6 +60,13 @@ export default Vue.extend({
     "-apple-system", "BlinkMacSystemFont";
     font-size: 14px;
 }
+.tailwind #multiselectwrapper #content #display .selected,.display-value{
+  font-weight: 400;
+  font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif",
+    "-apple-system", "BlinkMacSystemFont";
+    font-size: 14px;
+}
+
 #multiselectwrapper #content #display .selected{
   font-weight: 500;
 }

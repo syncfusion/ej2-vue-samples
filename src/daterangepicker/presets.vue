@@ -28,11 +28,9 @@
 
 <script>
 
-import Vue from "vue";
-import { DateRangePickerPlugin } from '@syncfusion/ej2-vue-calendars';
+import { DateRangePickerComponent, PresetDirective, PresetsDirective } from '@syncfusion/ej2-vue-calendars';
 
-Vue.use(DateRangePickerPlugin);
-export default Vue.extend({
+export default {
     data: function(){
         let year = new Date().getFullYear();
         let month = new Date().getMonth();
@@ -53,8 +51,13 @@ export default Vue.extend({
            lastYearStartDate : new Date(year - 1, 1, 1).toDateString(),
            lastYearEndDate  :  new Date(year - 1, 11, 31).toDateString()
         }
+    },
+    components: { 
+        'ejs-daterangepicker': DateRangePickerComponent,
+        'e-presets': PresetsDirective,
+        'e-preset': PresetDirective
     }
-});
+};
 </script>
 
 

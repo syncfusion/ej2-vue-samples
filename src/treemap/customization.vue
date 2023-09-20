@@ -29,36 +29,45 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip} from "@syncfusion/ej2-vue-treemap";
+import { createApp } from "vue";
+import { TreeMapComponent,TreeMapTooltip} from "@syncfusion/ej2-vue-treemap";
 import { Browser } from '@syncfusion/ej2-base';
 import { Metals } from '../treemap/treemap-data/metals';
 import Template from './customization-temp.vue';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         titleSettings: {
             text: 'US Gold medal categories in Summer Olympics - 2016',
-            textStyle: {size: '15px'}
+            textStyle: {size: '15px', fontFamily: 'Segoe UI'}
         },
         dataSource: Metals,
         weightValuePath: 'Gold',
          // To config tooltip for treemap 
         tooltipSettings: {
             visible: true,
-            format: '${Sport} : ${Gold}'
+            format: '${Sport} : ${Gold}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         // To config leaf items for treemap
         leafItemSettings: {
             showLabels: !Browser.isDevice,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
            // showLabels: true,
             labelPath: 'Sport',
             fill: '#993399',
             templatePosition: 'Center',
             border: { color: 'black', width: 0.5 },
             labelFormat: ' ${Sport} - ${Gold}',
-            labelTemplate: function () { return {template: Template}; },
+            labelTemplate: function () { return { template: createApp({}).component('labelTemplate', Template) }; },
         }
 }
 },
@@ -70,9 +79,10 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
 }
 /* custom code end */
-})
+}
 </script>

@@ -2,10 +2,10 @@
   <div class="control-section">
     <div class="col-lg-12 control-section">
     <div class="content-wrapper textbox-default">
-        <div class="row material2">
+        <div class="row material">
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6"><b>Outlined and Filled</b></div>
         </div>
-        <div class="row material2">
+        <div class="row material">
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
                 <ejs-textbox floatLabelType="Auto" cssClass="e-outline" placeholder="Outlined"></ejs-textbox>
             </div>
@@ -97,7 +97,7 @@
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6"><b>Sizing</b></div>
         </div>
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 small-textbox">
                 <div class="e-input-group e-small">
                     <input class="e-input" type="text" placeholder="Small">
                 </div>
@@ -115,12 +115,12 @@
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
                 <div class="e-input-group">
                     <input class="e-input" type="text" placeholder="Date of Birth">
-                    <span class="e-input-group-icon e-input-calendar"></span>
+                    <span class="e-input-group-icon e-date-icon"></span>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
                 <div class="e-input-group e-float-icon-left">
-                    <span class="e-input-group-icon e-input-picture"></span>
+                    <span class="e-input-group-icon e-upload-picture"></span>
                     <div class="e-input-in-wrap">
                       <input class="e-input" type="text" placeholder="Upload Picture">
                     </div>
@@ -237,32 +237,28 @@
 </template>
 
 <style scoped>
-    .e-input-picture:before {
-        content: '\e335';
+    .e-upload-picture:before {
+        content: '\e60f';
         font-family: e-icons;
+        font-size: 14px;
     }
 
-    .bootstrap4 .e-input-picture:before {
-        content: '\e776';
+    .small-textbox {
+        padding-top: 5px;
+    }
+
+    .tailwind .small-textbox,
+    .tailwind-dark .small-textbox {
+        padding-top: 3px;
     }
     
-    .e-input-calendar:before {
-        content: '\e901';
-        font-family: e-icons;
-        font-size: 13px;
+    .e-bigger .small-textbox {
+        padding-top: 10px;
     }
-    
-    .fabric .e-input-calendar:before {
-        content:'\e93a';
-    }
-    .bootstrap .e-input-calendar:before {
-        content:'\e960';
-    }
-    .bootstrap4 .e-input-calendar:before {
-        content:'\e7be';
-    }
-    .highcontrast .e-input-calendar:before {
-        content:'\e93a';
+
+    .tailwind.e-bigger .small-textbox,
+    .tailwind-dark.e-bigger .small-textbox {
+        padding-top: 1px;
     }
 
     .content-wrapper.textbox-default {
@@ -300,27 +296,72 @@
     .e-outline.e-float-input.e-control-wrapper {
         margin-top: 0;
     }
-    .fabric .row.material2,
-    .bootstrap .row.material2,
-    .bootstrap4 .row.material2,
-    .highcontrast .row.material2 {
+    .fabric .row.material,
+    .bootstrap .row.material,
+    .bootstrap4 .row.material,
+    .highcontrast .row.material,
+    .tailwind .row.material,
+    .bootstrap5 .row.material,
+    .bootstrap5-dark .row.material,
+    .tailwind-dark .row.material,
+    .fabric-dark .row.material,
+    .bootstrap-dark .row.material,
+    .fluent .row.material,
+    .fluent-dark .row.material {
         display: none;
     }
     #description td {
         vertical-align: top;
     }
+    .tailwind .e-upload-picture:before,
+    .tailwind-dark .e-upload-picture:before,
+    .material3 .e-upload-picture:before,
+    .material3-dark .e-upload-picture:before {
+        content: '\e712';
+        font-size: 17px;
+    }
+
+    .e-bigger .e-upload-picture::before { 
+        font-size: 17px;
+    }
+
+    .tailwind.e-bigger .e-upload-picture:before,
+    .tailwind-dark.e-bigger .e-upload-picture:before {
+        font-size: 20px;
+    }
+
+    .bootstrap4 .e-upload-picture::before {
+        content: '\e769';
+        font-family: e-icons;
+    }
+
+    .bootstrap5 .e-upload-picture::before,
+    .bootstrap5-dark .e-upload-picture::before {
+        content: '\e712';
+        font-family: e-icons;
+    }
+
+    .fluent .e-upload-picture::before,
+    .fluent-dark .e-upload-picture::before {
+        content: '\e712';
+        font-family: e-icons;
+    }
+
+    .fluent .e-float-input.e-control-wrapper.e-filled,
+    .fluent-dark .e-float-input.e-control-wrapper.e-filled {
+        margin-top: 0px;
+    }
 </style>
 
 
 <script>
-import Vue from "vue";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-Vue.use(TextBoxPlugin);
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 
-export default Vue.extend({
+export default {
     data: function() {
         return { }
     },
+    components: { 'ejs-textbox': TextBoxComponent },
     mounted: function() {
         let input = document.querySelectorAll('.e-input-group .e-input,.e-float-input.e-input-group input');
         let inputIcon = document.querySelectorAll('.e-input-group-icon');
@@ -358,6 +399,6 @@ export default Vue.extend({
             return parentNode;
         }
     }
-});
+};
 
 </script>

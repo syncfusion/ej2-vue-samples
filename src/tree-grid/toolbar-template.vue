@@ -35,14 +35,16 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Toolbar, Filter, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Toolbar, Filter } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -56,11 +58,11 @@ export default Vue.extend({
    methods:{
        toolbarClick: function(args: ClickEventArgs) {
            if (args.item.id === 'refresh') {
-                (<TreeGridComponent>this.$refs.treegrid).filterByColumn("taskName","startswith","Testing");
+                ((this as any).$refs.treegrid).filterByColumn("taskName","startswith","Testing");
             }
        }
       
   }
 
-});
+}
 </script>

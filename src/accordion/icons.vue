@@ -208,10 +208,13 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { AccordionPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(AccordionPlugin);
-export default Vue.extend({
-  
-});
+import { AccordionComponent, AccordionItemDirective, AccordionItemsDirective } from "@syncfusion/ej2-vue-navigations";
+
+export default {
+  components: {
+    'ejs-accordion': AccordionComponent,
+    'e-accordionitem': AccordionItemDirective,
+    'e-accordionitems': AccordionItemsDirective
+  }
+}
 </script>

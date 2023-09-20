@@ -23,13 +23,10 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin, Islamic } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent, Islamic } from "@syncfusion/ej2-vue-calendars";
 import { addClass, Internationalization  } from "@syncfusion/ej2-base";
 
-Vue.use(CalendarPlugin);
-
-export default Vue.extend({
+export default {
   data: function() {
     return {
       cssClass: "calendar-islamic-custom",
@@ -37,6 +34,7 @@ export default Vue.extend({
       globalize: new Internationalization('en')
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     load: function(args) {
        /*Date need to be disabled*/
@@ -69,7 +67,7 @@ export default Vue.extend({
    provide: {
         calendar: [Islamic]
     }
-});
+};
 </script>
 
 <style scoped>
@@ -84,6 +82,17 @@ export default Vue.extend({
   max-width: 300px;
   margin: 0 auto;
 }
+
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.material3-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
+body.highcontrast #date_label {
+    color: white;
+} 
 
     /* custom generated icons styles */
 
@@ -159,6 +168,27 @@ body.highcontrast .e-bigger .calendar-islamic-custom.e-calendar span.e-icons.hig
       left: -2px;
     }
 
+    .highcontrast .calendar-islamic-custom .sf-icon-cup:before,
+    .material-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .material3-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .fabric-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .bootstrap-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .bootstrap5-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .tailwind-dark .calendar-islamic-custom .sf-icon-cup:before,
+    .fluent-dark .calendar-islamic-custom .sf-icon-cup:before {
+        color: #ff7500;
+    }
+
+    .highcontrast .calendar-islamic-custom .sf-icon-start:before,
+    .material-dark .calendar-islamic-custom .sf-icon-start:before,
+    .material3-dark .calendar-islamic-custom .sf-icon-start:before,
+    .fabric-dark .calendar-islamic-custom .sf-icon-start:before,
+    .bootstrap-dark .calendar-islamic-custom .sf-icon-start:before,
+    .bootstrap5-dark .calendar-islamic-custom .sf-icon-start:before,
+    .tailwind-dark .calendar-islamic-custom .sf-icon-start:before,
+    .fluent-dark .calendar-islamic-custom .sf-icon-start:before {
+        color: #ff7500;
+    }
     .calendar-islamic-custom [class^="sf-icon-"],
     .calendar-islamic-custom [class*=" sf-icon-"] {
       font-family: 'e-islamic-calendar-sb-icons' !important;

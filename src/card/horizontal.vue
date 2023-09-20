@@ -5,7 +5,7 @@
             <div class="row card-layout">
                 <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
                     <!-- Horizontal Card Layout for iphone-X Product -->
-                    <div tabindex="0" class="e-card e-card-horizontal e-product" style="height:420px" id="horizontal_phone_product">
+                    <div tabindex="0" class="e-card e-card-horizontal e-product" id="horizontal_phone_product">
                         <div class="e-card-stacked">
                             <div class="e-card-header">
                                 <div class="e-card-header-caption">
@@ -44,11 +44,11 @@
                                     Philips trimmers are designed to last longer than 4 ordinary trimmers and DuraPower Technology which optimizes power.
                                 </div>
                             </div>
-                            <img src="./images/Trimmer.png">
+                            <img src="./images/Trimmer.png" alt="Trimmer">
                         </div>
                         <!-- Horizontal Card Layout for Canon Product -->
                         <div tabindex="0" class="e-card e-card-horizontal" id="horizontal_product">
-                            <img src="./images/Camera.png" style="height:214px">
+                            <img src="./images/Camera.png" style="height:214px" alt="Camera">
                             <div class="e-card-stacked">
                                 <div class="e-card-header">
                                     <div class="e-card-header-caption">
@@ -95,13 +95,26 @@
 </div>
 </div>
 </template>
+<script>
+export default {}
+
+</script>
 <style scoped>
- .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-stacked {
+    .e-card-horizontal.e-product {
+        height: 420px;
+    }
+
+    .e-bigger.fluent .e-card-horizontal.e-product,
+    .e-bigger.fluent-dark .e-card-horizontal.e-product {
+        height: 480px;
+    }
+
+    .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-stacked {
         justify-content: flex-start;
     }
 
     .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-actions button:last-child {
-        margin-left: 20px;
+        margin-left: 8px;
     }
 
     .fabric .card-control-section.horizontal_card_layout #horizontal_phone_product .e-card-actions button:last-child,
@@ -167,6 +180,9 @@
         max-width: 870px;
     }
 
+    img {
+    height: 100%;
+    }
     @media (min-width: 912px) {
         .card-control-section.horizontal_card_layout .col-xs-6.col-sm-6.col-lg-6.col-md-6 {
             width: 50%;
@@ -204,10 +220,4 @@
         }
     }
 </style>
-<script>
-import Vue from "vue";
-export default Vue.extend({
 
-});
-
-</script>

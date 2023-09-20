@@ -119,6 +119,12 @@
 	color: #6c757d;
 	box-shadow: none;
 }
+.material3 .toolbar-menu-control .e-toolbar .e-input-group,
+.material3-dark .toolbar-menu-control .e-toolbar .e-input-group,
+.material3 .toolbar-menu-control .e-toolbar-items .e-dropdown-btn,
+.material3-dark .toolbar-menu-control .e-toolbar-items .e-dropdown-btn  {
+    background: transparent;
+}
 .bootstrap4 .toolbar-menu-control .e-menu-wrapper ul {
         background-color: transparent;
     }
@@ -135,18 +141,19 @@
 </style>
 
 <script>
-import Vue from "vue";
+import { createApp } from 'vue';
 import { enableRipple, removeClass } from "@syncfusion/ej2-base";
-import { MenuPlugin, ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { MenuComponent, ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import * as dataSource from './menu-data.json';
 
-Vue.use(MenuPlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(DropDownButtonPlugin);
 enableRipple(false);
 
-var menutemplateVue = Vue.component("demo1", {
+var app = createApp();
+var menutemplateVue = app.component("menuTemp", {
+  components: {
+    'ejs-menu': MenuComponent
+  },
   template: '<ejs-menu :items="menuItems"></ejs-menu>',
   data() {
     return {
@@ -156,7 +163,11 @@ var menutemplateVue = Vue.component("demo1", {
   }
 });
 
-var ddbtemplateVue = Vue.component("demo2", {
+var app1 = createApp();
+var ddbtemplateVue = app1.component("ddbTemp", {
+    components: {
+        'ejs-dropdownbutton': DropDownButtonComponent
+    },
   template: '<ejs-dropdownbutton id="ddb" :items="items" content="Andrew"></ejs-dropdownbutton>',
   data() {
     return {
@@ -166,7 +177,12 @@ var ddbtemplateVue = Vue.component("demo2", {
   }
 });
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective
+  },
   data: function() {
     return {
         menuTemplate: function() {
@@ -188,5 +204,5 @@ export default Vue.extend({
           removeClass([this.$refs.toolbar.$el.querySelector('.e-menu-shopping-cart')], 'e-icons');
         }
   }
-});
+};
 </script>

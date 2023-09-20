@@ -15,46 +15,52 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+         </colgroup>
+         <tbody>
               <tr style="height: 50px">
-                <td style="width: 40%">
-                    <div>Map Type:
+                <td>
+                    <div>Map Type
                     </div>
                 </td>
-                <td style="width: 60%;">
-                    <div style="margin-left: -10px">
-             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width=90></ejs-dropdownlist>                                 
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 50px">
-                <td style="width: 40%">
-                    <div>Export Type:
-                    </div>
-                </td>
-                <td style="width: 60%;">
-                    <div style="margin-left: -10px">
-             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width=90></ejs-dropdownlist>                                 
+                <td>
+                    <div style="padding-left: 0px;">
+             <ejs-dropdownlist ref="layertype" id='layertype' :change='changeLayerType' :dataSource='layerdata' index=0  :width='exportWidth'></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
             <tr style="height: 50px">
-                <td style="width: 40%">
-                    <div>File Name:</div>
+                <td>
+                    <div>Export Type
+                    </div>
                 </td>
-                <td style="width: 40%;">
-                    <div class="e-float-input" style='margin-top: 0px;'>
-                        <input type="text" value="Maps" id="fileName" style="margin-left: -10px">
+                <td>
+                    <div style="padding-left: 0px;">
+             <ejs-dropdownlist ref="mode" id='mode' :dataSource='modedata' index=0  :width='exportWidth'></ejs-dropdownlist>                                 
                     </div>
                 </td>
             </tr>
-            <tr id="button-control" style="height: 50px">
+            <tr style="height: 50px">
+                <td>
+                    <div>File Name</div>
+                </td>
+                <td>
+                    <div class="e-float-input" style="margin-top: 0px; padding-left: 0px;">
+                        <input type="text" value="Maps" id="fileName" style="width:100%;">
+                    </div>
+                </td>
+            </tr>
+            <tr id="button-control" style="height: 70px">
                 <td align='center'>
-                    <div>
-                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickExport'></ejs-button>                       
+                    <div style="margin-left: 50%;">
+                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click='clickExport'></ejs-button>
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
 <div id="action-description">
@@ -94,16 +100,44 @@
     #map-export-sample .e-play-icon::before {
         content: "\e728";
     }
+
+    .e-view.fluent  #map-export-sample .e-play-icon::before, .e-view.fluent-dark #map-export-sample .e-play-icon::before {
+        content: "\e72e";
+    }
+
+    .e-view.fabric  #map-export-sample .e-play-icon::before, .e-view.fabric-dark #map-export-sample .e-play-icon::before {
+        content: "\e710";
+    }
+
+    .e-view.bootstrap4 #map-export-sample .e-play-icon::before {
+        content: "\e780";
+    }
+
+    .e-view.tailwind-dark #map-export-sample .e-play-icon::before, .e-view.tailwind #map-export-sample .e-play-icon::before {
+        content: "\e7bf";
+    }
+
+    .e-view.highcontrast #map-export-sample  .e-play-icon::before {
+        content: "\e710";
+    }
+
+    .e-view.bootstrap5 #map-export-sample .e-play-icon::before, .e-view.bootstrap5-dark #map-export-sample .e-play-icon::before {
+        content: "\e72e";
+    }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, MapAjax, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data:function(){
       return{
         allowImageExport: true,
@@ -111,7 +145,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'Location of the Wonders in the World',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
@@ -135,14 +170,17 @@ export default Vue.extend({
         width: 15,
         tooltipSettings: {
                             visible: true,
-                            valuePath: 'name'
+                            valuePath: 'name',
+                            textStyle: {
+                                fontFamily: 'Segoe UI'
+                            }
                         },
                     }
                 ],
         modedata:['JPEG','PNG','SVG','PDF'],
         layerdata:['Geometry', 'OSM'],
-        iconCss: 'e-icons e-play-icon',
-        cssClass: 'e-flat', isPrimary: true, content:'Export', style: 'text-transform:none !important; margin-left:50%'
+        isPrimary: true, content:'Export', style: 'text-transform:none !important;',
+        exportWidth: '100%'
       }
   },
 provide: {
@@ -154,7 +192,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     changeLayerType: function(args){
             // let cotainerObj=document.getElementById('labels-container');
@@ -178,5 +217,5 @@ methods:{
     }
 
 }
-})
+}
 </script>

@@ -22,7 +22,7 @@
                             <div>Export as iCalendar</div>
                         </td>
                         <td style="width: 50%;">
-                            <ejs-button id='ics-export' v-on:click.native="onClick">Export</ejs-button>
+                            <ejs-button id='ics-export' v-on:click="onClick">Export</ejs-button>
                         </td>
                     </tr>
                     <tr style="height: 50px">
@@ -66,38 +66,39 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
-    .schedule-vue-sample .calendar-import.e-upload {
+    .calendar-import.e-upload {
         border: 0;
         padding-left: 0 !important;
     }
 
-    .schedule-vue-sample .calendar-import.e-upload .e-file-select-wrap {
+    .calendar-import.e-upload .e-file-select-wrap {
         padding: 0
     }
 
-    .schedule-vue-sample .calendar-import.e-upload .e-file-select-wrap .e-file-drop {
+    .calendar-import.e-upload .e-file-select-wrap .e-file-drop {
         display: none;
     }
 </style>
-<!-- custom code end -->
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, ICalendarExport, ICalendarImport, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, Agenda, ICalendarExport, ICalendarImport, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    Vue.use(UploaderPlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-uploader': UploaderComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'Week',
                 cssClass:'calendar-import',
                 multiple: false,
@@ -121,6 +122,5 @@
                 scheduleObj.importICalendar(args.event.target.files[0]);
             }
         }
-    });
-
+    }
 </script>

@@ -22,11 +22,11 @@
     <p>
         In this example, you can see how to render and configure the range navigator with area type series. <code>tooltip</code> is used to represent selected data value. You can also use <code>selectedRegionColor</code> and <code>unSelectedRegionColor</code> properties to customize selected and unselected area in range navigator.
      </p>     
-      <br>
-        <p style="font-weight: 500">Injecting Module</p>
+      
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
-         The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module in the <code>provide</code> section
-         Inject(DateTime) method. To use the tooltip, inject the <code>RangeTooltip</code> module in the <code>provide</code> section.
+         The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module using <code>provide: { rangeNavigator: [DateTime] }</code> method.
+         To use the tooltip, inject the <code>RangeTooltip</code> module using <code>provide: { rangeNavigator: [RangeTooltip] }</code> method.
         </p>
 </div>
 <svg style="height: 0">
@@ -48,6 +48,50 @@
             <stop offset="1"></stop>
         </linearGradient>
         <linearGradient id="highcontrast-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+		<linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
+        <linearGradient id="bootstrap5-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
+         <linearGradient id="fluent-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
@@ -84,6 +128,50 @@
         stop-color: #79ECE4;
     }
 
+    #tailwind-gradient-chart stop {
+        stop-color: #5A61F6;
+    }
+
+    #bootstrap5-gradient-chart stop {
+        stop-color: #262E0B;
+    }
+
+    #material-dark-gradient-chart stop {
+        stop-color: #9ECB08;
+    }
+
+    #fabric-dark-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+
+    #bootstrap-dark-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+
+    #tailwind-dark-gradient-chart stop {
+        stop-color: #8B5CF6;
+    }
+
+    #bootstrap5-dark-gradient-chart stop {
+        stop-color: #5ECB9B;
+    }
+
+     #fluent-gradient-chart stop {
+        stop-color: #614570;
+    }
+
+    #fluent-dark-gradient-chart stop {
+        stop-color: #8AB113;
+    }
+
+    #material3-gradient-chart stop {
+        stop-color: #6355C7;
+    }
+
+    #material3-dark-gradient-chart stop {
+        stop-color: #4EAAFF;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
     }
@@ -97,22 +185,26 @@
 
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, AreaSeries, ChartTheme, DateTime, RangeTooltip } from "@syncfusion/ej2-vue-charts";
+import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorSeriesCollectionDirective, AreaSeries, ChartTheme, DateTime, RangeTooltip } from "@syncfusion/ej2-vue-charts";
 import { bitCoinData } from "./default-data";
-
-Vue.use(RangeNavigatorPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
-let borderColor = ["#00bdae", "#4472c4", "#a16ee5", "#79ECE4"];
-let regionColor = [ "rgba(0, 189, 174, 0.3)", "rgba(68, 114, 196, 0.3)",
-  "rgba(161, 110, 229, 0.3)", "rgba(121, 236, 228, 0.3)" ];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
+let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
+    'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
+    'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(97, 69, 112, 0.3)', 'rgba(138, 177, 19, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)' ];
+
+export default {
+    components: {
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'e-rangenavigator-series-collection': RangenavigatorSeriesCollectionDirective,
+    'e-rangenavigator-series': RangenavigatorSeriesDirective
+  },
   data: function() {
     return {
       valueType: "DateTime",
@@ -121,13 +213,13 @@ export default Vue.extend({
       value: [new Date('2017-09-01'), new Date('2018-02-01')],
       navigatorStyleSettings: {
         unselectedRegionColor: "transparent",
-        selectedRegionColor: regionColor[themes.indexOf(theme)]
+        selectedRegionColor: regionColor[themes.indexOf(theme.toLowerCase())]
       },
       data: bitCoinData,
       width: Browser.isDevice ? "100%" : "80%",
       theme: theme,
-      fill: "url(#" + theme.toLowerCase() + "-gradient-chart)",
-      border: { width: 2, color: borderColor[themes.indexOf(theme)] }
+      fill: "url(#" + selectedTheme + "-gradient-chart)",
+      border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] }
     };
   },
   
@@ -142,5 +234,5 @@ export default Vue.extend({
   methods: {
   
   }
-});
+};
 </script>

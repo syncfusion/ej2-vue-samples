@@ -2,10 +2,10 @@
 
 var gulp = global.gulp = global.gulp || require('gulp');
 var config = { publishSamples: ["./dist/**/*"] };
-var gzip = require('gulp-gzip');
-var shelljs = require('shelljs');
+var gzip = global.gzip = global.gzip || require('gulp-gzip');
+var shelljs = global.shelljs = global.shelljs || require('shelljs');
 var cdn = require('./cdn.js');
-var fs = require('fs');
+var fs = global.fs = global.fs || require('fs');
 
 /**
  * publish sample browser 
@@ -17,7 +17,7 @@ function getReleaseVersion(version) {
     return version.join('.');
 }
 
-gulp.task('publish-samples', function(done) {
+gulp.task('publish-samples', gulp.series('ship-search-file', function(done) {
     var isMaster = process.env.BRANCH_NAME === 'master';
     var hotfixVersion;
     var isHotFix = /^((release\/|hotfix\/))/g.test(process.env.BRANCH_NAME);
@@ -51,15 +51,19 @@ gulp.task('publish-samples', function(done) {
         .pipe(gzip({ append: false }))
         .pipe(gulp.dest(demoPath))
         .on('end', function() {
-            cdn.publish(demoPath, false, prefixName, done);
+             cdn.publish(demoPath, false, prefixName, function(){
+                    shelljs.exec('gulp npmci-time-update')
+             });
         })
         .on('error', function(e) {
             done(e);
         });
-});
+    done();
+}));
 
-gulp.task('build-output', function() {
+gulp.task('build-output', function(done) {
     var publishSample = config.publishSamples;
         gulp.src(publishSample)
         .pipe(gulp.dest('Vue'));      
+    done();
 });

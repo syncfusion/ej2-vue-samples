@@ -13,16 +13,24 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
-        <tbody><tr style="height: 50px">
-            <td style="width: 60%">
-                <div>Projection Type</div>
+    <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+             <col span="1" style="width: 40%;">
+             <col span="1" style="width: 60%;">
+          </colgroup>
+          <tbody>
+        <tr style="height: 50px">
+            <td>
+                <div style="width: 80%">Projection Type</div>
             </td>
-            <td style="width: 40%;">
-             <ejs-dropdownlist ref="projection" id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>                                 
+            <td>
+            <div style="margin-left: -10px">
+             <ejs-dropdownlist ref="projection" id='projectiontype' :dataSource='projectiondata' index=0  :width='projectionwidth' :change='changeProjectiontype' :placeholder='placeholder'></ejs-dropdownlist>
+             </div>                                 
             </td>
         </tr>
-    </tbody></table>
+        </tbody>
+    </table>
 </div>
 <div id="action-description">
         <p>
@@ -51,26 +59,37 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Legend, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
     return{
         titleSettings: {
             text: 'Members of the UN Security Council',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             },
             subtitleSettings: {
                 text: '- In 2017',
-                alignment: 'Far'
+                alignment: 'Far',
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                },
             }
         },
         legendSettings: {
-            visible: true
+            visible: true,
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         zoomSettings: {
             enable: false
@@ -82,7 +101,10 @@ data:function(){
         tooltipSettings: {
                 visible: true,
                 valuePath: 'Country',
-                },
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                }
+        },
         shapeSettings: {
                     fill: '#E5E5E5',
         colorMapping: [
@@ -98,7 +120,7 @@ data:function(){
         colorValuePath: 'Membership'
                 },
         projectiondata:['Mercator','Equirectangular','Miller','Eckert3','Eckert5','Eckert6','Winkel3','AitOff'],
-        projectionwidth:120,
+        projectionwidth: '105%',
         placeholder:'Select projection type'
     }
 },
@@ -111,7 +133,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     changeProjectiontype:function(args){
@@ -119,5 +142,5 @@ methods:{
             this.$refs.maps.ej2Instances.refresh();        
     }
 }
-})
+}
 </script>

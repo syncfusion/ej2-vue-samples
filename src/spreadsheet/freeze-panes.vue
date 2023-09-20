@@ -33,6 +33,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
        This sample demonstrates the Spreadsheet freeze pane feature by applying frozen rows and columns with the Gross Salary scenario as an example. In this sample, you can see the frozen rows/columns that are visible while scrolling the sheet content vertically/horizontally.
@@ -46,10 +47,11 @@
 
       <p>
         More information about the Spreadsheet component can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/freeze-pane">
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -94,11 +96,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent, SheetDirective, RowsDirective, RowDirective, SheetsDirective, ColumnsDirective, ColumnDirective, RangesDirective, RangeDirective } from '@syncfusion/ej2-vue-spreadsheet';
 import dataSource from "./freeze-panes-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective
+   },
    data: () => {
     return {
       dataSource: dataSource.defaultData,
@@ -114,8 +126,8 @@ export default Vue.extend({
       ],
       width1: 80,
       width2: 100,
-      openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-      saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+      openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+      saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {
@@ -130,5 +142,5 @@ export default Vue.extend({
         spreadsheet.numberFormat('$#,##0.00', 'O27:P27');
     }
   }
-});
+}
 </script>

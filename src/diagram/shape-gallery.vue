@@ -62,9 +62,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   BasicShapeModel,
@@ -78,13 +77,10 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import { Node, SnapConstraints } from "@syncfusion/ej2-vue-diagrams";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   DropDownList,
   ChangeEventArgs as DropDownChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
-
-Vue.use(DiagramPlugin);
-Vue.use(DropDownListPlugin);
 
 let basicShapeModel = [
   {
@@ -329,7 +325,11 @@ let bpmnShapeModel= [
 
 let diagramInstance;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -349,7 +349,7 @@ export default Vue.extend({
     let diagram = this.$refs.diagramObject.ej2Instances;
     diagram.fitToPage();
   }
-});
+}
 
 function getNodes() {
   var nodes1 = basicShapeModel;

@@ -26,21 +26,25 @@
             <col style="width:45%" />
         </colgroup>
         <tr>
-            <td style="width: 55%">
-                <div>Work Start Time</div>
+            <td style="width: 100%">
+                <div style="font-size: 15px;">Work Start Time</div>
             </td>
-            <td style="width: 45%;">
-                <div style="padding-top: 0px">
+        </tr>
+        <tr>
+            <td style="width: 100%;">
+                <div style="padding-top: 0px; width: 150px">
                     <ejs-numerictextbox ref='WorkStartTime' id="WorkStartTime" :min='0' :max='24' :showSpinButton='true' :step='0.5' :value='8' :change='updateTime'></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 55%">
-                <div>Work End Time</div>
+            <td style="width: 100%">
+                <div style="font-size: 15px;">Work End Time</div>
             </td>
-            <td style="width: 45%;">
-                <div style="padding-top: 0px">
+        </tr>
+        <tr>
+            <td style="width: 100%;">
+                <div style="padding-top: 0px; width: 150px">
                     <ejs-numerictextbox ref='WorkEndTime' id="WorkEndTime" :min='0' :max='24' :value='17' :step='0.5' :change='updateTime' :showSpinButton='true' ></ejs-numerictextbox>
                 </div>
             </td>
@@ -64,15 +68,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { workTimeRange } from './data-source';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(GanttPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
       return{
             data: workTimeRange,
@@ -143,5 +147,5 @@ export default Vue.extend({
           isTimeUpdated = false;
         }
     },
-});
+}
 </script>

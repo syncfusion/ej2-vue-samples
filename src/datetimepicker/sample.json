@@ -2,11 +2,11 @@
     "name": "DateTimePicker",
     "directory": "datetimepicker",
     "category": "Calendars",
+    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "DateTimePicker",
-            "hideOnDevice": true,
             "api":{"DateTimePicker": []},
             "description": "This example demonstrates a simple, mobile-friendly and responsive Vue DateTimePicker to select both a date and time" 
         },
@@ -14,7 +14,6 @@
             "url": "disabled",
             "name": "Disabled Dates",
             "category": "DateTimePicker",
-            "hideOnDevice": true,
             "api":{"DateTimePicker": ["renderDayCell" ]},
             "description": "This example demonstrates how to disable the dates and times like weekends, weekdays and specific dates (past dates, future dates and current dates) in a Vue DateTimePicker"
         },
@@ -22,7 +21,6 @@
             "url": "date-time-range",
             "name": "DateTime Range",
             "category": "DateTimePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "min", "max", "value" ]},
             "description": "This example demonstrates how to disables the specific range of dates and times (min and max) in a Vue DateTimePicker" 
         },
@@ -30,7 +28,6 @@
             "url": "date-time-format",
             "name": "Format",
             "category": "DateTimePicker",
-            "hideOnDevice": true,
             "api":{"DateTimePicker": [ "format", "value"]},
             "description": "This example demonstrates how to change the date and time format in the input field based on the format in a Vue DateTimePicker"
         },
@@ -38,7 +35,6 @@
             "url": "special-dates",
             "name": "Special Dates",
             "category": "DateTimePicker",
-            "hideOnDevice": true,
             "api":{"DateTimePicker": [ "renderDayCell", "value"]},
             "description": "This example demonstrates how to highlight the specific dates and times like weekends, holidays and special dates in a Vue DateTimePicker"
         },
@@ -46,8 +42,14 @@
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "DateTimePicker",
-            "hideOnDevice": true,
             "api":{"DateTimePicker": [ "value" ]}
-        }
+        },
+        {
+            "url": "input-mask",
+            "name": "Mask Support",
+            "category": "DateTimePicker",
+            "api":{"DateTimePicker": [ "enableMask", "format"]},
+            "description": "This sample demonstrates the default functionalities of Vue DateTimePicker with mask support"
+        }        
     ]
 }

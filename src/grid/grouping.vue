@@ -2,17 +2,17 @@
 <div class="col-lg-12 control-section">
     <div id="action-description">
          <p>This sample demonstrates grouping feature of the Grid component. In this sample, the Grid data is grouped against
-        Country column. To group any other column simply drag the column header and drop on the group drop area.</p>
+            ShipCountry  column. To group any other column simply drag the column header and drop on the group drop area.</p>
     </div>
     <div>
         <div class="control-section">
-        <ejs-grid ref="grid" :dataSource="data" :allowGrouping='true' :allowPaging='true' :allowSorting='true' :groupSettings='groupOptions' :pageSettings='pageOptions' :created='created' height=320>
+        <ejs-grid ref="grid" :dataSource="data" :allowGrouping='true' :allowPaging='true' :allowSorting='true' :groupSettings='groupOptions' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageOptions' :created='created' height=320>
             <e-columns>
-                <e-column field='Inventor' headerText='Inventor Name' width='180'></e-column>
-                <e-column field='NumberofPatentFamilies' headerText="Number of Patent Families" width='220' textAlign='Right'></e-column>
-                <e-column field='Country' headerText='Country' width='140'></e-column>
-                <e-column field='Active' width='120'></e-column>
-                <e-column field='Mainfieldsofinvention' headerText='Main fields of invention' :allowGrouping='false' width='200'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
+                <e-column field='Freight' headerText='Freight' width='180' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='130' editType='datetimepickeredit' :allowGrouping='false' :format='formatoptions' textAlign='Right'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit' :edit='editparams'></e-column>
             </e-columns>
         </ejs-grid>
         </div>
@@ -32,30 +32,37 @@
         allowGrouping</a></code> property as true.</p>
         <p>Columns can be grouped by simply dragging the column header and drop on the group drop area.</p>
         <p>In this demo, to group a specify column, drag and drop the column in the group drop area.</p>
+        <p> 
+            In this demo, editing options can be enabled by setting <code>editSettings.allowEditing</code> as <code>true</code>.
+            You can start editing by double-clicking a row or the toolbar `Edit` button. 
+            Once in edit mode, you have the ability to modify the values of the selected row. 
+            When saving the record, the Grid will refresh the specific edited row without affecting the expanded group state.
+        </p>
         <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            Grid component features are segregated into individual feature-wise modules. To use grouping feature, we need to inject
-            <code>Group</code> into the <code>provide</code> section.
+            Grid component features are segregated into individual feature-wise modules. To use grouping and editing features, we need to inject
+            <code>Group</code>, <code>Edit</code> modules into the <code>provide</code>.
         </p>
         <p>
             More information on the grouping feature configuration can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#groupsettings">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#groupsettings">documentation section</a>.
         </p>
     </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Group, Page, Sort } from "@syncfusion/ej2-vue-grids";
-import { inventoryData } from "./data-source";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, Page, Sort, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { orderDataSource } from "./data-source";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-
-Vue.use(GridPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dialog': DialogComponent
+  },
   data: function() {
     return {
       alertHeader: 'Grouping',
@@ -65,9 +72,16 @@ export default Vue.extend({
       alertWidth: '300px',
       animationSettings: { effect: 'None' },
       alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
-      data: inventoryData,
+      data: orderDataSource,
+      editSettings: { allowEditing: true },
+      toolbar: ['Edit', 'Update', 'Cancel'],
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true },
+      formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' },
+      freightrules:  { required: true },
+      editparams: { params: { popupHeight: '300px' }},
       pageOptions: { pageCount: 5 },
-      groupOptions: { columns: ["Country"] }
+      groupOptions: { columns: ["ShipCountry"] }
     };
   },
   methods: {
@@ -75,8 +89,8 @@ export default Vue.extend({
         ((<any>this).$refs.grid.ej2Instances as any).on("columnDragStart", this.columnDragStart, this);
     },
     columnDragStart: function(args: any) {
-        if(args.column.field === "Mainfieldsofinvention"){
-             (<any>this.$refs.alertDialog).show();
+        if(args.column.field === "OrderDate"){
+             ((this as any).$refs.alertDialog).show();
         }
     },
     alertDlgBtnClick: function() {
@@ -84,7 +98,7 @@ export default Vue.extend({
     },
   },
   provide: {
-    grid: [Group, Page, Sort]
+    grid: [Group, Page, Sort, Edit, Toolbar]
   }
-});
+}
 </script>

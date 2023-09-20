@@ -37,7 +37,6 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     @media (min-width: 481px) {
         .schedule-vue-sample .schedule-wrapper {
@@ -45,18 +44,21 @@
         }
     }
 </style>
-<!-- custom code end -->
 <script>
-    import Vue from "vue";
     import { fifaEventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, MonthAgenda, EventRenderedArgs, View } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, MonthAgenda } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], fifaEventsData, null, true) },
-                selectedDate: new Date(2018, 5, 20),
+                selectedDate: new Date(2021, 5, 20),
             }
         },
         provide: {
@@ -64,6 +66,6 @@
         },
         methods: {
         }
-    });
+    }
 
 </script>

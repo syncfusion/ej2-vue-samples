@@ -54,6 +54,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates number formatting feature with a restaurant invoice.
@@ -65,11 +66,15 @@
           and a range of cells by using the <code>numberFormat</code> method.
       </p>
       <p>
+        In the Amount column, we have used Custom number formatting to highlight the values less than 350 and greater than 350 with red and blue colors respectively.
+      </p>
+      <p>
         More information about number formatting can be found in this
           <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/formatting/#number-formatting">
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -83,11 +88,23 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./number-format-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, RowDirective, RowsDirective, CellDirective, CellsDirective, ColumnDirective, ColumnsDirective, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
+import dataSource from "./number-format-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },
    data: () => {
     return {
       dataSource: dataSource.numberFormatData,
@@ -117,7 +134,8 @@ export default Vue.extend({
         spreadsheet.cellFormat({ backgroundColor: '#B3E5FC' }, 'A15:E17');
         spreadsheet.numberFormat('$#,##0.00', 'D4:E14');
         spreadsheet.numberFormat('$#,##0.00', 'E15:E17');
+        spreadsheet.numberFormat('[Red][<=350]$#,##0.00;[Blue][>350]$#,##0.00', 'E4:E14');
     }
   }
-});
+}
 </script>

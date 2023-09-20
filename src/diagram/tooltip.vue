@@ -131,23 +131,18 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-    DiagramPlugin,
+    DiagramComponent,
     Diagram,
     DiagramConstraints,
     BpmnDiagrams,
     NodeConstraints
 } from "@syncfusion/ej2-vue-diagrams";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 Diagram.Inject(BpmnDiagrams);
 
-Vue.use(DiagramPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(TextBoxPlugin);
 let diagramInstance;
 // FontType Collection
 let modeValue = [
@@ -306,7 +301,13 @@ let temp = '<div style="background-color: #f4f4f4; color: black; border-width:1p
     'border-style: solid;border-color: #d3d3d3; border-radius: 8px;white-space: nowrap;">' +
     ' <span style="margin: 10px;">';
 
-export default Vue.extend({
+export default {
+    components: {
+       'ejs-diagram': DiagramComponent,
+       'ejs-dropdownlist': DropDownListComponent,
+       'ejs-numerictextbox': NumericTextBoxComponent,
+       'ejs-textbox': TextBoxComponent
+    },
     data: function() {
         return {
             //Initializes diagram control
@@ -399,7 +400,7 @@ export default Vue.extend({
         diagramInstance = this.$refs.diagramObj.ej2Instances;
         diagramInstance.fitToPage({ mode: 'Width' });
     }
-});
+}
 function getcontent() {
     let tooltipContent = document.createElement('div');
     tooltipContent.innerHTML = '<div style="background-color: #f4f4f4; color: black; border-width:1px;border-style: solid;border-color: #d3d3d3; border-radius: 8px;white-space: nowrap;"> <span style="margin: 10px;"> Tooltip !!! </span> </div>';

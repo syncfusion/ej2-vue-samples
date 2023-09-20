@@ -41,9 +41,12 @@
     </div>
 </template>
 <script>
-import Vue from "vue";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
 export default {
+  components: {
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data() {
     var statusData = [
       { text: "Open" },

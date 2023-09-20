@@ -33,11 +33,12 @@
     /* Loading sprite image for TreeView */
     .dropdowntree-icons .e-treeview .e-list-icon {
         background-repeat: no-repeat;
-        background-image: url(../images/icons/file_icons.png);
+        background-image: url('../images/icons/file_icons.png');
         height: 20px;
     }
 
     .dropdowntree-icons .e-treeview .e-list-icon.folder { background-position: -10px -552px }
+    .e-bigger .dropdowntree-icons .e-treeview .e-list-icon.folder { background-position: -10px -550px; }
     .dropdowntree-icons .e-treeview .e-list-icon.docx { background-position: -10px -20px }
     .dropdowntree-icons .e-treeview .e-list-icon.ppt { background-position: -10px -48px }
     .dropdowntree-icons .e-treeview .e-list-icon.pdf { background-position: -10px -104px }
@@ -49,13 +50,13 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as dataSource from './icons-data.json';
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
+import dataSource from './icons-data.json';
 
-Vue.use(DropDownTreePlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent
+    },
     data: function() {
         return {
             fields: { dataSource: dataSource.iconData, value: 'nodeId', text: 'nodeText', child: 'nodeChild', iconCss: 'icon', imageUrl: 'image' },
@@ -63,5 +64,5 @@ export default Vue.extend({
             waterMark: 'Select a folder or file',
         };
     }
-});
+}
 </script>

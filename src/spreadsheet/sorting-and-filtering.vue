@@ -20,6 +20,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
      <div id="action-description">
     <p>
         This sample demonstrates sorting and filtering feature using employee details.
@@ -43,6 +44,7 @@
             documentation</a> section.
     </p>
      </div>
+     <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -68,17 +70,25 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./sorting-and-filtering-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, ColumnDirective, ColumnsDirective  } from "@syncfusion/ej2-vue-spreadsheet";
+import dataSource from "./sorting-and-filtering-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },
    data: () => {
     return {
         Employeedetails:"Employee deatils",
         dataSource: dataSource.sortingAndFiltering,
-        openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-        saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+        openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+        saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {
@@ -91,5 +101,5 @@ export default Vue.extend({
             });
             }
         }
-});
+}
 </script>

@@ -54,23 +54,33 @@
 </template>
 
 <script>
-import Vue from "vue";
 import { resourceData, timelineResourceData } from "./datasource";
 import {
-  SchedulePlugin,
+  ScheduleComponent,
+  ViewDirective,
+  ViewsDirective,
+  ResourceDirective,
+  ResourcesDirective,
   Month,
   TimelineMonth,
   Resize,
   DragAndDrop,
 } from "@syncfusion/ej2-vue-schedule";
-Vue.use(SchedulePlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-schedule': ScheduleComponent,
+    'e-view': ViewDirective,
+    'e-views': ViewsDirective,
+    'e-resource': ResourceDirective,
+    'e-resources': ResourcesDirective
+  },
   data: function () {
     return {
       eventSettings: {
         dataSource: this.generateData(),
       },
-      selectedDate: new Date(2018, 3, 4),
+      selectedDate: new Date(2023, 0, 4),
       currentView: "Month",
       allowMultiDrag: true,
       showQuickInfo: false,
@@ -83,7 +93,7 @@ export default Vue.extend({
         { text: "Steven", id: 2, color: "#7fa900" },
         { text: "Robert", id: 3, color: "#ea7a57" },
         { text: "Smith", id: 4, color: "#5978ee" },
-        { text: "Micheal", id: 5, color: "#df5286" },
+        { text: "Michael", id: 5, color: "#df5286" },
       ],
     };
   },
@@ -100,5 +110,5 @@ export default Vue.extend({
       return collections;
     },
   },
-});
+}
 </script>

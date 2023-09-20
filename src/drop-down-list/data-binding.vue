@@ -74,22 +74,20 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
-
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
+import data from './dataSource.json';
 
 var remoteData = new DataManager({
-    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    url: 'https://services.syncfusion.com/vue/production/api/Employees',
     adaptor: new WebApiAdaptor,
     crossDomain: true
 });
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             localFields: { text: 'Game', value: 'Id' },
@@ -102,5 +100,5 @@ export default Vue.extend ({
             remoteWaterMark: 'Select a name',
         };
     }
-});
+}
 </script>

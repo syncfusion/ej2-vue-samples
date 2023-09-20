@@ -1,15 +1,15 @@
 <template>
 <div class="control-section">
-    <div  class="col-lg-9 control-section">
+    <div  class="col-lg-9">
         <div class="default-section">
             <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
                     <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
                 </div>
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl"  :enableToolbar='true' style="height:600px"></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
@@ -21,7 +21,7 @@
                 <ejs-multiselect ref="multiSelect" :mode='multiSelectMode' :dataSource='toolbarItems' :showSelectAll='showSelectAll' :showDropDownIcon='showDropDownIcon' :placeholder='waterMark' :popupHeight='popHeight' :filterBarPlaceholder='filterPlaceholder' :enableSelectionOrder='enableSelectionOrder'></ejs-multiselect>
             </div><br>
             <div style="padding-bottom: 10px">
-                <ejs-button v-on:click.native="updateToolbarItems">Customize</ejs-button>
+                <ejs-button v-on:click="updateToolbarItems">Customize</ejs-button>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
     <div id="description">
         <p>Existing toolbar items can be hidden, shown, enabled, and disabled. Also, new items can be added to the toolbar.</p>
         <p style="display: block"> More information about the document editor features can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/how-to/customize-tool-bar/">documentation section.</a>
         </p>
     </div>
 </div>
@@ -98,24 +98,22 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { defaultDocument } from "./data";
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownButtonPlugin);
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent,
+        'ejs-multiselect': MultiSelectComponent
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Getting Started',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -208,11 +206,10 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(defaultDocument));
           obj.documentName='Custom toolbar';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
        });
     }
-});
+};
 </script>

@@ -41,9 +41,9 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(NumericTextBoxPlugin);
-export default Vue.extend ({});
+export default {
+    components: { 'ejs-numerictextbox': NumericTextBoxComponent },
+};
 </script>

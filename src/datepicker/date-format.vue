@@ -47,13 +47,10 @@
 
 <script>
 
-import Vue from "vue";
-import { DatePickerPlugin} from '@syncfusion/ej2-vue-calendars';
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DatePickerComponent} from '@syncfusion/ej2-vue-calendars';
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DatePickerPlugin);
-Vue.use(RadioButtonPlugin);
-export default Vue.extend({
+export default {
     data: function() {
         return {
             waterMarkText : 'Choose a date',
@@ -61,12 +58,16 @@ export default Vue.extend({
             date : new Date("05/27/2017")
         }
     },
+    components: { 
+        'ejs-datepicker': DatePickerComponent,
+        'ejs-radiobutton': RadioButtonComponent
+    },
     methods: {
         changeFormat: function(args) {
             this.dateFormat = args.value;
       } 
     }
-});
+};
 </script>
 
 

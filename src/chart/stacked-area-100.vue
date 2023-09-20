@@ -2,35 +2,34 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width'>
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y' name='Organic' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y1' name='Fair-trade' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y2' name='Veg Alternatives' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y3' name='Others' > </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y' name='Bank Transfer' :border='border'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y1' name='Credit Card' :border='border'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y2' name='Debit Card' :border='border'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingArea100' xName='x' yName='y3' name='Cash' :border='border'> </e-series>
                
             </e-series-collection>
         </ejs-chart>
     </div>
    <div id="action-description">
     <p>
-        Percentage of sales for four ethical products are visualized with default 100% stacked area series in chart. 
-        Legend in the sample shows the information about the series.
+      This Vue 100% Stacked Area Chart example visualizes the amount of sales by payment mode  with default 100% stacked area series. A legend in the sample shows information about the series.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the 100% stacking area type charts. You can use <code>fill</code> properties to customize the 100% stacking area.         
+      In this example, you can see how to render and configure the 100% stacked area chart. This chart visualizes data with y-values stacked, ensuring that the cumulative proportion of each stacked element always totals 100%.         
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-        Chart component features are segregated into individual feature-wise modules. To use stackedArea100 series, we need to inject
+        Chart component features are segregated into individual feature-wise modules. To use 100% stacked area series, we need to inject
         <code>StackingAreaSeries</code> module using <code>provide: { chart: [ StackingAreaSeries ] },</code> method.
     </p>
     <p>
-        More information on the stacking area series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+      More information about the 100% stakced area series can be found in this
+      <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stacked-area">documentation section</a>.
     </p>
 </div>
 </div>
@@ -40,16 +39,19 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, StackingAreaSeries, Legend, DateTime} from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingAreaSeries, Legend, DateTime,Tooltip, Highlight} from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
@@ -74,37 +76,43 @@ export default Vue.extend({
 
       //Initializing Primary X Axis
         primaryXAxis: {
-            valueType: 'DateTime',
-            majorGridLines: { width: 0 },
-            intervalType: 'Years',
-            labelFormat: 'y',
-            edgeLabelPlacement: 'Shift'
+          valueType: 'DateTime',
+          intervalType: 'Years',
+          majorGridLines: { width: 0 },
+          labelFormat: 'y',
+          edgeLabelPlacement: 'Shift',
+          lineStyle: { width: 0 },
+          minimum: new Date(1999, 0, 1), maximum: new Date(2015, 0, 1)
         },
         chartArea: {
             border: {
                 width: 0
             }
         },
-
+       
       //Initializing Primary Y Axis
         primaryYAxis:
         {
-            title: 'Spends',
-            majorGridLines: { width: 0 },
-            rangePadding: 'None',
-            interval: 20
+          majorTickLines: { width: 0 },
+          lineStyle: { width: 0 },
+          rangePadding: 'None',
+          interval: 20
         },
 
-
-       width : Browser.isDevice ? '100%' : '60%',
-      title: "Trend in Sales of Ethical Produce"
+      border : { width: 1, color: '#ffffff' },
+      tooltip: {
+        enable: true
+      },
+      width : Browser.isDevice ? '100%' : '75%',
+      legend: {enableHighlight : true},
+      title: "Sales by Payment Mode"
     };
   },
   provide: {
-    chart: [StackingAreaSeries, Legend, DateTime]
+    chart: [StackingAreaSeries, Legend, DateTime,Tooltip, Highlight]
   },
   methods: {
   },
  
-});
+};
 </script>

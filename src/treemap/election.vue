@@ -9,25 +9,33 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <tbody>
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <colgroup>
+            <col span="1" style="width: 40%;">
+            <col span="1" style="width: 60%;">
+         </colgroup>
+           <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 40%">
-                        <div class="property-text" style="padding: 0px;">Legend Type</div>
+                    <td>
+                        <div class="property-text" style="padding-top: 10px;">Legend Type</div>
                     </td>
-                    <td style="width: 80%; height:30%">
-                        <ejs-dropdownlist ref="mode" id='layoutMode' :dataSource='layoutModedata' index=0 :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change="changeLayoutmode"></ejs-dropdownlist>        
+                    <td>
+                    <div>
+                        <ejs-dropdownlist ref="mode" id='layoutMode' :dataSource='layoutModedata' index=0 :placeholder='layoutModeplaceholder' :width='layoutModewidth' :change="changeLayoutmode"></ejs-dropdownlist>    
+                    </div>          
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 40%">
-                    <div class="property-text" style="padding: 0px;">Position</div>
+                    <td>
+                    <div class="property-text" style="padding-top: 10px;">Position</div>
                     </td>
-                    <td style="width: 80%; height:30%">
-                        <ejs-dropdownlist id='layoutPosition' :dataSource='positionData' index=0 :width='layoutModewidth' :change='changePosition'></ejs-dropdownlist>        
+                    <td>
+                    <div>
+                        <ejs-dropdownlist id='layoutPosition' :dataSource='positionData' index=0 :width='layoutModewidth' :change='changePosition'></ejs-dropdownlist>   
+                    </div>           
                     </td>
                 </tr>
-            </tbody>
+                  </tbody>
         </table>
     </div>
    <div id="action-description">
@@ -63,30 +71,38 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
 import { electionData } from '../treemap/treemap-data/election-data';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         titleSettings: {
             text: 'US Presidential election result - 2016',
-            textStyle: { size: '15px' }
+            textStyle: { size: '15px', fontFamily: 'Segoe UI' }
         },
         dataSource: electionData,
         weightValuePath: 'Population',
         tooltipSettings: {
             visible: true,
-            format: ' <b>${Winner}</b><br>State : ${State}<br>Trump : ${Trump} %<br>Clinton : ${Clinton} %'
+            format: ' <b>${Winner}</b><br>State : ${State}<br>Trump : ${Trump} %<br>Clinton : ${Clinton} %',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         legendSettings: {
             visible: true,
             position: 'Top',
             shape: 'Rectangle',
-            height: '10'
+            height: '10',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         useGroupingSeparator: true,
         rangeColorValuePath: 'WinPercentage',
@@ -94,6 +110,9 @@ return{
         leafItemSettings: {
             labelPath: 'State',
             fill: '#6699cc',
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             border: { color: 'white', width: 0.5 },
             colorMapping: [
                 {
@@ -105,7 +124,7 @@ return{
             ]
         },
         layoutModeplaceholder: 'Select legend type',
-        layoutModewidth: 120,
+        layoutModewidth: '100%',
         layoutModedata:['Default','Interactive'],
         positionData: ['Top', 'Bottom', 'Left', 'Right', 'Auto']
 }
@@ -118,7 +137,8 @@ methods:{
      load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     	resize: function(args){
@@ -181,5 +201,5 @@ methods:{
     treemap.refresh();
     }
   },
-})
+}
 </script>

@@ -1,242 +1,397 @@
 <template>
-<div class="control-section sidebar-list">
+<div id="wrapper" class="control-section">
     <!-- sample level element  -->
-    <div class="col-lg-12 col-sm-12 col-md-12 center">
-        Click/Touch the button to view the sample
-    </div>
-    <div class="col-lg-12 col-sm-12 col-md-12 center">
-        <a class="e-btn" id="newTab" v-on:click="newTabClick" target="_blank">Open in new Tab</a>
-    </div>
-    <!-- sample level element  -->
-    <div id="wrapper">
-        <div class="col-lg-12 col-sm-12 col-md-12">
-            <div class="col-lg-12 col-sm-12 col-md-12">
-                <div id="head">
-                    <div class="text">Menu</div>
-                    <span id="hamburger" class="sidebar-icons menu" v-on:click="openClick"></span>
-                    <div class="header">Header Content</div>
-                </div>
-                <!-- sidebar element declaration-->
-                <ejs-sidebar id="sidebar-menu" :type='type' :width='width' ref="sidebarInstance">
-                    <!-- normal state element declaration -->
-                    <div id="close" class="sidebar-icons" v-on:click="closeClick"></div>
-                    <div class="content-area">
-                        <!--ListView element declaration-->
-                        <ejs-listview id="menulist" :dataSource='dataList' :fields='fields' :select="onSelect"></ejs-listview>
+    <div id="sidelistwrapper">
+        <!-- main content declaration -->
+        <div>
+            <ejs-toolbar cssClass="listToolbar" v-on:clicked="toolbarCliked">
+                <e-items>
+                    <e-item prefixIcon="e-icon e-menu" tooltipText="Menu"></e-item>
+                    <e-item :template="'folderTemplate'"></e-item>
+                    <template v-slot:folderTemplate>
+                    <div class="e-folder">
+                        <div class="e-folder-name">Language</div>
                     </div>
-                    <!-- end of normal state element declaration -->
-                </ejs-sidebar>
-                <!-- end of sidebar element -->
-                <!-- main content declaration -->
-                <div>
-                    <div class="maincontent textArea">Application content</div>
+                    </template>
+                </e-items>
+            </ejs-toolbar>
+        </div>
+        <div class="listmaincontent">
+            <div>
+                <div id="listContent" class="listcontent">
+                    Before getting into any programming language, one should have basic knowledge about HTML, CSS, and JavaScript. These are the basic building blocks of web designing. HTML describes the structure of a web page whereas CSS describes the presentation of the web page.
                 </div>
-                <!--end of main content declaration -->
             </div>
         </div>
+        <!-- end of main content declaration -->
     </div>
+    <ejs-sidebar ref="sidebarInstance" id="listSidebar" class="sidebar-list" width="250px" target=".listmaincontent" type="Auto" :isOpen='true'>
+        <ejs-listview id="listSidebarList" :dataSource='ListData' cssClass="e-template-list" :template="listTemplates" :fields='listFields' v-on:select="OnSelect">
+        </ejs-listview>
+    </ejs-sidebar>
     <div id="action-description">
         <p>
-            Click/Touch the button to view the Sidebar sample in new tab.
+            The <code>Sidebar</code> ListView sample demonstrates customizing the <code>Sidebar</code> with ListView. Click on the hamburger menu icon to expand/collapse the sidebar. Click the ListView item to see the corresponding item details.
         </p>
     </div>
     <div id="description">
         <p>
-            In this sample, the ListView component is placed inside the Sidebar for navigation.
+            The Sidebar can allow to render custom components like TreeView, ListView, Menu, etc.
+        </p>
+        <p>
+            In this sample, the ListView component is placed inside the Sidebar for navigation. Click the ListView item to see the corresponding item details.
         </p>
     </div>
 </div>
 </template>
 
 <script>
-import Vue from "vue";
-import { SidebarPlugin } from '@syncfusion/ej2-vue-navigations';
-import { ListViewPlugin, SelectEventArgs } from '@syncfusion/ej2-vue-lists';
+import { createApp } from 'vue';
+import { SidebarComponent, ItemsDirective, ToolbarComponent, ItemDirective,} from '@syncfusion/ej2-vue-navigations';
+import { ListViewComponent } from '@syncfusion/ej2-vue-lists';
 import { enableRipple } from '@syncfusion/ej2-base';
-Vue.use(SidebarPlugin, ListViewPlugin);
 
-export default Vue.extend({
+var app = createApp();
+var listTemplate = app.component("demo", {
+    template: "<div class='list-wrapper'>"
+                + "<span :class='data.pic' class='e-avatar e-avatar-xsmall e-avatar-circle'></span>"
+                + "<span class='text e-text-content'>{{data.text}}</span>"
+                + "</div>",
+    data() {
+        return {
+            data: {}
+        };
+    }
+});
+var ListData = [
+    { id: "1", text: "JavaScript", pic: "javascript", 
+            description: "JavaScript (JS) is an interpreted computer programming language. " +
+            "It was originally implemented as part of web browsers so that client-side scripts" + 
+            "could interact with the user, control the browser, communicate asynchronously, and" +
+            "alter the document content that was displayed. However, it has recently" +
+            "become common in both game development and the creation of desktop applications." },
+        { id: "2", text: "TypeScript", pic: "typescript", 
+            description: "It is a typed superset of JavaScript that compiles to plain JavaScript." + 
+            "TypeScript is an open-source, object-oriented programing language. It contains all elements of JavaScript" + 
+            "It is a language designed for large-scale JavaScript application development, which can be executed on any" + 
+            "browser, any Host, and any Operating System. TypeScript is a language as well as a set of tools." +
+            " TypeScript is the ES6 version of JavaScript with some additional features." },
+        { id: "3", text: "Angular", pic: "angular", 
+            description: "Angular is a platform and framework for building single-page client applications using HTML and TypeScript." +
+            " Angular is written in TypeScript. It implements core and optional functionality as a set of TypeScript" +
+            " libraries that you import into your applications." },
+        { id: "4", text: "React", pic: "react",
+            description: "React is a declarative, efficient, and flexible JavaScript library for building user interfaces." +
+            " It lets you compose complex UIs from small and isolated pieces of code called “components”." +
+            " It can also render on the server using Node." },
+        { id: "5", text: "Vue", pic: "vue", 
+            description: "A progressive framework for building user interfaces. It is incrementally adoptable." +
+            " The core library is focused on the view layer only and is easy to pick up and integrate with other" +
+            " libraries or existing projects. On the other hand, Vue is also perfectly capable of powering" +
+            " sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries." }
+];
+export default {
+    components: {
+    'ejs-sidebar': SidebarComponent,
+    'ejs-listview': ListViewComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+  },
     data: function() {
         return {
-            dataList: [
-                  { text: 'Home' },
-                  { text: 'About' },
-                  { text: 'Careers' },
-                  { text: 'FAQs' },
-                  { text: 'Blog' },
-                  { text: 'Uses' },
-                  { text: 'Contact' }
-            ],
-            fields: { tooltip: 'text' },
-            type : 'Over',
-            width : '250px'
+            ListData: ListData,
+            listTemplates: function() {
+                return {
+                    template: listTemplate
+                };
+            },
+            listFields: { id: "id", text: "text" }
         }
     },
     methods: {
-        newTabClick: function() {
-           var URL = location.href.replace(location.search, '');
-           document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/sidebar-list/index.html');
-        },
         // Listview select event handler
-        onSelect: function(args) {
-          this.$refs.sidebarInstance.hide();
-          document.getElementsByClassName('textArea')[0].innerHTML =args.text+ " Page Content";
+        OnSelect: function(args) {
+          document.getElementById('listContent').innerHTML = args.data.description;
         },
-
-        openClick: function() {
-         this.$refs.sidebarInstance.show();
-        },
-        
-        closeClick: function() {
-         this.$refs.sidebarInstance.hide();
+        toolbarCliked: function(args) {
+            if(args.item.tooltipText == "Menu") {
+                this.$refs.sidebarInstance.toggle();
+            }
         }
     }
-});
+};
 </script>
 
 
 <style>
-   /* main content area styles */
-
- .sidebar-list .maincontent {
-    text-align: center;
-    font-size: 20px;
-    height: 300px;
-    line-height: 300px;
-    padding: 15px;
-}
-/* custom code start */
-@media(max-width:550px) {
-    .sidebar-list #head .text {
-        display: none;
+    #listSidebarList {
+        border: 0px;
     }
-}
 
-.sidebar-list .center {
-    text-align: center;
-    display: none;
-    font-size: 13px;
-    font-weight: 400;
-    margin-top: 20px;
-}
-/* custom code end */
-.sidebar-list .textArea{
-    height: 300px;
-    line-height: 300px;
-}
-/* custom code start */
-.sb-content-tab .sidebar-list .center {
-    display: block;
-}
+    /* Specifies sample level styles for Sidebar */
+    #wrapper .listcontent {
+        font-size: 14px;
+        padding: 15px;
+    }
 
-.sidebar-list .col-lg-12.col-sm-12.col-md-12,
-.sidebar-list.control-section {
-    padding: 0;
-}
-/* custom code end */
-/* end of main content area styles */
-/* Header area styles */
+    #wrapper.control-section {
+        padding: 15px 0px;
+    }
 
-.sidebar-list #wrapper #head {
-    border: none;
-    background: #292961;
-    width: 100%;
-    height: 50px;
-    color: #fff;
-    padding: 0 15px;
-    position: relative;
-}
-/* custom code start */
-body.ej2-new-sidebar {
-    margin: 0;
-}
-/* custom code end */
-.sidebar-list #hamburger.menu {
-    font-size: 25px;
-    cursor: pointer;
-    float: left;
-    line-height: 55px;
-    position: absolute;
-}
+    #wrapper .listmaincontent {
+        height: 380px;
+    }
 
-.sidebar-list #hamburger.menu:before {
-    content: '\e10d';
-}
+    #wrapper #left {
+        float: left;
+        width: 30px;
+        height: 47px;
+    }
 
-.sidebar-list #head .text {
-    text-align: right;
-    position: absolute;
-    height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    padding-left: 40px;
-}
+    #wrapper .sidebar-list {
+        z-index: 20 !important;
+    }
 
-.sidebar-list #head .header {
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    width: 100%
-}
-/* end of header area styles */
-/* sidebar styles */
-/* custom code start */
-.sb-content-tab .sidebar-list #wrapper {
-    display: none;
-}
-/* custom code end */
-.sidebar-list #sidebar-menu {
-    background: #f5f5f5;
-    padding: 20px;
-}
+    /*Specifies sample level style for Toolbar*/
+    #wrapper .e-toolbar .e-icons {
+        font-size: 20px;
+    }
 
-.sidebar-list #wrapper #close:before {
-    content: "\e945";
-}
 
-.sidebar-list #wrapper #close {
-    float: right;
-    color: rgba(0, 0, 0, 0.61);
-    cursor: pointer;
-    font-size: 20px;
-    line-height: 14px;
-}
-/* listview style */
+    /* Specifies the border bottom styles for toolbar in light theme*/
+    .material #wrapper .e-toolbar,
+    .tailwind #wrapper .e-toolbar,
+    .bootstrap5 #wrapper .e-toolbar {
+        border-bottom: 1px solid #eaeaeae0;
+    }
 
-.sidebar-list #menulist.e-listview .e-list-item,
-.sidebar-list #menulist.e-listview .e-list-item:last-child {
-    height: 51px;
-    line-height: 51px;
-    text-align: center;
-    background: #f5f5f5;
-    color: rgba(0, 0, 0, 0.87);
-    border-bottom: none;
-}
+    /* Specifies the border bottom styles for toolbar in dark theme*/
+    .bootstrap5-dark #wrapper .e-toolbar,
+    .tailwind-dark #wrapper .e-toolbar,
+    .material-dark #wrapper .e-toolbar {
+        border-bottom: 1px solid #eaeaea63;
+    }
 
-.sidebar-list #menulist.e-listview .e-list-item:hover {
-    transform: scale(1.2);
-    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-}
+    .material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .material-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap4.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .tailwind.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .tailwind-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 12px;
+    }
 
-.sidebar-list #menulist {
-    width: 200px;
-    margin: 0 auto;
-    position: relative;
-    top: 15vh;
-}
-/* end of list view styles */
+    .e-bigger.material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 16px;
+    }
 
-.sidebar-list #sidebar-menu.e-sidebar {
-    padding: 22px
-}
+    .bootstrap4 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 8px;
+    }
 
-@font-face {
-    font-family: 'sidebar-icons';
-    src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMjciQ6oAAAEoAAAAVmNtYXBH1Ec8AAABsAAAAHJnbHlmKcXfOQAAAkAAAAg4aGVhZBLt+DYAAADQAAAANmhoZWEHogNsAAAArAAAACRobXR4LvgAAAAAAYAAAAAwbG9jYQukCgIAAAIkAAAAGm1heHABGQEOAAABCAAAACBuYW1lR4040wAACngAAAJtcG9zdEFgIbwAAAzoAAAArAABAAADUv9qAFoEAAAA//UD8wABAAAAAAAAAAAAAAAAAAAADAABAAAAAQAAlbrm7l8PPPUACwPoAAAAANfuWa8AAAAA1+5ZrwAAAAAD8wPzAAAACAACAAAAAAAAAAEAAAAMAQIAAwAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQPqAZAABQAAAnoCvAAAAIwCegK8AAAB4AAxAQIAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA4QLhkANS/2oAWgPzAJYAAAABAAAAAAAABAAAAAPoAAAD6AAAA+gAAAPoAAAD6AAAA+gAAAPoAAAD6AAAA+gAAAPoAAAD6AAAAAAAAgAAAAMAAAAUAAMAAQAAABQABABeAAAADgAIAAIABuEC4QnhD+ES4RvhkP//AADhAuEJ4QvhEuEa4ZD//wAAAAAAAAAAAAAAAAABAA4ADgAOABYAFgAYAAAAAQACAAYABAADAAgABwAKAAkABQALAAAAAAAAAB4AQABaAQYB5gJkAnoCjgKwA8oEHAAAAAIAAAAAA+oDlQAEAAoAAAEFESERCQEVCQE1AgcBZv0mAXQB5P4c/g4Cw/D+lwFpAcP+s24BTf6qbgAAAAEAAAAAA+oD6gALAAATCQEXCQEHCQEnCQF4AYgBiGP+eAGIY/54/nhjAYj+eAPr/ngBiGP+eP54YwGI/nhjAYgBiAAAAwAAAAAD6gOkAAMABwALAAA3IRUhESEVIREhFSEVA9b8KgPW/CoD1vwq6I0B64wB640AAAEAAAAAA+oD4QCaAAABMx8aHQEPDjEPAh8bIT8bNS8SPxsCAA0aGhgMDAsLCwoKCgkJCQgHBwYGBgUEBAMCAgECAwUFBggICQoLCwwMDg0GAgEBAgIDBAMIBiIdHh0cHBoZFhUSEAcFBgQDAwEB/CoBAQMDBAUGBw8SFRYYGhsbHB0cHwsJBQQEAwIBAQMEDg0NDAsLCQkJBwYGBAMCAQEBAgIDBAQFBQYGBwgICAkJCgoKCwsLDAwMGRoD4gMEBwQFBQYGBwgICAkKCgsLDAwNDQ4ODxAQEBEWFxYWFhYVFRQUExIRERAOFxMLCggIBgYFBgQMDAwNDg4QDxERERIJCQkKCQkJFRQJCQoJCQgJEhERERAPDw4NDQsMBwgFBgYICQkKDAwODw8RERMTExUUFhUWFxYWFxEQEBAPDg4NDQwMCwsKCgkICAgHBgYFBQQEBQQAAAAAAwAAAAAD8wPzAEEAZQDFAAABMx8FFREzHwYdAg8GIS8GPQI/BjM1KwEvBT0CPwUzNzMfBR0CDwUrAi8FPQI/BTMnDw8fFz8XLxcPBgI+BQQDAwMCAT8EBAMDAwIBAQIDAwMEBP7cBAQDAwMCAQECAwMDBAQ/PwQEAwMDAgEBAgMDAwQE0AUEAwMDAgEBAgMDAwQFfAUEAwMDAgEBAgMDAwQFvRsbGRcWFRMREA4LCQgFAwEBAwUHCgsOEBETFRYXGRocHR4eHyAgISIiISAgHx4eHRsbGRcWFRMREA4LCQgFAwEBAwUHCgsOEBETFRYXGRsbHR4eHyAgISIiISAgHx4eAqYBAgIDBAQE/rMBAQEDAwQEBGgEBAQDAgIBAQEBAgIDBAQEaAQEBAMDAQEB0AECAwMDBAVoBAQDAwMCAeUBAgIEAwQEaAUEAwMDAgEBAgMDAwQFaAQEAwQCAgElERMVFhcZGhwdHh4fICAhIiIhICAfHh4dGxsZFxYVExEQDgsJCAUDAQEDBQcKCw4QERMVFhcZGxsdHh4fICAhIiIhICAfHh4dHBoZFxYVExEQDgsKBwUDAQEDBQcKCw4AAAIAAAAAA9MD6QALAE8AAAEOAQcuASc+ATceAQEHBgcnJgYPAQYWHwEGFBcHDgEfAR4BPwEWHwEeATsBMjY/ATY3FxY2PwE2Ji8BNjQnNz4BLwEuAQ8BJi8BLgErASIGApsBY0tKYwICY0pLY/7WEy4nfAkRBWQEAwdqAwNqBwMEZAURCXwnLhMBDgnICg4BEy4mfQkRBGQFAwhpAwNpCAMFZAQSCH0mLhMBDgrICQ4B9UpjAgJjSkpjAgJjAZWEFB4yBAYIrggSBlIYMhhSBhIIrggFAzIfE4QJDAwJhBQeMgQGCK4IEgZSGDIYUgYSCK4IBQMyHxOECQwMAAEAAAAAAwED6gAFAAAJAicJAQEbAef+FhoBzf4zA+v+Ff4VHwHMAc0AAAAAAQAAAAADAQPqAAUAAAEXCQEHAQLlHf4zAc0a/hYD6x7+M/40HwHrAAEAAAAAA/MD8wALAAATCQEXCQE3CQEnCQENAY7+cmQBjwGPZP5yAY5k/nH+cQOP/nH+cWQBjv5yZAGPAY9k/nEBjwAAAwAAAAAD8wPzAEAAgQEBAAAlDw4rAS8dPQE/DgUVDw4BPw47AR8dBRUfHTsBPx09AS8dKwEPHQL1DQ0ODg4PDw8QEBAQERERERUUFBQTExITEREREBAPDw0ODAwLCwkJCAcGBgQEAgIBAgIEAwUFBgYHBwkICQoCygECAgQDBQUGBgcHCQgJCv3QDQ0ODg4PDw8QEBAQERERERUUFBQTExITEREREBAPDw0ODAwLCwkJCAcGBgQEAgL8fgIDBQUHCAkKCwwNDg8PERESExQUFRYWFhgXGBkZGRoaGRkZGBcYFhYWFRQUExIREQ8PDg0MCwoJCAcFBQMCAgMFBQcICQoLDA0ODw8RERITFBQVFhYWGBcYGRkZGhoZGRkYFxgWFhYVFBQTEhERDw8ODQwLCgkIBwUFAwLFCgkICQcHBgYFBQMEAgIBAgIEBAYGBwgJCQsLDAwODQ8PEBARERETEhMTFBQUFREREREQEBAQDw8PDg4ODQ31ERERERAQEBAPDw8ODg4NDQIwCgkICQcHBgYFBQMEAgIBAgIEBAYGBwgJCQsLDAwODQ8PEBARERETEhMTFBQUFRoZGRkYFxgWFhYVFBQTEhERDw8ODQwLCgkIBwUFAwICAwUFBwgJCgsMDQ4PDxEREhMUFBUWFhYYFxgZGRkaGhkZGRgXGBYWFhUUFBMSEREPDw4NDAsKCQgHBQUDAgIDBQUHCAkKCwwNDg8PERESExQUFRYWFhgXGBkZGQAAAQAAAAAD6gPqAEMAABMhHw8RDw8hLw8RPw6aAswNDgwMDAsKCggIBwUFAwIBAQIDBQUHCAgKCgsMDAwODf00DQ4MDAwLCgoICAcFBQMCAQECAwUFBwgICgoLDAwMDgPrAQIDBQUHCAgKCgsLDA0NDv00Dg0NDAsLCgoICAcFBQMCAQECAwUFBwgICgoLCwwNDQ4CzA4NDQwLCwoKCAgHBQUDAgAAABIA3gABAAAAAAAAAAEAAAABAAAAAAABAA0AAQABAAAAAAACAAcADgABAAAAAAADAA0AFQABAAAAAAAEAA0AIgABAAAAAAAFAAsALwABAAAAAAAGAA0AOgABAAAAAAAKACwARwABAAAAAAALABIAcwADAAEECQAAAAIAhQADAAEECQABABoAhwADAAEECQACAA4AoQADAAEECQADABoArwADAAEECQAEABoAyQADAAEECQAFABYA4wADAAEECQAGABoA+QADAAEECQAKAFgBEwADAAEECQALACQBayBlLWljb25zLW1ldHJvUmVndWxhcmUtaWNvbnMtbWV0cm9lLWljb25zLW1ldHJvVmVyc2lvbiAxLjBlLWljb25zLW1ldHJvRm9udCBnZW5lcmF0ZWQgdXNpbmcgU3luY2Z1c2lvbiBNZXRybyBTdHVkaW93d3cuc3luY2Z1c2lvbi5jb20AIABlAC0AaQBjAG8AbgBzAC0AbQBlAHQAcgBvAFIAZQBnAHUAbABhAHIAZQAtAGkAYwBvAG4AcwAtAG0AZQB0AHIAbwBlAC0AaQBjAG8AbgBzAC0AbQBlAHQAcgBvAFYAZQByAHMAaQBvAG4AIAAxAC4AMABlAC0AaQBjAG8AbgBzAC0AbQBlAHQAcgBvAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAFMAeQBuAGMAZgB1AHMAaQBvAG4AIABNAGUAdAByAG8AIABTAHQAdQBkAGkAbwB3AHcAdwAuAHMAeQBuAGMAZgB1AHMAaQBvAG4ALgBjAG8AbQAAAAACAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBAgEDAQQBBQEGAQcBCAEJAQoBCwEMAQ0AB2hvbWUtMDELQ2xvc2UtaWNvbnMHbWVudS0wMQR1c2VyB0JUX2luZm8PU2V0dGluZ19BbmRyb2lkDWNoZXZyb24tcmlnaHQMY2hldnJvbi1sZWZ0CE1UX0NsZWFyDE1UX0p1bmttYWlscwRzdG9wAAA=) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-/* end of sidebar styles */
+    .bootstrap5 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 5px;
+    }
+
+    .bootstrap.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+        margin-left: 10px;
+    }
+
+    .e-folder {
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px
+    }
+
+    .e-bigger .e-folder {
+        font-size: 18px;
+    }
+
+    .bootstrap5 .e-folder-name,
+    .bootstrap5-dark .e-folder-name {
+        margin-top: -2px;
+    }
+
+    .tailwind .e-folder-name,
+    .tailwind-dark .e-folder-name,
+    .bootstrap4 .e-folder-name,
+    .bootstrap .e-folder-name,
+    .bootstrap-dark .e-folder-name {
+        margin-top: 3px;
+        margin-left: 7px;
+    }
+
+    .material .e-folder-name,
+    .material-dark .e-folder-name {
+        margin-top: 1px;
+        margin-left: 9px;
+    }
+
+    /*Specifies sample level style for ListView*/
+    .bootstrap5 .e-template-list,
+    .bootstrap5-dark .e-template-list,
+    .tailwind .e-template-list,
+    .tailwind-dark .e-template-list,
+    .material3 .e-template-list,
+    .material3-dark .e-template-list,
+    .bootstrap4 .e-template-list {
+        border: 0;
+        border-radius: 0;
+    }
+
+    .e-template-list .e-list-item {
+        line-height: 1.5;
+        padding: 0 16px;
+    }
+
+    .list-wrapper {
+        display: inline-flex;
+        width: 100%;
+    }
+
+    .e-bigger .list-wrapper {
+        padding-left: 8px;
+    }
+
+    .list-wrapper .text {
+        padding-left: 14px;
+    }
+
+    .e-bigger .list-wrapper .text {
+        padding-left: 20px;
+    }
+
+    .e-listbox-wrapper .list-wrapper .text {
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .list-wrapper .e-avatar {
+        background-color: transparent;
+        float: left;
+    }
+
+    /* Specifies the background color of listview in dark theme*/
+     .material-dark #wrapper .e-list-item,
+    .bootstrap-dark #wrapper .e-list-item {
+        background-color: transparent;
+    }
+
+    .material .list-wrapper .e-avatar,
+    .material-dark .list-wrapper .e-avatar,
+    .highcontrast .list-wrapper .e-avatar {
+        margin-top: 3px;
+    }
+
+    .fabric .list-wrapper .e-avatar,
+    .fabric-dark .list-wrapper .e-avatar {
+        margin-top: 6px;
+    }
+
+    .material.e-bigger .list-wrapper .e-avatar,
+    .material-dark.e-bigger .list-wrapper .e-avatar,
+    .highcontrast.e-bigger .list-wrapper .e-avatar {
+        margin-top: 7px;
+    }
+
+    .fabric-dark.e-bigger .list-wrapper .e-avatar,
+    .fabric.e-bigger .list-wrapper .e-avatar,
+    .bootstrap-dark.e-bigger .list-wrapper .e-avatar,
+    .bootstrap.e-bigger .list-wrapper .e-avatar {
+        margin-top: 10px;
+    }
+
+    .bootstrap .list-wrapper .e-avatar,
+    .bootstrap-dark .list-wrapper .e-avatar {
+        margin-top: 5px;
+    }
+
+    .bootstrap5 .list-wrapper .e-avatar,
+    .bootstrap5-dark .list-wrapper .e-avatar {
+        margin-top: -3px;
+    }
+
+    .tailwind .list-wrapper .e-avatar,
+    .tailwind-dark .list-wrapper .e-avatar {
+        margin-top: -1px;
+    }
+
+    .bootstrap5.e-bigger .list-wrapper .e-avatar,
+    .bootstrap5-dark.e-bigger .list-wrapper .e-avatar {
+        margin-top: 0px;
+    }
+
+    .e-bigger.bootstrap5 .sidebar-list .e-listview:not(.e-list-template) .e-list-item,
+    .e-bigger.bootstrap5-dark .sidebar-list .e-listview:not(.e-list-template) .e-list-item {
+        height: 43px;
+    }
+
+    .bootstrap4.e-bigger .sidebar-list .e-listview:not(.e-list-template) .e-list-item {
+        padding: 12px 14px;
+    }
+
+    /*Specifies the icon styles for the ListView*/
+    #listSidebarList .javascript {
+        background-image: url('../images/sidebar/images/javascript.svg');
+    }
+
+    .typescript {
+        background-image: url('../images/sidebar/images/typescript.svg')
+    }
+
+    .angular {
+        background-image: url('../images/sidebar/images/angular.svg');
+    }
+
+    .vue {
+        background-image: url('../images/sidebar/images/vue.svg');
+    }
+
+    .react {
+        background-image: url('../images/sidebar/images/react.svg');
+     } 
+
+    .material-dark #wrapper .listcontent {
+        color: white;
+    }
+
+    /* Specifies the border right color for the sidebar in light theme*/
+    .material .sidebar-list,
+    .fabric .sidebar-list,
+    .tailwind .sidebar-list,
+    .highcontrast .sidebar-list,
+    .bootstrap5 .sidebar-list {
+        border-right: 1px solid #eaeaeae0;
+    }
+
+    /* Specifies the border right color for the sidebar in dark theme*/
+    .material-dark .sidebar-list,
+    .fabric-dark .sidebar-list,
+    .tailwind-dark .sidebar-list,
+    .bootstrap5-dark .sidebar-list {
+        border-right: 1px solid #eaeaea63;
+    }
+
+    .material #sidelistwrapper,
+    .fabric #sidelistwrapper,
+    .tailwind #sidelistwrapper,
+    .fluent #sidelistwrapper,
+    .bootstrap5 #sidelistwrapper {
+        border: 1px solid #d7d7d7;
+    }
+
+    .material-dark #sidelistwrapper,
+    .fabric-dark #sidelistwrapper,
+    .tailwind-dark #sidelistwrapper,
+    .highcontrast #sidelistwrapper,
+    .fluent-dark #sidelistwrapper,
+    .bootstrap5-dark #sidelistwrapper {
+        border: 1px solid #ffffff;
+    }
 </style>

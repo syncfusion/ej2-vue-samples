@@ -62,13 +62,14 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ListBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './datasource.json';
+import { ListBoxComponent, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './datasource.json';
 
-Vue.use(ListBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-listbox': ListBoxComponent,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             data: data.vegetableData,
@@ -88,5 +89,5 @@ export default Vue.extend({
             this.selectionSettings = { mode: args.value };
         }
     }
-});
+}
 </script>

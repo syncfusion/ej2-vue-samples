@@ -6,9 +6,9 @@
                <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
                <e-column field='startDate' headerText='Start Date' width='110' format="yMd" :edit='params' textAlign='Right' :validationRules='startdaterules'></e-column>
-               <e-column field='duration' headerText='Duration' width='85' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
-               <e-column field='progress' headerText='Progress' width='85' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
-               <e-column field='approved' headerText='Approved' width='85' textAlign='Right'  editType= 'booleanedit' :displayAsCheckBox='true'></e-column>
+               <e-column field='duration' headerText='Duration' width='140' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
+               <e-column field='progress' headerText='Progress' width='150' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
+               <e-column field='approved' headerText='Approved' width='130' textAlign='Right'  editType= 'booleanedit' :displayAsCheckBox='true'></e-column>
             </e-columns>
         </ejs-treegrid>
     </div>
@@ -39,19 +39,21 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { DatePicker } from '@syncfusion/ej2-calendars';
 import { sampleData } from "./data-source";
 import { getValue } from '@syncfusion/ej2-base';
 
-Vue.use(TreeGridPlugin);
-
 let elem: HTMLElement;
 let datePickerObj: DatePicker;
 
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -63,7 +65,7 @@ export default  Vue.extend({
       enddaterules : { date: true},
       durationrules : { number: true , min: 0},
       progressrules : { number: true , min: 0},
-      toolbar: ['Add', 'Edit', 'Delete','Cancel'],
+      toolbar: ['Add', 'Edit', 'Update', 'Delete','Cancel'],
       params: {
             create: function() {
                 elem = document.createElement('input');
@@ -87,10 +89,10 @@ export default  Vue.extend({
   };
   },
    provide : {
-      treegrid: [Edit, Page]
+      treegrid: [Edit, Page, Toolbar]
     },
      methods:{
       
     }
-});
+}
 </script>

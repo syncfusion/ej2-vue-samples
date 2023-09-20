@@ -33,10 +33,10 @@
 Tooltip is enabled in this example, to see the tooltip in action, while the selected range is changed.
 
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-        The range navigator component features are segregated into individual feature-wise modules. To use logarithmic axis, inject the <code>Logarithmic</code> module in the <code>provide</code> section.
+        The range navigator component features are segregated into individual feature-wise modules. To use logarithmic axis, inject the <code>Logarithmic</code> module using <code>provide: { rangeNavigator: [Logarithmic] }</code> method.
        
     </p>
 </div>
@@ -62,15 +62,60 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+		<linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
+        <linearGradient id="bootstrap5-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
+        <linearGradient id="fluent-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
 </svg>
 </div>
 </template>
 <style scoped>
-#control-containerLog {
-  padding: 0px !important;
-}
- #material-gradient-chart stop {
+    #control-containerLog {
+      padding: 0px !important;
+    }
+
+    #material-gradient-chart stop {
         stop-color: #00bdae;
     }
 
@@ -90,6 +135,50 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
         stop-color: #79ECE4;
     }
 
+    #tailwind-gradient-chart stop {
+        stop-color: #5A61F6;
+    }
+
+    #bootstrap5-gradient-chart stop {
+        stop-color: #262E0B;
+    }
+
+    #material-dark-gradient-chart stop {
+        stop-color: #9ECB08;
+    }
+
+    #fabric-dark-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+
+    #bootstrap-dark-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+
+    #tailwind-dark-gradient-chart stop {
+        stop-color: #8B5CF6;
+    }
+
+    #bootstrap5-dark-gradient-chart stop {
+        stop-color: #5ECB9B;
+    }
+
+    #fluent-gradient-chart stop {
+        stop-color: #614570;
+    }
+
+    #fluent-dark-gradient-chart stop {
+        stop-color: #8AB113;
+    }
+
+    #material3-gradient-chart stop {
+        stop-color: #6355C7;
+    }
+
+    #material3-dark-gradient-chart stop {
+        stop-color: #4EAAFF;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
     }
@@ -99,23 +188,29 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
     }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, ChartPlugin, Logarithmic, StepAreaSeries, StepLineSeries, ChartTheme,
+import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorSeriesCollectionDirective, ChartComponent, SeriesDirective, SeriesCollectionDirective, Logarithmic, StepAreaSeries, StepLineSeries, ChartTheme,
   RangeTooltip} from "@syncfusion/ej2-vue-charts";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
-let borderColor = ["#00bdae", "#4472c4", "#a16ee5", "#79ECE4"];
-let regionColor = [ "rgba(0, 189, 174, 0.3)", "rgba(68, 114, 196, 0.3)", "rgba(161, 110, 229, 0.3)",
-  "rgba(121, 236, 228, 0.3)"];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];
+let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
+let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
+    'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
+    'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(97, 69, 112, 0.3)', 'rgba(138, 177, 19, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)' ];
+
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'e-rangenavigator-series-collection': RangenavigatorSeriesCollectionDirective,
+    'e-rangenavigator-series': RangenavigatorSeriesDirective
+  },
   data: function() {
     let points = [];
     let max = 100;
@@ -129,7 +224,7 @@ export default Vue.extend({
       //Chart Properties
       primaryXAxis: {
         valueType: "Logarithmic", crosshairTooltip: { enable: false }, interval: 1,
-        edgeLabelPlacement: "Shift", majorGridLines: { width: 0 }, title: "Numers of Goods Consumers",
+        edgeLabelPlacement: "Shift", majorGridLines: { width: 0 }, title: "Numbers of Goods Consumers",
         zoomFactor: 0.2, zoomPosition: 0.4
       },
       primaryYAxis: {
@@ -138,8 +233,8 @@ export default Vue.extend({
       },
       animation: { enable: false },
       marker: { visible: true },
-      fill: "url(#" + theme.toLowerCase() + "-gradient-chart)",
-      border: { width: 2, color: borderColor[themes.indexOf(theme)] },
+      fill: "url(#" + selectedTheme + "-gradient-chart)",
+      border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },
       chartArea: { border: { width: 0 } },
       dataSource: points,
       //Range Navigator Properties
@@ -175,5 +270,5 @@ export default Vue.extend({
       args.text = [(+(+args.text).toFixed(1)).toExponential(1).toString().toLocaleUpperCase()];
     }
   }
-});
+};
 </script>

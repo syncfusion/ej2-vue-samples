@@ -43,6 +43,7 @@
                 <ejs-multiselect
                   id="values"
                   ref="values"
+                  placeholder="Select members"
                   :dataSource="memberDataSource"
                   mode="CheckBox"
                   showDropDownIcon="true"
@@ -79,7 +80,7 @@
                 <ejs-button
                   id="apply"
                   ref="apply"
-                  v-on:click.native="btnClick"
+                  v-on:click="btnClick"
                   isPrimary="true"
                   disabled="true"
                 >Apply</ejs-button>
@@ -107,12 +108,11 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { IDataSet, PivotViewPlugin } from "@syncfusion/ej2-vue-pivotview";
-import { ButtonPlugin, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
+import { IDataSet, PivotViewComponent } from "@syncfusion/ej2-vue-pivotview";
+import { ButtonComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
-  MultiSelectPlugin,
+  DropDownListComponent,
+  MultiSelectComponent,
   ChangeEventArgs as dropEventArgs,
   SelectEventArgs,
   RemoveEventArgs,
@@ -120,14 +120,10 @@ import {
   CheckBoxSelection
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
-import { FilterModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { FilterModel } from "@syncfusion/ej2-pivotview/src/model/datasourcesettings-model";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(MultiSelectPlugin);
 /* tslint:disable */
 declare var require: any;
 let fieldCollections: { [key: string]: { [key: string]: Object }[] } = {};
@@ -142,7 +138,13 @@ let values: { [key: string]: Object }[] = [
 ];
 let fields: string[] = ["Country", "Products", "Year"];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-multiselect': MultiSelectComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -177,7 +179,7 @@ export default Vue.extend({
         /** To fill the members for each fields into the object fieldCollections. */
         let fieldCnt: number = fields.length - 1;
         while (fieldCnt > -1) {
-          let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+          let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
           let members: string[] = Object.keys(
             pivotObj.engineModule.fieldList[fields[fieldCnt]].members
           );
@@ -196,15 +198,15 @@ export default Vue.extend({
         values = fieldCollections[fields[0]];
         isInitial = false;
       }
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       for (let field of pivotObj.dataSourceSettings.filterSettings) {
         filterCollections[field.name] = field;
       }
     },
     btnClick: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      let typeddl = (<any>this.$refs.type).ej2Instances;
-      let applyBtn = (<any>this.$refs.apply).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      let typeddl = ((this as any).$refs.type).ej2Instances;
+      let applyBtn = ((this as any).$refs.apply).ej2Instances;
       /** You can set your filter settings here. */
       let filterItems0: string[] = this.getSelectedMembers(fields[0]);
       let filterItems1: string[] = this.getSelectedMembers(fields[1]);
@@ -231,8 +233,8 @@ export default Vue.extend({
       }
     },
     fieldOnChange: function(args: dropEventArgs) {
-      let valuesddl = (<any>this.$refs.values).ej2Instances;
-      let typeddl = (<any>this.$refs.type).ej2Instances;
+      let valuesddl = ((this as any).$refs.values).ej2Instances;
+      let typeddl = ((this as any).$refs.type).ej2Instances;
       valuesddl.dataSource = fieldCollections[args.value.toString()];
       valuesddl.value = this.getSelectedMembers(args.value.toString());
       if (filterCollections[args.value.toString()]) {
@@ -242,8 +244,8 @@ export default Vue.extend({
       typeddl.dataBind();
     },
     memberOnSelect: function(args: SelectEventArgs) {
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      let applyBtn = (<any>this.$refs.apply).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      let applyBtn = ((this as any).$refs.apply).ej2Instances;
       applyBtn.disabled = false;
       this.setMemberCheckedState(
         (<any>fieldsddl).itemData,
@@ -252,7 +254,7 @@ export default Vue.extend({
       );
     },
     memberOnRemoved: function(args: RemoveEventArgs) {
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
       this.setMemberCheckedState(
         (<any>fieldsddl).itemData,
         <any>args.item.textContent,
@@ -261,15 +263,15 @@ export default Vue.extend({
       this.setApplyBtnState();
     },
     memberOnOpened: function(args: PopupEventArgs) {
-      let valuesddl = (<any>this.$refs.values).ej2Instances;
+      let valuesddl = ((this as any).$refs.values).ej2Instances;
       (args.popup.element.querySelector(
         ".e-filter-parent"
       ) as HTMLElement).style.display = "none";
     },
     /** To set disabled/enabled state in the Apply button. */
     setApplyBtnState: function() {
-      let applyBtn = (<any>this.$refs.apply).ej2Instances;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let applyBtn = ((this as any).$refs.apply).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let fieldArray: string[] = ["Country", "Products", "Year"];
       let loopCount = fieldArray.length - 1;
       let isSelected: boolean = false;
@@ -290,8 +292,8 @@ export default Vue.extend({
     },
     /** To set the filter type of the field maintained in the object filterCollections. */
     updateFilterType: function(fieldName: string) {
-      let fieldsddl = (<any>this.$refs.fields).ej2Instances;
-      let typeddl = (<any>this.$refs.type).ej2Instances;
+      let fieldsddl = ((this as any).$refs.fields).ej2Instances;
+      let typeddl = ((this as any).$refs.type).ej2Instances;
       if ((fieldsddl as any).itemData === fieldName) {
         return (typeddl as any).itemData;
       } else if (filterCollections[fieldName]) {
@@ -336,7 +338,7 @@ export default Vue.extend({
   provide: {
     multiselect: [CheckBoxSelection]
   }
-});
+}
 </script>
 
 <style scoped>

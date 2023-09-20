@@ -9,10 +9,10 @@
   </div>
 
     <div id="action-description">
-        <p>This sample demonstrates the Smart Positioning functionalities of the Tooltip which will open by dragging the picture.</p>
+        <p>This sample demonstrates the <b>smart positioning</b> functionalities of the Tooltip which will open by dragging the picture.</p>
     </div>
     <div id="description">
-        <p>This sample shows the dynamic adjustment of the tooltip position within the specified Viewport. Start dragging the ant
+        <p>This sample shows the dynamic adjustment of the tooltip position within the specified viewport. Start dragging the ant
         image, so that the tooltip opens up immediately and keeps moving along with the target image. When the image reaches
         the corners of the sample container on dragging, the tooltip and its arrow position will be auto adjusted
         to make it look fit within the sample container area.</p>
@@ -43,11 +43,13 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
 import { Draggable } from '@syncfusion/ej2-base';
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+
+export default {
+   components: {
+    'ejs-tooltip': TooltipComponent
+   },
    data: function(){
         return {
             tooltipAnimation:  {
@@ -56,7 +58,7 @@ export default Vue.extend({
     }
         }
    },
-    mounted: function (args) {
+    mounted: function () {
         var ele = document.getElementById('demoSmart');
         var drag = new Draggable(ele, { 
             clone : false,
@@ -73,7 +75,7 @@ export default Vue.extend({
                     this.$refs.tooltip.open(args.element);
                 }
             },
-            dragStop: (args) => {
+            dragStop: () => {
                 this.$refs.tooltip.close();
             }
         });
@@ -81,5 +83,5 @@ export default Vue.extend({
    methods: {
      
    }
-});
+}
 </script>

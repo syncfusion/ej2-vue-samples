@@ -3,7 +3,7 @@
 <div class="col-lg-9 control-section">
         <div style="width:200px;margin:auto;padding-bottom:20px">
             <img src="src/maps/images/bus-icon.png" alt="Bus icon" style="width:25px;height:25px;float:left">
-            <div style="padding-left:30px;font-size:20px;font-weight:400;">Bus seat selection</div>
+            <div style="padding-left:30px;font-size:20px;font-weight:400; font-family: Segoe UI;">Bus seat selection</div>
         </div>        
         <div style="border: 3px solid darkgray;width:200px;display:block;margin:auto;border-radius:5px">
             <img src="src/maps/images/wheel.png" alt="Steering wheel icon" style="width:30px;height:30px;margin-left:18%;margin-top:10px">
@@ -97,10 +97,14 @@
             }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Selection,MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Selection, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data:function(){
       return{
         projectionType: 'Equirectangular',
@@ -129,7 +133,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     itemSelection:function(args){
@@ -170,5 +175,5 @@ methods:{
         }
     }
 }
-})
+}
 </script>

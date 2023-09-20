@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-12 control-section dialog-components-sample">
         <!-- Render Button to open the Dialog -->
-        <ejs-button id='dlgbtn' v-if="OpenBtn" v-on:click.native="BtnClick">Open</ejs-button>
+        <ejs-button id='dlgbtn' v-if="OpenBtn" v-on:click="BtnClick">Open</ejs-button>
 
         <ejs-dialog id="componentsDialog" :buttons='dlgButtons' ref="dialogObj" :header='header' :animationSettings='animationSettings' :content='contenttemplateVue' showCloseIcon=true :target='target' width='700px' :open="dialogOpen"
             :close="dialogClose">
@@ -35,21 +35,33 @@
     .dialog-components-sample {
         overflow-y: auto;
     }
+    #componentsDialog {
+        left: 23%;
+        top: 2%! important;
+        width: 452px!important;
+    }
 </style>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { createApp } from 'vue';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import TabTemplateVue from "./tab-template-vue.vue";
-Vue.use(DialogPlugin);
-let OpenBtn = undefined;
-export default Vue.extend({
+
+var app = createApp();
+var externalTemplate = app.component('tab-template-vue', TabTemplateVue);
+
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             target: '.control-section',
             header: 'Syncfusion Components inside Dialog',
             contenttemplateVue: function () {
-                return { template : TabTemplateVue }
+                return { template : externalTemplate }
             },
             dlgButtons: [{ click: this.dlgBtnClick, buttonModel: { isPrimary:'true', content: 'OK' } },
             { click: this.dlgBtnClick, buttonModel: { content: 'Cancel' } }
@@ -72,5 +84,5 @@ export default Vue.extend({
             this.$refs.dialogObj.hide()
         }
     }
-});
+}
 </script>

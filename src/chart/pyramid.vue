@@ -1,27 +1,29 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-accumulationchart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :legendSettings='legendSettings' :tooltip='tooltip' :load='load'>
+        <ejs-accumulationchart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
+            :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='seriesData' type='Pyramid' xName='x' yName='y' :dataLabel='dataLabel'  name='Food' width='45%' height='80%' neckWidth='15%' gapRatio=0.03 explode='true' :emptyPointSettings='emptyPointSettings' > </e-accumulation-series>
+                <e-accumulation-series :dataSource='seriesData' type='Pyramid' xName='Foods' yName='Calories' :dataLabel='dataLabel'  name='Food' width='45%' height='80%' neckWidth='15%' gapRatio=0.03 explode='true' :emptyPointSettings='emptyPointSettings' > </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
     </div>
    <div id="action-description">
     <p>
-        This sample visualizes food comparison data by using pyramid series. 
-        Datalabel shows the Information about the points.
+      This Vue Pyramid Chart visualizes food comparison data by using pyramid series.
     </p>
 </div>
 <div id="description">
-    <p> In this example, you can see how to render pyramid chart.<code>dataLabel</code> is used to represent individual data and its value.</p>
-    <p> <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
-    <p> <code>Legends</code> are disabled in this example, the information about it can be read using <code>Tooltip</code>.</p>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p> In this example, you can see how to render and configure a pyramid chart. This chart is shaped like a triangle, with lines dividing it into sections of varying widths. Depending on the Y coordinate, the width indicates a level of hierarchy among other categories. The DataLabel  represents individual data and its value.</p>
+    <p> <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         chart component features are segregated into individual feature-wise modules. To use pyramid series, we need to inject
         <code>PyramidSeries</code> module using <code>provide: { accumulationchart: [PyramidSeries] },</code> method.
+    </p>
+    <p>
+        More information about the pyramid series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pyramid/">documentation section</a>.
     </p>
 </div>
 </div>
@@ -31,65 +33,43 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { AccumulationChartPlugin, AccumulationTooltip, PyramidSeries, AccumulationLegend, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
-Vue.use(AccumulationChartPlugin);
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationTooltip, PyramidSeries, AccumulationLegend, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
       seriesData: [
-            { x: 'Sweet Treats', y: 120, text: '120 cal' },
-            { x: 'Milk, Youghnut, Cheese', y: 435, text: '435 cal' },
-            { x: 'Vegetables', y: 470, text: '470 cal' },
-            { x: 'Meat, Poultry, Fish', y: 475, text: '475 cal' },
-            { x: 'Fruits', y: 520, text: '520 cal' },
-            { x: 'Bread, Rice, Pasta', y: 930, text: '930 cal' }
+        { Foods :  "Milk, Youghnut, Cheese", Calories : 435, DataLabelMappingName : Browser.isDevice ? 'Milk, Youghnut,<br> Cheese:  435 cal' :  "Milk, Youghnut, Cheese: 435 cal" },
+        { Foods :  "Vegetables", Calories : 470, DataLabelMappingName : "Vegetables: 470 cal" },
+        { Foods :  "Meat, Poultry, Fish", Calories : 475, DataLabelMappingName : Browser.isDevice ? 'Meat, Poultry,<br> Fish: 475 cal' : "Meat, Poultry, Fish: 475 cal" },
+        { Foods :  "Rice, Pasta", Calories : 930, DataLabelMappingName : Browser.isDevice ? 'Rice, Pasta:<br> 930 cal' : "Rice, Pasta: 930 cal" },
+        { Foods :  "Fruits", Calories : 520, DataLabelMappingName : Browser.isDevice ? 'Fruits: <br> 520 cal' :  "Fruits: 520 cal" },
       ],
-     
-      //Initializing Primary X Axis
-       primaryXAxis: {
-            title: 'Years',
-            interval: Browser.isDevice ? 2 : 1,
-            labelIntersectAction: 'Rotate45',
-            valueType: 'Category',
-            majorGridLines: { width: 0 }, minorGridLines: { width: 0 },
-            majorTickLines: { width: 0 }, minorTickLines: { width: 0 },
-            lineStyle: { width: 0 },
-        },
-
-      //Initializing Primary Y Axis
-      primaryYAxis:
-        {
-            title: 'Growth',
-            minimum: -3,
-            maximum: 3,
-            interval: 1,
-            lineStyle: { width: 0 },
-            majorTickLines: { width: 0 }, majorGridLines: { width: 1 },
-            minorGridLines: { width: 1 }, minorTickLines: { width: 0 },
-            labelFormat: '{value}B',
-        },
         
         dataLabel: {
-                name: 'text', visible: true, position: 'Inside', font: {
-                    fontWeight: '600'
-                }
+          name: 'DataLabelMappingName', visible: true, position: 'Outside', connectorStyle: {length: '1%'}, font: {
+            fontWeight: '600'}
         },
 
         emptyPointSettings: { mode: 'Drop', fill: 'red' },
 
         legendSettings: {
-            visible: false
+            visible: false,
+            toggleVisibility: false
         },
 
-        tooltip: { enable: true, format: '${point.x} : <b>${point.y} cal</b>' },
+        tooltip: {  header:'', enable: true, format: '${point.x} : <b>${point.y} cal</b>' },
 
        
       title: "Food Comparison Chart"
@@ -103,26 +83,9 @@ export default Vue.extend({
       textRender: function(args){
             args.text = args.text;
       },
-    load: function(args) {
-         if (args.accumulation.availableSize.width < args.accumulation.availableSize.height) {
-                args.accumulation.series[0].width = '80%';
-                args.accumulation.series[0].height = '60%';
-            }
-    },
    
-    resized: function(args) {
-        let accumulation = this.$refs.args.chart;
-            let bounds = document.getElementById('chartcontainer').getBoundingClientRect();
-            if (bounds.width < bounds.height) {
-                accumulation.series[0].width = '80%';
-                accumulation.series[0].height = '60%';
-            } else {
-                accumulation.series[0].width = '45%';
-                accumulation.series[0].height = '80%';
-            }
-
-    }
+   
   },
  
-});
+};
 </script>

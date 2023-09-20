@@ -22,17 +22,19 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";
 import { RTLData } from '../treemap/treemap-data/rtl-data';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         palette: ['#5B244D', '#6F3953', ' #87525A', '#A26F63', '#BA896B', '#D5A574', '#F1C37D'],
         titleSettings: {
             text: 'List of countries by unemployment rate',
-            textStyle: { size: '15px'}
+            textStyle: { size: '15px',  fontFamily: 'Segoe UI'}
         },
         enableDrillDown: true,
         useGroupingSeparator: true,
@@ -42,11 +44,17 @@ return{
         weightValuePath: 'Size',
         tooltipSettings: {
             visible: true,
-            format: '${Size} : ${Name}'
+            format: '${Size} : ${Name}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
          leafItemSettings: {
             labelPath: 'Name',
-            showLabels: true            
+            showLabels: true,
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },            
         },
         levels: [
             { groupPath: 'Continent',  border: { color: 'black', width: 0.5 }, headerAlignment:'Far' },
@@ -62,9 +70,10 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
 }
 /* custom code end */
-})
+}
 </script>

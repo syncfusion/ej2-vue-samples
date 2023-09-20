@@ -1,7 +1,7 @@
 <template>
-  <div class="control-section">
-    <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
+  <div>
+    <div class="col-md-8 control-section sb-property-border">
+        <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :legendSettings='legendSettings' :title='title' :primaryXAxis='primaryXAxis'
          :tooltip='tooltip'>
             <e-series-collection>
                 <e-series :dataSource='seriesData' :type='seriesType' xName='x' yName='y' name='Cardioid (unidirectional)' width=2 drawType='Spline' dashArray='5 5 2' :isClosed='isClosed'> </e-series>
@@ -42,18 +42,18 @@
         its value.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+      <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
+      point or tap a point in touch enabled devices.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use spline drawtype in Polar series and
         Radar series, we need to inject
         <code>PolarSeries</code>, <code>RadarSeries</code> and <code>SplineSeries</code> module using <code>provide: { chart: [ PolarSeries, RadarSeries, SplineSeries ] },</code>        method.
     </p>
     <p>
-        More information on the polar series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-axis.html#valuetype-valuetype">documentation section</a>.
+        More information on the polar and radar chart with an spline series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#spline">documentation section</a>.
     </p>
 </div>
 
@@ -68,15 +68,18 @@ import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { EmitType } from "@syncfusion/ej2-base";
 import { ChartDataService } from "./chart-data";
-import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   PolarSeries,
   Tooltip,
   Legend,
   Category,
   SplineSeries,
   RadarSeries,
+  Highlight,
   ChartDrawType
 } from "@syncfusion/ej2-vue-charts";
 import {
@@ -86,13 +89,17 @@ import {
   highContrastColors
 } from './theme-color';
 
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
          theme:theme,
@@ -118,13 +125,16 @@ export default Vue.extend({
 
       seriesType: "Polar",
 
+      legendSettings: {
+        enableHighlight: true
+      },
       title: "Microphone Types Polar Patterns",
 
       isClosed: false
     };
   },
   provide: {
-    chart: [Tooltip, Legend, PolarSeries, Category, SplineSeries, RadarSeries]
+    chart: [Tooltip, Legend, PolarSeries, Category, SplineSeries, RadarSeries, Highlight]
   },
   updated: function () {
     this.$nextTick(function() {
@@ -139,5 +149,5 @@ export default Vue.extend({
     }
   },
  
-});
+};
 </script>

@@ -56,6 +56,18 @@
     .bootstrap4 .ddl-icons-css .e-list-icon {
         color: #495057;
     }
+    .material-dark .ddl-icons-css .e-list-icon,
+    .bootstrap5-dark .ddl-icons-css .e-list-icon,
+    .tailwind-dark .ddl-icons-css .e-list-icon,
+    .fluent-dark .ddl-icons-css .e-list-icon {
+        color: #fff;
+    }
+    .bootstrap-dark .ddl-icons-css .e-list-icon {
+        color: #f0f0f0;
+    }
+    .fabric-dark .ddl-icons-css .e-list-icon {
+        color: #dadada;
+    }
     .highcontrast .ddl-icons-css .e-list-icon {
         color: rgba(255, 255, 255, 0.57);
     }
@@ -100,13 +112,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             groupFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
@@ -118,5 +130,5 @@ export default Vue.extend ({
             socialMediaData: data['socialMedia']
         };
     }
-});
+}
 </script>

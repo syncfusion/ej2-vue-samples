@@ -57,11 +57,13 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { flatData, groupDataList } from "./listData";
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       data: flatData,
@@ -69,5 +71,5 @@ export default Vue.extend({
     fields: { groupBy: 'category' },
     };
   }
-});
+};
 </script>

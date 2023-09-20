@@ -43,14 +43,14 @@
         </div>
           <div class="row" style="padding-top: 8px">
               <div class="col-xs-4 column-style">
-                  <ejs-button ref="boldObj" id="bold" style="width:100%"
-                              >Bold</ejs-button>
+                  <ejs-button ref="boldObj" id="bold" style="width:100%"  iconCss="e-icons e-bold"
+                              ></ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button ref= "italicObj" id="italic" style="width:100%">Italic</ejs-button>
+                  <ejs-button ref= "italicObj" id="italic" style="width:100%" iconCss="e-icons e-italic"></ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button ref="underlineObj" id="underline" style="width:100%">UnderLine</ejs-button>
+                  <ejs-button ref="underlineObj" id="underline" style="width:100%" iconCss="e-icons e-underline"></ejs-button>
               </div>
           </div>
         <div class="row" style="padding-top: 8px">
@@ -252,9 +252,8 @@
 
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ShapeAnnotationModel,
@@ -272,23 +271,16 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DropDownList,
-  DropDownListPlugin
+  DropDownListComponent
 } from "@syncfusion/ej2-vue-dropdowns";
-import { Button, ButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { Button, ButtonComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import {
   NumericTextBox,
   ColorPicker,
-  NumericTextBoxPlugin,
-  ColorPickerPlugin,
+  NumericTextBoxComponent,
+  ColorPickerComponent,
   ColorPickerEventArgs
 } from "@syncfusion/ej2-vue-inputs";
-
-Vue.use(DiagramPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(CheckBoxPlugin);
 
 let diagramInstance;
 
@@ -406,7 +398,15 @@ let templateList = [
   { value: "substitutes", text: "Substitutes" }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -495,10 +495,6 @@ export default Vue.extend({
         obj.constraints = ConnectorConstraints.None;
       },
       snapSettings: { constraints: SnapConstraints.None },
-      boldiconCss: "e-ddb-icons e-bold",
-      italiciconCss: "e-ddb-icons e-italic",
-      underlineiconCss: "e-ddb-icons e-underline",
-
       fontcolorvalue: "#000",
       fontcolorchange: (arg) => {
         if (diagramInstance.selectedItems.nodes) {
@@ -589,7 +585,7 @@ export default Vue.extend({
       }
     };
   }
-});
+}
 
 //Apply the appearence of the Annotation
 function changed(value) {
@@ -598,19 +594,24 @@ function changed(value) {
       let node = diagramInstance.selectedItems.nodes[i];
       if (node.annotations) {
         for (let j = 0; j < node.annotations.length; j++) {
+          let annotationStyle = node.annotations[j].style;
           if (value === "fontsize") {
             (node.annotations[j].style).fontSize =
               fontSize.value;
           } else if (value === "underline") {
-            (node.annotations[j].style).textDecoration =
-              "Underline";
+            if((node.annotations[j].style).textDecoration ==="None"){
+              (node.annotations[j].style).textDecoration = 'Underline';
+            }
+            else{
+              (node.annotations[j].style).textDecoration = 'None';
+              }
           } else if (value === "fontfamily") {
             (node.annotations[j]
               .style).fontFamily = fontFamily.value.toString();
           } else if (value === "bold") {
-            (node.annotations[j].style).bold = true;
+            (node.annotations[j].style).bold = !annotationStyle.bold;
           } else if (value === "italic") {
-            (node.annotations[j].style).italic = true;
+            (node.annotations[j].style).italic = !annotationStyle.italic;
           } else if (value === 'template') {
               if (templateData.value.toString() === 'none') {
                   node.annotations[j].template = '';

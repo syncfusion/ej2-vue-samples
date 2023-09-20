@@ -37,11 +37,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Edit, Toolbar, ContextMenu } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Edit, Toolbar, ContextMenu } from "@syncfusion/ej2-vue-gantt";
 import { splitTasksData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt':GanttComponent
+  },
   data: function() {
       return{
             data: splitTasksData,
@@ -57,7 +59,7 @@ export default Vue.extend({
                 segments: 'Segments'
             },
             columns: [
-               { field: 'TaskID', headerText: 'ID', width: 60 },
+               { field: 'TaskID', headerText: 'ID', width: 80 },
                 { field: 'TaskName', headerText: 'Name', width: 250 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
@@ -81,12 +83,12 @@ export default Vue.extend({
             projectStartDate: new Date('01/30/2019'),
             projectEndDate: new Date('03/04/2019'),
             splitterSettings: {
-                columnIndex: 2
+                position: "35%"
             }
       };
   },
   provide: {
       gantt: [ Selection, Toolbar, Edit, ContextMenu]
   }
-});
+}
 </script>

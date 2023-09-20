@@ -27,40 +27,53 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
-import { ListViewPlugin, Virtualization } from "@syncfusion/ej2-vue-lists";
+import { createApp } from "vue";
+import mitt from "mitt";
+import { SplitterComponent, PanesDirective, PaneDirective } from '@syncfusion/ej2-vue-layouts';
+import { ListViewComponent, Virtualization } from "@syncfusion/ej2-vue-lists";
 import { Browser } from "@syncfusion/ej2-base";
-
-Vue.use(ListViewPlugin);
-Vue.use(SplitterPlugin);
 
 let commonData = [];
 let dataSource = {};
 let liElement = undefined;
 let listid = undefined;
 
-var Margaret = Vue.component("margaret", {
-  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/margaret.png' alt='margaret'></div></div><div class='profile-name'>Margeret Peacock</div><table><tr><td class='e-bold'>Title</td><td>Sales Representative</td></tr><tr><td class='e-bold'>Hire Date</td><td>11/15/1994</td></tr><tr><td class='e-bold'>Address</td><td>507 - 20th Ave. E. Apt. 2A</td></tr><tr><td class='e-bold'>City</td><td>Seattle</td></tr><tr><td class='e-bold'>Phone</td><td>(206) 555-9857</td></tr></table></div>`
+var Margaret = createApp({}).component("margaret", {
+  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/margaret.png' alt='margaret'></div></div><div class='profile-name'>Margeret Peacock</div><table><tr><td class='e-bold'>Title</td><td>Sales Representative</td></tr><tr><td class='e-bold'>Hire Date</td><td>11/15/1994</td></tr><tr><td class='e-bold'>Address</td><td>507 - 20th Ave. E. Apt. 2A</td></tr><tr><td class='e-bold'>City</td><td>Seattle</td></tr><tr><td class='e-bold'>Phone</td><td>(206) 555-9857</td></tr></table></div>`,
+  data() {
+    return { data: {} }
+  }
 });
 
-var Laura = Vue.component("laura", {
-  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/laura.png' alt='laura'></div></div><div class='profile-name'>Laura Callahan</div><table><tr><td class='e-bold'>Title</td><td>Sales Representative</td></tr><tr><td class='e-bold'>Hire Date</td><td>09/25/1993</td></tr><tr><td class='e-bold'>Address</td><td>908 W. Capital Way</td></tr><tr><td class='e-bold'>City</td><td>Tacoma</td></tr><tr><td class='e-bold'>Phone</td><td>(206) 555-9482</td></tr></table></div>`
+var Laura = createApp({}).component("laura", {
+  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/laura.png' alt='laura'></div></div><div class='profile-name'>Laura Callahan</div><table><tr><td class='e-bold'>Title</td><td>Sales Representative</td></tr><tr><td class='e-bold'>Hire Date</td><td>09/25/1993</td></tr><tr><td class='e-bold'>Address</td><td>908 W. Capital Way</td></tr><tr><td class='e-bold'>City</td><td>Tacoma</td></tr><tr><td class='e-bold'>Phone</td><td>(206) 555-9482</td></tr></table></div>`,
+  data() {
+    return { data: {} }
+  }
 });
 
-var Robert = Vue.component("robert", {
-  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/robert.png' alt='robert'></div></div><div class='profile-name'>Robert King</div><table><tr><td class='e-bold'>Title</td><td>Sales Manager</td></tr><tr><td class='e-bold'>Hire Date</td><td>03/20/1990</td></tr><tr><td class='e-bold'>Address</td><td>14 Garrett Hill</td></tr><tr><td class='e-bold'>City</td><td>London</td></tr><tr><td class='e-bold'>Phone</td><td>(71) 555-4848</td></tr></table></div>`
+var Robert = createApp({}).component("robert", {
+  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/robert.png' alt='robert'></div></div><div class='profile-name'>Robert King</div><table><tr><td class='e-bold'>Title</td><td>Sales Manager</td></tr><tr><td class='e-bold'>Hire Date</td><td>03/20/1990</td></tr><tr><td class='e-bold'>Address</td><td>14 Garrett Hill</td></tr><tr><td class='e-bold'>City</td><td>London</td></tr><tr><td class='e-bold'>Phone</td><td>(71) 555-4848</td></tr></table></div>`,
+  data() {
+    return { data: {} }
+  }
 });
 
-var Albert = Vue.component("albert", {
-  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/albert.png' alt='albert'></div></div><div class='profile-name'>Albert Dodsworth</div><table><tr><td class='e-bold'>Title</td><td>Sales Representative</td></tr><tr><td class='e-bold'>Hire Date</td><td>10/5/1996</td></tr><tr><td class='e-bold'>Address</td><td>7 Houndstooth Rd.</td></tr><tr><td class='e-bold'>City</td><td>London</td></tr><tr><td class='e-bold'>Phone</td><td>(71) 555-4444</td></tr></table></div>`
+var Albert = createApp({}).component("albert", {
+  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/albert.png' alt='albert'></div></div><div class='profile-name'>Albert Dodsworth</div><table><tr><td class='e-bold'>Title</td><td>Sales Representative</td></tr><tr><td class='e-bold'>Hire Date</td><td>10/5/1996</td></tr><tr><td class='e-bold'>Address</td><td>7 Houndstooth Rd.</td></tr><tr><td class='e-bold'>City</td><td>London</td></tr><tr><td class='e-bold'>Phone</td><td>(71) 555-4444</td></tr></table></div>`,
+  data() {
+    return { data: {} }
+  }
 });
 
-var Michale = Vue.component("michale", {
-  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/michale.png' alt='michale'></div></div><div class='profile-name'>Michale Suyama</div><table><tr><td class='e-bold'>Title</td><td>Inside Sales Coordinator</td></tr><tr><td class='e-bold'>Hire Date</td><td>06/10/1998</td></tr><tr><td class='e-bold'>Address</td><td>4726 - 11th Ave. N.E.</td></tr><tr><td class='e-bold'>City</td><td>Seattle</td></tr><tr><td class='e-bold'>Phone</td><td>(206) 555-1189</td></tr></table></div>`
+var Michale = createApp({}).component("michale", {
+  template: `<div><div class='header-image'><div class='e-avatar e-avatar-circle e-avatar-xlarge'><img src='./source/splitter/images/michale.png' alt='michale'></div></div><div class='profile-name'>Michale Suyama</div><table><tr><td class='e-bold'>Title</td><td>Inside Sales Coordinator</td></tr><tr><td class='e-bold'>Hire Date</td><td>06/10/1998</td></tr><tr><td class='e-bold'>Address</td><td>4726 - 11th Ave. N.E.</td></tr><tr><td class='e-bold'>City</td><td>Seattle</td></tr><tr><td class='e-bold'>Phone</td><td>(206) 555-1189</td></tr></table></div>`,
+  data() {
+    return { data: {} }
+  }
 });
 
-var pane1Content = Vue.component("pane1", {
+var pane1Content = createApp({}).component("pane1", {
   template: `<div>
     <div>
         <!-- ListView element -->
@@ -70,6 +83,9 @@ var pane1Content = Vue.component("pane1", {
         </ejs-listview>
     </div>
 </div>`,
+components: {
+    'ejs-listview': ListViewComponent
+},
 beforeCreate: function() {
         commonData = [{
                 name: "Margaret",
@@ -83,7 +99,7 @@ beforeCreate: function() {
             },
             {
                 name: "Robert",
-                icon: 'R',
+                imgUrl: './source/splitter/images/robert.png',
                 id: "3"
             },
             {
@@ -93,7 +109,7 @@ beforeCreate: function() {
             },
             {
                 name: "Michale",
-                icon: 'M',
+                imgUrl: './source/splitter/images/michale.png',
                 id: "5"
             }];
         [
@@ -103,12 +119,15 @@ beforeCreate: function() {
             dataSource[ds[1]] = data;
         });
     },
+  beforeMount () {
+    this.listData = dataSource.data1;
+  },
   data() {
     return {
                   gTemplate: '<div class="e-list-wrapper e-list-avatar">' +
             '<span class="e-avatar e-avatar-circle ${icon} ${$imgUrl ? \'hideUI\' : \'showUI\' }">' +
             '${icon}</span> <img class="e-avatar e-avatar-circle ${$imgUrl ? \'showUI\' : \'hideUI\' }" ' +
-            'src="${$imgUrl ?  $imgUrl : \' \' }" />' +
+            'src="${imgUrl}" />' +
             '<span class="e-list-content">${name}</span></div>',
             listData: dataSource.data1,
             cssClass: 'e-list-template',
@@ -127,25 +146,25 @@ beforeCreate: function() {
             }
         },
         onActionComplete: function() {
-                this.$refs.listviewObj.ej2Instances.selectItem(dataSource.data1[0]);
+            document.getElementById('ui-list').ej2_instances[0].selectItem(dataSource.data1[0]);
         },
         onSelect: function(e) {
             listid = e.item.dataset.uid;
             switch (listid) {
                 case '1':
-                    bus.$emit("pane-content", function() { return { template: Margaret }; });
+                    bus.emit("pane-content", function() { return { template: Margaret }; });
                     break;
                 case '2':
-                    bus.$emit("pane-content", function() { return { template: Laura }; });
+                    bus.emit("pane-content", function() { return { template: Laura }; });
                     break;
                 case '3':
-                    bus.$emit("pane-content", function() { return { template: Robert }; });
+                    bus.emit("pane-content", function() { return { template: Robert }; });
                     break;
                 case '4':
-                    bus.$emit("pane-content", function() { return { template: Albert }; });
+                    bus.emit("pane-content", function() { return { template: Albert }; });
                     break;
                 case '5':
-                    bus.$emit("pane-content", function() { return { template: Michale }; });
+                    bus.emit("pane-content", function() { return { template: Michale }; });
                     break;
                 default:
                     break;
@@ -157,9 +176,14 @@ beforeCreate: function() {
     }
 });
 
-var bus = new Vue({});
+var bus = mitt();
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-splitter': SplitterComponent,
+        'e-panes': PanesDirective,
+        'e-pane': PaneDirective
+    },
     data: function() {
         return {
             pane1Content: function () {
@@ -171,14 +195,14 @@ export default Vue.extend({
         }
     },
     mounted: function () {
-        bus.$on("pane-content", paneContent => {
+        bus.on("pane-content", paneContent => {
             this.$refs.splitterObj.ej2Instances.paneSettings[1].content = paneContent;
         });
     }
     ,destroyed: function() {
-    bus.$off("pane-content");
+    bus.off("pane-content");
   }
-});
+};
 </script>
 <style>
     .details-view #splitter .e-avatar.e-avatar-xlarge {

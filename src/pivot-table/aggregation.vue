@@ -91,9 +91,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
   PivotView,
   PivotViewComponent,
   SummaryTypes,
@@ -101,15 +99,13 @@ import {
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { rData } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
 let data: IDataSet[] = JSON.parse(JSON.stringify(rData));
@@ -159,12 +155,16 @@ let cData: { [key: string]: Object }[] = [
 
 let dataFields: object = { text: "text", value: "value" };
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
         enableSorting: true,
-        formatSettings: [{ name: "ProCost", format: "C" }],
+        formatSettings: [{ name: 'PowUnits', format: 'N' }, { name: "ProCost", format: "C" }],
         drilledMembers: [
           { name: "EnerType", items: ["Biomass", "Free Energy"] }
         ],
@@ -225,10 +225,10 @@ export default Vue.extend({
           delete data[ln].Date;
         }
       }
-      (<any>this.$refs.pivotview).ej2Instances.dataSourceSettings.dataSource = data;
+      ((this as any).$refs.pivotview).ej2Instances.dataSourceSettings.dataSource = data;
     },
     setSummaryType(fieldName: string, summaryType: SummaryTypes): void {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let isAvail: boolean = false;
       for (
         let vCnt: number = 0;
@@ -236,6 +236,11 @@ export default Vue.extend({
         vCnt++
       ) {
         if (pivotObj.dataSourceSettings.values[vCnt].name === fieldName) {
+          if (pivotObj.dataSourceSettings.values[vCnt].name === 'PowUnits' && summaryType === 'Avg') {
+            pivotObj.setProperties({ dataSourceSettings: { formatSettings: [{ name: 'PowUnits', format: 'N2' }, { name: 'ProCost', format: 'C' }] } }, true);
+          } else {
+            pivotObj.setProperties({ dataSourceSettings: { formatSettings: [{ name: 'PowUnits', format: 'N' }, { name: 'ProCost', format: 'C' }] } }, true);
+          }
           pivotObj.dataSourceSettings.values[vCnt].type = summaryType;
           isAvail = true;
         }
@@ -248,7 +253,7 @@ export default Vue.extend({
   provide: {
     pivotview: [FieldList]
   }
-});
+}
 </script>
 
 <style scoped>
@@ -261,5 +266,11 @@ export default Vue.extend({
 }
 /deep/ .control-section {
   min-height: 255px !important;
+}
+/deep/ .e-bigger .e-float-input.e-control-wrapper {
+        width: 100% !important;
+}
+/deep/ .property-panel-table div {
+  padding: 0 !important;
 }
 </style>

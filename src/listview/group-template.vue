@@ -5,11 +5,24 @@
       :dataSource="data"
       :fields="fields"
       :cssClass="cssClass"
-      :groupTemplate="grouptemplate"
+      :groupTemplate="'grouptemplate'"
       :showHeader="header"
       :headerTitle="title"
-      :template="datatemplate"
-    ></ejs-listview>
+      :template="'datatemplate'"
+    >
+      <template v-slot:grouptemplate="{data}">
+        <div class="e-list-wrapper">
+          <span class="e-list-item-content">{{data.items[0].category}}</span>
+        </div>
+      </template>
+      <template v-slot:datatemplate="{data}">
+        <div class="settings e-list-wrapper e-list-multi-line e-list-avatar">
+          <span :class="['icon e-avatar ' + data.class]"></span>
+          <span class="e-list-item-header">{{data.Name}}</span>
+          <span class="e-list-content">{{data.content}}</span>
+        </div>
+      </template>
+    </ejs-listview>
     <div id="action-description">
       <p>
         This sample demonstrates the group template functionalities of ListView. Click any list item from the settings option to select and highlight an option.
@@ -39,19 +52,25 @@
   border-color: rgba(0, 0, 0, 0.12);
 }
 
+body.bootstrap5-dark #groupedList.e-listview,
+body.bootstrap-dark #groupedList.e-listview,
+body.tailwind-dark #groupedList.e-listview,
+body.fabric-dark #groupedList.e-listview,
+body.highcontrast #groupedList.e-listview {
+    border: 1px solid #444c54;
+}
+
 /* ListView header alignment */
 
 #groupedList.e-listview.e-rtl .e-text .e-headertext:after {
   font-family: 'e-listview-group-icons';
   position: absolute;
-  content: "\e712";
   right: 315px;
 }
 
 #groupedList.e-listview .e-text .e-headertext:after {
   font-family: 'e-listview-group-icons';
   position: absolute;
-  content: "\e712";
   right: 16px;
 }
 
@@ -205,22 +224,31 @@
   color: #1073b1;
 }
 
+.tailwind #groupedList.e-listview .icon {
+    color: #4f46e5;
+}
+
+.tailwind #groupedList.e-list-template .e-active .e-list-item-header,
+.tailwind #groupedList.e-list-template .e-active .e-list-content {
+    color: #4f46e5;
+}
+
 .highcontrast #groupedList.e-list-template .e-active .e-list-item-header,
 .highcontrast #groupedList.e-list-template .e-active .e-list-content {
   color: #000;
 }
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from "@syncfusion/ej2-base";
 import { dataSource } from "./newsData";
 import { groupTemplateData } from "./listData";
-import grouptempVue from "./group-vue-template.vue";
-import datatempVue from "./data-vue-template.vue";
 enableRipple(false);
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       cssClass: "e-list-template",
@@ -230,18 +258,8 @@ export default Vue.extend({
         groupBy: "order"
       },
       header: true,
-      title: "Settings",
-      grouptemplate: function() {
-        return {
-          template: grouptempVue
-        };
-      },
-      datatemplate: function() {
-        return {
-          template: datatempVue
-        };
-      }
+      title: "Settings"
     };
   }
-});
+}
 </script>

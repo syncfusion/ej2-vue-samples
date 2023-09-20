@@ -52,11 +52,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Edit, DayMarkers, Toolbar  } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Edit, DayMarkers, Toolbar  } from "@syncfusion/ej2-vue-gantt";
 import { resourceData, resourceResources } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },  
   data: function() {
       return{
             data: resourceData,
@@ -109,5 +111,5 @@ export default Vue.extend({
   provide: {
       gantt: [ Selection, DayMarkers, Toolbar, Edit]
   }
-});
+}
 </script>

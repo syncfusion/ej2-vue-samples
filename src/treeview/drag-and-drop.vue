@@ -26,7 +26,7 @@
     </div>
 
     <div id="action-description">
-       <p>This sample demonstrates the drag and drop functionality of TreeView. A drag and drop image is present at the top of the sample which hides on clicking the sample. To drag and drop node, select and drag the desired node and drop it on the target node or external container.</p>
+       <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the drag and drop functionality of TreeView. A drag and drop image is present at the top of the sample which hides on clicking the sample. To drag and drop node, select and drag the desired node and drop it on the target node or external container.</p>
     </div>
 
     <div id="description">
@@ -56,8 +56,13 @@
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
     }
-.custom-tree #list {
+    .bootstrap5 .custom-delete,
+    .bootstrap5-dark .custom-delete {
+        margin-top: 3px;
+    }
+    .custom-tree #list {
         min-height: 288px;
+        border: 0;
     }
     .e-bigger .custom-tree #list, .e-bigger .custom-tree #tree1, .e-bigger .custom-tree #tree2 {
 		height: 354px;
@@ -119,6 +124,14 @@
         color: rgba(0, 0, 0, 0.54);
         font-size: 15px;
     }
+    .material-dark .custom-tree .custom-delete::before,
+    .material3-dark .custom-tree .custom-delete::before,
+    .fabric-dark .custom-tree .custom-delete::before,
+    .bootstrap-dark .custom-tree .custom-delete::before, 
+    .tailwind-dark .custom-tree .custom-delete::before,
+    .bootstrap5-dark .custom-tree .custom-delete::before {
+        color: rgba(255, 255, 255, 0.54);
+    }
     .custom-tree .custom-delete {
         float: right;
         font-family: 'cross-circle';
@@ -142,16 +155,14 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { createApp } from 'vue';
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { closest, getComponent } from "@syncfusion/ej2-base";
 import * as dataSource from './drag-data.json';
 
-Vue.use(TreeViewPlugin);
-Vue.use(ListViewPlugin);
-
-var lTemplate = Vue.component("demo", {
+var app = createApp();
+var lTemplate = app.component("demo", {
   template: '<div><span>{{data.text}}</span><span :id="data.iconId" :class="data.class"></span></div>',
   data() {
     return {
@@ -162,7 +173,11 @@ var lTemplate = Vue.component("demo", {
 
 var id = 1;
 
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent,
+        'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
             fields1: { dataSource: dataSource.dragData1, id: 'id', text: 'name', child: 'child' },
@@ -218,5 +233,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

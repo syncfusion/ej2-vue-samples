@@ -1,6 +1,20 @@
 <template>
 <div>
-<div class="control-section">
+<div class="col-lg-12 control-section">
+    <div style="display: flex">
+                <div style="display: flex">
+                    <label for="checked" style="margin:0px 5px 0px 0px;font-size: 15px;"> Allow Taskbar Drag And Drop </label>
+                    <div>
+                    <ejs-switch id="checked" v-on:change= "dragdropChange"></ejs-switch>
+                </div>
+                </div>
+       <div style="display: flex">
+                    <label for="unchecked" style="margin:0px 5px 0px 5px;font-size: 15px;"> Allow Taskbar Overlap </label>
+                    <div>
+                    <ejs-switch id="unchecked" :checked= "true" v-on:change= "overlapChange"></ejs-switch>
+                </div>
+        </div>
+        </div>
     <div class="content-wrapper">
         <ejs-gantt ref='gantt' id="ResourceView"  
             :dataSource= "data"
@@ -21,8 +35,7 @@
             :projectEndDate= "projectEndDate"
             :splitterSettings= "splitterSettings"
             :enableMultiTaskbar= "true"
-            :collapseAllParentTasks= "true"
-			:showOverAllocation= "true">
+            :showOverAllocation= "true">
         </ejs-gantt>
     </div>
 </div>
@@ -34,6 +47,9 @@
 </div>
 
 <div id="description">
+    <p>
+        In this example, you can enable taskbar drag and drop from one resource to another resource vertically by enabling <code>allowTaskbarDragAndDrop</code> property. Also, you can prevent the taskbar overlap  in resource task by disabling the <code>allowTaskbarOverlap</code> property.
+    </p>
     <p>
         In this example, you can see that, the resource breaks down from a bulk of tasks can be done by mapping the pre-defined resource ID-s to each task and the resource information can be shown by using the labelSetting property.
         Using the toolbar action, you can perform the CRUD operation for the resource allocation based on their availability and task complexity.
@@ -55,11 +71,15 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Edit, DayMarkers, Toolbar, Resize  } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Edit, DayMarkers, Toolbar, Resize, RowDD  } from "@syncfusion/ej2-vue-gantt";
 import { multiTaskbarData, resources } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-switch': SwitchComponent
+  },
   data: function() {
       return{
             data: multiTaskbarData,
@@ -113,7 +133,23 @@ export default Vue.extend({
       };
   },
   provide: {
-      gantt: [ Selection, DayMarkers, Toolbar, Edit, Resize]
+      gantt: [ Selection, DayMarkers, Toolbar, Edit, Resize, RowDD]
+  },
+  methods:{
+    dragdropChange: function(args) {
+        if (args.checked) {
+            this.$refs.gantt.ej2Instances.allowTaskbarDragAndDrop = true;
+        } else {
+            this.$refs.gantt.ej2Instances.allowTaskbarDragAndDrop = false;
+        }
+    },
+    overlapChange: function(args) {
+        if (args.checked) {
+            this.$refs.gantt.ej2Instances.allowTaskbarOverlap = true;
+        } else {
+            this.$refs.gantt.ej2Instances.allowTaskbarOverlap = false;
+        }
+    }
   }
-});
+}
 </script>

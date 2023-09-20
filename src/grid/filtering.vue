@@ -3,8 +3,7 @@
 <div class="col-lg-9 control-section">
     <div id="action-description">
         <p>
-            This sample demonstrates the Grid Default Filtering feature. In this sample, type the value in the filterbar and press enter
-            to filter particular column.
+            This sample demonstrates the Grid's default filtering feature. Type a value in the filterbar and press enter to filter a particular column.
         </p>
     </div>
     <div>
@@ -23,40 +22,48 @@
     </div>
 
      <div id="description">
-        <p>The filtering feature enables the user to view the reduced amount of records based on filter criteria.
-            It can be enabled by setting <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowfiltering">allowFiltering
-        </a></code> property as true. 
-            A filter bar row will be rendered next to header which allows the end-users to filter data by entering text within its cells.</p>
-         <p>Filterbar uses two modes which specifies how to start filtering. They are,</p>    
+        <p>The filtering feature enables the user to view a reduced amount of records based on filter criteria. It can be enabled
+        by setting the <code><a target="_blank" class="code"
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowfiltering">allowFiltering
+        </a></code> property to true. A filter bar row will be rendered next to header which allows users to filter
+        data by entering text within its cells.</p>
+         <p>The Filterbar uses two modes which specifies how to start filtering. They are,</p>    
          <ul>
-             <li><code>onenter</code> - Enabled by default, filter will be initiated after pressing <code>Enter</code> key.</li>
-             <li><code>immediate</code> - Filter will start after user ends typing. This uses a time delay of <i>1500ms</i>
-             to initiate filter after use stops typing. 
-             It can be overridden using the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#filtersettings">
+             <li><code>OnEnter</code> - Enabled by default, filter will be initiated when the <code>Enter</code> key is pressed.</li>
+             <li><code>Immediate</code> - Filter will start after user finishes typing. There will be a time delay of <i>1500ms</i> to initiate
+            filter after the user stops typing. It can be overridden using the <code><a target="_blank" class="code"
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/filterSettings/">
         filterSettings->immediateModeDelay
         </a></code> property.</li>
          </ul>
-         <p>In this demo, you can either select the <strong>Category Name</strong> from the SELECT element or type the text in the 
-          filter bar cells to filter the Grid. </p>
-          <p>Additionally, the grid records can also be filtered based on the selected filterbar operator. It can be enabled by setting
+         <p>In this demo, you can either select the <strong>Category Name</strong> from the SELECT element or type the text in the filter bar cells to filter.</p>
+          <p>Additionally, the records can also be filtered based on the selected filterbar operator. It can be enabled by setting
          <br/>
-         <code>filterSettings->showFilterBarOperator</code> property as true.</p>
-         <p>In this demo, </p>
+         <code>filterSettings->showFilterBarOperator</code> property to true.</p>
+         <p>In this demo,</p>
          <ul>
             <li>To enable or disable filterbar operator feature, check or uncheck the checkbox in the properties panel.</li>
-            <li>Now select the required filtering operator in the dropdown list on the filter bar cell and 
-                type the text in the filter bar cell to filter the Grid.</li>
+            <li>Select the required filtering operator in the dropdown list on the filter bar cell and type the text to start filtering.</li>
+            <li>Now, the addition of new filter operators such as "Does Not Contain", "Does Not End With", "Does Not Start With", "Empty", "Not Empty", "Null", "Not Null", "Like", and "Wildcard search" greatly enhance the filtering feature of the Grid.</li>
+         </ul>
+         <p>For example, when the <b>Like</b> search operator is used:</p>
+         <ul>
+            <li>%a% - Filters words containing the character 'a'</li>
+            <li>a%  - Filters words ending with 'a'</li>
+            <li>%a  - Filters words starting with 'a'</li>
+         </ul>
+         <p>For example when the <b>Wildcard</b> search operator is used:</p>
+         <ul>
+            <li>a*b - Filters words that start with 'a' and end with 'b'</li>
          </ul>
          <br>
          <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            Grid component features are segregated into individual feature-wise modules. To use filtering feature, we need to inject
-            <code>Filter</code> into the <code>provide</code> section.
+            Grid features are segregated into individual feature-wise modules. To use filtering feature, inject the
+            <code>Filter</code> using the <code>provide</code> section.
         </p>
           <p>
-            More information on the filter configuration can be found in this 
+            More information on the filter configuration can be found in this
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/filtering.html">documentation section</a>.
         </p>
     </div>
@@ -79,17 +86,19 @@
 @import "../../styles/Grid/filtering.css";
 </style>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Filter, Page, GridComponent } from "@syncfusion/ej2-vue-grids";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { GridComponent, ColumnDirective, ColumnsDirective, Filter, Page } from "@syncfusion/ej2-vue-grids";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { categoryData } from "./data-source";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(GridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       data: categoryData,
@@ -101,9 +110,9 @@ export default Vue.extend({
   methods: {
       onChange: function(e: ChangeEventArgs): void {
         if (e.value === 'All') {
-            (<GridComponent>this.$refs.grid).clearFiltering();
+            ((this as any).$refs.grid).clearFiltering();
         } else {
-            (<any>this.$refs.grid).filterByColumn('CategoryName', 'equal', e.value);
+            ((this as any).$refs.grid).filterByColumn('CategoryName', 'equal', e.value);
         }
     },
     filterbaroperator: function(args: any): void {
@@ -118,5 +127,5 @@ export default Vue.extend({
   provide: {
       grid: [Filter, Page]
   }
-});
+}
 </script>

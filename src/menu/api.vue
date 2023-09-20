@@ -76,6 +76,13 @@
         padding: 0 10px 10px 0;
         overflow: auto;
     }
+
+    .tailwind .property-panel-content,
+    .tailwind-dark .property-panel-content,
+    .fabric .property-panel-content,
+    .fabric-dark .property-panel-content {
+        overflow: hidden;
+    }
     
     .property-panel-table .e-multiselect {
         padding: 0;
@@ -83,20 +90,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { MenuComponent } from "@syncfusion/ej2-vue-navigations";
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { getComponent } from '@syncfusion/ej2-base';
 import * as dataSource from './menu-data.json';
 
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(MenuPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-menu': MenuComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
         menuItems: dataSource.apiData,
@@ -113,10 +121,12 @@ export default Vue.extend({
     },
     methods: {
         modeChange: function(args) {
-        this.$refs.menu.orientation = args.value;
+            let menuObj = getComponent(document.getElementById('menu'), 'menu');
+            menuObj.orientation = args.value;
         },
         itemOnClick: function(args) {
-        this.$refs.menu.showItemOnClick = args.checked;
+            let menuObj = getComponent(document.getElementById('menu'), 'menu');
+            menuObj.showItemOnClick = args.checked;
         },
         enableDisableChange: function(args) {
             if (args.value) {
@@ -128,5 +138,5 @@ export default Vue.extend({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

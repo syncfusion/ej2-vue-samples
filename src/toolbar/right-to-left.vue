@@ -321,10 +321,14 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(ToolbarPlugin);
-export default Vue.extend({
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
+
+export default {
+    components: {
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+    },
 data: function(){
         return {
             dataPlace: [{ id: 'scrollable', mode: 'Scrollable' }, { id: 'popup', mode: 'Popup' }],
@@ -343,5 +347,5 @@ data: function(){
            tabObj.ej2_instances[0].dataBind();
        }
     }
-});
+}
 </script>

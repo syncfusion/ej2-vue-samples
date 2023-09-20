@@ -45,11 +45,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Toolbar } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Toolbar } from "@syncfusion/ej2-vue-gantt";
 import { zoomingData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
       data: zoomingData,
@@ -77,12 +79,12 @@ export default Vue.extend({
                 { field: 'Progress' }
       ],
       splitterSettings:{
-        columnIndex: 2
+        position: "35%"
       }
     };
   },
   provide: {
     gantt: [Toolbar]
   }
-});
+}
 </script>

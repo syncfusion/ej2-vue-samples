@@ -8,7 +8,7 @@
 </div>
 
 <div id="action-description">
-    <p>This sample demonstrates the binding data to the TreeView from remote data source. On expanding the parent node, the spinner icon will be displayed until the child nodes will be loaded into parent node. Click on node to select it, and click on icon or double click on node to expand/collapse it.</p>
+    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the binding data to the TreeView from remote data source. On expanding the parent node, the spinner icon will be displayed until the child nodes will be loaded into parent node. Click on node to select it, and click on icon or double click on node to expand/collapse it.</p>
 </div>
 
 <div id="description">
@@ -39,18 +39,18 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import { DataManager,Query,ODataV4Adaptor } from "@syncfusion/ej2-data";
-
-Vue.use(TreeViewPlugin);
 
 var remoteData = new DataManager({
     url: 'https://services.odata.org/V4/Northwind/Northwind.svc',
             adaptor: new ODataV4Adaptor,
             crossDomain: true,
 });
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
             fields: { dataSource: remoteData, query: new Query().from('Employees').select('EmployeeID,FirstName,Title').take(5), id: 'EmployeeID', text: 'FirstName', hasChildren: 'EmployeeID',
@@ -68,5 +68,5 @@ export default Vue.extend({
         popup.style.display = 'none';
     }
     }
-});
+}
 </script>

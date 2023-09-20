@@ -10,9 +10,9 @@
   <div id="template" style="display:none">
         <div class="toolback">
             <div class="listing2">
-                <center>
+                <span style="text-align: center;">
                     ${country}                                       
-                </center>
+                </span>
             </div>
             <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
             <div>
@@ -72,16 +72,21 @@
 
 </style>
 <script>
-import Vue from 'vue'
-import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+},
 data:function(){
     return{
         titleSettings: {
             text: 'Finalist in Cricket World Cup',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -93,7 +98,10 @@ data:function(){
             position: 'Left',
             orientation: 'Vertical',
             height: '70%',
-            width: '10'
+            width: '10',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
         shapePropertyPath: 'name',
@@ -137,7 +145,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     tooltipRender:function(args){
@@ -146,7 +155,7 @@ methods:{
         }
     }
 }
-})
+}
 </script>
 
   

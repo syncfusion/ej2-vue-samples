@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-custom">
          <div class="sample-container">
-            <ejs-filemanager id="file" :ajaxSettings='ajaxSettings' :view='view' :showThumbnail='showThumbnail'>
+            <ejs-filemanager id="file" :ajaxSettings='ajaxSettings' :view='view' :showThumbnail='showThumbnail' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -96,16 +96,17 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager custom thumbnail sample
  */
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
-export default Vue.extend ({
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {        
            ajaxSettings:
@@ -115,6 +116,11 @@ export default Vue.extend ({
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download' 
             },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
+            },
             view:"LargeIcons",
             showThumbnail: false
         };
@@ -122,6 +128,6 @@ export default Vue.extend ({
     provide: {
             filemanager: [DetailsView, NavigationPane, Toolbar]
     }
-});
+}
 </script>
 

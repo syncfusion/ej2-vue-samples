@@ -1,7 +1,27 @@
 <template>
     <div class="col-lg-12 control-section">
         <div class="template-menu-control">
-            <ejs-menu :items="data" :fields="menuFields" :template="menuTemplate" cssClass="e-template-menu"></ejs-menu>
+            <ejs-menu :items="data" :fields="menuFields" :template="'menuTemplate'" cssClass="e-template-menu">
+                <template v-slot:menuTemplate="{data}">
+                    <span v-if="data.category">{{data.category}}</span>
+                    <div v-else-if="data.value" style="width: 100%;display: flex;justify-content: space-between;">
+                        <img v-if="data.url" class="e-avatar e-avatar-small" :src="data.url" />
+                            <span style="width:100%;">{{data.value}}</span>
+                            <span v-if="data.count" class="e-badge e-badge-success">{{data.count}}</span>
+                    </div>
+                    <div tabindex="0" class="e-card" v-else>
+                        <div class="e-card-header">
+                            <div class="e-card-header-caption">
+                                <div class="e-card-header-title">About Us</div>
+                            </div>
+                        </div>
+                        <div class="e-card-content">{{data.about.value}}</div>
+                        <div class="e-card-actions">
+                            <button class="e-btn e-outline" style="pointer-events: auto;">Read More</button>
+                        </div>
+                    </div>
+                </template>
+            </ejs-menu>
         </div>
         <div id="action-description">
             <p>
@@ -98,31 +118,41 @@
     outline-color: transparent;
     pointer-events: none;
 }
+
+.material3 .e-menu-wrapper ul .e-menu-item .e-avatar,
+.material3-dark .e-menu-wrapper ul .e-menu-item .e-avatar,
+.e-bigger .material3 .e-menu-wrapper ul .e-menu-item .e-avatar,
+.e-bigger .material3-dark .e-menu-wrapper ul .e-menu-item .e-avatar
+{
+    height: 24px;
+}
+
+.material3 .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.material3-dark .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.e-bigger .material3 .e-menu-wrapper ul.e-ul .e-menu-item .e-card,
+.e-bigger .material3-dark .e-menu-wrapper ul.e-ul .e-menu-item .e-card
+{
+    border-radius: 0;
+}
 </style>
 <!-- custom code end -->
 
-<script lang="ts">
-import Vue from "vue";
-import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
+<script>
+import { MenuComponent } from "@syncfusion/ej2-vue-navigations";
 import dataSource from './template-data.json';
-import menutemplateVue from "./menu-template.vue";
 
-Vue.use(MenuPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-menu': MenuComponent
+  },
   data: function() {
     return {
         data: dataSource.templateData,
         menuFields: {
             text: ['category', 'value'],
             children: ['options']
-        },
-        menuTemplate: () => {
-            return {
-                template : menutemplateVue
-            }
         }
     };
-  }
-});
+  },
+}
 </script>

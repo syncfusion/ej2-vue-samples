@@ -141,17 +141,22 @@ margin-top: -10px;
 </style>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, MapsTooltip, Selection, Highlight, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Selection, Highlight, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data:function(){
       return{
         titleSettings: {
             text: 'USA Election Results - 2016',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         legendSettings: {
@@ -161,7 +166,8 @@ export default Vue.extend({
             width: '80%',
             textStyle: {
                 fontWeight: '400',
-                size: '14px'
+                size: '14px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -173,7 +179,10 @@ export default Vue.extend({
         dataSource: new MapAjax('./src/maps/map-data/selection-datasource.json'),
         tooltipSettings: {
                     visible: true,
-                    valuePath: 'State'
+                    valuePath: 'State',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
         },
         highlightSettings: {
                     enable: true,
@@ -206,7 +215,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     itemSelection:function(args){
@@ -247,5 +257,5 @@ methods:{
             }
     }
 }
-})
+}
 </script>

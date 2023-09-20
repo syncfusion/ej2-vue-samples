@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group" style="padding-top: 11px;">
                             <div class="e-float-input">
-                                <input type="text" id="mobileno" name="MobileNo" data-required-message="* Enter your mobile number" required="" data-msg-containerid="noError">
+                                <input type="tel" maxlength="10" id="mobileno" name="MobileNo" data-required-message="* Enter your mobile number" required="" data-msg-containerid="noError">
                                 <span class="e-float-line"></span>
                                 <label class="e-float-text e-label-top" for="mobileno">Mobile No</label>
                             </div>   
@@ -59,7 +59,8 @@
     </div> 
 
     <div id="action-description">
-        <p>This example demonstrates the Uploader component supported with HTML form upload. Fill the mandatory details in a form and click the submit button.</p>
+        <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates the Uploader component supported with HTML form upload. Fill the mandatory details in a form and click the submit button.</p>
     </div>
 
     <div id="description">    
@@ -90,8 +91,21 @@
                 background: #f9f9f9;
         }
 
-        .highcontrast .form-support #control_wrapper {
-            background: #000000;
+        .highcontrast .form-support #control_wrapper,
+        .material-dark .form-support #control_wrapper,
+        .material3-dark .form-support #control_wrapper,
+        .fabric-dark .form-support #control_wrapper,
+        .bootstrap-dark .form-support #control_wrapper,
+        .bootstrap5-dark .form-support #control_wrapper {
+            background: #393939;
+        }
+
+        .fluent-dark #control_wrapper { 
+            background: #212529;
+        }
+
+        .tailwind-dark .form-support #control_wrapper { 
+            background: #6c757d;
         }
         .form-support .upload-area, .e-bigger .form-support .upload-area {
             width: 73%;
@@ -141,27 +155,33 @@
         .form-support button#browse {
             float: right;
             margin-right: -115px;
-            margin-top: -29px;
+            margin-top: -32px;
             position: relative;
         }      
         .bootstrap4 .form-support button#browse {
 			margin-top: -33px;
         }  
         .e-bigger.bootstrap .form-support button#browse {
-            top: -12px;
+            margin-top: -41px;
         }
-        .e-bigger.material .form-support  button#browse {
-            top: -8px;
+        .e-bigger.material .form-support  button#browse,
+        .e-bigger.material-dark .form-support  button#browse {
+            margin-top: -33px;
         }
-        .e-bigger.fabric .form-support button#browse, .e-bigger.highcontrast .form-support button#browse {
-            top: -11px;
+        .e-bigger.fabric .form-support button#browse,
+        .e-bigger.fabric-dark .form-support button#browse,
+        .e-bigger.highcontrast .form-support button#browse {
+            margin-top: -41px;
             left: 2%;
         }
-        .fabric .form-support #browse, .highcontrast .form-support #browse {
-            top: -3px;
+        .fabric .form-support #browse,
+        .fabric-dark .form-support #browse,
+        .highcontrast .form-support #browse {
+            margin-top: -33px;
         }
-        .bootstrap .form-support #browse {
-            top: -6px;
+        .bootstrap .form-support #browse,
+        .bootstrap-dark .form-support #browse {
+           margin-top: -35px;
         }
         .form-support .form-title {
             text-align: center;
@@ -169,6 +189,25 @@
         #form1 .e-float-input:not(.e-input-group), #form1 .e-float-input.e-control-wrapper:not(.e-input-group) {
             display: inherit;
         }
+        .fluent .e-bigger .e-dialog .e-dlg-header-content,
+        .fluent-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind-dark .e-bigger .e-dialog .e-dlg-header-content{
+            padding-bottom: 2%;
+        }
+        .material-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .material .e-bigger .e-dialog .e-dlg-header-content{
+            padding-bottom: 3%;
+        }
+        .e-bigger.fluent .form-support button#browse,
+        .e-bigger.fluent-dark .form-support button#browse,
+        .e-bigger.bootstrap5 .form-support button#browse,
+        .e-bigger.bootstrap5-dark .form-support button#browse,
+        .e-bigger.tailwind .form-support button#browse,
+        .e-bigger.tailwind-dark .form-support button#browse{
+            margin-top: -41px;
+        }
+        
 </style>
 <style>
     .form-support .uploader-form-support.e-upload {
@@ -176,20 +215,16 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 import { FormValidator  } from '@syncfusion/ej2-inputs';
-import { DialogPlugin  } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-Vue.use(UploaderPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.jpg, .png',
@@ -221,6 +256,10 @@ export default Vue.extend({
             }
         }
     },
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-dialog': DialogComponent
+    },
     mounted: function () {
         document.getElementById('browse').onclick = () => {
             document.getElementsByClassName('e-file-select-wrap')[0].querySelector('button').click(); 
@@ -245,5 +284,5 @@ export default Vue.extend({
             inputElement.value = args.filesData[0].name;
         },
     }
-});
+};
 </script>

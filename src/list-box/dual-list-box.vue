@@ -3,11 +3,11 @@
         <div class="dual-list-wrapper">
             <div class="dual-list-groupa">
                 <h4>Group A</h4>
-                <ejs-listbox :dataSource="dataA" :fields="fields" height="330px" scope="#connected-listbox" :toolbarSettings="toolbarSettings"></ejs-listbox>
+                <ejs-listbox :dataSource="dataA" :fields="fields" :noRecordsTemplate='nTemplate' height="330px" scope="#connected-listbox" :toolbarSettings="toolbarSettings"></ejs-listbox>
             </div>
             <div class="dual-list-groupb">
                 <h4>Group B</h4>
-                <ejs-listbox id="connected-listbox" :dataSource="dataB" height="330px" :fields="fields"></ejs-listbox>
+                <ejs-listbox id="connected-listbox" :dataSource="dataB" :noRecordsTemplate='nTemplate' height="330px" :fields="fields"></ejs-listbox>
             </div>
         </div>
         <div id="action-description">
@@ -65,14 +65,32 @@
             width: 41%;
         }
     }
+    .bootstrap5 .e-listboxtool-wrapper.e-lib.e-right,
+    .bootstrap5 .e-listbox-wrapper.e-wrapper.e-lib,
+    .bootstrap5-dark .e-listboxtool-wrapper.e-lib.e-right,
+    .bootstrap5-dark .e-listbox-wrapper.e-wrapper.e-lib {
+        height: 323px !important;
+    }
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ListBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './datasource.json';
-Vue.use(ListBoxPlugin);
-export default Vue.extend({
+import { createApp } from "vue";
+import { ListBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './datasource.json';
+
+var norecordVue = createApp({}).component( "noRecordsTemplate", {
+  template: '<div class= "e-list-nrt"><span>NO DATA AVAILABLE</span></div>',
+    data() {
+        return {
+          data: {}
+        };
+    }
+});
+
+export default {
+    components: {
+        'ejs-listbox': ListBoxComponent
+    },
     data: function() {
         return {
             // Set the groupa & groupb data to the data source.
@@ -81,8 +99,13 @@ export default Vue.extend({
             // Map the appropriate columns to fields property.
             fields: { text: 'Name'},
             // Set the tool settings with set of items.
-            toolbarSettings: { items: ['moveUp', 'moveDown', 'moveTo', 'moveFrom', 'moveAllTo', 'moveAllFrom'] }
+            toolbarSettings: { items: ['moveUp', 'moveDown', 'moveTo', 'moveFrom', 'moveAllTo', 'moveAllFrom'] },
+            nTemplate: function(e) {
+                return {
+                    template: norecordVue
+                };
+            }
         };
     }
-});
+};
 </script>

@@ -9,30 +9,40 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
+    <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+    <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
         <tbody>
             <tr style="height: 50px">
-                <td style="width: 80%">
+                <td>
                     <div>Show Labels</div>
                 </td>
                 <td>
-                    <input type="checkbox" checked id="select" style="margin-top: 15px" v-on:change="showLabel">
+                <div style="margin-top: 1px;">
+                    <input type="checkbox" checked id="select"  v-on:change="showLabel">
+                </div>
                 </td>
             </tr>            
         <tr style="height: 50px">
-            <td style="width: 60%">
+            <td>
                 <div>Smart label mode</div>
             </td>
             <td style="width: 40%">
-             <ejs-dropdownlist ref="labelMode" id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>                                 
+             <div>
+             <ejs-dropdownlist ref="labelMode" id='smartlabelmode' :dataSource='smartlabeldata' index=0  :width='smartlabelwidth' :change='changeSmartlabelmode' :placeholder='smartlabelplaceholder'></ejs-dropdownlist>
+             </div>                                 
             </td>
         </tr>
         <tr style="height: 50px">
-            <td style="width: 60%">
+            <td>
                 <div>Intersect action</div>
             </td>
-            <td style="width: 40%;">
-             <ejs-dropdownlist ref="intersect" id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>                                 
+            <td>
+            <div>
+             <ejs-dropdownlist ref="intersect" id='intersectaction' :dataSource='intersectactiondata' index=0  :width='intersectactionwidth' :change='changeIntersectaction' :placeholder='intersectactionplaceholder'></ejs-dropdownlist>
+             </div>                                 
             </td>
         </tr>
     </tbody></table>
@@ -65,12 +75,16 @@
             }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, DataLabel, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, DataLabel, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data:function(){
       return{
         zoomSettings: {
@@ -79,7 +93,10 @@ export default Vue.extend({
         dataLabelSettings: {
                     visible: true,
                     labelPath: 'name',
-                    smartLabelMode: 'Trim'
+                    smartLabelMode: 'Trim',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
                 },
         shapeData: new MapAjax('./src/maps/map-data/usa.json'),
         shapeSettings: {
@@ -91,10 +108,10 @@ export default Vue.extend({
         },
         smartlabeldata:['Trim','None','Hide'],
         smartlabelplaceholder:'Select smartlabel mode',
-        smartlabelwidth: 120,
+        smartlabelwidth: '100%',
         intersectactiondata:['None','Trim','Hide'],
         intersectactionplaceholder:'Select intersect action',
-        intersectactionwidth: 120
+        intersectactionwidth: '100%'
       }
   },
   provide: {
@@ -106,7 +123,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
  /* custom code end */
 // Code for Property Panel 
@@ -124,7 +142,7 @@ showLabel:function(args){
         this.$refs.maps.ej2Instances.refresh();
 }
 }
-})
+}
 </script>
 
  

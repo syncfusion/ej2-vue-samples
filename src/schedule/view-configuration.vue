@@ -2,13 +2,22 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :currentView='currentView' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :eventRendered="oneventRendered">
+                <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :currentView='currentView' :selectedDate='selectedDate' :eventSettings='eventSettings'>
                     <e-views>
                         <e-view option="Day" startHour="07:00" endHour="18:00"></e-view>
                         <e-view option="Week" startHour="09:00" endHour="19:00" :timeScale='timeScale' :showWeekend="showWeekend"></e-view>
-                        <e-view option="Month" :group="group" :eventTemplate='monthEventTemplate'></e-view>
-                        <e-view option="Agenda" :eventTemplate='agendaEventTemplate'></e-view>
+                        <e-view option="Month" :group="group" :eventTemplate="'monthEventTemplate'"></e-view>
+                        <template v-slot:monthEventTemplate="{data}">
+                            <div class="e-subject">{{data.Subject}}</div>
+                        </template>
+                        <e-view option="Agenda" :eventTemplate="'agendaEventTemplate'"></e-view>
+                        <template v-slot:agendaEventTemplate="{data}">
+                            <div><div class="subject">{{data.Subject}}</div>
+                                <div v-if="data.Description !== null && data.Description !== undefined" class="group">{{data.Description}}</div>
+                                    <div class="location">{{getTimeString(data.StartTime)}}, <span v-if="data.City!== null && data.City!==undefined">{{data.City}}</span>
+                                </div>
+                            </div>
+                        </template>
                     </e-views>
                     <e-resources>
                         <e-resource field='GroupId' title='Owner' name='Owners' :dataSource='resourceData' textField='GroupText' idField='GroupId'
@@ -65,51 +74,28 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { fifaEventsData } from './datasource';
     import { Internationalization, extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Day, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
     var instance = new Internationalization();
-    var monthVue = Vue.component("month-eventTemplate", {
-        template: '<div class="subject">{{data.Subject}}</div>',
-        data() {
-            return {
-                data: {}
-            };
-        }
-    });
+ 
 
-    var agendaVue = Vue.component("agenda-eventTemplate", {
-        template: '<div><div class="subject">{{data.Subject}}</div><div v-if="data.Description !== null && data.Description !== undefined" class="group">{{data.Description}}</div>' +
-        '<div class="location">{{getTimeString(data.StartTime)}}, <span v-if="data.City!== null && data.City!==undefined">{{data.City}}</span></div></div>',
-        data() {
-            return {
-                data: {}
-            };
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
         },
-        methods: {
-            getTimeString: function (value) {
-                return instance.formatDate(value, { skeleton: 'Hm' });
-            }
-        }
-    });
-
-    export default Vue.extend({
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], fifaEventsData, null, true) },
-                selectedDate: new Date(2018, 5, 20),
+                selectedDate: new Date(2021, 5, 20),
                 showWeekend: false,
                 currentView: 'Month',
                 timeScale: { interval: 60, slotCount: 4 },
-                agendaEventTemplate: function () {
-                    return { template: agendaVue }
-                },
-                monthEventTemplate: function (e) {
-                    return { template: monthVue };
-                },
                 group: { resources: ['Owners'] },
                 resourceData: [
                     { GroupText: 'Group A', GroupId: 1, GroupColor: '#1aaa55' },
@@ -121,20 +107,10 @@
             schedule: [Day, Week, Month, Agenda, Resize, DragAndDrop]
         },
         methods: {
-            oneventRendered: function (args) {
-                let scheduleObj = this.$refs.ScheduleObj;
-                let categoryColor = args.data.CategoryColor;
-                if (!args.element || !categoryColor) {
-                    return;
-                }
-                if (scheduleObj.ej2Instances.currentView === 'Agenda') {
-                    (args.element.firstChild).style.borderLeftColor = categoryColor;
-                } else {
-                    args.element.style.backgroundColor = categoryColor;
-                }
-
+            getTimeString: function (value) {
+                return instance.formatDate(value, { skeleton: 'Hm' });
             }
         }
-    });
+    };
 
 </script>

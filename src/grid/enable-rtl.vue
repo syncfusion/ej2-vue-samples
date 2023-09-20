@@ -8,10 +8,10 @@
         <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :enableRtl='true'  :allowSorting='true' :allowGrouping='true' 
         :editSettings  ='editing' :allowFiltering='true' :filterSettings='filterOptions' :allowReordering='true'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Left' isPrimaryKey='true'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name'  width='150'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name'  width='150' textAlign='Left'></e-column>
                 <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' editType='numericedit' width='120'></e-column>
-                 <e-column field='OrderDate' headerText='Order Date' type= 'date' format= 'yMd'  editType= 'datepickeredit' width=150></e-column>
+                 <e-column field='OrderDate' headerText='Order Date' type= 'date' format= 'yMd'  editType= 'datepickeredit' width=150 textAlign='Right'></e-column>
                 <e-column field='ShipCountry' textAlign='Left' headerText='Ship Country' width='150' editType='dropdownedit'></e-column>
             </e-columns>
         </ejs-grid>
@@ -27,19 +27,21 @@
         </p>
         <p>
             More information on the RTL can be found in this 
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablertl">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/global-local#right-to-left---rtl">documentation section</a>.
         </p>
     </div>
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Sort, Edit, Page, Group, Filter, Reorder } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Sort, Edit, Page, Group, Filter, Reorder } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
     data: orderDetails,
@@ -52,5 +54,5 @@ export default Vue.extend({
   provide: {
       grid: [Sort, Edit, Page, Group, Filter, Reorder]
     }
-});
+}
 </script>

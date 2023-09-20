@@ -98,15 +98,35 @@
     .multiselect-chip-custom .e-chips.tomato:hover {
         background-color: #FF745C;
     }
+
+    .fabric .multiselect-chip-custom .e-chips.chocolate,
+    .fabric .multiselect-chip-custom .e-chips.chocolate:hover {
+        background-color: #3c2f27;
+    }
+
+    .fabric .multiselect-chip-custom .e-chips.darkred,
+    .fabric .multiselect-chip-custom .e-chips.darkred:hover {
+        background-color: #960f0a;
+    }
+
+    .fabric .multiselect-chip-custom .e-chips.cadetblue,
+    .fabric .multiselect-chip-custom .e-chips.cadetblue:hover {
+        background-color: #36bac7;
+    }
+
+    .fabric .multiselect-chip-custom .e-chips.indigo,
+    .fabric .multiselect-chip-custom .e-chips.indigo:hover {
+        background-color: #58a4df;
+    }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent
+    },
     data: function() {
         return {
             chipFields: { text: 'Color', value: 'Code' },
@@ -122,5 +142,5 @@ export default Vue.extend ({
             e.setClass(e.itemData.Color.toLowerCase());
   }
   }
-});
+}
 </script>

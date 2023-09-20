@@ -5,8 +5,24 @@
                 <ejs-schedule id="Schedule" ref="ScheduleObj" width='100%' height='550px' :selectedDate="selectedDate" :eventSettings='eventSettings' :readonly="readonly"
                     :cssClass='cssClass' :workHours="workHours">
                     <e-views>
-                        <e-view option="Week" :eventTemplate="weekTemplate"></e-view>
-                        <e-view option="TimelineWeek" :eventTemplate="monthTemplate"></e-view>
+                        <e-view option="Week" :eventTemplate="'weekTemplate'">
+                            <template v-slot:weekTemplate="{ data }">
+                                <div class="template-wrapper" :style="{background: data.SecondaryColor}">
+                                    <div class="subject" :style="{background: data.PrimaryColor}">{{data.Subject}}</div>
+                                    <div class="time" :style="{background: data.PrimaryColor}">Time: {{getTimeString(data)}}</div>
+                                    <div class="image"><img :src="getImage(data)" /></div>
+                                    <div class="description">{{data.Description}}</div>
+                                    <div class="footer" :style="{background: data.PrimaryColor}"></div>
+                                </div>
+                            </template>
+                        </e-view>
+                        <e-view option="TimelineWeek" :eventTemplate="'monthTemplate'">
+                            <template v-slot:monthTemplate="{ data }">
+                                <div class="template-wrapper" :style="{background: data.PrimaryColor}">
+                                    <div class="subject" :style="{background: data.SecondaryColor, borderColor: data.PrimaryColor}">{{data.Subject}}</div>
+                                </div>
+                            </template>
+                        </e-view>
                     </e-views>
                 </ejs-schedule>
             </div>
@@ -19,7 +35,6 @@
             </p>
         </div>
 
-        <!-- custom code start -->
         <div id="description">
             <p>
                 With the usage of template, the user can format and change the default appearance of the events by making use of the
@@ -28,7 +43,6 @@
                 will be displayed directly on the events.
             </p>
         </div>
-        <!-- custom code end -->
 
     </div>
 </template>
@@ -105,80 +119,40 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { Browser, Internationalization, extend } from '@syncfusion/ej2-base';
+    import { Internationalization, extend } from '@syncfusion/ej2-base';
     import { webinarData } from './datasource';
-    import { SchedulePlugin, Week, Day, View, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective,  Week, Day, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
 
     var instance = new Internationalization();
-    var weekTempVue = Vue.component("weekTemp", {
-        template: '<div class="template-wrapper" :style="{background: data.SecondaryColor}">'+
-        '<div class="subject" :style="{background: data.PrimaryColor}">{{data.Subject}}</div>'+
-        '<div class="time" :style="{background: data.PrimaryColor}">Time: {{getTimeString(data.StartTime)}} - {{getTimeString(data.EndTime)}}</div>'+
-        '<div class="image"><img :src="getImage" /></div>'+
-        '<div class="description">{{data.Description}}</div><div class="footer" :style="{background: data.PrimaryColor}"></div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        },
-        computed: {
-            getImage: function() {
-                return 'source/schedule/images/' + this.data.ImageName + '.svg';
-            }
-        },
-        methods: {
-            getTimeString: function (value) {
-                return instance.formatDate(value, { skeleton: 'hm' });
-            }
-        }
-    });
 
-    var monthTempVue = Vue.component("monthTemp", {
-        template: '<div class="template-wrapper" :style="{background: data.PrimaryColor}">'+
-        '<div class="subject" :style="{background: data.SecondaryColor, borderColor: data.PrimaryColor}">{{data.Subject}}</div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        }
-    });
-
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 cssClass: 'schedule-event-template',
                 readonly: true,
-                weekTemplate: function (e) {
-                    return {
-                        template: weekTempVue
-                    };
-                },
-                monthTemplate: function (e) {
-                    return {
-                        template: monthTempVue
-                    };
-                },
                 workHours: {
                     start: '08:00'
                 },
                 eventSettings: { dataSource: extend([], webinarData, null, true) }
             }
         },
-        mounted: function () {
-            let scheduleObj = this.$refs.ScheduleObj;
-            if (Browser.isDevice) {
-                scheduleObj.views = ['Day'];
+        methods: {
+            getImage: function (data) {
+                return 'source/schedule/images/' + data.ImageName + '.svg';
+            },
+            getTimeString: function (data) {
+                return instance.formatDate(data.StartTime, { skeleton: 'hm' }) + " - " + instance.formatDate(data.EndTime, { skeleton: 'hm' });
             }
-            scheduleObj.eventSettings.template = this.eventTemplate;
-            scheduleObj.dataBind();
         },
         provide: {
             schedule: [Week, Day, TimelineViews, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

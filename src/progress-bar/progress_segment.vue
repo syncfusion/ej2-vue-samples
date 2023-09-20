@@ -13,7 +13,7 @@
                    :trackThickness='trackThickness'
                    :progressThickness='progressThickness'
                    :value=value
-                   :segmentCount=count
+                   :segmentCount=countValue
                    :gapWidth=gap
                    :loaded='loaded'
                    :animation='animation'
@@ -99,22 +99,27 @@
         }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
-  ProgressAnnotation
+  ProgressBarComponent,
+  ProgressAnnotation,
+  ProgressBarAnnotationsDirective,
+  ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-progressbar': ProgressBarComponent,
+    'e-progressbar-annotations':  ProgressBarAnnotationsDirective,
+    'e-progressbar-annotation':  ProgressBarAnnotationDirective
+  },
   data: function() {
     return {
       value:40,
       trackThickness:15,
       progressThickness:15,
       count:50,
+      countValue: Browser.isDevice ? 25 : 50,
       gap:5,
       startAngle: 220,
       endAngle: 140,
@@ -154,6 +159,29 @@ export default Vue.extend({
                 case 'bootstrap4':
                     args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#007bff"><span></span></div>';
                     break;
+                case 'tailwind':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#4F46E5"><span></span></div>';
+                    break;
+                case 'bootstrap-dark':
+                case 'fabric-dark':
+                case 'material-dark':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#9A9A9A"><span></span></div>';
+                    break;
+                case 'bootstrap5':
+                case 'bootstrap5-dark':
+                case 'fluent':
+                case 'fluent-dark':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#0D6EFD"><span></span></div>';
+                    break;
+                case 'tailwind-dark':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#22D3EE"><span></span></div>';
+                    break;
+                case 'material3':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#6750A4"><span></span></div>';
+                    break;
+                case 'material3-dark':
+                    args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#D0BCFF"><span></span></div>';
+                    break; 
                 default:
                     args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#FFD939"><span></span></div>';
                     break;
@@ -171,5 +199,5 @@ export default Vue.extend({
       }
    }
   }
-});
+}
 </script>

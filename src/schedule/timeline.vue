@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="550px" :selectedDate='selectedDate' :currentView='currentView' :eventSettings='eventSettings'>   
+                <ejs-schedule id='Schedule' height="550px" :selectedDate='selectedDate' :currentView='currentView' :workDays='workDays' :eventSettings='eventSettings'>   
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
                         <e-view option="TimelineWeek"></e-view>
@@ -17,14 +17,10 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Current Date
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'></ejs-datepicker>
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'
+                                    floatLabelType="Always" placeholder="Current Date" ></ejs-datepicker>
                             </div>
                         </td>
                     </tr>
@@ -60,19 +56,26 @@
 </style>
 
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { scheduleData, timelineData } from './datasource';
-    import { SchedulePlugin, TimelineMonth, TimelineViews, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, TimelineMonth, TimelineViews, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+   
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-datepicker': DatePickerComponent
+        },
         data: function () {
             return {
                 eventSettings: {
                     dataSource: extend([], scheduleData.concat(timelineData), null, true),
                 },
-                selectedDate: new Date(2019, 0, 10),
-                currentView: 'TimelineWeek'
+                selectedDate: new Date(2021, 0, 10),
+                currentView: 'TimelineWeek',
+                workDays: [0, 1, 2, 3, 4, 5]
             }
         },
         provide: {
@@ -83,5 +86,5 @@
                 this.selectedDate = args.value;
             }
         }
-    });
+    }
 </script>

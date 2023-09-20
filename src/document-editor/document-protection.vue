@@ -1,15 +1,15 @@
 <template>
 <div class="control-section">
-    <div  class="col-lg-9 control-section">
+    <div  class="col-lg-9">
         <div class="default-section">
             <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
                     <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
                 </div>
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
@@ -21,7 +21,7 @@
             <div class="control-label lable-padding"><b>Current User</b>
             </div>
             <div class="control-label lable-padding">
-                <ejs-dropdownlist id='ddlelement' :dataSource='userDetails' :value='currentUser'  :change='onUserChange'></ejs-dropdownlist></td>
+                <ejs-dropdownlist id='ddlelement' :dataSource='userDetails' :value='currentUser'  :change='onUserChange'></ejs-dropdownlist>
             </div>
             <div class="control-label lable-padding"><b>User Color</b>
             </div>
@@ -38,7 +38,7 @@
         <p>The range that is enabled for the current user is highlighted.</p>
         <p>You can disable the highlighting or customize its color using the corresponding demo’s elements.</p>
         <p style="display: block"> More information about the document editor features can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/document-management/">documentation section.</a>
         </p>
     </div>
 </div>
@@ -105,26 +105,25 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { dataProtection } from "./data";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ColorPickerPlugin);
-
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-colorpicker': ColorPickerComponent
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
-          documentName : 'Getting Started',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
+          documentName : 'Document Protection',
           documentTitle: 'Untitled Document',
           userDetails:  ['engineer@mycompany.com', 'manager@mycompany.com'],
           currentUser: 'engineer@mycompany.com',
@@ -213,12 +212,11 @@ export default Vue.extend({
           this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;
           editor.open(JSON.stringify(dataProtection));
           editor.documentName='Document Protection';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
           };
           this.$refs.usercolorpicker.ej2Instances.value = editor.userColor;
        });
     }
-});
+};
 </script>

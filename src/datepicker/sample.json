@@ -2,11 +2,11 @@
     "name": "DatePicker",
     "directory": "datepicker",
     "category": "Calendars",
+    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "placeholder" ]},
             "description": "This example demonstrates a simple, mobile-friendly and responsive Vue DatePicker to select a date"
         },
@@ -14,7 +14,6 @@
             "url": "disabled",
             "name": "Disabled Dates",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "placeholder", "renderDayCell" ]},
             "description": "This example demonstrates how to disable the dates like weekends, weekdays and specific dates (past dates, future dates and current dates) in a Vue DatePicker"
         },
@@ -22,7 +21,6 @@
             "url": "date-range",
             "name": "Date Range",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "min", "max", "value", "placeholder" ]},
             "description": "This example demonstrates how to disables the specific range of dates (min and max) in a Vue DatePicker"
         },
@@ -30,7 +28,6 @@
             "url": "date-format",
             "name": "Format",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "format", "value", "placeholder" ]},
             "description": "This example demonstrates how to change the date time format in the input field based on the format in a Vue DatePicker"
         },
@@ -38,7 +35,6 @@
             "url": "special-dates",
             "name": "Special Dates",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "value", "placeholder", "renderDayCell" ]},
             "description": "This example demonstrates how to highlight the specific dates like weekends, holidays and special dates in a Vue DatePicker"
         },
@@ -46,7 +42,6 @@
             "url": "month-picker",
             "name": "Month Picker",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "start", "depth" ]},
             "description": "The Vue DatePicker component can act as a month and year picker. It helps you to select a month or year quickly with all months related properties."
         },
@@ -54,8 +49,14 @@
             "url": "two-way",
             "name": "Two-Way Binding",
             "category": "DatePicker",
-            "hideOnDevice": true,
             "api":{"DatePicker": [ "value" ]}
-        }
+        },
+        {
+            "url": "input-mask",
+            "name": "Mask Support",
+            "category": "DatePicker",
+            "api":{"DatePicker": [ "enableMask", "format" ]},
+            "description": "This sample demonstrates the default functionalities of Vue DatePicker with mask support"
+        }        
     ]
 }

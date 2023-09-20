@@ -98,15 +98,14 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { PivotViewPlugin, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
+import { PivotViewComponent, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
 // import { defaultData } from "./data-source";
 import {
-  CheckBoxPlugin,
+  CheckBoxComponent,
   ChangeEventArgs as checkEventArgs
 } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs as dropEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { GridLine } from "@syncfusion/ej2-vue-grids";
@@ -114,12 +113,14 @@ import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -132,7 +133,7 @@ export default Vue.extend({
           { name: "Sold", caption: "Units Sold" },
           { name: "Amount", caption: "Sold Amount" }
         ],
-        // dataSource: defaultData,
+        dataSource: Pivot_Data,
         expandAll: false,
         filters: []
       },
@@ -156,11 +157,11 @@ export default Vue.extend({
   },
   methods: {
     ddl_onChange: function(args: dropEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.gridSettings.gridLines = <GridLine>args.value;
     },
     checkbox_onChange: function(args: checkEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let target = (<any>args.event).target;
       if (target.id === "reorder") {
         pivotObj.gridSettings.allowReordering = args.checked;
@@ -174,7 +175,7 @@ export default Vue.extend({
   provide: {
     pivotview: [FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

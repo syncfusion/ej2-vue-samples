@@ -6,14 +6,13 @@
                 <e-column field='taskID' headerText='Task ID' width='90' isPrimaryKey='true' textAlign='Right' :validationRules='taskidrules'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190' :validationRules='tasknamerules'></e-column>
                 <e-column field='startDate' headerText='Start Date' width='110' editType='datepickeredit' format="yMd" textAlign='Right' :validationRules='daterules'></e-column>
-                <e-column field='duration' headerText='Duration' width='90' editType='numericedit' :edit='editparams' textAlign='Right' :validationRules='durationrules'></e-column>
+                <e-column field='duration' headerText='Duration' width='140' editType='numericedit' :edit='editparams' textAlign='Right' :validationRules='durationrules'></e-column>
             </e-columns>
         </ejs-treegrid>
       </div>
       <div>
         <div class="col-md-3 property-section">
             <table id="property" title="Properties" style="width: 100%">
-                <br/><br/>
                 <tr style="height: 50px">
                     <td style="width: 70%">
                         <div>Disable Rows</div>
@@ -56,42 +55,49 @@
 </div>
 </div>
 </template>
-<style scoped>
+<style>
     .material .disableRow .e-rowcell{
-        color: rgba(0, 0, 0, .38);
+        color: rgba(0, 0, 0, .38) !important;
     }
 </style>
 <!-- custom code start -->
 <style>
-    .fabric .disableRow .e-rowcell{
-        color: #c8c8c8;
-    }
-    .bootstrap .disableRow .e-rowcell{
-        color: rgba(0, 0, 0, .35);
-    }
-    .bootstrap4 .disableRow .e-rowcell{
-        color: rgba(0, 0, 0, .35)
-    }
-    .highcontrast .disableRow .e-rowcell{
-        color: #757575;
-    }
+.material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
+.bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .e-rowcell, .highcontrast .disableRow .e-rowcell, 
+.tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell, .material3-dark .disableRow .e-rowcell {
+    color: #757575 !important;
+}
+.material3 .disableRow .e-rowcell{
+    color: rgba(0, 0, 0, .38) !important;
+}
+.fabric .disableRow .e-rowcell {
+    color: #c8c8c8 !important;
+}
+.bootstrap .disableRow .e-rowcell, .bootstrap4 .disableRow .e-rowcell, 
+.bootstrap5 .disableRow .e-rowcell, .fluent .disableRow .e-rowcell {
+    color: rgba(0, 0, 0, .35) !important;
+}   
+.e-multiselect {
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+}
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, Toolbar, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { MultiSelectPlugin, ChangeEventArgs, MultiSelectComponent, CheckBoxSelection, DropDownListPlugin} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { MultiSelectComponent, ChangeEventArgs, CheckBoxSelection, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData, lockRowDropDownData } from "./data-source";
 import { RowDataBoundEventArgs, BeginEditArgs } from '@syncfusion/ej2-vue-grids';
 import { addClass, removeClass, getValue } from '@syncfusion/ej2-base';
-import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin)
-
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-multiselect': MultiSelectComponent
+  },  
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -113,13 +119,13 @@ export default  Vue.extend({
     },
      methods:{
         onselect: function(e: ChangeEventArgs): void {
-           (<TreeGridComponent>this.$refs.treegrid).refresh();
+           ((this as any).$refs.treegrid).refresh();
         },
         removed: function(e: ChangeEventArgs){
-            (<TreeGridComponent>this.$refs.treegrid).refresh();
+            ((this as any).$refs.treegrid).refresh();
         },
         rowDataBound: function(args: RowDataBoundEventArgs) {
-                let value:Object[] = <Object[]>(<MultiSelectComponent>this.$refs.rows).ej2Instances.value;
+                let value:Object[] = <Object[]>((this as any).$refs.rows).ej2Instances.value;
                 let rowval = getValue('taskID', args.data );
                 if (value.indexOf(rowval) !== -1) {
                     addClass([args.row as Element], 'disableRow');
@@ -129,12 +135,12 @@ export default  Vue.extend({
             },
         beginEdit: function(args: BeginEditArgs) {
                 let key = 'taskID';
-                let value:Object[] = <Object[]>(<MultiSelectComponent>this.$refs.rows).ej2Instances.value;
+                let value:Object[] = <Object[]>((this as any).$refs.rows).ej2Instances.value;
                 let rowval = getValue('taskID', args.rowData);
                 if (value.indexOf(rowval) !== -1) {
                     args.cancel = true;
                 }
             }        
      }
-});
+}
 </script>

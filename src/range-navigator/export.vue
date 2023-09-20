@@ -36,7 +36,7 @@
                         </td>
                         <td style="width: 60%;">
                             <div>
-                            <ejs-dropdownlist ref='dropdown' id='exporttype' index=0 :dataSource='dropDownData' width='80'></ejs-dropdownlist>
+                            <ejs-dropdownlist ref='dropdown' id='exporttype' index=0 :dataSource='dropDownData' width='90'></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -45,22 +45,22 @@
                             <div>File Name:</div>
                         </td>
                         <td style="width: 40%;">
-                            <div class="e-float-input" style='margin-top: 0px;'>
+                            <div class="e-float-input" style='margin-top: 0px;  width: 100px;'>
                                 <input type="text" value="Chart" id="fileName">
                             </div>
                         </td>
                     </tr>
                     <tr id="button-control" style="height: 50px" align='center'>
                         <td align='center'>
-                            <div>
-                                <ejs-button cssClass="e-flat" iconCss='e-icons e-export-icon' isPrimary=true v-on:click.native='onClick' id="exportBtn">EXPORT</ejs-button>
+                            <div style="margin-left: 50%;">
+                                <ejs-button cssClass="e-flat" iconCss='e-icons e-export-icon' isPrimary=true v-on:click='onClick' id="rangeExportBtn">EXPORT</ejs-button>
                             </div>
                         </td>
                     </tr>
                     <tr id="button-control" style="height: 50px">
                             <td align='center'>
-                                <div>
-                                     <ejs-button id="togglebtn" iconCss='e-icons e-print-icon' cssClass= 'e-flat' isPrimary=true v-on:click.native='mode'>Print</ejs-button>
+                                <div style="margin-left: 50%;">
+                                     <ejs-button id="togglebtn" cssClass= 'e-flat' isPrimary=true :iconCss='iconCss' v-on:click='mode'>Print</ejs-button>
                                 </div>
                             </td>
                         </tr>
@@ -79,51 +79,79 @@
 </div>
 </div>
 </template>
-<style scoped>
-.control-section {
-  min-height: 450px;
-}
+<style>
 
-#button-control {
-  width: 100%;
-  text-align: center;
-}
+    #button-control {
+      width: 100%;
+      text-align: center;
+    }
 
-#control-containerExport {
-  padding: 0px !important;
-}
+    #control-containerExport {
+      padding: 0px !important;
+    }
+  
+    .e-print-icon::before {
+        content: "\e34b";
+    }
+    .e-view.material3 .e-print-icon::before,
+    .e-view.material3-dark .e-print-icon::before {
+    	content: "\e75d";
+    }
 
- .e-export-icon::before {
-   content: '\e720';
- }
+   .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
+        content: "\e7df";
+    }
 
-.e-print-icon::before {
-  content: '\e34b';
-}
+    .e-view.bootstrap .e-print-icon::before {
+        content: "\ebd2";
+    }
+
+    .e-view.bootstrap4 .e-print-icon::before {
+        content: "\e743";
+    }
+
+    .e-view.tailwind .e-print-icon::before, .e-view.tailwind-dark .e-print-icon::before {
+        content: "\e76c";
+    }
+
+    .e-view.highcontrast .e-print-icon::before {
+        content: "\ebf9";
+    }
+
+    .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
+        content: "\e75d";
+    }
+
+    .e-view.material .e-export-icon::before, .e-view.material-dark .e-export-icon::before, .e-view.bootstrap .e-export-icon::before, .e-view.bootstrap-dark .e-export-icon::before {
+        content: '\e728';
+    }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { RangeNavigatorPlugin, ChartPlugin, SplineAreaSeries, StepLineSeries, DateTime, Crosshair,
+import { RangeNavigatorComponent, ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineAreaSeries, StepLineSeries, DateTime, Crosshair,
   Tooltip, Export} from "@syncfusion/ej2-vue-charts";
 import { exportData } from "./data-source";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
-let borderColor = ["#FF4081", "#007897", "#428BCA", "#FFD939"];
-let regionColor = [ "rgba(255, 64, 129, 0.3)", " rgba(0, 120, 151, 0.3)",
-  "rgba(66, 139, 202, 0.3)", "rgba(255, 217, 57, 0.3)" ];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let themes = ['Material', 'Fabric', 'Bootstrap', 'HighContrast', 'Bootstrap5', 'Tailwind', 'MaterialDark', 'FabricDark', 'BootstrapDark', 'TailwindDark', 'Bootstrap5Dark', 'Bootstrap4', 'Fluent', 'FluentDark', 'Material3', 'Material3Dark'];
+let borderColor = ['#FF4081', '#007897', '#428BCA', '#FFD939', '#4F46E5', '#4F46E5', '#FF4081', '#007897', '#428BCA', '#22D3EE', '#ADB5BD', '#FFD939', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
+let regionColor = ['rgba(255, 64, 129, 0.3)', ' rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(79, 70, 229, 0.3)',
+    'rgba(79, 70, 229, 0.3)', 'rgba(255, 64, 129, 0.3)', 'rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(34, 211, 238, 0.3)',
+    'rgba(173,181,189,0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(97,69,112,0.3)', 'rgba(138,177,19,0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)'];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       //Chart Properties
@@ -148,7 +176,8 @@ export default Vue.extend({
       width: "100%",
       navigatorBorder: { width: 0 },
       dropDownData: ["JPEG", "PNG", "SVG", "PDF"],
-      themes: theme
+      themes: theme,
+      iconCss: 'e-icons e-print-icon',
     };
   },
   provide: {
@@ -163,7 +192,7 @@ export default Vue.extend({
     },
   methods: {
    changed: function(args) {
-     if(document.getElementById('chartExport').children.length) {
+     if(document.getElementById('chartExport').children.length && !document.getElementById('chartExport').querySelector('div.e-directive')) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
         this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
         this.$refs.chart.ej2Instances.dataBind();
@@ -180,5 +209,5 @@ export default Vue.extend({
       this.$refs.range.ej2Instances.print(["containerExport", "chartExport"]);
     }
   }
-});
+};
 </script>

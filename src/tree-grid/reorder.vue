@@ -59,16 +59,18 @@
   </template>
 
   <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Reorder, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Reorder, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 import { ActionEventArgs } from "@syncfusion/ej2-grids"
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       data: sampleData,
@@ -95,24 +97,24 @@ export default Vue.extend({
     },
    methods:{
        onColChange: function(e: ChangeEventArgs): void {
-        let index = (<TreeGridComponent>this.$refs.treegrid).getColumnIndexByField(<string>e.value);
-        var dropdownlistObject = (<DropDownListComponent>this.$refs.index).ej2Instances;
+        let index = ((this as any).$refs.treegrid).getColumnIndexByField(<string>e.value);
+        var dropdownlistObject = ((this as any).$refs.index).ej2Instances;
         dropdownlistObject.value = index;
        },
        onChange: function(e: ChangeEventArgs): void {
-        let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-        let columns = (<TreeGridComponent>this.$refs.treegrid).getColumns() as any;
+        let columnName = ((this as any).$refs.columns).ej2Instances.value;
+        let columns = ((this as any).$refs.treegrid).getColumns() as any;
         let index: number = <number>e.value;
-        (<TreeGridComponent>this.$refs.treegrid).reorderColumns(columnName, columns[index].field);
+        ((this as any).$refs.treegrid).reorderColumns(columnName, columns[index].field);
       },
       actionComplete: function(e: ActionEventArgs) {
            if (e.requestType === 'reorder') {
-                let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-                let index = (<TreeGridComponent>this.$refs.treegrid).getColumnIndexByField(columnName);
-                (<DropDownListComponent>this.$refs.index).ej2Instances.value = index;
+                let columnName = ((this as any).$refs.columns).ej2Instances.value;
+                let index = ((this as any).$refs.treegrid).getColumnIndexByField(columnName);
+                ((this as any).$refs.index).ej2Instances.value = index;
             }
       }
   }
 
-});
+}
 </script>

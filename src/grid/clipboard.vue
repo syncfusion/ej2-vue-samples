@@ -25,7 +25,7 @@
 
      <div id="description">
         <p>Selected rows or cells data in the Grid can be copied into clipboard using the Keyboard shortcuts and <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#copy">copy
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#copy">copy
         </a></code> method.
             </p>
             <p>In this demo, selected rows data can be copied into clipboard using the below Keyboard shortcuts or toolbar interactions.</p>
@@ -42,17 +42,18 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { orderDetails } from "./data-source";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-
-Vue.use(GridPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dialog': DialogComponent
+  },
   data: function() {
     return {
       alertHeader: 'Copy with Header',
@@ -70,14 +71,14 @@ export default Vue.extend({
   },
   methods: {
     clickHandler: function(args: ClickEventArgs) {
-        if((<any>this.$refs.grid).getSelectedRecords().length>0){
+        if(((this as any).$refs.grid).getSelectedRecords().length>0){
         let withHeader: boolean = false;
         if (args.item.id === 'copyHeader') {
             withHeader = true;
         }
-        (<any>this.$refs.grid).copy(withHeader);
+        ((this as any).$refs.grid).copy(withHeader);
     } else {
-        (<any>this.$refs.alertDialog).show();
+        ((this as any).$refs.alertDialog).show();
     }
   },
   alertDlgBtnClick: function() {
@@ -87,5 +88,5 @@ export default Vue.extend({
   provide: {
       grid: [Toolbar, Page]
   }
-});
+}
 </script>

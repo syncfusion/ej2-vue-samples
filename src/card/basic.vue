@@ -54,9 +54,18 @@
 </div>
 </div>
 </template>
+<script>
+export default {}
+
+</script>
 <style scoped>
 .card-control-section.basic_card_layout #weather_card.e-card {
         background-image: url('./images/weather.png');
+    }
+
+    .material3-dark .card-control-section.basic_card_layout .e-card .e-card-header,
+    .material-dark .card-control-section.basic_card_layout .e-card .e-card-header {
+        padding: 10px;
     }
 
     .card-control-section.basic_card_layout #weather_card.e-card .e-card-header-caption .e-card-header-title,
@@ -96,10 +105,3 @@
         }
     }
 </style>
-<script>
-import Vue from "vue";
-export default Vue.extend({
-
-});
-
-</script>

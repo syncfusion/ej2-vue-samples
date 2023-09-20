@@ -28,7 +28,7 @@
             <tr>
                 <td>
                     <div class="evtbtn">
-                    <ejs-button id='clear' class="e-btn" v-on:click.native="onClear">Clear</ejs-button>
+                    <ejs-button id='clear' class="e-btn" v-on:click="onClear">Clear</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -91,16 +91,18 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -166,7 +168,7 @@ export default Vue.extend({
         this.appendElement('Kanban <b>Drag Stop</b> event called<hr>');
     }
     }
-});
+};
 </script>
 
 

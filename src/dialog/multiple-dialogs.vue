@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="target" class="col-lg-12 control-section" style="padding:10px;position:relative;">
-        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click.native="buttonClick">Open Dialog</ejs-button>
+        <ejs-button id='dlgbtn' v-if="ShowBtn" v-on:click="buttonClick">Open Dialog</ejs-button>
 
         <ejs-dialog ref='dialogObj' :visible="true" header='First Dialog' showCloseIcon='true' :animationSettings='animationSettings' width='330px'
             target='#target' content='<p>This is the first dialog and acts as a parent dialog, you can open the second (child) dialog by clicking "Next".</p>' :buttons='dlgButton' :open='dialogOpen' :close='dialogClose'>
@@ -27,7 +27,7 @@
 <style scoped>
     /* custom code start */
 	#dlgbtn {
-	    margin-right: 5%;
+    margin-right: 5%;
     }
     .control-section {
         height: 100%;
@@ -37,11 +37,15 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-Vue.use(DialogPlugin);
-let ShowBtn = undefined;
-export default Vue.extend({
+
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             dlgButton: [{'click': () => { this.$refs.secondDialog.show();}, buttonModel: { isPrimary:'true', content: 'Next' }}],
@@ -52,7 +56,7 @@ export default Vue.extend({
         }
     },
     methods: {
-        buttonClick: function(args){
+        buttonClick: function(){
             this.$refs.dialogObj.show();
         },
         dialogClose: function() {
@@ -62,5 +66,5 @@ export default Vue.extend({
             this.ShowBtn = false;
         }
     }
-});
+}
 </script>

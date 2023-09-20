@@ -39,15 +39,13 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
+
+import { QueryBuilderComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-querybuilder";
 import { Browser } from '@syncfusion/ej2-base';
-import * as dataSource from './data-source.json';
+import dataSource from './data-source.json';
 
-Vue.use(QueryBuilderPlugin);
-
-export default Vue.extend({
-  data: function() {
+export default {
+    data: function() {
     return {
       dataSource: dataSource.employeeData,
       values: ['Mr.', 'Mrs.'],
@@ -69,13 +67,18 @@ export default Vue.extend({
             }]
         }
     };
-  },
-   methods: {
+    },
+    components: { 
+        'ejs-querybuilder': QueryBuilderComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective
+    },
+    methods: {
         onQrybldrCreated: function() {
             if(Browser.isDevice) {
              this.$refs.querybuilder.$el.ej2_instances[0].summaryView = true;
             }
         }
     }
-});
+};
 </script>

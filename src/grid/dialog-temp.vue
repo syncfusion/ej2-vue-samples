@@ -61,8 +61,16 @@
 
 import { orderDetails } from "./data-source";
 import { DataUtil } from '@syncfusion/ej2-data';
+import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
 export default {
+    components: {
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-datepicker': DatePickerComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+  },
     data () {
         let shipCity = DataUtil.distinct(orderDetails, 'ShipCity', true);
         let shipCountry = DataUtil.distinct(orderDetails, 'ShipCity', true);

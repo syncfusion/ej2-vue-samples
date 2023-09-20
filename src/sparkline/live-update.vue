@@ -5,28 +5,28 @@
         <div class="cols-sample-area" align="center" style="margin-top: 8%;">
             <div align="center" class="col-lg-3 col-m-3 col-sm-6">
                         <ejs-sparkline ref="spark1" class="spark" :load='load' id='spark-container1' :height='height' :width='width' :type='type' :valueType='valueType' :fill='fill' :dataSource='dataSource' :axisSettings='axisSettings' :containerArea='containerArea' :border='border' xName='x' yName='yval'></ejs-sparkline>                        
-                         <div style="color: #000000; font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
+                         <div style="font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
                         <b>CPU</b>
                         </div>
                         <div id='cpu' style="color: #0877d6;position: absolute; margin-top: 25px; margin-left: 12%;">26% 1.2GHz</div>
                     </div>
                      <div align="center" class="col-lg-3 col-m-3 col-sm-6">
                          <ejs-sparkline ref="spark2" class="spark" :load='load' id='spark-container2' :height='height' :width='width' :lineWidth='lineWidth' :type='type' :valueType='valueType' :fill='fill2' :dataSource='dataSource2' :axisSettings='axisSettings2' :containerArea='containerArea2' :border='border2' xName='x' yName='yval'></ejs-sparkline>                        
-                  <div style="color: #000000; font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
+                  <div style="font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
                         <b>Disk</b>
                     </div>
                     <div id="disk" style="color: #b247c6;position: absolute; margin-top: 25px; margin-left: 12%;">50%</div>
                      </div>
                      <div align="center" class="col-lg-3 col-m-3 col-sm-6">
                         <ejs-sparkline ref="spark3" class="spark" :load='load' id='spark-container3' :height='height' :width='width' :lineWidth='lineWidth' :type='type' :valueType='valueType' :fill='fill3' :dataSource='dataSource3' :axisSettings='axisSettings3' :containerArea='containerArea3' :border='border3' xName='x' yName='yval'></ejs-sparkline>                        
-                          <div style="color: #000000; font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
+                          <div style="font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
                         <b>Memory</b>
                     </div>
                     <div id="memory" style="color: #5bcc8f;position: absolute; margin-top: 25px; margin-left: 12%;">6.5/15.8 GB (41%)</div>
                      </div>
                    <div align="center" class="col-lg-3 col-m-3 col-sm-6">
                         <ejs-sparkline ref="spark4" class="spark" :load='load' id='spark-container4' :height='height' :width='width' :lineWidth='lineWidth' :type='type' :valueType='valueType' :fill='fill4' :dataSource='dataSource4' :axisSettings='axisSettings4' :containerArea='containerArea4' :border='border4' xName='x' yName='yval'></ejs-sparkline>                        
-                      <div style="color: #000000; font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
+                      <div style="font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
                         <b>Ethernet</b>
                     </div>
                     <div id="net" style="color: #d1a990;position: absolute; margin-top: 25px; margin-left: 12%;">R: 50Kbps</div>
@@ -55,11 +55,13 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SparklinePlugin } from "@syncfusion/ej2-vue-charts";
+import { SparklineComponent } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3, data4 } from "./liveupdate";
-Vue.use(SparklinePlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent
+},
 data:function(){
 return{
         height: '130px',
@@ -144,7 +146,7 @@ methods:{
      load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     update: function() {
@@ -222,5 +224,5 @@ methods:{
         }, 500);
     }
 }
-})
+}
 </script>

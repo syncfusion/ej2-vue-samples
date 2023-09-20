@@ -2,7 +2,7 @@
 <div>
 <div class="control-section" style="overflow: auto">
    <div style="margin-bottom: 5px">
-        <ejs-button id="load-btn" ref="loadbtn" class="e-info" :isPrimary="true" v-on:click.native="btnClick">Load 100K Data</ejs-button>
+        <ejs-button id="load-btn" ref="loadbtn" class="e-info" :isPrimary="true" v-on:click="btnClick">Load 100K Data</ejs-button>
         <span id="popup">
             <span id="gif" className="image"></span>
         </span>
@@ -38,14 +38,10 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { PivotViewPlugin, IDataSet, VirtualScroll } from "@syncfusion/ej2-vue-pivotview";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { extend, enableRipple } from "@syncfusion/ej2-base";
+import { PivotViewComponent, IDataSet, VirtualScroll } from "@syncfusion/ej2-vue-pivotview";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { extend, enableRipple, Browser } from "@syncfusion/ej2-base";
 enableRipple(false);
-
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
 
 /* tslint:disable */
 let customername: string[] = [
@@ -130,11 +126,15 @@ function show() {
     (<any>document.getElementById('popup')).style.display = 'inline-block';
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent
+  },
   methods: {
     dataBound: function(args: any) {
-      var button = (<any>this.$refs.loadbtn).ej2Instances;
-	  var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      var button = ((this as any).$refs.loadbtn).ej2Instances;
+	  var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
 	  if((pivotObj.dataSourceSettings.dataSource as IDataSet[]).length > 0) {
 		if (date1 && isInit) {
           date2 = new Date().getTime();
@@ -144,9 +144,12 @@ export default Vue.extend({
 		button.disabled = true;
 		(<any>document.getElementById('popup')).style.display = 'none';
 	  }
+    if (Browser.isDevice && pivotObj && pivotObj.enableRtl && document.querySelector('.control-section')) {
+        (<any>document.querySelector('.control-section')).classList.add('e-rtl');
+    }
     },
     btnClick: function() {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       show();
       isInit = true;
       pivotObj.dataSourceSettings.dataSource = data(100000) as IDataSet[];
@@ -167,7 +170,7 @@ export default Vue.extend({
           { name: "Sold", caption: "Unit Sold" }
         ]
       },
-      width: 860,
+      width: Browser.isDevice ? '100%' : 860,
       height: 300,
       enableVirtualization: true,
       gridSettings: { columnWidth: 140 }
@@ -176,7 +179,7 @@ export default Vue.extend({
   provide: {
     pivotview: [VirtualScroll]
   }
-});
+}
 </script>
 
 <style scoped>

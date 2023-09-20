@@ -9,11 +9,11 @@
         <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :allowGrouping='true' :allowSorting='true' :showColumnMenu='true'
         :groupSettings='groupOptions' :allowFiltering='true' :filterSettings='filterSettings'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' :showInColumnChooser='false' width='120'></e-column>
-                <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' width='120'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='150'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='140' textAlign='Right'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' :showInColumnChooser='false' width='200'></e-column>
+                <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' width='140'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='160' format="yMd" textAlign='Right'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='180'></e-column>
                 <e-column field='ShipCity' headerText='Ship City' width='150'></e-column>
             </e-columns>
         </ejs-grid>
@@ -25,7 +25,7 @@
             interact the features like sorting, grouping, filtering, column chooser and autoFit. This features can be enabled
             by defining the
             <code><a target="_blank" class="code"
-                href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#showcolumnmenu">showColumnMenu
+                href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#showcolumnmenu">showColumnMenu
                 </a></code> as true. The default items are
             <br>
         </p>
@@ -68,13 +68,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Group, Sort, Resize, ColumnMenu, Page, Filter } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, Sort, Resize, ColumnMenu, Page, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -85,5 +87,5 @@ export default Vue.extend({
   provide: {
       grid: [Group, Sort, Resize, ColumnMenu, Page, Filter]
   }
-});
+}
 </script>

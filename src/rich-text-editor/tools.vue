@@ -14,7 +14,7 @@
 <div id="description">
     <p>The editor’s toolbar contains commands to format the content. The toolbar consists of:</p>
     <ul>
-        <li><code>Lists</code> - Ordered and unordered list types.</li>
+        <li><code>Lists</code> - NumberFormat list and BulletFormat list types.</li>
         <li><code>Links</code> - A hyperlink can be inserted into the editor for quick access to related information.</li>
         <li><code>Image</code> - Inserts and manages images.</li>
         <li><code>Table</code> - Inserts and manages Tables.</li>
@@ -27,9 +27,13 @@
         <li><code>Format</code> – Formats the sentence in different ways such as heading level, quotation, and code snippet</li>
         <li><code>Styles</code> – Allows you to apply inline styles to the selected content like bold, italic, and more.</li>
         <li><code>Insert Code</code> - Allows you to apply code format to the selected parent nodes. In the above sample, the style for the code format ('pre' tag) is applied by adding the background color.</li>
+        <li><code>Insert Emoticon</code> - Inserts the emoticon to the editor</li>
+        <li><code>Audio</code> - Inserts and manages audios.</li>
+        <li><code>Video</code> - Inserts and manages videos.</li>
+        <li><code>Format Painter</code> - The Format Painter feature allows you to copy the formats and apply them to content without formatting thus saving time to reformat the content.</li>
     </ul>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, EmojiPicker</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -58,32 +62,69 @@
         display: none;
     }
 
-    .highcontrast .cm-s-default .cm-tag {color: #00ff00;}
-    .highcontrast .cm-s-default .cm-string {color: #ffd939;}
-    .highcontrast .cm-s-default .cm-attribute {color: #f00;}
+    .fabric-dark .cm-s-default .cm-tag,
+    .bootstrap5-dark .cm-s-default .cm-tag,
+    .material-dark .cm-s-default .cm-tag,
+    .tailwind-dark .cm-s-default .cm-tag,
+    .highcontrast .cm-s-default .cm-tag {
+        color: #00ff00;
+    }
+
+    .fabric-dark .cm-s-default .cm-string,
+    .bootstrap5-dark .cm-s-default .cm-string,
+    .material-dark .cm-s-default .cm-string,
+    .tailwind-dark .cm-s-default .cm-string {
+        color: blue;
+    }
+
+    .highcontrast .cm-s-default .cm-string {
+        color: #ffd939;
+    }
+
+    .fabric-dark .cm-s-default .cm-attribute,
+    .bootstrap5-dark .cm-s-default .cm-attribute,
+    .material-dark .cm-s-default .cm-attribute,
+    .tailwind-dark .cm-s-default .cm-attribute,
+    .highcontrast .cm-s-default .cm-attribute {
+        color: #f00;
+    }
+    
+    .fabric-dark .CodeMirror,
+    .bootstrap5-dark .CodeMirror,
+    .material-dark .CodeMirror,
+    .tailwind-dark .CodeMirror {
+        background:  #303030;
+        color: white;
+    }
+
     .highcontrast .CodeMirror {
         background: black;
         color: white;
     }
+
     .e-richtexteditor .e-rte-content .e-content pre {
         padding: 10px;
         background: #F4F5F7;
     }
+    .fabric-dark .e-richtexteditor .e-rte-content .e-content pre,
+    .bootstrap5-dark .e-richtexteditor .e-rte-content .e-content pre,
+    .material-dark .e-richtexteditor .e-rte-content .e-content pre,
+    .tailwind-dark .e-richtexteditor .e-rte-content .e-content pre,
     .highcontrast .e-richtexteditor .e-rte-content .e-content pre {
         padding: 10px;
         background: #303030;
     }
 </style>
 <script>
-import Vue from "vue";
-import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
-
-Vue.use(RichTextEditorPlugin);
+import { Browser, addClass, removeClass, isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter} from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent
+    },
     data: function() {
         return {
             showCharCount: true,
@@ -136,14 +177,13 @@ export default Vue.extend({
         </li>
         </ol>
          <img alt="Logo" src="./source/rich-text-editor/images/RTEImage-Feather.png" style="width: 300px;">`,
-            maxLength: 2000,
             toolbarSettings: {
-                items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
+                items: ['FormatPainter', 'Bold', 'Italic', 'Underline', 'StrikeThrough',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
-                'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
+                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , 'EmojiPicker', '|',
+                'Formats', 'Alignments', 'NumberFormatList', 'BulletFormatList',
                 'Outdent', 'Indent', '|',
-                'CreateTable', 'CreateLink', 'Image', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+                'CreateTable', 'CreateLink', 'Image', 'Audio', 'Video', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
             },
         };
     },
@@ -153,25 +193,27 @@ export default Vue.extend({
             var id = this.$refs.rteObj.ej2Instances.getID() +  'mirror-view';
             var mirrorView = this.$refs.rteObj.$el.parentNode.querySelector('#' + id);
             var charCount = this.$refs.rteObj.$el.parentNode.querySelector('.e-rte-character-count');
-            if (e.targetItem === 'Preview') {
-                textArea.style.display = 'block';
-                mirrorView.style.display = 'none';
-                textArea.innerHTML = this.myCodeMirror.getValue();
-                charCount.style.display = 'block';
-            }
-            else {
-                if (!mirrorView) {
-                    mirrorView = document.createElement('div', { className: 'e-content' });
-                    mirrorView.id = id;
-                    textArea.parentNode.appendChild(mirrorView);
+            if (!isNOU(textArea) && !isNOU(mirrorView) && !isNOU(charCount)) {
+                if (e.targetItem === 'Preview') {
+                    textArea.style.display = 'block';
+                    mirrorView.style.display = 'none';
+                    textArea.innerHTML = this.myCodeMirror.getValue();
+                    charCount.style.display = 'block';
                 }
                 else {
-                    mirrorView.innerHTML = '';
+                    if (!mirrorView) {
+                        mirrorView = document.createElement('div', { className: 'e-content' });
+                        mirrorView.id = id;
+                        textArea.parentNode.appendChild(mirrorView);
+                    }
+                    else {
+                        mirrorView.innerHTML = '';
+                    }
+                    textArea.style.display = 'none';
+                    mirrorView.style.display = 'block';
+                    this.renderCodeMirror(mirrorView, this.$refs.rteObj.ej2Instances.value);
+                    charCount.style.display = 'none';
                 }
-                textArea.style.display = 'none';
-                mirrorView.style.display = 'block';
-                this.renderCodeMirror(mirrorView, this.$refs.rteObj.ej2Instances.value);
-                charCount.style.display = 'none';
             }
         },
         renderCodeMirror: function(mirrorView, content) {
@@ -188,35 +230,37 @@ export default Vue.extend({
         var sbHdrEle = document.querySelector('.sb-header.e-view');
         var leftBar;
         var transformElement;
-        if (Browser.isDevice) {
-            leftBar = document.querySelector('#right-sidebar');
-            transformElement = document.querySelector('.sample-browser.e-view.e-content-animation');
-        }
-        else {
-            leftBar = document.querySelector('#left-sidebar');
-            transformElement = document.querySelector('#right-pane');
-        }
-        if (e.targetItem === 'Maximize') {
-            if (Browser.isDevice && Browser.isIos) {
-                addClass([sbCntEle, sbHdrEle], ['hide-header']);
+        if (!isNOU(leftBar) && !isNOU(transformElement)) {
+            if (Browser.isDevice) {
+                leftBar = document.querySelector('#right-sidebar');
+                transformElement = document.querySelector('.sample-browser.e-view.e-content-animation');
+            } else {
+                leftBar = document.querySelector('#left-sidebar');
+                transformElement = document.querySelector('#right-pane');
             }
-            addClass([leftBar], ['e-close']);
-            removeClass([leftBar], ['e-open']);
-            if (!Browser.isDevice) {
-                transformElement.style.marginLeft = '0px';
+            
+            if (e.targetItem === 'Maximize') {
+                if (Browser.isDevice && Browser.isIos) {
+                    addClass([sbCntEle, sbHdrEle], ['hide-header']);
+                }
+                addClass([leftBar], ['e-close']);
+                removeClass([leftBar], ['e-open']);
+                if (!Browser.isDevice) {
+                    transformElement.style.marginLeft = '0px';
+                }
+                transformElement.style.transform = 'inherit';
             }
-            transformElement.style.transform = 'inherit';
-        }
-        else if (e.targetItem === 'Minimize') {
-            if (Browser.isDevice && Browser.isIos) {
-                removeClass([sbCntEle, sbHdrEle], ['hide-header']);
+            else if (e.targetItem === 'Minimize') {
+                if (Browser.isDevice && Browser.isIos) {
+                    removeClass([sbCntEle, sbHdrEle], ['hide-header']);
+                }
+                removeClass([leftBar], ['e-close']);
+                if (!Browser.isDevice) {
+                    addClass([leftBar], ['e-open']);
+                    transformElement.style.marginLeft = leftBar.offsetWidth + 'px';
+                }
+                transformElement.style.transform = 'translateX(0px)';
             }
-            removeClass([leftBar], ['e-close']);
-            if (!Browser.isDevice) {
-                addClass([leftBar], ['e-open']);
-                transformElement.style.marginLeft = leftBar.offsetWidth + 'px';
-            }
-            transformElement.style.transform = 'translateX(0px)';
         }
     },
         actionCompleteHandler: function(e) {
@@ -226,12 +270,12 @@ export default Vue.extend({
             }
             else {
                 var proxy = this;
-                setTimeout(function () { proxy.$refs.rteObj.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 400);
+                setTimeout(function () { proxy.$refs.rteObj.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 1000);
             }
         }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager]
+        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter]
     }
-});
+}
 </script>

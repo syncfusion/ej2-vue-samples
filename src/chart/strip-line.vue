@@ -1,377 +1,213 @@
 <template>
   <div class="control-section">
-    <div class="col-md-8 control-section">
-        <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-         :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
-            <e-series-collection>
-                <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Weather' :marker='marker' :fill='fill' > </e-series>
-                                
-            </e-series-collection>
-        </ejs-chart>
-        </div>
     <div>
-    <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <br/><br/>
-            <tr style="height: 50px">
-                <td>
-                    <div>StripLine Types</div>
-                </td>
-                <td>
-                    <div>
-                          <ejs-dropdownlist id='selmode' :change='stripChange' :dataSource='stripdata' index=0 :width='stripwidth' ></ejs-dropdownlist>                      
-                    </div>
-                </td>
-            </tr>
-        </table>
+      <ejs-chart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
+        :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings'
+        :chartArea='chartArea' :width='width' :titleStyle='titleStyle' :subTitle='subTitle'>
+        <e-series-collection>
+          <e-series :dataSource='WeatherReportsA' type='Spline' xName='x' yName='wind' name='Wind Speed (km/h)' legendShape='HorizontalLine'
+            width=4> </e-series>
+          <e-series :dataSource='WeatherReportsB' type='Spline' xName='x' yName='gust' name='Wind Gust (km/h)' legendShape='HorizontalLine'
+            width=4> </e-series>
+        </e-series-collection>
+      </ejs-chart>
     </div>
-</div>
-<div id="action-description">
-    <p>
-        This sample highlights certain range in an axis by using stripline feature.
-    </p>
-</div>
-<div id="description">
-    <p>
-        In this example, you can see how to render and configure the stripline charts. You can use stripline by enable the
-        <code>visible</code> property. Striplines are rendered in the specified
-        <code>start</code> and
-        <code>end</code> range and you can add more than one stripline for an axis.
-
-    </p>
-    <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
-    <p>
-        Chart component features are segregated into individual feature-wise modules. To use strip line, we need to inject
+    <div>
+    </div>
+    <div id="action-description">
+      <p>
+        This sample displays the changes in wind speed and gust with stripline feature.
+      </p>
+    </div>
+    <div id="description">
+      <p>
+          In this example, you can see how to render and configure a strip line for the chart. Use the <code>start</code> and <code>end</code> properties in the <code>chartStripline</code> option to add a strip line to an axis. Additionally, the title for the chart can be positioned anywhere in the chart by using the <code>position</code> property in <code>titleStyle</code>.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
+        point or tap a point in touch enabled devices.
+      </p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
+      <p>
+        Chart component features are segregated into individual feature-wise modules. To use strip line, we need to
+        inject
         <code>StripLine</code> module using
         <code>Chart.Inject(StripLine)</code> method.
-    </p>
-    <p>
+      </p>
+      <p>
         More information on the strip line can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
-    </p>
-</div>
-<svg style="height: 0">
-    <defs>
-        <linearGradient id="winter" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" />
-            <stop offset="1" />
-        </linearGradient>
-        <linearGradient id="summer" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" />
-            <stop offset="1" />
-        </linearGradient>
-        <linearGradient id="spring" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" />
-            <stop offset="1" />
-        </linearGradient>
-        <linearGradient id="autumn" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" />
-            <stop offset="1" />
-        </linearGradient>
-    </defs>
-</svg>
-</div>
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/chart/strip-line/">documentation
+          section</a>.
+      </p>
+    </div>
+  </div>
 
 </template>
-<style scoped>
+<style>
 #control-container {
   padding: 0px !important;
 }
-
-#winter stop {
-  stop-color: #4ca1af;
-}
-
-#winter stop[offset="0"] {
-  stop-color: #c4e0e5;
-}
-
-#winter stop[offset="1"] {
-  stop-color: #4ca1af;
-}
-
-#summer stop {
-  stop-color: #ffa751;
-}
-
-#summer stop[offset="0"] {
-  stop-color: #ffe259;
-}
-
-#summer stop[offset="1"] {
-  stop-color: #ffa751;
-}
-
-#spring stop {
-  stop-color: #1d976c;
-}
-
-#spring stop[offset="0"] {
-  stop-color: #93f9b9;
-}
-
-#spring stop[offset="1"] {
-  stop-color: #1d976c;
-}
-
-#autumn stop {
-  stop-color: #603813;
-}
-
-#autumn stop[offset="0"] {
-  stop-color: #b29f94;
-}
-
-#autumn stop[offset="1"] {
-  stop-color: #603813;
-}
 </style>
 <script>
-import Vue from "vue";
-import { Browser, extend } from "@syncfusion/ej2-base";
-import { DropDownList } from "@syncfusion/ej2-vue-dropdowns";
+import { Browser } from "@syncfusion/ej2-base";
 import {
-  StripLineSettingsModel,
-  ChartPlugin,
-  LineSeries,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
+  SplineSeries,
   Tooltip,
   Legend,
-  Category,
-  StripLine
+  DateTimeCategory,
+  StripLine,
+  Highlight
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let fontSize = Browser.isDevice ? "14px" : "18px";
-let xAxisStripLine = [
-  {
-    start: -1,
-    end: 1.5,
-    text: "Winter",
-    color: "url(#winter)",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: -90,
-    visible: true
-  },
-  {
-    start: 1.5,
-    end: 3.5,
-    text: "Summer",
-    color: "url(#summer)",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: -90,
-    visible: true
-  },
-  {
-    start: 3.5,
-    end: 4.5,
-    text: "Spring",
-    color: "url(#spring)",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: -90,
-    visible: true
-  },
-  {
-    start: 4.5,
-    end: 5.5,
-    text: "Autumn",
-    color: "url(#autumn)",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: -90,
-    visible: true
-  },
-  {
-    start: 5.5,
-    end: 7,
-    text: "Winter",
-    color: "url(#winter)",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: -90,
-    visible: true
-  },
-  {
-    startFromAxis: true,
-    size: 2,
-    isSegmented: true,
-    segmentStart: 22.5,
-    text: "Average Temperature",
-    segmentEnd: 27.5,
-    visible: false,
-    color: "#fc902a",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: 0
-  },
-  {
-    start: 3.5,
-    size: 3,
-    isSegmented: true,
-    segmentStart: 22.5,
-    text: "Average Temperature",
-    segmentEnd: 27.5,
-    visible: false,
-    color: "#fc902a",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: 0
-  },
-  {
-    start: 1.5,
-    size: 2,
-    isSegmented: true,
-    segmentStart: 32.5,
-    text: "High Temperature",
-    segmentEnd: 37.5,
-    visible: false,
-    color: "#ff512f",
-    textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-    border: { width: 0 },
-    rotation: 0
-  }
-];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let fontSize = Browser.isDevice ? "14px" : "16px";
 
-export default Vue.extend({
-  data: function() {
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
+  data: function () {
     return {
       theme: theme,
-      seriesData: [
-        { x: "Sun", y: 25 },
-        { x: "Mon", y: 27 },
-        { x: "Tue", y: 33 },
-        { x: "Wed", y: 36 },
-        { x: "Thu", y: 26 },
-        { x: "Fri", y: 27.5 },
-        { x: "Sat", y: 23 }
+      WeatherReportsA: [
+        { x: new Date(2023, 4, 1), wind : 19 },
+        { x: new Date(2023, 4, 2), wind : 17 },
+        { x: new Date(2023, 4, 3), wind : 14 },
+        { x: new Date(2023, 4, 4), wind : 9 },
+        { x: new Date(2023, 4, 5), wind : 10 },
+        { x: new Date(2023, 4, 6), wind : 8 },
+        { x: new Date(2023, 4, 7), wind : 8 },
+        { x: new Date(2023, 4, 8), wind : 16 },
+        { x: new Date(2023, 4, 9), wind : 9 },
+        { x: new Date(2023, 4, 10), wind : 13 },
+        { x: new Date(2023, 4, 11), wind : 7 },
+        { x: new Date(2023, 4, 12), wind : 12 },
+        { x: new Date(2023, 4, 13), wind : 10 },
+        { x: new Date(2023, 4, 14), wind : 5 },
+        { x: new Date(2023, 4, 15), wind : 8 }
       ],
-      fill:'#ffffff',
-      stripdata: ["Vertical", "Horizontal", "Segment"],
-      stripwidth: 120,
-
+      WeatherReportsB: [
+        { x: new Date(2023, 4, 1), gust : 30 },
+        { x: new Date(2023, 4, 2), gust : 28 },
+        { x: new Date(2023, 4, 3), gust : 26 },
+        { x: new Date(2023, 4, 4), gust : 19 },
+        { x: new Date(2023, 4, 5), gust : 21 },
+        { x: new Date(2023, 4, 6), gust : 14 },
+        { x: new Date(2023, 4, 7), gust : 13 },
+        { x: new Date(2023, 4, 8), gust : 29 },
+        { x: new Date(2023, 4, 9), gust : 19 },
+        { x: new Date(2023, 4, 10), gust : 20 },
+        { x: new Date(2023, 4, 11), gust : 15 },
+        { x: new Date(2023, 4, 12), gust : 25 },
+        { x: new Date(2023, 4, 13), gust : 20 },
+        { x: new Date(2023, 4, 14), gust : 10 },
+        { x: new Date(2023, 4, 15), gust : 15 }
+      ],
+      chartArea: {
+        border: {
+          width: 0
+        }
+      },
       //Initializing Primary X Axis
       primaryXAxis: {
-        valueType: "Category",
+        valueType: "DateTimeCategory",
         majorGridLines: { width: 0 },
-        //Initializing Striplines
-        stripLines: xAxisStripLine
+        majorTickLines: { width: 0 },
+        labelFormat : 'E dd/MM',
+        labelRotation: -90,
+        labelIntersectAction: Browser.isDevice ? 'Rotate90' : 'None',
       },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        minimum: 10,
-        maximum: 40,
-        interval: 5,
-        lineStyle: { color: "#808080" },
-        labelFormat: "{value} °C",
+        minimum: 0,
+        maximum: 30,
+        interval: 10,
+        lineStyle: { width: 0 },
         rangePadding: "None",
+        majorTickLines: { width: 0 },
+        majorGridLines: { width: 0 },
+        title: 'Wind Speed and Gust (km/h)',
         //Initializing Striplines
         stripLines: [
           {
-            start: 30,
-            end: 40,
-            text: "High Temperature",
-            color: "#ff512f",
-            visible: false,
-            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 }
+            start: 0, 
+            end: 5, 
+            text: 'Calm', 
+            color: 'rgba(68, 170, 213, 0.1)', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 },
+          }, 
+          {
+            start: 5, 
+            end: 8, 
+            text: 'Light Air', 
+            color: 'rgba(0, 0, 0, 0)', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 },
           },
           {
-            start: 20,
-            end: 30,
-            text: "Average Temperature",
-            color: "#fc902a",
-            visible: false,
-            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 }
+            start: 8, 
+            end: 11, 
+            text: 'Light Breeze', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 }, color: 'rgba(68, 170, 213, 0.1)'
           },
           {
-            start: 10,
-            end: 20,
-            text: "Low Temperature",
-            visible: false,
-            textStyle: { size: fontSize, color: "#ffffff", fontWeight: "600" },
-            border: { width: 0 },
-            color: "#f9d423"
+            start: 11, 
+            end: 18, 
+            text: 'Gentle Breeze', 
+            color: 'rgba(0, 0, 0, 0)', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 },
+          }, 
+          {
+            start: 18, 
+            end: 28, 
+            text: 'Moderate Breeze', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 }, color: 'rgba(68, 170, 213, 0.1)'
+          },
+          {
+            start: 28, 
+            end: 30, 
+            text: 'Fresh Breeze', 
+            visible: true, 
+            horizontalAlignment: 'Start',
+            textStyle: { size: '13px' }, border: { width: 0 }, color: 'rgba(0, 0, 0, 0)'
           }
         ]
       },
-
-      legendSettings: { visible: false },
-
-      tooltip: { enable: true },
-
-      marker: {
-        visible: true,
-        width: 10,
-        height: 10,
-        border: { width: 2, color: "#ffffff" },
-        fill: "#666666"
-      },
-      width: "100%",
-      title: "Weather Report"
+      legendSettings: { visible: true, enableHighlight: true, shapeWidth: 15 },
+      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> ${series.name} : <b>${point.y}</b>', enableMarker: false },
+      width: Browser.isDevice ? "100%" : "75%",
+      title: "Wind Speed and Gust (km/h)",
+      titleStyle: { position : 'Bottom', textAlignment:'Far' },
+      subTitle: 'WorldWeatherOnline.com',
     };
   },
   provide: {
-    chart: [LineSeries, Category, Legend, Tooltip, StripLine]
+    chart: [SplineSeries, DateTimeCategory, Legend, Tooltip, StripLine, Highlight]
   },
-  updated: function() {
-    this.$nextTick(function() {
+  updated: function () {
+    this.$nextTick(function () {
       this.$refs.chart.ej2Instances.refresh();
     });
   },
   methods: {
-    stripChange: function(args) {
-      let mode = document.getElementById("selmode").value;
-      let primaryYAxis = extend({}, this.primaryYAxis);
-      let primaryXAxis = extend({}, this.primaryXAxis);
-      let marker = extend({}, this.marker);
-      let fill = extend({}, this.fill);
-      fill = "white";
-      marker.fill = 'black';
-      marker.border.color ='white';
-      for (let i = 0; i < 3; i++) {
-        primaryYAxis.stripLines[i].visible = false;
-      }
-      if (mode === "Vertical") {
-        for (let i = 0; i <= 4; i++) {
-          primaryXAxis.stripLines[i].visible = true;
-        }
-        for (let i = 5; i <= 7; i++) {
-          primaryXAxis.stripLines[i].visible = false;
-        }
-      } else if (mode === 'Horizontal') {
-        for (let i = 0; i < 3; i++) {
-          primaryYAxis.stripLines[i].visible = true;
-        }
-        for (let i = 0; i <= 7; i++) {
-          primaryXAxis.stripLines[i].visible = false;
-        }
-      } else {
-        for (let i = 0; i <= 7; i++) {
-          primaryXAxis.stripLines[i].visible = false;
-        }
-        for (let i = 5; i <= 7; i++) {
-          primaryXAxis.stripLines[i].visible = true;
-        }
-        marker.fill = 'white';
-        marker.border.color ='black';
-        fill = 'black';
-      }
-      this.marker = marker;
-      this.fill = fill;
-      this.primaryYAxis = primaryYAxis;
-      this.primaryXAxis = primaryXAxis;
-    }
   }
-});
+};
 </script>

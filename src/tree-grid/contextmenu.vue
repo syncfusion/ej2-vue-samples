@@ -46,6 +46,8 @@
                     <li><code>Below</code> - Add a new row below the selected row</li>
                 </ul>
             </li>
+            <li><code>Indent</code> - Indents the record to one level of hierarchy.</li>
+            <li><code>Outdent</code> - Outdent the record to one level of hierarchy.</li>
     </ul>
     
     <br/>
@@ -66,20 +68,22 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize, RowDD } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default  Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
       contextMenuItems: ['AutoFit', 'AutoFitAll', 'SortAscending', 'SortDescending',
             'Edit', 'Delete', 'Save', 'Cancel',
             'PdfExport', 'ExcelExport', 'CsvExport', 'FirstPage', 'PrevPage',
-            'LastPage', 'NextPage'],
+            'LastPage', 'NextPage','Indent', 'Outdent'],
       editing: { allowDeleting: true, allowEditing: true, mode: 'Row' },
       pageSettings: { pageSize: 10},
       editparams : { params: { format: 'n' } },
@@ -92,11 +96,11 @@ export default  Vue.extend({
   };
   },
    provide : {
-      treegrid: [ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize]
+      treegrid: [ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize, RowDD]
     },
    methods:{
       
   }
 
-});
+}
 </script>

@@ -22,7 +22,7 @@
                     <tr>
                         <td>
                             <div class="evtbtn" style="padding-bottom: 10px">
-                                <ejs-button id='clear' v-on:click.native="onClear">Clear</ejs-button>
+                                <ejs-button id='clear' v-on:click="onClear">Clear</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -44,7 +44,6 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample #EventLog b {
         color: #388e3c;
@@ -55,21 +54,21 @@
         border-top: 1px solid #eee;
     }
 </style>
-<!-- custom code end -->
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-button': ButtonComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'Week'
             }
         },
@@ -88,31 +87,31 @@
                 document.getElementById('EventLog').innerHTML = '';
             },
             onCreate: function () {
-                this.appendElement('Schedule <b>Load</b> event called<hr>');
+                this.appendElement('Schedule <b>Load</b> event is triggered<hr>');
             },
             onActionBegin: function () {
-                this.appendElement('Schedule <b>Action Begin</b> event called<hr>');
+                this.appendElement('Schedule <b>Action Begin</b> event is triggered<hr>');
             },
             onActionComplete: function () {
-                this.appendElement('Schedule <b>Action Complete</b> event called<hr>');
+                this.appendElement('Schedule <b>Action Complete</b> event is triggered<hr>');
             },
             onActionFailure: function () {
-                this.appendElement('Schedule <b>Action Failure</b> event called<hr>');
+                this.appendElement('Schedule <b>Action Failure</b> event is triggered<hr>');
             },
             onCellDoubleClick: function () {
-                this.appendElement('SChedule <b>Cell Double Click</b> event called<hr>');
+                this.appendElement('SChedule <b>Cell Double Click</b> event is triggered<hr>');
             },
             onCellClick: function () {
-                this.appendElement('Schedule <b>Cell Click</b> event called<hr>');
+                this.appendElement('Schedule <b>Cell Click</b> event is triggered<hr>');
             },
             onNavigating: function () {
-                this.appendElement('Schedule <b>Navigating</b> event called<hr>');
+                this.appendElement('Schedule <b>Navigating</b> event is triggered<hr>');
             },
             onEventClick: function () {
-                this.appendElement('Schedule <b>Event Click</b> event called<hr>');
+                this.appendElement('Schedule <b>Event Click</b> event is triggered<hr>');
             },
             onPopupOpen: function () {
-                this.appendElement('Schedule <b>Popup Open</b> event called<hr>');
+                this.appendElement('Schedule <b>Popup Open</b> event is triggered<hr>');
             },
 
             oneventRendered: function (args) {
@@ -130,6 +129,6 @@
             },
 
         }
-    });
+    }
 
 </script>

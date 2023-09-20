@@ -89,22 +89,22 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
 import {
-  GanttPlugin,
+  GanttComponent,
   Edit,
   Selection,
   Toolbar,
   DayMarkers,
   ContextMenu,
-  ContextMenuOpenEventArgss,
-  IGanttData,
   Sort,
   Resize
 } from "@syncfusion/ej2-vue-gantt";
 import { editingData, editingResources } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  }, 
   data: function() {
     return {
       data: editingData,
@@ -171,7 +171,7 @@ export default Vue.extend({
         }
       },
       columns: [
-        { field: "TaskID", width: 50 },
+        { field: "TaskID", width: 80 },
         {
           field: "TaskName",
           headerText: "Job Name",
@@ -202,7 +202,7 @@ export default Vue.extend({
       projectStartDate: new Date("03/25/2019"),
       projectEndDate: new Date("07/28/2019"),
       splitterSettings: {
-        columnIndex: 2
+        position: "35%"
       }
     };
   },
@@ -235,5 +235,5 @@ export default Vue.extend({
         }  
     }
   }
-});
+}
 </script>

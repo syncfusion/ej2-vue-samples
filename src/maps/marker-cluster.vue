@@ -16,9 +16,9 @@
 <div id="template" style="display:none">
     <div class="toolback">
                 <div class="listing2">
-                    <center>
+                    <span style="text-align: center;">
                         ${city}                                            
-                    </center>
+                    </span>
                 </div>
                 <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">                    
                 <div>
@@ -59,7 +59,6 @@
     .toolback {
        border-radius: 4px;
        border: 1px #abb9c6;
-       opacity: 90%;
        background: rgba(53, 63, 76, 0.90);
        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
        padding-bottom: 10px;
@@ -79,12 +78,16 @@
    }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, MapsTooltip, MapAjax, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
 import { topPopulation } from '../maps/map-data/marker-location';
 import { cluster } from '../maps/map-data/marker-cluster';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+},
 data:function(){
     return{
         useGroupingSeparator: true,
@@ -94,7 +97,8 @@ data:function(){
         titleSettings: {
             text: 'Top 50 largest cities in the World',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
@@ -136,10 +140,11 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     } 
 }
 /* custom code end */
-})
+}
 </script>
     

@@ -1,5 +1,5 @@
 <template>
-<div class="control-section" style="overflow:hidden;">
+<div>
 <div class="col-lg-8 control-section">
     <div class="control-wrapper">
         <div class="sample-container">
@@ -140,20 +140,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
-import { RadioButtonPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
+import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 
-Vue.use(DropDownListPlugin);
-Vue.use(RichTextEditorPlugin);
-Vue.use(RadioButtonPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(TextBoxPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-textbox': TextBoxComponent,
+      'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             pasteCleanupSettings: {
@@ -197,5 +194,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup]
     }
-});
+}
 </script>

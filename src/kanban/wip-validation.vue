@@ -58,7 +58,7 @@
                     </tr>
                 </table>
                 <div class="e-validate">
-                    <ejs-button id='validate' class="e-btn" v-on:click.native="onFormValidate" >Validate</ejs-button>
+                    <ejs-button id='validate' class="e-btn" v-on:click="onFormValidate" >Validate</ejs-button>
                 </div>
             </form>
         </div>
@@ -109,22 +109,24 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { FormValidator, NumericTextBoxPlugin  } from '@syncfusion/ej2-vue-inputs';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { FormValidator, NumericTextBoxComponent  } from '@syncfusion/ej2-vue-inputs';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-dialog': DialogComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -196,5 +198,5 @@ export default Vue.extend({
         this.dialogObj.hide();
     }
   }
-});
+};
 </script>

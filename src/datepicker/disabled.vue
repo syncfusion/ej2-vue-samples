@@ -21,16 +21,15 @@
 
 <script>
 
-import Vue from "vue";
-import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DatePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Choose a date"
     };
   },
+  components: { 'ejs-datepicker': DatePickerComponent },
   methods: {
     disableDate: function(args) {
       if (args.date.getDay() === 0 || args.date.getDay() === 6) {
@@ -38,7 +37,7 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>
 
 <style scoped>

@@ -164,16 +164,15 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser, isNullOrUndefined } from "@syncfusion/ej2-base";
 import {
-    DiagramPlugin,
+    DiagramComponent,
     NodeModel,
     UndoRedo,
     ConnectorModel,
     PointPortModel,
     Connector,
-    SymbolPalettePlugin,
+    SymbolPaletteComponent,
     SymbolInfo,
     IDragEnterEventArgs,
     GridlinesModel,
@@ -183,8 +182,7 @@ import {
     DiagramConstraints,
     SymbolPalette
 } from "@syncfusion/ej2-vue-diagrams";
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
+
 let diagramInstance;
 
 
@@ -355,7 +353,11 @@ let connections = [
   }
 ];
 
-    export default Vue.extend({
+    export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent
+  },      
   data: function() {
     return {
       width: "100%",
@@ -411,7 +413,7 @@ let connections = [
        }
     };
   }
-});
+}
 
 
     // Create nodes as logic gates

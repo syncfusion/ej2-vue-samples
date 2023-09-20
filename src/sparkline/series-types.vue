@@ -88,11 +88,13 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { SparklinePlugin,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
+import { SparklineComponent,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3 } from "./seriestypes";
-Vue.use(SparklinePlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent
+},
 data:function(){
 return{
         height: '80px',
@@ -147,7 +149,7 @@ return{
         valueType4: 'Numeric',
         dataSource4: [12, 15, -10, 13, 15, 6, -12, 17, 13, 0, 8, -10],
         tooltipSettings4: {
-            format: '${x} : ${y}',
+            visible: true,
         },
         pieheight: '40px',
         piewidth: '100%',
@@ -179,10 +181,10 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast') ;
     }
 }
 /* custom code end */
-})
+}
 </script>
 

@@ -3,7 +3,6 @@
     "directory": "toast",
     "category": "Notifications",
     "ftName" :"toast",
-    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
@@ -32,7 +31,6 @@
         "url": "api",
         "name": "API",
         "category": "Toast",
-        "type": "update",
         "description": "The sample exposes the available properties, methods, and events of Toast component which helps to create flexible toast notification in Vue platform."
     }]
 }

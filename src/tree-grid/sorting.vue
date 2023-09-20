@@ -111,18 +111,20 @@
 </style>
 <!-- custom code end -->
   <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Sort, TreeGridComponent, Column } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Sort, Column } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sortData } from "./data-source";
 import { ActionEventArgs, SortEventArgs } from "@syncfusion/ej2-grids";
-import { CheckBoxPlugin, CheckBoxComponent, ChangeEventArgs as checkboxchangeargs } from '@syncfusion/ej2-vue-buttons';
+import { CheckBoxComponent, ChangeEventArgs as checkboxchangeargs } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },  
   data: () => {
     return {
       data: sortData,
@@ -135,8 +137,8 @@ export default Vue.extend({
     },
    methods:{
       sort: function(args: SortEventArgs) {
-          let columns = (<TreeGridComponent>this.$refs.treegrid).getColumns() as any;
-          let sortcolumns = (<TreeGridComponent>this.$refs.treegrid).ej2Instances.sortSettings.columns;
+          let columns = ((this as any).$refs.treegrid).getColumns() as any;
+          let sortcolumns = ((this as any).$refs.treegrid).ej2Instances.sortSettings.columns;
           if (args.requestType === 'sorting') {
             for (let cols of columns) {
                 for (let sortcols of sortcolumns) {
@@ -152,44 +154,44 @@ export default Vue.extend({
       check: function(field: string, state: boolean): void{
           switch (field) {
             case 'orderName':
-                (<CheckBoxComponent>this.$refs.ordername).ej2Instances.checked = state; break;
+                ((this as any).$refs.ordername).ej2Instances.checked = state; break;
             case 'Category':
-                (<CheckBoxComponent>this.$refs.category).ej2Instances.checked = state; break;
+                ((this as any).$refs.category).ej2Instances.checked = state; break;
             case 'orderDate':
-                (<CheckBoxComponent>this.$refs.orderdate).ej2Instances.checked = state; break;
+                ((this as any).$refs.orderdate).ej2Instances.checked = state; break;
             case 'units':
-                (<CheckBoxComponent>this.$refs.units).ej2Instances.checked = state; break;
+                ((this as any).$refs.units).ej2Instances.checked = state; break;
         }
       },
       namecheck: function(e: checkboxchangeargs){
-          if(e.checked){
-              (<TreeGridComponent>this.$refs.treegrid).sortByColumn('orderName','Ascending',true);
-          } else {
-              (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('orderName');
-          }
+        if(e.checked){
+              ((this as any).$refs.treegrid).sortByColumn('orderName','Ascending',true);
+        } else {
+              ((this as any).$refs.treegrid).ej2Instances.grid.removeSortColumn('orderName');
+        }
       },
       categorycheck: function(e: checkboxchangeargs){
-          if(e.checked){
-              (<TreeGridComponent>this.$refs.treegrid).sortByColumn('Category','Ascending',true);
-          } else {
-              (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('Category');
-          }
+        if(e.checked){
+              ((this as any).$refs.treegrid).sortByColumn('Category','Ascending',true);
+        } else {
+              ((this as any).$refs.treegrid).ej2Instances.grid.removeSortColumn('Category');
+        }
       },
       datecheck: function(e: checkboxchangeargs){
-          if(e.checked){
-              (<TreeGridComponent>this.$refs.treegrid).sortByColumn('orderDate','Ascending',true);
-          } else {
-              (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('orderDate');
-          }
+        if(e.checked){
+              ((this as any).$refs.treegrid).sortByColumn('orderDate','Ascending',true);
+        } else {
+              ((this as any).$refs.treegrid).ej2Instances.grid.removeSortColumn('orderDate');
+        }
       },
       unitscheck: function(e: checkboxchangeargs){
-          if(e.checked){
-              (<TreeGridComponent>this.$refs.treegrid).sortByColumn('units','Ascending',true);
-          } else {
-              (<TreeGridComponent>this.$refs.treegrid).ej2Instances.grid.removeSortColumn('units');
-          }
+        if(e.checked){
+              ((this as any).$refs.treegrid).sortByColumn('units','Ascending',true);
+        } else {
+              ((this as any).$refs.treegrid).ej2Instances.grid.removeSortColumn('units');
+        }
       }
   }
 
-});
+}
 </script>

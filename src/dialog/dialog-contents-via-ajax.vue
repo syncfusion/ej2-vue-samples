@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-lg-12 control-section ajaxsample" style="padding:10px;position:relative;">
-        <ejs-button id='ajaxBtn' v-if="ShowBtn" v-on:click.native="ajaxBtnClick">Open</ejs-button>
+        <ejs-button id='ajaxBtn' v-if="ShowBtn" v-on:click="ajaxBtnClick">Open</ejs-button>
         <ejs-dialog ref="dialogObj" :header='header' :buttons='dlgButtons' :content='contentData' :animationSettings='animationSettings' :showCloseIcon='showCloseIcon' :target='target' :width='width' :open="dialogOpen" :close="dialogClose">
         </ejs-dialog>
     </div>
@@ -14,8 +14,8 @@
     </div>
     <div id="description">
         <p>
-            The user can load dialog's content dynamically from external source like external file using AJAX library.
-            The AJAX library can make the request and load dialog's content using its success event. 
+            The user can load dialog's content dynamically from external source like external file using Fetch library.
+            The Fetch library can make the request and load dialog's content using its success event. 
         </p>
     </div>
 
@@ -36,7 +36,11 @@
         margin-top: 4px;
         float: left;
     }
-    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1 {
+    .tailwind .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .tailwind-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap5 .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap5-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1{
         margin-top: 0px;
     }
     .ajaxsample .e-footer-content button.e-control.e-btn.e-flat {
@@ -48,6 +52,10 @@
     .ajaxsample .e-dlg-header-content {
        min-height: 65px; 
     }
+    .tailwind .ajaxsample .e-dlg-header-content,
+    .tailwind-dark .ajaxsample .e-dlg-header-content,
+    .bootstrap5 .ajaxsample .e-dlg-header-content,
+    .bootstrap5-dark .ajaxsample .e-dlg-header-content,
     .bootstrap4 .ajaxsample .e-dlg-header-content {
        min-height: 50px; 
     }
@@ -79,13 +87,16 @@
 
 <script>
 import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-import { Ajax } from '@syncfusion/ej2-base';
-Vue.use(DialogPlugin);
-Vue.use(ButtonPlugin);
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { Fetch } from '@syncfusion/ej2-base';
+
 let ShowBtn = undefined;
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             header: '<img class="img1" src="./source/dialog/images/dialog-img2.png">Whats Coming from Microsoft this Fall',
@@ -116,11 +127,11 @@ export default Vue.extend({
         },
         dlgButtonClick: function() {
             if (document.querySelector('.e-footer-content .e-btn').textContent === 'More Details') {
-                let ajax = new Ajax('./src/dialog/blog.html', 'GET', true);
-                ajax.onSuccess = (data) => {
+                let fetchApi = new Fetch('./src/dialog/blog.html', 'GET');
+                fetchApi.onSuccess = (data) => {
                     this.$refs.dialogObj.ej2Instances.content = data;
                 };                
-                ajax.send();                
+                fetchApi.send();                
                 document.querySelector('.e-footer-content .e-btn').textContent = 'Less Details';
             } else {
                 this.$refs.dialogObj.ej2Instances.content = this.contentData;
@@ -128,5 +139,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

@@ -13,16 +13,16 @@
 <div id="template" style="display:none">
     <div class="toolback">
         <div class="listing2">
-            <center>
+            <span style="text-align: center;">
                 ${State}                                            
-            </center>
+            </span>
         </div>
         <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
         <div>
-            <center>  <span class="listing1">Inches : </span><span class="listing2">${inches}</span></center>
+            <span style="text-align: center;">  <span class="listing1">Inches : </span><span class="listing2">${inches}</span></span>
         </div> 
         <div>
-            <center>  <span class="listing1">Category : </span><span class="listing2">${value}</span> </center>
+            <span style="text-align: center;">  <span class="listing1">Category : </span><span class="listing2">${value}</span> </span>
         </div>
     </div>
 </div>
@@ -34,40 +34,50 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
+    <table id="property" title="Properties" style="width: 100%;">
+     <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
         <tbody>
-            <tr style="height: 50px">
-                <td style="width: 10%">
-                    <div class="property-text">Color Mapping Type</div>
+            <tr style="height: 70px">
+                <td>
+                    <div class="text" style="width: 90%;">Color Mapping Type</div>
                 </td>
-                <td style="width: 30%;">
+                <td>
+                <div class="text">
                 <ejs-dropdownlist id='colorMapping' style="width:110;" :dataSource='labelsdata' :fields='localFields' index=0 :width='labelswidth' :change='changeColor'></ejs-dropdownlist>
+                </div>
                 </td>
             </tr>
-            <tr id="hideOne">
-                    <td style="width: 40%">
-                        <div class="property-text"> Change Opacity</div>
+            <tr id="hideOne" style="height: 70px">
+                    <td>
+                        <div class="text"> Change Opacity</div>
                     </td>
-                    <td style="width: 40%;">
-                        <div>
+                    <td>
+                        <div class="text" style="margin-top: -4px; margin-left: -10px;">
                         <ejs-checkbox ref="opacity" id="opacity" :change="changeOpcity"></ejs-checkbox>
                         </div>
                     </td>
             </tr>
-            <tr id="hideTwo">
-                <td style="width: 50%">
-                    <div class="property-text" style="margin-top:12%">Min Opacity</div>
+            <tr id="hideTwo" style="height: 70px">
+                <td>
+                    <div class="text">Min Opacity</div>
                 </td>
-                <td style="width: 50%;">
-                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:100%;margin-top: 20%" />
+                <td>
+                  <div class="text">
+                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width: 100%; margin-top: 10%;" />
+                 </div>   
                 </td>
             </tr>
-            <tr id="hideThree">
-                <td style="width: 50%">
-                    <div class="property-text" style="margin-top:12%">Max Opacity</div>
+            <tr id="hideThree" style="height: 70px">
+                <td>
+                    <div class="text">Max Opacity</div>
                 </td>
-                <td style="width: 50%;">
-                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:100%;margin-top: 20%" />
+                <td>
+                 <div class="text">
+                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width: 100%; margin-top: 10%;" />
+                 </div>   
                 </td>
             </tr>            
         </tbody>
@@ -94,11 +104,6 @@
 </div>
 </template>
 <style scoped>
-    .property-text {
-            font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-            font-size: 13px !important;
-            font-weight: 400 !important;
-        }
     .toolback {
         border-radius: 4px;
         border: 1px #abb9c6;
@@ -118,24 +123,32 @@
          font-size:13px;
          color:#ffffff;
          font-weight: 500;
-    }    
+    }  
+    div.text {
+        padding-left: 0px; padding-top: 0px;
+    }  
     
  </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(MapsPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data:function(){
       return{
         titleSettings: {
             text: 'Spring Precipitation Averages of US States',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -147,8 +160,12 @@ export default Vue.extend({
             height: '10',
             width: '80%',
             mode: 'Interactive',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            },
             titleStyle: {
-                size: '18px'
+                size: '18px',
+                fontFamily: 'Segoe UI'
             },
             title: {
                 text: 'Inches'
@@ -191,7 +208,7 @@ export default Vue.extend({
                     valuePath: 'State',
                     template: '#template'
         },
-        labelswidth: 120,
+        labelswidth: '100%',
         localFields: { text: 'text', value: 'value' },
         labelsdata:[
             {value: 'RangeColorMapping', text: 'Range'},
@@ -209,7 +226,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         let dropDownElement = document.getElementById('colorMapping');
         let opacityCheck = document.getElementById('opacity');
         if(dropDownElement.value === 'Desaturation'){
@@ -388,5 +406,5 @@ methods:{
         }
     }
 }
-})
+}
 </script>

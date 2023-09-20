@@ -19,7 +19,7 @@
 
      <div id="description">
         <p>Reordering can be enabled by setting <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowreordering">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowreordering">
         allowReordering
         </a></code> property as true. Reordering can be done by drag
             and drop the column header from one index to another index within the Grid.</p>
@@ -36,13 +36,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Reorder } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Reorder } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: employeeData
@@ -51,5 +53,5 @@ export default Vue.extend({
   provide: {
       grid: [Reorder]
   }
-});
+}
 </script>

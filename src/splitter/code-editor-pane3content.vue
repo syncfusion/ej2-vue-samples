@@ -5,25 +5,19 @@
         <div class="code-preview">
             <span>var</span> image = document.getElementById("custom-image");
             <div>image.addEventListener("click", function() {</div>
-                <div style="padding-left: 20px;">// Code block for click action</div>
+            <div style="padding-left: 20px;"> Code block for click action</div>
             <span> }</span>
         </div>
     </div>
 </div>
 </template>
-<style scoped>
-</style>
-<script>
-import Vue from "vue";
-import { SplitterPlugin } from '@syncfusion/ej2-vue-layouts';
-Vue.use(SplitterPlugin);
 
-export default Vue.extend({
-    data: function() {
+<script>
+export default {
+    data() {
         return {
+            data: {}
         }
-    },
-    methods: {
     }
-});
+}
 </script>

@@ -7,10 +7,10 @@
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
                     <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
                 </div>
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34'
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl"  :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34'
             :commentDelete="commentDelete"></ejs-documenteditorcontainer>
         </div>
     </div>
@@ -20,14 +20,14 @@
 </div>
 <div id="description">
     <div>
-        <p>In this example, comments features in the document editor can be found.</p>
+        <p>This example demonstrates the comments only type of document protection which allows users to add or edit comments alone in the document. To unprotect the document, use password '123'.</p>
         <ul>
-            <li>Add a comment.</li>
+            <li>Add or edit a comment.</li>
             <li>Reply to a comment.</li>
             <li>Resolving the comment discussion.</li>
         </ul>
         <p style="display: block"> More information about the document editor features can be found in this <a
-                target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation
+                target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/comments/">documentation
                 section.</a>
         </p>
     </div>
@@ -87,19 +87,21 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { comments } from "./data";
 import { DialogUtility } from '@syncfusion/ej2-popups';
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-export default Vue.extend({
-  components: {
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent
     },
     data: function() {
         return {           
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Comments',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -193,7 +195,6 @@ export default Vue.extend({
           this.$refs.doceditcontainer.ej2Instances.showPropertiesPane = false;          
           obj.open(JSON.stringify(comments));
           obj.documentName='Comments';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentEditor.showComments = true;
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
           this.documentChangedEvent();
@@ -202,5 +203,5 @@ export default Vue.extend({
 
        
     }
-});
+};
 </script>

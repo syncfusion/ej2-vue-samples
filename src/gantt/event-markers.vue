@@ -30,11 +30,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -67,7 +69,8 @@ export default Vue.extend({
             projectEndDate: new Date('07/06/2019'),
             eventMarkers: [
             {
-                day: new Date('04/02/2019'),               
+                day: new Date('04/02/2019'), 
+                label: 'Project starts'                
             }, {
                 day: new Date('04/09/2019'),
                 label: 'Design phase'
@@ -87,5 +90,5 @@ export default Vue.extend({
   provide: {
       gantt: [DayMarkers, Selection]
   }
-});
+}
 </script>

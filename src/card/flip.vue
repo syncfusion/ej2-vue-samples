@@ -101,9 +101,7 @@
     }
 
     .card-control-section.flip_card_layout #card_flip.e-card .e-front .e-card-header-caption .e-card-header-title,
-    .card-control-section.flip_card_layout #card_flip_profile.e-card .e-front .e-card-header-caption .e-card-header-title,
     .card-control-section.flip_card_layout #card_flip.e-card .e-front .e-card-header-caption .e-card-sub-title,
-    .card-control-section.flip_card_layout #card_flip_profile.e-card .e-front .e-card-header-caption .e-card-sub-title,
     .card-control-section.flip_card_layout #card_flip.e-card .e-card-actions button,
     .card-control-section.flip_card_layout #card_flip_profile.e-card .e-card-actions button {
         color: #000;
@@ -139,6 +137,18 @@
         background-size: cover;
         min-height: 300px;
         justify-content: flex-end;
+    }
+    
+    .e-bigger .bootstrap5 .card-control-section.flip_card_layout #card_flip.e-card, 
+    .e-bigger .bootstrap5 .card-control-section.flip_card_layout #card_flip_profile.e-card,
+    .e-bigger .bootstrap5-dark .card-control-section.flip_card_layout #card_flip.e-card, 
+    .e-bigger .bootstrap5-dark .card-control-section.flip_card_layout #card_flip_profile.e-card {
+        height: 350px;
+    }
+    
+    .tailwind-dark .card-control-section.flip_card_layout #card_flip.e-card,
+    .tailwind-dark .card-control-section.flip_card_layout #card_flip_profile.e-card {
+        height: 314px;
     }
 
     .card-control-section.flip_card_layout #card_flip.e-card,
@@ -248,8 +258,7 @@
     }
 </style>
 <script>
-import Vue from "vue";
-export default Vue.extend({
+export default {
 	mounted: function() {
         document.getElementById('card_flip').onclick = function (e) {
             var cardEle = e.currentTarget;
@@ -278,6 +287,6 @@ export default Vue.extend({
             cardEle.classList.remove('e-flipped');
         };
     }
-});
+}
 
 </script>

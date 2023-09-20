@@ -13,13 +13,13 @@
                         <e-row>
                             <e-cells>
                                 <e-cell index=1 value="Loan Amount:"></e-cell>
-                                <e-cell value="100000" format="currencyFormat"></e-cell>
+                                <e-cell value="100000" format="$#,##0.00"></e-cell>
                             </e-cells>
                         </e-row>
                         <e-row>
                             <e-cells>
                                 <e-cell index=1 value="Interest Rate:"></e-cell>
-                                <e-cell value="0.08" format="currencyFormat"></e-cell>
+                                <e-cell value="0.08" format="$#,##0.00"></e-cell>
                             </e-cells>
                         </e-row>
                         <e-row>
@@ -37,7 +37,7 @@
                         <e-row>
                             <e-cells>
                                 <e-cell index=1 value="Loan EMI:"></e-cell>
-                                <e-cell value="8698.84" format="currencyFormat"></e-cell>
+                                <e-cell value="8698.84" format="$#,##0.00"></e-cell>
                             </e-cells>
                         </e-row>
                         <e-row>
@@ -49,13 +49,13 @@
                         <e-row height:45>
                             <e-cells>
                                 <e-cell index=1 value="Total Repayment Amount:"></e-cell>
-                                <e-cell value="104386.11" format="currencyFormat"></e-cell>
+                                <e-cell value="104386.11" format="$#,##0.00"></e-cell>
                             </e-cells>
                         </e-row>
                         <e-row>
                             <e-cells>
                                 <e-cell index=1 value="Total Interest Amount:"></e-cell>
-                                <e-cell value="4386.11" format="currencyFormat"></e-cell>
+                                <e-cell value="4386.11" format="$#,##0.00"></e-cell>
                             </e-cells>
                         </e-row>
                     </e-rows>
@@ -79,6 +79,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
      <div id="action-description">
        <p>
         This sample demonstrates protect sheet and protect workbook with EMI calculation scenario as an example. To unprotect the sheet, click the unprotect sheet button in the Data tab. Meanwhile, to unprotect the workbook, click the unprotect workbook button in the data tab and provide the password as <code>spreadsheet</code> in the dialog box.
@@ -94,6 +95,7 @@
             documentation</a> section.
     </p>
      </div>
+     <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -120,17 +122,28 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./protect-sheet-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, RowDirective, RowsDirective, CellDirective, CellsDirective, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-spreadsheet";
+import dataSource from "./protect-sheet-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },
    data: () => {
     return {
         dataSource: dataSource.protectSheet,
-        currencyFormat: getFormatFromType('Currency'),
-        openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-        saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+        openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+        saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {
@@ -138,7 +151,7 @@ export default Vue.extend({
         var spreadsheet = this.$refs.spreadsheet;
         spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'EMI Schedule!A1:F1');
         spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'EMI Calculator!B1');
-        spreadsheet.numberFormat(getFormatFromType('Currency'), 'EMI Schedule!C2:F13');
+        spreadsheet.numberFormat('$#,##0.00', 'EMI Schedule!C2:F13');
     },
     beforeCellRender: function(args) {
         var spreadsheet = this.$refs.spreadsheet;
@@ -147,5 +160,5 @@ export default Vue.extend({
         }
     }
 }
-});
+}
 </script>

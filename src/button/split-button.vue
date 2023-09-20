@@ -132,12 +132,10 @@ font-style: normal;
 }
 </style>
 <script>
-import Vue from "vue";
-import { SplitButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { SplitButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 
-Vue.use(SplitButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: { 'ejs-splitbutton': SplitButtonComponent },
   data: function() {
     return {
       items: [
@@ -167,5 +165,5 @@ export default Vue.extend({
       }
     }
   }
-});
+}
 </script>

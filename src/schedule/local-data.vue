@@ -23,16 +23,18 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { zooEventsData } from './datasource';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], zooEventsData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
             }
         },
         provide: {
@@ -53,6 +55,6 @@
 
             }
         }
-    });
+    }
 
 </script>

@@ -11,6 +11,7 @@
         :theme="theme"
         :indicatorType="indicator"
         :seriesType="series"
+        :trendlineType="trendlineType"
       >
         <e-stockchart-series-collection>
           <e-stockchart-series
@@ -32,8 +33,11 @@
          In this example, you can see how to add threshold lines in the stock chart. Period and range selector help us to navigate different of data.
         <code>LineSeries</code> is used to represent selected data value.
       </p>
-      <br>
-           <p style="font-weight: 500">Injecting Module</p>
+      <p>
+        Stock Chart provides support to 6 types of <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/trend-lines">trendlines</a> namely <code>Linear</code>, <code>Exponential</code>, <code>Logarithmic</code>, <code>Polynomial</code>, <code>Power</code>, <code>Moving Average</code>. By using trendline dropdown button, the required trendline type can be added or removed.
+      </p>
+      
+           <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
@@ -46,11 +50,12 @@
   <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { amzn } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   LineSeries,
   Tooltip,
@@ -75,19 +80,23 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       seriesData: amzn,
       theme: theme,
       indicator:[],
       series: [],
+      trendlineType: ['Linear', 'Exponential', 'Polynomial', 'Logarithmic', 'MovingAverage'],
       //Initializing Primary X Axis
       primaryXAxis: {
         majorGridLines: { color: "transparent" }
@@ -144,5 +153,5 @@ export default Vue.extend({
     ]
   },
   methods: {}
-});
+};
 </script>

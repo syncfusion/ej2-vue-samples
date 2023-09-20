@@ -71,14 +71,14 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { InPlaceEditorPlugin, Rte, MultiSelect, ActionEventArgs } from "@syncfusion/ej2-vue-inplace-editor";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { InPlaceEditorComponent, Rte, MultiSelect } from "@syncfusion/ej2-vue-inplace-editor";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(InPlaceEditorPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-inplaceeditor': InPlaceEditorComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     let multiData = ['Android', 'JavaScript', 'jQuery', 'TypeScript', 'Angular', 'React', 'Vue', 'Ionic'];
     return {
@@ -130,7 +130,7 @@ export default Vue.extend({
         actionSuccess: function(e){
             e.value = this.chipCreation(e.value.split(','));
         },
-        changeEditorMode: function(args) {
+        changeEditorMode: function() {
            var editMode = this.$refs.editorMode.ej2Instances.text;
            this.titleObj.mode = editMode;
            this.tagObj.mode = editMode;
@@ -168,7 +168,7 @@ export default Vue.extend({
   provide:{
         "inplaceeditor":[Rte, MultiSelect]
   },
-});
+}
 </script>
 <style scoped>
 

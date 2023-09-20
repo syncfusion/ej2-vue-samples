@@ -48,13 +48,10 @@
 
 <script>
 
-import Vue from "vue";
-import { DateTimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DateTimePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DateTimePickerPlugin);
-Vue.use(RadioButtonPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a date and time",
@@ -62,12 +59,16 @@ export default Vue.extend({
       date: new Date("05/27/2017 10:00 AM")
     };
   },
+  components: { 
+      'ejs-datetimepicker': DateTimePickerComponent,
+      'ejs-radiobutton': RadioButtonComponent
+  },
   methods: {
     changeFormat: function(args) {
       this.dateFormat = args.value;
     }
   }
-});
+};
 </script>
 
 

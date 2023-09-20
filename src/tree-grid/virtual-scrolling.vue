@@ -6,10 +6,10 @@
     </div>
     <div>
 
-        <ejs-treegrid ref='treegrid' :dataSource="virtualData" :enableVirtualization='true' :treeColumnIndex='1' childMapping='Crew' height=600 :dataBound='hide'>
+        <ejs-treegrid ref='treegrid' :dataSource="virtualData" :enableVirtualization='true' :enableVirtualMaskRow='true' :treeColumnIndex='1' childMapping='Crew' :editSettings='editSettings' :toolbar='toolbar' height=600 >
             <e-columns>
-                <e-column field='TaskID' headerText='Player Jersey' width='120' textAlign='Right'></e-column>
-                <e-column field='FIELD1' headerText='Player Name' width='120'></e-column>
+                <e-column field='TaskID' headerText='Player Jersey' :validationRules='taskidrules' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
+                <e-column field='FIELD1' headerText='Player Name' :validationRules='tasknamerules' width='120'></e-column>
                 <e-column field='FIELD2' headerText='Year' width='100' textAlign='Right'></e-column>
                 <e-column field='FIELD3' headerText='Stint' width='120' textAlign='Right'></e-column>
                 <e-column field='FIELD4' headerText='TMID' width='120' textAlign='Right'></e-column>
@@ -26,12 +26,19 @@
         enableVirtualization </a></code> property as true.
         </p>
         <p>
+        By default, <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualmaskrow">
+        enableVirtualMaskRow </a></code> is set to true. we can change by setting <code>enableVirtualMaskRow</code> property to false.
+        </p>
+        <p>
             Note: The <code><a target="_blank" class="code"
             href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#height">
             height</a></code> property must be defined when enabling <code><a target="_blank" class="code"
             href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablevirtualization">
             enableVirtualization </a></code>.
-        </p>   
+        </p>
+        <p>
+            In this demo, Tree Grid is enabled with row virtualization and also perform the CRUD (Add, Edit, Delete, Update) actions.
+        </p> 
         <p style='font-weight: 500'>Injecting Module:</p>
         <p>Tree Grid features are segregated into individual feature-wise modules.
         To use virtual scrolling feature, we need to inject
@@ -41,25 +48,31 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, VirtualScroll, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, VirtualScroll, Toolbar, RowDD, Edit } from "@syncfusion/ej2-vue-treegrid";
 import { DataManager, JsonAdaptor } from '@syncfusion/ej2-data'; 
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { virtualData, dataSource } from './data-source';
-
-Vue.use(TreeGridPlugin);
 
 dataSource();
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: function() {
     return {
         virtualData: virtualData,
-        display: {'display': 'none'}
+        editSettings: { allowDeleting: true, allowEditing: true, allowAdding: true, mode: 'Row', newRowPosition: 'Child' },
+        toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'],
+        display: {'display': 'none'},
+        taskidrules: { required: true, number: true },
+        tasknamerules: { required: true },
     };
   },
   provide: {
-      treegrid: [VirtualScroll]
+      treegrid: [VirtualScroll, Edit, Toolbar, RowDD]
   }
-});
+}
 </script>

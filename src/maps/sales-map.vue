@@ -51,15 +51,22 @@
 <script>
 import Vue from "vue";
 import {
-  MapsPlugin,
+  MapsComponent,
+  LayersDirective,
+  LayerDirective,
   Marker,
   MapsTooltip,
   MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
 import { salesmapdata } from "../maps/map-data/marker-location";
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data: function() {
     return {
       useGroupingSeparator: true,
@@ -71,7 +78,8 @@ export default Vue.extend({
       titleSettings: {
         text: 'Sales details of products in various countries',
         textStyle: {
-          size: "16px"
+          size: "16px",
+          fontFamily: 'Segoe UI'
         }
       },
       shapeData: new MapAjax("./src/maps/map-data/world-map.json"),
@@ -99,6 +107,9 @@ export default Vue.extend({
                 format:  '<b>Name</b> : ${name}<br><b>Product</b> : ${product}<br><b>Total value</b> : ${worth}',
                 visible: true,
                 valuePath: 'area',
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                }
             },
             height: 15,
             width: 15,
@@ -116,9 +127,10 @@ export default Vue.extend({
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
   }
   /* custom code end */
-});
+};
 </script>

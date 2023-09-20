@@ -7,7 +7,7 @@
 </div>
 
 <div id="action-description">
-    <p>This sample demonstrates the node editing functionalities of the TreeView. Double click on the node or press F2 key on selected node to edit node's text in input textbox. Press enter key or click outside of the input element to save the node's, or press escape key to cancel the modified text.</p>
+    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the node editing functionalities of the TreeView. Double click on the node or press F2 key on selected node to edit node's text in input textbox. Press enter key or click outside of the input element to save the node's, or press escape key to cancel the modified text.</p>
 </div>
 
 <div id="description">
@@ -27,17 +27,17 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import * as dataSource from './nodeEdit-data.json';
 
-Vue.use(TreeViewPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
             fields: { dataSource: dataSource.nodeData, id: 'id', text: 'name', child: 'child' },
         };
     }
-});
+}
 </script>

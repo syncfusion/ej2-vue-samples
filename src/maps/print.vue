@@ -19,7 +19,7 @@
             <tbody><tr id="button-control" style="height: 50px">
                 <td align="center">
                     <div>
-                <ejs-button id='togglebtn' :style='style' :cssClass='cssClass' :iconCss='iconCss' :isPrimary='isPrimary' :content='content' isToggle="true" v-on:click.native='clickToggle'></ejs-button>
+                <ejs-button id='togglebtn' :style='style' :isPrimary='isPrimary' :content='content' v-on:click='clickToggle'></ejs-button>
                     </div>
                 </td>
             </tr>
@@ -62,13 +62,46 @@
     #maps-print-sample .e-play-icon::before {
         content: "\e34b";
     }
+
+    .e-view.fluent #maps-print-sample .e-play-icon::before, .e-view.fluent-dark #maps-print-sample .e-play-icon::before {
+        content: "\e75d";
+    }
+
+   .e-view.fabric #maps-print-sample .e-play-icon::before, .e-view.fabric-dark #maps-print-sample .e-play-icon::before {
+        content: "\e7df";
+    }
+
+    .e-view.bootstrap #maps-print-sample .e-play-icon::before {
+        content: "\ebd2";
+    }
+
+    .e-view.bootstrap4 #maps-print-sample .e-play-icon::before {
+        content: "\e743";
+    }
+
+    .e-view.tailwind #maps-print-sample .e-play-icon::before, .e-view.tailwind-dark #maps-print-sample .e-play-icon::before {
+        content: "\e76c";
+    }
+
+    .e-view.highcontrast #maps-print-sample .e-play-icon::before {
+        content: "\ebf9";
+    }
+
+    .e-view.bootstrap5 #maps-print-sample .e-play-icon::before, .e-view.bootstrap5-dark #maps-print-sample .e-play-icon::before {
+        content: "\e75d";
+    }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Legend, MapsTooltip, MapAjax, Print } from '@syncfusion/ej2-vue-maps';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-Vue.use(MapsPlugin,ButtonPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax, Print } from '@syncfusion/ej2-vue-maps';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-button': ButtonComponent
+  },
   data:function(){
       return{
         allowPrint: true,
@@ -76,7 +109,8 @@ export default Vue.extend({
         titleSettings: {
             text: 'State-wise US population - 2010',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             },
         },
         legendSettings: {
@@ -86,7 +120,10 @@ export default Vue.extend({
             height: '10',
             width: '350',
             labelDisplayMode: 'Trim',
-            alignment: 'Center'
+            alignment: 'Center',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         shapeData: new MapAjax('./src/maps/map-data/usa.json'),
         shapeDataPath: 'name',
@@ -125,10 +162,12 @@ export default Vue.extend({
         tooltipSettings: {
                     visible: true,
                     valuePath: 'population',
-                    format: 'State: ${name} <br> Population: ${population}'
+                    format: 'State: ${name} <br> Population: ${population}',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
                 },
-             iconCss: 'e-icons e-play-icon',
-             cssClass: 'e-flat', isPrimary: true, content:'Print', style: 'text-transform:none !important'
+             isPrimary: true, content:'Print', style: 'text-transform:none !important'
           }
   },
 provide: {
@@ -140,7 +179,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     tooltipRender:function(args){
@@ -152,6 +192,6 @@ methods:{
         this.$refs.maps.ej2Instances.print();
     }
 }
-})
+}
 </script>
 

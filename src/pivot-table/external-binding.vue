@@ -23,7 +23,6 @@
           height="450px"
           :titleSettings="titleSettings"
           :legendSettings="legendSettings"
-          :primaryYAxis="primaryYAxis"
           :xAxis="xAxis"
           :yAxis="yAxis"
           :dataSource="heatmapDataSource"
@@ -52,9 +51,8 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   PivotView,
   IDataSet,
   PivotCellSelectedEventArgs,
@@ -62,15 +60,13 @@ import {
   IFieldOptions
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  HeatMapPlugin, Legend, Tooltip,
+  HeatMapComponent, Legend, Tooltip,
   HeatMap, Adaptor, ILoadedEventArgs, HeatMapTheme
 } from "@syncfusion/ej2-vue-heatmap";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(HeatMapPlugin);
 /* tslint:disable */
 declare var require: any;
 let measureList: { [key: string]: string } = {};
@@ -81,7 +77,11 @@ let xLabels: string[] = [];
 let yLabels: string[] = [];
 let jsonDataSource: object[] = [];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-heatmap': HeatMapComponent
+  },
   data: () => {
     init = true;
     return {
@@ -115,7 +115,7 @@ export default Vue.extend({
       legendSettings: {
         position: 'Top'
       },      
-      showTooltip: false,
+      showTooltip: true,
       xAxis: {
         title: { text: "Country ~ Products" },
         labels: [],
@@ -135,8 +135,8 @@ export default Vue.extend({
   },
   methods: {
     dataBound: function() {
-      let pivotObj = (<any>this.$refs.pivotview_heatmap).ej2Instances;
-      if (init) {
+      let pivotObj = ((this as any).$refs.pivotview_heatmap).ej2Instances;
+      if (init && pivotObj.grid.getRows().length > 1) {
         pivotObj.grid.selectionModule.selectCellsByRange(
           { cellIndex: 1, rowIndex: 1 },
           { cellIndex: 3, rowIndex: 4 }
@@ -153,7 +153,7 @@ export default Vue.extend({
     },
     frameSeries: function() {
         let columnGroupObject: { [key: string]: { x: string; y: number }[] } = {};
-        let pivotObj = (<any>this.$refs.pivotview_heatmap).ej2Instances;             
+        let pivotObj = ((this as any).$refs.pivotview_heatmap).ej2Instances;             
         xLabels = [];
         yLabels = [];
         jsonDataSource = [];
@@ -186,8 +186,8 @@ export default Vue.extend({
         }
     },
     heatmapUpdate: function() {      
-      let pivotObj = (<any>this.$refs.pivotview_heatmap).ej2Instances;
-      let heatmap = (<any>this.$refs.heatmap).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview_heatmap).ej2Instances;
+      let heatmap = ((this as any).$refs.heatmap).ej2Instances;
       heatmap.dataSource = jsonDataSource;
       heatmap.legendSettings = {
         position: 'Top'
@@ -206,11 +206,12 @@ export default Vue.extend({
     heatmapInsLoad: function(args: any) {
       let selectedTheme: string = location.hash.split('/')[1];
       selectedTheme = selectedTheme ? selectedTheme : 'Material';
-      args.heatmap.theme = <HeatMapTheme>(selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1));
+      args.heatmap.theme = <HeatMapTheme>(selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
     }
   },
   provide: {
     heatmap: [Adaptor, Legend, Tooltip]
   }
-});
+}
 </script>
+

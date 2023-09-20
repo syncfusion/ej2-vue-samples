@@ -30,7 +30,7 @@
         <p>
             More information on the Tree Grid instantiation can be found in this
             <a target="_blank" 
-                href="https://ej2.syncfusion.com/documentation/treegrid/getting-started/">
+                href="https://ej2.syncfusion.com/vue/documentation/treegrid/getting-started/">
                documentation section</a>.
         </p>
     </div>
@@ -46,12 +46,27 @@
 
     /deep/ .statustemp {
         position: relative;
-        height: 19px;
         border-radius: 15px;
         text-align: center;
-        background-color: #cff0dc;
+        background-color: #C3F1D0;
         color: #00752F;
         width: 47px;
+    }
+     /deep/ .material3-dark .rating .star.checked, .material3 .rating .star.checked {
+        color: #6750A4;
+    }
+
+     /deep/ .material3-dark #myBar, .material3 #myBar {
+        background-color: #53CA17;
+    }
+
+    /deep/ .material3-dark #myBar.progressdisable, .material3 #myBar.progressdisable {
+        background-color: rgba(242, 184, 181, 1);
+    }
+    
+    /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
+    .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{
+        padding-top: 1px;
     }
 
     /deep/ .statustemp.e-lowgdp {
@@ -61,7 +76,7 @@
     }
 
     /deep/ td.e-rowcell .statustxt {
-        color: #00cc00;
+        color: #398120;
         position: relative;
     }
 
@@ -76,7 +91,7 @@
     }
 
     /deep/ .rating .star.checked {
-        color: #ffa600;
+        color: #EE9E54;
     }
 
     /deep/ .rating .star:before {
@@ -96,7 +111,7 @@
         background-color: #df2222;
     }
 
-    /deep/ #label {
+    /deep/ #treegridlabel {
         position: relative;
         left: 10px;
         line-height: 18px;
@@ -104,39 +119,52 @@
         color: white;
     }
     /deep/ .highcontrast .e-grid #myProgress {
-        background-color: black;
+        background-color: whitesmoke;
     }
     /deep/ #myProgress {
         position: relative;
         height: 18px;
         width: 10em;
         text-align: left;
-        background-color: white;
+        background-color: whitesmoke;
     }
     /deep/ #myBar.progressdisable {
         background-color: #df2222;
     }
+    /deep/ .tailwind .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label,
+    .tailwind-dark .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label {
+        display: inline;
+    }
+    /deep/ #coordinates .e-image {
+        filter: brightness(180%);
+    }
+    .e-bigger .e-grid .e-rowcell {
+        line-height: 24px;
+    }
 </style>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Filter, TreeGridComponent, Sort, Reorder, ITreeData } from "@syncfusion/ej2-vue-treegrid";
+import { createApp } from "vue";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Filter, Sort, Reorder, ITreeData } from "@syncfusion/ej2-vue-treegrid";
 import { QueryCellInfoEventArgs, Column, getObject, ActionEventArgs } from '@syncfusion/ej2-grids';
 import { addClass, isNullOrUndefined } from '@syncfusion/ej2-base';
 import { countries } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: countries,
       filterSettings: { type: 'Excel' },
       unemploymentTemplate: function () {
         return {
-            template: Vue.component('unemploymentTemplate', {
+            template: createApp({}).component('unemploymentTemplate', {
                 template: `<div id="myProgress" class="pbar">
                                 <div id="myBar" class="bar">
-                            <div id="label" class="barlabel"></div>
+                            <div id="treegridlabel" class="barlabel"></div>
                               </div>
                     </div>`,
             data: function() {
@@ -149,15 +177,15 @@ export default Vue.extend({
     },
     flagtemplate: function () {
         return {
-            template: Vue.component('flagtemplate', {
-                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</img></div>`,
+            template: createApp({}).component('flagtemplate', {
+                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</div>`,
             data: function () { return { data: { } }; },
             })
         }
     },
     ratingTemplate: function () {
         return {
-            template: Vue.component('ratingTemplate', {
+            template: createApp({}).component('ratingTemplate', {
                 template: '<div id="status" class="rating">\
                     <span v-for="i in item" :class="{checked: i <= data.rating, star: true}"></span>\
             </div>',
@@ -167,15 +195,15 @@ export default Vue.extend({
     },
     locationTemplate: function () {
         return {
-            template: Vue.component('locationTemplate', {
-                template: '<div><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/{{data.coordinates}}">{{data.coordinates}}</a></div>',
+            template: createApp({}).component('locationTemplate', {
+                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }
     },
     gdpTemplate: function() {
         return {
-            template: Vue.component('gdpTemplate', {
+            template: createApp({}).component('gdpTemplate', {
                 template: `<div class="statustemp">
                 <span class="statustxt">{{data.gdp}} %</span>
             </div>`,
@@ -189,8 +217,8 @@ export default Vue.extend({
     },
     timezoneTemplate: function() {
         return {
-            template: Vue.component('timezoneTemplate', {
-                template: `<div><img src="source/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</img></div>`,
+            template: createApp({}).component('timezoneTemplate', {
+                template: `<div><img src="source/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</div>`,
             data: function() {
                     return {
                         data: {}
@@ -201,7 +229,7 @@ export default Vue.extend({
     },
     areaTemplate: function() {
       return {
-            template: Vue.component('areaTemplate', {
+            template: createApp({}).component('areaTemplate', {
                 template: `<span>{{data.area}} km <sup>2</sup>
                 </span>`,
             data: function() {
@@ -263,14 +291,15 @@ export default Vue.extend({
         }
 
         if ((args.column as Column).field === 'timezone') {
+            let imageElement = (args.cell as Element).querySelector('.e-img') as HTMLImageElement;
+            imageElement.style.filter = "brightness(150%)";
             let timeZone: string = getObject('timezone', args.data);
             if (timeZone.indexOf('-')!== -1) {
-                let imageElement = (args.cell as Element).querySelector('.e-img') as HTMLImageElement;
                 imageElement.className = 'negativeTimeZone';
             }
         }
     },
   },
-});
+}
 </script>
 

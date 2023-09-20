@@ -361,7 +361,7 @@ export let virtualizationData = [{
 },
 {
     name: "Margaret",
-    imgUrl: "./src/listview/images/laura.png",
+    imgUrl: "./src/listview/images/margaret.png",
     id: "3"
 },
 {
@@ -386,7 +386,7 @@ export let virtualizationData = [{
 },
 {
     name: "Albert",
-    imgUrl: "./src/listview/images/laura.png",
+    imgUrl: "./src/listview/images/albert.png",
     id: "8"
 },
 {

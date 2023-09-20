@@ -11,6 +11,7 @@
         :primaryYAxis="primaryYAxis"
         :chartArea="chartArea"
         :width="width"
+        :legendSettings='legend'
       >
         <e-series-collection>
           <e-series
@@ -21,6 +22,7 @@
             name="Renewable"
             :opacity="opacity"
             fill="#56CCF2"
+            :border='border'
           ></e-series>
           <e-series
             :dataSource="seriesData1"
@@ -30,6 +32,7 @@
             name="Non-Renewable"
             :opacity="opacity"
             fill="#2F80ED"
+            :border='border'
           ></e-series>
         </e-series-collection>
       </ejs-chart>
@@ -39,27 +42,19 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stacked StepArea type charts. This series forms the step line progress, by connecting points through vertical and horizontal lines with area filled.
-        You can use
-        <code>dashArray</code>,
-        <code>width</code>,
-        <code>fill</code> properties to customize the area.
-        <code>marker</code> and
-        <code>dataLabel</code> are used to represent individual data and its value.
+        In this example, you can see how to render and configure the stacked step area chart. This series forms the
+        step area progress, by connecting points through vertical and horizontal lines with area filled. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the stacked step area. Both <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/marker/">marker</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/dataLabel/">dataLabel</a> are used to represent individual data and its value.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
-        Chart component features are segregated into individual feature-wise modules. To use step area series, we need to inject
+        Chart component features are segregated into individual feature-wise modules. To use stacked step area series, we need to inject
         <code>StackingStepAreaSeries</code> module using
         <code>provide: { chart: [StackingStepAreaSeries] }</code> method.
       </p>
       <p>
-        More information on the Stacked StepArea series can be found in this
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype"
-        >documentation section</a>.
+        More information about the stacked step area series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/range-step-area">documentation section</a>.
       </p>
     </div>
   </div>
@@ -67,22 +62,28 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   StackingStepAreaSeries,
-  Legend
+  Legend,
+  Highlight
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -113,7 +114,7 @@ export default Vue.extend({
         { x: 2008, y: 300 },
         { x: 2009, y: 173 },
         { x: 2010, y: 220 },
-        { x: 2011, y: 309 }
+        { x: 2011, y: 220 }
       ],
       //Initializing Primary X Axis
       primaryXAxis: {
@@ -135,14 +136,16 @@ export default Vue.extend({
           width: 0
         }
       },
-      width: "60%",
+      width: Browser.isDevice ? '100%' : '75%',
+      legend: {enableHighlight : true},
       title: "Electricity- Production",
-      opacity: 0.5
+      opacity: 0.5,
+      border: { width: 2.5 }
     };
   },
   provide: {
-    chart: [StackingStepAreaSeries, Legend]
+    chart: [StackingStepAreaSeries, Legend, Highlight]
   },
   methods: {}
-});
+};
 </script>

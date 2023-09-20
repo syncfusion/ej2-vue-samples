@@ -64,19 +64,19 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { TreeGridPlugin, TreeGridComponent, Page } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from '@syncfusion/ej2-vue-dropdowns';
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from '@syncfusion/ej2-vue-dropdowns';
 import { sampleData } from "./data-source";
 import { GridLine } from "@syncfusion/ej2-vue-grids";
 
-
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -94,8 +94,8 @@ export default Vue.extend({
     },
     methods: {
         onChange: function(e: ChangeEventArgs) {
-           this.lines = <string>e.value;
+           (this as any).lines = <string>e.value;
         }
     }
-});
+}
 </script>

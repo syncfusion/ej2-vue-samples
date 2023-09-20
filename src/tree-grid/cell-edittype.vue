@@ -6,9 +6,9 @@
                <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                <e-column field='taskName' headerText='Task Name' width='180'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
                <e-column field='startDate' headerText='Start Date' width='180' :format="format" :edit='dateparams'  editType='datetimepickeredit' textAlign='Right' :validationRules='startdaterules'></e-column>
-               <e-column field='duration' headerText='Duration' width='80' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
-               <e-column field='progress' headerText='Progress' width='85' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
-               <e-column field='approved' headerText='Approved' width='80' textAlign='Right'  editType= 'booleanedit' :displayAsCheckBox='true'></e-column>
+               <e-column field='duration' headerText='Duration' width='150' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
+               <e-column field='progress' headerText='Progress' width='150' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
+               <e-column field='approved' headerText='Approved' width='150' textAlign='Right'  editType= 'booleanedit' :displayAsCheckBox='true'></e-column>
             </e-columns>
         </ejs-treegrid>
     </div>
@@ -53,13 +53,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default  Vue.extend({
+export default  {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -78,7 +80,7 @@ export default  Vue.extend({
   };
   },
    provide : {
-      treegrid: [Edit, Page]
+      treegrid: [Edit, Page, Toolbar]
     },
-});
+}
 </script>

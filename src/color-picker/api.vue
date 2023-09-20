@@ -109,16 +109,11 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(ColorPickerPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
     data: function () {
         return {
             hex: '#0db1e7',
@@ -132,6 +127,11 @@ export default Vue.extend({
             ],
             fields: { text: 'mode', value: 'mode' }
         };
+    },
+    components: {
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-colorpicker': ColorPickerComponent,
     },
     computed: {
         hexValue: {
@@ -197,5 +197,5 @@ export default Vue.extend({
             this.disabledValue = args.checked;
         }
     }
-});
+};
 </script>

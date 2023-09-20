@@ -13,32 +13,26 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Allow Virtual Scrolling</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-dropdownlist id="allow-virtual-scroll" :dataSource='datas' :value='value' popupHeight='200px' :change='change'></ejs-dropdownlist>
+                                <ejs-dropdownlist id="allow-virtual-scroll" :dataSource='datas' :value='value' popupHeight='200px' :change='change'
+                                floatLabelType="Always" placeholder="Allow Virtual Scrolling"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Hide Empty Days</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-dropdownlist id="hide-empty-days" :dataSource='datas' :value='values' :change='onChange' popupHeight="200px"></ejs-dropdownlist>
+                                <ejs-dropdownlist id="hide-empty-days" :dataSource='datas' :value='values' :change='onChange' popupHeight="200px"
+                                floatLabelType="Always" placeholder="Hide Empty Days"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Days Count</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-numerictextbox :min='1' :max='15' :value='7' format='n0' :change='onCountChange'>
+                                <ejs-numerictextbox :min='1' :max='15' :value='7' format='n0' :change='onCountChange'
+                                floatLabelType="Always" placeholder="Days Count">
                                 </ejs-numerictextbox>
                             </div>
                         </td>
@@ -74,25 +68,27 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { generateObject } from './datasource';
-    import { SchedulePlugin, Agenda, View } from '@syncfusion/ej2-vue-schedule';
-    import { NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-    import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+    import { ScheduleComponent, ViewsDirective, ViewDirective, Agenda } from '@syncfusion/ej2-vue-schedule';
+    import { NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+    import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
-    Vue.use(NumericTextBoxPlugin);
-    Vue.use(DropDownListPlugin);
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-numerictextbox': NumericTextBoxComponent,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: generateObject() },
-                selectedDate: new Date(2018, 1, 15),
-                datas: ['Agenda'],
+                selectedDate: new Date(2021, 1, 15),
+                datas: ['True', 'False'],
                 scheduleView: 'Agenda',
                 virtualscroll: false,
                 value: 'False',
-                datas: ['True', 'False'],
                 values: 'True'
             }
         },
@@ -113,6 +109,6 @@
                 this.$refs.ScheduleObj.ej2Instances.agendaDaysCount = args.value !== null ? args.value : 7;
             }
         }
-    });
+    }
 
 </script>

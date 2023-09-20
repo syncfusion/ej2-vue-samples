@@ -1,10 +1,9 @@
 <template>
 <div>
     <div class="col-lg-12 control-section tooltip-menu">
-        <ejs-tooltip ref="tooltip" target="#toolbar-menu button" :beforeOpen="onBeforeRender" :created='created'
-            :showTipPointer="show" :width="170" cssClass="e-tooltip-menu-settings" opensOn="Click" id="tooltip-menu">
+        <ejs-tooltip ref="tooltip" target="#toolbar-menu button" :beforeOpen="onBeforeRender" :created='created' :width="170" cssClass="e-tooltip-menu-settings" opensOn="Click" id="tooltip-menu">
             <div class="toolbarContainer">
-                <ejs-toolbar id='toolbar-menu' width=387>
+                <ejs-toolbar id='toolbar-menu'>
                     <e-items>
                         <e-item prefixIcon='e-copy-icon tb-icons' overflow='Hide' text='Wireless & networks' tooltipText='Wireless & networks'></e-item>
                         <e-item prefixIcon='e-copy-icon tb-icons' text='Device' overflow='Hide' tooltipText='Device'></e-item>
@@ -33,16 +32,19 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { closest } from "@syncfusion/ej2-base";
-Vue.use(ToolbarPlugin);
-Vue.use(TooltipPlugin);
-Vue.use(ListViewPlugin);
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective,
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       headerText0: {
@@ -174,13 +176,13 @@ export default Vue.extend({
       ];
       for (let i = 0; i < data.length; i++) {
         if (data[i].title === args.target.parentElement.getAttribute("title")) {
-          this.$refs.listview.dataSource = data[i].data;
-          this.$refs.tooltip.content = this.$refs.listview.$el;
+          this.$refs.listview.ej2Instances.dataSource = data[i].data;
+          this.$refs.tooltip.ej2Instances.content = this.$refs.listview.$el;
         }
       }
     }
   }
-});
+}
 </script>
 <style>
 @font-face {
@@ -214,6 +216,11 @@ export default Vue.extend({
 .tooltip-menu .toolbarContainer #toolbar-menu {
   margin: 0 auto;
   background: transparent;
+  display: inline-block;
+}
+
+.toolbarContainer {
+  text-align: center;
 }
 
 .e-tooltip-menu-settings #tooltipMenu-list .e-list-item:last-child {
@@ -237,6 +244,10 @@ export default Vue.extend({
 
 .material .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .bootstrap .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.bootstrap5 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .highcontrast .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
   border: 1px solid #dddddd;
 }
@@ -246,6 +257,22 @@ export default Vue.extend({
   .e-tooltip-menu-settings.e-tooltip-wrap
   .e-arrow-tip-outer.e-tip-top {
   border-bottom: 8px solid #dddddd;
+}
+
+.material-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 6px solid rgb(238, 238, 238);
+}
+    
+.fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 6px solid rgb(244, 244, 244);
+}
+    
+.bootstrap-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 6px solid rgb(80, 80, 80);
+}
+    
+.tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap .e-arrow-tip.e-tip-top {
+    top: -9px !important;
 }
 
 .highcontrast .e-tooltip-menu-settings #tooltipMenu-list .e-list-item.e-hover {
@@ -273,6 +300,8 @@ export default Vue.extend({
 @media screen and (max-width: 420px) {
   .e-bigger .tooltip-menu .toolbarContainer {
     width: 75%;
+    overflow: auto;
+    margin: auto;
   }
 }
 
@@ -332,16 +361,21 @@ export default Vue.extend({
   content: "\e710";
 }
 
-.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
+.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
   border-color: rgba(0, 0, 0, .15);
 }
 
-.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview {
+.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.bootstrap5 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview {
   border: 0;
 }
 
-.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top {
+.bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top,
+.tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top {
   border-bottom: 6px solid rgba(0, 0, 0, .15);
 }
-
 </style>

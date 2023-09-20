@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-nodejs">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' >
+            <ejs-filemanager id="filemanager" :ajaxSettings='ajaxSettings' :toolbarSettings='toolbarSettings' :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -22,15 +22,17 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { FileManagerPlugin, NavigationPane, Toolbar, DetailsView, ContextMenu, FileManagerComponent } from "@syncfusion/ej2-vue-filemanager";
+import { FileManagerComponent, NavigationPane, Toolbar, DetailsView, ContextMenu } from "@syncfusion/ej2-vue-filemanager";
 
-Vue.use(FileManagerPlugin);
 /**
  * File Manager sample with Node.js service
  */
 let hostUrl = 'https://ej2-nodejs-service.azurewebsites.net/';
-export default Vue.extend ({
+
+export default {
+     components: {
+      'ejs-filemanager': FileManagerComponent
+     },
      data: function() {
         return {            
            ajaxSettings:  {
@@ -38,11 +40,16 @@ export default Vue.extend ({
                 getImageUrl: hostUrl + 'GetImage',
                 uploadUrl: hostUrl + 'Upload',
                 downloadUrl: hostUrl + 'Download'
+            },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
             }
         };
     },
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar, ContextMenu]
     }
-});
+}
 </script>

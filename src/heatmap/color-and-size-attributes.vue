@@ -2,7 +2,7 @@
 <div>
 <div class="control-section">
     <div class="content-wrapper">
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
+        <ejs-heatmap id='container' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org" target='_blank'>https://en.wikipedia.org/</a>
@@ -15,25 +15,26 @@
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to map more than one data for each data point or cell of the bubble heatmap. The size and shade parameters of the bubble is used to depict the data source values. The legend will be displayed only for the shade parameter of the bubble. For JSON data, you can specify which data source value should be mapped to either size or shade of the bubble parameters using the dataMapping property. The data source field should mapped to the size and color properties of the dataMapping property.In this example, you can see how to map more than one data for each data point or cell of the bubble heatmap. The <code>size</code> and <code>shade</code> parameters of the bubble is used to depict the data source values. The legend will be displayed only for the shade parameter of the bubble. For JSON data, you can specify which data source value should be mapped to either size or shade of the bubble parameters using the <code>dataMapping</code> property. The data source field should mapped to the <code>size</code> and <code>color</code> properties of the <code>dataMapping</code> property.
+        In this example, you can see how to map more than one data for each data point or cell of the bubble heatmap. The <code>size</code> and <code>shade</code> parameters of the bubble is used to depict the data source values. The legend will be displayed only for the shade parameter of the bubble. For JSON data, you can specify which data source value should be mapped to either size or shade of the bubble parameters using the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/dataModel/#bubbledatamapping">bubbleDataMapping</a> property. The data source field should be mapped to the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/bubbleDataModel/#size">size</a> and <a target='_blank' href="https://ej2.syncfusion.com/javascript/documentation/api/heatmap/bubbleDataModel/#color">color</a> properties of the <code>bubbleDataMapping</code> property.
     </p>
-    <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
-    </p>
+    <p>The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item on touch-enabled devices.</p>
     <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p><b>Injecting Module</b></p>
     <p>
-        Heatmap component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip </code> module using the <code>Heatmap.Inject(Tooltip) </code> method.
+      Heatmap component features are separated into discrete feature-based modules. To use a tooltip, legend and data adaptor, inject the <a target="_blank"
+      href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> and 
+      <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/adaptorType/" target='_blank'>Adaptor</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend, Adaptor] }</code> method.
     </p>
-   
 </div>
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { HeatMapPlugin, Tooltip, Legend, Adaptor } from "@syncfusion/ej2-vue-heatmap";
-Vue.use(HeatMapPlugin);
-export default Vue.extend({
+import { HeatMapComponent, Tooltip, Legend, Adaptor } from "@syncfusion/ej2-vue-heatmap";
+
+export default {
+components: {
+    'ejs-heatmap': HeatMapComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -42,14 +43,20 @@ return{
                 size: '15px',
                 fontWeight: '500',
                 fontStyle: 'Normal',
-                fontFamily: 'Segoe UI'
+                fontFamily:'inherit'
             }
         },
          xAxis: {
-            labels: ['2017', '2016', '2015', '2014', '2013', '2012']
+            labels: ['2017', '2016', '2015', '2014', '2013', '2012'],
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         yAxis: {
-            labels:  ['Jan-Feb', 'Mar-Apr', 'May-Jun', 'Jul-Aug', 'Sep-Oct', 'Nov-Dec']
+            labels:  ['Jan-Feb', 'Mar-Apr', 'May-Jun', 'Jul-Aug', 'Sep-Oct', 'Nov-Dec'],
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         dataSource: [
             { Year: '2017', Months: 'Jan-Feb', Accidents: 4, Fatalities: 39 },
@@ -102,7 +109,10 @@ return{
             },
             showLabel: false,
             tileType: 'Bubble',
-            bubbleType: 'SizeAndColor'
+            bubbleType: 'SizeAndColor',
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         paletteSettings: {
             palette: [{ color: '#C06C84' },
@@ -111,7 +121,15 @@ return{
             type: 'Gradient'
         },
         legendSettings: {
-            visible: true
+            visible: true,
+            textStyle: {
+                fontFamily: 'inherit'
+            }
+        },
+        tooltipSettings:{
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         height:'200px'
 }
@@ -121,10 +139,12 @@ provide:{
 },
 methods: {
     load: function(args) {
+    /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+    /* custom code end */
     },
     tooltipRender:function(args)
     {
@@ -133,5 +153,5 @@ methods: {
                 + args.value[1].bubbleData];
     },
   }
-})
+}
 </script>

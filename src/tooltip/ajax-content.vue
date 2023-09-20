@@ -1,5 +1,6 @@
 <template>
   <div class="control-section tooltip-ajax">
+    <h4 class="list-header">National Sports</h4>
       <ejs-tooltip ref="tooltip" style="display:block;" class="e-prevent-select" :content="content" target="#countrylist [title]" position='RightCenter' cssClass= 'e-ajax-content'
         :beforeRender="onBeforeRender">
 
@@ -7,7 +8,7 @@
         <ejs-listview id='countrylist' :dataSource="listViewData" :fields='fields'></ejs-listview>
     </ejs-tooltip>
             <div id="action-description">
-                <p>This sample demonstrates the AJAX functionalities of the Tooltip which will open by Hover or Touch-hold action on list-item.</p>
+                <p>This sample demonstrates the AJAX functionalities of the Tooltip which will open by <b>hover</b> or <b>touch-hold</b> action on list-item.</p>
             </div>    
             <div id="description">
                  <p>This sample illustrates the way to load the content of a tooltip dynamically using AJAX request. Here, when the user
@@ -92,7 +93,6 @@
 
     .tooltip-ajax .list-header {
         text-align: center;
-        color: rgba(0, 0, 0, 0.54);
     }
 
     @media (max-width: 481px) {
@@ -126,13 +126,15 @@
     
 </style>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-import { Ajax } from '@syncfusion/ej2-base';
-Vue.use(ListViewPlugin);
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
+import { Fetch } from '@syncfusion/ej2-base';
+
+export default {
+   components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-listview': ListViewComponent
+   },
    data: function(){
         return {
             content : "Loading..",
@@ -151,9 +153,8 @@ export default Vue.extend({
    methods: {
        onBeforeRender: function(args){
             
-   let ajax = new Ajax('./source/tooltip/tooltipdata.json', 'GET', true);
-        ajax.onSuccess = (data) => {
-            data = JSON.parse(data);
+   let fetchApi = new Fetch('source/tooltip/tooltipdata.json', 'GET');
+        fetchApi.onSuccess = (data) => {
             for (var i = 0; i < data.length; i++) {
                 if (data[i].Id === args.target.getAttribute('data-content')) {
                     /* tslint:disable */
@@ -162,8 +163,8 @@ export default Vue.extend({
                 }
             }   
         };
-        ajax.send();
+        fetchApi.send();
        }
    }
-});
+}
 </script>

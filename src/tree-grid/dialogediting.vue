@@ -21,13 +21,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: sampleData.slice(0),
@@ -37,6 +39,8 @@ export default Vue.extend({
       tasknamerules: { required: true },
       startdaterules:  { date: true },
       numberrules: { number: true, min: 0},
+      durationrules : { number: true , min: 0},
+      progressrules : { number: true , min: 0},
       editparams: { params: { format: 'n' }},
       pageSettings: { pageCount: 5}
     };
@@ -48,5 +52,5 @@ export default Vue.extend({
      
   }
 
-});
+}
 </script>

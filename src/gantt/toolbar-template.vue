@@ -46,11 +46,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Toolbar, DayMarkers, Filter  } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Toolbar, DayMarkers, Filter  } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -98,21 +100,24 @@ export default Vue.extend({
         }
     }
   }
-});
+}
 </script>
 
 <style scoped>
-    /deep/ #ToolbarTemplate .e-quickfilter::before {
+    #ToolbarTemplate  .e-quickfilter::before {
         content: "\e7ee"
     }
-    /deep/ .fabric #ToolbarTemplate .e-quickfilter::before,
-    .highcontrast #ToolbarTemplate .e-quickfilter::before {
+    .fabric #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .highcontrast #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e21c';
     }
-    /deep/ .bootstrap #ToolbarTemplate .e-quickfilter::before {
+    .bootstrap #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e946';
     }
-    /deep/ .bootstrap4 #ToolbarTemplate .e-quickfilter::before {
+    .bootstrap4 #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e714';
+    }
+    .tailwind #ToolbarTemplate /deep/  .e-quickfilter::before {
+        content: '\e71b';
     }
 </style>

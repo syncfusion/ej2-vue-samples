@@ -5,8 +5,14 @@
                 <ejs-schedule id='Schedule' width="100%" height="650px" :selectedDate='selectedDate' :currentView='currentView'
                 :eventRendered="onEventRendered" :eventSettings="eventSettings">
                     <e-header-rows>
-                        <e-header-row option="Month" :template="monthHeaderTemplate"></e-header-row>
-                        <e-header-row option="Week" :template="weekHeaderTemplate"></e-header-row>
+                        <e-header-row option="Month" :template="'monthHeaderTemplate'"></e-header-row>
+                        <template v-slot:monthHeaderTemplate="{data}">
+                            <span class="month">{{getMonthDetails(data)}}</span>
+                        </template>
+                        <e-header-row option="Week" :template="'weekHeaderTemplate'"></e-header-row>
+                        <template v-slot:weekHeaderTemplate="{data}">
+                            <span class="week">{{getWeekDetails(data)}}</span>
+                        </template>
                         <e-header-row option="Date"></e-header-row>
                     </e-header-rows>
                     <e-views>
@@ -41,61 +47,31 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
+    import { createApp } from 'vue';
     import { extend, Internationalization } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, TimelineMonth, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-    import { getWeekNumber, CellTemplateArgs, getWeekLastDate } from '@syncfusion/ej2-schedule';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, HeaderRowsDirective, HeaderRowDirective, TimelineMonth, TimelineViews, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { getWeekNumber, getWeekLastDate } from '@syncfusion/ej2-schedule';
     import { headerRowData } from './datasource';
-    Vue.use(SchedulePlugin);
 
+    var app = createApp();
     var instance = new Internationalization();
-    var monthHeaderVue = Vue.component("month-header", {
-        template: '<span class="month">{{getMonthDetails(data)}}</span>',
-        data() {
-            return {
-                data: {}
-            };
-        },
-        methods: {
-            getMonthDetails: function (value) {
-                return instance.formatDate(value.date, { skeleton: 'yMMMM' });
-            }
-        }
-    });
 
-    var weekHeaderVue = Vue.component("week-header", {
-        template: '<span class="week">{{getWeekDetails(data)}}</span>',
-        data() {
-            return {
-                data: {}
-            };
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-header-rows': HeaderRowsDirective,
+          'e-header-row': HeaderRowDirective
         },
-        methods: {
-             getWeekDetails: function (value) {
-                return 'Week ' + getWeekNumber(getWeekLastDate(value.date, 0));
-            }
-        }
-    });
-
-    export default Vue.extend({
         data: function () {
             return {
                 eventSettings: {
                     dataSource: extend([], headerRowData, null, true)
                 },
-                selectedDate: new Date(2018, 0, 1),
+                selectedDate: new Date(2021, 0, 1),
                 currentView: 'Month',
                 interval: 12,
-                monthHeaderTemplate: function (e) {
-                    return {
-                        template: monthHeaderVue
-                    };
-                },
-                weekHeaderTemplate: function (e) {
-                    return {
-                        template: weekHeaderVue
-                    };
-                }
             }
         },
         provide: {
@@ -108,8 +84,14 @@
                     return;
                 }
                 args.element.style.backgroundColor = categoryColor;
+            },
+            getMonthDetails: function (value) {
+                return instance.formatDate(value.date, { skeleton: 'yMMMM' });
+            },
+            getWeekDetails: function (value) {
+                return 'Week ' + getWeekNumber(getWeekLastDate(value.date, 0));
             }
         }
-    });
+    };
 
 </script>

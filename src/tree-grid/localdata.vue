@@ -23,21 +23,26 @@
         The <code>dataSource
         </code> property can be assigned either with the array of JavaScript objects or instance of <code>DataManager</code>.</p>
     <p>In this demo, the array of JavaScript objects is assigned as the data source to the Tree Grid.</p>
-    <p>
-        More information on the data binding can be found in this documentation section.
-    </p>
+        <p>
+            More information on the local data binding can be found in this
+            <a target="_blank" 
+                href="https://ej2.syncfusion.com/vue/documentation/treegrid/data-binding/local-data/">
+               documentation section</a>.
+        </p>
 </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -51,5 +56,5 @@ export default Vue.extend({
      
   }
 
-});
+}
 </script>

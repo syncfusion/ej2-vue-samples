@@ -21,7 +21,8 @@
         </tbody></table>
     </div>
     <div id="action-description">
-      <p>This example demonstrates the chunk upload functionalities of the Uploader component.
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates the chunk upload functionalities of the Uploader component.
           Browse or drag-and-drop a large file to upload with pause, resume, and retry options. </p>
           <p>Also, configured property panel to change the chunk size dynamically.</p>
     </div>
@@ -30,7 +31,7 @@
         <p>When the file size is large or transfer the file with slow network connection, the chunk upload feature slices the files and upload the sliced chunks to server in sequential order
            using the <a href="https://ej2.syncfusion.com/vue/documentation/api/uploader/asyncSettingsModel/#chunksize"
             target="_blank">&nbsp;chunkSize</a> API. It will slice the files and upload it in sequential order.</p>
-          
+
           <p>The sample is configured with the following options:</p>
 
           <ul>
@@ -61,24 +62,23 @@
 .control-section .uploader.col-lg-8 {
     padding: 20px;
 }
-
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 
-Vue.use(UploaderPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove',
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove',
             chunkSize: 500000
           },
 		  isAuto: false,
@@ -139,5 +139,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

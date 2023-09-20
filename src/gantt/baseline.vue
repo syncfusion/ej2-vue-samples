@@ -2,23 +2,42 @@
   <div>
     <div class="control-section">
       <div class="content-wrapper">
-        <ejs-gantt ref='gantt'
-          id="GanttContainer"
-          :dataSource="dataSource"
-          :renderBaseline="true"
-          :taskFields="taskFields"
-          :columns="columns"
-          :allowSelection="true"
-          :includeWeekend="true"
-          :timelineSettings="timelineSettings"
-          :tooltipSettings="tooltipSettings"
-          :durationUnit="durationUnit"
-          :dateFormat="dateFormat"
-          :height="height"
-          :dayWorkingTime="dayWorkingTime"
-          :projectStartDate="projectStartDate"
-          :projectEndDate="projectEndDate"
-        ></ejs-gantt>
+        <ejs-gantt ref='gantt' id="GanttContainer" :dataSource="dataSource" :renderBaseline="true" :taskFields="taskFields"
+  :columns="columns" :allowSelection="true" :includeWeekend="true" :timelineSettings="timelineSettings"
+  :tooltipSettings="tooltipSettings" :durationUnit="durationUnit" :dateFormat="dateFormat" :height="height"
+  :dayWorkingTime="dayWorkingTime" :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
+  <template v-slot:taskbarTooltipTemplate="{data}">
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3">{{data.TaskName}}</td>
+          </tr>
+          <tr>
+            <td> Start Time </td>
+            <td>:</td>
+            <td>{{format(data.StartDate)}}</td>
+          </tr>
+          <tr>
+            <td> End Time</td>
+            <td>:</td>
+            <td>{{format(data.EndDate)}}</td>
+          </tr>
+          <tr>
+            <td> Planned start time</td>
+            <td>:</td>
+            <td>{{format(data.BaselineStartDate)}}</td>
+          </tr>
+          <tr>
+            <td> Planned end time</td>
+            <td>:</td>
+            <td>{{format(data.BaselineEndDate)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+</ejs-gantt>
         <div style="float: right; margin: 10px;">Source:
             <a href="https://en.wikipedia.org/wiki/Service_(motor_vehicle)"
                 target='_blank'>https://en.wikipedia.org/</a>
@@ -49,12 +68,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Gantt, Selection } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Gantt, Selection } from "@syncfusion/ej2-vue-gantt";
 import { baselineData } from "./data-source";
-import BaselineTemplate from "./baseline-temp.vue";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
             dataSource: baselineData,
@@ -91,14 +111,17 @@ export default Vue.extend({
             projectStartDate: new Date('03/05/2018 09:30:00 AM'),
             projectEndDate: new Date('03/05/2018 07:00:00 PM'),
             tooltipSettings: {
-              taskbar: function () {
-                return { template : BaselineTemplate}
-              }        
+              taskbar: "taskbarTooltipTemplate"
             }
     };
   },
   provide: {
       gantt: [Selection]
+  },
+  methods: {
+      format: function(value) {
+                return this.$refs.gantt.getFormatedDate(value, 'hh:mm a');
+            }
   }
-});
+}
 </script>

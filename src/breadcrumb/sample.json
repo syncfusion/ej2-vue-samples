@@ -1,0 +1,57 @@
+{
+    "name": "Breadcrumb",
+    "directory": "breadcrumb",
+    "category": "Navigation",
+    "ftName": "breadcrumb",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Breadcrumb",
+            "description": "This example demonstrates the Syncfusion Vue Breadcrumb items with icons, text and url along with overflow mode when exceeds maximum items count.",
+            "api":{ "Breadcrumb":["items", "enableNavigation", "maxItems", "separatorTemplate"], "BreadcrumbItem": ["text", "iconCss", "url"] }
+        },
+        {
+            "url": "bind-to-location",
+            "name": "Bind to Location",
+            "category": "Breadcrumb",
+            "api":{ "Breadcrumb":["url"] },
+            "description": "This example demonstrates the binding of current url location to the items and items based on static url of Syncfusion Vue Breadcrumb component."
+        },
+        {
+            "url": "template-and-customization",
+            "name": "Template and Customization",
+            "category": "Breadcrumb",
+            "description": "This example demonstrates how to customize item and separator by using templates, disable, add icon for item, with the Syncfusion Vue Breadcrumb component.",
+            "api":{ "Breadcrumb":["items", "cssClass", "itemTemplate", "separatorTemplate"], "BreadcrumbItem": ["text", "iconCss"] }
+        },
+        {
+            "url": "overflow-modes",
+            "name": "Overflow Modes",
+            "category": "Breadcrumb",
+            "api":{ "Breadcrumb":["items", "width", "overflowMode"], "BreadcrumbItem": ["text", "url"] },
+            "description": "This example demonstrates different types of overflow mode such as Menu, Wrap, Collapsed, Scroll, and None in the Syncfusion JavaScript Breadcrumb component."
+        },
+        {
+            "url": "events",
+            "name": "Events",
+            "category": "Breadcrumb",
+            "api":{ "Breadcrumb":["items", "created", "itemClick", "beforeItemRender", "enableNavigation"], "BreadcrumbItem": ["text", "iconCss"] },
+            "description": "This example demonstrates Syncfusion Vue Breadcrumb component shows the events that have been triggered during the breadcrumb actions."
+        },
+        {
+            "url": "keyboard-navigation",
+            "name": "Keyboard Navigation",
+            "category": "Breadcrumb",
+            "api":{ },
+            "description": "This example explains the key combinations used to perform various actions in Syncfusion Vue Breadcrumb component."
+        },
+        {
+            "url": "address-bar",
+            "name": "Address Bar",
+            "category": "Use Case",
+            "api":{ "Breadcrumb":["items", "cssClass", "itemTemplate", "separatorTemplate", "beforeItemRender"], "BreadcrumbItem": ["text"] },
+            "description": "This example demonstrates the use case of the Syncfusion Vue Breadcrumb by integrating with Menu component using templates."
+        }
+    ]
+}

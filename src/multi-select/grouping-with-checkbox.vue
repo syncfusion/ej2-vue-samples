@@ -4,7 +4,7 @@
         <div class="col-lg-12 control-section">
             <div class="control-styles">
                 <h4>Grouping with CheckBox</h4>
-                <ejs-multiselect id='multiselect-checkbox' :dataSource='vegetables' :placeholder='checkWaterMark' :fields='checkFields'
+                <ejs-multiselect id='multiselect-checkbox' cssClass="e-specific" :dataSource='vegetables' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='multiMode' :popupHeight='popupHeight' :showDropDownIcon='showDropDownIcon' :showSelectAll='showSelectAll'
                     :enableSelectionOrder='enableSelectionOrder' :filterBarPlaceholder='filterPlaceholder' :enableGroupCheckBox='enableGroupCheck'></ejs-multiselect>
             </div>
@@ -29,17 +29,22 @@
         width:300px; 
         padding-top: 25px
     }
+    .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(1px);
+    }
+
+   .e-bigger .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(2px);
+    }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as data from './dataSource.json';
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent,
+    },
     data: function() {
         return {
             checkFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
@@ -57,5 +62,5 @@ export default Vue.extend ({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

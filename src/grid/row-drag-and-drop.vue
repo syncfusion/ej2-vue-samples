@@ -30,11 +30,11 @@
      <div id="description">
          <p>Grid rows can be dragged and dropped to another Grid or custom controlled by 
             enabling <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#allowrowdraganddrop">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowrowdraganddrop">
         allowRowDragAndDrop
         </a></code> property. The target control on which the 
             Grid rows has to be dropped can be set by using <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#rowdropsettings">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowdropsettings">
         rowDropSettings->targetID</a></code> property.</p>
         <p>The Selection feature should be enabled to select the rows. Multiple rows can be selected by 
             simply clicking and dragging inside the Grid.</p>     
@@ -50,7 +50,7 @@
           <p>
             More information on the row drag and drop can be found in this 
             <a target="_blank" 
-            href="https://ej2.syncfusion.com/vue/documentation/grid/row.html#drag-and-drop">
+            href="https://ej2.syncfusion.com/vue/documentation/grid/row/row-drag-and-drop">
             documentation section</a>.
         </p>
     </div>
@@ -76,13 +76,15 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, RowDD, Selection, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, RowDD, Selection, Page } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       srcData: orderDetails,
@@ -96,5 +98,5 @@ export default Vue.extend({
   provide: {
       grid: [RowDD, Page, Selection]
   }
-});
+}
 </script>

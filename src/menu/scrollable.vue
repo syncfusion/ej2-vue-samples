@@ -19,8 +19,7 @@
 </div>
 </div>
 </template>
-<!-- custom code start -->
-<style scoped>
+<style>
     /**
     * ej2 Menu styles
     */
@@ -46,16 +45,16 @@
         }
     }
 </style>
-<!-- custom code end -->
+
 <script>
-import Vue from "vue";
-import { MenuPlugin } from "@syncfusion/ej2-vue-navigations";
+import { MenuComponent } from "@syncfusion/ej2-vue-navigations";
 import { closest } from '@syncfusion/ej2-base';
 import * as dataSource from './menu-data.json';
 
-Vue.use(MenuPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-menu': MenuComponent
+  },
   data: function() {
     return {
       menuItems: dataSource.scrollableData,
@@ -74,5 +73,5 @@ export default Vue.extend({
         }
       }
   }
-});
+}
 </script>

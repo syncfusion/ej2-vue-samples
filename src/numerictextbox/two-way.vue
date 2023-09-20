@@ -47,16 +47,15 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-    Vue.use(NumericTextBoxPlugin);
-    export default Vue.extend({
+    import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+    export default {
         data: function () {
             return {
                 numeric: "Enter a value",
                 value: null
             };
-        }
-    });
+        },
+        components: { 'ejs-numerictextbox': NumericTextBoxComponent },
+    };
 
 </script>

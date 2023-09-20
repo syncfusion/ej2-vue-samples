@@ -419,28 +419,16 @@ padding-left: 18px;"
 
 
 <script>
-import Vue from "vue";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { BarcodeGeneratorComponent } from "@syncfusion/ej2-vue-barcode-generator";
 import {
-  Button,
-  ButtonPlugin,
-  CheckBoxPlugin
-} from "@syncfusion/ej2-vue-buttons";
-import { Browser } from "@syncfusion/ej2-base";
-import { BarcodeGeneratorPlugin } from "@syncfusion/ej2-vue-barcode-generator";
-import {
-  NumericTextBox,
-  ColorPicker,
-  NumericTextBoxPlugin,
-  TextBoxPlugin,
-  ColorPickerPlugin,
-  ColorPickerEventArgs
+  NumericTextBoxComponent,
+  TextBoxComponent,
+  ColorPickerComponent,
+  FormValidator
 } from "@syncfusion/ej2-vue-inputs";
-Vue.use(NumericTextBoxPlugin);
-Vue.use(BarcodeGeneratorPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ColorPickerPlugin);
-Vue.use(TextBoxPlugin);
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+
 let isMobile;
 let barCodeInstance;
 let textPositiondataSourceValue = [
@@ -454,7 +442,15 @@ let textAlignmentdataSourceValue = [
   { type: "Right", text: "Right" }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-barcodegenerator': BarcodeGeneratorComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-colorpicker': ColorPickerComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       width: "200px",
@@ -523,5 +519,5 @@ export default Vue.extend({
   mounted: function() {
     barCodeInstance = this.$refs.barcodeControl.ej2Instances;
   }
-});
+};
 </script>

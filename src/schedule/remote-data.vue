@@ -2,7 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView="currentView"
+                <ejs-schedule id='Schedule' height="650px" :eventSettings='eventSettings' :currentView="currentView"
                     :readonly="readonly"></ejs-schedule>
             </div>
         </div>
@@ -49,30 +49,29 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
-    import { leaveData } from './datasource';
     import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, View } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-
-    var dataManger = new DataManager({
-        url: 'https://ej2services.syncfusion.com/production/web-services/api/Schedule',
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+    
+    var dataManager = new DataManager({
+        url: 'https://services.syncfusion.com/vue/production/api/schedule',
         adaptor: new WebApiAdaptor,
         crossDomain: true
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent
+        },
         data: function () {
             return {
-                selectedDate: new Date(2020, 10, 22),
                 readonly: true,
-                eventSettings: { dataSource: dataManger },
-                currentView: 'Week'
+                eventSettings: { dataSource: dataManager },
+                currentView: 'Month'
             }
         },
         provide: {
             schedule: [Day, Week, WorkWeek, Month, Agenda]
         }
-    });
+    }
 
 </script>

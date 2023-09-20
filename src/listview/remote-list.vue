@@ -50,22 +50,23 @@
 }
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-Vue.use(ListViewPlugin);
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { DataManager, Query } from '@syncfusion/ej2-data';
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-listview': ListViewComponent
+  },
   data: function() {
     return {
       data: new DataManager({
-        url: '//js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/',
+        url: 'https://services.syncfusion.com/vue/production/api/',
         crossDomain: true
       }),
-      query: new Query().from('Products').select('ProductID,ProductName').take(10),
-      fields:  { id: 'ProductID', text: 'ProductName' },
-      headerTitle: 'Products',
+      query: new Query().from('ListView').select('EmployeeID,FirstName').take(10),
+      fields:  { id: 'EmployeeID', text: 'FirstName' },
+      headerTitle: 'Employees',
     };
   }
-});
+}
 </script>

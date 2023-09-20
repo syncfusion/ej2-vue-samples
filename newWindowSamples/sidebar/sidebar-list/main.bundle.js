@@ -1,253 +1,285 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	function webpackJsonpCallback(data) {
-/******/ 		var chunkIds = data[0];
-/******/ 		var moreModules = data[1];
-/******/ 		var executeModules = data[2];
-/******/
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 		// add entry modules from loaded chunk to deferred list
-/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
-/******/
-/******/ 		// run deferred modules when all chunks ready
-/******/ 		return checkDeferredModules();
-/******/ 	};
-/******/ 	function checkDeferredModules() {
-/******/ 		var result;
-/******/ 		for(var i = 0; i < deferredModules.length; i++) {
-/******/ 			var deferredModule = deferredModules[i];
-/******/ 			var fulfilled = true;
-/******/ 			for(var j = 1; j < deferredModule.length; j++) {
-/******/ 				var depId = deferredModule[j];
-/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
-/******/ 			}
-/******/ 			if(fulfilled) {
-/******/ 				deferredModules.splice(i--, 1);
-/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
-/******/ 			}
-/******/ 		}
-/******/
-/******/ 		return result;
-/******/ 	}
-/******/
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 	// Promise = chunk loading, 0 = chunk loaded
-/******/ 	var installedChunks = {
-/******/ 		"sidebar/sidebar-list/main": 0
-/******/ 	};
-/******/
-/******/ 	var deferredModules = [];
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
-/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
-/******/ 	jsonpArray.push = webpackJsonpCallback;
-/******/ 	jsonpArray = jsonpArray.slice();
-/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = oldJsonpFunction;
-/******/
-/******/
-/******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./Samples/sidebar/sidebar-list/main.js","vendors"]);
-/******/ 	// run deferred modules when ready
-/******/ 	return checkDeferredModules();
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./Samples/sidebar/sidebar-list/App.vue":
-/*!**********************************************!*\
-  !*** ./Samples/sidebar/sidebar-list/App.vue ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App_vue_vue_type_template_id_f5c0c6b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f5c0c6b0& */ \"./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0&\");\n/* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ \"./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&lang=css& */ \"./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css&\");\n/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(\n  _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _App_vue_vue_type_template_id_f5c0c6b0___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _App_vue_vue_type_template_id_f5c0c6b0___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/sidebar/sidebar-list/App.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?");
-
-/***/ }),
-
-/***/ "./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?");
-
-/***/ }),
-
-/***/ "./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************!*\
-  !*** ./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_index_js_ref_4_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/css-loader??ref--4!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ \"./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css&\");\n/* harmony import */ var _node_modules_css_loader_index_js_ref_4_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_index_js_ref_4_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);\n/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_css_loader_index_js_ref_4_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if([\"default\"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_css_loader_index_js_ref_4_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));\n\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?");
-
-/***/ }),
-
-/***/ "./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0&":
-/*!*****************************************************************************!*\
-  !*** ./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0& ***!
-  \*****************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f5c0c6b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=template&id=f5c0c6b0& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f5c0c6b0___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f5c0c6b0___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?");
-
-/***/ }),
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
 /***/ "./Samples/sidebar/sidebar-list/main.js":
 /*!**********************************************!*\
   !*** ./Samples/sidebar/sidebar-list/main.js ***!
   \**********************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ \"./Samples/sidebar/sidebar-list/App.vue\");\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].config.productionTip = false;\n\nnew vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  render: (h) => h(_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n}).$mount('#app');\n\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ \"./Samples/sidebar/sidebar-list/App.vue\");\n\n\n\n(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]).mount('#app');\n\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/main.js?");
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--4!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(true);\n// imports\n\n\n// module\nexports.push([module.i, \"\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n   /* main content area styles */\\n.sidebar-list .maincontent {\\n    text-align: center;\\n    font-size: 20px;\\n    height: 300px;\\n    line-height: 300px;\\n    padding: 15px;\\n}\\n/* custom code start */\\n@media(max-width:550px) {\\n.sidebar-list #head .text {\\n        display: none;\\n}\\n}\\n.sidebar-list .center {\\n    text-align: center;\\n    display: none;\\n    font-size: 13px;\\n    font-weight: 400;\\n    margin-top: 20px;\\n}\\n/* custom code end */\\n.sidebar-list .textArea{\\n    height: 300px;\\n    line-height: 300px;\\n}\\n/* custom code start */\\n.sb-content-tab .sidebar-list .center {\\n    display: block;\\n}\\n.sidebar-list .col-lg-12.col-sm-12.col-md-12,\\n.sidebar-list.control-section {\\n    padding: 0;\\n}\\n/* custom code end */\\n/* end of main content area styles */\\n/* Header area styles */\\n.sidebar-list #wrapper #head {\\n    border: none;\\n    background: #292961;\\n    width: 100%;\\n    height: 50px;\\n    color: #fff;\\n    padding: 0 15px;\\n    position: relative;\\n}\\n/* custom code start */\\nbody.ej2-new-sidebar {\\n    margin: 0;\\n}\\n/* custom code end */\\n.sidebar-list #hamburger.menu {\\n    font-size: 25px;\\n    cursor: pointer;\\n    float: left;\\n    line-height: 55px;\\n    position: absolute;\\n}\\n.sidebar-list #hamburger.menu:before {\\n    content: '\\\\E10D';\\n}\\n.sidebar-list #head .text {\\n    text-align: right;\\n    position: absolute;\\n    height: 50px;\\n    line-height: 50px;\\n    font-size: 18px;\\n    padding-left: 40px;\\n}\\n.sidebar-list #head .header {\\n    text-align: center;\\n    height: 50px;\\n    line-height: 50px;\\n    font-size: 18px;\\n    width: 100%\\n}\\n/* end of header area styles */\\n/* sidebar styles */\\n/* custom code start */\\n.sb-content-tab .sidebar-list #wrapper {\\n    display: none;\\n}\\n/* custom code end */\\n.sidebar-list #sidebar-menu {\\n    background: #f5f5f5;\\n    padding: 20px;\\n}\\n.sidebar-list #wrapper #close:before {\\n    content: \\\"\\\\E945\\\";\\n}\\n.sidebar-list #wrapper #close {\\n    float: right;\\n    color: rgba(0, 0, 0, 0.61);\\n    cursor: pointer;\\n    font-size: 20px;\\n    line-height: 14px;\\n}\\n/* listview style */\\n.sidebar-list #menulist.e-listview .e-list-item,\\n.sidebar-list #menulist.e-listview .e-list-item:last-child {\\n    height: 51px;\\n    line-height: 51px;\\n    text-align: center;\\n    background: #f5f5f5;\\n    color: rgba(0, 0, 0, 0.87);\\n    border-bottom: none;\\n}\\n.sidebar-list #menulist.e-listview .e-list-item:hover {\\n    transform: scale(1.2);\\n    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);\\n    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);\\n}\\n.sidebar-list #menulist {\\n    width: 200px;\\n    margin: 0 auto;\\n    position: relative;\\n    top: 15vh;\\n}\\n/* end of list view styles */\\n.sidebar-list #sidebar-menu.e-sidebar {\\n    padding: 22px\\n}\\n@font-face {\\n    font-family: 'sidebar-icons';\\n    src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');\\n    font-weight: normal;\\n    font-style: normal;\\n}\\n/* end of sidebar styles */\\n\", \"\", {\"version\":3,\"sources\":[\"/jenkins/workspace/ue-samples_release_19.1.0.1-C5EKKS4BQ56PWZD2Q2CJSEXDA66BNC7NERJHQ5NAJZLLHBTXWIEA/Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&lang=css&\"],\"names\":[],\"mappings\":\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAkGG,8BAA8B;AACjC;IACI,mBAAmB;IACnB,gBAAgB;IAChB,cAAc;IACd,mBAAmB;IACnB,cAAc;CACjB;AACD,uBAAuB;AACvB;AACA;QACQ,cAAc;CACrB;CACA;AACD;IACI,mBAAmB;IACnB,cAAc;IACd,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;CACpB;AACD,qBAAqB;AACrB;IACI,cAAc;IACd,mBAAmB;CACtB;AACD,uBAAuB;AACvB;IACI,eAAe;CAClB;AACD;;IAEI,WAAW;CACd;AACD,qBAAqB;AACrB,qCAAqC;AACrC,wBAAwB;AACxB;IACI,aAAa;IACb,oBAAoB;IACpB,YAAY;IACZ,aAAa;IACb,YAAY;IACZ,gBAAgB;IAChB,mBAAmB;CACtB;AACD,uBAAuB;AACvB;IACI,UAAU;CACb;AACD,qBAAqB;AACrB;IACI,gBAAgB;IAChB,gBAAgB;IAChB,YAAY;IACZ,kBAAkB;IAClB,mBAAmB;CACtB;AACD;IACI,iBAAiB;CACpB;AACD;IACI,kBAAkB;IAClB,mBAAmB;IACnB,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,mBAAmB;CACtB;AACD;IACI,mBAAmB;IACnB,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,WAAW;CACd;AACD,+BAA+B;AAC/B,oBAAoB;AACpB,uBAAuB;AACvB;IACI,cAAc;CACjB;AACD,qBAAqB;AACrB;IACI,oBAAoB;IACpB,cAAc;CACjB;AACD;IACI,iBAAiB;CACpB;AACD;IACI,aAAa;IACb,2BAA2B;IAC3B,gBAAgB;IAChB,gBAAgB;IAChB,kBAAkB;CACrB;AACD,oBAAoB;AACpB;;IAEI,aAAa;IACb,kBAAkB;IAClB,mBAAmB;IACnB,oBAAoB;IACpB,2BAA2B;IAC3B,oBAAoB;CACvB;AACD;IACI,sBAAsB;IACtB,0EAA0E;IAC1E,kEAAkE;CACrE;AACD;IACI,aAAa;IACb,eAAe;IACf,mBAAmB;IACnB,UAAU;CACb;AACD,6BAA6B;AAC7B;IACI,aAAa;CAChB;AACD;IACI,6BAA6B;IAC7B,2mJAA2mJ;IAC3mJ,oBAAoB;IACpB,mBAAmB;CACtB;AACD,2BAA2B\",\"file\":\"App.vue?vue&type=style&index=0&lang=css&\",\"sourcesContent\":[\"\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n   /* main content area styles */\\n.sidebar-list .maincontent {\\n    text-align: center;\\n    font-size: 20px;\\n    height: 300px;\\n    line-height: 300px;\\n    padding: 15px;\\n}\\n/* custom code start */\\n@media(max-width:550px) {\\n.sidebar-list #head .text {\\n        display: none;\\n}\\n}\\n.sidebar-list .center {\\n    text-align: center;\\n    display: none;\\n    font-size: 13px;\\n    font-weight: 400;\\n    margin-top: 20px;\\n}\\n/* custom code end */\\n.sidebar-list .textArea{\\n    height: 300px;\\n    line-height: 300px;\\n}\\n/* custom code start */\\n.sb-content-tab .sidebar-list .center {\\n    display: block;\\n}\\n.sidebar-list .col-lg-12.col-sm-12.col-md-12,\\n.sidebar-list.control-section {\\n    padding: 0;\\n}\\n/* custom code end */\\n/* end of main content area styles */\\n/* Header area styles */\\n.sidebar-list #wrapper #head {\\n    border: none;\\n    background: #292961;\\n    width: 100%;\\n    height: 50px;\\n    color: #fff;\\n    padding: 0 15px;\\n    position: relative;\\n}\\n/* custom code start */\\nbody.ej2-new-sidebar {\\n    margin: 0;\\n}\\n/* custom code end */\\n.sidebar-list #hamburger.menu {\\n    font-size: 25px;\\n    cursor: pointer;\\n    float: left;\\n    line-height: 55px;\\n    position: absolute;\\n}\\n.sidebar-list #hamburger.menu:before {\\n    content: '\\\\e10d';\\n}\\n.sidebar-list #head .text {\\n    text-align: right;\\n    position: absolute;\\n    height: 50px;\\n    line-height: 50px;\\n    font-size: 18px;\\n    padding-left: 40px;\\n}\\n.sidebar-list #head .header {\\n    text-align: center;\\n    height: 50px;\\n    line-height: 50px;\\n    font-size: 18px;\\n    width: 100%\\n}\\n/* end of header area styles */\\n/* sidebar styles */\\n/* custom code start */\\n.sb-content-tab .sidebar-list #wrapper {\\n    display: none;\\n}\\n/* custom code end */\\n.sidebar-list #sidebar-menu {\\n    background: #f5f5f5;\\n    padding: 20px;\\n}\\n.sidebar-list #wrapper #close:before {\\n    content: \\\"\\\\e945\\\";\\n}\\n.sidebar-list #wrapper #close {\\n    float: right;\\n    color: rgba(0, 0, 0, 0.61);\\n    cursor: pointer;\\n    font-size: 20px;\\n    line-height: 14px;\\n}\\n/* listview style */\\n.sidebar-list #menulist.e-listview .e-list-item,\\n.sidebar-list #menulist.e-listview .e-list-item:last-child {\\n    height: 51px;\\n    line-height: 51px;\\n    text-align: center;\\n    background: #f5f5f5;\\n    color: rgba(0, 0, 0, 0.87);\\n    border-bottom: none;\\n}\\n.sidebar-list #menulist.e-listview .e-list-item:hover {\\n    transform: scale(1.2);\\n    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);\\n    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);\\n}\\n.sidebar-list #menulist {\\n    width: 200px;\\n    margin: 0 auto;\\n    position: relative;\\n    top: 15vh;\\n}\\n/* end of list view styles */\\n.sidebar-list #sidebar-menu.e-sidebar {\\n    padding: 22px\\n}\\n@font-face {\\n    font-family: 'sidebar-icons';\\n    src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');\\n    font-weight: normal;\\n    font-style: normal;\\n}\\n/* end of sidebar styles */\\n\"],\"sourceRoot\":\"\"}]);\n\n// exports\n\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?./node_modules/css-loader??ref--4!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-vue-navigations */ \"./node_modules/@syncfusion/ej2-vue-navigations/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_lists__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-lists */ \"./node_modules/@syncfusion/ej2-vue-lists/index.js\");\n/* harmony import */ var _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @syncfusion/ej2-base */ \"./node_modules/@syncfusion/ej2-base/index.js\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__[\"SidebarPlugin\"], _syncfusion_ej2_vue_lists__WEBPACK_IMPORTED_MODULE_2__[\"ListViewPlugin\"]);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].extend({\n    data: function() {\n        return {\n            dataList: [\n                  { text: 'Home' },\n                  { text: 'About' },\n                  { text: 'Careers' },\n                  { text: 'FAQs' },\n                  { text: 'Blog' },\n                  { text: 'Uses' },\n                  { text: 'Contact' }\n            ],\n            fields: { tooltip: 'text' },\n            type : 'Over',\n            width : '250px'\n        }\n    },\n    methods: {\n        newTabClick: function() {\n           var URL = location.href.replace(location.search, '');\n           document.getElementById('newTab').setAttribute('href', URL.split('#')[0] + 'samples/sidebar/sidebar-list/index.html');\n        },\n        // Listview select event handler\n        onSelect: function(args) {\n          this.$refs.sidebarInstance.hide();\n          document.getElementsByClassName('textArea')[0].innerHTML =args.text+ \" Page Content\";\n        },\n\n        openClick: function() {\n         this.$refs.sidebarInstance.show();\n        },\n        \n        closeClick: function() {\n         this.$refs.sidebarInstance.hide();\n        }\n    }\n}));\n\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nvar ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../images/sidebar/images/javascript.svg'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../images/sidebar/images/typescript.svg'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../images/sidebar/images/angular.svg'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../images/sidebar/images/vue.svg'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nvar ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module '../images/sidebar/images/react.svg'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nexports = ___CSS_LOADER_API_IMPORT___(true);\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);\nvar ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);\nvar ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);\nvar ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);\nvar ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);\n// Module\nexports.push([module.id, \"\\n#listSidebarList {\\n        border: 0px;\\n}\\n\\n    /* Specifies sample level styles for Sidebar */\\n#wrapper .listcontent {\\n        font-size: 14px;\\n        padding: 15px;\\n}\\n#wrapper.control-section {\\n        padding: 15px 0px;\\n}\\n#wrapper .listmaincontent {\\n        height: 380px;\\n}\\n#wrapper #left {\\n        float: left;\\n        width: 30px;\\n        height: 47px;\\n}\\n#wrapper .sidebar-list {\\n        z-index: 20 !important;\\n}\\n\\n    /*Specifies sample level style for Toolbar*/\\n#wrapper .e-toolbar .e-icons {\\n        font-size: 20px;\\n}\\n\\n\\n    /* Specifies the border bottom styles for toolbar in light theme*/\\n.material #wrapper .e-toolbar,\\n    .tailwind #wrapper .e-toolbar,\\n    .bootstrap5 #wrapper .e-toolbar {\\n        border-bottom: 1px solid #eaeaeae0;\\n}\\n\\n    /* Specifies the border bottom styles for toolbar in dark theme*/\\n.bootstrap5-dark #wrapper .e-toolbar,\\n    .tailwind-dark #wrapper .e-toolbar,\\n    .material-dark #wrapper .e-toolbar {\\n        border-bottom: 1px solid #eaeaea63;\\n}\\n.material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .material-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap4.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .tailwind.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .tailwind-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 12px;\\n}\\n.e-bigger.material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 16px;\\n}\\n.bootstrap4 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap5.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap5-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 8px;\\n}\\n.bootstrap5 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap5-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 5px;\\n}\\n.bootstrap.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 10px;\\n}\\n.e-folder {\\n        text-align: center;\\n        font-weight: 500;\\n        font-size: 16px\\n}\\n.e-bigger .e-folder {\\n        font-size: 18px;\\n}\\n.bootstrap5 .e-folder-name,\\n    .bootstrap5-dark .e-folder-name {\\n        margin-top: -2px;\\n}\\n.tailwind .e-folder-name,\\n    .tailwind-dark .e-folder-name,\\n    .bootstrap4 .e-folder-name,\\n    .bootstrap .e-folder-name,\\n    .bootstrap-dark .e-folder-name {\\n        margin-top: 3px;\\n        margin-left: 7px;\\n}\\n.material .e-folder-name,\\n    .material-dark .e-folder-name {\\n        margin-top: 1px;\\n        margin-left: 9px;\\n}\\n\\n    /*Specifies sample level style for ListView*/\\n.bootstrap5 .e-template-list,\\n    .bootstrap5-dark .e-template-list,\\n    .tailwind .e-template-list,\\n    .tailwind-dark .e-template-list,\\n    .material3 .e-template-list,\\n    .material3-dark .e-template-list,\\n    .bootstrap4 .e-template-list {\\n        border: 0;\\n        border-radius: 0;\\n}\\n.e-template-list .e-list-item {\\n        line-height: 1.5;\\n        padding: 0 16px;\\n}\\n.list-wrapper {\\n        display: inline-flex;\\n        width: 100%;\\n}\\n.e-bigger .list-wrapper {\\n        padding-left: 8px;\\n}\\n.list-wrapper .text {\\n        padding-left: 14px;\\n}\\n.e-bigger .list-wrapper .text {\\n        padding-left: 20px;\\n}\\n.e-listbox-wrapper .list-wrapper .text {\\n        font-weight: bold;\\n        font-size: 13px;\\n}\\n.list-wrapper .e-avatar {\\n        background-color: transparent;\\n        float: left;\\n}\\n\\n    /* Specifies the background color of listview in dark theme*/\\n.material-dark #wrapper .e-list-item,\\n    .bootstrap-dark #wrapper .e-list-item {\\n        background-color: transparent;\\n}\\n.material .list-wrapper .e-avatar,\\n    .material-dark .list-wrapper .e-avatar,\\n    .highcontrast .list-wrapper .e-avatar {\\n        margin-top: 3px;\\n}\\n.fabric .list-wrapper .e-avatar,\\n    .fabric-dark .list-wrapper .e-avatar {\\n        margin-top: 6px;\\n}\\n.material.e-bigger .list-wrapper .e-avatar,\\n    .material-dark.e-bigger .list-wrapper .e-avatar,\\n    .highcontrast.e-bigger .list-wrapper .e-avatar {\\n        margin-top: 7px;\\n}\\n.fabric-dark.e-bigger .list-wrapper .e-avatar,\\n    .fabric.e-bigger .list-wrapper .e-avatar,\\n    .bootstrap-dark.e-bigger .list-wrapper .e-avatar,\\n    .bootstrap.e-bigger .list-wrapper .e-avatar {\\n        margin-top: 10px;\\n}\\n.bootstrap .list-wrapper .e-avatar,\\n    .bootstrap-dark .list-wrapper .e-avatar {\\n        margin-top: 5px;\\n}\\n.bootstrap5 .list-wrapper .e-avatar,\\n    .bootstrap5-dark .list-wrapper .e-avatar {\\n        margin-top: -3px;\\n}\\n.tailwind .list-wrapper .e-avatar,\\n    .tailwind-dark .list-wrapper .e-avatar {\\n        margin-top: -1px;\\n}\\n.bootstrap5.e-bigger .list-wrapper .e-avatar,\\n    .bootstrap5-dark.e-bigger .list-wrapper .e-avatar {\\n        margin-top: 0px;\\n}\\n.e-bigger.bootstrap5 .sidebar-list .e-listview:not(.e-list-template) .e-list-item,\\n    .e-bigger.bootstrap5-dark .sidebar-list .e-listview:not(.e-list-template) .e-list-item {\\n        height: 43px;\\n}\\n.bootstrap4.e-bigger .sidebar-list .e-listview:not(.e-list-template) .e-list-item {\\n        padding: 12px 14px;\\n}\\n\\n    /*Specifies the icon styles for the ListView*/\\n#listSidebarList .javascript {\\n        background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \");\\n}\\n.typescript {\\n        background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \")\\n}\\n.angular {\\n        background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \");\\n}\\n.vue {\\n        background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \");\\n}\\n.react {\\n        background-image: url(\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \");\\n}\\n.material-dark #wrapper .listcontent {\\n        color: white;\\n}\\n\\n    /* Specifies the border right color for the sidebar in light theme*/\\n.material .sidebar-list,\\n    .fabric .sidebar-list,\\n    .tailwind .sidebar-list,\\n    .highcontrast .sidebar-list,\\n    .bootstrap5 .sidebar-list {\\n        border-right: 1px solid #eaeaeae0;\\n}\\n\\n    /* Specifies the border right color for the sidebar in dark theme*/\\n.material-dark .sidebar-list,\\n    .fabric-dark .sidebar-list,\\n    .tailwind-dark .sidebar-list,\\n    .bootstrap5-dark .sidebar-list {\\n        border-right: 1px solid #eaeaea63;\\n}\\n.material #sidelistwrapper,\\n    .fabric #sidelistwrapper,\\n    .tailwind #sidelistwrapper,\\n    .fluent #sidelistwrapper,\\n    .bootstrap5 #sidelistwrapper {\\n        border: 1px solid #d7d7d7;\\n}\\n.material-dark #sidelistwrapper,\\n    .fabric-dark #sidelistwrapper,\\n    .tailwind-dark #sidelistwrapper,\\n    .highcontrast #sidelistwrapper,\\n    .fluent-dark #sidelistwrapper,\\n    .bootstrap5-dark #sidelistwrapper {\\n        border: 1px solid #ffffff;\\n}\\n\", \"\",{\"version\":3,\"sources\":[\"App.vue\"],\"names\":[],\"mappings\":\";AACA;QACQ,WAAW;AACnB;;IAEI,8CAA8C;AAClD;QACQ,eAAe;QACf,aAAa;AACrB;AACA;QACQ,iBAAiB;AACzB;AACA;QACQ,aAAa;AACrB;AACA;QACQ,WAAW;QACX,WAAW;QACX,YAAY;AACpB;AACA;QACQ,sBAAsB;AAC9B;;IAEI,2CAA2C;AAC/C;QACQ,eAAe;AACvB;;;IAGI,iEAAiE;AACrE;;;QAGQ,kCAAkC;AAC1C;;IAEI,gEAAgE;AACpE;;;QAGQ,kCAAkC;AAC1C;AACA;;;;;QAKQ,iBAAiB;AACzB;AACA;QACQ,iBAAiB;AACzB;AACA;;;;;QAKQ,gBAAgB;AACxB;AACA;;QAEQ,gBAAgB;AACxB;AACA;;QAEQ,iBAAiB;AACzB;AACA;QACQ,kBAAkB;QAClB,gBAAgB;QAChB;AACR;AACA;QACQ,eAAe;AACvB;AACA;;QAEQ,gBAAgB;AACxB;AACA;;;;;QAKQ,eAAe;QACf,gBAAgB;AACxB;AACA;;QAEQ,eAAe;QACf,gBAAgB;AACxB;;IAEI,4CAA4C;AAChD;;;;;;;QAOQ,SAAS;QACT,gBAAgB;AACxB;AACA;QACQ,gBAAgB;QAChB,eAAe;AACvB;AACA;QACQ,oBAAoB;QACpB,WAAW;AACnB;AACA;QACQ,iBAAiB;AACzB;AACA;QACQ,kBAAkB;AAC1B;AACA;QACQ,kBAAkB;AAC1B;AACA;QACQ,iBAAiB;QACjB,eAAe;AACvB;AACA;QACQ,6BAA6B;QAC7B,WAAW;AACnB;;IAEI,4DAA4D;AAChE;;QAEQ,6BAA6B;AACrC;AACA;;;QAGQ,eAAe;AACvB;AACA;;QAEQ,eAAe;AACvB;AACA;;;QAGQ,eAAe;AACvB;AACA;;;;QAIQ,gBAAgB;AACxB;AACA;;QAEQ,eAAe;AACvB;AACA;;QAEQ,gBAAgB;AACxB;AACA;;QAEQ,gBAAgB;AACxB;AACA;;QAEQ,eAAe;AACvB;AACA;;QAEQ,YAAY;AACpB;AACA;QACQ,kBAAkB;AAC1B;;IAEI,6CAA6C;AACjD;QACQ,yDAAgE;AACxE;AACA;QACQ;AACR;AACA;QACQ,yDAA6D;AACrE;AACA;QACQ,yDAAyD;AACjE;AACA;QACQ,yDAA2D;AACnE;AACA;QACQ,YAAY;AACpB;;IAEI,mEAAmE;AACvE;;;;;QAKQ,iCAAiC;AACzC;;IAEI,kEAAkE;AACtE;;;;QAIQ,iCAAiC;AACzC;AACA;;;;;QAKQ,yBAAyB;AACjC;AACA;;;;;;QAMQ,yBAAyB;AACjC\",\"file\":\"App.vue\",\"sourcesContent\":[\"\\n#listSidebarList {\\n        border: 0px;\\n}\\n\\n    /* Specifies sample level styles for Sidebar */\\n#wrapper .listcontent {\\n        font-size: 14px;\\n        padding: 15px;\\n}\\n#wrapper.control-section {\\n        padding: 15px 0px;\\n}\\n#wrapper .listmaincontent {\\n        height: 380px;\\n}\\n#wrapper #left {\\n        float: left;\\n        width: 30px;\\n        height: 47px;\\n}\\n#wrapper .sidebar-list {\\n        z-index: 20 !important;\\n}\\n\\n    /*Specifies sample level style for Toolbar*/\\n#wrapper .e-toolbar .e-icons {\\n        font-size: 20px;\\n}\\n\\n\\n    /* Specifies the border bottom styles for toolbar in light theme*/\\n.material #wrapper .e-toolbar,\\n    .tailwind #wrapper .e-toolbar,\\n    .bootstrap5 #wrapper .e-toolbar {\\n        border-bottom: 1px solid #eaeaeae0;\\n}\\n\\n    /* Specifies the border bottom styles for toolbar in dark theme*/\\n.bootstrap5-dark #wrapper .e-toolbar,\\n    .tailwind-dark #wrapper .e-toolbar,\\n    .material-dark #wrapper .e-toolbar {\\n        border-bottom: 1px solid #eaeaea63;\\n}\\n.material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .material-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap4.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .tailwind.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .tailwind-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 12px;\\n}\\n.e-bigger.material #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 16px;\\n}\\n.bootstrap4 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap5.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap5-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 8px;\\n}\\n.bootstrap5 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap5-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 5px;\\n}\\n.bootstrap.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,\\n    .bootstrap-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {\\n        margin-left: 10px;\\n}\\n.e-folder {\\n        text-align: center;\\n        font-weight: 500;\\n        font-size: 16px\\n}\\n.e-bigger .e-folder {\\n        font-size: 18px;\\n}\\n.bootstrap5 .e-folder-name,\\n    .bootstrap5-dark .e-folder-name {\\n        margin-top: -2px;\\n}\\n.tailwind .e-folder-name,\\n    .tailwind-dark .e-folder-name,\\n    .bootstrap4 .e-folder-name,\\n    .bootstrap .e-folder-name,\\n    .bootstrap-dark .e-folder-name {\\n        margin-top: 3px;\\n        margin-left: 7px;\\n}\\n.material .e-folder-name,\\n    .material-dark .e-folder-name {\\n        margin-top: 1px;\\n        margin-left: 9px;\\n}\\n\\n    /*Specifies sample level style for ListView*/\\n.bootstrap5 .e-template-list,\\n    .bootstrap5-dark .e-template-list,\\n    .tailwind .e-template-list,\\n    .tailwind-dark .e-template-list,\\n    .material3 .e-template-list,\\n    .material3-dark .e-template-list,\\n    .bootstrap4 .e-template-list {\\n        border: 0;\\n        border-radius: 0;\\n}\\n.e-template-list .e-list-item {\\n        line-height: 1.5;\\n        padding: 0 16px;\\n}\\n.list-wrapper {\\n        display: inline-flex;\\n        width: 100%;\\n}\\n.e-bigger .list-wrapper {\\n        padding-left: 8px;\\n}\\n.list-wrapper .text {\\n        padding-left: 14px;\\n}\\n.e-bigger .list-wrapper .text {\\n        padding-left: 20px;\\n}\\n.e-listbox-wrapper .list-wrapper .text {\\n        font-weight: bold;\\n        font-size: 13px;\\n}\\n.list-wrapper .e-avatar {\\n        background-color: transparent;\\n        float: left;\\n}\\n\\n    /* Specifies the background color of listview in dark theme*/\\n.material-dark #wrapper .e-list-item,\\n    .bootstrap-dark #wrapper .e-list-item {\\n        background-color: transparent;\\n}\\n.material .list-wrapper .e-avatar,\\n    .material-dark .list-wrapper .e-avatar,\\n    .highcontrast .list-wrapper .e-avatar {\\n        margin-top: 3px;\\n}\\n.fabric .list-wrapper .e-avatar,\\n    .fabric-dark .list-wrapper .e-avatar {\\n        margin-top: 6px;\\n}\\n.material.e-bigger .list-wrapper .e-avatar,\\n    .material-dark.e-bigger .list-wrapper .e-avatar,\\n    .highcontrast.e-bigger .list-wrapper .e-avatar {\\n        margin-top: 7px;\\n}\\n.fabric-dark.e-bigger .list-wrapper .e-avatar,\\n    .fabric.e-bigger .list-wrapper .e-avatar,\\n    .bootstrap-dark.e-bigger .list-wrapper .e-avatar,\\n    .bootstrap.e-bigger .list-wrapper .e-avatar {\\n        margin-top: 10px;\\n}\\n.bootstrap .list-wrapper .e-avatar,\\n    .bootstrap-dark .list-wrapper .e-avatar {\\n        margin-top: 5px;\\n}\\n.bootstrap5 .list-wrapper .e-avatar,\\n    .bootstrap5-dark .list-wrapper .e-avatar {\\n        margin-top: -3px;\\n}\\n.tailwind .list-wrapper .e-avatar,\\n    .tailwind-dark .list-wrapper .e-avatar {\\n        margin-top: -1px;\\n}\\n.bootstrap5.e-bigger .list-wrapper .e-avatar,\\n    .bootstrap5-dark.e-bigger .list-wrapper .e-avatar {\\n        margin-top: 0px;\\n}\\n.e-bigger.bootstrap5 .sidebar-list .e-listview:not(.e-list-template) .e-list-item,\\n    .e-bigger.bootstrap5-dark .sidebar-list .e-listview:not(.e-list-template) .e-list-item {\\n        height: 43px;\\n}\\n.bootstrap4.e-bigger .sidebar-list .e-listview:not(.e-list-template) .e-list-item {\\n        padding: 12px 14px;\\n}\\n\\n    /*Specifies the icon styles for the ListView*/\\n#listSidebarList .javascript {\\n        background-image: url('../images/sidebar/images/javascript.svg');\\n}\\n.typescript {\\n        background-image: url('../images/sidebar/images/typescript.svg')\\n}\\n.angular {\\n        background-image: url('../images/sidebar/images/angular.svg');\\n}\\n.vue {\\n        background-image: url('../images/sidebar/images/vue.svg');\\n}\\n.react {\\n        background-image: url('../images/sidebar/images/react.svg');\\n}\\n.material-dark #wrapper .listcontent {\\n        color: white;\\n}\\n\\n    /* Specifies the border right color for the sidebar in light theme*/\\n.material .sidebar-list,\\n    .fabric .sidebar-list,\\n    .tailwind .sidebar-list,\\n    .highcontrast .sidebar-list,\\n    .bootstrap5 .sidebar-list {\\n        border-right: 1px solid #eaeaeae0;\\n}\\n\\n    /* Specifies the border right color for the sidebar in dark theme*/\\n.material-dark .sidebar-list,\\n    .fabric-dark .sidebar-list,\\n    .tailwind-dark .sidebar-list,\\n    .bootstrap5-dark .sidebar-list {\\n        border-right: 1px solid #eaeaea63;\\n}\\n.material #sidelistwrapper,\\n    .fabric #sidelistwrapper,\\n    .tailwind #sidelistwrapper,\\n    .fluent #sidelistwrapper,\\n    .bootstrap5 #sidelistwrapper {\\n        border: 1px solid #d7d7d7;\\n}\\n.material-dark #sidelistwrapper,\\n    .fabric-dark #sidelistwrapper,\\n    .tailwind-dark #sidelistwrapper,\\n    .highcontrast #sidelistwrapper,\\n    .fluent-dark #sidelistwrapper,\\n    .bootstrap5-dark #sidelistwrapper {\\n        border: 1px solid #ffffff;\\n}\\n\"]}]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use%5B1%5D!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet%5B1%5D.rules%5B7%5D.use%5B0%5D");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0& ***!
-  \***********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./Samples/sidebar/sidebar-list/App.vue":
+/*!**********************************************!*\
+  !*** ./Samples/sidebar/sidebar-list/App.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"control-section sidebar-list\" }, [\n    _c(\"div\", { staticClass: \"col-lg-12 col-sm-12 col-md-12 center\" }, [\n      _vm._v(\"\\n        Click/Touch the button to view the sample\\n    \")\n    ]),\n    _vm._v(\" \"),\n    _c(\"div\", { staticClass: \"col-lg-12 col-sm-12 col-md-12 center\" }, [\n      _c(\n        \"a\",\n        {\n          staticClass: \"e-btn\",\n          attrs: { id: \"newTab\", target: \"_blank\" },\n          on: { click: _vm.newTabClick }\n        },\n        [_vm._v(\"Open in new Tab\")]\n      )\n    ]),\n    _vm._v(\" \"),\n    _c(\"div\", { attrs: { id: \"wrapper\" } }, [\n      _c(\"div\", { staticClass: \"col-lg-12 col-sm-12 col-md-12\" }, [\n        _c(\n          \"div\",\n          { staticClass: \"col-lg-12 col-sm-12 col-md-12\" },\n          [\n            _c(\"div\", { attrs: { id: \"head\" } }, [\n              _c(\"div\", { staticClass: \"text\" }, [_vm._v(\"Menu\")]),\n              _vm._v(\" \"),\n              _c(\"span\", {\n                staticClass: \"sidebar-icons menu\",\n                attrs: { id: \"hamburger\" },\n                on: { click: _vm.openClick }\n              }),\n              _vm._v(\" \"),\n              _c(\"div\", { staticClass: \"header\" }, [_vm._v(\"Header Content\")])\n            ]),\n            _vm._v(\" \"),\n            _c(\n              \"ejs-sidebar\",\n              {\n                ref: \"sidebarInstance\",\n                attrs: { id: \"sidebar-menu\", type: _vm.type, width: _vm.width }\n              },\n              [\n                _c(\"div\", {\n                  staticClass: \"sidebar-icons\",\n                  attrs: { id: \"close\" },\n                  on: { click: _vm.closeClick }\n                }),\n                _vm._v(\" \"),\n                _c(\n                  \"div\",\n                  { staticClass: \"content-area\" },\n                  [\n                    _c(\"ejs-listview\", {\n                      attrs: {\n                        id: \"menulist\",\n                        dataSource: _vm.dataList,\n                        fields: _vm.fields,\n                        select: _vm.onSelect\n                      }\n                    })\n                  ],\n                  1\n                )\n              ]\n            ),\n            _vm._v(\" \"),\n            _vm._m(0)\n          ],\n          1\n        )\n      ])\n    ]),\n    _vm._v(\" \"),\n    _vm._m(1),\n    _vm._v(\" \"),\n    _vm._m(2)\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", [\n      _c(\"div\", { staticClass: \"maincontent textArea\" }, [\n        _vm._v(\"Application content\")\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"action-description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"\\n            Click/Touch the button to view the Sidebar sample in new tab.\\n        \"\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"\\n            In this sample, the ListView component is placed inside the Sidebar for navigation.\\n        \"\n        )\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/sidebar/sidebar-list/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _App_vue_vue_type_template_id_f5c0c6b0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f5c0c6b0 */ \"./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0\");\n/* harmony import */ var _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js */ \"./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js\");\n/* harmony import */ var _App_vue_vue_type_style_index_0_id_f5c0c6b0_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css */ \"./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css\");\n/* harmony import */ var _node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/dist/exportHelper.js */ \"./node_modules/vue-loader/dist/exportHelper.js\");\n\n\n\n\n;\n\n\nconst __exports__ = /*#__PURE__*/(0,_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], [['render',_App_vue_vue_type_template_id_f5c0c6b0__WEBPACK_IMPORTED_MODULE_0__.render],['__file',\"Samples/sidebar/sidebar-list/App.vue\"]])\n/* hot reload */\nif (false) {}\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n/* harmony import */ var _syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-vue-navigations */ \"./node_modules/@syncfusion/ej2-vue-navigations/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_lists__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-lists */ \"./node_modules/@syncfusion/ej2-vue-lists/index.js\");\n/* harmony import */ var _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @syncfusion/ej2-base */ \"./node_modules/@syncfusion/ej2-base/index.js\");\n\n\n\n\n\n\nvar app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)();\nvar listTemplate = app.component(\"demo\", {\n    template: \"<div class='list-wrapper'>\"\n                + \"<span :class='data.pic' class='e-avatar e-avatar-xsmall e-avatar-circle'></span>\"\n                + \"<span class='text e-text-content'>{{data.text}}</span>\"\n                + \"</div>\",\n    data() {\n        return {\n            data: {}\n        };\n    }\n});\nvar ListData = [\n    { id: \"1\", text: \"JavaScript\", pic: \"javascript\", \n            description: \"JavaScript (JS) is an interpreted computer programming language. \" +\n            \"It was originally implemented as part of web browsers so that client-side scripts\" + \n            \"could interact with the user, control the browser, communicate asynchronously, and\" +\n            \"alter the document content that was displayed. However, it has recently\" +\n            \"become common in both game development and the creation of desktop applications.\" },\n        { id: \"2\", text: \"TypeScript\", pic: \"typescript\", \n            description: \"It is a typed superset of JavaScript that compiles to plain JavaScript.\" + \n            \"TypeScript is an open-source, object-oriented programing language. It contains all elements of JavaScript\" + \n            \"It is a language designed for large-scale JavaScript application development, which can be executed on any\" + \n            \"browser, any Host, and any Operating System. TypeScript is a language as well as a set of tools.\" +\n            \" TypeScript is the ES6 version of JavaScript with some additional features.\" },\n        { id: \"3\", text: \"Angular\", pic: \"angular\", \n            description: \"Angular is a platform and framework for building single-page client applications using HTML and TypeScript.\" +\n            \" Angular is written in TypeScript. It implements core and optional functionality as a set of TypeScript\" +\n            \" libraries that you import into your applications.\" },\n        { id: \"4\", text: \"React\", pic: \"react\",\n            description: \"React is a declarative, efficient, and flexible JavaScript library for building user interfaces.\" +\n            \" It lets you compose complex UIs from small and isolated pieces of code called “components”.\" +\n            \" It can also render on the server using Node.\" },\n        { id: \"5\", text: \"Vue\", pic: \"vue\", \n            description: \"A progressive framework for building user interfaces. It is incrementally adoptable.\" +\n            \" The core library is focused on the view layer only and is easy to pick up and integrate with other\" +\n            \" libraries or existing projects. On the other hand, Vue is also perfectly capable of powering\" +\n            \" sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.\" }\n];\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n    components: {\n    'ejs-sidebar': _syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__.SidebarComponent,\n    'ejs-listview': _syncfusion_ej2_vue_lists__WEBPACK_IMPORTED_MODULE_2__.ListViewComponent,\n    'ejs-toolbar': _syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__.ToolbarComponent,\n    'e-items': _syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__.ItemsDirective,\n    'e-item': _syncfusion_ej2_vue_navigations__WEBPACK_IMPORTED_MODULE_1__.ItemDirective,\n  },\n    data: function() {\n        return {\n            ListData: ListData,\n            listTemplates: function() {\n                return {\n                    template: listTemplate\n                };\n            },\n            listFields: { id: \"id\", text: \"text\" }\n        }\n    },\n    methods: {\n        // Listview select event handler\n        OnSelect: function(args) {\n          document.getElementById('listContent').innerHTML = args.data.description;\n        },\n        toolbarCliked: function(args) {\n            if(args.item.tooltipText == \"Menu\") {\n                this.$refs.sidebarInstance.toggle();\n            }\n        }\n    }\n});\n\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?./node_modules/vue-loader/dist/index.js??ruleSet%5B1%5D.rules%5B7%5D.use%5B0%5D");
+
+/***/ }),
+
+/***/ "./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js":
+/*!**********************************************************************!*\
+  !*** ./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./App.vue?vue&type=script&lang=js */ \"./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=script&lang=js\");\n \n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?");
+
+/***/ }),
+
+/***/ "./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0":
+/*!****************************************************************************!*\
+  !*** ./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0 ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_template_id_f5c0c6b0__WEBPACK_IMPORTED_MODULE_0__.render)\n/* harmony export */ });\n/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_template_id_f5c0c6b0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./App.vue?vue&type=template&id=f5c0c6b0 */ \"./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0\");\n\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?");
+
+/***/ }),
+
+/***/ "./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css":
+/*!******************************************************************************************!*\
+  !*** ./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_4_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_style_index_0_id_f5c0c6b0_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader/index.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css */ \"./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css\");\n/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_4_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_style_index_0_id_f5c0c6b0_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_4_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_style_index_0_id_f5c0c6b0_lang_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};\n/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_4_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_style_index_0_id_f5c0c6b0_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== \"default\") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_4_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_style_index_0_id_f5c0c6b0_lang_css__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]\n/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);\n\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=template&id=f5c0c6b0 ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   render: () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n\n\nconst _hoisted_1 = {\n  id: \"wrapper\",\n  class: \"control-section\"\n}\nconst _hoisted_2 = { id: \"sidelistwrapper\" }\nconst _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", { class: \"e-folder\" }, [\n  /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", { class: \"e-folder-name\" }, \"Language\")\n], -1 /* HOISTED */)\nconst _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", { class: \"listmaincontent\" }, [\n  /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", null, [\n    /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", {\n      id: \"listContent\",\n      class: \"listcontent\"\n    }, \" Before getting into any programming language, one should have basic knowledge about HTML, CSS, and JavaScript. These are the basic building blocks of web designing. HTML describes the structure of a web page whereas CSS describes the presentation of the web page. \")\n  ])\n], -1 /* HOISTED */)\nconst _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", { id: \"action-description\" }, [\n  /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"p\", null, [\n    /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(\" The \"),\n    /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"code\", null, \"Sidebar\"),\n    /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(\" ListView sample demonstrates customizing the \"),\n    /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"code\", null, \"Sidebar\"),\n    /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(\" with ListView. Click on the hamburger menu icon to expand/collapse the sidebar. Click the ListView item to see the corresponding item details. \")\n  ])\n], -1 /* HOISTED */)\nconst _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", { id: \"description\" }, [\n  /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"p\", null, \" The Sidebar can allow to render custom components like TreeView, ListView, Menu, etc. \"),\n  /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"p\", null, \" In this sample, the ListView component is placed inside the Sidebar for navigation. Click the ListView item to see the corresponding item details. \")\n], -1 /* HOISTED */)\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_e_item = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"e-item\")\n  const _component_e_items = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"e-items\")\n  const _component_ejs_toolbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"ejs-toolbar\")\n  const _component_ejs_listview = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"ejs-listview\")\n  const _component_ejs_sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"ejs-sidebar\")\n\n  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(\"div\", _hoisted_1, [\n    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(\" sample level element  \"),\n    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", _hoisted_2, [\n      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(\" main content declaration \"),\n      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", null, [\n        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ejs_toolbar, {\n          cssClass: \"listToolbar\",\n          onClicked: $options.toolbarCliked\n        }, {\n          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [\n            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_e_items, null, {\n              folderTemplate: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [\n                _hoisted_3\n              ]),\n              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [\n                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_e_item, {\n                  prefixIcon: \"e-icon e-menu\",\n                  tooltipText: \"Menu\"\n                }),\n                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_e_item, { template: 'folderTemplate' })\n              ]),\n              _: 1 /* STABLE */\n            })\n          ]),\n          _: 1 /* STABLE */\n        }, 8 /* PROPS */, [\"onClicked\"])\n      ]),\n      _hoisted_4,\n      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(\" end of main content declaration \")\n    ]),\n    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ejs_sidebar, {\n      ref: \"sidebarInstance\",\n      id: \"listSidebar\",\n      class: \"sidebar-list\",\n      width: \"250px\",\n      target: \".listmaincontent\",\n      type: \"Auto\",\n      isOpen: true\n    }, {\n      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [\n        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ejs_listview, {\n          id: \"listSidebarList\",\n          dataSource: _ctx.ListData,\n          cssClass: \"e-template-list\",\n          template: _ctx.listTemplates,\n          fields: _ctx.listFields,\n          onSelect: $options.OnSelect\n        }, null, 8 /* PROPS */, [\"dataSource\", \"template\", \"fields\", \"onSelect\"])\n      ]),\n      _: 1 /* STABLE */\n    }, 512 /* NEED_PATCH */),\n    _hoisted_5,\n    _hoisted_6\n  ]))\n}\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?./node_modules/vue-loader/dist/templateLoader.js??ruleSet%5B1%5D.rules%5B2%5D!./node_modules/vue-loader/dist/index.js??ruleSet%5B1%5D.rules%5B7%5D.use%5B0%5D");
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css */ \"./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/sidebar/sidebar-list/App.vue?vue&type=style&index=0&id=f5c0c6b0&lang=css\");\nif(content.__esModule) content = content.default;\nif(typeof content === 'string') content = [[module.id, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = (__webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\")[\"default\"])\nvar update = add(\"ee3ac4dc\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack://ej2-navigations-vue-samples/./Samples/sidebar/sidebar-list/App.vue?./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use%5B1%5D!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/vue-loader/dist/index.js??ruleSet%5B1%5D.rules%5B7%5D.use%5B0%5D");
 
 /***/ })
 
-/******/ });
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"sidebar/sidebar-list/main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkej2_navigations_vue_samples"] = self["webpackChunkej2_navigations_vue_samples"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors"], () => (__webpack_require__("./Samples/sidebar/sidebar-list/main.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;

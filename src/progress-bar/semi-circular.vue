@@ -177,11 +177,11 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
-  ProgressAnnotation
+  ProgressBarComponent,
+  ProgressAnnotation,
+  ProgressBarAnnotationsDirective,
+  ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
  function annotationElementContent(color, controlID) {
         let content;
@@ -201,11 +201,14 @@ import {
         }
         return ('<div id="point1" style="font-size:24px;font-weight:bold;color: ' + color + ' "><span>' + content + '</span></div>');
     }
-    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#FFD939'];
+    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD', '#6750A4', '#D0BCFF'];
 
-Vue.use(ProgressBarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-progressbar': ProgressBarComponent,
+    'e-progressbar-annotations':  ProgressBarAnnotationsDirective,
+    'e-progressbar-annotation':  ProgressBarAnnotationDirective
+  },
   data: function() {
     return {
       startAngle1:240,
@@ -267,11 +270,34 @@ export default Vue.extend({
             case 'bootstrap4':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[3], args.progressBar.element.id);
                 break;
-            default:
+            case 'tailwind':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[4], args.progressBar.element.id);
+                break;
+            case 'bootstrap-dark':
+            case 'fabric-dark':
+            case 'material-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[6], args.progressBar.element.id);
+                break;
+            case 'bootstrap5':
+            case 'bootstrap5-dark':
+            case 'fluent':
+            case 'fluent-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[8], args.progressBar.element.id);
+                break;
+            case 'tailwind-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[7], args.progressBar.element.id);
+                break;
+            case 'material3':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[9], args.progressBar.element.id);
+                break;
+            case 'material3-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[10], args.progressBar.element.id);
+                break;
+            default:
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[5], args.progressBar.element.id);
                 break;
           }
       }
   }
-});
+}
 </script>

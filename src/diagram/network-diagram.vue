@@ -10,7 +10,7 @@
             :symbolWidth='symbolWidth' :symbolHeight='symbolHeight'>
         </ejs-symbolpalette>
        <div id="dropArea">
-            <ejs-button id="browse" class="e-outline" :isPrimary="true" v-on:click.native="btnClick">IMPORT SVG FILES</ejs-button>
+            <ejs-button id="browse" class="e-outline" :isPrimary="true" v-on:click="btnClick">IMPORT SVG FILES</ejs-button>
             <div class="uploadclass">
             <ejs-uploader ref='uploadObj' id='uploadFiles' name="UploadFiles" :asyncSettings='path'
                 :dropArea='dropElement' :success='onUploadSuccess' :removing='onFileRemove'>
@@ -114,9 +114,7 @@
             right: 15px;
         }
 
-        .e-file-select-wrap {
-            display: none;
-        }
+
 
          .material #networkDiagram #palette-space .e-accordion {
             border: none;
@@ -142,15 +140,14 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   ConnectorModel,
   PointPortModel,
   Connector,
-  SymbolPalettePlugin,
+  SymbolPaletteComponent,
   SymbolInfo,
   SnapConstraints,
   PaletteModel,
@@ -185,14 +182,11 @@ import {
   template18,
   arrow
 } from "./network-shapes-templates";
-import { UploaderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { UploaderComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { RemovingEventArgs, Uploader } from "@syncfusion/ej2-inputs";
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
-Vue.use(UploaderPlugin);
-Vue.use(ButtonPlugin);
+
 let isMobile;
 let diagramInstance;
 let uploadObjInstance;
@@ -683,7 +677,13 @@ let palettes = [
   }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent,
+    'ejs-uploader': UploaderComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -885,7 +885,7 @@ export default Vue.extend({
       args.postRawFile = false;
     }
   }
-});
+};
 
 function addEvents() {
   isMobile = window.matchMedia("(max-width:550px)").matches;

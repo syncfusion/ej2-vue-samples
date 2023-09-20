@@ -5,7 +5,7 @@
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='100'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
-                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' width='110'></e-column>
+                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' width='125'></e-column>
                 <e-column field='duration' headerText='Duration' textAlign='Right'  width='110'></e-column>
             </e-columns>
         </ejs-treegrid>
@@ -44,7 +44,7 @@
     <div id="description">
     <p>The filtering feature enables the user to view the reduced amount of records based on filter criteria. It can be enabled
         by setting <code>allowFiltering
-        </code> property as true.
+        </code> property as true. </p>
     <p>Tree Grid supports the following filter types. They are </p>
             <ul>
                 <li><code>FilterBar</code></li>
@@ -79,15 +79,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Filter, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Filter } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -111,14 +113,14 @@ export default Vue.extend({
    methods:{
        onChange: function(e: ChangeEventArgs): void {
         let value: string = <string>e.value;
-        (<TreeGridComponent>this.$refs.treegrid).ej2Instances.filterSettings.hierarchyMode = value;
-        (<TreeGridComponent>this.$refs.treegrid).clearFiltering();    
+        ((this as any).$refs.treegrid).ej2Instances.filterSettings.hierarchyMode = value;
+        ((this as any).$refs.treegrid).clearFiltering();    
     },
     	onTypechange: function(e: ChangeEventArgs): void {
         let value: string = <string>e.value;
-        (<TreeGridComponent>this.$refs.treegrid).ej2Instances.filterSettings.type = value;
-        (<TreeGridComponent>this.$refs.treegrid).clearFiltering();    
+        ((this as any).$refs.treegrid).ej2Instances.filterSettings.type = value;
+        ((this as any).$refs.treegrid).clearFiltering();    
     }
   }
-});
+}
 </script>

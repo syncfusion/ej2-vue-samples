@@ -52,15 +52,20 @@
     </div>
 
     <div class="col-md-4 property-section">
-      <table id="property" title="Properties" style="width: 100%">
+      <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+    <colgroup>
+        <col span="1" style="width: 40%;">
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 30%;">
+    </colgroup>
+    <tbody>
         <tr style="height: 50px">
-          <td style="width: 30%">
-            <div id="pointerValue">
+          <td>
+            <div>
               Pointer Value
-              <span>&nbsp;&nbsp;&nbsp;70</span>
             </div>
           </td>
-          <td style="width: 40%;">
+          <td>
             <div>
               <input
                 type="range"
@@ -71,30 +76,35 @@
                 v-on:pointermove="pointerValue"
                 v-on:touchmove="pointerValue"
                 v-on:change="pointerValue"
+                style="width: 70%"
               />
             </div>
           </td>
+          <td style="padding-top: 10px; text-align: center;">
+              <span id="pointerValue" style="margin-left: -30px;">70</span>
+          </td>
         </tr>
         <tr style="height: 50px">
-          <td style="width: 20%">
-            <div id="enablePointer">Allow Pointer Drag</div>
+          <td>
+            <div id="enablePointer" style="width: 90%">Allow Pointer Drag</div>
           </td>
-          <td style="width: 40%;">
-            <div>
-              <input type="checkbox" id="enable" checked="true" v-on:change="enableDrag" />
+          <td>
+            <div style="margin-left: -10px; margin-top: -5px">
+              <ejs-checkbox checked="true" ref="Hide" id="enable" :change="enableDrag"></ejs-checkbox>
             </div>
           </td>
         </tr>
         <tr style="height: 50px">
-          <td style="width: 20%">
-            <div id="enablePointer">Allow Range Drag</div>
+          <td>
+            <div id="enablePointer" style="width: 90%">Allow Range Drag</div>
           </td>
-          <td style="width: 40%;">
-            <div>
-              <input type="checkbox" id="rangedrag" v-on:change="enableRangeDrag" />
+          <td>
+            <div style="margin-left: -10px; margin-top: -5px">
+              <ejs-checkbox ref="Hide" id="rangedrag" :change="enableRangeDrag"></ejs-checkbox>
             </div>
           </td>
         </tr>
+        </tbody>
       </table>
     </div>
     <div id="action-description">
@@ -124,15 +134,25 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin , getRangeColor , Annotations, Range} from "@syncfusion/ej2-vue-circulargauge";
-Vue.use(CircularGaugePlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, getRangeColor , Annotations, Range} from "@syncfusion/ej2-vue-circulargauge";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-checkbox': CheckBoxComponent
+   },
 data:function(){
     return{
         enablePointerDrag: true,
         annotations: [{
-                content: '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique;"><span>' + '70 MPH</span></div>',
+                content: '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique; font-family: Segoe UI;"><span>' + '70 MPH</span></div>',
                 angle: 180, zIndex: '1',
                 radius: '45%'
             }],
@@ -142,7 +162,7 @@ data:function(){
             gaugeradius: '80%', 
             majorTicks: { useRangeColor: true },
             minorTicks: { useRangeColor: true },
-            labelStyle: { useRangeColor: true },
+            labelStyle: { useRangeColor: true,  font: { fontFamily: 'Segoe UI' } },
             ranges: [{
                 start: 0,
                 end: 40,
@@ -184,7 +204,8 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     // Code for Property Panel
@@ -193,7 +214,7 @@ methods: {
                 let content = '<div style="font-size: 14px;color:#E5C31C;font-weight: lighter;font-style: oblique;"><span>';
                 // let cotainerObj=document.getElementById('user-container');
                 let pointerValue = Math.round(args.currentValue);
-                document.getElementById('pointerValue').innerHTML = 'Pointer Value <span> &nbsp;&nbsp;&nbsp;' + pointerValue;
+                document.getElementById('pointerValue').innerHTML = pointerValue.toString();
                 (document.getElementById('value')).value = pointerValue.toString();
                 this.$refs.circulargauge.ej2Instances.setAnnotationValue(0, 0, content + pointerValue + ' MPH</span></div>');
              }
@@ -210,19 +231,19 @@ methods: {
             // let cotainerObj=document.getElementById('user-container');      
             let pointerValue = parseInt((document.getElementById('value')).value, 10);
             setPointersValue(this.$refs.circulargauge.ej2Instances, pointerValue);
-            document.getElementById('pointerValue').innerHTML = 'Pointer Value <span> &nbsp;&nbsp;&nbsp;' + pointerValue;        
+            document.getElementById('pointerValue').innerHTML = pointerValue.toString();        
     },
     enableDrag:function(args){
         // let cotainerObj=document.getElementById('user-container');             
-        let value = (document.getElementById('enable')).checked;
+        let value = args.checked;
         this.$refs.circulargauge.ej2Instances.enablePointerDrag = value;        
     },
     enableRangeDrag:function(args){            
-        let value = (document.getElementById('rangedrag')).checked;
+        let value = args.checked;
         this.$refs.circulargauge.ej2Instances.enableRangeDrag = value;        
     }
 }
-})
+}
  function setPointersValue(circulargauge, pointerValue) {
         // let cotainerObj=document.getElementById('user-container');                    
         let color = getRangeColor(pointerValue,circulargauge.axes[0].ranges, circulargauge.axes[0].pointers[0].color);

@@ -23,7 +23,7 @@
                         </td>
                         <td>
                             <div>
-                                <ejs-dropdownlist ref='PriorityDrop' id='priority_filter' :dataSource='priorityData' :change='change' value='None' placeholder='Select a priority'>
+                                <ejs-dropdownlist ref='PriorityDrop' id='priority_filter' :dataSource='priorityData' :select='prioritySelect' value='None' placeholder='Select a priority'>
                                 </ejs-dropdownlist>
                             </div>
                         </td>
@@ -34,7 +34,7 @@
                         </td>
                         <td>
                             <div>
-                                <ejs-dropdownlist ref='StatusDrop' id='status_filter' :dataSource='statusData' :change='change' value='None' :fields='statusFields' placeholder='Select a status'>
+                                <ejs-dropdownlist ref='StatusDrop' id='status_filter' :dataSource='statusData' :select='statusSelect' value='None' :fields='statusFields' placeholder='Select a status'>
                                 </ejs-dropdownlist>
                             </div>
                         </td>
@@ -52,8 +52,8 @@
                         </td>
                     </tr>
                 </table>
-                <div class='e-reset'>
-                    <ejs-button id='reset_filter' class="e-btn" v-on:click.native="resetClick">Reset</ejs-button>
+                <div class='e-reset-button'>
+                    <ejs-button id='reset_filter' class="e-btn" v-on:click="resetClick">Reset</ejs-button>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
         width: 30%
     }
 
-    .property-panel-content .e-reset {
+    .property-panel-content .e-reset-button {
         padding-top: 13px;
         text-align: center;
     }
@@ -100,21 +100,23 @@
 </style>
 
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { Query } from '@syncfusion/ej2-data';
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(TextBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-textbox': TextBoxComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -127,13 +129,13 @@ export default Vue.extend({
       },
       priorityData: ['None', 'High', 'Normal', 'Low'],
       statusData: [
-            { id: 'None', status: 'None' },
-            { id: 'To Do', status: 'Open' },
-            { id: 'In Progress', status: 'InProgress' },
-            { id: 'Testing', status: 'Testing' },
-            { id: 'Done', status: 'Close' }
+            { id: 'None', value: 'None' },
+            { id: 'To Do', value: 'Open' },
+            { id: 'In Progress', value: 'InProgress' },
+            { id: 'Testing', value: 'Testing' },
+            { id: 'Done', value: 'Close' }
       ],
-      statusFields: { text: 'id', value: 'status' }
+      statusFields: { text: 'id', value: 'value' }
     };
   },
   provide: {
@@ -147,8 +149,7 @@ export default Vue.extend({
       if (e.target.value === '') {
         this.reset();
       }
-        this.kanbanObj.query = searchQuery;
-    });
+     });
     this.textObj = this.$refs.SearchText.ej2Instances;
     var emptyValue= true;
     document.getElementById('search_text').addEventListener('keyup', (e) => {
@@ -166,24 +167,24 @@ export default Vue.extend({
   },
   methods: {
     reset: function () {
-      this.priorityObj.setProperties({ value: 'None' }, false);
-      this.statusObj.setProperties({ value: 'None' }, false);
+      this.priorityObj.value = 'None';
+      this.statusObj.value = 'None';
       this.kanbanObj.query = new Query();
     },
-    change: function (args) {
+    prioritySelect: function (args) {
       let filterQuery = new Query();
-      if (args.value !== 'None') {
-        if (args.element.id === 'priority_filter'){
-          filterQuery = new Query().where('Priority', 'equal', args.value);
-        } else {
-          filterQuery = new Query().where('Status', 'equal', args.value);
-        }
+      if (args.itemData.value !== 'None') {
+          filterQuery = new Query().where('Priority', 'equal', args.itemData.value);
       }
-      if (args.element.id === 'priority_filter'){
-          this.statusObj.setProperties({ value: 'None' }, false);
-        } else {
-          this.priorityObj.setProperties({ value: 'None' }, false);
-        }
+      this.statusObj.value = 'None';
+      this.kanbanObj.query = filterQuery;
+    },
+    statusSelect: function (args) {
+      let filterQuery = new Query();
+      if (args.itemData.value !== 'None') {
+          filterQuery = new Query().where('Status', 'equal', args.itemData.value);
+      }
+      this.priorityObj.value = 'None';
       this.kanbanObj.query = filterQuery;
     },
     resetClick: function () {
@@ -191,5 +192,5 @@ export default Vue.extend({
       this.reset();
     }
   }
-});
+};
 </script>

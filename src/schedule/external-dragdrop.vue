@@ -7,7 +7,17 @@
                     <h1 class="title-text">Doctor's Appointments</h1>
                 </div>
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :group='group' :currentView='currentView' :resourceHeaderTemplate='resourceHeaderTemplate' :drag="onItemDrag" :actionBegin="onActionBegin">
+                    :group='group' :currentView='currentView' :resourceHeaderTemplate="'resourceHeaderTemplate'" :actionBegin="onActionBegin">
+                    <template v-slot:resourceHeaderTemplate="{data}">
+                        <div className="template-wrap">
+                            <div class="specialist-category">
+                                <div v-if=getConsultantImageName(data)>
+                                    <img class="specialist-image" :src="getImage(data)" :alt="getImage(data)"/>
+                                </div>
+                            <div class="specialist-name">{{getConsultantName(data)}}</div>
+                            <div class="specialist-designation">{{getConsultantDesignation(data)}}</div>
+                        </div></div>
+                    </template>
                     <e-views>
                         <e-view option="TimelineDay"></e-view>
                         <e-view option="TimelineMonth"></e-view>
@@ -26,7 +36,7 @@
                 <div class="title-container">
                     <h1 class="title-text">Waiting List</h1>
                 </div>
-                <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onItemDrag" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop"></ejs-treeview>
+                <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onTreeDrag" :nodeDragStart="onTreeDragStart" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop" :nodeSelecting="onItemSelecting" ></ejs-treeview>
             </div>
             <div id="action-description">
                 <p>
@@ -46,7 +56,7 @@
     </div>
 </template>
 <style>
-/* custom code start*/
+
 .schedule-vue-sample .drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -73,19 +83,6 @@
     padding: 0;
 }
 
-.schedule-vue-sample .treeview-external-drag #waitid {
-    float: left;
-    width: 13%;
-    text-align: center;
-    line-height: 30px;
-    font-size: 13px;
-    font-family: "Segoe UI";
-    color: #f9920b;
-    overflow: hidden;
-    margin: 9px 0;
-    padding: 0 2px 0 0;
-}
-
 .schedule-vue-sample .treeview-external-drag #waitdetails {
     width: 95%;
     float: left;
@@ -99,7 +96,7 @@
     font-weight: bold;
     text-align: center;
 }
-/* custom code end*/
+
 
 .schedule-vue-sample .treeview-external-drag #waitlist {
     width: 100%;
@@ -107,7 +104,6 @@
     font-weight: bold;
     font-family: "Segoe UI";
     font-size: 12px;
-    color: #545554;
     padding: 5px 0 0 10px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -117,7 +113,6 @@
     height: 50%;
     font-family: "Segoe UI";
     font-size: 10px;
-    color: #545554;
     opacity: 0.6;
     padding-left: 10px;
     padding-top: 5px;
@@ -129,7 +124,6 @@
 .schedule-vue-sample .treeview-external-drag.e-rtl .e-list-text,
 .e-bigger .schedule-vue-sample .treeview-external-drag .e-list-text,
 .e-bigger .schedule-vue-sample .treeview-external-drag.e-rtl .e-list-text {
-    background: white;
     border: 0.5px solid #E1E7EC;
     height: 50px;
     line-height: 15px;
@@ -172,6 +166,7 @@
 .schedule-vue-sample .treeview-external-drag.e-rtl .e-text-content,
 .e-bigger .schedule-vue-sample .treeview-external-drag.e-rtl .e-text-content {
     padding: 0;
+    background-color: inherit;
 }
 .schedule-vue-sample .e-drag-item.e-treeview.treeview-external-drag,
 .e-bigger .schedule-vue-sample .e-drag-item.e-treeview.treeview-external-drag {
@@ -185,6 +180,10 @@
 
 .schedule-vue-sample .e-schedule.schedule-drag-drop .e-resource-cells.e-parent-node .specialist-category {
     padding-left: 30px
+}
+
+.e-schedule.schedule-drag-drop .e-resource-cells.e-parent-node .template-wrap {
+    padding: 3px 0px;
 }
 
 .schedule-vue-sample .e-schedule.e-rtl.schedule-drag-drop .e-resource-cells.e-parent-node .specialist-category {
@@ -218,37 +217,42 @@
 }
 
 @media (max-width: 550px) {
-    /* custom code start*/
+    
     .schedule-vue-sample .schedule-container {
         padding-bottom: 10px
     }
-    /* custom code end*/
+    
 
     .schedule-vue-sample .treeview-external-drag.e-treeview,
     .e-bigger .schedule-vue-sample .treeview-external-drag.e-treeview {
-        width: 225px;
+        width: 250px;
     }
 
     .e-bigger .schedule-vue-sample .treeview-external-drag.e-treeview.e-drag-item {
         position: relative !important;
     }
 
-    .schedule-vue-sample .content-wrapper {
+    .schedule-vue-sample .drag-sample-wrapper {
         display: block;
     }
 }
+    .e-disble-not-allowed {
+        cursor: unset !important;
+    }
+    .e-drag-item.treeview-external-drag .e-icon-expandable {
+        display: none;
+     }
 </style>
 
 <script>
-    import Vue from "vue";
+    import { createApp } from 'vue';
     import { addClass, extend, closest } from '@syncfusion/ej2-base';
     import { hospitalData, waitingList } from './datasource';
-    import { SchedulePlugin, TimelineViews, TimelineMonth, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-    Vue.use(TreeViewPlugin);    
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";  
 
-    var treeVue = Vue.component("tree-template", {
+    var app = createApp();
+    var treeVue = app.component("tree-template", {
         template: '<div id="waiting"><div id="waitdetails"><div id="waitlist">{{data.Name}}</div>' +
                   '<div id="waitcategory">{{data.DepartmentName}} - {{data.Description}}</div></div></div>',
         data() {
@@ -258,46 +262,15 @@
         }
     });
 
-    var resourceHeaderVue = Vue.component("resource-headerTemplate", {
-        template: '<div className="template-wrap"><div class="specialist-category"><div v-if=getConsultantImageName(data)><img class="specialist-image" :src="getImage" :alt="getImage"/></div><div class="specialist-name">' +
-                  '{{getConsultantName(data)}}</div><div class="specialist-designation">{{getConsultantDesignation(data)}}</div></div></div>',
-        data() {
-            return {
-                data: {}
-            };
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-treeview': TreeViewComponent
         },
-        computed: {
-            getImage: function() {
-                return './source/schedule/images/' + this.getConsultantName(this.data).toLowerCase() + '.png';
-            }
-        },
-        methods: {
-            getConsultantName: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
-            },
-            getConsultantImageName: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                let resourceName = (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
-                if (resourceName === 'GENERAL' || resourceName === 'DENTAL') {
-                    return false;
-                } else {
-                    return true;
-                }
-            },
-            getConsultantDesignation: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                var resourceName = value.resourceData[value.resource.textField];
-                if (resourceName === "GENERAL" || resourceName === "DENTAL") {
-                    return '';
-                } else {
-                    return value.resourceData.Designation;
-                }
-            }
-        }
-    });
-
-    export default Vue.extend({
         data: function () {
             return {
                 eventSettings: {
@@ -309,7 +282,7 @@
                         description: { title: 'Reason', name: 'Description' }
                     },
                 },
-                selectedDate: new Date(2018, 7, 1),
+                selectedDate: new Date(2021, 7, 2),
                 currentView: 'TimelineDay',
                 cssClass: 'schedule-drag-drop',
                 group: {
@@ -328,9 +301,6 @@
                     { Text: 'Laura', Id: 5, GroupId: 1, Color: '#bbdc00', Designation: 'Orthopedic' },
                     { Text: 'Margaret', Id: 6, GroupId: 2, Color: '#9e5fff', Designation: 'Endodontist' }
                 ],
-                resourceHeaderTemplate: function (e) {
-                    return { template: resourceHeaderVue }
-                },
                 treeViewFields: { dataSource: waitingList, id: 'Id', text: 'Name' },
                 treeTemplate: function(e){
                     return {template: treeVue}
@@ -339,7 +309,7 @@
             }
         },
         methods: {
-            onItemDrag: function(event) {
+            onTreeDrag: function(event) {
                 let scheduleObj = this.$refs.ScheduleObj.ej2Instances;
                 if (scheduleObj.isAdaptive) {
                     let classElement = document.querySelector('.e-device-hover');
@@ -348,15 +318,6 @@
                     }
                     if (event.target.classList.contains('e-work-cells')) {
                         addClass([event.target], 'e-device-hover');
-                    }
-                }
-                if (document.body.style.cursor === 'not-allowed') {
-                    document.body.style.cursor = '';
-                }
-                if (event.name == 'nodeDragging') {
-                    let dragElementIcon = document.querySelectorAll('.e-drag-item .e-icon-expandable');
-                    for (let i = 0; i < dragElementIcon.length; i++) {
-                        dragElementIcon[i].style.display = 'none';
                     }
                 }
             },
@@ -374,6 +335,9 @@
                         remove(elements[i]);
                     }
                 }
+            },
+            onItemSelecting: function (args) {
+                args.cancel = true;
             },
             onTreeDragStop: function(event) {
                 let treeElement = closest(event.target, '.e-treeview');
@@ -407,11 +371,43 @@
                         }
                     }
                 }
+                document.body.classList.remove('e-disble-not-allowed')
+            },
+            onTreeDragStart: function() {
+                document.body.classList.add('e-disble-not-allowed');
+            },
+            getConsultantName: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
+            },
+            getConsultantImageName: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                let resourceName = (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
+                if (resourceName === 'GENERAL' || resourceName === 'DENTAL') {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            getConsultantDesignation: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                var resourceName = value.resourceData[value.resource.textField];
+                if (resourceName === "GENERAL" || resourceName === "DENTAL") {
+                    return '';
+                } else {
+                    return value.resourceData.Designation;
+                }
             }
+        },
+        computed: {
+            getImage() {
+                return (data) => {
+                    return 'source/schedule/images/' + this.getConsultantName(data).toLowerCase() + '.png';
+                };
+            },
         },
         provide: {
             schedule: [TimelineViews, TimelineMonth, Resize, DragAndDrop]
         }
-    });
-
+    };
 </script>

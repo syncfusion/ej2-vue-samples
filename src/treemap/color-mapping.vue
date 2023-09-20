@@ -5,58 +5,68 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
-            <tbody>
-                <tr style="height: 50px">
-                <td style="width: 50%">
-                    <div class="property-text">Color Mapping Type</div>
+        <table id="property" title="Properties" style="width: 100%;">
+         <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
+         <tbody>
+                <tr style="height: 70px">
+                <td>
+                    <div class="text" style="width: 90%;">Color Mapping Type</div>
                 </td>
-                <td style="width: 50%;">
-                    <ejs-dropdownlist id='colorMapping' style="width:110;" :dataSource='labelsdata' :fields='localFields' index=0 :width='labelswidth' :change='changeColor'></ejs-dropdownlist>
+                <td>
+                <div class="text" style="margin-left: 10px;">
+                    <ejs-dropdownlist id='colorMapping' :dataSource='labelsdata' :fields='localFields' index=0 :width='labelswidth' :change='changeColor'></ejs-dropdownlist>
+                    </div>
                 </td>
             </tr>
-            <tr id="hideOne">
-                <td style="width: 40%">
-                    <div class="property-text"> Change Opacity</div>
+            <tr id="hideOne" style="height: 70px">
+                <td>
+                    <div class="text"> Change Opacity</div>
                 </td>
-                <td style="width: 40%;">
-                    <div>
+                <td>
+                    <div class="property-text" style="margin-left: -10px;margin-top: -10px;">
                     <ejs-checkbox ref="opacity" id="opacity" :change="changeOpcity"></ejs-checkbox>
                     </div>
                 </td>
             </tr>
-            <tr id="hideTwo">
-                <td style="width: 50%">
-                    <div class="property-text" style="margin-top:12%">Min Opacity</div>
+            <tr id="hideTwo" style="height: 70px">
+                <td>
+                    <div class="text" style="width: 99%;">Min Opacity</div>
                 </td>
-                <td style="width: 50%;">
-                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:100%;margin-top: 20%" />
-                </td>
-            </tr>
-            <tr id="hideThree">
-                <td style="width: 50%">
-                    <div class="property-text" style="margin-top:12%">Max Opacity</div>
-                </td>
-                <td style="width: 50%;">
-                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:100%;margin-top: 20%" />
+                <td>
+                <div class="text" style="margin-left: 10px;">
+                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width:100%;" />
+                </div>    
                 </td>
             </tr>
-            </tbody>
+            <tr id="hideThree" style="height: 70px">
+                <td>
+                    <div class="text">Max Opacity</div>
+                </td>
+                <td>
+                <div class="text" style="margin-left: 10px;">
+                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width:100%;" />
+                </div>    
+                </td>
+            </tr>
+              </tbody>
         </table>
     </div>
     <div id="template" style="display:none">
     <div class="toolback">
                 <div class="listing2">
-                    <center>
+                    <span style="text-align: center;">
                         ${Name}                                            
-                    </center>
+                    </span>
                 </div>
                 <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
                 <div>
-                    <center>  <span class="listing1">Area : </span><span class="listing2">${Area}</span></center>
+                    <span style="text-align: center;">  <span class="listing1">Area : </span><span class="listing2">${Area}</span></span>
                 </div> 
                 <div>
-                    <center>  <span class="listing1">Continent : </span><span style="display:inline-block;" class="listing2">${Location}</span> </center>
+                    <span style="text-align: center;">  <span class="listing1">Continent : </span><span style="display:inline-block;" class="listing2">${Location}</span> </span>
                 </div>
     </div>
 </div>
@@ -80,6 +90,7 @@
 </div>
 </div>
 </template>
+
 <style scoped>
         .toolback {
             border-radius: 4px;
@@ -102,41 +113,50 @@
              color:#ffffff;
              font-weight: 500;
         }
-        .property-text {
-                font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-                font-size: 13px !important;
-                font-weight: 400 !important;
-            }
+        div.text {
+            padding-left: 0px; padding-top: 0px;
+        }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend, TreeMapAjax } from "@syncfusion/ej2-vue-treemap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { TreeMapComponent, TreeMapTooltip, TreeMapLegend, TreeMapAjax } from "@syncfusion/ej2-vue-treemap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
+},
 data:function(){
 return{
         titleSettings: {
             text: 'Top 10 largest islands in the World',
-            textStyle: { size: '15px' }
+            textStyle: { size: '15px',  fontFamily: 'Segoe UI' }
         },
         dataSource: new TreeMapAjax('./src/treemap/treemap-data/color.json'),
         tooltipSettings: {
             visible: true,
             format: 'Name: ${Name}<br>Area: ${Area} per square kms<br>Continent: ${Location}',
-            opacity: 0.8
+            opacity: 0.8,
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         legendSettings: {
             visible: true,
             position: 'Bottom',
             mode: 'Interactive',
             height: '10',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            },
             title: {
                 text: 'Area'
             },
+            titleStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         useGroupingSeparator: true,
         rangeColorValuePath: 'Area',
@@ -144,6 +164,9 @@ return{
         leafItemSettings: {
             labelPath: 'Name',
             border: { color: 'white', width: 0.5 },
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             colorMapping: [
                 { from: 100000, to: 250000, label: '0.1M - 0.25M', color: '#547C84' },
                 { from: 250000, to: 550000, label: '0.25M - 0.55M', color: '#37AFAB' },
@@ -153,7 +176,7 @@ return{
                 { to: null, from: null,  color: 'null' },
             ]
         },
-        labelswidth: 120,
+        labelswidth: '105%',
         localFields: { text: 'text', value: 'value' },
         labelsdata:[
             {value: 'RangeColorMapping', text: 'Range'},
@@ -170,7 +193,8 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         let dropDownElement = document.getElementById('colorMapping');
         let opacityCheck = document.getElementById('opacity');
         if(dropDownElement.value === 'Desaturation'){
@@ -357,5 +381,5 @@ methods:{
         }
     }
 }
-})
+}
 </script>

@@ -71,17 +71,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Filter, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs, DropDownList} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Filter } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs, DropDownList} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
-
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
 
 let dropDownFilter: DropDownList;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       data: sampleData,
@@ -127,10 +129,10 @@ export default Vue.extend({
    methods:{
        onChange: function(e: ChangeEventArgs): void {
         // this.filterSettings = { type: 'FilterBar', hierarchyMode: <any>e.value, mode: 'Immediate'};
-        (<TreeGridComponent>this.$refs.treegrid).clearFiltering();
+        ((this as any).$refs.treegrid).clearFiltering();
         dropDownFilter.value = 'All';
     }
   }
 
-});
+}
 </script>

@@ -32,9 +32,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   ConnectorModel,
   Connector,
@@ -68,16 +67,15 @@ import {
 import { DataManager, Query } from "@syncfusion/ej2-data";
 import { mindMap } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-
-
-
 let diagramInstance;
 let items = new DataManager(
   mindMap,
   new Query().take(7)
 );
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -86,6 +84,7 @@ export default Vue.extend({
       tool: DiagramTools.SingleSelect,
       layout: {
         type: "MindMap",
+         orientation:"Horizontal",
         getBranch: (node, nodes) => {
           return ((node).data).branch;
         },
@@ -238,7 +237,7 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+}
 
 //creation of the Ports
 function getPort() {
@@ -305,13 +304,7 @@ class LeftExtendTool extends ToolBase {
           ) {
             (node.data).branch = "subRight";
           }
-          let connector = addConnector(selectedObject[0], node);
-          diagramInstance.clearSelection();
-          let nd = diagramInstance.add(node);
-          diagramInstance.add(connector);
-          diagramInstance.doLayout();
-          diagramInstance.bringIntoView(nd.wrapper.bounds);
-          diagramInstance.startTextEdit(nd);
+          getTextEditValue(selectedObject[0], node);
         }
       }
     }
@@ -339,13 +332,7 @@ class RightExtendTool extends ToolBase {
           ) {
             (node.data).branch = "subLeft";
           }
-          let connector = addConnector(selectedObject[0], node);
-          diagramInstance.clearSelection();
-          let nd = diagramInstance.add(node);
-          diagramInstance.add(connector);
-          diagramInstance.doLayout();
-          diagramInstance.bringIntoView(nd.wrapper.bounds);
-          diagramInstance.startTextEdit(nd);
+          getTextEditValue(selectedObject[0], node);
         }
       }
     }
@@ -505,5 +492,15 @@ function applyHandle( //it is in dedicated line here.
   handle.margin = margin;
   handle.horizontalAlignment = halignment;
   handle.verticalAlignment = valignment;
+}
+function getTextEditValue(selectObject, node){
+    var connector = addConnector(selectObject, node);
+   diagramInstance.clearSelection();
+   var nd = diagramInstance.add(node);
+   diagramInstance.add(connector);
+   diagramInstance.doLayout();
+   diagramInstance.bringIntoView(nd.wrapper.bounds);
+   diagramInstance.select([diagramInstance.nameTable[nd.id]]);
+   diagramInstance.startTextEdit(diagramInstance.selectedItems.nodes[0]);
 }
 </script>

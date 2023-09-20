@@ -133,7 +133,6 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
   Diagram,
@@ -149,12 +148,11 @@ import {
   PortVisibility,
   SnapConstraints,
   PointPortModel,
-  DiagramPlugin,
-  SymbolPalettePlugin,
+  DiagramComponent,
+  SymbolPaletteComponent,
   ShapeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
-Vue.use(DiagramPlugin);
-Vue.use(SymbolPalettePlugin);
+
 let diagram;
 let palette;
 let isMobile;
@@ -327,7 +325,11 @@ let umlActivityShapes = [
   { id: "Note", shape: { type: "UmlActivity", shape: "Note" } }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-symbolpalette': SymbolPaletteComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -413,7 +415,7 @@ export default Vue.extend({
     let diagram = this.$refs.diagramObj.ej2Instances;
     diagram.pan(panX, 0);
   }
-});
+}
 
 // create and add ports for node.
 function getNodePorts(obj) {

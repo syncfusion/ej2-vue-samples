@@ -36,12 +36,13 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Gantt, Edit, Toolbar, Selection } from "@syncfusion/ej2-vue-gantt";
-import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations"
+import { GanttComponent, Edit, Toolbar, Selection } from "@syncfusion/ej2-vue-gantt";
 import { unscheduledData } from "./data-source";
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
     return {
         dataSource: unscheduledData,
@@ -67,8 +68,7 @@ export default Vue.extend({
           {field: 'TaskName', width: 80 },
           {field: 'StartDate', width: 120},
           {field: 'EndDate', width: 120 },
-          {field: 'Duration', width: 90 },
-          {field: 'TaskType', visible: false}
+          {field: 'Duration', width: 90 }
         ],
         splitterSettings: {
           columnIndex: 4
@@ -82,7 +82,7 @@ export default Vue.extend({
     gantt: [Edit, Toolbar, Selection]
   },
   methods: {
-    toolbarClick: function(args) {
+    toolbarClick: function() {
         let data = {
             Duration: null,
             StartDate: null,
@@ -92,14 +92,22 @@ export default Vue.extend({
         this.$refs.unscheduleGantt.addRecord(data);
     }
   }
-});
+}
 </script>
 
 <style scoped>
-    /deep/ #unscheduledGantt .e-add-icon:before {
+    #unscheduledGantt /deep/  .e-add-icon:before {
         content: "\e506"
     }
-    /deep/ .bootstrap4 #unscheduledGantt .e-add-icon:before {
+    .bootstrap4 #unscheduledGantt /deep/  .e-add-icon:before {
         content: "\e783"
     }
+    .bootstrap5 #unscheduledGantt /deep/  .e-add-icon:before,
+	  .bootstrap5-dark #unscheduledGantt /deep/  .e-add-icon:before,
+    .tailwind #Unscheduled .e-add-icon:before,.tailwind-dark #Unscheduled .e-add-icon:before,
+    .fluent #Unscheduled .e-add-icon:before, .fluent-dark #Unscheduled .e-add-icon:before,
+    .material3-dark #Unscheduled .e-add-icon:before ,.material3 #Unscheduled .e-add-icon:before  {
+        content: "\e836"
+    }
+
 </style>

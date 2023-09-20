@@ -2,7 +2,7 @@
 <div>
     <div class="col-lg-9 control-section" id="pivot-grid-section">
         <div class="content-wrapper">
-            <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :gridSettings="gridSettings" :width="width" :height="height" :load="load" :dataBound="dataBound" :showGroupingBar="showGroupingBar" :showFieldList="showFieldList">        
+            <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :gridSettings="gridSettings" :width="width" :height="height" :load="load" :dataBound="dataBound" :showGroupingBar="showGroupingBar" :groupingBarSettings="groupingBarSettings">        
             </ejs-pivotview>
             </div>
     </div>
@@ -13,28 +13,28 @@
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='filter' label="Show Filter Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='filter' label="Show Filter Icon" checked="true" :change="checkbox_onFilter"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='sort' label="Show Sort Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='sort' label="Show Sort Icon" checked="true" :change="checkbox_onSort"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='summary' label="Show Value Type Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='summary' label="Show Value Type Icon" checked="true" :change="checkbox_onValueType"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td>
                         <div>
-                            <ejs-checkbox id='remove' label="Show Remove Icon" checked="true" :change="checkbox_onChange"></ejs-checkbox>
+                            <ejs-checkbox id='remove' label="Show Remove Icon" checked="true" :change="checkbox_onRemove"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -56,6 +56,17 @@
             allows the user to remove the field from the report.
         </p>
         <p>
+          During runtime, the <b>Values</b> button in the grouping bar can be moved to a different position (i.e., different index) 
+          among other fields in the column or row axis. To enable values button, 
+          set the <code>showValuesButton</code> property to <b>true</b>.
+        </p>
+        <p>
+            The fields panel, which is located above the grouping bar, displays the fields that are available in the data
+            source but are not bound in the report. The fields can be dragged and dropped into the appropriate axis. In
+            addition, any field removed from any axes will be automatically added to the fields panel. The fields panel can
+            be displayed by setting the <code>showFieldsPanel</code> property in the <code>groupingBarSettings</code> to <b>true</b>.
+        </p>
+        <p>
             <strong>Injecting Module:</strong>
         </p>
         <p>
@@ -69,26 +80,26 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
-  FieldList,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
 import {
   ChangeEventArgs as checkEventArgs,
-  CheckBoxPlugin
+  CheckBoxComponent
 } from "@syncfusion/ej2-vue-buttons";
 import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(CheckBoxPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -102,17 +113,17 @@ export default Vue.extend({
         dataSource: Pivot_Data,
         expandAll: false,
         values: [
-          { name: "In_Stock", caption: "In Stock" },
           { name: "Sold", caption: "Units Sold" },
           { name: "Amount", caption: "Sold Amount" }
         ],
-        filters: [{ name: "Product_Categories", caption: "Product Categories" }]
+        filters: []
       },
       width: "100%",
       height: 450,
       gridSettings: { columnWidth: 140 },
       showGroupingBar: true,
-      showFieldList: true
+      showValuesButton: true,
+      groupingBarSettings: { showFieldsPanel: true }
     };
   },
   methods: {
@@ -131,30 +142,33 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function(args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (pivotObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
       }
     },
-    checkbox_onChange: function(args: checkEventArgs) {
-      let target = (<any>args.event).target;
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      if (target.id === "filter") {
-        pivotObj.groupingBarSettings.showFilterIcon = args.checked;
-      } else if (target.id === "sort") {
-        pivotObj.groupingBarSettings.showSortIcon = args.checked;
-      } else if (target.id === "remove") {
-        pivotObj.groupingBarSettings.showRemoveIcon = args.checked;
-      } else {
-        pivotObj.groupingBarSettings.showValueTypeIcon = args.checked;
-      }
+    checkbox_onFilter: function(args: checkEventArgs) {
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showFilterIcon = args.checked;
+    },
+    checkbox_onSort: function(args: checkEventArgs) {
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showSortIcon = args.checked;
+    },
+    checkbox_onRemove: function(args: checkEventArgs) {
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showRemoveIcon = args.checked;
+    },
+    checkbox_onValueType: function(args: checkEventArgs) {
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      pivotObj.groupingBarSettings.showValueTypeIcon = args.checked;
     }
   },
   provide: {
-    pivotview: [GroupingBar, FieldList]
+    pivotview: [GroupingBar]
   }
-});
+}
 </script>
 
 <style scoped>

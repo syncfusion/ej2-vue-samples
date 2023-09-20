@@ -37,11 +37,9 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(NumericTextBoxPlugin);
-export default Vue.extend ({
+export default {
     data: function() {
         return {
             max: 1,
@@ -49,6 +47,7 @@ export default Vue.extend ({
             step: 0.01,
             value: '0.5'
         };
-    }
-});
+    },
+    components: { 'ejs-numerictextbox': NumericTextBoxComponent },
+};
 </script>

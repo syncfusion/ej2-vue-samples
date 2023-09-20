@@ -50,11 +50,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Sort, Resize, ColumnMenu, Filter} from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Sort, Resize, ColumnMenu, Filter} from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -92,5 +94,5 @@ export default Vue.extend({
   provide: {
       gantt: [Selection, Sort, Resize, ColumnMenu, Filter]
   }
-});
+}
 </script>

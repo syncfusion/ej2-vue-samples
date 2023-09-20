@@ -32,17 +32,16 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       date: new Date()
     };
-  }
-});
+  },
+  components: { 'ejs-calendar': CalendarComponent }
+};
 </script>
 
 <style scoped>
@@ -67,4 +66,13 @@ body.highcontrast #date_label {
   user-select: none;
   font-weight: 500;
 }
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.material3-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label {
+    color: white;
+} 
 </style>

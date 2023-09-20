@@ -1,62 +1,117 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-cell-template">
-      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :showFormulaBar="false" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
+      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :showFormulaBar="false" cssClass="e-custom-spreadsheet" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
         <e-sheets>
           <e-sheet name="Registration Form" :rowCount="40" :colCount="30" :showGridLines="false">
             <e-ranges>
-              <e-range :template="nameTextbox" address="C2"></e-range>
-              <e-range :template="dobTextbox" address="C3"></e-range>
-              <e-range :template="genderRadiobutton" address="C4"></e-range>
-              <e-range :template="dropdownlist" address="C5"></e-range>
-              <e-range :template="multiselect" address="C6"></e-range>
-              <e-range :template="mobileTextbox" address="C7"></e-range>
-              <e-range :template="emailTextbox" address="C8"></e-range>
-              <e-range :template="addressTextbox" address="C9"></e-range>
-              <e-range :template="addButton" address="C11"></e-range>
+              <e-range :template="'nameTextbox'" address="C2">
+                <template v-slot:nameTextbox>
+                  <div>
+                    <ejs-textbox placeholder="Name"></ejs-textbox>
+                  </div>
+              </template>
+              </e-range>
+              <e-range :template="'dobTextbox'" address="C3">
+                <template v-slot:dobTextbox>
+                  <div>
+                    <ejs-textbox placeholder="DOB"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'genderRadiobutton'" address="C4">
+                <template v-slot:genderRadiobutton>
+                  <div>
+                    <ejs-radiobutton name="gender" value="male" label="Male"></ejs-radiobutton>
+                    <ejs-radiobutton name="gender" value="female" label="Female" cssClass="margin"></ejs-radiobutton>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'dropdownlist'" address="C5">
+                <template v-slot:dropdownlist>
+                  <div>
+                    <ejs-dropdownlist placeholder="Experience" :dataSource="experience"></ejs-dropdownlist>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'multiselect'" address="C6">
+                <template v-slot:multiselect>
+                  <div>
+                    <ejs-multiselect :showClearButton="false" placeholder="Areas of Interest" :dataSource="languages"></ejs-multiselect>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'mobileTextbox'" address="C7">
+                <template v-slot:mobileTextbox>
+                  <div>
+                    <ejs-textbox placeholder="Mobile Number"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'emailTextbox'" address="C8">
+                <template v-slot:emailTextbox>
+                  <div>
+                    <ejs-textbox placeholder="Email"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'addressTextbox'" address="C9">
+                <template v-slot:addressTextbox>
+                  <div>
+                    <ejs-textbox rows="2" :multiline="true"></ejs-textbox>
+                  </div>
+                </template>
+              </e-range>
+              <e-range :template="'addButton'" address="C11">
+                <template v-slot:addButton>
+                  <div>
+                    <ejs-button cssClass="e-flat" v-bind:style="{float: 'right'}" content="Add"></ejs-button>
+                  </div>
+                </template>
+              </e-range>
             </e-ranges>
             <e-rows>
-              <e-row height=55>
+              <e-row :height="55">
                         <e-cells>
                             <e-cell index=1 value="Interview Registration Form"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=55>
+                    <e-row :height="55">
                         <e-cells>
-                            <e-cell index=1 value="Name:"></e-cell>
+                            <e-cell index=1 value="Name"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Date of Birth:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Gender:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Year of Experience:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Areas of Interest:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Mobile Number:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=45>
+                    <e-row :height='45'>
                         <e-cells>
                             <e-cell index=1 value="Email:"></e-cell>
                         </e-cells>
                     </e-row>
-                    <e-row height=82>
+                    <e-row :height='82'>
                         <e-cells>
                             <e-cell index=1 value="Address:"></e-cell>
                         </e-cells>
@@ -70,6 +125,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates cell template feature with interview registration form scenario using input components.
@@ -82,10 +138,11 @@
       </p>
       <p>
         More information about cell template feature can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/template">
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -127,53 +184,68 @@
     .ej2-new .control-section .control-section {
         height: 100vh;
     }
+
+    .margin {
+      margin-left: 10px !important;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-input-group.e-control-wrapper {
+      background-color: rgb(56, 56, 56);
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio + label .e-label {
+      color: #000;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio + label::before {
+      background-color: #fff;
+      border-color: #757575;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio:checked + label::before {
+      border-color: #00b0ff;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-radio-wrapper {
+      padding-right: 10px;
+    }
+
+    .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
+      color: #000;
+    }
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import nameTextboxTemplate from "./name-textbox.vue";
-import dobTextboxTemplate from "./dob-textbox.vue";
-import genderRadioTemplate from "./gender-radiobutton.vue";
-import dropdownlistTemplate from "./dropdownlist.vue";
-import multiselectTemplate from "./multiselect.vue";
-import mobileTextboxTemplate  from "./mobile-textbox.vue";
-import emailTextboxTemplate  from "./email-textbox.vue";
-import addressTextboxTemplate  from "./address-textbox.vue";
-import addButtonTemplate  from "./add-button.vue";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, ColumnsDirective, RowsDirective, RowDirective, CellsDirective, RangesDirective, RangeDirective, CellDirective, ColumnDirective } from "@syncfusion/ej2-vue-spreadsheet";
+import { ButtonComponent, RadioButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { DropDownListComponent, MultiSelectComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-radiobutton': RadioButtonComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-multiselect': MultiSelectComponent
+   },
    data: () => {
     return {
       scrollSettings: { isFinite: true },
       selectionSettings: { mode: 'None' },
-      nameTextbox: function() {
-        return { template: nameTextboxTemplate }
-      },
-      dobTextbox: function() {
-        return { template: dobTextboxTemplate }
-      },
-      genderRadiobutton: function() {
-        return { template: genderRadioTemplate }
-      },
-      dropdownlist: function() {
-        return { template: dropdownlistTemplate }
-      },
-      multiselect: function() {
-        return { template: multiselectTemplate }
-      },
-      mobileTextbox: function() {
-        return { template: mobileTextboxTemplate }
-      },
-      emailTextbox: function() {
-        return { template: emailTextboxTemplate }
-      },
-      addressTextbox: function() {
-        return { template: addressTextboxTemplate }
-      },
-      addButton: function() {
-        return { template: addButtonTemplate }
-      }
+      experience: ['0 - 1 year', '1 - 3 years', '3 - 5 years', '5 - 10 years'],
+      languages: ['JAVA', 'C#', 'SQL']
     }
   },
   methods: {
@@ -186,5 +258,5 @@ export default Vue.extend({
       spreadsheet.merge('B1:C1');
     }
   }
-});
+}
 </script>

@@ -10,9 +10,9 @@
 <div id="template" style="display:none">
     <div class="toolback">
         <div class="listing2">
-            <center>
+            <span style="text-align: center;">
                 ${name}
-            </center>
+            </span>
         </div>
         <hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">
         <div>
@@ -74,11 +74,15 @@
 </style>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Bubble, MapsTooltip, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Bubble, MapsTooltip, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
 import { internetUsers } from '../maps/map-data/population-data';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+},
 data:function(){
     return{
         useGroupingSeparator: true,
@@ -91,7 +95,8 @@ data:function(){
         titleSettings: {
             text: 'Top 30 countries with highest Internet users',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         shapeDataPath: 'name',
@@ -127,12 +132,13 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
 bubbleRendering:function(args){
     args.radius = (args.data).value;
 }
 }
-})
+}
 </script>

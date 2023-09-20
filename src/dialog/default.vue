@@ -2,7 +2,7 @@
   <div>
     <div class="col-lg-12 control-section">
         <!-- Render Button to open the Dialog -->
-        <ejs-button id='dlgbtn' v-if="OpenBtn" v-on:click.native="BtnClick">Open</ejs-button>
+        <ejs-button id='dlgbtn' v-if="OpenBtn" v-on:click="BtnClick">Open</ejs-button>
 
         <ejs-dialog :buttons='dlgButtons' ref="dialogObj" :header='header' :animationSettings='animationSettings' :content='content' showCloseIcon=true :target='target' width='500px' :open="dialogOpen"
             :close="dialogClose">
@@ -28,11 +28,11 @@
 
 <style scoped>
     .e-btn-hide {
-	    display: none;
+    display: none;
 	}
     /* custom code start */
 	#defaultDialog {
-	    left:23%;
+    left:23%;
 	}
     .control-section {
         height: 100%;
@@ -58,11 +58,14 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-Vue.use(DialogPlugin);
-let OpenBtn = undefined;
-export default Vue.extend({
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             target: '.control-section',
@@ -89,5 +92,5 @@ export default Vue.extend({
             window.open('https://www.syncfusion.com/company/about-us');
         }
     }
-});
+}
 </script>

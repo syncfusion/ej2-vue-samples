@@ -2,11 +2,24 @@
 <div>
     <div class="col-lg-12 control-section tree-template">
     <div class="tree-template-control-wrapper">
-            <ejs-treeview id="template" :fields="fields" cssClass="custom" :nodeTemplate="treeTemplate"></ejs-treeview>
+        <ejs-treeview id="template" :fields="fields" cssClass="custom" :nodeTemplate="'myTemplate'">
+            <template v-slot:myTemplate="{data}">
+                <div>
+                    <div class="treeviewdiv">
+                        <div class="nodetext">
+                            <span class="treeName">{{data.name}}</span>
+                        </div>
+                        <div v-if="data.count" class="nodebadge">
+                            <span class="treeCount e-badge e-badge-primary">{{data.count}}</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </ejs-treeview>
         </div>
         </div>
     <div id="action-description">
-        <p>This sample demonstrates the template functionalities of the TreeView. Select the root node by clicking on it, or expand the root node and select the customized child node.</p>
+        <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the template functionalities of the TreeView. Select the root node by clicking on it, or expand the root node and select the customized child node.</p>
     </div>
     <div id="description">
         <p>The <code>TreeView</code> component has an option to customize the node structure through the <code>nodeTemplate</code> property, so that the tree node can be formed with any custom structure.</p>
@@ -33,6 +46,23 @@
     .material .tree-template .treeCount.e-badge {
         vertical-align: middle;
     }
+    .bootstrap4 .treeviewdiv .treeCount.e-badge,
+    .bootstrap5 .treeviewdiv .treeCount.e-badge,
+    .bootstrap5-dark .treeviewdiv .treeCount.e-badge,
+    .bootstrap .treeviewdiv .treeCount.e-badge,
+    .bootstrap-dark .treeviewdiv .treeCount.e-badge,
+    .highcontrast .treeviewdiv .treeCount.e-badge {
+        background-color: #008800;
+    }
+    .highcontrast .treeviewdiv .treeCount.e-badge {
+        color: white;
+    }
+    .bootstrap5.e-bigger .tree-template .treeCount.e-badge,
+    .tailwind.e-bigger .tree-template .treeCount.e-badge,
+    .tailwind-dark.e-bigger .tree-template .treeCount.e-badge,
+    .bootstrap5-dark.e-bigger .tree-template .treeCount.e-badge {
+        line-height: 11px;
+    }
     .tree-template .nodetext {
         float: left;
     }
@@ -53,24 +83,17 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-import treeTemplateVue from "./tree-template.vue";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import * as dataSource from './template-data.json';
 
-Vue.use(TreeViewPlugin);
-
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
-            fields: { dataSource: dataSource.templateData, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' },
-            treeTemplate: function(e) {
-                return {
-                    template: treeTemplateVue
-                };
-            },
+            fields: { dataSource: dataSource.templateData, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' }
         };
     }
-});
+}
 </script>

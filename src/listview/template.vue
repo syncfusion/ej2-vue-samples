@@ -1,6 +1,21 @@
 <template>
     <div class="col-lg-12 control-section">
-        <ejs-listview id='listview_template' ref="list" :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template='listTemplate'></ejs-listview>
+        <ejs-listview id='listview_template' ref="list" :dataSource='data' :cssClass='cssClass' :showHeader='header' :headerTitle='title' :actionComplete='onComplete' :template="'listTemplate'">
+            <template v-slot:listTemplate="{data}">
+                <div id="postContainer" v-bind:class="{'clearfix desc e-list-wrapper e-list-multi-line e-list-avatar':
+                    (data.category !== undefined), 'clearfix e-list-wrapper e-list-multi-line e-list-avatar': (data.category === undefined)}">
+                    <img v-if="data.imgSrc" class="e-avatar" :src="data.imgSrc" />
+                    <span class="e-list-item-header">{{data.title}} </span>
+                    <span class="e-list-content e-text-overflow" >{{data.description}} </span>
+                    <div v-if="data.timeStamp" id="list-logo">
+                        <span class="bookmark"></span>
+                        <span class="comments"></span>
+                        <span class="share"></span>
+                    </div>
+                    <div v-if="data.timeStamp" class="timeStamp">{{data.timeStamp}}</div>
+                </div>
+            </template>
+        </ejs-listview>
 
         <div id="action-description">
             <p>This sample demonstrates the template functionalities of the ListView. Click any news header or thumbnail to open
@@ -24,6 +39,16 @@
     border-radius: 2px;
     height: 470px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+body.material #listview_template,
+body.material-dark #listview_template,
+body.fabric #listview_template,
+body.fabric-dark #listview_template,
+body.bootstrap #listview_template,
+body.bootstrap-dark #listview_template,
+body.highcontrast #listview_template {
+    border: 1px solid #dddddd;
 }
 
 /* ListView header alignment */
@@ -67,11 +92,6 @@
     transform: translateY(-50%);
 }
 
-#listview_template.e-listview .e-list-item.e-hover {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.87);
-}
-
 #listview_template.e-listview #list-logo {
     float: right;
 }
@@ -89,12 +109,7 @@
 }
 
 #listview_template.e-listview .e-list-item.e-has-child.e-hover {
-    background-color: #eee;
     transition: 0.8s;
-}
-
-#listview_template.e-listview .e-list-item.e-active {
-    background-color: white;
 }
 
 #listview_template.e-listview .e-list-item.e-level-1.e-has-child {
@@ -151,7 +166,6 @@
 }
 
 .highcontrast #listview_template.e-listview .e-list-item.e-active {
-    background-color: #333333;
     color: #fff;
 }
 
@@ -168,12 +182,6 @@
 .bootstrap #listview_template.e-listview .e-has-child:hover .e-list-item-header {
     color: #0644b4;
     transition: 0.5s;
-}
-
-.highcontrast #listview_template.e-listview .e-list-item.e-hover {
-    background-color: #333333;
-    color: #fff;
-    border-color: #333333;
 }
 
 .highcontrast #listview_template.e-listview .e-list-item.e-has-child.e-hover {
@@ -193,6 +201,15 @@
     color: #333333;
 }
 
+body.material-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-item-header {
+    color: #ffffff;
+}
+
+body.material-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-content,
+body.bootstrap-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-content {
+    color: rgba(255,255,255,0.7);
+}
+
 /* Media query */
 
 @media screen and (max-width: 450px) {
@@ -207,25 +224,47 @@
         color: #495057;
     }
 
+.bootstrap-dark #listview_template.e-listview .e-list-item.e-active {
+    background-color: #414141;
+}
+
+body.bootstrap5 #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.bootstrap5 #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.bootstrap5 #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.material-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.material-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.material-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.fabric-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.fabric-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.fabric-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.bootstrap-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.bootstrap-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.bootstrap-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.tailwind-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.tailwind-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.tailwind-dark #listview_template.e-listview .e-list-item.e-focused .comments::before,
+body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .bookmark::before,
+body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .share::before,
+body.bootstrap5-dark #listview_template.e-listview .e-list-item.e-focused .comments::before
+{
+    color: #ffffff;
+}
+
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { enableRipple } from '@syncfusion/ej2-base';
 import { dataSource } from './newsData';
-import listtemplateVue from "./list-template.vue";
 
 enableRipple(false);
-Vue.use(ListViewPlugin);
-export default Vue.extend({
+
+export default {
+    components: {
+      'ejs-listview': ListViewComponent
+    },
     data: function() {
         return {
             cssClass: 'e-list-template',
-            listTemplate: function() {
-                return {
-                    template: listtemplateVue
-                }
-            },
             data: dataSource,
             header: true,
             title: 'Syncfusion Blog'
@@ -236,7 +275,6 @@ export default Vue.extend({
         let share = document.getElementsByClassName('share');
         let comments = document.getElementsByClassName('comments');
         let bookmark = document.getElementsByClassName('bookmark');
-        let description = document.getElementsByClassName('e-list-content');
         let timeStamp = document.getElementsByClassName('timeStamp');
 
         for (let i = 0; i < comments.length; i++) {
@@ -260,12 +298,6 @@ export default Vue.extend({
             });
         }
 
-        for (let i = 0; i < description.length; i++) {
-            description[i].addEventListener('click', (event) => {
-                event.stopPropagation();
-            });
-        }
-
         for (let i = 0; i < timeStamp.length; i++) {
             timeStamp[i].addEventListener('click', (event) => {
                 event.stopPropagation();
@@ -274,7 +306,7 @@ export default Vue.extend({
     },
 
     methods: {
-        onComplete: function(args) {
+        onComplete: function() {
             let listHeader = this.$refs.list.$el.childNodes[0];
             let header = listHeader.childNodes[0];
             if (header.style.display === 'none' || listHeader.childNodes.length === 3) {
@@ -290,5 +322,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

@@ -29,17 +29,20 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { fifaEventsData } from './datasource';
-    import { Internationalization, extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, Month, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-
-    export default Vue.extend({
+    import { extend } from '@syncfusion/ej2-base';
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], fifaEventsData, null, true) },
-                selectedDate: new Date(2018, 5, 21),
+                selectedDate: new Date(2021, 5, 16),
                 showWeekend: false,
                 dayInterval: 3,
                 weekInterval: 2,
@@ -58,6 +61,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

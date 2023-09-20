@@ -5,33 +5,63 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:block:height:250px' align='center' id='gauge1'>
+                        <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge1'>
+                            <template v-slot:firstImageTemplate="{}">
+                                <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p class="gauge_text">{{value1}}%</p></div>
+                            </template>
+                            <template v-slot:firstTextTemplate="{}">
+                                <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">Germany</div>
+                            </template>
                             <e-axes>
-                                <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :annotations='gauge1annotations' :ranges='gauge1ranges'>
+                                <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :ranges='gauge1ranges'>
+                                    <e-annotations>
+                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'firstImageTemplate'"></e-annotation>
+                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'firstTextTemplate'"></e-annotation>
+                                    </e-annotations>
                                     <e-pointers>
-                                        <e-pointer :value='value1' :radius='pointerRadius1' :color='color1' :pointerWidth='pointerWidth1' :cap='cap1' :needleTail='needleTail1' :animation='animation1'></e-pointer>
+                                        <e-pointer :value='value1' :radius='pointerRadius1' :pointerWidth='pointerWidth1' :cap='cap1' :needleTail='needleTail1' :animation='animation1'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:blaaock:height:250px' align='center' id='gauge2'>
+                        <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge2'>
+                            <template v-slot:twoImageTemplate="{}">
+                                <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p class="gauge_text">{{value2}}%</p></div>
+                            </template>
+                            <template v-slot:twoTextTemplate="{}">
+                                <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">USA</div>
+                            </template>
                             <e-axes>
-                                <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :annotations='gauge2annotations' :ranges='gauge2ranges'>
+                                <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :ranges='gauge2ranges'>
+                                    <e-annotations>
+                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'twoImageTemplate'"></e-annotation>
+                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'twoTextTemplate'"></e-annotation>
+                                    </e-annotations>
                                     <e-pointers>
-                                        <e-pointer :value='value2' :radius='pointerRadius2' :color='color2' :pointerWidth='pointerWidth2' :cap='cap2' :needleTail='needleTail2' :animation='animation2'></e-pointer>
+                                        <e-pointer :value='value2' :radius='pointerRadius2' :pointerWidth='pointerWidth2' :cap='cap2' :needleTail='needleTail2' :animation='animation2'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
                         </ejs-circulargauge>
                     </div>
                     <div class="col-sm-4">
-                        <ejs-circulargauge :load='load' style='display:block:height:250px' align='center' id='gauge3'>
+                        <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge3'>
+                            <template v-slot:threeImageTemplate="{}">
+                                <div class='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p class="gauge_text">{{value3}}%</p></div>
+                            </template>
+                            <template v-slot:threeTextTemplate="{}">
+                                <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">UK</div>
+                            </template>
                             <e-axes>
-                                <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations' :ranges='gauge3ranges'>
+                                <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :ranges='gauge3ranges'>
+                                    <e-annotations>
+                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'threeImageTemplate'"></e-annotation>
+                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'threeTextTemplate'"></e-annotation>
+                                    </e-annotations>
                                     <e-pointers>
-                                        <e-pointer :value='value3' :radius='pointerRadius3' :color='color3' :pointerWidth='pointerWidth3' :cap='cap3' :needleTail='needleTail3' :animation='animation3'></e-pointer>
+                                        <e-pointer :value='value3' :radius='pointerRadius3' :pointerWidth='pointerWidth3' :cap='cap3' :needleTail='needleTail3' :animation='animation3'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -58,29 +88,43 @@
     </div>
     <div id="action-description">
         <p>
-            This sample demonstrates the live data sample in circular gauge.
+            This sample shows live stock price data displayed in multiple circular gauges.
         </p>
     </div>
     <div id="description">
         <p>
-            Pointer values in the gauge can be updated dynamically by using <code>setPointerValue</code> method. In this example, a stock price changes over the countries, are showed by using a gauge.
+            The pointer value in the circular gauge can be dynamically updated using the <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/circular-gauge/#setpointervalue">setPointerValue</a>
+            method. In this example, the stock price changes across countries are displayed in multiple circular gauges.
         </p>
         <p>
-            More information on the gauge and its methods can be found in can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/documentation"> documentation section</a>.
+            More information on the circular gauge can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/"> documentation
+                section</a>.
         </p>
     </div>
 </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations} from "@syncfusion/ej2-vue-circulargauge";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, Annotations} from "@syncfusion/ej2-vue-circulargauge";
+import { GridComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-grids";
 import { Query, DataManager } from '@syncfusion/ej2-data';
-Vue.use(CircularGaugePlugin, GridPlugin);
-export default Vue.extend({
-    data: () => {
+
+export default {
+    components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+   },
+   data: () => {
         let value1 = Math.round(Math.random() * (90 - 55) + 55);
         let value2 = Math.round(Math.random() * (75 - 60) + 60);
         let value3 = Math.round(Math.random() * (40 - 10) + 10);
@@ -104,18 +148,8 @@ export default Vue.extend({
             'vsTarget': -gridData3
         }];
         return {
-            gauge1annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
-                angle: 180,
-                zIndex: '1',
-                radius: '30%'
-            }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Roboto">Germany</div>',
-                angle: 180,
-                zIndex: '1',
-                radius: '65%'
-            }],
             gauge1startAngle: 230,
+            background:'transparent',
             gauge1endAngle: 130,
             gauge1majorTicks: {
                 width: 0
@@ -149,30 +183,16 @@ export default Vue.extend({
             animation1: {
                 enable: false
             },
-            color1: '#777777',
             pointerWidth1: 5,
             cap1: {
                 radius: 6,
                 border: {
                     width: 0
-                },
-                color: '#777777'
+                }
             },
             needleTail1: {
-                length: '25%',
-                color: '#777777'
+                length: '25%'
             },
-            gauge2annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
-                angle: 180,
-                zIndex: '1',
-                radius: '30%'
-            }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Roboto">USA</div>',
-                angle: 180,
-                zIndex: '1',
-                radius: '65%'
-            }],
             gauge2startAngle: 230,
             gauge2endAngle: 130,
             gauge2majorTicks: {
@@ -207,30 +227,16 @@ export default Vue.extend({
             animation2: {
                 enable: false
             },
-            color2: '#777777',
             pointerWidth2: 5,
             cap2: {
                 radius: 6,
                 border: {
                     width: 0
-                },
-                color: '#777777'
+                }
             },
             needleTail2: {
-                length: '25%',
-                color: '#777777'
+                length: '25%'
             },
-            gauge3annotations: [{
-                content: "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK' /><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>",
-                angle: 180,
-                zIndex: '1',
-                radius: '30%'
-            }, {
-                content: '<div style="color:#9E9E9E;font-size:16px;font-family:Roboto">UK</div>',
-                angle: 180,
-                zIndex: '1',
-                radius: '65%'
-            }],
             gauge3startAngle: 230,
             gauge3endAngle: 130,
             gauge3majorTicks: {
@@ -265,18 +271,15 @@ export default Vue.extend({
             animation3: {
                 enable: false
             },
-            color3: '#777777',
             pointerWidth3: 5,
             cap3: {
                 radius: 6,
                 border: {
                     width: 0
-                },
-                color: '#777777'
+                }
             },
             needleTail3: {
-                length: '25%',
-                color: '#777777'
+                length: '25%'
             },
             data: new DataManager(orderData).executeLocal(new Query().take(15))
         }
@@ -285,14 +288,15 @@ export default Vue.extend({
         circulargauge: [Annotations]
     },
     methods: {
-        /* custom code start */
         load: function (args) {
+            /* custom code start */
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            /* custom code end */
         },
-        /* custom code end */
         toolTipInterval1: function () {
             setInterval(function () {
                 let germany = document.getElementById('gauge1');
@@ -323,38 +327,42 @@ export default Vue.extend({
                         'vsTarget': -gridData3
                     }];
                     let data = new DataManager(orderData).executeLocal(new Query().take(3));
-
                     grid.ej2_instances[0].dataSource = data;
                     grid.ej2_instances[0].refresh();
-
                     germany.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
                     usa.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
                     uk.ej2_instances[0].axes[0].pointers[0].animation.enable = true;
                     germany.ej2_instances[0].setPointerValue(0, 0, value1);
                     usa.ej2_instances[0].setPointerValue(0, 0, value2);
                     uk.ej2_instances[0].setPointerValue(0, 0, value3);
-                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div id='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/><div class='des'><div style='color:#424242;font-size:20px;font-family:Roboto'>${pointers[0].value}%</div></div></div>");
-
-
+                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
+                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px;display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
+                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>-${pointers[0].value}%</p></div>");
                 } else {
                     clearInterval(this.toolTipInterval1);
                 }
             }, 2000)
         }
     }
-})
+}
 </script>
 <style scoped>
-#templateWrap img {
-    width: 16px;
-    height: 16px;
-    margin-top: 4px;
+.templateWrap {
+    display: inline;
+    margin-left: -10px;
 }
-
-#templateWrap .des {
-    float: right;
-    padding-left: 5px;
+.templateWrap img {
+    width: 16px;
+    height: 16px; 
+    margin-top: 4px; 
+    display: inline-block; 
+    vertical-align: middle;
+}
+.gauge_text {
+    display: inline-block; 
+    vertical-align: sub; 
+    color:#424242; 
+    font-size:20px; 
+    font-family:inherit;
 }
 </style>

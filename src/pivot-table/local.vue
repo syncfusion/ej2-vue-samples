@@ -51,15 +51,14 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet,
   IDataOptions,
   LoadEventArgs
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple, isNullOrUndefined } from "@syncfusion/ej2-base";
@@ -67,7 +66,6 @@ import { rData } from "./data-source";
 import { csvdata } from "./csvData";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
 let data: IDataSet[] = JSON.parse(JSON.stringify(rData));
@@ -90,7 +88,11 @@ for (let ln: number = 0, lt: number = data.length; ln < lt; ln++) {
     (dtMn + 1) / 6 <= 1 ? "H1 " + ("FY " + dtYr) : "H2" + ("FY " + dtYr);
   delete data[ln].Date;
 }
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       jsonReport: {
@@ -157,22 +159,22 @@ export default Vue.extend({
       return dataSource;
     },
     ddlOnChange: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (args.value === "JSON") {
-        pivotObj.dataSourceSettings = this.jsonReport;
+        pivotObj.dataSourceSettings = (this as any).jsonReport;
       } else if (args.value === "CSV") {
-        (this.csvReport as IDataOptions).dataSource = this.getCSVData();
-        pivotObj.dataSourceSettings = this.csvReport;
+        ((this as any).csvReport as IDataOptions).dataSource = (this as any).getCSVData();
+        pivotObj.dataSourceSettings = (this as any).csvReport;
       }
     },
-    onload: function(args: LoadEventArgs) {
+    onLoad: function(args: LoadEventArgs) {
       let dataSourceSettings: IDataOptions | undefined = args.dataSourceSettings;
       if (dataSourceSettings && dataSourceSettings.type === 'CSV') {
         dataSourceSettings.dataSource = this.getCSVData();
       }
     }
   }
-});
+}
 </script>
 
 <style scoped>

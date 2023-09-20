@@ -6,11 +6,49 @@
     </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" height=335 width='auto' :rowTemplate='rowTemplate' >
+        <ejs-grid :dataSource="data" height=335 width='auto' :rowTemplate="'rowTemplate'" >
             <e-columns>
                 <e-column field='Employee Image' headerText='Employee Image' width='150' textAlign='Center'></e-column>
                 <e-column field='Employee Details' headerText='Employee Details' width='300' textAlign='Left'></e-column>
             </e-columns>
+            <template v-slot:rowTemplate="{data}">
+                  <tr>
+                    <td class="rowphoto">
+                      <img :src="'source/grid/images/' + data.EmployeeID + '.png'" :alt="data.EmployeeID" />
+                    </td>
+                    <td class="details">
+                      <table class="CardTable" cellpadding="3" cellspacing="2">
+                        <colgroup>
+                          <col width="50%">
+                          <col width="50%">
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <td class="CardHeader">First Name </td>
+                            <td>{{data.FirstName}} </td>
+                          </tr>
+                          <tr>
+                            <td class="CardHeader">Last Name</td>
+                            <td>{{data.LastName}} </td>
+                          </tr>
+                          <tr>
+                            <td class="CardHeader">Title</td>
+
+                            <td>{{data.Title}} </td>
+                          </tr>
+                          <tr>
+                            <td class="CardHeader">Birth Date</td>
+                            <td>{{format(data.BirthDate)}} </td>
+                          </tr>
+                          <tr>
+                            <td class="CardHeader">Hire Date</td>
+                            <td>{{format(data.HireDate)}} </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+            </template>
         </ejs-grid>
     </div>
 
@@ -18,7 +56,7 @@
          <p>
             The Grid provides a way to use a custom layout for its rows using template feature. The
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#rowtemplate">rowTemplate
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowtemplate">rowTemplate
         </a></code> property accepts the template for the row.
         </p>
         <p>
@@ -34,21 +72,27 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
-import rowtemplate from "./row-temp.vue";
+import { Internationalization } from '@syncfusion/ej2-base';
 
-Vue.use(GridPlugin);
+let instance = new Internationalization();
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: employeeData,
-      rowTemplate: function () {
-        return { template: rowtemplate}
-      }
     };
+  },
+  methods: {
+    format: function(value: any) {
+        return instance.formatDate(value, { skeleton: 'yMd', type: 'date' });
+    }
   }
-});
+}
 </script>

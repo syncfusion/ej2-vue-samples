@@ -67,7 +67,6 @@
 </template>
 
 <style>
-    /* custom code start*/
     .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.personal .e-label {
         color: #808080;
     }
@@ -93,13 +92,9 @@
     }
 
     .highcontrast .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
-    .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
+    .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
+    .material3-dark .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
-    }
-    /* custom code end*/
-
-    .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-month-view .e-appointment {
-        border-color: transparent;
     }
 
     .schedule-vue-sample .schedule-add-remove-resources.e-schedule .e-timeline-view .e-resource-left-td,
@@ -113,25 +108,29 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { CheckBoxPlugin } from '@syncfusion/ej2-vue-buttons';
-    import { extend } from '@syncfusion/ej2-base';
+    import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
     import { holidayData, birthdayData, companyData, personalData } from './datasource';
-    import { SchedulePlugin, Month, View, TimelineViews, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-    Vue.use(SchedulePlugin);
-    Vue.use(CheckBoxPlugin);
-
+    import { ScheduleComponent, ResourcesDirective, ResourceDirective, ViewsDirective, ViewDirective, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    
     var calendarCollections = [
         { CalendarText: 'My Calendar', CalendarId: 1, CalendarColor: '#c43081' },
         { CalendarText: 'Company', CalendarId: 2, CalendarColor: '#ff7f50' },
         { CalendarText: 'Birthday', CalendarId: 3, CalendarColor: '#AF27CD' },
         { CalendarText: 'Holiday', CalendarId: 4, CalendarColor: '#808000' }
     ];
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective,
+          'ejs-checkbox': CheckBoxComponent
+        },
         data: function () {
             return {
                 cssClass: 'schedule-add-remove-resources',
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 1),
                 group: { resources: ['Calendars'] },
                 resourceDataSource: [calendarCollections[0]],
                 calendarCollection: calendarCollections,
@@ -143,7 +142,6 @@
             schedule: [Month, TimelineViews, TimelineMonth, Resize, DragAndDrop]
         },
         methods: {
-            // custom code start
             generateCalendarData: function () {
                 var collections = [];
                 var dataCollections = [personalData, companyData, birthdayData, holidayData];
@@ -152,10 +150,9 @@
                 }
                 return collections;
             },
-            // custom code end
             onChange: function (args) {
                 let scheduleObj = this.$refs.ScheduleObj;
-                let value = parseInt((args.event.target).getAttribute('value'), 10);
+                let value = parseInt(args.event.currentTarget.querySelector('input').getAttribute('value'), 10);
                 let resourceData = calendarCollections.filter(function (calendar) { return calendar.CalendarId === value; });
                 if (args.checked) {
                     scheduleObj.addResource(resourceData[0], 'Calendars', value - 1);
@@ -167,6 +164,6 @@
             }
 
         }
-    });
+    }
 
 </script>

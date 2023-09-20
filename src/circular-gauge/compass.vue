@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
                 <e-axes>
-                    <e-axis :radius='radius' :startAngle='startAngle' minimum=0 maximum=8 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
+                    <e-axis :radius='radius' :startAngle='startAngle' minimum=0 maximum=8 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                         <e-pointers>
                             <e-pointer :value='value1' :radius='pointerRadius1' :color='color1' :pointerWidth='pointerWidth1' :cap='cap1' :animation='animation1'></e-pointer>
                             <e-pointer :value='value2' :radius='pointerRadius2' :color='color2' :pointerWidth='pointerWidth2' :cap='cap2' :animation='animation2'></e-pointer>
@@ -16,7 +16,12 @@
     </div>
 
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+         <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
+             <tbody>
             <tr style="height: 50px">
                 <td>
                     <div id=''>Pointer Color</div>
@@ -37,6 +42,7 @@
                     </div>
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
     <div id="action-description">
@@ -58,12 +64,18 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import {  CircularGaugePlugin } from "@syncfusion/ej2-vue-circulargauge";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-Vue.use(CircularGaugePlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-circulargauge";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+
+export default {
+    components: {
+        'ejs-circulargauge': CircularGaugeComponent,
+        'e-axes': AxesDirective,
+        'e-axis': AxisDirective,
+        'e-pointers': PointersDirective,
+        'e-pointer': PointerDirective,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function () {
         return {
             radius: '70%',
@@ -73,7 +85,7 @@ export default Vue.extend({
             labelStyle: {
                 font: {
                     size: '12px',
-                    fontFamily: 'Roboto'
+                    fontFamily: 'Segoe UI'
                 },
                 autoAngle: true,
                 hiddenLabel: 'Last'
@@ -88,10 +100,6 @@ export default Vue.extend({
             },
             startAngle: 0,
             endAngle: 360,
-            ranges: [{
-                start: 7,
-                end: 7
-            }],
             value1: 7,
             pointerRadius1: '50%',
             color1: '#f03e3e',
@@ -113,10 +121,10 @@ export default Vue.extend({
                 enable: false
             },
             poiterColordata: ['#f03e3e', '#4472c4', '#ed7d31'],
-            poiterColorwidth: 120,
+            poiterColorwidth: '100%',
             poiterColorplaceholder: 'Select Range Bar Color',
             labelColordata: ['#f03e3e', '#4472c4', '#ed7d31'],
-            labelColorwidth: 120,
+            labelColorwidth: '100%',
             labelColorplaceholder: 'Select Range Bar Color'
         }
     },
@@ -126,7 +134,8 @@ export default Vue.extend({
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
-                selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         },
         /* custom code end */
 // Code for Property Panel
@@ -149,7 +158,7 @@ export default Vue.extend({
             args.text = value[args.value];
         }
     }
-})
+}
 </script>
 
 <style scoped>

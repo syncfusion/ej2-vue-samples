@@ -24,17 +24,16 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 import { addClass } from "@syncfusion/ej2-base";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       cssClass: "calendar-special-dates"
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     specialDate: function(args, name) {
       let span = document.createElement("span");
@@ -61,14 +60,14 @@ export default Vue.extend({
       let title = "";
       if (args.event) {
         /*Displays selected date in the label*/
-        title = args.event.currentTarget.getAttribute("data-val");
+        title = args.event.currentTarget.classList.contains('e-selected') ? args.event.currentTarget.getAttribute('data-val') : args.event.currentTarget.getElementsByClassName('e-selected').length > 0 ? args.event.currentTarget.getElementsByClassName('e-selected')[0].getAttribute('data-val') : null;
         title = title == null ? "" : " ( " + title + " )";
       }
       document.getElementById("date_label").textContent =
         "Selected Value: " + args.value.toLocaleDateString() + title;
     }
   }
-});
+};
 </script>
 
 <style scoped>
@@ -84,6 +83,17 @@ export default Vue.extend({
   margin: 0 auto;
 }
 
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.material3-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
+body.highcontrast #date_label {
+    color: white;
+} 
+
 </style>
 <style>
 .calendar-special-dates span.e-icons.highlight {
@@ -98,6 +108,25 @@ export default Vue.extend({
   color: #0501fc;
 }
 
+.highcontrast .calendar-special-dates td.e-icons.highlight,
+.highcontrast .calendar-special-dates td.e-icons.highlight:before,
+.material-dark .calendar-special-dates td.e-icons.highlight,
+.material-dark .calendar-special-dates td.e-icons.highlight:before,
+.material3-dark .calendar-special-dates td.e-icons.highlight,
+.material3-dark .calendar-special-dates td.e-icons.highlight:before,
+.fabric-dark .calendar-special-dates td.e-icons.highlight,
+.fabric-dark .calendar-special-dates td.e-icons.highlight:before,
+.bootstrap-dark .calendar-special-dates td.e-icons.highlight,
+.bootstrap-dark .calendar-special-dates td.e-icons.highlight:before,
+.bootstrap5-dark .calendar-special-dates td.e-icons.highlight,
+.bootstrap5-dark .calendar-special-dates td.e-icons.highlight:before,
+.tailwind-dark .calendar-special-dates td.e-icons.highlight,
+.tailwind-dark .calendar-special-dates td.e-icons.highlight:before,
+.fluent-dark .calendar-special-dates td.e-icons.highlight,
+.fluent-dark .calendar-special-dates td.e-icons.highlight:before {
+    color: #ff7500;
+}
+
 .calendar-special-dates .e-other-month span.e-icons.highlight:before {
   content: "";
 }
@@ -108,7 +137,7 @@ export default Vue.extend({
   margin-right: 3px;
   font-size: 4px;
   position: relative;
-  top: -1px;
+  top: 1px;
   font-weight: normal;
 }
 
@@ -125,10 +154,6 @@ export default Vue.extend({
 
 body.highcontrast .e-bigger .calendar-special-dates.e-calendar span.e-icons.highlight:before {
   top: -2px;
-}
-
-.calendar-special-dates .e-selected span.e-icons.highlight:before {
-  color: #fff;
 }
 
 body.highcontrast .calendar-special-dates td.birthday span.e-icons.highlight:before {

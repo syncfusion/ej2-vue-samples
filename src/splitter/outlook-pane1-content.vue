@@ -11,10 +11,8 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
-
-Vue.use(TreeViewPlugin);
+import { createApp } from "vue";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 
 var mailBox = [
         { id: 1, name: 'Favorites', hasChild: true},
@@ -34,7 +32,7 @@ var mailBox = [
         { id: 15, pid: 5, name: 'Trash' }
 ];
 
-var treeTemplate = Vue.component("demo", {
+var treeTemplate = createApp({}).component("demo", {
   template: '<div><div class="treeviewdiv"><div style="float:left"><span class="treeName">{{data.name}}</span></div>' +
         '<div v-if="data.count" style="margin-right: 5px; float:right"><span class="treeCount e-badge e-badge-primary">{{data.count}}</span></div></div></div>',
   data() {
@@ -44,7 +42,10 @@ var treeTemplate = Vue.component("demo", {
   }
 });
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
             fields: { dataSource: mailBox, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' },
@@ -55,5 +56,5 @@ export default Vue.extend ({
             },
         };
     }
-});
+};
 </script>

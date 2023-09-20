@@ -721,7 +721,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Stromboli sandwich with chili sauce.",
         "Tags": "Onions, Pepper, Cheese",
         "ImageURL": "Mexican_Green_Wave.jpg",
-        "Price": "$4.79"
+        "Price": "$4.79",
+        "Date":"02/01/2022"
     },
     {
         "Id": 2,
@@ -733,7 +734,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Veggie with Onions and Capsicum.",
         "Tags": "Onions, Capsicum",
         "ImageURL": "Fresh_Veggie.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 3,
@@ -745,7 +747,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "It's made using toppings of tomato, mozzarella cheese and fresh basil.",
         "Tags": "Onions, Pepper, Cheese",
         "ImageURL": "Peppy_Paneer.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 4,
@@ -757,7 +760,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Lebanese Pizza topped with tomato sauce.",
         "Tags": "Onions, Pepper, Cheese",
         "ImageURL": "Margherit.jpg",
-        "Price": "$4.79"
+        "Price": "$4.79",
+        "Date":"02/01/2022"
     },
     {
         "Id": 5,
@@ -769,7 +773,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Tandoori Paneer with capsicum, red paprika and mint.",
         "Tags": "Paneer, Capsicum",
         "ImageURL": "IndianTandooriPaneer.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 6,
@@ -781,7 +786,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Pepper Barbecue Chicken with cheese.",
         "Tags": "Pepper, Chicken, Cheese",
         "ImageURL": "Pepper_Barbeque.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 7,
@@ -793,7 +799,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Chicken Sausage with cheese.",
         "Tags": "Cheese, Chicken",
         "ImageURL": "Chicken_Sausage.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 8,
@@ -805,7 +812,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Barbeque chicken with a topping of golden corn loaded with extra cheese.",
         "Tags": "Onions, BBQ, Prawn",
         "ImageURL": "Chicken_Golden_Delight.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 9,
@@ -817,7 +825,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Pepper Barbecue chicken with Onion.",
         "Tags": "Pepper, Chicken",
         "ImageURL": "Pepper_Barbeque_Onion.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 10,
@@ -829,7 +838,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Grilled Chicken Rashers with Peri-Peri chicken, Onion and Capsicum.",
         "Tags": "Chicken, Capsicum",
         "ImageURL": "chunky-chicken.png",
-        "Price": "$4.79"
+        "Price": "$4.79",
+        "Date":"02/01/2022"
     },
     {
         "Id": 11,
@@ -841,7 +851,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Margherita with chili sauce and double Cheese.",
         "Tags": "Onions, Pepper",
         "ImageURL": "Double_Cheese_Margherita.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 12,
@@ -853,7 +864,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Veggie Delight with Goldern Corn, Black Olives, Capsicum and red Paprika.",
         "Tags": "Corn, Capsicum",
         "ImageURL": "Veggie_Paradise.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 13,
@@ -865,7 +877,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Cheese with golden corn.",
         "Tags": "Cheese, Corn",
         "ImageURL": "Corn_Cheese.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 14,
@@ -877,7 +890,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Tandoori masala with Chicken Tikka, Onion, red paprika and mint.",
         "Tags": "Chicken, Tikka, Paprika",
         "ImageURL": "IndianChickenTikka.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 15,
@@ -889,7 +903,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Double Pepper Barbecue Chicken with Peri-Peri Chicken, Chicken Tikka, Grilled and Rashers.",
         "Tags": "Pepper, Chicken",
         "ImageURL": "Dominator.jpg",
-        "Price": "$4.79"
+        "Price": "$4.79",
+        "Date":"02/01/2022"
     },
     {
         "Id": 16,
@@ -901,7 +916,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Onions and Capsicum those delectable mushrooms with paneer and golden corn to top it all.",
         "Tags": "Mushrooms, Corn",
         "ImageURL": "Deluxe_Veggie.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 17,
@@ -913,7 +929,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Crunchy, crisp capsicum, succulent mushrooms and fresh tomatoes.",
         "Tags": "Capsicum, Mushrooms",
         "ImageURL": "Farmhouse.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 18,
@@ -925,7 +942,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Pizza with corn, olives, onions, capsicum, tomatoes and jalapeno with cheese to go all around.",
         "Tags": "Corn, Mushrooms",
         "ImageURL": "Veg_Extravaganz.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 19,
@@ -937,7 +955,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Lebanese Pizza topped with tomato sauce.",
         "Tags": "Onions, Pepper, Cheese",
         "ImageURL": "Margherit.jpg",
-        "Price": "$4.79"
+        "Price": "$4.79",
+        "Date":"02/01/2022"
     },
     {
         "Id": 20,
@@ -949,7 +968,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Pepper Barbecue chicken with Onion.",
         "Tags": "Onions, Pepper, Chicken",
         "ImageURL": "Pepper_Barbeque_Onion.jpg",
-        "Price": "$11.99"
+        "Price": "$11.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 21,
@@ -961,7 +981,8 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Veggie Delight with Goldern Corn, Black Olives, Capsicum and red Paprika.",
         "Tags": "Corn, Capsicum, Pepper",
         "ImageURL": "Veggie_Paradise.jpg",
-        "Price": "$14.99"
+        "Price": "$14.99",
+        "Date":"02/01/2022"
     },
     {
         "Id": 22,
@@ -973,6 +994,74 @@ export let kanbanPizzaData: Object[] = [
         "Description": "Double Pepper Barbecue Chicken with Peri-Peri Chicken, Chicken Tikka, Grilled and Rashers.",
         "Tags": "Pepper, Chicken",
         "ImageURL": "Dominator.jpg",
-        "Price": "$4.79"
+        "Price": "$4.79",
+        "Date":"02/01/2022"
     }
 ];
+
+export function generateKanbanDataVirtualScrollData(): Record<string, any>[] {
+    const kanbanData: Record<string, any>[] = [];
+    const BUG_TASKS: string[] = [
+        'UI component not displaying images in IE browser',
+        'Button not responding on hover action',
+        'Text overlapping in mobile view',
+        'Dropdown menu not functioning properly',
+        'Form validation error',
+        'Alignment issue in tables',
+        'Column not loading completely',
+        'Broken UI Designs',
+        'Font size inconsistency',
+        'UI element misaligned on scroll'
+    ];
+    const FEATURE_TASKS: string[] = [
+        'Implement new user registration flow',
+        'Add pagination to search results',
+        'Improve accessibility for visually impaired users',
+        'Create custom dashboard for users',
+        'Develop user profile editing functionality',
+        'Integrate with third-party API for weather data',
+        'Implement social media sharing for articles',
+        'Add support for multiple languages',    
+        'Create onboarding tutorial for new users',
+        'Implement push notifications for mobile app'
+    ];
+    const EPIC_TASKS: string[] = [
+        'Revamp UI design for entire application',
+        'Develop mobile application for iOS and Android',
+        'Create API for integration with external systems',
+        'Implement machine learning algorithms for personalized recommendations',
+        'Upgrade database infrastructure for scalability',
+        'Integrate with payment gateway for subscription model',
+        'Develop chatbot for customer support',
+        'Implement real-time collaboration features for team projects',
+        'Create analytics dashboard for administrators',
+        'Introduce gamification elements to increase user engagement',
+    ];    
+
+    const assignee: string[] = ['Andrew Fuller', 'Janet Leverling', 'Steven walker', 'Robert King', 'Margaret hamilt', 'Nancy Davloio', 'Margaret Buchanan', 'Laura Bergs', 'Anton Fleet', 'Jack Kathryn', 'Martin Davolio', 'Fleet Jack'];
+    const status: string[] = ['Open', 'InProgress', 'Review', 'Testing', 'Close'];
+    const priority: string[] = ['Ultra-Critical', 'Critical', 'High', 'Normal', 'Low'];
+    const types: string[] = ['Epic', 'Bug', 'Story' ];
+    const tagsField: string[] = ['Feature', 'Bug', 'Enhancement', 'Documentation' ,'Automation', 'Mobile', 'Web', 'iOS', 'Safari','Chrome', 'Firefox', 'Manual Testing'];    
+    const storyPoints: string[] = ['1', '2', '3', '3.5', '4', '4.5', '5', '6', '7.5', '8'];
+    const count: number = 600000;
+    for (let a: number = 500000, id: number = 500000; a < count; a++) {
+        const typeValue: string = types[Math.floor(Math.random() * types.length)];
+        const summary: string = typeValue === 'Bug' ? BUG_TASKS[Math.floor(Math.random() * BUG_TASKS.length)] :
+            typeValue === 'Story' ? FEATURE_TASKS[Math.floor(Math.random() * FEATURE_TASKS.length)] :
+            EPIC_TASKS[Math.floor(Math.random() * EPIC_TASKS.length)];
+        kanbanData.push({
+            Id: id,
+            Type: typeValue,
+            Priority:  priority[Math.floor(Math.random() * priority.length)],
+            Status: status[Math.floor(Math.random() * status.length)],
+            Assignee: assignee[Math.floor(Math.random() * assignee.length)],
+            StoryPoints: storyPoints[Math.floor(Math.random() * storyPoints.length)],
+            Tags: [tagsField[Math.floor(Math.random() * tagsField.length)], tagsField[Math.floor(Math.random() * tagsField.length)]] ,  
+            Title: 'Task '+ id,
+            Summary: summary,
+        });
+        id++;
+    }
+    return kanbanData;
+}

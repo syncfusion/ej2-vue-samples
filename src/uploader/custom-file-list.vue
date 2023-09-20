@@ -21,7 +21,8 @@
         </div>
     </div>
       <div id="action-description">
-      <p>This example demonstrates how to customize the file list with template. Browse or select the files to view the file list template.</p>
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to customize the file list with template. Browse or select the files to view the file list template.</p>
     </div>
 
     <div id="description">
@@ -73,6 +74,22 @@
     }
     .highcontrast .uploader-custom-file-drop-target span a {
         color: #ffd939;
+    }
+    .material3-dark .uploader-custom-file-drop-target span a,
+    .material-dark .uploader-custom-file-drop-target span a {
+        color:#56a4fd;
+    }
+    .fabric-dark .uploader-custom-file-drop-target span a {
+        color:#0074cc;
+    }
+    .bootstrap-dark .uploader-custom-file-drop-target span a {
+        color:#0070f0;
+    }
+    .bootstrap5-dark .uploader-custom-file-drop-target span a {
+        color:#0d6efd;
+    }
+    .tailwind-dark .uploader-custom-file-drop-target span a {
+        color:#22d3ee;
     }
 
 </style>
@@ -173,11 +190,66 @@
         left: 7px;
         position: inherit;
         top: 7px;
+        content: '\e7e7';
+    }
+    .tailwind .uploader-template-view .close-icon-container.e-icons::before,
+    .tailwind-dark .uploader-template-view .close-icon-container.e-icons::before {
+        content: '\e7e7';
+    }
+    .fabric .uploader-template-view .close-icon-container.e-icons::before,
+    .fabric-dark .uploader-template-view .close-icon-container.e-icons::before,
+    .highcontrast .uploader-template-view .close-icon-container.e-icons::before {
+        content: '\e953';
+    }
+    .bootstrap5 .uploader-template-view .close-icon-container.e-icons::before,
+    .bootstrap5-dark .uploader-template-view .close-icon-container.e-icons::before {
+        content: '\e7e7';
+    }
+    
+    .bootstrap4 .template_wrapper .close-icon-container.e-icons::before {
+        content: '\e745';
+    }
+
+    .material .close-icon-container.e-icons::before,
+    .material-dark .close-icon-container.e-icons::before {
         content: '\e932';
+    }
+
+    .bootstrap .close-icon-container.e-icons::before,
+    .bootstrap-dark .close-icon-container.e-icons::before {
+        content: '\e7fc';
     }
 
     .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e94a';
+    }
+
+    .bootstrap4 .template_wrapper .close-icon-container.delete-icon::before {
+        content: '\e773';
+    }
+
+    .fluent .uploader-template-view .close-icon-container.delete-icon::before,
+    .fluent-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e820';
+    }
+
+    .tailwind .uploader-template-view .close-icon-container.delete-icon::before
+    .tailwind-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e820';
+    }
+    .bootstrap5 .uploader-template-view .close-icon-container.delete-icon::before,
+    .bootstrap5-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e820';
+    }
+    .fabric .uploader-template-view .close-icon-container.delete-icon::before,
+    .fabric-dark .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e965';
+    }
+    .highcontrast .uploader-template-view .close-icon-container.delete-icon::before {
+        content: '\e965';
+    }
+    .tailwind .uploader-template-view .close-icon-container.delete-icon {
+        top: 10px;
     }
 
     .uploader-template-view .close-icon-container:hover {
@@ -256,22 +328,17 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
-import { createElement, isNullOrUndefined, detach, EventHandler } from '@syncfusion/ej2-base';
-import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
+import { createElement, isNullOrUndefined, detach } from '@syncfusion/ej2-base';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(UploaderPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           filesList: [],
@@ -279,6 +346,10 @@ export default Vue.extend({
           parentElement: '',
           progressbarContainer: ''
         }
+    },
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-button': ButtonComponent
     },
     mounted: function () {
         document.getElementById('browse').onclick = function() {
@@ -330,7 +401,6 @@ export default Vue.extend({
            
         onFileUpload: function(args) {
             let li = document.getElementById('dropTarget').querySelector('[data-file-name="' + args.file.name + '"]');
-            let localObj = this;
             let progressValue = Math.round((args.e.loaded / args.e.total) * 100);
             if (!isNaN(progressValue)) { 
                 li.getElementsByTagName('progress')[0].value = progressValue;
@@ -338,7 +408,6 @@ export default Vue.extend({
         },
 
         onUploadSuccess: function(args) {
-            let spinnerElement = document.getElementById('dropTarget');
             let li= document.getElementById('dropTarget').querySelector('[data-file-name="' + args.file.name + '"]');
             if (!isNullOrUndefined(li.querySelector('.progress-bar-container'))) { 
                 detach(li.querySelector('.progress-bar-container')); 
@@ -373,7 +442,6 @@ export default Vue.extend({
 
         onUploadFailed: function(args) {
             let li = document.getElementById('dropTarget').querySelector('[data-file-name="' + args.file.name + '"]');
-            let localObj = this;
             li.querySelector('.file-name').classList.add('upload-fails');
             li.querySelector('.close-icon-container').classList.remove('remove-btn');
             if (args.operation === 'remove') {
@@ -409,5 +477,5 @@ export default Vue.extend({
             }
         }
     }
-});
+};
 </script>

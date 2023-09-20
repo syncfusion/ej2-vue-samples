@@ -69,7 +69,7 @@
                     <tr>
                         <td>
                             <div class="evtbtn" style="width: 50%;padding: 20px 10px 10px 75px;">
-                               <ejs-button v-on:click.native="clear">Clear</ejs-button>
+                               <ejs-button v-on:click="clear">Clear</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -107,15 +107,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers, Reorder, Sort, Resize, ContextMenu, ColumnMenu, Toolbar, Edit, Filter, GanttComponent } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers, Reorder, Sort, Resize, ContextMenu, ColumnMenu, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(GanttPlugin);
-Vue.use(ButtonPlugin);
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-button': ButtonComponent
+  },
   data: () => {
     return {
       data: projectNewData,
@@ -131,7 +131,7 @@ export default Vue.extend({
                child: 'subtasks'
             },
             columns: [
-                { field: 'TaskID', width: 70 },
+                { field: 'TaskID', width: 80 },
                 { field: 'TaskName', width: 250 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
@@ -272,5 +272,5 @@ export default Vue.extend({
         (<HTMLElement>document.getElementById('EventLog')).innerHTML = '';
     }
   }
-});
+};
 </script>

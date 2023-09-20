@@ -49,18 +49,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-import { MultiSelectPlugin, ChangeEventArgs, MultiSelectComponent, CheckBoxSelection, DropDownListPlugin} from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(GanttPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(MultiSelectPlugin);
-Vue.use(CheckBoxPlugin);
+import { MultiSelectComponent, CheckBoxSelection } from '@syncfusion/ej2-vue-dropdowns';
 
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-multiselect': MultiSelectComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -76,7 +75,7 @@ export default Vue.extend({
                child: 'subtasks'
             },
             columns: [
-                { field: 'TaskID', width: 70 },
+                { field: 'TaskID', width: 80 },
                 { field: 'TaskName', width: 250 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
@@ -126,5 +125,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

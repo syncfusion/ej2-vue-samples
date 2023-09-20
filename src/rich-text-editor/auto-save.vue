@@ -1,10 +1,10 @@
 <template>
-<div class="control-section" style="overflow:hidden;">
+<div>
 <div class="col-lg-8 control-section">
     <div class="control-wrapper">
         <div class="sample-container">
             <div class="default-section">
-        <ejs-richtexteditor ref="saveObj"  :toolbarSettings="toolbarSettings" enablePersistence=true saveInterval=5000 placeholder="Start to type a content to save":change="updateStatus">
+        <ejs-richtexteditor ref="saveObj" :toolbarSettings="toolbarSettings" enablePersistence=true saveInterval=5000 placeholder="Start to type a content to save" :change="updateStatus">
          <p>Type or edit the content to be saved automatically in the editor</p>
           </ejs-richtexteditor>  
          <div id='statusEle' class='current-status'>
@@ -25,7 +25,7 @@
     <div title="Properties" id="property">
         <div class='toggle-btn'>
             <label for="checked" style="padding: 10px 70px 10px 0"> Auto Save </label>
-            <ejs-switch id="checked" :change="onChange":checked="true"></ejs-switch>
+            <ejs-switch id="checked" :change="onChange" :checked="true"></ejs-switch>
         </div>
     </div>
 </div>
@@ -98,34 +98,54 @@
         }
     }
     
-   .bootstrap4 .e-icons.e-icon-refresh::before {
+    .bootstrap4 .e-icons.e-icon-refresh::before {
         content: "\e710";
     }
-
+    
     .bootstrap4 .e-icons.e-icon-tick::before {
         content: "\e718";
     }
-    
+
+    .tailwind .e-icons.e-icon-refresh::before,
+    .tailwind-dark .e-icons.e-icon-refresh::before {
+        content: "\e711";
+    }
+
+    .tailwind .e-icons.e-icon-tick::before,
+    .tailwind-dark .e-icons.e-icon-tick::before {
+        content: "\e75d";
+    }
+
+    .bootstrap5 .e-icons.e-icon-refresh::before,
+    .bootstrap5-dark .e-icons.e-icon-refresh::before,
+    .fluent .e-icons.e-icon-refresh::before,
+    .fluent-dark .e-icons.e-icon-refresh::before,
+    .material3 .e-icons.e-icon-refresh::before,
+    .material3-dark .e-icons.e-icon-refresh::before  {        
+        content: "\e706";
+    }
+
+    .bootstrap5 .e-icons.e-icon-tick::before,
+    .bootstrap5-dark .e-icons.e-icon-tick::before,
+    .fluent .e-icons.e-icon-tick::before,
+    .fluent-dark .e-icons.e-icon-tick::before,
+    .material3 .e-icons.e-icon-tick::before,
+    .material3-dark .e-icons.e-icon-tick::before {        content: "\e774";
+    }
+
     .status-text {
         font-size: 14px;
         display: inline-block;
     }
 </style>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
-import { CheckBoxPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
-
-Vue.use(RichTextEditorPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(SwitchPlugin);
-let Saving = undefined;
-let Saved = undefined;
-export default Vue.extend({
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
+export default {
+  components: {
+    'ejs-richtexteditor': RichTextEditorComponent,
+    'ejs-switch': SwitchComponent
+  },
   data: function () {
     return {
       toolbarSettings: {
@@ -137,7 +157,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    updateStatus: function (e) {
+    updateStatus: function () {
       this.Saving = true;
       this.Saved = false;
       setTimeout(() => {
@@ -161,5 +181,5 @@ export default Vue.extend({
   provide: {
     richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar]
   }
-});
+}
 </script>

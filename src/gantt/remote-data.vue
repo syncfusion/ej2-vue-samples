@@ -7,7 +7,7 @@
             :height= "height"
             :taskFields= "taskFields"
             :columns= "columns"
-            :treeColumnIndex= "0"
+            :treeColumnIndex= "1"
             :allowSelection= "true"
             :gridLines= "gridLines"
             :highlightWeekends= "true"
@@ -64,15 +64,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin,Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent,Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             dataSource: new DataManager({
-        url: 'https://ej2services.syncfusion.com/production/web-services/api/GanttData',
+        url: 'https://services.syncfusion.com/vue/production/api/GanttData',
         adaptor: new WebApiAdaptor,
         crossDomain: true
     }),
@@ -119,12 +121,12 @@ export default Vue.extend({
             labelSettings: {
                 leftLabel: 'TaskName',
             },
-            projectStartDate: new Date('02/24/2019'),
-            projectEndDate: new Date('06/10/2019')
+            projectStartDate: new Date('02/24/2021'),
+            projectEndDate: new Date('06/10/2021')
         };
   },
   provide: {
       gantt: [Selection, DayMarkers]
   }
-});
+}
 </script>

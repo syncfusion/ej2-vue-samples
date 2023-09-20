@@ -1,7 +1,7 @@
 {
     "name": "DocumentEditor",
     "directory": "document-editor",
-    "category": "Editors",
+    "category": "File Viewers & Editors",
     "type": "update",
     "ftName": "document-editor",
     "hideOnDevice": true,
@@ -10,14 +10,12 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "DocumentEditor",
-            "type": "update",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
         {
             "url": "character-formatting",
             "name": "Character Formatting",
             "category": "Editing Features",
-            "type": "update",
             "description": "The Document Editor supports character formatting such as bold, italic, underline, subscript, superscript, font color, and more."
         },
         {
@@ -47,6 +45,7 @@
         {
             "url": "table-formatting",
             "name": "Table Formatting",
+            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports table formatting such as cell margins, cell spacing, horizontal merge, vertical merge, border styles, background color, and more."
         },
@@ -73,6 +72,12 @@
             "name": "Form Fields",
             "category": "Editing Features",
             "description": "The Document Editor component in JavaScript platform allows users to design and fill legacy form fields (text, check box, and drop down) in a Word document." 
+        },
+        {
+            "url": "multiple-columns",
+            "name": "Multiple Columns",
+            "category": "Editing Features",
+            "description": "The Document Editor component is used to allows users to display the text in multiple-column layout like a newspaper." 
         },
         {
             "url": "print",
@@ -114,7 +119,6 @@
             "url": "document-protection",
             "name": "Document Protection",
             "category": "Security",
-            "type": "update",
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
         },
         {

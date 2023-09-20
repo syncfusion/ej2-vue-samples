@@ -2,7 +2,14 @@
     <div class="schedule-vue-sample">
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :cssClass='cssClass' :currentView='currentView' :cellTemplate='cellTemplate'>
+                <ejs-schedule id='Schedule' height="650px" :selectedDate='selectedDate' :cssClass='cssClass' :currentView='currentView' :cellTemplate="'cellTemplate'" :eventSettings='eventSettings'>
+                    <template v-slot:cellTemplate="{ data }">
+                        <div v-if="data.type === 'monthCells' && getCellContent(data.date) !== '' ">
+                            <div class="templatewrap">
+                                <p v-html=getCellContent(data.date)></p>
+                            </div>
+                        </div>
+                    </template>
                     <e-views>
                         <e-view option="Month"></e-view>
                     </e-views>
@@ -49,25 +56,48 @@
     }
 </style>
 <script>
-    import Vue from "vue";
-    import { SchedulePlugin, Month, View, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
-    import celltemplate from "./slot-template.vue";
-    Vue.use(SchedulePlugin);
-
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Month, Resize, DragAndDrop } from '@syncfusion/ej2-vue-schedule';
+    import { extend } from '@syncfusion/ej2-base';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
-                selectedDate: new Date(2017, 11, 15),
+                selectedDate: new Date(2021, 11, 15),
                 currentView: 'Month',
                 cssClass: 'schedule-celltemplate',
-                cellTemplate: function () {
-                    return { template: celltemplate }
-                },
+                eventSettings: { dataSource: extend([], null, true) },
+            }
+        },
+        methods: {
+            getCellContent: function (date) {
+                if (date.getMonth() === 10 && date.getDate() === 23) {
+                    return '<img src="source/schedule/images/thanksgiving-day.svg" /><div class="caption">Thanksgiving day</div>';
+                } else if (date.getMonth() === 11 && date.getDate() === 9) {
+                    return '<img src="source/schedule/images/get-together.svg" /><div class="caption">Party time</div>';
+                } else if (date.getMonth() === 11 && date.getDate() === 13) {
+                    return '<img src="source/schedule/images/get-together.svg" /><div class="caption">Party time</div>';
+                } else if (date.getMonth() === 11 && date.getDate() === 22) {
+                    return '<img src="source/schedule/images/birthday.svg" /><div class="caption">Happy birthday</div>';
+                } else if (date.getMonth() === 11 && date.getDate() === 24) {
+                    return '<img src="source/schedule/images/christmas-eve.svg" /><div class="caption">Christmas Eve</div>';
+                } else if (date.getMonth() === 11 && date.getDate() === 25) {
+                    return '<img src="source/schedule/images/christmas.svg" /><div class="caption">Christmas Day</div>';
+                } else if (date.getMonth() === 0 && date.getDate() === 1) {
+                    return '<img src="source/schedule/images/newyear.svg" /><div class="caption">New Year\'s Day</div>';
+                } else if (date.getMonth() === 0 && date.getDate() === 14) {
+                    return '<img src="source/schedule/images/get-together.svg" /><div class="caption">Get together</div>';
+                }
+                return '';
             }
         },
         provide: {
             schedule: [Month, Resize, DragAndDrop]
         }
-    });
+    }
 
 </script>

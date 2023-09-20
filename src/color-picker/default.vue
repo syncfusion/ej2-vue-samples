@@ -51,6 +51,9 @@
     #colorpicker-control h4 {
         margin-bottom: 20px;
     }
+    .fluent-dark #colorpicker-control h4 {
+        color: #fff;
+    }
 
     .e-bigger #colorpicker-control h4 {
         font-size: 20px;
@@ -58,10 +61,9 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(ColorPickerPlugin);
-
-export default Vue.extend({});
+export default {
+    components: { 'ejs-colorpicker': ColorPickerComponent }
+};
 </script>

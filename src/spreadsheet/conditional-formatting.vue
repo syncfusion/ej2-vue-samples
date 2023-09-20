@@ -32,6 +32,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
 <div id="action-description">
     <p>
         This sample demonstrates about the conditional formatting features like highlight cell rules, data bars, color scales, and icon sets by using the inventory list details.
@@ -49,10 +50,11 @@
     </p>
     <p>
         More information about the Spreadsheet component can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/documentation/spreadsheet/formatting/#conditional-formatting">
             documentation</a> section.
     </p>
 </div>
+<!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -78,27 +80,48 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./conditional-formatting-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, ColumnsDirective,
+ColumnDirective, RowDirective, RowsDirective, CellsDirective, CellDirective,
+ConditionalFormatsDirective, ConditionalFormatDirective, RangeDirective,
+ RangesDirective, getFormatFromType } from '@syncfusion/ej2-vue-spreadsheet';
+
+import dataSource from "./conditional-formatting-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-conditionalformat': ConditionalFormatDirective,
+    'e-conditionalformats': ConditionalFormatsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective
+   },
    data: () => {
     return {
         height: 30,
         InventoryList:"Inventory List",
         dataSource: dataSource.conditionalFormatting,
-         openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-         saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+         openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+         saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {
     created: function() {
+        var currencyFormat = getFormatFromType('Currency');
         var spreadsheet = this.$refs.spreadsheet;
             spreadsheet.merge('A1:H1');
             spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A2:H2');
             spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: "middle", fontSize: '13pt' }, 'A1:H1');
-            spreadsheet.numberFormat('$#,##0.00', 'F3:F18');
+            spreadsheet.numberFormat(currencyFormat, 'D3:D18');
+            spreadsheet.numberFormat(currencyFormat, 'E3:E18');
+            spreadsheet.numberFormat(currencyFormat, 'F3:F18');
             spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'D3:D18' });
             spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'E3:E18' });
             spreadsheet.conditionalFormat({ type: 'ThreeStars', range: 'H3:H18' });
@@ -106,5 +129,5 @@ export default Vue.extend({
             spreadsheet.conditionalFormat({ type: 'Bottom10Items', value:'1', format:{ style:{ color: '#ffffff', backgroundColor: '#c68d53', fontWeight: 'bold'}}, range: 'F3:F18' });
             }
         }
-});
+}
 </script>

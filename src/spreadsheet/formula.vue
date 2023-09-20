@@ -46,6 +46,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates the analysis of a company's stock value for a certain period with formula and named range feature.
@@ -64,6 +65,7 @@
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -77,11 +79,23 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./formula-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, RowsDirective, RowDirective, CellDirective, CellsDirective, SheetsDirective, ColumnsDirective, ColumnDirective, RangesDirective, RangeDirective } from '@syncfusion/ej2-vue-spreadsheet';
+import dataSource from "./formula-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-cell': CellDirective,
+    'e-cells': CellsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective
+   },
    data: () => {
     return {
       dataSource: dataSource.formulaData,
@@ -107,5 +121,5 @@ export default Vue.extend({
         spreadsheet.numberFormat('0.00', 'F2:F11');
     }
   }
-});
+}
 </script>

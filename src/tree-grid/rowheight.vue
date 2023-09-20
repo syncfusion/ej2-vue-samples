@@ -56,14 +56,16 @@ font-style: normal;
 
 </style>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, TreeGridComponent, Toolbar } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -78,18 +80,18 @@ export default Vue.extend({
   methods:{
       clickHandler(args: ClickEventArgs): void {
     if (args.item.id === 'small') {
-        this.rowHeight = 20;
+        (this as any).rowHeight = 20;
         }
     if (args.item.id === 'medium') {
-        this.rowHeight = 40;
+        (this as any).rowHeight = 40;
     }
     if (args.item.id === 'big') {
-        this.rowHeight = 60;
+        (this as any).rowHeight = 60;
     }
       }
   },
   provide: {
       treegrid:[Toolbar]
   }
-});
+}
 </script>

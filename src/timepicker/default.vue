@@ -25,17 +25,16 @@
 
 <script>
 
-import Vue from "vue";
-import { TimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { TimePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(TimePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a time"
     };
-  }
-});
+  },
+  components: { 'ejs-timepicker': TimePickerComponent }
+};
 </script>
 
 <style scoped>

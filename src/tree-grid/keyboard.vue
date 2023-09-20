@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :editSettings='editSettings' height='900'>
+           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :selectionSettings='selectionSettings' :editSettings='editSettings' height='900'>
             <e-columns>
                  <e-column field='taskID' headerText='Task ID' width='90' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                  <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
@@ -26,7 +26,7 @@
                 <b>F2</b>
             </td>
             <td style="width: 30%">
-                Cell edit
+                Row edit
             </td>
          </tr>
          <tr style="height:50px;">
@@ -151,7 +151,7 @@
         </tr>
         <tr style="height:50px;">
             <td style="width: 30%">
-                <b>Ctrl + j</b>
+                <b>Alt + j</b>
             </td>
             <td style="width: 30%">
                 Focus Tree Grid element
@@ -195,7 +195,7 @@
             <tr><td style="width:70%"><code>Shift + Right/Left/Down/Up</code></td><td>Multiple Cell Selection</td></tr>
             <tr><td><code>Ctrl + Shift + Up Arrow</code></td><td>Collapse selected parent row</td></tr>
             <tr><td><code>Ctrl + Shift + Down Arrow</code></td><td>Expand selected parent row</td></tr>
-            <tr><td><code>Ctrl + j</code></td><td>Focus Tree Grid element</td></tr>
+            <tr><td><code>Alt + j</code></td><td>Focus Tree Grid element</td></tr>
             <tr><td><code>Tab</code></td><td>Go to next cell for editing</td></tr>
             <tr><td><code>Shift + Tab</code></td><td>Go to previous cell for editing</td></tr>
             <tr><td><code>PageDown</code></td><td>Go to Next page</td></tr>
@@ -225,17 +225,20 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page, Edit, TreeGridComponent } from "@syncfusion/ej2-vue-treegrid";
-import { DropDownListPlugin, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Edit } from "@syncfusion/ej2-vue-treegrid";
+import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
+      selectionSettings: { type: 'Multiple' },
       editSettings: { allowDeleting: true, allowEditing: true, allowAdding: true, mode: 'Row' },
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},
@@ -252,5 +255,5 @@ export default Vue.extend({
    methods:{
   }
 
-});
+}
 </script>

@@ -80,7 +80,10 @@
         <td style="vertical-align: top;padding: 4px 0;">
         <code>Pivot Chart and its types:</code>
         </td>
-        <td>Allows user to view data in graphical format. The chart types include column, bar, line, area, etc.</td>
+        <td>Allows user to view data in graphical format. The chart types include column, bar, line, area, etc. It
+            also has options for showing and hiding legends and displaying chart series of different measures on
+            single and multiple axes.
+        </td>
         </tr>
         <tr>
         <td style="vertical-align: top;padding: 4px 0;">
@@ -118,10 +121,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { ChartTheme, ILoadedEventArgs } from "@syncfusion/ej2-vue-charts";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   FieldList,
   IDataSet,
@@ -136,10 +138,16 @@ import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare let require: any;
-export default Vue.extend({
+let selectedTheme = location.hash.split("/")[1];
+selectedTheme = selectedTheme ? selectedTheme : "Material";
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -167,12 +175,11 @@ export default Vue.extend({
       allowPdfExport: true,
       displayOption: { view:'Both' },
       chartSettings: {
+        theme: theme,
          title: "Sales Analysis",
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
-          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)) as ChartTheme;
         }
       },
       showToolbar: true,
@@ -233,7 +240,7 @@ export default Vue.extend({
       args.reportName = reeportList;
     },
     loadReport: function(args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       let reportCollection = [];
       if (
         localStorage.pivotviewReports &&
@@ -298,7 +305,7 @@ export default Vue.extend({
       }
     },
     newReport: function() {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       pivotObj.setProperties(
         {
           dataSourceSettings: {
@@ -331,7 +338,7 @@ export default Vue.extend({
       NumberFormatting
     ]
   }
-});
+}
 </script>
 
 <style scoped>

@@ -1,230 +1,237 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	function webpackJsonpCallback(data) {
-/******/ 		var chunkIds = data[0];
-/******/ 		var moreModules = data[1];
-/******/ 		var executeModules = data[2];
-/******/
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 		// add entry modules from loaded chunk to deferred list
-/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
-/******/
-/******/ 		// run deferred modules when all chunks ready
-/******/ 		return checkDeferredModules();
-/******/ 	};
-/******/ 	function checkDeferredModules() {
-/******/ 		var result;
-/******/ 		for(var i = 0; i < deferredModules.length; i++) {
-/******/ 			var deferredModule = deferredModules[i];
-/******/ 			var fulfilled = true;
-/******/ 			for(var j = 1; j < deferredModule.length; j++) {
-/******/ 				var depId = deferredModule[j];
-/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
-/******/ 			}
-/******/ 			if(fulfilled) {
-/******/ 				deferredModules.splice(i--, 1);
-/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
-/******/ 			}
-/******/ 		}
-/******/
-/******/ 		return result;
-/******/ 	}
-/******/
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 	// Promise = chunk loading, 0 = chunk loaded
-/******/ 	var installedChunks = {
-/******/ 		"chart/default-pie/main": 0
-/******/ 	};
-/******/
-/******/ 	var deferredModules = [];
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
-/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
-/******/ 	jsonpArray.push = webpackJsonpCallback;
-/******/ 	jsonpArray = jsonpArray.slice();
-/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = oldJsonpFunction;
-/******/
-/******/
-/******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./Samples/chart/default-pie/main.js","vendors"]);
-/******/ 	// run deferred modules when ready
-/******/ 	return checkDeferredModules();
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./Samples/chart/default-pie/App.vue":
-/*!*******************************************!*\
-  !*** ./Samples/chart/default-pie/App.vue ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App_vue_vue_type_template_id_1105797d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=1105797d&scoped=true& */ \"./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d&scoped=true&\");\n/* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ \"./Samples/chart/default-pie/App.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _App_vue_vue_type_template_id_1105797d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _App_vue_vue_type_template_id_1105797d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  \"1105797d\",\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"Samples/chart/default-pie/App.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./Samples/chart/default-pie/App.vue?");
-
-/***/ }),
-
-/***/ "./Samples/chart/default-pie/App.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./Samples/chart/default-pie/App.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./Samples/chart/default-pie/App.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./Samples/chart/default-pie/App.vue?");
-
-/***/ }),
-
-/***/ "./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d&scoped=true&":
-/*!**************************************************************************************!*\
-  !*** ./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d&scoped=true& ***!
-  \**************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_1105797d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=template&id=1105797d&scoped=true& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d&scoped=true&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_1105797d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_1105797d_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./Samples/chart/default-pie/App.vue?");
-
-/***/ }),
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
 
 /***/ "./Samples/chart/default-pie/main.js":
 /*!*******************************************!*\
   !*** ./Samples/chart/default-pie/main.js ***!
   \*******************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ \"./Samples/chart/default-pie/App.vue\");\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].config.productionTip = false;\n\nnew vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  render: (h) => h(_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n}).$mount('#app');\n\n\n//# sourceURL=webpack:///./Samples/chart/default-pie/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ \"./Samples/chart/default-pie/App.vue\");\n\n\n\n(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]).mount('#app');\n\n\n//# sourceURL=webpack://ej2-charts-vue-samples/./Samples/chart/default-pie/main.js?");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/index.js?!./Samples/chart/default-pie/App.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/default-pie/App.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./Samples/chart/default-pie/App.vue":
+/*!*******************************************!*\
+  !*** ./Samples/chart/default-pie/App.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n/* harmony import */ var _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-base */ \"./node_modules/@syncfusion/ej2-base/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_dropdowns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-dropdowns */ \"./node_modules/@syncfusion/ej2-vue-dropdowns/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @syncfusion/ej2-vue-charts */ \"./node_modules/@syncfusion/ej2-vue-charts/index.js\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use(_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__[\"AccumulationChartPlugin\"]);\n\nlet selectedTheme = location.hash.split(\"/\")[1];\nselectedTheme = selectedTheme ? selectedTheme : \"Material\";\nlet theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, \"Dark\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].extend({\n  data: function() {\n    return {\n         theme: theme,\n      seriesData: [\n                { 'x': 'Chrome', y: 37, text: '37%' }, { 'x': 'UC Browser', y: 17, text: '17%' },\n                    { 'x': 'iPhone', y: 19, text: '19%' },\n                    { 'x': 'Others', y: 4, text: '4%' }, { 'x': 'Opera', y: 11, text: '11%' },\n                    { 'x': 'Android', y: 12, text: '12%' }\n      ],\n\n\n          dataLabel: {\n                    visible: true,\n                    position: 'Inside', name: 'text',\n                    font: {\n                        fontWeight: '600'\n                    }\n                },\n                 enableSmartLabels: true,\n\t\t\t\t enableAnimation: false,\n        legendSettings: {\n            visible: false,\n        },\n           tooltip: { enable: true, format: '${point.x} : <b>${point.y}%</b>' },\n\n      startAngle: '0',\n      endAngle: '360',\n      radius: '70%',\n      explodeOffset: '10%',\n      explodeIndex : 0,\n      center: {x: '50%', y: '50%'},\n      title: \"Mobile Browser Statistics\"\n    };\n  },\n  provide: {\n    accumulationchart: [_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__[\"AccumulationLegend\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__[\"PieSeries\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__[\"AccumulationTooltip\"], _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__[\"AccumulationDataLabel\"]]\n  },\n  updated: function() {\n    this.$nextTick(function() {\n        this.$refs.pie.ej2Instances.refresh();\n        this.$refs.pie.ej2Instances.removeSvg();\n        this.$refs.pie.ej2Instances.refreshSeries();\n        this.$refs.pie.ej2Instances.refreshChart();\n      });\n    },\n  methods: {\n    pieangle : function(e) {\n           let angle = document.getElementById('pieangle').value;\n            this.endAngle=+angle;\n            this.startAngle=+angle;\n            document.getElementById('anglevalue').innerHTML = angle;\n\n    },\n    pieradius : function(e) {\n           let rad = document.getElementById('pieradius').value;\n            this.radius = rad + '%';\n            document.getElementById('radiusid').innerHTML =(rad / 100).toFixed(2);\n\n    },\n     pieexploderadius : function(e) {\n           let rad = document.getElementById('pieexploderadius').value;\n            this.explodeOffset = rad + '%';\n            document.getElementById('exploderadius').innerHTML =(rad / 100).toFixed(2);\n\n    },\n     pieexplodeindex : function(e) {\n           let index = document.getElementById('pieexplodeindex').value;\n            this.explodeIndex =+index;\n            document.getElementById('explodeindex').innerHTML = index;\n\n    },\n    piecenterx : function(e) {\n           let x = document.getElementById(\"x\").value;\n            this.$refs.pie.ej2Instances.center.x = x + \"%\";\n            document.getElementById(\"xvalue\").innerHTML = x + \"%\";\n            this.$refs.pie.ej2Instances.refresh();\n            this.$refs.pie.ej2Instances.removeSvg();\n            this.$refs.pie.ej2Instances.refreshSeries();\n            this.$refs.pie.ej2Instances.refreshChart();\n    },\n    piecentery : function(e) {\n           let y = document.getElementById(\"y\").value;\n            this.$refs.pie.ej2Instances.center.y = y + \"%\";\n            document.getElementById(\"yvalue\").innerHTML = y + \"%\";\n            this.$refs.pie.ej2Instances.refresh();\n            this.$refs.pie.ej2Instances.removeSvg();\n            this.$refs.pie.ej2Instances.refreshSeries();\n            this.$refs.pie.ej2Instances.refreshChart();\n\n    },\n  }\n\n}));\n\n\n//# sourceURL=webpack:///./Samples/chart/default-pie/App.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _App_vue_vue_type_template_id_1105797d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=1105797d */ \"./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d\");\n/* harmony import */ var _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js */ \"./Samples/chart/default-pie/App.vue?vue&type=script&lang=js\");\n/* harmony import */ var _node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/dist/exportHelper.js */ \"./node_modules/vue-loader/dist/exportHelper.js\");\n\n\n\n\n;\nconst __exports__ = /*#__PURE__*/(0,_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"], [['render',_App_vue_vue_type_template_id_1105797d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',\"Samples/chart/default-pie/App.vue\"]])\n/* hot reload */\nif (false) {}\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);\n\n//# sourceURL=webpack://ej2-charts-vue-samples/./Samples/chart/default-pie/App.vue?");
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d&scoped=true&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/chart/default-pie/App.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/chart/default-pie/App.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"control-section\" }, [\n    _c(\n      \"div\",\n      { staticClass: \"col-md-8 control-section\" },\n      [\n        _c(\n          \"ejs-accumulationchart\",\n          {\n            ref: \"pie\",\n            staticStyle: { display: \"block\" },\n            attrs: {\n              theme: _vm.theme,\n              align: \"center\",\n              id: \"chartcontainer\",\n              title: _vm.title,\n              legendSettings: _vm.legendSettings,\n              tooltip: _vm.tooltip,\n              enableSmartLables: \"true\",\n              enableAnimation: _vm.enableAnimation,\n              center: _vm.center\n            }\n          },\n          [\n            _c(\n              \"e-accumulation-series-collection\",\n              [\n                _c(\"e-accumulation-series\", {\n                  attrs: {\n                    dataSource: _vm.seriesData,\n                    startAngle: _vm.startAngle,\n                    endAngle: _vm.endAngle,\n                    explodeOffset: _vm.explodeOffset,\n                    explodeIndex: _vm.explodeIndex,\n                    radius: _vm.radius,\n                    xName: \"x\",\n                    yName: \"y\",\n                    dataLabel: _vm.dataLabel,\n                    name: \"Browser\",\n                    innerRadius: \"0%\",\n                    explode: \"true\"\n                  }\n                })\n              ],\n              1\n            )\n          ],\n          1\n        )\n      ],\n      1\n    ),\n    _vm._v(\" \"),\n    _c(\"div\", [\n      _c(\"div\", { staticClass: \"col-md-4 property-section\" }, [\n        _c(\n          \"table\",\n          {\n            staticStyle: { width: \"100%\" },\n            attrs: { id: \"property\", title: \"Properties\" }\n          },\n          [\n            _c(\"br\"),\n            _c(\"br\"),\n            _vm._v(\" \"),\n            _c(\"tbody\", [\n              _c(\"tr\", { staticStyle: { height: \"50px\" } }, [\n                _vm._m(0),\n                _vm._v(\" \"),\n                _c(\"td\", [\n                  _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n                    _c(\"input\", {\n                      staticStyle: { width: \"90%\" },\n                      attrs: {\n                        type: \"range\",\n                        name: \"range-min\",\n                        id: \"pieangle\",\n                        value: \"0\",\n                        min: \"0\",\n                        max: \"360\",\n                        autocomplete: \"off\"\n                      },\n                      on: {\n                        touchmove: _vm.pieangle,\n                        pointermove: _vm.pieangle,\n                        change: _vm.pieangle\n                      }\n                    })\n                  ])\n                ]),\n                _vm._v(\" \"),\n                _vm._m(1)\n              ]),\n              _vm._v(\" \"),\n              _c(\"tr\", { staticStyle: { height: \"50px\" } }, [\n                _vm._m(2),\n                _vm._v(\" \"),\n                _c(\"td\", [\n                  _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n                    _c(\"input\", {\n                      staticStyle: { width: \"90%\" },\n                      attrs: {\n                        type: \"range\",\n                        name: \"range-min\",\n                        id: \"pieradius\",\n                        value: \"70\",\n                        min: \"0\",\n                        max: \"80\",\n                        autocomplete: \"off\"\n                      },\n                      on: {\n                        touchmove: _vm.pieradius,\n                        pointermove: _vm.pieradius,\n                        change: _vm.pieradius\n                      }\n                    })\n                  ])\n                ]),\n                _vm._v(\" \"),\n                _vm._m(3)\n              ]),\n              _vm._v(\" \"),\n              _c(\"tr\", { staticStyle: { height: \"50px\" } }, [\n                _vm._m(4),\n                _vm._v(\" \"),\n                _c(\"td\", [\n                  _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n                    _c(\"input\", {\n                      staticStyle: { width: \"90%\" },\n                      attrs: {\n                        type: \"range\",\n                        name: \"range-min\",\n                        id: \"pieexploderadius\",\n                        value: \"10\",\n                        min: \"0\",\n                        max: \"40\",\n                        autocomplete: \"off\"\n                      },\n                      on: {\n                        touchmove: _vm.pieexploderadius,\n                        pointermove: _vm.pieexploderadius,\n                        change: _vm.pieexploderadius\n                      }\n                    })\n                  ])\n                ]),\n                _vm._v(\" \"),\n                _vm._m(5)\n              ]),\n              _vm._v(\" \"),\n              _c(\"tr\", { staticStyle: { height: \"50px\" } }, [\n                _vm._m(6),\n                _vm._v(\" \"),\n                _c(\"td\", [\n                  _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n                    _c(\"input\", {\n                      staticStyle: { width: \"90%\" },\n                      attrs: {\n                        type: \"range\",\n                        name: \"range-min\",\n                        id: \"pieexplodeindex\",\n                        value: \"0\",\n                        min: \"0\",\n                        max: \"6\",\n                        autocomplete: \"off\"\n                      },\n                      on: {\n                        touchmove: _vm.pieexplodeindex,\n                        pointermove: _vm.pieexplodeindex,\n                        change: _vm.pieexplodeindex\n                      }\n                    })\n                  ])\n                ]),\n                _vm._v(\" \"),\n                _vm._m(7)\n              ]),\n              _vm._v(\" \"),\n              _c(\"tr\", { staticStyle: { height: \"50px\" } }, [\n                _vm._m(8),\n                _vm._v(\" \"),\n                _c(\"td\", [\n                  _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n                    _c(\"input\", {\n                      staticStyle: { width: \"90%\" },\n                      attrs: {\n                        type: \"range\",\n                        name: \"range-min\",\n                        id: \"x\",\n                        value: \"50\",\n                        min: \"0\",\n                        max: \"100\",\n                        autocomplete: \"off\"\n                      },\n                      on: {\n                        touchmove: _vm.piecenterx,\n                        pointermove: _vm.piecenterx,\n                        change: _vm.piecenterx\n                      }\n                    })\n                  ])\n                ]),\n                _vm._v(\" \"),\n                _vm._m(9)\n              ]),\n              _vm._v(\" \"),\n              _c(\"tr\", { staticStyle: { height: \"50px\" } }, [\n                _vm._m(10),\n                _vm._v(\" \"),\n                _c(\"td\", [\n                  _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n                    _c(\"input\", {\n                      staticStyle: { width: \"90%\" },\n                      attrs: {\n                        type: \"range\",\n                        name: \"range-min\",\n                        id: \"y\",\n                        value: \"50\",\n                        min: \"0\",\n                        max: \"100\",\n                        autocomplete: \"off\"\n                      },\n                      on: {\n                        touchmove: _vm.piecentery,\n                        pointermove: _vm.piecentery,\n                        change: _vm.piecentery\n                      }\n                    })\n                  ])\n                ]),\n                _vm._v(\" \"),\n                _vm._m(11)\n              ])\n            ])\n          ]\n        )\n      ])\n    ]),\n    _vm._v(\" \"),\n    _vm._m(12),\n    _vm._v(\" \"),\n    _vm._m(13)\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [_c(\"div\", [_vm._v(\"Pie Angle\\n\\n                    \")])])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n        _c(\n          \"p\",\n          {\n            staticStyle: { \"font-weight\": \"normal\", \"padding-top\": \"10px\" },\n            attrs: { id: \"anglevalue\" }\n          },\n          [_vm._v(\"0\")]\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", [_vm._v(\"Outer Radius\\n\\n                    \")])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n        _c(\n          \"p\",\n          {\n            staticStyle: { \"font-weight\": \"normal\", \"padding-top\": \"10px\" },\n            attrs: { id: \"radiusid\" }\n          },\n          [_vm._v(\"0.70\")]\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", [_vm._v(\"Explode Radius\\n\\n                    \")])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n        _c(\n          \"p\",\n          {\n            staticStyle: { \"font-weight\": \"normal\", \"padding-top\": \"10px\" },\n            attrs: { id: \"exploderadius\" }\n          },\n          [_vm._v(\"0.1\")]\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", [_vm._v(\"Explode Index\\n\\n                    \")])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n        _c(\n          \"p\",\n          {\n            staticStyle: { \"font-weight\": \"normal\" },\n            attrs: { id: \"explodeindex\" }\n          },\n          [_vm._v(\"0\")]\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [_c(\"div\", [_vm._v(\"Center X\\n\\n                    \")])])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n        _c(\n          \"p\",\n          { staticStyle: { \"font-weight\": \"normal\" }, attrs: { id: \"xvalue\" } },\n          [_vm._v(\"50%\")]\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [_c(\"div\", [_vm._v(\"Center Y\\n\\n                    \")])])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"td\", [\n      _c(\"div\", { attrs: { \"data-role\": \"rangeslider\" } }, [\n        _c(\n          \"p\",\n          { staticStyle: { \"font-weight\": \"normal\" }, attrs: { id: \"yvalue\" } },\n          [_vm._v(\"50%\")]\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"action-description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"\\n      This sample demonstrates pie chart for mobile browser usage statistics. \"\n        ),\n        _c(\"code\", [_vm._v(\"Datalabel\")]),\n        _vm._v(\n          \" shows the Information about the points.\\n      While hovering on the slice, border will be highlighted.\\n    \"\n        )\n      ])\n    ])\n  },\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { attrs: { id: \"description\" } }, [\n      _c(\"p\", [\n        _vm._v(\n          \"\\n        In this example, you can see how to render and configure the pie chart. You can use \"\n        ),\n        _c(\"code\", [_vm._v(\"border\")]),\n        _vm._v(\", \"),\n        _c(\"code\", [_vm._v(\"fill,\")]),\n        _vm._v(\" properties to customize the pie point. \"),\n        _c(\"code\", [_vm._v(\"dataLabel\")]),\n        _vm._v(\" is used to represent individual data and its value.\\n    \")\n      ]),\n      _vm._v(\" \"),\n      _c(\"p\", [\n        _c(\"code\", [_vm._v(\"Tooltip\")]),\n        _vm._v(\n          \" is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.\\n    \"\n        )\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./Samples/chart/default-pie/App.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n/* harmony import */ var _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @syncfusion/ej2-base */ \"./node_modules/@syncfusion/ej2-base/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_dropdowns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @syncfusion/ej2-vue-dropdowns */ \"./node_modules/@syncfusion/ej2-vue-dropdowns/index.js\");\n/* harmony import */ var _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @syncfusion/ej2-vue-charts */ \"./node_modules/@syncfusion/ej2-vue-charts/index.js\");\n\n\n\n\n\n\nlet selectedTheme = location.hash.split(\"/\")[1];\nselectedTheme = selectedTheme ? selectedTheme : \"Material\";\nlet theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, \"Dark\").replace(/contrast/i,  'Contrast');\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  components: {\n    'ejs-accumulationchart': _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.AccumulationChartComponent,\n    'e-accumulation-series-collection': _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.AccumulationSeriesCollectionDirective,\n    'e-accumulation-series': _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.AccumulationSeriesDirective\n  },\n  data: function() {\n    return {\n         theme: theme,\n         seriesData: _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__.Browser.isDevice ?\n        [{ Browser: 'Chrome', Users: 59.28, DataLabelMappingName: 'Chrome: 59.28%' },\n          { Browser: 'Safari', Users: 4.73, DataLabelMappingName: _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__.Browser.isDevice ? 'Safari <br> 4.73%' :  'Safari: 4.73%' },\n          { Browser: 'Opera', Users: 6.12, DataLabelMappingName: 'Opera: 6.12%' },\n          { Browser: 'Edge', Users: 7.48, DataLabelMappingName: 'Edge: 7.48%' },\n          { Browser: 'Others', Users: 22.39, DataLabelMappingName: 'Others: 22.39%' }\n        ] : [\n          { Browser: \"Chrome\", Users: 59.28, DataLabelMappingName: \"  Chrome: 59.28%\" },\n          { Browser: \"UC Browser\", Users: 4.37, DataLabelMappingName: \"  UC Browser: 4.37%\" },\n          { Browser: \"Opera\", Users: 3.12, DataLabelMappingName: \"  Opera: 3.12%\" },\n          { Browser: \"Sogou Explorer\", Users: 1.73, DataLabelMappingName: \"  Sogou Explorer: 1.73%\" },\n          { Browser: \"QQ\", Users: 3.96, DataLabelMappingName: \"  QQ: 3.96%\" },\n          { Browser: \"Safari\", Users: 4.73, DataLabelMappingName: \"  Safari: 4.73%\" },\n          { Browser: \"Internet Explorer\", Users: 6.12, DataLabelMappingName: \"  Internet Explorer: 6.12%\" },\n          { Browser: \"Edge\", Users: 7.48, DataLabelMappingName: \"  Edge: 7.48%\" },\n          { Browser: \"Others\", Users: 9.57, DataLabelMappingName: \"  Others: 9.57%\" },\n        ],\n\n     dataLabel: {\n                visible: true,\n                position: 'Outside', name: 'DataLabelMappingName',\n                font: {\n                        fontWeight: '600'\n                    },\n                connectorStyle: { length: '20px', type: 'Curve'}\n                },\n                radius: _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__.Browser.isDevice ? '40%' : '70%',\n        legendSettings: {\n            visible: false,\n        },\n\n    tooltip: {  \n        enable: true,\n        format: '<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>',\n        header:'', \n    },\n      enableSmartLabels: true,\n      enableAnimation: true,\n      startAngle: _syncfusion_ej2_base__WEBPACK_IMPORTED_MODULE_1__.Browser.isDevice ? '55' : '35', \n      explodeOffset: '10%',\n      explodeIndex : 0,\n      title: \"Browser Market Share\"\n    };\n  },\n  provide: {\n    accumulationchart: [_syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.AccumulationLegend, _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.PieSeries, _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.AccumulationTooltip, _syncfusion_ej2_vue_charts__WEBPACK_IMPORTED_MODULE_3__.AccumulationDataLabel]\n  },\n  \n  methods: {\n  }\n\n});\n\n\n//# sourceURL=webpack://ej2-charts-vue-samples/./Samples/chart/default-pie/App.vue?./node_modules/vue-loader/dist/index.js??ruleSet%5B1%5D.rules%5B7%5D.use%5B0%5D");
+
+/***/ }),
+
+/***/ "./Samples/chart/default-pie/App.vue?vue&type=script&lang=js":
+/*!*******************************************************************!*\
+  !*** ./Samples/chart/default-pie/App.vue?vue&type=script&lang=js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* reexport safe */ _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./App.vue?vue&type=script&lang=js */ \"./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/chart/default-pie/App.vue?vue&type=script&lang=js\");\n \n\n//# sourceURL=webpack://ej2-charts-vue-samples/./Samples/chart/default-pie/App.vue?");
+
+/***/ }),
+
+/***/ "./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d":
+/*!*************************************************************************!*\
+  !*** ./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_template_id_1105797d__WEBPACK_IMPORTED_MODULE_0__.render)\n/* harmony export */ });\n/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_7_use_0_App_vue_vue_type_template_id_1105797d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./App.vue?vue&type=template&id=1105797d */ \"./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d\");\n\n\n//# sourceURL=webpack://ej2-charts-vue-samples/./Samples/chart/default-pie/App.vue?");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./Samples/chart/default-pie/App.vue?vue&type=template&id=1105797d ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   render: () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n\n\nconst _hoisted_1 = { class: \"control-section\" }\nconst _hoisted_2 = { align: \"center\" }\nconst _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)(\"<div></div><div id=\\\"action-description\\\"><p> This Vue Pie Chart example demonstrates a pie chart for mobile browsers usage statistics. Datalabels show information about the points. </p></div><div id=\\\"description\\\"><p> In this example, you can see how to render and configure a pie chart. The pie chart is a circular graphic, which is ideal for displaying categories as a proportion or a percentage of the whole. The radius of the pie chart can be customized using the <code>Radius</code> property. </p><p style=\\\"font-weight:500;\\\"><b>Injecting Module</b></p><p> Accumulation Chart component features are segregated into individual feature-wise modules. To use pie chart, we need to inject <code>PieSeries</code> module using <code>provide: { chart: [PieSeries] }</code> method. </p><p><code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch-enabled devices. </p><p> More information about the pie series can be found in this <a target=\\\"_blank\\\" href=\\\"https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#pie-chart\\\">documentation section</a>. </p></div>\", 3)\n\nfunction render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_e_accumulation_series = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"e-accumulation-series\")\n  const _component_e_accumulation_series_collection = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"e-accumulation-series-collection\")\n  const _component_ejs_accumulationchart = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)(\"ejs-accumulationchart\")\n\n  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(\"div\", _hoisted_1, [\n    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)(\"div\", _hoisted_2, [\n      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ejs_accumulationchart, {\n        ref: \"pie\",\n        theme: _ctx.theme,\n        style: {\"display\":\"block\"},\n        align: \"center\",\n        id: \"chartcontainer\",\n        title: _ctx.title,\n        legendSettings: _ctx.legendSettings,\n        tooltip: _ctx.tooltip,\n        enableSmartLables: \"true\",\n        enableAnimation: _ctx.enableAnimation,\n        enableBorderOnMouseMove: false\n      }, {\n        default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [\n          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_e_accumulation_series_collection, null, {\n            default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [\n              (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_e_accumulation_series, {\n                dataSource: _ctx.seriesData,\n                startAngle: _ctx.startAngle,\n                explodeOffset: _ctx.explodeOffset,\n                explodeIndex: _ctx.explodeIndex,\n                radius: _ctx.radius,\n                xName: \"Browser\",\n                yName: \"Users\",\n                dataLabel: _ctx.dataLabel,\n                name: \"Browser\",\n                innerRadius: \"0%\",\n                explode: \"true\"\n              }, null, 8 /* PROPS */, [\"dataSource\", \"startAngle\", \"explodeOffset\", \"explodeIndex\", \"radius\", \"dataLabel\"])\n            ]),\n            _: 1 /* STABLE */\n          })\n        ]),\n        _: 1 /* STABLE */\n      }, 8 /* PROPS */, [\"theme\", \"title\", \"legendSettings\", \"tooltip\", \"enableAnimation\"])\n    ]),\n    _hoisted_3\n  ]))\n}\n\n//# sourceURL=webpack://ej2-charts-vue-samples/./Samples/chart/default-pie/App.vue?./node_modules/vue-loader/dist/templateLoader.js??ruleSet%5B1%5D.rules%5B2%5D!./node_modules/vue-loader/dist/index.js??ruleSet%5B1%5D.rules%5B7%5D.use%5B0%5D");
 
 /***/ })
 
-/******/ });
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"chart/default-pie/main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkej2_charts_vue_samples"] = self["webpackChunkej2_charts_vue_samples"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors"], () => (__webpack_require__("./Samples/chart/default-pie/main.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;

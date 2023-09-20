@@ -31,14 +31,20 @@
     </div>
 </div>
 </template>
+<style scoped>
+    .e-dropdownbase .e-list-item .e-highlight {
+        color: red;
+    }
+</style>
 <script>
-import Vue from "vue";
-import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { AutoCompleteComponent, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(AutoCompletePlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-autocomplete': AutoCompleteComponent,
+        'ejs-dropdownlist': DropDownListComponent
+    },
     data: function() {
         return {
             fields: { value: 'Name' },
@@ -53,5 +59,5 @@ export default Vue.extend ({
             this.filterType = e.itemData.value;
         }
     }
-});
+}
 </script>

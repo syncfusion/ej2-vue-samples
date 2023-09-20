@@ -8,7 +8,8 @@
         </div>
     </div>
     <div id="action-description">
-      <p>This example demonstrates how to validate the files before uploading it to server. Only document files (DOC, DOCX, XLS, XLSX), and the files should contain minimum 10 KB and maximum 28 MB sizes to upload it into server.This sample limits maximum files count as 5 to upload.</p>
+      <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to validate the files before uploading it to server. Only document files (DOC, DOCX, XLS, XLSX), and the files should contain minimum 10 KB and maximum 28 MB sizes to upload it into server.This sample limits maximum files count as 5 to upload.</p>
     </div>
 
     <div id="description">
@@ -43,24 +44,21 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
-import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
 
-Vue.use(UploaderPlugin);
-
-export default Vue.extend({
+export default {
     data: function(){
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.doc, .docx, .xls, .xlsx',
           autoUpload: false
         }
     },
+    components: { 'ejs-uploader': UploaderComponent },
     methods: {
         onFileSelect: function(args) {
             args.filesData.splice(5);
@@ -82,5 +80,5 @@ export default Vue.extend({
             args.postRawFile = false;
         }
     }
-});
+};
 </script>

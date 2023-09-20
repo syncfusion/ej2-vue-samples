@@ -41,17 +41,19 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, InfiniteScroll, TreeGridComponent, Page } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, InfiniteScroll, Page } from "@syncfusion/ej2-vue-treegrid";
 import { DataManager, JsonAdaptor } from '@syncfusion/ej2-data';
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { infiniteData, infiniteDataSource } from './data-source';
-
-Vue.use(TreeGridPlugin);
 
 infiniteDataSource();
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: function() {
     return {
         virtualData: infiniteData,
@@ -61,5 +63,5 @@ export default Vue.extend({
   provide: {
       treegrid: [InfiniteScroll, Page]
   }
-});
+}
 </script>

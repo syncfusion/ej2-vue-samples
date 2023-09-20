@@ -135,7 +135,7 @@
                 <ejs-button
                   id="apply"
                   ref="apply"
-                  v-on:click.native="onClick"
+                  v-on:click="onClick"
                   isPrimary="true"
                 >Apply</ejs-button>
               </div>
@@ -164,7 +164,7 @@
                 <ejs-button
                   id="clear"
                   ref="clear"
-                  v-on:click.native="onClear"
+                  v-on:click="onClear"
                   cssClass="e-small"
                 >Clear</ejs-button>
               </div>
@@ -230,32 +230,26 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   Condition,
   IAxisSet,
   IDataSet
 } from "@syncfusion/ej2-vue-pivotview";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
-  MaskedTextBoxPlugin,
-  NumericTextBoxPlugin
+  MaskedTextBoxComponent,
+  NumericTextBoxComponent
 } from "@syncfusion/ej2-vue-inputs";
 
 import { extend, enableRipple } from "@syncfusion/ej2-base";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(MaskedTextBoxPlugin);
 /* tslint:disable */
 declare var require: any;
 let operators: string[] = [
@@ -291,7 +285,14 @@ function appendElement(html: string) {
   log.insertBefore(span, log.firstChild);
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button':ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-maskedtextbox': MaskedTextBoxComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -344,13 +345,14 @@ export default Vue.extend({
         cell += "Summary ";
       }
       if (
-        args.currentCell.querySelector(".e-headercelldiv") &&
-        !args.data.indexObject
+        (args.currentCell.querySelector(".e-headercelldiv") &&
+        !args.data.indexObject) || args.currentCell.className.indexOf("e-cellvalue") > -1
       ) {
         cell += "Value Header ";
       } else if (args.currentCell.className.indexOf("e-rowsheader") > -1) {
         cell += "Row Header ";
-      } else if (args.currentCell.className.indexOf("e-columnsheader") > -1) {
+      } else if (args.currentCell.className.indexOf("e-columnsheader") > -1 ||
+        args.currentCell.className.indexOf("e-pivotcell-container") > -1) {
         cell += "Column Header ";
       } else if (args.currentCell.className.indexOf("e-valuescontent") > -1) {
         cell += "Value ";
@@ -378,13 +380,13 @@ export default Vue.extend({
       (document.getElementById("EventLog") as HTMLElement).innerHTML = "";
     },
     onClick: function() {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      var optionsdll = (<any>this.$refs.options).ej2Instances;
-      var measuresddl = (<any>this.$refs.measures).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
-      var valueInput1 = (<any>this.$refs.value1).ej2Instances;
-      var valueInput2 = (<any>this.$refs.value2).ej2Instances;
-      var textInput = (<any>this.$refs.text).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      var optionsdll = ((this as any).$refs.options).ej2Instances;
+      var measuresddl = ((this as any).$refs.measures).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
+      var valueInput1 = ((this as any).$refs.value1).ej2Instances;
+      var valueInput2 = ((this as any).$refs.value2).ej2Instances;
+      var textInput = ((this as any).$refs.text).ej2Instances;
       if (optionsdll.value === "conditional") {
         pivotObj.hyperlinkSettings = {
           showHyperlink: false,
@@ -415,8 +417,8 @@ export default Vue.extend({
       }
     },
     onOptionChange: function(args: ChangeEventArgs) {
-      var pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      var operatorddl = (<any>this.$refs.conditions).ej2Instances;
+      var pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      var operatorddl = ((this as any).$refs.conditions).ej2Instances;
       (document.querySelector(".text1cls") as HTMLElement).style.display =
         "none";
       (document.querySelector(".text2cls") as HTMLElement).style.display =
@@ -518,7 +520,7 @@ export default Vue.extend({
       }
     }
   }
-});
+}
 </script>
 
 <style scoped>

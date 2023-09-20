@@ -15,7 +15,7 @@
     <div align="center">
          <ejs-chart style='display:block;' ref='chart' id='chartDT' align='center' :chartArea='chartArea' :width='width' 
             :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :tooltip='chartTooltip' :theme='theme'
-            :legendSettings='legendSettings' :axisLabelRender='axisLabelRender'>
+            :legendSettings='legendSettings'>
             <e-series-collection>
                 <e-series :dataSource='dataSource' type='Spline' xName='x' yName='y' width='2' name='Rate'>
                 </e-series>
@@ -32,10 +32,11 @@
     <p>
         Date-time data is used in this sample, and the selected range values are showed with tooltip. Date-time axis uses date-time scale and displays date-time values as axis labels. To render date-time axis, set the <code>valueType</code> to <code>DateTime</code>. Format of the axis label will be calculated based on the <code>intervalType</code> of the range navigator. You can also directly set the format using the labelFormat property. 
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-       The range navigator component features are segregated into individual feature-wise modules. To use area series, inject the <code>AreaSeries</code> module in the <code>provide</code> section.
+        The range navigator component features are segregated into individual feature-wise modules. To use date-time axis, inject the <code>DateTime</code> module using <code>provide: { rangeNavigator: [DateTime] }</code> method.
+        To use the tooltip, inject the <code>RangeTooltip</code> module using <code>provide: { rangeNavigator: [RangeTooltip] }</code> method.To use area series, inject the <code>AreaSeries</code> module using <code>provide: { rangeNavigator: [AreaSeries] }</code> method.
     </p>
 </div>
 <svg style="height: 0">
@@ -60,12 +61,56 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+		<linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
+        <linearGradient id="bootstrap5-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fabric-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="bootstrap5-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0"></stop>
+			<stop offset="1"></stop>
+		</linearGradient>
+         <linearGradient id="fluent-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="material3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
 </svg>
 </div>
 </template>
 <style scoped>
- #material-gradient-chart stop {
+    #material-gradient-chart stop {
         stop-color: #00bdae;
     }
 
@@ -85,6 +130,50 @@
         stop-color: #79ECE4;
     }
 
+    #tailwind-gradient-chart stop {
+        stop-color: #5A61F6;
+    }
+
+    #bootstrap5-gradient-chart stop {
+        stop-color: #6355C7;
+    }
+
+    #material-dark-gradient-chart stop {
+        stop-color: #9ECB08;
+    }
+
+    #fabric-dark-gradient-chart stop {
+        stop-color: #4472c4;
+    }
+
+    #bootstrap-dark-gradient-chart stop {
+        stop-color: #a16ee5;
+    }
+
+    #tailwind-dark-gradient-chart stop {
+        stop-color:  #8B5CF6;
+    }
+
+    #bootstrap5-dark-gradient-chart stop {
+        stop-color: #6355C7;
+    }
+
+    #fluent-gradient-chart stop {
+        stop-color: #1AC9E6;
+    }
+
+    #fluent-dark-gradient-chart stop {
+        stop-color: #1AC9E6;
+    }
+
+    #material3-gradient-chart stop {
+        stop-color: #6355C7;
+    }
+
+    #material3-dark-gradient-chart stop {
+        stop-color: #4EAAFF;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
     }
@@ -92,27 +181,33 @@
     .chart-gradient stop[offset="1"] {
         stop-opacity: 0.3;
     }
+
 </style>
 
 <script>
-import Vue from "vue";
-import { RangeNavigatorPlugin, ChartPlugin, SplineSeries, AreaSeries, DateTime, Crosshair,
+import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorSeriesCollectionDirective, ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineSeries, AreaSeries, DateTime, Crosshair,
   ChartTheme, RangeTooltip, Tooltip, withInBounds, getElement} from "@syncfusion/ej2-vue-charts";
 import { Browser, remove } from "@syncfusion/ej2-base";
 import { stockData } from "./stock-data";
 
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
-let themes = ["Material", "Fabric", "Bootstrap", "Highcontrast"];
-let borderColor = ["#00bdae", "#4472c4", "#a16ee5", "#79ECE4"];
-let regionColor = [ "rgba(0, 189, 174, 0.3)", "rgba(68, 114, 196, 0.3)", "rgba(161, 110, 229, 0.3)",
-  "rgba(121, 236, 228, 0.3)"];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];
+let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6','#6355C7', '#4EAAFF'];
+let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
+    'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
+    'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(97, 69, 112, 0.3)', 'rgba(138, 177, 19, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)' ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'e-rangenavigator-series-collection': RangenavigatorSeriesCollectionDirective,
+    'e-rangenavigator-series': RangenavigatorSeriesDirective
+  },
   data: function() {
     return {
       //Chart Properties
@@ -135,8 +230,8 @@ export default Vue.extend({
       tooltip: { enable: true, format: "yyyy/MM/dd", displayMode: "Always" },
       value: [new Date('2011-01-01'), new Date('2013-12-11')],
       width: Browser.isDevice ? "100%" : "80%",
-      fill: "url(#" + theme.toLowerCase() + "-gradient-chart)",
-      border: { width: 2, color: borderColor[themes.indexOf(theme)] },
+      fill: "url(#" + selectedTheme + "-gradient-chart)",
+      border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },
       animation: { enable: false },
       theme: theme
     };
@@ -153,17 +248,12 @@ export default Vue.extend({
     },
   methods: {
    changed: function(args) {
-       if(document.getElementById('chartDT').children.length) {
+       if(document.getElementById('chartDT').children.length && !document.getElementById('chartDT').querySelector('div.e-directive')) {
             this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;
             this.$refs.chart.ej2Instances.primaryXAxis.zoomPosition = args.zoomPosition;
             this.$refs.chart.ej2Instances.dataBind();
        }
     },
-    axisLabelRender: function(args){
-        if (args.axis.name === 'primaryYAxis') {
-            args.text = '€' + args.text;
-        }
-    }
   }
-});
+};
 </script>

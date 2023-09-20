@@ -5,7 +5,20 @@
     "ftName": "chart",
     "type": "update",
     "samples": [
-        {
+    {
+        "url": "over-view",
+        "name": "Overview",
+         "category": "Charts",
+        "description": "This demo for overview of Essential JS2 Chart for data about the annual, monthly and product wise sales with different types of charts.",
+        "sourceFiles": [
+            {"displayName": "over-view.vue", "path": "./src/chart/over-view.vue"},
+            {"displayName": "column-template.vue", "path": "./src/chart/over-view-columntemplate.vue"},
+            {"displayName": "pie-template.vue", "path": "./src/chart/over-view-pietemplate.vue"},
+            {"displayName": "spline-template.vue", "path": "./src/chart/over-view-splinetemplate.vue"}
+        ]
+
+    },
+    {
         "url": "line",
         "name": "Line",
         "category": "Line Charts",
@@ -122,12 +135,30 @@
         ]
     },
     {
+        "url": "range-step-area",
+        "name": "Range Step Area",
+        "description": "This demo for Essential JS2 Chart control shows how to render the range step area series.",
+        "category": "Area Charts",
+        "sourceFiles": [
+            {"displayName": "range-step-area.vue", "path": "./src/chart/range-step-area.vue"}
+        ]
+    },
+    {
         "url": "range-area",
         "name": "Range Area",
         "description": "This demo for Essential JS2 Chart control shows how to render the range area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "range-area.vue", "path": "./src/chart/range-area.vue"}
+        ]
+    },
+    {
+        "url": "spline-range-area",
+        "name": "Spline Range Area",
+        "description": "This demo for Essential JS2 Chart control shows how to render the spline range area series.",
+        "category": "Area Charts",
+        "sourceFiles": [
+            {"displayName": "spline-range-area.vue", "path": "./src/chart/spline-range-area.vue"}
         ]
     },
     {
@@ -170,6 +201,15 @@
         ]
     },
     {
+        "url": "area-negative",
+        "name": "Area - Negative Points",
+        "description": "This demo for Essential JS2 Chart control shows how to render the area series with negative points.",
+        "category": "Area Charts",
+        "sourceFiles": [
+            {"displayName": "area-empty.vue", "path": "./src/chart/area-negative.vue"}
+        ]
+    }, 
+    {
         "url": "area-segments",
         "name": "Area Zone",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the points in a particular range using MultiColoredArea series.",
@@ -185,6 +225,15 @@
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "column.vue", "path": "./src/chart/column.vue"}
+        ]
+    },
+    {
+        "url": "grouped-column",
+        "name": "Grouped Column",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the grouping in column series.",
+        "category": "Bar Charts",
+        "sourceFiles": [
+            {"displayName": "grouped-column.vue", "path": "./src/chart/grouped-column.vue"}
         ]
     },
     {
@@ -221,6 +270,16 @@
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "range-bar.vue", "path": "./src/chart/range-bar.vue"}
+        ]
+    },
+    {
+        "url": "cylindrical-column",
+        "name": "Cylindrical Column",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows how to render the cylindrical-column series.",
+        "category": "Bar Charts",
+        "sourceFiles": [
+            {"displayName": "cylindrical-column.vue", "path": "./src/chart/cylindrical-column.vue"}
         ]
     },
     {
@@ -269,12 +328,12 @@
         ]
     },
     {
-        "url": "tornado",
+        "url": "negative-stack",
         "name": "Negative Stack",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the bar charts.",
         "category": "Bar Charts",
         "sourceFiles": [
-            {"displayName": "tornado.vue", "path": "./src/chart/tornado.vue"}
+            {"displayName": "negative-stack.vue", "path": "./src/chart/negative-stack.vue"}
         ]
     },
     {
@@ -294,6 +353,106 @@
         "category": "Scatter and Bubble",
         "sourceFiles": [
             {"displayName": "bubble.vue", "path": "./src/chart/bubble.vue"}
+        ]
+    },
+    {
+        "url": "default-pie",
+        "name": "Pie",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "default-pie.vue", "path": "./src/chart/default-pie.vue"}
+        ]
+    },
+    {
+        "url": "pie-radius",
+        "name": "Pie with Various Radius",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie chart with various radius",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "pie-radius.vue", "path": "./src/chart/pie-radius.vue"}
+        ]
+    },
+    {
+        "url": "donut",
+        "name": "Donut",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the doughnut charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "donut.vue", "path": "./src/chart/donut.vue"}
+        ]
+
+    },
+    {
+        "url": "pyramid",
+        "name": "Pyramid",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pyramid charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "pyramid.vue", "path": "./src/chart/pyramid.vue"}
+        ]
+    },
+    {
+        "url": "funnel",
+        "name": "Funnel",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the funnel charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "funnel.vue", "path": "./src/chart/funnel.vue"}
+        ]
+    },
+    {
+        "url": "pie-legend",
+        "name": "Pie with Legend",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in pie charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "pie-legend.vue", "path": "./src/chart/pie-legend.vue"}
+        ]
+    },
+    {
+        "url": "semi-pie",
+        "name": "Semi Pie",
+        "description": "This demo for Essential JS2 Chart control shows how to render semi-pie and doughnut charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "semi-pie.vue", "path": "./src/chart/semi-pie.vue"}
+        ]
+    },
+    {
+        "url": "smart-labels",
+        "name": "Smart Labels",
+        "description": "This demo for Essential JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "smart-labels.vue", "path": "./src/chart/smart-labels.vue"}
+        ]
+    },
+    {
+        "url": "drill-down-pie",
+        "name": "Drilldown",
+        "description": "This demo for Essential JS2 Chart control shows how to achieve the drill-down concept using pie charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "drill-down-pie.vue", "path": "./src/chart/drill-down-pie.vue"}
+        ]
+    },
+    {
+        "url": "grouping",
+        "name": "Grouping",
+        "description": "This demo for Essential JS2 Chart control shows how to group points in pie charts.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "grouping.vue", "path": "./src/chart/grouping.vue"}
+        ]
+    },
+    {
+        "url": "pie-empty-point",
+        "name": "Empty Points",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the empty points.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "pie-empty-point.vue", "path": "./src/chart/pie-empty-point.vue"}
         ]
     },
     {
@@ -499,106 +658,6 @@
         ]
     },
     {
-        "url": "default-pie",
-        "name": "Pie",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "default-pie.vue", "path": "./src/chart/default-pie.vue"}
-        ]
-    },
-    {
-        "url": "pie-radius",
-        "name": "Pie with Various Radius",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie chart with various radius",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "pie-radius.vue", "path": "./src/chart/pie-radius.vue"}
-        ]
-    },
-    {
-        "url": "donut",
-        "name": "Donut",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the doughnut charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "donut.vue", "path": "./src/chart/donut.vue"}
-        ]
-
-    },
-    {
-        "url": "pyramid",
-        "name": "Pyramid",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pyramid charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "pyramid.vue", "path": "./src/chart/pyramid.vue"}
-        ]
-    },
-    {
-        "url": "funnel",
-        "name": "Funnel",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the funnel charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "funnel.vue", "path": "./src/chart/funnel.vue"}
-        ]
-    },
-    {
-        "url": "default-doughnut",
-        "name": "Pie with Legend",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in pie charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "default-doughnut.vue", "path": "./src/chart/default-doughnut.vue"}
-        ]
-    },
-    {
-        "url": "semi-pie",
-        "name": "Semi Pie",
-        "description": "This demo for Essential JS2 Chart control shows how to render semi-pie and doughnut charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "semi-pie.vue", "path": "./src/chart/semi-pie.vue"}
-        ]
-    },
-    {
-        "url": "smart-labels",
-        "name": "Smart Labels",
-        "description": "This demo for Essential JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "smart-labels.vue", "path": "./src/chart/smart-labels.vue"}
-        ]
-    },
-    {
-        "url": "drill-down-pie",
-        "name": "Drilldown",
-        "description": "This demo for Essential JS2 Chart control shows how to achieve the drill-down concept using pie charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "drill-down-pie.vue", "path": "./src/chart/drill-down-pie.vue"}
-        ]
-    },
-    {
-        "url": "grouping",
-        "name": "Grouping",
-        "description": "This demo for Essential JS2 Chart control shows how to group points in pie charts.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "grouping.vue", "path": "./src/chart/grouping.vue"}
-        ]
-    },
-    {
-        "url": "pie-empty-point",
-        "name": "Empty Points",
-        "description": "This demo for Essential JS2 Chart control shows how to render and configure the empty points.",
-        "category": "Accumulation Charts",
-        "sourceFiles": [
-            {"displayName": "pie-empty-point.vue", "path": "./src/chart/pie-empty-point.vue"}
-        ]
-    },
-    {
         "url": "polar-line",
         "name": "Line",
         "description": "This demo for Essential JS2 Chart control shows how to render line in polar and radar charts.",
@@ -772,7 +831,7 @@
     },
     {
         "url": "strip-line",
-        "name": "Strip Line",
+        "name": "Stripline",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the strip lines in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
@@ -834,12 +893,31 @@
         ]
     },
     {
+        "url": "rtl",
+        "name": "RTL",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the RTL feature in chart.",
+        "category": "Chart Customization",
+        "sourceFiles": [
+            {"displayName": "rtl.vue", "path": "./src/chart/rtl.vue"}
+        ]
+    },
+    {
         "url": "pie-annotation",
         "name": "Annotation",
         "description": "This demo for Essential JS2 Chart control shows how to add more information to the chart using annotation.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "pie-annotation.vue", "path": "./src/chart/pie-annotation.vue"}
+        ]
+    },
+    {
+        "url": "synchronized-chart",
+        "name": "Synchronized Charts",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows how to add more information to the chart using Synchronized Charts.",
+        "category": "Chart Customization",
+        "sourceFiles": [
+            {"displayName": "synchronized-chart.vue", "path": "./src/chart/synchronized-chart.vue"}
         ]
     },
     {
@@ -883,7 +961,6 @@
         "name": "Range Color Mapping",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the range rolor mapping.",
         "category": "Chart Customization",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "range-color-mapping.vue", "path": "./src/chart/range-color-mapping.vue"}
         ]
@@ -900,6 +977,7 @@
     {
         "url": "export",
         "name": "Export",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to export the charts to Excel, PDF, and image formats such as SVG, JPEG, and PNG at client-side.",
         "category": "Print and Export",
         "sourceFiles": [
@@ -922,6 +1000,15 @@
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "range-selection.vue", "path": "./src/chart/range-selection.vue"}
+        ]
+    },
+    {
+        "url": "keyboard",
+        "name": "Keyboard Navigation",
+        "description": "This demo for Essential JS2 Chart control demonstrates the keyboard Navigation in chart.",
+        "category": "User Interaction",
+        "sourceFiles": [
+            {"displayName": "keyboard.vue", "path": "./src/chart/keyboard.vue"}
         ]
     },
     {

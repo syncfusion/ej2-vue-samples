@@ -53,24 +53,21 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   LineRouting,
+  ConnectorBridging,
   DiagramConstraints,
   PortVisibility
 } from "@syncfusion/ej2-vue-diagrams";
 import { Node, SnapConstraints } from "@syncfusion/ej2-vue-diagrams";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   DropDownList,
   ChangeEventArgs as DropDownChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
-
-Vue.use(DiagramPlugin);
-Vue.use(DropDownListPlugin);
 
 let nodes = [
   {
@@ -187,7 +184,11 @@ let connectors = [
 
 let diagramInstance;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -195,7 +196,7 @@ export default Vue.extend({
       snapSettings: { constraints: SnapConstraints.None },
       nodes: nodes,
       connectors: connectors,
-      constraints: DiagramConstraints.Default | DiagramConstraints.LineRouting,
+      constraints: DiagramConstraints.Default | (DiagramConstraints.Bridging | DiagramConstraints.LineRouting),
       //Defines the default node and connector properties
       getNodeDefaults: (obj, diagram) => {
         obj.height = 50;
@@ -216,12 +217,12 @@ export default Vue.extend({
     };
   },
   provide: {
-    diagram: [LineRouting]
+    diagram: [LineRouting, ConnectorBridging]
   },
    mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
   }
-});
+}
 
 </script>

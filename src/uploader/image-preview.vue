@@ -23,7 +23,8 @@
             </div>
         </div>
         <div id="action-description">
-            <p>This example demonstrates how to add an image preview of the uploaded files.
+            <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
+            target="_blank">&nbsp;Vue File Upload</a> example demonstrates how to add an image preview of the uploaded files.
                 Browse or drag-and-drop image files (PNG, JPG) to display preview for the selected files.</p>
         </div>
 
@@ -96,6 +97,22 @@
     }
     .highcontrast .uploader-image-preview-drop-area span a {
         color: #ffd939;
+    }
+    .material3-dark .uploader-image-preview-drop-area a,
+    .material-dark .uploader-image-preview-drop-area a {
+        color:#56a4fd;
+    }
+    .fabric-dark .uploader-image-preview-drop-area a {
+        color:#0074cc;
+    }
+    .bootstrap-dark .uploader-image-preview-drop-area a {
+        color:#0070f0;
+    }
+    .bootstrap5-dark .uploader-image-preview-drop-area a {
+        color:#0d6efd;
+    }
+    .tailwind-dark .uploader-image-preview-drop-area a {
+        color:#22d3ee;
     }
 	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 		.uploader-image-preview-drop-area .e-upload .e-upload-files .e-file-remove-btn.e-icons, .uploader-image-preview-drop-area .e-bigger .e-upload .e-upload-files .e-file-remove-btn.e-icons {
@@ -170,9 +187,17 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    .uploader-preview..e-upload .e-upload-files .e-icons:not(.e-uploaded):hover{
+    .uploader-preview.e-upload .e-upload-files .e-icons:not(.e-uploaded):hover{
         background-color: #e6e6e6;
         border-color: #adadad;
+        color: #333;
+    }
+    .material-dark.uploader-preview .e-upload .e-upload-files .e-icons,
+    .material3-dark.uploader-preview .e-upload .e-upload-files .e-icons,
+    .fabric-dark.uploader-preview .e-upload .e-upload-files .e-icons,
+    .bootstrap-dark.uploader-preview .e-upload .e-upload-files .e-icons, 
+    .bootstrap5-dark.uploader-preview .e-upload .e-upload-files .e-icons,
+    .tailwind-dark.uploader-preview .e-upload .e-upload-files .e-icons {
         color: #333;
     }
     .file-preview .uploader-preview .progressbar {
@@ -185,7 +210,21 @@
         top: -60px;
         position: relative;
     }
-    .highcontrast .file-preview .uploader-preview  div.file-name {
+    .bootstrap5 .file-preview .uploader-preview .progressbar,
+    .bootstrap5-dark .file-preview .uploader-preview .progressbar,
+    .tailwind .file-preview .uploader-preview .progressbar,
+    .tailwind-dark .file-preview .uploader-preview .progressbar,
+    .fluent-dark .file-preview .uploader-preview .progressbar {
+        top: -70px;
+    }
+    .highcontrast .file-preview .uploader-preview  div.file-name,
+    .material-dark .file-preview .uploader-preview div.file-name,
+    .material3-dark .file-preview .uploader-preview div.file-name,
+    .fabric-dark .file-preview .uploader-preview div.file-name,
+    .bootstrap-dark .file-preview .uploader-preview div.file-name,
+    .bootstrap5-dark .file-preview .uploader-preview div.file-name,
+    .tailwind-dark .file-preview .uploader-preview div.file-name ,
+    .fluent-dark .file-preview .uploader-preview div.file-name {
         color: white;
     }
     .file-preview .uploader-preview  div.file-name {
@@ -209,10 +248,16 @@
         border: none;
         background: #fff;
    }
-   .highcontrast .uploader-preview progress {
+    .highcontrast .uploader-preview progress,
+    .material-dark .uploader-preview progress,
+    .material3-dark .uploader-preview progress,
+    .fabric-dark .uploader-preview progress,
+    .bootstrap-dark .uploader-preview progress,
+    .bootstrap5-dark .uploader-preview progress,
+    .tailwind-dark .uploader-preview progress {
         border: none;
         background: black;
-   }
+    }
     .file-preview .uploader-preview  progress::-webkit-progress-bar {
         border: none;
         background-color: #ffffff;
@@ -262,20 +307,22 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { UploaderPlugin } from '@syncfusion/ej2-vue-inputs';
+import { UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { FileInfo } from '@syncfusion/ej2-vue-inputs/uploader';
 import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
 import { createElement, isNullOrUndefined, detach, EventHandler } from '@syncfusion/ej2-base';
 
-Vue.use(UploaderPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-uploader': UploaderComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
           path:  {
-            saveUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Save',
-            removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove'
+            saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+            removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
           },
           dropElement: '.control-fluid',
           extensions: '.jpg, .png',
@@ -295,6 +342,7 @@ export default Vue.extend({
             detach(this.$el.querySelector('ul'));
             this.$refs.uploadObj.filesData = [];
             this.$refs.uploadObj.fileList = [];
+            document.getElementById('imagePreview').value = '';
         }
     };
     document.getElementById('uploadbtn').onclick = () => {
@@ -451,5 +499,5 @@ export default Vue.extend({
             args.postRawFile = false;
         }
     }
-});
+}
 </script>

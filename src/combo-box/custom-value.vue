@@ -18,17 +18,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { createApp } from "vue";
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { Query } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
+import data from './dataSource.json';
 
-Vue.use(ComboBoxPlugin);
-Vue.use(ButtonPlugin);
-
-var noTemplateVue = Vue.component("noRecordsTemplate", {
-  template: '<div id="nodata"> No matched item, do you want to add it as new item in list? <ejs-button v-on:click.native="onclick">Add New Item</ejs-button></div>',
+var noTemplateVue = createApp({}).component("noRecordsTemplate", {
+  template: '<div id="nodata"> No matched item, do you want to add it as new item in list? <ejs-button v-on:click="onclick">Add New Item</ejs-button></div>',
+  components: {
+    'ejs-button': ButtonComponent
+  },
   data() {
     return {
       data: {},
@@ -55,7 +55,10 @@ var noTemplateVue = Vue.component("noRecordsTemplate", {
  }
 });
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent
+    },
     data: function() {
         return {
             data: data['countries'],
@@ -80,5 +83,5 @@ export default Vue.extend ({
             e.updateData(this.data, this.query);
         }
     }
-});
+};
 </script>

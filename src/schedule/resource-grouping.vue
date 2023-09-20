@@ -61,14 +61,12 @@
         text-align: left;
     }
 
-    /* custom code start*/
     .schedule-vue-sample .schedule-demo-heading {
         font-size: 16px;
         padding-bottom: 15px;
         text-align: center;
         font-weight: 500
     }
-    /* custom code end*/
 
     .schedule-vue-sample .schedule-group.e-schedule .e-agenda-view .template-wrap {
         display: table;
@@ -98,10 +96,6 @@
     }
 
     .schedule-vue-sample .schedule-group.e-schedule .e-vertical-view .e-resource-cells {
-        height: 76px;
-    }
-
-    .e-bigger .schedule-vue-sample .schedule-group.e-schedule.e-schedule .e-vertical-view .e-resource-cells {
         height: 80px;
     }
 
@@ -133,22 +127,19 @@
         display: none;
     }
 
-    /* custom code start*/
     @media (max-width: 550px) {
         .schedule-vue-sample .schedule-demo-heading {
             font-size: 14px;
         }
     }
-    /* custom code end*/
 </style>
 <script>
-    import Vue from "vue";
-    import { extend } from '@syncfusion/ej2-base';
-    import { resourceConferenceData } from './datasource';
-    import { SchedulePlugin, Week, Month, Agenda, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
+    import { createApp } from "vue";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Week, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    
+    const app= createApp({});
 
-    var resourceTemplateVue = Vue.component("resource-template", {
+    var resourceTemplateVue = app.component("resource-template", {
         template: '<div class="template-wrap"><div class="airline-image"><img :src="getImage" :alt="getImage" />' +
         '</div><div class="airline-details"><div class="airline-name">{{getAirlineName(data)}}</div><div class="airline-model">Model no: {{getAirlineModel(data)}}</div>' +
         '<div class="airline-seats">No.of seats: {{getAirlineSeats(data)}}</div></div></div>',
@@ -159,7 +150,7 @@
         },
         computed: {
             getImage: function() {
-                return './source/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
+                return 'source/schedule/images/' + this.getAirlineImage(this.data) + '.svg';
             }
         },
         methods: {
@@ -182,7 +173,14 @@
         }
     });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'e-resource': ResourceDirective,
+          'e-resources': ResourcesDirective
+        },
         data: function () {
             return {
                 cssClass: 'schedule-group',
@@ -196,7 +194,7 @@
                         endTime: { title: 'Arrival Time', name: 'EndTime' }
                     }
                 },
-                selectedDate: new Date(2018, 3, 1),
+                selectedDate: new Date(2021, 3, 6),
                 allowMultiple: true,
                 resourceDataSource: [
                     { AirlineName: 'Airways 1', AirlineId: 1, AirlineColor: '#EA7A57' },
@@ -212,7 +210,6 @@
         provide: {
             schedule: [Week, Month, Agenda, Resize, DragAndDrop]
         },
-        // custom code start
         methods: {
              generateEvents: function () {
                 var subjectCollection = ['Barcelona to Los Angeles', 'Los Angeles to Barcelona'];
@@ -221,7 +218,7 @@
                 var id = 1;
                 for (var i = 0; i < dataCollections.length; i++) {
                     var data = dataCollections[i];
-                    var startDate = new Date(2018, 3, 1);
+                    var startDate = new Date(2021, 3, 1);
                     startDate.setMilliseconds(1000 * 60 * 60 * 0.5 * (data - 1));
                     var lastDate = new Date((startDate.getTime()) + (1000 * 60 * 60 * 24 * 30));
                     for (var date = startDate; date.getTime() < lastDate.getTime(); date = new Date(date.getTime() + (1000 * 60 * 60 * 5))) {
@@ -240,7 +237,6 @@
                 return collections;
             }
         }
-        // custom code end
-    });
+    }
 
 </script>

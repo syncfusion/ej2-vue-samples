@@ -2,8 +2,7 @@
     <div class="schedule-vue-sample">
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
-                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :currentView='scheduleView'
-                    :eventRendered="oneventRendered">
+                <ejs-schedule id="Schedule" ref="ScheduleObj" height="650px" :currentView='scheduleView' :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered">
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -17,14 +16,10 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Current View
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-dropdownlist id='scheduleview' :dataSource='datas' :value='scheduleView' :change='changevalue'></ejs-dropdownlist>
+                                <ejs-dropdownlist id='scheduleview' :dataSource='datas' :value='scheduleView' :change='changevalue'
+                                    floatLabelType="Always" placeholder="Current View"></ejs-dropdownlist>
                             </div>
                         </td>
                     </tr>
@@ -58,16 +53,22 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { zooEventsData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], zooEventsData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 datas: ['Day', 'Week', 'WorkWeek', 'Month'],
                 scheduleView: 'Week'
             }
@@ -76,18 +77,17 @@
             schedule: [Day, Week, WorkWeek, Month, Resize, DragAndDrop]
         },
         methods: {
-
+            changevalue: function (args) {
+                this.$refs.ScheduleObj.ej2Instances.currentView = args.value;
+            },
             oneventRendered: function (args) {
                 let categoryColor = args.data.CategoryColor;
                 if (!args.element || !categoryColor) {
                     return;
                 }
                 args.element.style.backgroundColor = categoryColor;
-            },
-            changevalue: function (args) {
-                this.$refs.ScheduleObj.ej2Instances.currentView = args.value;
             }
         }
-    });
+    }
 
 </script>

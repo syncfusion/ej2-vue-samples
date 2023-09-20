@@ -30,10 +30,9 @@
 
 <script>
 
-import Vue from "vue";
 import { TimePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a time",
@@ -43,8 +42,9 @@ export default Vue.extend({
       startTime: new Date()
     };
   },
+  components: { 'ejs-timepicker': TimePickerComponent },
   methods: {
-    onOpen: function(args) {
+    onOpen: function() {
       if (this.value && !isNaN(+this.value))
         //assign the current value as the scrollTo value
         this.scrollTo = this.value;
@@ -79,7 +79,7 @@ export default Vue.extend({
       args.element.appendChild(span);
     }
   }
-});
+};
 </script>
 
 <style scoped>

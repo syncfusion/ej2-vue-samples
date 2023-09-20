@@ -13,7 +13,7 @@
     </div>
     <div align="center">
         <ejs-chart style='display:block;' ref='chart' id='chartDouble' align='center' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-         height='350' :chartArea='chartArea' :annotations='annotations' :width='width' :theme='theme' :loaded='loaded'>
+         height='350' :chartArea='chartArea' :annotations='annotations' :width='width' :theme='theme' :loaded='loaded' :legendSettings='legendSettings' >
             <e-series-collection>
                 <e-series :dataSource='ausData' type='Spline' name='AUS' width=2 xName='x' yName='y' :animation='animation'>
                 </e-series>
@@ -46,18 +46,14 @@ Tooltip is enabled in this example, to see the tooltip in action, while the sele
 </style>
 
 <script>
-import Vue from "vue";
-import { RangeNavigatorPlugin, ChartPlugin, ChartTheme, StepLineSeries, RangeTooltip, Tooltip,
+import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorSeriesCollectionDirective, ChartComponent, SeriesDirective, SeriesCollectionDirective, ChartTheme, StepLineSeries, RangeTooltip, Tooltip,
   SplineSeries, ChartAnnotation, getSeriesColor} from "@syncfusion/ej2-vue-charts";
 import { Browser } from "@syncfusion/ej2-base";
 import { sl, aus } from "./double-data";
 
-Vue.use(RangeNavigatorPlugin);
-Vue.use(ChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let chartAnnotation = [];
 chartAnnotation.push({
   content: '<div id="exchangeRate"></div>',
@@ -67,7 +63,6 @@ chartAnnotation.push({
   y: "15%"
 });
 let backgroundColor = 'white';
-//let backgroundColor = theme === 'Highcontrast-Light' ? 'black' : 'white';
 getAnnotation(aus, getSeriesColor(theme)[0]);
 getAnnotation(sl, getSeriesColor(theme)[1]);
 function getAnnotation(args, color) {
@@ -85,7 +80,15 @@ function getAnnotation(args, color) {
 
 }
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-rangenavigator': RangeNavigatorComponent,
+    'e-rangenavigator-series-collection': RangenavigatorSeriesCollectionDirective,
+    'e-rangenavigator-series': RangenavigatorSeriesDirective
+  },
   data: function() {
     return {
       //Chart Properties
@@ -101,6 +104,7 @@ export default Vue.extend({
       animation: { enable: false },
       height: "350",
       ausData: aus,
+      legendSettings: { visible: false },
       slData: sl,
       //Range Navigator Properties
       tooltip: { enable: true },
@@ -148,5 +152,5 @@ export default Vue.extend({
       );
     }
   }
-});
+};
 </script>

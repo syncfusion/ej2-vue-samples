@@ -2,8 +2,15 @@
 <div>
 <div class="control-section">
 <ejs-maps id='maps' :load='load' :annotations='annotations' :zoomSettings='zoomSettings'>
+    <template v-slot:markerTemplate="{}">
+        <h3 style="color:white; font-family: Segoe UI;">Africa</h3>
+    </template>
     <e-layers>
-        <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
+        <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :shapeSettings='shapeSettings'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' animationDuration='0' :dataSource='markerDataSource' :template="'markerTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 
@@ -37,12 +44,19 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Annotations, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { createApp } from 'vue';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Annotations, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
 import Template1 from './annotation-temp1.vue';
 import Template2 from './annotation-temp2.vue';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+  },
   data:function(){
       return{
         zoomSettings: {
@@ -50,10 +64,10 @@ export default Vue.extend({
         },
         annotations: [
             {
-                content: function () { return {template: Template1}; },
+                content: function () { return { template: createApp({}).component('template1',Template1) }; },
                 x: '0%', y: '70%'
             }, {
-                content: function () { return {template: Template2}; },
+                content: function () { return { template: createApp({}).component('template2',Template2) }; },
                 x: '80%', y: '5%'
             }
         ],
@@ -61,18 +75,9 @@ export default Vue.extend({
         shapePropertyPath: 'name',
         shapeData: new MapAjax('./src/maps/map-data/africa-continent.json'),
         shapeSettings: {
-                    fill: 'url(#grad1)'
-                },
-        markerSettings: [
-                    {
-                        visible: true,
-                        template: '<h3 style="color:white">{{:name}}</h3>',
-                        animationDuration: 1,
-                        dataSource: [{
-                            name: 'Africa', latitude: 13.97274101999902, longitude: 20.390625
-                }]
-            }
-        ]
+            fill: 'url(#grad1)'
+        },
+        markerDataSource: [{ name: 'Africa', latitude: 13.97274101999902, longitude: 20.390625 }]
       }
   },
 provide: {
@@ -84,9 +89,10 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
 }
 /* custom code end */
-})
+}
 </script>

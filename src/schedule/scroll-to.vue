@@ -17,14 +17,9 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
+                        <td style="width: 100%;">
                             <div>
-                                Scroll To
-                            </div>
-                        </td>
-                        <td style="width: 70%;">
-                            <div>
-                                <ejs-timepicker :value="date" format='HH:mm' :change="onChange">
+                                <ejs-timepicker :value="date" format='HH:mm' :change="onChange" floatLabelType="Always" placeholder="Scroll To">
                                 </ejs-timepicker>
                             </div>
                         </td>
@@ -45,18 +40,22 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, TimelineViews, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { TimePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-    Vue.use(SchedulePlugin);
-    Vue.use(TimePickerPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, TimelineViews, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { TimePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-timepicker': TimePickerComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'Week',
                 date: new Date(2000, 0, 1, 9)
             }
@@ -77,6 +76,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

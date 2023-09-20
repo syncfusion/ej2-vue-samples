@@ -1,7 +1,8 @@
 {
     "name": "PDF Viewer",
     "directory": "pdfviewer",
-    "category": "Viewer",
+    "category": "File Viewers & Editors",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -24,9 +25,25 @@
             "category": "PDF Viewer"
         },
         {
+            "url": "form-designer",
+            "name": "Form Designer",
+            "category": "PDF Viewer"
+        },
+        {
+            "url": "annotations",
+            "name": "Annotations",
+            "category": "PDF Viewer"
+        },
+        {
             "url": "hand-written",
             "name": "Handwritten Signature",
             "category": "PDF Viewer"
+        },
+        {
+            "url": "invisible-signature",
+            "name": "Invisible Signature",
+            "category": "PDF Viewer",
+            "type": "new"
         }
     ]
 

@@ -27,24 +27,23 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       minDate: new Date("05/05/2017"),
       maxDate: new Date("05/27/2017")
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     onValueChange: function(args) {
       document.getElementById("date_label").textContent =
         "Selected Value: " + args.value.toLocaleDateString();
     }
   }
-});
+};
 </script>
 
 <style scoped>
@@ -59,7 +58,15 @@ export default Vue.extend({
   max-width: 300px;
   margin: 0 auto;
 }
+
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.material3-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
-  color: white;
-}
+    color: white;
+} 
 </style>

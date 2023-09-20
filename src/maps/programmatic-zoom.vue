@@ -81,17 +81,24 @@
 <script>
 import Vue from "vue";
 import {
-  MapsPlugin,
+  MapsComponent,
+  LayersDirective,
+  LayerDirective,
   Marker,
   MapsTooltip,
   MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
 import { southAmericaCountryCapitals } from "../maps/map-data/marker-location";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(CheckBoxPlugin);
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       useGroupingSeparator: true,
@@ -103,7 +110,8 @@ export default Vue.extend({
       titleSettings: {
         text: "Capitals of South American countries",
         textStyle: {
-          size: "16px"
+          size: "16px",
+          fontFamily: 'Segoe UI'
         }
       },
       shapeData: new MapAjax("./src/maps/map-data/world-map.json"),
@@ -127,7 +135,10 @@ export default Vue.extend({
           tooltipSettings: {
             format: "<b>Capital</b> : ${name}<br><b>Country</b> : ${Country}",
             visible: true,
-            valuePath: "name"
+            valuePath: "name",
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
           }
         }
       ]
@@ -142,7 +153,8 @@ export default Vue.extend({
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     changezoom: function(args) {
       let maps = this.$refs.maps.ej2Instances;
@@ -150,5 +162,5 @@ export default Vue.extend({
     }
   }
   /* custom code end */
-});
+};
 </script>

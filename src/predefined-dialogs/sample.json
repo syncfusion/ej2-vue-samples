@@ -1,0 +1,26 @@
+{
+    "name": "Predefined Dialogs",
+    "directory": "predefined-dialogs",
+    "category": "Layout",
+    "ftName": "predefined-dialogs",
+    "hideOnDevice": true,
+    "samples": [{
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Predefined Dialogs",
+            "description":"The example demonstrates the default rendering of the Vue Predifined dialog"
+        },
+        {
+            "url": "customization",
+            "name": "Customization",
+            "category": "Predefined Dialogs",
+            "description":"This example demonstrates how to create custom predefined dialogs such as alert, confirmation, and prompt dialog using the Vue predefined dialog component."
+        },
+        {
+            "url": "animation",
+            "name": "Animation",
+            "category": "Predefined Dialogs",
+            "description":"This example demonstrates how to open or close the Vue Predefined dialog with various animation effects, and how to customize the animation duration and delay."
+        }
+    ]
+}

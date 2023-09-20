@@ -3,8 +3,6 @@
     "directory": "spreadsheet",
     "category": "Grids",
     "ftName": "spreadsheet",
-    "hideOnDevice": true,
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -58,7 +56,6 @@
             "url": "protect-sheet",
             "name": "Protection",
             "category": "Spreadsheet",
-            "type": "update",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -82,7 +79,6 @@
             "url": "freeze-panes",
             "name": "Freeze Panes",
             "category": "Spreadsheet",
-            "type": "new",
             "api": {
                 "Spreadsheet": [
                     "sheets",
@@ -98,6 +94,68 @@
                 {
                     "displayName": "freeze-panes-data.json",
                     "path": "src/spreadsheet/freeze-panes-data.json"
+                }
+            ]
+        },
+        {
+            "url": "data-validation",
+            "name": "Data Validation",
+            "category": "Spreadsheet",
+            "api": {
+                "Spreadsheet": [
+                    "sheets",
+                    "created"
+                ],
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "name"
+                ],
+                "rows": [
+                    "cells",
+                    "index"
+                ],
+                "cells": [
+                    "value",
+                    "style"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows data validation feature.",
+            "sourceFiles": [
+                {
+                    "displayName": "data-validation.vue",
+                    "path": "src/spreadsheet/data-validation.vue"
+                }
+            ]
+        },
+        {
+            "url": "hyperlink",
+            "name": "Hyperlink",
+            "category": "Spreadsheet",
+            "api": {
+                "Spreadsheet": [
+                    "sheets",
+                    "created"
+                ],
+                "sheets": [
+                    "columns",
+                    "rows",
+                    "name"
+                ],
+                "rows": [
+                    "cells",
+                    "index"
+                ],
+                "cells": [
+                    "value",
+                    "style"
+                ]
+            },
+            "description": "This demo for Essential JS 2 Spreadsheet control shows hyperlink feature.",
+            "sourceFiles": [
+                {
+                    "displayName": "hyperlink.vue",
+                    "path": "src/spreadsheet/hyperlink.vue"
                 }
             ]
         },

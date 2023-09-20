@@ -32,7 +32,7 @@
 
 <div id="description">
     <p>
-        Grid allows to span the row cells. In <a href='http://ej2.syncfusion.com/documentation/grid/api-queryCellInfoEventArgs.html'><code>QueryCellInfo</code></a>
+        Grid allows to span the row cells. In <a href='https://ej2.syncfusion.com/vue/documentation/api/grid/queryCellInfoEventArgs/'><code>QueryCellInfo</code></a>
         event, you can define the <code>rowSpan</code> attributes to span the cells.
     </p>
     <p>
@@ -44,7 +44,7 @@
     <p>
         More information on the row drag and drop can be found in this
         <a target="_blank" 
-        href="http://ej2.syncfusion.com/documentation/grid/row#row-spanning">
+        href="https://ej2.syncfusion.com/vue/documentation/grid/row/row-spanning">
         documentation section</a>.
     </p>
 </div>
@@ -52,13 +52,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import { GridPlugin, QueryCellInfoEventArgs } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, QueryCellInfoEventArgs } from '@syncfusion/ej2-vue-grids';
 import { columnSpanData, ColumnSpanDataType  } from './data-source';
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
       return {
         data: columnSpanData
@@ -175,5 +177,5 @@ export default Vue.extend({
             }
     }
     }
-  })
+  }
 </script>

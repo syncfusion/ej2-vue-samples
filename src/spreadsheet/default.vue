@@ -22,6 +22,7 @@
         </e-sheets>
       </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
     <div id="action-description">
       <p>
         This sample demonstrates the <code>Spreadsheet</code> component and its features such as editing, formulas,
@@ -46,6 +47,7 @@
             documentation</a> section.
       </p>
     </div>
+    <!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -90,11 +92,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./default-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, SheetDirective, RowsDirective, RowDirective, SheetsDirective, ColumnsDirective, ColumnDirective, RangesDirective, RangeDirective } from '@syncfusion/ej2-vue-spreadsheet';
+import dataSource from "./default-data.json";
+
+export default {
+    components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective
+   },  
    data: () => {
     return {
       dataSource: dataSource.defaultData,
@@ -107,8 +119,8 @@ export default Vue.extend({
       width1: 180,
       width2: 130,
       width3: 120,
-      openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-      saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+      openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+      saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {
@@ -118,5 +130,5 @@ export default Vue.extend({
       spreadsheet.numberFormat('$#,##0.00', 'F2:F31');
     }
   }
-});
+}
 </script>

@@ -3,7 +3,7 @@
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
-        <ejs-heatmap id='container' ref='heatmap' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
+        <ejs-heatmap id='container' ref='heatmap' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
@@ -11,11 +11,11 @@
 </div>
 </div>
 <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%;margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%">
-                        <div>Bubble Type:</div>
+                        <div style="padding-left:0px">Bubble Type:</div>
                     </td>
                     <td style="width: 60%;">
                     <ejs-dropdownlist id='bubbleType' ref='bubbleType' index=0 :dataSource='bubbleData' :popupHeight='height' :change='changeType'></ejs-dropdownlist>
@@ -31,28 +31,31 @@
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to display the data points in bubble heatmap using multiple views such as bubble size, bubble shade and the sector. You can change the cell type to bubble by using the <code>tileType</code> property in <code>cellSettings</code>, and you can change the view of the bubble heatmap by using the bubbleType property in cellSettings.
+        In this example, you can see how to display the data points in bubble heatmap using multiple views such as bubble size, bubble shade and the sector. You can change the cell type to bubble by using the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/#tiletype">tileType</a> property in <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/">cellSettings</a> , and you can change the view of the bubble heatmap by using the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/#bubbletype">bubbleType</a> property in <code>cellSettings</code>.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item on touch-enabled devices.
+    </p>
     <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p><b>Injecting Module</b></p>
     <p>
-       Heatmap component features are segregated into individual feature-wise modules. To use a tooltip,
-        inject the <code>Tooltip </code>  module using the <code>Heatmap.Inject(Tooltip) </code> method, and use a
-        legend by injecting the <code>Legend </code>  module using the <code>Heatmap.Inject(Legend) </code>  method.
-    </p>
+      Heatmap component features are separated into discrete feature-based modules. To use a tooltip and the legend, inject the <a target="_blank"
+      href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
+      href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
+   </p>
 </div>
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { HeatMapPlugin, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { tableBubbleData } from './table-bubble-data.json';
-Vue.use(DropDownListPlugin);
-Vue.use(HeatMapPlugin);
-export default Vue.extend({
+import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import data from './table-bubble-data.json';
+
+export default {
+components: {
+    'ejs-heatmap': HeatMapComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         titleSettings: {
@@ -61,25 +64,34 @@ return{
                 size: '15px',
                 fontWeight: '500',
                 fontStyle: 'Normal',
-                fontFamily: 'Segoe UI'
+                fontFamily: 'inherit'
             }
         },
          xAxis: {
             labels: ['Singapore', 'Spain', 'Australia', 'Germany', 'Belgium', 'USA', 'France', 'UK'],
             labelRotation: 45,
-            labelIntersectAction: 'None'
+            labelIntersectAction: 'None',
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         yAxis: {
-            labels: ['1995', '2000', '2005', '2010', '2015']
+            labels: ['1995', '2000', '2005', '2010', '2015'],
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
-        dataSource: tableBubbleData,
+        dataSource: data.tableBubbleData,
         cellSettings: {
            border: {
                 width: 1
             },
             showLabel: false,
             tileType: 'Bubble',
-            bubbleType: 'Size'
+            bubbleType: 'Size',
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         paletteSettings: {
              palette: [{ value: 35, color: '#50A3B1' },
@@ -90,7 +102,15 @@ return{
             ]
         },
         legendSettings: {
-            visible: true
+            visible: true,
+            textStyle: {
+                fontFamily: 'inherit'
+            }
+        },
+        tooltipSettings:{
+            textStyle: {
+                fontFamily: 'inherit'
+            }
         },
         height:'200px',
         bubbleData:['Size','Color','Sector']
@@ -102,10 +122,12 @@ provide:{
 },
 methods: {
     load: function(args) {
+    /* custom code start */
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+    /* custom code end */
     },
     tooltipRender:function(args)
     {
@@ -115,5 +137,5 @@ methods: {
         this.$refs.heatmap.ej2Instances.cellSettings.bubbleType = this.$refs.bubbleType.ej2Instances.value.toString();
     }
   }
-})
+}
 </script>

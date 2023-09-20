@@ -82,6 +82,17 @@
         box-shadow: 0 16px 28px -8px rgba(0, 0, 0, .36), 0 4px 15px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
     }
 
+    .tailwind .e-custom-card .e-avatar,
+    .tailwind-dark .e-custom-card .e-avatar,
+    .bootstrap5 .e-custom-card .e-avatar,
+    .bootstrap5-dark .e-custom-card .e-avatar ,
+    .fluent .e-custom-card .e-avatar,
+    .fluent-dark .e-custom-card .e-avatar,
+    .material3 .e-custom-card .e-avatar,
+    .material3-dark .e-custom-card .e-avatar {
+        height: 3em;
+        width: 3em;
+    }
     .avatar-card .e-card.e-custom-card :nth-child(3) {
         padding: 12px 0px 20px 0px;
         height: 130px;
@@ -128,15 +139,40 @@
         margin-top: 10px;
     }
 
-    .highcontrast .avatar-card .e-custom-card.e-card .avatar-content {
+    .highcontrast .avatar-card .e-custom-card.e-card .avatar-content,
+    .bootstrap-dark .avatar-card .e-custom-card.e-card .avatar-content,
+    .tailwind-dark .avatar-card .e-custom-card.e-card .avatar-content,
+    .material-dark .avatar-card .e-custom-card.e-card .avatar-content,
+    .material3-dark .e-custom-card.e-card .avatar-content,
+    .fluent-dark .e-custom-card.e-card .avatar-content,
+    .fabric-dark .avatar-card .e-custom-card.e-card .avatar-content,
+    .bootstrap5-dark .avatar-card .e-custom-card.e-card .avatar-content {
         color: rgba(255, 255, 255, 0.84);
     }
 
-    .highcontrast .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title {
+    .highcontrast .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .bootstrap-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .tailwind-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .material-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .material3-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .fluent-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .fabric-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .bootstrap5-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title {
         color: rgba(255, 255, 255, 0.45);
     }
 
-    .highcontrast .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title {
+    .highcontrast .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .bootstrap-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .tailwind-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .material-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .material3-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .fluent-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .fabric-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .bootstrap5-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title  {
         color: rgba(255, 255, 255, 0.84);
     }
+
 </style>
+<script>
+export default {};
+</script>

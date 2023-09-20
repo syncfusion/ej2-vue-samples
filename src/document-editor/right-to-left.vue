@@ -7,10 +7,10 @@
     <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" style="float:right;" title="اسم المستند. انقر فوق أو انقر فوق لأعاده تسميه هذا المستند." contenteditable="false">
         <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
     </div>    
-    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
+    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="طباعه هذا المستند (Ctrl + P)">طباعه</ejs-button>	
     <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="تحميل" v-bind:select="onExport" :open="openExportDropDown" title="تحميل هذا المستند"></ejs-dropdownbutton>        
 </div>
-<ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar="true" :enableRtl="true" locale='ar-AE' height='600px'></ejs-documenteditorcontainer>            
+<ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar="true" :enableRtl="true" locale='ar-AE' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
    <div id="action-description">
@@ -21,7 +21,7 @@
     <p>In this example, you can see document-editor right-to-left and the locale set in arabic[locale value is ar-AE] </p>
     <li>By default, locale value is en-US. If you want to change the en-US culture to a different culture, you have to change the locale accordingly.</li>
     <p style="display: block"> More information about the document editor features can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/right-to-left/">documentation section.</a>
     </p>
 </div>
 </div>
@@ -79,11 +79,11 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { L10n, setCulture  } from '@syncfusion/ej2-base';
 import { rtlDocument } from "./data";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 L10n.load({
     'ar-AE': {
@@ -466,7 +466,29 @@ L10n.load({
             "Accept Changes": "قبول التغييرات",
             "Reject Changes": "رفض التغييرات",
             "User": "المستعمل",
-            "View": "رأي"    
+            'View': 'رأي',
+            'ScreenTip text': 'نص تلميح الشاشة',
+            'Columns': 'الأعمدة',
+            'Presets': 'الإعدادات المسبقة',
+            'One':'واحد',
+            'Two': 'اثنين',
+            'Three': 'ثلاثة',
+            'Line between column': 'الخط بين العمود',
+            'Width and Spacing': 'العرض والتباعد',
+            'Column': 'عمود',
+            'Equal column width': 'عرض العمود المتساوي',
+            'Paste Content Dialog': 'نظرًا لسياسة أمان المتصفح، فإن اللصق من حافظة النظام مقيد. بدلا من ذلك استخدم اختصار لوحة المفاتيح',
+            'Paste Content CheckBox': 'لا تظهر مرة أخرى',
+            'All caps': 'جميع الحروف الكبيرة',
+            'Indents and Spacing': 'المسافات البادئة والتباعد',
+            'Line and Page Breaks': 'فواصل الأسطر والصفحات',
+            'Pagination': 'ترقيم الصفحات',
+            'WidowControl': 'سيطرة الأرملة/اليتيم',
+            'Keep With Next': 'الاحتفاظ بالتالي',
+            'Keep Lines Together': 'حافظ على الخطوط معًا',
+            'Alt Text': 'نص بديل',
+            'Title': 'عنوان',
+            'Description': 'وصف',
 		},
         'documenteditorcontainer': {
             'New': 'الجديد',
@@ -507,7 +529,7 @@ L10n.load({
             'Position': 'موقف',
             'Header from Top': 'راس من اعلي',
             'Footer from Bottom': 'تذييل الصفحة من الأسفل',
-            'Distance from top of the page to top of the header.': 'المسافة من اعلي الصفحة إلى اعلي الراس',
+            'Distance from top of the page to top of the header': 'المسافة من اعلي الصفحة إلى اعلي الراس',
             'Distance from bottom of the page to bottom of the footer.': 'المسافة من أسفل الصفحة إلى أسفل التذييل',
             'Aspect ratio': 'نسبه العرض إلى الارتفاع',
             'W': 'في',
@@ -641,9 +663,24 @@ L10n.load({
             'Insert Footnote': 'أدخل حاشية سفلية',
             'Insert Endnote': 'أدخل تعليق ختامي',
             'Footnote Tooltip': 'أدخل حاشية سفلية (Alt + Ctrl + F).',
-                    'Endnote Tooltip': 'أدخل تعليقًا ختاميًا (Alt + Ctrl + F).',
-                    'AllCaps':'كل قبعات',
-                    'Change case Tooltip':'تغيير الحالة'
+            'Endnote Tooltip': 'أدخل تعليقًا ختاميًا (Alt + Ctrl + F).',
+            'AllCaps':'كل قبعات',
+            'Change case Tooltip':'تغيير الحالة',
+            'Link to Previous': 'رابط إلى السابق',
+            'Columns': 'الأعمدة',
+            'Column': 'عمود',
+            'Next Page': 'الصفحة التالية',
+            'Continuous': 'مستمر',
+            'ZoomLevelTooltip': 'مستوى التكبير. انقر أو اضغط لفتح خيارات التكبير/التصغير.',
+            'Hide properties pane': 'إخفاء جزء الخصائص',
+            'ShowHiddenMarks Tooltip': 'إظهار الأحرف المخفية مثل المسافات وعلامات التبويب وعلامات الفقرات والفواصل. (Ctrl + *)',
+            'Information': 'معلومة',
+            'Top margin': 'الهامش العلوي',
+            'Bottom margin': 'الهامش السفلي',
+            'Left margin': 'الهامش الأيسر',
+            'Right margin': 'الهامش الأيمن',
+            'Borders': 'الحدود',
+            'Alternate Text': 'نص بديل'
 
 
         },
@@ -655,16 +692,15 @@ L10n.load({
     }
 });
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(DropDownButtonPlugin);
-
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'الشروع',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:left;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -745,11 +781,10 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(rtlDocument));
           obj.documentName='Right to Left';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
        });
     }
-});
+};
 </script>

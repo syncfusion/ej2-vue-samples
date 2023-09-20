@@ -19,8 +19,8 @@
            In this example, you can see how to render and configure the Stock chart.
           <code>LineSeries</code> is used to represent selected data value.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
               The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
               the
@@ -36,11 +36,12 @@
   <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { googl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   LineSeries,
   Tooltip,
@@ -50,13 +51,11 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
  export let value = 80;
  export let series = [];
  let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
 function GetZoomingData() {
         let point1;
@@ -73,7 +72,12 @@ function GetZoomingData() {
     }
     let seriesData = GetZoomingData().series;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
@@ -152,5 +156,5 @@ export default Vue.extend({
 
 
   }
-});
+};
 </script>

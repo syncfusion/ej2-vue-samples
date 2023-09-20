@@ -2,15 +2,13 @@
     "name": "Scheduler",
     "directory": "schedule",
     "category": "Calendars",
-    "ftName": "scheduler",
     "type": "update",
+    "ftName": "scheduler",
     "samples": [{
             "url": "overview",
             "name": "Overview",
             "category": "Scheduler",
-            "type":"update",
             "description": "This demo shows for Javascript Scheduler features such as Multiple views, Templates, Resources, Grouping, Timezone, Timescale, etc...",
-            "hideOnDevice": true,
             "api": {
                 "Schedule": [
                     "height",
@@ -66,6 +64,18 @@
                     "eventSettings",
                     "dataBinding",
                     "selectedDate"
+                ]
+            }
+        },
+        {
+            "url": "realtime-binding",
+            "name": "Real-Time Binding",
+            "category": "Data Binding",
+            "description": "This demo showcases the way of binding signalR services to Scheduler component. Here, the SignalR is used to bind the data with Scheduler.",
+            "api": {
+                "Schedule": [
+                    "eventSettings",
+                    "dataBinding"
                 ]
             }
         },
@@ -149,9 +159,8 @@
         },
         {
             "url": "multi-drag",
-            "name": "Multiple Drag",
+            "name": "Multiple Events Drag",
             "category": "Appointments",
-            "type": "new",
             "description": "This demo explains you about the ability to select multiple appointments and drag them simultaneously.",
             "api": {
                 "Schedule": [
@@ -184,6 +193,22 @@
             "category": "Scrolling",
             "hideOnDevice": true,
             "description": "This example illustrates how to achieve high performance in the Vue Scheduler using virtual scrolling to load resources and events on demand.",
+            "api": {
+                "Schedule": [
+                    "views",
+                    "group",
+                    "resources",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "data-virtualization",
+            "name": "Data Virtualization",
+            "category": "Scrolling",
+            "hideOnDevice": true,
+            "type": "new",
+            "description": "This example illustrates how to load events on demand in the Vue Scheduler.",
             "api": {
                 "Schedule": [
                     "views",
@@ -259,6 +284,18 @@
                 "Schedule": [
                     "views",
                     "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "custom-month-view",
+            "name": "Custom Month View",
+            "category": "Views",
+            "description": "This example showcases how to customize the starting week of the month and also customize the number of weeks to be rendered in month view with Vue Scheduler.",
+            "api": {
+                "Schedule": [
+                    "eventSettings",
+                    "views"
                 ]
             }
         },
@@ -446,6 +483,20 @@
             }
         },
         {
+            "url": "adaptive-grouping",
+            "name": "Adaptive Grouping",
+            "category": "Resource Grouping",
+            "description": "This demo shows how to change the mode of the Schedule to Adaptive mode in the Vue Scheduler control.",
+            "api": {
+                "Schedule": [
+                    "enableAdaptiveUI",
+                    "group",
+                    "resources",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
             "url": "cell-template",
             "name": "Cell",
             "category": "Templates",
@@ -551,6 +602,7 @@
         {
             "url": "editor-template",
             "name": "Editor Template",
+            "type": "update",
             "category": "Editor Window",
             "description": "This demo shows how to design custom appointment (event) editor windows by adding or removing fields from the Vue Scheduler appointment window.",
             "api": {
@@ -716,6 +768,18 @@
                     "eventClick",
                     "popupOpen",
                     "eventRendered"
+                ]
+            }
+        },
+        {
+            "url": "reminder",
+            "name": "Reminder",
+            "category": "Customization",
+            "description": "This demo showcases an event reminder notification that will be displayed after 5 seconds of sample getting loaded.",
+            "api": {
+                "Schedule": [
+                    "eventSettings",
+                    "created"
                 ]
             }
         },

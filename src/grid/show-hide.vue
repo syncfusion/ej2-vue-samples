@@ -6,7 +6,7 @@
     </div>
     <div>
         <div class='e-mastertext'>Select column name to toggle visibility</div>
-        <ejs-toolbar class='e-gridlist' :clicked="onClicked">
+        <ejs-toolbar ref='toolbar' class='e-gridlist' :clicked="onClicked">
             <e-items>
                 <e-item text='Order ID'></e-item>
                 <e-item text='Customer Name'></e-item>
@@ -32,9 +32,9 @@
 
      <div id="description">
         <p>The Grid column can be showed/hidden dynamically using <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#showcolumns">showColumns
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#showcolumns">showColumns
         </a></code> and <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#hidecolumns">hideColumns
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#hidecolumns">hideColumns
         </a></code> method of the Grid.</p>
         <p>In this demo, the columns can be showed and hidden by clicking the column name in the toolbar. And the column`s visibility is toggled based on the <code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#headertext">columns->headerText
@@ -70,16 +70,20 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import Vue from 'vue';
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { GridPlugin, GridComponent, Page } from '@syncfusion/ej2-vue-grids';
-import { ToolbarPlugin, ClickEventArgs} from '@syncfusion/ej2-vue-navigations';
+import { GridComponent, ColumnDirective, ColumnsDirective, Page } from '@syncfusion/ej2-vue-grids';
+import { ToolbarComponent, ItemDirective, ItemsDirective, ClickEventArgs} from '@syncfusion/ej2-vue-navigations';
 import { orderDetails } from './data-source';
 
-Vue.use(GridPlugin);
-Vue.use(ToolbarPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+  },
   data: () => {
       return {
         data: orderDetails,
@@ -88,7 +92,7 @@ export default Vue.extend({
   },
   methods: {
       onClicked: function(e: ClickEventArgs) {
-        if (!this.flag) { return; }
+        if (!(this as any).flag) { return; }
 
         let element: HTMLElement = <HTMLInputElement>e.originalEvent.target;
 
@@ -97,24 +101,33 @@ export default Vue.extend({
         }
 
         element = <HTMLElement>(element.tagName === 'BUTTON' ? element.firstElementChild : element);
-        this.flag = false;
+        (this as any).flag = false;
         let hidden: boolean = element.classList.contains('e-ghidden');
         let classFn: Function = hidden ? removeClass : addClass;
-        classFn([element], 'e-ghidden');
+        const visibleColumns: HTMLElement[] = Array.from(((this as any).$refs.toolbar as ToolbarComponent).$el.getElementsByClassName('e-tbar-btn-text'))
+        .filter((item) => !((item as HTMLElement).classList.contains('e-ghidden'))) as HTMLElement[];
+        const isLastVisibleColumn = visibleColumns.length === 1 && visibleColumns[0].parentElement === element.parentElement;   
 
         if (hidden) {
-            (<GridComponent>this.$refs.grid).showColumns(element.innerHTML, 'headerText');
+          classFn([element], 'e-ghidden');
+          ((this as any).$refs.grid as GridComponent).showColumns(element.innerHTML);
         } else {
-            (<GridComponent>this.$refs.grid).hideColumns(element.innerHTML, 'headerText');
+          if (isLastVisibleColumn) {
+            alert("At least one column should be visible.");
+            (this as any).flag = true;
+            return;
+          }
+          classFn([element], 'e-ghidden');
+          ((this as any).$refs.grid as GridComponent).hideColumns(element.innerHTML);
         }
-        this.flag = true;
+        (this as any).flag = true;
     },
     dataBound: function() {
-        this.flag = true;
+        (this as any).flag = true;
     }
   },
   provide: {
       grid: [Page]
   }
-})
+}
 </script>

@@ -53,12 +53,13 @@
         has two modes to manipulate the datasource
         <li><code>Auto</code></li>
         <li><code>Dialog</code></li>
+        
         In this demo, <code>Auto</code> mode is enabled for editing. On the TreeGrid side, you can start editing any row
         by double
         clicking on it or clicking on toolbar’s Edit button, then the currently selected row will be changed to edited
         state. On the chart side, you can edit the tasks using edit dialog by double clicking on the taskbars and you
         can edit the dependency connector lines using drag and drop action with connector line points available on the
-        either side of taskbar.
+        either side of taskbar. It is possible to connect parent-parent, child-child, child-parent and parent-child dependency relationships.
     </p>
     
     <p>
@@ -69,11 +70,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Edit, Selection, Toolbar, DayMarkers  } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Edit, Selection, Toolbar, DayMarkers  } from "@syncfusion/ej2-vue-gantt";
 import { editingData, editingResources } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: editingData,
@@ -141,12 +144,12 @@ export default Vue.extend({
             projectStartDate: new Date('03/25/2019'),
             projectEndDate: new Date('07/28/2019'),
             splitterSettings: {
-                columnIndex: 2
+                position: "35%"
             }
       };
   },
   provide: {
       gantt: [Edit, Selection, Toolbar, DayMarkers]
   }
-});
+}
 </script>

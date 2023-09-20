@@ -3,7 +3,7 @@
     <div class="control-section" style="padding:10px;position:relative;">
         <div id="modalTarget" class="col-md-8 control-section" style="height:350px;">
             <!-- Render Button to open the modal Dialog -->
-            <ejs-button id='modalbtn' v-if="ShowBtn" v-on:click.native="modalBtnClick">Open</ejs-button>
+            <ejs-button id='modalbtn' v-if="ShowBtn" v-on:click="modalBtnClick">Open</ejs-button>
             <!-- Render modal Dialog -->
             <ejs-dialog ref="modalDialog" :isModal='isModal' :header='header' :overlayClick='isoverlay' :target='target' :width='width' :buttons='buttons' :animationSettings='animationSettings' :content='content' :open="modalDlgOpen" :close="modalDlgClose" >
             </ejs-dialog>
@@ -51,14 +51,15 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-let ShowBtn = undefined;
-Vue.use(DialogPlugin);
-Vue.use(CheckBoxPlugin);
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { CheckBoxComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+      'ejs-button': ButtonComponent,
+      'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         return {
             target: "#modalTarget",
@@ -93,5 +94,5 @@ export default Vue.extend({
             this.$refs.modalDialog.hide();
         }
     }
-});
+}
 </script>

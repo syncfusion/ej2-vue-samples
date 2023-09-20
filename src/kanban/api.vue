@@ -31,7 +31,7 @@
                             </ejs-numerictextbox></td>
                     </tr>
                     <tr>
-                        <td class='e-check'><ejs-button id='add' class="e-btn" v-on:click.native="onAdd">Add</ejs-button></td>
+                        <td class='e-check'><ejs-button id='add' class="e-btn" v-on:click="onAdd">Add</ejs-button></td>
                     </tr>
                 </table>
             </form>
@@ -49,7 +49,7 @@
                         </tr>
                         <tr>
                             <td class='e-check'>
-                                <ejs-button  id='delete' class="e-btn" v-on:click.native="onDelete">Delete</ejs-button></td>
+                                <ejs-button  id='delete' class="e-btn" v-on:click="onDelete">Delete</ejs-button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,29 +79,30 @@
     .property-panel-content td {
         padding-top: 10px;
     }
-
     .property-panel-header {
         padding-bottom: 0px;
     }
 </style>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { FormValidator, TextBoxPlugin, NumericTextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { FormValidator, TextBoxComponent, NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { kanbanData } from "./datasource";
 
-Vue.use(KanbanPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(TextBoxPlugin);
-Vue.use(DialogPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-textbox': TextBoxComponent,
+    'ejs-dialog': DialogComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -177,5 +178,5 @@ export default Vue.extend({
         this.dialogObj.hide();
     }
   }
-});
+};
 </script>

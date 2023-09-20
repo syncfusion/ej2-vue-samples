@@ -35,9 +35,8 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   Node,
@@ -49,9 +48,10 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager, Query } from "@syncfusion/ej2-data";
 
-Vue.use(DiagramPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -91,24 +91,20 @@ export default Vue.extend({
       },
       //Configures data source
       dataSourceSettings: {
-        id: "EmployeeID",
-        parentId: "ReportsTo",
+        id: "Id",
+        parentId: "ParentId",
         dataSource: new DataManager(
           {
-            url: "https://mvc.syncfusion.com/Services/Northwnd.svc/",
+            url: "https://ej2services.syncfusion.com/vue/development/api/RemoteData",
             crossDomain: true
           },
-          new Query()
-            .from("Employees")
-            .select("EmployeeID,ReportsTo,FirstName")
-            .take(9)
         ),
         //binds the external data with node
         doBinding: (nodeModel, data, diagram) => {
           nodeModel.annotations = [
             {
               /* tslint:disable:no-string-literal */
-              content: data["FirstName"],
+              content: data["Label"],
               style: { color: "white" }
             }
           ];
@@ -122,6 +118,6 @@ export default Vue.extend({
   provide: {
     diagram: [DataBinding, HierarchicalTree]
   }
-});
+}
 
 </script>

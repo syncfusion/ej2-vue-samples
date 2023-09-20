@@ -2,8 +2,8 @@
 <div>
     <div class="control-section dashboard-dynamic">
       <div>
-           <div style="width:100%;height: 30px">
-            <ejs-button style="float:right;width:75px;" id="toggleBtn" ref="toggleBtn" iconCss='edit' cssClass="e-outline e-flat e-primary" isToggle=true v-on:click.native='toggleClick'>Edit</ejs-button>
+           <div style="width:100%;height: 30px;margin-bottom:5px">
+            <ejs-button style="float:right;width:75px;" id="toggleBtn" ref="toggleBtn" iconCss='edit' cssClass="e-outline e-flat e-primary" isToggle=true v-on:click='toggleClick'>Edit</ejs-button>
         </div>
         <div style="padding:5px;text-align: end;">
             <div class="add-widget-button e-control e-btn e-lib" id="dialogBtn" v-on:click="dialogButtonClick($event)">
@@ -41,20 +41,22 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
+import { createApp } from "vue";
+import { DashboardLayoutComponent, PanelsDirective, PanelDirective } from "@syncfusion/ej2-vue-layouts";
 import lineTemplate from "./linetemplate.vue";
 import pieTemplate from "./pietemplate.vue";
 import splineTemplate from "./splinetemplate.vue";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(ButtonPlugin);
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-import { detach, isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(DialogPlugin);
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
-Vue.use(DashboardLayoutPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+      'ejs-dashboardlayout': DashboardLayoutComponent,
+      'e-panel': PanelDirective,
+      'e-panels': PanelsDirective,
+      'ejs-button': ButtonComponent,
+      'ejs-dialog': DialogComponent
+    },
     data: function() {
         return {
           spacing: [10,10],
@@ -64,29 +66,29 @@ export default Vue.extend ({
           showCloseIcon: true,
           contenttemplateVue:'<div id="dialogcontent"><div><div id="linetemplate"><p class="dialog-text">Linechart (1x1) </p></div><div id="pietemplate"><p class="dialog-text">Piechart (1x1) </p></div><div id="splinetemplate"><p class="dialog-text">Splinechart (2x1) </p></div></div></div></div>',
           spline: function () {
-                return { template : splineTemplate }
+                return { template : createApp({}).component('splineTemplate', splineTemplate) }
             },
           pie: function () {
-                return { template : pieTemplate }
+                return { template : createApp({}).component('pieTemplate', pieTemplate) }
             },
           line: function () {
-                return { template : lineTemplate }
+                return { template : createApp({}).component('lineTemplate', lineTemplate) }
             },
         };
     },
     methods: {
-         toggleClick: function(args) {
+         toggleClick: function() {
               if (this.$refs.toggleBtn.$el.textContent == 'Edit') { 
-                    this.$refs.DashbordInstance.allowResizing = true;
-                    this.$refs.DashbordInstance.allowDragging = true;
+                    this.$refs.DashbordInstance.$el.allowResizing = true;
+                    this.$refs.DashbordInstance.$el.allowDragging = true;
                     this.$refs.toggleBtn.$el.textContent = 'Save';
-                    this.$refs.toggleBtn.iconCss = "save";
+                    this.$refs.toggleBtn.$el.iconCss = "save";
                     document.getElementById('dialogBtn').style.display = 'block';
             } else {
-                this.$refs.DashbordInstance.allowResizing = false;
-                this.$refs.DashbordInstance.allowDragging = false;
+                this.$refs.DashbordInstance.$el.allowResizing = false;
+                this.$refs.DashbordInstance.$el.allowDragging = false;
                 this.$refs.toggleBtn.$el.textContent = 'Edit';
-                this.$refs.toggleBtn.iconCss = "edit";
+                this.$refs.toggleBtn.$el.iconCss = "edit";
                 document.getElementById('dialogBtn').style.display = 'none';
             }
         },
@@ -102,7 +104,7 @@ export default Vue.extend ({
         dialogButtonClick: function() {
               this.$refs.dialogObj.show();
               var proxy = this;
-              this.$refs.dialogObj.$el.querySelector('#linetemplate').onclick = function (e) {
+              this.$refs.dialogObj.$el.querySelector('#linetemplate').onclick = function () {
                    var panel = {
                        sizeX: 1,
                        sizeY: 1,
@@ -114,7 +116,7 @@ export default Vue.extend ({
                    proxy.$refs.DashbordInstance.addPanel(panel);
                    proxy.$refs.dialogObj.hide();
                }
-               this.$refs.dialogObj.$el.querySelector('#pietemplate').onclick = function (e) {
+               this.$refs.dialogObj.$el.querySelector('#pietemplate').onclick = function () {
                    var panel = {
                        sizeX: 1,
                        sizeY: 1,
@@ -126,7 +128,7 @@ export default Vue.extend ({
                    proxy.$refs.DashbordInstance.addPanel(panel);
                    proxy.$refs.dialogObj.hide();
                }
-               this.$refs.dialogObj.$el.querySelector('#splinetemplate').onclick = function (e) {
+               this.$refs.dialogObj.$el.querySelector('#splinetemplate').onclick = function () {
                    var panel = {
                        sizeX: 2,
                        sizeY: 1,
@@ -140,7 +142,7 @@ export default Vue.extend ({
                }
         } 
     },
-});
+}
 </script>
 
 <style>
@@ -162,7 +164,7 @@ export default Vue.extend ({
 
 @media (max-width: 650px) {
     .dashboard-dynamic #togglebtn{
-        display: none;
+        width: 90px !important;
     }
 }
 
@@ -174,20 +176,25 @@ export default Vue.extend ({
     font-size: 15px;
 }
 
+body.fluent.e-bigger button#toggleBtn,  body.fluent-dark.e-bigger button#toggleBtn{
+     width : 100px !important;
+     margin: -8px;
+    }
+    
 .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel:hover span {
     display: block;
 }
 
 .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
-    padding: 10px;
     border-bottom: 2px solid #e6e9ed !important;
     height: 35px;
-    margin: 0 15px 0 15px;
+    padding: 0 15px 0 15px;
+    line-height: 35px;
 }
 
 
 .dashboard-dynamic #edit_dashboard .e-panel-content {
-    height: calc(100% - 35px) !important;
+    height: calc(100% - 37px) !important;
     overflow: hidden;
     width:100%;
 }
@@ -253,6 +260,20 @@ body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control
 
 body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control .e-panel .e-panel-container .e-panel-header {
     color: rgba(255, 255, 255, 0.54);
+}
+
+.fabric #togglebtn,
+.fabric-dark #togglebtn,
+.highcontrast #togglebtn {
+    padding:0 13px;
+}
+
+.bootstrap5-dark .dialog-text,
+.highcontrast .dialog-text,
+.tailwind-dark .dialog-text,
+.fabric-dark .dialog-text,
+.bootstrap-dark .dialog-text {
+    border: 1px solid #FFFFFF;
 }
 
 </style>

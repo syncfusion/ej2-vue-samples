@@ -69,7 +69,7 @@
                 <ejs-button
                   id="group-apply"
                   ref="apply"
-                  v-on:click.native="onClick"
+                  v-on:click="onClick"
                   isPrimary="true"
                 >Apply</ejs-button>
               </div>
@@ -130,34 +130,36 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   GroupingBar,
   IDataSet,
   DateGroup
 } from "@syncfusion/ej2-vue-pivotview";
-import { ButtonPlugin, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
 import {
-  MultiSelectPlugin,
+  MultiSelectComponent,
   SelectEventArgs,
   RemoveEventArgs,
   CheckBoxSelection
 } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
-import { GroupSettingsModel } from "@syncfusion/ej2-pivotview/src/pivotview/model/datasourcesettings-model";
+import { GroupSettingsModel } from "@syncfusion/ej2-pivotview/src/model/datasourcesettings-model";
 import { gData } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(MultiSelectPlugin);
 /* tslint:disable */
 declare var require: any;
 let selectedGroups: string[] = ["Years", "Months", "Days"];
 let groupData: string[] = ["Years", "Quarters", "Months", "Days"];
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-multiselect': MultiSelectComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -222,7 +224,7 @@ export default Vue.extend({
       xhr.send();
     },
     dataBound: function(args: any) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
       if (pivotObj.isAdaptive) {
         (<any>document.querySelector(".control-section")).style.overflow =
           "auto";
@@ -241,8 +243,8 @@ export default Vue.extend({
       }
     },
     onClick: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview).ej2Instances;
-      let numberGroup = (<any>this.$refs.numberGroup).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+      let numberGroup = ((this as any).$refs.numberGroup).ej2Instances;
       let groupSettings: GroupSettingsModel[] = [];
       if (selectedGroups.length > 0) {
         groupSettings.push({
@@ -265,7 +267,7 @@ export default Vue.extend({
     pivotview: [GroupingBar],
     multiselect: [CheckBoxSelection]
   }
-});
+}
 </script>
 
 <style scoped>
@@ -285,5 +287,9 @@ export default Vue.extend({
 
 /deep/ .pivot-table-property-section .e-multiselect {
     padding: 0;
+}
+
+/deep/ .pivot-table-property-section .e-multi-select-wrapper .e-delim-values{
+    padding: 0 !important;
 }
 </style>

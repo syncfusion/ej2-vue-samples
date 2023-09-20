@@ -43,12 +43,13 @@
 import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  BulletChartPlugin,
+  BulletChartComponent,
+  BulletRangeCollectionDirective,
+  BulletRangeDirective,
   BulletTooltip,
   BulletChartLegend,
   IBulletLegendRenderEventArgs
 } from "@syncfusion/ej2-vue-charts";
-Vue.use(BulletChartPlugin);
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -57,12 +58,17 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
   .replace(/light/i, "Light")
   .replace(/contrast/i, "Contrast");
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-bulletchart': BulletChartComponent,
+    'e-bullet-range-collection': BulletRangeCollectionDirective,
+    'e-bullet-range': BulletRangeDirective
+  },
   data: function() {
     return {
       theme: theme,
       tooltip: {
-        enable: false
+        enable: true
       },
       width: Browser.isDevice ? "100%" : "70%",
       data: [{ value: 25, target: [20, 26, 28] }],
@@ -91,5 +97,5 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>

@@ -2,7 +2,7 @@
   <div class="schedule-vue-sample">
     <div class="col-md-12 control-section">
       <div class="content-wrapper">
-        <ejs-schedule id="Schedule" height="650px" :selectedDate="selectedDate" :allowInline="allowInline" :currentView="currentView" :eventSettings="eventSettings" :group="group">
+        <ejs-schedule id="Schedule" height="650px" :selectedDate="selectedDate" cssClass='inline-edit' :allowInline="allowInline" :workDays="workDays" :currentView="currentView" :eventSettings="eventSettings" :group="group">
           <e-views>
             <e-view option="TimelineWeek"></e-view>
             <e-view option="TimelineMonth"></e-view>
@@ -31,21 +31,33 @@
     </div>
   </div>
 </template>
-
+<style>
+  .inline-edit.e-schedule .e-timeline-view .e-resource-left-td,
+  .inline-edit.e-schedule .e-timeline-month-view .e-resource-left-td {
+    width: 150px;
+  }
+</style>
 <script>
-import Vue from "vue";
 import { extend } from "@syncfusion/ej2-base";
 import { resourceData, timelineResourceData } from "./datasource";
-import { SchedulePlugin, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-Vue.use(SchedulePlugin);
-export default Vue.extend({
+import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+
+export default {
+  components: {
+    'ejs-schedule': ScheduleComponent,
+    'e-view': ViewDirective,
+    'e-views': ViewsDirective,
+    'e-resource': ResourceDirective,
+    'e-resources': ResourcesDirective
+  },
   data: function() {
     return {
       eventSettings: {
         dataSource: extend([], resourceData.concat(timelineResourceData), null, true)
       },
       allowInline: true,
-      selectedDate: new Date(2018, 3, 4),
+      workDays: [0, 1, 2, 3, 4, 5],
+      selectedDate: new Date(2023, 0, 4),
       currentView: "TimelineWeek",
       allowMultiple: true,
       group: {
@@ -56,7 +68,7 @@ export default Vue.extend({
         { text: "Steven", id: 2, groupId: 1, color: "#7fa900" },
         { text: "Robert", id: 3, groupId: 2, color: "#ea7a57" },
         { text: "Smith", id: 4, groupId: 2, color: "#5978ee" },
-        { text: "Micheal", id: 5, groupId: 3, color: "#df5286" },
+        { text: "Michael", id: 5, groupId: 3, color: "#df5286" },
         { text: "Root", id: 6, groupId: 3, color: "#00bdae" }
       ]
     };
@@ -64,5 +76,5 @@ export default Vue.extend({
   provide: {
     schedule: [TimelineViews, TimelineMonth, Resize, DragAndDrop]
   }
-});
+}
 </script>

@@ -8,14 +8,16 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
-                    <td style="width: 60%">
-                        <div class="property-text">Label Intersect Action</div>
+                    <td>
+                        <div>Label Intersect Action</div>
                     </td>
-                    <td style="width: 40%;">
-                    <ejs-dropdownlist ref="labelMode" id='labels' style="width:100%;" :dataSource='labelsdata' index=0 :placeholder='labelsplaceholder' :width='labelswidth' :change='changeLabels'></ejs-dropdownlist>        
+                    <td>
+                    <div style="margin-left: 10px;">
+                    <ejs-dropdownlist ref="labelMode" id='labels' style="width:100%;" :dataSource='labelsdata' index=0 :placeholder='labelsplaceholder' :width='labelswidth' :change='changeLabels'></ejs-dropdownlist>   
+                    </div>      
                     </td>
                 </tr>
             </tbody>
@@ -41,40 +43,40 @@
 </div>
 </div>
 </template>
-// custom code start
-<style scoped>
-    .property-text {
-        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif" !important;
-        font-size: 13px !important;
-        font-weight: 400 !important;
-    }
-</style>
-// custom code end
+
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
+import { TreeMapComponent, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { Country_Population } from '../treemap/treemap-data/country-population';
-Vue.use(TreeMapPlugin);
-Vue.use(DropDownListPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent,
+    'ejs-dropdownlist': DropDownListComponent
+},
 data:function(){
 return{
         titleSettings: {
             text: 'Countries ordered based on Population - 2017',
-            textStyle: { size: '15px' }
+            textStyle: { size: '15px', fontFamily: 'Segoe UI' }
         },
         dataSource: Country_Population,
         tooltipSettings: {
             visible: true,
-            format: '${Country} : ${Population}'
+            format: '${Country} : ${Population}',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         legendSettings: {
             visible: true,
             mode: 'Interactive',
             width: '300px',
             height: '10',
-            position: 'Top'
+            position: 'Top',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         useGroupingSeparator: true,
         rangeColorValuePath: 'Population',
@@ -82,6 +84,9 @@ return{
         leafItemSettings: {
             showLabels: true,
             labelPath: 'Country',
+            labelStyle: {
+                fontFamily: 'Segoe UI'
+            },
             fill: 'red',
             colorMapping: [
                 {
@@ -94,7 +99,7 @@ return{
             ]
         },
         labelsplaceholder: 'Select Label Action',
-        labelswidth: 120,
+        labelswidth: '100%',
         labelsdata:['Trim','Hide','Wrap','WrapByWord']
 }
 },
@@ -106,7 +111,8 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
     /* custom code end */
     changeLabels:function(args){
@@ -114,5 +120,5 @@ methods:{
         this.$refs.treemap.ej2Instances.refresh();
     }
 }
-})
+}
 </script>

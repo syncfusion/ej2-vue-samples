@@ -1,7 +1,7 @@
 <template>
   <div >
       <div  class="col-lg-8 control-section" >
-     <ejs-tooltip ref="tooltip" :position="tipposition" content='Lets go green & Save Earth !!!' style="display:block;position:absolute;left:calc( 50% - 60px);top:45%;">
+     <ejs-tooltip ref="tooltip" :position="tipposition" content="Let's go green to save the planet!!" style="display:block;position:absolute;left:calc( 50% - 60px);top:45%;">
 
             <!-- Button element -->
             <ejs-button>Show Tooltip</ejs-button>
@@ -38,12 +38,12 @@
         </div>
             <div id="action-description">
              <p>This sample demonstrates the default functionalities of the Tooltip which will open
-    by Hover or Touch-hold action on button and displayed in 12 different positions.
+    by <b>hover</b> or <b>touch-hold</b> action on button and displayed in 12 different positions.
     </p>
             </div>
             <div id="description">
             <p>
-        This sample illustrates a tooltip, that gets opened on hovering the target labelled “Show Tooltip”. The tooltip can be shown
+        This sample illustrates a tooltip, that gets opened on hovering the target labelled <b>Show Tooltip</b>. The tooltip can be shown
         on 12 possible positions, by selecting the appropriate position values provided in the dropdown. The applicable tooltip
         positions are as follows:
     </p>
@@ -61,7 +61,7 @@
         <li><code>RightCenter</code></li>
         <li><code>RightBottom</code></li>
     </ul>
-    <p>In case, if the tooltip needs to be opened on mobile devices, tap hold on the target labelled “Show Tooltip” instead of hovering
+    <p>In case, if the tooltip needs to be opened on mobile devices, tap hold on the target labelled <b>Show Tooltip</b> instead of hovering
         and by default, it closes after 1.5 seconds on lift.</p>
     <p>More information on the Tooltip instantiation can be found in the
         <a href="https://ej2.syncfusion.com/vue/documentation/tooltip/getting-started/" target="_blank"> documentation section</a>.
@@ -72,12 +72,14 @@
    
 </template>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-Vue.use(ButtonPlugin);
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+   components: {
+    'ejs-button': ButtonComponent,
+    'ejs-tooltip': TooltipComponent
+   },
    data: function(){
         return {
             tipposition : "TopCenter"
@@ -88,5 +90,5 @@ export default Vue.extend({
            this.tipposition = args.srcElement.value;
        }
    }
-});
+}
 </script>

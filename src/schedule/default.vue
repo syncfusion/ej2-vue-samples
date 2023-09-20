@@ -9,12 +9,10 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Current Date</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div>
-                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'></ejs-datepicker>
+                                <ejs-datepicker id='datepicker' :value='selectedDate' :showClearButton='false' :change='onDateChange'
+                                placeholder="Current Date" floatLabelType="Always"></ejs-datepicker>
                             </div>
                         </td>
                     </tr>
@@ -97,7 +95,7 @@
                 The key Scheduler functionalities are maintained as individual feature-wise modules. Therefore to avail with a
                 particular feature, appropriate module needs to be injected using <code>Schedule.Inject()</code> method. For
                 example, to work with the day view on Scheduler – it is necessary to inject the Day module like 
-                <code>Schedule.Inject(Day)</code>.
+                <code>Schedule.Inject(Day)</code>.</p>
                 <p>
                     <strong> Note:</strong> In case, if the module of active view is not injected from the application end – then
                     the Scheduler is configured to display the first available option in the <code>views</code> property.
@@ -106,18 +104,20 @@
     </div>
 </template>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DatePickerPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-calendars';
-    Vue.use(SchedulePlugin);
-    Vue.use(DatePickerPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-datepicker': DatePickerComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10)
+                selectedDate: new Date(2021, 0, 10)
             }
         },
         provide: {
@@ -128,6 +128,6 @@
                 this.selectedDate = args.value;
             }
         }
-    });
+    }
 
 </script>

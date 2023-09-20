@@ -1,0 +1,119 @@
+{
+    "name": "Carousel",
+    "directory": "carousel",
+    "category": "Navigation",
+    "ftName": "carousel",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Carousel",
+            "description": "This example demonstrates the simple slide show of images using Syncfusion Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "items"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            }
+        },
+        {
+            "url": "datasource-binding",
+            "name": "Data Binding",
+            "category": "Carousel",
+            "description": "This example demonstrates how to bind data and customize them by using dataSource and templates to the Syncfusion Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "dataSource",
+                    "itemTemplate",
+                    "showArrows"
+                ]
+            }
+        },
+        {
+            "url": "templates",
+            "name": "Templates",
+            "category": "Carousel",
+            "description": "This example demonstrates the template options available in Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "arrowsTemplate",
+                    "indicatorsTemplate",
+                    "items",
+                    "showArrows",
+                    "animationEffect"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            }
+        },
+        {
+            "url": "partial-visible",
+            "name": "Partial Visible",
+            "category": "Carousel",
+            "description": "This example demonstrates the simple slide show of images using Syncfusion Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "items",
+                    "partialVisible"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            }
+        },
+        {
+            "url": "indicator-type",
+            "name": "Indicator Type",
+            "category": "Carousel",
+            "api": {
+                "Carousel": [
+                    "indicatorsType",
+                    "items"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            },
+            "description": "This example showcases the available indicator types and its functionalities in Syncfusion Vue Carousel component."
+        },
+        {
+            "url": "keyboard-navigation",
+            "name": "Keyboard Navigation",
+            "category": "Carousel",
+            "description": "This example explains the key combinations used to perform various actions in Syncfusion Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "autoPlay",
+                    "items",
+                    "showPlayButton"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            }
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Carousel",
+            "description": "This example showcase the available APIs and its functionalities in Syncfusion Vue Carousel component.",
+            "api": {
+                "Carousel": [
+                    "showIndicators",
+                    "interval",
+                    "items",
+                    "autoPlay",
+                    "showPlayButton",
+                    "showArrows",
+                    "infinite"
+                ],
+                "CarouselItem": [
+                    "template"
+                ]
+            }
+        }
+    ]
+}

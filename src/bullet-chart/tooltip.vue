@@ -17,6 +17,21 @@
         subtitle="US $ in Thousands"
         labelFormat="${value}K"
       >
+        <template v-slot:TooltipTemplate="{data}">
+          <div id="wrap">
+            <table style="width:100%; background-color: #ffffff; border-spacing: 0px; border-collapse:separate; border: 1px solid grey; border-radius:10px; padding-top: 5px; padding-bottom:5px">
+              <tr>
+                <td style="font-weight:bold; color:black; padding-left: 5px;padding-top: 2px;padding-bottom: 2px;">Sales</td>
+              </tr>
+              <tr>
+                <td style="padding-left: 5px; color:black; padding-right: 5px; padding-bottom: 2px;">Target : {{data.target}}K</td>
+              </tr>
+              <tr>
+                <td style="padding-left: 5px; color:black; padding-right: 5px">Current : {{data.value}}</td>
+              </tr>
+            </table>
+          </div>
+        </template>
         <e-bullet-range-collection>
           <e-bullet-range end="30" color="#599C20"></e-bullet-range>
           <e-bullet-range end="60" color="#EFC820"></e-bullet-range>
@@ -35,11 +50,8 @@
 </template>
 
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
-import { BulletChartPlugin, BulletTooltip } from "@syncfusion/ej2-vue-charts";
-import TooltipTemplate from "./tooltip-template.vue";
-Vue.use(BulletChartPlugin);
+import { BulletChartComponent, BulletRangeDirective, BulletRangeCollectionDirective, BulletTooltip } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -48,18 +60,20 @@ let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
   .replace(/light/i, "Light")
   .replace(/contrast/i, "Contrast");
 
-let tooltipTemp = function() {
-  return { template: TooltipTemplate };
-};
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-bulletchart': BulletChartComponent,
+    'e-bullet-range-collection': BulletRangeCollectionDirective,
+    'e-bullet-range': BulletRangeDirective
+  },
   data: function() {
     return {
       width: Browser.isDevice ? "100%" : "70%",
       theme: theme,
       tooltip: {
         enable: true,
-        template: tooltipTemp
+        template: "TooltipTemplate"
       },
       data: [{ value: 70, target: 50 }],
       animation: { enable: false },
@@ -72,5 +86,5 @@ export default Vue.extend({
     bulletChart: [BulletTooltip]
   },
   methods: {}
-});
+};
 </script>

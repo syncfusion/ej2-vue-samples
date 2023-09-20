@@ -1,0 +1,50 @@
+{
+    "name": "Rating",
+    "directory": "rating",
+    "category": "Inputs",
+    "ftName": "rating",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Rating",
+            "api": { "Rating": ["value", "allowReset", "enableSingleSelection", "readOnly", "disabled", "itemsCount"] },
+            "description": "This example demonstrates the default functionalities of the Syncfusion Vue Rating control."
+        },
+        {
+            "url": "precision",
+            "name": "Precision",
+            "category": "Rating",
+            "api": { "Rating": ["value", "precision"] },
+            "description": "This example demonstrates the functionalities of the precision(Full, Half and Exact) in Syncfusion Vue Rating control."
+        },
+        {
+            "url": "tooltip",
+            "name": "Tooltip",
+            "category": "Rating",
+            "api": { "Rating": ["value", "tooltipTemplate"] },
+            "description": "This example demonstrates the functionalities of tooltip and its template in Syncfusion Vue Rating control."
+        },
+        {
+            "url": "label",
+            "name": "Label",
+            "category": "Rating",
+            "api": { "Rating": ["value", "showLabel", "labelPosition", "labelTemplate"] },
+            "description": "This example demonstrates the functionalities of label positions and its template in Syncfusion Vue Rating control."
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "Rating",
+            "api": { "Rating": ["value", "emptyTemplate", "fullTemplate", "enableSingleSelection", "enableAnimation"] },
+            "description": "This example demonstrates the functionalities of different types of template in Syncfusion Vue Rating control."
+        },
+        {
+            "url": "keyboard-navigation",
+            "name": "Keyboard Navigations",
+            "category": "Rating",
+            "api": { "Rating": ["value", "allowReset"] },
+            "description": "This example demonstrates the keyboard navigations of Syncfusion Vue Rating control."
+        }
+    ]
+}

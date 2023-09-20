@@ -3,8 +3,15 @@
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition'>
+    <template v-slot:markerTemplate="{}">
+        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"/></div>
+    </template>
     <e-layers>
-        <e-layer :layerType='layerType' :animationDuration='animationDuration' :markerSettings='markerSettings'></e-layer>
+        <e-layer :layerType='layerType' :animationDuration='animationDuration'>
+            <e-markerSettings>
+                <e-markerSetting visible='true' :dataSource='markerDataSource' :tooltipSettings='markerTooltipSettings' :template="'markerTemplate'"></e-markerSetting>
+            </e-markerSettings>
+        </e-layer>
     </e-layers>
 </ejs-maps>
 </div>
@@ -63,17 +70,23 @@
         }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
-import Template from './osm-temp.vue';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'e-markerSettings': MarkersDirective,
+    'e-markerSetting': MarkerDirective
+},
 data:function(){
     return{
         titleSettings: {
             text: 'Headquarters of the United Nations',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         centerPosition: {
@@ -86,21 +99,18 @@ data:function(){
             enable: false
         },
         animationDuration: 0,
-        markerSettings: [
-                {
-                    visible: true,
-                    template: function () { return {template: Template}; },
-                    dataSource: [{
-                        name: 'Manhattan, New York, USA',
-                        latitude: 40.7488758,
-                        longitude: -73.9730091
-                    }],
-                    tooltipSettings: {
-                        visible: true,
-                        valuePath: 'name'
-                    }
-                }
-        ]
+        markerDataSource: [{
+            name: 'Manhattan, New York, USA',
+            latitude: 40.7488758,
+            longitude: -73.9730091
+        }],
+        markerTooltipSettings: {
+            visible: true,
+            valuePath: 'name',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
+        }
     }
 },
 provide: {
@@ -112,9 +122,10 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
 }
 /* custom code end */
-})
+}
 </script>

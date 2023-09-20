@@ -5,14 +5,14 @@
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-               <ejs-timepicker id="first_time" :placeholder="waterMark" v-model="date"></ejs-timepicker>
+               <ejs-timepicker id="first_time" :placeholder="waterMark" v-model:value="date"></ejs-timepicker>
             </div>
     </div>
 </div> 
 <div class="col-lg-6 ">
     <div id="wrapper">
         <div id="twoWayWrapper">
-               <ejs-timepicker id="second_time" :placeholder="waterMark" v-model="date"></ejs-timepicker>
+               <ejs-timepicker id="second_time" :placeholder="waterMark" v-model:value="date"></ejs-timepicker>
             </div>
     </div>
 </div>
@@ -33,18 +33,19 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { TimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-Vue.use(TimePickerPlugin);
+import { TimePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMark: "Select a time",
       date: null
     };
-  }
-});
+  },
+  components: { 
+    'ejs-timepicker': TimePickerComponent,
+  },
+};
 </script>
 
 <style scoped>

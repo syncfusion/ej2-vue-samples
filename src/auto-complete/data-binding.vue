@@ -76,22 +76,22 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { AutoCompleteComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
-import * as data from './dataSource.json';
-
-Vue.use(AutoCompletePlugin);
-Vue.use(CheckBoxPlugin);
+import data from './dataSource.json';
 
 var remoteData = new DataManager({
-    url: 'https://ej2services.syncfusion.com/production/web-services/api/Employees',
+    url: 'https://services.syncfusion.com/vue/production/api/Employees',
     adaptor: new WebApiAdaptor,
     crossDomain: true
 });
 
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-autocomplete': AutoCompleteComponent,
+        'ejs-checkbox': CheckBoxComponent
+    },
     data: function() {
         return {
             localFields: { value: 'Name' },
@@ -112,5 +112,5 @@ export default Vue.extend ({
             this.autofill = checkboxObj.checked;
         }
     }
-});
+}
 </script>

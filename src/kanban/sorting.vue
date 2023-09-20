@@ -19,7 +19,7 @@
                 <div>Sort By</div>
             </td>
             <td>
-                <ejs-dropdownlist ref='sortBy' id='sortBy' :dataSource='sortByData' :fields='field' :change='changeSortBy' index=0></ejs-dropdownlist>
+                <ejs-dropdownlist ref='sortBy' id='sortBy' :dataSource='sortByData' :fields='field' :change='changeSortBy' index=1></ejs-dropdownlist>
             </td>
         </tr>
         <tr>
@@ -35,15 +35,15 @@
                 <div>Direction</div>
             </td>
             <td>
-                <ejs-dropdownlist ref='direction' id='direction' :dataSource='directionData' index=0></ejs-dropdownlist>
+                <ejs-dropdownlist ref='direction' id='direction' :dataSource='directionData' :change='changeSortBy' index=0></ejs-dropdownlist>
             </td>
         </tr>
         <tr>
             <td class="e-constraint-label" style="padding: 10px">
-                <ejs-button id='sort' class="e-btn" v-on:click.native="sortClick">Sort</ejs-button>
+                <ejs-button id='sort' class="e-btn" v-on:click="sortClick">Sort</ejs-button>
             </td>
             <td style="padding: 10px">
-                <ejs-button id='clear' class="e-btn" v-on:click.native="clearClick">Clear</ejs-button>
+                <ejs-button id='clear' class="e-btn" v-on:click="clearClick">Clear</ejs-button>
             </td>
           </tr>
     </table>
@@ -96,19 +96,22 @@
     }
 </style>
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import { extend } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { kanbanData } from "./datasource";
 import sortingCardTemplate from "./sorting-card-template.vue";
 
-Vue.use(KanbanPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       kanbanData: extend([], kanbanData, null, true),
@@ -116,7 +119,7 @@ export default Vue.extend({
         headerField: "Id",
         contentField: "Summary",
         template: function() {
-          return { template: sortingCardTemplate };
+          return { template: createApp({}).component('sortCardTemplate', sortingCardTemplate) };
         }
       },
       sortByData: [
@@ -145,21 +148,31 @@ export default Vue.extend({
         this.setFieldValue(data);
       }
       if (args.value === 'Custom') {
-        this.fieldObj.setProperties({ dataSource: ['Priority', 'RankId', 'Summary'] });
+        this.fieldObj.dataSource = ['Priority', 'RankId', 'Summary'];
         this.fieldObj.value = 'Priority';
-        this.fieldObj.setProperties({ enabled: true });
+        this.fieldObj.enabled = true;
       }
+	if (args.value === 'Ascending') {
+		var data = this.sortByObj.value === 'Index' ? 'RankId' : 'None';
+		this.setFieldValue(data);
+		this.directionObj.value = 'Ascending';
+	}
+	if (args.value === 'Descending') {
+		var data = this.sortByObj.value === 'Index' ? 'RankId' : 'None';
+		this.setFieldValue(data);
+		this.directionObj.value = 'Descending';
+	}
     },
     setFieldValue: function (data) {
-        this.fieldObj.setProperties({ dataSource: [data] });
+        this.fieldObj.dataSource = [data];
         this.fieldObj.value = data;
-        this.fieldObj.setProperties({ enabled: false });
+        this.fieldObj.enabled = false;
     },
     sortClick: function () {
         this.setKanbanProperties();
     },
     clearClick: function () {
-        this.sortObj.value = 'DataSourceOrder';
+        this.sortObj.value = 'Index';
         this.directionObj.value = 'Ascending';
         this.setFieldValue('None');
         this.setKanbanProperties();
@@ -170,5 +183,5 @@ export default Vue.extend({
         this.kanbanObj.sortSettings.direction = this.directionObj.value;
     }
   }
-});
+};
 </script>

@@ -127,19 +127,16 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { ChartPlugin,LineSeries,AreaSeries, Category, ChartAnnotation, Legend, Tooltip, DataLabel, RangeAreaSeries,DateTime,ColumnSeries   } from '@syncfusion/ej2-vue-charts';
-import { DateRangePickerPlugin,RangeEventArgs } from "@syncfusion/ej2-vue-calendars"; 
+import { createApp } from "vue";
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective,LineSeries,AreaSeries, Category, ChartAnnotation, Legend, Tooltip, DataLabel, RangeAreaSeries,DateTime,ColumnSeries   } from '@syncfusion/ej2-vue-charts';
+import { DateRangePickerComponent,RangeEventArgs } from "@syncfusion/ej2-vue-calendars"; 
 import { Query, DataManager, Predicate } from '@syncfusion/ej2-data';
 import { isNullOrUndefined as isNOU } from '@syncfusion/ej2-base';
 import { extend } from '@syncfusion/ej2-base';
-import {AccumulationChartPlugin,AccumulationLegend,PieSeries,AccumulationDataLabel,AccumulationTooltip,AccumulationSelection,Selection} from "@syncfusion/ej2-vue-charts";
+import {AccumulationChartComponent, AccumulationSeriesDirective, AccumulationSeriesCollectionDirective,AccumulationLegend,PieSeries,AccumulationDataLabel,AccumulationTooltip,AccumulationSelection,Selection} from "@syncfusion/ej2-vue-charts";
 import { startDate1,endDate1,expenseData, MyWindow } from "./diagram-data";
-import { GridPlugin, Toolbar, Page,Aggregate, Sort,ColumnMenu,DetailRow,RowDD, Group} from "@syncfusion/ej2-vue-grids";
-Vue.use(DateRangePickerPlugin);
-Vue.use(ChartPlugin);
-Vue.use(AccumulationChartPlugin);
-Vue.use(GridPlugin);
+import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Page,Aggregate, Sort,ColumnMenu,DetailRow,RowDD, Group} from "@syncfusion/ej2-vue-grids";
+
 var linechartinstance;
 var columnchartinstance;
 var piechartinstance;
@@ -365,6 +362,18 @@ function getFontSize(width){
 }
 
 export default {
+  components: {
+    'ejs-daterangepicker': DateRangePickerComponent,
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective,
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective,
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+  },
   data() {
     return {
       startVal: startDate1,
@@ -446,7 +455,7 @@ accanimation: { enable: false },
   },
   pieRenderingData:pieRenderingData,
   rowTemplates: function () {
-        return { template : Vue.component('rowTemplate',{
+        return { template : createApp({}).component('rowTemplate',{
         template: `
         <tr style="height: 30px;">
         <td>
@@ -506,7 +515,7 @@ gridloaded:created()
       grid: [Toolbar, Page, Aggregate, Sort, ColumnMenu , DetailRow, RowDD, Group]
   },
   mounted: function(args) {
-    
+    created();
   }
 
 };

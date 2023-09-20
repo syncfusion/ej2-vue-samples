@@ -1,13 +1,13 @@
 <template>
-<div class="control-section"style="padding-top: 10px;">
+<div class="control-section" style="padding-top: 10px;">
    <div>
     <ejs-toolbar id="toolbar_default" :clicked='onItemClick'>
     <e-items>
     <e-item  type= "Input"
         text= "Export" :template='template' ></e-item>
           <e-item type= "Button"
-        text= "Print" ></e-item>
-    <e-item type= "Input" ref="checkboxObject" id="checkbox"
+        text= "Print" prefixIcon='e-print e-icons' ></e-item>
+    <e-item type= "Input" ref="checkboxObj" id="checkbox"
        :template='checkBoxTemplate'></e-item>
     </e-items>
     </ejs-toolbar>
@@ -83,12 +83,12 @@
 </style>
 
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import {
   PrintAndExport,
   IExportOptions,
   BasicShapeModel,
-  DiagramPlugin,
+  DiagramComponent,
   Diagram,
   NodeModel,
   ConnectorModel,
@@ -97,27 +97,24 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   CheckBox,
-  ButtonPlugin,
-  CheckBoxPlugin
+  ButtonComponent,
+  CheckBoxComponent
 } from "@syncfusion/ej2-vue-buttons";
 import {
   DropDownButton,
   ItemModel,
-  DropDownButtonPlugin
+  DropDownButtonComponent
 } from "@syncfusion/ej2-vue-splitbuttons";
 import { PageSettings } from "@syncfusion/ej2-diagrams/src/diagram/diagram/page-settings";
-Vue.use(DropDownButtonPlugin);
-Vue.use(CheckBoxPlugin);
+
 import {
   Toolbar,
-  ToolbarPlugin,
+  ToolbarComponent,
+  ItemsDirective,
+  ItemDirective,
   ClickEventArgs,
   MenuEventArgs
 } from "@syncfusion/ej2-vue-navigations";
-
-Vue.use(DiagramPlugin);
-Vue.use(ToolbarPlugin);
-Vue.use(ButtonPlugin);
 
 let diagramInstance;
 let exportOptions = {};
@@ -321,7 +318,16 @@ let connectors = [
   }
 ];
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-items': ItemsDirective,
+    'e-item': ItemDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownbutton': DropDownButton,
+    'ejs-checkbox': CheckBoxComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -331,9 +337,12 @@ export default Vue.extend({
       snapSettings: { constraints: SnapConstraints.None },
       template: function() {
         return {
-          template: Vue.component("DropDownButton", {
+          template: createApp({}).component("DropDownButton", {
             template:
-              '<ejs-dropdownbutton :items=items iconCss= "e-ddb-icons  e-export" content= "Export"  :select= onselect></ejs-dropdownbutton>',
+              '<ejs-dropdownbutton :items=items iconCss="e-export e-icons" content= "Export"  :select= onselect></ejs-dropdownbutton>',
+            components: {
+              'ejs-dropdownbutton': DropDownButtonComponent
+            },
             data() {
               return {
                 items: [
@@ -342,9 +351,6 @@ export default Vue.extend({
                   },
                   {
                     text: "PNG"
-                  },
-                  {
-                    text: "BMP"
                   },
                   {
                     text: "SVG"
@@ -360,9 +366,6 @@ export default Vue.extend({
                         exportOptions.format = args.item.text;
                         break;
                       case "PNG":
-                        exportOptions.format = args.item.text;
-                        break;
-                      case "BMP":
                         exportOptions.format = args.item.text;
                         break;
                       case "SVG":
@@ -385,9 +388,21 @@ export default Vue.extend({
       },
       checkBoxTemplate: function() {
         return {
-          template: Vue.component("CheckBox", {
+          template: createApp({}).component("CheckBox", {
             template:
-              '<ejs-checkbox ref="checkBoxObj" id="checkbox" checked=false label="Multiple Page"></ejs-checkbox>'
+              '<ejs-checkbox ref="checkBoxObj" id="checkbox" checked=false label="Multiple Page"></ejs-checkbox>',
+            components: {
+              'ejs-checkbox': CheckBoxComponent
+            },
+            data() {
+              return {
+                data: {}
+              }
+            },
+            mounted () {
+              let checkbox = document.getElementById("checkbox");
+              checkBoxObj = checkbox.ej2_instances[0];
+            }
           })
         };
       }
@@ -420,8 +435,6 @@ export default Vue.extend({
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();
-    let checkbox = document.getElementById("checkbox");
-    checkBoxObj = checkbox.ej2_instances[0];
   }
-});
+};
 </script>

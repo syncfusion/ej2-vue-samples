@@ -78,29 +78,25 @@
         padding-bottom: 10px;
     }
     .highcontrast textarea#ruleContent {
-	  background-color: #000;
+        background-color: #000;
 	}
 </style>
 
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { QueryBuilderPlugin } from "@syncfusion/ej2-vue-querybuilder";
-import { RadioButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { QueryBuilderComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-querybuilder";
+import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import * as dataSource from './data-source.json';
 import * as ruleData from './template-data.json';
 import { DropDownList, MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dropdowns';
-import { Slider, TextBox } from '@syncfusion/ej2-inputs';
+import { Slider } from '@syncfusion/ej2-inputs';
 import { CheckBox } from '@syncfusion/ej2-buttons';
 import { createElement, getComponent, isNullOrUndefined } from "@syncfusion/ej2-base";
 
 MultiSelect.Inject(CheckBoxSelection);
-let inOperators = ['in', 'notin'];
-Vue.use(QueryBuilderPlugin);
-Vue.use(RadioButtonPlugin);
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       dataSource: dataSource.expenseData,
@@ -168,7 +164,9 @@ export default Vue.extend({
                             // Initialize tooltip with placement and showOn
                             tooltip: { isVisible: true, placement: 'Before', showOn: 'Hover' },
                             change: (e) => {
-                                this.$refs.querybuilder.ej2Instances.notifyChange(e.value, args.elements);
+                                if (e.isInteracted) {
+                                    this.$refs.querybuilder.ej2Instances.notifyChange(e.value, args.elements);
+                                }
                             }
                         },
                         '#' + args.elements.id);
@@ -176,6 +174,12 @@ export default Vue.extend({
             },
       importRules: ruleData.importRules
     };
+  },
+  components: { 
+      'ejs-querybuilder': QueryBuilderComponent,
+      'ejs-radiobutton': RadioButtonComponent,
+      'e-columns': ColumnsDirective,
+      'e-column': ColumnDirective,
   },
   methods: {
         updateRule: function(args) {
@@ -209,5 +213,5 @@ export default Vue.extend({
         document.getElementById('right-pane').addEventListener('scroll', this.onScroll.bind(this));
     }
   }
-});
+};
 </script>

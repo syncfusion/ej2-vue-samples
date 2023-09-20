@@ -96,15 +96,16 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { ChipListPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from "./data.json";
-Vue.use(ChipListPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
+import { ChipListComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from "./data.json";
 
-export default Vue.extend({
+export default {
+  components: { 
+    'ejs-chiplist': ChipListComponent, 
+    'ejs-dropdownlist': DropDownListComponent, 
+    'ejs-checkbox': CheckBoxComponent 
+    },
   data: function() {
     return {
       ddlData: data.ddlData,
@@ -116,35 +117,35 @@ export default Vue.extend({
   methods: {
     // checkbox change handler for chip leading icon
     iconHandler: function(e) {
-      this.$refs.chip.leadingIconCss = e.checked ? "janet" : "";
+      this.$refs.chip.ej2Instances.leadingIconCss = e.checked ? "janet" : "";
     },
     // drop-down list change handler for chip color
     colorChange: function(e) {
-      this.$refs.chip.cssClass = `e-${e.value.toLowerCase()} ${this.outlineCss.trim()}`;
+      this.$refs.chip.ej2Instances.cssClass = `e-${e.value.toLowerCase()} ${this.outlineCss.trim()}`;
       this.colorCss = `e-${e.value.toLowerCase()}`;
     },
     // checkbox change handler for chip outline
     variantHandler: function(e) {
       this.outlineCss = e.checked ? "e-outline" : "";
-      this.$refs.chip.cssClass = `${this.colorCss} ${this.outlineCss}`;
+      this.$refs.chip.ej2Instances.cssClass = `${this.colorCss} ${this.outlineCss}`;
     },
     // drop-down list change handler for chip avatar
     avatarHandler: function(e) {
-      this.$refs.chip.avatarIconCss =
+      this.$refs.chip.ej2Instances.avatarIconCss =
         e.value.toLowerCase() === "icon"
           ? "e-icon"
           : e.value.toLowerCase() === "image"
             ? "janet"
             : "";
-      this.$refs.chip.avatarText =
+      this.$refs.chip.ej2Instances.avatarText =
         e.value.toLowerCase() === "letter" ? "JL" : "";
     },
     // checkbox change handler for chip trailing icon
     deleteIconHandler: function(e) {
-      this.$refs.chip.trailingIconCss = e.checked ? "e-dlt-btn" : "";
+      this.$refs.chip.ej2Instances.trailingIconCss = e.checked ? "e-dlt-btn" : "";
     }
   }
-});
+}
 </script>
 
 <style>

@@ -54,7 +54,7 @@
 </template>
 <style scoped>
     .e-btn-hide {
-	    display: none;
+    display: none;
 	}
   .form-title {
         width: 100%;
@@ -64,6 +64,7 @@
         font-weight: 500;
         color: rgba(0, 0, 0, 0.70);
     }
+
 
     .e-error,
     .e-float-text {
@@ -82,6 +83,34 @@
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);
         border-radius: 5px;
         background: #f9f9f9;
+    }
+
+    .material-dark #formId,
+    .material3-dark #formId,
+    .bootstrap5-dark #formId {
+        background: #212529;
+    }
+
+    .bootstrap-dark #formId {
+        background: #1a1a1a;
+    }
+    .fabric-dark #formId {
+        background: #201f1f;
+    }
+    .tailwind-dark #formId {
+        background: #1f2937;
+    }
+    .fluent-dark #formId {
+        background: #111111;
+    }
+    .material-dark .form-title,
+    .material3-dark .form-title,
+    .bootstrap-dark .form-title,
+    .fabric-dark .form-title,
+    .tailwind-dark .form-title,
+    .bootstrap5-dark .form-title,
+    .fluent-dark .form-title {
+        color: rgb(249 249 249);
     }
 
     .highcontrast form,
@@ -108,11 +137,13 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { FormValidator  } from '@syncfusion/ej2-vue-inputs';
-import { DatePickerPlugin } from '@syncfusion/ej2-vue-calendars';
-Vue.use(DatePickerPlugin);
-export default Vue.extend({
+import { FormValidator } from '@syncfusion/ej2-vue-inputs';
+import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+
+export default {
+    components: {
+      'ejs-datepicker': DatePickerComponent
+    },
     data () {
       return {
         formObj: null,
@@ -152,5 +183,5 @@ export default Vue.extend({
             }
         }
     }
-});
+}
 </script>

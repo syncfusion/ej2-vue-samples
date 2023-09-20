@@ -26,16 +26,19 @@
     <p>Virtualization support is used to render large number tasks in Gantt with effective performance. In this mode all the tasks are
         fetched from data source initially, then some of the records are rendered in DOM which are compact to the current viewport area.
         While scrolling tasks are updated in DOM as per current viewport position. This mode can be enabled by setting
-        <code>enableVirtualization</code> property as true. </p>   
+        <code>enableVirtualization</code> property as true. </p>
+    <p>By default during Virtual scroll Shimmer effect is enabled you can disable this by changing <code>enableVirtualMaskRow</code> to false</p>
 </div>
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, VirtualScroll } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, VirtualScroll } from "@syncfusion/ej2-vue-gantt";
 import { virtualData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: virtualData,
@@ -67,5 +70,5 @@ export default Vue.extend({
   provide: {
       gantt: [ Selection, VirtualScroll]
   }
-});
+}
 </script>

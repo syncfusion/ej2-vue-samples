@@ -59,6 +59,19 @@
     .bootstrap4 .combobox-icons-css .e-list-icon {
         color: #495057;
     }
+    .material-dark .combobox-icons-css .e-list-icon,
+    .material3-dark .combobox-icons-css .e-list-icon,
+    .bootstrap5-dark .combobox-icons-css .e-list-icon,
+    .tailwind-dark .combobox-icons-css .e-list-icon,
+    .fluent-dark .combobox-icons-css .e-list-icon {
+        color: #fff;
+    }
+    .bootstrap-dark .combobox-icons-css .e-list-icon {
+        color: #f0f0f0;
+    }
+    .fabric-dark .combobox-icons-css .e-list-icon {
+        color: #dadada;
+    }
     .combobox-icons-css .twitter:before {
         content: "\a701";
     }
@@ -100,13 +113,13 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(ComboBoxPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent
+    },
     data: function() {
         return {
             groupFields: { groupBy: 'Category', text: 'Vegetable', value: 'Id' },
@@ -118,5 +131,5 @@ export default Vue.extend ({
             socialMediaData: data['socialMedia']
         };
     }
-});
+}
 </script>

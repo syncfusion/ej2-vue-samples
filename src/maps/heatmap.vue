@@ -28,17 +28,22 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+  },
   data:function(){
       return{
         useGroupingSeparator: true,
         titleSettings: {
             text: "State wise India's population - 2011",
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         legendSettings: {
@@ -48,7 +53,10 @@ export default Vue.extend({
             height: '10',
             width: '350',
             labelDisplayMode: 'Trim',
-            alignment: 'Center'
+            alignment: 'Center',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
         zoomSettings: {
             enable: false
@@ -60,7 +68,10 @@ export default Vue.extend({
         tooltipSettings: {
                     visible: true,
                     valuePath: 'population',
-                    format: 'State: ${Name} <br> Population: ${population}'
+                    format: 'State: ${Name} <br> Population: ${population}',
+                    textStyle: {
+                        fontFamily: 'Segoe UI'
+                    }
         },
         shapeSettings: {
                     border: {
@@ -99,9 +110,10 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }  
 }
 /* custom code end */
-})
+}
 </script>

@@ -1,12 +1,55 @@
 <template>
-  <div class="e-tab-section">
+  <div class="orientation-tab-section">
     <div class="col-lg-8 control-section">
         <div class="e-sample-resize-container">
-        <ejs-tab ref="tabObj" id="tab_orientation" :showCloseButton=true heightAdjustMode='Auto'>
+        <ejs-tab ref="tabObj" id="tab_orientation" height='320px' :showCloseButton=true heightAdjustMode='Auto'>
             <e-tabitems>
-                <e-tabitem :header='headerText0' :content='RomeTemplate'></e-tabitem>
-                <e-tabitem :header='headerText1' :content='ParisTemplate'></e-tabitem>
-                <e-tabitem :header='headerText2' :content='LondonTemplate'></e-tabitem>
+                <e-tabitem :header='headerText0' :content="'RomeTemplate'"></e-tabitem>
+                <template v-slot:RomeTemplate>
+                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
+                        <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" alt="Anne Dodsworth" /></div>
+                        <div class="left info"><div class="empname">Anne Dodsworth</div> 
+                        <div class="role">Product Manager</div></div></div><div class="template-container"><div class="left">
+                            <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div>
+                            <div class="left info">
+                                <div class="empname">Laura Callahan</div> <div class="role">Team Lead</div></div></div>
+                                <div class="template-container"><div class="left">
+                                    <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div>
+                                    <div class="left info"><div class="empname">Andrew Fuller</div> <div class="role">Developer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <e-tabitem :header='headerText1' :content="'ParisTemplate'"></e-tabitem>
+                <template v-slot:ParisTemplate>
+                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
+                        <div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" alt="Robert King" /></div>
+                            <div class="left info"><div class="empname">Robert King</div> 
+                            <div class="role">Team Lead</div></div></div><div class="template-container"><div class="left">
+                                <img class="empImg" src="src/tab/Employees/5.png" alt="Michael Suyama" /></div>
+                                <div class="left info"><div class="empname">Michael Suyama</div> <div class="role">Developer</div></div></div>
+                                    <div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div>
+                                    <div class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <e-tabitem :header='headerText2' :content="'LondonTemplate'"></e-tabitem>
+                <template v-slot:LondonTemplate>
+                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div>
+                    <div id="rome"><div id="ripple" class="template-container"><div class="left">
+                        <img class="empImg" src="src/tab/Employees/7.png" alt="Janet Leverling" /></div>
+                    <div class="left info"><div class="empname">Janet Leverling</div> 
+                    <div class="role"> CEO</div></div></div><div class="template-container"><div class="left">
+                        <img class="empImg" src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div>
+                    <div class="left info"><div class="empname">Steven Buchanan</div> <div class="role">HR</div></div></div>
+                    <div class="template-container"><div class="left">
+                        <img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div>
+                    <div class="left info"><div class="empname">Nancy Davolio</div> 
+                    <div class="role">Product Manager</div></div></div></div></div>
+                </template>
             </e-tabitems>
         </ejs-tab>
         </div>
@@ -30,15 +73,15 @@
     <div class="col-lg-4 property-section">
                 <table id="property" title="Properties">
                     <tr>
-                        <td style="width:50%">Header Placement:</td>
-                        <td style="width:50%">
+                        <td style="width:50%; padding-bottom: 10px;">Header Placement:</td>
+                        <td style="width:50%; padding-bottom: 10px;">
                               <ejs-dropdownlist ref="dropObj1" id='header-place' width='90%' :dataSource='dataPlace' :change='placeChange' :value='placeValue' :fields='placeFields'>
                             </ejs-dropdownlist>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:50%">Header Styles:</td>
-                        <td style="width:50%">
+                        <td style="width:50%; padding-bottom: 10px;">Header Styles:</td>
+                        <td style="width:50%; padding-bottom: 10px;">
                             <ejs-dropdownlist ref="dropObj2" id='header-styles' width='90%' :dataSource='dataStyles' :change='styleChange' :value='styleValue' :fields='styleFields'>
                             </ejs-dropdownlist>
                         </td>
@@ -48,7 +91,7 @@
 </div>
 </template>
 <style>
-#tab_orientation .e-tab .e-content .e-item {
+#tab_orientation .e-content .e-item {
     font-size: 12px;
     padding: 10px;
     text-align: justify;
@@ -58,35 +101,28 @@
         display: inherit;
     }
 
-/* custom code start */
-    @media screen and (min-width: 768px) {
-        .e-sample-resize-container {
-            width: 75%;
-            margin: 0 auto;
-        }
-    }
-/* custom code end */
 
-    @media screen and (max-width: 481px) {
-        .control-section.e-tab-section,
-        .container-fluid,
-        .e-tab-section .content-wrapper,
-        .sb-sample-content-area .e-active {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
 
-.e-bigger .e-tab .e-list-item {
-    border-bottom: 1px solid gainsboro;
-}
-.template-container {
+#tab_orientation .e-content .e-item .template-container {
     height: 63px;
     padding: 7px 16px 0 16px;
     border-bottom: 1px solid gainsboro;
 }
-.template-container:hover {
+#tab_orientation .e-content .e-item .template-container:hover {
     background: #eee;
+}
+.highcontrast #tab_orientation .e-content .e-item .template-container:hover
+{
+    background: #685708;
+}
+.bootstrap-dark #tab_orientation .e-content .e-item .template-container:hover,
+.bootstrap5-dark #tab_orientation .e-content .e-item .template-container:hover,
+.tailwind-dark #tab_orientation .e-content .e-item .template-container:hover,
+.fabric-dark #tab_orientation .e-content .e-item .template-container:hover,
+.material-dark #tab_orientation .e-content .e-item .template-container:hover,
+.fluent-dark #tab_orientation .e-content .e-item .template-container:hover
+{
+    background: #343a40;
 }
 .left {
     display: inline-block;
@@ -96,19 +132,22 @@
     height: 48px;
     width: 48px;
 }
-.name, .role {
+.empname, .role {
     font-size: 15px;
     line-height: normal;
 }
-.name {
+.empname {
     font-weight: 500;
+    padding: 0px !important;
+    bottom: 0px !important;
+    margin: 0px !important;
 }
 .role {
     color: grey;
     font-weight: 100;
 }
 .info {
-    padding: 7px 0 0 15px;
+    padding: 7px 15px 0 15px;
 }
 .content-title {
     height: 50px;
@@ -121,40 +160,24 @@
     font-size: 18px;
     font-weight: 600;
 }
-#property td {
-    padding-bottom: 10px;
-}
 .property-panel-content {
     padding: 10px;
 }
 @media only screen and (min-width: 1824px) {
-    .e-tab-section .e-sample-resize-container {
+    .orientation-tab-section .e-sample-resize-container {
         width: 60%;
     }
 
-    .e-bigger .e-tab-section .e-sample-resize-container {
+    .e-bigger .orientation-tab-section .e-sample-resize-container {
         width: 70%;
     }
 }
-.e-tab .e-tab-header .e-close-icon:before{
-    content: '\e7fc';
-    position: relative;
-}
-.bootstrap4 .e-tab .e-tab-header .e-close-icon:before{
-    content: '\e745';
-    position: relative;
-}
-#tab_orientation .e-listview:not(.e-list-template) .e-list-item {
-    height: 63px;
-}
+
     @media screen and (max-width: 376px) {
-        #tab_orientation .e-listview:not(.e-list-template) .e-list-item {
-            padding: 0;
-        }
-        .e-tab-section {
+        .orientation-tab-section {
             padding: 0 5px;
         }
-        .e-tab .e-content.sb-sample-content-area .e-item.e-active {
+        #tab_orientation .e-content.sb-sample-content-area .e-item.e-active {
             padding-left: 0;
             padding-right: 0;
         }
@@ -170,61 +193,16 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TabComponent, TabItemsDirective, TabItemDirective } from "@syncfusion/ej2-vue-navigations";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
-Vue.use(TabPlugin);
-
-var Template1 = Vue.component("demo", {
-  template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" ' +
-        'alt="Anne Dodsworth" /></div><div class="left info"><div class="name">Anne Dodsworth</div> <div class="role">' +
-        'Product Manager</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div><div class="left info"><div class="name">' +
-        'Laura Callahan</div> <div class="role">Team Lead</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div><div ' +
-        'class="left info"><div class="name">Andrew Fuller</div> <div class="role">Developer</div></div></div></div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var Template2 = Vue.component("demo", {
-   template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" ' +
-        'alt="Robert King" /></div><div class="left info"><div class="name">Robert King</div> <div class="role">' +
-        'Team Lead</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/5.png" alt="Michael Suyama" /></div><div class="left info"><div class="name">' +
-        'Michael Suyama</div> <div class="role">Developer</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div><div ' +
-        'class="left info"><div class="name">Margaret Peacock</div> <div class="role">Developer</div></div></div></div></div>',
-
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var Template3 = Vue.component("demo", {
-  template: '<div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">' +
-        '<div id="ripple" class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/7.png" ' +
-        'alt="Janet Leverling" /></div><div class="left info"><div class="name">Janet Leverling</div> <div class="role">' +
-        'CEO</div></div></div><div class="template-container"><div class="left"><img class="empImg" ' +
-        'src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div><div class="left info"><div class="name">' +
-        'Steven Buchanan</div> <div class="role">HR</div></div></div><div class="template-container"><div ' +
-        'class="left"><img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div><div ' +
-        'class="left info"><div class="name">Nancy Davolio</div> <div class="role">Product Manager</div></div></div></div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-tab': TabComponent,
+        'e-tabitems': TabItemsDirective,
+        'e-tabitem': TabItemDirective,
+        'ejs-dropdownlist': DropDownListComponent,
+    },
      data: function(){
         return {
             headerText0: { text: 'Rome' },
@@ -236,22 +214,7 @@ export default Vue.extend({
             styleFields: { text: 'class', value: 'id' },
             placeValue: 'top',
             placeFields: { text: 'position', value: 'id' },
-            RomeTemplate: function () {
-             return {
-            template : Template1
-             }
-             },
-            ParisTemplate: function () {
-             return {
-            template : Template2
-             }
-             },
-            LondonTemplate: function () {
-             return {
-            template : Template3
-             }
-             }
-    }
+        }
    },
      methods: {
        placeChange: function(args) {
@@ -272,7 +235,8 @@ export default Vue.extend({
                 this.tabObj.element.classList.add('e-background');
                 this.tabObj.element.classList.add('e-accent');
             }
+            this.tabObj.refreshActiveBorder();
        }
     }
-});
+};
 </script>

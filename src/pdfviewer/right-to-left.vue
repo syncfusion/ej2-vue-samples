@@ -1,7 +1,24 @@
 ﻿<template>
     <div>
         <div class="control-section">
-            <ejs-pdfviewer id="pdfviewer" :serviceUrl="serviceUrl" :documentPath="documentPath":enableRtl ="true" locale='ar-AE' ></ejs-pdfviewer>
+            <div class="flex-container">
+                <label class="switchLabel" for="checked">Standalone PDF Viewer</label>
+                    <div class="e-message render-mode-info">
+                        <span class="e-msg-icon render-mode-info-icon" title="Turn OFF to render the PDF Viewer as server-backed"></span>
+                    </div>
+                    <div>
+                        <ejs-switch cssClass="buttonSwitch" id="checked" :change="change" :checked="true"></ejs-switch>
+                    </div>
+            </div>
+
+            <ejs-pdfviewer 
+                id="pdfviewer" 
+                ref="pdfviewer" 
+                :documentPath="documentPath" 
+                :enableRtl="true" 
+                locale='ar-AE' 
+                :annotationSettings="annotationSettings">
+            </ejs-pdfviewer>
         </div>
 
        <div id="action-description">
@@ -24,29 +41,81 @@
         </div>
     </div>
 </template>
+
 <style scoped>
+
 	#pdfviewer {
 		height: 640px;
 	}
+
+    .flex-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .render-mode-info {
+        background: none;
+        border: none;
+        padding-left: 0px;
+    }
+
+    .render-mode-info .render-mode-info-icon {
+        height: 16px;
+        width: 16px;
+    }
+
+    .switchLabel {
+        font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;        
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.24px;
+        text-align: right;
+        font-size: 14px;
+    }
+
+    .render-mode-info .render-mode-info-icon::before {
+        line-height: 0.5rem;
+    }
+
+    .buttonSwitch {
+        Width: 40px;
+        Height: 24px;
+    }
+
 </style>
 <script>
-import Vue from "vue";
-import { PdfViewerPlugin, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields } from "@syncfusion/ej2-vue-pdfviewer";
+import { PdfViewerComponent, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner } from "@syncfusion/ej2-vue-pdfviewer";
 import { L10n, setCulture  } from '@syncfusion/ej2-base';
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(PdfViewerPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-pdfviewer': PdfViewerComponent,
+        'ejs-switch': SwitchComponent 
+    },
     data: function() {
         return {
-			serviceUrl:"https://ej2services.syncfusion.com/production/web-services/api/pdfviewer",
-			documentPath:"RTLText.pdf"			
+			documentPath:'https://cdn.syncfusion.com/content/pdf/rtl-text.pdf',
+            annotationSettings: {author: 'مقبول'}		
         }
     },
 	provide: {
-      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields]
-    }	
-});
+      PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner]
+    },	
+    methods: {
+        // Initialize switchObj within the mounted hook
+        change: function (args) {
+            var viewer = this.$refs.pdfviewer.ej2Instances;
+            if (args.checked) {
+                viewer.serviceUrl = "";
+            } else {
+                viewer.serviceUrl = "https://ej2services.syncfusion.com/vue/development/api/pdfviewer";
+            }           
+            viewer.dataBind();
+            viewer.load(viewer.documentPath, null);
+        }
+    }
+};
 //PDF Viewer Arabic Sample Locale
 L10n.load({
     'ar-AE': {
@@ -84,11 +153,8 @@ L10n.load({
             'Match case': 'حالة مباراة',
             'Apply': 'تطبيق',
             'GoToPage': 'انتقل إلى صفحة',
-             // tslint:disable-next-line:max-line-length
             'No matches': 'انتهى العارض من البحث في المستند. لم يتم العثور على مزيد من التطابقات',
             'No Text Found': 'لم يتم العثور على نص',
-            // tslint:disable-next-line:max-line-length
-            'Server error': 'خدمة الانترنت لا يستمع. يعتمد قوات الدفاع الشعبي المشاهد على خدمة الويب لجميع ميزاته. يرجى بدء خدمة الويب للمتابعة.',
             'Undo' : 'فك',
             'Redo' : 'فعل ثانية',
             'Annotation': 'إضافة أو تعديل التعليقات التوضيحية',
@@ -99,9 +165,11 @@ L10n.load({
             'Opacity': 'غموض',
             'Color edit': 'غير اللون',
             'Opacity edit': 'تغيير التعتيم',
-            'Highlight context': 'تسليط الضوء',
-            'Underline context': 'أكد',
-            'Strikethrough context': 'يتوسطه',
+            'highlight': 'تسليط الضوء',
+            'underline': 'أكد',
+            'strikethrough': 'يتوسطه',
+            // tslint:disable-next-line:max-line-length
+            'Server error': 'خدمة الانترنت لا يستمع. يعتمد قوات الدفاع الشعبي المشاهد على خدمة الويب لجميع ميزاته. يرجى بدء خدمة الويب للمتابعة.',
             'Open text': 'افتح',
             'First text': 'الصفحة الأولى',
             'Previous text': 'الصفحة السابقة',
@@ -112,7 +180,7 @@ L10n.load({
             'Selection text': 'اختيار',
             'Pan text': 'مقلاة',
             'Print text': 'طباعة',
-            'Search text': 'بحث',
+            'Seach text': 'بحث',
             'Annotation Edit text': 'تحرير التعليق التوضيحي',
             'Line Thickness': 'سمك الخط',
             'Line Properties': 'خط الخصائص',
@@ -193,21 +261,95 @@ L10n.load({
             'Import Failed': 'نوع ملف سلمان أو اسم الملف غير صالح ؛ يرجى تحديد ملف سلمانصالح',
             'File not found': 'لم يتم العثور على ملف سلمان المستورد في الموقع المطلوب',
             'Export Failed': 'شل إجراء تصدير التعليقات التوضيحية ؛ يرجى التأكد من إضافة التعليقات التوضيحية بشكل صحيح',
-            'Draw Ink': 'ارسم الحبر',
-            'Export XFDF': 'تصدير التعليق التوضيحي إلى ملف XFDF',
-            'Import XFDF': 'استيراد التعليقات التوضيحية من ملف XFDF',
-            'of': 'من ',
             'Dynamic': 'متحرك',
             'Standard Business': 'الأعمال القياسية',
             'Sign Here': 'وقع هنا',
             'Custom Stamp': 'ختم مخصص',
-            'Enter Signature as Name': 'أدخل أسمك',
-            'Draw-hand Signature': 'رسم',
-            'Type Signature': 'اكتب',
+            'InitialFieldDialogHeaderText': 'إضافة الأولية',
+            'HandwrittenInitialDialogHeaderText': 'إضافة الأولية',
+            'SignatureFieldDialogHeaderText': 'أضف التوقيع',
+            'HandwrittenSignatureDialogHeaderText': 'أضف التوقيع',
+            'Draw-hand Signature': 'يرسم',
+            'Type Signature': 'نوع',
             'Upload Signature': 'تحميل',
             'Browse Signature Image': 'تصفح',
-            'Save Signature': 'احفظ التوقيع'
+            'Save Signature': 'احفظ التوقيع',
+            'Save Initial': 'حفظ الأولي',
+            'Highlight context': 'تسليط الضوء',
+            'Underline context': 'تسطير',
+            'Strikethrough context': 'يتوسطه خط',
+            // 'FormDesigner Edit text': 'إضافة وتحرير حقل النموذج',
+            'FormDesigner': 'إضافة وتحرير حقل النموذج',
+            'SubmitForm': 'تقديم النموذج',
+            'Search text': 'بحث',
+            'Draw Ink': 'ارسم الحبر',
+            'Revised': 'مراجعة',
+            'Reviewed': 'تمت المراجعة',
+            'Received': 'تم الاستلام',
+            'Confidential': 'مؤتمن',
+            'Approved': 'وافق',
+            'Not Approved': 'غير مقبول',
+            'Witness': 'الشاهد',
+            'Initial Here': 'المبدئي هنا',
+            'Draft': 'مشروع',
+            'Final': 'أخير',
+            'For Public Release': 'للنشر العام',
+            'Not For Public Release': 'ليس للنشر العام',
+            'For Comment': 'للتعليق',
+            'Void': 'فارغ',
+            'Preliminary Results': 'نتائج اولية',
+            'Information Only': 'المعلومات فقط',
+            'Enter Signature as Name': 'أدخل أسمك',
+            'Textbox': 'مربع الكتابة',
+            'Password': 'كلمه السر',
+            'Check Box': 'خانة اختيار',
+            'Radio Button': 'زر الراديو',
+            'Dropdown': 'اسقاط',
+            'List Box': 'مربع القائمة',
+            'Signature': 'إمضاء',
+            'Delete FormField': 'حذف حقل النموذج',
+            'FormDesigner Edit text': 'إضافة وتحرير حقل النموذج',
+            'in': 'في',
+            'm': 'م',
+            'ft_in': 'قدم',
+            'ft': 'قدم',
+            'p': 'ص',
+            'cm': 'سم',
+            'mm': 'مم',
+            'pt': 'نقطة',
+            'cu': 'مكعب',
+            'sq': 'قدم مربع',
+            'General': 'جنرال لواء',
+            'Appearance': 'مظهر خارجي',
+            'Options': 'والخيارات',
+            'Textbox Properties': 'خصائص مربع النص',
+            'Name': 'اسم',
+            'Tooltip': 'تلميح',
+            'Value': 'القيمة',
+            'Form Field Visibility': 'رؤية حقل النموذج',
+            'Read Only': 'يقرأ فقط',
+            'Required': 'مطلوب',
+            'Checked': 'التحقق',
+            'Show Printing': 'عرض الطباعة',
+            'Formatting': 'صيغة',
+            'Fill': 'يملأ',
+            'Border': 'الحدود',
+            'Border Color': 'لون الحدود',
+            'Thickness': 'السماكة',
+            'Max Length': 'الحد الاقصى للطول',
+            'List Item': 'اسم العنصر',
+            'Export Value': 'قيمة البند',
+            'Dropdown Item List': 'قائمة العناصر المنسدلة',
+            'List Box Item List': 'قائمة عناصر مربع القائمة',
+            'Delete Item': 'حذف',
+            'Up': 'فوق',
+            'Down': 'تحت',
+            'Multiline': 'متعدد الأسطر',
+            'Initial': 'أولي',
+            'Export XFDF': 'تصدير التعليق التوضيحي إلى ملف XFDF',
+            'Import XFDF': 'استيراد التعليقات التوضيحية من ملف XFDF'
         }
     }
 });
+
 </script>

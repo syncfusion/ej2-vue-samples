@@ -4,7 +4,7 @@
         <div class="col-lg-8 control-section">
             <div class="control-styles">
                 <h4>Selection Limit</h4>
-                <ejs-multiselect ref="multiselectInstance" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
+                <ejs-multiselect ref="multiselectInstance" cssClass="e-specific" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='mode' :popupHeight='popHeight' :showDropDownIcon='true' :maximumSelectionLength='maxSelection'
                     :filterBarPlaceholder='filterPlaceholder'></ejs-multiselect>
             </div>
@@ -27,7 +27,7 @@
                     <td></td>
                     <td>
                         <div>
-                            <ejs-button cssClass="e-flat" v-on:click.native="btnClick">Apply</ejs-button>
+                            <ejs-button cssClass="e-flat" v-on:click="btnClick">Apply</ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -52,19 +52,26 @@
         width:300px; 
         padding-top: 25px
     }
+    .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(1px);
+    }
+
+    .e-bigger .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
+        transform: translateY(2px);
+    }
 </style>
 <script>
-import Vue from "vue";
-import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import * as data from './dataSource.json';
+import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import data from './dataSource.json';
 
-Vue.use(MultiSelectPlugin);
-Vue.use(NumericTextBoxPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-multiselect': MultiSelectComponent,
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             checkFields: { text: 'Name', value: 'Code' },
@@ -87,5 +94,5 @@ export default Vue.extend ({
     provide: {
         multiselect: [CheckBoxSelection]
     }
-});
+}
 </script>

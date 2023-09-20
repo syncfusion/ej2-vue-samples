@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div class="control_wrapper month-picker">
-        <div id="container" style="overflow:auto">
+        <div id="container">
               <ejs-calendar id="calendar" :change="onValueChange" :start="start" :depth="depth"></ejs-calendar>
             <span id="date_label"> Selected Value: </span>
 
@@ -23,18 +23,17 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 import { Internationalization } from '@syncfusion/ej2-base';
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
     data: function() {
     return {
       start: 'Year',
       depth: 'Year'
     };
   },
+  components: { 'ejs-calendar': CalendarComponent },
   methods: {
     onValueChange: function(args) {
         var  intl = new Internationalization();
@@ -43,7 +42,7 @@ export default Vue.extend({
         "Selected Value: " + value;
     }
   }
-});
+};
 </script>
 
 
@@ -59,7 +58,15 @@ export default Vue.extend({
   max-width: 300px;
   margin: 0 auto;
 }
+
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.material3-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
-  color: white;
-}
+    color: white;
+} 
 </style>

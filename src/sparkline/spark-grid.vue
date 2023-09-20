@@ -35,17 +35,16 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { GridPlugin, Selection } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnsDirective, ColumnDirective, Selection } from '@syncfusion/ej2-vue-grids';
 import { Query, DataManager } from '@syncfusion/ej2-data';
 import { orderdata } from './datasource';
 import sparkgridVue from "./spark-grid-one.vue";
 import sparkgridVue2 from "./spark-grid-two.vue";
 import sparkgridVue3 from "./spark-grid-three.vue";
-import { SparklinePlugin, Sparkline } from '@syncfusion/ej2-vue-charts';
+import { SparklineComponent, Sparkline } from '@syncfusion/ej2-vue-charts';
 import { line, column } from "./grid";
-Vue.use(GridPlugin);
-Vue.use(SparklinePlugin);
+import { createApp } from "vue";
+
 let lineData = line;
 let columnData = column;
 let winloss = () => {
@@ -61,7 +60,13 @@ let winloss = () => {
     }
     return windata;
 };
-export default Vue.extend({
+export default {
+components: {
+    'ejs-sparkline': SparklineComponent,
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+},
 data:function(){
     return{
         dataSource: new DataManager(orderdata).executeLocal(new Query().take(20)),
@@ -69,17 +74,17 @@ data:function(){
         enableHover: true,
         cTemplate: function () {
                 return {
-                    template: sparkgridVue
+                    template: createApp({}).component('cTemplate', sparkgridVue) 
                 }
             },
         gTemplate: function () {
                 return {
-                    template: sparkgridVue2
+                    template: createApp({}).component('gTemplate', sparkgridVue2) 
                 }
             },
         zTemplate: function(){
             return {
-                template: sparkgridVue3
+                template: createApp({}).component('zTemplate', sparkgridVue3) 
             }
         }
     }
@@ -126,7 +131,7 @@ mounted:function(){
  function load(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast') ;
     }
     /* custom code end */
 function getSparkData(type, count){
@@ -140,5 +145,5 @@ function getSparkData(type, count){
 provide: {
     grid: [Selection]
 }
-})
+}
 </script>

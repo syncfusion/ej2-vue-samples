@@ -2,8 +2,35 @@
 <div>
     <div class="control-section">
         <ejs-maps id='mapContainer' :loaded='loaded' :load='load' :resize='resize' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
+            <template v-slot:pieOneTemplate="{}">
+                <div id="pieChart1" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieTwoTemplate="{}">
+                <div id="pieChart2" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieThreeTemplate="{}">
+                <div id="pieChart3" style="top:10px;left:10px;height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieFourTemplate="{}">
+                <div id="pieChart4" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieFiveTemplate="{}">
+                <div id="pieChart5" style="height:70px;width:70px;"></div>
+            </template>
+            <template v-slot:pieSixTemplate="{}">
+                <div id="pieChart6" style="height:70px;width:70px;"></div>
+            </template>
             <e-layers>
-                <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings' :markerSettings='markerSettings'></e-layer>
+                <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings'>
+                    <e-markerSettings>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieOneDataSource' :template="'pieOneTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieTwoDataSource' :template="'pieTwoTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieThreeDataSource' :template="'pieThreeTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieFourDataSource' :template="'pieFourTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieFiveDataSource' :template="'pieFiveTemplate'"></e-markerSetting>
+                        <e-markerSetting visible='true' animationDuration='0' :dataSource='pieSixDataSource' :template="'pieSixTemplate'"></e-markerSetting>
+                    </e-markerSettings>
+                </e-layer>
             </e-layers>
         </ejs-maps>
 
@@ -29,31 +56,41 @@
                     Maps component features are segregated into individual feature-wise modules. To use marker template, you need to inject <code>Marker</code> module using <code>Maps.Inject(Marker)</code> method.
                 </p>
             </div>
+        </p>
     </div>
 </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
-import { AccumulationChartPlugin, PieSeries, AccumulationDataLabel, AccumulationTooltip,AccumulationChart } from '@syncfusion/ej2-vue-charts';
-Vue.use(MapsPlugin);
-Vue.use(AccumulationChartPlugin);
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { PieSeries, AccumulationDataLabel, AccumulationTooltip,AccumulationChart } from '@syncfusion/ej2-vue-charts';
+
 AccumulationChart.Inject(AccumulationTooltip);
 let chartCollection = [];
 let count = 0;
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-maps': MapsComponent,
+        'e-layers': LayersDirective,
+        'e-layer': LayerDirective,
+        'e-markerSettings': MarkersDirective,
+        'e-markerSetting': MarkerDirective
+    },
     data: function () { 
         return {
             titleSettings: {
                 text: 'Top 6 largest countries age group details',
                 textStyle: {
-                    size: '16px'
+                    size: '16px',
+                    fontFamily: 'Segoe UI'
                 }
             },
             legendSettings: {
                 visible: true,
-                position: 'Bottom'
+                position: 'Bottom',
+                textStyle: {
+                    fontFamily: 'Segoe UI'
+                }
             },
             zoomSettings: {
                 enable: false
@@ -87,56 +124,12 @@ export default Vue.extend({
                     }
                 ]
             },
-             markerSettings: [
-                    {
-                        visible: true,
-                        template: '<div id="pieChart1" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': 61.938950426660604, 'longitude': 97.03125 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart2" style="height:70px;width:70px;">',
-                        dataSource: [
-                            { 'latitude': 57.70414723434193, 'longitude': -114.08203125 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart3" style="top:10px;left:10px;height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': 39.90973623453719, 'longitude': -103.0078125 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart4" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': 35.746512259918504, 'longitude': 102.216796875 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart5" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': -8.667918002363107, 'longitude': -52.55859375 }
-                        ],
-                        animationDuration: 0
-                    },
-                    {
-                        visible: true,
-                        template: '<div id="pieChart6" style="height:70px;width:70px;"></div>',
-                        dataSource: [
-                            { 'latitude': -23.725011735951796, 'longitude': 132.978515625 }
-                        ],
-                        animationDuration: 0
-                    }
-                ]
+            pieOneDataSource: [{ 'latitude': 61.938950426660604, 'longitude': 97.03125 }],
+            pieTwoDataSource: [{ 'latitude': 57.70414723434193, 'longitude': -114.08203125 }],
+            pieThreeDataSource: [{ 'latitude': 39.90973623453719, 'longitude': -103.0078125 }],
+            pieFourDataSource: [{ 'latitude': 35.746512259918504, 'longitude': 102.216796875 }],
+            pieFiveDataSource: [{ 'latitude': -8.667918002363107, 'longitude': -52.55859375 }],
+            pieSixDataSource: [{ 'latitude': -23.725011735951796, 'longitude': 132.978515625 }]
         }
     },
     provide: {
@@ -148,7 +141,8 @@ export default Vue.extend({
         load: function (args) {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
-            args.maps.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+            args.maps.theme = (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         },
         /* custom code end */
     loaded:function(args){
@@ -242,5 +236,5 @@ export default Vue.extend({
     return new Object({ name: dataName, data: dataSource });
 }   
     }
-})
+}
 </script>

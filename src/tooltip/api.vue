@@ -1,7 +1,7 @@
 <template>
 <div class="tooltip-api">
     <div class="col-lg-8 control-section">
-        <ejs-tooltip ref='tooltip' target='#default' opensOn='Click' :content='tContent' :created='created'>
+        <ejs-tooltip ref='tooltip' target='#default' opensOn='Click' :content='tContent' :created='created' :windowCollision='true' position="TopCenter">
             <!-- Tooltip element -->
             <ejs-button ref='button' id="default">Show Tooltip</ejs-button>
         </ejs-tooltip>
@@ -15,7 +15,7 @@
                     </td>
                     <td style="width: 50%;padding-right: 10px">
                         <div>
-                            <input v-on:keyup="keymonitor" id="value" ref="textbox"  type="text" placeholder="Tooltip content">
+                            <input v-on:keyup="keymonitor" id="value" ref="textbox" class="e-input"  type="text" placeholder="Tooltip content">
                         </div>
                     </td>
                 </tr>
@@ -73,7 +73,7 @@
             example,</p>
         <ul>
             <li>Any change made to a textbox in the property pane will be reflected in the tooltip <a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#content">content</a></li>
-            <li><a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#issticky">StickyMode</a>can
+            <li><a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#issticky">StickyMode</a> can
                 be enabled by checking the sticky mode option in the property pane.</li>
             <li><a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#height">Height</a>                and
                 <a href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#width">width</a>                can be changed from the property pane.</li>
@@ -83,18 +83,19 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(ButtonPlugin);
-Vue.use(TooltipPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(NumericTextBoxPlugin);
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ButtonComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
     return {
       waterMark: "Open Mode",
@@ -119,7 +120,7 @@ export default Vue.extend({
           this.$refs.tooltip &&
           document.getElementsByClassName("e-tooltip-wrap").length > 0
         ) {
-          this.$refs.tooltip.close();
+          this.$refs.tooltip.ej2Instances.close();
         }
       }
     },
@@ -128,33 +129,33 @@ export default Vue.extend({
         this.$refs.tooltip &&
         document.getElementsByClassName("e-tooltip-wrap").length > 0
       ) {
-        this.$refs.tooltip.close();
+        this.$refs.tooltip.ej2Instances.close();
       }
     },
     wChange: function(args) {
-      this.$refs.tooltip.width = args.value;
+      this.$refs.tooltip.ej2Instances.width = args.value;
     },
     hChange: function(args) {
-      this.$refs.tooltip.height = args.value;
+      this.$refs.tooltip.ej2Instances.height = args.value;
     },
     textboxValue: function() {
-      this.$refs.tooltip.content = this.$ref.textbox.value;
-      this.$refs.tooltip.refresh(this.$refs.tooltip.$el);
+      this.$refs.tooltip.ej2Instances.content = this.$ref.textbox.ej2Instances.value;
+      this.$refs.tooltip.ej2Instances.refresh(this.$refs.tooltip.$el);
     },
     ddlChange: function(args) {
-      this.$refs.tooltip.opensOn = args.value;
-      this.$refs.tooltip.refresh(this.$refs.button);
+      this.$refs.tooltip.ej2Instances.opensOn = args.value;
+      this.$refs.tooltip.ej2Instances.refresh(this.$refs.button);
     },
     cChange: function(args) {
-      this.$refs.tooltip.isSticky = args.checked;
+      this.$refs.tooltip.ej2Instances.isSticky = args.checked;
     },
     keymonitor: function(args) {
-      this.$refs.tooltip.close();
-      this.$refs.tooltip.content = args.currentTarget.value;
-      this.$refs.tooltip.refresh(this.$refs.button);
+      this.$refs.tooltip.ej2Instances.close();
+      this.$refs.tooltip.ej2Instances.content = args.currentTarget.value;
+      this.$refs.tooltip.ej2Instances.refresh(this.$refs.button);
     }
   }
-});
+}
 </script>
 <style>
 .tooltip-api .userselect {

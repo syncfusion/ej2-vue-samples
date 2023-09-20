@@ -21,11 +21,9 @@
 
 <script>
 
-import Vue from "vue";
-import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DatePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
         value:new Date(),
@@ -33,8 +31,9 @@ export default Vue.extend({
         depth: 'Year',
         format: 'MMMM y'
     };
-  }
-});
+  },
+  components: { 'ejs-datepicker': DatePickerComponent },
+};
 </script>
 
 <style scoped>

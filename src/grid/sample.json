@@ -1,9 +1,9 @@
 {
     "name": "Data Grid",
+    "type":"update",
     "directory": "grid",
     "category": "Grids",
     "ftName": "datagrid",
-    "type": "update",
     "samples": [{
             "url": "grid-overview",
             "name": "Overview",
@@ -17,6 +17,14 @@
             ]
         },
         {
+            "url": "live-data",
+            "name": "Live Data",
+            "category": "Data Grid",
+            "description": "This demo for Essential JS 2 grid component shows how frequently the Grid cell is updated with real-time data.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "columns", "enableVirtualization", "enableVirtualMaskRow", "allowSelection", "height", "rowHeight", "queryCellInfo"] }
+        },
+        {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Data Grid",
@@ -25,125 +33,20 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
-            "url": "grouping",
-            "name": "Default Grouping",
-            "category": "Grouping",
-            "description": "This demo for Essential JS 2 grid component demonstrates the grouping feature of the grid component. The grid component has options to group records based on columns.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowGrouping", "allowSorting", "allowPaging"] }
-        },
-        {
-            "url": "lazy-load-grouping",
-            "name": "Lazy Load Grouping",
-            "category": "Grouping",
-            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["dataSource","allowPaging","allowGrouping","groupSettings","height","columns"] }
-        },
-        {
-            "url": "grid-lines",
-            "name": "Grid Lines",
-            "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component demonstrates the visibility of the grid lines that separate the rows and columns.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "gridLines"] }
-        },
-        {
-            "url": "hierarchy-grid",
-            "name": "Hierarchy Grid",
-            "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component shows the hierarchical binding feature that helps to build multilevel parent-child relationships.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "clipboard",
-            "name": "Clipboard",
-            "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component shows the copy-to-clipboard functionality.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "context-menu",
-            "name": "Context Menu",
-            "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component shows the usage of the context menu in grid component. Grid has an option to show the context menu when it’s right-clicked on.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "master-details",
-            "name": "Master/Detail",
-            "category": "Data Grid",
-            "description":"This demo for Essential JS 2 grid component shows usage of the master/detail in which the details of a Master grid record, is viewed in a separate grid(Detail grid) by clicking the particular row.", 
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "paging",
-            "name": "Paging",
-            "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "sorting",
-            "name": "Sorting",
-            "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component shows the grid multisorting feature. Using this feature, grid rows can be sorted by two or more columns.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowSorting"] }
-        },
-        {
-            "url": "adaptive",
-            "name": "Adaptive",
-            "type": "new",
+            "url": "adaptive-layout",
+            "name": "Adaptive Layout",
             "category": "Data Grid",
             "description": "This sample demonstrates the rendering order of the grid row elements and adaptive dialogs.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource","allowSorting","allowFiltering","editSettings","toolbar","allowPaging","rowRenderingMode","enableAdaptiveUI"] }
         },
         {
-            "url": "enable-rtl",
-            "name": "RTL",
-            "type": "new",
+            "url": "loading-animation",
+            "name": "Loading Animation",
             "category": "Data Grid",
-            "description": "This demo for Essential JS 2 grid component shows the Right to left(RTl) alignment.",
+            "description": "This demo for Essential JS 2 grid component shows the loading indicator when grid loading and refreshing.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowSorting", "allowFiltering", "allowGrouping", "enableRtl", "allowPaging"] }
-        },
-        {
-            "url": "scrolling",
-            "name": "Default Scrolling",
-            "category": "Scrolling",
-            "description": "This demo for Essential JS 2 grid component shows the usage of the horizontal and vertical scrollbars to view grid content that exceeds the grid area.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "virtual-scrolling",
-            "name": "Virtual Scrolling",
-            "category": "Scrolling",
-            "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },
-            "sourceFiles":[
-                { "displayName": "virtual-scrolling.vue", "path":"src/grid/virtual-scrolling.vue" },
-                { "displayName":"virtual-scrolling.css","path":"styles/Grid/virtual-scrolling.css" }
-            ]
-        },
-        {
-            "url": "infinite-scrolling",
-            "name": "Infinite Scrolling",
-            "category": "Scrolling",
-            "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "enableInfiniteScrolling"] },
-            "sourceFiles":[
-                { "displayName": "infinite-scrolling.vue", "path":"src/grid/infinite-scrolling.vue" }
-            ]
+            "api": { "Grid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] }
         },
         {
             "url": "local-data",
@@ -170,18 +73,10 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
-            "url": "auto-wrap",
-            "name": "AutoWrap Column cells",
-            "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component shows how the grid cell content is autowrapped to show large cell content.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "show-hide",
-            "name": "Show or Hide Column",
-            "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component demonstrates the dynamic show and hide columns feature.",
+            "url": "flexible-data",
+            "name": "Flexible Data",
+            "category": "Data Binding",
+            "description": "This sample demonstrates how to bind a data from various remote services to the Grid component.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
         },
@@ -214,6 +109,14 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
+            "url": "foreign-key",
+            "name": "Foreign Key Column",
+            "category": "Columns",
+            "description": "This demo for Essential JS 2 grid component demonstrates the usage of a foreign key column and performing actions such as filtering, sorting, and editing in the foreign key column.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
             "url": "reorder",
             "name": "Reorder",
             "category": "Columns",
@@ -222,28 +125,12 @@
             "api": { "Grid": ["columns", "dataSource", "allowReordering"] }
         },
         {
-            "url": "column-chooser",
-            "name": "Column Chooser",
-            "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component shows how the column chooser feature can be used to show or hide columns dynamically.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "showColumnChooser"] }
-        },
-        {
             "url": "column-resize",
-            "name": "Column Resize",
+            "name": "AutoFit and Resizing",
             "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component shows how the column resizing feature can be used to change width dynamically.",
+            "description": "This demo for Essential JS 2 grid control shows column rendering with fixed width and resizing feature.",
             "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
-        },
-        {
-            "url": "column-spanning",
-            "name": "Column Spanning",
-            "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component shows the usage of the column spanning feature.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
+            "api": { "Grid": ["columns", "dataSource", "allowResizing", "autoFit"] }
         },
         {
             "url": "column-menu",
@@ -254,12 +141,36 @@
             "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
         },
         {
-            "url": "foreign-key",
-            "name": "Foreign Key Column",
+            "url": "auto-wrap",
+            "name": "AutoWrap Column cells",
             "category": "Columns",
-            "description": "This demo for Essential JS 2 grid component demonstrates the usage of a foreign key column and performing actions such as filtering, sorting, and editing in the foreign key column.",
+            "description": "This demo for Essential JS 2 grid component shows how the grid cell content is autowrapped to show large cell content.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "column-chooser",
+            "name": "Column Chooser",
+            "category": "Columns",
+            "description": "This demo for Essential JS 2 grid component shows how the column chooser feature can be used to show or hide columns dynamically.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "showColumnChooser"] }
+        },
+        {
+            "url": "show-hide",
+            "name": "Show or Hide Column",
+            "category": "Columns",
+            "description": "This demo for Essential JS 2 grid component demonstrates the dynamic show and hide columns feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "column-spanning",
+            "name": "Column Spanning",
+            "category": "Columns",
+            "description": "This demo for Essential JS 2 grid component shows the usage of the column spanning feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
         },
         {
             "url": "row-template",
@@ -286,6 +197,21 @@
             ]
         },
         {
+            "url": "row-drag-and-drop",
+            "name": "Drag and Drop",
+            "category": "Rows",
+            "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged between grids using the row drag-and-drop feature.",
+            "hideOnDevice": true,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "drag-and-drop-within-grid",
+            "name": "Drag and Drop within Grid",
+            "category": "Rows",
+            "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged within a grids using the row drag-and-drop feature.",
+            "api": { "Grid": ["columns", "dataSource", "allowRowDragAndDrop"] }
+        },
+        {
             "url": "row-height",
             "name": "Row Height",
             "category": "Rows",
@@ -298,123 +224,12 @@
             ]
         },
         {
-            "url": "row-drag-and-drop",
-            "name": "Row Drag and Drop",
-            "category": "Rows",
-            "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged between grids using the row drag-and-drop feature.",
-            "hideOnDevice": true,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "drag-and-drop-within-grid",
-            "name": "Row Drag And Drop Within Grid",
-            "category": "Rows",
-            "description": "This demo for Essential JS 2 grid component demonstrates how the rows can be dragged within a grids using the row drag-and-drop feature.",
-            "api": { "Grid": ["columns", "dataSource", "allowRowDragAndDrop"] }
-        },
-        {
             "url": "row-spanning",
             "name": "Row Spanning",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid control shows the usage of the row and column spanning feature.",
             "hideOnDevice": true,
             "api": { "Grid": ["dataSource","allowTextWrap","columns","queryCellInfo","gridLines","width","height"] }
-        },
-        {
-            "url": "frozen",
-            "name": "Default Frozen",
-            "category": "Frozen",
-            "description": "This demo for Essential JS 2 grid component shows how the rows and columns can be frozen or pinned.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
-        },
-        {
-            "url": "frozen-api",
-            "name": "Frozen API",
-            "category": "Frozen",
-            "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "filtering",
-            "name": "Default Filtering",
-            "category": "Filtering",
-            "description": "This demo for Essential JS 2 grid component shows how to place a filter bar row in the header to filter grid rows.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] },
-            "sourceFiles":[
-                { "displayName": "filtering.vue", "path":"src/grid/filtering.vue" },
-                { "displayName":"filtering.css","path":"styles/Grid/filtering.css" }
-            ]
-        },
-        {
-            "url": "filter-menu",
-            "name": "Filter Menu",
-            "category": "Filtering",
-            "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },
-            "sourceFiles":[
-                { "displayName": "filter-menu.vue", "path":"src/grid/filter-menu.vue" },
-                { "displayName":"filter-menu.css","path":"styles/Grid/filter-menu.css" }
-            ]
-        },
-        {
-            "url": "searching",
-            "name": "Search",
-            "category": "Filtering",
-            "description": "This demo for Essential JS 2 grid component shows the content searching feature.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "toolbar"] }
-        },
-        {
-            "url": "selection",
-            "name": "Default Selection",
-            "category": "Selection",
-            "description": "This demo for Essential JS 2 grid component shows how to select rows or cells through simple mouse down or keyboard interaction using the selection feature.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
-        },
-        {
-            "url": "selection-api",
-            "name": "Selection API",
-            "category": "Selection",
-            "description": "This demo for Essential JS 2 grid component shows how to perform selection programmatically.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
-        },
-        {
-            "url": "checkbox-selection",
-            "name": "Checkbox Selection",
-            "category": "Selection",
-            "description": "This demo for Essential JS 2 grid component shows how the check box selection feature can be used to select grid rows.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
-        },
-        {
-            "url": "aggregate",
-            "name": "Default Aggregate",
-            "category": "Aggregate",
-            "description": "This demo for Essential JS 2 grid component shows how the row values can be aggregated and shown in a column footer.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "group-caption-aggregate",
-            "name": "Group and Caption Aggregate",
-            "category": "Aggregate",
-            "description": "This demo for Essential JS 2 grid component shows how the row values can be aggregated for each group of items and shown in a group caption and footer.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
-        },
-        {
-            "url": "reactive-aggregate",
-            "name": "Reactive Aggregate",
-            "category": "Aggregate",
-            "description": "This demo for Essential JS 2 grid component shows how aggregate values are updated while the row is edited in batch edit mode.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource", "editingSettings", "toolbar"] }
         },
         {
             "url": "inline-editing",
@@ -457,10 +272,209 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
+            "url": "sorting",
+            "name": "Sorting",
+            "category": "Sorting",
+            "description": "This demo for Essential JS 2 grid component shows the grid multisorting feature. Using this feature, grid rows can be sorted by two or more columns.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSorting"] }
+        },
+        {
+            "url": "filtering",
+            "name": "Default Filtering",
+            "category": "Filtering",
+            "description": "This demo for Essential JS 2 grid component shows how to place a filter bar row in the header to filter grid rows.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowFiltering"] },
+            "sourceFiles":[
+                { "displayName": "filtering.vue", "path":"src/grid/filtering.vue" },
+                { "displayName":"filtering.css","path":"styles/Grid/filtering.css" }
+            ]
+        },
+        {
+            "url": "filter-menu",
+            "name": "Filter Menu",
+            "category": "Filtering",
+            "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },
+            "sourceFiles":[
+                { "displayName": "filter-menu.vue", "path":"src/grid/filter-menu.vue" },
+                { "displayName":"filter-menu.css","path":"styles/Grid/filter-menu.css" }
+            ]
+        },
+        {
+            "url": "searching",
+            "name": "Search",
+            "category": "Filtering",
+            "description": "This demo for Essential JS 2 grid component shows the content searching feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "toolbar"] }
+        },
+        {
+            "url": "paging",
+            "name": "Paging",
+            "category": "Paging",
+            "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "grouping",
+            "name": "Grouping",
+            "category": "Grouping",
+            "description": "This demo for Essential JS 2 grid component demonstrates the grouping feature of the grid component. The grid component has options to group records based on columns.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowGrouping", "allowSorting", "allowPaging"] }
+        },
+        {
+            "url": "aggregate",
+            "name": "Default Aggregate",
+            "category": "Aggregate",
+            "description": "This demo for Essential JS 2 grid component shows how the row values can be aggregated and shown in a column footer.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "group-caption-aggregate",
+            "name": "Group and Caption Aggregate",
+            "category": "Aggregate",
+            "description": "This demo for Essential JS 2 grid component shows how the row values can be aggregated for each group of items and shown in a group caption and footer.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "reactive-aggregate",
+            "name": "Reactive Aggregate",
+            "category": "Aggregate",
+            "description": "This demo for Essential JS 2 grid component shows how aggregate values are updated while the row is edited in batch edit mode.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "editingSettings", "toolbar"] }
+        },
+        {
+            "url": "selection",
+            "name": "Default Selection",
+            "category": "Selection",
+            "description": "This demo for Essential JS 2 grid component shows how to select rows or cells through simple mouse down or keyboard interaction using the selection feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
+        },
+        {
+            "url": "selection-api",
+            "name": "Selection API",
+            "category": "Selection",
+            "description": "This demo for Essential JS 2 grid component shows how to perform selection programmatically.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
+        },
+        {
+            "url": "checkbox-selection",
+            "name": "Checkbox Selection",
+            "category": "Selection",
+            "description": "This demo for Essential JS 2 grid component shows how the check box selection feature can be used to select grid rows.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
+        },
+        {
+            "url": "hierarchy-grid",
+            "name": "Hierarchy Grid",
+            "category": "Relational Binding",
+            "description": "This demo for Essential JS 2 grid component shows the hierarchical binding feature that helps to build multilevel parent-child relationships.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "master-details",
+            "name": "Master/Detail",
+            "category": "Relational Binding",
+            "description":"This demo for Essential JS 2 grid component shows usage of the master/detail in which the details of a Master grid record, is viewed in a separate grid(Detail grid) by clicking the particular row.", 
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "scrolling",
+            "name": "Default Scrolling",
+            "category": "Scrolling",
+            "description": "This demo for Essential JS 2 grid component shows the usage of the horizontal and vertical scrollbars to view grid content that exceeds the grid area.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "sticky-header",
+            "name": "Sticky Header",
+            "category": "Scrolling",
+            "description": "This demo for Essential JS 2 grid component shows the usage of sticky header feature which helps to see the header in a fixed possition while scrolling.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["enableStickyHeader", "columns", "dataSource"] }
+        },
+        {
+            "url": "frozen-rows-columns",
+            "name": "Frozen Rows and Columns",
+            "category": "Scrolling",
+            "description": "This demo for Essential JS 2 grid component shows how the rows and columns can be frozen or pinned.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
+        },
+        {
+            "url": "frozen-api",
+            "name": "Frozen API",
+            "type":"update",
+            "category": "Scrolling",
+            "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "virtual-scrolling",
+            "name": "Virtual Scrolling",
+            "category": "Scrolling",
+            "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },
+            "sourceFiles":[
+                { "displayName": "virtual-scrolling.vue", "path":"src/grid/virtual-scrolling.vue" },
+                { "displayName":"virtual-scrolling.css","path":"styles/Grid/virtual-scrolling.css" }
+            ]
+        },
+        {
+            "url": "infinite-scrolling",
+            "name": "Infinite Scrolling",
+            "category": "Scrolling",
+            "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "enableInfiniteScrolling"] },
+            "sourceFiles":[
+                { "displayName": "infinite-scrolling.vue", "path":"src/grid/infinite-scrolling.vue" }
+            ]
+        },
+        {
+            "url": "lazy-load-grouping-with-paging",
+            "name": "Grouping with Paging",
+            "category": "Lazy Load Grouping",
+            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource","allowPaging","allowGrouping","groupSettings","height","columns"] }
+        },
+        {
+            "url": "lazy-load-grouping-with-infinite-scrolling",
+            "name": "Grouping with Infinite Scrolling",
+            "category": "Lazy Load Grouping",
+            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with infinite scrolling.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource","enableInfiniteScrolling","height","allowGrouping","groupSettings","columns"] }
+        },
+        {
+            "url": "lazy-load-grouping-with-virtual-scrolling",
+            "name": "Grouping with Virtual Scrolling",
+            "category": "Lazy Load Grouping",
+            "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with virtual scrolling.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource","enableVirtualization","height","allowGrouping","groupSettings","columns"] }
+        },
+        {
             "url": "export",
             "name": "Default Exporting",
             "category": "Exporting",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the client-side exporting of grid content to Excel, PDF, and CSV formats.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport"] }
@@ -482,12 +496,70 @@
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport", "childGrid"] }
         },
         {
+            "url": "detail-template-export",
+            "name": "Detail Template Exporting",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control shows the client-side exporting of grid content with Detail template to Excel and PDF formats.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport", "detailTemplate", "toolbar"] }
+        },
+        {
+            "url": "multiple-export",
+            "name": "Multiple Exporting",
+            "category": "Exporting",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control shows the client-side exporting of multiple grid content to Excel and PDF formats.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport"] }
+        },
+        {
             "url": "print",
             "name": "Print",
             "category": "Exporting",
             "description": "This demo for Essential JS 2 grid component shows how to print the grid content.",
             "hideOnDevice": true,
             "api": { "Grid": ["columns", "dataSource", "childGrid", "toolbar"] }
+        },
+        {
+            "url": "grid-lines",
+            "name": "Grid Lines",
+            "category": "Miscellaneous",
+            "description": "This demo for Essential JS 2 grid component demonstrates the visibility of the grid lines that separate the rows and columns.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "gridLines"] }
+        },
+        {
+            "url": "context-menu",
+            "name": "Context Menu",
+            "category": "Miscellaneous",
+            "description": "This demo for Essential JS 2 grid component shows the usage of the context menu in grid component. Grid has an option to show the context menu when it’s right-clicked on.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "clipboard",
+            "name": "Clipboard",
+            "category": "Miscellaneous",
+            "description": "This demo for Essential JS 2 grid component shows the copy-to-clipboard functionality.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "keyboard-navigation",
+            "name": "Keyboard Navigation",
+            "category": "Miscellaneous",
+            "description":"This demo for Essential JS 2 grid component shows usage of various keys on grid.", 
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "allowFiltering", "columns", "allowGrouping", "allowPaging", "allowSorting", "toolbar", "filterSettings", "pageSettings", "editSettings"] }
+        },
+        {
+            "url": "enable-rtl",
+            "name": "RTL",
+            "category": "Miscellaneous",
+            "description": "This demo for Essential JS 2 grid component shows the Right to left(RTl) alignment.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSorting", "allowFiltering", "allowGrouping", "enableRtl", "allowPaging"] }
         }
     ]
 }

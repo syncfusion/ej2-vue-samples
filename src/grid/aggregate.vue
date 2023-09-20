@@ -31,7 +31,7 @@
      <div id="description">
         <p>The Grid supports aggregates which will be displayed at the footer, group footer and group caption of the Grid. The
             aggregate configurations can be provided by the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#aggregates">
         aggregates
         </a></code> property.</p>
         <p>The built-in aggregates are,</p>
@@ -44,26 +44,26 @@
             <li><code>TrueCount</code></li>
             <li><code>FalseCount</code></li>
             <li><code>Custom</code> - Requires the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#customaggregate">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#customaggregate">
         customAggregate
         </a></code> property to perform aggregation. The custom aggregate value can be accessed inside template using the
                 key <code>custom</code></li>
         </ul>
         <p>
             In this demo, the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#footertemplate">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#footertemplate">
         footerTemplate</a></code> property is used to display four different aggregates in the Grid footer. In the first
             aggregate row, the <code>sum</code> aggregate type is used by setting the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#type">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#type">
         type</a></code> and <code><a target="_blank" class="code"
- href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#field">
+ href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#field">
         field</a></code> property as <strong><i>Freight</i></strong> which will be used to perform the aggregation. The
             aggregate value is accessed inside the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#footertemplate">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#footertemplate">
         footerTemplate</a></code> using its <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#type">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#type">
         type</a></code> name (<code>sum</code>). The aggregate value will be formatted based on its <code><a target="_blank" class="code"
- href="http://ej2.syncfusion.com/vue/documentation/grid/api-aggregateColumn.html#format">
+ href="https://ej2.syncfusion.com/vue/documentation/api/grid/aggregateColumnModel/#format">
         format</a></code> value(<strong><i>C2</i></strong>) before being displayed.
         </p>
         
@@ -77,20 +77,25 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Aggregate, Page } from "@syncfusion/ej2-vue-grids";
+import { createApp } from "vue";
+import { GridComponent, ColumnsDirective, ColumnDirective, AggregateDirective, AggregatesDirective, Aggregate, Page } from "@syncfusion/ej2-vue-grids";
 import { orderData } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'e-aggregates': AggregatesDirective,
+    'e-aggregate': AggregateDirective,
+  },
   data: () => {
     return {
       data: orderData,
       pageOption:{pageCount: 5},
       sumTemplate: function() {
         return {
-            template: Vue.component('sumTemplate', {
+            template: createApp({}).component('sumTemplate', {
             template: `<span>Sum: {{data.Sum}}</span>`,
             data: function () {return {data: {data: {}}};}
             })
@@ -98,7 +103,7 @@ export default Vue.extend({
       },
       avgTemplate: function() {
         return {
-            template : Vue.component('avgTemplate', {
+            template : createApp({}).component('avgTemplate', {
             template: `<span>Average: {{data.Average}}</span>`, 
             data: function () {return { data: {data: {}}};}
             })
@@ -109,5 +114,5 @@ export default Vue.extend({
   provide: {
       grid: [Aggregate, Page]
   }
-});
+};
 </script>

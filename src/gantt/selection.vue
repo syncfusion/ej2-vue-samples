@@ -20,31 +20,37 @@
         <div class="col-md-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
         <tr>
-            <td style="width: 30%">
-                <div>Selection Mode</div>
+            <td style="width: 100%">
+                <div style="fontSize: 15px">Selection Mode</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
-                <div>
+        </tr>
+        <tr>
+            <td style="width: 100%;padding-right: 10px">
+                <div style="width: 150px">
                      <ejs-dropdownlist ref='selectionmode' id='selectionmode' width='110px' :dataSource='selectionModeData' value='Row' :fields='selectionModeFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
-                <div>Selection Type</div>
+            <td style="width: 100%">
+                <div style="fontSize: 15px">Selection Type</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
-                <div>
+        </tr>
+        <tr>
+            <td style="width: 100%;padding-right: 10px">
+                <div style="width: 150px">
                     <ejs-dropdownlist ref='selectiontype' width='110px' id='selectiontype' :dataSource='selectionTypeData' value='Single' :fields='selectionTypeFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
-                <div>Toggle Selection</div>
+            <td style="width: 100%">
+                <div style="fontSize: 15px">Toggle Selection</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
-                <div>
+        </tr>
+        <tr>
+            <td style="width: 100%;padding-right: 10px">
+                <div style="width: 150px">
                     <ejs-dropdownlist ref='toggle' width='110px' id='toggle' :dataSource='selectionToggleData' :value='toggleValue' :fields='selectionToggleFields'></ejs-dropdownlist>
                 </div>
             </td>
@@ -52,7 +58,7 @@
         <tr>
             <td style="width: 30%">
                 <div>
-                    <ejs-button ref='perform' v-on:click.native="perform">Update</ejs-button>
+                    <ejs-button ref='perform' v-on:click="perform">Update</ejs-button>
                 </div>
 
             </td>
@@ -89,15 +95,17 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-import { DropDownListPlugin, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
-import { ButtonPlugin, ClickEventArgs} from "@syncfusion/ej2-vue-buttons";
-Vue.use(GanttPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-export default Vue.extend({
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -153,7 +161,7 @@ export default Vue.extend({
       gantt: [Selection]
   },
   methods: {
-    perform: function(ClickEventArgs) {
+    perform: function() {
         let mode = this.$refs.selectionmode.ej2Instances.value;
         let type = this.$refs.selectiontype.ej2Instances.value;
         let toggle = this.$refs.toggle.ej2Instances.value;
@@ -162,5 +170,5 @@ export default Vue.extend({
         this.$refs.gantt.ej2Instances.selectionSettings.enableToggle = toggle;
     },
   }
-});
+}
 </script>

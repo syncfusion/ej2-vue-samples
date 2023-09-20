@@ -1,40 +1,38 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' >
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Scatter' xName='x' yName='y' name='Male' width=2 :marker='marker' opacity=0.6> </e-series>
-                <e-series :dataSource='seriesData1' type='Scatter' xName='x' yName='y' name='Female' width=2 :marker='marker1' opacity=0.6> </e-series>
+                <e-series :dataSource='series1' type='Scatter' xName='Breadth' yName='Circumference' name='18-20 Years' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='series2' type='Scatter' xName='Breadth' yName='Circumference' name='21-25 Years' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='series3' type='Scatter' xName='Breadth' yName='Circumference' name='26-30 Years' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='series4' type='Scatter' xName='Breadth' yName='Circumference' name='31-35 years' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='series5' type='Scatter' xName='Breadth' yName='Circumference' name='36+ Years' width=2 :marker='marker'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample compares the height and weight of the genders by using default scatter series in the chart. Tooltip shows the
-        information about the data.
+        This Vue scatter plot chart example compares the shoulder and chest measurements for different age groups using the default scatter series.
     </p>
 </div>
 <div id="description">  
      <p>
-        In this example, you can see how to render and configure the scatter type charts. Scatter charts are used to plot financial
-        or scientific data. You can use
-        <code>shape</code> property in the marker to change the scatter shape.
-        <code>dataLabel</code> is used to represent individual data value.
+        In this example, you can see how to render and configure the scatter chart. The scatter chart is used to plot data with two numeric parameters. You can use the <code>Shape</code> property in the marker to change the scatter shape.
     </p>
      <p>   
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use scatter series, we need to inject
         <code>ScatterSeries</code> module using
         <code>provide: { chart: [StackingBarSeries] }</code> method.
     </p>
     <p>
-        More information on the scatter series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        More information about the scatter series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/scatter">documentation section</a>.
     </p> 
 </div>
 
@@ -46,29 +44,34 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { scatterData } from './scatter-data';
-import { ChartPlugin, ScatterSeries, Tooltip, Legend} from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ScatterSeries, Tooltip, Legend, Highlight } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
-     seriesData: scatterData.getMaleData,
-    seriesData1:  scatterData.getFemaleData,
+         series1: scatterData.getCluster1Value,
+         series2: scatterData.getCluster2Value,
+         series3: scatterData.getCluster3Value,
+         series4: scatterData.getCluster4Value,
+         series5: scatterData.getCluster5Value,
            //Initializing Primary X Axis
       primaryXAxis: {
+            minimum: 40,
+            maximum: 56,
             majorGridLines: { width: 0 },
-            minimum: 100,
-            maximum: 220,
-            edgeLabelPlacement: 'Shift',
-            title: 'Height in Inches'
+            title: 'Shoulder Breadth (cm)'
         },
         chartArea: {
             border: {
@@ -80,49 +83,36 @@ export default Vue.extend({
       //Initializing Primary Y Axis
          primaryYAxis:
             {
-                majorTickLines: {
-                    width: 0
-                },
-                minimum: 50,
-                maximum: 80,
+                mmajorTickLines: { width: 0 },
+                minimum: 70,
+                maximum: 140,
+                interval: 10,
                 lineStyle: {
                     width: 0
                 },
-                title: 'Weight in Pounds',
-                rangePadding: 'None'
+                rangePadding: 'None',
+                title: 'Bust Chest Circumference (cm)'
             },
 
         marker: {
-                    visible: false,
-                    width: 12,
-                    height: 12,
+                    width: 9,
+                    height: 9,
                     shape: 'Circle'
                 },
 
-         marker1: {
-                    visible: false,
-                    width: 12,
-                    height: 12,
-                    shape: 'Diamond'
-                },
-
-
-       width : Browser.isDevice ? '100%' : '80%',
-     
+       width : Browser.isDevice ? '100%' : '75%',
+       legend: {enableHighlight : true},
       tooltip: { 
             enable: true,
-             format: 'Weight: <b>${point.x} lbs</b> <br/> Height: <b>${point.y}"</b>'
          },
-      
-      title: "Height vs Weight"
     };
   },
   provide: {
-    chart: [ScatterSeries, Legend, Tooltip]
+    chart: [ScatterSeries, Legend, Tooltip, Highlight ]
   },
   methods: {
    
  },
  
-});
+};
 </script>

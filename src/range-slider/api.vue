@@ -17,7 +17,7 @@
                 <td style="width: 50%">
                     <div class="userselect">Value</div>
                 </td>
-                <td style="width: 50%;padding-right: 10px">
+                <td style="width: 50%">
                     <div>
                         <ejs-numerictextbox format="n0" :value="numericvalue" :change="valueChange"></ejs-numerictextbox>
                     </div>
@@ -27,7 +27,7 @@
                 <td style="width: 50%">
                     <div class="userselect">Min</div>
                 </td>
-                <td style="width: 50%;padding-right: 10px">
+                <td style="width: 50%">
                     <div>
                         <ejs-numerictextbox id='min'  format="n0" value="0" :change="minvalueChange"></ejs-numerictextbox>
                     </div>
@@ -37,7 +37,7 @@
                 <td style="width: 50%">
                     <div class="userselect">Max</div>
                 </td>
-                <td style="width: 50%;padding-right: 10px">
+                <td style="width: 50%">
                     <div>
                         <ejs-numerictextbox id='max'  format="n0" value="100" :change="maxvalueChange"></ejs-numerictextbox>
                     </div>
@@ -47,7 +47,7 @@
                 <td style="width: 50%">
                     <div class="userselect">Step</div>
                 </td>
-                <td style="width: 50%;padding-right: 10px">
+                <td style="width: 50%">
                     <div>
                         <ejs-numerictextbox id='step' value="1" format="n0" :change="stepvalueChange"></ejs-numerictextbox>
                     </div>
@@ -207,19 +207,21 @@
         user-select: none;
         /* Standard syntax */
     }
+
+    .e-bigger .e-sidebar .sb-mobile-right-pane .property-section .e-numerictextbox {
+        display: flex;
+        padding-left: 0;
+        text-align: center;
+    } 
 </style>
 
 <script>
-import Vue from "vue";
-import { SliderPlugin } from "@syncfusion/ej2-vue-inputs";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
+import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
-Vue.use(CheckBoxPlugin);
-Vue.use(SliderPlugin);
-Vue.use(NumericTextBoxPlugin);
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
      tooltip:  { isVisible: true, placement: 'Before', showOn: 'Hover' },
@@ -237,6 +239,11 @@ export default Vue.extend({
       numericvalue : 30
     };
   },
+  components: { 
+        'ejs-numerictextbox': NumericTextBoxComponent,
+        'ejs-checkbox': CheckBoxComponent,
+        'ejs-slider': SliderComponent,
+    },
   methods: {
     onChange: function(args) {
       this.numericvalue = args.value;
@@ -277,5 +284,5 @@ export default Vue.extend({
         document.getElementById('right-pane').addEventListener('scroll', this.onScroll.bind(this));
     }
  }
-});
+};
 </script>

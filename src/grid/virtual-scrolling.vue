@@ -7,19 +7,20 @@
     </div>
     <div>
         <div class='div-button'>
-            <ejs-button @click.native='onClick' cssClass='e-info'>Load 100K Data</ejs-button>
+            <ejs-button @click='onClick' cssClass='e-info'>Load 100K Data</ejs-button>
             <span id="popup" :style="display">
                 <span id="gif" class="imagepop"></span>
             </span>
             <span id="performanceTime">{{timeTaken}}</span>
         </div>
 
-        <ejs-grid ref='grid' :dataSource="virtualData" :enableVirtualization='true' :enableColumnVirtualization='true' height=600 :dataBound='hide'>
+        <ejs-grid ref='grid' :dataSource="virtualData" :enableVirtualization='true' :enableColumnVirtualization='true' height=400 :dataBound='hide' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='FIELD1' headerText='Player Name' width='120'></e-column>
+              <e-column field='SNo' headerText='S.No' width='140' :isPrimaryKey='true' :validationRules='validationSno'></e-column>
+                <e-column field='FIELD1' headerText='Player Name' width='140' :validationRules='validationRules'></e-column>
                 <e-column field='FIELD2' headerText='Year' width='100'></e-column>
-                <e-column field='FIELD3' headerText='Stint' width='120'></e-column>
-                <e-column field='FIELD4' headerText='TMID' width='120'></e-column>
+                <e-column field='FIELD3' headerText='Sports' width='160' :validationRules='validationRules' editType='dropdownedit'></e-column>
+                <e-column field='FIELD4' headerText='Country' width='160' editType='dropdownedit'></e-column>
                 <e-column field='FIELD5' headerText='LGID' width='120'></e-column>
                 <e-column field='FIELD6' headerText='GP' width='120'></e-column>
                 <e-column field='FIELD7' headerText='GS' width='120'></e-column>
@@ -45,7 +46,7 @@
                 <e-column field='FIELD27' headerText='Post Points' width='120'></e-column>
                 <e-column field='FIELD28' headerText='Post OREB' width='150'></e-column>
                 <e-column field='FIELD29' headerText='Post DREB' width='150'></e-column>
-                <e-column field='FIELD30' headerText='Post REB' width='150'></e-column>
+                <e-column field='FIELD30' headerText='Post REB' width='130' editType='numericedit' :validationRules='validationRules'></e-column>
             </e-columns>
         </ejs-grid>
     </div>
@@ -54,20 +55,20 @@
        <p>
         The Grid UI virtualization allows you to render only rows and columns visible within the view-port without buffering the entire datasource.
         Grid supports row and column virtualization. To enable row virtualization, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#enablevirtualization">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablevirtualization">
         enableVirtualization </a></code> property as true. For column virtualization, set <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#enablecolumnvirtualization">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablecolumnvirtualization">
         enableColumnVirtualization</a></code> property as true.
     </p>
     <p>
         Note: The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#height">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#height">
         height</a></code> property must be defined when enabling <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#enablevirtualization">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablevirtualization">
         enableVirtualization </a></code>.
     </p>
     <p>
-        In this demo, Grid enabled row and column virtualization. Click the Load 100K Data button to bind 100000 rows and 30 columns.
+        In this demo, Grid enabled row and column virtualization. Click the Load 100K Data button to bind 100000 rows and 30 columns. You can also perform the Edit action in this sample.
     </p>
     <p style='font-weight: 500'>Injecting Module:</p>
     <p>Grid component features are segregated into individual feature-wise modules. To use Virtual scrolling feature, we need
@@ -80,16 +81,13 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, VirtualScroll, GridComponent } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, VirtualScroll, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { DataManager, JsonAdaptor } from '@syncfusion/ej2-data'; 
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(GridPlugin);
-Vue.use(ButtonPlugin);
 
-function generateData(start: number, end: number) {
-      let datas: never[] = [];
+function generateData() {
+      let datas: any = [];
       let names: string[] = ['VINET', 'TOMSP', 'HANAR', 'VICTE', 'SUPRD', 'HANAR', 'CHOPS', 'RICSU', 'WELLI','HILAA', 'ERNSH', 'CENTC',
         'OTTIK', 'QUEDE', 'RATTC', 'ERNSH', 'FOLKO', 'BLONP', 'WARTH', 'FRANK', 'GROSR', 'WHITC', 'WARTH', 'SPLIR', 'RATTC', 'QUICK', 'VINET',
         'MAGAA', 'TORTU', 'MORGK', 'BERGS', 'LEHMS', 'BERGS', 'ROMEY', 'ROMEY', 'LILAS', 'LEHMS', 'QUICK', 'QUICK', 'RICAR', 'REGGC', 'BSBEV',
@@ -97,12 +95,21 @@ function generateData(start: number, end: number) {
         'OLDWO', 'ROMEY', 'LONEP', 'ANATR', 'HUNGO', 'THEBI', 'DUMON', 'WANDK', 'QUICK', 'RATTC', 'ISLAT', 'RATTC', 'LONEP', 'ISLAT', 'TORTU',
         'WARTH', 'ISLAT', 'PERIC', 'KOENE', 'SAVEA', 'KOENE', 'BOLID', 'FOLKO', 'FURIB', 'SPLIR', 'LILAS', 'BONAP', 'MEREP', 'WARTH', 'VICTE',
         'HUNGO', 'PRINI', 'FRANK', 'OLDWO', 'MEREP', 'BONAP', 'SIMOB', 'FRANK', 'LEHMS', 'WHITC', 'QUICK', 'RATTC', 'FAMIA'];
-      for (let i: number = start; i < (end > 100000 ? 100000 : end); i++) {
-          datas.push(<never>{
+      let sport: string[] = ['Cricket', 'Football', 'Tennis', 'Golf', 'Chess', 'Dodgeball', 'Racket', 'Archery', 'Climbing', 'Hunting', 'Carrom', 'Tag', 'Novuss',
+        'Subbuteo', 'Baseball', 'Madden NFL', 'Shuffleboard', 'Badminton', 'Hockey', 'Volleyball', 'Table Tennis', 'Golf', 'Cycling', 'Running', 'Walking', 'Wireball',
+        'Town ball', 'Tee ball', 'Stool ball', 'Stick ball'];
+      let country: string[] = ['India', 'Australia', 'Ballesteros', 'Belgium', 'Brazil', 'England', 'Ethiopia', 'Finland', 'France', 'Germany', 'Britain',
+        'Argentina', 'Jamaica', 'Kenya', 'Morocco', 'Ireland', 'Norway', 'Philippines', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Scottish', 'Serbia', 'Spain',
+        'Sweden', 'Switzerland', 'Netherlands', 'UK', 'Ukraine', 'US', 'Wales', 'West Indies', 'China', 'Hong Kong', 'Italy', 'Philippines', 'Turkey', 'Botswana',
+        'Sri Lanka', 'Algeria', 'Bangladesh', 'Egypt', 'Malaysia'];
+
+      for (let i: number = 0; i < 100000; i++) {
+          datas.push({
+            SNo: i + 1,
             FIELD1: names[Math.floor(Math.random() * names.length)],
             FIELD2: 1967 + i % 10,
-            FIELD3: Math.floor(Math.random() * 200),
-            FIELD4: Math.floor(Math.random() * 100),
+            FIELD3: sport[Math.floor(Math.random() * sport.length)],
+            FIELD4: country[Math.floor(Math.random() * country.length)],
             FIELD5: Math.floor(Math.random() * 2000),
             FIELD6: Math.floor(Math.random() * 1000),
             FIELD7: Math.floor(Math.random() * 100),
@@ -134,52 +141,47 @@ function generateData(start: number, end: number) {
       return datas;
     }
 
-class VirtualAdaptor extends JsonAdaptor {
-  constructor () {
-      super();
-  }
-  onPage(data: Object[], page: {pageIndex: number, pageSize: number}) {
-      return generateData(((page.pageIndex - 1) * page.pageSize), page.pageIndex* page.pageSize);
-  }
-
-  processResponse (result: {count: number}) {
-      result.count = 100000;
-      return result;
-  }
-}
-
-let data: DataManager = new DataManager({json: [], adaptor: new VirtualAdaptor()});
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
-        flag: true, date1: 0, date2: 0, virtualData: null, timeTaken: 'Time Taken: 0 ms',
-        display: {'display': 'none'}
+        flag: true, date1: 0, date2: 0, virtualData: [], timeTaken: 'Time Taken: 0 ms',
+        display: {'display': 'none'},
+        editSettings: { allowEditing: true, allowDeleting: true },
+        toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
+        validationSno: { required: true, digits: true },
+        validationRules: { required: true }
     };
   },
   methods: {
     show: function() {
-        this.display = {'display': 'inline-block'};
+        (this as GridComponent).display = {'display': 'inline-block'};
     },
     hide: function() {
-      if (this.flag && this.date1) {
-        this.date2 = new Date().getTime();
-        this.timeTaken = "Time Taken: " + (this.date2 - this.date1) + "ms";
-        this.flag = false;
+      if ((this as GridComponent).flag && (this as GridComponent).date1) {
+        (this as GridComponent).date2 = new Date().getTime();
+        (this as GridComponent).timeTaken = "Time Taken: " + ((this as GridComponent).date2 - (this as GridComponent).date1) + "ms";
+        ((this as GridComponent).$refs.grid).ej2Instances.editSettings.allowAdding= true;
+        (this as GridComponent).flag = false;
       }
-      this.display = {'display': 'none'};
+      (this as GridComponent).display = {'display': 'none'};
     },
     onClick: function (args: any) {
-      if (this.virtualData === null) {
-        this.show();      
-        this.virtualData = <any>data;
-        this.date1 = new Date().getTime();
-        this.flag = true;
+      if (!(this as GridComponent).virtualData.length) {
+        (this as GridComponent).show();      
+        (this as GridComponent).virtualData = generateData();
+        (this as GridComponent).date1 = new Date().getTime();
+        (this as GridComponent).flag = true;
       }
     }
   },
   provide: {
-      grid: [VirtualScroll]
+      grid: [VirtualScroll, Toolbar, Edit]
   }
-});
+};
 </script>

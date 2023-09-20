@@ -104,19 +104,18 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { Browser } from "@syncfusion/ej2-base";
 import {
-  ProgressBarPlugin,
-  ProgressAnnotation
+  ProgressBarComponent,
+  ProgressAnnotation,
+  ProgressBarAnnotationsDirective,
+  ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
 
-Vue.use(ProgressBarPlugin);
     let clearTimeout1;
     let clearTimeout2;
-    let annotationColors = { material: '#e91e63', fabric: '#0078D6', bootstrap: '#317ab9', bootstrap4: '#007bff', highcontrast: '#FFD939' };
+    let annotationColors = { fluent: '#0D6EFD', fluentdark: '#0D6EFD', material: '#e91e63', fabric: '#0078D6', bootstrap: '#317ab9', bootstrap4: '#007bff', highcontrast: '#FFD939', tailwind: '#4F46E5', bootstrap5: '#0D6EFD', bootstrap5dark: '#0D6EFD', bootstrapdark: '#9A9A9A', fabricdark: '#9A9A9A', materialdark: '#9A9A9A', tailwinddark: '#22D3EE', material3 : '#6750A4', material3dark: '#D0BCFF' };
 
-export default Vue.extend({
+export default {
   data: function() {
     return {
       value: 100,
@@ -133,6 +132,11 @@ export default Vue.extend({
       content3: '<div id="point1" style="font-size:20px;font-weight:bold;color:#b52123;fill:#b52123"><span>80%</span></div>',
     };
   },
+  components: { 
+    'ejs-progressbar': ProgressBarComponent,
+    'e-progressbar-annotations':  ProgressBarAnnotationsDirective,
+    'e-progressbar-annotation':  ProgressBarAnnotationDirective
+   },
   provide: {
     progressbar: [ProgressAnnotation]
   },
@@ -149,14 +153,14 @@ export default Vue.extend({
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
         if (args.progressBar.element.id === 'label-container') {
             // tslint:disable-next-line:max-line-length
-            args.progressBar.annotations[0].content = '<div id="point1" class="plabeltxt" style="color: ' + annotationColors[selectedTheme] + ' "><span>80%</span></div>';
+            args.progressBar.annotations[0].content = '<div id="point1" class="plabeltxt" style="color: ' + annotationColors[selectedTheme.replace(/-/i, '')] + ' "><span>80%</span></div>';
         } else if (args.progressBar.element.id === 'download-container') {
-            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme + '-Download.svg"></img>';
+            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme.replace(/-/i, '') + '-Download.svg"></img>';
         } else {
-            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme + '-pause.svg"></img>';
+            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme.replace(/-/i, '') + '-pause.svg"></img>';
         }
     },
-    progressCompleted1: function(args) {
+    progressCompleted1: function() {
       clearTimeout(clearTimeout1);
       clearTimeout1 = setTimeout(
       () => {
@@ -167,7 +171,7 @@ export default Vue.extend({
       2000);
 
     },
-    progressCompleted2: function(args) {
+    progressCompleted2: function() {
       clearTimeout(clearTimeout2);
       clearTimeout2 = setTimeout(
       () => {
@@ -179,5 +183,5 @@ export default Vue.extend({
 
     }
   }
-});
+};
 </script>

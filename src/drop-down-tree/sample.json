@@ -85,6 +85,22 @@
             ]
         },
         {
+            "url": "custom-template",
+            "name": "Custom Template",
+            "category": "Dropdown Tree",
+            "description": "This example demonstrates how to customize the display text of the selected items in the Vue drop-down tree component using the customTemplate.",
+            "sourceFiles": [
+                {
+                    "displayName": "custom-template.vue",
+                    "path": "src/drop-down-tree/custom-template.vue"
+                },
+                {
+                    "displayName": "custom-template-data.json",
+                    "path": "src/drop-down-tree/customTemplate-data.json"
+                }
+            ]
+        },
+        {
             "url": "filtering",
             "name": "Filtering",
             "category": "Dropdown Tree",

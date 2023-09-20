@@ -62,6 +62,10 @@
 #inline-control h4 {
     margin-bottom: 20px;
 }
+
+.fluent-dark #colorpicker-control h4 {
+    color: rgba(255, 255, 255, 0.64);
+}
 .e-bigger #inline-control h4 {
     font-size: 20px;
 }
@@ -108,12 +112,10 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { ColorPickerPlugin } from "@syncfusion/ej2-vue-inputs";
+import { ColorPickerComponent } from "@syncfusion/ej2-vue-inputs";
 
-Vue.use(ColorPickerPlugin);
-
-export default Vue.extend({
+export default {
+  components: { 'ejs-colorpicker': ColorPickerComponent },
   methods: {
     onChange: function(args) {
       document.getElementById("preview").style.backgroundColor =
@@ -127,5 +129,5 @@ export default Vue.extend({
         }
     });
   }
-});
+};
 </script>

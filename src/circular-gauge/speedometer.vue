@@ -2,68 +2,69 @@
 <div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
-<ejs-circulargauge ref="circulargauge" style='display:block' align='center' id='gauge-container' :title='title' centerY='75%' :titleStyle='titleStyle' :load='load'>
-<e-axes>
-    <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' 
-    :radius='radius' minimum=0 maximum=120 :annotations='annotations' :ranges='ranges'>
-      <e-pointers>
-          <e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :animation='animation' :cap='cap' :needleTail="needleTail"></e-pointer>
-      </e-pointers>  
-    </e-axis>
-</e-axes>
-</ejs-circulargauge>
+            <ejs-circulargauge ref="circulargauge" :background='background' style='display:block' align='center' id='gauge-container' :title='title' centerY='75%' :titleStyle='titleStyle' :load='load'>
+                <template v-slot:indicatorTemplate="{}">
+                <div id="templateWrap"><div class="des"><div id="pointerannotation" style="width:90px;text-align:center;font-size:20px;font-family:Segoe UI;">{{value}} km/h</div></div></div>
+                </template>
+                <e-axes>
+                    <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius' minimum=0 maximum=120 :ranges='ranges'>
+                        <e-annotations>
+                          <e-annotation angle='0' zIndex='1' radius='30%' :content="'indicatorTemplate'"></e-annotation>
+                        </e-annotations>
+                        <e-pointers>
+                          <e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :animation='animation' :cap='cap' :needleTail="needleTail"></e-pointer>
+                        </e-pointers>  
+                    </e-axis>
+                </e-axes>
+            </ejs-circulargauge>
         </div>
     </div>
-
-    <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin:10px">
+<div class="col-md-4 property-section">
+        <table id="property" title="Properties" style="width: 100%; margin-left: -20px;">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+         </colgroup>
             <tbody>
-               <tr>
-                        <td style="width: 40%">
-                                    <div class="property-text"> Show text labels</div>
-                                </td>
-                                <td style="width: 40%;">
-                                    <div>
-                                    <ejs-checkbox ref="text" id="showText" :change="onChangeText"></ejs-checkbox>
-                                    </div>
-                                </td>
-                        </tr>&nbsp;
-                        <tr>
-                            <td style="width: 40%">
-                                <div class="property-text"> Combine ranges</div>
-                            </td>
-                            <td style="width: 40%;">
-                                <div>
-                                <ejs-checkbox id="combineRange" ref="range" :change="onChangeCombineRange"></ejs-checkbox>
-                                </div>
-                            </td>
-                        </tr>&nbsp;
-                        <tr>
-                            <td style="width: 40%">
-                                <div class="property-text"> Gap between ranges</div>
-                            </td>
-                            <td style="width: 40%;">
-                                <div>
-                                <ejs-checkbox id="range" ref="gap" :change="onChangeRange"></ejs-checkbox>
-                                </div>
-                            </td>
-                    </tr>&nbsp;
+                    <tr style="height: 40px">
+                        <td>
+                            <div class="property-text" style="font-size: 14px;"> Combine Ranges</div>
+                        </td>
+                        <td>
+                            <div style="margin-top: -5px; margin-left: 40px">
+                            <ejs-checkbox id="combineRange" ref="range" :change="onChangeCombineRange"></ejs-checkbox>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="height: 40px">
+                        <td>
+                            <div class="property-text" style="font-size: 14px;"> Gap Between Ranges</div>
+                        </td>
+                        <td>
+                            <div style="margin-top: -5px; margin-left: 40px">
+                            <ejs-checkbox id="range" ref="gap" :change="onChangeRange"></ejs-checkbox>
+                            </div>
+                        </td>
+                    </tr>
             </tbody>
             <br/>
         </table>
     </div>
 <div id="action-description">
     <p>
-        This sample depicts the appearance of speedometer rendered using the circular gauge. The pointer is changed with random values dynamically.
+        This sample depicts the appearance of a speedometer rendered using the circular gauge. The pointer value is
+        dynamically updated with random values in this case.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to make the look of circular gauge like a speedometer. The labels can be changed to text values, gap can be added between the ranges, or the ranges can be combined to form single range using the options in the properties panel.
+        In this example, you can see how to make a circular gauge look like a speedometer. Using the options in the
+        properties panel, a gap can be added between ranges or ranges can be combined to form a single range.
     </p>
     <p>
-        For more information on ranges, refer to this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation">documentation</a> section.
+        More information on the circular gauge can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/"> documentation
+            section</a>.
     </p>
 </div>
 <svg style="height:0px;width:0px">
@@ -78,25 +79,31 @@
 </div>
 </template>
 <style scoped>
-    #control-container {
-        padding: 0px !important;
-    }
+.property-panel-content td {
+    padding-top: 0px;
+}
 </style>
 <script>
-import Vue from 'vue';
-import { CircularGaugePlugin, Annotations } from "@syncfusion/ej2-vue-circulargauge";
-import { CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
+import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, Annotations } from "@syncfusion/ej2-vue-circulargauge";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-Vue.use(CircularGaugePlugin);
-Vue.use(CheckBoxPlugin);
 
-let templateString = '<div id="templateWrap"><div class="des">'+
-                '<div id="pointerannotation" style="width:90px;text-align:center;font-size:20px;font-family:Roboto">${pointers[0].value} km/h</div></div></div>';
-export default Vue.extend({
+export default {
+components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-checkbox': CheckBoxComponent
+},
 data:function(){
     return{
             minimum: 0,
             maximum: 120,
+            background:'transparent',
             value: 40,
             radius: '120%',
             pointerRadius: '80%',
@@ -104,9 +111,9 @@ data:function(){
             majorTicks: { width: 0, },
             minorTicks: { width: 0 },
             pointerWidth: 7,
-            titleStyle: { size: '18px' },
+            titleStyle: { size: '18px', fontFamily: 'inherit' },
             labelStyle: { useRangeColor: false, position: 'Outside', autoAngle: true,
-            font: { size: '13px', fontFamily: 'Roboto' } },
+            font: { size: '13px', fontFamily: 'inherit' } },
             startAngle: 270, 
             endAngle: 90,
             color: '#757575',
@@ -121,14 +128,6 @@ data:function(){
                     color: '#757575',
                     length: '15%'
             },
-
-            annotations: [
-                {
-                    content: templateString,
-                    angle: 0, zIndex: '1',
-                    radius: '30%'
-                }
-            ],
             ranges: [
                 {
                     start: 0,
@@ -184,15 +183,15 @@ beforeDestroy () {
        clearInterval(this.intervalid1)
 },
 methods: {
-    /* custom code start */
-     load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        args.gauge.theme = 
-           selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+    load: function (args) {
+        /* custom code start */
+        let selectedTheme = location.hash.split("/")[1];
+        selectedTheme = selectedTheme ? selectedTheme : "Material";
+        args.gauge.theme =
+            (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+        /* custom code end */
     },
-    /* custom code end */
-    // Code for Property Panel
     setIntervalStart : function(){       
         let gauge = this.$refs.circulargauge.ej2Instances;   
             this.intervalid1 = setInterval(function(){   
@@ -221,53 +220,10 @@ methods: {
         circulargauge.axes[0].pointers[0].animation.enable = false;
         circulargauge.refresh();
     },
-    onChangeText: function(args) {
-      let circulargauge=this.$refs.circulargauge.ej2Instances;
-      if (args.checked === true) {
-            circulargauge.axes[0].majorTicks.interval = 10;
-            circulargauge.axisLabelRender = function(args) {
-                let text;
-                switch (parseInt(args.text)) {
-                    case 10:
-                        text = 'Ideal';
-                        break;
-                    case 30:
-                        text = 'Safe';
-                        break;
-                    case 50:
-                        text = 'Good';
-                        break;
-                    case 70:
-                        text = 'Ok';
-                        break;
-                    case 90:
-                        text = 'Risk';
-                        break;
-                    case 110:
-                        text = 'Danger';
-                        break;
-
-                    default:
-                        text = '';
-                        break;
-                }
-                args.text = text;
-            };
-            circulargauge.axes[0].pointers[0].animation.enable = false;
-            circulargauge.refresh();
-        } else {
-            circulargauge.axes[0].majorTicks.interval = 20;
-            circulargauge.axes[0].minimum = 0;
-            circulargauge.axes[0].maximum = 120;
-            circulargauge.axisLabelRender = function(args) {};
-            circulargauge.axes[0].pointers[0].animation.enable = false;
-            circulargauge.refresh();
-        }
-    },
     onChangeCombineRange: function(args) {
         let circulargauge = this.$refs.circulargauge.ej2Instances;
         let rangeCheckbox = this.$refs.gap.ej2Instances;
-        if (args.checked === true) {
+        if (args.checked) {
             rangeCheckbox.disabled = true;
             circulargauge.axes[0].ranges[0].start = 0;
             circulargauge.axes[0].ranges[0].end = 120;
@@ -339,6 +295,5 @@ methods: {
         rangeCheckbox.dataBind();
     }
 }
-})
+}
 </script>
-

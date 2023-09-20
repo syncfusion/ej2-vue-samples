@@ -20,11 +20,9 @@
 
 <script>
 
-import Vue from "vue";
-import { DatePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DatePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     let year = new Date().getFullYear();
     let month = new Date().getMonth();
@@ -34,8 +32,9 @@ export default Vue.extend({
       minDate: new Date(year, month, 7),
       maxDate: new Date(year, month, 27)
     };
-  }
-});
+  },
+  components: { 'ejs-datepicker': DatePickerComponent }
+};
 </script>
 
 

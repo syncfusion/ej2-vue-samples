@@ -54,10 +54,10 @@
                         <tr class="row" style="height: 45px">
                             <td class="e-field button-customization" style="width: 50%;">
                                 <ejs-button id="seperateSearch" type="button" content="Search"
-                                v-on:click.native="searchOnClick"></ejs-button>
+                                v-on:click="searchOnClick"></ejs-button>
                             </td>
                             <td class="e-field button-customization" style="width: 50%;">
-                                <ejs-button id="clear" type="button" content="Clear" v-on:click.native="clearOnClick"></ejs-button>
+                                <ejs-button id="clear" type="button" content="Clear" v-on:click="clearOnClick"></ejs-button>
                             </td>
                         </tr>
                     </tbody>
@@ -79,7 +79,6 @@
     </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample .header-customization {
         padding-bottom: 10px;
@@ -99,25 +98,28 @@
         }
     }
 </style>
-<!-- custom code end -->
 <script>
-    import Vue from "vue";
     import { Predicate, Query, DataManager } from '@syncfusion/ej2-data';
     import { scheduleData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { DatePickerPlugin, ChangeEventArgs } from '@syncfusion/ej2-vue-calendars';
-    import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons';
-    import { GridPlugin } from '@syncfusion/ej2-vue-grids'
-    Vue.use(SchedulePlugin);
-    Vue.use(GridPlugin);
-    Vue.use(DatePickerPlugin);
-    Vue.use(ButtonPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { DatePickerComponent } from '@syncfusion/ej2-vue-calendars';
+    import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+    import { GridComponent, ColumnDirective, ColumnsDirective } from '@syncfusion/ej2-vue-grids'
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-datepicker': DatePickerComponent,
+          'ejs-button': ButtonComponent,
+          'ejs-grid': GridComponent,
+          'e-column': ColumnDirective,
+          'e-columns': ColumnsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' },
                 data: []
             }
@@ -217,5 +219,5 @@
                 }
             }
         },
-    });
+    }
 </script>

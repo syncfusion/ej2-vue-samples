@@ -6,7 +6,7 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates the default functionalities of the TreeView. Click on node to select it, and click on icon or double click on node to expand/collapse it. The child nodes will be loaded on expand the parent node.</p>
+    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the default functionalities of the TreeView. Click on node to select it, and click on icon or double click on node to expand/collapse it. The child nodes will be loaded on expand the parent node.</p>
 </div>
 
 <div id="description">
@@ -27,17 +27,17 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import * as dataSource from './default-data.json';
 
-Vue.use(TreeViewPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
             fields: { dataSource: dataSource.defaultData , id: 'id', text: 'name', child: 'subChild' },
         };
     }
-});
+}
 </script>

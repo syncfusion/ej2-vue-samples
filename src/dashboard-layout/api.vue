@@ -23,25 +23,25 @@
             <div class="form-group row">
                 <label for="settings-margin-input" class="col-sm-4 col-form-label form-label">CellSpacing</label>
                 <div class="col-sm-8">
-                    <ejs-numerictextbox placeholder="Ex: 10" :min="1" :max="20" :floatLabelType="Never" :change="valueChange" :value="value" id="cellspacing"></ejs-numerictextbox>
+                    <ejs-numerictextbox placeholder="Ex: 10" :min="1" :max="20" floatLabelType="Never" :change="valueChange" :value="value" id="cellspacing"></ejs-numerictextbox>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="settings-bubble-up-input" class="col-sm-4 col-form-label form-label">AllowFloating</label>
                 <div class="col-sm-8">
-                    <ejs-checkbox :checked="true" :change="onChange" id="floating"></ejs-checkbox>
+                    <ejs-checkbox :checked="true" :change="floating" id="floating"></ejs-checkbox>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="settings-bubble-up-input" class="col-sm-4 col-form-label form-label">AllowResizing</label>
                 <div class="col-sm-8">
-                    <ejs-checkbox :checked="true" :change="onChange" id="resizing"></ejs-checkbox>
+                    <ejs-checkbox :checked="true" :change="resizing" id="resizing"></ejs-checkbox>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <ejs-button id="add" cssClass="e-primary" v-on:click.native="addPanel">Add panel</ejs-button>
-                    <ejs-button id="remove" cssClass="e-danger" v-on:click.native="removePanel" style="margin-left: 3px">Remove panel</ejs-button>
+                    <ejs-button id="add" cssClass="e-primary" v-on:click="addPanel">Add panel</ejs-button>
+                    <ejs-button id="remove" cssClass="e-danger" v-on:click="removePanel" style="margin-left: 3px">Remove panel</ejs-button>
                 </div>
             </div>
         </div>
@@ -62,16 +62,19 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-import { ButtonPlugin, CheckBoxPlugin } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBoxPlugin } from "@syncfusion/ej2-vue-inputs";
-Vue.use(NumericTextBoxPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DashboardLayoutPlugin);
+import { DashboardLayoutComponent, PanelsDirective, PanelDirective } from "@syncfusion/ej2-vue-layouts";
+import { ButtonComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-dashboardlayout': DashboardLayoutComponent,
+    'e-panel': PanelDirective,
+    'e-panels': PanelsDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-numerictextbox': NumericTextBoxComponent
+  },
   data: function() {
     return {
         count: 5,
@@ -80,7 +83,7 @@ export default Vue.extend({
     };
   },
   methods:{
-      addPanel: function(args){
+      addPanel: function(){
           this.count = this.count + 1;
           var ele = document.createElement('div');
           ele.id = this.count.toString();
@@ -91,26 +94,24 @@ export default Vue.extend({
         }];
         this.$refs.dashboard.$el.ej2_instances[0].addPanel(panel[0]);
       },
-      removePanel: function (args) {
+      removePanel: function () {
         if (this.$refs.dashboard.$el.ej2_instances[0].panels.length > 0) {
             for (var i = this.$refs.dashboard.$el.ej2_instances[0].panels.length - 1; i < this.$refs.dashboard.$el.ej2_instances[0].panels.length; i++) {
                 this.$refs.dashboard.$el.ej2_instances[0].removePanel(this.$refs.dashboard.$el.ej2_instances[0].panels[this.$refs.dashboard.$el.ej2_instances[0].panels.length - 1 - i].id);
             }
         }
       },
-    onChange: function(args) {
-        if (args.event.currentTarget.id === "floating") {
-            this.$refs.dashboard.$el.ej2_instances[0].allowFloating = args.checked;
-        }
-        if (args.event.currentTarget.id === "resizing") {
-            this.$refs.dashboard.$el.ej2_instances[0].allowResizing = args.checked;
-        }
-    },
-    valueChange: function(args) {
+      floating: function(args) {
+        this.$refs.dashboard.$el.ej2_instances[0].allowFloating = args.checked;
+      },
+      resizing: function(args) {
+        this.$refs.dashboard.$el.ej2_instances[0].allowResizing = args.checked;
+      },
+      valueChange: function(args) {
         this.$refs.dashboard.$el.ej2_instances[0].cellSpacing = [parseInt(args.value, 10), parseInt(args.value, 10)];
-    }
+     }
   }
-});
+}
 </script>
 
 <style>
@@ -198,5 +199,9 @@ body.highcontrast .dashboard-api #api_dashboard.e-dashboardlayout.e-control .e-p
     height: 16px;
     width: 16px;
 }
+
+ .property-section.dashboard .e-input-group.e-control-wrapper {
+        width:122px;
+    }
 
 </style>

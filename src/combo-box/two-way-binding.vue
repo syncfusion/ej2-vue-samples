@@ -33,12 +33,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
-Vue.use(ComboBoxPlugin);
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-combobox': ComboBoxComponent
+  },
   data: function() {
     return {
       waterMark: "eg. Basketball",
@@ -46,7 +47,7 @@ export default Vue.extend({
       value:null
     };
   }
-});
+}
 </script>
 
 

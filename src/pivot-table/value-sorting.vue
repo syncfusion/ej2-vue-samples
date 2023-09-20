@@ -26,9 +26,8 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   IDataSet,
   FieldList
 } from "@syncfusion/ej2-vue-pivotview";
@@ -36,10 +35,12 @@ import { extend, enableRipple } from '@syncfusion/ej2-base';
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
 /* tslint:disable */
 declare var require: any;
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -74,7 +75,7 @@ export default Vue.extend({
   provide: {
     pivotview: [FieldList]
   }
-});
+}
 </script>
 
 <style scoped>

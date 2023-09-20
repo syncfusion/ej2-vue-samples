@@ -27,14 +27,15 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DateTimePickerPlugin } from "@syncfusion/ej2-vue-calendars";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DateTimePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { FormValidator, FormValidatorModel } from "@syncfusion/ej2-inputs";
-Vue.use(DateTimePickerPlugin);
-Vue.use(ButtonPlugin);
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-datetimepicker': DateTimePickerComponent,
+    'ejs-button': ButtonComponent
+  },
   data: function() {
     return {
       success: "",
@@ -82,7 +83,7 @@ export default Vue.extend({
       e.preventDefault();
     }
   }
-});
+}
 </script>
 
 

@@ -33,19 +33,25 @@
     </div>
 
     <div id="action-description">
-      <p>This sample visualizes stock chart with OHLC series.</p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-stock-chart">Vue Stock Chart</a> example visualizes the AAPL stock price with OHLC chart. Tooltip and crosshair show the information about the data and period.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>HILO Open Close series</code> is used to represent selected data value.
+        In this example, you can see how to render and configure the stock chart with <code>HILO Open Close</code> type series. The horizontal lines on the left and the right are used to show the open and close values of the stock, and the vertical line represents both high and low values.
       </p>
-      <br>
-           <p style="font-weight: 500">Injecting Module</p>
       <p>
-        The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
+      </p>
+
+           <p style="font-weight: 500"><b>Injecting Module</b></p>
+      <p>
+        The stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
         <code>DateTime</code> and <code>HiloOpenCloseSeries</code> module using <code> provide: { stockchart: [ DateTime, HiloOpenCloseSeries] },</code> method.
+      </p>
+      <p>
+        More information about the series type can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
       </p>
 
     </div>
@@ -54,11 +60,12 @@
   <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { googl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
   DateTime,
   Tooltip,
   RangeTooltip,
@@ -69,7 +76,6 @@ import {
   HiloOpenCloseSeries,
   HiloSeries,
   RangeAreaSeries,
-  Trendlines,
   EmaIndicator,
   RsiIndicator,
   BollingerBands,
@@ -83,13 +89,16 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective
+  },
   data: function() {
     return {
       seriesData: googl,
@@ -110,7 +119,7 @@ export default Vue.extend({
       },
       title: 'AAPL Stock Price',
       animation: { enable: true },
-      tooltip: { enable: true, shared: true },
+      tooltip: { enable: true, shared: true, position: 'Nearest' },
       chartArea: {
         border: {
           width: 0
@@ -135,7 +144,6 @@ export default Vue.extend({
       HiloOpenCloseSeries,
       HiloSeries,
       RangeAreaSeries,
-      Trendlines,
       EmaIndicator,
       RsiIndicator,
       BollingerBands,
@@ -158,5 +166,5 @@ export default Vue.extend({
         }
     } 
   }
-});
+};
 </script>

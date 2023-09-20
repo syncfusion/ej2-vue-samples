@@ -28,17 +28,19 @@
     <p>Row drag and drop feature can be enabled by settting <code>allowRowDragAndDrop</code> property as true. 
     </p>
     <p>
-	 Gantt component features are segregated into individual feature-wise modules. To use row, drag and drop feature we need to inject <code>RowDD</code> and <code>Edit</code> modules.
+        Gantt component features are segregated into individual feature-wise modules. To use row, drag and drop feature we need to inject <code>RowDD</code> and <code>Edit</code> modules.
     </p>
 </div>
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Edit, RowDD, Selection } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Edit, RowDD, Selection } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -78,5 +80,5 @@ export default Vue.extend({
   provide: {
       gantt: [Edit, RowDD, Selection]
   }
-});
+}
 </script>

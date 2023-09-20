@@ -3,7 +3,8 @@
     <div class="control-section">
         <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :legendSettings='legendSettings' align="center" :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
-     <div id="tooltip" style="display:none">
+
+    <div id="Tooltip" style="display:none">
         <div id='displayAirports'>
             <div id="airplaneicon" style="float:left;height:32px;width:32px;">
             </div>
@@ -72,21 +73,24 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { TreeMapPlugin,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
+import { TreeMapComponent,TreeMapTooltip,TreeMapLegend} from "@syncfusion/ej2-vue-treemap";
 import { Airport_Count } from '../treemap/treemap-data/airport-count';
-Vue.use(TreeMapPlugin);
-export default Vue.extend({
+
+export default {
+components: {
+    'ejs-treemap': TreeMapComponent
+},
 data:function(){
 return{
         tooltipSettings: {
             visible: true,
-            template: '#tooltip'
+            template: '#Tooltip'
         },
         titleSettings: {
             text: 'Country wise International Airport count in South America',
             textStyle: {
-                size: '15px'
+                size: '15px',
+                fontFamily: 'Segoe UI'
             }
         },
         dataSource: Airport_Count,
@@ -95,14 +99,18 @@ return{
         legendSettings: {
             visible: true,
             position: 'Top',
-            shape: 'Rectangle'
+            shape: 'Rectangle',
+            textStyle: {
+                fontFamily: 'Segoe UI'
+            }
         },
       leafItemSettings: {
             showLabels: true,
             labelPath: 'State',
             labelPosition: 'Center',
             labelStyle: {
-                size: '13px'
+                size: '13px',
+                fontFamily: 'Segoe UI'
             },
             fill: '#6699cc',
             border: { width: 1, color: 'white' },
@@ -151,9 +159,10 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
-        args.treemap.theme = (theme.charAt(0).toUpperCase() + theme.slice(1));
+        args.treemap.theme = (theme.charAt(0).toUpperCase() +
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
 }
 /* custom code end */
-})
+}
 </script>

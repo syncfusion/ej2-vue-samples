@@ -206,15 +206,17 @@
     </div>
 
     <div id="action-description">
-      <p>This sample visualizes stock data with spline series. Period and range selector help us to navigate different of data.</p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-stock-chart">Vue Stock Chart</a> example visualizes the AAPL stock price with spline chart. Crosshair show the information about the data and period.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the Stock chart.
-        <code>SplineSeries</code> is used to represent selected data value.
+        In this example, you can see how to render and configure a stock chart with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockEventsSettings/">StockEvents</a> to mark specific events such as market open and close, highest or lowest price reached, year/quarter start and end on a chart for a specific date.
       </p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p>
+        <code>Crosshair</code> is enabled in this example. To see the crosshair in action, hover the chart or tap on touch enabled devices.
+      </p>
+      
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         The Stock chart component features are segregated into individual feature-wise modules. To use date-time axis, inject
         the
@@ -222,16 +224,23 @@
         <code>SplineSeries</code> module using
         <code>provide: { stockchart: [ DateTime, SplineSeries] },</code> method.
       </p>
+      <p>
+        More information about the stock events can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/stock-events">documentation section</a>.
+      </p>
     </div>
   </div>
 </template>
  
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import { aapl } from "./stock-data";
 import {
-  StockChartPlugin,
+  StockChartComponent,
+  StockChartSeriesCollectionDirective,
+  StockChartSeriesDirective,
+  StockEventsDirective,
+  StockEventDirective,
   DateTime,
   SplineSeries,
   Crosshair,
@@ -256,15 +265,20 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-Vue.use(StockChartPlugin);
-
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
 
-export default Vue.extend({
+export default{
+  components: {
+    'ejs-stockchart': StockChartComponent,
+    'e-stockchart-series-collection': StockChartSeriesCollectionDirective,
+    'e-stockchart-series': StockChartSeriesDirective,
+    'e-stockchart-stockevents': StockEventsDirective,
+    'e-stockchart-stockevent': StockEventDirective
+  },
   data: function() {
     return {
       seriesData: aapl,
@@ -316,7 +330,7 @@ export default Vue.extend({
       borderCircle: { color: '#f48a21'},
       title: "AAPL Stock Price",
       tooltip: { enable: true },
-      crosshair: { enable: true },
+      crosshair: { enable: true, lineType: 'Both' },
       border: { width: 0 },
       onAxis: false
     };
@@ -348,5 +362,5 @@ export default Vue.extend({
     ]
   },
   methods: {}
-});
+};
 </script>

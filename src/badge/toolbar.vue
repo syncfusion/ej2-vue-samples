@@ -32,6 +32,19 @@
         margin-top: 117px;
     }
 
+    body.bootstrap5 .badge-toolbar .e-toolbar,
+    body.material .badge-toolbar .e-toolbar,
+    body.tailwind .badge-toolbar .e-toolbar{
+        border: 1px solid #dee2e6;
+    }
+
+    .tailwind-dark .sample_container.badge-toolbar,
+    .bootstrap5-dark .sample_container.badge-toolbar,
+    .bootstrap-dark .sample_container.badge-toolbar,
+    .fabric-dark .sample_container.badge-toolbar {
+        border: 1px solid #dddddd;
+    }
+
     @media only screen and (max-width: 550px) {
         .badge-toolbar .sample_container #toolbar .header {
             display: none;
@@ -79,12 +92,9 @@
 </style>
 
 <script>
-import Vue from "vue";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-import { Browser } from '@syncfusion/ej2-base';
-Vue.use(ToolbarPlugin);
+import { ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
 
-export default Vue.extend({
+export default {
     data: function() {
         return {
             notification: '<div class="header"> Notification </div>',
@@ -108,8 +118,13 @@ export default Vue.extend({
             '</div>'
         };
     },
+    components: { 
+      'ejs-toolbar': ToolbarComponent,
+      'e-items': ItemsDirective,
+      'e-item': ItemDirective
+    },
     mounted: function() {
     }
 
-});
+};
 </script>

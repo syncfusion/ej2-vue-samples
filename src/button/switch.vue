@@ -80,13 +80,11 @@
 <!-- custom code end -->
 
 <script>
-import Vue from "vue";
-import { SwitchPlugin } from "@syncfusion/ej2-vue-buttons";
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 import { rippleMouseHandler } from "@syncfusion/ej2-buttons";
 
-Vue.use(SwitchPlugin);
-
-export default Vue.extend({
+export default {
+    components: { 'ejs-switch': SwitchComponent },
     mounted: function(){
         var elemArray = document.querySelectorAll('.switch-control label');
         for (var i = 0, len = elemArray.length; i < len; i++) {
@@ -98,5 +96,5 @@ export default Vue.extend({
             rippleSpan && rippleMouseHandler(e, rippleSpan);
         }
     }
-});
+}
 </script>

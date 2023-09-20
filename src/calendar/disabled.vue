@@ -25,11 +25,9 @@
 
 <script>
 
-import Vue from "vue";
-import { CalendarPlugin } from "@syncfusion/ej2-vue-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(CalendarPlugin);
-export default Vue.extend({
+export default {
   methods: {
     disableDate: function(args) {
       if (args.date.getDay() === 0 || args.date.getDay() === 6) {
@@ -40,8 +38,9 @@ export default Vue.extend({
       document.getElementById("date_label").textContent =
         "Selected Value: " + args.value.toLocaleDateString();
     }
-  }
-});
+  },
+  components: { 'ejs-calendar': CalendarComponent }
+};
 </script>
 
 
@@ -57,7 +56,15 @@ export default Vue.extend({
   max-width: 300px;
   margin: 0 auto;
 }
+
+body.fluent-dark #date_label,
+body.bootstrap5-dark #date_label,
+body.tailwind-dark #date_label,
+body.material-dark #date_label,
+body.material3-dark #date_label,
+body.fabric-dark #date_label,
+body.bootstrap-dark #date_label,
 body.highcontrast #date_label {
-  color: white;
-}
+    color: white;
+} 
 </style>

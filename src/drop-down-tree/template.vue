@@ -3,7 +3,43 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; max-width:350px; padding-top: 5px;">
             <ejs-dropdowntree id='multi-template' :fields='fields' cssClass='ddt-template' :placeholder='watermark'
-             :headerTemplate='hTemplate' :itemTemplate='iTemplate' :footerTemplate='fTemplate' popupHeight="210px" width="100%"></ejs-dropdowntree>
+             :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :footerTemplate="'fTemplate'" popupHeight="210px" width="100%">
+                <template v-slot:hTemplate="{}">
+                    <div class="head"> Employee List </div>
+                </template>
+                <template v-slot:iTemplate="{data}">
+                   <div>
+                       <img class="eimage" :src="data.eimg" />
+                        <div>
+                            <div class="ename"> {{data.name}} </div>
+                            <div class="ejob"> {{data.job}} </div>
+                            <span class="e-badge icons">
+                                <span :class="data.status"></span>
+                            </span>
+                        </div>
+                    </div>
+                </template>
+                <template v-slot:fTemplate="{}">
+                    <div class="footer">
+                        <div class="footer-content">
+                            <span class="e-badge">
+                                <span class="display available">
+                                    <span class="status online"></span>
+                                    Available
+                                </span>
+                                <span class="display meeting">
+                                    <span class="status busy"></span> 
+                                    Busy
+                                </span>
+                                <span class="display unavailable">
+                                    <span class="status away"></span>
+                                    Away
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </template>
+             </ejs-dropdowntree>
         </div>
     </div>
     <div id="action-description">
@@ -63,6 +99,41 @@
     .highcontrast .ddt-template .footer-content .e-badge {
         color: #fff;
         background-color: #000;
+    }
+
+    .material-dark .ddt-template .head,
+    .material-dark .ddt-template .footer,
+    .material-dark .ddt-template .footer-content .e-badge {
+        color: #fff;
+        background-color: #333;
+    }
+
+    .fabric-dark .ddt-template .head,
+    .fabric-dark .ddt-template .footer,
+    .fabric-dark .ddt-template .footer-content .e-badge {
+        color: #fff;
+        background-color: #3333;
+    }
+
+    .bootstrap-dark .ddt-template .head,
+    .bootstrap-dark .ddt-template .footer,
+    .bootstrap-dark .ddt-template .footer-content .e-badge {
+        color: #fff;
+        background-color: #1A1A1A;
+    }
+
+    .tailwind-dark .ddt-template .head,
+    .tailwind-dark .ddt-template .footer,
+    .tailwind-dark .ddt-template .footer-content .e-badge {
+        color: #fff;
+        background-color: #1f2937;
+    }
+
+    .bootstrap5-dark .ddt-template .head,
+    .bootstrap5-dark .ddt-template .footer,
+    .bootstrap5-dark .ddt-template .footer-content .e-badge {
+        color: #fff;
+        background-color: #212529;
     }
 
     .e-bigger .e-ddt.ddt-template .e-treeview .e-fullrow,
@@ -144,63 +215,18 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { DropDownTreePlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './template-data.json';
+import { DropDownTreeComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './template-data.json';
 
-Vue.use(DropDownTreePlugin);
-
-var headerVue = Vue.component("headerTemplate", {
-  template: '<div class="head"> Employee List </div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var itemVue = Vue.component("itemTemplate", {
-  template: '<div><img class="eimage" :src="data.eimg" />' +
-            '<div><div class="ename"> {{data.name}} </div><div class="ejob"> {{data.job}} </div> <span class="e-badge icons"> <span :class="data.status"></span> </span> </div></div>',
-    data() {
-    return {
-      data: {}
-    };
-  }
-});
-var footerVue = Vue.component("footerTemplate", {
-  template: '<div class="footer"> <div class="footer-content"><span class="e-badge">'+
-            '<span class="display available"> <span class="status online"></span>Available</span>'+
-            '<span class="display meeting"><span class="status busy"></span> Busy</span>'+
-            '<span class="display unavailable"><span class="status away"></span>Away</span></span></div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-dropdowntree': DropDownTreeComponent
+    },
     data: function() {
         return {
             fields: { dataSource: data.templateData, value: 'id', parentValue: 'pid', text: 'name', hasChildren: 'hasChild' },
-            watermark: 'Select  an employee',
-            hTemplate: function(e) {
-                return {
-                    template: headerVue
-                };
-            },
-            iTemplate: function(e) {
-                return {
-                    template: itemVue
-                };
-            },
-            fTemplate: function(e) {
-                return {
-                    template: footerVue
-                };
-            },
+            watermark: 'Select  an employee'
         };
     }
-});
+}
 </script>

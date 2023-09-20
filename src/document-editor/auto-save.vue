@@ -1,15 +1,15 @@
 <template>
 <div class="control-section">
-    <div  class="col-lg-9 control-section">
+    <div  class="col-lg-9">
         <div class="default-section">
             <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
                     <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
                 </div>
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click.native="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl"  :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
@@ -24,7 +24,7 @@
             <tr>
                 <td>
                     <div class="evtbtn" style="padding-bottom: 10px">
-                        <ejs-button v-on:click.native="clearLog" id="clear">Clear</ejs-button>
+                        <ejs-button v-on:click="clearLog" id="clear">Clear</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -37,7 +37,7 @@
         <p>In this example, you can automically save the edited content in regular interval of time.</p>
         <p>It helps reduce the risk of data loss by saving an open document automatically at customized intervals.</p>
         <p style="display: block"> More information about the document editor features can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/document-editor">documentation section.</a>
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/how-to/auto-save-document-in-document-editor/">documentation section.</a>
         </p>
     </div>
 </div>
@@ -104,23 +104,20 @@
 
 </style>
 <script>
-import Vue from "vue";
-import { DocumentEditorContainerPlugin,DocumentEditorContainerComponent,Toolbar } from "@syncfusion/ej2-vue-documenteditor";
-import { DropDownButtonPlugin } from "@syncfusion/ej2-vue-splitbuttons";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { defaultDocument } from "./data";
 
-Vue.use(DocumentEditorContainerPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(DropDownButtonPlugin);
-
-
-export default Vue.extend({
-  components: {
+export default {
+    components: {
+        'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
+        'ejs-dropdownbutton': DropDownButtonComponent,
+        'ejs-button': ButtonComponent
     },
     data: function() {
         return {
-          hostUrl : 'https://ej2services.syncfusion.com/production/web-services/',
+          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
           documentName : 'Auto Save',
           documentTitle: 'Untitled Document',
           contentChanged:false,
@@ -204,7 +201,6 @@ export default Vue.extend({
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(defaultDocument));
           obj.documentName='Auto Save';
-          this.$refs.doceditcontainer.ej2Instances.serviceUrl = this.hostUrl + 'api/documenteditor/';
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
@@ -231,5 +227,5 @@ export default Vue.extend({
             };
        });
     }
-});
+};
 </script>

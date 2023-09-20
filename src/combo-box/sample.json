@@ -2,6 +2,7 @@
     "name": "ComboBox",
     "directory": "combo-box",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -49,6 +50,17 @@
             "description": "This example demonstrates how to customize the appearance of each item in the Vue combo box component pop-up list using the template.",
             "sourceFiles":[
                 { "displayName": "template.vue", "path":"src/combo-box/template.vue" },
+                { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "virtual-scroll",
+            "name": "Virtualization",
+            "category": "ComboBox",
+            "type": "new",
+            "description": "This example demonstrates how to utilize the virtual scrolling support of the Vue combo box component.",
+            "sourceFiles":[
+                { "displayName": "virtual-scroll.vue", "path":"src/combo-box/virtual-scroll.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
             ]
         },

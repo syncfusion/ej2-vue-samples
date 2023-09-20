@@ -19,7 +19,7 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div id='columnddl'>
-                     <ejs-dropdownlist ref='columns' width='110px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields' :change="onColChange"></ejs-dropdownlist>
+                     <ejs-dropdownlist ref='columns' width='110px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
@@ -29,20 +29,20 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div>
-                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
             <td style="width: 30%">
                 <div>
-                    <ejs-button ref='sort' v-on:click.native="sort">Sort</ejs-button>
+                    <ejs-button ref='sort' v-on:click="sort">Sort</ejs-button>
                 </div>
 
             </td>
             <td style="width: 70%; padding:10px 10px 10px 0px">
                 <div>
-                    <ejs-button ref='clear' v-on:click.native="clear">Clear</ejs-button>
+                    <ejs-button ref='clear' v-on:click="clear">Clear</ejs-button>
                 </div>
             </td>
         </tr>
@@ -88,18 +88,20 @@
   </div>
   </template>
   <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, TreeGridComponent, Sort, Column } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnsDirective, ColumnDirective, Sort, Column } from "@syncfusion/ej2-vue-treegrid";
 import { SortDirection } from "@syncfusion/ej2-vue-grids";
-import { DropDownListPlugin, ChangeEventArgs, DropDownListComponent} from "@syncfusion/ej2-vue-dropdowns";
+import { ChangeEventArgs, DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
-import { ButtonPlugin, ClickEventArgs} from '@syncfusion/ej2-vue-buttons';
+import { ButtonComponent, ClickEventArgs } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(TreeGridPlugin);
-Vue.use(DropDownListPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective,
+    'ejs-button': ButtonComponent,
+    'ejs-dropdownlist': DropDownListComponent,
+  },
   data: () => {
     return {
       data: sampleData,
@@ -121,13 +123,13 @@ export default Vue.extend({
     },
    methods:{
        sort: function(e: ClickEventArgs): void {
-        let columnName = (<DropDownListComponent>this.$refs.columns).ej2Instances.value;
-        let sortType = (<DropDownListComponent>this.$refs.direction).ej2Instances.value;
-        (<TreeGridComponent>this.$refs.treegrid).sortByColumn(columnName, <SortDirection>sortType, false);
+        let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
+        let sortType = ((this as DropDownListComponent).$refs.direction).ej2Instances.value;
+        ((this as TreeGridComponent).$refs.treegrid).sortByColumn(columnName, <SortDirection>sortType, false);
     },
        clear: function(e: ChangeEventArgs): void {       
-        (<TreeGridComponent>this.$refs.treegrid).clearSorting();
+        ((this as TreeGridComponent).$refs.treegrid).clearSorting();
     }
   }
-});
+};
 </script>

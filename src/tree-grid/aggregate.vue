@@ -82,21 +82,26 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, TreeGridComponent, Aggregate, Page } from "@syncfusion/ej2-vue-treegrid";
+import { createApp } from "vue";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, AggregatesDirective, AggregateDirective, Aggregate, Page } from "@syncfusion/ej2-vue-treegrid";
 import { summaryRowData } from "./data-source";
-import { CheckBoxPlugin, CheckBoxComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
+import { CheckBoxComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
 
-Vue.use(TreeGridPlugin);
-Vue.use(CheckBoxPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective,
+    'e-aggregates': AggregatesDirective,
+    'e-aggregate': AggregateDirective,
+    'ejs-checkbox': CheckBoxComponent
+  },  
   data: () => {
     return {
       data: summaryRowData,
       maxTemplate: function() {
         return {
-            template: Vue.component('maxTemplate', {
+            template: createApp({}).component('maxTemplate', {
             template: `<span>Max: {{data.Max}}</span>`,
             data: function () {return {data: {data: {}}};}
             })
@@ -104,7 +109,7 @@ export default Vue.extend({
       },
       minTemplate: function() {
         return {
-            template : Vue.component('minTemplate', {
+            template : createApp({}).component('minTemplate', {
             template: `<span>Minimum: {{data.Min}}</span>`, 
             data: function () {return { data: {data: {}}};}
             })
@@ -118,13 +123,13 @@ export default Vue.extend({
   methods: {
       onchange: function( args: ChangeEventArgs): void {
         if (args.checked) {
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.aggregates[0].showChildSummary = true;
-            (<TreeGridComponent>this.$refs.treegrid).refresh();
+            ((this as any).$refs.treegrid).ej2Instances.aggregates[0].showChildSummary = true;
+            ((this as any).$refs.treegrid).refresh();
          } else {
-            (<TreeGridComponent>this.$refs.treegrid).ej2Instances.aggregates[0].showChildSummary = false;
-            (<TreeGridComponent>this.$refs.treegrid).refresh();
+            ((this as any).$refs.treegrid).ej2Instances.aggregates[0].showChildSummary = false;
+            ((this as any).$refs.treegrid).refresh();
         }
   }
   }
-});
+}
 </script>

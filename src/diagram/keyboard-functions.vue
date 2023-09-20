@@ -158,9 +158,8 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  DiagramPlugin,
+  DiagramComponent,
   NodeModel,
   UndoRedo,
   Node,
@@ -177,7 +176,6 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { keyBoardData } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
 let shape = {
   type: "Basic",
   shape: "Ellipse",
@@ -185,7 +183,10 @@ let shape = {
 };
 let diagramInstance;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent
+  },  
   data: function() {
     return {
       //Initializes diagram control
@@ -236,7 +237,7 @@ export default Vue.extend({
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
   }
-});
+}
 
 //Custom command for Diagraming elements.
 function getCommandManagerSettings() {   

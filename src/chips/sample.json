@@ -1,7 +1,7 @@
 {
     "name": "Chips",
     "directory": "chips",
-    "category": "Editors",
+    "category": "Buttons",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",

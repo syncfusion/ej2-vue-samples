@@ -2,7 +2,7 @@
 <div>
     <div class="control-section dashboard-default">
      <div style="padding:5px;text-align: right;">
-         <ejs-button id="add" class="e-btn e-info"  v-on:click.native="addPanel"> Add Panel </ejs-button>
+         <ejs-button id="add" class="e-btn e-info"  v-on:click="addPanel"> Add Panel </ejs-button>
     </div>
     <ejs-dashboardlayout ref="DashbordInstance" :columns="5" id='defaultLayout' :allowResizing="true" :cellSpacing="spacing">
         <div id="one" class="e-panel" data-row="0" data-col="0" data-sizeX="1" data-sizeY="1">
@@ -74,7 +74,7 @@
 </div>
 <div id="action-description">
     <p>
-        The following sample demonstrates the default functionalities of the DashboardLayout component. Click the <code>Add Panel</code> button to add panels dynamically to the dashboard layout.
+        This <a href="https://www.syncfusion.com/vue-ui-components/vue-dashboard-layout">Vue Dashboard Layout </a> example demonstrates the default functionalities of the DashboardLayout component. Click the Add Panel button to add panels dynamically to the dashboard layout.
     </p>
 </div>
 
@@ -88,13 +88,14 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
-import { ButtonPugin } from "@syncfusion/ej2-vue-buttons";
+import { DashboardLayoutComponent } from "@syncfusion/ej2-vue-layouts";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(DashboardLayoutPlugin,ButtonPugin);
-
-export default Vue.extend ({
+export default {
+    components: {
+      'ejs-dashboardlayout': DashboardLayoutComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
           count: 8,
@@ -102,7 +103,7 @@ export default Vue.extend ({
         };
     },
     methods: {
-         addPanel: function(args) {
+         addPanel: function() {
             var panel = [{
                 'id': this.count.toString() + '_layout', 'sizeX': 1, 'sizeY': 1, 'row': 0, 'col': 0,
                 content: '<span id="close" class="e-template-icon e-clear-icon"></span><div class="text-align">' + this.count.toString() + '</div>'
@@ -124,7 +125,7 @@ export default Vue.extend ({
             closeElement[i].addEventListener('click', this.onCloseIconHandler);
         }
     }
-});
+}
 </script>
 
 <style>
@@ -153,7 +154,17 @@ export default Vue.extend ({
     .bootstrap4 .dashboard-default .e-clear-icon::before {
         content: '\e745';
     }
-    
+
+    .tailwind .dashboard-default .e-clear-icon::before, .tailwind-dark .dashboard-default .e-clear-icon::before {
+        content: '\e771';
+        font-size: 16px;
+    }
+
+    .bootstrap5 .dashboard-default .e-clear-icon::before, .bootstrap5-dark .dashboard-default .e-clear-icon::before {
+        content: '\e7e7';
+        font-size: 16px;
+    }
+
     .dashboard-default .text-align {
         line-height: 160px;
     }
@@ -166,5 +177,9 @@ export default Vue.extend ({
 /* high contrast style */
     body.highcontrast .dashboard-default #defaultLayout.e-dashboardlayout.e-control .e-panel {
         background: #000;
+    }
+
+    body.tailwind-dark .e-dashboardlayout.e-control .e-panel {
+        border: 1px solid #d7d7d7;
     }
 </style>

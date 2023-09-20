@@ -29,13 +29,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Selection, RowDD } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Selection, RowDD } from "@syncfusion/ej2-vue-treegrid";
 import { dragData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: dragData,
@@ -49,5 +51,5 @@ export default Vue.extend({
       
   }
 
-});
+}
 </script>

@@ -15,7 +15,7 @@
         </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates the binding of local data to the TreeView. Click on node to select it, and click on icon or double click on node to expand/collapse it.</p>
+    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-tree-view" target="_blank">Vue TreeView example</a> demonstrates the binding of local data to the TreeView. Click on node to select it, and click on icon or double click on node to expand/collapse it.</p>
 </div>
 
 <div id="description">
@@ -42,18 +42,18 @@
 </style>
 /* custom code end */
 <script>
-import Vue from "vue";
-import { TreeViewPlugin } from "@syncfusion/ej2-vue-navigations";
+import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import * as dataSource from './local-data.json';
 
-Vue.use(TreeViewPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-treeview': TreeViewComponent
+    },
     data: function() {
         return {
             fields: { dataSource: dataSource.hierarchicalData, id: 'code', text: 'name', child: 'countries' },
             listfields: { dataSource: dataSource.localData, id: 'id', parentID: 'pid', text: 'name', hasChildren: 'hasChild' },
         };
     }
-});
+}
 </script>

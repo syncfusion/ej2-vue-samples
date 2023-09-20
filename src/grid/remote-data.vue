@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='160'></e-column>
@@ -19,7 +19,7 @@
 
      <div id="description">
         <p>The Grid supports data binding. The <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#datasource">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property can be assigned with the instance of <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
@@ -44,39 +44,40 @@
         <p>In this demo, remote data is bound by assigning service data as an instance of <code><a target="_blank" class="code"
         href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
         DataManager</a></code> to the <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-gridComponent.html#datasource">
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property.</p>
 
         <p>
             More information on the data binding can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/data-binding.html#remote-data">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/data-binding/remote-data">documentation section</a>.
         </p>
     </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective,ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { DataManager, WebApiAdaptor } from "@syncfusion/ej2-data";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     let SERVICE_URI: string =
-      "https://ej2services.syncfusion.com/production/web-services/";
+      "https://services.syncfusion.com/vue/production/";
     return {
       data: new DataManager({
         url: SERVICE_URI + 'api/Orders',
         adaptor: new WebApiAdaptor()
-      }),
-      pageSettings: { pageCount: 3 }
+      })
     };
   },
   provide: {
       grid: [Page]
   }
-});
+}
 </script>

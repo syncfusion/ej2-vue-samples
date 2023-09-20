@@ -28,7 +28,6 @@
         </div>
     </div>
 </template>
-<!-- custom code start -->
 <style>
     .schedule-vue-sample .recurrence-editor-wrap {
         margin: 0 25%;
@@ -53,12 +52,15 @@
         }
     }
 </style>
-<!-- custom code end -->
 <script>
-    import Vue from "vue";
-    import { RecurrenceEditorPlugin, RecurrenceEditorChangeEventArgs } from "@syncfusion/ej2-vue-schedule";
-    Vue.use(RecurrenceEditorPlugin);
-    export default Vue.extend({
+    import { RecurrenceEditorComponent } from "@syncfusion/ej2-vue-schedule";
+    import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+    
+    export default {
+        components: {
+          'ejs-recurrenceeditor': RecurrenceEditorComponent,
+          'ejs-dropdownlist': DropDownListComponent
+        },
         data: function () {
             return {
                 datas: [
@@ -74,15 +76,15 @@
             }
         },
         mounted: function () {
-            let recObject = this.$refs.EditorObj;
+            let recObject = this.$refs.EditorObj.ej2Instances;
             recObject.selectedType = 1;
         },
         methods: {
             onChange: function (args) {
-                let recObject = this.$refs.EditorObj;
+                let recObject = this.$refs.EditorObj.ej2Instances;
                 recObject.setRecurrenceRule(args.value);
             }
         }
-    });
+    }
 
 </script>

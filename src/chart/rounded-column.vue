@@ -14,56 +14,51 @@
         :width="width"
         :tooltip="tooltip"
         :legendSettings="legendSettings"
-        :pointRender="pointRender"       
-        :loaded="loaded"
+        :pointRender="pointRender"
+        :enableSideBySidePlacement="false"       
       >
         <e-series-collection>
           <e-series
             :dataSource="seriesData"
             type="Column"
-            xName="x"
-            yName="y"
-            name="Tiger"
+            xName="Country"
+            yName="Rate"
+            width="2"
+            :enableTooltip="false"
+            opacity='0.5'
+            columnWidth='0.8'
+            :cornerRadius="cornerRadius"
+          ></e-series>
+          <e-series
+            :dataSource="seriesData"
+            type="Column"
+            xName="Country"
+            yName="Literacy_Rate"
             width="2"
             :marker="marker"
+            tooltipMappingName='Text'
+            columnWidth=0.8
             :cornerRadius="cornerRadius"
           ></e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
-    <div style="float: right; margin-right: 10px;">
-      Source:
-      <a
-        href="https://blogs.scientificamerican.com/extinction-countdown/tiger-populations-increasing/"
-        target="_blank"
-      >blogs.scientificamerican.com</a>
-    </div>
     <div id="action-description">
-      <p>This sample illustrates a rounded column series. Data points values are showed by using data label.</p>
+      <p>This sample shows the literacy rate by country in 2015 with the default column series in the chart.</p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the column type charts. Column type charts are used for comparing
-        the frequency, count, total or average of data in different categories. You can use
-        <code>border</code>,
-        <code>fill</code> properties to customize the vertical rect.
-        <code>dataLabel</code> is used to represent individual
-        data and its value.
+        In this example, you can see how to render and configure the column chart. The column chart is used to compare the frequency, count, total, or average of data in different categories. You can use the <code>ChartCornerRadius</code> option to customize the vertical rectangle, resulting in a rounded column.
       </p>
-      <p>Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.</p>
-      <br>
-      <p style="font-weight: 500">Injecting Module</p>
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use column series, we need to inject
         <code>ColumnSeries</code> module using
         <code>provide: { chart: [ ColumnSeries ] },</code> method.
       </p>
       <p>
-        More information on the column series can be found in this
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype"
-        >documentation section</a>.
+        More information about the column type series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column">documentation section</a>.
       </p>
     </div>
   </div>
@@ -71,10 +66,11 @@
 <style scoped>
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
-  ChartPlugin,
+  ChartComponent,
+  SeriesDirective,
+  SeriesCollectionDirective,
   ColumnSeries,
   Category,
   DataLabel,
@@ -87,92 +83,70 @@ import {
   bootstrapColors,
   highContrastColors
 } from "./theme-color";
-Vue.use(ChartPlugin);
-let count = 0;
-let datasource1 = [
-  { x: "Tea", y: 206, text: "Bangaladesh" },
-  { x: "Misc", y: 123, text: "Bhutn" },
-  { x: "Fish", y: 48, text: "Nepal" },
-  { x: "Egg", y: 240, text: "Thiland" },
-  { x: "Fruits", y: 170, text: "Malaysia" }
-];
-let datasource2 = [
-  { x: "Tea", y: 86, text: "Bangaladesh" },
-  { x: "Misc", y: 173, text: "Bhutn" },
-  { x: "Fish", y: 188, text: "Nepal" },
-  { x: "Egg", y: 109, text: "Thiland" },
-  { x: "Fruits", y: 100, text: "Malaysia" }
-];
-let datasource3 = [
-  { x: "Tea", y: 156, text: "Bangaladesh" },
-  { x: "Misc", y: 33, text: "Bhutn" },
-  { x: "Fish", y: 260, text: "Nepal" },
-  { x: "Egg", y: 200, text: "Thiland" },
-  { x: "Fruits", y: 30, text: "Malaysia" }
-];
+
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark");
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
       seriesData: [
-        { x: "Tea", y: 106, text: "Bangaladesh" },
-        { x: "Misc", y: 103, text: "Bhutn" },
-        { x: "Fish", y: 198, text: "Nepal" },
-        { x: "Egg", y: 189, text: "Thiland" },
-        { x: "Fruits", y: 250, text: "Malaysia" }
+        { Country : "Niger", Rate : 100, Literacy_Rate : 19.1, Text : "19.1%" },
+        { Country : "Sierra Leone", Rate : 100, Literacy_Rate : 48.1, Text : "48.1%" },
+        { Country : "South Sudan", Rate : 100, Literacy_Rate : 26.8, Text : "26.8%" },
+        { Country : "Nepal", Rate : 100, Literacy_Rate : 64.7, Text : "64.7%" },
+        { Country : "Gambia", Rate : 100, Literacy_Rate : 55.5, Text : "55.5%" },
+        { Country : "Gyana", Rate : 100, Literacy_Rate : 88.5, Text : "88.5%" },
+        { Country : "Kenya", Rate : 100, Literacy_Rate : 78.0, Text : "78.0%" },
+        { Country : "Singapore", Rate : 100, Literacy_Rate : 96.8, Text : "96.8%" }
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        valueType: "Category",
-        interval: 1,
-        majorGridLines: { width: 0 },
-        tickPosition: "Inside",
-        labelPosition: "Inside",
-        labelStyle: { color: "#ffffff" }
+        majorTickLines: {width : 0}, minorTickLines: {width: 0},valueType: 'Category', interval: 1, majorGridLines: { width: 0 }, majorTickLines: { width: 0 }, labelRotation: Browser.isDevice ? -45 : 0, labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45'
       },
       chartArea: { border: { width: 0 } },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
-        minimum: 0,
-        maximum: 300,
-        interval: 50,
-        majorGridLines: { width: 0 },
-        majorTickLines: { width: 0 },
-        lineStyle: { width: 0 },
-        labelStyle: { color: "transparent" }
+        labelFormat: '{value}%',
+        title: 'Literacy Rate In Percentage',
+        minimum: 0, maximum: 100, interval: 25, majorTickLines: { width: 0 },
+        minorTickLines: { width: 0 }, lineStyle: { width: 0 }
       },
 
-      width: Browser.isDevice ? "100%" : "60%",
+      width: Browser.isDevice ? "100%" : "75%",
 
       marker: {
         dataLabel: {
           visible: true,
           position: "Top",
-          font: { fontWeight: "600", color: "#ffffff" }
+          font: { fontWeight: "600", color: "#ffffff", size: Browser.isDevice ? '8px' : '11px'}
+          
         }
       },
 
       legendSettings: { visible: false },
 
       tooltip: {
-        enable: false
+         enable: true,
+        header: '<b>${point.x}</b>',
+        format : 'Rate : <b>${point.tooltip}</b>'
       },
 
       cornerRadius: {
-        bottomLeft: 10,
-        bottomRight: 10,
-        topLeft: 10,
-        topRight: 10
+        bottomLeft:  Browser.isDevice ? 12 : 35, bottomRight:  Browser.isDevice ? 12 : 35, topLeft:  Browser.isDevice ? 12 : 35, topRight:  Browser.isDevice ? 12 : 35
       },
-      title: "Trade in Food Groups"
+      title: "Literacy rate by Country in 2015"
     };
   },
   provide: {
@@ -183,38 +157,100 @@ export default Vue.extend({
     pointRender: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
-      if (selectedTheme && selectedTheme.indexOf("fabric") > -1) {
-        args.fill = fabricColors[args.point.index % 10];
-      } else if (selectedTheme === "material") {
-        args.fill = materialColors[args.point.index % 10];
-      } else if (selectedTheme === "highcontrast") {
-        args.fill = highContrastColors[args.point.index % 10];
-      } else {
-        args.fill = bootstrapColors[args.point.index % 10];
-      }
+      if (location.hash.indexOf("material") > -1)
+        {
+            if (location.hash.indexOf("dark") > -1)
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "#f9fafb";                
+            }
+            else
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "grey";               
+            }
+        }
+        else if (location.hash.indexOf("fabric") > -1)
+        {
+            if (location.hash.indexOf("dark") > -1)
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "#f9fafb";
+            }
+            else
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "grey";
+            }
+        }
+        else if (location.hash.indexOf("bootstrap5") > -1)
+        {
+            if (location.hash.indexOf("dark") > -1)
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "#f9fafb";
+            }
+            else
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "grey";
+            }
+        }
+        else if (location.hash.indexOf("fluent") > -1)
+        {
+            if (location.hash.indexOf("dark") > -1)
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "#f9fafb";
+            }
+            else
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "grey";
+            }
+        }
+        else if (location.hash.indexOf("bootstrap4") > -1)
+        {
+            if (args.series.yName == "Rate")
+                args.fill = "grey";
+        }
+        else if (location.hash.indexOf("bootstrap") > -1)
+        {
+            if (location.hash.indexOf("dark") > -1)
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "#f9fafb";
+            }
+            else
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "grey";
+            }
+        }
+        else if (location.hash.indexOf("tailwind") > -1)
+        {
+            if (location.hash.indexOf("dark") > -1)
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "#f9fafb";
+            }
+            else
+            {
+                if (args.series.yName == "Rate")
+                    args.fill = "grey";
+            }
+        }
+        else if (location.hash.indexOf("highcontrast") > -1)
+        {
+            if (args.series.yName == "Rate")
+                args.fill = "#f9fafb";
+        }
+        else
+        {
+            if (args.series.yName == "Rate")
+                args.fill = "grey";
+        }
     },
-    loaded: function(args) {
-      this.$refs.chart.ej2Instances.loaded = null;
-      let columninterval = setInterval(() => {
-        if (document.getElementById('chartcontainerR')) {
-        if (count === 0) {
-          this.$refs.chart.ej2Instances.series[0].dataSource = datasource1;
-          this.$refs.chart.ej2Instances.animate();
-          count++;
-        } else if (count === 1) {
-          this.$refs.chart.ej2Instances.series[0].dataSource = datasource2;
-          this.$refs.chart.ej2Instances.animate();
-          count++;
-        } else if (count === 2) {
-          this.$refs.chart.ej2Instances.series[0].dataSource = datasource3;
-          this.$refs.chart.ej2Instances.animate();
-          count = 0;
-        }
-        } else {
-          clearInterval(columninterval)
-        }
-      }, 2000);
-    }
   }
-});
+};
 </script>

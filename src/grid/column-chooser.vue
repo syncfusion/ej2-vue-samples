@@ -22,11 +22,11 @@
      <div id="description">
         <p>The Grid columns can be shown/hidden dynamically by using column chooser. To enable column chooser behavior, set
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-grid.html#showcolumnchooser">showColumnChooser
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/#showcolumnchooserr">showColumnChooser
         </a></code> property as true. You can also prevent the display of a column in column chooser
             by setting
             <code><a target="_blank" class="code"
-        href="http://ej2.syncfusion.com/vue/documentation/grid/api-column.html#showincolumnchooser">columns->showInColumnChooser
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/columnModel/#showincolumnchooser">columns->showInColumnChooser
         </a></code> as false in columns definition.
 
         </p>
@@ -48,13 +48,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { GridPlugin, ColumnChooser, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, ColumnChooser, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
-Vue.use(GridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: () => {
     return {
       data: orderDetails,
@@ -65,5 +67,5 @@ export default Vue.extend({
   provide: {
       grid: [ColumnChooser, Page, Toolbar]
   }
-});
+}
 </script>

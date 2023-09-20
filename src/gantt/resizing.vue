@@ -38,11 +38,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, Resize } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Resize } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -58,7 +60,7 @@ export default Vue.extend({
                child: 'subtasks'
             },
             columns: [
-                { field: 'TaskID', headerText: 'ID', width: 70 , minWidth: 8},
+                { field: 'TaskID', headerText: 'ID', width: 80 , minWidth: 8},
                 { field: 'TaskName', headerText: 'Job Name', width: 250, minWidth: 120, maxWidth: 300 },
                 { field: 'StartDate', width: 135, minWidth: 8 },
                 { field: 'EndDate', width: 135, minWidth: 8 },
@@ -79,5 +81,5 @@ export default Vue.extend({
   provide: {
       gantt: [Selection, Resize]
   }
-});
+}
 </script>

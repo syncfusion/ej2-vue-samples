@@ -1,5 +1,5 @@
 <template>
-<div class="control-section" style="overflow:hidden;">
+<div>
   
 <div>
     <div class="col-lg-8 control-section">
@@ -32,7 +32,7 @@
             <tr>
                 <td>
                     <div class="evtbtn" style="padding-bottom: 10px">
-                        <ejs-button id="clear" v-on:click.native="onClick">Clear</ejs-button>
+                        <ejs-button id="clear" v-on:click="onClick">Clear</ejs-button>
                     </div>
                 </td>
             </tr>
@@ -114,15 +114,15 @@
     }
 </style>
 <script>
-import Vue from "vue";
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
-import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
+import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-Vue.use(RichTextEditorPlugin);
-Vue.use(ButtonPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             toolbarSettings: {
@@ -264,12 +264,12 @@ export default Vue.extend({
             transformElement.style.transform = 'translateX(0px)';
         }
     },
-    actionCompleteHandler: function(e) {
+    actionCompleteHandler: function() {
         setTimeout(() => { this.$refs.eventObj.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 400);
     }
     },
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table]
     }
-});
+}
 </script>

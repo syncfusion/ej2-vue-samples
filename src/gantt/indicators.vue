@@ -30,11 +30,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { GanttPlugin, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
-Vue.use(GanttPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-gantt': GanttComponent
+  },
   data: function() {
       return{
             data: projectNewData,
@@ -71,26 +73,43 @@ export default Vue.extend({
   provide: {
       gantt: [DayMarkers, Selection]
   }
-});
+}
 </script>
 
 <style scoped>
-    /deep/ #Indicators .okIcon::before {
+    #Indicators /deep/ .okIcon::before {
     content: '\ea84';
     }
-    /deep/ #Indicators .description::before {
+    #Indicators /deep/ .description::before {
     content: '\e30d';
     }   
-    /deep/ .bootstrap4 #Indicators .okIcon::before {
+    .bootstrap4 #Indicators /deep/ .okIcon::before {
     content: '\e7d9';
     }
-    /deep/ .bootstrap4 #Indicators .description::before {
+    .bootstrap4 #Indicators /deep/ .description::before {
     content: '\e7cb';
     }
-    /deep/ .fabric #Indicators .description::before {
+    .bootstrap5 #Indicators /deep/ .okIcon::before,
+    .bootstrap5-dark #Indicators /deep/ .okIcon::before {
+    content: '\e72b';
+    }
+    .bootstrap5 #Indicators /deep/ .description::before,
+    .bootstrap-dark #Indicators /deep/ .description::before {
+    content: '\e72b';
+    }
+    .tailwind #Indicators .okIcon::before, .tailwind-dark #Indicators .okIcon::before,
+    .fluent #Indicators .okIcon::before, .fluent-dark #Indicators .okIcon::before,
+     .material3-dark #Indicators .okIcon::before,.material3 #Indicators .okIcon::before {
+    content: '\e72b';
+    }
+    .tailwind #Indicators .description::before, .tailwind-dark #Indicators .description::before,
+    .fluent #Indicators .description::before, .fluent-dark #Indicators .description::before {
+    content: '\e7c0';
+    }
+    .fabric #Indicators /deep/ .description::before {
     content: '\e310';
     }
-    /deep/ .highcontrast #Indicators .description::before {
+    .highcontrast #Indicators /deep/ .description::before {
     content: '\e310';
     }
 </style>

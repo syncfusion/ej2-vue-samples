@@ -22,6 +22,7 @@
             </e-sheets>
         </ejs-spreadsheet>
     </div>
+    <!-- custom code start -->
 <div id="action-description">
     <p>
         This sample visualizes the data using chart feature by comparing the GDP of different countries with various years.
@@ -37,10 +38,11 @@
     </p>
     <p>
         More information about the Spreadsheet component can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/getting-started">
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/spreadsheet/illustrations/#chart">
             documentation</a> section.
     </p>
 </div>
+<!-- custom code end -->
   </div>
 </template>
 <!-- custom code start -->
@@ -66,11 +68,21 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { SpreadsheetPlugin, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
-import * as dataSource from "./chart-data.json";
-Vue.use(SpreadsheetPlugin);
-export default Vue.extend({
+import { SpreadsheetComponent, RowDirective, RowsDirective, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, ColumnDirective, ColumnsDirective, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
+import  dataSource from "./chart-data.json";
+
+export default {
+   components: {
+    'ejs-spreadsheet': SpreadsheetComponent,
+    'e-row': RowDirective,
+    'e-rows': RowsDirective,
+    'e-sheet': SheetDirective,
+    'e-sheets': SheetsDirective,
+    'e-range': RangeDirective,
+    'e-ranges': RangesDirective,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+   },  
    data: () => {
     return {
         height: 30,
@@ -83,8 +95,8 @@ export default Vue.extend({
         cells2: [
         { index: 6, chart: [{ type: 'Column', range: 'A3:E10' }] }
         ],
-         openUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open',
-         saveUrl: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
+         openUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/open',
+         saveUrl: 'https://services.syncfusion.com/vue/production/api/spreadsheet/save'
     }
   },
   methods: {
@@ -98,5 +110,5 @@ export default Vue.extend({
              spreadsheet.merge('A1:E1');
             }
         }
-});
+}
 </script>

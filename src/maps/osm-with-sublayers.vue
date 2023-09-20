@@ -26,7 +26,7 @@
     <div id="description">
         <p>
             In this example, you can see how to render the geometric layers as sublayer on the OpenStreetMap. The outline of Africa continent is rendered using GeoJSON data on the top of the OpenStreetMap.
-       
+        </p>
         <p style="font-weight: 500">Injecting Module</p>
         <p>
             The maps component features are segregated into individual modules by feature. To use the zooming feature, inject the Zoom module using the <code>Maps.Inject(Zoom)</code> method.
@@ -36,16 +36,21 @@
 </div>
 </template>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Bubble, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent, LayersDirective, LayerDirective, Bubble, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective
+},
 data:function(){
     return{
         titleSettings: {
             text: 'Location of Africa continent in the World map',
             textStyle: {
-                size: '16px'
+                size: '16px',
+                fontFamily: 'Segoe UI'
             }
         },
         zoomSettings: {
@@ -77,9 +82,10 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     }
 }
 /* custom code end */
-})
+}
 </script>

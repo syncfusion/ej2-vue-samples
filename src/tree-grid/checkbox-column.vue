@@ -24,7 +24,7 @@
     <p>The Tree Grid component can be rendered with checkbox on existing column and also this can be enabled by <code>showCheckbox</code> property as true in columns API.
     </p>
     <p>
-        For hierarchy selection between the records, we need to enable the <code>enableHierarchySelection</code> property.
+        For hierarchy selection between the records, we need to enable the <code>autoCheckHierarchy</code> property.
     </p>
     <p>
        While using Tree Grid in a touch device, you have an option to select the checkboxes by tapping on the checkbox.
@@ -36,14 +36,24 @@
 
 </div>
 </template>
+<!-- custom code start -->
+<style>
+.e-bigger.bootstrap5 .e-treegrid .e-hierarchycheckbox .e-frame, .e-bigger.bootstrap5-dark .e-treegrid .e-hierarchycheckbox .e-frame{
+    height: 16px;
+    width: 16px;
+}
+</style>
+<!-- custom code end -->
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin, Page } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-treegrid";
 import { sampleData } from "./data-source";
 
-Vue.use(TreeGridPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: sampleData,
@@ -53,5 +63,5 @@ export default Vue.extend({
       treegrid: [ Page ]
     },
 
-});
+}
 </script>

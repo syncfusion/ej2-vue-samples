@@ -18,11 +18,9 @@
 
 <script>
 
-import Vue from "vue";
-import { DateRangePickerPlugin } from "@syncfusion/ej2-vue-calendars";
+import { DateRangePickerComponent } from "@syncfusion/ej2-vue-calendars";
 
-Vue.use(DateRangePickerPlugin);
-export default Vue.extend({
+export default {
   data: function() {
     return {
       waterMarkText: "Select a Range",
@@ -30,8 +28,11 @@ export default Vue.extend({
       depth: 'Year',
       format: 'MMM yyyy'
     };
+  },
+  components: {
+      'ejs-daterangepicker': DateRangePickerComponent
   }
-});
+};
 </script>
 
 <style scoped>

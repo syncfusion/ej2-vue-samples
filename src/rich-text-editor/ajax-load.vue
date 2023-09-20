@@ -8,12 +8,12 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This sample demonstrates how to load content to the editor from an external source using <code>Ajax library</code>. </p>
+    <p>This sample demonstrates how to load content to the editor from an external source using <code>Fetch library</code>. </p>
 </div>
 
 <div id="description">
   <p>
-    The Rich Text Editor allows you to load content from an external source. The sample content is loaded from “Ajax_content.html” file using AJAX library, and when the event is <code>successful</code> the content is loaded into the editor using <code>value</code> property
+    The Rich Text Editor allows you to load content from an external source. The sample content is loaded from “Ajax_content.html” file using Fetch library, and when the event is <code>successful</code> the content is loaded into the editor using <code>value</code> property
   </p>
   <p><b>Injecting Module</b></p>
   <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.</p>
@@ -21,13 +21,13 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { RichTextEditorPlugin, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
-import { Ajax } from '@syncfusion/ej2-base';
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { Fetch } from '@syncfusion/ej2-base';
 
-Vue.use(RichTextEditorPlugin);
-
-export default Vue.extend({
+export default {
+    components: {
+        'ejs-richtexteditor': RichTextEditorComponent
+    },
     data: function() {
         return {
            value: '' 
@@ -35,8 +35,8 @@ export default Vue.extend({
     },
     methods: {
         onCreate: function() {
-            let ajax = new Ajax('./source/rich-text-editor/ajax-content.html', 'GET', false);
-            ajax.send().then((data)  => {
+            let fetch = new Fetch('./source/rich-text-editor/ajax-content.html', 'GET');
+            fetch.send().then((data)  => {
                 this.$refs.rteInstance.ej2Instances.value = data;
             });
         }
@@ -44,5 +44,5 @@ export default Vue.extend({
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
     }
-});
+}
 </script>

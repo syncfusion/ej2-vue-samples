@@ -3,7 +3,14 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
             <ejs-combobox id='multi-template' :dataSource='data' :fields='fields' cssClass='combobox-template' :placeholder='watermark'
-             :headerTemplate='hTemplate' :itemTemplate='iTemplate' popupHeight="450px"></ejs-combobox>
+             :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" popupHeight="450px">
+              <template v-slot:hTemplate="{data}">
+                <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
+              </template>
+              <template v-slot:iTemplate="{data}">
+                <div><img class="empImage" :src="data.Eimg" alt="employee"/><div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>
+              </template>                           
+             </ejs-combobox>
         </div>
     </div>
     <div id="action-description">    
@@ -80,6 +87,17 @@
         margin-top: -32px;
         margin-bottom: 17px;
     }
+    
+    .tailwind .combobox-template .job {
+        margin-top: -7px;
+        margin-bottom: 5px;
+    }
+
+    .e-bigger.tailwind .combobox-template .job {
+        margin-top: -15px;
+        margin-bottom: 5px;
+    }
+
 
     .bootstrap .combobox-template .ename {
         font-size: 15px;
@@ -149,50 +167,55 @@
     .bootstrap4 .combobox-template .header {
         color: #6c757d;
     }
+    .fluent-dark .combobox-template .header {
+        background: #252423;
+        color: #2899F5;
+    }
+
+    .bootstrap5-dark .combobox-template .header {
+        background: #343A40;
+        color: #7B848D;
+    }
+
+    .fluent .combobox-template .header{
+         color: #2899F5;
+    }
+
+    .tailwind-dark .combobox-template .header {
+        background: #374151;
+        color: rgb(255, 255, 255);
+    }
+
+    .material3-dark .combobox-template .header,
+    .material-dark .combobox-template .header {
+        background: rgb(66, 66, 66);
+        color: rgb(255, 255, 255);
+    }
+
+    .fabric-dark .combobox-template .header {
+        background: rgb(40, 39, 39);
+        color: rgb(255, 255, 255);
+    }
+
+    .bootstrap-dark .combobox-template .header {
+        background: rgb(49, 49, 49);
+        color: rgb(255, 255, 255);
+    }
 </style>
 <script>
-import Vue from "vue";
-import { ComboBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
+import { ComboBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-Vue.use(ComboBoxPlugin);
-
-var headerVue = Vue.component("headerTemplate", {
-  template: '<div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-var itemVue = Vue.component("itemTemplate", {
-  template: '<div><img class="empImage" :src="data.Eimg" alt="employee"/>' +
-            '<div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>',
-  data() {
-    return {
-      data: {}
-    };
-  }
-});
-
-export default Vue.extend ({
+export default {
+    components: {
+        'ejs-combobox': ComboBoxComponent
+    },
     data: function() {
         return {
-            fields: { value: 'Name' },
+            fields: { value: 'Name', text: 'Name' },
             watermark: 'Select Employees',
-            hTemplate: function(e) {
-                return {
-                    template: headerVue
-                };
-            },
-            iTemplate: function(e) {
-                return {
-                    template: itemVue
-                };
-            },
             data: data['empList']
         };
     }
-});
+}
 </script>

@@ -2,36 +2,38 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :tooltip='tooltip' :chartArea='chartArea' :width='width'>
+            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Line' xName='x' yName='y' name='Germany' width=2 :marker='marker'> </e-series>
-                <e-series :dataSource='seriesData1' type='Line' xName='x' yName='y' name='England' width=2 :marker='marker'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Viet_Growth' name='Vietnam' opacity=1 width=2 :marker='circleMarker'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Can_Growth' name='Canada' opacity=1 width=2 :marker='triangleMarker'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Mal_Growth' name='Malaysia' opacity=1 width=2 :marker='diamondMarker'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Egy_Growth' name='Egypt' opacity=1 width=2 :marker='rectangleMarker'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Ind_Growth' name='Indonesia' opacity=1 width=2 :marker='pentagonMarker'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample visualizes the consumer price data with default line series in the chart. 
-        Data points are enhanced with marker and tooltip.
+      This Vue Line Chart example represents the crude steel production annual growth data with default line series in the chart. 
+        Data points are enhanced with markers and tooltips.
     </p>
 </div>
 <div id="description">
     <p>
-    In this example, you can see how to render and configure the line type charts. Line type charts are used to represent time-dependent data, showing trends in data at equal intervals.
-    You can use <code>dashArray</code>, <code>width</code>, <code>fill</code> properties to customize the line. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
+      Vue Line Chart represents and visualizes time-dependent data to show the trends at equal intervals. In this example, you can see how to render and configure a line chart. <code>Markers</code> are used to represent individual data and its values.
     </p>
     <p>
-    Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+      <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
-     <br>
-        <p style="font-weight: 500">Injecting Module</p>
+     
+        <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use line series, we need to inject
             <code>LineSeries</code> module using <code>provide: { chart: [LineSeries] }</code> method.
         </p>
         <p>
-            More information on the line series can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/documentation/api/chart/series/#type">documentation section</a>.
+            More information about the line series can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/line#line">documentation section</a>.
         </p> 
 </div>
 
@@ -41,79 +43,74 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, LineSeries, Legend, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
-
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, Tooltip,DateTime, Category, Highlight } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
       theme: theme,
       seriesData: [
-        { x: new Date(2005, 0, 1), y: 21 },
-        { x: new Date(2006, 0, 1), y: 24 },
-        { x: new Date(2007, 0, 1), y: 36 },
-        { x: new Date(2008, 0, 1), y: 38 },
-        { x: new Date(2009, 0, 1), y: 54 },
-        { x: new Date(2010, 0, 1), y: 57 },
-        { x: new Date(2011, 0, 1), y: 70 }
-      ],
-      seriesData1: [
-        { x: new Date(2005, 0, 1), y: 28 },
-        { x: new Date(2006, 0, 1), y: 44 },
-        { x: new Date(2007, 0, 1), y: 48 },
-        { x: new Date(2008, 0, 1), y: 50 },
-        { x: new Date(2009, 0, 1), y: 66 },
-        { x: new Date(2010, 0, 1), y: 78 },
-        { x: new Date(2011, 0, 1), y: 84 }
-      ],
+      { Period : new Date(2012, 1, 1), Can_Growth : 13.5, Viet_Growth : 5.3, Mal_Growth : 5.6, Egy_Growth : 6.6, Ind_Growth : 2.3 },
+      { Period : new Date(2013, 1, 1), Can_Growth : 12.4, Viet_Growth : 5.6, Mal_Growth : 4.7, Egy_Growth : 6.8, Ind_Growth : 2.6 },
+      { Period :new Date(2014, 1, 1), Can_Growth : 12.7, Viet_Growth : 5.9, Mal_Growth : 4.3, Egy_Growth : 6.5, Ind_Growth : 4.4 },
+      { Period : new Date(2015, 1, 1), Can_Growth : 12.5, Viet_Growth : 5.7, Mal_Growth : 3.8, Egy_Growth : 5.5, Ind_Growth : 4.9 },
+      { Period : new Date(2016, 1, 1), Can_Growth : 12.7, Viet_Growth : 7.8, Mal_Growth : 2.8, Egy_Growth : 5.0, Ind_Growth : 4.8 },
+      { Period : new Date(2017, 1, 1), Can_Growth : 13.7, Viet_Growth : 10.3, Mal_Growth : 2.8, Egy_Growth : 6.8, Ind_Growth : 5.3 },
+      { Period : new Date(2018, 1, 1), Can_Growth : 13.4, Viet_Growth : 15.5, Mal_Growth : 4.1, Egy_Growth : 7.8, Ind_Growth : 6.2  },
+      { Period :new Date(2019, 1, 1), Can_Growth : 12.9, Viet_Growth : 17.5, Mal_Growth : 6.8, Egy_Growth : 7.3, Ind_Growth : 7.8 },
+      { Period :  new Date(2020, 1, 1), Can_Growth : 11.0, Viet_Growth : 19.5, Mal_Growth : 7.1, Egy_Growth : 8.2, Ind_Growth : 9.3 },
+        
+    ],
       //Initializing Primary X Axis
       primaryXAxis: {
         valueType: "DateTime",
-        labelFormat: "y",
-        intervalType: "Years",
         edgeLabelPlacement: "Shift",
-        majorGridLines: { width: 0 }
+        majorGridLines: { width: 0 },
+        labelFormat: 'yyyy',
+        intervalType: 'Years'
       },
       //Initializing Primary Y Axis
       primaryYAxis: {
-        labelFormat: "{value}%",
-        rangePadding: "None",
+        title: 'Million Metric Tons',
         minimum: 0,
-        maximum: 100,
-        interval: 20,
+        maximum: 20,
+        interval: 4,
         lineStyle: { width: 0 },
         majorTickLines: { width: 0 },
-        minorTickLines: { width: 0 }
       },
       chartArea: {
         border: {
           width: 0
         }
       },
-      width : Browser.isDevice ? '100%' : '60%',
-      marker: {
-        visible: true,
-        height: 10,
-        width: 10
-      },
+      width : Browser.isDevice ? '100%' : '75%',
+      circleMarker: { visible: true, height: 7, width: 7 , shape: 'Circle' , isFilled: true },
+      triangleMarker: { visible: true, height: 6, width: 6 , shape: 'Triangle' , isFilled: true },
+      diamondMarker: {  visible: true, height: 7, width: 7 , shape: 'Diamond' , isFilled: true  },
+      rectangleMarker: { visible: true, height: 5, width: 5 , shape: 'Rectangle' , isFilled: true },
+      pentagonMarker: { visible: true, height: 7, width: 7 , shape: 'Pentagon' , isFilled: true },
       tooltip: {
-        enable: true
+        enable: true,
       },
-      title: "Inflation - Consumer Price"
+      legend: {enableHighlight : true},
+      title: "Crude Steel Production Annual Growth"
     };
   },
   provide: {
-    chart: [LineSeries, Legend, Tooltip, DateTime]
+    chart: [LineSeries, Legend, Tooltip, Category,DateTime, Highlight]
   },
   methods: {
   }
    
-});
+};
 </script>

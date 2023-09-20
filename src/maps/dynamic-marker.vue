@@ -18,58 +18,70 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%">
-        <tbody>
+    <table id="property" title="Properties" style="width: 100%;">
+          <colgroup>
+            <col span="1" style="width: 60%;">
+            <col span="1" style="width: 40%;">
+         </colgroup>
+         <tbody>
             <tr style="height: 50px">
-                <td style="width: 60%">
-                    <div class="property-text" style="padding: 0px;">Marker</div>
+                <td>
+                    <div class="text">Marker</div>
                 </td>
-                <td style="width: 40%;">
+                <td>
+                <div class="checkbox">
                     <ejs-checkbox ref="marker" id="marker" :checked="markerCheck" v-model="markerCheck" :change='markerChange'></ejs-checkbox>
+                </div>
                 </td>
             </tr>
-            <tr style="height: 35px">
-                <td style="width: 70%">
-                    <div class="property-text" style="padding: 0px;">Line</div>
+            <tr style="height: 50px">
+                <td>
+                    <div class="text">Line</div>
                 </td>
-                <td style="width: 50%">
+                <td>
+                <div class="checkbox">
                     <ejs-checkbox ref="line" id="line" :change='lineChange' :disabled='markerDisabled' v-model="lineCheck"></ejs-checkbox>
+                </div>
                 </td>
             </tr>
-            <tr style="height: 35px">
-                <td style="width: 70%">
-                    <div class="property-text" style="padding: 0px; ">Connecting line</div>
+            <tr style="height: 50px">
+                <td>
+                    <div class="text" style="width: 82%;">Connecting line</div>
                 </td>
-                <td style="width: 50%">
+                <td>
+                <div class="checkbox">
                     <ejs-checkbox ref="connect" id="connect" :disabled='ConnectDisabled' v-model="connectCheck" :change='connectChange'></ejs-checkbox>
+                </div>    
                 </td>
             </tr>
-            <tr style="height: 35px">
-                <td style="width: 70%">
-                    <div class="property-text" style="padding: 0px"> Marker type</div
+            <tr style="height: 50px">
+                <td>
+                    <div class="text"> Marker type</div>
                 </td>
-                <td style="width: 10%; margin-left:20px">
-                    <ejs-dropdownlist ref="type" id='type' :enabled='dropDisabled' style="width:110;" :dataSource='labelsdata' :fields='localFields' index="0" :width='labelswidth'></ejs-dropdownlist>
+                <td>
+                <div class="text">
+                    <ejs-dropdownlist ref="type" id='type' :enabled='dropDisabled' style="width:100;" :dataSource='labelsdata' :fields='localFields' index="0" :width='labelswidth'></ejs-dropdownlist>
+                    </div>
                 </td>
             </tr>
-            <tr style="height: 35px">
-                <td style="width: 70%">
-                    <div class="property-text" style="padding: 0px;">Width</div>
+            <tr style="height: 50px">
+                <td>
+                    <div class="text">Width</div>
                 </td>
-                <td style="width: 10%">
-                   <div style="width:120px;margin-left:-10px">
+                <td>
+                   <div class="text">
                         <ejs-textbox ref="text" id="width" :enabled='widthDisabled' value="1"  style="width:60px" v-model="textValue" :change='widthChange'></ejs-textbox>
                     </div>
                 </td>
             </tr>
-            <tr>
+             <tr style="height: 50px">
                 <td align="center">
-                    <div style="margin-left: 60%;">
-                        <ejs-button ref="togglebtn" id="togglebtn" :disabled='disabled' style="text-transform:none !important;width: 80px;margin-left: -55%;margin-top: -2px"  v-on:click.native="btnClick" v-model="togglebtnCheck">Clear</ejs-button>
+                    <div style="margin-left: 50%;">
+                        <ejs-button ref="togglebtn" id="togglebtn" :disabled='disabled' style="text-transform:none !important;width: 80px;margin-top: 10px"  v-on:click="btnClick" v-model="togglebtnCheck">Clear</ejs-button>
                     </div>
                 </td>
             </tr>
-        </tbody>
+            </tbody>
     </table>
 </div>
 
@@ -91,40 +103,46 @@
 </div>
 </template>
 <style scoped>
-    .property-text {
-        font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
-        font-size: 13px;
-        font-weight: 400;
-    }
     #width {
         border-bottom-color: inherit;
         background-image: none;
     }
+    div.text {
+        padding-left: 0px; padding-top: 0px;
+    }
+     div.checkbox {
+        padding-left: 0px; padding-top: 0px;
+        margin-left: -30px;margin-top: 7px;
+    }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin, Marker, MapsTooltip, MapAjax, ILoadEventArgs,NavigationLine, MarkerSettingsModel, MarkerSettings, Zoom  } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, MapsTooltip, MapAjax, ILoadEventArgs,NavigationLine, MarkerSettingsModel, MarkerSettings, Zoom  } from '@syncfusion/ej2-vue-maps';
 import { topPopulation } from '../maps/map-data/marker-location';
-import { DropDownListPlugin } from '@syncfusion/ej2-vue-dropdowns';
-import { CheckBoxPlugin, ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-Vue.use(TextBoxPlugin);
-Vue.use(ButtonPlugin);
-Vue.use(MapsPlugin);
-Vue.use(CheckBoxPlugin);
-Vue.use(DropDownListPlugin);
+import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { CheckBoxComponent, ButtonComponent, buttonObserver } from "@syncfusion/ej2-vue-buttons";
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+
 let latitude = [];
 let longitude = [];
 let navigationLines = [];
 
 
-export default Vue.extend({
+export default {
+components: {
+    'ejs-maps': MapsComponent,
+    'e-layers': LayersDirective,
+    'e-layer': LayerDirective,
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-button': ButtonComponent,
+    'ejs-textbox': TextBoxComponent
+},
 data:function(){
     return{
         zoomSettings: {
             enable: true
         },
-        labelswidth: 120,
+        labelswidth: '100%',
         localFields: { text: 'text', value: 'value' },
         labelsdata:[
             {value: 'Image', text: 'Image'},
@@ -154,7 +172,8 @@ methods:{
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     },
 
     markerChange: function(args){
@@ -266,6 +285,6 @@ methods:{
     },
 }
 /* custom code end */
-})
+}
 </script>
     

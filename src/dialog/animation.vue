@@ -3,19 +3,19 @@
      <div id="target" class="col-lg-12 control-section dialog-animation-sample">
         <div id='customization'>      
             <div class='animate'>
-               <ejs-button v-on:click.native='buttonClick' id='Zoom' cssClass='e-outline' isPrimary=true>Zoom In/Out</ejs-button>
+               <ejs-button v-on:click='buttonClick' id='Zoom' cssClass='e-outline' isPrimary=true>Zoom In/Out</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipXDown' cssClass='e-outline' isPrimary=true>FlipX Down</ejs-button>
+                <ejs-button v-on:click='buttonClick' id='FlipXDown' cssClass='e-outline' isPrimary=true>FlipX Down</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipXUp' cssClass='e-outline' isPrimary=true>FlipX Up</ejs-button>
+                <ejs-button v-on:click='buttonClick' id='FlipXUp' cssClass='e-outline' isPrimary=true>FlipX Up</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipYLeft' cssClass='e-outline' isPrimary=true>FlipY Left</ejs-button>
+                <ejs-button v-on:click='buttonClick' id='FlipYLeft' cssClass='e-outline' isPrimary=true>FlipY Left</ejs-button>
             </div>
             <div class='animate'>
-                <ejs-button v-on:click.native='buttonClick' id='FlipYRight' cssClass='e-outline' isPrimary=true>FlipY Right</ejs-button>
+                <ejs-button v-on:click='buttonClick' id='FlipYRight' cssClass='e-outline' isPrimary=true>FlipY Right</ejs-button>
             </div>
         </div>             
         <ejs-dialog id='dialog' header='Animation Dialog' content='The dialog is configured with animation effect. It is opened or closed with "Zoom In or Out" animation.' showCloseIcon='true' :isModal='isModal' :animationSettings='animationSettings' width='285px' ref='dialogObj'
@@ -38,11 +38,14 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DialogPlugin } from '@syncfusion/ej2-vue-popups';
-Vue.use(DialogPlugin);
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
-export default Vue.extend({
+export default {
+    components: {
+      'ejs-dialog': DialogComponent,
+        'ejs-button': ButtonComponent
+    },
     data: function() {
         return {
             dlgButton: [{ 'click': () => { this.$refs.dialogObj.hide(); }, buttonModel: { content: 'Hide', isPrimary: true }}],
@@ -62,13 +65,18 @@ export default Vue.extend({
             },400);
         }
     }
-});
+}
 </script>
 
 <style scoped>            
     #customization {
         display: table;
         margin: 0 auto;
+    }
+
+    .control-section {
+        height: 100%;
+        min-height: 350px;
     }
 
     .animate {

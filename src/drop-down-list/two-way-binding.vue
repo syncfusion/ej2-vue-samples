@@ -33,12 +33,13 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
-import * as data from './dataSource.json';
-Vue.use(DropDownListPlugin);
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import data from './dataSource.json';
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: function() {
     return {
       waterMark: "Select a game",
@@ -47,7 +48,7 @@ export default Vue.extend({
       value:null
     };
   }
-});
+}
 </script>
 
 

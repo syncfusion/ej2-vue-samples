@@ -3,7 +3,13 @@
         <div class="col-md-12 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="onEventRendered"
-                    :dateHeaderTemplate="dateHeaderTemplate" :cssClass='cssClass' :renderCell="onRenderCell">
+                    :dateHeaderTemplate="'dateHeaderTemplate'" :cssClass='cssClass' :renderCell="onRenderCell">
+                    <template v-slot:dateHeaderTemplate="{ data }">
+                        <div>
+                            <div class="date-text">{{getDateHeaderText(data.date)}}</div>
+                            <div v-html=getWeather(data.date)></div>
+                        </div>
+                    </template>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="Week"></e-view>
@@ -99,65 +105,38 @@
         width: 20px;
         height: 20px;
     }
+
+     .schedule-date-header-template.e-schedule.e-rtl .e-month-view .weather-image {
+        float: left;
+    }
 </style>
 <script>
-    import Vue from "vue";
     import { extend, Internationalization } from '@syncfusion/ej2-base';
     import { scheduleData } from './datasource';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, TimelineMonth, View, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-
-    Vue.use(SchedulePlugin);
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, WorkWeek, Month, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
 
     var instance = new Internationalization();
-    var dateHeaderTemplate = Vue.component("date-header-template", {
-        template: '<div><div class="date-text">{{getDateHeaderText(data.date)}}</div><div v-html=getWeather(data.date)></div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        },
-        methods: {
-            getDateHeaderText: function (value) {
-                return instance.formatDate(value, { skeleton: 'Ed' });
-            },
-            getWeather: function (value) {
-                switch (value.getDay()) {
-                    case 0:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clear.svg"/><div class="weather-text">25°C</div>';
-                    case 1:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clouds.svg"/><div class="weather-text">18°C</div>';
-                    case 2:
-                        return '<img class="weather-image" src="source/schedule/images/weather-rain.svg"/><div class="weather-text">10°C</div>';
-                    case 3:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clouds.svg"/><div class="weather-text">16°C</div>';
-                    case 4:
-                        return '<img class="weather-image" src="source/schedule/images/weather-rain.svg"/><div class="weather-text">8°C</div>';
-                    case 5:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clear.svg"/><div class="weather-text">27°C</div>';
-                    case 6:
-                        return '<img class="weather-image" src="source/schedule/images/weather-clouds.svg"/><div class="weather-text">17°C</div>';
-                    default:
-                        return null;
-                }
-            }
-        }
-    });
 
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
                 cssClass: 'schedule-date-header-template',
-                selectedDate: new Date(2019, 0, 10),
-                dateHeaderTemplate: function () {
-                    return { template: dateHeaderTemplate }
-                },
+                selectedDate: new Date(2021, 0, 10)
             }
         },
         provide: {
             schedule: [Day, Week, WorkWeek, Month, TimelineMonth, Resize, DragAndDrop]
         },
         methods: {
+            getDateHeaderText: function (value) {
+                return instance.formatDate(value, { skeleton: 'Ed' });
+            },
             getWeather: function (value) {
                 switch (value.getDay()) {
                     case 0:
@@ -194,6 +173,6 @@
                 args.element.style.backgroundColor = categoryColor;
             },
         }
-    });
+    }
 
 </script>

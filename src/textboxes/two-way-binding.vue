@@ -45,16 +45,15 @@
 
 
 <script>
-import Vue from "vue";
-import { TextBoxPlugin } from '@syncfusion/ej2-vue-inputs';
-Vue.use(TextBoxPlugin);
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 
-export default Vue.extend({
+export default {
     data: function() {
         return {
             value: null
          }
-    }
-});
+    },
+    components: { 'ejs-textbox': TextBoxComponent }
+};
 
 </script>

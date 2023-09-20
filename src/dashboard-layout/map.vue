@@ -17,10 +17,14 @@
     }
 </style>
 <script>
-import Vue from 'vue';
-import { MapsPlugin,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
-Vue.use(MapsPlugin);
-export default Vue.extend({
+import { MapsComponent,Legend, Marker, MapsTooltip, MapAjax, LayersDirective, LayerDirective } from '@syncfusion/ej2-vue-maps';
+
+export default {
+  components: {
+    'ejs-maps': MapsComponent,
+    'e-layer': LayerDirective,
+    'e-layers': LayersDirective
+  },
 data:function(){
     return{
         legendSettings: {
@@ -129,15 +133,15 @@ methods: {
     load: function(args) {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
-      args.maps.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
-    } 
+      args.maps.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+    }
 },
 mounted() {
-    this.$refs.mapInstance.height ="100%";
-    this.$refs.mapInstance.width ="100%";
+    this.$refs.mapInstance.ej2Instances.height ="100%";
+    this.$refs.mapInstance.ej2Instances.width ="100%";
   }
 
-})
+}
 </script>
 <style>
 .dashboard-seo .map-container,.dashboard-seo .maps-container{

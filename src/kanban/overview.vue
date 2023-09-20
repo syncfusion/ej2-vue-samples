@@ -121,21 +121,25 @@
   height: 35px;
 }
 
+.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low {
     border-left: 3px solid #1F88E5;
 }
 
+.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High {
     border-left: 3px solid #673AB8;
 }
 
+.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal {
     border-left: 3px solid #02897B;
 }
 
+.kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical {
     border-left: 3px solid #E64A19;
@@ -168,16 +172,19 @@
 }
 </style>
 <script>
-import Vue from "vue";
+import { createApp } from "vue";
 import { extend, addClass } from "@syncfusion/ej2-base";
-import { KanbanPlugin } from "@syncfusion/ej2-vue-kanban";
+import { KanbanComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-kanban";
 import { cardData } from "./datasource";
 import columnTemplate from "./overview-column-template.vue";
 import cardTemplate from "./overview-card-template.vue";
 
-Vue.use(KanbanPlugin);
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-kanban': KanbanComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
   data: function() {
     return {
       kanbanData: extend([], cardData, null, true),
@@ -189,12 +196,12 @@ export default Vue.extend({
       cardSettings: {
         headerField: "Title",
         template: function() {
-          return { template: cardTemplate };
+          return { template: createApp({}).component('cardTemplate', cardTemplate) };
         },
         selectionType: "Multiple"
       },
       columnsTemplate: function() {
-        return { template: columnTemplate };
+        return { template: createApp({}).component('cardTemplate', columnTemplate) };
       },
       dialogSettings: {
         fields: [
@@ -216,5 +223,5 @@ export default Vue.extend({
        addClass([args.element], val);
     }
    }
-});
+}
 </script>

@@ -18,25 +18,20 @@
             <table id="property" title="Properties" style="width: 100%">
                 <tbody>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Working Days</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
                             <div class="multi-prop">
                                 <div>
                                     <ejs-multiselect id='multiselect-checkbox' :dataSource='workDaysData' :fields='workDaysFields' :value='workDaysValue' :mode='mode'
-                                        popupWidth="180px" showDropDownIcon='true' :change="onMultiSelectChange"></ejs-multiselect>
+                                        showDropDownIcon='true' :change="onMultiSelectChange" showClearButton='false' placeholder="Working days" floatLabelType="Always"></ejs-multiselect>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <tr style="height: 50px">
-                        <td style="width: 30%">
-                            <div>Non-Working Days</div>
-                        </td>
-                        <td style="width: 70%;">
+                        <td style="width: 100%;">
+                            <div style="font-weight:500">Non-Working days</div>
                             <div>
-                                <ejs-button class="e-active" isToggle="true" v-on:click.native="btnClick">Show</ejs-button>
+                                <ejs-button class="e-active" isToggle="true" v-on:click="btnClick">Show</ejs-button>
                             </div>
                         </td>
                     </tr>
@@ -55,7 +50,7 @@
                 In this demo, the
                 <code>showWeekend</code> property is used either to show or hide the weekend days of a week and it is not
                 applicable on
-                <code>workweek</code> view. By default, it is set to
+                <code>WorkWeek</code> view. By default, it is set to
                 <code>true</code>. The days which are not a part of the working days collection of a Scheduler are usually
                 considered as weekend days here.
             </p>
@@ -75,21 +70,24 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { employeeEventData } from './datasource';
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Day, Week, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    import { ButtonPlugin } from "@syncfusion/ej2-vue-buttons";
-    import { MultiSelectPlugin, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Day, Week, Month, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+    import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 
-    Vue.use(MultiSelectPlugin);
-    Vue.use(ButtonPlugin);
-    Vue.use(SchedulePlugin);
-    export default Vue.extend({
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective,
+          'ejs-button': ButtonComponent,
+          'ejs-multiselect': MultiSelectComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], employeeEventData, null, true) },
-                selectedDate: new Date(2018, 1, 15),
+                selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
                 mode: 'CheckBox',
                 workDaysData: [
@@ -135,6 +133,6 @@
                 args.element.style.backgroundColor = categoryColor;
             }
         }
-    });
+    }
 
 </script>

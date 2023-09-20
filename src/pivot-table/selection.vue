@@ -112,16 +112,15 @@
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
 import {
-  PivotViewPlugin,
+  PivotViewComponent,
   PivotView,
   IDataSet,
   PivotCellSelectedEventArgs,
   SelectionMode
 } from "@syncfusion/ej2-vue-pivotview";
 import {
-  DropDownListPlugin,
+  DropDownListComponent,
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple } from "@syncfusion/ej2-base";
@@ -129,12 +128,14 @@ import { SelectionType } from "@syncfusion/ej2-grids";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 
-Vue.use(PivotViewPlugin);
-Vue.use(DropDownListPlugin);
 /* tslint:disable */
 declare var require: any;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-pivotview': PivotViewComponent,
+    'ejs-dropdownlist': DropDownListComponent
+  },
   data: () => {
     return {
       dataSourceSettings: {
@@ -180,18 +181,18 @@ export default Vue.extend({
   },
   methods: {
     modeddlOnChange: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview_chart).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview_chart).ej2Instances;
       pivotObj.gridSettings.selectionSettings.mode = args.value as SelectionMode;
       pivotObj.renderModule.updateGridSettings();
     },
     typeddlOnChange: function(args: ChangeEventArgs) {
-      let pivotObj = (<any>this.$refs.pivotview_chart).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview_chart).ej2Instances;
       pivotObj.gridSettings.selectionSettings.type = args.value as SelectionType;
       pivotObj.renderModule.updateGridSettings();
     },
     cellSelected: function(args: PivotCellSelectedEventArgs) {
       (document.getElementById("EventLog") as HTMLElement).innerHTML = "";
-      let pivotObj = (<any>this.$refs.pivotview_chart).ej2Instances;
+      let pivotObj = ((this as any).$refs.pivotview_chart).ej2Instances;
       if ((args.selectedCellsInfo as any).length > 0) {
         for (let cell of args.selectedCellsInfo as any) {
           let summMeasure = pivotObj.engineModule.fieldList[cell.measure]
@@ -224,11 +225,17 @@ export default Vue.extend({
       log.appendChild(span);
     }
   }
-});
+}
 </script>
 <style scoped>
 /deep/ .pivottable-property-section hr {
   margin: 1px 10px 0px 0px;
   border-top: 1px solid #eee;
+}
+/deep/ .e-bigger .e-float-input.e-control-wrapper {
+        width: 100% !important;
+    }
+/deep/ .property-panel-table div {
+  padding: 0 !important;
 }
 </style>

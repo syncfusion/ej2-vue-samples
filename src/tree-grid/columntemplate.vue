@@ -14,66 +14,61 @@
         In this demo, using column template, we have presented sparkLine charts for the "Tax per annum", "One day index" and "Year GR" columns. In <code>columns->template</code> we have assigned with the ID of a SCRIPT element whose content is used as the template.
     </p>
     <p>The template expression should be provided inside <code>${...}</code> interpolation syntax</p>
-    <p>
-        More information about Column Template can be found in this documentation section.
-    </p>
+        <p>
+            More information on the column template can be found in this
+            <a target="_blank" 
+                href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/column-template/">
+               documentation section</a>.
+        </p>
 </div>
     <div>
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>
             <e-columns>
-                <e-column field='EmpID' headerText='Employee ID' width='120'></e-column>
-                <e-column field='Name' headerText='Name' width='100'></e-column>
-                <e-column field='DOB' headerText='DOB' width='90' format='yMd' textAlign='Right'></e-column>
-                <e-column headerText='Tax Per Annum' width='100' :template='template1' ></e-column>
-                <e-column headerText='One Day Index' width='100' :template='template2' ></e-column>
-                <e-column headerText='Year GR' width='120' :template='template3' ></e-column>
+                <e-column field='EmpID' headerText='Employee ID' width='180'></e-column>
+                <e-column field='Name' headerText='Name' width='170'></e-column>
+                <e-column field='DOB' headerText='DOB' width='110' format='yMd' textAlign='Right'></e-column>
+                <e-column headerText='Tax Per Annum' width='170' :template="'template1'" ></e-column>
+                <e-column headerText='One Day Index' width='170' :template="'template2'" ></e-column>
+                <e-column headerText='Year GR' width='180' :template="'template3'" ></e-column>
             </e-columns>
+            <template v-slot:template1="{data}">
+               <div :id="`spkline${data.EmployeeID}`"></div>
+           </template>
+           <template v-slot:template2="{data}">
+               <div :id="`spkarea${data.EmployeeID}`"></div>
+           </template>
+           <template v-slot:template3="{data}">
+               <div :id="`spkwl${data.EmployeeID}`"></div>
+           </template>
         </ejs-treegrid>
     </div>
 
 </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { TreeGridPlugin } from "@syncfusion/ej2-vue-treegrid";
-import { SparklinePlugin } from "@syncfusion/ej2-vue-charts";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, } from "@syncfusion/ej2-vue-treegrid";
+import { SparklineComponent } from "@syncfusion/ej2-vue-charts";
 import { sparkdata, textdata, getSparkData } from "./data-source";
-import template1 from "./template1.vue";
-import template2 from "./template2.vue";
-import template3 from "./template3.vue";
 import { RowDataBoundEventArgs, getObject } from '@syncfusion/ej2-grids';
 import { EmitType } from '@syncfusion/ej2-base';
 import { Sparkline, ISparklineLoadEventArgs, SparklineTheme } from '@syncfusion/ej2-charts';
-
-Vue.use(TreeGridPlugin);
-Vue.use(SparklinePlugin);
 
 let line: Sparkline;
 let column: Sparkline;
 let winloss: Sparkline;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-treegrid': TreeGridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },  
   data: () => {
     return {
       data: textdata,
-      template1: function() {
-          return {
-              template:template1
-          }
-      } ,
-      template2: function() {
-          return {
-              template:template2
-          }
-      },
-      template3: function() {
-          return {
-              template:template3
-          }
-      }
     };
   },
-   methods:{
+   methods : {
     rowDataBound: function(args: RowDataBoundEventArgs) {
             let data: string = getObject('EmployeeID', args.data);
             let spkline = (args.row as Element).querySelector('#spkline' + data);
@@ -112,5 +107,5 @@ export default Vue.extend({
         },    
   }
 
-});
+}
 </script>

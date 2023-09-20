@@ -88,12 +88,14 @@
 </style>
 <!-- custom code end -->
 <script>
-import Vue from "vue";
-import { ListBoxPlugin } from "@syncfusion/ej2-vue-dropdowns";
+import { ListBoxComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { DataManager } from "@syncfusion/ej2-data";
-import * as data from './datasource.json';
-Vue.use(ListBoxPlugin);
-export default Vue.extend({
+import data from './datasource.json';
+
+export default {
+    components: {
+        'ejs-listbox': ListBoxComponent
+    },
     data: function() {
         return {
             // Set the dragAndDropA & dragAndDropB data to the data source.
@@ -110,7 +112,7 @@ export default Vue.extend({
         };
     },
     methods: {
-        savechanges() {
+        saveChanges() {
             this.dataA.saveChanges(this.modifiedDataA);
             this.dataB.saveChanges(this.modifiedDataB);
             this.modifiedDataA.addedRecords = []; this.modifiedDataB.addedRecords = [];
@@ -132,5 +134,5 @@ export default Vue.extend({
             });
         }
     }
-});
+}
 </script>

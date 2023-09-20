@@ -24,73 +24,6 @@
     </div>
 </template>
 <style>
-    .schedule-context-menu .e-menu-item .new::before {
-        content: '\e7f9';
-    }
-
-    .schedule-context-menu .e-menu-item .edit::before {
-        content: '\ea9a';
-    }
-
-    .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e308';
-        font-weight: bold;
-    }
-
-    .schedule-context-menu .e-menu-item .today::before {
-        content: '\e322';
-    }
-
-    /* custom code start*/
-    .highcontrast .schedule-context-menu .e-menu-item .today::before,
-    .fabric .schedule-context-menu .e-menu-item .today::before {
-        content: '\e321';
-    }
-
-    .bootstrap .schedule-context-menu .e-menu-item .today::before {
-        content: '\e312';
-    }
-
-    .highcontrast .schedule-context-menu .e-menu-item .delete::before,
-    .fabric .schedule-context-menu .e-menu-item .delete::before {
-        content: '\eb00';
-    }
-
-    .highcontrast .schedule-context-menu .e-menu-item .new::before,
-    .fabric .schedule-context-menu .e-menu-item .new::before {
-        content: '\e823';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .today::before {
-        content: '\e7be';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .edit::before {
-        content: '\e78f';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .delete::before {
-        content: '\e773';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .new::before {
-        content: '\e759';
-    }
-
-    .bootstrap4 .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e7c8';
-    }
-
-    .highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
-    .fabric .schedule-context-menu .e-menu-item .recurrence::before {
-        content: '\e309';
-        font-weight: bold;
-    }
-    /* custom code end*/
-
-    .schedule-context-menu .e-menu-item .delete::before {
-        content: '\e94a';
-    }
 
     .e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
         font-size: 14px;
@@ -105,40 +38,42 @@
     }
 </style>
 <script>
-    import Vue from "vue";
     import { scheduleData } from './datasource';
-    import { extend, closest, isNullOrUndefined, Browser, remove, removeClass } from '@syncfusion/ej2-base';
+    import { extend, closest, isNullOrUndefined, remove, removeClass } from '@syncfusion/ej2-base';
     import { DataManager, Query } from '@syncfusion/ej2-data';
-    import { SchedulePlugin, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
-    import { ContextMenuPlugin } from '@syncfusion/ej2-vue-navigations';
-    Vue.use(SchedulePlugin);
-    Vue.use(ContextMenuPlugin);
-    export default Vue.extend({
+    import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from "@syncfusion/ej2-vue-schedule";
+    import { ContextMenuComponent } from '@syncfusion/ej2-vue-navigations';
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'ejs-contextmenu': ContextMenuComponent
+        },
         data: function () {
             return {
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 menuItems: [
                     {
                         text: 'New Event',
-                        iconCss: 'e-icons new',
+                        iconCss: 'e-icons e-plus',
                         id: 'Add'
                     }, {
                         text: 'New Recurring Event',
-                        iconCss: 'e-icons recurrence',
+                        iconCss: 'e-icons e-repeat',
                         id: 'AddRecurrence'
                     }, {
                         text: 'Today',
-                        iconCss: 'e-icons today',
+                        iconCss: 'e-icons e-timeline-today',
                         id: 'Today'
                     }, {
                         text: 'Edit Event',
-                        iconCss: 'e-icons edit',
+                        iconCss: 'e-icons e-edit',
                         id: 'Save'
                     }, {
                         text: 'Edit Event',
                         id: 'EditRecurrenceEvent',
-                        iconCss: 'e-icons edit',
+                        iconCss: 'e-icons e-edit',
                         items: [{
                             text: 'Edit Occurrence',
                             id: 'EditOccurrence'
@@ -148,12 +83,12 @@
                         }]
                     }, {
                         text: 'Delete Event',
-                        iconCss: 'e-icons delete',
+                        iconCss: 'e-icons e-trash',
                         id: 'Delete'
                     }, {
                         text: 'Delete Event',
                         id: 'DeleteRecurrenceEvent',
-                        iconCss: 'e-icons delete',
+                        iconCss: 'e-icons e-trash',
                         items: [{
                             text: 'Delete Occurrence',
                             id: 'DeleteOccurrence'
@@ -176,12 +111,13 @@
                     remove(newEventElement);
                     removeClass([document.querySelector('.e-selected-cell')], 'e-selected-cell');
                 }
+                let scheduleObj = this.$refs.scheduleObj.ej2Instances;
+                scheduleObj.closeQuickInfoPopup();
                 let targetElement = args.event.target;
                 if (closest(targetElement, '.e-contextmenu')) {
                     return;
                 }
                 let menuObj = this.$refs.menuObj;
-                let scheduleObj = this.$refs.scheduleObj;
                 this.selectedTarget = closest(targetElement, '.e-appointment,.e-work-cells,' +
                         '.e-vertical-view .e-date-header-wrap .e-all-day-cells,.e-vertical-view .e-date-header-wrap .e-header-cells');
                 if (isNullOrUndefined(this.selectedTarget)) {
@@ -198,6 +134,11 @@
                         menuObj.hideItems(['Add', 'AddRecurrence', 'Today', 'EditRecurrenceEvent', 'DeleteRecurrenceEvent'], true);
                     }
                     return;
+                } else if ((this.selectedTarget.classList.contains('e-work-cells') || this.selectedTarget.classList.contains('e-all-day-cells')) &&
+                    !this.selectedTarget.classList.contains('e-selected-cell')) {
+                    this.selectedTarget.setAttribute('aria-selected', 'true');
+                    this.selectedTarget.classList.add('e-selected-cell');
+                    removeClass([].slice.call(scheduleObj.element.querySelectorAll('.e-selected-cell')), 'e-selected-cell');
                 }
                 menuObj.hideItems(['Save', 'Delete', 'EditRecurrenceEvent', 'DeleteRecurrenceEvent'], true);
                 menuObj.showItems(['Add', 'AddRecurrence', 'Today'], true);
@@ -206,6 +147,8 @@
                 let scheduleObj = this.$refs.scheduleObj.ej2Instances;
                 let selectedMenuItem = args.item.id;
                 let eventObj;
+                let selectedCells;
+                let activeCellsData;
                 if (this.selectedTarget.classList.contains('e-appointment')) {
                     eventObj = scheduleObj.getEventDetails(this.selectedTarget);
                 }
@@ -215,8 +158,8 @@
                         break;
                     case 'Add':
                     case 'AddRecurrence':
-                        let selectedCells = scheduleObj.getSelectedElements();
-                        let activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
+                         selectedCells = scheduleObj.getSelectedElements();
+                         activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
                         if (selectedMenuItem === 'Add') {
                             scheduleObj.openEditor(activeCellsData, 'Add');
                         } else {
@@ -242,6 +185,6 @@
                 }
             }
         }
-    });
+    }
 
 </script>

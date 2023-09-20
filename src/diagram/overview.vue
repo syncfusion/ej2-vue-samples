@@ -32,11 +32,10 @@
 </style>
 
 <script>
-import Vue from "vue";
 import {
-  OverviewPlugin,
+  OverviewComponent,
   Diagram,
-  DiagramPlugin,
+  DiagramComponent,
   ConnectorModel,
   Node,
   Overview,
@@ -53,11 +52,13 @@ import {
 import { DataManager } from "@syncfusion/ej2-data";
 import { data } from "./diagram-data";
 
-Vue.use(DiagramPlugin);
-Vue.use(OverviewPlugin);
 let diagramInstance;
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-diagram': DiagramComponent,
+    'ejs-overview': OverviewComponent
+  },
   data: function() {
     return {
       width: "100%",
@@ -112,7 +113,7 @@ export default Vue.extend({
     diagramInstance = this.$refs.diagramObj.ej2Instances;
   },
   methods: {}
-});
+}
 
 //Funtion to add the Template of the Node.
 function setNodeTemplate(obj, diagram) {

@@ -22,7 +22,7 @@
         <code>exportToExcel</code> method. This method accepts the export options as its arguments such as fileName, exportType,
         fields, customData, and includeOccurrences. The fileName denotes the name to be given for the exported file and
         the <code>exportType</code> allows you to set the format of the excel file to be exported either as .xlsx or .csv. The custom
-        or specific field collection of event dataSource to be exported can be provided through <code>fields</code> option and the
+        or specific field collection of event dataSource to be exported can be provided through <code>fieldsInfo</code> option and the
         custom data collection can be exported by passing them through the <code>customData</code> option. There also exists option
         to export individual instances of the recurring events to an excel file, by setting true or false to the
         <code>includeOccurrences</code> option, denoting either to include or exclude the occurrences as separate instances on an
@@ -38,32 +38,26 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
-        content: '\e242';
-    }
-
-    .bootstrap4 .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-icon-schedule-excel-export::before {
-        content: '\e74e';
-    }
-    
     .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
         display: none;
     }
 </style>
 <script>
-    import Vue from "vue";
     import { extend } from '@syncfusion/ej2-base';
-    import { SchedulePlugin, Week, View, Resize, DragAndDrop, ExcelExport
-    } from "@syncfusion/ej2-vue-schedule";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, Week, Resize, DragAndDrop, ExcelExport } from "@syncfusion/ej2-vue-schedule";
     import { scheduleData } from './datasource';
-    Vue.use(SchedulePlugin);
-
-    export default Vue.extend({
+    
+    export default {
+        components: {
+          'ejs-schedule': ScheduleComponent,
+          'e-view': ViewDirective,
+          'e-views': ViewsDirective
+        },
         data: function () {
             return {
                 cssClass: 'excel-export',
                 eventSettings: { dataSource: extend([], scheduleData, null, true) },
-                selectedDate: new Date(2019, 0, 10),
+                selectedDate: new Date(2021, 0, 10),
                 currentView: 'Week'
             }
         },
@@ -74,7 +68,7 @@
             onActionBegin: function (args) {
                 if (args.requestType === 'toolbarItemRendering') {
                     let exportItem = {
-                        align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icon-schedule-excel-export',
+                        align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-export-excel',
                         text: 'Excel Export', cssClass: 'e-excel-export', click: this.onExportClick.bind(this)
                     };
                     args.items.push(exportItem);
@@ -83,11 +77,16 @@
 
             onExportClick: function () {
                 let scheduleObj = this.$refs.ScheduleObj;
-                let exportValues = {
-                    fields: ['Id', 'Subject', 'StartTime', 'EndTime', 'Location']
-                };
+                let exportFields = [
+                    { name: 'Id', text: 'Id' },
+                    { name: 'Subject', text: 'Summary' },
+                    { name: 'StartTime', text: 'Start Date' },
+                    { name: 'EndTime', text: 'End Date' },
+                    { name: 'Location', text: 'Place' }
+                ];
+                let exportValues = { fieldsInfo: exportFields };
                 scheduleObj.exportToExcel(exportValues);
             }
         }
-    });
+    }
 </script>

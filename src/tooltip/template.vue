@@ -1,7 +1,7 @@
 <template>
   <div class="control-section tooltip-template">
     <ejs-tooltip ref="tooltip" :content="content" target=".toolbarContainer [title]" :beforeRender="onBeforeRender" :showTipPointer="show"
-       :width="170" cssClass="tooltip-template-settings">
+       :width="170" cssClass="tooltip-template-settings" :windowCollision='true' position="BottomCenter">
         <div class="toolbarContainer">
 
             <!-- Toolbar element -->
@@ -20,11 +20,11 @@
     </ejs-tooltip>
             <div id="action-description">
             <p>This sample demonstrates the Template functionalities of the Tooltip
-    which will open by Hover or Touch-hold action on Toolbar option.
+    which will open by <b>hover</b> or <b>touch-hold</b> action on Toolbar option.
     </p>
             </div>
             <div id="description">
-             <p>This sample illustrates the way to display the template content on the tooltip. With the usage of Template, the user
+             <p>This sample illustrates the way to display the template content on the tooltip. With the usage of template, the user
         can format and structure the HTML content to be displayed on the tooltip as per their application needs.</p>
     <p>In this sample, the tooltip is integrated with toolbar component to display the respective icon’s information. Here, the
         HTML template design is compiled and then the resultant output display is directly assigned to the <code> content</code>property
@@ -126,12 +126,16 @@
     }
 </style>
 <script>
-import Vue from "vue";
-import { TooltipPlugin } from "@syncfusion/ej2-vue-popups";
-import { ToolbarPlugin } from "@syncfusion/ej2-vue-navigations";
-Vue.use(ToolbarPlugin);
-Vue.use(TooltipPlugin);
-export default Vue.extend({
+import { TooltipComponent } from "@syncfusion/ej2-vue-popups";
+import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
+
+export default {
+   components: {
+    'ejs-tooltip': TooltipComponent,
+    'ejs-toolbar': ToolbarComponent,
+    'e-item': ItemDirective,
+    'e-items': ItemsDirective
+   },
    data: function(){
         return {
             content : "Loading..",
@@ -161,5 +165,5 @@ export default Vue.extend({
         }
        }
    }
-});
+}
 </script>

@@ -8,14 +8,13 @@
             <p style="visibility:hidden; display:inline-block" id="symbol">&nbsp;&gt;&gt;&nbsp;</p>
             <p id="text" style="display:inline-block;"></p>
         </div>
-        <button type="button" id="back" style="visibility: hidden;" @click="onClick">Back</button>
-        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;' :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load'>
-             <e-annotations>
-                <e-annotation :content="initialContent">
-                </e-annotation>
-            </e-annotations>
+        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;'  :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load' :enableBorderOnMouseMove='false'>
+             <e-accumulation-annotations>
+                <e-accumulation-annotation :content= 'initialContent'>
+                </e-accumulation-annotation>
+            </e-accumulation-annotations>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :dataLabel="dataLabel" :explode="isExplode" explodeOffset='10%' :explodeIndex='explodeIndex'>
+                <e-accumulation-series :dataSource='data' xName='x' yName='y' :animation='animation' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :dataLabel="dataLabel" :explode="isExplode" explodeOffset='10%'>
                 </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -23,15 +22,15 @@
 
 <div id="action-description">
     <p>
-        This sample demonstrates drill down sample with pie chart for a automobiles sales by category. By clicking one category, you can navigate to other sub-category by which companies are differentiated.
+        This sample demonstrates a drill down chart with a pie for automobiles sales by category. By clicking one category, you can navigate to other sub-categories where companies are differentiated.
     </p>
 </div>
 <div id="description">
-    <p> In this example, you can see how to achieve <code>drilldown</code> concept using pie control. An automobile sales has been shown by different category, on clicking each category, you can navigate to next level, which shows the sales of those category
-        in terms of company.</p>
-    <p> Datalabel is used in this sample.</p>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p> In this example, you can see how to achieve the drilldown concept using a pie chart. Automobile sales are shown in different categories. By clicking each category, you can navigate to the next level, which shows the sales by categories made by each company. <code>Datalabels</code> are used in this sample to show information about the data points.</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p> Accumulation chart component features are segregated into individual feature-wise modules. To use datalabel, we need to inject <code>AccumulationDataLabelService</code> into the <code>provide</code> option of accumulation. </p>
+    More information about the drilldown in accumulation chart can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#multi-level-pie-chart">documentation section</a>.
 </div>
 </div>
 
@@ -48,27 +47,22 @@
 }
 </style>
 <script>
-import Vue from "vue";
 import { extend } from '@syncfusion/ej2-base';
-import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel, AccumulationAnnotation, AccumulationChartPlugin } from "@syncfusion/ej2-vue-charts";
-import {Template1} from "./drill-down-temp1.vue";
-import {Template2} from "./drill-down-temp2.vue";
-
-Vue.use(AccumulationChartPlugin);
+import { Browser } from '@syncfusion/ej2-base';
+import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel, AccumulationAnnotation, AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationAnnotationDirective, AccumulationAnnotationsDirective } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-let tempContent1 = function() {
-  return { template: Template1 };
-}; 
-
-let tempContent2 = function() {
-  return { template: Template2 };
-};
-
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-accumulationchart': AccumulationChartComponent,
+    'e-accumulation-series-collection': AccumulationSeriesCollectionDirective,
+    'e-accumulation-series': AccumulationSeriesDirective,
+    'e-accumulation-annotations': AccumulationAnnotationsDirective,
+    'e-accumulation-annotation': AccumulationAnnotationDirective
+  },
   data: function() {
     return {
     theme: theme,
@@ -98,14 +92,16 @@ export default Vue.extend({
     legendSettings: {
         visible: false,
     },
-    
     //Initializing Datalabel
     dataLabel: {
-        visible: true, position: 'Inside', connectorStyle: { type: 'Curve', length: '5%' }, font: { size: '14px', color: 'white' }
+        visible: true, position: 'Inside',  connectorStyle: { type: 'Curve', length: '10%' }, font: {  fontWeight:'600' , color: 'white' }, enableRotation: false
     },
     startAngle: 0,
-    explodeIndex: 2,
+    radius: '70%',
     isExplode: false,
+    animation: {
+        enable: true
+    },
     endAngle: 360,
     title: 'Automobile Sales by Category'
     };
@@ -120,14 +116,10 @@ export default Vue.extend({
     onChartMouseClick: function (args) {
         let  accChart = document.getElementById("container").ej2_instances;
         let index = indexFinder(args.target);
-        let lightThemeContent = tempContent1;
-        let darkThemeContent = tempContent2;
         this.isExplode = false;
         if (document.getElementById('container_Series_' + index.series + '_Point_' + index.point) && !this.innerChart) {
-            accChart[0].annotations = [{
-                content: accChart[0].theme === 'Highcontrast' ? darkThemeContent : lightThemeContent, region: 'Chart', x: '50%', y: '50%'
-            }];
             this.innerRadius = '30%';
+            this.radius = Browser.isDevice ? '90%' : '80%';
             switch (index.point) {
                 case 0:
                     this.data = this.suvs;
@@ -151,8 +143,10 @@ export default Vue.extend({
                     break;
             }
             let dataLabel = extend({}, this.dataLabel);
-            dataLabel.position = 'Outside';
-            dataLabel.font.color = 'black';
+            dataLabel.position = Browser.isDevice ? 'Inside' : 'Outside';
+            dataLabel.enableRotation = true;
+            dataLabel.connectorStyle.length = '20px'
+            dataLabel.font.color = '';
             this.dataLabel = dataLabel;
             let legendSettings = this.legendSettings;
             legendSettings.visible = false;
@@ -169,7 +163,10 @@ export default Vue.extend({
             this.isExplode = false;
             let dataLabel = extend({}, this.dataLabel);
             dataLabel.position = 'Inside';
+             let animation = this.animation;
+             animation.enable = false;
             dataLabel.font.color = 'white';
+            dataLabel.enableRotation = false;
             this.dataLabel = dataLabel;
             let legendSettings = this.legendSettings;
             legendSettings.visible = false;
@@ -180,6 +177,7 @@ export default Vue.extend({
             document.getElementById('symbol').style.visibility = 'hidden';
             document.getElementById('text').style.visibility = 'hidden';
             this.innerChart = false;
+            this.title = 'Automobile Sales by Category';
         }
     },
     onClick: function (e) {
@@ -190,6 +188,8 @@ export default Vue.extend({
         let dataLabel = extend({}, this.dataLabel);
         dataLabel.position = 'Inside';
         dataLabel.font.color = 'white';
+        dataLabel.enableRotation = false;
+        this.radius = '70%';
         this.dataLabel = dataLabel;
         let legendSettings = this.legendSettings;
         legendSettings.visible = false;
@@ -206,10 +206,20 @@ export default Vue.extend({
         this.innerChart = false;
     },
     load: function(args) {
+        
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        if (selectedTheme === 'highcontrast'){
+        if (selectedTheme === 'highcontrast' || args.accumulation.theme.indexOf('Dark') > -1){
              args.accumulation.series[0].dataLabel.font.color="white";
+        }
+
+        if (args.accumulation.annotations[0] && this.innerChart) {
+            args.accumulation.annotations[0].region = 'Series';
+            args.accumulation.annotations[0].x = '50%';
+            args.accumulation.annotations[0].y = '50%';
+            args.accumulation.annotations[0].content = (selectedTheme === 'highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
+                '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :
+                '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" /></div>';
         }
     }
   },
@@ -218,5 +228,5 @@ export default Vue.extend({
         this.$refs.pie.ej2Instances.refresh();
       });
     }
-});
+};
 </script>

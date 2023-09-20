@@ -2,40 +2,37 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip'>
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingColumn100' xName='x' yName='y' name='UK' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingColumn100' xName='x' yName='y1' name='Germany' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingColumn100' xName='x' yName='y2' name='France' > </e-series>
-                <e-series :dataSource='seriesData' type='StackingColumn100' xName='x' yName='y3' name='Italy' > </e-series>
+                <e-series :dataSource='seriesData' type='StackingColumn100' xName='Year' yName='General' name='General Motors' width=2 columnWidth=0.5 :border='border' > </e-series>
+                <e-series :dataSource='seriesData' type='StackingColumn100' xName='Year' yName='Honda' name='Honda' width=2 columnWidth=0.5 :border='border' > </e-series>
+                <e-series :dataSource='seriesData' type='StackingColumn100' xName='Year' yName='Suzuki' name='Suzuki' width=2 columnWidth=0.5 :border='border' > </e-series>
+                <e-series :dataSource='seriesData' type='StackingColumn100' xName='Year' yName='BMW' name='BMW' width=2 columnWidth=0.5 :border='border'> </e-series>
                
             </e-series-collection>
         </ejs-chart>
     </div>
    <div id="action-description">
     <p>
-        This sample visualizes percentage of domestic product growth of four different countries with default 100% stacked column series in chart. 
-        Legend in the sample shows the information about the series.
+        This Vue 100% stacked column chart example visualizes motor vehicle production by manufacturer with a default stacked column series. The legend in the sample shows the information about those series.
     </p>
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure the 100% stacking column type charts. You can use <code>border</code>,
-        <code>fill</code> properties to customize the vertical bar.
+        In this example, you can see how to render and configure the 100% stacked column chart. The 100% stacked column chart displays multiple series of data as stacked columns, ensuring that the cumulative proportion of each stacked element always totals 100%.
     </p>
     <p>
-        Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
-    <br>
-    <p style="font-weight: 500">Injecting Module</p>
+    <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use 100% stacking column series, we need
         to inject
         <code>StackingColumnSeries</code> module using <code>provide: { chart: [ StackingColumnSeries ] },</code> method.
     </p>
     <p>
-        More information on the stacking column series can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        More information about the 100% stacked column series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stacked-column">documentation section</a>.
     </p>
 </div>
 </div>
@@ -45,25 +42,28 @@
 
 </style>
 <script>
-import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartPlugin, StackingColumnSeries, Legend, Category, Tooltip} from "@syncfusion/ej2-vue-charts";
-Vue.use(ChartPlugin);
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingColumnSeries, Legend, Category, Tooltip, Highlight} from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
-export default Vue.extend({
+export default {
+  components: {
+    'ejs-chart': ChartComponent,
+    'e-series-collection': SeriesCollectionDirective,
+    'e-series': SeriesDirective
+  },
   data: function() {
     return {
          theme: theme,
       seriesData: [
-               { x: '2006', y: 900, y1: 190, y2: 250, y3: 150 },
-               { x: '2007', y: 544, y1: 226, y2: 145, y3: 120 },
-               { x: '2008', y: 880, y1: 194, y2: 190, y3: 115 },
-               { x: '2009', y: 675, y1: 250, y2: 220, y3: 125 }
-
+        { Year : "2013", General : 9628912, Honda : 4298390, Suzuki : 2842133, BMW : 2006366 },
+        { Year : "2014", General : 9609326, Honda : 4513769, Suzuki : 3016710, BMW : 2165566 },
+        { Year : "2015", General : 7485587, Honda : 4543838, Suzuki : 3034081, BMW : 2279503 },
+        { Year : "2016", General : 7793066, Honda : 4999266, Suzuki : 2945295, BMW : 2359756 },
+        { Year : "2017", General : 6856880, Honda : 5235842, Suzuki : 3302336, BMW : 2505741 },
               ],
 
       //Initializing Primary X Axis
@@ -79,12 +79,10 @@ export default Vue.extend({
       //Initializing Primary Y Axis
          primaryYAxis:
         {
-            title: 'GDP (%) per Annum',
             rangePadding: 'None',
             interval: 20,
             majorTickLines: { width: 0 },
-            majorGridLines: { width: 1 },
-            minorGridLines: { width: 1 },
+            majorGridLines: { width: 1 },   
             minorTickLines: { width: 0 },
             lineStyle: {
                 width: 0
@@ -95,23 +93,23 @@ export default Vue.extend({
                 width: 0
             }
         },
-
         tooltip: {
             enable: true,
             format: '${point.x} : <b>${point.y} (${point.percentage}%)</b>'
         },
-
-      width : Browser.isDevice ? '100%' : '60%',
-      title: "Gross Domestic Product Growth"
+      border: {color: '#ffffff', width:1},
+      legend: {enableHighlight : true},
+      width : Browser.isDevice ? '100%' : '75%',
+      title: "Motor Vehicle Production by Manufacturer"
     };
   },
   provide: {
-    chart: [StackingColumnSeries, Category, Tooltip, Legend]
+    chart: [StackingColumnSeries, Category, Tooltip, Legend, Highlight]
   },
 
   methods: {
   
   },
  
-});
+};
 </script>

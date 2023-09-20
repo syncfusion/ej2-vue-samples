@@ -146,8 +146,49 @@
 
 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
-.layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+.layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
   padding: 5px 5px 5px 50px;
+}
+
+.tailwind .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+    padding: 5px 50px 5px 5px;
+}
+
+.material3 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.material3-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+  margin: 0;
+  top: 10px;
+}
+
+.e-bigger.tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+  top: 8px;
+}
+
+.tailwind #list-container #tabContainer .e-tab .e-content .e-item {
+  padding: 0px;
 }
 
 .call-history .layout #list-container #all,
@@ -186,7 +227,10 @@
   color: black;
 }
 
-.bootstrap4 .call-history .layout #list-container .e-listview .e-active .e-icon {
+.bootstrap4 .call-history .layout #list-container .e-listview .e-active .e-icon,
+.bootstrap5 .layout #list-container .e-listview .e-active .e-icon,
+.material3-dark .layout #list-container .e-listview .e-active .e-icon,
+.bootstrap5-dark .layout #list-container .e-listview .e-active .e-icon {
         color: #fff;
 }
 
@@ -211,20 +255,66 @@
 .highcontrast .call-history .layoutWrapper .camera,
 .highcontrast .call-history .layoutWrapper .outerButton,
 .highcontrast .call-history .layoutWrapper .speaker,
-.highcontrast .call-history .layoutWrapper {
+.highcontrast .call-history .layoutWrapper,
+.bootstrap5-dark .call-history .layoutWrapper .layout, .bootstrap5-dark .call-history .layoutWrapper .camera, .bootstrap5-dark .call-history .layoutWrapper .outerButton,
+.bootstrap5-dark .call-history .layoutWrapper .speaker,
+.bootstrap5-dark .call-history .layoutWrapper,
+.material-dark .call-history .layoutWrapper .layout, .material-dark .call-history .layoutWrapper .camera, .material-dark .call-history .layoutWrapper .outerButton, .material-dark .call-history .layoutWrapper .speaker,
+.material-dark .call-history .layoutWrapper,
+.material3-dark .call-history .layoutWrapper .layout, .material3-dark .call-history .layoutWrapper .camera, .material3-dark .call-history .layoutWrapper .outerButton, .material3-dark .call-history .layoutWrapper .speaker,
+.material3-dark .call-history .layoutWrapper,
+.fabric-dark .call-history .layoutWrapper .layout, .fabric-dark .call-history .layoutWrapper .camera, .fabric-dark .call-history .layoutWrapper .outerButton,
+.fabric-dark .call-history .layoutWrapper .speaker,
+.fabric-dark .call-history .layoutWrapper,
+.tailwind-dark .call-history .layoutWrapper .layout, .tailwind-dark .call-history .layoutWrapper .camera, .tailwind-dark .call-history .layoutWrapper .outerButton, .tailwind-dark .call-history .layoutWrapper .speaker,
+.tailwind-dark .call-history .layoutWrapper,
+.bootstrap-dark .call-history .layoutWrapper .layout, .bootstrap-dark .call-history .layoutWrapper .camera, .bootstrap-dark .call-history .layoutWrapper .outerButton, .bootstrap-dark .call-history .layoutWrapper .speaker,
+.bootstrap-dark .call-history .layoutWrapper
+{
   border-color: white;
 }
+
+body.material-dark .e-list-item .e-list-avatar.e-list-multi-line .e-list-content,
+body.bootstrap-dark .e-listview.e-list-template .e-list-wrapper.e-list-multi-line .e-list-content {
+  color: rgba(255,255,255,0.7);
+}
+
+body.material3-dark .layout #list-container .e-icon,
+body.material-dark .layout #list-container .e-icon,
+body.highcontrast .layout #list-container .e-icon,
+body.tailwind-dark .layout #list-container .e-icon,
+body.bootstrap-dark .layout #list-container .e-icon,
+body.fabric-dark .layout #list-container .e-icon,
+body.bootstrap5-dark .layout #list-container .e-icon {
+    color: #ffffff;
+}
+
+body.tailwind-dark .e-list-item .e-avatar.e-icon {
+    top:10px !important;
+    margin: auto !important;
+}
+
+body.tailwind-dark .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap,
+body.tailwind .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap {
+    padding: 0px 5px;
+}
+
 </style>
 <script>
-import Vue from "vue";
-import { ListViewPlugin } from "@syncfusion/ej2-vue-lists";
-import { TabPlugin } from "@syncfusion/ej2-vue-navigations";
+import { createApp } from "vue";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
+import { TabComponent, TabItemDirective, TabItemsDirective } from "@syncfusion/ej2-vue-navigations";
 import { Browser } from "@syncfusion/ej2-base";
 import callHistoryTemplate from "./call-history-template.vue";
 import { callHistory } from "./listData";
-Vue.use(ListViewPlugin);
-Vue.use(TabPlugin);
-export default Vue.extend({
+
+export default {
+  components: {
+    'ejs-listview': ListViewComponent,
+    'ejs-tab': TabComponent,
+    'e-tabitem': TabItemDirective,
+    'e-tabitems': TabItemsDirective
+  },
   data: function() {
     return {
       cssClass: 'e-list-template',
@@ -247,7 +337,7 @@ export default Vue.extend({
       types: ["", "received", "missed"],
       listTemplate: function() {
         return {
-          template: callHistoryTemplate
+          template: createApp({}).component('callHistory', callHistoryTemplate)
         };
       }
     };
@@ -287,5 +377,5 @@ export default Vue.extend({
       }
     }
   }
-});
+}
 </script>
