@@ -2,7 +2,6 @@
   "name": "ej2-vue-samples",
   "version": "23.1.36",
   "description": "Examples of Vue UI Components",
-  
   "keywords": [],
   "dependencies": {
     "@syncfusion/ej2": "*",
@@ -74,6 +73,7 @@
     "serve": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
     "serve:watch": "vue-cli-service serve",
     "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp src-ship",
-    "build-watch": "vue-cli-service build"
+    "build-watch": "vue-cli-service build",
+    "ci-publish": "gulp publish-samples"
   }
 }
