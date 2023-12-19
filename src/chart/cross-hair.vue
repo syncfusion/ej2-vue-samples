@@ -5,10 +5,10 @@
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :width='width' :legendSettings='legendSettings'
         :axes='axes' :crosshair='crosshair' :chartArea='chartArea' :zoomSettings='zoomSettings'>
         <e-series-collection>
-          <e-series :dataSource='cData' type='Line' xName='xDate' yName='High' name='Product X' :marker='marker'
+          <e-series :dataSource='cData' type='Line' xName='xDate' yName='High' name='Product X' :marker='marker' :width='seriesWidth'
              :border='border'> </e-series>
           <e-series :dataSource='cData' type='HiloOpenClose' xName='xDate' yAxisName='yAxis' name='Product X'
-            bearFillColor='#2ecd71' bullFillColor='#e74c3d' high='High' low='Low' open='Open'
+            bearFillColor='#2ecd71' bullFillColor='#e74c3d' high='High' low='Low' open='Open' :width='seriesWidth'
             close='Close'> </e-series>
         </e-series-collection>
       </ejs-chart>
@@ -71,7 +71,7 @@ export default {
       primaryYAxis:
       {
         minimum: 83, maximum: 87, interval: 1,
-        title: 'Million in USD',
+        title: 'Millions in USD',
         labelFormat: '{value}M',
         rowIndex: 0,
         crosshairTooltip: {
@@ -85,7 +85,7 @@ export default {
           opposedPosition: true,
           minimum: 82, maximum: 88, interval: 2,
           name: 'yAxis',
-          title: 'Million in USD (Stock)',
+          title: 'Millions in USD (Stock)',
           crosshairTooltip: { enable: true }
         }
       ],
@@ -98,8 +98,9 @@ export default {
       crosshair: { enable: true, lineType : 'Both' },
       legendSettings: { visible: false },
       marker: {
-        visible: true, height : 7, width : 7
+        visible: true
       },
+      seriesWidth: '2',
       width: Browser.isDevice ? '100%' : '75%',
       border: { color : 'transparent' },
       title: "Conns, Inc Stock Details"

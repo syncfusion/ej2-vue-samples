@@ -43,7 +43,7 @@
             format</code> property of columns.</p>
             <p>In this demo, select the column and format from the property panel to format the corresponding column values.</p>
             <p>
-                More information about Column Formatting can be found in this documentation section.
+                More information about Column Formatting can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/columns#format">documentation section</a>.
             </p>
 </div>
 </div>

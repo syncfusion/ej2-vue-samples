@@ -162,26 +162,7 @@ import {
   DecoratorModel,
   StrokeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
-import {
-  template1,
-  template2,
-  template3,
-  template4,
-  template5,
-  template6,
-  template7,
-  template8,
-  template10,
-  template11,
-  template12,
-  template13,
-  template14,
-  template15,
-  template16,
-  template17,
-  template18,
-  arrow
-} from "./network-shapes-templates";
+import {template1,template2,template3,template4,template5,template6,template7, template8,template10,template11,template12,template13,template14,template15,template16,template17,template18,arrow} from "./network-shapes-templates";
 import { UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { RemovingEventArgs, Uploader } from "@syncfusion/ej2-inputs";

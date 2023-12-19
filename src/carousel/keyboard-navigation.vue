@@ -342,7 +342,7 @@ export default {
     },
     mounted: function () {
       document.body.addEventListener('keydown', (e) => {
-        let carouselElement = document.querySelector('.e-carousel');
+        let carouselElement = document.querySelector('.e-carousel .e-carousel-slide-container');
         if (e.altKey && e.keyCode === 74 && carouselElement) {
           carouselElement.focus();
         }

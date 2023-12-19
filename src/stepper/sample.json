@@ -1,0 +1,36 @@
+{
+    "name": "Stepper",
+    "directory": "stepper",
+    "category": "Navigation",
+    "type":"preview",
+    "ftName": "stepper",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Stepper",
+            "description": "Showcases the default combinations of the steps and stepType properties in the Stepper."
+        },
+        {
+            "url": "orientation",
+            "name": "Orientation",
+            "category": "Stepper",
+            "api":{ "Step":["icon", "text"], "StepperBase": ["steps", "orientation"], "Stepper": ["activeStep", "labelPosition"] },
+            "description": "Showcases the orientations and label positions supported in the Stepper."
+        },
+        {
+            "url": "validation",
+            "name": "Validation",
+            "category": "Stepper",
+            "api":{ "Step":["icon", "text", "isValid"], "StepperBase": ["steps"], "Stepper": ["stepClick", "activeStep"] },
+            "description": "Showcases the validation support for each step in the Stepper."
+        },
+        {
+            "url": "linear",
+            "name": "Linear Flow",
+            "category": "Stepper",
+            "api":{ "Step":["icon", "label"], "StepperBase": ["steps"], "Stepper": ["stepClick"] },
+            "description": "Showcases the usage of the linear property in the Stepper."
+        }
+    ]
+}

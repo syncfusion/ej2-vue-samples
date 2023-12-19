@@ -3,7 +3,7 @@
     <div class="col-md-8 control-section sb-property-border">
       <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings'
-        :chartArea='chartArea'>
+        >
         <e-series-collection>
           <e-series :dataSource='seriesData' :type='seriesType' :emptytype='emptytype' xName='x' yName='y' name='Profit'
             width=2 :marker='marker' :emptyPointSettings='emptyPointSettings'> </e-series>
@@ -114,7 +114,6 @@ export default {
         title: 'Product',
         valueType: 'Category', interval: 1, labelIntersectAction: Browser.isDevice ? 'None' : 'Trim', labelRotation: Browser.isDevice ? -45 : 0,
         majorTickLines: { width: 0 },
-        majorGridLines: { width: 0 },
       },
 
       //Initializing Primary Y Axis
@@ -127,7 +126,6 @@ export default {
         lineStyle: { width: 0 },
         title: 'Profit'
       },
-      chartArea: { border: { width: 0 } },
       seriesType: "Column",
       marker: { visible: false, height: 7, width: 7 },
       emptyPointSettings: {

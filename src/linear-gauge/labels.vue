@@ -27,7 +27,7 @@
     <div id="containerBox"></div>
     <div id='container1' class="col-xs-5 col-sm-5 col-lg-3 col-md-3"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge1" :background='background' :load='load' :width='widthData' :title='title1' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='defaultContainer1' :orientation='orientation'>
+        <ejs-lineargauge ref="lineargauge1" :animationDuration=1500 :background='background' :load='load' :width='widthData' :title='title1' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='defaultContainer1' :orientation='orientation'>
             <e-axes>
                 <e-axis :minimum='min' :maximum='max' :majorTicks='majorTicks1' :line='line1' :minorTicks='minorTicks1' :labelStyle='labelStyle1' :opposedPosition='opposedPosition' >
                     <e-pointers>
@@ -48,7 +48,7 @@
     </div>
     <div id='container3' class="col-xs-5 col-sm-5 col-lg-3 col-md-3"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge3" :background='background' :load='load' :width='widthData' :title='title3' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='defaultContainer3' :orientation='orientation' >
+        <ejs-lineargauge ref="lineargauge3" :animationDuration=1500 :background='background' :load='load' :width='widthData' :title='title3' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='defaultContainer3' :orientation='orientation' >
             <e-axes>
                 <e-axis :minimum=0 :maximum=100  :majorTicks='majorTicks3' :minorTicks='minorTicks3' :line='line3' :labelStyle='labelStyle3' :opposedPosition='opposedPosition' >
                     <e-pointers>
@@ -60,7 +60,7 @@
     </div>
     <div id='container4' class="col-xs-5 col-sm-5 col-lg-3 col-md-3"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge4" :background='background' :load='load' :width='widthData' :title='title4' :titleStyle='titleStyle' :height='heightData' style='display:block'  align='center' id='defaultContainer4' :orientation='orientation'>
+        <ejs-lineargauge ref="lineargauge4" :animationDuration=1500 :background='background' :load='load' :width='widthData' :title='title4' :titleStyle='titleStyle' :height='heightData' style='display:block'  align='center' id='defaultContainer4' :orientation='orientation'>
             <e-axes>
                 <e-axis :minimum=0 :maximum=100  :majorTicks='majorTicks4' :minorTicks='minorTicks4' :line='line4'  :labelStyle='labelStyle4' :opposedPosition='opposedPosition' >
                     <e-pointers>

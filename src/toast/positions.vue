@@ -94,7 +94,7 @@
 
     #toast_pos .e-toast-icon.e-laura.e-icons {
         border-radius: 50%;
-        background-image: url('./resource/laura.png');
+        background-image: url('./images/laura.png');
         background-repeat: no-repeat;
         background-size: cover;
         height: 50px !important;

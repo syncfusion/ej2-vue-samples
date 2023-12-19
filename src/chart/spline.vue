@@ -6,12 +6,12 @@
             <e-annotations>
                 <e-annotation :content="'cloudTemplate'" x='Sun' y=2 coordinateUnits='Point' verticalAlignment='Top'>
                     <template v-slot:cloudTemplate="{}">
-                        <div id="chart_cloud"><img src="source/chart/images/cloud.png"  style="width: 41px; height: 41px"/></div>
+                        <div id="chart_cloud"><img src="./images/cloud.png"  style="width: 41px; height: 41px"/></div>
                     </template>
                 </e-annotation>
                 <e-annotation :content="'sunTemplate'" x='Tue' y=33 coordinateUnits='Point' verticalAlignment='Top'>
                     <template v-slot:sunTemplate="{}">
-                        <div id="chart_sun"><img src="source/chart/images/sunny.png"  style="width: 41px; height: 41px"/></div>
+                        <div id="chart_sun"><img src="./images/sunny.png"  style="width: 41px; height: 41px"/></div>
                     </template>
                 </e-annotation>
             </e-annotations>

@@ -47,7 +47,7 @@
             "url": "virtual-scroll",
             "name": "Virtualization",
             "category": "Dropdown List",
-            "type": "new",
+            "type": "update",
             "description": "This example demonstrates how to utilize the virtual scrolling support of Vue drop-down list component.",
             "sourceFiles":[
                 { "displayName": "virtual-scroll.vue", "path":"src/drop-down-list/virtual-scroll.vue" },

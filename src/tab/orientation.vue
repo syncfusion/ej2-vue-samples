@@ -24,12 +24,12 @@
                 <e-tabitem :header='headerText1' :content="'ParisTemplate'"></e-tabitem>
                 <template v-slot:ParisTemplate>
                     <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
-                        <div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/4.png" alt="Robert King" /></div>
+                        <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/4.png" alt="Robert King" /></div>
                             <div class="left info"><div class="empname">Robert King</div> 
                             <div class="role">Team Lead</div></div></div><div class="template-container"><div class="left">
-                                <img class="empImg" src="src/tab/Employees/5.png" alt="Michael Suyama" /></div>
+                                <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/5.png" alt="Michael Suyama" /></div>
                                 <div class="left info"><div class="empname">Michael Suyama</div> <div class="role">Developer</div></div></div>
-                                    <div class="template-container"><div class="left"><img class="empImg" src="src/tab/Employees/6.png" alt="Margaret Peacock" /></div>
+                                    <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/6.png" alt="Margaret Peacock" /></div>
                                     <div class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div>
                                 </div>
                             </div>
@@ -40,13 +40,13 @@
                 <template v-slot:LondonTemplate>
                     <div><div class="content-title"><div class="cnt-text">Employee Info</div></div>
                     <div id="rome"><div id="ripple" class="template-container"><div class="left">
-                        <img class="empImg" src="src/tab/Employees/7.png" alt="Janet Leverling" /></div>
+                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/7.png" alt="Janet Leverling" /></div>
                     <div class="left info"><div class="empname">Janet Leverling</div> 
                     <div class="role"> CEO</div></div></div><div class="template-container"><div class="left">
-                        <img class="empImg" src="src/tab/Employees/8.png" alt="Steven Buchanan" /></div>
+                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/8.png" alt="Steven Buchanan" /></div>
                     <div class="left info"><div class="empname">Steven Buchanan</div> <div class="role">HR</div></div></div>
                     <div class="template-container"><div class="left">
-                        <img class="empImg" src="src/tab/Employees/9.png" alt="Nancy Davolio" /></div>
+                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/9.png" alt="Nancy Davolio" /></div>
                     <div class="left info"><div class="empname">Nancy Davolio</div> 
                     <div class="role">Product Manager</div></div></div></div></div>
                 </template>

@@ -72,6 +72,7 @@
          "url": "virtual-scroll",
          "name": "Virtual Scrolling",
          "category": "Gantt",
+         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -157,7 +158,6 @@
       {
          "url": "load-on-demand",
          "name": "Load On Demand",
-         "type":"new",
          "category": "Data Binding",
          "api": {
             "Gantt": [
@@ -877,6 +877,7 @@
          "url": "drag-and-drop",
          "name": "Row Drag and Drop",
          "category": "Miscellaneous",
+         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",

@@ -37,6 +37,7 @@
         <li><b>Filled</b> - The severity is differentiated using a text color and a dark background color.</li>
       </ul>
       <p>In this sample, messages are displayed with different appearances based on the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/message/#variant">variant</a> property.</p>
+      <p>More information about Message variants can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/message/variants">documentation</a> section.</p>
     </div>
   </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
     <div id="app" style='height:100%; width:100%;'>
-         <ejs-accumulationchart class="chart-content" :theme='theme' ref="accumulationInstance" style='height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' enableSmartLables='true' :pointRender="onPointRender"> 
+         <ejs-accumulationchart class="chart-content" :theme='theme' ref="accumulationInstance" style='height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' enableSmartLables='false' :pointRender="onPointRender"> 
             <e-accumulation-series-collection>
-                <e-accumulation-series :palettes='palettes' :dataSource='seriesData' xName='Product' yName='Percentage' innerRadius="40%" :dataLabel="dataLabel" :border='border' > </e-accumulation-series>
+                <e-accumulation-series startAngle=270 endAngle=270 :palettes='palettes' :dataSource='seriesData' xName='Product' yName='Percentage' innerRadius="40%" radius="75%" :dataLabel="dataLabel" :border='border' > </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
     </div>

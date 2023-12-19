@@ -64,12 +64,13 @@ data: function() {
       visible: false,
       modal: true,
       toolbarSettings: {
-            items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
-            'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-            'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , '|',
-            'Formats', 'Alignments', 'NumberFormatList', 'BulletFormatList',
-            'Outdent', 'Indent', 'EmojiPicker', '|',
-            'CreateTable', 'CreateLink', 'Image', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+           items: ['Bold', 'Italic', 'Underline', 'StrikeThrough', 'SuperScript', 'SubScript', '|',
+                'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
+                'LowerCase', 'UpperCase', '|',
+                'Formats', 'Alignments', '|', 'NumberFormatList', 'BulletFormatList', '|',
+                'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
+                '|', 'EmojiPicker', '|',
+                'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
         }
     };
 },
@@ -129,9 +130,11 @@ methods: {
             this.beforeApplyFormat(true);
           }
           if (args.itemData.command == 'OL')  {
+              this.$refs.mentionObj.ej2Instances.hidePopup();
               this.$refs.formatRTE.ej2Instances.executeCommand('insertOrderedList');
           } 
           else if(args.itemData.command == 'UL'){
+            this.$refs.mentionObj.ej2Instances.hidePopup();
             this.$refs.formatRTE.ej2Instances.executeCommand('insertUnorderedList');
           } 
           else if (args.itemData.command == 'CreateTable') {
@@ -156,6 +159,7 @@ methods: {
              this.$refs.formatRTE.ej2Instances.showEmojiPicker();
           }
           else {
+              this.$refs.mentionObj.ej2Instances.hidePopup();
               this.$refs.formatRTE.ej2Instances.executeCommand('formatBlock', args.itemData.command);
           }
     }

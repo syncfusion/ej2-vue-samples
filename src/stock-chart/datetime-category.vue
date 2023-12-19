@@ -5,7 +5,7 @@
                 :primaryYAxis="primaryYAxis" :chartArea="chartArea" :tooltip="tooltip" :crosshair="crosshair" :title="title" 
                 :theme="theme">
                 <e-stockchart-series-collection>
-                    <e-stockchart-series :dataSource="seriesData" type="Spline"></e-stockchart-series>
+                     <e-stockchart-series :dataSource="seriesData" type="Spline"></e-stockchart-series>
                 </e-stockchart-series-collection>
             </ejs-stockchart>
         </div>
@@ -86,7 +86,8 @@
             primaryXAxis: {
                 majorGridLines: { width: 0 },
                 crosshairTooltip: { enable: true },
-                valueType: 'DateTimeCategory'
+                valueType: 'DateTimeCategory',
+                edgeLabelPlacement: 'Shift'
             },
   
             //Initializing Primary Y Axis

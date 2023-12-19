@@ -111,7 +111,7 @@
                                 <label style="line-height: 34px; margin: 0;">Calendar</label>
                             </div>
                             <div class="col-right">
-                                <ejs-multiselect id='resources' ref="resourcesObj" cssClass="schedule-workweek" index="0" :dataSource='resourceDataSource' 
+                                <ejs-multiselect id='resources' ref="resourcesObj" cssClass="schedule-resource" index="0" :dataSource='resourceDataSource' 
                                     :mode='checkboxMode' :fields='calendarFields' enableSelectionOrder="false" showClearButton="false" showDropDownIcon="true" 
                                     :value='calendarsValue' :change='onResourceChange'></ejs-multiselect>
                             </div>

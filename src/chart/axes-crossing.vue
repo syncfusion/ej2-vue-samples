@@ -3,7 +3,7 @@
         <div class="col-md-8 control-section sb-property-border">
             <ejs-chart style='display:block;' ref="chart" :legendSettings='legend' id='chartcontainer'
                 :primaryXAxis='primaryXAxis' :tooltip='tooltip' :primaryYAxis='primaryYAxis' :title='title'
-                :theme='theme' :chartArea='chartArea'>
+                :theme='theme'>
                 <e-series-collection>
                     <e-series :dataSource='data2' name='Line Interpolation' type='Line' fill='blue' xName='x' yName='y'
                         width=2 :enableTooltip='enableTooltip' opacity=1>
@@ -118,6 +118,7 @@ export default {
             primaryXAxis: {
                 minimum: -8, maximum: 8, interval: 2,
                 majorGridLines: { width: 0 },
+                lineStyle: { width: 2 },
                 crossesAt: 0,
                 minorTicksPerInterval: 3,
                 placeNextToAxisLine: true
@@ -125,6 +126,7 @@ export default {
             //Initializing Primary Y Axis
             primaryYAxis: {
                 minimum: -8, maximum: 8, interval: 2,
+                lineStyle: { width: 2 },
                 majorTickLines: { width: 0 },
                 placeNextToAxisLine: true,
                 minorTicksPerInterval: 3,
@@ -134,9 +136,6 @@ export default {
                 visible: false,
                 height: 7,
                 width: 7,
-            },
-            chartArea: {
-                border: { width: 0 }
             },
             //Initializing Tooltip
             enableTooltip : false,

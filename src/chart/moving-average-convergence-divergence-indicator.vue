@@ -96,7 +96,7 @@ export default {
             axes: [{
                 name: 'secondary',
                 opposedPosition: true, rowIndex: 0,
-                majorGridLines: { width: 0 }, lineStyle: { width: 0 }, minimum: -3.5, maximum: 3.5, interval: 3,
+                majorGridLines: { width: 0 }, lineStyle: { width: 0 }, minimum: -3.5, maximum: 3.5, interval: 3.5,
                 majorTickLines: { width: 0 }, title: 'MACD', stripLines: [
                     {
                         start: -3.5, end: 3.5, text: '', color: 'black', visible: true,

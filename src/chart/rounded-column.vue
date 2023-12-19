@@ -67,22 +67,8 @@
 </style>
 <script>
 import { Browser } from "@syncfusion/ej2-base";
-import {
-  ChartComponent,
-  SeriesDirective,
-  SeriesCollectionDirective,
-  ColumnSeries,
-  Category,
-  DataLabel,
-  Tooltip,
-  Legend
-} from "@syncfusion/ej2-vue-charts";
-import {
-  fabricColors,
-  materialColors,
-  bootstrapColors,
-  highContrastColors
-} from "./theme-color";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
+import { fabricColors, materialColors, bootstrapColors, highContrastColors } from "./theme-color";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -136,7 +122,7 @@ export default {
       },
 
       legendSettings: { visible: false },
-
+      highlightColor: 'transparent',
       tooltip: {
          enable: true,
         header: '<b>${point.x}</b>',

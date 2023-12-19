@@ -126,8 +126,7 @@ import { Browser } from "@syncfusion/ej2-base";
 import { NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Tooltip, DataLabel, Category } from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
-  pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -191,7 +190,7 @@ export default {
         }
       },
 
-      tooltip: { enable: true },
+      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> Internet Users : <b>${point.y}M</b>' },
 
       legendSettings: {
         visible: false

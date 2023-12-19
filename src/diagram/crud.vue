@@ -224,7 +224,7 @@ export default {
     'ejs-diagram': DiagramComponent,
     'ejs-toolbar': ToolbarComponent,
     'ejs-dialog': DialogComponent,
-    'ejs-textbox': TextBoxComponent
+    'ejs-textbox': TextBoxComponent,
     'ejs-dropdownlist': DropDownListComponent,
     'ejs-button': ButtonComponent
   },

@@ -80,7 +80,8 @@ export default {
             title: 'Sales (In Percentage)',
             lineStyle: { width: 0},
             majorTickLines: {width: 0},
-            labelFormat: '{value}',
+            labelFormat: '{value}%',
+            interval: 20,
             edgeLabelPlacement: 'Shift'
         },
         chartArea: {

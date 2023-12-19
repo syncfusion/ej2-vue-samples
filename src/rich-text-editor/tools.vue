@@ -102,7 +102,7 @@
         color: white;
     }
 
-    .e-richtexteditor .e-rte-content .e-content pre {
+    .e-richtexteditor .e-rte-content .e-content[contenteditable="true"] pre {
         padding: 10px;
         background: #F4F5F7;
     }
@@ -178,12 +178,13 @@ export default {
         </ol>
          <img alt="Logo" src="./source/rich-text-editor/images/RTEImage-Feather.png" style="width: 300px;">`,
             toolbarSettings: {
-                items: ['FormatPainter', 'Bold', 'Italic', 'Underline', 'StrikeThrough',
-                'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-                'LowerCase', 'UpperCase', 'SuperScript', 'SubScript' , 'EmojiPicker', '|',
-                'Formats', 'Alignments', 'NumberFormatList', 'BulletFormatList',
-                'Outdent', 'Indent', '|',
-                'CreateTable', 'CreateLink', 'Image', 'Audio', 'Video', 'FileManager', '|', 'ClearFormat', 'Print', 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+                items: ['Bold', 'Italic', 'Underline', 'StrikeThrough', 'SuperScript', 'SubScript', '|',
+                'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
+                'LowerCase', 'UpperCase', '|',
+                'Formats', 'Alignments', '|', 'NumberFormatList', 'BulletFormatList', '|',
+                'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'FileManager', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
+                '|', 'EmojiPicker', 'Print', '|',
+                'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
             },
         };
     },
@@ -193,27 +194,25 @@ export default {
             var id = this.$refs.rteObj.ej2Instances.getID() +  'mirror-view';
             var mirrorView = this.$refs.rteObj.$el.parentNode.querySelector('#' + id);
             var charCount = this.$refs.rteObj.$el.parentNode.querySelector('.e-rte-character-count');
-            if (!isNOU(textArea) && !isNOU(mirrorView) && !isNOU(charCount)) {
-                if (e.targetItem === 'Preview') {
-                    textArea.style.display = 'block';
-                    mirrorView.style.display = 'none';
-                    textArea.innerHTML = this.myCodeMirror.getValue();
-                    charCount.style.display = 'block';
+            if (e.targetItem === 'Preview') {
+                textArea.style.display = 'block';
+                mirrorView.style.display = 'none';
+                textArea.innerHTML = this.myCodeMirror.getValue();
+                charCount.style.display = 'block';
+            }
+            else {
+                if (!mirrorView) {
+                    mirrorView = document.createElement('div', { className: 'e-content' });
+                    mirrorView.id = id;
+                    textArea.parentNode.appendChild(mirrorView);
                 }
                 else {
-                    if (!mirrorView) {
-                        mirrorView = document.createElement('div', { className: 'e-content' });
-                        mirrorView.id = id;
-                        textArea.parentNode.appendChild(mirrorView);
-                    }
-                    else {
-                        mirrorView.innerHTML = '';
-                    }
-                    textArea.style.display = 'none';
-                    mirrorView.style.display = 'block';
-                    this.renderCodeMirror(mirrorView, this.$refs.rteObj.ej2Instances.value);
-                    charCount.style.display = 'none';
+                    mirrorView.innerHTML = '';
                 }
+                textArea.style.display = 'none';
+                mirrorView.style.display = 'block';
+                this.renderCodeMirror(mirrorView, this.$refs.rteObj.ej2Instances.value);
+                charCount.style.display = 'none';
             }
         },
         renderCodeMirror: function(mirrorView, content) {

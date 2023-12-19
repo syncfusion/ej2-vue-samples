@@ -58,7 +58,7 @@ export default {
       ],
         
         dataLabel: {
-          name: 'DataLabelMappingName', visible: true, position: 'Outside', connectorStyle: {length: '1%'}, font: {
+          name: 'DataLabelMappingName', visible: true, position: 'Outside', connectorStyle: {length: '20px'}, font: {
             fontWeight: '600'}
         },
 

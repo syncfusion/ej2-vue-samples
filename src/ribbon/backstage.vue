@@ -29,7 +29,7 @@
                     </e-ribbon-collection>
                   </e-ribbon-collections>
                 </e-ribbon-group>
-                <e-ribbon-group header="Font" orientation="Row" :enableGroupOverflow="true" :isCollapsible="false"
+                <e-ribbon-group header="Font" orientation="Row" overflowHeader="More Font Options" :enableGroupOverflow="true" :isCollapsible="false"
                   groupIconCss="e-icons e-bold" cssClass="font-group">
                   <e-ribbon-collections>
                     <e-ribbon-collection>
@@ -58,6 +58,25 @@
                       </e-ribbon-items>
                     </e-ribbon-collection>
                   </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Paragraph" orientation="Row" groupIconCss="e-icons e-align-center" >
+                    <e-ribbon-collections>
+                      <e-ribbon-collection>
+                        <e-ribbon-items>
+                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="decreaseIndent">
+                          </e-ribbon-item>
+                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="increaseIndent">
+                          </e-ribbon-item>
+                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="paragraphBtn">
+                          </e-ribbon-item>
+                        </e-ribbon-items>
+                      </e-ribbon-collection>
+                      <e-ribbon-collection>
+                        <e-ribbon-items>
+                          <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonSingle"></e-ribbon-item>
+                        </e-ribbon-items>
+                      </e-ribbon-collection>
+                    </e-ribbon-collections>
                 </e-ribbon-group>
                 <e-ribbon-group header="Editing" orientation="Row" groupIconCss="e-icons e-edit">
                   <e-ribbon-collections>
@@ -118,7 +137,7 @@
                     </e-ribbon-collection>
                   </e-ribbon-collections>
                 </e-ribbon-group>
-                <e-ribbon-group header="Illustrations" id="illustration" :showLauncherIcon=true orientation="Row"
+                <e-ribbon-group header="Illustrations" id="illustration" overflowHeader="Illustrations" :showLauncherIcon=true orientation="Row"
                   :enableGroupOverflow=true groupIconCss="e-icons e-image">
                   <e-ribbon-collections>
                     <e-ribbon-collection>
@@ -164,7 +183,7 @@
                     </e-ribbon-collection>
                   </e-ribbon-collections>
                 </e-ribbon-group>
-                <e-ribbon-group header="Link" groupIconCss="e-icons e-link" :isCollapsible=false>
+                <e-ribbon-group header="Links" groupIconCss="e-icons e-link" :isCollapsible=false>
                   <e-ribbon-collections>
                     <e-ribbon-collection>
                       <e-ribbon-items>
@@ -256,7 +275,7 @@
 </template>
 
 <script>
-import { RibbonComponent, RibbonTabsDirective, RibbonTabDirective, RibbonCollectionsDirective, RibbonCollectionDirective, RibbonGroupsDirective, RibbonGroupDirective, RibbonItemsDirective, RibbonItemDirective, RibbonColorPicker, DisplayMode } from '@syncfusion/ej2-vue-ribbon';
+import { RibbonComponent, RibbonTabsDirective, RibbonTabDirective, RibbonCollectionsDirective, RibbonCollectionDirective, RibbonGroupsDirective, RibbonGroupDirective, RibbonItemsDirective, RibbonItemDirective, RibbonColorPicker, DisplayMode, RibbonGroupButtonSelection } from '@syncfusion/ej2-vue-ribbon';
 import { RibbonFileMenu, RibbonBackstage, RibbonItemSize } from '@syncfusion/ej2-vue-ribbon';
 import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { ToastUtility } from '@syncfusion/ej2-vue-notifications';
@@ -307,6 +326,19 @@ export default {
           text: 'Close',
         }
       },
+      decreaseIndent: { iconCss: "e-icons e-decrease-indent", content: 'Decrease Indent', clicked: () => { this.updateContent("Decrease Indent"); } },
+      increaseIndent: { iconCss: "e-icons e-increase-indent", content: 'Increase Indent', clicked: () => { this.updateContent("Increase Indent"); } },
+      paragraphBtn: { iconCss: "e-icons e-paragraph", content: 'Paragraph', clicked: () => { this.updateContent("Paragraph Mark"); } },
+      groupButtonSingle: {
+        selection: RibbonGroupButtonSelection.Single,
+        header: 'Alignment',
+        items: [
+          {iconCss: 'e-icons e-align-left', selected: true, click: () => { this.updateContent("Align Left") }},
+          {iconCss: 'e-icons e-align-center', click: () => { this.updateContent("Align Center") }}, 
+          {iconCss: 'e-icons e-align-right', click: () => { this.updateContent("Align Right") }}, 
+          {iconCss: 'e-icons e-justify', click: () => { this.updateContent("Justify") }}
+        ]
+      },
       pasteSettigs: {
         iconCss: 'e-icons e-paste', content: 'Paste',
         items: [{ text: "Keep Source Format" }, { text: "Merge Format" }, { text: "Keep Text Only" }],
@@ -319,13 +351,16 @@ export default {
       styleOptions: {
         dataSource: ["Algerian", "Arial", "Calibri", "Cambria", "Cambria Math", "Courier New", "Candara", "Georgia", "Impact", "Segoe Print", "Segoe Script", "Segoe UI", "Symbol", "Times New Roman", "Verdana", "Windings"],
         index: 3,
-        width: "150px",
+        label: 'Font Style',
+        width: '115px',
+        popupWidth: '150px',
         allowFiltering: true,
         change: (args) => { if (args.itemData) { this.updateContent("Font Style -> " + args.itemData.text) } }
       },
       sizeOptions: {
         dataSource: ["8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", "96"],
         index: 4,
+        label: 'Font Size',
         width: "65px",
         popupWidth: '85px',
         allowFiltering: true,
@@ -414,7 +449,7 @@ export default {
       navigationSettings: { label: "Navigation Pane", checked: true, change: () => { this.updateContent("Navigation Pane") } },
       modeSettings: { iconCss: "sf-icon-mode", content: "Dark Mode", clicked: () => { this.updateContent("Dark Mode") } },
       pictureList: [
-        { text: 'This device' },
+        { text: 'This Device' },
         { text: 'Stock Images' },
         { text: 'Online Images' }
       ],
@@ -477,11 +512,11 @@ export default {
       ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Print action is selected' });
     },
     getBackstageContent: function (item) {
-      let homeContentTemplate = "<div id='home-wrapper'>{{newSection}}{{recentSection}}</div>";
-      let newSection = "<div id='new-section'><div class='section-title'> New </div><div class='category_container'><div class='doc_category_image'></div> <span class='doc_category_text'> New document </span></div></div>";
-      let recentSection = "<div id='block-wrapper'><div class='section-title'> Recent </div>{{recentWrapper}}</div>";
+      let homeContentTemplate = "<div class='home-wrapper'>{{newSection}}{{recentSection}}</div>";
+      let newSection = "<div class='new-wrapper'><div class='section-title'> New </div><div class='category_container'><div class='doc_category_image'></div> <span class='doc_category_text'> New document </span></div></div>";
+      let recentSection = "<div class='block-wrapper'><div class='section-title'> Recent </div>{{recentWrapper}}</div>";
       let recentWrapper = "<div class='section-content'><table><tbody><tr><td> <span class='doc_icon e-icons {{icon}}'></span> </td><td><span style='display: block; font-size: 14px'> {{title}} </span><span style='font-size: 12px'> {{description}} </span></td></tr></tbody></table></div>";
-      let blockSection = "<div id='block-wrapper'> <h2> {{blockTitle}} </h2> {{blockSection}} </div>";
+      let blockSection = "<div class='block-wrapper'> <h2> {{blockTitle}} </h2> {{blockSection}} </div>";
       let content = "";
       let recentDocUpdatedString = "";
       switch (item) {
@@ -614,8 +649,8 @@ body[class*="high"].e-bigger #pictureList .e-list-header {
   font-style: normal;
 }
 
-.ribbon-backstage-container [class^="sf-icon-"],
-.ribbon-backstage-container [class*=" sf-icon-"] {
+[class*="e-ribbon-"] [class^="sf-icon-"],
+[class*="e-ribbon-"] [class*=" sf-icon-"] {
   font-family: 'ribbon' !important;
   speak: none;
   font-style: normal;
@@ -627,59 +662,59 @@ body[class*="high"].e-bigger #pictureList .e-list-header {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ribbon-backstage-container .sf-icon-3d-model:before {
+[class*="e-ribbon-"] .sf-icon-3d-model:before {
   content: "\e700";
 }
 
-.ribbon-backstage-container .sf-icon-shapes:before {
+[class*="e-ribbon-"] .sf-icon-shapes:before {
   content: "\e701";
 }
 
-.ribbon-backstage-container .sf-icon-dictate:before {
+[class*="e-ribbon-"] .sf-icon-dictate:before {
   content: "\e702";
 }
 
-.ribbon-backstage-container .sf-icon-chart:before {
+[class*="e-ribbon-"] .sf-icon-chart:before {
   content: "\e703";
 }
 
-.ribbon-backstage-container .sf-icon-screenshot:before {
+[class*="e-ribbon-"] .sf-icon-screenshot:before {
   content: "\e704";
 }
 
-.ribbon-backstage-container .sf-icon-smart-art:before {
+[class*="e-ribbon-"] .sf-icon-smart-art:before {
   content: "\e706";
 }
 
-.ribbon-backstage-container .sf-icon-share:before {
+[class*="e-ribbon-"] .sf-icon-share:before {
   content: "\e707";
 }
 
-.ribbon-backstage-container .sf-icon-read:before {
+[class*="e-ribbon-"] .sf-icon-read:before {
   content: "\e708";
 }
 
-.ribbon-backstage-container .sf-icon-web-layout:before {
+[class*="e-ribbon-"] .sf-icon-web-layout:before {
   content: "\e709";
 }
 
-.ribbon-backstage-container .sf-icon-mode:before {
+[class*="e-ribbon-"] .sf-icon-mode:before {
   content: "\e70b";
 }
 
-.ribbon-backstage-container .sf-icon-draft:before {
+[class*="e-ribbon-"] .sf-icon-draft:before {
   content: "\e70c";
 }
 
-.ribbon-backstage-container .sf-icon-reuse:before {
+[class*="e-ribbon-"] .sf-icon-reuse:before {
   content: "\e70f";
 }
 
-.ribbon-backstage-container .sf-icon-editor:before {
+[class*="e-ribbon-"] .sf-icon-editor:before {
   content: "\e70a";
 }
 
-.ribbon-backstage-container .sf-icon-word:before {
+[class*="e-ribbon-"] .sf-icon-word:before {
   content: "\e70d";
 }
 
@@ -690,7 +725,7 @@ body[class*="high"].e-bigger #pictureList .e-list-header {
   height: 510px;
 }
 
-#home_content #new-section {
+#home_content .new-wrapper {
   margin-bottom: 15px;
 }
 

@@ -31,7 +31,7 @@
             In this demo, we have rendered the DatePicker component for "Start Date” column of Tree Grid using <code>edit</code> property.
         </p>
         <p>
-        <br/> More information about Cell Edit template can be found in this documentation section.
+        <br/> More information about Cell Edit template can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/editing/edit">documentation section</a>.
         </p>
     </div>
      

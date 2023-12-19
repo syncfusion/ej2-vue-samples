@@ -3,6 +3,7 @@
     "directory": "heatmap",
     "category": "Data Visualization",
     "ftName": "heatmap",
+    "type":"update",
     "samples": [
         {
             "url": "default-functionalities",
@@ -104,6 +105,17 @@
                 {"displayName": "opposed-axis.vue", "path": "./src/heatmap/opposed-axis.vue"},
                 {"displayName": "opposed-axis-data.json", "path": "./src/heatmap/opposed-axis-data.json"}
             ]
+        },
+        {
+            "url": "label-template",
+            "name": "Label Template",
+            "category": "Features",
+            "description": "This demo for Essential JS2 HeatMap control shows how to set label template for the HeatMap cells.",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "multi-level-labels.vue", "path": "./src/heatmap/label-template.vue"}
+            ],
+            "type":"new"
         },
         {
             "url": "multi-level-labels",

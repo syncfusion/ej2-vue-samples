@@ -130,6 +130,7 @@ export default {
 
       //Initializing Primary Y Axis
       primaryYAxis: {
+        labelFormat: '{value}%',
         minimum: 0, maximum: 8, interval: 2
       },
 

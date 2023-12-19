@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-<div>
+<div class="e-diagram-toolbar">
     <ejs-toolbar id='toolbar' ref="toolbar_diagram" overflowMode='Scrollable' style="width:100%;height: 10%;margin-top: 10px;" :clicked='toolbarclicked'>
       <e-items>
                 <e-item prefixIcon='e-icons e-circle-add' tooltipText='New Diagram'></e-item>
@@ -161,24 +161,6 @@
             .bootstrap .e-export::before {
                     content: "\e71e";
             }
-            
-
-                .e-btn, .e-css.e-btn {
-                background-color: transparent ;
-                border-color: transparent ;
-                }
-                .bootstrap5  .e-btn, .e-css.e-btn{
-                    color: #333;
-                }
-                .bootstrap4  .e-btn, .e-css.e-btn{
-                    color: #333;
-                }
-                .bootstrap5 .e-btn:hover{
-                    color: #fff;
-                }
-                .bootstrap4  .e-btn:hover{
-                    color: #fff;
-                }
 
                 @font-face {
     font-family: 'Bootstrap5 Diagram Builder';

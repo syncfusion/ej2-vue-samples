@@ -122,7 +122,7 @@ export default {
       primaryXAxis: {
        valueType: 'DateTime', 
        majorGridLines: { width: 0 }, 
-       crosshairTooltip: { enable: true } 
+       crosshairTooltip: { enable: true }
       },
       chartArea: {
         border: {

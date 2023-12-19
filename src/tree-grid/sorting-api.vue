@@ -81,7 +81,7 @@
         module into the <code>provide</code> section.
     </p>
     <p>
-        More information on the sorting feature configuration can be found in this documentation section.
+        More information on the sorting feature configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/sorting">documentation section</a>.
     </p>
 </div>
 

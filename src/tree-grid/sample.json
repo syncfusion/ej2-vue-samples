@@ -10,7 +10,7 @@
         "description": "This demo for Essential JS 2 Tree Grid component is an overview of how to display and manipulate large data with configuration options."
       },
       {
-         "url": "livedata", "name": "Live Data", "type": "new", "category": "Tree Grid", "api": { "TreeGrid": ["dataSource", "columns", "enableVirtualization", "enableVirtualMaskRow", "allowSelection", "height", "rowHeight", "queryCellInfo"]},
+         "url": "livedata", "name": "Live Data", "category": "Tree Grid", "api": { "TreeGrid": ["dataSource", "columns", "enableVirtualization", "enableVirtualMaskRow", "allowSelection", "height", "rowHeight", "queryCellInfo"]},
          "description": "This demo for Essential JS 2 Tree Grid component shows the grid Local Live Data Update.", "hideOnDevice": false
       },
       {  
@@ -184,11 +184,11 @@
          "description": "This demo for Essential JS 2 Tree Grid control demonstrates the Tree Grid component with the infinite scrolling feature."
       },
       {
-         "url":"aggregate", "name": "Default Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","columns","aggregates"] },
+         "url":"aggregate", "name": "Default Aggregate", "type": "update", "category": "Aggregates","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","columns","aggregates"] },
          "description": "This demo explains how to display the summary values such as average, minimum, etc., for the columns in Syncfusion Essential JS2 Tree Grid control."
       },
       {
-         "url":"custom-aggregate", "name": "Custom Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","width","childMapping", "treeColumnIndex","height","columns","aggregates"] },
+         "url":"custom-aggregate", "name": "Custom Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","width","childMapping", "treeColumnIndex","height","columns","aggregates", "toolbar", "toolbarClick", "allowPdfExport", "allowExcelExport"] },
          "description": "This demo explains how to display the custom aggregate for the columns in Syncfusion Essential JS2 Tree Grid control."
       },
      {

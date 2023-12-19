@@ -50,7 +50,7 @@
         In this demo, we have render customized template for all column headers.
     </p> 
     <p>
-        More information about Header template can be found in this documentation section.
+        More information about Header template can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/headers#header-template">documentation section</a>.
     </p>   
 </div>
 

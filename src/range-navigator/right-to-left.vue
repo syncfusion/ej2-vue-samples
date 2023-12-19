@@ -202,7 +202,7 @@ import {
 import { axesData } from './stock-data';
 
 let selectedTheme = location.hash.split('/')[1];
-selectedTheme = selectedTheme ? selectedTheme : 'Material';
+selectedTheme = selectedTheme ? selectedTheme : 'material';
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentDark', 'material3', 'material3dark'];
@@ -224,7 +224,7 @@ export default {
     return {
       //Chart Properties
       primaryXAxis: { valueType: "DateTime", crosshairTooltip: { enable: true }, edgeLabelPlacement: "Shift",
-        isInversed: true, majorGridLines: { width: 0 }, zoomFactor: 0.411578588315553, zoomPosition: 0.3981580587868594
+        majorGridLines: { width: 0 }, zoomFactor: 0.411578588315553, zoomPosition: 0.3981580587868594
       },
       primaryYAxis: { majorTickLines: { width: 0 }, lineStyle: { width: 0 },labelFormat: '{value}%',
         maximum: 87, minimum: 82, interval: 1 },

@@ -3,7 +3,7 @@
     <div class="col-lg-9 control-section sb-property-border">
       <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings'
-        :pointRender='pointRender' :chartArea='chartArea' :width='width'>
+        :pointRender='pointRender' :chartArea='chartArea'>
         <e-series-collection>
           <e-series :dataSource='seriesData' type='Column' xName='x' yName='y' name='Profit' width=2 :marker='marker'> </e-series>
         </e-series-collection>
@@ -92,19 +92,9 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import {
-  pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
-  pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors
-} from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
-import {
-  ChartComponent,
-  SeriesDirective,
-  SeriesCollectionDirective,
-  ColumnSeries,
-  Category,
-  Legend, DataLabel
-} from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -153,7 +143,6 @@ export default {
       tooltip: {
         enable: false
       },
-      width : Browser.isDevice ? '100%' : '75%',
       iconCss: 'e-icons e-print-icon',
       legendSettings: { visible: false },
       marker: {

@@ -13,7 +13,7 @@
     <p>In this demo, the <code>allowTextWrap</code> property is enabled, and you can also see that the Task Name column whose content exceeded the cell width is wrapped into multiple lines.
     </p>
     <p>
-        More information about Auto wrap cells can be found in this documentation section.
+        More information about Auto wrap cells can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/cell/auto-wrap">documentation section</a>.
     </p>
 </div>
     <div>

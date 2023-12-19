@@ -1,7 +1,7 @@
 <template>
  <div>
     <div class="control-section">
-        <ejs-circulargauge :load='load' :background='background' style='display:block' align='center' :axisLabelRender='axisLabelRender' id='gauge' >
+        <ejs-circulargauge :load='load' :animationDuration=2000 :background='background' style='display:block' align='center' :axisLabelRender='axisLabelRender' id='gauge' >
             <e-axes>
                 <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :minimum =0 :maximum=8 :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' >
                     <e-pointers>
@@ -17,7 +17,7 @@
     </div>
  <div id="action-description">
     <p>
-        This example demonstrates how to introduce and position customer labels in a circular gauge. In addition,
+        This example demonstrates how to introduce and position custom labels in a circular gauge. In addition,
         gradient colors are used on the circular gauge elements such as the pointer and range.
     </p>
 </div>

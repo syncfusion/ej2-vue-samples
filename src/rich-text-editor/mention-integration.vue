@@ -4,7 +4,7 @@
             <div class="sample-container">
                 <div class="default-section">
                     <ejs-richtexteditor id="mention_integration"  placeholder="Type @ and tag the name" :actionBegin="onActionBegin">
-                        <p>Hello <span contenteditable="false" class="e-mention-chip"><a title="maria@gmail.com">@Maria</a></span>&#8203;</p>
+                        <p>Hello <span contenteditable="false" class="e-mention-chip"><a href="mailto:maria@gmail.com" title="maria@gmail.com">@Maria</a></span>&#8203;</p>
                         <p>Welcome to the mention integration with rich text editor demo. Type <code>@</code> character and tag user from the suggestion list. </p>
                     </ejs-richtexteditor>
                 </div>
@@ -14,7 +14,7 @@
                        <table><tr><td><div id="mention-TemplateList"><img class="mentionEmpImage" :src="data.Eimg" alt="employee" /><span :class="'e-badge e-badge-success e-badge-overlap e-badge-dot e-badge-bottom'+ data.Status"></span></div></td><td class="mentionNameList"><span class="person">{{data.Name}}</span><span class="email">{{data.EmailId}}</span></td></tr></table>
                     </template>
                     <template v-slot:dTemplate="{data}">                
-                            <a :title="data.EmailId">@{{data.Name}}</a>
+                            <a :href="'mailto:' + data.EmailId" :title="data.EmailId">@{{data.Name}}</a>
                     </template>
                 </ejs-mention>
             </div>

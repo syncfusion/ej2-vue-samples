@@ -35,7 +35,6 @@
     {
         "url": "directory-upload",
         "name": "Directory upload",
-        "type": "update",
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to upload the folder (directory) by using custom toolbar item with in a Vue File Manager."
@@ -55,18 +54,19 @@
         "description": "This example demonstrates how to render the File Manager component inside the Dialog component in a Vue File Manager."
     },
     {
+        "url": "access-control",
+        "name": "Access Control",
+        "category": "Use Case",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings"] },
+        "description": "This example of FileManager demonstrates how to restrict the file operations in the File Manager component."
+    },
+    {
         "url": "azure-service",
         "name": "Azure Blob Provider",
         "category": "Cloud Service Providers",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to configure and use the azure service in a Vue File Manager."
-    },
-    {
-        "url": "sql-server-provider",
-        "name": "SQL Database Provider",
-        "category": "Cloud Service Providers",
-        "api": { "FileManager": ["ajaxSettings", "view"] },
-        "description": "This example demonstrates how to configure and use the sql server database service in a Vue File Manager."
     },
 	{
         "url": "nodejs-file-provider",

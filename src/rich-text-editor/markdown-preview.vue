@@ -1,6 +1,6 @@
 <template>
   <div>
-         <div class="control-section online-editor">
+         <div class="control-section markdown-preview">
         <div class="sample-container">
           <div class="default-section">
             <ejs-splitter ref="splitterObj" id="splitter" width="100%" height="450px" :resizing="onRefreshUI" :created="updateOrientation">
@@ -43,7 +43,7 @@
   </div>
 </template>
 <style>
-  .online-editor .heading {
+  .markdown-preview .heading {
     float: left;
     width: 100%;
     position: relative;
@@ -52,20 +52,20 @@
     border-left: none;
     border-top: none;
   }
-  .online-editor .title {
+  .markdown-preview .title {
     color: #333333;
     letter-spacing: 1px;
     padding-left: 10px;
     text-align: center;
     margin: 10px 0;
   }
-  .fabric-dark .online-editor .title,
-  .bootstrap5-dark .online-editor .title,
-  .bootstrap-dark .online-editor .title,
-  .fluent-dark .online-editor .title,
-  .material-dark .online-editor .title,
-  .tailwind-dark .online-editor .title,
-  .highcontrast .online-editor .title {
+  .fabric-dark .markdown-preview .title,
+  .bootstrap5-dark .markdown-preview .title,
+  .bootstrap-dark .markdown-preview .title,
+  .fluent-dark .markdown-preview .title,
+  .material-dark .markdown-preview .title,
+  .tailwind-dark .markdown-preview .title,
+  .highcontrast .markdown-preview .title {
     color: #fff;
   }
 </style>

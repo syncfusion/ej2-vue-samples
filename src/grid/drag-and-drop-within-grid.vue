@@ -5,16 +5,21 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowGrouping='true' :selectionSettings="selection">
+        <div class="control-section">
+        <ejs-grid ref="grid" :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowGrouping='true' :selectionSettings="selection" :created='created'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
                 <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='150'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='150' :allowGrouping='false'></e-column>
             </e-columns>
         </ejs-grid>
+        </div>
+        <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :target='target'
+            :width='alertWidth'>
+        </ejs-dialog>
     </div>
 
      <div id="description">
@@ -42,18 +47,40 @@
 <script lang="ts">
 import { GridComponent, ColumnDirective, ColumnsDirective, Selection, RowDD, Group, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
 export default {
   components: {
     'ejs-grid': GridComponent,
     'e-column': ColumnDirective,
-    'e-columns': ColumnsDirective
+    'e-columns': ColumnsDirective,
+    'ejs-dialog': DialogComponent
   },
-  data: () => {
+  data: function() {
     return {
+      alertHeader: 'Grouping',
+      alertContent: 'Grouping is disabled for this column',
+      showCloseIcon: false,
+      target: '.control-section',  
+      alertWidth: '300px',
+      animationSettings: { effect: 'None' },
+      alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
       data: orderDetails,
       selection: { type: 'Multiple' }
     };
+  },
+  methods: {
+    created: function() {
+        ((<any>this).$refs.grid.ej2Instances as any).on("columnDragStart", this.columnDragStart, this);
+    },
+    columnDragStart: function(args: any) {
+        if(args.column.field === "ShipCountry"){
+             ((this as any).$refs.alertDialog).show();
+        }
+    },
+    alertDlgBtnClick: function() {
+        ((<any>this).$refs.alertDialog as any).hide();
+    },
   },
   provide: {
       grid: [Selection, RowDD, Group, Sort]

@@ -2,24 +2,21 @@
 <div class="col-lg-12 control-section">
     <div id="action-description">
         <p>
-            This sample demonstrates filtering Grid columns using menu, checkbox, and Excel filter UI.
-            In this sample, click the filter icon on the column header to filter a particular column.
-            You can change the filter type on the properties panel. When Excel filter type is selected, you can sort the column using the sort option in the Excel filter dialog.
+            This sample demonstrates the grid's multiple-type filter functionality and user interface.
         </p>
     </div>
     <div>
         <div class="select-wrap">
             <ejs-dropdownlist id='ddlelement' :dataSource='ddldata' value='Menu' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
         </div>
+        <ejs-checkbox ref="checkbox" label='Enable OnDemand: ' labelPosition='Before' :disabled='true' :checked="false" :change="checkboxOnChange"></ejs-checkbox>
 
-        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowFiltering='true' :allowSorting='true' :pageSettings='pageSettings' :filterSettings='filterSettings'>
+        <ejs-grid ref='grid' :dataSource="getTradeData" :query="query" :allowPaging='true' :allowFiltering='true' :allowSorting='true' :pageSettings='pageSettings' :filterSettings='filterSettings'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='130' :format='formatoptions' textAlign='Right'></e-column>
-                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" type="date" textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='150'></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
+                <e-column field='Employees' headerText='Employee Name' width='150'></e-column>
+                <e-column field='Designation' headerText='Designation' width='130' textAlign='Right'></e-column>
+                <e-column field='CurrentSalary' headerText='CurrentSalary' width='120' format='C2' textAlign='Right'></e-column>
             </e-columns>
         </ejs-grid>
     </div>
@@ -28,38 +25,23 @@
         <p>The filtering feature enables the user to view a reduced number of records based on the filter criteria. It can be enabled by setting the <code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/api/grid/#allowfiltering">allowFiltering
         </a></code> property to true. </p>
-        <p>Grid supports the following filter types.</p>
+        <p>The grid supports the following filter types:</p>
         <ul>
             <li><code>FilterBar</code></li>
             <li><code>Menu</code></li>
             <li><code>CheckBox</code></li>
             <li><code>Excel</code></li>
         </ul>
-        you can change the filter type by setting <code><a target="_blank" class="code"
-        href="https://ej2.syncfusion.com/vue/documentation/api/grid/filterSettings/#type">filterSettings->type</a></code>
-        <p>Now, the following additional filter operators are incorporated with the already existing operators.</p>
-        <p>String type columns:</p>
-            <ul>
-                <li>Not Equal</li>
-                <li>Does Not Start With</li>
-                <li>Does Not End With</li>
-                <li>Does Not Contain</li>
-                <li>Empty</li>
-                <li>Not Empty</li>
-                <li>Like</li>
-            </ul>
-        <p>Number and Date type columns:</p>
-            <ul>
-                <li>Null</li>
-                <li>Not Null</li>
-            </ul>
-        <p>For example, when the <b>Like</b> search operator is used:</p>
-            <ul>
-                <li>%a% - Filters words containing the character 'a'</li>
-                <li>a%  - Filters words ending with 'a'</li>
-                <li>%a  - Filters words starting with 'a'</li>
-            </ul>
-        <p>In this demo, filter menu is enabled by default. You can switch to other filter types using the dropdown.</p>
+        You can change the filter type by setting <code><a target="_blank" class="code"
+        href="https://ej2.syncfusion.com/vue/documentation/api/grid/filterSettings/#type">filterSettings->type</a></code>.
+        <p>In this demo, the filter menu is enabled by default. You can switch to other filter types using the dropdown.</p>
+        <p>Additionally, we have an on-demand data fetch functionality and UI for the checkbox/Excel filter type. It can be enabled by setting the <code><a target="_blank" class="code"
+            href="">filterSettings->enableInfiniteScrolling</a></code> property to true. In this demo, on-demand data fetch is not enabled by default. To enable the on-demand data fetch for the checkbox/Excel filter type, the Enable OnDemand option must be checked after selecting the checkBox/Excel filter type using the dropdown menu.</p>
+        <p>
+            More information on the filter configuration can be found in this
+            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/api/grid/#filtersettings">
+                documentation section</a>.
+        </p>
     </div>
 
 </div>
@@ -72,22 +54,22 @@
 <script lang="ts">
 import { GridComponent, ColumnDirective, ColumnsDirective, Filter, Page, FilterType, Sort } from "@syncfusion/ej2-vue-grids";
 import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
-import { orderDataSource  } from "./data-source";
+import { DataManager, Query, UrlAdaptor } from "@syncfusion/ej2-data";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
   components: {
     'ejs-grid': GridComponent,
     'e-column': ColumnDirective,
     'e-columns': ColumnsDirective,
-    'ejs-dropdownlist': DropDownListComponent
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-checkbox': CheckBoxComponent
   },
   data: () => {
     return {
-      data: orderDataSource,
       ddlfields: { text: 'type', value: 'Id' },
       pageSettings: { pageCount: 5 },
       filterSettings: { type: 'Menu' },
-      formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' },
       ddldata: [
         { Id: 'Menu', type: 'Menu' },
         { Id: 'CheckBox', type: 'Checkbox' },
@@ -96,8 +78,35 @@ export default {
   },
   methods: {
       onChange: function(e: ChangeEventArgs): void {
+        let checkbox = ((this as any).$refs.checkbox).$el.ej2_instances[0];
+        let grid = ((this as any).$refs.grid).$el.ej2_instances[0];
+        checkbox.checked = false;
+        grid.filterSettings.enableInfiniteScrolling = false;
         (this as any).filterSettings = {type: <FilterType>e.value};
         ((this as any).$refs.grid).clearFiltering();
+        if ((this as any).filterSettings.type === 'Excel' || (this as any).filterSettings.type === 'CheckBox') {
+            checkbox.disabled = false;
+        } else {
+            checkbox.disabled = true;
+        }
+    },
+    checkboxOnChange: function(args: any): void {
+        let grid = ((this as any).$refs.grid).$el.ej2_instances[0];
+        grid.filterSettings.enableInfiniteScrolling = args.checked;
+    }
+  },
+  computed: {
+    getTradeData: function () {
+        let SERVICE_URI = "https://ej2services.syncfusion.com/vue/release/";
+        let getTradeData = new DataManager({
+            url: SERVICE_URI + 'api/UrlDataSource',
+            adaptor: new UrlAdaptor()
+        });
+        return getTradeData;
+    },
+    query: function () {
+        let query = new Query().addParams('dataCount', '10000');
+        return query;
     }
   },
   provide: {

@@ -72,7 +72,7 @@
         </code> module into the <code>provide</code> section.
     </p>
     <p>
-    <br/> More information about Edit Modes can be found in this documentation section.
+    <br/> More information about Edit Modes can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/editing/row-editing">documentation section</a>.
     </p>
 </div>
 </div>

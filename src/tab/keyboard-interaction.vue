@@ -122,7 +122,6 @@ export default {
       var tabElement = tabObj.element.querySelector(
         '.e-toolbar-item.e-template.e-active .e-tab-wrap'
       );
-      
       if (e.altKey && e.keyCode === 74 && tabElement) {
         tabElement.focus();
       }

@@ -269,7 +269,7 @@ export default {
     #wrapper .e-toolbar .e-icons {
         font-size: 20px;
     }
-    
+
     .e-bigger .e-folder {
         font-size: 18px;
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section" >
      <div class="col-md-8 control-section">
-      <ejs-chart ref='chart' :theme='theme' :chartArea='chartArea' id='chartid' :scrollEnd='scrollEnd'
+      <ejs-chart ref='chart' :theme='theme' id='chartid' :scrollEnd='scrollEnd'
           :primaryXAxis='primaryXAxis' :tooltip='tooltip' :legendSettings='legend' :title='title' :primaryYAxis='primaryYAxis'>
           <e-series-collection>
               <e-series :dataSource='series' xName= 'x' yName= 'y' type='Line' :animation='animation'>
@@ -209,11 +209,6 @@ export default {
       },
       series: seriesData,
       animation: { enable: false },
-      chartArea: {
-        border: {
-          width: 0
-        }
-      },
       title: "Network Load",
       tooltip: { enable: true, shared: true,header : '<b>${point.x}</b>', format : 'Server load : <b>${point.y}</b>' }
     };

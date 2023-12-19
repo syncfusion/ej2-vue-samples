@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-<div>
+<div class="e-diagram-toolbar">
     <ejs-toolbar id='toolbar' style="width:100%;height: 10%;margin-top: 10px;"
                 :clicked='toolbarclicked'
                 :items='toolbaritems'>
@@ -62,9 +62,72 @@
     display: none;
   }
 </style>
-
 <style>
-.e-diagram-save::before {
+
+.sb-mobile-palette {
+        width:240px;
+        height:100%;
+        float:left;
+    }
+    
+    .sb-mobile-palette-bar {
+        display: none;
+    }
+    
+    .sb-mobile-diagram {
+        width:calc(100% - 242px);
+        height: 100%;
+        float: left;
+    }
+    
+    @media (max-width: 550px) {
+    
+        .sb-mobile-palette {
+            z-index: 19;
+            position: absolute;
+            display: none;
+            transition: transform 300ms linear, visibility 0s linear 300ms;
+            width:39%;
+            height:100%;
+        }
+        
+        .sb-mobile-palette-bar {
+            display: block;
+            width: 100%;
+            background:#fafafa;
+            padding: 10px 10px;
+            border:0.5px solid #e0e0e0;
+            min-height: 40px;
+        }
+        
+        .sb-mobile-diagram {
+            width: 100%;
+            height: 100%;
+            float: left;
+            left: 0px;
+        }
+    
+        #palette-icon {
+            font-size: 20px; 
+        }
+    }
+        
+    .sb-mobile-palette-open {
+        position: absolute;
+        display: block;
+        right: 15px;
+    }
+            .e-export::before {
+                    content: "\e711";
+            }
+            .material .e-export::before {
+                    content: "\e706";
+            }
+            .bootstrap .e-export::before {
+                    content: "\e71e";
+            }
+
+            .e-diagram-save::before {
   content: "\e710";
 }
 .material .e-diagram-save::before {
@@ -92,7 +155,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+            
 </style>
+
 
 <script>
 import {

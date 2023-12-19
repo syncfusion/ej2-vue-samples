@@ -17,7 +17,7 @@ function getReleaseVersion(version) {
     return version.join('.');
 }
 
-gulp.task('publish-samples', function(done) {
+gulp.task('publish-samples', gulp.series('ship-search-file', function(done) {
     var isMaster = process.env.BRANCH_NAME === 'master';
     var hotfixVersion;
     var isHotFix = /^((release\/|hotfix\/))/g.test(process.env.BRANCH_NAME);
@@ -59,7 +59,7 @@ gulp.task('publish-samples', function(done) {
             done(e);
         });
     done();
-});
+}));
 
 gulp.task('build-output', function(done) {
     var publishSample = config.publishSamples;

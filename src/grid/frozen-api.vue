@@ -2,7 +2,7 @@
 <div class="col-lg-12 control-section">
     <div id="action-description">
         <p>This sample demonstrates the frozen rows and columns feature of the Grid. Scroll the movable content
-            horizontally to view the frozen and fixed columns, vertically to view the frozen rows with the content.
+            horizontally to view the frozen and fixed columns and vertically to view the frozen rows with the content.
         </p>
     </div>
      <div class="control-section">
@@ -44,26 +44,26 @@
 <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :target='target'
             :width='alertWidth'>
         </ejs-dialog>
-        <div id="description">
-            <p>
-                This feature enables users to freeze certain columns at specific positions. This can be achieved by
-                setting the <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#freeze">freeze</a></code> 
-                property of column settings. The various modes are:
-            </p>
-            <ul>
-                <li><code>Left</code> : Freezes the column at the left.</li>
-                <li><code>Right</code> : Freezes the column at the right.</li>
-                <li><code>Center</code> : Freezes the column at the center.</li>
-                <li><code>Fixed</code> : Freezes the column at a fixed position. This will ensure its visibility while scrolling horizontally.</li>
-            </ul>
-            <p> In this demo sample, the <b>Order ID</b> column is frozen at the left, the <b>Customer ID</b> column is
-                frozen at the right and the <b>Ship Address</b> column at a fixed position using <code>column->freeze</code> property.
-            </p>
-            <p>
-                More information on the frozen rows and columns can be found in this
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/frozen"> documentation section</a>.
-            </p>
-        </div>
+    <div id="description">
+        <p>
+            The freezing feature enables the user to freeze certain columns at a specific position. This can be achieved by
+            setting the<code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#freeze">freeze</a></code> 
+            property of column settings. The various modes of freeze directions are:
+        </p>
+        <ul>
+            <li><code>Left</code> - Freeze the column at left position.</li>
+            <li><code>Right</code> - Freeze the column at right position.</li>
+            <li><code>Center</code> - Freeze the column at center position.</li>
+            <li><code>Fixed</code> - Freeze the column at fixed position. This will ensure its visibility at all times while scrolling horizontally.</li>
+        </ul>
+        <p> In this demo sample, the <b>Order ID</b> column is freezed at left position, the <b>Customer ID</b> column is
+            freezed at right position and the <b>Ship Address</b> column at fixed position using <code>column->freeze</code> property.
+        </p>
+        <p>
+            More information on the frozen rows and columns can be found in this
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/frozen"> documentation section</a>.
+        </p>
+    </div>
 
 </div>
 </template>

@@ -95,7 +95,7 @@ export default {
                 leftLabel: 'TaskName'
             },
             splitterSettings: {
-                columnIndex: 3
+                columnIndex: 2
             },
             projectStartDate: new Date('03/24/2019'),
             projectEndDate: new Date('07/06/2019'),

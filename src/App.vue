@@ -359,42 +359,38 @@
                         </div>
                         <div class='description-section sb-rightpane-padding'>
                         </div>
-                        <div class="ad-wrapper">
-                            <div id='ad-image' class="ad-img">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-12">
-                                            <div id="ad-banner-head" class="ad-header">Transform your Vue web apps today
-                                                with Syncfusion Vue components</div>
+                        <div class="banner-wrapper">
+                    <div id='banner-image' class="banner-img">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-12">
+                                    <div id="banner-head" class="banner-header">Transform your Vue web apps today with Syncfusion Vue components</div>
+                                </div>
+                                <div class="col-sm-12 cnt-area">
+                                    <div class="content-area">
+                                        <div class="banner-cnt-pt">
+                                            <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                            <div class="banner-cnt-text">80+ high-performance and responsive UI components</div>
                                         </div>
-                                        <div class="col-sm-12 cnt-area">
-                                            <div class="content-area">
-                                                <div class="ad-cnt-pt">
-                                                    <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection">
-                                                    </div>
-                                                    <div class="ad-cnt-text">80+ high-performance and responsive UI
-                                                        components</div>
-                                                </div>
-                                                <div class="ad-cnt-pt">
-                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
-                                                    </div>
-                                                    <div class="ad-cnt-text">Dedicated support</div>
-                                                </div>
-                                                <div class="ad-cnt-pt">
-                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
-                                                    </div>
-                                                    <div class="ad-cnt-text">Hassle-free licensing</div>
-                                                </div>
-                                            </div>
-                                            <a style="color:#ffff;text-decoration:none;"
+                                        <div class="banner-cnt-pt">
+                                            <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                            <div class="banner-cnt-text">Dedicated support</div>
+                                        </div>
+                                        <div class="banner-cnt-pt">
+                                            <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
+                                            <div class="banner-cnt-text">Hassle-free licensing</div>
+                                        </div>
+                                    </div>
+                                    <a style="color:#ffff;text-decoration:none;"
                                                 href="https://www.syncfusion.com/downloads/vue">
                                                 <div class="free-trial">TRY IT FOR FREE</div>
                                             </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                
                         </div>
+                    </div>
+                </div>
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">
@@ -710,14 +706,6 @@ const breadCrumbUpdate = (controlName: string, category: string, sampleName: str
 const updateBreadCrumb = () => {
     (rootEle!.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = route!.meta!.eCompName! as string;
     breadCrumbUpdate(route!.meta!.eCompName! as string, route!.meta!.eCategoryName! as string, route!.meta!.eSampleName! as string);
-    let name: string = (route!.meta!.eCompName! as string); 
-    if (name === 'PDF Viewer') {
-        (document.querySelector('.sb-plnr-section') as any).style.display = 'none';
-        (document.querySelector('.sb-open-new-wrapper') as any).style.display = 'none';
-    } else {
-        (document.querySelector('.sb-plnr-section') as any).style.display = '';
-        (document.querySelector('.sb-open-new-wrapper') as any).style.display = '';
-    }
 };
 
 const renderLeftPaneComponents = () => {
@@ -786,7 +774,7 @@ const getTreeviewList = (list: any[]): Controls[] | { [key: string]: Object }[] 
             {
                 id: id,
                 pid: pid,
-                name: list[i].name,
+                name: list[i].label ? list[i].label : list[i].name,
                 type: list[i].type,
                 url: {
                     'data-path': '/' + list[i].directory + '/' + list[i].samples[0].url + '.html',

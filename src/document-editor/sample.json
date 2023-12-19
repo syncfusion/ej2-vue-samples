@@ -13,6 +13,13 @@
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
         {
+            "url": "document-list",
+            "name": "Document List",
+            "category": "File Management",
+            "description": "This sample demonstrates opening a Word document in both read-only and editable modes using the Document Editor. It is presented in a modal dialog, initiated from a list of documents within the grid view.",
+            "type": "new" 
+        },
+        {
             "url": "character-formatting",
             "name": "Character Formatting",
             "category": "Editing Features",
@@ -45,7 +52,6 @@
         {
             "url": "table-formatting",
             "name": "Table Formatting",
-            "type": "update",
             "category": "Editing Features",
             "description": "The Document Editor supports table formatting such as cell margins, cell spacing, horizontal merge, vertical merge, border styles, background color, and more."
         },
@@ -127,6 +133,13 @@
             "category": "View",            
             "description": "The Document Editor component supports the continuous layout type to display the document in a single page." 
         },       
+        {
+            "url": "ruler",
+            "name": "Ruler",
+            "category": "View",
+            "description": "This sample demonstrates demonstrates how to enable the ruler in Document Editor.",
+            "type": "new" 
+        },
         {
             "url": "comments",
             "name": "Comments",

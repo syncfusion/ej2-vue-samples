@@ -183,8 +183,7 @@ export default {
       enableToolbar: false,
       enableNavigationToolbar: false,
       enableThumbnail: false,
-      serviceURL:
-        "https://ej2services.syncfusion.com/vue/development/api/pdfviewer",
+      serviceURL:"https://services.syncfusion.com/vue/production/api/pdfviewer",
     };
   },
   provide: {
@@ -222,8 +221,7 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(postData),
       };
-      var apiUrl =
-        "https://ej2services.syncfusion.com/vue/development/api/pdfviewer/ValidateSignature";
+      var apiUrl = "https://services.syncfusion.com/vue/production/api/pdfviewer/ValidateSignature";
       fetch(apiUrl, options)
         .then(function (response) {
           return response.json();
@@ -301,5 +299,4 @@ export default {
     },
   },
 };
-
 </script>

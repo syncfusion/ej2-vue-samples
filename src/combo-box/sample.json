@@ -57,7 +57,7 @@
             "url": "virtual-scroll",
             "name": "Virtualization",
             "category": "ComboBox",
-            "type": "new",
+            "type": "update",
             "description": "This example demonstrates how to utilize the virtual scrolling support of the Vue combo box component.",
             "sourceFiles":[
                 { "displayName": "virtual-scroll.vue", "path":"src/combo-box/virtual-scroll.vue" },

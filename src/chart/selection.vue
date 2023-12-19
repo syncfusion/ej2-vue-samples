@@ -179,7 +179,6 @@ export default {
       primaryXAxis: {
         valueType: "Category",
         interval: 1,
-        majorGridLines: { width: 0 },
         majorTickLines: { width: 0 }
       },
 
@@ -188,8 +187,6 @@ export default {
         title: "Distribution",
         labelFormat: "{value}%",
         interval: 20,
-        majorTickLines: { width: 0 },
-        lineStyle: { width: 0 }
       },
       legendSettings: { visible: true, toggleVisibility: false },
       chartArea: { border: { width: 0 } },
@@ -214,11 +211,12 @@ export default {
         "None",
         "Dots",
         "Chessboard",
+        "Bubble",
         "Triangle",
         "Tile",
         "Grid"
       ],
-      width : Browser.isDevice ? '100%' : '75%',
+      width : Browser.isDevice ? '100%' : '92%',
       indexwidth: 120,
       tooltip: { enable: false },
       title: "Age Distribution by Country"

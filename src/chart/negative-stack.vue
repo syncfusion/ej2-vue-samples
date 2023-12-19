@@ -69,6 +69,7 @@ export default {
      primaryXAxis: {
             vvalueType: 'Category',
             title: 'Height in Inches',
+            interval: 0.3,
             majorTickLines: { width: 0 },
             majorGridLines: { width: 0 },
             edgeLabelPlacement: 'Shift'

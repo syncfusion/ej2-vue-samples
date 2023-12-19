@@ -39,7 +39,13 @@
     <p>In this demo, for the toolbar items of exporting, we have defined actions in <code>toolbarClick</code> event to export the Tree Grid data using the <code>excelExport</code>, <code>pdfExport</code> and <code>csvExport</code> methods.</p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>Tree Grid features are segregated into individual feature-wise modules. To use exporting feature, we need to inject <code>ExcelExport</code> and <code>PdfExport</code> module into the <code>provide</code> section.</p>
-    <p>More information on the Exporting can be found in the  documentation section.
+    <p>
+        More information on the  
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/pdf-export/pdf-export">
+        Pdf exporting </a> and
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/excel-export/excel-export">
+        Excel exporting</a>
+        can be found in documentation section
     </p>
 </div>
 </div>

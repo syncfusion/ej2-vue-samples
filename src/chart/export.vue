@@ -107,10 +107,7 @@
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent} from '@syncfusion/ej2-vue-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
-import {
-  pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors,
-  pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors
-} from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, Export, DataLabel } from "@syncfusion/ej2-vue-charts";
 

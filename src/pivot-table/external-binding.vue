@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-lg-12 control-section" style="overflow: auto">
+    <div class="col-lg-12 control-section">
       <div class="content-wrapper">
         <ejs-pivotview
           id="pivotview_heatmap"
@@ -33,8 +33,8 @@
     </div>
     <div id="action-description">
       <p>
-        This sample demonstrates rendering Heatmap control by providing desired data from a pivot table on selection. Not
-        only Heatmap, but any other control (including third party) can be used for this purpose.
+        This sample demonstrates rendering HeatMap control by providing desired data from a pivot table on selection. Not
+          only HeatMap, but any other control (including third party) can be used for this purpose.
       </p>
     </div>
     <div id="description">
@@ -96,7 +96,8 @@ export default {
         dataSource: Pivot_Data,
         expandAll: true,
         values: [{ name: "Sold", caption: "Units Sold" }],
-        filters: []
+        filters: [],
+        formatSettings: [{ name: 'Sold', format: 'N0' }],
       },
       width: "100%",
       gridSettings: {
@@ -113,13 +114,14 @@ export default {
         text: 'Sales Analysis'
       },
       legendSettings: {
+        visible: false,
         position: 'Top'
       },      
       showTooltip: true,
       xAxis: {
         title: { text: "Country ~ Products" },
         labels: [],
-        labelRotation: 315
+        labelIntersectAction: "Trim"
       },
       yAxis: {
         title: { text: "Sum of Units Sold" },
@@ -195,7 +197,7 @@ export default {
       heatmap.xAxis = {
         title: { text: pivotObj.dataSourceSettings.rows.map(function (args:any) { return args.caption || args.name; }).join(' ~ ') },
         labels: xLabels,
-        labelRotation: 315
+        labelIntersectAction: "Trim"
       };
       heatmap.yAxis = {
         title: { text: pivotObj.dataSourceSettings.values.map(function (args:any) { return args.caption || args.name; }).join(' ~ ') },

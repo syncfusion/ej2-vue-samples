@@ -5,15 +5,15 @@
                 :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width'
                 :axes='axes' :tooltip='tooltip' :legendSettings='legendSettings'>
                 <e-annotations>
-                    <e-annotation :content="'cloudTemplate'" x='SUN' y=70 coordinateUnits='Point'>
+                    <e-annotation :content="'cloudTemplate'" x='Sun' y=70 coordinateUnits='Point'>
                         <template v-slot:cloudTemplate="{}">
-                            <div id="chart_cloud"><img src="source/chart/images/cloud.png"
+                            <div id="chart_cloud"><img src="./images/cloud.png"
                                     style="width: 41px; height: 41px" /></div>
                         </template>
                     </e-annotation>
-                    <e-annotation :content="'sunTemplate'" x='SAT' y=35 coordinateUnits='Point' yAxisName='yAxis2'>
+                    <e-annotation :content="'sunTemplate'" x='Sat' y=35 coordinateUnits='Point' yAxisName='yAxis2'>
                         <template v-slot:sunTemplate="{}">
-                            <div id="chart_sun"><img src="source/chart/images/sunny.png"
+                            <div id="chart_sun"><img src="./images/sunny.png"
                                     style="width: 41px; height: 41px" /></div>
                         </template>
                     </e-annotation>
@@ -73,13 +73,13 @@ export default {
         return {
             theme: theme,
             seriesData: [
-                { Day: "SUN", DEU_Temp: 35, JPN_Temp: 31 },
-                { Day: "MON", DEU_Temp: 40, JPN_Temp: 28 },
-                { Day: "TUE", DEU_Temp: 50, JPN_Temp: 29 },
-                { Day: "WED", DEU_Temp: 70, JPN_Temp: 30 },
-                { Day: "THU", DEU_Temp: 65, JPN_Temp: 33 },
-                { Day: "FRI", DEU_Temp: 55, JPN_Temp: 32 },
-                { Day: "SAT", DEU_Temp: 50, JPN_Temp: 34 },
+                { Day: "Sun", DEU_Temp: 35, JPN_Temp: 31 },
+                { Day: "Mon", DEU_Temp: 40, JPN_Temp: 28 },
+                { Day: "Tue", DEU_Temp: 80, JPN_Temp: 29 },
+                { Day: "Wed", DEU_Temp: 70, JPN_Temp: 30 },
+                { Day: "Thu", DEU_Temp: 65, JPN_Temp: 33 },
+                { Day: "Fri", DEU_Temp: 55, JPN_Temp: 32 },
+                { Day: "Sat", DEU_Temp: 50, JPN_Temp: 34 },
             ],
 
             //Initializing Primary X Axis

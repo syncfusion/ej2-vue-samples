@@ -46,8 +46,8 @@
         {
             "url": "virtual-scroll",
             "name": "Virtualization",
+            "type": "update",
             "category": "AutoComplete",
-            "type": "new",
             "description": "This example demonstrates how to utilize the virtual scrolling support of Vue autocomplete component.",
             "sourceFiles":[
                 { "displayName": "virtual-scroll.vue", "path":"src/auto-complete/virtual-scroll.vue" },

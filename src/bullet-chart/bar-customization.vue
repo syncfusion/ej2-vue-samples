@@ -1,8 +1,8 @@
 <template>
   <div class="control-section">
-    <div class="col-md-8 control-section">
+    <div class="col-md-8 control-section" align="center">
       <ejs-bulletchart
-        ref="bulletchart"
+        ref="bulletchart" 
         id="targetbar"
         :theme="theme"
         :tooltip="tooltip"
@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-4 property-section">
       <div class="property-panel-header">Properties</div>
-      <table title="Properties" style="width: 100%; height: 100%;">
+      <table title="Properties" style="width: 90%; height: 100%;">
         <tr>
           <td style="width: 60%">
             <div class="prop-text">Actual Value:</div>

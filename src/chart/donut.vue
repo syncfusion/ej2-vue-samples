@@ -52,12 +52,12 @@ export default {
     return {
          theme:theme,
          seriesData:
-        [{ Browser: 'Chrome', Users: 61.31, DataLabelMappingName: Browser.isDevice ? 'Chrome:<br> 61.31%' : 'Chrome: 61.31%' }, 
-          { Browser: 'Safari', Users: 24.68, DataLabelMappingName: Browser.isDevice ? 'Safari:<br> 24.68%' : 'Safari: 24.68%' },
-          { Browser: 'Edge', Users: 5.00, DataLabelMappingName: 'Edge: 5.00%' },
-          { Browser: 'Samsung Internet', Users: 2.72, DataLabelMappingName: Browser.isDevice ? 'Samsung Internet:<br> 2.72%' :'Samsung Internet: 2.72%' },
-          { Browser: 'Firefox', Users: 2.66, DataLabelMappingName: Browser.isDevice ? 'Firefox:<br> 2.66%' : 'Firefox: 2.66%' },
-          { Browser: 'Others', Users: 3.63, DataLabelMappingName: Browser.isDevice ? 'Others: <br> 3.63%' : 'Others: 3.63%' }
+        [{ Browser: 'Chrome', Users: 61.3, DataLabelMappingName: Browser.isDevice ? 'Chrome:<br> 61.3%' : 'Chrome: 61.3%' }, 
+          { Browser: 'Safari', Users: 24.6, DataLabelMappingName: Browser.isDevice ? 'Safari:<br> 24.6%' : 'Safari: 24.6%' },
+          { Browser: 'Edge', Users: 5.0, DataLabelMappingName: 'Edge: 5.0%' },
+          { Browser: 'Samsung Internet', Users: 2.7, DataLabelMappingName: Browser.isDevice ? 'Samsung Internet:<br> 2.7%' :'Samsung Internet: 2.7%' },
+          { Browser: 'Firefox', Users: 2.6, DataLabelMappingName: Browser.isDevice ? 'Firefox:<br> 2.6%' : 'Firefox: 2.6%' },
+          { Browser: 'Others', Users: 3.6, DataLabelMappingName: Browser.isDevice ? 'Others: <br> 3.6%' : 'Others: 3.6%' }
         ],
 
         chartArea: {

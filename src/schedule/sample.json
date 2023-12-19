@@ -207,7 +207,6 @@
             "name": "Data Virtualization",
             "category": "Scrolling",
             "hideOnDevice": true,
-            "type": "new",
             "description": "This example illustrates how to load events on demand in the Vue Scheduler.",
             "api": {
                 "Schedule": [
@@ -290,8 +289,9 @@
         {
             "url": "custom-month-view",
             "name": "Custom Month View",
+            "type": "update",
             "category": "Views",
-            "description": "This example showcases how to customize the starting week of the month and also customize the number of weeks to be rendered in month view with Vue Scheduler.",
+            "description": "This example showcases how to customize the starting week, number of weeks, and number of events displayed in a single row in the Vue Scheduler month view.",
             "api": {
                 "Schedule": [
                     "eventSettings",
@@ -531,7 +531,7 @@
             "url": "events-template",
             "name": "Events",
             "category": "Templates",
-            "description": "This demo shows how to customize the look and feel of appointments (events) in the Vue Shceduler with images and links by using an event template.",
+            "description": "This demo shows how to customize the look and feel of appointments (events) in the Vue Scheduler with images and links by using an event template.",
             "api": {
                 "Schedule": [
                     "width",
@@ -602,7 +602,6 @@
         {
             "url": "editor-template",
             "name": "Editor Template",
-            "type": "update",
             "category": "Editor Window",
             "description": "This demo shows how to design custom appointment (event) editor windows by adding or removing fields from the Vue Scheduler appointment window.",
             "api": {
@@ -660,6 +659,7 @@
         {
             "url": "header-bar",
             "name": "Header Bar",
+            "type": "update",
             "category": "Customization",
             "description": "This demo shows how to use templating to customize the header bar of the Vue Scheduler with images, links, styles, and other UI controls.",
             "api": {

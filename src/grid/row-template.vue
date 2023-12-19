@@ -6,7 +6,7 @@
     </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" height=335 width='auto' :rowTemplate="'rowTemplate'" >
+        <ejs-grid id="rowtempgrid" :dataSource="data" height=335 width='auto' :rowTemplate="'rowTemplate'" >
             <e-columns>
                 <e-column field='Employee Image' headerText='Employee Image' width='150' textAlign='Center'></e-column>
                 <e-column field='Employee Details' headerText='Employee Details' width='300' textAlign='Left'></e-column>

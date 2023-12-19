@@ -1,0 +1,32 @@
+{
+    "de": {
+        "numerictextbox": {
+            "incrementTitle": "Wert erhöhen",
+            "decrementTitle": "Dekrementwert"
+        }
+    },
+    "ar": {
+        "numerictextbox": {
+            "incrementTitle": "قيمة الزيادة",
+            "decrementTitle": "انخفاض القيمة"
+        }
+    },
+    "en": {
+        "numerictextbox": {
+            "incrementTitle": "Increment value",
+            "decrementTitle": "Decrement value"
+        }
+    },
+    "zh": {
+        "numerictextbox": {
+            "incrementTitle": "增值",
+            "decrementTitle": "遞減值"
+        }
+    },
+    "fr-CH": {
+        "numerictextbox": {
+            "incrementTitle": "Valeur d'incrément",
+            "decrementTitle": "Décrémenter la valeur"
+        }
+    }
+}

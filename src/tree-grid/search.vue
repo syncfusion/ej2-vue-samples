@@ -61,7 +61,7 @@
         into the <code>provide</code> section.
     </p>
     <p>
-        More information on the searching configuration can be found in this documentation section.
+        More information on the searching configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/searching">documentation section</a>.
     </p>
 </div>
 </div>

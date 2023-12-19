@@ -35,6 +35,7 @@
         {
             "url": "adaptive-layout",
             "name": "Adaptive Layout",
+            "type": "update",
             "category": "Data Grid",
             "description": "This sample demonstrates the rendering order of the grid row elements and adaptive dialogs.",
             "hideOnDevice": false,
@@ -47,6 +48,15 @@
             "description": "This demo for Essential JS 2 grid component shows the loading indicator when grid loading and refreshing.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource","allowSorting","allowPaging", "allowFiltering", "loadingIndicator", "pageSettings"] }
+        },
+        {
+            "url": "empty-record-template",
+            "name": "Empty Record Template",
+            "type": "new",
+            "category": "Data Grid",
+            "description": "This demo for Essential JS 2 grid component demonstrates usage of template in Grid to shown element or text or image or gif icon instead of displaying the empty record message.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource","allowPaging", "pageSettings"] }
         },
         {
             "url": "local-data",
@@ -294,6 +304,7 @@
         {
             "url": "filter-menu",
             "name": "Filter Menu",
+            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
@@ -418,7 +429,6 @@
         {
             "url": "frozen-api",
             "name": "Frozen API",
-            "type":"update",
             "category": "Scrolling",
             "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
             "hideOnDevice": false,
@@ -499,7 +509,6 @@
             "url": "detail-template-export",
             "name": "Detail Template Exporting",
             "category": "Exporting",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid control shows the client-side exporting of grid content with Detail template to Excel and PDF formats.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport", "detailTemplate", "toolbar"] }
@@ -508,7 +517,6 @@
             "url": "multiple-export",
             "name": "Multiple Exporting",
             "category": "Exporting",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid control shows the client-side exporting of multiple grid content to Excel and PDF formats.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowPdfExport", "allowExcelExport"] }

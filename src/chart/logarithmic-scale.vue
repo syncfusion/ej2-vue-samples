@@ -3,7 +3,7 @@
     <div align='center'>
       <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :width='width' :tooltip='tooltip'
-        :chartArea='chartArea' :legendSettings='legendSettings'>
+        :legendSettings='legendSettings'>
         <e-series-collection>
           <e-series :dataSource='seriesData' type='Spline' xName='x' yName='y' name='Product X' width = 2 :marker='marker'>
           </e-series>
@@ -80,7 +80,7 @@ export default {
         labelFormat: 'y',
         valueType: 'DateTime',
         edgeLabelPlacement: 'Shift',
-        majorGridLines: { width: 0 },
+        interval: 2,
       },
 
       //Initializing Primary Y Axis
@@ -90,18 +90,11 @@ export default {
         edgeLabelPlacement: 'Shift',
         minorTicksPerInterval: 5,
         majorGridLines: { width: 1.5 },
-        minorTickLines: { width: 0 },
-        majorTickLines: { width: 0 },
-        lineStyle: { width: 0 },
+        minorTickLines: { width: 0, height: 4 },
         minimum: 0,
         maximum: 100000,
         interval: 1,
         labelFormat: '${value}'
-      },
-      chartArea: {
-        border: {
-          width: 0
-        }
       },
       marker: {
         visible: true, height: 7, width: 7, isFilled: true

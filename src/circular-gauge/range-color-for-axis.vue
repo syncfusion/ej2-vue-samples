@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section">
-        <ejs-circulargauge :load='load' :background='background' style='display:block' align='center' id='gauge'>
+        <ejs-circulargauge :load='load' :animationDuration=2000 :background='background' style='display:block' align='center' id='gauge'>
             <e-axes>
                 <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :direction='direction' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle'>
                     <e-pointers>

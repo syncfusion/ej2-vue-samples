@@ -155,9 +155,9 @@ export default {
             // tslint:disable-next-line:max-line-length
             args.progressBar.annotations[0].content = '<div id="point1" class="plabeltxt" style="color: ' + annotationColors[selectedTheme.replace(/-/i, '')] + ' "><span>80%</span></div>';
         } else if (args.progressBar.element.id === 'download-container') {
-            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme.replace(/-/i, '') + '-Download.svg"></img>';
+            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + ( this.$refs.download.ej2Instances.theme).toLowerCase() + '-Download.svg"></img>';
         } else {
-            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme.replace(/-/i, '') + '-pause.svg"></img>';
+            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + (this.$refs.pause.ej2Instances.theme).toLowerCase() + '-pause.svg"></img>';
         }
     },
     progressCompleted1: function() {

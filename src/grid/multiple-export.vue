@@ -3,7 +3,7 @@
 
     <div id="action-description">
         <p>This sample demonstrates the client-side exporting of mutliple grids, which allows you to export the data of
-            multiple grids in the same or different pages to Excel and PDF formats.
+            multiple grids in the same or different pages to Excel and Pdf formats.
         </p>
     </div>
         <div>
@@ -24,38 +24,36 @@
             <detailsGrid :selected='key'></detailsGrid>
 
         </div>
+<div id='description'>
+    <p>Grid supports client-side exporting which allows you to export its data to Excel and Pdf formats.</p>
+    <p>Multiple Grids can be exported by providing their <code>id</code> values in the <code>exportGrids</code> property of the Grid.</p>
+    <p>In this demo, Excel and Pdf exports are enabled in both the grids by setting <code>allowExcelExport</code> and
+        <code>allowPdfExport</code> properties as true. In the master grid, the grid ids are listed in the
+        <code>exportGrids</code> property which can be exported to Excel and Pdf formats by clicking the toolbar buttons.
+    </p>
+    <p>The ExcelExport and PdfExport items are defined in the toolbar of the Grid, for which the actions are defined in
+        the <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#toolbarclick">toolbarClick</a></code> event
+        to export the Grid data using <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a></code> 
+        and<code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code> methods.
+    </p>
+    <p>By default, in this demo the grids are exported in the same page. They can be exported in separate pages by
+        unchecking the checkbox. This can be achieved by setting the multipleExport <code>type</code> property of
+        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/excelexportproperties/">ExcelExportProperties</a></code>
+        and <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/pdfExportProperties/">PdfExportProperties.</a></code>
+    </p>
 
-    <div id='description'>
-        <p>Data Grids support client-side exporting which allows you to export data to Excel and PDF formats.</p>
-        <p>Multiple grids can be exported by providing their <code>IDs</code> in the <code>exportGrids</code> property.</p>
-        <p>In this demo, Excel and PDF exports are enabled in both grids by setting the <code>allowExcelExport</code> and 
-            <code>allowPdfExport</code> properties to true. In the master grid, the grid IDs are listed in the 
-            <code>exportGrids</code> property which can be exported to Excel and PDF formats by clicking the toolbar buttons.
-        </p>
-        <p>The ExcelExport and PdfExport items are defined in the toolbar of the Grid. Actions are defined in
-            the <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#toolbarclick">toolbarClick</a></code> event
-            to export Grid data using <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a></code> 
-            and<code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code> methods.
-        </p>
-        <p>By default, in this demo grids are exported on the same page. They can be exported in separate pages by
-            unchecking the checkbox. This can be achieved by setting the multipleExport <code>type</code> of 
-            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/excelexportproperties/">ExcelExportProperties</a></code> 
-            and <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/pdfExportProperties/">PdfExportProperties.</a></code>
-        </p>
-
-        <p style="font-weight: 500">Injecting Modules</p>
-        <p>
-            Grid features are segregated into individual feature-wise modules.
-            To use selection and export features, inject <code>Selection</code>, <code>ExcelExport</code>
-            and <code>PdfExport</code> modules into the <code>provide</code> section.
-        </p>
-        <p>
-            More information on the exporting configuration can be found in this <a target="_blank"
-            href="https://ej2.syncfusion.com/vue/documentation/grid/excel-export/excel-exporting">Excel-export</a> 
-            and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export/pdf-export">PDF-export</a> documentation sections.
-        </p>
-    </div>
-
+    <p style="font-weight: 500">Injecting Module</p>
+    <p>
+        Grid features are segregated into individual feature-wise modules.
+        To use selection and export features, we need to inject <code>Selection</code>, <code>ExcelExport</code>
+        and <code>PdfExport</code> into the <code>provide</code> section.
+    </p>
+    <p>
+        More information on the exporting configuration can be found in this <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/grid/excel-export/excel-exporting"> excel-export</a> and <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export/pdf-export">pdf-export</a> documentation sections.
+    </p>
+</div>
     </div>
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">

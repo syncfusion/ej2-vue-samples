@@ -14,7 +14,8 @@
             <ejs-pdfviewer 
                 id="pdfviewer" 
                 ref="pdfviewer" 
-                :documentPath="documentPath">
+                :documentPath="documentPath"
+                :resourceUrl="resourceUrl">
             </ejs-pdfviewer>
         </div>
        <div id="action-description">
@@ -95,7 +96,8 @@ export default {
     },
     data: function() {
         return {
-			documentPath:'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'}
+			documentPath:'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
+            resourceUrl: 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib'}
     },
 	provide: {
       PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner]
@@ -107,7 +109,7 @@ export default {
             if (args.checked) {
                 viewer.serviceUrl = "";
             } else {
-                viewer.serviceUrl = "https://ej2services.syncfusion.com/vue/development/api/pdfviewer";
+                viewer.serviceUrl = "https://services.syncfusion.com/vue/production/api/pdfviewer";
             }           
             viewer.dataBind();
             viewer.load(viewer.documentPath, null);

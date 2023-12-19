@@ -2,7 +2,7 @@
   <div>
     <div class="col-md-8 control-section sb-property-border">
       <ejs-chart ref="chart" :theme="theme" style="display:block" align="center" id="chartcontainer" :title="title"
-        :primaryXAxis="primaryXAxis" :legendSettings="legendSettings" :primaryYSAxis="primaryYAxis" :tooltip='tooltip'>
+        :primaryXAxis="primaryXAxis" :legendSettings="legendSettings" :primaryYAxis="primaryYAxis" :tooltip='tooltip'>
         <e-series-collection>
           <e-series :dataSource="seriesData" :type="seriesType" xName="Month" name="Germany" drawType="RangeColumn" tooltipMappingName="MinTemp"
             :border="border" low="MinTemp" high="MaxTemp" :marker="marker"></e-series>

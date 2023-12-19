@@ -16,7 +16,7 @@
                             <ejs-toast id='toast_template' :template="'toasttemplate'" timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'>
                             <template v-slot:toasttemplate>
                             <div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
-                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img :src="'source/toast/resource/map.jpg'" :style="{ width: '100%', height: '60%' }" :alt="'map'"/>
+                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img :src="'src/toast/images/map.jpg'" :style="{ width: '100%', height: '60%' }" :alt="'map'"/>
                                 <div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div>
                                 <div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>
                             </template>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="source/toast/resource/map.jpg" width="100%" height="60%">
+                    <img src="./images/map.jpg" width="100%" height="60%">
                     <div class="snooze"> Snooze </div>
                     <div id='snoozedropDown'>
                      <select id="snoozeDD">
@@ -273,11 +273,11 @@ export default {
     },
     mounted: function(){
       this.toastData = [
-        { from: ' Anjolie Stokes', subject: 'Networking Referral', image: { url: './source/toast/resource/laura.png' }, },
-        { from: ' Ila Russo', subject: 'Business dinner invitation', image: { url: './source/toast/resource/janat.png' }, },
-        { from: ' Camden Mcmillan', subject: 'Reference Request - Cameran Hester', image: { url: './source/toast/resource/camden.png' }, },
-        { from: ' Chase Solomon', subject: 'New business relationship confirmation', image: { url: './source/toast/resource/chase.png' }, },
-        { from: ' Inga Scott', subject: 'Application for Sales Associate', image: { url: './source/toast/resource/michael.png' }, }];
+        { from: ' Anjolie Stokes', subject: 'Networking Referral', image: { url: 'src/toast/images/laura.png' }, },
+        { from: ' Ila Russo', subject: 'Business dinner invitation', image: { url: 'src/toast/images/janat.png' }, },
+        { from: ' Camden Mcmillan', subject: 'Reference Request - Cameran Hester', image: { url: 'src/toast/images/camden.png' }, },
+        { from: ' Chase Solomon', subject: 'New business relationship confirmation', image: { url: 'src/toast/images/chase.png' }, },
+        { from: ' Inga Scott', subject: 'Application for Sales Associate', image: { url: 'src/toast/images/michael.png' }, }];
        this.toastFlag = 0;
        this.snoozeFlag = false;
     this.toastObj = document.getElementById('toast_template').ej2_instances[0];

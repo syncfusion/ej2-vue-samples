@@ -41,16 +41,8 @@
 </style>
 <script>
 import { Browser } from "@syncfusion/ej2-base";
-import {
-  ChartComponent,
-  SeriesDirective,
-  SeriesCollectionDirective,
-  BarSeries,
-  DataLabel,
-  Category
-} from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, 
-        pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors} from './theme-color';
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, BarSeries, DataLabel, Category } from "@syncfusion/ej2-vue-charts";
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
@@ -108,7 +100,6 @@ export default {
           format : "{value}M",
           position: "Top",
           font: {
-            size: Browser.isDevice ? "9px" : "11px",
             fontWeight: "600",
             color: '#ffffff',
           }

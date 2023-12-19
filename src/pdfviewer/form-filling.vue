@@ -17,7 +17,8 @@
                 :documentPath="documentPath" 
                 :enableFormFieldsValidation="true"
                 :showNotificationDialog="false" 
-                :validateFormFields="validateFormFields">
+                :validateFormFields="validateFormFields"
+                :resourceUrl="resourceUrl">
             </ejs-pdfviewer>
         </div>
         <div id="action-description">
@@ -100,7 +101,8 @@ export default {
     },
     data: function () {
         return {
-            documentPath: 'https://cdn.syncfusion.com/content/pdf/form-filling-document.pdf'
+            documentPath: 'https://cdn.syncfusion.com/content/pdf/form-filling-document.pdf',
+            resourceUrl: 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib'
         }
     },
     provide: {
@@ -152,12 +154,11 @@ export default {
             if (args.checked) {
                 viewer.serviceUrl = "";
             } else {
-                viewer.serviceUrl = "https://ej2services.syncfusion.com/vue/development/api/pdfviewer";
+                viewer.serviceUrl = "https://services.syncfusion.com/vue/production/api/pdfviewer";
             }           
             viewer.dataBind();
             viewer.load(viewer.documentPath, null);
         }
     }
 };
-
 </script>

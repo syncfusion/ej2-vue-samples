@@ -17,7 +17,8 @@
                 :documentPath="documentPath" 
                 :enableRtl="true" 
                 locale='ar-AE' 
-                :annotationSettings="annotationSettings">
+                :annotationSettings="annotationSettings"
+                :resourceUrl="resourceUrl">
             </ejs-pdfviewer>
         </div>
 
@@ -96,6 +97,7 @@ export default {
     data: function() {
         return {
 			documentPath:'https://cdn.syncfusion.com/content/pdf/rtl-text.pdf',
+            resourceUrl: 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib',
             annotationSettings: {author: 'مقبول'}		
         }
     },
@@ -109,7 +111,7 @@ export default {
             if (args.checked) {
                 viewer.serviceUrl = "";
             } else {
-                viewer.serviceUrl = "https://ej2services.syncfusion.com/vue/development/api/pdfviewer";
+                viewer.serviceUrl = "https://services.syncfusion.com/vue/production/api/pdfviewer";
             }           
             viewer.dataBind();
             viewer.load(viewer.documentPath, null);
@@ -351,5 +353,4 @@ L10n.load({
         }
     }
 });
-
 </script>

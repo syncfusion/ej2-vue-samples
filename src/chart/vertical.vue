@@ -70,7 +70,7 @@ export default {
                 title: 'Sales in Billion',
                 minimum: 11000,
                 maximum: 15000,
-                interval: 1000,
+                interval: 500,
                 majorGridLines: { width: 0 },
                 majorTickLines: { width: 0 },
                 lineStyle: { width: 0 },

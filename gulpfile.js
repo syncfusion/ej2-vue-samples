@@ -87,6 +87,9 @@ if (fs.existsSync('./controlWiseSamples.json')) {
     sampleList = JSON.parse(fs.readFileSync('./controlWiseSample.json'));
 }
 
+gulp.task('ship-search-file', function (done) {
+    console.log('ship-search-file');
+});
 gulp.task('sample-json', function(done) {
     if (sampleList && sampleList.length) {
         var controls = getControls();

@@ -105,7 +105,6 @@ import {
   ItemModel,
   DropDownButtonComponent
 } from "@syncfusion/ej2-vue-splitbuttons";
-import { PageSettings } from "@syncfusion/ej2-diagrams/src/diagram/diagram/page-settings";
 
 import {
   Toolbar,

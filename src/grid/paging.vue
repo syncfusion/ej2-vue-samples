@@ -64,6 +64,17 @@
     .paging-api .e-pager .e-pagecountmsg {
         display: inline-block;
     }
+    .paging-api .e-pager .e-pagenomsg {
+        display: none;
+    }
+    @media screen and (max-width: 451px) {
+        .paging-api .e-grid .e-pager .e-pagecountmsg {
+            display: none;
+        }
+        .paging-api .e-grid .e-pager .e-pagenomsg {
+            display: inline-block;
+        }
+    }
 </style>
 <script lang="ts">
 import { L10n, setCulture } from '@syncfusion/ej2-base';

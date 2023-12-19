@@ -92,7 +92,7 @@ export default {
       primaryXAxis: {
         valueType: "DateTime",
         majorGridLines: { color: "transparent" },
-        crosshairTooltip: { enable: true },
+        crosshairTooltip: { enable: true }
       },
 
       //Initializing Primary Y Axis

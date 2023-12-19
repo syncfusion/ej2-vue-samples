@@ -199,6 +199,7 @@ export default {
   },
   methods: {
     created:function(args){
+        if(document.querySelector(".e-toolbar-right").querySelector('.e-dropdownlist') == null){
         var ddList = new DropDownList({
             dataSource: dropDownData,
             placeholder: 'View',
@@ -219,6 +220,7 @@ export default {
             });
         var element = document.getElementById("ganttView");
         ddList.appendTo(element);
+        };
     },
     load: function (args) {
         var themeCollection = ['bootstrap5', 'bootstrap', 'bootstrap4', 'fluent', 'fabric', 'fusionnew', 'material3', 'material', 'highcontrast', 'tailwind'];    

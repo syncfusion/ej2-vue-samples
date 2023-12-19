@@ -191,7 +191,7 @@ import { Browser, remove } from "@syncfusion/ej2-base";
 import { stockData } from "./stock-data";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];
 let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6','#6355C7', '#4EAAFF'];
@@ -228,7 +228,7 @@ export default {
       //Range Navigator Properties
       majorTickLines: { width: 0 },
       tooltip: { enable: true, format: "yyyy/MM/dd", displayMode: "Always" },
-      value: [new Date('2011-01-01'), new Date('2013-12-11')],
+      value: [new Date('2011-01-01'), new Date('2013-12-31')],
       width: Browser.isDevice ? "100%" : "80%",
       fill: "url(#" + selectedTheme + "-gradient-chart)",
       border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },

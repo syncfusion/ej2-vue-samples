@@ -2,6 +2,7 @@
   "name": "Pivot Table",
   "directory": "pivot-table",
   "category": "Grids",
+  "type": "update",
   "ftName": "pivot-table",
   "samples": [{
       "url": "overview",
@@ -17,6 +18,15 @@
       "category": "Pivot Table",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control shows the basic rendering of the pivot table with minimum configuration",
+      "api": {}
+    },
+    {
+      "url": "live-data",
+      "name": "Live Data",
+      "category": "Pivot Table",
+      "hideOnDevice": false,
+      "type": "new",
+      "description": "This sample demonstrates how frequently the pivot table and the pivot chart are updated with real-time data at a given time interval.",
       "api": {}
     },
     {
@@ -36,11 +46,29 @@
       "api": {}
     },
     {
+      "url": "server-side-aggregation",
+      "name": "Server-side Aggregation",
+      "category": "Data Binding",
+      "hideOnDevice": false,
+      "type": "new",
+      "description": "This sample demonstrates the ability to use an external pivot engine to bind and populate data from a remote service and display it in the pivot table.",
+      "api": {}
+    },
+    {
       "url": "olap",
       "name": "OLAP",
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
+      "api": {}
+    },
+    {
+      "url": "performance",
+      "name": "Performance",
+      "category": "Benchmark",
+      "hideOnDevice": false,
+      "type": "new",
+      "description": "This sample demonstrates how the pivot table loads a large amount of data with ease using virtual scrolling.",
       "api": {}
     },
     {
@@ -57,6 +85,15 @@
       "category": "Integration",
       "hideOnDevice": false,
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the rendering of chart component with cell selection option.",
+      "api": {}
+    },
+    {
+      "url": "heat-map",
+      "name": "HeatMap",
+      "category": "Integration",
+      "hideOnDevice": false,
+      "type": "new",
+      "description": "In this sample, we show you how to visualize the bound data by making the pivot table cells look like a heatmap",
       "api": {}
     },
     {

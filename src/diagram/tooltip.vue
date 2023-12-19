@@ -51,7 +51,7 @@
                     </td>
                     <td>
                         <div>
-                            <ejs-numerictextbox id="duration" :value="duration" :min="min" :max="max" :step="step" :change="animationChange"></ejs-numerictextbox>
+                            <ejs-numerictextbox id="duration" :value="duration" :min="min" :max="max" :step="step" :width='textboxWidth' :change="animationChange"></ejs-numerictextbox>
                         </div>
                     </td>
                 </tr>
@@ -68,8 +68,23 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div>
+                            Sticky Mode
+                        </div>
+                    </td>
+                    <td>
+                        <div >
+                        <ejs-checkbox id="isStickyBox" :checked=false :change='isStickyChange'/>
+                        </div>
+                    </td>
+                </tr>
             </table>
+       
         </div>
+        
+        
         <div id="action-description">
             <p>
                   This sample demonstrates how to add the extra information to the nodes and connectors and how to show the information through
@@ -128,6 +143,19 @@
 #tooltipPropertySection .property-panel-header {
     margin-left: 10px;
 }
+.e-checkbox-wrapper .e-label {
+    font-size: 14px;
+    font-weight: 400;
+}
+table{
+    border-collapse: separate;
+}
+
+.e-checkbox-wrapper .e-wrapper
+{
+    padding-left: 0px;
+    padding-top: 0px;
+}
 </style>
 
 <script>
@@ -141,6 +169,7 @@ import {
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 Diagram.Inject(BpmnDiagrams);
 
 let diagramInstance;
@@ -260,36 +289,36 @@ let connectors = [
 
 // FontType Collection
 let positionValue = [
-    { type: 'TopLeft', text: 'TopLeft' },
-    { type: 'TopCenter', text: 'TopCenter' },
-    { type: 'TopRight', text: 'TopRight' },
-    { type: 'BottomLeft', text: 'BottomLeft' },
-    { type: 'BottomCenter', text: 'BottomCenter' },
-    { type: 'BottomRight', text: 'BottomRight' },
-    { type: 'LeftTop', text: 'LeftTop' },
-    { type: 'LeftCenter', text: 'LeftCenter' },
-    { type: 'LeftBottom', text: 'LeftBottom' },
-    { type: 'RightTop', text: 'RightTop' },
-    { type: 'RightCenter', text: 'RightCenter' },
-    { type: 'RightBottom', text: 'RightBottom' },
+    { type: 'TopLeft', text: 'Top Left' },
+    { type: 'TopCenter', text: 'Top Center' },
+    { type: 'TopRight', text: 'Top Right' },
+    { type: 'BottomLeft', text: 'Bottom Left' },
+    { type: 'BottomCenter', text: 'Bottom Center' },
+    { type: 'BottomRight', text: 'Bottom Right' },
+    { type: 'LeftTop', text: 'Left Top' },
+    { type: 'LeftCenter', text: 'Left Center' },
+    { type: 'LeftBottom', text: 'Left Bottom' },
+    { type: 'RightTop', text: 'Right Top' },
+    { type: 'RightCenter', text: 'Right Center' },
+    { type: 'RightBottom', text: 'Right Bottom' },
 ];
 
 //FontType Collection
 let effectValue = [
-    { type: 'FadeIn', text: 'FadeIn' },
-    { type: 'FadeOut', text: 'FadeOut' },
-    { type: 'FadeZoomIn', text: 'FadeZoomIn' },
-    { type: 'FadeZoomOut', text: 'FadeZoomOut' },
-    { type: 'FlipXDownIn', text: 'FlipXDownIn' },
-    { type: 'FlipXDownOut', text: 'FlipXDownOut' },
-    { type: 'FlipXUpIn', text: 'FlipXUpIn' },
-    { type: 'FlipXUpOut', text: 'FlipXUpOut' },
-    { type: 'FlipYLeftIn', text: 'FlipYLeftIn' },
-    { type: 'FlipYLeftOut', text: 'FlipYLeftOut' },
-    { type: 'FlipYRightIn', text: 'FlipYRightIn' },
-    { type: 'FlipYRightOut', text: 'FlipYRightOut' },
-    { type: 'ZoomIn', text: 'ZoomIn' },
-    { type: 'ZoomOut', text: 'ZoomOut' },
+    { type: 'FadeIn', text: 'Fade In' },
+    { type: 'FadeOut', text: 'Fade Out' },
+    { type: 'FadeZoomIn', text: 'Fade ZoomIn' },
+    { type: 'FadeZoomOut', text: 'Fade ZoomOut' },
+    { type: 'FlipXDownIn', text: 'Flip X DownIn' },
+    { type: 'FlipXDownOut', text: 'Flip X DownOut' },
+    { type: 'FlipXUpIn', text: 'Flip X UpIn' },
+    { type: 'FlipXUpOut', text: 'Flip X UpOut' },
+    { type: 'FlipYLeftIn', text: 'Flip Y LeftIn' },
+    { type: 'FlipYLeftOut', text: 'Flip Y LeftOut' },
+    { type: 'FlipYRightIn', text: 'Flip Y RightIn' },
+    { type: 'FlipYRightOut', text: 'Flip Y RightOut' },
+    { type: 'ZoomIn', text: 'Zoom In' },
+    { type: 'ZoomOut', text: 'Zoom Out' },
     { type: 'None', text: 'None' },
 ];
 
@@ -306,7 +335,8 @@ export default {
        'ejs-diagram': DiagramComponent,
        'ejs-dropdownlist': DropDownListComponent,
        'ejs-numerictextbox': NumericTextBoxComponent,
-       'ejs-textbox': TextBoxComponent
+       'ejs-textbox': TextBoxComponent,
+       'ejs-checkbox': CheckBoxComponent
     },
     data: function() {
         return {
@@ -325,7 +355,8 @@ export default {
             // initialize dropdown control
             fields: { value: 'type', text: 'text' },
             popupWidth: '150',
-            dropdownWidth: '100%',
+            dropdownWidth: '75%',
+            textboxWidth:'75%',
 
             // watermark for drodown control
             relativeWaterMark: 'select a mode',
@@ -346,7 +377,14 @@ export default {
             step: '100',
 
             selectedIndex: 0,
-
+            isStickyChange: (args) => {
+                if (args.checked) {
+                    diagramInstance.tooltipObject.isSticky = true;
+                } else {
+                    diagramInstance.tooltipObject.isSticky = false;
+                }
+                diagramInstance.dataBind();
+            },
             //change events
             effectChange: (args) => {
                 diagramInstance.tooltip.animation.open.effect = args.value;

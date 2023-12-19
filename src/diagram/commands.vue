@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-    <div class="col-lg-12 control-section">
+    <div class="col-lg-12 control-section e-diagram-toolbar">
         <ejs-toolbar id="toobar" ref="toolbar_diagram" :clicked='onItemClick'>
           <e-items>
             <e-item prefixIcon='e-cut e-icons' tooltipText='Cut' disabled=false></e-item>
@@ -53,31 +53,6 @@
 </div>
 </template>
 <style>
-
-        .e-btn,
-        .e-css.e-btn {
-            background-color: transparent;
-            border-color: transparent;
-        }
-
-        .bootstrap5 .e-btn,
-        .e-css.e-btn {
-            color: #333;
-        }
-
-        .bootstrap4 .e-btn,
-        .e-css.e-btn {
-            color: #333;
-        }
-
-        .bootstrap5 .e-btn:hover {
-            color: #fff;
-        }
-
-        .bootstrap4 .e-btn:hover {
-            color: #fff;
-        }
-
         @font-face {
     font-family: 'Bootstrap5 Diagram Builder';
     src:

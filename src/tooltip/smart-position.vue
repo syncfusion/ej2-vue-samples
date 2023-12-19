@@ -33,7 +33,7 @@
     min-height: 350px;
 }
 .tooltip-smart #demoSmart {
-    background-image: url('../images/tooltip/smartposition.png');
+    background-image: url('./images/smartposition.png');
     background-size: 100px 100px;
     height: 100px;
     position: absolute;

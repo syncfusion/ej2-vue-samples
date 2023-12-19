@@ -2,16 +2,16 @@
   <div>
     <div class="col-md-8 control-section sb-property-border">
       <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
-        :primaryXAxis='primaryXAxis' :legendSettings='legendSettings' :tooltip='tooltip' :animation='animation'>
+        :primaryXAxis='primaryXAxis' :legendSettings='legendSettings' :tooltip='tooltip' >
         <e-series-collection>
           <e-series :dataSource='seriesData' :type='seriesType' xName='Country' yName='GDP_2013' name='2013'
-            drawType='StackingArea' :animation='animation'> </e-series>
+            drawType='StackingArea' > </e-series>
           <e-series :dataSource='seriesData' :type='seriesType' xName='Country' yName='GDP_2014' name='2014'
-            drawType='StackingArea' :animation='animation'> </e-series>
+            drawType='StackingArea' > </e-series>
           <e-series :dataSource='seriesData' :type='seriesType' xName='Country' yName='GDP_2015' name='2015'
-            drawType='StackingArea' :animation='animation'> </e-series>
+            drawType='StackingArea' > </e-series>
           <e-series :dataSource='seriesData' :type='seriesType' xName='Country' yName='GDP_2016' name='2016'
-            drawType='StackingArea' :animation='animation'> </e-series>
+            drawType='StackingArea' > </e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
@@ -134,8 +134,6 @@ export default {
       },
       tooltip: {
         enable: true,
-        header: '',
-        format: '<b>${point.x}</b><br>GDP: <b>${point.y}USD</b>'
       },
       animation: { enable: true },
 
@@ -159,7 +157,6 @@ export default {
   methods: {
     polarType: function (args) {
       this.seriesType = SelectSeriesType.value;
-      this.animation = SelectSeriesType.value;
     }
   }
 

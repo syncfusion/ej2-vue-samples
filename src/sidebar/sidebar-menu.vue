@@ -1,7 +1,7 @@
 <template>
 <div id="wrapper" class="control-section">
     <div id="sidebarmenu">
-        <!-- header-section declaration -->
+        <!-- header-section  declaration -->
         <div>
             <ejs-toolbar cssClass="menuToolbar" v-on:clicked="toolbarCliked">
                 <e-items>
@@ -166,7 +166,7 @@ export default {
 </script>
 <style>
     /* Specifies the sample level styles for the sidebar*/
-    #wrapper .e-icon.e-menu {
+    #wrapper .icon-menu {
         font-size: 24px;
     }
 

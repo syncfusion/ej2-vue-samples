@@ -2,7 +2,7 @@
     <div class="control-section">
         <ejs-chart ref='chart' align='center' id='trendline' :theme='theme' :primaryXAxis='primaryXAxis'
             :primaryYAxis='primaryYAxis' :chartArea='chartArea' :title='title' :legendSettings='legendSettings'
-            :tooltip='tooltip' :width='width' :animation='animation'>
+            :tooltip='tooltip' :width='width'>
             <e-series-collection>
                 <e-series :dataSource='chartData' type='Spline' xName='Period' yName='Rupees' name='Rupees'
                     :marker='marker'>
@@ -72,8 +72,6 @@
     stroke-dasharray: 10px 10px;
     stroke-linejoin: round;
     stroke-linecap: round;
-    -webkit-animation: dash 1s linear infinite;
-    animation: dash 1s linear infinite;
 }
 
 @-webkit-keyframes dash {
@@ -153,7 +151,6 @@ export default {
             tooltip: { enable: true },
             legendSettings: { visible: true, shapeHeight: 15, shapeWidth: 15 },
             title: 'USD to INR Rates',
-            animation: { enable: true },
         };
     },
     provide: {

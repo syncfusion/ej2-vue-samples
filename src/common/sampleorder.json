@@ -7,6 +7,7 @@
   ],
   "Data Visualization": [
     "Chart",
+    "Chart 3D",
     "Stock Chart",
     "Arc Gauge",
     "Circular Gauge",
@@ -67,7 +68,8 @@
     "Toolbar",
     "TreeView",
     "File Manager",
-    "Ribbon"
+    "Ribbon",
+    "Stepper"
   ],
   "Notifications": [
     "Badge",

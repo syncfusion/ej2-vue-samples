@@ -31,7 +31,7 @@
             </code> module into the <code>provide</code> section.
         </p>
         <p>
-        <br/> More information on the command column configuration can be found in this documentation section.
+        <br/> More information on the command column configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/editing/command-column-editing">documentation section</a>.
         </p>
     </div>
     <div>

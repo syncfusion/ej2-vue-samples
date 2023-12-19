@@ -4,7 +4,7 @@
     <div id="spark-container" class="row">
         <div class="cols-sample-area" align="center">
             <p>
-                <h2 styles="font-size: 4px"> Worldwide car sales by brand - 2017</h2>
+                <font size="4px"> Worldwide car sales by brand - 2017</font>
             </p>
             <table style="width:100%;">
                 <tr>

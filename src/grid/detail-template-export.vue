@@ -1,8 +1,8 @@
 <template>
 <div class="col-lg-12 control-section">
     <div id="action-description">
-        <p>This sample demonstrates how to export detail grids. In this sample, you can export the detail grid by
-        clicking the corresponding export button on the grid's toolbar.</p>
+        <p>This sample demonstrates the detail Grid export feature. In this sample, you can export the detail grid by
+            clicking the corresponding export button from the grid's toolbar.</p>
     </div>
     <div>
         <ejs-grid id='DetailTemplateExport' ref='grid' :dataSource='data' :detailTemplate ="'detailTemplate'" :toolbar='toolbar' :toolbarClick='toolbarClick'
@@ -62,45 +62,46 @@
         </ejs-grid>
     </div>
 
-        <div id="description">
-            <p>
-                The detail row template provides additional information about a data row which can be shown or hidden by clicking the
-                expand or collapse button. The <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#detailtemplate"> 
-                detailTemplate</a></code> property accepts either the string or HTML element`s ID value, which will be used as the
-                template for the detail row.
-            </p>
-            <p>
-                In this demo, Employees' information is displayed in the detail row.
-            </p>
-            <p>Data Grid supports client-side exporting to export data to the Excel and PDF formats.</p>
-            <p>In this demo, the Employees' information can be exported using the <code>exportDetailTemplate</code> event where each cell can be customized.
-                The ExcelExport and PdfExport items are defined in the toolbar of the Grid. Actions are defined in
-                the <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#toolbarclick">toolbarClick</a></code> event
-                to export Grid data using <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a>
-                </code> and <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code> methods with the
-                <code>hierarchyExportMode</code> set to <code>All</code>.
-            </p>
-            <p>
-                The detail grids' export options can be changed by using the <code>hierarchyExportMode</code> property.
-            </p>
-            <p>The detail template allows you to export the grid with the following options,</p>
-            <ul>
-                <li><code>Expanded</code> : Exports only the visible detail rows in an expanded state.</li>
-                <li><code>All</code> : Exports all the detail rows in an expanded state.</li>
-                <li><code>None</code> : Exports the detail rows in a collapsed state.</li>
-            </ul>
-            <p style="font-weight: 500">Injecting Modules:</p>
-            <p>
-                Grid features are segregated into individual feature-wise modules.
-                To use the detail template, PdfExport and ExcelExport Grid features, inject <code>DetailRow</code>,
-                <code>PdfExport</code>, <code>ExcelExport</code> modules into the <code>provide</code> section.
-            </p>
-            <p>
-                More information on the exporting configuration can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/grid/excel-export/excel-exporting">Excel-export</a> 
-                and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export/pdf-export">PDF-export</a> documentation sections.
-            </p>
-        </div>
+<div id="description">
+    <p>
+        The detail row template provides an additional information about a data row which can show or hide by clicking
+        on expand or collapse button. The <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#detailtemplate">
+        detailTemplate</a></code> property accepts either string or HTML element`s ID value, which will be used as the
+        template for the detail row.
+    </p>
+    <p>
+        In this demo, Employee informations are displayed in the detail row.
+    </p>
+    <p>The template expression should be provided inside <code>${...}</code> interpolation syntax.</p>
+    <p>Grid supports client-side exporting which allows you to export its data to the Excel and Pdf formats.</p>
+    <p>In this demo, the Employee informations in the detail row can be exported by using <code>exportDetailTemplate</code> event where each cell can be customized.
+        The ExcelExport and PdfExport items are defined in the toolbar of the Grid, for which the actions are defined in
+        the <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#toolbarclick">toolbarClick</a></code> event
+        to export the Grid data using <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#excelexport">excelExport</a>
+        </code> and <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#pdfexport">pdfExport</a></code> methods with the
+        <code>hierarchyExportMode</code> as <code>All</code>.
+    </p>
+    <p>
+        The detail template grid's export options can be changed by using the <code>hierarchyExportMode</code> property.
+    </p>
+    <p>The detail template grid allows us to export the grid with the following options,</p>
+    <ul>
+        <li><code>Expanded</code> - Exports only the visible detail rows in expanded state.</li>
+        <li><code>All</code> - Exports the all the detail rows in expanded state.</li>
+        <li><code>None</code> - Exports the detail rows in collapse state.</li>
+    </ul>
+    <p style="font-weight: 500">Injecting Module:</p>
+    <p>
+        Grid features are segregated into individual feature-wise modules.
+        To use Detail Template, PdfExport and ExcelExport Grid feature, we need to inject <code>DetailRow</code>,
+        <code>PdfExport</code>, <code>ExcelExport</code> into the <code>provide</code> section.
+    </p>
+    <p>
+        More information on the exporting configuration can be found in this <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/grid/excel-export/excel-exporting"> excel-export</a> and <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/grid/pdf-export/pdf-export">pdf-export</a> documentation sections.
+    </p>
+</div>
 
 </div>
 </template>

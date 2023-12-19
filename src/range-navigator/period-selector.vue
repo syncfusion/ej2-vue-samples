@@ -110,7 +110,7 @@ selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 let dataBind = [];
-for (let i = 2110; i < periodData.length; i++) {
+for (let i = 2110; i < periodData.length - 20; i++) {
   dataBind.push({
     High: periodData[i].High,
     Low: periodData[i].Low,
@@ -156,14 +156,14 @@ export default {
           { text: "1M", interval: 1, intervalType: "Months" },
           { text: "3M", interval: 3, intervalType: "Months" },
           { text: "6M", interval: 6, intervalType: "Months" },
-          { text: "1Y", interval: 1, intervalType: "Years" },
-          { text: "2Y", interval: 2, intervalType: "Years", selected: true },
+          { text: "1Y", interval: 1, intervalType: "Years", selected: true },
+          { text: "2Y", interval: 2, intervalType: "Years" },
           { text: "ALL" }
         ],
         position: "Top"
       },
 
-      valueBottom:[new Date('2016-05-15'), new Date('2018-05-15')]
+      valueBottom:[new Date('2017-04-30'), new Date('2018-04-30')]
     };
   },
   provide: {

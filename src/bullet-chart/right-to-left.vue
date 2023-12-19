@@ -14,6 +14,7 @@
         :maximum="maximum"
         :interval="interval"
         title="Revenue YTD"
+        subtitle="$ in Thousands"
         :titleStyle="titleStyle"
         labelFormat="${value}K"
         :enableRtl="enableRtl"

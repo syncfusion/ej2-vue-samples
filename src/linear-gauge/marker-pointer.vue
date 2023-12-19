@@ -27,7 +27,7 @@
     <div id="containerBox" style="float: left;padding: 4%;"></div>
     <div id='container1' class="col-xs-4 col-sm-4 col-lg-2 col-md-2"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge1" :background='background' :dragMove='dragMove1' :dragStart='dragStart1' :dragEnd='dragEnd1' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title1' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='gaugeTriangle' :orientation='orientation'>
+        <ejs-lineargauge ref="lineargauge1" :animationDuration=2000 :background='background' :dragMove='dragMove1' :dragStart='dragStart1' :dragEnd='dragEnd1' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title1' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='gaugeTriangle' :orientation='orientation'>
             <e-axes>
                 <e-axis :majorTicks='majorTicks1' :pointers='pointer1' :line='line1' :minorTicks='minorTicks1' :labelStyle='labelStyle1' :opposedPosition='opposedPosition' >
                 </e-axis>
@@ -36,34 +36,34 @@
     </div>
     <div id='container2' class="col-xs-4 col-sm-4 col-lg-2 col-md-2"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge2" :background='background' :dragMove='dragMove2' :dragStart='dragStart2' :dragEnd='dragEnd2' :minimum=0 :maximum=100 :title='title2' :titleStyle='titleStyle' :load='load' style='display:block' :width='widthData' :height='heightData' align='center' id='gaugeCircle' :orientation='orientation'>
+        <ejs-lineargauge ref="lineargauge2" :animationDuration=2000 :background='background' :dragMove='dragMove2' :dragStart='dragStart2' :dragEnd='dragEnd2' :minimum=0 :maximum=100 :title='title2' :titleStyle='titleStyle' :load='load' style='display:block' :width='widthData' :height='heightData' align='center' id='gaugeCircle' :orientation='orientation'>
             <e-axes>
                 <e-axis :majorTicks='majorTicks2' :pointers='pointer2' :minorTicks='minorTicks2' :line='line2' :labelStyle='labelStyle2' :opposedPosition='opposedPosition' >
                 </e-axis>
             </e-axes>
         </ejs-lineargauge>
     </div>
-    <div id='container3' class="col-xs-4 col-sm-4 col-lg-2 col-md-2"
-        style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge3" :background='background' :dragMove='dragMove3' :dragStart='dragStart3' :dragEnd='dragEnd3' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title3' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='gaugeDiamond' :orientation='orientation' >
-            <e-axes>
-                <e-axis :majorTicks='majorTicks3' :pointers='pointer3' :minorTicks='minorTicks3' :line='line3' :labelStyle='labelStyle3' :opposedPosition='opposedPosition' >
-                </e-axis>
-            </e-axes>
-        </ejs-lineargauge>
-    </div>
     <div id='container4' class="col-xs-4 col-sm-4 col-lg-2 col-md-2"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge4" :background='background' :dragMove='dragMove4' :dragStart='dragStart4' :dragEnd='dragEnd4' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title4' :titleStyle='titleStyle' :height='heightData' style='display:block'  align='center' id='gaugeRectangle' :orientation='orientation'>
+        <ejs-lineargauge ref="lineargauge4" :animationDuration=2000 :background='background' :dragMove='dragMove4' :dragStart='dragStart4' :dragEnd='dragEnd4' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title4' :titleStyle='titleStyle' :height='heightData' style='display:block'  align='center' id='gaugeRectangle' :orientation='orientation'>
             <e-axes>
                 <e-axis :majorTicks='majorTicks4' :pointers='pointer4' :minorTicks='minorTicks4' :line='line4' :labelStyle='labelStyle4' :opposedPosition='opposedPosition' >
                 </e-axis>
             </e-axes>
         </ejs-lineargauge>
     </div>
+    <div id='container3' class="col-xs-4 col-sm-4 col-lg-2 col-md-2"
+    style="display: flex;justify-content: center; align-items: center;">
+    <ejs-lineargauge ref="lineargauge3" :animationDuration=2000 :background='background' :dragMove='dragMove3' :dragStart='dragStart3' :dragEnd='dragEnd3' :minimum=0 :maximum=100 :load='load' :width='widthText' :title='title3' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='gaugeDiamond' :orientation='orientation' >
+        <e-axes>
+            <e-axis :majorTicks='majorTicks3' :pointers='pointer3' :minorTicks='minorTicks3' :line='line3' :labelStyle='labelStyle3' :opposedPosition='opposedPosition' >
+            </e-axis>
+        </e-axes>
+    </ejs-lineargauge>
+    </div>
     <div id='container5' class="col-xs-4 col-sm-4 col-lg-2 col-md-2"
         style="display: flex;justify-content: center; align-items: center;">
-        <ejs-lineargauge ref="lineargauge5" :background='background' :dragMove='dragMove5' :dragStart='dragStart5' :dragEnd='dragEnd5' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title5' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='gaugeMultiple' :orientation='orientation'>
+        <ejs-lineargauge ref="lineargauge5" :animationDuration=2000 :background='background' :dragMove='dragMove5' :dragStart='dragStart5' :dragEnd='dragEnd5' :minimum=0 :maximum=100 :load='load' :width='widthData' :title='title5' :titleStyle='titleStyle' :height='heightData' style='display:block' align='center' id='gaugeMultiple' :orientation='orientation'>
             <e-axes>
                 <e-axis :majorTicks='majorTicks5' :pointers='pointer5' :minorTicks='minorTicks5' :line='line5' :labelStyle='labelStyle5' :opposedPosition='opposedPosition' >
                 </e-axis>
@@ -115,7 +115,7 @@ export default {
         title1:'Inverted triangle',
         background:'transparent',
         title2:'Circle',
-        title3:'Diamond',
+        title3:'Text',
         title4:'Rectangle',
         title5:'Multiple pointers',
 
@@ -123,6 +123,7 @@ export default {
          fontFamily: 'inherit', fontWeight: '499'
         },
         widthData:'150px',
+        widthText:'168px',
         heightData:'350px',
         majorTicks1: { 
           interval: 20, height: 7, width: 1
@@ -213,7 +214,9 @@ export default {
             height: 15,
             enableDrag: true,
             placement: 'Near',
-            markerType: 'Diamond',
+            markerType: 'Text',
+            offset:-10,
+            text:'50 Points',
             animationDuration: 1500
          }
         ],
@@ -314,7 +317,8 @@ methods: {
         document.getElementById('container1').className = document.getElementById('container2').className =
         document.getElementById('container3').className = document.getElementById('container4').className =
         document.getElementById('container5').className = "col-xs-4 col-sm-4 col-lg-2 col-md-2"; 
-        this.$refs.lineargauge1.ej2Instances.width = this.$refs.lineargauge2.ej2Instances.width = this.$refs.lineargauge3.ej2Instances.width = this.$refs.lineargauge4.ej2Instances.width = this.$refs.lineargauge5.ej2Instances.width = '150px';
+        this.$refs.lineargauge1.ej2Instances.width = this.$refs.lineargauge2.ej2Instances.width = this.$refs.lineargauge4.ej2Instances.width = this.$refs.lineargauge5.ej2Instances.width = '150px';
+        this.$refs.lineargauge3.ej2Instances.width = '168px';
         this.$refs.lineargauge1.ej2Instances.height = this.$refs.lineargauge2.ej2Instances.height = this.$refs.lineargauge3.ej2Instances.height = this.$refs.lineargauge4.ej2Instances.height = this.$refs.lineargauge5.ej2Instances.height = '350px';
         this.$refs.lineargauge1.ej2Instances.orientation = this.$refs.lineargauge2.ej2Instances.orientation = this.$refs.lineargauge3.ej2Instances.orientation = this.$refs.lineargauge4.ej2Instances.orientation = this.$refs.lineargauge5.ej2Instances.orientation = "Vertical";
         if (event.currentTarget != null) {
@@ -360,6 +364,7 @@ methods: {
     },
     dragMove3: function(args){
         if (args.pointerIndex == 1) {
+            this.$refs.lineargauge3.ej2Instances.axes[0].pointers[1].text = Math.round(args.currentValue).toString() + " Points";
             this.$refs.lineargauge3.ej2Instances.setPointerValue(0, 0, args.currentValue);
         }
     },

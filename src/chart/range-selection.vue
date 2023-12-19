@@ -3,7 +3,7 @@
     <div class="col-md-8 control-section sb-property-border">
       <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea'
-        :legendSettings='legendSettings' :selectionMode='seriesMode' :width='width'>
+        :legendSettings='legendSettings' :selectionMode='seriesMode' >
         <e-series-collection>
           <e-series :dataSource='seriesData' type='Scatter' xName='x' yName='y' name='Product A' :marker='marker' opacity = 1>
           </e-series>
@@ -146,11 +146,11 @@ export default {
       legendSettings: { visible: true, toggleVisibility: false },
       marker: {
         shape: 'Triangle',
-        width: 7, height: 7
+        width: 10, height: 10
       },
       marker1: {
         shape: 'Pentagon',
-        width: 7, height: 7
+        width: 10, height: 10
       },
       width : Browser.isDevice ? '100%' : '75%',
       seriesMode: 'DragXY',

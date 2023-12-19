@@ -104,8 +104,7 @@ export default {
           color: '#ffffff'
         }
       },
-      startAngle: 0,
-      endAngle: 360,
+      startAngle: 30,
       tooltip: {
         enable: true,
         format:  '<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>',

@@ -1,7 +1,8 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource="data" childMapping='children' :treeColumnIndex='0' :height='380' >
+          <ejs-treegrid ref='treegrid' :dataSource="data" childMapping='children' :treeColumnIndex='0' :height='380' :toolbar='toolbar' :toolbarClick='toolbarClick'
+                :allowExcelExport='true' :allowPdfExport='true' >
             <e-columns>
                 <e-column field='FreightID' headerText='Freight ID' width='150'></e-column>
                 <e-column field='FreightName' headerText='Freight Name' width='200'></e-column>
@@ -67,6 +68,7 @@
         </ul>
     </p>
     <p>The template expression should be provided inside <code>${...}</code> the interpolation syntax.</p>
+    <p>Additionally, the Tree Grid supports client-side exporting to Excel, PDF, and CSV formats. In this demo, for the toolbar items of exporting, actions are defined in the toolbarClick event to export the Tree Grid data using the excelExport, pdfExport, and csvExport methods.</p>
     <p style="font-weight: 500">Injecting Module:</p>
     <p>
         Tree Grid features are segregated into individual feature-wise modules. 
@@ -74,7 +76,7 @@
         <code>Aggregate</code>module into the <code>provide</code> section. 
     </p>
     <p>
-        More information about aggregate can be found in this documentation section.
+        More information about aggregate can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/aggregates/aggregates">documentation section</a>.
     </p>
 </div>
 
@@ -83,9 +85,11 @@
 </template>
 <script lang="ts">
 import { createApp } from "vue";
-import { TreeGridComponent, ColumnDirective, ColumnsDirective, AggregatesDirective, AggregateDirective, Aggregate, Page } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, AggregatesDirective, AggregateDirective, Aggregate, Page, PdfExport, ExcelExport, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { summaryRowData } from "./data-source";
 import { CheckBoxComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
+import { ClickEventArgs } from '@syncfusion/ej2-navigations';
+import { DialogUtility } from '@syncfusion/ej2-popups';
 
 export default {
   components: {
@@ -99,10 +103,11 @@ export default {
   data: () => {
     return {
       data: summaryRowData,
+      toolbar: ['ExcelExport', 'PdfExport', 'CsvExport'],
       maxTemplate: function() {
         return {
             template: createApp({}).component('maxTemplate', {
-            template: `<span>Max: {{data.Max}}</span>`,
+            template: `Maximum: {{data.Max}}`,
             data: function () {return {data: {data: {}}};}
             })
         }
@@ -110,7 +115,7 @@ export default {
       minTemplate: function() {
         return {
             template : createApp({}).component('minTemplate', {
-            template: `<span>Minimum: {{data.Min}}</span>`, 
+            template: `Minimum: {{data.Min}}`, 
             data: function () {return { data: {data: {}}};}
             })
         }
@@ -118,9 +123,31 @@ export default {
     };
   },
   provide: {
-      treegrid: [Aggregate, Page]
+      treegrid: [Aggregate, Page, PdfExport, ExcelExport, Toolbar]
   },
   methods: {
+    toolbarClick: function (args: ClickEventArgs) {
+        let instance :any = ((this as any).$refs.treegrid).ej2Instances;
+        switch (args.item.id) {
+            case instance.grid.element.id + '_pdfexport':
+                if (instance.enableRtl === true && (instance.locale === 'ar')) {
+                let innercontent: any = 'You need custom fonts to export Arabic characters, refer this'
+                     + '<a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/pdf-export/#add-custom-font-for-pdf-exporting">'
+                     + 'documentation section</a>';
+                    DialogUtility.alert({content: innercontent});
+                }
+                else {
+                      instance.pdfExport();
+                }
+                break;
+            case instance.grid.element.id + '_excelexport':
+                instance.excelExport();
+                break;
+            case instance.grid.element.id + '_csvexport':
+                instance.csvExport();
+                break;
+        }
+    },
       onchange: function( args: ChangeEventArgs): void {
         if (args.checked) {
             ((this as any).$refs.treegrid).ej2Instances.aggregates[0].showChildSummary = true;

@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "23.1.36",
+  "version": "24.1.41",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -18,7 +18,6 @@
     "@syncfusion/ej2-vue-gantt": "*",
     "@syncfusion/ej2-vue-grids": "*",
     "@syncfusion/ej2-vue-heatmap": "*",
-    "@syncfusion/ej2-vue-image-editor": "*",
     "@syncfusion/ej2-vue-inplace-editor": "*",
     "@syncfusion/ej2-vue-inputs": "*",
     "@syncfusion/ej2-vue-kanban": "*",
@@ -31,7 +30,6 @@
     "@syncfusion/ej2-vue-pdfviewer": "*",
     "@syncfusion/ej2-vue-pivotview": "*",
     "@syncfusion/ej2-vue-popups": "*",
-    "@syncfusion/ej2-vue-progressbar": "*",
     "@syncfusion/ej2-vue-querybuilder": "*",
     "@syncfusion/ej2-vue-ribbon": "*",
     "@syncfusion/ej2-vue-richtexteditor": "*",
@@ -40,16 +38,9 @@
     "@syncfusion/ej2-vue-spreadsheet": "*",
     "@syncfusion/ej2-vue-treegrid": "*",
     "@syncfusion/ej2-vue-treemap": "*",
-    "@types/codemirror": "5.60.8",
-    "@types/node": "20.4.2",
-    "@microsoft/signalr": "7.0.9",
+    "@syncfusion/ej2-vue-progressbar": "*",
+    "@syncfusion/ej2-vue-image-editor": "*",
     "codemirror": "6.0.1",
-    "elasticlunr": "0.9.5",
-    "fuse.js": "6.6.2",
-    "gulp-s3-upload": "1.7.3",
-    "marked": "4.3.0",
-    "browser-sync": "2.29.3",
-    "tributejs": "5.1.3",
     "vue": "3.3.4",
     "vue-router": "4.2.4"
   },
@@ -57,6 +48,7 @@
     "@vue/cli-plugin-babel": "5.0.8",
     "@vue/cli-plugin-typescript": "5.0.8",
     "@vue/cli-service": "5.0.8",
+    "browser-sync": "2.29.3",
     "css-loader": "3.6.0",
     "file-loader": "6.2.0",
     "gulp": "4.0.2",
@@ -70,9 +62,9 @@
     "webpack-cli": "5.1.4"
   },
   "scripts": {
-    "serve": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
-    "serve:watch": "vue-cli-service serve",
-    "build": "node --max_old_space_size=9216 node_modules/@vue/cli-service/bin/vue-cli-service.js build --mode development && gulp src-ship",
+    "serve": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "serve: watch": "vue-cli-service serve",
+    "build": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build",
     "build-watch": "vue-cli-service build",
     "ci-publish": "gulp publish-samples"
   }

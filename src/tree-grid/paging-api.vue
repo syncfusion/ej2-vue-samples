@@ -100,7 +100,7 @@
         Tree Grid features are segregated into individual feature-wise modules. To use paging feature, we need to inject <code>Page</code> module into the <code>provide</code> section.
     </p>
     <p>
-        More information on the paging configuration can be found in the  documentation section.
+        More information on the paging configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/paging">documentation section</a>.
     </p>
 </div> 
     

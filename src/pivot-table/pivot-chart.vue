@@ -107,7 +107,7 @@ import {
   ChangeEventArgs
 } from "@syncfusion/ej2-vue-dropdowns";
 import { extend, enableRipple, Browser, addClass } from "@syncfusion/ej2-base";
-import { PivotChart } from "@syncfusion/ej2-pivotview/src/pivotchart";
+import { PivotChart } from "@syncfusion/ej2-vue-pivotview";
 import { Pivot_Data } from "./data-source";
 enableRipple(false);
 

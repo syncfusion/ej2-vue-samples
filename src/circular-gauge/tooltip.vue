@@ -1,7 +1,7 @@
 <template>
  <div>
     <div class="control-section">
-        <ejs-circulargauge ref="circulargauge" :background='background' style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :dragEnd='dragEnd' :tooltip='tooltip'>
+        <ejs-circulargauge ref="circulargauge" :animationDuration=2000 :background='background' style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :dragEnd='dragEnd' :tooltip='tooltip'>
             <e-axes>
                 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0 maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                     <e-pointers>

@@ -74,7 +74,6 @@
             text-align: center;
             width: 75%;
             margin: auto;
-            margin-top: 5%;
         }
         
         .linear-button {

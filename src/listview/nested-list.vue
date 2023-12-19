@@ -31,14 +31,14 @@
 }
 .nestedlist .folder {
     background-repeat: no-repeat;
-    background-image: url('../images/icons/file_icons.png');
+    background-image: url('./images/file_icons.png');
     background-position: -8px -637px;;
     background-size: 150%;
 }
 
 .nestedlist .file {
     background-repeat: no-repeat;
-    background-image: url('../images/icons/file_icons.png');
+    background-image: url('./images/file_icons.png');
     background-position: -5px -216px;
     background-size: 150%;
 }

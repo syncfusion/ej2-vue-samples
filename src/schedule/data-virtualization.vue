@@ -44,7 +44,7 @@
     const app = createApp({});
 
     var dataManager = new DataManager({
-        url: 'https://ej2services.syncfusion.com/vue/development/api/VirtualEventData',
+        url: 'https://services.syncfusion.com/vue/production/api/VirtualEventData',
         adaptor: new WebApiAdaptor,
         crossDomain: true
     });

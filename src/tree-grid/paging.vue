@@ -39,7 +39,7 @@
         </code> module into the <code>provide</code> section
     </p>
     <p>
-        More information on the paging configuration can be found in this documentation section.
+        More information on the paging configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/paging#pager-with-page-size-dropdown">documentation section</a>.
     </p>
 </div>
 

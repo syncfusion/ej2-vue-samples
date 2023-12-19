@@ -27,7 +27,7 @@
                       </e-ribbon-collection>
                     </e-ribbon-collections>
                   </e-ribbon-group>
-                  <e-ribbon-group header="Font" orientation="Row" :enableGroupOverflow="true" :isCollapsible="false" groupIconCss="e-icons e-bold" cssClass="font-group" >
+                  <e-ribbon-group header="Font" orientation="Row" overflowHeader="More Font Options" :enableGroupOverflow="true" :isCollapsible="false" groupIconCss="e-icons e-bold" cssClass="font-group" >
                     <e-ribbon-collections>
                       <e-ribbon-collection>
                         <e-ribbon-items>
@@ -123,7 +123,7 @@
                       </e-ribbon-collection>
                     </e-ribbon-collections>
                   </e-ribbon-group>
-                  <e-ribbon-group header="Illustrations" id="illustration" :showLauncherIcon=true orientation="Row" :enableGroupOverflow=true groupIconCss="e-icons e-image">
+                  <e-ribbon-group header="Illustrations" id="illustration" overflowHeader="Illustrations" :showLauncherIcon=true orientation="Row" :enableGroupOverflow=true groupIconCss="e-icons e-image">
                     <e-ribbon-collections>
                       <e-ribbon-collection>
                         <e-ribbon-items>
@@ -167,7 +167,7 @@
                       </e-ribbon-collection>
                     </e-ribbon-collections>
                   </e-ribbon-group>
-                  <e-ribbon-group header="Link" groupIconCss="e-icons e-link" :isCollapsible=false>
+                  <e-ribbon-group header="Links" groupIconCss="e-icons e-link" :isCollapsible=false>
                     <e-ribbon-collections>
                       <e-ribbon-collection>
                         <e-ribbon-items>
@@ -302,18 +302,20 @@ export default {
         select:(args) => { this.selectMenuItem(args) }
       },
       groupButtonMultiple: {
-        selection: RibbonGroupButtonSelection.Multiple, 
+        selection: RibbonGroupButtonSelection.Multiple,
+        header: 'Format Styles',
         items: [{ iconCss: 'e-icons e-bold', content: 'Bold', selected: true, click: () => { this.updateContent("Bold") } }, 
         {iconCss: 'e-icons e-italic', content: 'Italic', click: () => { this.updateContent("Italic") }}, 
         {iconCss: 'e-icons e-underline', content: 'Underline', click: () => { this.updateContent("Underline") }}, 
         {iconCss: 'e-icons e-strikethrough', content: 'Strikethrough', click: () => { this.updateContent("Strikethrough") }}, 
         {iconCss: 'e-icons e-change-case', content: 'Change Case', click: () => { this.updateContent("Change Case") }}]
       },
-      decreaseIndent: { iconCss: "e-icons e-decrease-indent", clicked: () => { this.updateContent("Decrease Indent"); } },
-      increaseIndent: { iconCss: "e-icons e-increase-indent", clicked: () => { this.updateContent("Increase Indent"); } },
-      paragraphBtn: { iconCss: "e-icons e-paragraph", clicked: () => { this.updateContent("Paragraph Mark"); } },
-      groupButtonSingle: { 
-        selection: RibbonGroupButtonSelection.Single, 
+      decreaseIndent: { iconCss: "e-icons e-decrease-indent", content: 'Decrease Indent', clicked: () => { this.updateContent("Decrease Indent"); } },
+      increaseIndent: { iconCss: "e-icons e-increase-indent", content: 'Increase Indent', clicked: () => { this.updateContent("Increase Indent"); } },
+      paragraphBtn: { iconCss: "e-icons e-paragraph", content: 'Paragraph', clicked: () => { this.updateContent("Paragraph Mark"); } },
+      groupButtonSingle: {
+        selection: RibbonGroupButtonSelection.Single,
+        header: 'Alignment',
         items: [
           {iconCss: 'e-icons e-align-left', selected: true, click: () => { this.updateContent("Align Left") }},
           {iconCss: 'e-icons e-align-center', click: () => { this.updateContent("Align Center") }}, 
@@ -333,13 +335,16 @@ export default {
       styleOptions: {
         dataSource: ["Algerian", "Arial", "Calibri", "Cambria", "Cambria Math", "Courier New", "Candara", "Georgia", "Impact", "Segoe Print", "Segoe Script", "Segoe UI", "Symbol", "Times New Roman", "Verdana", "Windings" ],
         index: 3,
-        width: "150px",
+        label: 'Font Style',
+        width: '115px',
+        popupWidth: '150px',
         allowFiltering: true,
         change:(args) => { if (args.itemData) { this.updateContent( "Font Style -> " + args.itemData.text) } }
       },
       sizeOptions: {
         dataSource: ["8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", "96" ],
         index: 4,
+        label: 'Font Size',
         width: "65px",
         popupWidth: '85px',
         allowFiltering: true,
@@ -428,7 +433,7 @@ export default {
       navigationSettings:  { label: "Navigation Pane", checked: true, change: () => { this.updateContent("Navigation Pane") } },
       modeSettings: { iconCss: "sf-icon-mode", content: "Dark Mode", clicked: () => { this.updateContent("Dark Mode") } },
       pictureList: [
-        { text: 'This device' },
+        { text: 'This Device' },
         { text: 'Stock Images' },
         { text: 'Online Images' }
       ]
@@ -583,7 +588,7 @@ export default {
       font-style: normal;
   }
 
-  .default-ribbon-container [class^="sf-icon-"], .default-ribbon-container [class*=" sf-icon-"] {
+  [class*="e-ribbon-"] [class^="sf-icon-"], [class*="e-ribbon-"] [class*=" sf-icon-"] {
       font-family: 'ribbon' !important;
       speak: none;
       font-style: normal;
@@ -595,59 +600,59 @@ export default {
       -moz-osx-font-smoothing: grayscale;
   }
 
-  .default-ribbon-container .sf-icon-3d-model:before {
+  [class*="e-ribbon-"] .sf-icon-3d-model:before {
       content: "\e700";
   }
 
-  .default-ribbon-container .sf-icon-shapes:before {
+  [class*="e-ribbon-"] .sf-icon-shapes:before {
       content: "\e701";
   }
 
-  .default-ribbon-container .sf-icon-dictate:before {
+  [class*="e-ribbon-"] .sf-icon-dictate:before {
       content: "\e702";
   }
 
-  .default-ribbon-container .sf-icon-chart:before {
+  [class*="e-ribbon-"] .sf-icon-chart:before {
       content: "\e703";
   }
 
-  .default-ribbon-container .sf-icon-screenshot:before {
+  [class*="e-ribbon-"] .sf-icon-screenshot:before {
       content: "\e704";
   }
 
-  .default-ribbon-container .sf-icon-smart-art:before {
+  [class*="e-ribbon-"] .sf-icon-smart-art:before {
       content: "\e706";
   }
 
-  .default-ribbon-container .sf-icon-share:before {
+  [class*="e-ribbon-"] .sf-icon-share:before {
       content: "\e707";
   }
 
-  .default-ribbon-container .sf-icon-read:before {
+  [class*="e-ribbon-"] .sf-icon-read:before {
       content: "\e708";
   }
 
-  .default-ribbon-container .sf-icon-web-layout:before {
+  [class*="e-ribbon-"] .sf-icon-web-layout:before {
       content: "\e709";
   }
 
-  .default-ribbon-container .sf-icon-mode:before {
+  [class*="e-ribbon-"] .sf-icon-mode:before {
       content: "\e70b";
   }
 
-  .default-ribbon-container .sf-icon-draft:before {
+  [class*="e-ribbon-"] .sf-icon-draft:before {
       content: "\e70c";
   }
 
-  .default-ribbon-container .sf-icon-reuse:before {
+  [class*="e-ribbon-"] .sf-icon-reuse:before {
       content: "\e70f";
   }
 
-  .default-ribbon-container .sf-icon-editor:before {
+  [class*="e-ribbon-"] .sf-icon-editor:before {
       content: "\e70a";
   }
 
-  .default-ribbon-container .sf-icon-word:before {
+  [class*="e-ribbon-"] .sf-icon-word:before {
       content: "\e70d";
   }
 </style>

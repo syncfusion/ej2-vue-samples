@@ -178,8 +178,21 @@
                 let contentElement = this.$refs.overviewgrid.ej2Instances.contentModule.content;
                 contentElement.scrollLeft = 0;
                 contentElement.scrollTop = 0;
-                this.$refs.overviewgrid.ej2Instances.pageSettings.currentPage = 1;
+                let grid = this.$refs.overviewgrid.$el.ej2_instances[0];
+                grid.pageSettings.currentPage = 1;
                 this.stTime = performance.now();
+                if (grid.query.params.length > 1) {
+                    for (var i = 0; i < grid.query.params.length; i++) {
+                        if (grid.query.params[i].key === 'dataCount') {
+                            grid.query.params[i].value = args.value.toString();
+                            break;
+                        }
+                    }
+                }
+                else {
+                    grid.query.params[0].value = args.value.toString();
+                }
+                grid.setProperties({dataSource: grid.dataSource});
                 this.ddValue = args.value;
                 this.$refs.overviewgrid.hideSpinner();
             },

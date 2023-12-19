@@ -158,21 +158,21 @@ export default {
     title: 'US Season Retail Sales Growth',
 
     annotations:[{
-        content: '<div style= "width: 3px; height: 3px; color: #4ca1af; font-weight: bold; padding-left: 1px;">Winter</div>',
+        content: '<div style= "width: 10px; height: 10px; color: #4ca1af; font-weight: bold; padding-left: 12px; font-size: 14px;">Winter</div>',
         region: 'Series',
         coordinateUnits: 'Point',
         x: new Date(2016, 1, 20),
         y: 120
        },
        {
-        content: '<div style="width: 3px; height: 3px; color: #ffa751; font-weight: bold; padding-left: 1px; ">Summer</div>',
+        content: '<div style="width: 10px; height: 10px; color: #ffa751; font-weight: bold; padding-left: 12px; font-size: 14px;">Summer</div>',
         region: 'Series',
         coordinateUnits: 'Point',
         x: new Date(2016, 4, 20),
         y: 120
        },
        {
-        content: '<div style="width: 3px; height: 3px; color: #93f9b9; font-weight: bold; padding-left: 1px;">Spring</div>',
+        content: '<div style="width: 10px; height: 10px; color: #93f9b9; font-weight: bold; padding-left: 12px; font-size: 14px;">Spring</div>',
         region: 'Series',
         coordinateUnits: 'Point',
         x: new Date(2016, 9, 20),

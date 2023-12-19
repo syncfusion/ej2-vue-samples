@@ -31,7 +31,7 @@
     /* Loading sprite image for TreeView */
     .tree-icon .e-treeview .e-list-icon {
         background-repeat: no-repeat;
-        background-image: url(../images/icons/file_icons.png);
+        background-image: url("./images/file_icons.png");
         height: 20px;
     }
 

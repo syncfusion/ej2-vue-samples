@@ -27,7 +27,7 @@
         </code> as true with sorting, filtering, column chooser and autoFit options.
     </p>
     <p>
-        More information about Column Menu can be found in this documentation section.
+        More information about Column Menu can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/column-menu">documentation section</a>.
     </p>
 
 </div>

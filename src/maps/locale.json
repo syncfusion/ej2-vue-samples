@@ -6,6 +6,7 @@
             "Zoom": "Zoomen",
             "Pan": "Pfanne",
             "Reset": "Zurücksetzen",
+            "ResetZoom": "Zoom Zurücksetzen",
             "ImageNotFound": "Bild nicht gefunden"
         }
     },
@@ -16,16 +17,18 @@
             "Zoom": "زوم",
             "Pan": "بان",
             "Reset": "رست",
+            "ResetZoom": "رست زوم",
             "ImageNotFound": "الصورة غير موجودة"
         }
     },
     "en": {
         "maps": {
-            "ZoomIn": "Zoom in",
-            "ZoomOut": "Zoom out",
+            "ZoomIn": "Zoom In",
+            "ZoomOut": "Zoom Out",
             "Zoom": "Zoom",
             "Pan": "Pan",
             "Reset": "Reset",
+            "ResetZoom": "Reset Zoom",
             "ImageNotFound": "Image Not Found"
         }
     },
@@ -36,6 +39,7 @@
             "Zoom": "放大",
             "Pan": "泛",
             "Reset": "重启",
+            "ResetZoom": "重置缩放",
             "ImageNotFound": "图片未找到"
         }
     },
@@ -46,6 +50,7 @@
             "Zoom": "Zoom",
             "Pan": "La poêle",
             "Reset": "Réinitialiser",
+            "ResetZoom": "Réinitialiser Zoom",
             "ImageNotFound": "Image non trouvée"
         }
     }

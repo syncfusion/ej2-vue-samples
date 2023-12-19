@@ -7,7 +7,7 @@
             <div align='center'>
                 <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerEmpty' :value='value'
                     valueType='DateTime' :majorTickLines='majorTickLines' :majorGridLines='majorGridLines' :tooltip='tooltip'
-                    :navigatorBorder:='navigatorBorder' :legendSettings='legendSettings' :width='width' :changed='changed' :theme='theme'>
+                    :navigatorBorder:='navigatorBorder' :width='width' :changed='changed' :theme='theme'>
                     <e-rangenavigator-series-collection>
                         <e-rangenavigator-series :dataSource='data' xName='x' yName='open' type='Area' width=2 :animation='animation'
                         :fill='fill' :border='border'>
@@ -17,7 +17,7 @@
             </div>
             <div align='center'>
                 <ejs-chart style='display:block;' ref='chart' id='chartEmpty' align='center' :chartArea='chartArea' :width='width'
-                 :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :theme='theme' :tooltip='chartTooltip'>
+                 :primaryXAxis='primaryXAxis' :legendSettings='legendSettings' :primaryYAxis='primaryYAxis' height='350' :theme='theme' :tooltip='chartTooltip'>
                     <e-series-collection>
                         <e-series :dataSource='data' xName='x' yName='open' type='Area' width=2 name='AAPL' :fill='fill' :border='border'></e-series>
                     </e-series-collection>
@@ -209,7 +209,7 @@ for (var i = 0; i <= 250; i++) {
   }
 }
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];

@@ -58,7 +58,7 @@
     <p>In this demo, you can type the value in the filterbar and press enter to filter particular column or select the value from filterbar template of Duration column.</p>
     <br/>
     <p>
-        More information on the filter configuration can be found in this documentation section.
+        More information on the filter configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/cell/content">documentation section</a>.
     </p>
 </div> 
 </div>

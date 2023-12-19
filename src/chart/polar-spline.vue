@@ -69,25 +69,8 @@ import { Browser } from "@syncfusion/ej2-base";
 import { EmitType } from "@syncfusion/ej2-base";
 import { ChartDataService } from "./chart-data";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
-import {
-  ChartComponent,
-  SeriesDirective,
-  SeriesCollectionDirective,
-  PolarSeries,
-  Tooltip,
-  Legend,
-  Category,
-  SplineSeries,
-  RadarSeries,
-  Highlight,
-  ChartDrawType
-} from "@syncfusion/ej2-vue-charts";
-import {
-  fabricColors,
-  materialColors,
-  bootstrapColors,
-  highContrastColors
-} from './theme-color';
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, PolarSeries, Tooltip, Legend, Category, SplineSeries, RadarSeries, Highlight, ChartDrawType } from "@syncfusion/ej2-vue-charts";
+import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";

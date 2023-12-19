@@ -87,7 +87,7 @@
 <style scoped>
 .image-pattern-style {
   background-color: white;
-  background-size: 70%;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 45px;
   width: calc((100% - 12px) / 3);

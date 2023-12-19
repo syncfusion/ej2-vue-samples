@@ -30,7 +30,6 @@
 <div id="description">
     <p>
         Logarithmic axis uses logarithmic scale and it is very useful in visualizing when the data has values with both lower order of magnitude (eg: 10^-6) and higher order of magnitude (eg: 10^6). To render Logarithmic axis, set <code>valueType</code> to <code>Logarithmic</code>. 
-Tooltip is enabled in this example, to see the tooltip in action, while the selected range is changed.
 
     </p>
     
@@ -193,7 +192,7 @@ import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorS
   RangeTooltip} from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
 
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];

@@ -153,10 +153,6 @@
   font-weight: 500;
 }
 
-.e-checkbox-wrapper .e-label {
-  font-size: 12px;
-}
-
 .col-xs-6 {
   padding-left: 0px;
   padding-right: 0px;
@@ -206,11 +202,6 @@ import {
   PortVisibility,
 StrokeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
-import {
-  CheckBox,
-  ChangeEventArgs as CheckBoxChangeEventArgs
-} from "@syncfusion/ej2-vue-buttons";
-import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons/src/check-box/checkbox.component";
 import {
   DropDownList,
   DropDownListComponent,
@@ -305,7 +296,6 @@ let decoratorShapeSource = [
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
-    'ejs-checkbox': CheckBoxComponent,
     'ejs-dropdownlist': DropDownListComponent,
     'ejs-colorpicker': ColorPickerComponent
   },

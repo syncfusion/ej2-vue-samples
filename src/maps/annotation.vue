@@ -35,7 +35,7 @@
         <p>
           In this example, you can see how to place a desired HTML element at desired location in the maps. Any number of annotation can be placed on the maps. In this sample, the gradient fill color has been applied for the shape.
         </p>
-    <br/>
+	    <br/>
         <p style="font-weight: 500">Injecting Module</p>
         <p>
          Maps component features are segregated into individual feature-wise modules. To use an annotation, inject the <code>Annotations</code> module using the <code>Maps.Inject(Annotations)</code> method.

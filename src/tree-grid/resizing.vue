@@ -38,7 +38,7 @@
             <code>Resize</code> module into the <code>provide</code> section. 
     </p>
     <p>
-        More information about Column Resizing can be found in this documentation section.
+        More information about Column Resizing can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/column-resizing">documentation section</a>.
     </p>
 </div>
 

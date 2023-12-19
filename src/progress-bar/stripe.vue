@@ -94,7 +94,7 @@
 }
 .linear-parent {
   text-align: center;
-  margin-top: 8%;
+  margin-top: 2%;
 }
 .linear-button {
   text-align: center;

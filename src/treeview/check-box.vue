@@ -57,7 +57,7 @@ export default {
         return {
             fields: { dataSource: dataSource.checkboxData, id: 'id', text: 'name', parentID: 'pid', hasChildren: 'hasChild' },
             change: (args) => {
-                temp.$refs.treeObj.$el.autoCheck = args.checked;
+                temp.$refs.treeObj.$el.ej2_instances[0].autoCheck = args.checked;
             }
         };
     }

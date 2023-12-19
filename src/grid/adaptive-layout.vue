@@ -2,12 +2,12 @@
 <div>
 <div class="col-lg-9 control-section">
     <div id="action-description">
-        <p>This sample demonstrates the rendering order of the grid row elements and adaptive dialogs.</p>
+        <p>This sample demonstrates optimal viewing experience and improve usability on small screens.</p>
     </div>
     <div class="e-bigger e-adaptive-demo">
     <div v-if="isDesktop" class="e-mobile-layout">
         <div class="e-mobile-content">
-            <ejs-grid ref='grid' id='adaptivebrowser' :dataSource="data" height='100%' :rowRenderingMode='rowMode' :enableAdaptiveUI='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :filterSettings='filterSettings' :load='load'>
+            <ejs-grid ref='grid' id='adaptivebrowser' :dataSource="data" height='100%' :rowRenderingMode='rowMode' :enableAdaptiveUI='true' :allowPaging='true' :allowSorting='true' :allowGrouping='false' :allowFiltering='true' :showColumnChooser='true' :showColumnMenu='true' :groupSettings='groupOptions' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :toolbarClick='toolbarClick' :filterSettings='filterSettings' :load='load' :allowExcelExport='true' :allowPdfExport='true'>
                 <e-columns>
                     <e-column field='OrderID' headerText='Order ID' width='180' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                     <e-column field='Freight' headerText='Freight' width='180' format='C2' editType='numericedit' :validationRules='freightrules'></e-column>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div v-else class="e-desktop-layout">
-        <ejs-grid ref='grid' id='adaptivedevice' :dataSource="data" height='100%' :rowRenderingMode='rowMode' :enableAdaptiveUI='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :filterSettings='filterSettings' :load='load'>
+        <ejs-grid ref='grid' id='adaptivedevice' :dataSource="data" height='100%' :rowRenderingMode='rowMode' :enableAdaptiveUI='true' :allowPaging='true' :allowSorting='true' :allowGrouping='false' :allowFiltering='true' :showColumnChooser='true' :showColumnMenu='true' :groupSettings='groupOptions' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :toolbarClick='toolbarClick' :filterSettings='filterSettings' :load='load' :allowExcelExport='true' :allowPdfExport='true'>
                 <e-columns>
                     <e-column field='OrderID' headerText='Order ID' width='180' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                     <e-column field='Freight' headerText='Freight' width='180' format='C2' editType='numericedit' :validationRules='freightrules'></e-column>
@@ -48,7 +48,7 @@
      <p>
         The <code><a target="_blank" class="code"
             href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enableadaptiveui">
-            enableAdaptiveUI</a></code> property is used to render the grid filter, sort and edit dialogs adaptively and
+            enableAdaptiveUI</a></code> property is used to render the grid filter, sort, edit, pager and toolbars like column chooser, pdf export, excel export, etc... dialogs adaptively and
         <code><a target="_blank" class="code"
                 href="https://ej2.syncfusion.com/vue/documentation/api/grid/#rowrenderingmode"> rowRenderingMode</a></code>
         property is used to render the grid row elements in the following directions,
@@ -58,6 +58,9 @@
         <li><code>Vertical</code> - Renders the grid row elements in the vertical direction.</li>
     </ul>
     <p> In this sample, you can change the row elements rendering direction by using the properties panel checkbox
+    </p>
+    <p> In this demo, the column menu feature is only supported for the Grid <code>rowRenderingMode</code> mode as <code>Vertical</code>.
+        This feature includes grouping, sorting, autofit, filter, and column chooser feature.
     </p>
     <p>
         More information on the rowRenderingMode configuration can be found in this
@@ -166,10 +169,11 @@
 
 <script lang="ts">
 import { createApp } from 'vue';
-import { GridComponent, ColumnDirective, ColumnsDirective, AggregatesDirective, AggregateDirective, Page, Edit, Sort, Filter, Toolbar, Aggregate } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, AggregatesDirective, AggregateDirective, Page, Edit, Sort, Group, Filter, Resize, Toolbar, Aggregate, ExcelExport, PdfExport, ColumnChooser, ColumnMenu } from "@syncfusion/ej2-vue-grids";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { Browser } from "@syncfusion/ej2-base";
 import { orderDetails } from "./data-source";
+import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 
 export default {
   components: {
@@ -185,12 +189,13 @@ export default {
       data: orderDetails,
       rowMode: 'Vertical',
       editSettings: { allowAdding: true, allowEditing: true, allowDeleting: true, mode: 'Dialog' },
-      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'],
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search', 'ColumnChooser', 'ExcelExport', 'PdfExport'],
       filterSettings: { type: 'Excel' },
+      groupOptions: { showGroupedColumn: true },
       orderidrules: { required: true, number: true },
       customeridrules: { required: true },
       freightrules:  { required: true },
-      pageSettings: { pageCount: 3 },
+      pageSettings: { pageCount: 3, pageSizes: true },
       isDesktop: !Browser.isDevice,
       sumTemplate: function() {
         return {
@@ -213,18 +218,32 @@ export default {
   methods: {
     onChange: function(args: any) {
         let gObj = ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0];
-        if (args.checked) {
-            gObj.rowRenderingMode = 'Horizontal';
-        } else {
-            gObj.rowRenderingMode = 'Vertical';
-        }
+        gObj.rowRenderingMode = args.checked ? 'Horizontal' : 'Vertical';
+        gObj.allowGrouping = args.checked;
     },
     load: function() {
         ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0].adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
+        if (((this as GridComponent).$refs.grid as any).$el.ej2_instances[0].pageSettings.pageSizes) {
+            document.querySelector('.e-adaptive-demo')?.classList.add('e-pager-pagesizes');
+        }
+        else{
+            document.querySelector('.e-adaptive-demo')?.classList.remove('e-pager-pagesizes');
+        }
+    },
+    toolbarClick: function (args: ClickEventArgs) {
+        let gObj = ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0];
+        switch (args.item.id) {
+            case gObj.element.id + '_pdfexport':
+                gObj.pdfExport();
+                break;
+            case gObj.element.id + '_excelexport':
+                gObj.excelExport();
+                break;
+        }
     }
   },
   provide: {
-      grid: [Page, Edit, Sort, Filter, Toolbar, Aggregate]
+      grid: [Page, Edit, Sort, Group, Filter, Resize, Toolbar, Aggregate, ExcelExport, PdfExport, ColumnChooser, ColumnMenu]
   }
 };
 </script>

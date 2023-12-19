@@ -3,10 +3,17 @@
         <div class="col-md-9 control-section">
             <div class="content-wrapper">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :selectedDate='selectedDate' :eventSettings='eventSettings' :eventRendered="oneventRendered"
-                    :currentView="currentView" :actionBegin="onActionBegin" :actionComplete="onActionComplete" :showHeaderBar="showHeaderBar">
+                    :currentView="currentView" :actionComplete="onActionComplete" :showHeaderBar="showHeaderBar">
                     <e-views>
                         <e-view option="Month"></e-view>
                     </e-views>
+                    <e-toolbaritems>
+                        <e-toolbaritem name='Previous' align='Left'></e-toolbaritem>
+                        <e-toolbaritem name='Next' align='Left'></e-toolbaritem>
+                        <e-toolbaritem name='DateRangeText' align='Left'></e-toolbaritem>
+                        <e-toolbaritem name='Today' align='Right'></e-toolbaritem>
+                        <e-toolbaritem align='Right' prefixIcon='user-icon' text='Nancy' cssClass='e-schedule-user-icon'></e-toolbaritem>
+                    </e-toolbaritems>
                 </ejs-schedule>
             </div>
         </div>
@@ -34,15 +41,9 @@
         <div id="description">
             <p>
                 In this demo, a popup has been designed separately with a person’s profile info and kept in a hidden state initially. A custom
-                item has been added to the Scheduler header bar within the
-                <code>actionBegin</code> event by checking for the request type as
-                <code>toolbarItemRendering</code> which triggers at the time of header bar items rendering on the Schedule.
-            </p>
-            <p>
-                Once the items are added, the click action is being bound to it in the
-                <code>actionComplete</code> event by checking for the request type as
-                <code>toolbarItemRendered</code> which triggers after the items are rendered on the Schedule. The appropriate
-                action of showing or hiding the popup on clicking the custom item has been done within it.
+                item has been added to the Scheduler header bar by using the
+                <code><a href="https://ej2.syncfusion.com/vue/documentation/api/schedule/#toolbaritems">toolbarItems</a></code> property.
+                Here, the default items such as previous, next, date range text, and today have been used along with external icon as custom items.
             </p>
             <p>
                 In case, if the header bar of Scheduler needs to be hidden, it can be done by setting false to
@@ -184,13 +185,15 @@
     import { Popup } from '@syncfusion/ej2-vue-popups';
     import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
     import { createElement, extend } from '@syncfusion/ej2-base';
-    import { ScheduleComponent, ViewDirective, ViewsDirective, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
+    import { ScheduleComponent, ViewDirective, ViewsDirective, ToolbarItemsDirective, ToolbarItemDirective, Month, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     
     export default {
         components: {
           'ejs-schedule': ScheduleComponent,
           'e-view': ViewDirective,
           'e-views': ViewsDirective,
+          'e-toolbaritems': ToolbarItemsDirective,
+          'e-toolbaritem': ToolbarItemDirective,
           'ejs-checkbox': CheckBoxComponent
         },
         data: function () {
@@ -214,45 +217,51 @@
                 }
                 args.element.style.backgroundColor = categoryColor;
             },
-            onActionBegin: function (args) {
-                if (args.requestType === 'toolbarItemRendering') {
-                    let userIconItem = {
-                        align: 'Right', prefixIcon: 'user-icon', text: 'Nancy', cssClass: 'e-schedule-user-icon'
-                    };
-                    args.items.push(userIconItem);
-                }
-            },
             onActionComplete: function (args) {
-                let scheduleElement = document.getElementById('Schedule');
                 if (args.requestType === 'toolBarItemRendered') {
+                    let scheduleElement = document.getElementById('Schedule');
                     let userIconEle = scheduleElement.querySelector('.e-schedule-user-icon');
                     userIconEle.onclick = () => {
-                        this.profilePopup.relateTo = userIconEle;
-                        this.profilePopup.dataBind();
                         if (this.profilePopup.element.classList.contains('e-popup-close')) {
                             this.profilePopup.show();
                         } else {
                             this.profilePopup.hide();
                         }
                     };
-                }
-                let userContentEle = createElement('div', { className: 'e-profile-wrapper'});
-                let templateContent = createElement('div', { className: 'profile-container', innerHTML: `<div class="profile-image"></div><div class="content-wrap">
+                    let userContentEle = createElement('div', { className: 'e-profile-wrapper'});
+                    let templateContent = createElement('div', { className: 'profile-container', innerHTML: `<div class="profile-image"></div><div class="content-wrap">
                         <div class="name">Nancy</div><div class="destination">Product Manager</div><div class="status">
                         <div class="status-icon"></div>Online</div></div>` });
-                scheduleElement.parentElement.appendChild(userContentEle);
-                let userIconEle = scheduleElement.querySelector('.e-schedule-user-icon');
-                this.profilePopup = new Popup(userContentEle, {
-                    content: templateContent,
-                    relateTo: userIconEle,
-                    position: { X: 'left', Y: 'bottom' },
-                    collision: { X: 'flip', Y: 'flip' },
-                    targetType: 'relative',
-                    viewPortElement: scheduleElement,
-                    width: 210,
-                    height: 80
-                });
-                this.profilePopup.hide();
+                    scheduleElement.parentElement.appendChild(userContentEle);
+                    this.profilePopup = new Popup(userContentEle, {
+                        content: templateContent,
+                        relateTo: '.e-schedule-user-icon',
+                        position: { X: 'left', Y: 'bottom' },
+                        collision: { X: 'flip', Y: 'flip' },
+                        targetType: 'relative',
+                        viewPortElement: scheduleElement,
+                        width: 210,
+                        height: 80
+                    });
+                    this.profilePopup.hide();
+
+                    // custom code start
+                    const hidePopup = (event) => {
+                        if (this.profilePopup.element.classList.contains('e-popup-open') && (event.type === 'keydown' && (event.key === 'Escape') ||
+                            (event.type === 'click' && event.target && !(event.target.closest('.e-schedule-user-icon') ||
+                                event.target.closest('.e-profile-wrapper'))))) {
+                            this.profilePopup.hide();
+                        }
+                    }
+                    document.addEventListener('keydown', hidePopup);
+                    document.addEventListener('click', hidePopup);
+
+                    this.$refs.ScheduleObj.ej2Instances.destroyed = () => {
+                        document.removeEventListener('keydown', hidePopup);
+                        document.removeEventListener('click', hidePopup);
+                    };
+                    // custom code end
+                }
             },
             // function to handle the CheckBox change event
             onChange: function (args) {

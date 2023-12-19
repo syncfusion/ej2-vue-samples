@@ -132,7 +132,6 @@ import {
   CheckBoxComponent,
   ChangeEventArgs as CheckBoxChangeEventArgs
 } from "@syncfusion/ej2-vue-buttons";
-import { Point } from "@syncfusion/ej2-diagrams/src/diagram/primitives/point";
 
 let nodes =  [
   {id: 'sdlc', offsetX: 300, offsetY: 288, annotations: [{content: 'SDLC'}]},

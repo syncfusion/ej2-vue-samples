@@ -56,18 +56,17 @@ export default {
     return {
       theme: theme,
       seriesData: [
-        { Period: new Date(2016, 2, 7), MaxTemp: 6.3, MinTemp: -5.3 },
-        { Period: new Date(2016, 3, 15), MaxTemp: 13.3, MinTemp: 1.0 },
-        { Period: new Date(2016, 4, 10), MaxTemp: 18.0, MinTemp: 6.9 },
-        { Period: new Date(2016, 5, 17), MaxTemp: 19.8, MinTemp: 9.4 },
-        { Period: new Date(2016, 6, 13), MaxTemp: 18.1, MinTemp: 7.6 },
-        { Period: new Date(2016, 7, 11), MaxTemp: 13.1, MinTemp: 2.6 },
-        { Period: new Date(2016, 8, 16), MaxTemp: 4.1, MinTemp: -4.9 }
+        { Period: new Date(2016, 3, 1), MaxTemp: 6.3, MinTemp: -5.3 },
+        { Period: new Date(2016, 4, 1), MaxTemp: 13.3, MinTemp: 1.0 },
+        { Period: new Date(2016, 5, 1), MaxTemp: 18.0, MinTemp: 6.9 },
+        { Period: new Date(2016, 6, 1), MaxTemp: 19.8, MinTemp: 9.4 },
+        { Period: new Date(2016, 7, 1), MaxTemp: 18.1, MinTemp: 7.6 },
+        { Period: new Date(2016, 8, 1), MaxTemp: 13.1, MinTemp: 2.6 },
+        { Period: new Date(2016, 9, 1), MaxTemp: 4.1, MinTemp: -4.9 }
       ],
       //Initializing Primary X Axis
       primaryXAxis: {
         valueType: 'DateTime',
-        intervalType: 'Days',
         labelFormat: 'MMM d',
         edgeLabelPlacement: 'Shift',
         majorGridLines: { width: 0 }

@@ -158,7 +158,6 @@ export default {
         font-size: 20px;
     }
 
-
     /* Specifies the border bottom styles for toolbar in light theme*/
     .material #wrapper .e-toolbar,
     .tailwind #wrapper .e-toolbar,
@@ -338,23 +337,23 @@ export default {
 
     /*Specifies the icon styles for the ListView*/
     #listSidebarList .javascript {
-        background-image: url('../images/sidebar/images/javascript.svg');
+        background-image: url('./images/javascript.svg');
     }
 
     .typescript {
-        background-image: url('../images/sidebar/images/typescript.svg')
+        background-image: url('./images/typescript.svg')
     }
 
     .angular {
-        background-image: url('../images/sidebar/images/angular.svg');
+        background-image: url('./images/angular.svg');
     }
 
     .vue {
-        background-image: url('../images/sidebar/images/vue.svg');
+        background-image: url('./images/vue.svg');
     }
 
     .react {
-        background-image: url('../images/sidebar/images/react.svg');
+        background-image: url('./images/react.svg');
      } 
 
     .material-dark #wrapper .listcontent {

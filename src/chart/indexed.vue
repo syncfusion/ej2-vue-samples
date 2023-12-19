@@ -125,6 +125,7 @@ export default {
         dataLabel: {
           visible: true,
           position: Browser.isDevice ? 'Outer' : "Top",
+          font: { size : Browser.isDevice ? '8px' : '11px'}
         }
       },
       datatype: ["Line", "Column"],

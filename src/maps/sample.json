@@ -2,6 +2,7 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
+    "type":"update",
     "samples": [
         {
             "url": "default",
@@ -131,6 +132,17 @@
             "sourceFiles": [
                 {"displayName": "annotation.vue", "path": "./src/maps/annotation.vue"},
                 {"displayName": "africa-continent.json", "path": "./src/maps/map-data/africa-continent.json"}
+            ]
+        },
+                {
+            "url": "polygon",
+            "name": "Polygon",
+            "category": "Polygon",
+            "type":"new",
+            "api": {},
+            
+            "sourceFiles": [
+                {"displayName": "polygon.vue", "path": "./src/maps/polygon.vue"}
             ]
         }, 
         {

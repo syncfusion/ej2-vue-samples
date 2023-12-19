@@ -30,8 +30,7 @@
             In this demo, the Tree Grid is populated with its minimum default settings.
         </p>
         <p>
-            More information on the In this demo, the Tree Grid is populated with its minimum default settings. instantiation can be found in this
-            documentation section.
+            More information on the TreeGrid default can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/getting-started">documentation section</a>.
         </p>
     </div>
 

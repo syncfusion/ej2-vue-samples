@@ -9,42 +9,55 @@
             "name": "Default Functionalities",
             "category": "PDF Viewer"
         },
+        {
+            "url": "read-only",
+            "name": "Read-Only",
+            "category": "Document Security",
+            "type": "new"
+        },
+        {
+            "url": "document-list",
+            "name": "Document List",
+            "category": "File Management",
+            "type": "new"
+        },
 		{
             "url": "custom-toolbar",
             "name": "Custom Toolbar",
-            "category": "PDF Viewer"
+            "category": "Toolbar",
+            "type": "update"
         },
         {
             "url": "right-to-left",
             "name": "Right To Left",
-            "category": "PDF Viewer"
+            "category": "Localization"
         },
         {
             "url": "form-filling",
             "name": "Form Filling",
-            "category": "PDF Viewer"
+            "category": "PDF Form"
         },
         {
             "url": "form-designer",
             "name": "Form Designer",
-            "category": "PDF Viewer"
+            "category": "PDF Form"
         },
         {
             "url": "annotations",
             "name": "Annotations",
-            "category": "PDF Viewer"
+            "category": "Annotation"
         },
         {
             "url": "hand-written",
             "name": "Handwritten Signature",
-            "category": "PDF Viewer"
+            "category": "Signature"
         },
         {
             "url": "invisible-signature",
             "name": "Invisible Signature",
-            "category": "PDF Viewer",
-            "type": "new"
+            "category": "Signature"            
         }
+        
     ]
 
 }

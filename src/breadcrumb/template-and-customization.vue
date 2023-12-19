@@ -4,7 +4,7 @@
     <div class="content-wrapper breadcrumb-control-wrapper">
         <div class="row material2">
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                <h5 style="display: inline-block;">Custom Breadcrumb</h5>
+                <h5 style="display: inline-block">Custom Breadcrumb</h5>
                 <ejs-button id='reset' class="reset-btn e-small" v-on:click="btnClick"> Reset State</ejs-button>
             </div>
         </div>

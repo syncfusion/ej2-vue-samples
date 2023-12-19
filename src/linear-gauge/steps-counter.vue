@@ -1,7 +1,7 @@
 <template>
    <div class="control-section">
         <div align='center'>
-            <ejs-lineargauge :load='load' :background='background' style='display:block' align='center' id='defaultContainer' :orientation='orientation'>
+            <ejs-lineargauge :load='load' :animationDuration=3000 :background='background' style='display:block' align='center' id='defaultContainer' :orientation='orientation'>
                 <e-annotations>
                     <e-annotation :axisIndex='axisIndex' :axisValue='axisValue' :x='positionX' zIndex='1' :y='positionY' :zIndex='zIndex' :content="'indicatorTemplate'">
                         <template v-slot:indicatorTemplate="{}">

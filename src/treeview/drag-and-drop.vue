@@ -44,7 +44,7 @@
         height: 100%; 
         z-index: 2; 
         cursor: pointer;
-        background-image: url('../images/usecase/drag_and_drop.png'); 
+        background-image: url('./images/drag_and_drop.png'); 
         background-repeat: no-repeat; 
         background-position: center; 
         background-size: 70%;

@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section" align="center">
-    <div id="containerLW">
+    <div id="container">
         <div class="row" align="center">
             <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Calculate the Business and Weekend days in a period</h4>
             <div align="center" >

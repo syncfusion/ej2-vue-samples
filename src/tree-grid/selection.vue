@@ -93,7 +93,7 @@
         And click the Clear Selection button to deselect the rows.
     </p>
     <p>
-        More information on the selection configuration can be found in this documentation section.
+        More information on the selection configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/selection/selection">documentation section</a>.
     </p>
 </div>
   </div>

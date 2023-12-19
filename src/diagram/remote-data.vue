@@ -95,7 +95,7 @@ export default {
         parentId: "ParentId",
         dataSource: new DataManager(
           {
-            url: "https://ej2services.syncfusion.com/vue/development/api/RemoteData",
+            url: "https://services.syncfusion.com/vue/production/api/RemoteData",
             crossDomain: true
           },
         ),

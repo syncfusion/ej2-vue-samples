@@ -4,7 +4,7 @@
         <div id="spark-range-band" class="row">
             <div class="cols-sample-area" align="center">
                 <p>
-                    <h2 styles="font-size: 4px;"> Sales Growth Comparison with various Products</h2>
+                    <font size=4px> Sales Growth Comparison with various Products</font>
                     <ejs-grid id='Grid' :dataSource='dataSource' :allowSelection='allowSelection' :enableHover='enableHover' height=400>
                         <e-columns>
                             <e-column field="name" headerText="Name" width=50 textAlign="Right" />

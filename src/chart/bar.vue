@@ -57,12 +57,12 @@ export default {
     return {
       theme: theme,
       seriesData: [
-        { Country: "Canada", GDP: 3.05, WorldShare: 2.04 },
-        { Country: "Italy", GDP: 1.50, WorldShare: 2.40 },
-        { Country: "Germany", GDP: 2.22, WorldShare: 4.56 },
-        { Country: "India", GDP: 6.68, WorldShare: 3.28 },
+        { Country: "Japan", GDP: 1.71, WorldShare: 6.02 },
         { Country: "France", GDP: 1.82, WorldShare: 3.19 },
-        { Country: "Japan", GDP: 1.71, WorldShare: 6.02 }
+        { Country: "India", GDP: 6.68, WorldShare: 3.28 },
+        { Country: "Germany", GDP: 2.22, WorldShare: 4.56 },
+        { Country: "Italy", GDP: 1.50, WorldShare: 2.40 },
+        { Country: "Canada", GDP: 3.05, WorldShare: 2.04 },
       ],
       //Initializing Primary X Axis
       primaryXAxis: {

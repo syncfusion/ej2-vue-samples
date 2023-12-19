@@ -2,7 +2,7 @@
   <div>
     <div class="col-md-8 control-section sb-property-border">
       <ejs-chart ref="chart" style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
-        :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :legendSettings='legendSettings'>
+        :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings'>
         <e-series-collection>
           <e-series :dataSource='seriesData' :type='seriesType' xName='Period' yName='ProductRevenue_A' name='Product A'
             width=2 drawType='Area' :border='border' opacity=0.5> </e-series>

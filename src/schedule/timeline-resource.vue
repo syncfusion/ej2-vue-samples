@@ -76,8 +76,17 @@
         padding-left: 5px;
     }
 
-    .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
+    .schedule-vue-sample .room-scheduler.e-schedule:not(.e-rtl) .e-timeline-view .e-resource-left-td .e-resource-text>div:last-child {
         border-right: 0;
+    }
+
+    .schedule-vue-sample .room-scheduler.e-schedule.e-rtl .e-timeline-view .e-resource-cells, 
+    .schedule-vue-sample .room-scheduler.e-schedule.e-rtl .e-timeline-month-view .e-resource-cells {
+        padding-right: 0;
+    }
+
+    .schedule-vue-sample .room-scheduler.e-schedule.e-rtl .template-wrap {
+        text-align: right;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-block-appointment {
@@ -222,7 +231,7 @@
         line-height: 83px;
     }
 
-    .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div:last-child {
+    .schedule-vue-sample .room-scheduler.e-schedule:not(.e-rtl) .template-wrap>div:last-child {
         border-right: 0;
     }
 

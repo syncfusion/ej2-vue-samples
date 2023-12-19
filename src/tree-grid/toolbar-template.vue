@@ -28,7 +28,7 @@
            While click on the <code>Quick Filter</code> button then the <code>Task Name</code> column is filtered with the value "Testing".
        </p>
        <p>
-           More information about Toolbar template can be found in this documentation section.
+           More information about Toolbar template can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/tool-bar/tool-bar">documentation section</a>.
        </p>
     </div>
 

@@ -3,19 +3,7 @@
         <div class="control-section">
             <div class="sample-container">
                 <div class="default-section">
-                    <ejs-richtexteditor id="default" ref="defaultRTE" :quickToolbarSettings="quickToolbarSettings" :toolbarClick="toolbarClick">
-                    <p>
-                    An image can be edited within a Rich Text Editor using an Image Editor.
-                    <img
-                      id="img1"
-                      style="height: 350px;"
-                      src="https://ej2.syncfusion.com/demos/src/image-editor/images/bridge.png" />
-                    </p>
-                    <p>
-                        It allows users to quickly and easily add an Image Editor to their Rich Text Editor.
-                        It provides a variety of features, including image cropping, resizing, rotation, and more.
-                        Additionally, it supports a wide range of image formats, including JPEG, PNG, and GIF.
-                    </p>
+                    <ejs-richtexteditor id="default" ref="defaultRTE" :value="value" :quickToolbarSettings="quickToolbarSettings" :toolbarClick="toolbarClick">
                     </ejs-richtexteditor>
                 </div>
                 <div>
@@ -85,6 +73,18 @@ export default {
                 { buttonModel: { content: "Cancel" }, click: this.onCancel },
             ],
             header: "Image Editor",
+            value: `<p>
+                    An image can be edited within a Rich Text Editor using an Image Editor.
+                    <img
+                      id="img1"
+                      style="height: 350px;"
+                      src="./source/rich-text-editor/images/bridge.png" />
+                    </p>
+                    <p>
+                        It allows users to quickly and easily add an Image Editor to their Rich Text Editor.
+                        It provides a variety of features, including image cropping, resizing, rotation, and more.
+                        Additionally, it supports a wide range of image formats, including JPEG, PNG, and GIF.
+                    </p>`,
             quickToolbarSettings: {
                 image: [
                 "Replace",
@@ -110,6 +110,7 @@ export default {
                 this.range = this.selection.getRange(document);
                 this.saveSelection = this.selection.save(this.range, document);
                 this.$refs.dialogObj.show();
+                this.$refs.defaultRTE.ej2Instances.quickToolbarModule.imageQTBar.hidePopup();
             }
         },
         onInsert: function () {
@@ -138,6 +139,7 @@ export default {
             this.isLoaded = false;
         },
         onCancel: function () {
+            this.$refs.imageEditorObj.reset();
             this.$refs.dialogObj.hide();
         },
         OnBeforeOpen: function () {

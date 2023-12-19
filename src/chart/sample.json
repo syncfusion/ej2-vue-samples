@@ -3,7 +3,6 @@
     "directory": "chart",
     "category": "Data Visualization",
     "ftName": "chart",
-    "type": "update",
     "samples": [
     {
         "url": "over-view",
@@ -275,7 +274,6 @@
     {
         "url": "cylindrical-column",
         "name": "Cylindrical Column",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows how to render the cylindrical-column series.",
         "category": "Bar Charts",
         "sourceFiles": [
@@ -913,7 +911,6 @@
     {
         "url": "synchronized-chart",
         "name": "Synchronized Charts",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows how to add more information to the chart using Synchronized Charts.",
         "category": "Chart Customization",
         "sourceFiles": [
@@ -977,7 +974,6 @@
     {
         "url": "export",
         "name": "Export",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to export the charts to Excel, PDF, and image formats such as SVG, JPEG, and PNG at client-side.",
         "category": "Print and Export",
         "sourceFiles": [
