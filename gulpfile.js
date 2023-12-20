@@ -10,8 +10,6 @@ const elasticlunr = require('elasticlunr');
 var shelljs = global.shelljs = global.shelljs || require('shelljs');
 var name = JSON.parse(fs.readFileSync('./package.json')).name.replace(`@syncfusion/`,'');
 
-require('./build/samples');
-
 process.env.AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE = '1';
 
 var platforms = {
@@ -180,13 +178,13 @@ gulp.task('copy-source', function (done) {
         ignore: ['/src/common/**/', '/src/common']
     });
     for (var i = 0; i < controls.length; i++) {
-        shelljs.cp('-rf', controls[i], controls[i].replace('src', 'public/source'));
+        shelljs.cp('-rf', controls[i], controls[i].replace('src', 'public/src'));
     }
     done();
 });
 
 gulp.task('build', function(done) {
-    shelljs.exec('gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp copy-source && gulp src-ship', done)
+    shelljs.exec('gulp remove-labels && gulp combine-samplelist && gulp generate-routes && gulp styles-ship && gulp copy-source && gulp src-ship', done)
 });
 
 gulp.task('src-ship', function (done) {
@@ -204,14 +202,41 @@ gulp.task('styles-ship', function (done) {
      done();
 });
 
-gulp.task('serve', gulp.series('build', function(done) {
-    const connect = require('gulp-connect');
-    connect.server({
-        root: __dirname + '/dist', 
-        port: 3000,
-        ignore: ['node_modules']
-    });
+function processFile(filePath, replacementRules) {
+    if (fs.existsSync(filePath)) {
+        let content = fs.readFileSync(filePath, 'utf8');
+        for (const [search, replace] of replacementRules) {
+            if (content.includes(search)) {
+                content = content.replace(search, replace);
+            }
+        }
+        fs.writeFileSync(filePath, content);
+    }
+}
+
+// Remove stackBlitz and newWindow labels from the application
+gulp.task('remove-labels', function(done) {
+    const indexHtmlPath = './public/index.html';
+    const appVuePath = './src/App.vue';
+
+    const indexHtmlReplacementRules = [
+        ["<!-- Google Tag Manager -->", "<style>.hide-labels { display: none; }</style>\n\t\t<!-- Google Tag Manager -->"]
+    ];
+
+    const appVueReplacementRules = [
+        ["sb-custom-item sb-open-new-wrapper", "sb-custom-item sb-open-new-wrapper hide-labels"],
+        ["sb-custom-item sb-plnr-section", "sb-custom-item sb-plnr-section hide-labels"],
+        ["+ hsplitter + openNewTemplate", "+ openNewTemplate"]
+    ];
+
+    processFile(indexHtmlPath, indexHtmlReplacementRules);
+    processFile(appVuePath, appVueReplacementRules);
+
     done();
+});
+
+gulp.task('serve', gulp.series('build', function(done) {
+    shelljs.exec('node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve', done);
 }));
 
 

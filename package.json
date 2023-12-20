@@ -45,11 +45,13 @@
     "vue-router": "4.2.4"
   },
   "devDependencies": {
+    "@microsoft/signalr": "7.0.11",
     "@vue/cli-plugin-babel": "5.0.8",
     "@vue/cli-plugin-typescript": "5.0.8",
     "@vue/cli-service": "5.0.8",
     "browser-sync": "2.29.3",
     "css-loader": "3.6.0",
+    "elasticlunr": "0.9.5",
     "file-loader": "6.2.0",
     "gulp": "4.0.2",
     "gulp-connect": "5.7.0",
@@ -62,10 +64,9 @@
     "webpack-cli": "5.1.4"
   },
   "scripts": {
-    "serve": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "serve": "gulp build && node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
     "serve: watch": "vue-cli-service serve",
     "build": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build",
-    "build-watch": "vue-cli-service build",
-    "ci-publish": "gulp publish-samples"
+    "build-watch": "vue-cli-service build"
   }
 }
