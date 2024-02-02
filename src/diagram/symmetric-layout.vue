@@ -70,9 +70,7 @@ import {
   Node,
   SnapConstraints,
   Diagram,
-  ConnectorModel,
   DataBinding,
-  BasicShapeModel,
   SymmetricLayout,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";

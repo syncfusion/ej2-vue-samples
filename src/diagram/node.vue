@@ -73,6 +73,7 @@
 </template>
 
 <style scoped>
+/* Css for images in property panel  */
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -99,15 +100,12 @@
   font-size: 13px;
   font-weight: 500;
 }
-
+/* Selection indicator */
 .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 
-.e-checkbox-wrapper .e-label {
-  font-size: 12px;
-}
 </style>
 
 
@@ -115,17 +113,8 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
-  ConnectorModel,
-  PointModel,
   NodeConstraints,
   SnapConstraints,
-  GradientType,
-  ShadowModel,
-  GradientModel,
-  LinearGradientModel,
-  RadialGradientModel,
-  ShapeAnnotationModel
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   CheckBox,

@@ -23,9 +23,6 @@
     padding-left: 0px;
 }
 
-.container-fluid {
-    padding-left: 0px;
-}
 </style>
 
 <script>
@@ -33,16 +30,8 @@ import {
     DiagramComponent,
     NodeModel,
     UndoRedo,
-    Node,
     DataBinding,
     DiagramTools,
-    KeyModifiers,
-    DecoratorModel,
-    DiagramContextMenu,
-    BasicShapeModel,
-    HierarchicalTree,
-    CommandManagerModel,
-    ConnectorModel,
     SnapConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 

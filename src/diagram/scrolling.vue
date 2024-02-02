@@ -142,6 +142,7 @@
   </div>
 </template>
 <style>
+/*To align palette */
 .sb-mobile-palette {
         width:240px;
         height:100%;
@@ -151,7 +152,7 @@
     .sb-mobile-palette-bar {
         display: none;
     }
-    
+      /*To align diagram */
     .sb-mobile-diagram {
         width:calc(100% - 242px);
         height: 100%;
@@ -198,12 +199,6 @@
             .e-export::before {
                     content: "\e711";
             }
-            .material .e-export::before {
-                    content: "\e706";
-            }
-            .bootstrap .e-export::before {
-                    content: "\e71e";
-            }
 
             .texstyle {	
             display: table;	
@@ -249,17 +244,7 @@
 import { Browser } from "@syncfusion/ej2-base";
 import {
   DiagramComponent,
-  NodeModel,
-  UndoRedo,
-  ConnectorModel,
-  PointPortModel,
-  Connector,
   SymbolPaletteComponent,
-  SymbolInfo,
-  IDragEnterEventArgs,
-  DiagramTools,
-  GridlinesModel,
-  Rect
 } from "@syncfusion/ej2-vue-diagrams";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';

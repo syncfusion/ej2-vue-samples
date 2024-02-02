@@ -99,6 +99,7 @@
 </div>
 </template>
 <style>
+/*To align palette */
 .sb-mobile-palette {
         width:240px;
         height:100%;
@@ -108,7 +109,7 @@
     .sb-mobile-palette-bar {
         display: none;
     }
-    
+    /*To align diagram */
     .sb-mobile-diagram {
         width:calc(100% - 242px);
         height: 100%;
@@ -155,12 +156,7 @@
             .e-export::before {
                     content: "\e711";
             }
-            .material .e-export::before {
-                    content: "\e706";
-            }
-            .bootstrap .e-export::before {
-                    content: "\e71e";
-            }
+   /* These styles are used for toolbar icons*/        
 
                 @font-face {
     font-family: 'Bootstrap5 Diagram Builder';
@@ -281,19 +277,10 @@ import { createApp } from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
   DiagramComponent,
-  NodeModel,
-  UndoRedo,
-  ConnectorModel,
-  PointPortModel,
-  Connector,
   SymbolPaletteComponent,
   PrintAndExport,
-  IExportOptions,
   NodeConstraints,
-  SymbolInfo,
-  IDragEnterEventArgs,
   DiagramTools,
-  GridlinesModel
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import {

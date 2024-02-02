@@ -64,7 +64,7 @@
         },
         {
             "url": "resize-editor",
-            "name": "Resize Editor",
+            "name": "Resizable Editor",
             "category": "Rich Text Editor",
             "description": "This demo explains how to render a resizable vue Editor that allows resizing an editor and viewing its content with an enlarging or shrunk scale."
         },

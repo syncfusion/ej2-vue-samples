@@ -17,7 +17,7 @@
         <template v-slot:columnTemplate="{data}">
           <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
             <img
-              :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
+              :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
               style="height: 40px;" />
             <div style="display:inline-block;width:100%;position:relative;">
               {{data.ganttProperties.resourceNames}}</div>
@@ -40,7 +40,6 @@
 <script lang="ts">
 import { GanttComponent, ColumnDirective, ColumnsDirective, Selection } from "@syncfusion/ej2-vue-gantt";
 import { templateData, editingResources } from './data-source';
-import columntempVue from "./column-temp.vue";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 
 export default {

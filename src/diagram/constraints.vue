@@ -50,9 +50,6 @@
 <script>
 import {
   Diagram,
-  ShapeAnnotationModel,
-  NodeModel,
-  ConnectorModel,
   ConnectorConstraints,
   DiagramConstraints,
   AnnotationConstraints,

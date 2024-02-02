@@ -124,6 +124,7 @@
 </div>
 </template>
 <style scoped>
+/* Css for images in property panel  */
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -167,10 +168,6 @@
   border-width: 2px;
 }
 
-.e-checkbox-wrapper .e-label {
-  font-size: 12px;
-}
-
 .col-xs-6 {
   padding-left: 0px;
   padding-right: 0px;
@@ -181,13 +178,8 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
-  ConnectorModel,
-  LayoutOrientation,
   LayoutAnimation,
-  TreeInfo,
-  SubTreeOrientation,
-  SubTreeAlignments
+ 
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBox } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";

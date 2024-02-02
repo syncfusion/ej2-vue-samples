@@ -216,6 +216,9 @@ function processFile(filePath, replacementRules) {
 
 // Remove stackBlitz and newWindow labels from the application
 gulp.task('remove-labels', function(done) {
+    fs.rename('./public/source', './public/src', (err) => {
+        if (err) { console.log(`Error renaming file: ${err}`); }
+    });
     const indexHtmlPath = './public/index.html';
     const appVuePath = './src/App.vue';
 

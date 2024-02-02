@@ -2,7 +2,7 @@
 <div class="control-section">
     <div>
         <div style="width: 100%;height: 50px;margin-bottom: 5px;">
-            <div class="btn-group" style="float:left;width:70%">
+            <div style="float:left;width:70%">
             <ejs-button  :isPrimary = true id="addbtn" :disabled= "true"  v-on:click="addButton1"  >Add Node</ejs-button>
             <ejs-button :isPrimary="true" id="deletebtn" :disabled= "true"  v-on:click="deleteButton1" >Delete Node</ejs-button>
             </div>
@@ -33,12 +33,11 @@
 </div>
 </template>
 <style>
-.btn-group button{ 
-    margin-right:16px;
-    }
-.btn-group button:last-child{
-    margin-right:0px;
-    }
+/**To align button */
+#addbtn{
+    margin-right: 20px;
+}
+/*To align palette and diagram */
 
 #palette-space {
     border-style: solid;
@@ -56,18 +55,10 @@ import {
   OverviewPlugin,
   Diagram,
   DiagramComponent,
-  ConnectorModel,
-  Node,
   SnapConstraints,
-  Container,
-  TextElement,
-  StackPanel,
-  ImageElement,
   DataBinding,
   NodeConstraints,
   HierarchicalTree,
-  TreeInfo,
-  DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import { DataManager } from "@syncfusion/ej2-data";

@@ -71,24 +71,13 @@
 </div>
 </template>
 
-<style scoped>
-.property-panel-table div {
-  padding-left: 0px;
-}
-</style>
-
 <script>
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
   UndoRedo,
-  ConnectorModel,
-  Node,
-  Connector,
   SymbolPaletteComponent,
-  SymbolInfo,
-  ShapeModel
+ 
 } from "@syncfusion/ej2-vue-diagrams";
 import { ExpandMode } from "@syncfusion/ej2-vue-navigations";
 import {

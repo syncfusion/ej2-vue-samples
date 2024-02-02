@@ -92,31 +92,21 @@ methods: {
     filtering: function(){
       this.saveSelection = this.selection.save(this.selection.getRange(document), document);
     },
-    beforeApplyFormat: function(isBlockFormat){
-        var range1 = this.$refs.formatRTE.ej2Instances.getRange();
-        var node = this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeSelection.getNodeCollection(range1)[0];
-        var blockNewLine = !(node.parentElement.innerHTML.replace(/&nbsp;|<br>/g, '').trim() == '/' || node.textContent.trim().indexOf('/')==0);
-        var blockNode;
-        var startNode =node;
-        if (blockNewLine && isBlockFormat) {
-            while (startNode != this.$refs.formatRTE.ej2Instances.inputElement) {
-                blockNode = startNode;
-                startNode = startNode.parentElement;
-            }
-        }            
-        var startPoint = range1.startOffset;
+    beforeApplyFormat: function(){
+        var currentRange = this.$refs.formatRTE.ej2Instances.getRange();
+        var node = this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeSelection.getNodeCollection(currentRange)[0];         
+        var startPoint = currentRange.startOffset;
         while(this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeSelection.getRange(document).toString().indexOf("/") ==-1 ){
-            this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeSelection.setSelectionText(document, node, node, startPoint, range1.endOffset);
+            this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeSelection.setSelectionText(document, node, node, startPoint, currentRange.endOffset);
             startPoint--;
         }
-        var range2 = this.$refs.formatRTE.ej2Instances.getRange();
-        var node2 = this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeCutter.GetSpliceNode(range2, node);
-        var previouNode = node2.previousSibling;
-        var brTag = document.createElement('br');
-        if (node2.parentElement.innerHTML.length === 1) {
-            node2.parentElement.appendChild(brTag);
+        var slashRange = this.$refs.formatRTE.ej2Instances.getRange();
+        var slashNode = this.$refs.formatRTE.ej2Instances.formatter.editorManager.nodeCutter.GetSpliceNode(slashRange, node);
+        var previouNode = slashNode.previousSibling;
+        if (slashNode.parentElement.innerHTML.length === 1) {
+            slashNode.parentElement.appendChild(document.createElement('br'));
         }
-        node2.parentNode.removeChild(node2);
+        slashNode.parentNode.removeChild(slashNode);
         if(previouNode) {
             this.selection.setCursorPoint(document, previouNode, previouNode.textContent.length);
         }
@@ -127,41 +117,35 @@ methods: {
           this.$refs.formatRTE.ej2Instances.focusIn();
           this.saveSelection.restore();
           if (!(args.itemData.formatType == 'Inline')) {
-            this.beforeApplyFormat(true);
+            this.beforeApplyFormat();
           }
-          if (args.itemData.command == 'OL')  {
-              this.$refs.mentionObj.ej2Instances.hidePopup();
-              this.$refs.formatRTE.ej2Instances.executeCommand('insertOrderedList');
-          } 
-          else if(args.itemData.command == 'UL'){
-            this.$refs.mentionObj.ej2Instances.hidePopup();
-            this.$refs.formatRTE.ej2Instances.executeCommand('insertUnorderedList');
-          } 
-          else if (args.itemData.command == 'CreateTable') {
-              this.$refs.mentionObj.ej2Instances.hidePopup();
-              this.$refs.formatRTE.ej2Instances.showDialog(DialogType.InsertTable);
-          } 
-          else if (args.itemData.command == 'Image') {
-             this.$refs.mentionObj.ej2Instances.hidePopup();
-              this.$refs.formatRTE.ej2Instances.showDialog(DialogType.InsertImage);
-          } 
-          else if (args.itemData.command == 'Audio') {
-             this.$refs.mentionObj.ej2Instances.hidePopup();
-              this.$refs.formatRTE.ej2Instances.showDialog(DialogType.InsertAudio);
-          } 
-          else if (args.itemData.command == 'Video') {
-             this.$refs.mentionObj.ej2Instances.hidePopup();
-              this.$refs.formatRTE.ej2Instances.showDialog(DialogType.InsertVideo);
-          } 
-          else if (args.itemData.command == 'EmojiPicker') {
-            this.beforeApplyFormat(false);
-             this.$refs.mentionObj.ej2Instances.hidePopup();
-             this.$refs.formatRTE.ej2Instances.showEmojiPicker();
-          }
-          else {
-              this.$refs.mentionObj.ej2Instances.hidePopup();
-              this.$refs.formatRTE.ej2Instances.executeCommand('formatBlock', args.itemData.command);
-          }
+          switch (args.itemData.command) {
+            case 'OL':
+                this.$refs.formatRTE.ej2Instances.executeCommand('insertOrderedList');
+                break;
+            case 'UL':
+                this.$refs.formatRTE.ej2Instances.executeCommand('insertUnorderedList');
+                break;
+            case 'CreateTable':
+            case 'Image':
+            case 'Audio':
+            case 'Video':
+                this.$refs.mentionObj.ej2Instances.hidePopup();
+                this.$refs.formatRTE.ej2Instances.showDialog(
+                    args.itemData.command === 'CreateTable' ? DialogType.InsertTable :
+                    args.itemData.command === 'Image' ? DialogType.InsertImage :
+                    args.itemData.command === 'Audio' ? DialogType.InsertAudio : DialogType.InsertVideo
+                );
+                break;
+            case 'EmojiPicker':
+                this.beforeApplyFormat();
+                this.$refs.mentionObj.ej2Instances.hidePopup();
+                this.$refs.formatRTE.ej2Instances.showEmojiPicker();
+                break;
+            default:
+                this.$refs.formatRTE.ej2Instances.executeCommand('formatBlock', args.itemData.command);
+                break;
+        }
     }
 }
 }

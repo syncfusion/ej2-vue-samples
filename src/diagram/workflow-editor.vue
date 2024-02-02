@@ -23,20 +23,13 @@
 </template>
 
 <style>
+/*To display icons */
 .e-diagram-reset::before {
     content: "\e715";
 }
 
 .e-reset::before {
     content: "\e715";
-}
-
-.bootstrap .e-diagram-reset::before {
-    content: "\e722";
-}
-
-.material .e-diagram-reset::before {
-    content: "\e70a";
 }
 
 .loading-indicator {
@@ -91,7 +84,7 @@
     
 <script>
 import {
-    Diagram, DiagramComponent, UndoRedo, SnapConstraints, BpmnDiagrams, DiagramConstraints, NodeModel, ConnectorModel, AnnotationConstraints, BpmnShapeModel, NodeConstraints, randomId
+    Diagram, DiagramComponent, UndoRedo, SnapConstraints, BpmnDiagrams,AnnotationConstraints, BpmnShapeModel, NodeConstraints, randomId
 } from "@syncfusion/ej2-vue-diagrams";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
 import { ToolbarComponent } from "@syncfusion/ej2-vue-navigations";

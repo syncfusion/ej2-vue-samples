@@ -97,7 +97,7 @@ export default {
   },
   computed: {
     getTradeData: function () {
-        let SERVICE_URI = "https://ej2services.syncfusion.com/vue/release/";
+        let SERVICE_URI = "https://services.syncfusion.com/vue/production/";
         let getTradeData = new DataManager({
             url: SERVICE_URI + 'api/UrlDataSource',
             adaptor: new UrlAdaptor()

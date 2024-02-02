@@ -21,27 +21,27 @@
         </e-columns>
             <template v-slot:nametemplate="{data}">
             <div>
-                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/taskname.png" style="height: 20; width: 20;" class="e-image"/> Task Name
+                    <img src="src/gantt/images/taskname.png" style="height: 20; width: 20;" class="e-image"/> Task Name
                 </div>
                 </template>
             <template v-slot:datetemplate="{data}">
             <div>
-                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/startdate.png" style="height: 20; width: 20;"  class="e-image"/> Start Date
+                    <img src="src/gantt/images/startdate.png" style="height: 20; width: 20;"  class="e-image"/> Start Date
                 </div>
                 </template>
             <template v-slot:resourcetemplate="{data}">
             <div>
-                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/resources.png" style="height: 20; width: 20;"  class="e-image"/> Resources
+                    <img src="src/gantt/images/resources.png" style="height: 20; width: 20;"  class="e-image"/> Resources
                 </div>
                 </template>
             <template v-slot:durationtemplate="{data}">
             <div>
-                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/duration.png" style="height: 20; width: 20;"  class="e-image"/> Duration
+                    <img src="src/gantt/images/duration.png" style="height: 20; width: 20;"  class="e-image"/> Duration
                 </div>
                 </template>
             <template v-slot:progresstemplate="{data}">
             <div>
-                    <img src="https://ej2.syncfusion.com/vue/demos/source/gantt/images/progress.png" style="height: 20; width: 20;"  class="e-image"/> Progress
+                    <img src="src/gantt/images/progress.png" style="height: 20; width: 20;"  class="e-image"/> Progress
                 </div>
                 </template>
     </ejs-gantt>       

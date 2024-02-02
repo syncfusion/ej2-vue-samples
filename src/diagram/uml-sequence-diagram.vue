@@ -21,13 +21,9 @@
 import {
   DiagramComponent,
   Diagram,
-  ShapeAnnotationModel,
-  NodeModel,
-  ConnectorModel,
   PortVisibility,
    DiagramTools,
   SnapConstraints,
-  UmlClassifierShapeModel
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;

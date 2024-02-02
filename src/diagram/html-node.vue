@@ -34,7 +34,7 @@ import { createApp } from "vue";
 import {
   Diagram,
   DiagramComponent,
-  NodeModel,NodeConstraints,
+  NodeConstraints,
   HtmlModel
 } from "@syncfusion/ej2-vue-diagrams";
 import NodeTemplate from "./complex-template.vue";

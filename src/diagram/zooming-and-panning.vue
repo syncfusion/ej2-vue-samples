@@ -45,19 +45,14 @@
 
 <script>
 import {
-  OverviewComponent,
   Diagram,
   DiagramComponent,
-  ConnectorModel,
-  Node,
   SnapConstraints,
-  Container,
   TextElement,
   StackPanel,
   ImageElement,
   DataBinding,
   HierarchicalTree,
-  TreeInfo,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";

@@ -53,6 +53,7 @@
 </div>
 </template>
 <style>
+/* These styles are used for property panel icons*/
         @font-face {
     font-family: 'Bootstrap5 Diagram Builder';
     src:
@@ -171,21 +172,9 @@ import {
   OverviewComponent,
   Diagram,
   DiagramComponent,
-  ConnectorModel,
-  Node,
-  SnapConstraints,
-  Container,
-  TextElement,
-  StackPanel,
-  ImageElement,
-  DataBinding,
-  HierarchicalTree,
-  TreeInfo,
   NodeConstraints,
-  DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
-import { DataManager } from "@syncfusion/ej2-data";
-import { data } from "./diagram-data";
+
 import {
   Toolbar,
   ToolbarComponent,

@@ -163,13 +163,8 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
   UndoRedo,
-  ConnectorModel,
-  PointPortModel,
-  Node,
   SymbolPaletteComponent,
-  SymbolInfo,
   DiagramContextMenu,
   GridlinesModel
 } from "@syncfusion/ej2-vue-diagrams";

@@ -32,9 +32,6 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
-  ConnectorModel,
-  Node,
   DataBinding,
   HierarchicalTree,
   DiagramTools

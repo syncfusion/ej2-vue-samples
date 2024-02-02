@@ -53,7 +53,7 @@
     
     <template v-slot:columnTemplate="{data}">
         <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
-        <img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + data.ganttProperties.resourceNames + '.png'"  style="height=25px;width:25px" />
+        <img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"  style="height=25px;width:25px" />
         <div style="display:inline-block;width:100%;position:relative;left:5px">
             {{data.ganttProperties.resourceNames}}</div>
         </div>
@@ -84,7 +84,6 @@ import {GanttComponent, ColumnDirective, ColumnsDirective, Selection, Toolbar, D
 import {editingResources, overviewData } from './data-source';
 import { DropDownList } from "@syncfusion/ej2-dropdowns";
 
-import columntempVue from "./column-temp.vue";
 var theme;
 var style;
 var CurrentTheme;

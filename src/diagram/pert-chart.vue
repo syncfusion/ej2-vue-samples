@@ -31,9 +31,7 @@
 <script>
 import {
   SnapConstraints,
-  TextStyleModel,
   TextElement,
-  HorizontalAlignment,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import {

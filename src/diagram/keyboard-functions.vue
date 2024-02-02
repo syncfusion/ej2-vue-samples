@@ -131,6 +131,7 @@
 </template>
 
 <style scoped>
+/*To align the diagram */
   .control-section {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -138,10 +139,7 @@
     padding-left: 0px;
   }
 
-  .container-fluid {
-    padding-left: 0px;
-  }
-
+ /*To align the property panel */
   .property-panel-header {
     padding-bottom: 0px;
   }
@@ -160,17 +158,12 @@
 <script>
 import {
   DiagramComponent,
-  NodeModel,
   UndoRedo,
-  Node,
   DataBinding,
   Keys,
   KeyModifiers,
   DiagramContextMenu,
-  BasicShapeModel,
   HierarchicalTree,
-  CommandManagerModel,
-  ConnectorModel,
   SnapConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";

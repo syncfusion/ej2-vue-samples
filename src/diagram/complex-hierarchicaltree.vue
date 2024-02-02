@@ -114,6 +114,7 @@
 </div>
 </template>
 <style scoped>
+/* Css for images in property panel  */
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -135,14 +136,10 @@
   font-size: 15px;
   font-weight: 500;
 }
-
+/* Selection indicator */
 .e-selected-style {
   border-color: #6c6c6c;
   border-width: 2px;
-}
-
-.e-checkbox-wrapper .e-label {
-  font-size: 12px;
 }
 
 .col-xs-6 {
@@ -155,13 +152,9 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
-  Node,
-  Connector,
   DataBinding,
   DiagramTools,ConnectionPointOrigin,
   ComplexHierarchicalTree,LineDistribution,
-  LayoutOrientation
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
 import { ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";

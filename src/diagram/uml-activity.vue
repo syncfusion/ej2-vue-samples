@@ -29,6 +29,7 @@
 </div>
 </template>
 <style scoped>
+/**To align palette */
     #umlActivityDiagram .sb-mobile-palette {
         width: 210px;
         height: 100%;
@@ -45,10 +46,6 @@
         float: left;
         border: 1px solid rgba(0, 0, 0, 0.12);
         border-left: none;
-    }
-
-    .container-fluid {
-        padding-bottom: 15px;
     }
 
     @media (max-width: 550px) {
@@ -113,44 +110,15 @@
         content: "\e700"
     }
 
-    .material #umlActivityDiagram #palette-space .e-accordion {
-        border: none;
-    }
-
-    .material #umlActivityDiagram #palette-space {
-        border: 1px solid rgba(0, 0, 0, 0.12);
-    }
-
-    .bootstrap #umlActivityDiagram .sb-mobile-diagram {
-        height: calc(100% - 17px);
-        margin-top: 5px;
-        border-radius: 4px;
-        border-left: 1px solid rgba(0, 0, 0, 0.12);
-    }
-
-    .fabric #umlActivityDiagram .sb-mobile-diagram {
-        border-left: 1px solid rgba(0, 0, 0, 0.12);
-    }
 </style>
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import {
   Diagram,
-  NodeModel,
-  UndoRedo,
-  ConnectorModel,
-  SymbolPalette,
-  DiagramContextMenu,
-  StrokeStyleModel,
-  DecoratorModel,
-  PointModel,
-  SymbolInfo,
   PortVisibility,
   SnapConstraints,
-  PointPortModel,
   DiagramComponent,
   SymbolPaletteComponent,
-  ShapeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagram;

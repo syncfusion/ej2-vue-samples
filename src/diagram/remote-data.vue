@@ -38,12 +38,8 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
-  Node,
-  Connector,
   DataBinding,
   HierarchicalTree,
-  TreeInfo,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager, Query } from "@syncfusion/ej2-data";

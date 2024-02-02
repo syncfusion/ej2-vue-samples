@@ -33,7 +33,7 @@
 .e-toggle-palette::before {
     content: "\e700"
 }
-
+/*To align palette */
 .sb-mobile-palette {
     width: 240px;
     height: 559px;
@@ -43,33 +43,13 @@
 .sb-mobile-palette-bar {
     display: none;
 }
-
+/*To align diagram */
 .sb-mobile-diagram {
     width: calc(100% - 242px);
     height: 559px;
     float: left;
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-left: none;
-}
-
-.container-fluid {
-    padding-bottom: 15px;
-}
-
-.e-upload {
-    height: 0px;
-    width: 0px;
-    display: none !important;
-    border: none !important;
-}
-
-#dropArea {
-    height: 50px;
-    padding: 7px;
-    text-align: center;
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    /* border-top: none; */
 }
 
 @media (max-width: 550px) {
@@ -100,23 +80,13 @@
     }
 }
 
-.sb-mobile-palette-open {
-    position: absolute;
-    display: block;
-    right: 15px;
-}
-
 </style>
 <script>
 import {
   DiagramComponent,
   Diagram,
-  ShapeAnnotationModel,
-  NodeModel,
   Connector,
   SymbolPaletteComponent,
-  ConnectorModel,
-  UmlClassifierShapeModel
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;

@@ -114,6 +114,14 @@
         padding: 10px;
         background: #303030;
     }
+    
+    .e-richtexteditor .e-rte-content .e-content {
+        padding: 0px;
+    }
+    
+    .CodeMirror-code pre {
+        background: transparent; 
+    }
 </style>
 <script>
 import { Browser, addClass, removeClass, isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
@@ -229,7 +237,6 @@ export default {
         var sbHdrEle = document.querySelector('.sb-header.e-view');
         var leftBar;
         var transformElement;
-        if (!isNOU(leftBar) && !isNOU(transformElement)) {
             if (Browser.isDevice) {
                 leftBar = document.querySelector('#right-sidebar');
                 transformElement = document.querySelector('.sample-browser.e-view.e-content-animation');
@@ -248,6 +255,7 @@ export default {
                     transformElement.style.marginLeft = '0px';
                 }
                 transformElement.style.transform = 'inherit';
+                sbHdrEle.style.cssText = 'z-index: 100 !important;';
             }
             else if (e.targetItem === 'Minimize') {
                 if (Browser.isDevice && Browser.isIos) {
@@ -260,7 +268,6 @@ export default {
                 }
                 transformElement.style.transform = 'translateX(0px)';
             }
-        }
     },
         actionCompleteHandler: function(e) {
            if (e.targetItem && (e.targetItem === 'SourceCode' || e.targetItem === 'Preview')) {

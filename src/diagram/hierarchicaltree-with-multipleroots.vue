@@ -21,12 +21,7 @@
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
-  ConnectorModel,
   LayoutAnimation,
-  NodeConstraints,
-  TextModel,
-  LayoutOrientation
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBox } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBox } from "@syncfusion/ej2-vue-inputs";

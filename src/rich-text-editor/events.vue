@@ -115,7 +115,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
@@ -269,7 +269,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker]
     }
 }
 </script>

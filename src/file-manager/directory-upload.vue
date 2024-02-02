@@ -84,9 +84,9 @@ export default {
         onSelect: function (args) {
             var fileObj = this.$refs.filemanagerInstance;
             if (args.item.text === "Folder") {
-                fileObj.ej2Instance.uploadSettings.directoryUpload = true;
+                fileObj.ej2Instances.uploadSettings.directoryUpload = true;
             } else {
-                fileObj.ej2Instance.uploadSettings.directoryUpload = false;
+                fileObj.ej2Instances.uploadSettings.directoryUpload = false;
             }
             setTimeout(function () {
                 var uploadBtn = document.querySelector(".e-file-select-wrap button");

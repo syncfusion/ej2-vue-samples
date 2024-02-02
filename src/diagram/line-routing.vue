@@ -18,45 +18,10 @@
 </div>
 </template>
 
-<style scoped>
-.image-pattern-style {
-  background-color: white;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 75px;
-  width: calc((100% - 12px) / 3);
-  cursor: pointer;
-  border: 1px solid #d5d5d5;
-  background-position: center;
-  float: left;
-}
-
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.row-header {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.col-xs-6 {
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 5px;
-}
-
-.property-panel-header {
-  color: rgba(0, 0, 0, 0.7);
-}
-</style>
-
 <script>
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
   LineRouting,
   ConnectorBridging,
   DiagramConstraints,

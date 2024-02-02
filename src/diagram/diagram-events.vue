@@ -49,6 +49,7 @@
 </template>
 
   <style scoped>
+  /* Symbol palette alignment CSS */
 #diagramEventsControlSection .sb-mobile-palette {
   width: 200px;
   height: 100%;
@@ -58,20 +59,12 @@
 #diagramEventsControlSection .sb-mobile-palette-bar {
   display: none;
 }
-
+/* Diagram alignment CSS */
 #diagramEventsControlSection .sb-mobile-diagram {
   width: calc(100% - 200px);
   height: 100%;
   float: left;
   border: 1px solid #d9dedd;
-}
-
-.material #diagramEventsControlSection #palette-space .e-accordion {
-  border: none;
-}
-
-.material #diagramEventsControlSection #palette-space {
-  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 550px) {
@@ -134,8 +127,7 @@
 #diagramEventsControlSection .e-toggle-palette::before {
   content: "\e700";
 }
-
-
+ /* Event property panel CSS */
 #diagramEventsPropertySection .event-tracer {
   width: 240px;
   height: 700px;
@@ -151,6 +143,7 @@
   border-bottom: 1px solid #d9dedd;
   padding: 10px;
 }
+ /* These color is to indicate the event name in specific color */
 
  #EventLog b {
       color: #388e3c;
@@ -160,7 +153,7 @@
       margin: 1px 10px 1px 0px;
       border-top: 1px solid #eee;
     }
-
+  /* Property panel CSS */
 .property-section {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -195,7 +188,6 @@ import {
   DiagramComponent,
   SymbolPaletteComponent,
   Diagram, DiagramContextMenu,
-  DiagramConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 import { ListViewComponent, ListView } from "@syncfusion/ej2-vue-lists";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";

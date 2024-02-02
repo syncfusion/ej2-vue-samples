@@ -47,7 +47,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager,Audio, video, FormatPainter, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
@@ -62,7 +62,7 @@ export default {
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
                 'LowerCase', 'UpperCase', '|',
                 'Formats', 'Alignments', '|', 'NumberFormatList', 'BulletFormatList', '|',
-                'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'FileManager', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
+                'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'FileManager', 'Video', 'Audio', 'CreateTable', '|', 'ClearFormat',
                 '|', 'EmojiPicker', 'Print', '|',
                 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
     },
@@ -119,7 +119,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager]
+        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, video, EmojiPicker]
     }
 }
 </script>

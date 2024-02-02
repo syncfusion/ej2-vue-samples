@@ -93,7 +93,8 @@ import {
   Link,
   Image,
   HtmlEditor,
-  QuickToolbar
+  QuickToolbar,
+  EmojiPicker
 } from "@syncfusion/ej2-vue-richtexteditor";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
@@ -184,7 +185,7 @@ export default {
     }
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar]
+    richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker]
   }
 }
 </script>

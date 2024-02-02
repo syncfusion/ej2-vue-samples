@@ -104,58 +104,16 @@
 </template>
 
  <style scoped>
-#tooltipDiagramSection .image-pattern-style {
-    background-color: white;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 75px;
-    width: calc((100% - 12px) / 3);
-    cursor: pointer;
-    border: 1px solid #D5D5D5;
-    background-position: center;
-    float: left;
-}
-
-#tooltipDiagramSection .image-pattern-style:hover {
-    border-color: gray;
-    border-width: 2px;
-}
-
+/*To align the property panel */
 #tooltipDiagramSection .row {
     margin-left: 0px;
     margin-right: 0px;
 }
 
-#tooltipDiagramSection .row-header {
-    font-size: 13px;
-    font-weight: 500;
-}
-
-#tooltipDiagramSection .e-selected-style {
-    border-color: #006CE6;
-    border-width: 2px;
-}
-
-#tooltipDiagramSection .e-checkbox-wrapper .e-label {
-    font-size: 12px;
-}
-
-#tooltipPropertySection .property-panel-header {
-    margin-left: 10px;
-}
-.e-checkbox-wrapper .e-label {
-    font-size: 14px;
-    font-weight: 400;
-}
 table{
     border-collapse: separate;
 }
 
-.e-checkbox-wrapper .e-wrapper
-{
-    padding-left: 0px;
-    padding-top: 0px;
-}
 </style>
 
 <script>

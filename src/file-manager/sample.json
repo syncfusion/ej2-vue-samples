@@ -68,6 +68,13 @@
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to configure and use the azure service in a Vue File Manager."
     },
+    {
+        "url": "sql-server-provider",
+        "name": "SQL Database Provider",
+        "category": "Cloud Service Providers",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to configure and use the sql server database service in a Vue File Manager."
+    },
 	{
         "url": "nodejs-file-provider",
         "name": "NodeJS File Provider",

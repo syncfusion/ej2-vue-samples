@@ -81,6 +81,7 @@
     </div>
 </template>
 <style scoped>
+/* These are proprty panel CSS */
 #historyPropertySection .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -109,17 +110,7 @@
 import {
     DiagramComponent,
     Diagram,
-    NodeModel,
-    ConnectorModel,
-    PointModel,
-    NodeConstraints,
     SnapConstraints,
-    GradientType,
-    ShadowModel,
-    GradientModel,
-    LinearGradientModel,
-    RadialGradientModel,
-    ShapeAnnotationModel,
     UndoRedo,
     DataBinding
 } from "@syncfusion/ej2-vue-diagrams";

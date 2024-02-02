@@ -69,6 +69,7 @@
     </div>
 </template>
     <style scoped>
+    /* Proprty panel CSS */
 #flowExecitionPropertySection .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -92,12 +93,7 @@
 import { Diagram, NodeModel, ConnectorModel, ShapeAnnotationModel, Segments, Node } from '@syncfusion/ej2-vue-diagrams';
 import {
     DiagramComponent,
-    Direction,
-    PathAnnotationModel,
-    OrthogonalSegmentModel,
-    PointPortModel,
     SnapConstraints,
-    ISelectionChangeEventArgs
 } from '@syncfusion/ej2-vue-diagrams';
 import { radiobutton, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';

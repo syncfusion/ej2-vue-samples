@@ -67,14 +67,7 @@
 </div>
 </template>
 <style scoped>
-   .header_text{
-        color: rgb(9, 9, 9);
-        font-weight: bold;
-        font-size: 20px;
-        font-family: 'Calibri';
-        margin-left: 5px;
-        margin-top: 5px;
-    }
+
     .db-diagram-container {
     width:calc(100% - 300px);
     height: 100%;
@@ -103,44 +96,26 @@
     .text-content{
         margin-left: 10px;
     }
-    .db-check-input{
-        float: right;
-    }
+    
     .db-text-input{
         height: 25px!important;
     }
-    .e-checkbox-wrapper .e-label{
-        font-size: 12px!important;
-    }
-    .e-radio+label .e-label{
-        font-size: 12px!important;
-    }
+   
     #properties_Container{
     /* background: #e3e3e3; */
     width: 300px;
     float: right;
     /* margin-left: 20px; */
     }
-    .e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn .e-selected-color .e-split-preview{
-        width: 100px!important;
-        margin-left: -40px!important;
-    }
-    .e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn{
-        width: 110px!important;
-    }
+    
 </style>
 <script>
 import {
   Diagram,
   DiagramComponent,
-  Node,
-  ShapeAnnotationModel,
-  NodeModel,
-  ConnectorModel,
   PortVisibility,
   ConnectorConstraints,
   SnapConstraints,
-  UserHandleModel,
   PortConstraints,
     SelectorConstraints,
     ConnectorEditing,
@@ -148,11 +123,7 @@ import {
     Inject,
     Snapping,
     UndoRedo,
-    IRotationEventArgs,
-    UserHandleEventsArgs,
-    ISelectionChangeEventArgs,
-    Gridlines,
-  UmlClassifierShapeModel
+   
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { ColorPickerComponent, NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";

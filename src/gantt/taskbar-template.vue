@@ -13,10 +13,10 @@
             <div v-if="data.TaskName == 'Oscar moments'" style="height:100%">
               <div class="e-gantt-child-taskbar e-custom-moments" style="height:100%;border-radius:5px;">
                 <template v-if="data.ganttProperties.duration < 4">
-                  <img class="moments" src="source/gantt/images/moments.svg" style="height: 32px; width: 32px;">
+                  <img class="moments" src="./images/moments.svg" style="height: 32px; width: 32px;">
                 </template>
                 <template v-else>
-                  <img class="moments" src="source/gantt/images/moments.svg" style="height: 32px; width: 32px;">
+                  <img class="moments" src="./images/moments.svg" style="height: 32px; width: 32px;">
                   <span class="e-task-label"
                     style="position:absolute;top:15px;font-size:12px;text-overflow:ellipsis;height:90%;overflow:hidden;">{{data.Performance}}</span>
                 </template>
@@ -25,10 +25,10 @@
             <div v-else-if="data.TaskName == 'Oscar performance'" style="height:100%">
               <div class="e-gantt-child-taskbar e-custom-performance" style="height:100%;border-radius:5px;">
                 <template v-if="data.ganttProperties.duration <= 5">
-                  <img class="face-mask" src="source/gantt/images/face-mask.svg" style="height: 32px; width: 32px;">
+                  <img class="face-mask" src="./images/face-mask.svg" style="height: 32px; width: 32px;">
                 </template>
                 <template v-else>
-                  <img class="face-mask" src="source/gantt/images/face-mask.svg" style="height: 32px; width: 32px;">
+                  <img class="face-mask" src="./images/face-mask.svg" style="height: 32px; width: 32px;">
                   <span class="e-task-label"
                     style="position:absolute;top:5px;font-size:12px;text-overflow:ellipsis;height:90%;overflow:hidden;">{{data.Performance}}</span>
                 </template>
@@ -38,18 +38,18 @@
               <div class="e-gantt-parent-taskbar e-custom-parent"
                 style="height:100%;border-radius:5px;text-overflow:ellipsis;">
                 <template v-if="data.ganttProperties.duration < 4">
-                  <img class="oscar" src="source/gantt/images/oscar.svg" style="height: 32px; width: 32px;">
+                  <img class="oscar" src="./images/oscar.svg" style="height: 32px; width: 32px;">
                 </template>
                 <template v-else>
                   <template v-if="data.taskData.Winner && data.taskData.Movie">
-                    <img class="oscar" src="source/gantt/images/oscar.svg" style="height: 32px; width: 32px;">
+                    <img class="oscar" src="./images/oscar.svg" style="height: 32px; width: 32px;">
                     <span class="e-task-label"
                       style="position:absolute; top:13px;font-size:14px;">{{data.taskData.Winner}}</span>
                     <span class="e-task-label"
                       style="position:absolute;top:33px;font-size:10px;text-overflow:ellipsis;">{{data.taskData.Movie}}</span>
                   </template>
                   <template v-else-if="data.taskData.Movie">
-                    <img class="oscar" src="source/gantt/images/oscar.svg" style="height: 32px; width: 32px;">
+                    <img class="oscar" src="./images/oscar.svg" style="height: 32px; width: 32px;">
                     <span class="e-task-label"
                       style="position:absolute; top:13px;font-size:12px;text-overflow:ellipsis;">{{data.taskData.Movie}}</span>
                   </template>
@@ -63,7 +63,7 @@
           <template v-slot:milestoneTemplate="{data}">
             <div>
               <div class="e-gantt-milestone" style="position:absolute;">
-                <img class="moments" src="source/gantt/images/moments.svg" style="height: 24px; width: 48px;">
+                <img class="moments" src="./images/moments.svg" style="height: 24px; width: 48px;">
                 <div class="e-milestone-top"
                   style="border-right-width:26px; margin-top: -24px;border-left-width:26px;border-bottom-width:26px;">
                 </div>

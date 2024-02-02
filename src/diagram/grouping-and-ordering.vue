@@ -72,6 +72,7 @@
 </div>
 </template>
 <style scoped>
+/*To align palette */
 .sb-mobile-palette {
   width: 240px;
   height: 100%;
@@ -81,7 +82,7 @@
 .sb-mobile-palette-bar {
   display: none;
 }
-
+/*To align diagram */
 .sb-mobile-diagram {
   width: calc(100% - 242px);
   height: 100%;
@@ -141,16 +142,8 @@ import { createApp } from "vue";
 import { Browser } from "@syncfusion/ej2-base";
 import {
   DiagramComponent,
-  NodeModel,
-  UndoRedo,
-  ConnectorModel,
-  PointPortModel,
-  Connector,
   SymbolPaletteComponent,
   SelectorConstraints,
-  SymbolInfo,
-  IDragEnterEventArgs,
-  DiagramTools,
   Node
 } from "@syncfusion/ej2-vue-diagrams";
 import {

@@ -118,6 +118,7 @@
 </template>
 
 <style scoped>
+/*To align property panel */
 .sb-child-row {
   margin-top: 8px;
 }
@@ -130,13 +131,7 @@
 .property-section .e-remove-selection {
   cursor: not-allowed;
 }
-
-.row-header {
-  font-size: 13px;
-  font-weight: 500;
-  padding-left: 10px;
-}
-
+/* To disable pointer events when there is no selection in diagram */
 .e-remove-selection .property-section-content {
   pointer-events: none;
 }
@@ -146,14 +141,8 @@
 <script>
 import {
   DiagramComponent,
-  NodeModel,
-  ConnectorModel,
-  PointPortModel,
   PortVisibility,
-  BasicShapeModel,
   Node,
-  Connector,
-  PortShapes
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DropDownList,

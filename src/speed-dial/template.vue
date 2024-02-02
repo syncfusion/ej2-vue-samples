@@ -126,6 +126,8 @@ export default {
   padding: 10px;
   background: transparent;
   position: relative;
+  display: flex;
+  align-items: end;
 }
 .speeddial-form .head .textEle{
   font-weight: bold;
@@ -135,7 +137,6 @@ export default {
 }
 .speeddial-form .head .iconEle{
   width: 25px;
-  display: inline-block;
 }
 .speeddial-form .closeicon {
   float: right;

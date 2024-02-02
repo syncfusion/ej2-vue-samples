@@ -1437,7 +1437,6 @@ const updateStackBlitz = () => {
     let path: string = hash.slice(1).join('/').replace('.html', '');
     let fileName: string = 'src/' + path + '-stack.json';
     let stack: Fetch = new Fetch(fileName, 'GET');
-    stack.emitError = false;
     stack.send().then((result: Object) => {
         if (select('#open-plnkr') as any) {
             (select('#open-plnkr') as any).disabled = false;

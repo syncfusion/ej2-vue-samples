@@ -85,6 +85,7 @@
 </template>
 
 <style scoped>
+/* Css for images in property panel  */
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -101,7 +102,7 @@
   border-color: gray;
   border-width: 2px;
 }
-
+/* Property panel CSS */
 .row {
   margin-left: 0px;
   margin-right: 0px;
@@ -112,99 +113,41 @@
   font-weight: 500;
 }
 
-.e-checkbox-wrapper .e-label {
-  font-size: 12px;
-}
-
 .property-panel-header {
   padding-top: 15px;
   padding-bottom: 5px;
 }
-
+ /* Selection indicator */
 .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
-
+/* Diagram Div CSS */
 .control-section {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-right: 0px;
 }
-
+ /* Overall div */
 .container-fluid {
   padding-left: 0px;
 }
 
-.col-xs-6 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
 </style>
 
 <script>
 import {
   DiagramComponent,
-  NodeModel,
-  BasicShapes,
-  Segments,
-  SnapSettingsModel,
   SnapConstraints,
-  TextModel,
-  PathModel,
-  ImageModel,
   DiagramTools,
   UndoRedo,
-  GridlinesModel,
   Snapping,
-  FlowShapes,
-  ConnectorModel,
-  Connector,
-  PointPortModel,
   PortConstraints,
   PortVisibility,
-  PointModel,
-  BasicShape
+ 
 } from "@syncfusion/ej2-vue-diagrams";
-import { CheckBoxComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-let shape = [
-  { shapeName: "BasicShape", shapeId: "Basic" },
-  { shapeName: "FlowShape", shapeId: "Flow" },
-  { shapeName: "Connector", shapeId: "Segment" },
-  { shapeName: "Path", shapeId: "Path" },
-  { shapeName: "Image", shapeId: "Image" },
-  { shapeName: "SVG", shapeId: "SVG" },
-  { shapeName: "Text", shapeId: "Text" }
-];
-let basic = [
-  "Rectangle",
-  "Ellipse",
-  "Hexagon",
-  "Parallelogram",
-  "Triangle",
-  "Plus",
-  "Star",
-  "Pentagon",
-  "Heptagon",
-  "Octagon",
-  "Trapezoid",
-  "Decagon",
-  "RightTriangle",
-  "Cylinder",
-  "Diamond"
-];
-let flow = [
-  "Process",
-  "Decision",
-  "Document",
-  "PreDefinedProcess",
-  "Terminator",
-  "PaperTap",
-  "DirectData",
-  "SequentialData"
-];
-let connector = ["Straight", "Orthogonal"];
 let node;
 let diagramInstance;
 let interval;

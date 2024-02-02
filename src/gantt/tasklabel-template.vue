@@ -16,7 +16,7 @@
         <template v-slot:rightLabelTemplate="{data}">
           <div v-if="data.ganttProperties.resourceInfo">
             <span v-for="resource in data.ganttProperties.resourceInfo">
-              <img :src="'https://ej2.syncfusion.com/vue/demos/source/gantt/images/' + resource.resourceName + '.png'"
+              <img :src="'src/gantt/images/' + resource.resourceName + '.png'"
               style="height: 40px;"/>
               <span style="marginLeft:5px;marginRight:5px">{{ resource.resourceName }}</span>
             </span>

@@ -114,53 +114,15 @@
             right: 15px;
         }
 
-
-
-         .material #networkDiagram #palette-space .e-accordion {
-            border: none;
-        }
-
-        .material #networkDiagram #palette-space {
-            border: 1px solid rgba(0, 0, 0, 0.12);
-        }
-        .material #dropArea {
-            border-width: 1px 0px 0px 0px;
-            border-style: solid;
-            border-color: rgba(0, 0, 0, 0.12);
-        }
-        .fabric #networkDiagram .sb-mobile-diagram {
-            border-left: 1px solid rgba(0, 0, 0, 0.12);
-        }
-        .bootstrap #networkDiagram .sb-mobile-diagram {
-            height: 554px;
-            margin-top: 5px;
-            border-radius: 4px;
-            border-left: 1px solid rgba(0, 0, 0, 0.12);
-        }
 </style>
 
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import {
   DiagramComponent,
-  NodeModel,
-  ConnectorModel,
-  PointPortModel,
-  Connector,
   SymbolPaletteComponent,
-  SymbolInfo,
   SnapConstraints,
-  PaletteModel,
-  Native,
   PortVisibility,
-  ShapeAnnotationModel,
-  PathAnnotationModel,
-  SymbolPaletteModel,
-  SymbolPalette,
-  Diagram,
-  PointModel,
-  DecoratorModel,
-  StrokeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
 import {template1,template2,template3,template4,template5,template6,template7, template8,template10,template11,template12,template13,template14,template15,template16,template17,template18,arrow} from "./network-shapes-templates";
 import { UploaderComponent } from "@syncfusion/ej2-vue-inputs";

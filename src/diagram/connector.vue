@@ -89,7 +89,7 @@
           <div class="row row-header">
               <b>Appearance</b>
           </div>
-          <div class="row" style="padding-top: 8px; display: flex;">
+          <div class="row" style="padding-top: 8px; display: flex; margin-right: 50px;">
             <label>Line color</label>
             <ejs-colorpicker id="color" :mode='colorMode' :showButtons='colorShowButton' :modeSwitcher='colorModeSwitch' :value='fillColorValue' :change='colorChange'></ejs-colorpicker>
           </div>
@@ -126,6 +126,7 @@
 </template>
 
 <style scoped>
+/* Css for images in property panel  */
 .image-pattern-style {
   background-color: white;
   background-size: contain;
@@ -153,24 +154,12 @@
   font-weight: 500;
 }
 
-.col-xs-6 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
+/* Selection indicator */
 .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
-
-.e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn .e-selected-color .e-split-preview{
-  width: 100px!important;
-  margin-left: -40px!important;
-}
-.e-colorpicker-wrapper .e-split-btn-wrapper .e-split-colorpicker.e-split-btn{
-  width: 110px!important;
-}
-
+/* Align the names in property panel */
 label{
       display: inline-block;
       font-size: 13px;
@@ -188,19 +177,12 @@ import {
   HierarchicalTree,
   ConnectorConstraints,
   ConnectorEditing,
-  Segments,
   StackPanel,
-  PointPortModel,
-  Connector,
-  BasicShapeModel,
   SelectorConstraints,
   DiagramComponent,
   Diagram,
-  NodeModel,
-  ConnectorModel,
   randomId,
   PortVisibility,
-StrokeStyleModel
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DropDownList,

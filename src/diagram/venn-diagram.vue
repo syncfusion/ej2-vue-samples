@@ -23,14 +23,12 @@
 </style>
 <script>
 import {
-  BasicShapeModel,
   SnapConstraints,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DiagramComponent,
   Diagram,
-  NodeModel
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;
