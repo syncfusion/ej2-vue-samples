@@ -74,8 +74,9 @@
 </style>
 // custom code end
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Zoom, NavigationLine, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Zoom, NavigationLine } from '@syncfusion/ej2-vue-maps';
 import { penisular_location, penisular_marker } from '../maps/map-data/map-location';
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -108,7 +109,7 @@ export default {
             latitude: 25.54244147012483,
             longitude: -89.62646484375
         },
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeSettings: {
                     fill: '#789071',
                 },

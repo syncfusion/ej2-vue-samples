@@ -75,8 +75,9 @@
             }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, DataLabel, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, DataLabel, MapsTooltip } from '@syncfusion/ej2-vue-maps';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { usa } from '../maps/map-data/usa';
 
 export default {
   components: {
@@ -98,7 +99,7 @@ export default {
                         fontFamily: 'Segoe UI'
                     }
                 },
-        shapeData: new MapAjax('./src/maps/map-data/usa.json'),
+        shapeData: usa,
         shapeSettings: {
                     autofill: true
         },

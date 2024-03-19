@@ -86,11 +86,11 @@ import {
   LayerDirective,
   Marker,
   MapsTooltip,
-  MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
 import { southAmericaCountryCapitals } from "../maps/map-data/marker-location";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -114,7 +114,7 @@ export default {
           fontFamily: 'Segoe UI'
         }
       },
-      shapeData: new MapAjax("./src/maps/map-data/world-map.json"),
+      shapeData: worldMap,
       dataSource: southAmericaCountryCapitals,
       shapeSettings: {
         fill: "#C3E6ED",

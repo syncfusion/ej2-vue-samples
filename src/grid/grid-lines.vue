@@ -17,7 +17,7 @@
         </ejs-toolbar>
         <br/>
 
-        <ejs-grid ref="grid" :dataSource="data" :gridLines='lines' :allowPaging='true'>
+        <ejs-grid ref="grid" :dataSource="data" :gridLines='lines' :allowPaging='true' :allowSorting='true'>
             <e-columns>
                 <e-column field='ContactName' headerText='Contact Name' width='150'></e-column>
                 <e-column field='CompanyName' headerText='Company Name' width='170'></e-column>
@@ -70,7 +70,7 @@
 <!-- custom code end -->
 <script lang="ts">
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { GridComponent, ColumnDirective, ColumnsDirective, GridLine, Grid, Page } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, GridLine, Grid, Page, Sort} from '@syncfusion/ej2-vue-grids';
 import { ToolbarComponent, ItemDirective, ItemsDirective, ClickEventArgs, ItemModel } from '@syncfusion/ej2-vue-navigations';
 import { customerData } from './data-source';
 
@@ -86,7 +86,7 @@ export default {
   data: () => {
       return {
         data: customerData,
-        lines: 'Default'
+        lines: 'Default',
         }
   },
   methods: {
@@ -95,7 +95,7 @@ export default {
       }
   },
   provide: {
-      grid: [Page]
+      grid: [Page, Sort]
   }
 }
 </script>

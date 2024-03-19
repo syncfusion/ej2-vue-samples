@@ -51,12 +51,13 @@
 </template>
 <script>
 import { Browser } from "@syncfusion/ej2-base";
-import { chartData } from "./indicator-data";
+import { defaultData } from "./indicator-data";
 import {
   StockChartComponent,
   StockChartSeriesCollectionDirective,
   StockChartSeriesDirective,
   DateTime,
+  DateTimeCategory,
   CandleSeries,
   Tooltip,
   Crosshair,
@@ -92,11 +93,11 @@ export default {
   },
   data: function() {
     return {
-      seriesData: chartData,
+      seriesData: defaultData,
       theme: theme,
       //Initializing Primary X Axis
       primaryXAxis: {
-        valueType: "DateTime",
+        valueType: "DateTimeCategory",
         majorGridLines: { color: "transparent" },
         crosshairTooltip: { enable: true },
       },
@@ -123,6 +124,7 @@ export default {
   provide: {
     stockChart: [
       DateTime,
+      DateTimeCategory,
       Tooltip,
       Crosshair,
       RangeTooltip,

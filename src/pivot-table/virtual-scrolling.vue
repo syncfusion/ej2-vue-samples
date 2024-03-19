@@ -9,7 +9,7 @@
         <span id="performanceTime">Time Taken: 0 sec</span>
     </div>
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :enableVirtualization="enableVirtualization" :gridSettings="gridSettings" :dataBound="dataBound" :width="width" :height="height">        
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :enableVirtualization="enableVirtualization" :gridSettings="gridSettings" :dataBound="dataBound" :width="width" :height="height" :virtualScrollSettings="virtualScrollSettings">        
         </ejs-pivotview>
     </div>
 </div>
@@ -18,21 +18,30 @@
     <p>This sample demonstrates the virtual scrolling option available for vertically and horizontally loading records and showing a large number of records with ease.</p>
 </div>
 <div id="description">
-    <p>The pivot table provides an optimized way to render rows and columns inside the view-port alone without calculating the value of the entire pivot.
-        To enable virtual scrolling, set <code> enableVirtualization</code> property to true.
+    <p>The pivot table provides an optimized way to render rows and columns inside the view-port alone without
+        calculating the value of the entire pivot. To enable virtual scrolling, set <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/api/pivotview/#enablevirtualization">
+            enableVirtualization</a> property to <b>true</b>.
     </p>
     <p>
-        <strong>NOTE:</strong> The <code> height</code> and <code> width</code> properties must be defined when enabling virtual
-        scrolling option.
+        In this sample, the <code>allowSinglePage</code> property is enabled by default, allowing
+        only the current page data to be displayed in the pivot table view. Previously, we were showing both the previous and
+        next pages along with the current page. The recent change has been introduced to enhance performance.
     </p>
-    <br />
     <p>
         <strong>Injecting Module:</strong>
     </p>
     <p>
-        The pivot table features are segregated into individual modules. To use the virtual scrolling option, inject
+        The pivot table features are segregated into individual modules. To use the virtual scrolling option, we
+        need to inject the
         <code> VirtualScroll</code> module using the
-        <code>provide</code> section.
+        <code> provide</code> section.
+    </p>
+    <br />
+    <p>
+        More information on the virtual scrolling can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/virtual-scrolling">
+            documentation section</a>.
     </p>
 </div>
 </div>
@@ -115,7 +124,7 @@ function data(count: number) {
       Price: Math.round(Math.random() * 5000) + 5000,
       Sold: Math.round(Math.random() * 80) + 10
     });
-    if (dt / 4 == 1) {
+    if (dt / 2 == 1) {
         dt = 0;
     }
   }
@@ -170,10 +179,11 @@ export default {
           { name: "Sold", caption: "Unit Sold" }
         ]
       },
-      width: Browser.isDevice ? '100%' : 860,
+      width: Browser.isDevice ? '100%' : 1200,
       height: 300,
       enableVirtualization: true,
-      gridSettings: { columnWidth: 140 }
+      gridSettings: { columnWidth: 140 },
+      virtualScrollSettings: { allowSinglePage: true },
     };
   },
   provide: {

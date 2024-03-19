@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-<div class="e-diagram-toolbar">
+<div>
     <ejs-toolbar id='toolbar' style="width:100%;height: 10%;margin-top: 10px;"
                 :clicked='toolbarclicked'
                 :items='toolbaritems'>
@@ -62,8 +62,8 @@
     display: none;
   }
 </style>
-<style>
-
+<style scoped>
+/*To align the palette */
 .sb-mobile-palette {
         width:240px;
         height:100%;
@@ -73,7 +73,7 @@
     .sb-mobile-palette-bar {
         display: none;
     }
-    
+    /*To align the diagram */
     .sb-mobile-diagram {
         width:calc(100% - 242px);
         height: 100%;
@@ -120,14 +120,10 @@
             .e-export::before {
                     content: "\e711";
             }
-            .material .e-export::before {
-                    content: "\e706";
-            }
-            .bootstrap .e-export::before {
-                    content: "\e71e";
-            }
 
-            .e-diagram-save::before {
+</style>
+<style>
+.e-diagram-save::before {
   content: "\e710";
 }
 .material .e-diagram-save::before {
@@ -155,9 +151,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-            
 </style>
-
 
 <script>
 import {
@@ -166,7 +160,6 @@ import {
   UndoRedo,
   SymbolPaletteComponent,
   DiagramContextMenu,
-  GridlinesModel
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 Diagram.Inject(UndoRedo, DiagramContextMenu);

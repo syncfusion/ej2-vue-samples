@@ -80,7 +80,8 @@ export default {
                 labelFormat: 'n0',
                 lineStyle: { width: 0 },
                 majorTickLines: { width: 0 },
-                rangePadding: "None"
+                minimum: 40,
+                maximum: 140,
             },
             chartArea: {
                 border: {

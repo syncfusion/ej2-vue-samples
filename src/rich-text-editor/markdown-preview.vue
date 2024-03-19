@@ -3,7 +3,7 @@
          <div class="control-section markdown-preview">
         <div class="sample-container">
           <div class="default-section">
-            <ejs-splitter ref="splitterObj" id="splitter" width="100%" height="450px" :resizing="onRefreshUI" :created="updateOrientation">
+            <ejs-splitter ref="splitterObj" id="splitter-rte-markdown-preview" width="100%" height="450px" :resizing="onRefreshUI" :created="updateOrientation">
             <e-panes>
               <e-pane size="50%" :resizable="true" :content="'pane1Content'" min="40%">
                 <template v-slot:pane1Content>
@@ -72,7 +72,7 @@
 
 <script>
   import { Browser, addClass, removeClass, isNullOrUndefined } from "@syncfusion/ej2-base";
-  import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table, QuickToolbar, Count } from "@syncfusion/ej2-vue-richtexteditor";
+  import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table, Count } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-vue-base';
   import { SplitterComponent, PanesDirective, PaneDirective ,SplitterPlugin} from "@syncfusion/ej2-vue-layouts";
 
@@ -130,7 +130,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
       }
     },
     provide: {
-      richtexteditor: [Toolbar, Link, Image, Count, QuickToolbar, Table, MarkdownEditor],
+      richtexteditor: [Toolbar, Link, Image, Count, Table, MarkdownEditor],
     }
   }
 </script>

@@ -200,8 +200,10 @@
 </style>
 <script>
 import Vue from 'vue';
-import { MapsComponent, LayersDirective, LayerDirective, Zoom, MapAjax} from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom} from '@syncfusion/ej2-vue-maps';
 import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
+import { worldMap } from '../maps/map-data/world-map';
+import { zoomData } from '../maps/map-data/zooming-datasource';
 
 export default {
     components: {
@@ -217,7 +219,7 @@ export default {
             toolbars: ['Zoom', 'ZoomIn', 'ZoomOut', 'Pan', 'Reset'],
             pinchZooming: true
         },
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
         animationDuration: 500,
@@ -225,7 +227,7 @@ export default {
                     autofill: true,
                     colorValuePath: 'color'
         },
-        dataSource: new MapAjax('./src/maps/map-data/zooming-datasource.json'),
+        dataSource: zoomData,
         value: 500,
         step: 250
       }

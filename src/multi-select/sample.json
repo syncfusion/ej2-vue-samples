@@ -2,6 +2,7 @@
     "name": "MultiSelect Dropdown",
     "directory": "multi-select",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -23,12 +24,34 @@
             ]
         },
         {
+            "url": "object-value-binding",
+            "name": "Object Value Binding",
+            "category": "MultiSelect Dropdown",
+            "type": "new",
+            "description": "This example demonstrates how to bind with data source in the Vue multiselect component.",
+            "sourceFiles":[
+                { "displayName": "object-value-binding.vue", "path":"src/multi-select/object-value-binding.vue" },
+                { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
+            ]
+        },
+        {
             "url": "grouping-icon",
             "name": "Grouping",
             "category": "MultiSelect Dropdown",
             "description": "This example demonstrates how to group based on the different categories with individual header and icon support using the Vue multiselect component.",
             "sourceFiles":[
                 { "displayName": "grouping-icon.vue", "path":"src/multi-select/grouping-icon.vue" },
+                { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "virtual-scroll",
+            "name": "Virtualization",
+            "category": "MultiSelect Dropdown",
+            "type": "new",
+            "description": "This example demonstrates how to utilize the virtual scrolling support of Vue multiselect component.",
+            "sourceFiles":[
+                { "displayName": "virtual-scroll.vue", "path":"src/multi-select/virtual-scroll.vue" },
                 { "displayName": "dataSource.json", "path":"src/multi-select/dataSource.json" } 
             ]
         },

@@ -1,0 +1,30 @@
+{
+    "name": "Timeline",
+    "directory": "timeline",
+    "category": "Layout",
+    "type": "preview",
+    "ftName": "timeline",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Timeline",
+            "api": { "Timeline": ["items", "iconCss", "content"] },
+            "description": "This sample demonstrates the basic features of the Timeline Control, including item configuration."
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Timeline",
+            "api": { "Timeline": ["items", "align", "orientation", "reverse"] },
+            "description": "This sample illustrates the different API's available in the Timeline Control such as Orientation, Alignment, etc."
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "Timeline",
+            "api": { "Timeline": ["items", "iconCss", "content", "cssClass", "template"] },
+            "description": "This sample showcases how to customize the timeline using the template feature of the Timeline Control."
+        }
+    ]
+}

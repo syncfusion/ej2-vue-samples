@@ -38,7 +38,6 @@ import {
   HtmlModel
 } from "@syncfusion/ej2-vue-diagrams";
 import NodeTemplate from "./complex-template.vue";
-import { startDate1,endDate1,expenseData, MyWindow } from "./diagram-data";
 
 let diagramInstance;
 let shape = { type: 'HTML' };

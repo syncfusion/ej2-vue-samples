@@ -30,7 +30,7 @@
     <p>The Rich Text Editor provides an option to display toolbar on demand using mode property. Set mode as inline to enable
         inline editor. The toolbar becomes visible only when the content is selected</p>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -42,7 +42,7 @@
 </style>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
@@ -72,7 +72,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

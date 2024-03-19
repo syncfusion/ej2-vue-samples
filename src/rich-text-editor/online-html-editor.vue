@@ -2,7 +2,7 @@
   <div class="control-section online-editor">
     <div class="sample-container">
       <div class="rte-online-sample-view">
-        <ejs-splitter ref="splitterObj" id="splitter" width="100%" height="450px" :resizing="onRefreshUI" :created="updateOrientation">
+        <ejs-splitter ref="splitterObj" id="splitter-rte-online-html-editor" width="100%" height="450px" :resizing="onRefreshUI" :created="updateOrientation">
           <e-panes>
             <e-pane size="50%" :resizable="true" :content="'pane1Content'" min="40%">
               <template v-slot:pane1Content>
@@ -158,7 +158,7 @@
 
 .online-editor .e-splitter.e-splitter-horizontal .e-pane.e-pane-horizontal,
 .online-editor .e-splitter.e-splitter-vertical .e-pane.e-pane-horizontal {
-  overflow: unset;
+  overflow: hidden;
 }
 .online-editor .CodeMirror-sizer {
   margin-right: 10px;
@@ -212,7 +212,7 @@
 
 <script>
 import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej2-vue-layouts";
-import { RichTextEditorComponent, Toolbar, Link, Image, Table, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Table, Count, HtmlEditor, QuickToolbar, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter } from "@syncfusion/ej2-vue-richtexteditor";
 import { Browser } from "@syncfusion/ej2-base";
 
 export default {
@@ -223,7 +223,7 @@ export default {
     "e-pane": PaneDirective,
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table],
+    richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter],
   },
   data: function () {
     return {

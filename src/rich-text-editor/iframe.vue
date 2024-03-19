@@ -30,7 +30,7 @@
    <p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor that is used to create and edit content, and return valid HTML markup. The editor provides a standard toolbar to format content using its commands. The toolbar contains commands to align the text, insert link, insert image, 
        insert list, undo/redo the operation, HTML view, and more.</P>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -47,7 +47,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager,Audio, video, FormatPainter, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
@@ -119,7 +119,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, video, EmojiPicker]
+        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, Video, EmojiPicker, PasteCleanup]
     }
 }
 </script>

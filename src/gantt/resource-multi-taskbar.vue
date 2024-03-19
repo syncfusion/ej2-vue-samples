@@ -23,6 +23,7 @@
             :allowSelection= "true"
             :allowResizing= "true"
             :resourceFields= "resourceFields"
+            :taskType= "taskType"
             :editSettings= "editSettings"
             :toolbar= "toolbar"
             :height= "height"
@@ -98,6 +99,7 @@ export default {
                 expandState: 'isExpand',
                 child: 'subtasks'
             },
+            taskType: "FixedWork",
             resourceFields: {
                 id: 'resourceId',
                 name: 'resourceName',

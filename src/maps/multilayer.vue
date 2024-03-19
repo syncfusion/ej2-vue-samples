@@ -79,7 +79,10 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, DataLabel, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, DataLabel, Zoom } from '@syncfusion/ej2-vue-maps';
+import { usa } from '../maps/map-data/usa';
+import { texas } from '../maps/map-data/texas';
+import { california } from '../maps/map-data/california';
 
 export default {
   components: {
@@ -102,7 +105,7 @@ export default {
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData1: new MapAjax('./src/maps/map-data/usa.json'),
+        shapeData1: usa,
         shapeSettings1: {
                     fill: '#E5E5E5',
                     border: {
@@ -119,7 +122,7 @@ export default {
                         color: 'black'
                     }
         },
-        shapeData2: new MapAjax('./src/maps/map-data/texas.json'),
+        shapeData2: texas,
         type2: 'SubLayer',
         shapeSettings2: {
                     fill: 'rgba(141, 206, 255, 0.6)',
@@ -138,7 +141,7 @@ export default {
             }
         },
         texasTextDataSource: [{ latitude: 31.80289258670676, longitude: -98.96484375 }],
-        shapeData3: new MapAjax('./src/maps/map-data/california.json'),
+        shapeData3: california,
         type3: 'SubLayer',
         shapeSettings3: {
                     fill: 'rgba(141, 206, 255, 0.6)',

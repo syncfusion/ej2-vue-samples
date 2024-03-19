@@ -30,7 +30,7 @@
 </div>
 </template>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
@@ -45,7 +45,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

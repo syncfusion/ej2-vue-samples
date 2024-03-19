@@ -28,7 +28,7 @@
         </e-bullet-range-collection>
       </ejs-bulletchart>
     </div>
-
+ 
     <div id="action-description">
       <p>This sample illustrates a bullet chart with legend. Legend is used to know what the colors and shapes represent in bullet chart.</p>
     </div>

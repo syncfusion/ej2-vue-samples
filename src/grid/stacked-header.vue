@@ -5,7 +5,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true' :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign="Center" minWidth='10'></e-column>
                 <e-column headerText='Order Details' :columns='orderColumns'></e-column>
@@ -41,7 +41,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Page, Resize } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Resize, Sort } from '@syncfusion/ej2-vue-grids';
 import { orderDetails } from './data-source';
 
 export default {
@@ -60,7 +60,7 @@ export default {
                 format: 'yMd',
                 width: 130,
                 textAlign: 'Right',
-                minWidth: 10
+                minWidth: 10,
             },
             {
                 field: 'Freight',
@@ -68,7 +68,7 @@ export default {
                 width: 120,
                 format: 'C1',
                 textAlign: 'Right',
-                minWidth: 10
+                minWidth: 10,
             }
         ],
         shipColumns: [
@@ -78,19 +78,19 @@ export default {
                 format: 'yMd',
                 textAlign: 'Right',
                 width: 150,
-                minWidth: 10
+                minWidth: 10,
             },
             {
                 field: 'ShipCountry',
                 headerText: 'Ship Country',
                 width: 150,
-                minWidth: 10
+                minWidth: 10,
             }
         ]
         }
   },
   provide: {
-      grid: [Page, Resize]
+      grid: [Page, Resize, Sort]
   }
 }
 </script>

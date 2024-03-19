@@ -72,7 +72,6 @@
          "url": "virtual-scroll",
          "name": "Virtual Scrolling",
          "category": "Gantt",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -88,6 +87,40 @@
             ]
          },
          "description": "This example illustrates binding large data and smooth scrolling with large data using the Virtual Scroll feature in the Syncfusion Gantt chart."
+      },
+      {
+         "url": "undo-redo",
+         "name": "Undo Redo",
+         "category": "Gantt",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "highlightWeekends",
+               "allowRowDragAndDrop",
+               "splitterSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "selectionSettings",
+               "allowSorting",
+               "allowFiltering",
+               "undoRedoActions",
+               "enableContextMenu",
+               "enableUndoRedo",
+               "editSettings",
+               "toolbar",
+               "allowSelection",
+               "timelineSettings",
+               "allowReordering",
+               "allowResizing"
+            ]
+         },
+         "description": "This sample demonstrates the users with the ability to reverse or redo their recent actions within the Gantt Chart."
       },
       {
          "url": "loading-animation",
@@ -393,6 +426,7 @@
          "url": "timeline",
          "name": "Timeline API",
          "category": "Timeline",
+	 "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -821,7 +855,6 @@
       {
          "url": "exporting",
          "name": "Exporting",
-         "type": "update",
          "category": "Miscellaneous",
          "api": {
             "Gantt": [
@@ -877,7 +910,6 @@
          "url": "drag-and-drop",
          "name": "Row Drag and Drop",
          "category": "Miscellaneous",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",

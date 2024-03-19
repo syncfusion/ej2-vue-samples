@@ -132,8 +132,10 @@ export default {
                 change:function () {
                     setTimeout(
                         function(){
-                            value = listObj.value.toString();
-                            treeGridObj.refresh();
+                            if (listObj.value != null) {
+                                value = listObj.value.toString();
+                                treeGridObj.refresh();
+                            }
                         },
                         300
                     );

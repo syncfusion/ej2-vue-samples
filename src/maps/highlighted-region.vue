@@ -34,9 +34,10 @@
 </template>
 
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Marker, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, Zoom, MapsTooltip } from '@syncfusion/ej2-vue-maps';
 import { highlight, highlight1 } from '../maps/map-data/highlighted';
-import Template from './earthquake-temp.vue';
+import Template from '../maps/earthquake-temp.vue';
+import { oklahoma } from '../maps/map-data/oklahoma';
 
 export default {
     components: {
@@ -57,7 +58,7 @@ export default {
                 zoomFactor: 1.75
             },
             animationDuration: 1000,
-            shapeData: new MapAjax('./src/maps/map-data/oklahoma.json'),
+            shapeData: oklahoma,
             shapeSettings: {
                 fill: '#F5F5F5',
                 border: {

@@ -131,6 +131,7 @@
 .property-section .e-remove-selection {
   cursor: not-allowed;
 }
+
 /* To disable pointer events when there is no selection in diagram */
 .e-remove-selection .property-section-content {
   pointer-events: none;

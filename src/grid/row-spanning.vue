@@ -1,13 +1,13 @@
 <template>
 <div class="col-lg-12 control-section">
 <div id="action-description">
-    <p>This sample demonstrates the Grid component with the row spanning feature. In this sample, we have spanned row cells together.
+    <p>This sample demonstrates the Grid component with the row spanning feature. In this sample, you will see multiple rows spanning.
     </p>
 </div>
     <div>
-        <ejs-grid :dataSource="data" height='auto' width='auto' gridLines='Both' :allowSelection= 'false' :allowTextWrap='true' :queryCellInfo='queryCellInfoEvent'>
+        <ejs-grid :dataSource="data" height='auto' width='auto' gridLines='Both' :enableHover='false' :allowSelection= 'false' :allowTextWrap='true' :queryCellInfo='queryCellInfoEvent'>
             <e-columns>
-                <e-column field='EmployeeID' headerText='Employee ID' width='150' textAlign='Right' isPrimaryKey={true}></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='150' textAlign='Right' freeze='Left' isPrimaryKey={true}></e-column>
                 <e-column field='EmployeeName' headerText='Employee Name' width='200'></e-column>
                 <e-column field='9:00' headerText='9:00 AM' width='120'></e-column>
                 <e-column field='9:30' headerText='9:30 AM' width='120'></e-column>
@@ -30,19 +30,22 @@
         </ejs-grid>
     </div>
 
-<div id="description">
+    <div id="description">
     <p>
-        Grid allows to span the row cells. In <a href='https://ej2.syncfusion.com/vue/documentation/api/grid/queryCellInfoEventArgs/'><code>QueryCellInfo</code></a>
-        event, you can define the <code>rowSpan</code> attributes to span the cells.
+        This feature enables you to span multiple adjacent cells. Use the <code>rowSpan</code> attribute to define how many cells are to be spanned in the <a href='https://ej2.syncfusion.com/vue/documentation/api/grid/queryCellInfoEventArgs/'><code>QueryCellInfo</code></a> event. 
+        Additionally, you can freeze columns at specific positions by setting the freeze property to left, right, center and fixed in the column definition.
     </p>
     <p>
-        In this demo, Davolio cell is spanned to two rows in the EmployeeName column.
+        In this demo, you can see that the <b>Davolio</b> cell is spanned to two rows in the employee named column. Similarly, the <b>Lunch Break</b> cell is spanned to ten rows and three columns in the 1:00 column. 
+        Also, the <b>Employee ID</b> column is frozen to the left.
+    </p>
+    <p style="font-weight: 500">Injecting Module:</p>
+    <p>
+        Grid features are separated into feature-wise modules. 
+        To use the frozen rows and columns feature, we need to inject the <code>Freeze</code> module into the <code>provide</code> section.
     </p>
     <p>
-       Also Grid supports the spanning of rows and columns for same cells. Lunch Break cell is spanned to ten rows and three columns in the 1:00 column.
-    </p>   
-    <p>
-        More information on the row drag and drop can be found in this
+        More information on the row spanning can be found in this
         <a target="_blank" 
         href="https://ej2.syncfusion.com/vue/documentation/grid/row/row-spanning">
         documentation section</a>.
@@ -52,7 +55,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, QueryCellInfoEventArgs } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, QueryCellInfoEventArgs, Freeze } from '@syncfusion/ej2-vue-grids';
 import { columnSpanData, ColumnSpanDataType  } from './data-source';
 
 export default {
@@ -176,6 +179,9 @@ export default {
                 break;
             }
     }
+    },
+    provide: {
+      grid: [Freeze]
     }
   }
 </script>

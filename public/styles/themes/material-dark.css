@@ -7,14 +7,6 @@
     border-color: rgba(255, 255, 255, 0.18);
 }
 
-.material-dark .e-samplestatus.new,
-.material-dark .e-samplestatus.update,
-.material-dark .e-samplestatus.preview {
-    margin: 1px 0;
-    height: 22px;
-    margin-top: 2px;
-}
-
 /* material dark */
 .material-dark .sb-content,
 .material-dark textarea#ruleContent {
@@ -236,13 +228,6 @@ body.material-dark,
 
 .material-dark .sb-theme-select {
     color: rgb(56, 56, 56);
-}
-
-.material-dark .e-samplestatus.new,
-.material-dark .e-samplestatus.update,
-.material-dark .e-samplestatus.preview {
-    margin: 2px 0;
-    height: 22px;
 }
 
 .material-dark .e-samplestatus.new.tree,

@@ -2,33 +2,60 @@
     "name": "Ribbon",
     "directory": "ribbon",
     "category": "Navigation",
-    "type":"preview",
     "ftName": "ribbon",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
             "category": "Ribbon",
+            "api":{ "Ribbon":["tabs", "fileMenu"] },
             "description": "This sample demonstrates the default functionalities of the Syncfusion Vue Ribbon component."
         },
         {
             "url": "simplified",
             "name": "Simplified Mode",
             "category": "Ribbon",
+            "api":{ "Ribbon":["tabs", "fileMenu", "activeLayout"] },
             "description": "This sample demonstrates the simplified mode functionality of the Syncfusion Vue Ribbon component."
+        },
+        {
+            "url": "backstage",
+            "name": "Backstage",
+            "category": "Ribbon",
+            "api":{ "Ribbon":["tabs", "backStageMenu"] },
+            "description": "This sample demonstrates the backstage functionality of the Syncfusion JavaScript(ES5) Ribbon component."
+        },
+        {
+            "url": "contextual-tab",
+            "name": "Contextual Tabs",
+            "category": "Ribbon",
+            "type": "new",
+            "api":{ "Ribbon":["tabs", "fileMenu", "contextualTabs"] },
+            "description": "This sample demonstrates the contextual tab functionality of the Syncfusion JavaScript (ES5) Ribbon component."
         },
         {
             "url": "resize",
             "name": "Ribbon Resizing",
             "category": "Ribbon",
-            "type": "update",
+            "api":{ "Ribbon":["tabs", "fileMenu"] },
             "description": "This sample demonstrates the resizing functionality of the Syncfusion Vue Ribbon component."
         },
         {
-            "url": "backstage",
-            "name": "Ribbon Backstage",
+            "url": "keytip",
+            "name": "Ribbon KeyTips",
             "category": "Ribbon",
-            "description": "This sample demonstrates the backstage functionality of the Syncfusion JavaScript(ES5) Ribbon component."
+            "type": "new",
+            "api":{ "Ribbon":["tabs", "backStageMenu", "enableKeyTips", "layoutSwitcherKeyTip", "created"] },
+            "description": "This sample demonstrates the keytip functionality of the Syncfusion Vue Ribbon component."
+        },
+        {
+            "url": "gallery",
+            "name": "Ribbon Gallery",
+            "category": "Ribbon",
+            "type": "new",
+            "api":{ "Ribbon":["tabs", "fileMenu", "cssClass"] },
+            "description": "This sample demonstrates the Gallery Support provided in the Syncfusion JavaScript(ES5) Ribbon component."
         }
     ]
 }

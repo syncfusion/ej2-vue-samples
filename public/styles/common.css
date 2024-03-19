@@ -342,7 +342,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .sb-download-text {
-    color: #FFFFFF;
+    color: #111111;
 }
 
 .sb-download-wrapper {
@@ -762,7 +762,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 
 .sb-badge {
     border-radius: 2px;
-    font-size: 10px;
+    font-size: 11px;
     color: #ffffff;
     padding: 6px 8px;
     float: right;
@@ -776,15 +776,15 @@ span.e-input-group.e-control-wrapper.e-ddl {
 
 .e-samplestatus.new,
 .e-samplestatus.New {
-    background-color: #29bc4f;
+    background-color: #1d8739;
 }
 
 .e-samplestatus.update,
 .e-samplestatus.Update {
     background-color: #fff;
     /* height: 23px !important; */
-    border: 1px solid #29bc4f !important;
-    color: #29bc4f !important;
+    border: 1px solid #1d8739 !important;
+    color: #1d8739 !important;
 }
 
 .e-samplestatus.preview,
@@ -1094,7 +1094,7 @@ a.code:visited {
     padding-right: 8px;
     cursor: default;
     display: table-cell;
-    color: #898989;
+    color: #757575;
 }
 
 .sb-bread-crumb-text {
@@ -1950,7 +1950,7 @@ aside#left-sidebar {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.banner-img {
+.ad-img {
     background: url(images/bg.jpg);
     background-size: cover;
     border-radius: 6px;
@@ -1961,7 +1961,7 @@ aside#left-sidebar {
     font-family: "Open Sans";
 }
 
-.banner-header {
+.ad-header {
     font-weight: 600;
     font-size: 23px;
     color: #FFFFFF;
@@ -1999,7 +1999,7 @@ aside#left-sidebar {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.50);
 }
 
-.banner-wrapper {
+.ad-wrapper {
     width: 100%;
     padding: 15px 0 15px 0;
 }
@@ -2009,7 +2009,7 @@ aside#left-sidebar {
     margin-top: 22px;
 }
 
-.banner-cnt-pt {
+.ad-cnt-pt {
     display: table-cell;
 }
 
@@ -2020,14 +2020,14 @@ aside#left-sidebar {
     float: left;
 }
 
-.banner-cnt-icon {
+.ad-cnt-icon {
     padding: 3px;
     position: relative;
     top: 5px;
     color: #F8E71C;
 }
 
-.banner-cnt-text {
+.ad-cnt-text {
     padding-left: 6px;
     padding-right: 10px;
     padding-top: 9px;
@@ -2040,11 +2040,11 @@ aside#left-sidebar {
 }
 
 @media only screen and (min-width: 1350px) and (max-width: 1450px) {
-    .banner-img {
+    .ad-img {
         height: 179px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2063,7 +2063,7 @@ aside#left-sidebar {
         margin-top: 32px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         padding-left: 2px;
         padding-right: 14px;
         padding-top: 9px;
@@ -2074,11 +2074,11 @@ aside#left-sidebar {
 
 
 @media only screen and (min-width: 1250px) and (max-width: 1349px) {
-    .banner-img {
+    .ad-img {
         height: 179px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2097,7 +2097,7 @@ aside#left-sidebar {
         margin-top: 32px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         padding-left: 2px;
         padding-right: 14px;
         padding-top: 9px;
@@ -2107,11 +2107,11 @@ aside#left-sidebar {
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1249px) {
-    .banner-img {
+    .ad-img {
         height: 192px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2130,7 +2130,7 @@ aside#left-sidebar {
         margin-top: 47px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         padding-left: 2px;
         padding-right: 14px;
         padding-top: 9px;
@@ -2140,11 +2140,11 @@ aside#left-sidebar {
 }
 
 @media only screen and (min-width: 1150px) and (max-width: 1200px) {
-    .banner-img {
+    .ad-img {
         height: 210px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -13px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2163,7 +2163,7 @@ aside#left-sidebar {
         margin-top: 52px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         padding-left: 2px;
         padding-right: 14px;
         padding-top: 9px;
@@ -2174,11 +2174,11 @@ aside#left-sidebar {
 }
 
 @media only screen and (min-width: 1050px) and (max-width: 1149px) {
-    .banner-img {
+    .ad-img {
         height: 218px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2197,17 +2197,17 @@ aside#left-sidebar {
         margin-top: 48px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         max-width: 190px;
     }
 }
 
 @media only screen and (min-width: 950px) and (max-width: 1049px) {
-    .banner-img {
+    .ad-img {
         height: 230px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2226,7 +2226,7 @@ aside#left-sidebar {
         margin-top: 63px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         max-width: 194px;
         padding-left: 0px;
         padding-right: 4px;
@@ -2236,11 +2236,11 @@ aside#left-sidebar {
 }
 
 @media only screen and (min-width: 850px) and (max-width: 949px) {
-    .banner-img {
+    .ad-img {
         height: 256px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(106% - 30px);
@@ -2259,7 +2259,7 @@ aside#left-sidebar {
         margin-top: 61px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         max-width: 146px;
         font-size: 13px;
         padding-left: 0px;
@@ -2270,11 +2270,11 @@ aside#left-sidebar {
 }
 
 @media only screen and (min-width: 750px) and (max-width: 849px) {
-    .banner-img {
+    .ad-img {
         height: 236px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2293,17 +2293,17 @@ aside#left-sidebar {
         margin-top: 61px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         max-width: 217px;
     }
 }
 
 @media only screen and (min-width: 650px) and (max-width: 749px) {
-    .banner-img {
+    .ad-img {
         height: 236px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2322,17 +2322,17 @@ aside#left-sidebar {
         margin-top: 61px;
     }
 
-    .banner-cnt-text {
+    .ad-cnt-text {
         max-width: 217px;
     }
 }
 
 @media only screen and (min-width: 550px) and (max-width: 649px) {
-    .banner-img {
+    .ad-img {
         height: 261px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2352,17 +2352,17 @@ aside#left-sidebar {
         margin-top: 61px;
     }
 
-    .banner-cnt-pt {
+    .ad-cnt-pt {
         display: flex;
     }
 }
 
 @media only screen and (min-width: 450px) and (max-width: 549px) {
-    .banner-img {
+    .ad-img {
         height: 261px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(100% - 30px);
@@ -2382,17 +2382,17 @@ aside#left-sidebar {
         margin-top: 61px;
     }
 
-    .banner-cnt-pt {
+    .ad-cnt-pt {
         display: flex;
     }
 }
 
 @media only screen and (min-width: 350px) and (max-width: 449px) {
-    .banner-img {
+    .ad-img {
         height: 330px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(101% - 30px);
@@ -2412,17 +2412,17 @@ aside#left-sidebar {
         margin-top: 97px;
     }
 
-    .banner-cnt-pt {
+    .ad-cnt-pt {
         display: flex;
     }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 349px) {
-    .banner-img {
+    .ad-img {
         height: 313px;
     }
 
-    .banner-header {
+    .ad-header {
         margin-top: -4px;
         text-align: center;
         width: calc(103% - 30px);
@@ -2443,7 +2443,7 @@ aside#left-sidebar {
         margin-top: 90px;
     }
 
-    .banner-cnt-pt {
+    .ad-cnt-pt {
         display: flex;
     }
 }

@@ -141,8 +141,10 @@ margin-top: -10px;
 </style>
 
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Selection, Highlight, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Selection, Highlight, Legend } from '@syncfusion/ej2-vue-maps';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
+import { usa } from '../maps/map-data/usa';
+import { selectionData } from '../maps/map-data/selection-datasource';
 
 export default {
   components: {
@@ -173,10 +175,10 @@ export default {
         zoomSettings: {
             enable: false
         },
-        shapeData: new MapAjax('./src/maps/map-data/usa.json'),
+        shapeData: usa,
         shapePropertyPath: 'name',
         shapeDataPath: 'State',
-        dataSource: new MapAjax('./src/maps/map-data/selection-datasource.json'),
+        dataSource: selectionData,
         tooltipSettings: {
                     visible: true,
                     valuePath: 'State',

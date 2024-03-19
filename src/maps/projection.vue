@@ -59,8 +59,10 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Legend, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, Zoom, MapsTooltip } from '@syncfusion/ej2-vue-maps';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { worldMap } from '../maps/map-data/world-map';
+import { projectionData } from '../maps/map-data/projection-datasource';
 
 export default {
 components: {
@@ -94,10 +96,10 @@ data:function(){
         zoomSettings: {
             enable: false
         },
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeDataPath: 'Country',
         shapePropertyPath: 'name',
-        dataSource: new MapAjax('./src/maps/map-data/projection-datasource.json'),
+        dataSource: projectionData,
         tooltipSettings: {
                 visible: true,
                 valuePath: 'Country',

@@ -94,8 +94,16 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Highlight, MapsTooltip, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Highlight, MapsTooltip, Marker } from '@syncfusion/ej2-vue-maps';
 import { MouseEventArgs } from '@syncfusion/ej2-base';
+import { worldMap } from '../maps/map-data/world-map';
+import { africa } from '../maps/map-data/africa';
+import { europe } from '../maps/map-data/europe';
+import { asia } from '../maps/map-data/asia';
+import { northAmerica } from '../maps/map-data/north-america';
+import { southAmerica } from '../maps/map-data/south-america';
+import { oceania } from '../maps/map-data/oceania';
+import { defaultData } from '../maps/map-data/default-datasource';
 
 let touchmove = false;
 export default {
@@ -114,8 +122,8 @@ data:function(){
         layerType: 'Geometry',
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
-        dataSource: new MapAjax('./src/maps/map-data/default-datasource.json'),
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        dataSource: defaultData,
+        shapeData: worldMap,
         shapeSettings: {
                     colorValuePath: 'drillColor'
         },
@@ -133,7 +141,7 @@ data:function(){
         northAmericaTextDataSource: [{ latitude: 59.88893689676585, longitude: -109.3359375 }],
         southAmericaTextDataSource: [{ latitude: -6.64607562172573, longitude: -55.54687499999999 }],
             layerType1: 'Geometry',
-            shapeData1: new MapAjax('./src/maps/map-data/africa.json'),
+            shapeData1: africa,
             shapeSettings1: {
                     fill: '#80306A'
             },
@@ -146,7 +154,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType2: 'Geometry',
-            shapeData2: new MapAjax('./src/maps/map-data/europe.json'),
+            shapeData2: europe,
             shapeSettings2: {
                     fill: '#622D6C'
             },
@@ -159,7 +167,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType3: 'Geometry',
-            shapeData3: new MapAjax('./src/maps/map-data/asia.json'),
+            shapeData3: asia,
             shapeSettings3: {
                     fill: '#462A6D'
             },
@@ -172,7 +180,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType4: 'Geometry',
-            shapeData4: new MapAjax('./src/maps/map-data/north-america.json'),
+            shapeData4: northAmerica,
             shapeSettings4: {
                     fill: '#C13664'
             },
@@ -185,7 +193,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType5: 'Geometry',
-            shapeData5: new MapAjax('./src/maps/map-data/south-america.json'),
+            shapeData5: southAmerica,
             shapeSettings5: {
                     fill: '#9C3367'
             },
@@ -198,7 +206,7 @@ data:function(){
                     valuePath: 'name'
             },
             layerType6: 'Geometry',
-            shapeData6: new MapAjax('./src/maps/map-data/oceania.json'),
+            shapeData6: oceania,
             shapeSettings6: {
                     fill: '#2A2870'
                 },

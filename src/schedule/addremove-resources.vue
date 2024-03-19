@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="col-lg-3 property-section">
-            <div id="property" class="property-panel-table" title="Show / Hide Resource">
+            <div id="property" class="property-panel-table schedule-add-remove-resources" title="Show / Hide Resource">
                 <table id="property" title="Show / Hide Resource" style="width: 100%">
                     <tbody>
                         <tr style="height: 50px">
@@ -67,33 +67,33 @@
 </template>
 
 <style>
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.personal .e-label {
-        color: #808080;
+    .property-panel-content .e-checkbox-wrapper.personal .e-label {
+        color: #808080 !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.personal .e-frame {
-        background-color: #c43081;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.personal .e-frame {
+        background-color: #c43081 !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.company .e-frame {
-        background-color: #ff7f50;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.company .e-frame {
+        background-color: #ff7f50 !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.birthday .e-frame {
-        background-color: #AF27CD;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.birthday .e-frame {
+        background-color: #AF27CD !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.holiday .e-frame {
-        background-color: #808000;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.holiday .e-frame {
+        background-color: #808000 !important;
+        border-color: transparent !important;
     }
 
-    .highcontrast .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
-    .bootstrap .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check,
-    .material3-dark .schedule-vue-sample .property-panel-content .e-checkbox-wrapper .e-frame.e-check {
+    .highcontrast .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check,
+    .bootstrap .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check,
+    .material3-dark .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
     }
 

@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-    <div class="col-lg-12 control-section e-diagram-toolbar">
+    <div class="col-lg-12 control-section">
         <ejs-toolbar id="toobar" ref="toolbar_diagram" :clicked='onItemClick'>
           <e-items>
             <e-item prefixIcon='e-cut e-icons' tooltipText='Cut' disabled=false></e-item>
@@ -53,6 +53,7 @@
 </div>
 </template>
 <style>
+
 /* These styles are used for property panel icons*/
         @font-face {
     font-family: 'Bootstrap5 Diagram Builder';
@@ -162,14 +163,11 @@
                 content: "\e724";
             }
         
-            .e-connector::before {
-                content: "\e725";
-            }
+           
 </style>
 
 <script>
 import {
-  OverviewComponent,
   Diagram,
   DiagramComponent,
   NodeConstraints,

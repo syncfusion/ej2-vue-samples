@@ -11,7 +11,7 @@
             <ejs-dropdownlist id='ddlelement' :dataSource='ddldata' placeholder='Select category to filter' :change="onChange"></ejs-dropdownlist>
         </div>
 
-        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowFiltering='true' :pageSettings="pageOptions">
+        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowSorting='true' :allowFiltering='true' :pageSettings="pageOptions">
             <e-columns>
                 <e-column field='CategoryName' headerText='Category Name' width='150'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='150'></e-column>
@@ -86,7 +86,7 @@
 @import "../../styles/Grid/filtering.css";
 </style>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Filter, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Filter, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { DropDownListComponent, ChangeEventArgs} from "@syncfusion/ej2-vue-dropdowns";
 import { categoryData } from "./data-source";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
@@ -125,7 +125,7 @@ export default {
     }
   },
   provide: {
-      grid: [Filter, Page]
+      grid: [Filter, Page, Sort]
   }
 }
 </script>

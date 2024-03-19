@@ -72,7 +72,9 @@
 
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip } from '@syncfusion/ej2-vue-maps';
+import { worldMap } from '../maps/map-data/world-map';
+import { tooltipData } from '../maps/map-data/tooltip-datasource';
 
 export default {
 components: {
@@ -103,10 +105,10 @@ data:function(){
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapePropertyPath: 'name',
         shapeDataPath: 'name',
-        dataSource: new MapAjax('./src/maps/map-data/tooltip-datasource.json'),
+        dataSource: tooltipData ,
         tooltipSettings: {
             visible: true,
             valuePath: 'name',

@@ -7,10 +7,10 @@
         </p>
     </div>
     <div class="paging-api">
-        <ejs-grid :dataSource="data" locale='en-US' height='365' :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" locale='en-US' height='365' :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' ></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
                 <e-column field='ShipCountry' headerText='Ship Country' width='170'></e-column>
@@ -78,7 +78,7 @@
 </style>
 <script lang="ts">
 import { L10n, setCulture } from '@syncfusion/ej2-base';
-import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
 
 setCulture('de-DE');
@@ -101,11 +101,11 @@ export default {
   data: () => {
     return {
       data: data,
-       pageSettings: { pageSizes: [12,50,100,200], pageCount: 4 }
+       pageSettings: { pageSizes: [12,50,100,200], pageCount: 4 },
     };
   },
   provide: {
-      grid: [Page]
+      grid: [Page, Sort]
   }
 }
 </script>

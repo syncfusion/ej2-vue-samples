@@ -557,7 +557,7 @@ export default {
   display: block;
 }
 
-#ribbonContainer {
+.ribbon-backstage-container #ribbonContainer {
   padding: 20px;
   background-color: #dbdadacc;
   display: flex;

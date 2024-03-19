@@ -76,7 +76,7 @@ export default {
             columns: [{ field: 'Freight', direction: 'Ascending' },
             { field: 'CustomerName', direction: 'Descending' }]
         },
-      pageSettings: { pageCount: 5 }
+      pageSettings: { pageCount: 5 },
     };
   },
   provide: {

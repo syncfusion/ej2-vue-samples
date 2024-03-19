@@ -230,6 +230,7 @@ methods: {
                 (document.getElementById('end')).max = "120";
             }
             (document.getElementById('start')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start.toString();
+            (document.getElementById('end')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].end.toString();
             document.getElementById('rangeStart').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].start;
             (document.getElementById('radius')).value = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius.toString();
             document.getElementById('roundedRadius').innerHTML = this.$refs.circulargauge.ej2Instances.axes[0].ranges[index].roundedCornerRadius;

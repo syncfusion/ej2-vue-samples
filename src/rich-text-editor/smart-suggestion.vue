@@ -41,7 +41,7 @@
 </template>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Link, Image, Table, Audio, Video, DialogType, NodeSelection, QuickToolbar, HtmlEditor, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Table, Audio, Video, DialogType, NodeSelection, QuickToolbar, HtmlEditor, EmojiPicker, PasteCleanup, FormatPainter } from "@syncfusion/ej2-vue-richtexteditor";
 import { MentionComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import * as data from './data-source.json';
@@ -75,7 +75,7 @@ data: function() {
     };
 },
 provide:{
-    richtexteditor:[Toolbar, Link, Image, Audio, Table, Video, QuickToolbar, HtmlEditor, EmojiPicker]
+    richtexteditor:[Toolbar, Link, Image, Audio, Table, Video, QuickToolbar, HtmlEditor, EmojiPicker, PasteCleanup, FormatPainter]
 },
 
 methods: {
@@ -131,16 +131,17 @@ methods: {
             case 'Audio':
             case 'Video':
                 this.$refs.mentionObj.ej2Instances.hidePopup();
+                setTimeout(() => {
                 this.$refs.formatRTE.ej2Instances.showDialog(
                     args.itemData.command === 'CreateTable' ? DialogType.InsertTable :
                     args.itemData.command === 'Image' ? DialogType.InsertImage :
                     args.itemData.command === 'Audio' ? DialogType.InsertAudio : DialogType.InsertVideo
-                );
+                ); }, 150);
                 break;
             case 'EmojiPicker':
                 this.beforeApplyFormat();
                 this.$refs.mentionObj.ej2Instances.hidePopup();
-                this.$refs.formatRTE.ej2Instances.showEmojiPicker();
+                setTimeout(() => { this.$refs.formatRTE.ej2Instances.showEmojiPicker(); }, 150);
                 break;
             default:
                 this.$refs.formatRTE.ej2Instances.executeCommand('formatBlock', args.itemData.command);

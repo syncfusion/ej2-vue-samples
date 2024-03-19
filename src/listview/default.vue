@@ -1,29 +1,39 @@
 <template>
   <div class="list-default control-section">
-    <div id = 'flat-list'>
-    <h4>Flat List</h4>
-    <!-- ListView element -->
-    <ejs-listview id='sample-list-flat' :dataSource='data'></ejs-listview>
+    <div id= "default-wrapper">
+      <div id = 'flat-list'>
+        <h4>Flat List</h4>
+        <!-- ListView element -->
+        <ejs-listview id='sample-list-flat' :dataSource='data'></ejs-listview>
+      </div>
+      <div id = 'group-list'>
+        <h4>Group List</h4>
+        <!-- Group ListView element -->
+        <ejs-listview id='sample-list-group' :dataSource='groupData' :fields='fields'></ejs-listview>
+      </div>
     </div>
-    <div id = 'group-list'>
-    <h4>Group List</h4>
-    <!-- Group ListView element -->
-    <ejs-listview id='sample-list-group' :dataSource='groupData' :fields='fields'></ejs-listview>
-    </div>
-      <div id="action-description">
-        <p>This sample demonstrates the default functionalities of the ListView. Click any item from the list to select and highlight it.</p>
+    <div id="action-description">
+      <p>This sample demonstrates the default functionalities of the ListView. Click any item from the list to select and highlight it.</p>
     </div>
     <div id="description">
-        <p>The ListView component represents data in interactive hierarchical structure interface across different layouts or views, that also has the features such as data binding, template rendering, and grouping.</p>
+      <p>The ListView component represents data in interactive hierarchical structure interface across different layouts or views, that also has the features such as data binding, template rendering, and grouping.</p>
 
-        <p>The group list allows you to group the relevant items under a logical category by mapping the <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view/fieldSettings/#groupby'>groupBy</a></code> field.</p>
+      <p>The group list allows you to group the relevant items under a logical category by mapping the <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view/fieldSettings/#groupby'>groupBy</a></code> field.</p>
 
-        <p>In this sample, <b>Cars</b> are grouped based on their <b>Category</b>.</p>
-
+      <p>In this sample, <b>Cars</b> are grouped based on their <b>Category</b>.</p>
     </div>
   </div>
 </template>
 <style>
+#default-wrapper {
+    width: 85%;
+    margin: auto;
+    display: flex;
+}
+#flat-list, #group-list {
+  margin: auto;
+    width: 40%;
+}
 .list-default #sample-list-flat,.list-default #sample-list-group {
     border: 1px solid #dddddd;
     border-radius: 3px;

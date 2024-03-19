@@ -30,19 +30,19 @@
        The toolbar contains commands to align the text, 
        insert link, insert image, insert list, undo/redo the operation, HTML view, and more.</P>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, Video, Audio, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
       'ejs-richtexteditor': RichTextEditorComponent
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, Video, Audio, PasteCleanup]
     }
 }
 </script>

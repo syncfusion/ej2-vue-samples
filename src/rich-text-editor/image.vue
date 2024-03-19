@@ -62,7 +62,7 @@
     <li><code>Resize</code> – can resize the image dimension with resize options.</li>
     </ul> 
     <p><b>Injecting Module:</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup</code> into the <code>provide</code> section.</p>
     </div>
 </div>
 </template>
@@ -115,7 +115,7 @@
 	
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, NodeSelection } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, NodeSelection, PasteCleanup, Table, Video, Audio} from "@syncfusion/ej2-vue-richtexteditor";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 import { CheckBoxComponent} from "@syncfusion/ej2-vue-buttons";
@@ -189,7 +189,7 @@ export default {
     },
         },
     provide:{
-        richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar]
+        richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-     <div class="control-section">
+     <div class="control-section">      
         <div class="flex-container">
             <label class="switchLabel" for="checked">Standalone PDF Viewer</label>
             <div class="e-message render-mode-info">
@@ -12,11 +12,11 @@
         </div>       
         <ejs-toolbar id="customToolbar" ref="toolbar">
             <e-items>
-                <e-item prefixIcon='e-icons e-folder' tooltipText='Open' :click="openClicked"></e-item>
-                <e-item prefixIcon='e-icons e-save' tooltipText='Save' :click="saveClicked"></e-item>
-                <e-item prefixIcon='e-icons e-chevron-left' id="previousPage" tooltipText='Previous Page'
+                <e-item prefixIcon='e-icons-new e-folder' tooltipText='Open' :click="openClicked"></e-item>
+                <e-item prefixIcon='e-icons-new e-save' tooltipText='Save' :click="saveClicked"></e-item>
+                <e-item prefixIcon='e-icons-new e-chevron-left' id="previousPage" tooltipText='Previous Page'
                     align='Center' :click="previousClicked"></e-item>
-                <e-item prefixIcon='e-icons e-chevron-right' id="nextPage" tooltipText='Next Page' align='Center'
+                <e-item prefixIcon='e-icons-new e-chevron-right' id="nextPage" tooltipText='Next Page' align='Center'
                     :click="nextClicked"></e-item>
                 <e-item :template="'pageNoTemplate'" tooltipText='Page Number' align='Center'>
                     <template v-slot:pageNoTemplate>
@@ -30,37 +30,37 @@
                     </template>
                 </e-item>
                 <e-item type="Separator"  tooltipText="Separator" align='Center'></e-item>
-                <e-item prefixIcon="e-icons e-mouse-pointer"   :click='textSelection'  id="text_selection_tool"  tooltipText="Text Selection tool" align='Center'></e-item>
-                <e-item prefixIcon="e-icons e-pan"  :click='panMode'  id="pan_mode" tooltipText="Pan Mode" align='Center'></e-item>
+                <e-item prefixIcon="e-icons-new e-mouse-pointer"   :click='textSelection'  id="text_selection_tool"  tooltipText="Text Selection tool" align='Center'></e-item>
+                <e-item prefixIcon="e-icons-new e-pan"  :click='panMode'  id="pan_mode" tooltipText="Pan Mode" align='Center'></e-item>
                 <e-item type="Separator"  tooltipText="Separator" align='Center'></e-item>
-                <e-item prefixIcon="e-icons e-annotation-edit"  :click='openEditAnnotation' tooltipText="Edit Annotation" id="edit_annotation" align='Center'></e-item>
+                <e-item prefixIcon="e-icons-new e-annotation-edit"  :click='openEditAnnotation' tooltipText="Edit Annotation" id="edit_annotation" align='Center'></e-item>
                 <e-item type="Separator"  tooltipText="Separator" align='Center'></e-item>
-                <e-item prefixIcon="e-icons e-split-vertical"  :click='addEditFormFields' tooltipText="Add and Edit Form Fields" id="add_form_field" align='Center'></e-item>
-                <e-item prefixIcon="e-icons e-search"  :click='findText' tooltipText="Find Text" id="find_text" align='Right'></e-item>
-                <e-item prefixIcon='e-icons e-print' tooltipText='Print' align='Right' :click="printClicked"></e-item>
+                <e-item prefixIcon="e-icons-new e-split-vertical"  :click='addEditFormFields' tooltipText="Add and Edit Form Fields" id="add_form_field" align='Center'></e-item>
+                <e-item prefixIcon="e-icons-new e-search"  :click='findText' tooltipText="Find Text" id="find_text" align='Right'></e-item>
+                <e-item prefixIcon='e-icons-new e-print' tooltipText='Print' align='Right' :click="printClicked"></e-item>
             </e-items>
         </ejs-toolbar>
         <ejs-toolbar id="magnificationToolbar">
             <e-items>
                 <e-item prefixIcon='e-pv-fit-page-icon' id="fitPage" tooltipText='Fit to page'
                     :click="pageFitClicked"></e-item>
-                <e-item prefixIcon='e-icons e-circle-add' id="zoomIn" tooltipText='Zoom in' :click="zoomInClicked"></e-item>
-                <e-item prefixIcon='e-icons e-circle-remove' id="zoomOut" tooltipText='Zoom out'
+                <e-item prefixIcon='e-icons-new e-circle-add' id="zoomIn" tooltipText='Zoom in' :click="zoomInClicked"></e-item>
+                <e-item prefixIcon='e-icons-new e-circle-remove' id="zoomOut" tooltipText='Zoom out'
                     :click="zoomOutClicked"></e-item>
             </e-items>
         </ejs-toolbar>
           <div id="textSearchToolbar" v-show="searchToolbarVisible">
-    <div class="e-pv-search-bar" :style="{ top: '105px', right: '0px', zIndex: 1111 }" id="container_search_box">
+    <div class="e-pv-search-bar" :style="{ marginTop: '20px', right: '0px', zIndex: 1111 }" id="container_search_box">
       <div class="e-pv-search-bar-elements" id="container_search_box_elements">
         <div class="e-input-group e-pv-search-input" id="container_search_input_container">
           <input class="e-input" id="container_search_input" type="text" placeholder="Find in document" @keypress="searchInputKeypressed" v-model="searchText" />
-          <span class="e-input-group-icon e-input-search-group-icon e-icons e-search" id="container_search_box-icon" @click="initiateTextSearch"></span>
-          <span class="e-input-group-icon e-input-search-group-icon e-icons e-close" id="container_close_search_box-icon" :style="{ display: 'none' }" @click="clearTextSearch"></span>
+          <span class="e-input-group-icon e-input-search-group-icon e-icons-new e-search" id="container_search_box-icon" @click="initiateTextSearch"></span>
+          <span class="e-input-group-icon e-input-search-group-icon e-icons-new e-close" id="container_close_search_box-icon" :style="{ display: 'none' }" @click="clearTextSearch"></span>
         </div>
-           <button class="e-btn e-icon-btn e-pv-search-btn e-icons e-chevron-left" id="container_prev_occurrence" type="button" :disabled="prevSearchDisabled" aria-label="Previous Search text" @click="previousTextSearch">
+           <button class="e-btn e-icon-btn e-pv-search-btn e-icons-new e-chevron-left" id="container_prev_occurrence" type="button" :disabled="prevSearchDisabled" aria-label="Previous Search text" @click="previousTextSearch">
            <span class="e-pv-icon-search e-pv-prev-search-icon" id="container_prev_occurrenceIcon"></span>
          </button>
-        <button class="e-btn e-icon-btn e-pv-search-btn e-icons e-chevron-right" id="container_next_occurrence" type="button" :disabled="nextSearchDisabled" aria-label="Next Search text" @click="nextTextSearch">
+        <button class="e-btn e-icon-btn e-pv-search-btn e-icons-new e-chevron-right" id="container_next_occurrence" type="button" :disabled="nextSearchDisabled" aria-label="Next Search text" @click="nextTextSearch">
           <span class="e-pv-icon-search e-pv-next-search-icon" id="container_next_occurrenceIcon"></span>
         </button>
       </div>
@@ -69,7 +69,7 @@
           <label for="container_match_case">
             <input id="container_match_case" type="checkbox" class="e-control e-checkbox e-lib" @click="checkBoxChanged" v-model="matchCase" />
             <span class="e-ripple-container" data-ripple="true"></span>
-            <span id="checkboxSpan" class="e-icons e-frame"></span>
+            <span id="checkboxSpan" class="e-icons-new e-frame"></span>
             <span class="e-label">Match case</span>
           </label>
         </div>
@@ -79,75 +79,48 @@
        <div id="editAnnotationToolbar" style="display:none">
     <ejs-toolbar id="toolbar">
       <e-items>
-        <e-item prefixIcon="e-icons e-highlight-color" :click='highlight' tooltipText="Highlight" id="highlight" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-underline" :click='underLine' tooltipText="Underline" id="underline" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-strikethrough" :click='strikeThrough' tooltipText="Strikethrough" id="strikethrough" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-highlight-color" :click='highlight' tooltipText="Highlight" id="highlight" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-underline" :click='underLine' tooltipText="Underline" id="underline" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-strikethrough" :click='strikeThrough' tooltipText="Strikethrough" id="strikethrough" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-line" :click='addLine' tooltipText="Add Line" id="line" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-arrow-right-up" :click='addArrow' tooltipText="Add Arrow" id="arrow" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-rectangle" :click='addRectangle' tooltipText="Add Rectangle" id="rectangle" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-circle" :click='addCircle' tooltipText="Add Circle" id="circle" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-pentagon" :click='addPoligon' tooltipText="Add Polygon" id="polygon" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-line" :click='addLine' tooltipText="Add Line" id="line" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-arrow-right-up" :click='addArrow' tooltipText="Add Arrow" id="arrow" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-rectangle" :click='addRectangle' tooltipText="Add Rectangle" id="rectangle" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-circle" :click='addCircle' tooltipText="Add Circle" id="circle" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-pentagon" :click='addPoligon' tooltipText="Add Polygon" id="polygon" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-length" :click='distance'  tooltipText="Calibrate Distance" id="calibrate_distance" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-perimeter" :click='perimeter' tooltipText="Calibrate Perimeter" id="calibrate_perimeter" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-area" :click='area' tooltipText="Calibrate Area" id="calibrate_area" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-radius" :click='radius' tooltipText="Calibrate Radius" id="calibrate_radius" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-volume" :click='volume' tooltipText="Calibrate Volume" id="calibrate_volume" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-length" :click='distance'  tooltipText="Calibrate Distance" id="calibrate_distance" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-perimeter" :click='perimeter' tooltipText="Calibrate Perimeter" id="calibrate_perimeter" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-area" :click='area' tooltipText="Calibrate Area" id="calibrate_area" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-radius" :click='radius' tooltipText="Calibrate Radius" id="calibrate_radius" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-volume" :click='volume' tooltipText="Calibrate Volume" id="calibrate_volume" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-text-annotation" :click='freeText'  tooltipText="Free Text" id="freeText" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-text-annotation" :click='freeText'  tooltipText="Free Text" id="freeText" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
         <e-item :template='menuTemplate' prefixIcon ='e-icons e-stamp' tooltipText='Add Stamp' id="stamp" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
-        <e-item id="signature" prefixIcon="e-icons e-signature" style="border:none;background:transparent;" :click='addSign1' tooltipText="Add Signature" align="Center"></e-item>
+        <e-item :template='signTemplate' prefixIcon ='e-icons e-signature' tooltipText='Add Signature' id="signature" align="Center"></e-item>
         <e-item type="Separator" tooltipText="separator" align="Center"></e-item>
-        <e-item prefixIcon="e-icons e-style"  :click='ink' id="ink" align="Center"></e-item>
+        <e-item prefixIcon="e-icons-new e-style"  :click='ink' id="ink" align="Center"></e-item>
       </e-items>
      </ejs-toolbar>
     </div>
-        <input type="file" id="fileUpload" accept=".pdf" style="display:block;visibility:hidden;width:0;height:0;" />
-  <div id="SignatureToolbar" style="display: none">
-    <div class="e-dropdown-popup" id="container_annotation_signature-popup" data-ripple="true" style="z-index:1111">
-      <ul role="menu" tabindex="0">
-        <li
-          id="e-dropdown-btn-item_63"
-          role="menuitem"
-          tabindex="-1"
-          aria-label="ADD SIGNATURE"
-          @click="onSignatureClick"
-          :style="{ width: '206px', display: 'flex', 'flex-direction': 'column', height: 'auto', 'align-items': 'center', background: 'transparent', cursor: 'default' }"
-        >
-          <button class="e-control e-btn e-lib e-outline e-primary" :style="{ width: 'auto', height: '36px' }">Add Signature</button>
-        </li>
-        <li class="e-separator" id="e-dropdown-btn-item_64" role="menuitem" tabindex="-1" aria-label="separator" :style="{ margin: '8px 0px' }"></li>
-        <li
-          id="e-dropdown-btn-item_65"
-          role="menuitem"
-          tabindex="-1"
-          aria-label="ADD INITIAL"
-          @click="onSignatureClick"
-          :style="{ width: '206px', display: 'flex', 'flex-direction': 'column', height: 'auto', 'align-items': 'center', background: 'transparent', cursor: 'default' }"
-        >
-          <button class="e-control e-btn e-lib e-outline e-primary" :style="{ width: 'auto', height: '36px' }">Add Initial</button>
-        </li>
-      </ul>
-    </div>
-   </div>
+    <input type="file" id="fileUpload" accept=".pdf" style="display:block;visibility:hidden;width:0;height:0;" />
     <div id="formFieldToolbar" style="display:none">
     <ejs-toolbar id="form-toolbar">
       <e-items>
-        <e-item id="textbox" prefixIcon="e-icons e-text-form" :click='textBox' tooltipText="Textbox" align="Center"></e-item>
-        <e-item id="password" prefixIcon="e-icons e-password"  :click='passWord' tooltipText="Password" align="Center"></e-item>
-        <e-item id="checkbox" prefixIcon="e-icons e-check-box" :click='checkBox' tooltipText="Checkbok" align="Center"></e-item>
-        <e-item id="radio_button" prefixIcon="e-icons e-radio-button" :click='radioButton' tooltipText="Radio Button" align="Center"></e-item>
-        <e-item id="drop_down" prefixIcon="e-icons e-drop-down" :click='dropDown' tooltipText="Drop Down" align="Center"></e-item>
-        <e-item id="list_box" prefixIcon="e-icons e-list-unordered" :click='listBox'  tooltipText="List Box" align="Center"></e-item>
-        <e-item id="formField_signature" prefixIcon="e-icons e-signature" style="border:none;background:transparent;" :click='addSign' tooltipText="Add Signature" align="Center"></e-item>
+        <e-item id="textbox" prefixIcon="e-icons-new e-text-form" :click='textBox' tooltipText="Textbox" align="Center"></e-item>
+        <e-item id="password" prefixIcon="e-icons-new e-password"  :click='passWord' tooltipText="Password" align="Center"></e-item>
+        <e-item id="checkbox" prefixIcon="e-icons-new e-check-box" :click='checkBox' tooltipText="Checkbok" align="Center"></e-item>
+        <e-item id="radio_button" prefixIcon="e-icons-new e-radio-button" :click='radioButton' tooltipText="Radio Button" align="Center"></e-item>
+        <e-item id="drop_down" prefixIcon="e-icons-new e-drop-down" :click='dropDown' tooltipText="Drop Down" align="Center"></e-item>
+        <e-item id="list_box" prefixIcon="e-icons-new e-list-unordered" :click='listBox'  tooltipText="List Box" align="Center"></e-item>
+        <e-item :template='formSignTemplate' prefixIcon ='e-icons e-signature' tooltipText='Add Signature' id="formSignature" align="Center"></e-item>
         <e-item id="separator" type="Separator" tooltipText="separator" align="Center"></e-item>
       </e-items>
     </ejs-toolbar>
-    </div>
+  </div>
         <ejs-pdfviewer 
             id="pdfviewer" 
             ref="pdfviewer" 
@@ -199,8 +172,16 @@
 
 <style>
 /* custom code start*/
+ 
+ @font-face {
+   font-family: "e-icons-new";
+   font-style: normal;
+   font-weight: normal;
+   src: url(data:application/x-font-ttf;charset=utf-8;base64,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ZWd1bGFyY3VzdG9tLXRvb2xiYXJbMTkwOF1jdXN0b20tdG9vbGJhclsxOTA4XVZlcnNpb24gMS4wY3VzdG9tLXRvb2xiYXJbMTkwOF1Gb250IGdlbmVyYXRlZCB1c2luZyBTeW5jZnVzaW9uIE1ldHJvIFN0dWRpb3d3dy5zeW5jZnVzaW9uLmNvbQAgAGMAdQBzAHQAbwBtAC0AdABvAG8AbABiAGEAcgBbADEAOQAwADgAXQBSAGUAZwB1AGwAYQByAGMAdQBzAHQAbwBtAC0AdABvAG8AbABiAGEAcgBbADEAOQAwADgAXQBjAHUAcwB0AG8AbQAtAHQAbwBvAGwAYgBhAHIAWwAxADkAMAA4AF0AVgBlAHIAcwBpAG8AbgAgADEALgAwAGMAdQBzAHQAbwBtAC0AdABvAG8AbABiAGEAcgBbADEAOQAwADgAXQBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIAB1AHMAaQBuAGcAIABTAHkAbgBjAGYAdQBzAGkAbwBuACAATQBlAHQAcgBvACAAUwB0AHUAZABpAG8AdwB3AHcALgBzAHkAbgBjAGYAdQBzAGkAbwBuAC4AYwBvAG0AAAAAAgAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAQIBAwEEAQUBBgEHAQgBCQEKAQsBDAENAQ4BDwAIVG9wLWljb24LZG93bi1hcnJvdzIKUFZfWm9vbW91dAlQVl9ab29taW4LUFZfRG93bmxvYWQLUFZfQm9va21hcmsJUFZfU2VhcmNoCFBWX1ByaW50C1BWX1ByZXZpb3VzB1BWX05leHQIUFZfQ2xvc2UMUFZfRml0VG9QYWdlB1BWX09wZW4AAA==) format('truetype');
+ } 
+
 #pdfviewer {
-    height: 640px;
+    height: 640px;  
 }
 
 #magnificationToolbar {
@@ -280,7 +261,7 @@ div#magnificationToolbar.e-toolbar .e-toolbar-items {
     border-width: 1px;
 }
 
-.e-btn-icon.e-pv-zoom-out-icon.e-icons {
+.e-btn-icon.e-icons-new.e-circle-remove.e-icons-new {
     transform: rotate(90deg);
 }
 
@@ -290,7 +271,7 @@ div#magnificationToolbar.e-toolbar .e-toolbar-items {
 }
 .e-pv-fit-page-icon::before {
     content: '\e91b';
-    font-family: "e-icons";
+    font-family: "e-icons-new";
 }
 .render-mode-info {
     background: none;
@@ -338,6 +319,7 @@ import {
   TextSearch,
   FormFields,
   FormDesigner,
+  PageOrganizer,
 } from "@syncfusion/ej2-vue-pdfviewer";
 import {
   ItemDirective,
@@ -401,7 +383,7 @@ function readFile(args) {
       // tslint:disable-next-line
       reader.onload = function (e) {
         let uploadedFileUrl = e.currentTarget.result;
-        viewer.load(uploadedFileUrl, null);
+        viewer.documentPath = uploadedFileUrl;
         viewer.fileName = fileName;
       };
     }
@@ -471,15 +453,6 @@ var menutemplateVue = app.component("menuTemp", {
         textSearchToolbarElement.style.display === "block"
       ) {
         textSearchToolbarElement.style.display = "none";
-      }
-
-      const signatureToolbarElement =
-        document.getElementById("SignatureToolbar");
-      if (
-        signatureToolbarElement !== null &&
-        signatureToolbarElement.style.display === "block"
-      ) {
-        signatureToolbarElement.style.display = "none";
       }
 
       const formFieldToolbarElement =
@@ -612,6 +585,57 @@ var menutemplateVue = app.component("menuTemp", {
     }
   }
 });
+var app1 = createApp();
+var signtemplateVue = app1.component("signTemp", {
+  components: {
+    'ejs-menu': MenuComponent
+  },
+  template: '<ejs-menu :items="signItems" showItemOnClick = "true" :select="onSignatureClick"></ejs-menu>',
+  data() {
+    return {
+      signItems: [
+        {
+         iconCss: 'e-icons e-signature',
+         items: [
+          { text: 'Add Signature' , id: 'Add Signature' }, 
+          { text: 'Add Initial', id: 'Add Initial' } 
+         ]
+        },
+      ]
+    };
+  },
+  methods:{
+     onSignatureClick: function(event) {
+      const editAnnotationToolbarElement = document.getElementById("editAnnotationToolbar");
+      if (editAnnotationToolbarElement?.style.display === "block") {
+        if (event.element instanceof HTMLElement) {
+          if (event.element.innerText === "Add Signature") {
+            viewer.annotationModule.setAnnotationMode("HandWrittenSignature");
+          } else if (event.element.innerText === "Add Initial") {
+            viewer.annotationModule.setAnnotationMode("Initial");
+          }
+        }
+      }
+
+      const formFieldToolbarElement = document.getElementById("formFieldToolbar");
+      if (formFieldToolbarElement?.style.display === "block") {
+        if (event.element instanceof HTMLElement) {
+          if (event.element.innerText === "Add Signature") {
+            viewer.formDesignerModule.setFormFieldMode("SignatureField");
+          } else if (event.element.innerText === "Add Initial") {
+            viewer.formDesignerModule.setFormFieldMode("InitialField");
+          }
+        }
+      }
+
+      const signatureToolbarElement =
+        this.$el.querySelector("#SignatureToolbar");
+      if (signatureToolbarElement?.style.display === "block") {
+        signatureToolbarElement.style.display = "none";
+      }
+    },
+  },
+});
 export default {
   components: {
     "ejs-pdfviewer": PdfViewerComponent,
@@ -642,6 +666,16 @@ export default {
           template: menutemplateVue
         }
       },
+      signTemplate: function() {
+        return {
+          template: signtemplateVue
+        }
+      },
+      formSignTemplate: function() {
+        return {
+          template: signtemplateVue
+        }
+      },
     };
   },
   provide: {
@@ -658,12 +692,22 @@ export default {
       TextSearch,
       FormFields,
       FormDesigner,
+      PageOrganizer,
     ],
   },
   methods: {
     openClicked: function (args) {
       this.disableInkAnnotation();
       document.getElementById("fileUpload").click();
+
+      const textSearchToolbarElement =
+        document.getElementById("textSearchToolbar");
+      if (
+        textSearchToolbarElement !== null &&
+        textSearchToolbarElement.style.display === "block"
+      ) {
+        textSearchToolbarElement.style.display = "none";
+      }
     },
     previousClicked: function (args) {
       this.disableInkAnnotation();
@@ -728,15 +772,6 @@ export default {
         textSearchToolbarElement.style.display = "none";
       }
 
-      const signatureToolbarElement =
-        document.getElementById("SignatureToolbar");
-      if (
-        signatureToolbarElement !== null &&
-        signatureToolbarElement.style.display === "block"
-      ) {
-        signatureToolbarElement.style.display = "none";
-      }
-
       const formFieldToolbarElement =
         document.getElementById("formFieldToolbar");
       if (
@@ -780,28 +815,9 @@ export default {
       ) {
         textSearchToolbarElement.style.display = "none";
       }
-
-      const signatureToolbarElement =
-        document.getElementById("SignatureToolbar");
-      if (
-        signatureToolbarElement !== null &&
-        signatureToolbarElement.style.display === "block"
-      ) {
-        signatureToolbarElement.style.display = "none";
-      }
     },
     findText: function (args) {
-      this.disableInkAnnotation();
-      const editAnnotationToolbarElement = document.getElementById(
-        "editAnnotationToolbar"
-      );
-      if (
-        editAnnotationToolbarElement !== null &&
-        editAnnotationToolbarElement.style.display === "block"
-      ) {
-        editAnnotationToolbarElement.style.display = "none";
-      }
-
+      this.disableInkAnnotation();     
       const textSearchToolbarElement =
         document.getElementById("textSearchToolbar");
       if (textSearchToolbarElement !== null) {
@@ -878,88 +894,6 @@ export default {
       this.disableInkAnnotation();
       viewer.annotation.setAnnotationMode("FreeText");
     },
-    addSign: function (args) {
-      this.disableInkAnnotation();
-      const element = document.querySelector(".e-dropdown-popup");
-      if (element !== null) {
-        if ("formField_signature") {
-          const editAnnotationToolbarElement = document.getElementById(
-            "editAnnotationToolbar"
-          );
-          if (
-            editAnnotationToolbarElement !== null &&
-            editAnnotationToolbarElement.style.display === "block"
-          ) {
-            editAnnotationToolbarElement.style.display = "none";
-          }
-          element.style.left = "605px";
-          element.style.top = "150px";
-        } else {
-          element.style.left = "790px";
-          element.style.top = "137px";
-        }
-      }
-
-      const signatureToolbarElement =
-        document.getElementById("SignatureToolbar");
-      if (signatureToolbarElement !== null) {
-        if (signatureToolbarElement.style.display === "block") {
-          signatureToolbarElement.style.display = "none";
-        } else {
-          signatureToolbarElement.style.display = "block";
-        }
-      }
-
-      const textSearchToolbarElement =
-        document.getElementById("textSearchToolbar");
-      if (
-        textSearchToolbarElement !== null &&
-        textSearchToolbarElement.style.display === "block"
-      ) {
-        textSearchToolbarElement.style.display = "none";
-      }
-    },
-    addSign1: function (args) {
-      this.disableInkAnnotation();
-      const element = document.querySelector(".e-dropdown-popup");
-      if (element !== null) {
-        if ("signature") {
-          const editAnnotationToolbarElement = document.getElementById(
-            "editAnnotationToolbar"
-          );
-          if (
-            editAnnotationToolbarElement !== null &&
-            editAnnotationToolbarElement.style.display === "block"
-          ) {
-            editAnnotationToolbarElement.style.display = "block";
-          }
-          element.style.left = "605px";
-          element.style.top = "150px";
-        } else {
-          element.style.left = "790px";
-          element.style.top = "137px";
-        }
-      }
-
-      const signatureToolbarElement =
-        document.getElementById("SignatureToolbar");
-      if (signatureToolbarElement !== null) {
-        if (signatureToolbarElement.style.display === "block") {
-          signatureToolbarElement.style.display = "none";
-        } else {
-          signatureToolbarElement.style.display = "block";
-        }
-      }
-
-      const textSearchToolbarElement =
-        document.getElementById("textSearchToolbar");
-      if (
-        textSearchToolbarElement !== null &&
-        textSearchToolbarElement.style.display === "block"
-      ) {
-        textSearchToolbarElement.style.display = "none";
-      }
-    },
     ink: function (args) {
       if(!this.isInkEnabled)
       {
@@ -1020,7 +954,6 @@ export default {
     textsearchElement
   ) {
     if (searchText.trim() === "") {
-      // Disable prev and next buttons when the search input is empty or contains only whitespace
       textsearchPrevElement.disabled = true;
       textsearchNextElement.disabled = true;
     } else {
@@ -1097,7 +1030,7 @@ export default {
         .addEventListener("change", readFile, false);
       updatePageNavigation();
     },
-    // Initialize switchObj within the mounted hook
+
     change: function (args) {
       var viewer = this.$refs.pdfviewer.ej2Instances;
       if (args.checked) {
@@ -1108,38 +1041,6 @@ export default {
       }
       viewer.dataBind();
       viewer.load(viewer.documentPath, null);
-    },
-    onSignatureClick(event) {
-      const editAnnotationToolbarElement = this.$el.querySelector(
-        "#editAnnotationToolbar"
-      );
-      if (editAnnotationToolbarElement?.style.display === "block") {
-        if (event.target instanceof HTMLElement) {
-          if (event.target.innerText === "Add Signature") {
-            viewer.annotationModule.setAnnotationMode("HandWrittenSignature");
-          } else if (event.target.innerText === "Add Initial") {
-            viewer.annotationModule.setAnnotationMode("Initial");
-          }
-        }
-      }
-
-      const formFieldToolbarElement =
-        this.$el.querySelector("#formFieldToolbar");
-      if (formFieldToolbarElement?.style.display === "block") {
-        if (event.target instanceof HTMLElement) {
-          if (event.target.innerText === "Add Signature") {
-            viewer.formDesignerModule.setFormFieldMode("SignatureField");
-          } else if (event.target.innerText === "Add Initial") {
-            viewer.formDesignerModule.setFormFieldMode("InitialField");
-          }
-        }
-      }
-
-      const signatureToolbarElement =
-        this.$el.querySelector("#SignatureToolbar");
-      if (signatureToolbarElement?.style.display === "block") {
-        signatureToolbarElement.style.display = "none";
-      }
     },
   },
 };

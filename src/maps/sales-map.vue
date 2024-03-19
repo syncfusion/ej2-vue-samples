@@ -56,10 +56,10 @@ import {
   LayerDirective,
   Marker,
   MapsTooltip,
-  MapAjax,
   Zoom
 } from "@syncfusion/ej2-vue-maps";
 import { salesmapdata } from "../maps/map-data/marker-location";
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -82,7 +82,7 @@ export default {
           fontFamily: 'Segoe UI'
         }
       },
-      shapeData: new MapAjax("./src/maps/map-data/world-map.json"),
+      shapeData: worldMap,
       dataSource: salesmapdata,
       shapeSettings: {
         fill: "#C3E6ED",

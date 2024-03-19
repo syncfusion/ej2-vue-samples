@@ -10,7 +10,7 @@
         </ul>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :actionComplete='actionComplete'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :editSettings='editSettings' :toolbar='toolbar' :actionComplete='actionComplete'>
             <e-columns>
             <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
             <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -49,7 +49,7 @@
 <script lang="ts">
 import { Browser } from '@syncfusion/ej2-base';
 import {createApp} from 'vue';
-import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Toolbar, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 import DialogTemplate from "./dialog-temp.vue";
 
@@ -63,12 +63,12 @@ export default {
     return {
       data: orderDetails.slice(0),
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog', template: function () {
-        return { template : createApp({}).component('dialog',DialogTemplate)}
+        return { template : createApp({}).component('Dialog',DialogTemplate)}
       } },
       toolbar: ['Add', 'Edit', 'Delete'],
       orderidrules: { required: true, number: true },
       customeridrules: { required: true },
-      pageSettings: { pageCount: 5}
+      pageSettings: { pageCount: 5},
     };
   },
   methods: {
@@ -82,7 +82,7 @@ export default {
       }
   },
   provide: {
-      grid: [Edit, Toolbar, Page]
+      grid: [Edit, Toolbar, Page, Sort]
   }
 }
 </script>

@@ -121,7 +121,7 @@
         </li>
     </ul>
     <p><b>Injecting Module</b></p>
-    <p>The previous features were built as modules to be included in your application. For example, inject the <code>'PasteCleanup'</code> module using <code>RichTextEditor.Inject (Toolbar, Link, Image, Count, HtmlEditor, PasteCleanup)</code> to use the paste cleanup feature.</p>
+    <p>The previous features were built as modules to be included in your application. For example, inject the <code>'PasteCleanup'</code> module using <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup</code> to use the paste cleanup feature.</p>
 </div>
 </div>
 </template>
@@ -140,9 +140,10 @@
 }
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
+import { isNullOrUndefined } from '@syncfusion/ej2-base';
 import * as data from './data-source.json';
 
 export default {
@@ -181,18 +182,24 @@ export default {
                 this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.keepFormat = false;
             }
         },
-        deniedTagChange: function() {
-            this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.deniedTags = (eval)('[' + this.$refs.deniedTagsInstance.ej2Instances.value + ']');
+        deniedTagChange: function () {
+            this.onPasteCleanupSettingsChange(this.$refs.deniedTagsInstance.ej2Instances.value,'deniedTags');
         },
-        deniedAttrsChange: function() {
-            this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.deniedAttrs = (eval)('[' + this.$refs.deniedAttributesInstance.ej2Instances.value + ']');
+       deniedAttrsChange: function () {
+            this.onPasteCleanupSettingsChange(this.$refs.deniedAttributesInstance.ej2Instances.value,'deniedAttrs');
         },
-        allowStyleChange: function() {
-            this.$refs.rteInstance.ej2Instances.pasteCleanupSettings.allowedStyleProps = (eval)('[' + this.$refs.allowedStylePropertiesInstance.ej2Instances.value + ']');
-        }
+       allowStyleChange: function () {
+           this.onPasteCleanupSettingsChange(this.$refs.allowedStylePropertiesInstance.ej2Instances.value,'allowedStyleProps');
+       },
+       onPasteCleanupSettingsChange: function (value, settingsProperty) {
+        if (!isNullOrUndefined(value)) {
+        let arrayValue = value.split(',').map((item) => item.trim().replace(/^['"]|['"]$/g, ''));
+        this.$refs.rteInstance.ej2Instances.pasteCleanupSettings[settingsProperty] = arrayValue.filter((prop) => prop !== '');
+      }
+      },
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

@@ -134,21 +134,21 @@ export default {
     },
     methods: {
         onColChange: function(e: ChangeEventArgs): void {
-        let index = ((this as GanttComponent).$refs.gantt).ej2Instances.treeGrid.getColumnIndexByField(<string>e.value);
-        var dropdownlistObject = ((this as DropDownListComponent).$refs.index).ej2Instances;
+        let index = ((this as any).$refs.gantt).ej2Instances.treeGrid.getColumnIndexByField(<string>e.value);
+        var dropdownlistObject = ((this as any).$refs.index).ej2Instances;
         dropdownlistObject.value = index;
        },
        onChange: function(e: ChangeEventArgs): void {
-        let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
-        let columns = ((this as GanttComponent).$refs.gantt).ej2Instances.treeGrid.columns as any;
+        let columnName = ((this as any).$refs.columns).ej2Instances.value;
+        let columns = ((this as any).$refs.gantt).ej2Instances.treeGrid.columns as any;
         let toColumnIndex: number = <number>e.value;
-        ((this as GanttComponent).$refs.gantt).reorderColumns(columnName, columns[toColumnIndex].field);
+        ((this as any).$refs.gantt).reorderColumns(columnName, columns[toColumnIndex].field);
       },
       actionComplete: function(e: ActionEventArgs) {
            if (e.requestType === 'reorder') {
-                let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
-                let index = ((this as GanttComponent).$refs.gantt).ej2Instances.treeGrid.getColumnIndexByField(columnName);
-                ((this as DropDownListComponent).$refs.index).ej2Instances.value = index;
+                let columnName = ((this as any).$refs.columns).ej2Instances.value;
+                let index = ((this as any).$refs.gantt).ej2Instances.treeGrid.getColumnIndexByField(columnName);
+                ((this as any).$refs.index).ej2Instances.value = index;
             }
       }
   }

@@ -5,7 +5,7 @@
     </div>
 
     <div>
-        <ejs-grid :dataSource="data" >
+        <ejs-grid :dataSource="data" :allowSorting='true'>
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' :headerTemplate="'employeetemplate'"></e-column>
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
@@ -41,7 +41,7 @@
 @import "../../styles/Grid/header-template.css";
 </style>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Sort } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 
 export default {
@@ -54,6 +54,9 @@ export default {
     return {
       data: employeeData,
     };
+  },
+  provide: {
+      grid: [Sort]
   }
 }
 </script>

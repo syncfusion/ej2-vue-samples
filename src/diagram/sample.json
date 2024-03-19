@@ -3,7 +3,6 @@
   "directory": "diagram",
   "category": "Data Visualization",
   "ftName": "diagram",
-  "type":"update",
   "samples": [
     {
       "url": "default-functionality",
@@ -118,8 +117,7 @@
       "name": "Tooltip",
       "order": 0,
       "description": "This sample shows the feature of tooltip in diagram control",
-      "category": "Getting Started",
-      "type":"update"
+      "category": "Getting Started"
     },
     {
       "url": "symbol-palette",
@@ -309,8 +307,7 @@
       "name": "UML Class Diagram",
       "order": 7,
       "description": "This sample visualizes the class diagram shapes.",
-      "category": "Use Case Diagram",
-      "type":"update"
+      "category": "Use Case Diagram"
     },
     {
       "url": "venn-diagram",
@@ -339,8 +336,7 @@
       "name": "WorkFlow Editor",
       "description": "This demo for Essential JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
       "order": 8,
-      "category": "Real-time Diagrams",
-      "type":"new"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "databinding-with-treeview",

@@ -119,11 +119,6 @@
   margin-right: 10px;
 }
 
-.control-section.pdfviewer {
-  height: 100%;
-  min-height: 480px;
-}
-
 .dialog-components-sample {
   overflow-y: auto;
 }
@@ -235,6 +230,8 @@ import {
 } from '@syncfusion/ej2-vue-grids';
 import { gridData } from './data';
 import { SwitchComponent } from '@syncfusion/ej2-vue-buttons';
+import { ref } from 'vue';
+import { PdfViewerComponent } from "@syncfusion/ej2-vue-pdfviewer";
 
 var viewerExternalTemplate = createApp().component(
   'tab-viewemplate-vue',
@@ -249,6 +246,7 @@ export default {
     'e-column': ColumnDirective,
     'e-columns': ColumnsDirective,
     'ejs-switch': SwitchComponent,
+    'ejs-pdfviewer': PdfViewerComponent
   },
   data: function () {
     return {
@@ -263,6 +261,7 @@ export default {
         { buttonOption: { cssClass: 'e-icons e-eye e-flat' }, title: 'View' },
         { buttonOption: { cssClass: 'e-icons e-edit e-flat' }, title: 'Edit' },
       ],
+      pdfViewerInstance: ref(null)
     };
   },
   provide: {
@@ -298,11 +297,15 @@ export default {
     dialogClose: function () {
       this.showDialog = false;
       this.showGrid = true;
+       if (this.pdfViewerInstance) {
+        this.pdfViewerInstance.destroy();
+      }
     },
 
     dialogOpen: function () {
       this.showDialog = true;
       this.showGrid = false;
+       this.pdfViewerInstance = document.getElementById('pdfviewer').ej2_instances[0];
     },
 
     change: function (args) {

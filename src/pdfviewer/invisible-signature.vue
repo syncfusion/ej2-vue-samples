@@ -4,7 +4,7 @@
       <ejs-toolbar id="customToolbar_invibleSignature" ref="toolbar">
         <e-items>
           <e-item
-            prefixIcon="e-pv-open-document-icon"
+            prefixIcon="e-icons e-folder-open"
             align="Left"
             tooltipText="Open"
             :click="openClicked"
@@ -19,7 +19,7 @@
             :click="signDocument"
           ></e-item>
           <e-item
-            prefixIcon="e-pv-download-document-icon"
+            prefixIcon="e-icons e-download"
             tooltipText="Download"
             disabled="true"
             align="Right"
@@ -133,6 +133,7 @@ import {
   Annotation,
   FormFields,
   FormDesigner,
+  PageOrganizer,
 } from "@syncfusion/ej2-vue-pdfviewer";
 import {
   ItemDirective,
@@ -200,6 +201,7 @@ export default {
       Annotation,
       FormFields,
       FormDesigner,
+      PageOrganizer,
     ],
   },
   methods: {

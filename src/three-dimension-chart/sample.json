@@ -2,7 +2,6 @@
     "name": "Chart 3D",
     "label": "3D Chart",
     "directory": "three-dimension-chart",
-    "type": "preview",
     "category": "Data Visualization",
     "ftName": "chart3d",
     "samples": [

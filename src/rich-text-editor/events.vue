@@ -71,7 +71,7 @@
         <li><code>resizeStop</code> – Triggers only when stop resize the image</li>
     </ul>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -115,7 +115,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
@@ -269,7 +269,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager]
     }
 }
 </script>

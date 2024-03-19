@@ -28,7 +28,7 @@
             </div>
                 </div>
             </div>
-        <ejs-grid ref='grid' :dataSource="data" height='410' :enableHover='false' :frozenRows='rows'>
+        <ejs-grid ref='grid' :dataSource="data" height='410' :enableHover='false' :frozenRows='rows' :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' freeze='Left'></e-column>
                 <e-column field='Freight' minWidth='10' width='125' format='C2' textAlign='Right'></e-column>
@@ -79,7 +79,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, freezeDirection, Column } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, freezeDirection, Column, Sort, Freeze } from "@syncfusion/ej2-vue-grids";
 import { Browser } from '@syncfusion/ej2-base';
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
@@ -149,5 +149,8 @@ export default {
         ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
     }
   },
+  provide: {
+      grid: [Sort, Freeze]
+  }
 }
 </script>

@@ -64,7 +64,8 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker } from '@syncfusion/ej2-vue-maps';
+import { australia } from '../maps/map-data/australia';
 
 export default {
 components: {
@@ -86,7 +87,7 @@ data:function(){
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData: new MapAjax('./src/maps/map-data/australia.json'),
+        shapeData: australia,
         shapeDataPath: 'STATE_NAME',
         dataSourcePerth: [{ Name: 'Perth', latitude: -31.950527, longitude: 115.860457, Temperature: 31.6 }],
         dataSourceAdelaide: [{ Name: 'Adelaide', latitude: -34.928499, longitude: 138.600746, Temperature: 28.5 }],

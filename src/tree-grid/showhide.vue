@@ -118,35 +118,35 @@ export default {
     methods: {
         onColChange: function(e: ChangeEventArgs): void {
           let columnName = <string>e.value;
-          let column: Column = ((this as TreeGridComponent).$refs.treegrid).getColumnByField(columnName) as Column;
+          let column: Column = ((this as any).$refs.treegrid).getColumnByField(columnName) as Column;
           if (column.visible === undefined || column.visible) {
-                ((this as ButtonComponent).$refs.show).ej2Instances.disabled = true;
-                ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = false;
+                ((this as any).$refs.show).ej2Instances.disabled = true;
+                ((this as any).$refs.hide).ej2Instances.disabled = false;
             } else {
-                ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = true;
-                ((this as ButtonComponent).$refs.show).ej2Instances.disabled = false;
+                ((this as any).$refs.hide).ej2Instances.disabled = true;
+                ((this as any).$refs.show).ej2Instances.disabled = false;
             }
         },
         hide: function(e: ClickEventArgs) {
-             let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
-             let column: Column = ((this as TreeGridComponent).$refs.treegrid).getColumnByField(columnName) as Column;
-             ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = true;
-             ((this as ButtonComponent).$refs.show).ej2Instances.disabled = false;
+             let columnName = ((this as any).$refs.columns).ej2Instances.value;
+             let column: Column = ((this as any).$refs.treegrid).getColumnByField(columnName) as Column;
+             ((this as any).$refs.hide).ej2Instances.disabled = true;
+             ((this as any).$refs.show).ej2Instances.disabled = false;
              let hiddencols: HTMLTextAreaElement = document.getElementById('hiddencolumns') as HTMLTextAreaElement;
              let value: string = <string>column.headerText + '\n';
              hiddencols.value = hiddencols.value + value;
              console.log(hiddencols.value);
-             ((this as TreeGridComponent).$refs.treegrid).ej2Instances.grid.hideColumns(column.headerText, 'headerText');
+             ((this as any).$refs.treegrid).ej2Instances.grid.hideColumns(column.headerText, 'headerText');
         },
         show: function(e: ClickEventArgs){
-            let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
-            let column: Column = ((this as TreeGridComponent).$refs.treegrid).getColumnByField(columnName) as Column;
-            ((this as ButtonComponent).$refs.show).ej2Instances.disabled = true;
-            ((this as ButtonComponent).$refs.hide).ej2Instances.disabled = false;
+            let columnName = ((this as any).$refs.columns).ej2Instances.value;
+            let column: Column = ((this as any).$refs.treegrid).getColumnByField(columnName) as Column;
+            ((this as any).$refs.show).ej2Instances.disabled = true;
+            ((this as any).$refs.hide).ej2Instances.disabled = false;
             let hiddencols: HTMLTextAreaElement = document.getElementById('hiddencolumns') as HTMLTextAreaElement;
             let value = hiddencols.value.replace(column.headerText + '\n','');
             hiddencols.value = value;
-            ((this as TreeGridComponent).$refs.treegrid).ej2Instances.grid.showColumns(column.headerText, 'headerText');
+            ((this as any).$refs.treegrid).ej2Instances.grid.showColumns(column.headerText, 'headerText');
         }
     }
 

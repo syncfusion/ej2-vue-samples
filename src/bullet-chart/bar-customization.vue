@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="col-md-8 control-section" align="center">
       <ejs-bulletchart
-        ref="bulletchart" 
+        ref="bulletchart"
         id="targetbar"
         :theme="theme"
         :tooltip="tooltip"

@@ -104,6 +104,10 @@ export default {
         height: '400',
         minimum: 0, maximum: 30, interval: 5,
         orientation: 'Vertical',
+        ranges: [{ end: 20 },
+        { end: 25 },
+        { end: 30 }
+        ],
         typeData: ['Vertical', 'Horizontal'],
         load: function (args) {
             var selectedTheme = location.hash.split('/')[1];

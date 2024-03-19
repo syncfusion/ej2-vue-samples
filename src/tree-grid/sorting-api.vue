@@ -123,12 +123,12 @@ export default {
     },
    methods:{
        sort: function(e: ClickEventArgs): void {
-        let columnName = ((this as DropDownListComponent).$refs.columns).ej2Instances.value;
-        let sortType = ((this as DropDownListComponent).$refs.direction).ej2Instances.value;
-        ((this as TreeGridComponent).$refs.treegrid).sortByColumn(columnName, <SortDirection>sortType, false);
+        let columnName = ((this as any).$refs.columns).ej2Instances.value;
+        let sortType = ((this as any).$refs.direction).ej2Instances.value;
+        ((this as any).$refs.treegrid).sortByColumn(columnName, <SortDirection>sortType, false);
     },
        clear: function(e: ChangeEventArgs): void {       
-        ((this as TreeGridComponent).$refs.treegrid).clearSorting();
+        ((this as any).$refs.treegrid).clearSorting();
     }
   }
 };

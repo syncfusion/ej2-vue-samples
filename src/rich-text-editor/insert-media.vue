@@ -40,14 +40,14 @@
             <li><code>Display</code> - display the audio as inline or with a break.</li>
         </ul>
         <p><b>Injecting Module</b></p>
-        <p>Rich Text Editor features are segregated into individual feature-wise modules. To use the audio and video tool, we need to inject the audio and video module using the <code>RichTextEditor.Inject(Audio, Video)</code>.</p>
+        <p>Rich Text Editor features are segregated into individual feature-wise modules. To use the audio and video tool, we need to inject the audio and video module using the <code>Audio, Video</code>.</p>
         <p><b>Note:</b> For security reasons, the embed video URL is restricted in this demo. If you want to insert an embed URL video, set the <code>enableHtmlSanitizer</code> to false in your application.</p>
     </div>
 </div>
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio, PasteCleanup, Table } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
@@ -61,7 +61,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Video, Audio]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Video, Audio, PasteCleanup, Table]
     }
 }
 </script>

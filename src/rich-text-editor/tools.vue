@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteObj" :value="value" :toolbarSettings="toolbarSettings" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :showCharCount="showCharCount" :maxLength="maxLength" :fileManagerSettings="fileManagerSettings" :quickToolbarSettings='quickToolbarSettings'></ejs-richtexteditor>
+        <ejs-richtexteditor ref="rteObj" :value="value" :toolbarSettings="toolbarSettings" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :showCharCount="showCharCount" :maxLength="maxLength" :fileManagerSettings="fileManagerSettings" :quickToolbarSettings='quickToolbarSettings' :enableTabKey="enableTabKey"></ejs-richtexteditor>
         </div>
     </div>
 </div>
@@ -12,6 +12,7 @@
 </div>
 
 <div id="description">
+    <p>The quick toolbar provides a convenient way to customize Image, Video, Audio, Table, and Link elements. Simply right-click on the desired element, utilizing the <code>showOnRightClick</code> property, and the quick toolbar will appear, providing an easy way for customization.</p>
     <p>The editor’s toolbar contains commands to format the content. The toolbar consists of:</p>
     <ul>
         <li><code>Lists</code> - NumberFormat list and BulletFormat list types.</li>
@@ -33,7 +34,7 @@
         <li><code>Format Painter</code> - The Format Painter feature allows you to copy the formats and apply them to content without formatting thus saving time to reformat the content.</li>
     </ul>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, EmojiPicker</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter, PasteCleanup</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -125,7 +126,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass, isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter} from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter, PasteCleanup} from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
@@ -136,6 +137,7 @@ export default {
     data: function() {
         return {
             showCharCount: true,
+            enableTabKey : true,
             myCodeMirror: '',
             fileManagerSettings: {
                 enable: true,
@@ -148,7 +150,8 @@ export default {
                 }
             },
             quickToolbarSettings: {
-                table: ['TableHeader', 'TableRows', 'TableColumns', 'TableCell', '-', 'BackgroundColor', 'TableRemove', 'TableCellVerticalAlign', 'Styles']
+                table: ['TableHeader', 'TableRows', 'TableColumns', 'TableCell', '-', 'BackgroundColor', 'TableRemove', 'TableCellVerticalAlign', 'Styles'],
+                showOnRightClick: true,
             },
             value: `<p>The Rich Text Editor is a WYSIWYG ("what you see is what you get") editor useful to create and edit content and return the valid <a href='https://ej2.syncfusion.com/home/' target='_blank'>HTML markup</a> or <a href='https://ej2.syncfusion.com/home/' target='_blank'>markdown</a> of the content</p>
         <p><b>Toolbar</b></p>
@@ -219,7 +222,7 @@ export default {
                 }
                 textArea.style.display = 'none';
                 mirrorView.style.display = 'block';
-                this.renderCodeMirror(mirrorView, this.$refs.rteObj.ej2Instances.value);
+                this.renderCodeMirror(mirrorView, this.$refs.rteObj.ej2Instances.value===null? "" :this.$refs.rteObj.ej2Instances.value);
                 charCount.style.display = 'none';
             }
         },
@@ -281,7 +284,7 @@ export default {
         }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter]
+        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, FileManager, EmojiPicker, Video, Audio, FormatPainter, PasteCleanup]
     }
 }
 </script>

@@ -5,7 +5,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" enableStickyHeader=true>
+        <ejs-grid :dataSource="data" enableStickyHeader=true :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='150' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='160'></e-column>
@@ -37,7 +37,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -48,8 +48,11 @@ export default {
   },
   data: () => {
     return {
-      data: orderDetails
+      data: orderDetails,
     };
+  },
+  provide: {
+      grid: [Sort]
   }
 }
 </script>

@@ -3,7 +3,6 @@
     "directory": "linear-gauge",
     "category": "Data Visualization",
     "ftName": "lineargauge",
-    "type": "update",
     "samples": [
         {
             "url": "default-functionalities",
@@ -31,48 +30,42 @@
             "name": "Ticks",
             "description": "This demo for Essential JS2 Linear Gauge control illustrates gradient support for pointers and ranges.",
             "category": "Axis",
-            "api":{"LinearGauge": ["axes", "container"]},
-            "type": "update"
+            "api":{"LinearGauge": ["axes", "container"]}
         },
         {
             "url": "labels",
             "name": "Labels",
             "description": "This demo for Essential JS2 Linear Gauge control illustrates the CPU Utilization of a resource by using annotation feature.",
             "category": "Axis",
-            "api":{"LinearGauge": ["axes", "container"]},
-            "type": "update"
+            "api":{"LinearGauge": ["axes", "container"]}
         },
         {
             "url": "range",
             "name": "Range",
             "description": "This demo for Essential JS2 Linear Gauge control illustrates how to highlight specific regions in an axis by using ranges.",
             "category": "Range",
-            "api":{"LinearGauge": ["axes"]},
-            "type": "update"
+            "api":{"LinearGauge": ["axes"]}
         },
         {
             "url": "marker-pointer",
             "name": "Marker Pointer",
             "description": "This demo for Essential JS2 Linear Gauge control shows various properties available to customize the axes and pointers.",
             "category": "Pointer",
-            "api":{"LinearGauge": ["axes"]},
-            "type": "update"
+            "api":{"LinearGauge": ["axes"]}
         },
         {
             "url": "bar-pointer",
             "name": "Bar Pointer",
             "description": "This demo for Essential JS2 Linear Gauge control shows various properties available to customize the axes and pointers.",
             "category": "Pointer",
-            "api":{"LinearGauge": ["axes"]},
-            "type": "update"
+            "api":{"LinearGauge": ["axes"]}
         },
         {
             "url": "custom-pointer",
             "name": "Custom Pointer",
             "description": "This demo for Essential JS2 Linear Gauge control shows various properties available to customize the axes and pointers.",
             "category": "Pointer",
-            "api":{"LinearGauge": ["axes"]},
-            "type": "update"
+            "api":{"LinearGauge": ["axes"]}
         },
         {
             "url": "tooltip",
@@ -93,8 +86,7 @@
             "name": "Progress Bar",
             "description": "This demo for Essential JS2 Linear Gauge control illustrates exercise tracking of an athlete by using ranges, pointers, and annotation features.",
             "category": "Use Cases",
-            "api":{"LinearGauge": ["orientation", "annotations", "axes"]},
-            "type": "update"
+            "api":{"LinearGauge": ["orientation", "annotations", "axes"]}
         },
         {
             "url": "step-progress-bar",
@@ -122,8 +114,7 @@
             "name": "Steps Counter",
             "description": "This demo for Essential JS2 Linear Gauge control illustrates exercise tracking of an athlete by using ranges, pointers, and annotation features.",
             "category": "Use Cases",
-            "api":{"LinearGauge": ["orientation", "container", "axes"]},
-            "type": "update"
+            "api":{"LinearGauge": ["orientation", "container", "axes"]}
         },
         {
             "url": "volume-settings",

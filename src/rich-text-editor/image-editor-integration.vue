@@ -45,7 +45,7 @@
 </template>
 <script>
 import Vue from "vue";
-import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar, PasteCleanup, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { DialogComponent } from "@syncfusion/ej2-vue-popups";
 import { ImageEditorComponent } from "@syncfusion/ej2-vue-image-editor";
 
@@ -93,6 +93,9 @@ export default {
                 "Remove",
                 "-",
                 "InsertLink",
+                "OpenImageLink",
+                "EditImageLink",
+                "RemoveImageLink",
                 "Display",
                 "AltText",
                 {
@@ -166,7 +169,7 @@ export default {
         },
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
     }
 };
 </script>

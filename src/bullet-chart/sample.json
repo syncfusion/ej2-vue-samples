@@ -1,7 +1,6 @@
 {
     "name": "Bullet Chart",
     "directory": "bullet-chart",
-    "type": "update",
     "category": "Data Visualization",    
     "samples": [
         {
@@ -20,7 +19,6 @@
             "url": "multiple-data",
             "name": "Multiple Data",
             "category": "Bullet Chart",
-            "type": "update",
             "description": "This demo for Essential JS2 Bullet Chart control with local data",
             "sourceFiles": [
                 {

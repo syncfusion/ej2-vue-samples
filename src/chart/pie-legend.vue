@@ -19,7 +19,6 @@
             xName="x"
             yName="y"
             :startAngle="startAngle"
-            :endAngle="endAngle"
             innerRadius="43%"
             :dataLabel="dataLabel"
           ></e-accumulation-series>

@@ -45,9 +45,10 @@
 </template>
 <script>
 import { createApp } from 'vue';
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Annotations, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, MarkersDirective, MarkerDirective, Annotations, Marker } from '@syncfusion/ej2-vue-maps';
 import Template1 from './annotation-temp1.vue';
 import Template2 from './annotation-temp2.vue';
+import { africaContinent } from '../maps/map-data/africa-continent';
 
 export default {
   components: {
@@ -73,7 +74,7 @@ export default {
         ],
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        shapeData: new MapAjax('./src/maps/map-data/africa-continent.json'),
+        shapeData: africaContinent,
         shapeSettings: {
             fill: 'url(#grad1)'
         },
@@ -81,7 +82,7 @@ export default {
       }
   },
 provide: {
-    maps: [Annotations, Marker]
+    maps: [Annotations, Marker, Zoom]
 },
 /* custom code start */
 methods:{

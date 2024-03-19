@@ -126,9 +126,10 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, MapAjax, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -149,7 +150,7 @@ export default {
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeSettings: { fill: 'lightgrey', border: { color: 'black', width: 0.1 } },
         markerSettings: [
                     {

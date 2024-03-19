@@ -1,126 +1,126 @@
 <template>
 <div class="control-section">
-  <div class="col-lg-8 control-section" >
-      <div class="content-wrapper">
-          <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
-      </div>
-  </div>
-  <div class="col-lg-4 property-section" >
-      <div class="property-panel-header">
-          Properties
-      </div>
-      <div class="row" id="appearance">
-          <div class="row" style="padding-top: 10px">
-              <div class="row row-header">
-                  Orientation
-              </div>
-              <div id="orientation">
-                  <div class="row" style="padding-top: 8px">
-                      <div class="image-pattern-style e-selected-orientation-style" id="topToBottom" style="background-image: url(./src/diagram/Images/common-orientation/toptobottom.png); margin-right: 3px">
-                      </div>
-                      <div class="image-pattern-style" id="bottomToTop" style="background-image: url(./src/diagram/Images/common-orientation/bottomtotop.png); margin: 0px 3px">
-                      </div>
-                      <div class="image-pattern-style" id="leftToRight" style="background-image: url(./src/diagram/Images/common-orientation/lefttoright.png); margin: 0px 3px">
-                      </div>
-                  </div>
-                  <div class="row" style="padding-top: 8px">
-                      <div class="image-pattern-style" id="rightToLeft" style="background-image: url(./src/diagram/Images/common-orientation/righttoleft.png); margin: 0px 3px">
-                      </div>
-                  </div>
-              </div>
-              <div class="row row-header" style="padding-top: 10px">
-                  Subtree Alignment
-              </div>
-              <div id="pattern">
-                  <div class="row" style="padding-top: 8px">
-                      <div class="image-pattern-style" id="pattern1" style="background-image: url(./src/diagram/patternimages/Pattern_1.png); margin-right: 3px">
-                      </div>
-                      <div class="image-pattern-style e-selected-pattern-style" id="pattern2" style="background-image: url(./src/diagram/patternimages/Pattern_2.png); margin: 0px 3px">
-                      </div>
-                      <div class="image-pattern-style" id="pattern3" style="background-image: url(./src/diagram/patternimages/Pattern_3.png); margin: 0px 3px">
-                      </div>
-                  </div>
-                  <div class="row" style="padding-top: 8px">
-                      <div class="image-pattern-style" id="pattern4" style="background-image: url(./src/diagram/patternimages/Pattern_4.png); margin-right: 3px">
-                      </div>
-                      <div class="image-pattern-style" id="pattern5" style="background-image: url(./src/diagram/patternimages/Pattern_5.png); margin: 0px 3px">
-                      </div>
-                      <div class="image-pattern-style" id="pattern6" style="background-image: url(./src/diagram/patternimages/Pattern_6.png); margin: 0px 3px">
-                      </div>
-                  </div>
-                  <div class="row" style="padding-top: 8px">
-                      <div class="image-pattern-style" id="pattern7" style="background-image: url(./src/diagram/patternimages/Pattern_7.png); margin-right: 3px">
-                      </div>
-                      <div class="image-pattern-style" id="pattern8" style="background-image: url(./src/diagram/patternimages/Pattern_8.png); margin: 0px 3px">
-                      </div>
-                      <div class="image-pattern-style" id="pattern9" style="background-image: url(./src/diagram/patternimages/Pattern_9.png); margin: 0px 3px">
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="row" style="padding-top: 10px">
-          <div class="row row-header">
-              Behavior
-          </div>
-          <div class="row" style="padding-top: 8px">
-              <div style="display: table;height: 35px;" class="col-xs-6">
-                  <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
-              </div>
-              <div class="col-xs-6">
-                  <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" 
-                        :min='hSpacingmin'
-                        :max='hSpacingmax'
-                        :step='hSpacingstep'
-                        :value='hSpacingvalue'
-                        :change='hSpacingchange'/>
+ <div class="col-lg-8 control-section" style="width: 70%; float:left;">
+    <div class="content-wrapper">
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
+    </div>
+</div>
+<div class="col-lg-4 property-section" style="width: 30%; float: right; height: 80%">
+    <div class="property-panel-header">
+        Properties
+    </div>
+    <div class="row" id="appearance">
+        <div class="row" style="padding-top: 10px">
+            <div class="row row-header">
+                Orientation
+            </div>
+            <div id="orientation">
+                <div class="row" style="padding-top: 8px">
+                    <div class="image-pattern-style e-selected-orientation-style" id="topToBottom" style="background-image: url(./src/diagram/Images/common-orientation/toptobottom.png); margin-right: 3px">
+                    </div>
+                    <div class="image-pattern-style" id="bottomToTop" style="background-image: url(./src/diagram/Images/common-orientation/bottomtotop.png); margin: 0px 3px">
+                    </div>
+                    <div class="image-pattern-style" id="leftToRight" style="background-image: url(./src/diagram/Images/common-orientation/lefttoright.png); margin: 0px 3px">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 8px">
+                    <div class="image-pattern-style" id="rightToLeft" style="background-image: url(./src/diagram/Images/common-orientation/righttoleft.png); margin: 0px 3px">
+                    </div>
+                </div>
+            </div>
+            <div class="row row-header" style="padding-top: 10px">
+                Subtree Alignment
+            </div>
+            <div id="pattern">
+                <div class="row" style="padding-top: 8px">
+                    <div class="image-pattern-style" id="pattern1" style="background-image: url(./src/diagram/patternimages/Pattern_1.png); margin-right: 3px">
+                    </div>
+                    <div class="image-pattern-style e-selected-pattern-style" id="pattern2" style="background-image: url(./src/diagram/patternimages/Pattern_2.png); margin: 0px 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern3" style="background-image: url(./src/diagram/patternimages/Pattern_3.png); margin: 0px 3px">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 8px">
+                    <div class="image-pattern-style" id="pattern4" style="background-image: url(./src/diagram/patternimages/Pattern_4.png); margin-right: 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern5" style="background-image: url(./src/diagram/patternimages/Pattern_5.png); margin: 0px 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern6" style="background-image: url(./src/diagram/patternimages/Pattern_6.png); margin: 0px 3px">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 8px">
+                    <div class="image-pattern-style" id="pattern7" style="background-image: url(./src/diagram/patternimages/Pattern_7.png); margin-right: 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern8" style="background-image: url(./src/diagram/patternimages/Pattern_8.png); margin: 0px 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern9" style="background-image: url(./src/diagram/patternimages/Pattern_9.png); margin: 0px 3px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 10px">
+        <div class="row row-header">
+            Behavior
+        </div>
+        <div class="row" style="padding-top: 8px">
+            <div style="display: table;height: 35px;" class="col-xs-6">
+                <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
+            </div>
+            <div class="col-xs-6">
+                <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" 
+                      :min='hSpacingmin'
+                      :max='hSpacingmax'
+                      :step='hSpacingstep'
+                      :value='hSpacingvalue'
+                      :change='hSpacingchange'/>
 
-              </div>
-          </div>
-          <div class="row" style="padding-top: 8px">
-              <div style="display: table;height: 35px;" class="col-xs-6">
-                  <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
-              </div>
-              <div class="col-xs-6">
-                  <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" 
-                        :min='vSpacingmin'
-                        :max='vSpacingmax'
-                        :step='vSpacingstep'
-                        :value='vSpacingvalue'
-                        :change='vSpacingchange' />
-              </div>
-          </div>
-      </div>
-  </div>
-  <div id="action-description">
-      <p>
-          This sample illustrates a simple business management structure that is built from an external data source. Hierarchical tree 
-          layout algorithm is used to build organizational charts. Customizing the orientation 
-          and structure of the organizational 
-          chart is illustrated in this example.
-      </p>
-  </div>
-  <div id="description">
-      <p>
-          This example shows how to generate an organizational chart from an external data source. The spacing between the objects
-          can also be customized in the chart. The 
-          <code>horizontalSpacing</code> and <code>verticalSpacing</code> properties of
-          <code>layout</code> can be used to customize the space between objects in a tree. The <code>layoutOrientation</code> property of
-          <code>layout</code> can be used to change the orientation of the chart. The <code>getLayoutInfo</code> property of
-          <code>layout</code> can be used to customize the tree structure. To change the tree structure, choose any template in the palette.
-      </p>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 8px">
+            <div style="display: table;height: 35px;" class="col-xs-6">
+                <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
+            </div>
+            <div class="col-xs-6">
+                <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" 
+                      :min='vSpacingmin'
+                      :max='vSpacingmax'
+                      :step='vSpacingstep'
+                      :value='vSpacingvalue'
+                      :change='vSpacingchange' />
+            </div>
+        </div>
+    </div>
+</div>
+<div id="action-description">
+    <p>
+        This sample illustrates a simple business management structure that is built from an external data source. Hierarchical tree 
+        layout algorithm is used to build organizational charts. Customizing the orientation 
+        and structure of the organizational 
+        chart is illustrated in this example.
+    </p>
+</div>
+<div id="description">
+    <p>
+        This example shows how to generate an organizational chart from an external data source. The spacing between the objects
+        can also be customized in the chart. The 
+        <code>horizontalSpacing</code> and <code>verticalSpacing</code> properties of
+        <code>layout</code> can be used to customize the space between objects in a tree. The <code>layoutOrientation</code> property of
+        <code>layout</code> can be used to change the orientation of the chart. The <code>getLayoutInfo</code> property of
+        <code>layout</code> can be used to customize the tree structure. To change the tree structure, choose any template in the palette.
+    </p>
 
-      <p style="font-weight: 500">Injecting Module</p>
-      <p>
-          The diagram component’s features are segregated into individual feature-wise modules. To generate diagrams from an external
-          data source, inject
-          <code>DataBinding</code> module using
-          <code>provide: { diagram: [DataBinding] }</code> method. To automatically arrange the objects in an organizational chart, inject
-          <code>HierarchicalTree</code> module using
-          <code>provide: { diagram: [HierarchicalTree] }</code> method.
-      </p>
-      <br>
-  </div>
+    <p style="font-weight: 500">Injecting Module</p>
+    <p>
+        The diagram component’s features are segregated into individual feature-wise modules. To generate diagrams from an external
+        data source, inject
+        <code>DataBinding</code> module using
+        <code>provide: { diagram: [DataBinding] }</code> method. To automatically arrange the objects in an organizational chart, inject
+        <code>HierarchicalTree</code> module using
+        <code>provide: { diagram: [HierarchicalTree] }</code> method.
+    </p>
+    <br>
+</div>
 </div>
 </template>
 <style scoped>
@@ -179,7 +179,6 @@ import {
   DiagramComponent,
   Diagram,
   LayoutAnimation,
- 
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBox } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";

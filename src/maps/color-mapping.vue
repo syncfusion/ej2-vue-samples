@@ -130,9 +130,11 @@
     
  </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip } from '@syncfusion/ej2-vue-maps';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { usa } from '../maps/map-data/usa';
+import { colorMappingData } from '../maps/map-data/color-mapping';
 
 export default {
   components: {
@@ -171,10 +173,10 @@ export default {
                 text: 'Inches'
             },
         },
-        dataSource : new MapAjax('./src/maps/map-data/color-mapping.json'),
+        dataSource : colorMappingData,
         shapeDataPath: 'State',
         shapePropertyPath: 'name',
-        shapeData: new MapAjax('./src/maps/map-data/usa.json'),
+        shapeData: usa,
         shapeSettings: {
                     colorValuePath: 'inches',
                     fill: '#E5E5E5',

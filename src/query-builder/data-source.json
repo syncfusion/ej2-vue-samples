@@ -18,7 +18,10 @@
           "Length": 21626
         },
         "ReportsTo": 2,
-        "PhotoPath": "http://accweb/emmployees/davolio.bmp"
+        "PhotoPath": "http://accweb/emmployees/davolio.bmp",
+        "IsDeveloper": true,
+        "Age": 41,
+        "PrimaryFramework": "React"
       },
       {
         "EmployeeID": 2,
@@ -39,7 +42,10 @@
           "Length": 21626
         },
         "ReportsTo": 0,
-        "PhotoPath": "http://accweb/emmployees/fuller.bmp"
+        "PhotoPath": "http://accweb/emmployees/fuller.bmp",
+        "IsDeveloper": false,
+        "Age": 42,
+        "PrimaryFramework": "Angular"
       },
       {
         "EmployeeID": 3,
@@ -60,7 +66,10 @@
           "Length": 21722
         },
         "ReportsTo": 2,
-        "PhotoPath": "http://accweb/emmployees/leverling.bmp"
+        "PhotoPath": "http://accweb/emmployees/leverling.bmp",
+        "IsDeveloper": true,
+        "Age": 43,
+        "PrimaryFramework": "Vue"
       },
       {
         "EmployeeID": 4,
@@ -81,7 +90,10 @@
           "Length": 21626
         },
         "ReportsTo": 2,
-        "PhotoPath": "http://accweb/emmployees/peacock.bmp"
+        "PhotoPath": "http://accweb/emmployees/peacock.bmp",
+        "IsDeveloper": false,
+        "Age": 44, 
+        "PrimaryFramework": "Typescript"
       },
       {
         "EmployeeID": 5,
@@ -102,7 +114,10 @@
           "Length": 21626
         },
         "ReportsTo": 2,
-        "PhotoPath": "http://accweb/emmployees/buchanan.bmp"
+        "PhotoPath": "http://accweb/emmployees/buchanan.bmp",
+        "IsDeveloper": true,
+        "Age": 45,
+        "PrimaryFramework": "Javascript"
       },
       {
         "EmployeeID": 6,
@@ -123,7 +138,10 @@
           "Length": 21626
         },
         "ReportsTo": 5,
-        "PhotoPath": "http://accweb/emmployees/davolio.bmp"
+        "PhotoPath": "http://accweb/emmployees/davolio.bmp",
+        "IsDeveloper": false,
+        "Age": 46,
+        "PrimaryFramework": "Blazor"
       },
       {
         "EmployeeID": 7,
@@ -144,7 +162,10 @@
           "Length": 21626
         },
         "ReportsTo": 5,
-        "PhotoPath": "http://accweb/emmployees/davolio.bmp"
+        "PhotoPath": "http://accweb/emmployees/davolio.bmp",
+        "IsDeveloper": true,
+        "Age": 47,
+        "PrimaryFramework": "ASP.NET Core"
       },
       {
         "EmployeeID": 8,
@@ -165,7 +186,10 @@
           "Length": 21626
         },
         "ReportsTo": 2,
-        "PhotoPath": "http://accweb/emmployees/davolio.bmp"
+        "PhotoPath": "http://accweb/emmployees/davolio.bmp",
+        "IsDeveloper": false,
+        "Age": 48,
+        "PrimaryFramework": "ASP.NET MVC"
       },
       {
         "EmployeeID": 9,
@@ -186,7 +210,10 @@
           "Length": 21626
         },
         "ReportsTo": 5,
-        "PhotoPath": "http://accweb/emmployees/davolio.bmp"
+        "PhotoPath": "http://accweb/emmployees/davolio.bmp",
+        "IsDeveloper": true, 
+        "Age": 49,
+        "PrimaryFramework": "Java"
       }
     ],
     "expenseData": [{

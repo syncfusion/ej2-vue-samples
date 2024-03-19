@@ -92,8 +92,10 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax, Print } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, Print } from '@syncfusion/ej2-vue-maps';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { usa } from '../maps/map-data/usa';
+import { printData } from '../maps/map-data/print-datasource';
 
 export default {
   components: {
@@ -125,10 +127,10 @@ export default {
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData: new MapAjax('./src/maps/map-data/usa.json'),
+        shapeData: usa,
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        dataSource: new MapAjax('./src/maps/map-data/print-datasource.json'),
+        dataSource: printData,
         shapeSettings: {
             border: {
                 width: 0.5,

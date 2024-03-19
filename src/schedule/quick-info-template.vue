@@ -339,10 +339,13 @@ export default {
       }
     },
     getHeaderStyles: function(data) {
-      const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-      const resources = scheduleObj.getResourceCollections().slice(-1)[0];
-      const resourceData = resources.dataSource.filter(resource => resource.Id === data.RoomId)[0];
-      return resourceData.Color;
+      const scheduleElement = document.querySelector(".e-schedule");
+      if(scheduleElement) {
+        const scheduleObj = scheduleElement.ej2_instances[0];
+        const resources = scheduleObj.getResourceCollections().slice(-1)[0];
+        const resourceData = resources.dataSource.filter(resource => resource.Id === data.RoomId)[0];
+        return resourceData.Color;
+      }
     },
     getHeaderTitle: function(data) {
       return data.elementType === "cell" ? "Add Appointment" : "Appointment Details";
@@ -355,10 +358,13 @@ export default {
       );
     },
     getEventType: function(data) {
-      const scheduleObj = document.querySelector(".e-schedule").ej2_instances[0];
-      const resources = scheduleObj.getResourceCollections().slice(-1)[0];
-      const resourceData = resources.dataSource.filter(resource => resource.Id === data.RoomId)[0];
-      return resourceData.Name;
+      const scheduleElement = document.querySelector(".e-schedule");
+      if(scheduleElement) {
+        const scheduleObj = scheduleElement.ej2_instances[0];
+        const resources = scheduleObj.getResourceCollections().slice(-1)[0];
+        const resourceData = resources.dataSource.filter(resource => resource.Id === data.RoomId)[0];
+        return resourceData.Name;
+      }
     },
     buttonClickActions: function(e) {
       const scheduleObj = this.$refs.scheduleObj.ej2Instances;

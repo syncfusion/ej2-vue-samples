@@ -1,19 +1,20 @@
 <template>
   <div class="checklist control-section">
-    <div id = 'flat-list'>
-    <h4>Flat List</h4>
-    <!-- ListView element -->
-    <ejs-listview id='sample-list-flat' :dataSource='data' showCheckBox='true'></ejs-listview>
+    <div id="checklist-wrapper">
+      <div id = 'flat-list'>
+        <h4>Flat List</h4>
+        <!-- ListView element -->
+        <ejs-listview id='sample-list-flat' :dataSource='data' showCheckBox='true'></ejs-listview>
+      </div>
+      <div id = 'group-list'>
+        <h4>Group List</h4>
+        <!-- Group ListView element -->
+        <ejs-listview id='sample-list-group' :dataSource='groupData' :fields='fields' showCheckBox='true'></ejs-listview>
+      </div>
     </div>
-    <div id = 'group-list'>
-    <h4>Group List</h4>
-    <!-- Group ListView element -->
-    <ejs-listview id='sample-list-group' :dataSource='groupData' :fields='fields' showCheckBox='true'></ejs-listview>
-    </div>
-   <div id="action-description">
+    <div id="action-description">
         <p>This sample demonstrates the checkbox functionalities of the ListView. Click multiple list item to check or uncheck the items.</p>
     </div>
-
     <div id="description">
         <p>The ListView component has checkbox feature, which is used to select multiple items from the list. This feature can be enabled using the 
            <code><a target='_blank' class='code' href='https://ej2.syncfusion.com/vue/documentation/api/list-view#showcheckbox'>showCheckBox</a></code>property.</p>
@@ -23,6 +24,15 @@
   </div>
 </template>
 <style>
+#checklist-wrapper {
+    width: 85%;
+    margin: auto;
+    display: flex;
+}
+#flat-list, #group-list {
+  margin: auto;
+    width: 40%;
+}
 .checklist #sample-list-flat,.checklist #sample-list-group {
     border: 1px solid #dddddd;
     border-radius: 3px;

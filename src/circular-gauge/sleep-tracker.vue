@@ -86,6 +86,10 @@ export default {
                    content:'<div style="font-size:15px;border-radius: 20px;border: 2px solid gray;padding: 5px 4px 5px;width: 93%;text-align: center;margin-left: 67px;">Mon, 5 Apr</div>',
                    angle:342, radius:'129%', zIndex:'1'
             },
+            {
+                content:'<div style="color:#6453D0;font-size:15px;margin-top: 54px;margin-left:28px"><p style="text-align: center;">4 Apr</p><p style="margin-top: -10px;">9:00 PM</p></div>',
+                angle:285, radius:'60%', zIndex:'1'
+            },
              {
                 content:'<div style="font-size:15px;margin-left:25px">07 hrs 43 mins</div>' , angle:185,
                 radius:'120%', zIndex:'1'
@@ -93,10 +97,6 @@ export default {
             {
                 content:'<div style="font-size:15px;margin-left: 34px;">Sleep Time</div>', angle:185,
                 radius:'140%', zIndex:'1'
-            },
-            {
-                content:'<div style="color:#6453D0;font-size:15px;margin-top: 54px;margin-left:28px"><p style="text-align: center;">4 Apr</p><p style="margin-top: -10px;">9:00 PM</p></div>',
-                angle:250, radius:'60%', zIndex:'1'
             },
             {
                 content:'<div style="color:#6453D0;margin-top: -8px;"> - </div>',
@@ -129,10 +129,6 @@ export default {
         (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
     /* custom code end */
-    if(Browser.isDevice)
-    {
-        args.gauge.axes[0].annotations[3].angle = 240;
-    }
     },
     axisLabelRender: function (args) {
         if (args.value == 3 || args.value == 6 || args.value == 9 || args.value == 12) {

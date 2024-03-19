@@ -6,10 +6,10 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :showColumnChooser='true' :toolbar="toolbar" :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :showColumnChooser='true' :allowSorting='true' :toolbar='toolbar' :pageSettings='pageSettings'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150' :showInColumnChooser='false'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' ></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' :showInColumnChooser='false' ></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
                 <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
@@ -48,7 +48,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, ColumnChooser, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, ColumnChooser, Page, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -61,11 +61,11 @@ export default {
     return {
       data: orderDetails,
       toolbar: ['ColumnChooser'],
-      pageSettings: {pageCount: 5}
+      pageSettings: {pageCount: 5},
     };
   },
   provide: {
-      grid: [ColumnChooser, Page, Toolbar]
+      grid: [ColumnChooser, Page, Toolbar, Sort]
   }
 }
 </script>

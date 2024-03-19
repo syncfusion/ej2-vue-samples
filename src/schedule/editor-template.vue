@@ -59,7 +59,7 @@
             </div>
         </div>
         <div id="action-description">
-            <p>This demo illustrates the way of customizing the default editor window with custom template option and the
+            <p>This demo illustrates the way of customizing the default editor window with a custom template option and the
                 customized design is automatically replaced onto the usual event editor. Here, a doctor's daily appointment with his
                 patients is listed out and shaded with specific color based on its status.
             </p>
@@ -123,7 +123,13 @@
             return {
                 selectedDate: new Date(2021, 1, 15),
                 currentView: 'Week',
-                eventSettings: { dataSource: extend([], doctorsEventData, null, true) },
+                eventSettings: { 
+                    dataSource: extend([], doctorsEventData, null, true),
+                    fields: {
+                        startTime: { name: 'StartTime', validation: { required: true } },
+                        endTime: { name: 'EndTime', validation: { required: true } },
+                    }
+                },
                 showQuickInfo: false,
                 eventData:  ['New', 'Requested', 'Confirmed'],
             }

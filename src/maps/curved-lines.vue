@@ -71,9 +71,10 @@
 </div>
 </template>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, NavigationLine,Zoom , MapAjax} from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, NavigationLine,Zoom } from '@syncfusion/ej2-vue-maps';
 import { markerLocation } from '../maps/map-data/map-location';
 import { data } from '../maps/map-data/navigation-data';
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -107,7 +108,7 @@ export default {
         },
         animationDuration: 1000,
         shapePropertyPath: 'name',
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeDataPath: 'name',
         dataSource: [
                     {

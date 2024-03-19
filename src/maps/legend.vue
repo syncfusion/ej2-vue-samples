@@ -91,10 +91,11 @@ div.property-text {
 </style>
 <script>
 import Vue from 'vue';
-import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip } from '@syncfusion/ej2-vue-maps';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { legendData } from '../maps/map-data/legend-datasource';    
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -126,7 +127,7 @@ export default {
         legendModeData: ["Default", "Interactive"],
         positionData: ["Top", "Bottom", "Left", "Right"],
         labelswidth: '100%',
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
         dataSource: legendData,

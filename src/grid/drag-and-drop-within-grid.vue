@@ -66,7 +66,7 @@ export default {
       animationSettings: { effect: 'None' },
       alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
       data: orderDetails,
-      selection: { type: 'Multiple' }
+      selection: { type: 'Multiple' },
     };
   },
   methods: {

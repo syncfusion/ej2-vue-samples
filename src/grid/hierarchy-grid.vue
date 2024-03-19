@@ -6,11 +6,11 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="parentData" :childGrid="childGrid" :allowSorting="true" >
+        <ejs-grid :dataSource="parentData" :childGrid="childGrid" :allowSorting='true' >
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
-                <e-column field='Title' headerText='Title' width='170'></e-column>
+                <e-column field='Title' headerText='Title' width='170' ></e-column>
                 <e-column field='HireDate' headerText='Hired Date' width='120' format='yMd' textAlign='Right'></e-column>
                 <e-column field='ReportsTo' headerText='Reports To' width='120' textAlign='Right'></e-column>
             </e-columns>

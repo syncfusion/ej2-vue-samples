@@ -1,7 +1,3 @@
 #controlTree .bootstrap .e-treeview .e-list-item.e-hover>.e-fullrow {
     background-color: #d2ebff;
 }
-
-.bootstrap .e-samplestatus.new,.bootstrap .e-samplestatus.update,.bootstrap .e-samplestatus.preview {
-    margin:2px 0;
-}

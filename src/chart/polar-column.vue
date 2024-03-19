@@ -82,7 +82,8 @@ import {
   Category,
   RadarSeries,
   Highlight,
-  ChartDrawType
+  ChartDrawType,
+  ColumnSeries
 } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
@@ -146,7 +147,7 @@ export default {
     };
   },
   provide: {
-    chart: [Tooltip, Legend, PolarSeries, Category, RadarSeries, Highlight]
+    chart: [Tooltip, Legend, PolarSeries, Category, RadarSeries, Highlight, ColumnSeries]
   },
   updated: function () {
     this.$nextTick(function () {

@@ -107,7 +107,7 @@
         <li>Click the <code>selectAll</code> button selecting all text content in the RTE.</li>
     </ul>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, Count, HtmlEditor</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -126,7 +126,7 @@
 }
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { CheckBoxComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 
@@ -175,7 +175,7 @@ export default {
         }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar]
+        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

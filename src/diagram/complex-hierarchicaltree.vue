@@ -136,6 +136,7 @@
   font-size: 15px;
   font-weight: 500;
 }
+
 /* Selection indicator */
 .e-selected-style {
   border-color: #6c6c6c;
@@ -155,6 +156,7 @@ import {
   DataBinding,
   DiagramTools,ConnectionPointOrigin,
   ComplexHierarchicalTree,LineDistribution,
+  LayoutOrientation
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";
 import { ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";

@@ -89,7 +89,7 @@ export default {
         groupModeData: ["Point", "Value"],
         theme: theme,
         animation: {
-            enable: false
+            enable: true
         },
         data: [
             { 'x': 'Australia', y: 26, text: 'Australia: 26' },

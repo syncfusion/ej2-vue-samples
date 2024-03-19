@@ -111,7 +111,7 @@
             <p><b>Injecting Modules:</b></p>
             <p>The Format Painter feature is segregated as an individual module. To use the format painter you can import and then inject it into the RichTextEditor.</p>
             <p>
-                For example, to use the <code>'FormatPainter'</code> feature we need to inject by using <code>HtmlEditor, Toolbar, QuickToolbar, FormatPainter</code> into the <code>provide</code> section..
+                For example, to use the <code>'FormatPainter'</code> feature we need to inject by using <code>HtmlEditor, Toolbar, QuickToolbar, FormatPainter, Table, Link, Image, Audio, Video, PasteCleanup</code> into the <code>provide</code> section..
             </p>
         </div>
     </div>
@@ -131,7 +131,7 @@
 }
 </style>
 <script>
-    import { RichTextEditorComponent, HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, video} from "@syncfusion/ej2-vue-richtexteditor";
+    import { RichTextEditorComponent, HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, Video, PasteCleanup} from "@syncfusion/ej2-vue-richtexteditor";
     import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
     import * as data from './data-source.json';
 
@@ -161,7 +161,7 @@
             }
         },
         provide : {
-            richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, video]
+            richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, Video, PasteCleanup]
         }
     }
 

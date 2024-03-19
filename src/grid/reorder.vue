@@ -6,9 +6,9 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowReordering='true'>
+        <ejs-grid :dataSource="data" :allowReordering='true' :allowSorting='true'>
             <e-columns>
-                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='150' textAlign='Right'></e-column>
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
                 <e-column field='Title' headerText='Title' width='170'></e-column>
                 <e-column field='HireDate' headerText='Hired Date' width='120' format='yMd' textAlign='Right'></e-column>
@@ -36,7 +36,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnsDirective, ColumnDirective, Reorder } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Reorder, Sort } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 
 export default {
@@ -47,11 +47,11 @@ export default {
   },
   data: () => {
     return {
-      data: employeeData
+      data: employeeData,
     };
   },
   provide: {
-      grid: [Reorder]
+      grid: [Reorder, Sort]
   }
 }
 </script>

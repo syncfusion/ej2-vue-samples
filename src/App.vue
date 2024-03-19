@@ -1,6 +1,6 @@
 <template>
     <div id="app" ref="homeEle">
-        <aside id='left-sidebar'>
+        <aside id='left-sidebar' role="complementary" aria-labelledby="sb-toggle-left">
             <div class='sb-left-pane e-view'>
                 <div class="sb-left-pane-header">
                     <div class="sb-header-top">
@@ -10,12 +10,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="sb-home" onclick="document.getElementById('sb-home').click()">
+                <div class="sb-home" role="button" tabindex="0" aria-label="Essential JS2 home page" onclick="document.getElementById('sb-home').click()">
                     <div class="sb-home-link sb-icons sb-icon-Home"></div>
                     <div class="sb-home-text">
                         <span>HOME</span>
                     </div>
-                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html" aria-label="Sample home page"></a>
+                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html" aria-label="Essential JS2 home page"></a>
                 </div>
                 <div class='sb-control-navigation'>
                     <div id="controlTree" class='e-view'></div>
@@ -56,13 +56,13 @@
             <div id='sample-header' class="sb-header e-view" role="banner">
                 <div class='sb-header-left sb-left sb-table'>
                     <div class='sb-header-item sb-table-cell'>
-                        <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger"
-                            aria-label="toggle all controls navigation" title='toggle leftpane' aria-selected="true"></div>
+                        <div id="sb-toggle-left" role="button" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger"
+                            aria-label="Toggle all controls navigation" aria-controls="left-sidebar" title='toggle left pane'></div>
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
                             <span class='sb-header-text-left'>Essential JS 2 for </span>
-                            <span class='sb-header-text-right'>Vue</span>
+                            <span class='sb-header-text-right' role="button" tabindex="0">Vue</span>
                         </div>
                     </div>
 
@@ -79,14 +79,14 @@
                                 <span class="sb-header-text-left">CHOOSE THEME</span>
                             </div>
                             <div class="sb-theme-switcher-wrapper">
-                                <span id="sb-theme-switcher" class="sb-theme-switch sb-icons sb-icon-Dropdown"></span>
+                                <span id="sb-theme-switcher" class="sb-theme-switch sb-icons sb-icon-Dropdown" role="presentation" aria-label="Theme selection"></span>
                             </div>
                         </div>
                     </div>
                     <div class='sb-header-item sb-table-cell sb-search-wrapper'>
                         <div class='sb-search-btn' id='sb-trigger-search' role="button" tabindex="0"
                             aria-label="toggle sample search" title="Toggle sample search">
-                            <span class='sb-settings sb-icons sb-icon-Search'></span>
+                            <span class='sb-settings sb-icons sb-icon-Search' role="presentation" aria-label="Search sample"></span>
                         </div>
                     </div>
                     <div class='sb-header-item sb-table-cell sb-settings-wrapper'>
@@ -97,15 +97,9 @@
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
                     <div class='sb-header-item sb-table-cell sb-download-wrapper'>
-                        <a href='https://www.syncfusion.com/downloads/vue' target="_blank" aria-label="Free Trial">
-                            <button id='download-now' class='sb-download-btn'>
+                        <a href='https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-menu-trail' target="_blank" aria-label="Free Trail (Opens in a new window)">
+                            <button id='download-now' type="button" class='sb-download-btn'>
                                 <span class='sb-download-text'>FREE TRIAL</span>
-                            </button>
-                        </a>
-                        <a href='https://www.npmjs.com/search?q=ej2-vue' target="_blank" aria-label="Install NPM">
-                            <button class='sb-npm-btn'>
-                                <img class="npm-svg" src="styles/images/NPM.svg" alt="npm icon"><span
-                                    class="doc-npm-link">Install NPM</span>
                             </button>
                         </a>
                     </div>
@@ -117,7 +111,10 @@
                 <div id='sb-switcher-popup' role='navigation' class='sb-switch-popup'>
                     <ul id='switch-sb' role="list">
                         <li class='sb-current' role="listiem">Vue</li>
-                        <li>
+                        <li role="listiem">
+                            <a id='nextjs'>Next.js</a>
+                        </li>
+                        <li role="listiem">
                             <a id='angular'>Angular</a>
                         </li>
                         <li role="listiem">
@@ -154,15 +151,15 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap v5</span>
                         </li>
-                        <li class="e-list" id="bootstrap5-dark">
+                        <li class="e-list" id="bootstrap5-dark" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap v5 Dark</span>
                         </li>
-                        <li class="e-list" id="tailwind">
+                        <li class="e-list" id="tailwind" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS</span>
                         </li>
-                        <li class="e-list" id="tailwind-dark">
+                        <li class="e-list" id="tailwind-dark" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS Dark</span>
                         </li>
@@ -170,7 +167,7 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material</span>
                         </li>
-                        <li class="e-list" id="material-dark">
+                        <li class="e-list" id="material-dark" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material Dark</span>
                         </li>
@@ -178,15 +175,15 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material 3</span>
                         </li>
-                        <li class="e-list" id="material3-dark">
+                        <li class="e-list" id="material3-dark" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Material 3 Dark</span>
                         </li>
-                        <li id="fabric" role="listitem">
+                        <li class="e-list" id="fabric" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Fabric</span>
                         </li>
-                        <li class="e-list" id="fabric-dark">
+                        <li class="e-list" id="fabric-dark" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Fabric Dark</span>
                         </li>
@@ -198,11 +195,11 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap</span>
                         </li>
-                        <li class="e-list" id="bootstrap-dark">
+                        <li class="e-list" id="bootstrap-dark" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Bootstrap Dark</span>
                         </li>
-                        <li class="e-list" id="highcontrast">
+                        <li class="e-list" id="highcontrast" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">High Contrast</span>
                         </li>
@@ -305,9 +302,8 @@
                         </div>
                     </div>
                     <div class='sb-desktop-wrapper'>
-                        <div id='component-name' role="heading" aria-level="1"
-                            class='sb-component-name sb-rightpane-padding'>
-                            <h1 class='sb-sample-text'>Chart</h1>
+                        <div id='component-name' class='sb-component-name sb-rightpane-padding'>
+                            <h1 class='sb-sample-text' aria-level="1" role="heading">Chart</h1>
                         </div>
                         <div id='sample-bread-crumb' class='sb-bread-crumb sb-rightpane-padding'>
                             <div class='sb-bread-crumb-text'>
@@ -359,59 +355,63 @@
                         </div>
                         <div class='description-section sb-rightpane-padding'>
                         </div>
-                        <div class="banner-wrapper">
-                    <div id='banner-image' class="banner-img">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-12">
-                                    <div id="banner-head" class="banner-header">Transform your Vue web apps today with Syncfusion Vue components</div>
-                                </div>
-                                <div class="col-sm-12 cnt-area">
-                                    <div class="content-area">
-                                        <div class="banner-cnt-pt">
-                                            <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
-                                            <div class="banner-cnt-text">80+ high-performance and responsive UI components</div>
+                        <div class="ad-wrapper">
+                            <div id='ad-image' class="ad-img">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-12">
+                                            <div id="ad-banner-head" class="ad-header">Transform your Vue web apps today
+                                                with Syncfusion Vue components</div>
                                         </div>
-                                        <div class="banner-cnt-pt">
-                                            <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
-                                            <div class="banner-cnt-text">Dedicated support</div>
-                                        </div>
-                                        <div class="banner-cnt-pt">
-                                            <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection"></div>
-                                            <div class="banner-cnt-text">Hassle-free licensing</div>
-                                        </div>
-                                    </div>
-                                    <a style="color:#ffff;text-decoration:none;"
-                                                href="https://www.syncfusion.com/downloads/vue">
+                                        <div class="col-sm-12 cnt-area">
+                                            <div class="content-area">
+                                                <div class="ad-cnt-pt">
+                                                    <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection">
+                                                    </div>
+                                                    <div class="ad-cnt-text">80+ high-performance and responsive UI
+                                                        components</div>
+                                                </div>
+                                                <div class="ad-cnt-pt">
+                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
+                                                    </div>
+                                                    <div class="ad-cnt-text">Dedicated support</div>
+                                                </div>
+                                                <div class="ad-cnt-pt">
+                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
+                                                    </div>
+                                                    <div class="ad-cnt-text">Hassle-free licensing</div>
+                                                </div>
+                                            </div>
+                                            <a style="color:#ffff;text-decoration:none;"
+                                                href="https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-ads-trail" aria-label="TRY IT FOR FREE (Opens in a new window)">
                                                 <div class="free-trial">TRY IT FOR FREE</div>
                                             </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                
                         </div>
-                    </div>
-                </div>
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">
                                     <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank"
-                                        aria-label="Documentation link">
+                                        aria-label="Documentation (Opens in a new window)">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank" aria-label="Forum link">
+                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank" aria-label="Forum (Opens in a new window)">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
-                                    <a href="https://syncfusion.com/blogs" target="_blank" aria-label="Blog link">
+                                    <a href="https://syncfusion.com/blogs" target="_blank" aria-label="Blog (Opens in a new window)">
                                         <div class="sb-footer-link">Blog</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/kb/" target="_blank" aria-label="Knowledge base">
+                                    <a href="https://www.syncfusion.com/kb/" target="_blank" aria-label="Knowledge base (Opens in a new window)">
                                         <div class="sb-footer-link">Knowledge Base</div>
                                     </a>
                                 </div>
                                 <div class="sb-footer-copyright"></div>
                             </div>
                             <div class="sb-footer-logo">
-                                <a href="https://www.syncfusion.com/" target="_blank" aria-label="Footer logo">
+                                <a href="https://www.syncfusion.com/" target="_blank" aria-label="Syncfusion logo">
                                     <div class="sb-footer-logo-icon"></div>
                                 </a>
                             </div>
@@ -490,7 +490,7 @@ setCulture('en');
 registerLicense((window as any).syncfusion_license);
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
-const sbArray: string[] = ['angular', 'react', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
+const sbArray: string[] = ['angular', 'react','nextjs' , 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'material3';
@@ -553,18 +553,18 @@ let mobileSetting: HTMLElement;
 let copyRight: HTMLElement;
 let hsplitter: string = '<div class="sb-toolbar-splitter sb-custom-item"></div>';
 // tslint:disable-next-line:no-multiline-string
-let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" target="_blank" aria-label="Open new sample">
+let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" role='tab' target="_blank" aria-label="Open new sample">
         <div class="sb-icons sb-icon-Popout"></div></a></div>`;
-let sampleNavigation: string = `<div class="sb-custom-item sample-navigation"><button id='prev-sample' class="sb-navigation-prev" 
-aria-label="previous sample">
+let sampleNavigation: string = `<div class="sb-custom-item sample-navigation"><button id='prev-sample' role='tab' class="sb-navigation-prev" 
+aria-label="Naviagte to previous sample">
 <span class='sb-icons sb-icon-Previous'></span>
 </button>
-<button  id='next-sample' class="sb-navigation-next" aria-label="next sample">
+<button  id='next-sample' role='tab' class="sb-navigation-next" aria-label="Navigate to next sample">
 <span class='sb-icons sb-icon-Next'></span>
 </button>
 </div>`;
-let stackTemplate: string = '<span class="sb-icons sb-icons-plnkr"></span><span class="sb-plnkr-text">Edit in StackBlitz</span>';
-contentToolbarTemplate = '<div class="sb-desktop-setting"><button id="open-plnkr" class="sb-custom-item sb-plnr-section">' +
+let stackTemplate: string = '<span class="sb-icons sb-icons-plnkr" role="presentation"></span><span class="sb-plnkr-text">Edit in StackBlitz</span>';
+contentToolbarTemplate = '<div class="sb-desktop-setting"><button id="open-plnkr" role="tab" aria-label="Open Edit in StackBlitz" tabindex="0" class="sb-custom-item sb-plnr-section">' +
     stackTemplate + '</button>' + hsplitter + openNewTemplate + hsplitter + sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
 tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', innerHTML: contentToolbarTemplate });
 
@@ -705,6 +705,7 @@ const breadCrumbUpdate = (controlName: string, category: string, sampleName: str
 
 const updateBreadCrumb = () => {
     (rootEle!.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = route!.meta!.eCompName! as string;
+    (rootEle!.querySelector('#component-name .sb-sample-text') as HTMLElement).setAttribute('title', route!.meta!.eCompName! as string);
     breadCrumbUpdate(route!.meta!.eCompName! as string, route!.meta!.eCategoryName! as string, route!.meta!.eSampleName! as string);
 };
 
@@ -727,7 +728,7 @@ const renderLeftPaneComponents = () => {
             dataSource: controlSampleData[location.hash.split('/')[2]] || controlSampleData.grid,
             fields: { id: 'uid', text: 'name', groupBy: 'order', htmlAttributes: 'data' },
             select: controlSelect,
-            template: '<div class="e-text-content ${if(type)}e-icon-wrapper${/if}"> <span class="e-list-text" role="listitem">${name}' +
+            template: '<div class="e-text-content ${if(type)}e-icon-wrapper${/if}"> <span class="e-list-text">${name}' +
                 '</span>${if(type === "update")}<span class="e-badge sb-badge e-samplestatus ${type}">Updated</span>' +
                 '${else}${if(type)}<span class="e-badge sb-badge e-samplestatus ${type}">${type}</span>${/if}${/if}' +
                 '${if(directory)}<div class="e-icons e-icon-collapsible"></div>${/if}</div>',
@@ -861,6 +862,10 @@ const sampleOverlay = (): void => {
 };
 
 const setSelectList = (): void => {
+    const eles = document.querySelectorAll('#controlList .e-list-item.e-level-1');
+    for (const ele of eles as any) {
+        ele.tabIndex = 0;
+    }
     let hString: string = window.hashString || location.hash;
     let hash: string[] = hString.split('/');
     let list: ListView = (select('#controlList', rootEle) as any).ej2_instances[0];
@@ -1297,6 +1302,8 @@ const SbLink = (): void => {
         let ele: HTMLFormElement = <HTMLFormElement>select('#' + sb);
         if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
             ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
+        } else if (sb === 'nextjs') {
+            ele.href = 'https://ej2.syncfusion.com/nextjs/demos/';
         } else if (sb === 'blazor') {
             ele.href = 'https://blazor.syncfusion.com/demos/';
         } else {

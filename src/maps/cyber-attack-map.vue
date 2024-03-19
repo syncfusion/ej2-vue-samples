@@ -137,7 +137,8 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective,Legend, Marker, NavigationLine, MapsTooltip, MapAjax, ILoadedEventArgs, NavigationLineSettingsModel} from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective,Legend, Marker, NavigationLine, MapsTooltip, ILoadedEventArgs, NavigationLineSettingsModel} from '@syncfusion/ej2-vue-maps';
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
 components: {
@@ -156,7 +157,7 @@ data:function(){
         zoomSettings: {
             enable: false
         },
-        shapeData:new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeSettings: {
             border: { color: '#D2691E', width: 0.5 },
             fill: '#FFFFE0'

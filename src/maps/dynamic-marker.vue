@@ -221,7 +221,6 @@ methods:{
         maps.layers[0].navigationLineSettings = [];
         navigationLines = [];
         this.emptySavedLinePositions();
-        maps.refresh();
         this.disabled = true;
     },
     lineChange: function(args) {

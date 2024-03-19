@@ -9,6 +9,7 @@
           :chartSettings="chartSettings"
           :displayOption="displayOption"
           :showFieldList="showFieldList"
+          :height="height"
         ></ejs-pivotview>
       </div>
     </div>
@@ -174,7 +175,8 @@ export default {
         "Doughnut",
         "Funnel",
         "Pyramid"
-      ]
+      ],
+      height: 450
     };
   },
   methods: {

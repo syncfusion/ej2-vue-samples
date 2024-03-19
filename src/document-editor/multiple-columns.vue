@@ -102,8 +102,10 @@ export default {
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Microsoft Word (.docx)', id: 'word' },
-                { text: 'Syncfusion Document Text (.sfdt)', id: 'sfdt' }
+                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Word Document (*.docx)', id: 'word' },
+                { text: 'Word Template (*.dotx)', id: 'dotx' },
+                { text: 'Plain Text (*.txt)', id: 'txt' },
             ]
         };
     },  
@@ -119,6 +121,12 @@ export default {
                 case 'sfdt':
                     this.save('Sfdt');
                     break;
+                case 'txt':
+                    this.save('Txt');
+                    break;
+                case 'dotx':
+                    this.save('Dotx');
+                    break;
             }
         },
         openExportDropDown: function () {
@@ -126,6 +134,10 @@ export default {
             document.getElementById('word').setAttribute('title', 'Download a copy of this document to your computer as a DOCX file.');
             // tslint:disable-next-line:max-line-length
             document.getElementById('sfdt').setAttribute('title', 'Download a copy of this document to your computer as an SFDT file.');
+            // tslint:disable-next-line:max-line-length
+            document.getElementById('txt').setAttribute('title', 'Download a copy of this document to your computer as a TXT file.');
+            // tslint:disable-next-line:max-line-length
+            document.getElementById('dotx').setAttribute('title', 'Download a copy of this document to your computer as a DOTX file.');
         },
         save: function (format) {
             // tslint:disable-next-line:max-line-length
@@ -173,6 +185,7 @@ export default {
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(multipleColumn));
           obj.documentName='Multiple Columns';
+          this.$refs.doceditcontainer.ej2Instances.documentEditorSettings.showRuler = true;
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };

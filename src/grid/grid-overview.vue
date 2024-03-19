@@ -33,7 +33,7 @@
             <p>
                 The Grid is used to display and manipulate tabular data with configuration options to control the way the data is presented
                 and manipulated. It will pull the data from a data source, such as an array of JSON objects, OData web services,
-                or <code><a target="_blank" class="code"
+                or <code><a target="_blank" class="code" aria-label="API link for documentation"
                 href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">
                 DataManager</a></code> binding data fields to columns. Also, displaying a column header to identify the field with
                 support for grouped records.
@@ -43,12 +43,12 @@
                 used along with large data source.
             </p>
             <p>
-                You can follow the guidelines in this documentation to get around the browser height restriction when loading and viewing millions of records. Refer <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
+                You can follow the guidelines in this documentation to get around the browser height restriction when loading and viewing millions of records. Refer <a target="_blank" aria-label="API link for documentation" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
                 here</a> for more details.
             </p>
             <p>
             <br/> More information on the Grid instantiation can be found in this
-            <a target="_blank" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
+            <a target="_blank" aria-label="API link for documentation" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
             </p>
         </div>
 
@@ -99,7 +99,7 @@
                 coltemplate: function () {
                     return {
                         template: createApp({}).component('coltemplate', {
-                            template: '<div><img src="src/grid/images/Map.png" class="e-image" :alt="data.Location"/> &nbsp<span id="locationtext">{{data.Location}}</span></div>',
+                            template: '<div><img src="src/grid/images/Map.png" class="e-image" alt=""/> &nbsp<span id="locationtext">{{data.Location}}</span></div>',
                             data: function () { return { data: {} }; }
                         })
                     }
@@ -117,7 +117,7 @@
                 trustTemplate: function () {
                     return {
                         template: createApp({}).component('trustTemplate', {
-                            template: '<div><img style="width: 31px; height: 24px" :src="image" :alt="data.Trustworthiness" /><span id="Trusttext">{{data.Trustworthiness}}</span></div>',
+                            template: '<div><img style="width: 31px; height: 24px" :src="image" alt="" /><span id="Trusttext">{{data.Trustworthiness}}</span></div>',
                             data: function () { return { data: {}, Perfect: 'Perfect', Sufficient: 'Sufficient', Insufficient: 'Insufficient' }; },
                             computed: {
                                 image: function () {
@@ -201,16 +201,23 @@
                 this.$refs.overviewgrid.$el.ej2_instances[0].on('data-ready', function () {
                     proxy.dReady =  true;
                  })
-                this.$refs.overviewgrid.$el.addEventListener('DOMSubtreeModified', function () {
-                    if (proxy.dReady && proxy.stTime && proxy.isDataChanged) {
-                        let e = performance.now() - proxy.stTime;
-                        proxy.loadTime = "Load Time: <b>" + e.toFixed(0) + "</b><b>ms</b>";
-                        proxy.stTime = null;
-                        proxy.dReady = false;
-                        proxy.isDataChanged = false;
-                        proxy.$refs.msgelement.classList.remove('e-hide');
-                    }
-                })
+                var observer = new MutationObserver(function (mutations) {
+                    mutations.forEach(function () {
+                        if (proxy.dReady && proxy.stTime && proxy.isDataChanged) {
+                            let e = performance.now() - proxy.stTime;
+                            proxy.loadTime = "Load Time: <b>" + e.toFixed(0) + "</b><b>ms</b>";
+                            proxy.stTime = null;
+                            proxy.dReady = false;
+                            proxy.isDataChanged = false;
+                            proxy.$refs.msgelement.classList.remove('e-hide');
+                        }
+                    });
+                });
+                observer.observe(document.getElementById('overviewgrid'), {
+                    attributes: true,
+                    childList: true,
+                    subtree: true,
+                });
             }
         },
         computed: {

@@ -48,6 +48,7 @@ import {
   HierarchicalTree,
   DiagramTools,
   NodeConstraints,
+  
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager, Query } from "@syncfusion/ej2-data";
 import { mindMap } from "./diagram-data";

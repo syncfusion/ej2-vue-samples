@@ -5,10 +5,10 @@
     </div>
     <div>
         <div class='e-mastertext'>Selection Type & Selection Mode</div>
-            <ejs-toolbar ref="toolbar" class='e-gridlist' :items='items' :clicked="onChange">                
+            <ejs-toolbar ref="toolbar" class='e-gridlist' :items='items' :clicked="onChange" >                
             </ejs-toolbar>
         <br/>
-        <ejs-grid ref="grid" :dataSource="data" allowPaging='true' :enableHover="false" :allowSelection="true" :selectionSettings="selectOptions" :rowSelecting="selectingEvent" :cellSelecting="selectingEvent">
+        <ejs-grid ref="grid" :dataSource="data" allowPaging='true' :allowSorting='true' :enableHover="false" :allowSelection="true" :selectionSettings="selectOptions" :rowSelecting="selectingEvent" :cellSelecting="selectingEvent">
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -85,7 +85,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { ToolbarComponent, ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { orderDetails } from "./data-source";
 import { CheckBox } from "@syncfusion/ej2-buttons";
@@ -134,7 +134,7 @@ export default {
     }
   },
   provide: {
-      grid: [Page]
+      grid: [Page, Sort]
   }
 }
 </script>

@@ -138,11 +138,11 @@ import {
   LayersDirective,
   LayerDirective,
   Marker,
-  MapsTooltip,
-  MapAjax
+  MapsTooltip
 } from "@syncfusion/ej2-vue-maps";
 import { topPopulation } from "../maps/map-data/marker-location";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
   components: {
@@ -164,7 +164,7 @@ export default {
           fontFamily: 'Segoe UI'
         }
       },
-      shapeData: new MapAjax("./src/maps/map-data/world-map.json"),
+      shapeData: worldMap,
       dataSource: topPopulation,
       shapeSettings: {
         fill: "#C3E6ED"

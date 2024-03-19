@@ -5,7 +5,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -35,7 +35,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -47,11 +47,11 @@ export default {
   data: () => {
     return {
       data: orderDetails,
-      pageSettings: { pageCount: 5}
+      pageSettings: { pageCount: 5},
     };
   },
   provide : {
-      grid: [Page]
+      grid: [Page, Sort]
   }
 }
 </script>

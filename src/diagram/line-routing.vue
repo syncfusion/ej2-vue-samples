@@ -21,7 +21,6 @@
 <script>
 import {
   DiagramComponent,
-  Diagram,
   LineRouting,
   ConnectorBridging,
   DiagramConstraints,

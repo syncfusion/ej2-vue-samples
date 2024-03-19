@@ -17,13 +17,13 @@
     <p>In this demo, to enable this feature, configure the <b>EmojiPicker</b> command in the <a target='_blank' href='https://helpej2.syncfusion.com/vue/documentation/api/rich-text-editor/toolbarSettingsModel/#items'>toolbarSettings.items</a> property.</p>
     <p>You can also insert an emoji by pressing the colon (:) which will open the emoji picker. Choose an emoji from the picker and insert it into the editor. The feature also provides the option to filter emojis based on the typing character.</p>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>HtmlEditor, Toolbar, Link, Image, QuickToolbar, EmojiPicker</code>.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>HtmlEditor, Toolbar, Link, Image, QuickToolbar, EmojiPicker, PasteCleanup</code>.</p>
 </div>
 </div>
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, Count, HtmlEditor, QuickToolbar, EmojiPicker } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { TabComponent } from "@syncfusion/ej2-vue-navigations";
 
@@ -42,7 +42,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, EmojiPicker]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

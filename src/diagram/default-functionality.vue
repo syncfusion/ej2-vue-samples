@@ -1,6 +1,6 @@
 <template>
 <div class="control-section">
-<div class="e-diagram-toolbar">
+<div>
     <ejs-toolbar id='toolbar' ref="toolbar_diagram" overflowMode='Scrollable' style="width:100%;height: 10%;margin-top: 10px;" :clicked='toolbarclicked'>
       <e-items>
                 <e-item prefixIcon='e-icons e-circle-add' tooltipText='New Diagram'></e-item>
@@ -98,7 +98,7 @@
   </div>
 </div>
 </template>
-<style>
+<style scoped>
 /*To align palette */
 .sb-mobile-palette {
         width:240px;
@@ -156,8 +156,8 @@
             .e-export::before {
                     content: "\e711";
             }
-   /* These styles are used for toolbar icons*/        
-
+           
+  /* These styles are used for toolbar icons*/
                 @font-face {
     font-family: 'Bootstrap5 Diagram Builder';
     src:
@@ -266,7 +266,7 @@
                 content: "\e724";
             }
         
-            .e-connector::before {
+            .e-diagram-connector::before {
                 content: "\e725";
             }
               
@@ -279,8 +279,12 @@ import {
   DiagramComponent,
   SymbolPaletteComponent,
   PrintAndExport,
+  IExportOptions,
   NodeConstraints,
+  SymbolInfo,
+  IDragEnterEventArgs,
   DiagramTools,
+  GridlinesModel
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import {
@@ -841,7 +845,7 @@ export default {
         return {
           template: createApp({}).component("drawConnector", {
             template:
-              '<ejs-splitbutton :items ="conTypeItems" iconCss="e-ddb-icons e-connector e-icons" :select="onConnectorSelect"></ejs-splitbutton>',
+              '<ejs-splitbutton :items ="conTypeItems" iconCss="e-ddb-icons e-diagram-connector e-icons" :select="onConnectorSelect"></ejs-splitbutton>',
               components: {
                 'ejs-splitbutton': SplitButtonComponent
               },

@@ -7,7 +7,7 @@
     </div>
     <div class='e-mastertext'>Drag and Drop Rows between two Grids</div>
     <div style="display: inline-block">
-        <ejs-grid id='Grid' :dataSource='srcData' :allowPaging="true" :pageSettings="pageOptions" :allowSelection="true" :allowRowDragAndDrop="true"
+        <ejs-grid id='Grid' :dataSource='srcData' :allowPaging="true" :pageSettings="pageOptions" :allowSorting='true' :allowSelection="true" :allowRowDragAndDrop="true"
             :selectionSettings="selectionOptions" :rowDropSettings="srcDropOptions" width="49%">
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
@@ -16,7 +16,7 @@
             </e-columns>
         </ejs-grid>
 
-        <ejs-grid id='DestGrid' :dataSource='destData' :allowPaging="true" :pageSettings="pageOptions" :allowSelection="true"
+        <ejs-grid id='DestGrid' :dataSource='destData' :allowPaging="true" :allowSorting='true' :pageSettings="pageOptions" :allowSelection="true"
             :allowRowDragAndDrop="true" :selectionSettings="selectionOptions" :rowDropSettings="destDropOptions" width="49%">
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
@@ -76,7 +76,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, RowDD, Selection, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, RowDD, Selection, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -92,11 +92,11 @@ export default {
       pageOptions: { pageCount: 2 },
       selectionOptions: { type: "Multiple" },
       srcDropOptions: { targetID: "DestGrid" },
-      destDropOptions: { targetID: "Grid" }
+      destDropOptions: { targetID: "Grid" },
     };
   },
   provide: {
-      grid: [RowDD, Page, Selection]
+      grid: [RowDD, Page, Selection, Sort]
   }
 }
 </script>

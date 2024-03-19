@@ -28,7 +28,9 @@
 </div>
 </template>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective,Legend, Marker, MapsTooltip } from '@syncfusion/ej2-vue-maps';
+import { india } from '../maps/map-data/india';
+import { heatmapData } from '../maps/map-data/heatmap-datasource';
 
 export default {
   components: {
@@ -61,10 +63,10 @@ export default {
         zoomSettings: {
             enable: false
         },
-        shapeData: new MapAjax('./src/maps/map-data/india.json'),
+        shapeData: india,
         shapePropertyPath: 'NAME_1',
         shapeDataPath: 'Name',
-        dataSource: new MapAjax('./src/maps/map-data/heatmap-datasource.json'),
+        dataSource: heatmapData,
         tooltipSettings: {
                     visible: true,
                     valuePath: 'population',

@@ -85,10 +85,6 @@
         padding-right: 0;
     }
 
-    .schedule-vue-sample .room-scheduler.e-schedule.e-rtl .template-wrap {
-        text-align: right;
-    }
-
     .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-block-appointment {
         align-items: center;
         display: flex;
@@ -214,6 +210,10 @@
         display: flex;
         height: 100%;
         text-align: left;
+    }
+
+    .schedule-vue-sample .room-scheduler.e-schedule.e-rtl .template-wrap {
+        text-align: right;
     }
 
     .schedule-vue-sample .room-scheduler.e-schedule .template-wrap>div {

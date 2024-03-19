@@ -208,7 +208,7 @@
         /* Standard syntax */
     }
 
-    .e-bigger .e-sidebar .sb-mobile-right-pane .property-section .e-numerictextbox {
+    .e-bigger .e-sidebar .sb-mobile-right-pane .property-section.slider-api .e-numerictextbox {
         display: flex;
         padding-left: 0;
         text-align: center;

@@ -104,7 +104,7 @@ export default {
             legendSettings: {
                 visible: false
             },
-            animation: { enable: false },
+            animation: { enable: true },
             title: "Employees Age Group in Various Departments"
         };
     },

@@ -217,13 +217,13 @@ export default {
   },
   methods: {
     onChange: function(args: any) {
-        let gObj = ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0];
+        let gObj = ((this as any).$refs.grid as any).$el.ej2_instances[0];
         gObj.rowRenderingMode = args.checked ? 'Horizontal' : 'Vertical';
         gObj.allowGrouping = args.checked;
     },
     load: function() {
-        ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0].adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
-        if (((this as GridComponent).$refs.grid as any).$el.ej2_instances[0].pageSettings.pageSizes) {
+        ((this as any).$refs.grid as any).$el.ej2_instances[0].adaptiveDlgTarget = document.getElementsByClassName('e-mobile-content')[0];
+        if (((this as any).$refs.grid as any).$el.ej2_instances[0].pageSettings.pageSizes) {
             document.querySelector('.e-adaptive-demo')?.classList.add('e-pager-pagesizes');
         }
         else{
@@ -231,7 +231,7 @@ export default {
         }
     },
     toolbarClick: function (args: ClickEventArgs) {
-        let gObj = ((this as GridComponent).$refs.grid as any).$el.ej2_instances[0];
+        let gObj = ((this as any).$refs.grid as any).$el.ej2_instances[0];
         switch (args.item.id) {
             case gObj.element.id + '_pdfexport':
                 gObj.pdfExport();

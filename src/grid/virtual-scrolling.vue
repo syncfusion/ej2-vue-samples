@@ -160,23 +160,23 @@ export default {
   },
   methods: {
     show: function() {
-        (this as GridComponent).display = {'display': 'inline-block'};
+        (this as any).display = {'display': 'inline-block'};
     },
     hide: function() {
-      if ((this as GridComponent).flag && (this as GridComponent).date1) {
-        (this as GridComponent).date2 = new Date().getTime();
-        (this as GridComponent).timeTaken = "Time Taken: " + ((this as GridComponent).date2 - (this as GridComponent).date1) + "ms";
-        ((this as GridComponent).$refs.grid).ej2Instances.editSettings.allowAdding= true;
-        (this as GridComponent).flag = false;
+      if ((this as any).flag && (this as any).date1) {
+        (this as any).date2 = new Date().getTime();
+        (this as any).timeTaken = "Time Taken: " + ((this as any).date2 - (this as any).date1) + "ms";
+        ((this as any).$refs.grid).ej2Instances.editSettings.allowAdding= true;
+        (this as any).flag = false;
       }
-      (this as GridComponent).display = {'display': 'none'};
+      (this as any).display = {'display': 'none'};
     },
     onClick: function (args: any) {
-      if (!(this as GridComponent).virtualData.length) {
-        (this as GridComponent).show();      
-        (this as GridComponent).virtualData = generateData();
-        (this as GridComponent).date1 = new Date().getTime();
-        (this as GridComponent).flag = true;
+      if (!(this as any).virtualData.length) {
+        (this as any).show();      
+        (this as any).virtualData = generateData();
+        (this as any).date1 = new Date().getTime();
+        (this as any).flag = true;
       }
     }
   },

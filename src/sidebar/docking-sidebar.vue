@@ -52,30 +52,30 @@ import { SidebarComponent, ToolbarComponent, ItemsDirective, ItemDirective, } fr
 import { ListViewComponent } from '@syncfusion/ej2-vue-lists';
 
 var listData = [
-        { id: "1", text: "Grid", iconcss: "dock-icons e-sb-icon e-icons e-table", 
+        { id: "1", text: "Grid", iconcss: "sb-icons icon-grid e-sb-icon control-icon", 
             description: "The Vue DataGrid is a feature-rich component useful for" +
             "displaying data in a tabular format. Its wide range of functionalities" + 
             "includes data binding, editing, Excel-like filtering, custom sorting," +
             "aggregating rows, selection, and support for Excel, CSV, and PDF formats." +
             "It loads millions of records in just a second. It has flexible editing and intuitive record selection modes." + 
             "Also, it has seamless data exporting options like PDF, CSV, and Excel." },
-        { id: "2", text: "Chart", iconcss: "dock-icons e-sb-icon e-icons e-chart", 
+        { id: "2", text: "Chart", iconcss: "sb-icons icon-chart e-sb-icon control-icon", 
             description: "The Vue Charts is a well-crafted charting component to visualize data." + 
             "It contains a rich UI gallery of 30+ charts and graphs, ranging from line to financial" + 
             " that cater to all charting scenarios. Its high performance helps to render large amounts of data quickly." + 
             "It also comes with features such as zooming, panning, tooltip, crosshair, trackball, highlight, and selection" },
-        { id: "3", text: "Datepicker", iconcss: "dock-icons e-sb-icon e-icons e-month", 
+        { id: "3", text: "Datepicker", iconcss: "sb-icons icon-datepicker e-sb-icon control-icon", 
             description: "The Vue DatePicker is a lightweight and mobile-friendly component that allows" +
             "end-users to enter or select a date value. It has month, year, and decade view options to quickly" +
             "navigate to the desired date. It supports minimum dates, maximum dates, and disabled dates to restrict the date selection." +
             "It has built-in features such as validation, custom date formats, range restriction, and disable dates to enhance the progressive usage." },
-        { id: "4", text: "Dialog", iconcss: "dock-icons e-sb-icon e-icons e-comment-show",
+        { id: "4", text: "Dialog", iconcss: "sb-icons icon-dialog e-sb-icon control-icon",
             description: "The Vue Dialog is a useful user interface (UI) component for informing users" +
             "about critical information, errors, warnings, and questions, as well as confirming decisions and collecting" +
             "input from users. The component has a rich set of built-in features such as action buttons, positioning, animations," + 
             "dragging, resizing, templating, and more with mobile dialog support. The Vue dialog provides two different types:" +
             "modal dialogs and non-modal dialogs (modeless) based on interactions." },
-        { id: "5", text: "Dropdown List", iconcss: "dock-icons e-sb-icon e-icons e-drop-down", 
+        { id: "5", text: "Dropdown List", iconcss: "sb-icons icon-dropdownlist e-sb-icon control-icon", 
             description: "The Vue Dropdown List is a quick replacement of the HTML select tags." +
             "It has a rich appearance and allows users to select a single value that is non-editable" +
             " from a list of predefined values. It has several out-of-the-box features, such as data binding," +
@@ -129,73 +129,73 @@ export default {
         z-index: 20 !important;
     }
 
-    .material3 .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .material3-dark .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .material3 .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .material3-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
         width: 24px;
         margin-right: 12px;
     }
 
-    .material .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .material-dark .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .bootstrap .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .bootstrap-dark .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .material .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .material-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -8px;
     }
 
-    .tailwind .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .tailwind-dark .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .tailwind .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .tailwind-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin: -4px 8px 0 4px;
     }
 
-    .bootstrap4 .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .bootstrap4 .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -8px;
     }
 
-    .bootstrap5 .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .bootstrap5-dark .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .bootstrap5 .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap5-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-bottom: -12px;
     }
 
-    .fabric .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .fabric-dark .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .fabric .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .fabric-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -4px;
     }
 
     /* Specifies sample level styles for ListView icon alignment for bigger mode */
 
 
-    .bootstrap4.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .highcontrast.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .bootstrap4.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .highcontrast.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -10px;
     }
 
-    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .bootstrap-dark.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -15px;
     }
 
-    .material.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .material-dark.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .material.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .material-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -18px;
     }
 
-    .fabric.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .fabric-dark.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .fabric.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .fabric-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-top: -18px;
     }
 
-    .e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons::before {
+    .e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons::before {
         font-size: 26px;
     }
 
-    .bootstrap5.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .bootstrap5-dark.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .bootstrap5.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap5-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-bottom: -10px;
     }
 
-    .tailwind.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons,
-    .tailwind-dark.e-bigger .dockSidebar .e-listview .e-list-icon.dock-icons {
+    .tailwind.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .tailwind-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-bottom: -3px;
     }
 
@@ -272,7 +272,16 @@ export default {
         background-color: transparent;
     }
 
+    /* Specifies the sample level font icons for the ListView icons*/
+    @font-face {
+        font-family: 'sb-icons';
+        src: url('./fonts/controls.ttf?gcjn6a') format('truetype'), url('./fonts/controls.woff?gcjn6a') format('woff'), url('./fonts/controls.svg?gcjn6a#sbicons') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     .dockSidebar .e-sb-icon {
+        font-family: 'sb-icons';
         font-style: normal;
         font-weight: normal;
         font-variant: normal;
@@ -302,7 +311,7 @@ export default {
     }
 
     .dockSidebar .e-sb-icon::before {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     /* Specifies the sample level font icons for the Toolbar icons*/

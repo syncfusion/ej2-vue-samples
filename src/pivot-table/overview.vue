@@ -14,7 +14,7 @@
           :saveReport="saveReport" :loadReport="loadReport" :fetchReport="fetchReport" :renameReport="renameReport"
           :removeReport="removeReport" :newReport="newReport" :toolbarRender="beforeToolbarRender"
           :chartSeriesCreated="chartSeriesCreated" :displayOption="displayOption" :chartSettings="chartSettings"
-          :cellTemplate="'myTemplate'">
+          :cellTemplate="'myTemplate'" :enableFieldSearching="enableFieldSearching">
           <template v-slot:myTemplate="{ data }">
             <span class="template-wrap" v-html="getCellContent(data)"></span>
           </template>
@@ -226,6 +226,7 @@ export default {
           }
         }
       },
+      enableFieldSearching: true
     };
   },
   methods: {

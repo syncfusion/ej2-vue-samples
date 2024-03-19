@@ -3,7 +3,6 @@
     "directory": "heatmap",
     "category": "Data Visualization",
     "ftName": "heatmap",
-    "type":"update",
     "samples": [
         {
             "url": "default-functionalities",
@@ -114,8 +113,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "multi-level-labels.vue", "path": "./src/heatmap/label-template.vue"}
-            ],
-            "type":"new"
+            ]
         },
         {
             "url": "multi-level-labels",

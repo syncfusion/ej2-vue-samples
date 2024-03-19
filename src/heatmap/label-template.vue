@@ -34,12 +34,24 @@ components: {
 data:function(){
 return{
          xAxis: {
+            title: {
+                text: 'LIKELIHOOD',
+                textStyle: {
+                    fontFamily: 'inherit'
+                }
+            },
             labels: ["Improbable", "Remote", "Occasional", "Probable", "Frequent"],
             textStyle: {
                 fontFamily: 'inherit'
             }
         },
         yAxis: {
+            title: {
+                text: 'IMPACT',
+                textStyle: {
+                    fontFamily: 'inherit'
+                }
+            },
             labels: ["Negligible", "Low", "Moderate", "Significant", "Catastrophic"],
             textStyle: {
                 fontFamily: 'inherit'

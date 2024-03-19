@@ -66,13 +66,13 @@
         <p>The Quick format toolbar is used to easily edit the value of the Rich Text Editor when there is a lot of content in it. This quick toolbar item provides any toolbar item in the Rich Text Editor. This will support all the items in the toolbars of the Rich Text Editor.</p>
         <p>In this demo, to enable this feature, configure the items in <a target='_blank' href='https://ej2.syncfusion.com/vue/documentation/api/rich-text-editor/#quicktoolbarsettings'>quickToolbarSettings.text</a> property.</p>
         <p><b>Injecting Module</b></p>
-        <p>The above features built as modules have to be included in your application. For example, to use image and link, inject the specific module using <code>RichTextEditor.Inject (Toolbar, Link, Image, HtmlEditor, QuickToolbar, FormatPainter)</code>.</p>    
+        <p>The above features built as modules have to be included in your application. For example, to use image and link, inject the specific module using <code>Toolbar, Link, Image, FormatPainter, QuickToolbar, HtmlEditor, PasteCleanup</code>.</p>    
     </div>
 </div>
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, FormatPainter, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, FormatPainter, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
@@ -90,7 +90,7 @@ export default {
         };
     },
     provide : {
-        richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter, Link, Image]
+        richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter, Link, Image, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

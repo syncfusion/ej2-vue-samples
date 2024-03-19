@@ -42,7 +42,6 @@ import {
   ImageElement,
   DataBinding,
   HierarchicalTree,
-  TreeInfo,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager } from "@syncfusion/ej2-data";

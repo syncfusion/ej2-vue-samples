@@ -4,8 +4,9 @@
         <p>This sample demonstrates aggregate functionality of the Grid. In this sample, the aggregate value for the column “Freight” is displayed in column footer.</p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging="true" :pageSettings='pageOption' >
+        <ejs-grid :dataSource="data" :allowPaging="true" :pageSettings='pageOption' :allowSorting='true'>
             <e-columns>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
                 <e-column field='Freight' headerText='Freight' width='150' format='C2' textAlign='Right'></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='150' format="yMd" textAlign='Right'></e-column>
@@ -78,7 +79,7 @@
 </template>
 <script lang="ts">
 import { createApp } from "vue";
-import { GridComponent, ColumnsDirective, ColumnDirective, AggregateDirective, AggregatesDirective, Aggregate, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, AggregateDirective, AggregatesDirective, Aggregate, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderData } from "./data-source";
 
 export default {
@@ -112,7 +113,7 @@ export default {
     };
   },
   provide: {
-      grid: [Aggregate, Page]
+      grid: [Aggregate, Page, Sort]
   }
 };
 </script>

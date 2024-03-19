@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Image, Link, HtmlEditor, QuickToolbar, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Image, Link, HtmlEditor, QuickToolbar, FileManager, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
@@ -62,7 +62,7 @@ export default {
         };
     },
     provide: {
-        richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar, FileManager]
+        richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar, FileManager, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

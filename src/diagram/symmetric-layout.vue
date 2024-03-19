@@ -67,7 +67,6 @@
 <script>
 import {
   DiagramComponent,
-  Node,
   SnapConstraints,
   Diagram,
   DataBinding,

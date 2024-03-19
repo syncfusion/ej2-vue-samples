@@ -51,7 +51,7 @@ export default {
   data: () => {
     return {
       data: inventoryData,
-      pageSettings: { pageCount: 5}
+      pageSettings: { pageCount: 5},
     };
   },
   provide: {

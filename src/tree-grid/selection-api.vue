@@ -149,16 +149,16 @@ export default {
     },
     methods: {
         select: function(e: ClickEventArgs) {
-             let startRow: number = ((this as NumericTextBoxComponent).$refs.start).ej2Instances.value;
-             let toRow: number = ((this as NumericTextBoxComponent).$refs.to).ej2Instances.value;
+             let startRow: number = ((this as any).$refs.start).ej2Instances.value;
+             let toRow: number = ((this as any).$refs.to).ej2Instances.value;
              let rows: number[] = [];
              for ( let i: number = startRow ; i <= toRow ; i++ ) {
                  rows.push(i);
              }
-             ((this as TreeGridComponent).$refs.treegrid).selectRows(rows);           
+             ((this as any).$refs.treegrid).selectRows(rows);           
         },
         clear: function(e: ClickEventArgs){
-            ((this as TreeGridComponent).$refs.treegrid).clearSelection();
+            ((this as any).$refs.treegrid).clearSelection();
         }
     }
 

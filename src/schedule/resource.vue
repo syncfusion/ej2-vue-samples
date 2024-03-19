@@ -54,19 +54,19 @@
 </div>
 </template>
 <style>
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.margaret .e-frame {
-        background-color: #ea7a57;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.margaret .e-frame {
+        background-color: #ea7a57 !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.robert .e-frame {
-        background-color: #df5286;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.robert .e-frame {
+        background-color: #df5286 !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.laura .e-frame {
-        background-color: #865fcf;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.laura .e-frame {
+        background-color: #865fcf !important;
+        border-color: transparent !important;
     }
 </style>
 

@@ -31,7 +31,9 @@
 <script>
 import {
   SnapConstraints,
+  TextStyleModel,
   TextElement,
+  HorizontalAlignment,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import {
@@ -42,12 +44,9 @@ import {
 import {
   DiagramComponent,
   Diagram,
-  NodeModel,
   DataBinding,
-  DiagramElement,
   StackPanel,
   randomId,
-  VerticalAlignment
 } from "@syncfusion/ej2-vue-diagrams";
 
 import { pertChartData } from "./diagram-data";

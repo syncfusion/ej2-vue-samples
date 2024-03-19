@@ -34,6 +34,17 @@
             ]
         },
         {
+            "url": "object-value-binding",
+            "name": "Object Value Binding",
+            "category": "Dropdown List",
+            "type": "new",
+            "description": "This example demonstrates how to bind with data source in the Vue drop-down list component.",
+            "sourceFiles":[
+                { "displayName": "object-value-binding.vue", "path":"src/drop-down-list/object-value-binding.vue" },
+                { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
+            ]
+        },
+        {
             "url": "template",
             "name": "Template",
             "category": "Dropdown List",
@@ -47,7 +58,6 @@
             "url": "virtual-scroll",
             "name": "Virtualization",
             "category": "Dropdown List",
-            "type": "update",
             "description": "This example demonstrates how to utilize the virtual scrolling support of Vue drop-down list component.",
             "sourceFiles":[
                 { "displayName": "virtual-scroll.vue", "path":"src/drop-down-list/virtual-scroll.vue" },

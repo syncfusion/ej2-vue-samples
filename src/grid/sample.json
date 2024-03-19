@@ -35,7 +35,6 @@
         {
             "url": "adaptive-layout",
             "name": "Adaptive Layout",
-            "type": "update",
             "category": "Data Grid",
             "description": "This sample demonstrates the rendering order of the grid row elements and adaptive dialogs.",
             "hideOnDevice": false,
@@ -52,7 +51,6 @@
         {
             "url": "empty-record-template",
             "name": "Empty Record Template",
-            "type": "new",
             "category": "Data Grid",
             "description": "This demo for Essential JS 2 grid component demonstrates usage of template in Grid to shown element or text or image or gif icon instead of displaying the empty record message.",
             "hideOnDevice": false,
@@ -177,6 +175,7 @@
         {
             "url": "column-spanning",
             "name": "Column Spanning",
+            "type": "update",
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid component shows the usage of the column spanning feature.",
             "hideOnDevice": false,
@@ -236,6 +235,7 @@
         {
             "url": "row-spanning",
             "name": "Row Spanning",
+            "type": "update",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid control shows the usage of the row and column spanning feature.",
             "hideOnDevice": true,
@@ -244,6 +244,7 @@
         {
             "url": "inline-editing",
             "name": "Inline Editing",
+            "type": "update",
             "category": "Editing",
             "description": "This demo for Essential JS 2 grid component shows the inline editing operation.",
             "hideOnDevice": false,
@@ -304,7 +305,6 @@
         {
             "url": "filter-menu",
             "name": "Filter Menu",
-            "type": "update",
             "category": "Filtering",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
@@ -449,6 +449,7 @@
         {
             "url": "infinite-scrolling",
             "name": "Infinite Scrolling",
+            "type": "update",
             "category": "Scrolling",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
             "hideOnDevice": false,

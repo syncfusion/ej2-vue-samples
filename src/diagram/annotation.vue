@@ -164,9 +164,7 @@
   font-size: 15px;
   font-weight: 500;
 }
-
 /* Selection indicator */
-
 .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
@@ -221,7 +219,6 @@
 <script>
 import {
   DiagramComponent,
-  Diagram,
   ConnectorConstraints,
   SnapConstraints,
   Node,
@@ -233,11 +230,8 @@ import {
 } from "@syncfusion/ej2-vue-dropdowns";
 import { Button, ButtonComponent, CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import {
-  NumericTextBox,
-  ColorPicker,
   NumericTextBoxComponent,
   ColorPickerComponent,
-  ColorPickerEventArgs
 } from "@syncfusion/ej2-vue-inputs";
 
 let diagramInstance;

@@ -139,7 +139,7 @@
         word content as HTML or Markdown format. So, RichTextEditor can easily customized to use for blog posting, forums
         as an editor for response.</p>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup</code> into the <code>provide</code> section.</p>
 </div>
 
 </div>
@@ -445,7 +445,7 @@
 </style>
 <script>
 import { isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Link, Image, QuickToolbar, HtmlEditor, Toolbar } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Link, Image, QuickToolbar, HtmlEditor, Toolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
 export default {
@@ -529,7 +529,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Link, Image, QuickToolbar, HtmlEditor, Toolbar]
+        richtexteditor:[Link, Image, QuickToolbar, HtmlEditor, Toolbar, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

@@ -2,7 +2,7 @@
 <div>
 <div class="control-section">
 <div>
-<ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :annotations='annotations' :centerPosition='centerPosition'>
+<ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition'>
     <template v-slot:mexicoSvgTemplate="{}">
         <div><img src="src/maps/images/group.svg" style="height:15px;width:15px;"></div>
     </template>
@@ -88,15 +88,6 @@ data:function(){
             latitude: 27.0902,
             longitude: -105.7129
         },
-        annotations: [{
-            content: '<div style="height:18px;width:170px;background:white;text-align:center">' +
-                '<a href="https://www.openstreetmap.org/copyright"  target = "_blank" > © OpenStreetMap contributors </a></div > ',
-            verticalAlignment: 'Far',
-            zIndex: '1',
-            x: '-40',
-            y: '-20',
-            horizontalAlignment: 'Far'
-        }],
         mexicoSvgDataSource: [{ name: 'Mexico City', latitude: 23.6445, longitude: -102.832 }],
         mexicoSvgTooltipSettings: {
             visible: true,

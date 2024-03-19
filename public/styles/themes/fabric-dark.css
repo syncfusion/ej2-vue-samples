@@ -214,13 +214,6 @@ body.fabric-dark,
     color: #242424;
 }
 
-.fabric-dark .e-samplestatus.new,
-.fabric-dark .e-samplestatus.update,
-.fabric-dark .e-samplestatus.preview {
-    margin: 2px 0;
-    height: 22px;
-}
-
 .fabric-dark .e-samplestatus.new.tree,
 .fabric-dark .e-samplestatus.update.tree,
 .fabric-dark .e-samplestatus.preview.tree {

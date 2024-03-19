@@ -74,8 +74,9 @@
 </style>
 
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Bubble, MapsTooltip, Zoom, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Bubble, MapsTooltip, Zoom } from '@syncfusion/ej2-vue-maps';
 import { internetUsers } from '../maps/map-data/population-data';
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
 components: {
@@ -101,7 +102,7 @@ data:function(){
         },
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeSettings: {
                     fill: '#E5E5E5'
         },

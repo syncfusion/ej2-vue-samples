@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="col-lg-12 control-section custom-tree">
-        <div class="control-wrapper">
+        <div id="control-wrapper">
             <div class="col-lg-4 tree1-data">
                 <h4>TreeView-1</h4>
                 <div class="tree-content">
@@ -37,6 +37,9 @@
 </template>
 /* custom code start */
 <style>
+    #control-wrapper{
+        display: flex;
+    }
     .custom-tree #overlay {
         position: absolute; 
         display: block; 
@@ -56,6 +59,10 @@
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
     }
+    .custom-tree .tree1-data, .custom-tree .tree2-data, .custom-tree .list-data {
+        width: 40%;
+        float: left;
+    }
     .bootstrap5 .custom-delete,
     .bootstrap5-dark .custom-delete {
         margin-top: 3px;
@@ -71,7 +78,7 @@
     .custom-tree {
         overflow: auto;
     }
-    .custom-tree .control-wrapper {
+    .custom-tree #control-wrapper {
         position: relative; 
         min-width: 700px; 
         min-height: 400px; 

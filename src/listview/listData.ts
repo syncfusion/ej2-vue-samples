@@ -361,7 +361,7 @@ export let virtualizationData = [{
 },
 {
     name: "Margaret",
-    imgUrl: "src/listview/images/margaret.png",
+    imgUrl: "//ej2.syncfusion.com/demos/src/listview/images/margaret.png",
     id: "3"
 },
 {
@@ -371,7 +371,7 @@ export let virtualizationData = [{
 },
 {
     name: "Laura",
-    imgUrl: "src/listview/images/laura.png",
+    imgUrl: "//ej2.syncfusion.com/demos/src/listview/images/laura.png",
     id: "5"
 },
 {
@@ -386,7 +386,7 @@ export let virtualizationData = [{
 },
 {
     name: "Albert",
-    imgUrl: "src/listview/images/albert.png",
+    imgUrl: "//ej2.syncfusion.com/demos/src/listview/images/albert.png",
     id: "8"
 },
 {
@@ -419,4 +419,4 @@ export let foodItems = [
     { text: 'Bacon', price: '$12', src: 'bacon.jpg', type: 'non-veg', description: 'Salt-cured pork made from various cuts, typically the belly or less fatty parts of the back eaten as a side dish', rating: 3 },
     { text: 'Chips', price: '$13', src: 'chips.jpg', type: 'veg', description: 'A small usually thin and flat piece (as of wood or stone) cut, struck, or flaked off also served as an appetizer', rating: 4 },
     { text: 'Noodles', price: '$11', src: 'noodles.jpg', type: 'veg', description: 'A cooked egg-and-flour paste, generally distinguished from pasta by its elongated ribbonlike form', rating: 3 },
-];
+]

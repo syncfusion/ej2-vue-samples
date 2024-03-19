@@ -16,7 +16,7 @@
                             <ejs-toast id='toast_template' :template="'toasttemplate'" timeOut=120000 extendedTimeout=0 :position='tempPosition' :target= 'tempTarget' :open='onOpenToast' :close='onToastClose' :beforeOpen='onToastBeforeOpen'>
                             <template v-slot:toasttemplate>
                             <div id="template_toast"><div class="horizontal-align"><div class="e-icons toast-icons e-alarm"></div><div class="toast-content"><div class="toast-title">Weekend Alarm</div><div class="toast-message">
-                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img :src="'src/toast/images/map.jpg'" :style="{ width: '100%', height: '60%' }" :alt="'map'"/>
+                                With traffic, its likely to take 45 minutes to get to jenny"s 24th Birthday Bash at Hillside Bar, 454 E.Olive Way by 10:00PM</div></div></div><img :src="'src/toast/images/map.jpg'" :style="{ width: '100%', height: '50%' }" :alt="'map'"/>
                                 <div class="snooze"> Snooze For </div><div id="snoozedropDown"><select id="snoozeDD"><option value="2min">2 minutes</option><option value="5min">5 minutes</option><option value="10min">10 minutes</option></select></div>
                                 <div class="snoozeBtn"><button id="snooze" class="e-btn e-flat e-primary" style="margin-right: 15px;">Snooze for</button><button id="dismiss" class="e-btn e-flat e-primary"> Dismiss </button></div></div>
                             </template>

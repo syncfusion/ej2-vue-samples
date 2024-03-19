@@ -8,7 +8,7 @@
     <div>
         <div class="control-section">
         <ejs-grid ref='grid' id='Grid' :dataSource="data" :allowPaging='true' :enableHover="false" :allowSelection="true" :selectionSettings="selectOptions"
-         :toolbar='toolbar' :toolbarClick='clickHandler'>
+        :toolbar='toolbar' :toolbarClick='clickHandler' :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -42,7 +42,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Toolbar, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { orderDetails } from "./data-source";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
@@ -71,22 +71,19 @@ export default {
   },
   methods: {
     clickHandler: function(args: ClickEventArgs) {
-        if(((this as any).$refs.grid).getSelectedRecords().length>0){
-        let withHeader: boolean = false;
-        if (args.item.id === 'copyHeader') {
-            withHeader = true;
-        }
+        if(((this as any).$refs.grid).getSelectedRecords().length>0) {
+        let withHeader: boolean = args.item.id === 'copyHeader' ? true : false;
         ((this as any).$refs.grid).copy(withHeader);
-    } else {
-        ((this as any).$refs.alertDialog).show();
-    }
+        } else {
+            ((this as any).$refs.alertDialog).show();
+        }
   },
   alertDlgBtnClick: function() {
         ((<any>this).$refs.alertDialog as any).ej2Instances.hide();
     },
   },
   provide: {
-      grid: [Toolbar, Page]
+      grid: [Toolbar, Page, Sort]
   }
 }
 </script>

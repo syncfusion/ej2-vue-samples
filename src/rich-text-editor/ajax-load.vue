@@ -16,12 +16,12 @@
     The Rich Text Editor allows you to load content from an external source. The sample content is loaded from “Ajax_content.html” file using Fetch library, and when the event is <code>successful</code> the content is loaded into the editor using <code>value</code> property
   </p>
   <p><b>Injecting Module</b></p>
-  <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.</p>
+  <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio} from "@syncfusion/ej2-vue-richtexteditor";
 import { Fetch } from '@syncfusion/ej2-base';
 
 export default {
@@ -42,7 +42,7 @@ export default {
         }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

@@ -1,17 +1,17 @@
 <template>
 <div class="control-section">
     <div id="action-description">
-        <p>This sample demonstrates CRUD operations in Grid. You can perform CRUD operations as follows,</p>
-            <ul>
-                <li><code>Add</code> -  To add new record, click Add toolbar button </li>
-                <li><code>Edit</code> - To edit record, double click a row or click toolbar Edit button after selected a row </li>
-                <li><code>Delete</code> - To delete record, click toolbar Delete button after selected a row </li>
-                <li><code>Update</code>,<code>Cancel</code> - You can save or discard changes by click toolbar Update and Cancel button respectively</li>
+        <p>In this demo, you can edit the currently selected record by changing the state of the corresponding record to edit. You can carry out the following CRUD operations:</p>
+         <ul>
+                <li><code>Add</code> -  To add a new record, click the add toolbar button. </li>
+                <li><code>Edit</code> - To edit record, double click a cell. </li>
+                <li><code>Delete</code> - To delete a record, click the toolbar delete button after selecting a row. </li>
+                <li><code>Update</code> and <code>Cancel</code> - Save or discard changes by clicking the toolbar update and cancel button respectively.</li>
             </ul>
         <p>By default, a new row will be added at the top of the grid. You can change it by setting <code>editSettings.newRowPosition</code> as <code>Bottom</code></p>
     </div>
     <div class="col-lg-9 control-section">
-        <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :actionBegin='actionBegin'>
+        <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :editSettings='editSettings' :toolbar='toolbar' :actionBegin='actionBegin'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -38,28 +38,36 @@
     </div>    
 
      <div id="description">
-        <p> The Grid supports CRUD operations. This CRUD operations can be configured in Grid using
-            <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#editsettings">
-            editSettings</a></code>. Also, it has different modes to manipulate the datasource.
-        </p>
-        <p>The available modes are,</p>
-        <ul>
-            <li><code>Normal</code></li>
-            <li><code>Dialog</code></li>
-            <li><code>Batch</code></li>
-        </ul>
-        <p>
-            In this demo, Normal mode is enabled for editing. You can start editing any row by double clicking on it or clicking on toolbar’s
-            <code>Edit</code> button, then the currently selected row will be changed to edited state. You can change the row values
-            and save edited data to the datasource.
-        </p>
+        <p> Grid supports CRUD operations. This CRUD operations can be configured using
+            <code><a target="_blank" className="code" href="https://ej2.syncfusion.com/vue/documentation/api/grid/editSettings/">
+            editSettings</a></code>. It also has the following modes to manipulate the datasource.
+          </p>
+          <ul>
+              <li><code>Normal</code></li>
+              <li><code>Dialog</code></li>
+              <li><code>Batch</code></li>
+          </ul>
+          <p>
+              In the normal edit mode, when you start editing the currently selected record is changed to edit state. You can edit any row by double clicking it or clicking the toolbar’s
+              <code>Edit</code> button. You can change the row values and save edited data to the data source.
+          </p>
+          <p>
+              In order to add a new record easily, the grid content always displays a blank "add new row".
+              You can enable this feature by setting the <code>showAddNewRow</code> property of <code>editSettings</code> to true.
+          </p>
         <p style="font-weight: 500">Injecting Module:</p>
         <p>
-            Grid component features are segregated into individual feature-wise modules. To use editing feature, we need to inject
+            Grid component features are separated into feature-wise modules. To use editing feature, inject the
             <code><a target="_blank" class="code"
                 href="https://ej2.syncfusion.com/vue/documentation/api/grid/edit/">
                 Edit </a></code> into the <code>provide</code> section.
         </p>
+        <p>
+            More information on the inline editing can be found in this 
+            <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/grid/editing/in-line-editing">
+              documentation section</a>.
+          </p>
     </div>
 </div>
 </template>
@@ -70,8 +78,8 @@
     }
 </style>
 <!-- custom code end -->
-<script>
-import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+<script lang="ts">
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDataSource } from "./data-source";
 import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
 
@@ -88,29 +96,30 @@ export default {
       fields: { text: 'text', value: 'value' },
       dropdownValue: 'Top',
       data: orderDataSource.slice(0),
-      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, showAddNewRow: true, },
       toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
       orderidrules: { required: true, number: true },
-      customeridrules: { required: true },
+      customeridrules: { required: true, minLength: 5 },
       formatoptions: { type: 'dateTime', format: 'M/d/y hh:mm a' },
-      freightrules:  { required: true },
+      freightrules:  { required: true, min: 0 },
       editparams: { params: { popupHeight: '300px' }},
-      pageSettings: {pageCount: 5}
+      pageSettings: {pageCount: 5},
     };
   },
   provide: {
-      grid: [Edit, Page, Toolbar]
+      grid: [Edit, Page, Toolbar, Sort]
   },
   methods: {
-    valueChange: function (args) {
-        this.$refs.grid.ej2Instances.editSettings.newRowPosition = args.value;
+    valueChange: function (args:any) {
+        (this as any).$refs.grid.ej2Instances.editSettings.newRowPosition = args.value;
+        (this as any).$refs.grid.ej2Instances.refresh();
     },
-    actionBegin: function (args) {
+    actionBegin: function (args:any) {
         if (args.requestType === 'save') {
-            if (this.$refs.grid.ej2Instances.pageSettings.currentPage !== 1 && this.$refs.grid.ej2Instances.editSettings.newRowPosition === 'Top') {
-                args.index = (this.$refs.grid.ej2Instances.pageSettings.currentPage * this.$refs.grid.ej2Instances.pageSettings.pageSize) - this.$refs.grid.ej2Instances.pageSettings.pageSize;
-            } else if (this.$refs.grid.ej2Instances.editSettings.newRowPosition === 'Bottom') {
-                args.index = (this.$refs.grid.ej2Instances.pageSettings.currentPage * this.$refs.grid.ej2Instances.pageSettings.pageSize) - 1;
+            if ((this as any).$refs.grid.ej2Instances.pageSettings.currentPage !== 1 && (this as any).$refs.grid.ej2Instances.editSettings.newRowPosition === 'Top') {
+                args.index = ((this as any).$refs.grid.ej2Instances.pageSettings.currentPage * (this as any).$refs.grid.ej2Instances.pageSettings.pageSize) - (this as any).$refs.grid.ej2Instances.pageSettings.pageSize;
+            } else if ((this as any).$refs.grid.ej2Instances.editSettings.newRowPosition === 'Bottom') {
+                args.index = ((this as any).$refs.grid.ej2Instances.pageSettings.currentPage * (this as any).$refs.grid.ej2Instances.pageSettings.pageSize) - 1;
             }
         }
     }

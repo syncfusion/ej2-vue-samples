@@ -70,7 +70,8 @@ import {
   LineSeries,
   RadarSeries,
   Highlight,
-  ChartDrawType
+  ChartDrawType,
+  StackingColumnSeries
 } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
@@ -121,7 +122,7 @@ export default {
     };
   },
   provide: {
-    chart: [Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, Highlight]
+    chart: [Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, Highlight, StackingColumnSeries]
   },
   updated: function () {
     this.$nextTick(function () {

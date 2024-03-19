@@ -299,7 +299,7 @@ export let dataSource: any = [
         title: newsData[0].title,
         description: newsData[0].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/1.png', timeStamp: 'Syncfusion Blog - October 19, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/1.png', timeStamp: 'Syncfusion Blog - October 19, 2017',
         child: [{
             id: '01_1', title: newsData[0].title, category: newsData[0].title, text: newsData[0].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[0].content
@@ -310,7 +310,7 @@ export let dataSource: any = [
         title: newsData[1].title,
         description: newsData[1].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/2.png', timeStamp: 'Syncfusion Blog - October 18, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/2.png', timeStamp: 'Syncfusion Blog - October 18, 2017',
         child: [{
             id: '02_1', title: newsData[1].title, category: newsData[1].title, text: newsData[1].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[1].content
@@ -321,7 +321,7 @@ export let dataSource: any = [
         title: newsData[2].title,
         description: newsData[2].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/3.png', timeStamp: 'Syncfusion Blog - October 18, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/3.png', timeStamp: 'Syncfusion Blog - October 18, 2017',
         child: [{
             id: '03_1', title: newsData[2].title, category: newsData[2].title, text: newsData[2].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[2].content
@@ -332,7 +332,7 @@ export let dataSource: any = [
         title: newsData[3].title,
         description: newsData[3].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/4.png', timeStamp: 'Syncfusion Blog - October 18, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/4.png', timeStamp: 'Syncfusion Blog - October 18, 2017',
         child: [{
             id: '04_1', title: newsData[3].title, category: newsData[3].title, text: newsData[3].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[3].content
@@ -343,7 +343,7 @@ export let dataSource: any = [
         title: newsData[4].title,
         description: newsData[4].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/5.png', timeStamp: 'Syncfusion Blog - October 17, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/5.png', timeStamp: 'Syncfusion Blog - October 17, 2017',
         child: [{
             id: '05_1', title: newsData[4].title, category: newsData[4].title, text: newsData[4].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[4].content
@@ -354,7 +354,7 @@ export let dataSource: any = [
         title: newsData[5].title,
         description: newsData[5].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/6.png', timeStamp: 'Syncfusion Blog - October 17, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/6.png', timeStamp: 'Syncfusion Blog - October 17, 2017',
         child: [{
             id: '06_1', title: newsData[5].title, category: newsData[5].title, text: newsData[5].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[5].content
@@ -365,7 +365,7 @@ export let dataSource: any = [
         title: newsData[6].title,
         description: newsData[6].description,
         text: 'Syncfusion Blog',
-        imgSrc: 'src/listview/images/7.png', timeStamp: 'Syncfusion Blog - October 13, 2017',
+        imgSrc: '//ej2.syncfusion.com/demos/src/listview/images/7.png', timeStamp: 'Syncfusion Blog - October 13, 2017',
         child: [{
             id: '07_1', title: newsData[6].title, category: newsData[6].title, text: newsData[6].title,
             imgSrc: '', heading: '', timeStamp: '', description: newsData[6].content

@@ -5,7 +5,7 @@
             “Unit In Stock” column displayed its aggregate value in group caption also. </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging="true" :allowGrouping="true" :pageSettings='pageOption' :groupSettings="groupSettings">
+        <ejs-grid :dataSource="data" :allowPaging="true" :allowGrouping="true" :pageSettings='pageOption' :allowSorting='true' :groupSettings="groupSettings">
             <e-columns>
                 <e-column field='CategoryName' headerText='Category Name' width='170'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='150'></e-column>
@@ -94,7 +94,7 @@
 </template>
 <script lang="ts">
 import  { createApp } from "vue";
-import { GridComponent, ColumnsDirective, ColumnDirective, AggregateDirective, AggregatesDirective, Aggregate, Group, Page } from "@syncfusion/ej2-vue-grids";;
+import { GridComponent, ColumnsDirective, ColumnDirective, AggregateDirective, AggregatesDirective, Aggregate, Group, Page, Sort } from "@syncfusion/ej2-vue-grids";;
 import { categoryData } from "./data-source";
 
 export default {
@@ -137,7 +137,7 @@ export default {
     };
   },
   provide: {
-      grid: [Aggregate, Group, Page]
+      grid: [Aggregate, Group, Page, Sort]
   }
 };
 </script>

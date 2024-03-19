@@ -47,7 +47,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, CandleSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, LineSeries, BollingerBands, RangeAreaSeries } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, CandleSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, LineSeries, BollingerBands, RangeAreaSeries, SplineRangeAreaSeries } from "@syncfusion/ej2-vue-charts";
 import { chartValue } from './financial-data';
 
 let selectedTheme = location.hash.split("/")[1];
@@ -116,7 +116,7 @@ export default {
     };
   },
   provide: {
-    chart: [CandleSeries, Category, LineSeries, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, RangeAreaSeries, BollingerBands]
+    chart: [CandleSeries, Category, LineSeries, Tooltip, DateTime, Zoom, Logarithmic, Crosshair, RangeAreaSeries, BollingerBands, SplineRangeAreaSeries]
   },
   methods: {
   },

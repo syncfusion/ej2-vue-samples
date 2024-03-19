@@ -70,7 +70,6 @@
 <script lang="ts">
 import { GridComponent, ColumnDirective, ColumnsDirective, Group, Sort, Resize, ColumnMenu, Page, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
-
 export default {
   components: {
     'ejs-grid': GridComponent,
@@ -81,7 +80,7 @@ export default {
     return {
       data: orderDetails,
       groupOptions: { showGroupedColumn: true },
-      filterSettings: { type: "CheckBox" }
+      filterSettings: { type: "CheckBox" },
     };
   },
   provide: {

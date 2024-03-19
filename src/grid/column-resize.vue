@@ -6,13 +6,13 @@
     </div>
     <div>
         <div style="overflow-x: auto; margin-left: 4px;">
-            <ejs-grid :dataSource="data" :allowResizing='true' height='400' width='850' :autoFit='true'>
+            <ejs-grid :dataSource="data" :allowResizing='true' height='400' width='850' :autoFit='true' :allowSorting='true'>
                 <e-columns>
                     <e-column field='OrderID' headerText='Order ID' minWidth='100' width='150' maxWidth='200' textAlign='Right'></e-column>
-                    <e-column field='CustomerName' headerText='Customer Name' minWidth='8' width='150'></e-column>
-                    <e-column field='Freight' headerText='Freight' minWidth='8' width='120' format='C2' textAlign='Right'></e-column>
+                    <e-column field='CustomerName' headerText='Customer Name' minWidth='100' width='150'></e-column>
+                    <e-column field='Freight' headerText='Freight' minWidth='100' width='120' format='C2' textAlign='Right'></e-column>
                     <e-column field='ShippedDate' headerText='Shipped Date' :allowResizing = 'false' width='150' format="yMd" textAlign='Right'></e-column>
-                    <e-column field='ShipCountry' headerText='Ship Country' minWidth='8'  width='150'></e-column>
+                    <e-column field='ShipCountry' headerText='Ship Country' minWidth='100'  width='150'></e-column>
                 </e-columns> 
             </ejs-grid>
         </div>
@@ -58,7 +58,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Resize } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Resize, Sort} from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -69,11 +69,11 @@ export default {
   },
   data: () => {
     return {
-      data: orderDetails
+      data: orderDetails,
     };
   },
   provide: {
-      grid: [Resize]
+      grid: [Resize, Sort]
   }
 }
 </script>

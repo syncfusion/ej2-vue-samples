@@ -62,8 +62,9 @@
 </template>
 
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Legend, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Legend } from '@syncfusion/ej2-vue-maps';
 import { PieSeries, AccumulationDataLabel, AccumulationTooltip,AccumulationChart } from '@syncfusion/ej2-vue-charts';
+import { worldMap } from '../maps/map-data/world-map';
 
 AccumulationChart.Inject(AccumulationTooltip);
 let chartCollection = [];
@@ -95,7 +96,7 @@ export default {
             zoomSettings: {
                 enable: false
             },
-            shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+            shapeData: worldMap,
             shapeSettings: {
                 fill: '#E5E5E5',
                 colorMapping: [{

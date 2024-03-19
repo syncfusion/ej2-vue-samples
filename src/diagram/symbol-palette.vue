@@ -76,10 +76,10 @@ import {
   DiagramComponent,
   Diagram,
   UndoRedo,
-  SymbolPaletteComponent,
  
+  SymbolPaletteComponent,
+  
 } from "@syncfusion/ej2-vue-diagrams";
-import { ExpandMode } from "@syncfusion/ej2-vue-navigations";
 import {
   DropDownList,
   DropDownListComponent
@@ -201,7 +201,7 @@ export default {
         {
           id: "connectors",
           expanded: true,
-          iconCss: 'e-ddb-icons e-connector',
+          iconCss: 'e-ddb-icons e-diagram-connector',
           symbols: connectorSymbols,
           title: "Connectors"
         }

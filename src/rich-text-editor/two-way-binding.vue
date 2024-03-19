@@ -61,7 +61,10 @@ import {
   Toolbar,
   Link,
   Image,
-  HtmlEditor
+  HtmlEditor,
+  QuickToolbar,
+  PasteCleanup,
+  Table, Video, Audio
 } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
@@ -85,7 +88,8 @@ export default {
     }
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, HtmlEditor]
+    richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar,
+  PasteCleanup, Table, Video, Audio]
   }
 }
 </script>

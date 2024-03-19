@@ -1,6 +1,6 @@
 <template>
 <div>
-      <div class="col-md-8 control-section">
+      <div class="col-md-9 control-section">
         <div class="content-wrapper">
         <ejs-gantt ref='gantt' id="GanttContainer" :dataSource = "data"
         :taskFields = "taskFields"
@@ -12,12 +12,13 @@
         :splitterSettings = "splitterSettings"
         :treeColumnIndex = '1'
         :labelSettings = "labelSettings"
+        :columns= "columns"
         >
         </ejs-gantt>
       </div>
     </div>
-        <div class="col-md-4 property-section">
-    <table id="property" title="Properties" style="width: 100%">
+        <div class="col-md-3 property-section">
+        <table id="property" title="Properties" style="width: 100%">
         <tr>
             <td style="width: 30%">
                 <div style="padding-top: 8px">Unit width</div>
@@ -139,6 +140,17 @@
                 </div>
             </td>
         </tr>
+              <tr>
+          <td style="width: 30%">
+            <div>Enable multiTaskbar</div>
+          </td>
+          <td style="width: 70%">
+            <div style="padding-top: 0px">
+              <ejs-checkbox ref="mutiTaskbarCheck" class="checkbox" id="mutiTaskbar" :checked="false" :change="mutiTaskbarCheckbox">
+              </ejs-checkbox>
+            </div>
+          </td>
+        </tr>
     </table>
         </div>
     <div id="action-description">
@@ -170,6 +182,9 @@
         Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the
         <code>Selection</code> module. To use markers in Gantt, inject the <code>DayMarkers</code> module.
     </p>
+    <p>
+        If the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#enablemultitaskbar">enableMultiTaskbar</a> property is enabled, it displays child taskbars in the parent row when in collapsed state.
+    </p>
 </div>
 </div>
 </template>
@@ -190,7 +205,7 @@ export default {
   data: function() {
       return{
              data: projectData,
-             height: '450px', 
+             height: '503px', 
              taskFields: {
                 id: 'taskID',
                 name: 'taskName',
@@ -214,11 +229,20 @@ export default {
                 }
             },
             splitterSettings: {
-                columnIndex: 0
+                columnIndex: 1
             },          
             labelSettings: {
                 rightLabel: 'taskName',
             },
+            columns: [
+                { field: 'taskID', visible: false },
+                { field: 'taskName', headerText: 'Name', width: 250 },
+                { field: 'StartDate', headerText: 'Start Date', type: 'date', format: 'yMd' },
+                { field: 'endDate', headerText: 'End Date', type: 'date', format: 'yMd' },
+                { field: 'duration', headerText: 'Duration' },
+                { field: 'predecessor', headerText: 'Dependency' },
+                { field: 'progress', headerText: 'Progress' }
+            ],
             yearformat: [
                     { id: 'MMM "yy', format: 'Jan "18' },
                     { id: 'y', format: '2018' },
@@ -367,8 +391,16 @@ export default {
         unitWidth = 25;
     }
     this.$refs.unitWidth.ej2Instances.value = unitWidth;
-  }
   },
+  mutiTaskbarCheckbox: function () {
+      if (this.$refs.mutiTaskbarCheck.ej2Instances.checked) {
+        this.$refs.gantt.ej2Instances.enableMultiTaskbar = true;
+      } else {
+        this.$refs.gantt.ej2Instances.enableMultiTaskbar = false;
+      }
+    },
+  },
+  
   provide: {
       gantt: [Selection, Sort, DayMarkers]
   }

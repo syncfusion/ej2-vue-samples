@@ -80,9 +80,7 @@
     content: "\e724";
   }
 
-  .e-connector::before {
-    content: "\e725";
-  }
+  
 /*To align palette */
   .sb-mobile-palette {
     width:240px;
@@ -151,8 +149,8 @@ import { Browser, isNullOrUndefined } from "@syncfusion/ej2-base";
 import {
     DiagramComponent,
     SymbolPaletteComponent,
+    Diagram,
     SnapConstraints,
-    
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;

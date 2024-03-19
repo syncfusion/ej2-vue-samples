@@ -18,7 +18,7 @@
         </ejs-toolbar>
         <br/>
 
-        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :dataBound="dataBound">
+        <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :dataBound="dataBound" :allowSorting='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -71,7 +71,7 @@
 <!-- custom code end -->
 <script lang="ts">
 import { removeClass, addClass } from '@syncfusion/ej2-base';
-import { GridComponent, ColumnDirective, ColumnsDirective, Page } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort } from '@syncfusion/ej2-vue-grids';
 import { ToolbarComponent, ItemDirective, ItemsDirective, ClickEventArgs} from '@syncfusion/ej2-vue-navigations';
 import { orderDetails } from './data-source';
 
@@ -104,13 +104,13 @@ export default {
         (this as any).flag = false;
         let hidden: boolean = element.classList.contains('e-ghidden');
         let classFn: Function = hidden ? removeClass : addClass;
-        const visibleColumns: HTMLElement[] = Array.from(((this as any).$refs.toolbar as ToolbarComponent).$el.getElementsByClassName('e-tbar-btn-text'))
+        const visibleColumns: HTMLElement[] = Array.from(((this as any).$refs.toolbar as any).$el.getElementsByClassName('e-tbar-btn-text'))
         .filter((item) => !((item as HTMLElement).classList.contains('e-ghidden'))) as HTMLElement[];
         const isLastVisibleColumn = visibleColumns.length === 1 && visibleColumns[0].parentElement === element.parentElement;   
 
         if (hidden) {
           classFn([element], 'e-ghidden');
-          ((this as any).$refs.grid as GridComponent).showColumns(element.innerHTML);
+          ((this as any).$refs.grid as any).showColumns(element.innerHTML);
         } else {
           if (isLastVisibleColumn) {
             alert("At least one column should be visible.");
@@ -118,7 +118,7 @@ export default {
             return;
           }
           classFn([element], 'e-ghidden');
-          ((this as any).$refs.grid as GridComponent).hideColumns(element.innerHTML);
+          ((this as any).$refs.grid as any).hideColumns(element.innerHTML);
         }
         (this as any).flag = true;
     },
@@ -127,7 +127,7 @@ export default {
     }
   },
   provide: {
-      grid: [Page]
+      grid: [Page, Sort]
   }
 }
 </script>

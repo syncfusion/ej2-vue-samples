@@ -104,6 +104,7 @@
 </template>
 
  <style scoped>
+
 /*To align the property panel */
 #tooltipDiagramSection .row {
     margin-left: 0px;

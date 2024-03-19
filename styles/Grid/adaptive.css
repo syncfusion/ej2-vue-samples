@@ -7,10 +7,10 @@
     display: none;
 }
 
-.e-bigger .e-responsive-dialog .e-dlg-header-content .e-btn .e-btn-icon,
+.e-bigger .e-responsive-dialog .e-dlg-header-content .e-btn .e-btn-icon, 
 .e-bigger.e-responsive-dialog .e-dlg-header-content .e-btn .e-btn-icon {
-    margin-top: -6px !important;
-}
+    margin-top: -6px;
+} 
 
 .material3 .e-adaptive-demo.e-pager-pagesizes .e-pager,
 .material3-dark .e-adaptive-demo.e-pager-pagesizes .e-pager {

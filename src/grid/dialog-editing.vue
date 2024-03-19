@@ -10,7 +10,7 @@
             </ul>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :editSettings='editSettings' :toolbar='toolbar' :allowSorting='true'>
             <e-columns>
             <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
             <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -52,7 +52,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective,  Edit, Toolbar, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective,  Edit, Toolbar, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -70,11 +70,11 @@ export default {
       customeridrules: { required: true },
       freightrules:  { required: true },
       editparams: { params: { popupHeight: '300px' }},
-      pageSettings: { pageCount: 5}
+      pageSettings: { pageCount: 5},
     };
   },
   provide: {
-      grid: [Edit, Toolbar, Page]
+      grid: [Edit, Toolbar, Page, Sort]
   }
 }
 </script>

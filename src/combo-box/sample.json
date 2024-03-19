@@ -34,6 +34,17 @@
             ]
         },
         {
+            "url": "object-value-binding",
+            "name": "Object Value Binding",
+            "category": "ComboBox",
+            "type": "new",
+            "description": "This example demonstrates how to bind with data source in the Vue combo box component.",
+            "sourceFiles":[
+                { "displayName": "object-value-binding.vue", "path":"src/combo-box/object-value-binding.vue" },
+                { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 
+            ]
+        },
+        {
             "url": "custom-value",
             "name": "Custom Value",
             "category": "ComboBox",
@@ -57,7 +68,6 @@
             "url": "virtual-scroll",
             "name": "Virtualization",
             "category": "ComboBox",
-            "type": "update",
             "description": "This example demonstrates how to utilize the virtual scrolling support of the Vue combo box component.",
             "sourceFiles":[
                 { "displayName": "virtual-scroll.vue", "path":"src/combo-box/virtual-scroll.vue" },

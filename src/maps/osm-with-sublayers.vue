@@ -2,7 +2,7 @@
 <div>
 <div class="control-section">
 <div>
-<ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :annotations='annotations'>
+<ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
     <e-layers>
         <e-layer layerType='OSM'></e-layer>
         <e-layer type='Sublayer' :animationDuration='animationDuration' :shapeData='shapeData' :shapeSettings='shapeSettings'></e-layer>
@@ -36,7 +36,8 @@
 </div>
 </template>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Bubble, Zoom, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Bubble, Zoom, MapsTooltip } from '@syncfusion/ej2-vue-maps';
+import { africa } from '../maps/map-data/africa';
 
 export default {
 components: {
@@ -56,17 +57,8 @@ data:function(){
         zoomSettings: {
             enable: true
         },
-        annotations: [{
-            content: '<div style="height:18px;width:170px;background:white;text-align:center">' +
-                '<a href="https://www.openstreetmap.org/copyright"  target = "_blank" > © OpenStreetMap contributors </a></div > ',
-            verticalAlignment: 'Far',
-            zIndex: '1',
-            x: '-40',
-            y: '-20',
-            horizontalAlignment: 'Far'
-        }],
         animationDuration: 0,
-        shapeData: new MapAjax('./src/maps/map-data/africa.json'),
+        shapeData: africa,
         shapeSettings: {
                 fill: '#5100a3',
                 opacity: 0.4

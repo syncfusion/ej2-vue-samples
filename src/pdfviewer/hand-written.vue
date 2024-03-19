@@ -81,9 +81,9 @@
 </style>
 
 <script>
-import { PdfViewerComponent, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner } from "@syncfusion/ej2-vue-pdfviewer";
+import { PdfViewerComponent, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner,PageOrganizer } from "@syncfusion/ej2-vue-pdfviewer";
 import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
-
+var isInitialLoading = true;
 export default {
     components: {
         'ejs-pdfviewer': PdfViewerComponent,
@@ -96,11 +96,14 @@ export default {
         }
     },
     provide: {
-        PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner]
+        PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner,PageOrganizer]
     },
     methods: {
         documentLoad: function (args) {
-            this.$refs.pdfviewer.ej2Instances.annotationModule.setAnnotationMode('HandWrittenSignature');
+            if(isInitialLoading){
+                this.$refs.pdfviewer.ej2Instances.annotationModule.setAnnotationMode('HandWrittenSignature');
+                isInitialLoading = false;
+            }
         },
         change: function (args) {
             var viewer = this.$refs.pdfviewer.ej2Instances;

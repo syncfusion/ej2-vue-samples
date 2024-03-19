@@ -96,7 +96,7 @@ export default {
             'Copy', 'Edit', 'Delete', 'Save', 'Cancel',
             'PdfExport', 'ExcelExport', 'CsvExport', 'FirstPage', 'PrevPage',
             'LastPage', 'NextPage'],
-    editing: { allowDeleting: true, allowEditing: true }
+    editing: { allowDeleting: true, allowEditing: true },
     };
   },
   provide: {

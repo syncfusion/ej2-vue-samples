@@ -67,7 +67,7 @@
 </div>
 </template>
 <style scoped>
-
+  
     .db-diagram-container {
     width:calc(100% - 300px);
     height: 100%;
@@ -96,18 +96,18 @@
     .text-content{
         margin-left: 10px;
     }
-    
+  
     .db-text-input{
         height: 25px!important;
     }
-   
+    
     #properties_Container{
     /* background: #e3e3e3; */
     width: 300px;
     float: right;
     /* margin-left: 20px; */
     }
-    
+   
 </style>
 <script>
 import {
@@ -116,6 +116,7 @@ import {
   PortVisibility,
   ConnectorConstraints,
   SnapConstraints,
+  UserHandleModel,
   PortConstraints,
     SelectorConstraints,
     ConnectorEditing,
@@ -123,7 +124,7 @@ import {
     Inject,
     Snapping,
     UndoRedo,
-   
+    
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { ColorPickerComponent, NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";

@@ -114,7 +114,7 @@ const detailsGrid = {
         </div>`,
     computed: {
         detailData: function (): Object[] {
-            return data.filter((record: any) => record.CustomerName === (this as GridComponent).selected).slice(0, 5);
+            return data.filter((record: any) => record.CustomerName === (this as any).selected).slice(0, 5);
         }
     },
 };
@@ -147,7 +147,7 @@ export default {
     methods: {
         onRowSelected: function (args: RowSelectEventArgs): void {
             let record: any = args.data;
-            (this as GridComponent).key = record.ContactName;
+            (this as any).key = record.ContactName;
         },
         toolbarClick: function (args: ClickEventArgs) {
             if ((this as any).isExportChecked) {

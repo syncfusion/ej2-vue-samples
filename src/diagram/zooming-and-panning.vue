@@ -45,6 +45,7 @@
 
 <script>
 import {
+  OverviewComponent,
   Diagram,
   DiagramComponent,
   SnapConstraints,

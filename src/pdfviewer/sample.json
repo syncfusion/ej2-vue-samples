@@ -12,20 +12,36 @@
         {
             "url": "read-only",
             "name": "Read-Only",
-            "category": "Document Security",
-            "type": "new"
+            "category": "Document Security"
         },
         {
             "url": "document-list",
             "name": "Document List",
+            "category": "File Management"
+        },
+        {
+            "url": "multi-format-viewer",
+            "name": "Multi-Format Viewer",
             "category": "File Management",
+            "type": "new"
+        },
+        {
+            "url": "organize-pages",
+            "name": "Organize Pages",
+            "category": "Editor",
             "type": "new"
         },
 		{
             "url": "custom-toolbar",
-            "name": "Custom Toolbar",
-            "category": "Toolbar",
-            "type": "update"
+            "name": "Toolbar",
+            "category": "Customization"
+            
+        },
+        {
+            "url": "custom-context-menu",
+            "name": "Context Menu",
+            "category": "Customization",
+            "type": "new"
         },
         {
             "url": "right-to-left",

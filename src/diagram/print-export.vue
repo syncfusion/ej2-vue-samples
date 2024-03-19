@@ -36,6 +36,7 @@
 </template>
 
 <style scoped>
+
 #toolbar_default {
   font-size: 12px;
   margin-right: 0px;

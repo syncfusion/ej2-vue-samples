@@ -90,12 +90,12 @@ export default {
   },
   methods: {
     indicatorChange: function(e: ChangeEventArgs): void {
-        if (((this as any).$refs.dropdown as DropDownListComponent).ej2Instances.value === "Shimmer") {
-            ((this as any).$refs.grid as GridComponent).ej2Instances.loadingIndicator.indicatorType = 'Shimmer';
-            ((this as any).$refs.grid as GridComponent).ej2Instances.refresh();
+        if (((this as any).$refs.dropdown as any).ej2Instances.value === "Shimmer") {
+            ((this as any).$refs.grid as any).ej2Instances.loadingIndicator.indicatorType = 'Shimmer';
+            ((this as any).$refs.grid as any).ej2Instances.refresh();
         } else {
-            ((this as any).$refs.grid as GridComponent).ej2Instances.loadingIndicator.indicatorType = 'Spinner';
-            ((this as any).$refs.grid as GridComponent).ej2Instances.refresh();
+            ((this as any).$refs.grid as any).ej2Instances.loadingIndicator.indicatorType = 'Spinner';
+            ((this as any).$refs.grid as any).ej2Instances.refresh();
         }
     }
   },

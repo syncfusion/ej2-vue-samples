@@ -141,7 +141,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 /*To align palette */
 .sb-mobile-palette {
         width:240px;
@@ -152,7 +152,7 @@
     .sb-mobile-palette-bar {
         display: none;
     }
-      /*To align diagram */
+    /*To align diagram */
     .sb-mobile-diagram {
         width:calc(100% - 242px);
         height: 100%;
@@ -199,8 +199,15 @@
             .e-export::before {
                     content: "\e711";
             }
+            
+            
 
-            .texstyle {	
+                .e-diagram-btn, .e-css.e-btn {
+                background-color: transparent ;
+                border-color: transparent ;
+                }
+                
+        .texstyle {	
             display: table;	
             /* height: 35px; */	
             padding-right: 10px;	
@@ -523,7 +530,7 @@ export default {
          { id: 'connectors',
           expanded: false,
           symbols: connectorSymbols,
-          iconCss: 'e-ddb-icons e-connector',
+          iconCss: 'e-ddb-icons e-diagram-connector',
           title: 'Connectors'
          }
       ],

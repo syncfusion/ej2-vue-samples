@@ -9,7 +9,6 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "Image Editor",
-            "type": "update",
             "description": "This sample demonstrates the overview of basic ImageEditor features such as crop, rotate, flip, insert a shapes and text features.",
             "api": { "ImageEditor": ["width", "created"]  }
         },
@@ -17,6 +16,14 @@
             "url": "profile-picture",
             "name": "Profile Picture",
             "category": "Image Editor",
+            "description": "This sample demonstrates to set the image as profile picture by editing the image like rotating and cropping the image.",
+            "api": { "ImageEditor": ["width", "created"]  }
+        },
+        {
+            "url": "custom-toolbar",
+            "name": "Custom Toolbar",
+            "category": "Image Editor",
+            "type": "new",
             "description": "This sample demonstrates to set the image as profile picture by editing the image like rotating and cropping the image.",
             "api": { "ImageEditor": ["width", "created"]  }
         }

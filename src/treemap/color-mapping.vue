@@ -121,6 +121,7 @@
 import { TreeMapComponent, TreeMapTooltip, TreeMapLegend, TreeMapAjax } from "@syncfusion/ej2-vue-treemap";
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { colorData } from "../treemap/treemap-data/color";
 
 export default {
 components: {
@@ -134,7 +135,7 @@ return{
             text: 'Top 10 largest islands in the World',
             textStyle: { size: '15px',  fontFamily: 'Segoe UI' }
         },
-        dataSource: new TreeMapAjax('./src/treemap/treemap-data/color.json'),
+        dataSource: colorData,
         tooltipSettings: {
             visible: true,
             format: 'Name: ${Name}<br>Area: ${Area} per square kms<br>Continent: ${Location}',

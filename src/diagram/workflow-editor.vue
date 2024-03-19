@@ -41,7 +41,6 @@
     animation: spin 2s linear infinite;
 }
 
-
 .nodetick {
     display: none;
     animation: showTick 0.5s 0.2s forwards;
@@ -84,7 +83,7 @@
     
 <script>
 import {
-    Diagram, DiagramComponent, UndoRedo, SnapConstraints, BpmnDiagrams,AnnotationConstraints, BpmnShapeModel, NodeConstraints, randomId
+    Diagram, DiagramComponent, SnapConstraints, AnnotationConstraints, NodeConstraints, randomId
 } from "@syncfusion/ej2-vue-diagrams";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
 import { ToolbarComponent } from "@syncfusion/ej2-vue-navigations";
@@ -447,10 +446,7 @@ export default {
         diagramInstance = this.$refs.diagramObj.ej2Instances;
         diagramInstance.fitToPage({ region: 'Content', mode: 'Width' });
         toolbarInstance = this.$refs.toolbarObj.ej2Instances;
-    },
-    provide: {
-    diagram: [BpmnDiagrams],
-  }
+    }
 }
 //sets node default value
 function nodeDefaults(node, diagram) {

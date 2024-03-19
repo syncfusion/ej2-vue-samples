@@ -1,7 +1,7 @@
 <template>
     <div class="template-querybuilder-section">
-        <div class="col-lg-8 control-section">
-            <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :ruleChange="updateRule">
+        <div class="col-lg-12 control-section">
+            <ejs-querybuilder ref="querybuilder" :dataSource="dataSource" :rule="importRules" width="100%" :ruleChange="updateContentTemplate">
                 <e-columns>
                     <e-column field='Category' label='Category' type='string' />
                     <e-column field='PaymentMode' label='Payment Mode' type='string' :operators="paymentOperators" :template='paymentTemplate' />
@@ -11,26 +11,39 @@
                     <e-column field='Amount' label='Amount' type='number' :operators="amountOperators" :template='amountTemplate' />
                 </e-columns>
             </ejs-querybuilder>
-        </div>
-        <div class="col-lg-4 property-section">
-            <table id="property" title="Properties" style="width: 100%; margin:10px">
-                <tr>
-                    <td>
-                        <div class="row"><ejs-radiobutton id="radio1" label="JSON Rule" name="rule" value="json" :checked="true" :change="changeValue"></ejs-radiobutton></div>
-                    </td>
-                    <td>
-                        <div class="row"><ejs-radiobutton ref="sql_radiobutton" id="radio2" label="SQL Rule" name="rule" value="sql" :change="changeValue"></ejs-radiobutton></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <textarea id='ruleContent' :readonly=true v-model="textAreaContent"></textarea>
-                    </td>
-                </tr>
-            </table>
+            <div class="e-query-preview">
+                <ejs-tab id="defaultTab" ref="tabObj" :created="tabCreated" :selected="changeTab">
+                    <e-tabitems>
+                        <e-tabitem :header="headertext[0]" content='#preview'></e-tabitem>
+                        <e-tabitem :header="headertext[1]" content='#spelpreview'></e-tabitem>
+                    </e-tabitems>
+                </ejs-tab>
+                <div class="preview-content" id="preview-content">
+                    <div class="preview" id='preview' style='display: none' @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" >
+                        <div class="e-preview-options">
+                            <div class="copy-tooltip" style='display: none' @click="copyClipboard">
+                                <ejs-tooltip id="tooltipClick" opensOn='Click' content='Copied to clipboard'>
+                                    <div class="e-icons copycode"></div>
+                                </ejs-tooltip>
+                            </div>
+                        </div>
+                        <textarea :readonly="isReadOnly" class="e-text-area-content e-cel-content"></textarea>
+                    </div>
+                    <div class="preview" id='spelpreview' style='display: none' @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" >
+                        <div class="e-preview-options">
+                            <div class="copy-tooltip" style='display: none' @click="copyClipboard">
+                                <ejs-tooltip id="tooltipClick" opensOn='Click' content='Copied to clipboard'>
+                                    <div class="e-icons copycode"></div>
+                                </ejs-tooltip>
+                            </div>
+                        </div>
+                        <textarea :readonly="isReadOnly" class="e-text-area-content e-spel-content"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="action-description">
-            <p>This sample demonstrates the integration of the Dropdown List and Slider components as templates in the Query Builder control.</p>
+            <p>This sample demonstrates the integration of the Dropdown List and Slider components as templates in the Query Builder component and also showing the different types of queries such as CEL and SpEL. The query preview can be changed using the tab component.</p>
         </div>
         <div id="description">
             <p>
@@ -42,7 +55,8 @@
                     <li><code>Slider</code></li>
                 </ul>
             </p>
-            <p>This sample illustrates the created filters in JSON and SQL modes.</p>
+            <p>In this demo queries are exported and imported in CEL and SpEL formats. For Common Expression Language (CEL) output, use the "cel" format. CEL is used for validating data.
+For Spring Expression Language (SpEL) output, use the "spel" format. The Spring Expression Language (SpEL) is a powerful expression language that supports querying and manipulating an object graph at runtime.</p>
             <p>More information about Query Builder can be found in this
                 <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/query-builder/getting-started/"> documentation</a> section.
             </p>
@@ -52,7 +66,7 @@
 
 <!-- custom code start -->
 
-<style scoped>
+<style>
     /* EJ2 QueryBuider - Template sample styles */
     .template-querybuilder-section .e-control-wrapper.e-slider-container.e-horizontal {
         height: 0;
@@ -80,12 +94,94 @@
     .highcontrast textarea#ruleContent {
         background-color: #000;
 	}
+        .e-query-preview {
+        margin-top: 20px !important;
+        border: 1px solid #e5e7eb;
+        border-radius: 4px;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    .e-query-preview .e-tab {
+        height: 200px;
+    }
+
+    .e-query-preview .e-tab .e-content {
+        margin: 10px;
+    }
+
+    .e-query-preview .copycode::before {
+        content: '\e77c';
+        font-size: 25px;
+    }
+
+    .e-query-preview .e-preview-options {
+        height: 54px;
+    }
+
+    .e-query-preview .copy-tooltip {
+        height: 32px;
+        width: 32px;
+        position: absolute;
+        cursor: pointer;
+        right: 12px;
+        top: 12px;
+        background: #f4f4f4;
+        border-radius: 2px;
+    }      
+
+    .e-query-preview .copy-tooltip.e-control.e-tooltip:hover {
+        background: #D8D8D8;
+    }
+
+    .e-query-preview .e-icons.copycode {
+        padding-left: 3px;
+        padding-top: 4px;
+        color: rgba(0, 0, 0, .54);
+    }
+
+
+    .e-query-preview .e-cel-content,
+    .e-query-preview .e-spel-content {
+        border: none;
+        height: 160px;
+        width: 98%;
+    }
+
+    .e-query-preview .e-text-area-content:focus-visible {
+        outline: none;
+    }
+
+    .e-query-preview .preview {
+        margin-top: 20px;
+    }
+
+    .e-text-area-content:focus-visible {
+        outline: none;
+    }
+
+    .e-text-area-content {
+        margin: 10px !important;
+        overflow: auto;
+        border: none;
+        width: 96%;
+    }
+
+    .e-text-area-content:focus-visible {
+        outline: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .e-query-preview .copy-tooltip {
+           display: block !important;
+        }
+    }
 </style>
 
 <!-- custom code end -->
 
 <script>
-import { QueryBuilderComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-querybuilder";
+import { QueryBuilderComponent, ColumnDirective, ColumnsDirective, QueryLibrary } from "@syncfusion/ej2-vue-querybuilder";
 import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import * as dataSource from './data-source.json';
 import * as ruleData from './template-data.json';
@@ -93,14 +189,24 @@ import { DropDownList, MultiSelect, CheckBoxSelection } from '@syncfusion/ej2-dr
 import { Slider } from '@syncfusion/ej2-inputs';
 import { CheckBox } from '@syncfusion/ej2-buttons';
 import { createElement, getComponent, isNullOrUndefined } from "@syncfusion/ej2-base";
+import { TabComponent, TabItemDirective, TabItemsDirective } from '@syncfusion/ej2-vue-navigations';
+import {getCELQuery, getSpELQuery } from './util.js';
+import { TooltipComponent } from '@syncfusion/ej2-vue-popups';
 
 MultiSelect.Inject(CheckBoxSelection);
 
 export default {
   data: function() {
     return {
+      isReadOnly: true,
+      headertext: [
+        { text: "CEL" },
+        { text: "SpEL" }
+      ],
+      currentIndex: 0,
       dataSource: dataSource.expenseData,
       textAreaContent: '',
+      content: '',
       paymentOperators: [{ value: 'equal', key: 'Equal' }, { value: 'notequal', key: 'Not Equal' }],
       transOperators: [{key:'Equal',value:'equal'},{key:'Not Equal',value:'notequal'}],
       amountOperators: [{ key: 'Equal', value: 'equal' },{ key: 'Not equal', value: 'notequal' },{ key: 'Greater than', value: 'greaterthan' },
@@ -177,38 +283,80 @@ export default {
   },
   components: { 
       'ejs-querybuilder': QueryBuilderComponent,
-      'ejs-radiobutton': RadioButtonComponent,
       'e-columns': ColumnsDirective,
       'e-column': ColumnDirective,
+      'e-tabitems': TabItemsDirective,
+      'e-tabitem': TabItemDirective,
+      'ejs-tooltip': TooltipComponent,
+      'ejs-tab': TabComponent,
   },
   methods: {
-        updateRule: function(args) {
-            if (this.$refs.sql_radiobutton.ej2Instances.checked) {
-                this.textAreaContent = this.$refs.querybuilder.ej2Instances.getSqlFromRules(args.rule);
-            } else {
-                this.textAreaContent = JSON.stringify(args.rule, null, 4);
+     onScroll: function() {
+        if(!isNullOrUndefined(document.getElementsByClassName("ticks_slider")[0])){
+            let defaultObj = document.getElementsByClassName("ticks_slider")[0].ej2_instances[0];
+            defaultObj.refreshTooltip();
+        }
+    },
+    tabCreated: function () {
+        setTimeout(() => {
+            this.updateCELContentTemplate();
+        }, 100);
+    },
+    updateCELContentTemplate: function() {
+        debugger
+        var validRule = this.$refs.querybuilder.ej2Instances.getValidRules();
+        var celQuery = '';
+        this.content = getCELQuery(validRule, celQuery);
+        document.getElementsByClassName('e-cel-content')[0].textContent = this.content;
+        (document.getElementsByClassName('e-cel-content')[0]).style.display = 'block';
+    },
+    updateSpCELContentTemplate: function() {
+        var validRule = this.$refs.querybuilder.ej2Instances.getValidRules();
+        var spELQuery = '';
+        this.content = getSpELQuery(validRule);
+        document.getElementsByClassName('e-spel-content')[0].textContent = this.content;
+        (document.getElementsByClassName('e-spel-content')[0]).style.display = 'block';
+    },
+    changeTab: function (args) {
+        this.currentIndex = args.selectedIndex;
+        setTimeout(() => {
+            this.updateContentTemplate();
+        }, 100);
+    },
+    updateContentTemplate: function () {
+        switch (this.currentIndex) {
+            case 0:
+                this.updateCELContentTemplate();
+                break;
+            case 1:
+                this.updateSpCELContentTemplate();
+                break;
+        }
+    },
+    copyClipboard: function (args) {
+       navigator.clipboard.writeText(this.content);
+       setTimeout(function () {
+           (getComponent(args.target.closest('.e-tooltip'), 'tooltip')).close();
+        }, 1000);
+    },
+    handleMouseEnter() {
+        var elem = document.getElementsByClassName("copy-tooltip");
+        for (var i = 0; i < elem.length; i++) {
+            if (this.$refs.tabObj.ej2Instances.selectedItem == i) {
+                elem[i].style.display = 'block';
             }
-        },
-        changeValue: function() {
-            var validRule = this.$refs.querybuilder.ej2Instances.getValidRules(this.$refs.querybuilder.ej2Instances.rule);
-            if (this.$refs.sql_radiobutton.ej2Instances.checked) {
-                this.textAreaContent = this.$refs.querybuilder.ej2Instances.getSqlFromRules(validRule);
-            } else {
-                this.textAreaContent = JSON.stringify(validRule, null, 4);
+        }
+    },
+    handleMouseLeave() {
+        var elem = document.getElementsByClassName("copy-tooltip");
+        for (var i = 0; i < elem.length; i++) {
+            if (this.$refs.tabObj.ej2Instances.selectedItem == i) {
+                elem[i].style.display = 'none';
             }
-        },
-        onScroll: function() {
-            if(!isNullOrUndefined(document.getElementsByClassName("ticks_slider")[0])){
-                let defaultObj = document.getElementsByClassName("ticks_slider")[0].ej2_instances[0];
-                defaultObj.refreshTooltip();
-            }
+        }
     }
     },
   mounted: function() {
-    this.$nextTick(function () {
-        var validRule = this.$refs.querybuilder.ej2Instances.getValidRules(this.$refs.querybuilder.ej2Instances.rule);
-        this.textAreaContent = JSON.stringify(validRule, null, 4);
-    });
     if (!isNullOrUndefined(document.getElementById('right-pane'))) {
         document.getElementById('right-pane').addEventListener('scroll', this.onScroll.bind(this));
     }

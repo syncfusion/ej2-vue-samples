@@ -1,5 +1,5 @@
 <template>
-  <div class="control-section">
+  <div class="control-section" style="margin-top:10px">
     <div class="sample-container">
       <div class="default-section">
         <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
@@ -20,8 +20,8 @@
             cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown"
             title="Download this document."></ejs-dropdownbutton>
         </div>
-        <ejs-documenteditorcontainer ref="doceditcontainer" :showPropertiesPane='false' :toolbarItems='items'  height="740px"
-          :serviceUrl="hostUrl" :zIndex="3000" :enableToolbar='true'></ejs-documenteditorcontainer>
+      <ejs-documenteditorcontainer ref="doceditcontainer" :showPropertiesPane='false' :height="740"
+        :serviceUrl="hostUrl" :zIndex="3000" :enableToolbar='true'></ejs-documenteditorcontainer>
       </div>
     </div>
   </div>
@@ -66,13 +66,6 @@
     font-family: 'Sample brower icons' !important;
   }
 
-  .e-de-icon-Print:before {
-    content: "\e723";
-  }
-
-  .e-de-icon-Download:before {
-    content: "\e728";
-  }
 </style>
 <script>
   import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
@@ -94,11 +87,13 @@
         iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
         titileStyle: 'text-transform:capitalize;font-weight:400;font-family:inherit;text-overflow:ellipsis;white-space:pre;overflow:hidden;user-select:none;cursor:text',
         openIconCss: 'e-de-icon-Open e-de-padding-right',
-        printIconCss: 'e-de-icon-Print e-de-padding-right',
-        exportIconCss: 'e-de-icon-Download e-de-padding-right',
+        printIconCss: 'e-icons e-print e-de-padding-right',
+        exportIconCss: 'e-icons e-download e-de-padding-right',
         exportItems: [
-          { text: 'Microsoft Word (.docx)', id: 'word' },
-          { text: 'Syncfusion Document Text (.sfdt)', id: 'sfdt' }
+          { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
+          { text: 'Word Document (*.docx)', id: 'word' },
+          { text: 'Word Template (*.dotx)', id: 'dotx' },
+          { text: 'Plain Text (*.txt)', id: 'txt' },
         ],
         dictionary: {
           'Getting Started.docx': defaultDocument,
@@ -122,6 +117,12 @@
           case 'sfdt':
             this.save('Sfdt');
             break;
+          case 'txt':
+            this.save('Txt');
+            break;
+          case 'dotx':
+            this.save('Dotx');
+            break;
         }
       },
       openExportDropDown: function () {
@@ -129,6 +130,10 @@
         document.getElementById('word').setAttribute('title', 'Download a copy of this document to your computer as a DOCX file.');
         // tslint:disable-next-line:max-line-length
         document.getElementById('sfdt').setAttribute('title', 'Download a copy of this document to your computer as an SFDT file.');
+        // tslint:disable-next-line:max-line-length
+        document.getElementById('txt').setAttribute('title', 'Download a copy of this document to your computer as a TXT file.');
+        // tslint:disable-next-line:max-line-length
+        document.getElementById('dotx').setAttribute('title', 'Download a copy of this document to your computer as a DOTX file.');
       },
       save: function (format) {
         // tslint:disable-next-line:max-line-length
@@ -175,30 +180,31 @@
         setTimeout(() => { obj.scrollToPage(1); }, 10);
       }
     },
-    mounted() {
-      this.$nextTick(function () {
-        var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-        const documentKey = this.data.FileName;
-        this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
-          this.documentChangedEvent();
-        };
-        obj.open(JSON.stringify(this.dictionary[documentKey]));
-        obj.documentName = this.data.FileName.replace(".docx", "");
-        document.getElementById("documenteditor_title_name").textContent = obj.documentName;
-        if (this.data.isReadOnlyMode) {
-          obj.isReadOnly = true;
-          obj.enableContextMenu = false;
-          this.items = [
-             'Open', 'Separator', 'Find'];
-              document.getElementById("de-export").style.display = 'none';
+   mounted() {
+    this.$nextTick(function () {
+      var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
+      const documentKey = this.data.FileName;
+      this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
+        this.documentChangedEvent();
+      };
+      obj.open(JSON.stringify(this.dictionary[documentKey]));
+      obj.documentName = this.data.FileName.replace(".docx", "");
+      document.getElementById("documenteditor_title_name").textContent = obj.documentName;
+      this.$refs.doceditcontainer.ej2Instances.documentEditorSettings.showRuler = true;
+      if (this.data.isReadOnlyMode) {
+        obj.isReadOnly = true;
+        obj.enableContextMenu = false;
+        this.$refs.doceditcontainer.ej2Instances.toolbarItems = [
+           'Open', 'Separator', 'Find'];
+            document.getElementById("de-export").style.display = 'none';
 
-        } else {
-          obj.isReadOnly = false;
-          obj.enableContextMenu = true;
-          document.getElementById("de-export").style.display = 'block';
-          this.items = ['New', 'Open', 'Separator', 'Undo', 'Redo', 'Separator', 'Image', 'Table', 'Hyperlink', 'Bookmark', 'TableOfContents', 'Separator', 'Header', 'Footer', 'PageSetup', 'PageNumber', 'Break', 'InsertFootnote', 'InsertEndnote', 'Separator', 'Find', 'Separator', 'Comments', 'TrackChanges', 'Separator', 'LocalClipboard', 'RestrictEditing', 'Separator', 'FormFields', 'UpdateFields'];
-        }
-      });
-    }
+      } else {
+        obj.isReadOnly = false;
+        obj.enableContextMenu = true;
+        document.getElementById("de-export").style.display = 'block';
+        this.$refs.doceditcontainer.ej2Instances.toolbarItems = ['New', 'Open', 'Separator', 'Undo', 'Redo', 'Separator', 'Image', 'Table', 'Hyperlink', 'Bookmark', 'TableOfContents', 'Separator', 'Header', 'Footer', 'PageSetup', 'PageNumber', 'Break', 'InsertFootnote', 'InsertEndnote', 'Separator', 'Find', 'Separator', 'Comments', 'TrackChanges', 'Separator', 'LocalClipboard', 'RestrictEditing', 'Separator', 'FormFields', 'UpdateFields'];
+      }
+    });
+  }
   };
 </script>

@@ -97,7 +97,8 @@
             }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Selection, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Selection } from '@syncfusion/ej2-vue-maps';
+import { seatData } from '../maps/map-data/seat';
 
 export default {
   components: {
@@ -113,7 +114,7 @@ export default {
             enable: false
         },
         geometryType: 'Normal',
-        shapeData: new MapAjax('./src/maps/map-data/seat.json'),
+        shapeData: seatData,
         shapeSettings: {
                     colorValuePath: 'fill'
         },

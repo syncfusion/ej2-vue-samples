@@ -17,15 +17,15 @@
 <div id="description">
    <p>Users can create resizable Rich Text Editor by setting the enableResize property to true, which is used to change the size of the Rich Text Editor dynamically.</p>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, inject the specific module using <code>RichTextEditor.Inject (Toolbar, Link, Image, Resize, HtmlEditor)</code>.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, inject the specific module using <code>Toolbar, Link, Image, Resize, HtmlEditor, PasteCleanup</code>.</p>
 </div>
 </div>
 </template>
 <style scoped>
     #resize .e-richtexteditor {
         max-width: 880px;
-        min-width: 200px;
-        min-height: 170px;
+        min-width: 250px;
+        min-height: 250px;
         max-height: 400px;
     }
     .control-section #resize .e-popup.e-popup-open.e-dialog {
@@ -33,7 +33,7 @@
     }
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, Resize, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Resize, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
      components: {
@@ -45,7 +45,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, Resize, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, Resize, HtmlEditor, PasteCleanup, Table, Video, Audio]
     }
 }
 </script>

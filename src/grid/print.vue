@@ -15,12 +15,12 @@
             </e-items>
         </ejs-toolbar>
         <br/>
-        <ejs-grid ref='grid' :dataSource="parentData" :childGrid="childGrid" :toolbar="['Print']" hierarchyPrintMode="All">
+        <ejs-grid ref='grid' :dataSource="parentData" :toolbar="['Print']" :childGrid="childGrid" hierarchyPrintMode="All" :allowSorting='true'>
             <e-columns>
-                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right'></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' ></e-column>
                 <e-column field='FirstName' headerText='Name' width='140'></e-column>
                 <e-column field='Title' headerText='Title' width='170'></e-column>
-                <e-column field='HireDate' headerText='Hired Date' width='120' format='yMd' textAlign='Right'></e-column>
+                <e-column field='HireDate' headerText='Hired Date' width='120' format='yMd' textAlign='Right' ></e-column>
                 <e-column field='ReportsTo' headerText='Reports To' width='120' textAlign='Right'></e-column>
             </e-columns>
         </ejs-grid>
@@ -77,7 +77,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, Grid, HierarchyGridPrintMode, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, Grid, HierarchyGridPrintMode, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { employeeData, orderDatas, customerData, hierarchyOrderdata } from "./data-source";
 import { ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
 import { ClickEventArgs, ToolbarComponent, ItemsDirective, ItemDirective } from "@syncfusion/ej2-vue-navigations";
@@ -106,6 +106,7 @@ export default {
 
     return {
       parentData: employeeData,
+      toolbar: ['Print'],
       childGrid: {
             dataSource: hierarchyOrderdata,
             queryString: 'EmployeeID',
@@ -135,7 +136,7 @@ export default {
       }
   },
   provide: {
-    grid: [DetailRow, Toolbar]
+    grid: [DetailRow, Toolbar, Sort]
   }
 }
 </script>

@@ -9,6 +9,7 @@
           :gridSettings="gridSettings"
           :width="width"
           :height="height"
+          :enableValueSorting="enableValueSorting"
           :allowExcelExport="allowExcelExport"
           :allowConditionalFormatting="allowConditionalFormatting"
           :allowPdfExport="allowPdfExport"
@@ -199,6 +200,7 @@ export default {
       allowConditionalFormatting: true,
       enableFieldSearching: true,
       allowPdfExport: true,
+      enableValueSorting: true,
       displayOption: { view: "Both" },
       showToolbar: true,
       allowCalculatedField: true,

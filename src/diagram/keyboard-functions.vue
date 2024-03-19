@@ -138,8 +138,7 @@
     padding-right: 0px;
     padding-left: 0px;
   }
-
- /*To align the property panel */
+/*To align the property panel */
   .property-panel-header {
     padding-bottom: 0px;
   }

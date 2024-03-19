@@ -8,7 +8,7 @@
                         <p>Welcome to the mention integration with rich text editor demo. Type <code>@</code> character and tag user from the suggestion list. </p>
                     </ejs-richtexteditor>
                 </div>
-                <ejs-mention id="mentionEditor" target="#mention_integration_rte-edit-view" :suggestionCount="8" :showMentionChar="false" :allowSpaces="true" :dataSource="data" :fields="fieldsData" 
+                <ejs-mention ref="mentionObj" id="mentionEditor" target="#mention_integration_rte-edit-view" :suggestionCount="8" :showMentionChar="false" :allowSpaces="true" :dataSource="data" :fields="fieldsData" 
                 popupWidth='250px' popupHeight='200px' :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'">
                     <template v-slot:iTemplate="{data}">
                        <table><tr><td><div id="mention-TemplateList"><img class="mentionEmpImage" :src="data.Eimg" alt="employee" /><span :class="'e-badge e-badge-success e-badge-overlap e-badge-dot e-badge-bottom'+ data.Status"></span></div></td><td class="mentionNameList"><span class="person">{{data.Name}}</span><span class="email">{{data.EmailId}}</span></td></tr></table>
@@ -34,7 +34,7 @@
     </div>
 </template>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { MentionComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 
@@ -50,11 +50,11 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio]
     },
     methods: {
        onActionBegin: function(args) {
-            if (args.requestType === 'EnterAction') {
+            if (args.requestType === 'EnterAction' && this.$refs.mentionObj.ej2Instances.element.classList.contains('e-popup-open')) {
                 args.cancel = true;
             }
         }

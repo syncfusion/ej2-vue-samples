@@ -88,7 +88,7 @@
 /* Css for images in property panel  */
 .image-pattern-style {
   background-color: white;
-  background-size: contain;
+  background-size: 70%;
   background-repeat: no-repeat;
   height: 45px;
   width: calc((100% - 12px) / 3);
@@ -144,7 +144,6 @@ import {
   Snapping,
   PortConstraints,
   PortVisibility,
- 
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 

@@ -5,10 +5,10 @@
          To select/unselect particular row, click the desired row.</p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :enableHover="false" :allowSelection="true" :selectionSettings="selectOptions" :editSettings='editSettings' :toolbar='toolbar'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :enableHover="false" :allowSorting='true' :allowSelection="true" :selectionSettings="selectOptions" :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
                 <e-column type='checkbox' width='50'></e-column>
-                <e-column field='OrderID' isPrimaryKey='true' headerText='Order ID' width='120' textAlign='Right'></e-column>
+                <e-column field='OrderID' isPrimaryKey='true' headerText='Order ID' width='120' textAlign='Right' ></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
@@ -51,7 +51,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Page, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Edit, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -64,12 +64,12 @@ export default {
     return {
       data: orderDetails.slice(0),
       selectOptions: { persistSelection: true },
-      editSettings: { allowDeleting: true },
-      toolbar: ['Delete']
+      toolbar: ['Delete'],
+      editSettings: { allowDeleting: true},
     };
   },
   provide: {
-      grid: [Page, Edit, Toolbar]
+      grid: [Page, Edit, Toolbar, Sort]
   }
 }
 </script>

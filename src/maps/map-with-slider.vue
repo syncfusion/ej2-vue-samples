@@ -60,9 +60,11 @@
 </style>
 <script>
 import Vue from 'vue';
-import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, MapAjax, Annotations } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Legend, MapsTooltip, Annotations } from '@syncfusion/ej2-vue-maps';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
 import { SliderComponent, Slider } from "@syncfusion/ej2-vue-inputs";
+import { northAmerica } from '../maps/map-data/north-america';
+import { populationGrowth } from '../maps/map-data/population-growth';
 
 let colorCodes = ['#7E9CDC', '#DCD57E', '#7EDCA2', '#6EB5D0', '#A6DC7E', '#DCA87E', '#d075c6'];
 let sliderVal = [-2 , 4];
@@ -102,10 +104,10 @@ data:function(){
                 y: '93%'
             }
         ],
-        shapeData: new MapAjax('./src/maps/map-data/north-america.json'),
+        shapeData: northAmerica,
         shapePropertyPath: 'name',
         shapeDataPath: 'name',
-        dataSource: new MapAjax('./src/maps/map-data/population-growth.json'),
+        dataSource: populationGrowth,
         shapeSettings: {
                     colorValuePath: 'population',
                     colorMapping: [

@@ -3,7 +3,6 @@
     "directory": "tree-grid",
     "category": "Grids",
     "ftName": "treegrid",
-    "type": "update",
     "samples": [
       {  
         "url": "overview", "name": "OverView", "category": "Tree Grid","api":{"TreeGrid":["dataSource","childMapping","treeColumnIndex","height","columns"] },
@@ -184,7 +183,7 @@
          "description": "This demo for Essential JS 2 Tree Grid control demonstrates the Tree Grid component with the infinite scrolling feature."
       },
       {
-         "url":"aggregate", "name": "Default Aggregate", "type": "update", "category": "Aggregates","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","columns","aggregates"] },
+         "url":"aggregate", "name": "Default Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","columns","aggregates"] },
          "description": "This demo explains how to display the summary values such as average, minimum, etc., for the columns in Syncfusion Essential JS2 Tree Grid control."
       },
       {

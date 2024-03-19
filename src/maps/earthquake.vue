@@ -91,7 +91,8 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Zoom, Marker, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Zoom, Marker, DataLabel } from '@syncfusion/ej2-vue-maps';
+import { asia } from '../maps/map-data/asia';
 
 export default {
   components: {
@@ -126,7 +127,7 @@ export default {
         animationDuration: 1000,
         shapeDataPath: 'name',
         shapePropertyPath: 'name',
-        shapeData: new MapAjax('./src/maps/map-data/asia.json'),
+        shapeData: asia,
         markerDataSource: [{ latitude: 1.625758360412755, longitude: 98.5693359375 }],
         shapeSettings: {
                     fill: '#FFFDCF',
@@ -143,7 +144,7 @@ export default {
       }
   },
 provide: {
-    maps: [Zoom, Marker]
+    maps: [Zoom, Marker, DataLabel]
 },
 /* custom code start */
 methods:{

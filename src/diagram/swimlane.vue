@@ -25,11 +25,11 @@
   </div>
 </template>
     <style scoped>
-    
         .e-toggle-palette::before {
             content: "\e700"
         }
-/* These styles are used for aligning palette and diagram */
+
+    /* These styles are used for aligning palette and diagram */
         .sb-mobile-palette {
             width: 195px;
             height: 559px;
@@ -75,13 +75,6 @@
                 font-size: 20px;
             }
         }
-
-        .sb-mobile-palette-open {
-            position: absolute;
-            display: block;
-            right: 15px;
-        }
-
     </style>
 <script>
 import { Browser } from "@syncfusion/ej2-base";

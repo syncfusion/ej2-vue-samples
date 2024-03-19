@@ -212,7 +212,7 @@ export default {
     methods:{
       contextMenuOpen:function (args) {
         let record = args.rowData;
-      if (args.type !== 'Header') {
+      if (args.type !== 'Header' && record) {
         if (!record.hasChildRecords) {
           args.hideItems.push('Collapse the Row');
           args.hideItems.push('Expand the Row');
@@ -227,10 +227,10 @@ export default {
   },
       contextMenuClick:function (args) {
         let record = args.rowData;
-        if (args.item.id === 'collapserow') {
+        if (args.item.id === 'collapserow' && record) {
            this.$refs.gantt.ej2Instances.collapseByID(Number(record.ganttProperties.taskId));
           }
-        if (args.item.id === 'expandrow') {
+        if (args.item.id === 'expandrow' && record) {
             this.$refs.gantt.ej2Instances.expandByID(Number(record.ganttProperties.taskId));
         }  
     }

@@ -496,7 +496,7 @@ export default {
       display: block;
   }
 
-  #ribbonContainer {
+  .default-ribbon-section #ribbonContainer {
       padding: 20px;
       background-color: #dbdadacc;
       display: flex;

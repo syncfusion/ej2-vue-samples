@@ -37,8 +37,7 @@
 #addbtn{
     margin-right: 20px;
 }
-/*To align palette and diagram */
-
+/**To align palette and diagram */
 #palette-space {
     border-style: solid;
     border-color: #f2f2f2;
@@ -55,10 +54,14 @@ import {
   OverviewPlugin,
   Diagram,
   DiagramComponent,
+  ConnectorModel,
+  Node,
   SnapConstraints,
   DataBinding,
   NodeConstraints,
   HierarchicalTree,
+  TreeInfo,
+  DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import { TreeViewComponent } from "@syncfusion/ej2-vue-navigations";
 import { DataManager } from "@syncfusion/ej2-data";

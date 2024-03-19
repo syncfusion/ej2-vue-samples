@@ -131,13 +131,13 @@
   border-width: 2px;
 }
 
-
 </style>
 <script>
 import {
   DiagramComponent,
   Diagram,
   LayoutAnimation,
+ 
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";

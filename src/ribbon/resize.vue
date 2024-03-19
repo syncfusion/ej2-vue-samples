@@ -518,7 +518,7 @@ export default {
       display: block;
   }
 
-  #ribbonContainer {
+  .resize-ribbon-container #ribbonContainer {
       padding: 20px;
       background-color: #dbdada;
       display: flex;

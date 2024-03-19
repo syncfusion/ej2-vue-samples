@@ -110,7 +110,7 @@
 </style>
 
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, PdfExport, ExcelExport, Toolbar, ExportDetailTemplateEventArgs } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, PdfExport, Sort, ExcelExport, Toolbar, ExportDetailTemplateEventArgs } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { employeeData } from "./data-source";
 import detailTemplate from "./detail-temp.vue";
@@ -183,7 +183,7 @@ export default {
     }
   },
   provide: {
-      grid: [DetailRow, Toolbar, PdfExport, ExcelExport]
+      grid: [DetailRow, Toolbar, PdfExport, ExcelExport, Sort]
   }
 }
 </script>

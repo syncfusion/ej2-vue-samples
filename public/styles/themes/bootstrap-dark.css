@@ -234,13 +234,6 @@ body.bootstrap-dark,
     color: rgb(27, 27, 27);
 }
 
-.bootstrap-dark .e-samplestatus.new,
-.bootstrap-dark .e-samplestatus.update,
-.bootstrap-dark .e-samplestatus.preview {
-    margin: 2px 0;
-    height: 22px;
-}
-
 .bootstrap-dark .e-samplestatus.new.tree,
 .bootstrap-dark .e-samplestatus.update.tree,
 .bootstrap-dark .e-samplestatus.preview.tree {

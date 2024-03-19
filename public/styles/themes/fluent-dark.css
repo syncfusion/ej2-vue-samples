@@ -123,6 +123,12 @@ body.fluent-dark,
     color: #717171;
 }
 
+.fluent-dark .e-samplestatus.new, 
+.fluent-dark .e-samplestatus.update, 
+.fluent-dark .e-samplestatus.preview {
+    margin: auto 0px;
+}
+
 .fluent-dark .e-samplestatus.update {
     background-color: #C28D42;
     border: 1px solid #C28D42 !important;

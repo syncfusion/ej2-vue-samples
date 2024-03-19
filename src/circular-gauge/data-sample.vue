@@ -112,18 +112,6 @@ import { GridComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej
 import { Query, DataManager } from '@syncfusion/ej2-data';
 
 export default {
-    components: {
-    'ejs-circulargauge': CircularGaugeComponent,
-    'e-axes': AxesDirective,
-    'e-axis': AxisDirective,
-    'e-pointers': PointersDirective,
-    'e-pointer': PointerDirective,
-    'e-annotations': AnnotationsDirective,
-    'e-annotation': AnnotationDirective,
-    'ejs-grid': GridComponent,
-    'e-columns': ColumnsDirective,
-    'e-column': ColumnDirective
-   },
    data: () => {
         let value1 = Math.round(Math.random() * (90 - 55) + 55);
         let value2 = Math.round(Math.random() * (75 - 60) + 60);
@@ -287,6 +275,18 @@ export default {
     provide: {
         circulargauge: [Annotations]
     },
+    components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-grid': GridComponent,
+    'e-columns': ColumnsDirective,
+    'e-column': ColumnDirective
+   },
     methods: {
         load: function (args) {
             /* custom code start */

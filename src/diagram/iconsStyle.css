@@ -106,6 +106,6 @@
                 content: "\e724";
             }
         
-            .e-connector::before {
+            .e-diagram-connector::before {
                 content: "\e725";
             }

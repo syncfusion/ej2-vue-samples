@@ -34,6 +34,17 @@
             ]
         },
         {
+            "url": "object-value-binding",
+            "name": "Object Value Binding",
+            "category": "AutoComplete",
+            "type": "new",
+            "description": "This example demonstrates how to bind with data source in the Vue autocomplete component.",
+            "sourceFiles":[
+                { "displayName": "object-value-binding.vue", "path":"src/auto-complete/object-value-binding.vue" },
+                { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
+            ]
+        },
+        {
             "url": "template",
             "name": "Template",
             "category": "AutoComplete",
@@ -46,7 +57,6 @@
         {
             "url": "virtual-scroll",
             "name": "Virtualization",
-            "type": "update",
             "category": "AutoComplete",
             "description": "This example demonstrates how to utilize the virtual scrolling support of Vue autocomplete component.",
             "sourceFiles":[

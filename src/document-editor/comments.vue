@@ -10,7 +10,7 @@
                 <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl"  :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34'
+            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :documentEditorSettings="settings"  :enableToolbar='true' height='600px' currentUser = 'Nancy Davolio' userColor='#b70f34' 
             :commentDelete="commentDelete"></ejs-documenteditorcontainer>
         </div>
     </div>
@@ -92,7 +92,31 @@ import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { comments } from "./data";
 import { DialogUtility } from '@syncfusion/ej2-popups';
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
-
+let mentionData =  [
+                { "Name": "Selma Rose", "Eimg": "3", "EmailId": "selma@mycompany.com" },
+                { "Name": "Russo Kay", "Eimg": "8", "EmailId": "russo@mycompany.com" },
+                { "Name": "Camden Kate", "Eimg": "9", "EmailId": "camden@mycompany.com" },
+                { "Name": "Mary Kate", "Eimg": "4", "EmailId": "marry@mycompany.com" },
+                { "Name": "Ursula Ann", "Eimg": "2", "EmailId": "ursula@mycompany.com" },
+                { "Name": "Margaret", "Eimg": "5", "EmailId": "margaret@mycompany.com" },
+                { "Name": "Laura Grace", "Eimg": "6", "EmailId": "laura@mycompany.com" },
+                { "Name": "Robert", "Eimg": "8", "EmailId": "robert@mycompany.com" },
+                { "Name": "Albert", "Eimg": "9", "EmailId": "albert@mycompany.com" },
+                { "Name": "Michale", "Eimg": "10", "EmailId": "michale@mycompany.com" },
+                { "Name": "Andrew James", "Eimg": "7", "EmailId": "james@mycompany.com" },
+                { "Name": "Rosalie", "Eimg": "4", "EmailId": "rosalie@mycompany.com" },
+                { "Name": "Stella Ruth", "Eimg": "2", "EmailId": "stella@mycompany.com" },
+                { "Name": "Richard Rose", "Eimg": "10", "EmailId": "richard@mycompany.com" },
+                { "Name": "Gabrielle", "Eimg": "3", "EmailId": "gabrielle@mycompany.com" },
+                { "Name": "Thomas", "Eimg": "7", "EmailId": "thomas@mycompany.com" },
+                { "Name": "Charles Danny", "Eimg": "8", "EmailId": "charles@mycompany.com" },
+                { "Name": "Daniel", "Eimg": "10", "EmailId": "daniel@mycompany.com" },
+                { "Name": "Matthew", "Eimg": "7", "EmailId": "matthew@mycompany.com" },
+                { "Name": "Donald Krish", "Eimg": "9", "EmailId": "donald@mycompany.com" },
+                { "Name": "Yohana", "Eimg": "1", "EmailId": "yohana@mycompany.com" },
+                { "Name": "Kevin Paul", "Eimg": "10", "EmailId": "kevin@mycompany.com" },
+                { "Name": "Andrew Fuller", "Eimg": "3", "EmailId": "andrew@mycompany.com"}
+            ];
 export default {
     components: {
         'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
@@ -102,6 +126,7 @@ export default {
     data: function() {
         return {           
           hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
+          settings: {showRuler: true, mentionSettings: { dataSource: mentionData, fields: { text: 'Name' }}},
           documentName : 'Comments',
           documentTitle: 'Untitled Document',
           iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
@@ -110,8 +135,10 @@ export default {
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Microsoft Word (.docx)', id: 'word' },
-                { text: 'Syncfusion Document Text (.sfdt)', id: 'sfdt' }
+                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Word Document (*.docx)', id: 'word' },
+                { text: 'Word Template (*.dotx)', id: 'dotx' },
+                { text: 'Plain Text (*.txt)', id: 'txt' },
             ]
         };
     },  
@@ -127,6 +154,12 @@ export default {
                 case 'sfdt':
                     this.save('Sfdt');
                     break;
+                case 'txt':
+                    this.save('Txt');
+                    break;
+                case 'dotx':
+                    this.save('Dotx');
+                    break;
             }
         },
         openExportDropDown: function () {
@@ -134,6 +167,10 @@ export default {
             document.getElementById('word').setAttribute('title', 'Download a copy of this document to your computer as a DOCX file.');
             // tslint:disable-next-line:max-line-length
             document.getElementById('sfdt').setAttribute('title', 'Download a copy of this document to your computer as an SFDT file.');
+            // tslint:disable-next-line:max-line-length
+            document.getElementById('txt').setAttribute('title', 'Download a copy of this document to your computer as a TXT file.');
+            // tslint:disable-next-line:max-line-length
+            document.getElementById('dotx').setAttribute('title', 'Download a copy of this document to your computer as a DOTX file.');
         },
         save: function (format) {
             // tslint:disable-next-line:max-line-length

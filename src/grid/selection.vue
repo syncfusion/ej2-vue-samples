@@ -4,10 +4,10 @@
         <p>This sample demonstrates the default functionality of the Selection in Grid, which allows you to select row or cell or column through simple mouse down or keyboard interaction.</p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :allowSelection='true' :selectionSettings='selectOptions' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :allowSelection='true' :selectionSettings='selectOptions' :allowSorting='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' ></e-column>
                 <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
                 <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
@@ -64,7 +64,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnsDirective, ColumnDirective, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Page, Sort } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
 
 export default {
@@ -77,11 +77,11 @@ export default {
     return {
       data: data,
       selectOptions: { type: 'Multiple' },
-      pageSettings: { pageCount: 5 }
+      pageSettings: { pageCount: 5 },
     };
   },
   provide: {
-      grid: [Page]
+      grid: [Page, Sort]
   }
 }
 </script>

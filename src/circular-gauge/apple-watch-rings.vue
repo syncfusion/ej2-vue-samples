@@ -279,16 +279,6 @@ let annotationTemplate_8 = '<div class="annotation5"><img style="width:15px;heig
 let annotationTemplate_9 = '<div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image6.svg" /></div>';
 
 export default {
-   components: {
-    'ejs-circulargauge': CircularGaugeComponent,
-    'e-axes': AxesDirective,
-    'e-axis': AxisDirective,
-    'e-pointers': PointersDirective,
-    'e-pointer': PointerDirective,
-    'e-annotations': AnnotationsDirective,
-    'e-annotation': AnnotationDirective,
-    'ejs-slider': SliderComponent
-   },
    data:function(){
     return{
             startAngle: 0,
@@ -354,6 +344,16 @@ export default {
    provide:{
     circulargauge: [Annotations]
 },
+    components: {
+    'ejs-circulargauge': CircularGaugeComponent,
+    'e-axes': AxesDirective,
+    'e-axis': AxisDirective,
+    'e-pointers': PointersDirective,
+    'e-pointer': PointerDirective,
+    'e-annotations': AnnotationsDirective,
+    'e-annotation': AnnotationDirective,
+    'ejs-slider': SliderComponent
+   },
 methods: {
     load: function(args) {
       /* custom code start */

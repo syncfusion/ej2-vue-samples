@@ -1,0 +1,70 @@
+{
+    "name": "Circular 3D",
+    "label": "3D Circular Chart",
+    "directory": "circular-3d-chart",
+    "type": "preview",
+    "category": "Data Visualization",
+    "ftName": "circular3d",
+    "samples": [
+        {
+            "url": "pie",
+            "name": "Pie",
+            "description": "This demo for Essential JS2 Chart control shows how to render and configure the circular 3D pie chart",
+            "category": "3D Circular Chart",
+            "sourceFiles": [
+                {
+                    "displayName": "pie.vue",
+                    "path": "./src/circular-3d-chart/pie.vue"
+                }
+            ]
+        },
+        {
+            "url": "donut",
+            "name": "Donut",
+            "description": "This demo for Essential JS2 Chart control shows how to render and configure the circular 3D doughnut charts.",
+            "category": "3D Circular Chart",
+            "sourceFiles": [
+                {
+                    "displayName": "donut.vue",
+                    "path": "./src/circular-3d-chart/donut.vue"
+                }
+            ]
+        },
+        {
+            "url": "pie-legend",
+            "name": "Pie with Legend",
+            "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in circular 3D pie charts.",
+            "category": "3D Circular Chart",
+            "sourceFiles": [
+                {
+                    "displayName": "pie-legend.vue",
+                    "path": "./src/circular-3d-chart/pie-legend.vue"
+                }
+            ]
+        },
+        {
+            "url": "pie-radius",
+            "name": "Pie with Various Radius",
+            "description": "This demo sample for Essential JavaScript2 Circular 3D Chart control demonstrates how to render and configure the various radius pie chart.",
+            "category": "3D Circular Chart",
+            "sourceFiles": [
+                {
+                    "displayName": "pie-radius.vue",
+                    "path": "./src/circular-3d-chart/pie-radius.vue"
+                }
+            ]
+        },
+        {
+            "url": "selection",
+            "name": "Selection",
+            "description": "This demo for Essential JS2 Chart control demonstrates the selection behavior in circular 3D chart.",
+            "category": "3D Circular Chart",
+            "sourceFiles": [
+                {
+                    "displayName": "selection.vue",
+                    "path": "./src/circular-3d-chart/selection.vue"
+                }
+            ]
+        }
+    ]
+}

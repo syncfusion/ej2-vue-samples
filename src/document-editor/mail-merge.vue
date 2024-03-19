@@ -13,7 +13,7 @@
 </div>
 <div class="col-lg-2 control-section" style="padding-right: inherit;padding-top:5px;padding-left: 5px;height: 600px;border-left: 1px solid rgb(238, 238, 238);border-bottom:  1px solid rgb(238, 238, 238);" >
                     <b><label style="display:block;margin:1px;padding-top: 18px;font-size: 14px;padding-top: 5px">Select Field to Insert</label></b>
-                    <ejs-listview id='flat-list' :dataSource='listData' :fields='fields' :select="onselect"></ejs-listview>
+                    <ejs-listview id='de-flat-list' :dataSource='listData' :fields='fields' :select="onselect"></ejs-listview>
                 </div>
                 <div class="col-lg-10 control-section" style='padding-left: 0px;padding-right: 0px;padding-top: 0px;' >
 
@@ -225,8 +225,10 @@ export default {
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Microsoft Word (.docx)', id: 'word' },
-                { text: 'Syncfusion Document Text (.sfdt)', id: 'sfdt' }
+                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Word Document (*.docx)', id: 'word' },
+                { text: 'Word Template (*.dotx)', id: 'dotx' },
+                { text: 'Plain Text (*.txt)', id: 'txt' },
             ],
         listData: [
         {
@@ -370,6 +372,12 @@ export default {
                 case 'sfdt':
                     this.save('Sfdt');
                     break;
+                case 'txt':
+                    this.save('Txt');
+                    break;
+                case 'dotx':
+                    this.save('Dotx');
+                    break;
             }
         },
         openExportDropDown: function () {
@@ -377,6 +385,10 @@ export default {
             document.getElementById('word').setAttribute('title', 'Download a copy of this document to your computer as a DOCX file.');
             // tslint:disable-next-line:max-line-length
             document.getElementById('sfdt').setAttribute('title', 'Download a copy of this document to your computer as an SFDT file.');
+            // tslint:disable-next-line:max-line-length
+            document.getElementById('txt').setAttribute('title', 'Download a copy of this document to your computer as a TXT file.');
+            // tslint:disable-next-line:max-line-length
+            document.getElementById('dotx').setAttribute('title', 'Download a copy of this document to your computer as a DOTX file.');
         },
         save: function (format) {
             // tslint:disable-next-line:max-line-length
@@ -536,6 +548,7 @@ export default {
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
           obj.open(JSON.stringify(mailmerge));
           obj.documentName='Mail Merge';
+          this.$refs.doceditcontainer.ej2Instances.documentEditorSettings.showRuler = true;
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                this.$refs.accessDialog.hide();
             };
@@ -547,7 +560,7 @@ export default {
        
         var items = this.toolbarItems;
           this.$refs.doceditcontainer.ej2Instances.toolbarItems = items;
-        document.getElementById('flat-list').addEventListener('dragstart', (event) => {
+        document.getElementById('de-flat-list').addEventListener('dragstart', (event) => {
             event.dataTransfer.setData('Text', event.target.innerText);
             event.target.classList.add('de-drag-target');
         });

@@ -70,7 +70,9 @@
     }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective,Legend, Marker, MapsTooltip, MapAjax } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective,Legend, Marker, MapsTooltip } from '@syncfusion/ej2-vue-maps';
+import { worldMap } from '../maps/map-data/world-map';
+import { defaultData } from '../maps/map-data/default-datasource';
 
 export default {
 components: {
@@ -98,10 +100,10 @@ data:function(){
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData:new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
-        dataSource:new MapAjax('./src/maps/map-data/default-datasource.json'),
+        dataSource: defaultData,
         shapeSettings: {
                     colorValuePath: 'color',
         },

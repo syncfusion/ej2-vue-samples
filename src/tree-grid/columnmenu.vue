@@ -33,7 +33,7 @@
 </div>
     <div>
         <ejs-treegrid :dataSource="data" :treeColumnIndex='1' :allowPaging='true' :height='350' :showColumnMenu='true' childMapping='subtasks'
-         :allowFiltering='true' :filterSettings='filterSettings' :pageSettings='pageSettings'>
+         :allowFiltering='true' :filterSettings='filterSettings' :pageSettings='pageSettings' :allowResizing='true'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='120'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>

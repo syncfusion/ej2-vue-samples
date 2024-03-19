@@ -7,6 +7,7 @@
             :taskFields= "taskFields"
             :allowSelection= "true"
             :resourceFields= "resourceFields"
+	    :taskType= "taskType"
             :editSettings= "editSettings"
             :toolbar= "toolbar"
             :height= "height"
@@ -75,6 +76,7 @@ export default {
                 resourceInfo: 'resources',
                 type: 'taskType'
             },
+	    taskType: "FixedWork",
             resourceFields: {
                 id: 'resourceId',
                 name: 'resourceName',

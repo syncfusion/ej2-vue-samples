@@ -2,14 +2,12 @@
     "name": "Circular Gauge",
     "directory": "circular-gauge",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default-functionalities",
             "name": "Default Functionalities",
             "category": "Circular Gauge",
-            "api":{"CircularGauge": [ "axes"]},
-            "type": "update"
+            "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "ticks-and-labels",
@@ -27,15 +25,13 @@
             "url": "custom-labels",
             "name": "Custom Labels",
             "category": "Axis",
-            "api":{"CircularGauge": ["axes"]},
-            "type": "update"
+            "api":{"CircularGauge": ["axes"]}
         },
         {
             "url": "range-color-for-axis",
             "name": "Range Color for Axis",
             "category": "Axis",
-            "api":{"CircularGauge": ["axes"]},
-            "type": "update"
+            "api":{"CircularGauge": ["axes"]}
         },
         {
             "url": "axis-background",
@@ -71,8 +67,7 @@
             "url": "multiple-ranges",
             "name": "Multiple Ranges",
             "category": "Range",
-            "api":{"CircularGauge": [ "axes"]},
-            "type": "update"
+            "api":{"CircularGauge": [ "axes"]}
         },
         {
             "url": "legend",
@@ -100,8 +95,7 @@
             "url": "tooltip",
             "name": "Tooltip",
             "category": "User Interaction",
-            "api":{"CircularGauge": ["axes", "tooltip", "tooltipRender"]},
-            "type": "update"
+            "api":{"CircularGauge": ["axes", "tooltip", "tooltipRender"]}
         },
         {
             "url": "print-export",

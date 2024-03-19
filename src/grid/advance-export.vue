@@ -7,7 +7,7 @@
     </div>
     <div>
         <ejs-grid id='AdvancedExport' ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' 
-        :allowExcelExport='true' :pageSettings='pageSettings' :allowPaging='true' :allowPdfExport='true'>
+        :allowExcelExport='true' :pageSettings='pageSettings' :allowPaging='true' :allowSorting='true' :allowPdfExport='true'>
             <e-columns>
                 <e-column field='ProductID' headerText='Product ID' width='170' textAlign='Right'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='150'></e-column>
@@ -34,7 +34,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Page, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Page, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { categoryData } from "./data-source";
 
@@ -48,7 +48,7 @@ export default {
     return {
       data: categoryData,
       toolbar: ['ExcelExport', 'PdfExport'],
-      pageSettings: { pageSize: 10 }
+      pageSettings: { pageSize: 10 },
     };
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
         switch (args.item.id) {
             /* tslint:disable */
             case 'AdvancedExport_excelexport':
-                ((this as any).$refs.grid as GridComponent).excelExport(this.getExcelExportProperties());
+                ((this as any).$refs.grid as any).excelExport(this.getExcelExportProperties());
                 break;
             /* tslint:enable */
             case 'AdvancedExport_pdfexport':
@@ -230,7 +230,7 @@ export default {
     }
   },
   provide: {
-      grid: [PdfExport, ExcelExport, Page, Toolbar]
+      grid: [PdfExport, ExcelExport, Page, Toolbar, Sort]
   }
 }
 </script>

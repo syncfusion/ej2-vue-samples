@@ -28,7 +28,6 @@
 <script>
 import {
     DiagramComponent,
-    NodeModel,
     UndoRedo,
     DataBinding,
     DiagramTools,

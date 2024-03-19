@@ -78,9 +78,10 @@
    }
 </style>
 <script>
-import { MapsComponent, LayersDirective, LayerDirective, Marker, MapsTooltip, MapAjax, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Marker, MapsTooltip, ILoadEventArgs, MapsTheme, Zoom } from '@syncfusion/ej2-vue-maps';
 import { topPopulation } from '../maps/map-data/marker-location';
 import { cluster } from '../maps/map-data/marker-cluster';
+import { worldMap } from '../maps/map-data/world-map';
 
 export default {
 components: {
@@ -101,7 +102,7 @@ data:function(){
                 fontFamily: 'Segoe UI'
             }
         },
-        shapeData: new MapAjax('./src/maps/map-data/world-map.json'),
+        shapeData: worldMap,
         shapeSettings: {
                     fill: '#C1DFF5'
         },

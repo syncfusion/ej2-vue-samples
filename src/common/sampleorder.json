@@ -8,6 +8,7 @@
   "Data Visualization": [
     "Chart",
     "Chart 3D",
+    "Circular 3D",
     "Stock Chart",
     "Arc Gauge",
     "Circular Gauge",
@@ -80,6 +81,7 @@
   ],
   "Inputs": [
     "TextBox",
+    "TextArea",
     "Input Mask",
     "Numeric Textbox",
     "Color Picker",
@@ -97,6 +99,7 @@
     "ListView",
     "Tooltip",
     "Splitter",
-    "Dashboard Layout"
+    "Dashboard Layout",
+    "Timeline"
   ]
 }

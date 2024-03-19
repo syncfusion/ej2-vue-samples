@@ -5,7 +5,7 @@
     changed as <b>20px</b>, <b>40px</b> and <b>60px</b> on ToolBar button click.</p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :rowHeight='rowHeight' height='400' :toolbar='toolbar' :toolbarClick='clickHandler'>
+        <ejs-grid :dataSource="data" :rowHeight='rowHeight' :toolbar='toolbar' height='400' :allowSorting='true' :toolbarClick='clickHandler'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
@@ -31,7 +31,7 @@
 </style>
 
 <script lang="ts">
-import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { orderDetails } from "./data-source";
 
@@ -66,7 +66,7 @@ export default {
       }
   },
   provide: {
-      grid: [Toolbar]
+      grid: [Toolbar, Sort]
   }
 }
 </script>
