@@ -1718,7 +1718,6 @@ const updatesourceTab = (): void => {
                 data: '',
                 content: sourceFiles[i].displayName
             });
-            updateStackBlitz();
         }
     }
     Promise.all(sourcePromise).then((results: Object[]): void => {
